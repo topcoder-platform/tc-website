@@ -90,21 +90,21 @@ abstract class BaseRenderer implements ElementRenderer {
     static String removeHtmlTags(String text) {
 
         StringBuffer buf = new StringBuffer(text);
-        for (int i=0; i<HTML_ONLY_TAGS.length; i++) {
+        for (int i = 0; i < HTML_ONLY_TAGS.length; i++) {
             boolean clear = false;
-            for( ; !clear; ) {
-                int beginIndex = buf.toString().indexOf("<"+HTML_ONLY_TAGS[i]+">");
-                int endIndex1 = buf.toString().indexOf("</"+HTML_ONLY_TAGS[i]+">");
-                int endIndex2 = buf.toString().indexOf("<"+HTML_ONLY_TAGS[i]+"/>");
+            for (; !clear;) {
+                int beginIndex = buf.toString().indexOf("<" + HTML_ONLY_TAGS[i] + ">");
+                int endIndex1 = buf.toString().indexOf("</" + HTML_ONLY_TAGS[i] + ">");
+                int endIndex2 = buf.toString().indexOf("<" + HTML_ONLY_TAGS[i] + "/>");
                 clear = beginIndex < 0 && endIndex1 < 0 && endIndex2 < 0;
-                if (beginIndex >- 1) {
-                    buf.delete(beginIndex, beginIndex+HTML_ONLY_TAGS[i].length()+2);
+                if (beginIndex > -1) {
+                    buf.delete(beginIndex, beginIndex + HTML_ONLY_TAGS[i].length() + 2);
                 }
-                if (endIndex1 >- 1) {
-                    buf.delete(endIndex1, endIndex1+HTML_ONLY_TAGS[i].length()+3);
+                if (endIndex1 > -1) {
+                    buf.delete(endIndex1, endIndex1 + HTML_ONLY_TAGS[i].length() + 3);
                 }
-                if (endIndex2 >- 1) {
-                    buf.delete(endIndex2, endIndex2+HTML_ONLY_TAGS[i].length()+3);
+                if (endIndex2 > -1) {
+                    buf.delete(endIndex2, endIndex2 + HTML_ONLY_TAGS[i].length() + 3);
                 }
 
             }

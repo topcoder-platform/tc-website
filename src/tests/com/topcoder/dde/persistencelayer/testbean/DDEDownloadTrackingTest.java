@@ -21,21 +21,21 @@ public final class DDEDownloadTrackingTest extends DDEServerTestCase {
     }
 
     protected void setUp() throws NamingException {
-        downloadTrackingHome=(LocalDDEDownloadTrackingHome) lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME);
+        downloadTrackingHome = (LocalDDEDownloadTrackingHome) lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME);
     }
-    
+
     public void test() throws Exception {
-        LocalDDECompCatalog catalog=DDECompCatalogTest.create();
-        LocalDDECompVersions versions=DDECompVersionsTest.create(catalog);
-        LocalDDEUserMaster userMaster=DDEUserMasterTest.create();
-        Timestamp createTime=currentTimestamp();
-        double price=1.0;
-        LocalDDELicenseLevel licenseLevel=DDELicenseLevelTest.create();
-        LocalDDECompDownload compDownload=DDECompDownloadTest.create(versions);
-        long unitCost=3;
-        LocalDDEDownloadTracking downloadTracking=downloadTrackingHome.create(price, createTime, versions, userMaster,
+        LocalDDECompCatalog catalog = DDECompCatalogTest.create();
+        LocalDDECompVersions versions = DDECompVersionsTest.create(catalog);
+        LocalDDEUserMaster userMaster = DDEUserMasterTest.create();
+        Timestamp createTime = currentTimestamp();
+        double price = 1.0;
+        LocalDDELicenseLevel licenseLevel = DDELicenseLevelTest.create();
+        LocalDDECompDownload compDownload = DDECompDownloadTest.create(versions);
+        long unitCost = 3;
+        LocalDDEDownloadTracking downloadTracking = downloadTrackingHome.create(price, createTime, versions, userMaster,
                 licenseLevel, compDownload, unitCost);
-        Long primaryKey=testGetPrimaryKey(downloadTracking);
+        Long primaryKey = testGetPrimaryKey(downloadTracking);
         testGetCompVersions(downloadTracking, versions);
         testGetUserMaster(downloadTracking, userMaster);
         testGetCreateTime(downloadTracking, createTime);
@@ -45,7 +45,7 @@ public final class DDEDownloadTrackingTest extends DDEServerTestCase {
     }
 
     private void testGetUnitCost(LocalDDEDownloadTracking downloadTracking, long unitCost) {
-        long unitCost2=downloadTracking.getUnitCost();
+        long unitCost2 = downloadTracking.getUnitCost();
         assertEquals(unitCost, unitCost2);
     }
 
@@ -63,28 +63,28 @@ public final class DDEDownloadTrackingTest extends DDEServerTestCase {
     }
 
     private void testGetPrice(LocalDDEDownloadTracking downloadTracking, double price) {
-        double price2=downloadTracking.getPrice();
+        double price2 = downloadTracking.getPrice();
         assertEquals(price, price2, 0);
     }
 
     private void testGetCreateTime(LocalDDEDownloadTracking downloadTracking, Timestamp createTime) {
-        Timestamp createTime2=downloadTracking.getCreateTime();
+        Timestamp createTime2 = downloadTracking.getCreateTime();
         assertEquals(createTime, createTime2);
     }
 
     private void testGetUserMaster(LocalDDEDownloadTracking downloadTracking, LocalDDEUserMaster userMaster) {
-        LocalDDEUserMaster userMaster2=downloadTracking.getUserMaster();
+        LocalDDEUserMaster userMaster2 = downloadTracking.getUserMaster();
         assertTrue(userMaster.isIdentical(userMaster2));
     }
 
     private void testGetCompVersions(LocalDDEDownloadTracking downloadTracking, LocalDDECompVersions versions) {
-        LocalDDECompVersions versions2=downloadTracking.getCompVersions();
+        LocalDDECompVersions versions2 = downloadTracking.getCompVersions();
         assertTrue(versions.isIdentical(versions2));
     }
 
     private Long testGetPrimaryKey(LocalDDEDownloadTracking downloadTracking) throws FinderException {
-        Long primaryKey=(Long) downloadTracking.getPrimaryKey();
-        LocalDDEDownloadTracking downloadTracking2=downloadTrackingHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) downloadTracking.getPrimaryKey();
+        LocalDDEDownloadTracking downloadTracking2 = downloadTrackingHome.findByPrimaryKey(primaryKey);
         assertTrue(downloadTracking.isIdentical(downloadTracking2));
         return primaryKey;
     }

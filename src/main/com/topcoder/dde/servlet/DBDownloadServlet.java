@@ -6,8 +6,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Hashtable;
 import java.io.InputStream;
+import java.util.Hashtable;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,7 +18,7 @@ import java.io.InputStream;
  */
 abstract class DBDownloadServlet extends HttpServlet {
 
-    private static final int BLOCK_SIZE=65536;
+    private static final int BLOCK_SIZE = 65536;
 
     private static Hashtable htMimeTypes = new Hashtable();
 
@@ -27,7 +27,7 @@ abstract class DBDownloadServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
-        htMimeTypes.put(".jar",  "application/x-java-archive");
+        htMimeTypes.put(".jar", "application/x-java-archive");
     }
 
     /** Destroys the servlet.
@@ -37,7 +37,9 @@ abstract class DBDownloadServlet extends HttpServlet {
     }
 
     abstract protected boolean isAuthorized(HttpServletRequest request);
+
     abstract protected InputStream getDownloadFile(HttpServletRequest request);
+
     abstract protected String getFileName(HttpServletRequest request);
 
     /** Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -45,7 +47,7 @@ abstract class DBDownloadServlet extends HttpServlet {
      * @param response servlet response
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, java.io.IOException {
+            throws ServletException, java.io.IOException {
         // Check permissions
         if (!isAuthorized(request)) {
             // redirect to unauthorized page
@@ -72,7 +74,7 @@ abstract class DBDownloadServlet extends HttpServlet {
         ServletOutputStream out = response.getOutputStream();
 
         // set headers
-        response.setHeader("Content-Disposition","inline;filename=\"" + filename + "\"");
+        response.setHeader("Content-Disposition", "inline;filename=\"" + filename + "\"");
         response.setContentType(mimeType);
         response.setContentLength(is.available());
 
@@ -93,7 +95,7 @@ abstract class DBDownloadServlet extends HttpServlet {
      * @param response servlet response
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, java.io.IOException {
+            throws ServletException, java.io.IOException {
         processRequest(request, response);
     }
 
@@ -102,7 +104,7 @@ abstract class DBDownloadServlet extends HttpServlet {
      * @param response servlet response
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, java.io.IOException {
+            throws ServletException, java.io.IOException {
         processRequest(request, response);
     }
 }

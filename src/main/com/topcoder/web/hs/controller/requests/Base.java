@@ -1,12 +1,18 @@
 package com.topcoder.web.hs.controller.requests;
 
-import java.util.*;
-
-import com.topcoder.shared.security.*;
-import com.topcoder.web.common.security.*;
-import com.topcoder.web.common.*;
-import com.topcoder.web.hs.model.*;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.security.HSAuthorization;
+import com.topcoder.web.hs.model.NavZoneBean;
+import com.topcoder.web.hs.model.SessionInfoBean;
+
+import java.util.Set;
 
 /**
  * Contains some of the basic methods and data for request processors.

@@ -97,11 +97,11 @@ public class ScreenProject implements Model {
                     }
                 }
                 documentManager.saveScreeningScorecard(scorecard, user.getTCSubject());
-                
+
                 return new SuccessResult();
             }
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

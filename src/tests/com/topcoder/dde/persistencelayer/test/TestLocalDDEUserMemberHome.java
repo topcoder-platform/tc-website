@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,7 +29,7 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDEUserMemberHome localHome;
-    
+
     /* default field values for entity instances */
     private static final int DEF_TC_RATING = 3000;
     private static final int DEF_TCS_RATING = 2000;
@@ -38,7 +39,7 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
      */
     TestLocalDDEUserMemberHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDEUserMemberHome configured to run the named
@@ -46,7 +47,7 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
      */
     public TestLocalDDEUserMemberHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -61,7 +62,7 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDEUserMemberHome) ctx.lookup(
                     LocalDDEUserMemberHome.EJB_REF_NAME);
         }
@@ -74,7 +75,7 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
             throws Exception {
         return localHome.create(DEF_TC_RATING, DEF_TCS_RATING, master);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -100,7 +101,7 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
                     } finally {
                         local.remove();
                     }
-                    
+
                     /* test creation with null component */
                     local = createDefault(null);
                     assertNotNull(local);
@@ -112,7 +113,7 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
             masterHome.tearDown();
         }
     }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
@@ -122,22 +123,22 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
         Long loginId;
         int tcRating;
         int tcsRating;
-        
+
         DDEUserMemberData(Object id, Long login, int tc, int tcs) {
             this(keyToLong(id), login, tc, tcs);
         }
-        
+
         DDEUserMemberData(long id, Long login, int tc, int tcs) {
             userMemberId = id;
             loginId = login;
             tcRating = tc;
             tcsRating = tcs;
         }
-        
+
         DDEUserMemberData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(userMemberId);
         }
@@ -151,22 +152,22 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
             rs.updateInt("TC_RATING", tcRating);
             rs.updateInt("TCS_RATING", tcsRating);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("USER_MEMBER_ID", userMemberId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             userMemberId = rs.getLong("USER_MEMBER_ID");
             l = rs.getLong("LOGIN_ID");
             if (rs.wasNull()) {
@@ -177,23 +178,23 @@ public class TestLocalDDEUserMemberHome extends PersistenceTestCase {
             tcRating = rs.getInt("TC_RATING");
             tcsRating = rs.getInt("TCS_RATING");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDEUserMemberData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDEUserMemberData) ) {
+            if (!(o instanceof DDEUserMemberData)) {
                 return false;
             }
             DDEUserMemberData d = (DDEUserMemberData) o;
             return (
-                (userMemberId == d.userMemberId)
-                && objectsMatch(loginId, d.loginId)
-                && (tcRating == d.tcRating)
-                && (tcsRating == d.tcsRating) );
+                    (userMemberId == d.userMemberId)
+                    && objectsMatch(loginId, d.loginId)
+                    && (tcRating == d.tcRating)
+                    && (tcsRating == d.tcsRating));
         }
-        
+
     }
 
 }

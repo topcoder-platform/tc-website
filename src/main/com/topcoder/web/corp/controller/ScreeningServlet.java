@@ -1,19 +1,17 @@
 package com.topcoder.web.corp.controller;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletConfig;
-
 import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.util.logging.Logger;
-
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.corp.common.*;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.common.Constants;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 
 /**
  * This class handles all incoming requests.

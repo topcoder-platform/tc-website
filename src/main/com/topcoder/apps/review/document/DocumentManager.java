@@ -6,15 +6,14 @@
  */
 package com.topcoder.apps.review.document;
 
-import java.rmi.RemoteException;
-
-import javax.ejb.EJBObject;
-
 import com.topcoder.apps.review.ConcurrentModificationException;
 import com.topcoder.apps.review.GeneralSecurityException;
 import com.topcoder.apps.review.IncorrectProjectStateException;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.security.TCSubject;
+
+import javax.ejb.EJBObject;
+import java.rmi.RemoteException;
 
 
 /**
@@ -37,7 +36,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public ScreeningScorecard[] getScreeningScorecard(Project project, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -46,12 +45,12 @@ public interface DocumentManager extends EJBObject {
      * @param requestor DOCUMENT ME!
      *
      * @return DOCUMENT ME!
-     * 
+     *
      * @throws RemoteException DOCUMENT ME!
      */
     public ScreeningScorecard[] getScreeningScorecardFull(Project project, TCSubject requestor)
-        throws RemoteException;
-    
+            throws RemoteException;
+
     /**
      * DOCUMENT ME!
      *
@@ -63,12 +62,12 @@ public interface DocumentManager extends EJBObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveScreeningScorecard(ScreeningScorecard scorecard, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               GeneralSecurityException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            GeneralSecurityException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -82,7 +81,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public ReviewScorecard getReviewScorecard(Project project, long reviewerId, long submitterId, TCSubject requestor)
-    throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -95,7 +94,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public ReviewScorecard[] getReviewScorecard(Project project, TCSubject requestor)
-    throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -108,7 +107,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public ReviewScorecard[] getReviewScorecardFull(Project project, TCSubject requestor)
-    throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -121,12 +120,12 @@ public interface DocumentManager extends EJBObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveReviewScorecard(ReviewScorecard scorecard, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               GeneralSecurityException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            GeneralSecurityException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -139,7 +138,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public TestCaseReview[] getTestCaseReview(Project project, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -153,11 +152,11 @@ public interface DocumentManager extends EJBObject {
      * @throws ConcurrentModificationException DOCUMENT ME!
      */
     public void saveTestCaseReview(TestCaseReview tcReview, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -171,10 +170,10 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public InitialSubmission[] getInitialSubmissions(Project project, boolean retrieveRemoved, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     public InitialSubmission getInitialSubmission(Project project, long subId, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -186,10 +185,10 @@ public interface DocumentManager extends EJBObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveInitialSubmission(InitialSubmission submission, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            InvalidEditException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -202,7 +201,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public AggregationWorksheet getAggregation(Project project, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -216,11 +215,11 @@ public interface DocumentManager extends EJBObject {
      * @throws ConcurrentModificationException
      */
     public void saveAggregation(AggregationWorksheet worksheet, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -233,7 +232,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public FinalFixSubmission getFinalFixSubmission(Project project, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -245,10 +244,10 @@ public interface DocumentManager extends EJBObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveFinalFixSubmission(FinalFixSubmission submission, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            InvalidEditException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -261,7 +260,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public AggregationReview[] getAggregationReview(Project project, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -274,11 +273,11 @@ public interface DocumentManager extends EJBObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveAggregationReview(AggregationReview aggReview, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException ;
+            throws RemoteException,
+            InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -292,7 +291,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RemoteException DOCUMENT ME!
      */
     public FinalReview getFinalReview(Project project, boolean retrieveFull, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * DOCUMENT ME!
@@ -305,16 +304,16 @@ public interface DocumentManager extends EJBObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveFinalReview(FinalReview finalReview, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * Check if the project is aggregated, with the
      * aggregation completed and pm-reviewed.
-     * 
+     *
      * @param projectId The ProjectId
      * @return true if project is aggregated
      */
@@ -332,7 +331,7 @@ public interface DocumentManager extends EJBObject {
      * @throws RuntimeException DOCUMENT ME!
      */
     public TestCase[] getTestCases(Project project, long reqReviewerId, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * Save a testcases object to the database.
@@ -344,17 +343,17 @@ public interface DocumentManager extends EJBObject {
      * @throws IncorrectProjectStateException
      */
     public void saveTestCase(TestCase testCase, TCSubject requestor)
-        throws RemoteException,
-               InvalidEditException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            InvalidEditException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     public Appeal[] getAppeals(Project project, long appealerId, long questionId, TCSubject requestor)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      * Save Appeal to DB.
-     * 
+     *
      * @param appeal
      * @param project
      * @param requestor
@@ -362,23 +361,23 @@ public interface DocumentManager extends EJBObject {
      * @throws ConcurrentModificationException
      */
     public void saveAppeal(Appeal appeal, Project project, TCSubject requestor)
-        throws RemoteException,
-               DocumentAlreadySubmittedException,
-               ConcurrentModificationException;
+            throws RemoteException,
+            DocumentAlreadySubmittedException,
+            ConcurrentModificationException;
 
     public ScorecardTemplate[] getScorecardTemplates()
-        throws RemoteException;
-    
+            throws RemoteException;
+
     public ScorecardTemplate getScorecardTemplate(long reqTemplateId)
-        throws RemoteException;
-    
+            throws RemoteException;
+
     public ScorecardTemplate getDefaultScorecardTemplate(long projectTypeId, long scorecardTypeId)
-        throws RemoteException;
+            throws RemoteException;
 
     public void saveScorecardTemplate(ScorecardTemplate template,
-            boolean saveNew, boolean saveQuestions)
-        throws RemoteException;
-        
+                                      boolean saveNew, boolean saveQuestions)
+            throws RemoteException;
+
     /**
      * @param project
      */

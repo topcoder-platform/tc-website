@@ -1,17 +1,16 @@
 package com.topcoder.web.ejb.user;
 
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.shared.util.logging.Logger;
-
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
-import java.sql.*;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-
-import javax.naming.Context;
 import javax.naming.InitialContext;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * @author dok
@@ -23,8 +22,8 @@ public class UserPreferenceBean extends BaseEJB {
 
     public void createUserPreference(long userId, int preferenceId, String dataSource) {
         int ret = insert("user_preference",
-                new String[] {"user_id", "preference_id"},
-                new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
+                new String[]{"user_id", "preference_id"},
+                new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows inserted into " +
@@ -71,8 +70,8 @@ public class UserPreferenceBean extends BaseEJB {
 
     public void removeUserPreference(long userId, int preferenceId, String dataSource) {
         int ret = delete("user_preference",
-                new String[] {"user_id", "preference_id"},
-                new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
+                new String[]{"user_id", "preference_id"},
+                new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows deleted from " +
@@ -83,10 +82,10 @@ public class UserPreferenceBean extends BaseEJB {
 
     public void setValue(long userId, int preferenceId, String value, String dataSource) {
         int ret = update("user_preference",
-                new String[] {"value"},
-                new String[] {value},
-                new String[] {"user_id", "preference_id"},
-                new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
+                new String[]{"value"},
+                new String[]{value},
+                new String[]{"user_id", "preference_id"},
+                new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows updated in " +
@@ -98,17 +97,17 @@ public class UserPreferenceBean extends BaseEJB {
     public String getValue(long userId, int preferenceId, String dataSource) {
         return selectString("user_preference",
                 "value",
-                new String[] {"user_id", "preference_id"},
-                new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
+                new String[]{"user_id", "preference_id"},
+                new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
     }
-    
+
     public void setPreferenceValueID(long userId, int preferenceId, int valueId, String dataSource) {
         int ret = update("user_preference",
-                new String[] {"preference_value_id"},
-                new String[] {String.valueOf(valueId)},
-                new String[] {"user_id", "preference_id"},
-                new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
+                new String[]{"preference_value_id"},
+                new String[]{String.valueOf(valueId)},
+                new String[]{"user_id", "preference_id"},
+                new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows updated in " +
@@ -120,18 +119,18 @@ public class UserPreferenceBean extends BaseEJB {
     public int getPreferenceValueID(long userId, int preferenceId, String dataSource) {
         return selectInt("user_preference",
                 "preference_value_id",
-                new String[] {"user_id", "preference_id"},
-                new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
+                new String[]{"user_id", "preference_id"},
+                new String[]{String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource).intValue();
     }
-    
-    private static final String GET_PREFERENCES_BY_GROUP_SQL = "SELECT * FROM " + 
-                                                            "user_preference up, preference_lu p, preference_group_lu pg " +
-                                                            "where p.preference_id = up.preference_id and " +
-                                                            "pg.preference_group_id = p.preference_group_id and " +
-                                                            "pg.preference_group_id = ? and " +
-                                                            "up.user_id = ? ";
-    
+
+    private static final String GET_PREFERENCES_BY_GROUP_SQL = "SELECT * FROM " +
+            "user_preference up, preference_lu p, preference_group_lu pg " +
+            "where p.preference_id = up.preference_id and " +
+            "pg.preference_group_id = p.preference_group_id and " +
+            "pg.preference_group_id = ? and " +
+            "up.user_id = ? ";
+
     public ResultSetContainer getPreferencesByGroup(long userId, int groupId, String dataSource) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -143,7 +142,7 @@ public class UserPreferenceBean extends BaseEJB {
             ps = conn.prepareStatement(GET_PREFERENCES_BY_GROUP_SQL);
             ps.setInt(1, groupId);
             ps.setLong(2, userId);
-            
+
             rs = ps.executeQuery();
             return new ResultSetContainer(rs);
 

@@ -1,7 +1,7 @@
 package com.topcoder.web.tc.view.tag;
 
-import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
 public class RatingStyle extends TagSupport {

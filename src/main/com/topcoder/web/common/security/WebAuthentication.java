@@ -1,8 +1,8 @@
 package com.topcoder.web.common.security;
 
 import com.topcoder.shared.security.Authentication;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.LoginException;
+import com.topcoder.shared.security.User;
 
 /**
  * interface for classes that are doing web related authentication and would like to use cookies.

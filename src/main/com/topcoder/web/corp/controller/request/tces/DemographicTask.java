@@ -1,12 +1,10 @@
 package com.topcoder.web.corp.controller.request.tces;
 
+import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
-import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -258,8 +256,8 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
             if (super.getSessionInfo().isAdmin())
-			    setCompanyName(TCESConstants.ADMIN_COMPANY);
-	     	else {
+                setCompanyName(TCESConstants.ADMIN_COMPANY);
+            else {
                 rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
                 ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
                 setCompanyName(cmpyNameRow.getItem("company_name").toString());
@@ -292,7 +290,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                     : (ResultSetContainer) resultMap.get("TCES_Campaign_Referral_Responses");
             ResultSetContainer.ResultSetRow refRspRow = null;
             ArrayList referralMapList = new ArrayList();
-            if (rsc!=null) {
+            if (rsc != null) {
                 for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
                     refRspRow = rsc.getRow(rowI);
                     Map referralItem = new HashMap();

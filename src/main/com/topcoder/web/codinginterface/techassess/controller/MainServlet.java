@@ -1,26 +1,29 @@
 package com.topcoder.web.codinginterface.techassess.controller;
 
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.shared.messaging.QueueMessageSender;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.shared.screening.common.ScreeningContext;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.techassess.controller.request.Base;
+import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
+import com.topcoder.web.codinginterface.techassess.model.WebResponsePool;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.*;
-import com.topcoder.web.codinginterface.techassess.controller.request.Base;
-import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
-import com.topcoder.web.codinginterface.techassess.model.WebResponsePool;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
-import com.topcoder.shared.screening.common.ScreeningContext;
-import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.security.LightAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 import javax.naming.Context;
 import javax.naming.NamingException;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 
 /**
  * User: dok

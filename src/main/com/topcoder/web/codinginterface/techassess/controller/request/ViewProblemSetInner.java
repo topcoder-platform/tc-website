@@ -36,8 +36,8 @@ public class ViewProblemSetInner extends Base {
                     //this logic is mostly for the case that they hit refresh
                     if (hasParameter(Constants.PROBLEM_TYPE_ID)) {
                         setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET,
-                                new String[] {Constants.PROBLEM_TYPE_ID},
-                                new String[] {getRequest().getParameter(Constants.PROBLEM_TYPE_ID)}));
+                                new String[]{Constants.PROBLEM_TYPE_ID},
+                                new String[]{getRequest().getParameter(Constants.PROBLEM_TYPE_ID)}));
                         setIsNextPageInContext(false);
                     }
                 }

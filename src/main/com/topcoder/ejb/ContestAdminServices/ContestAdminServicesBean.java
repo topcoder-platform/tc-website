@@ -1,17 +1,16 @@
 package com.topcoder.ejb.ContestAdminServices;
 
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.data.Group;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.ejb.SessionContext;
 import javax.naming.Context;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.io.ByteArrayOutputStream;
 import java.rmi.RemoteException;
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -2047,7 +2046,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param coder_id - int representing a unique coder
      */
     private static void updateComponentState(java.sql.Connection conn, double submission_points, int status_id,
-                                           int round_id, int coder_id, int component_id)
+                                             int round_id, int coder_id, int component_id)
             throws RemoteException {
 
         PreparedStatement ps = null;

@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.mockup;
 
@@ -18,13 +18,32 @@ import javax.ejb.Handle;
  */
 public class EJBBase implements EJBLocalObject, EJBObject {
 
-    public boolean isIdentical(EJBLocalObject p1) { return false; }
-    public Object getPrimaryKey() { return null; }
-    public void remove() { }
-    public EJBLocalHome getEJBLocalHome() { return null; }
-    public boolean isIdentical(EJBObject p1) { return false; }
-    public Handle getHandle() throws RemoteException { return null; }
-    public EJBHome getEJBHome() { return null; }
+    public boolean isIdentical(EJBLocalObject p1) {
+        return false;
+    }
+
+    public Object getPrimaryKey() {
+        return null;
+    }
+
+    public void remove() {
+    }
+
+    public EJBLocalHome getEJBLocalHome() {
+        return null;
+    }
+
+    public boolean isIdentical(EJBObject p1) {
+        return false;
+    }
+
+    public Handle getHandle() throws RemoteException {
+        return null;
+    }
+
+    public EJBHome getEJBHome() {
+        return null;
+    }
 
 }
 

@@ -1,16 +1,19 @@
 package com.topcoder.utilities.fraudDetect;
 
-import java.io.*;
-import java.util.*;
-import java.sql.*;
-
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.utilities.CommentStripper;
-
 import org.apache.log4j.Category;
 
 import javax.sql.DataSource;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class TestingFraudDetect {
@@ -126,18 +129,18 @@ public class TestingFraudDetect {
         try {
             conn = ds.getConnection();
             StringBuffer sqlString = new StringBuffer(500);
-            sqlString.append( " SELECT rc.component_id");
-            sqlString.append( " , c.class_name");
-            sqlString.append( " , rc.difficulty_id");
-            sqlString.append( " , 1 as division_id");
-            sqlString.append( " FROM session_round_component rc");
-            sqlString.append( " , component c");
-            sqlString.append( " WHERE rc.component_id = c.component_id");
-            sqlString.append( " AND c.component_id = ?");
+            sqlString.append(" SELECT rc.component_id");
+            sqlString.append(" , c.class_name");
+            sqlString.append(" , rc.difficulty_id");
+            sqlString.append(" , 1 as division_id");
+            sqlString.append(" FROM session_round_component rc");
+            sqlString.append(" , component c");
+            sqlString.append(" WHERE rc.component_id = c.component_id");
+            sqlString.append(" AND c.component_id = ?");
             if (restrictByCompany) {
-                sqlString.append( " AND rc.session_round_id IN (SELECT session_round_id");
-                sqlString.append( "                     FROM session_profile sp");
-                sqlString.append( "                    WHERE sp.company_id = ?)");
+                sqlString.append(" AND rc.session_round_id IN (SELECT session_round_id");
+                sqlString.append("                     FROM session_profile sp");
+                sqlString.append("                    WHERE sp.company_id = ?)");
             }
 
             ps = conn.prepareStatement(sqlString.toString());
@@ -161,7 +164,6 @@ public class TestingFraudDetect {
         }
         return p;
     }
-
 
 
     /**
@@ -815,7 +817,7 @@ public class TestingFraudDetect {
     private String rpad(String s, char c, int len) {
         StringBuffer buf = new StringBuffer(len);
         buf.append(s);
-        while(buf.length()<len) {
+        while (buf.length() < len) {
             buf.append(c);
         }
         return buf.toString();

@@ -1,21 +1,16 @@
 package com.topcoder.dde.util.DWLoad;
 
-import java.lang.*;
-import java.util.*;
-import java.sql.*;
+import com.topcoder.util.idgenerator.IdGenerator;
+import com.topcoder.util.idgenerator.sql.SimpleDB;
+import com.topcoder.util.idgenerator.sql.SimpleDataSource;
 import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.FileInputStream;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Hashtable;
-import java.util.Date;
 
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.*;
-
-import javax.sql.DataSource;
 /**
  * Created by IntelliJ IDEA.
  * User: rfairfax
@@ -37,8 +32,8 @@ public class DataConversion {
 
             checkDriver();
 
-            if(!doLoad(params))
-              fatal_error();
+            if (!doLoad(params))
+                fatal_error();
         }
     }
 
@@ -119,9 +114,9 @@ public class DataConversion {
                 params.put("targetdb", targetDBURL);
 
             //fillParams(params, n);
-             
-             if(!doLoad(params))
-                    fatal_error();
+
+            if (!doLoad(params))
+                fatal_error();
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -136,8 +131,8 @@ public class DataConversion {
         Connection sourceConn;
         Connection targetConn;
 
-        sourceDBURL = (String)params.get("sourcedb");
-        targetDBURL = (String)params.get("targetdb");
+        sourceDBURL = (String) params.get("sourcedb");
+        targetDBURL = (String) params.get("targetdb");
 
         try {
             Class.forName(sDriverName);
@@ -172,121 +167,116 @@ public class DataConversion {
 
         //run load here
         try {
-            
+
             //clear out project_result
 
             String sSQL;
-            
+
             sSQL = "delete from project_result";
             PreparedStatement ps;
             ResultSet rs;
             PreparedStatement ps2;
             ResultSet rs2;
             SimpleDataSource ds;
-            
+
             ps = sourceConn.prepareStatement(sSQL);
-            
+
             ps.execute();
             ps.close();
             ps = null;
-            
+
             //data with new project creation
-            
+
             //initialize IdGenerator
-            if(!IdGenerator.isInitialized())
-            {
-                try
-                {
+            if (!IdGenerator.isInitialized()) {
+                try {
                     ds = new SimpleDataSource(sDriverName, sourceDBURL, null, null);
-                
-                    IdGenerator.init(new SimpleDB(), ds , "sequence_object", "name", "current_value", 9999999999L, 1, true);
-                }
-                catch(Exception e)
-                {
+
+                    IdGenerator.init(new SimpleDB(), ds, "sequence_object", "name", "current_value", 9999999999L, 1, true);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            
+
             sSQL = "select distinct uc.comp_vers_id, " +
-                    "case when exists(select user_id from user_component_score where comp_vers_id = uc.comp_vers_id and " + 
-                    "   phase_id = uc.phase_id and place <> 0) then " + 
-                    "       (select user_id from user_component_score where comp_vers_id = uc.comp_vers_id and " + 
-                    "           phase_id = uc.phase_id and place = 1) " + 
+                    "case when exists(select user_id from user_component_score where comp_vers_id = uc.comp_vers_id and " +
+                    "   phase_id = uc.phase_id and place <> 0) then " +
+                    "       (select user_id from user_component_score where comp_vers_id = uc.comp_vers_id and " +
+                    "           phase_id = uc.phase_id and place = 1) " +
                     "else " +
                     "   (select user_id from user_component_score " +
                     "       where comp_vers_id = uc.comp_vers_id and phase_id = uc.phase_id " +
-                    "           and score = " + 
-                    "           ( select max(score) from user_component_score " + 
-                    "           where comp_vers_id = uc.comp_vers_id and phase_id = uc.phase_id ) " + 
+                    "           and score = " +
+                    "           ( select max(score) from user_component_score " +
+                    "           where comp_vers_id = uc.comp_vers_id and phase_id = uc.phase_id ) " +
                     ") end as winner_id, " +
-                    "   case when uc.phase_id = 112 then 1 else 2 end as project_type_id, " + 
-                    "(select max(submission_date) from user_component_score where comp_vers_id = uc.comp_vers_id and " + 
+                    "   case when uc.phase_id = 112 then 1 else 2 end as project_type_id, " +
+                    "(select max(submission_date) from user_component_score where comp_vers_id = uc.comp_vers_id and " +
                     "   phase_id = uc.phase_id) as StartDate " +
-                    "from user_component_score uc, " + 
-                    "comp_versions cv, " + 
+                    "from user_component_score uc, " +
+                    "comp_versions cv, " +
                     "comp_catalog cc " +
                     "where cv.comp_vers_id = uc.comp_vers_id " +
                     "and cc.component_id = cv.component_id " +
                     "and not exists(select project_id from project where comp_vers_id = uc.comp_vers_id and cur_version=1 " +
                     "and project_type_id = (case when uc.phase_id = 112 then 1 else 2 end) " +
                     "and project_stat_id in (2,4,6)) order by 4";
-            
+
             ps = sourceConn.prepareStatement(sSQL);
             rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
+
+            while (rs.next()) {
                 //create ids
                 long project_id;
                 long phase_instance_id;
-                
+
                 project_id = IdGenerator.nextId();
                 phase_instance_id = IdGenerator.nextId();
-                
+
                 System.out.println("CREATING PROJECT: " + project_id + " PHASE: " + phase_instance_id);
-                
-                
+
+
                 //create phase_instance
-                sSQL = "insert into phase_instance (phase_inst_v_id, phase_instance_id, start_date, end_date, phase_id, project_id, modify_date, modify_user, cur_version) " + 
-                                            "values ( 0, ?, ?, ?, 8, ?, CURRENT, 7267401, 1)";
-                
+                sSQL = "insert into phase_instance (phase_inst_v_id, phase_instance_id, start_date, end_date, phase_id, project_id, modify_date, modify_user, cur_version) " +
+                        "values ( 0, ?, ?, ?, 8, ?, CURRENT, 7267401, 1)";
+
                 ps2 = sourceConn.prepareStatement(sSQL);
                 ps2.setLong(1, phase_instance_id);
                 ps2.setDate(2, rs.getDate("StartDate"));
                 ps2.setDate(3, rs.getDate("StartDate"));
                 ps2.setLong(4, project_id);
-                
+
                 ps2.execute();
-                
+
                 ps2.close();
                 ps2 = null;
-                
+
                 //create project
                 //project fields
                 sSQL = "insert into project (project_v_id, project_id, comp_vers_id, phase_instance_id, winner_id, project_type_id, project_stat_id, notification_sent, modify_date, modify_user, cur_version) " +
-                                        " values ( 0, ?, ?, ?, ?, ?, 4, 0, CURRENT, 7267401, 1)";
-                
+                        " values ( 0, ?, ?, ?, ?, ?, 4, 0, CURRENT, 7267401, 1)";
+
                 ps2 = sourceConn.prepareStatement(sSQL);
                 ps2.setLong(1, project_id);
                 ps2.setLong(2, rs.getLong("comp_vers_id"));
                 ps2.setLong(3, phase_instance_id);
                 ps2.setLong(4, rs.getLong("winner_id"));
                 ps2.setLong(5, rs.getLong("project_type_id"));
-                
+
                 ps2.execute();
                 ps2.close();
                 ps2 = null;
             }
-            
+
             rs.close();
             rs = null;
             ps.close();
             ps = null;
-            
+
             System.out.println("PROJECT CREATION FINISHED");
-                        
+
             //data with existing projects first
-            sSQL =  "select distinct p.project_id, uc.user_id, uc.score, uc.money, uc.place, uc.rating " +
+            sSQL = "select distinct p.project_id, uc.user_id, uc.score, uc.money, uc.place, uc.rating " +
                     "from user_component_score uc, " +
                     "comp_versions cv, " +
                     "comp_catalog cc, " +
@@ -302,16 +292,15 @@ public class DataConversion {
                     "from user_component_score " +
                     "group by comp_vers_id, user_id, phase_id " +
                     "having count(*) > 1)";
-            
+
             ps = sourceConn.prepareStatement(sSQL);
             rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
+
+            while (rs.next()) {
                 //process
                 sSQL = "insert into project_result (project_id, user_id, old_rating, new_rating, old_reliability, new_reliability, raw_score, final_score, payment, placed, rating_ind, valid_submission_ind, reliability_ind, create_date, modify_date) " +
-                                                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT)";
-                
+                        "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT)";
+
                 ps2 = sourceConn.prepareStatement(sSQL);
                 ps2.setInt(1, rs.getInt("project_id"));
                 ps2.setInt(2, rs.getInt("user_id"));
@@ -326,17 +315,17 @@ public class DataConversion {
                 ps2.setInt(11, 1);
                 ps2.setInt(12, 1);
                 ps2.setInt(13, 0);
-                
+
                 ps2.execute();
-                ps2.close();                
+                ps2.close();
                 ps2 = null;
             }
-            
+
             rs.close();
             rs = null;
             ps.close();
             ps = null;
-            
+
             ds = null;
 
         } catch (SQLException e) {
@@ -344,10 +333,8 @@ public class DataConversion {
             sErrorMsg.append("DB Error: ");
             sErrorMsg.append(e.getMessage());
             return false;
-        }
-        finally
-        {
-              //close connections
+        } finally {
+            //close connections
             try {
                 sourceConn.close();
             } catch (SQLException e) {
@@ -429,7 +416,7 @@ public class DataConversion {
         }
     }
 
-     private static void fatal_error() {
+    private static void fatal_error() {
         System.out.println("*******************************************");
         System.out.println("FAILURE: " + sErrorMsg.toString());
         System.out.println("*******************************************");

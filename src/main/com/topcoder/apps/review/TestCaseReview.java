@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -67,7 +67,7 @@ public class TestCaseReview implements Model {
             if (testCaseReviewData.getTestCaseReviews() == null) {
                 // get the TestCaseReview for the front-end
                 com.topcoder.apps.review.document.TestCaseReview[] testCaseReviews =
-                    documentManager.getTestCaseReview(project, user.getTCSubject());
+                        documentManager.getTestCaseReview(project, user.getTCSubject());
 
                 if (testCaseReviews != null) {
                     return new TestCaseReviewRetrieval(testCaseReviews);
@@ -82,7 +82,7 @@ public class TestCaseReview implements Model {
 
                 // save the TestCaseReview
                 com.topcoder.apps.review.document.TestCaseReview[] testCaseReviews
-                    = testCaseReviewData.getTestCaseReviews();
+                        = testCaseReviewData.getTestCaseReviews();
                 for (int i = 0; i < testCaseReviews.length; i++) {
                     //LogHelper.log("### setting completed to true from " + testCaseReviews[i].isCompleted());
                     //testCaseReviews[i].setCompleted(true);
@@ -91,7 +91,7 @@ public class TestCaseReview implements Model {
                 return new SuccessResult();
             }
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

@@ -39,11 +39,11 @@ public class ProjectAdministrationTestCase extends TestCase {
     public void testAdminister() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("marc", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewAllProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewAllProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 5);
 
         ResultData result =
-            new ProjectDetail().start(new OnlineReviewProjectData(user, projectsRetrieval.getProjects()[0]));
+                new ProjectDetail().start(new OnlineReviewProjectData(user, projectsRetrieval.getProjects()[0]));
         assertTrue(result instanceof ProjectRetrieval);
         Project project = ((ProjectRetrieval) result).getProject();
 

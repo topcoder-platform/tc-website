@@ -1,8 +1,8 @@
 package com.topcoder.web.codinginterface.view.tag;
 
+import javax.servlet.jsp.tagext.TagData;
 import javax.servlet.jsp.tagext.TagExtraInfo;
 import javax.servlet.jsp.tagext.VariableInfo;
-import javax.servlet.jsp.tagext.TagData;
 
 /**
  * @author  dok
@@ -11,7 +11,7 @@ import javax.servlet.jsp.tagext.TagData;
  */
 public class ArgumentIteratorTEI extends TagExtraInfo {
     public VariableInfo[] getVariableInfo(TagData data) {
-        VariableInfo[] variableInfo = new VariableInfo[] {
+        VariableInfo[] variableInfo = new VariableInfo[]{
             new VariableInfo(ArgumentIterator.INDEX, String.class.getName(), true, VariableInfo.NESTED),
             new VariableInfo(ArgumentIterator.ARGUMENT, String.class.getName(), true, VariableInfo.NESTED),
             new VariableInfo(ArgumentIterator.DIMENSION, String.class.getName(), true, VariableInfo.NESTED),

@@ -1,7 +1,7 @@
 /*
  * IncorrectProjectStateException.java
  *
- * Copyright © 2002, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2002, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review;

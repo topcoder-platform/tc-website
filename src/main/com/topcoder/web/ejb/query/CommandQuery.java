@@ -22,6 +22,7 @@ public interface CommandQuery extends EJBObject {
     void removeCommandQuery(long commandId, long queryId, String dataSourceName) throws RemoteException, EJBException;
 
     ResultSetContainer getQueriesForCommand(long commandId, String dataSourceName) throws RemoteException, EJBException;
+
     ResultSetContainer getCommandsForQuery(long queryId, String dataSourceName) throws RemoteException, EJBException;
 }
 

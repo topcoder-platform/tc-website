@@ -19,7 +19,8 @@ public class DemographicQuestion extends Base implements Comparable {
     private HashMap answers;
     private int sort;
 
-    public DemographicQuestion() {}
+    public DemographicQuestion() {
+    }
 
     public Object clone() throws OutOfMemoryError {
         DemographicQuestion ret = new DemographicQuestion();
@@ -32,7 +33,7 @@ public class DemographicQuestion extends Base implements Comparable {
         HashMap list = new HashMap();
         DemographicAnswer a = null;
         for (Iterator it = answers.values().iterator(); it.hasNext();) {
-            a = (DemographicAnswer)it.next();
+            a = (DemographicAnswer) it.next();
             list.put(new Long(a.getAnswerId()), a.clone());
         }
         ret.setAnswers(list);
@@ -71,10 +72,10 @@ public class DemographicQuestion extends Base implements Comparable {
      */
     public List getAnswers() {
         List list = null;
-        if (answers!=null) {
+        if (answers != null) {
             list = new ArrayList(answers.size());
             for (Iterator it = answers.values().iterator(); it.hasNext();) {
-                list.add(((DemographicAnswer)it.next()).clone());
+                list.add(((DemographicAnswer) it.next()).clone());
             }
             Collections.sort(list);
         }
@@ -85,7 +86,7 @@ public class DemographicQuestion extends Base implements Comparable {
         this.answers = new HashMap();
         DemographicAnswer a = null;
         for (Iterator it = answers.iterator(); it.hasNext();) {
-            a = (DemographicAnswer)it.next();
+            a = (DemographicAnswer) it.next();
             this.answers.put(new Long(a.getAnswerId()), a.clone());
         }
     }
@@ -104,13 +105,15 @@ public class DemographicQuestion extends Base implements Comparable {
         Long key = new Long(answerId);
         DemographicAnswer ret = null;
         if (answers.containsKey(key))
-            ret = (DemographicAnswer)((DemographicAnswer)answers.get(key)).clone();
+            ret = (DemographicAnswer) ((DemographicAnswer) answers.get(key)).clone();
         return ret;
     }
 
     public int getAnswerType() {
-        if (selectable.equals("M")) return MULTIPLE_SELECT;
-        else if (selectable.equals("Y")) return SINGLE_SELECT;
+        if (selectable.equals("M"))
+            return MULTIPLE_SELECT;
+        else if (selectable.equals("Y"))
+            return SINGLE_SELECT;
         else if (selectable.equals("N")) return FREE_FORM;
         throw new RuntimeException("Invalid type found: " + selectable);
     }
@@ -136,7 +139,7 @@ public class DemographicQuestion extends Base implements Comparable {
     }
 
     public int compareTo(Object o) {
-        DemographicQuestion other = (DemographicQuestion)o;
+        DemographicQuestion other = (DemographicQuestion) o;
         return new Integer(getSort()).compareTo(new Integer(other.getSort()));
     }
 

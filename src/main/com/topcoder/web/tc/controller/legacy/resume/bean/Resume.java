@@ -6,7 +6,8 @@ public class Resume {
     private String mimeType = null;
     private byte[] file = null;
 
-    public Resume(){ }
+    public Resume() {
+    }
 
     public String getFileType() {
         return fileType;

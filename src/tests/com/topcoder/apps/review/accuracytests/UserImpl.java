@@ -20,11 +20,11 @@ public class UserImpl extends User {
 
     public UserImpl(String id, String handle, String firstName, String lastName,
                     String email) {
-	super(UserImpl.stringToLong(id), handle, firstName, lastName, email);
+        super(UserImpl.stringToLong(id), handle, firstName, lastName, email);
     }
 
     public UserImpl(long id) {
-   	super(id, "", "", "", "");
+        super(id, "", "", "", "");
     }
 
     /**
@@ -34,12 +34,12 @@ public class UserImpl extends User {
      */
     private static long stringToLong(String s) {
         try {
-           return Long.parseLong(s);
+            return Long.parseLong(s);
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException(
-		"The id argument '" + s + "' could not be parsed as a long");
+                    "The id argument '" + s + "' could not be parsed as a long");
         }
-        
+
     }
 }
 

@@ -1,13 +1,12 @@
 /*
  * EvaluationManager.java
  *
- * Copyright © 2002, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2002, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
 
 import com.topcoder.apps.review.persistence.Common;
-
 import com.topcoder.util.cache.refreshable.RefreshException;
 import com.topcoder.util.cache.refreshable.Refreshable;
 
@@ -15,7 +14,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -48,7 +46,7 @@ public class EvaluationManager implements Refreshable {
         else if (answerType == SubjectiveScorecardQuestion.ANSWER_YESNO)
             return subjectiveEvaluationYesNoArr;
         return new Evaluation[0];
-            
+
     }
 
     /**
@@ -99,20 +97,20 @@ public class EvaluationManager implements Refreshable {
                 String name = rs.getString(2);
                 double value = rs.getDouble(3);
                 long evalType = rs.getLong(4);
-                
+
                 Evaluation evaluation = new Evaluation(id, name, value);
                 newMap.put(new Long(id), evaluation);
                 if (evalType == ID_TYPE_SUBJECTIVE) {
                     subjList.add(evaluation);
-                } else if (evalType == ID_TYPE_OBJECTIVE){
+                } else if (evalType == ID_TYPE_OBJECTIVE) {
                     objList.add(evaluation);
                 } else if (evalType == ID_TYPE_SUBJECTIVE_YESNO) {
                     subjYesNoList.add(evaluation);
                 }
             }
-            subjectiveEvaluationArr = (Evaluation[])subjList.toArray(new Evaluation[subjList.size()]);
-            subjectiveEvaluationYesNoArr = (Evaluation[])subjYesNoList.toArray(new Evaluation[subjYesNoList.size()]);
-            objectiveEvaluationArr = (Evaluation[])objList.toArray(new Evaluation[objList.size()]);
+            subjectiveEvaluationArr = (Evaluation[]) subjList.toArray(new Evaluation[subjList.size()]);
+            subjectiveEvaluationYesNoArr = (Evaluation[]) subjYesNoList.toArray(new Evaluation[subjYesNoList.size()]);
+            objectiveEvaluationArr = (Evaluation[]) objList.toArray(new Evaluation[objList.size()]);
         } catch (SQLException e) {
             throw new RefreshException(e);
         } finally {
@@ -121,6 +119,7 @@ public class EvaluationManager implements Refreshable {
 
         evaluationMap = newMap;
     }
-     // end getEvaluation        
+    // end getEvaluation
 }
- // end EvaluationManager
+
+// end EvaluationManager

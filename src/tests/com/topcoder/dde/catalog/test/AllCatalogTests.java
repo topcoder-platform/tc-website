@@ -38,7 +38,7 @@ public class AllCatalogTests extends TestSuite {
 
     /**
      * create and return an instance of this test suite
-     */    
+     */
     public static Test suite() {
         return new ComponentManagerTestSetup(new AllCatalogTests());
     }

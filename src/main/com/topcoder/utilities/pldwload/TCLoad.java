@@ -15,7 +15,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Hashtable;
 
 public abstract class TCLoad {
     private static Logger log = Logger.getLogger(TCLoad.class);

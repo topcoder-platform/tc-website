@@ -4,7 +4,7 @@ import com.topcoder.web.common.TCWebException;
 
 public class Questions extends PRBase {
     protected void businessProcessing() throws TCWebException {
-        try{
+        try {
             processQuestions();
         } catch (TCWebException e) {
             throw e;

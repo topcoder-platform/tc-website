@@ -1,16 +1,16 @@
 package com.topcoder.utilities.cheaterChecker;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.CommentStripper;
 
 import javax.sql.DataSource;
-import java.util.List;
-import java.util.ArrayList;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: dok
@@ -126,7 +126,7 @@ public class Brooks {
             conn = DBMS.getConnection(dataSourceName);
             StringBuffer query = new StringBuffer(500);
 
-            query.append( "  SELECT cc.coder_id ");
+            query.append("  SELECT cc.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
             query.append(" , s.submission_text ");

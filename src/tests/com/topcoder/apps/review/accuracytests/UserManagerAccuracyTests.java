@@ -77,7 +77,7 @@ public class UserManagerAccuracyTests extends TestCase {
         for (int i = 0; i < NUMBER_TO_TEST; i++) {
             System.out.println("Testing user " + users[i].getId());
             assertUsersMatch(users[i],
-                             manager.getUser(new TCSubject(users[i].getId())));
+                    manager.getUser(new TCSubject(users[i].getId())));
         }
     }
 
@@ -92,11 +92,11 @@ public class UserManagerAccuracyTests extends TestCase {
         assertNotNull("Second user is null", u2);
         assertEquals("User IDs don't match", u1.getId(), u2.getId());
         assertEquals("User Handles don't match", u1.getHandle(),
-                     u2.getHandle());
+                u2.getHandle());
         assertEquals("User First Names don't match", u1.getFirstName(),
-                     u2.getFirstName());
+                u2.getFirstName());
         assertEquals("User Last Names don't match", u1.getLastName(),
-                     u2.getLastName());
+                u2.getLastName());
         assertEquals("User E-mails don't match", u1.getEmail(), u2.getEmail());
     }
 

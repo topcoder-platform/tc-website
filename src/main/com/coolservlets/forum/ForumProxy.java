@@ -56,7 +56,9 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Iterator;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**
@@ -84,8 +86,7 @@ public class ForumProxy implements Forum {
      * @param permissions the permissions to use with this proxy.
      */
     public ForumProxy(Forum forum, Authorization authorization,
-            ForumPermissions permissions)
-    {
+                      ForumPermissions permissions) {
         this.forum = forum;
         this.authorization = authorization;
         this.permissions = permissions;
@@ -108,8 +109,7 @@ public class ForumProxy implements Forum {
     public void setName(String name) throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             forum.setName(name);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -119,12 +119,10 @@ public class ForumProxy implements Forum {
     }
 
     public void setDescription(String description)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             forum.setDescription(description);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -134,12 +132,10 @@ public class ForumProxy implements Forum {
     }
 
     public void setCreationDate(Date creationDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             forum.setCreationDate(creationDate);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -149,12 +145,10 @@ public class ForumProxy implements Forum {
     }
 
     public void setModifiedDate(Date modifiedDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             forum.setModifiedDate(modifiedDate);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -164,75 +158,60 @@ public class ForumProxy implements Forum {
     }
 
     public void setModerated(int type, boolean moderated)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             forum.setModerated(type, moderated);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
     public ForumThread createThread(ForumMessage rootMessage)
-            throws UnauthorizedException
-    {
-        if (permissions.get(ForumPermissions.CREATE_THREAD))
-        {
+            throws UnauthorizedException {
+        if (permissions.get(ForumPermissions.CREATE_THREAD)) {
             ForumThread thread = forum.createThread(rootMessage);
             return new ForumThreadProxy(thread, authorization, permissions);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
     public ForumMessage createMessage(User user)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.get(ForumPermissions.CREATE_MESSAGE) ||
-                permissions.get(ForumPermissions.CREATE_THREAD) )
-        {
+                permissions.get(ForumPermissions.CREATE_THREAD)) {
             //The user must be anonymous or the actual user in order to post as
             //that user. Otherwise, throw an exception.
             if (user.hasPermission(ForumPermissions.USER_ADMIN) ||
-                user.isAnonymous() )
-            {
+                    user.isAnonymous()) {
                 ForumMessage message = forum.createMessage(user);
                 return new ForumMessageProxy(message, authorization, permissions);
-            }
-            else {
+            } else {
                 throw new UnauthorizedException();
             }
 
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
-    public void deleteThread(ForumThread thread) throws UnauthorizedException
-    {
+    public void deleteThread(ForumThread thread) throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             forum.deleteThread(thread);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
-    public void addThread(ForumThread thread) throws UnauthorizedException
-    {
+    public void addThread(ForumThread thread) throws UnauthorizedException {
         if (permissions.get(ForumPermissions.CREATE_THREAD)) {
             forum.addThread(thread);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
-    public ForumThread getThread(int threadID) throws ForumThreadNotFoundException
-    {
+    public ForumThread getThread(int threadID) throws ForumThreadNotFoundException {
         ForumThread thread = forum.getThread(threadID);
         //Apply protection proxy and return.
         return new ForumThreadProxy(thread, authorization, permissions);
@@ -261,8 +240,7 @@ public class ForumProxy implements Forum {
     }
 
     public void addUserPermission(User user, int permissionType)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //Don't let someone become a System Admin through this method.
         //The ForumPermissions class probably needs to be changed.
         if (permissionType == ForumPermissions.SYSTEM_ADMIN) {
@@ -270,39 +248,33 @@ public class ForumProxy implements Forum {
         }
         if (permissions.isSystemOrForumAdmin()) {
             forum.addUserPermission(user, permissionType);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
     public void removeUserPermission(User user, int permissionType)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             forum.removeUserPermission(user, permissionType);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
-    public int [] usersWithPermission(int permissionType)
-            throws UnauthorizedException
-    {
+    public int[] usersWithPermission(int permissionType)
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             return forum.usersWithPermission(permissionType);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
     public ForumMessageFilter[] getForumMessageFilters()
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //if (permissions.isSystemOrForumAdmin()) {
-            return forum.getForumMessageFilters();
+        return forum.getForumMessageFilters();
         //}
         //else {
         //    throw new UnauthorizedException();
@@ -310,10 +282,9 @@ public class ForumProxy implements Forum {
     }
 
     public void addForumMessageFilter(ForumMessageFilter filter)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //if (permissions.isSystemOrForumAdmin()) {
-            forum.addForumMessageFilter(filter);
+        forum.addForumMessageFilter(filter);
         //}
         //else {
         //    throw new UnauthorizedException();
@@ -321,10 +292,9 @@ public class ForumProxy implements Forum {
     }
 
     public void addForumMessageFilter(ForumMessageFilter filter, int index)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //if (permissions.isSystemOrForumAdmin()) {
-            forum.addForumMessageFilter(filter, index);
+        forum.addForumMessageFilter(filter, index);
         //}
         //else {
         //    throw new UnauthorizedException();
@@ -332,10 +302,9 @@ public class ForumProxy implements Forum {
     }
 
     public void removeForumMessageFilter(int index)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         //if (permissions.isSystemOrForumAdmin()) {
-            forum.removeForumMessageFilter(index);
+        forum.removeForumMessageFilter(index);
         //}
         //else {
         //    throw new UnauthorizedException();

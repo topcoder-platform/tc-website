@@ -18,7 +18,7 @@ public interface CompanyCandidate extends EJBObject {
      * @throws RemoteException
      */
     public void createCompanyCandidate(long companyId, long candidateId)
-        throws RemoteException;
+            throws RemoteException;
 
     /**
      *
@@ -27,6 +27,6 @@ public interface CompanyCandidate extends EJBObject {
      * @throws RemoteException
      */
     public void removeCompanyCandidate(long companyId, long candidateId)
-        throws RemoteException;
+            throws RemoteException;
 
 }

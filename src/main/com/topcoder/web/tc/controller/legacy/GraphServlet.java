@@ -1,25 +1,35 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.distCache.*;
-import com.topcoder.shared.util.*;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.constant.TCServlet;
 import com.fx4m.plot13.HistoryPlot;
-
-import org.faceless.graph.*;
+import com.topcoder.common.web.data.Navigation;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.NavigationException;
+import org.faceless.graph.BarGraph;
+import org.faceless.graph.Graph;
+import org.faceless.graph.PieGraph;
+import org.faceless.graph.Style;
 import org.faceless.graph.formatter.NullFormatter;
 import org.faceless.graph.output.PNGOutput;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 import java.awt.*;
-import java.io.*;
-import java.text.*;
-import java.util.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  *  A servlet to generate graph images
@@ -159,7 +169,7 @@ public final class GraphServlet extends HttpServlet {
                 throw new NavigationException("unknown graph: " + dataRequest.getContentHandle());
             }
             response.setContentType("image/gif");
-            response.setHeader("content-disposition","inline; filename=graph.png");
+            response.setHeader("content-disposition", "inline; filename=graph.png");
             response.setContentType("image/png");
             o = response.getOutputStream();
             o.write(result);

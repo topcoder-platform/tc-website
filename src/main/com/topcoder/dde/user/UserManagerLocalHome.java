@@ -1,7 +1,7 @@
 package com.topcoder.dde.user;
 
-import javax.ejb.EJBException;
 import javax.ejb.CreateException;
+import javax.ejb.EJBException;
 
 public interface UserManagerLocalHome extends javax.ejb.EJBLocalHome {
 

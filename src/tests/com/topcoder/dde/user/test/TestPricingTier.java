@@ -17,29 +17,29 @@ import junit.framework.*;
  * accessor methods return.
  */
 public class TestPricingTier extends TestCase {
-    
+
     static final long DEF_TIER_ID = 505050L;
     static final double DEF_DISCOUNT = 0.43d;
-    
+
     protected PricingTier tier;
-    
+
     public TestPricingTier(String testName) {
         super(testName);
     }
-    
+
     public void setUp() {
         tier = new PricingTier(DEF_TIER_ID, DEF_DISCOUNT);
     }
-    
+
     public void testGetDiscount() {
         assertEquals("Wrong discount", DEF_DISCOUNT, tier.getDiscount(), 0.001d);
     }
-    
+
     public void testGetId() {
         assertEquals("Wrong id", DEF_TIER_ID, tier.getId());
     }
-    
+
     public static Test suite() {
         return new TestSuite(TestPricingTier.class);
     }
-} 
+}

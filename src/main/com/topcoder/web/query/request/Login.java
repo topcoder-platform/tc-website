@@ -1,11 +1,11 @@
 package com.topcoder.web.query.request;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
-import com.topcoder.web.query.common.Constants;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.query.common.Constants;
 
 /**
  * @author Greg Paul
@@ -52,11 +52,10 @@ public class Login extends BaseProcessor {
             /* whatever was wrong with the submission, make sure they are logged out */
             getAuthentication().logout();
         }
-        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.LOGIN_PAGE);
         setIsNextPageInContext(true);
     }
-
 
 
 }

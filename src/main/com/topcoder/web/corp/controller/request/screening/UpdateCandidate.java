@@ -7,16 +7,12 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.Transaction;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.Transaction;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
-import com.topcoder.web.common.*;
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.ejb.email.EmailHome;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
@@ -26,11 +22,12 @@ import com.topcoder.web.corp.ejb.coder.CompanyCandidate;
 import com.topcoder.web.corp.ejb.coder.CompanyCandidateHome;
 import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.web.corp.model.TestSessionInfo;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserHome;
 
-import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
 import java.util.Map;
@@ -329,7 +326,7 @@ public class UpdateCandidate extends BaseScreeningProcessor {
             referrer = Constants.UC_DEFAULT_FORWARD_PROCESSOR;
         }
 
-        setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
+        setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
                 Constants.MODULE_KEY + "=" + referrer);
         //redirect because we are done
         setIsNextPageInContext(false);

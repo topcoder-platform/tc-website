@@ -1,7 +1,7 @@
 package com.topcoder.web.common;
 
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
 
 public interface TCRequest {

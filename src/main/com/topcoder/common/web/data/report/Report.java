@@ -2,7 +2,6 @@ package com.topcoder.common.web.data.report;
 
 import com.topcoder.web.common.TCRequest;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.ArrayList;
 

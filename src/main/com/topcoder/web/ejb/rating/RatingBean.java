@@ -1,13 +1,13 @@
 package com.topcoder.web.ejb.rating;
 
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.ejb.BaseEJB;
 
-import java.sql.*;
-import javax.ejb.*;
-import javax.sql.DataSource;
+import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class RatingBean extends BaseEJB {
 
@@ -21,7 +21,7 @@ public class RatingBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
-            query.append(  "INTO rating (coder_id, num_ratings) ");
+            query.append("INTO rating (coder_id, num_ratings) ");
             query.append("VALUES (?, ?)");
 
             conn = DBMS.getConnection(dataSource);

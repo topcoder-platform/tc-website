@@ -54,31 +54,36 @@
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
 package com.coolservlets.forum.database;
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import java.sql.*;
+
 import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
-import com.topcoder.shared.util.*;
+import com.coolservlets.util.Cache;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+
 /**
  * Database implementation of the ProfileManager interface.
  */
 public class DbProfileManager implements ProfileManager {
     /** DATABASE QUERIES **/
     private static final String USER_MESSAGE_COUNT =
-        "SELECT count(*) FROM jiveMessage,jiveForum,jiveThread WHERE " +
-        "jiveMessage.userID=? AND jiveForum.forumID=? AND " +
-        "jiveThread.forumID=jiveForum.forumID AND " +
-        "jiveMessage.threadID=jiveThread.threadID";
+            "SELECT count(*) FROM jiveMessage,jiveForum,jiveThread WHERE " +
+            "jiveMessage.userID=? AND jiveForum.forumID=? AND " +
+            "jiveThread.forumID=jiveForum.forumID AND " +
+            "jiveMessage.threadID=jiveThread.threadID";
     private static final String USER_COUNT = "SELECT count(*) FROM user";
     private static final String ALL_USER_MESSAGES =
-        "SELECT messageID FROM jiveMessage WHERE userID=?";
+            "SELECT messageID FROM jiveMessage WHERE userID=?";
     private static final String DELETE_USER_MESSAGES =
-        "UPDATE jiveMessage set userID=-1 WHERE userID=?";
+            "UPDATE jiveMessage set userID=-1 WHERE userID=?";
     private static final String DELETE_USER_PERMS =
-        "DELETE FROM jiveUserPerm WHERE userID=?";
+            "DELETE FROM jiveUserPerm WHERE userID=?";
     private static final String DELETE_USER_PROPS =
-        "DELETE FROM jiveUserProp WHERE userID=?";
+            "DELETE FROM jiveUserProp WHERE userID=?";
 
     private static final boolean cacheEnabled = true;
 
@@ -87,6 +92,7 @@ public class DbProfileManager implements ProfileManager {
     private User anonymousUser = null;
     private User specialUser = null;
     private DbForumFactory factory;
+
     /**
      * Creates a new ProfileManager.
      */
@@ -95,9 +101,10 @@ public class DbProfileManager implements ProfileManager {
         try {
             anonymousUser = getUser(-1);
             specialUser = getUser(0);
+        } catch (UserNotFoundException unfe) {
         }
-        catch (UserNotFoundException unfe) {  }
     }
+
     /**
      * Creates a User.
      *
@@ -109,20 +116,19 @@ public class DbProfileManager implements ProfileManager {
      *    the system.
      */
     public User createUser(String username, String password, String email)
-            throws UserAlreadyExistsException
-    {
+            throws UserAlreadyExistsException {
         User newUser = null;
         try {
             User existingUser = new DbUser(username);
             //the user already exists since now exception, so:
             throw new UserAlreadyExistsException();
-        }
-        catch (UserNotFoundException unfe) {
+        } catch (UserNotFoundException unfe) {
             //The user doesn't already exist so we can create a new user
             newUser = new DbUser(username, password, email);
         }
         return newUser;
     }
+
     /**
      * Returns a User specified by id.
      *
@@ -136,15 +142,15 @@ public class DbProfileManager implements ProfileManager {
             return new DbUser(userID);
         }
 
-        if(!userCache.containsKey(userID)) {
+        if (!userCache.containsKey(userID)) {
             user = new DbUser(userID);
             userCache.add(userID, user);
-        }
-        else {
-            user = (User)userCache.get(userID);
+        } else {
+            user = (User) userCache.get(userID);
         }
         return user;
     }
+
     /**
      * Returns a User specified by username.
      *
@@ -156,19 +162,20 @@ public class DbProfileManager implements ProfileManager {
             user = new DbUser(username);
             Integer id = new Integer(user.getID());
             userIDMap.put(username, id);
-        }
-        else {
-            int id = ((Integer)userIDMap.get(username)).intValue();
+        } else {
+            int id = ((Integer) userIDMap.get(username)).intValue();
             user = getUser(id);
         }
         return user;
     }
+
     /**
      * Returns the "anonymous user" object.
      */
     public User getAnonymousUser() {
         return anonymousUser;
     }
+
     /**
      * Returns the "special user" object. The special user represents any
      * valid user in the system. Getting a handle on this object is only
@@ -179,7 +186,8 @@ public class DbProfileManager implements ProfileManager {
      */
     public User getSpecialUser() {
         return specialUser;
-    }   
+    }
+
     /**
      * Deletes a User.
      *
@@ -187,74 +195,83 @@ public class DbProfileManager implements ProfileManager {
      */
     public void deleteUser(User user) throws UnauthorizedException {
         int userID = user.getID();
-        int [] messages;
+        int[] messages;
         //Get array of all user's messages in the system so that
         //we can expire them from cache.
         ArrayList tempMessages = new ArrayList();
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(ALL_USER_MESSAGES);
             pstmt.setInt(1, user.getID());
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 tempMessages.add(new Integer(rs.getInt("messageID")));
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbProfileManager:deleteUser()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Now copy into an array.
         messages = new int[tempMessages.size()];
-        for (int i=0; i<messages.length; i++) {
-            messages[i] = ((Integer)tempMessages.get(i)).intValue();
+        for (int i = 0; i < messages.length; i++) {
+            messages[i] = ((Integer) tempMessages.get(i)).intValue();
         }
         con = null;
         pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             //mark all message by user as anonymous
             pstmt = con.prepareStatement(DELETE_USER_MESSAGES);
-            pstmt.setInt(1,userID);
+            pstmt.setInt(1, userID);
             pstmt.execute();
             pstmt.close();
             //remove all permissions given to user
             pstmt = con.prepareStatement(DELETE_USER_PERMS);
-            pstmt.setInt(1,userID);
+            pstmt.setInt(1, userID);
             pstmt.execute();
             pstmt.close();
             //delete all of the users's extended properties
             pstmt = con.prepareStatement(DELETE_USER_PROPS);
-            pstmt.setInt(1,userID);
+            pstmt.setInt(1, userID);
             pstmt.execute();
             pstmt.close();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Finally, expire all relevant caches
         //all of users's messages
-        for (int i=0; i<messages.length; i++) {
+        for (int i = 0; i < messages.length; i++) {
             factory.messageCache.remove(messages[i]);
         }
         //user cache
         userIDMap.remove(user.getUsername());
         userCache.remove(userID);
     }
+
     /**
      * Returns the numer of users in the system.
      */
@@ -263,36 +280,43 @@ public class DbProfileManager implements ProfileManager {
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(USER_COUNT);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 count = rs.getInt(1);
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return count;
     }
+
     /**
      * Returns an iterator for all users.
      */
     public Iterator users() {
         return new DbUserIterator(this);
     }
+
     /**
      * Returns an iterator for all users.
      */
     public Iterator users(int startIndex, int numResults) {
         return new DbUserIterator(this, startIndex, numResults);
     }
+
     /**
      * Returns the number of messages a user has posted in a particular forum.
      */
@@ -301,7 +325,7 @@ public class DbProfileManager implements ProfileManager {
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(USER_MESSAGE_COUNT);
             pstmt.setInt(1, user.getID());
             pstmt.setInt(2, forum.getID());
@@ -309,18 +333,23 @@ public class DbProfileManager implements ProfileManager {
             if (rs.next()) {
                 count = rs.getInt(1);
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return count;
     }
+
     /**
      * Returns an iterator for all the messages that a user posted in a
      * particular forum.

@@ -1,8 +1,8 @@
 package com.topcoder.web.ejb.session;
 
-import java.sql.Timestamp;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import java.sql.Timestamp;
 
 /**
  * The interface for the Session EJB.
@@ -39,7 +39,7 @@ public interface Session extends EJBObject {
      */
     public void setJobId(long sessionId, long jobId)
             throws RemoteException;
-    
+
     /**
      *
      * @param sessionId
@@ -47,6 +47,7 @@ public interface Session extends EJBObject {
      */
     public long getJobId(long sessionId)
             throws RemoteException;
+
     /**
      *
      * @param sessionId

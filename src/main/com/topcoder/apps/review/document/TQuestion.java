@@ -1,14 +1,14 @@
 /*
  * TQuestion.java
  *
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2004, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
 
 /**
  * Represents a ScorecardQuestionTemplate for scorecard editing.
- * 
+ *
  * @author FatClimber
  */
 public class TQuestion {
@@ -57,7 +57,7 @@ public class TQuestion {
         this.questionType = questionType;
         this.templateId = templateId;
     }
-    
+
     /**
      * @return Returns the projectType.
      */

@@ -1,12 +1,13 @@
 package com.topcoder.shared.util;
 
 //import com.topcoder.web.common.BaseProcessor;
+
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.sql.DataSource;
-import javax.naming.NamingException;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+import javax.sql.DataSource;
 import java.io.*;
 import java.sql.*;
 
@@ -20,7 +21,7 @@ import java.sql.*;
 public class DBMS {
 
     private static final TCResourceBundle bundle = new TCResourceBundle("DBMS");
-     private static Logger log = Logger.getLogger(DBMS.class);
+    private static Logger log = Logger.getLogger(DBMS.class);
 
     public static final int INFORMIX = getIntProperty("INFORMIX", 1);
     public static int DB = getIntProperty("DB", INFORMIX);
@@ -40,7 +41,6 @@ public class DBMS {
     public final static String HS_JTS_OLTP_DATASOURCE_NAME = getProperty("HS_JTS_OLTP_DATASOURCE_NAME", "JTS_HS_OLTP");
     public final static String TCS_OLTP_DATASOURCE_NAME = getProperty("TCS_OLTP_DATASOURCE_NAME", "TCS_CATALOG");
     public final static String TCS_DW_DATASOURCE_NAME = getProperty("TCS_DW_DATASOURCE_NAME", "TCS_DW");
-
 
 
     public final static String JDBC_DRIVER = getProperty("JDBC_DRIVER", "weblogic.jdbc.jts.Driver");
@@ -129,7 +129,7 @@ public class DBMS {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
         } finally {
-            if (ctx!=null) {
+            if (ctx != null) {
                 try {
                     ctx.close();
                 } catch (NamingException ne) {
@@ -155,7 +155,7 @@ public class DBMS {
         DataSource ds = null;
         try {
             ds = (DataSource) PortableRemoteObject.narrow(
-                    context.lookup(dataSourceName),DataSource.class);
+                    context.lookup(dataSourceName), DataSource.class);
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());

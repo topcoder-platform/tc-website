@@ -3,14 +3,11 @@
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.AbstractScorecard;
-import com.topcoder.apps.review.document.ScorecardQuestion;
-import com.topcoder.apps.review.document.ScorecardSection;
-import com.topcoder.apps.review.document.SubjectiveScorecardQuestion;
-import com.topcoder.apps.review.document.TestCaseScorecardQuestion;
+import com.topcoder.apps.review.document.*;
 import com.topcoder.math.matrix.LineItem;
 import com.topcoder.math.matrix.MathMatrix;
 import com.topcoder.math.matrix.Section;
+
 import java.util.HashMap;
 
 /**
@@ -65,8 +62,8 @@ public class ScoringHelper {
         HashMap sections = new HashMap(); // maps scorecard sections to math matrix sections
         for (int i = 0; i < questions.length; i++) {
             if ((questions[i] instanceof SubjectiveScorecardQuestion
-                     || questions[i] instanceof TestCaseScorecardQuestion)
-                     && 0 < questions[i].getScorecardSection().getWeight()) {
+                    || questions[i] instanceof TestCaseScorecardQuestion)
+                    && 0 < questions[i].getScorecardSection().getWeight()) {
 
                 // get the math matrix section for the scorecard section or create a new one
                 ScorecardSection scorecardSection = questions[i].getScorecardSection();
@@ -93,10 +90,10 @@ public class ScoringHelper {
                 double sumWeights = ((Double) sectionSums.get(scorecardSection)).doubleValue();
                 if (sumWeights < EPS) {
                     throw new ArithmeticException("Invalid scorecard, sum of question weights in section '"
-                                                  + scorecardSection.getName() + "' is 0");
+                            + scorecardSection.getName() + "' is 0");
                 }
                 section.addItem(new LineItem(
-                    questions[i].getQuestionText(), questions[i].getWeight() / sumWeights, max, score));
+                        questions[i].getQuestionText(), questions[i].getWeight() / sumWeights, max, score));
             }
         }
         return mathMatrix;

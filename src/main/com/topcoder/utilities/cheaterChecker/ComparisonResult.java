@@ -39,7 +39,7 @@ public class ComparisonResult implements Result {
     }
 
     public int compareTo(Object o) {
-        Result other = (Result)o;
+        Result other = (Result) o;
         return new Double(value).compareTo(new Double(other.getValue()));
     }
 

@@ -105,13 +105,17 @@
 /*****************************************************************************/
 package com.topcoder.utilities.graph;
 
-import java.lang.*;
-import java.util.*;
-import java.io.*;
 import java.awt.*;
-import java.awt.font.*;
-import java.awt.geom.*;
-import java.awt.image.*;
+import java.awt.font.TextLayout;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBuffer;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.StringTokenizer;
 
 /*****************************************************************************/
 public class HistoryPlot

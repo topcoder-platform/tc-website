@@ -1,12 +1,12 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.*;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.note.Note;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.note.Note;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 /**
  * User: dok
@@ -17,7 +17,7 @@ public class EditNote extends Base {
     protected void businessProcessing() throws TCWebException {
         String userId = getRequest().getParameter(Constants.USER_ID);
 
-        if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+        if (!((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         if (StringUtils.checkNull(userId).equals("")) {
             throw new NavigationException("Request missing user id");
@@ -27,8 +27,8 @@ public class EditNote extends Base {
 
         try {
 
-            Note note = (Note)createEJB(getInitialContext(), Note.class);
-            User user = (User)createEJB(getInitialContext(), User.class);
+            Note note = (Note) createEJB(getInitialContext(), Note.class);
+            User user = (User) createEJB(getInitialContext(), User.class);
 
             getRequest().setAttribute(Constants.HANDLE,
                     user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));

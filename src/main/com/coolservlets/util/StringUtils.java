@@ -56,9 +56,12 @@
 
 package com.coolservlets.util;
 
-import java.security.*;
-import java.text.*;
-import java.util.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * Utility class to peform common String manipulation algorithms.
@@ -80,19 +83,18 @@ public class StringUtils {
      *
      * @return a String will all instances of oldString replaced by newString
      */
-    public static final String replace( String line, String oldString, String newString )
-    {
-        int i=0;
-        if ( ( i=line.indexOf( oldString, i ) ) >= 0 ) {
-            char [] line2 = line.toCharArray();
-	        char [] newString2 = newString.toCharArray();
+    public static final String replace(String line, String oldString, String newString) {
+        int i = 0;
+        if ((i = line.indexOf(oldString, i)) >= 0) {
+            char[] line2 = line.toCharArray();
+            char[] newString2 = newString.toCharArray();
             int oLength = oldString.length();
             StringBuffer buf = new StringBuffer(line2.length);
             buf.append(line2, 0, i).append(newString2);
             i += oLength;
             int j = i;
-            while( ( i=line.indexOf( oldString, i ) ) > 0 ) {
-                buf.append(line2, j, i-j).append(newString2);
+            while ((i = line.indexOf(oldString, i)) > 0) {
+                buf.append(line2, j, i - j).append(newString2);
                 i += oLength;
                 j = i;
             }
@@ -102,36 +104,35 @@ public class StringUtils {
         return line;
     }
 
-   /**
-    * Replaces all instances of oldString with newString in line.
-    * The count Integer is updated with number of replaces.
-    *
-    * @param line the String to search to perform replacements on
-    * @param oldString the String that should be replaced by newString
-    * @param newString the String that will replace all instances of oldString
-    *
-    * @return a String will all instances of oldString replaced by newString
-    */
-    public static final String replace( String line, String oldString,
-            String newString, int[] count)
-    {
+    /**
+     * Replaces all instances of oldString with newString in line.
+     * The count Integer is updated with number of replaces.
+     *
+     * @param line the String to search to perform replacements on
+     * @param oldString the String that should be replaced by newString
+     * @param newString the String that will replace all instances of oldString
+     *
+     * @return a String will all instances of oldString replaced by newString
+     */
+    public static final String replace(String line, String oldString,
+                                       String newString, int[] count) {
         if (line == null) {
             return null;
         }
-        int i=0;
-        if ( ( i=line.indexOf( oldString, i ) ) >= 0 ) {
+        int i = 0;
+        if ((i = line.indexOf(oldString, i)) >= 0) {
             int counter = 0;
             counter++;
-            char [] line2 = line.toCharArray();
-	        char [] newString2 = newString.toCharArray();
+            char[] line2 = line.toCharArray();
+            char[] newString2 = newString.toCharArray();
             int oLength = oldString.length();
             StringBuffer buf = new StringBuffer(line2.length);
             buf.append(line2, 0, i).append(newString2);
             i += oLength;
             int j = i;
-            while( ( i=line.indexOf( oldString, i ) ) > 0 ) {
+            while ((i = line.indexOf(oldString, i)) > 0) {
                 counter++;
-                buf.append(line2, j, i-j).append(newString2);
+                buf.append(line2, j, i - j).append(newString2);
                 i += oLength;
                 j = i;
             }
@@ -154,26 +155,24 @@ public class StringUtils {
      * @return the input string with the characters '&lt;' and '&gt;' replaced
      *  with their HTML escape sequences.
      */
-    public static final String escapeHTMLTags( String input ) {
+    public static final String escapeHTMLTags(String input) {
         //Check if the string is null or zero length -- if so, return
         //what was sent in.
-        if( input == null || input.length() == 0 ) {
+        if (input == null || input.length() == 0) {
             return input;
         }
         //Use a StringBuffer in lieu of String concatenation -- it is
         //much more efficient this way.
         StringBuffer buf = new StringBuffer(input.length());
         char ch = ' ';
-        for( int i=0; i<input.length(); i++ ) {
+        for (int i = 0; i < input.length(); i++) {
             ch = input.charAt(i);
-            if( ch == '<' ) {
-                buf.append( LT );
-            }
-            else if( ch == '>' ) {
-                buf.append( GT );
-            }
-            else {
-                buf.append( ch );
+            if (ch == '<') {
+                buf.append(LT);
+            } else if (ch == '>') {
+                buf.append(GT);
+            } else {
+                buf.append(ch);
             }
         }
         return buf.toString();
@@ -212,10 +211,9 @@ public class StringUtils {
         if (digest == null) {
             try {
                 digest = MessageDigest.getInstance("MD5");
-            }
-            catch (NoSuchAlgorithmException nsae) {
+            } catch (NoSuchAlgorithmException nsae) {
                 System.err.println("Failed to load the MD5 MessageDigest. " +
-                "Jive will be unable to function normally.");
+                        "Jive will be unable to function normally.");
                 nsae.printStackTrace();
             }
         }
@@ -235,7 +233,7 @@ public class StringUtils {
      * @param hash an rray of bytes to convert to a hex-string
      * @return generated hex string
      */
-    public static final String toHex (byte hash[]) {
+    public static final String toHex(byte hash[]) {
         StringBuffer buf = new StringBuffer(hash.length * 2);
         int i;
 
@@ -258,13 +256,13 @@ public class StringUtils {
      * @param text a String of text to convert into an array of words
      * @return text broken up into an array of words.
      */
-    public static final String [] toLowerCaseWordArray(String text) {
+    public static final String[] toLowerCaseWordArray(String text) {
         if (text == null || text.length() == 0) {
-    		return new String[0];
+            return new String[0];
         }
         StringTokenizer tokens = new StringTokenizer(text, " ,\r\n.:/\\+");
-        String [] words = new String[tokens.countTokens()];
-        for (int i=0; i<words.length; i++) {
+        String[] words = new String[tokens.countTokens()];
+        for (int i = 0; i < words.length; i++) {
             words[i] = tokens.nextToken().toLowerCase();
         }
         return words;
@@ -275,7 +273,7 @@ public class StringUtils {
      * often want to filter out these words since they just confuse searches.
      * The list was not created scientifically so may be incomplete :)
      */
-    private static final String [] commonWords =  new String [] {
+    private static final String[] commonWords = new String[]{
         "a", "and", "as", "at", "be", "do", "i", "if", "in", "is", "it", "so",
         "the", "to"
     };
@@ -286,15 +284,15 @@ public class StringUtils {
      * removed. The specific words removed are: a, and, as, at, be, do, i, if,
      * in, is, it, so, the, to
      */
-    public static final String [] removeCommonWords(String [] words) {
+    public static final String[] removeCommonWords(String[] words) {
         //See if common words map has been initialized. We don't statically
         //initialize it to save some memory. Even though this a small savings,
         //it adds up with hundreds of classes being loaded.
         if (commonWordsMap == null) {
-            synchronized(initLock) {
+            synchronized (initLock) {
                 if (commonWordsMap == null) {
                     commonWordsMap = new HashMap();
-                    for (int i=0; i<commonWords.length; i++) {
+                    for (int i = 0; i < commonWords.length; i++) {
                         commonWordsMap.put(commonWords[i], commonWords[i]);
                     }
                 }
@@ -302,11 +300,11 @@ public class StringUtils {
         }
         //Now, add all words that aren't in the common map to results
         ArrayList results = new ArrayList(words.length);
-        for (int i=0; i<words.length; i++) {
+        for (int i = 0; i < words.length; i++) {
             if (!commonWordsMap.containsKey(words[i])) {
                 results.add(words[i]);
             }
         }
-        return (String[])results.toArray(new String[results.size()]);
+        return (String[]) results.toArray(new String[results.size()]);
     }
 }

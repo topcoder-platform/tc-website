@@ -54,13 +54,18 @@
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
 package com.coolservlets.forum.database;
-import com.coolservlets.forum.*;
+
+import com.coolservlets.forum.Authorization;
+
 import java.io.Serializable;
+
 public final class DbAuthorization implements Authorization, Serializable {
     private int userID;
+
     protected DbAuthorization(int userID) {
         this.userID = userID;
     }
+
     /**
      * Returns the userID associated with this Authorization.
      */

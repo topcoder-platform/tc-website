@@ -1,7 +1,9 @@
 package com.topcoder.common.web.render;
 
 import com.topcoder.shared.language.Language;
-import com.topcoder.shared.problem.*;
+import com.topcoder.shared.problem.Element;
+import com.topcoder.shared.problem.ElementRenderer;
+import com.topcoder.shared.problem.WebService;
 
 /**
  * Handles the display of a <code>com.topcoder.shared.problem.WebServiceRenderer</code>

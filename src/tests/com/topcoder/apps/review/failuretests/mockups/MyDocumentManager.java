@@ -1,7 +1,7 @@
 /*
  * MyDocumentManager.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -107,86 +107,86 @@ public class MyDocumentManager extends EJBBase implements DocumentManagerLocal {
         incorrectProjectStateException = null;
     }
 
-    public ScreeningScorecard[] getScreeningScorecard(Project project, 
+    public ScreeningScorecard[] getScreeningScorecard(Project project,
                                                       TCSubject requestor) {
         return screeningScorecards;
     }
 
-    public void saveScreeningScorecard(ScreeningScorecard scorecard, 
-                                        TCSubject requestor)
-                                        throws InvalidEditException,
-                                        DocumentAlreadySubmittedException,
-                                        IncorrectProjectStateException {
+    public void saveScreeningScorecard(ScreeningScorecard scorecard,
+                                       TCSubject requestor)
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException {
     }
 
-    public ReviewScorecard getReviewScorecard(Project project, 
-            long reviewerId, long submitterId, TCSubject requestor) {
+    public ReviewScorecard getReviewScorecard(Project project,
+                                              long reviewerId, long submitterId, TCSubject requestor) {
         return reviewScorecard;
-    }    
+    }
 
-    public ReviewScorecard[] getReviewScorecard(Project project, 
+    public ReviewScorecard[] getReviewScorecard(Project project,
                                                 TCSubject requestor) {
         return reviewScorecards;
     }
 
     public void saveReviewScorecard(ReviewScorecard scorecard, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException {
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException {
     }
 
-    public TestCaseReview[] getTestCaseReview(Project project, 
+    public TestCaseReview[] getTestCaseReview(Project project,
                                               TCSubject requestor) {
         return testCaseReviews;
     }
 
     public void saveTestCaseReview(TestCaseReview tcReview, TCSubject requestor)
-        throws InvalidEditException, 
-               DocumentAlreadySubmittedException, 
-               IncorrectProjectStateException {
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException {
     }
 
-    public InitialSubmission[] getInitialSubmissions(Project project, 
+    public InitialSubmission[] getInitialSubmissions(Project project,
                                                      TCSubject requestor) {
         return initialSubmissions;
     }
 
-    public void saveInitialSubmission(InitialSubmission submission, 
+    public void saveInitialSubmission(InitialSubmission submission,
                                       TCSubject requestor)
-                                      throws InvalidEditException,
-                                      IncorrectProjectStateException {
+            throws InvalidEditException,
+            IncorrectProjectStateException {
     }
 
-    public AggregationWorksheet getAggregation(Project project, 
+    public AggregationWorksheet getAggregation(Project project,
                                                TCSubject requestor) {
         return aggregationWorksheet;
     }
 
     public void saveAggregation(AggregationWorksheet worksheet, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException {
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException {
     }
 
-    public FinalFixSubmission getFinalFixSubmission(Project project, 
+    public FinalFixSubmission getFinalFixSubmission(Project project,
                                                     TCSubject requestor) {
         return finalFixSubmission;
     }
 
     public void saveFinalFixSubmission(FinalFixSubmission submission, TCSubject requestor)
-        throws InvalidEditException,
-               IncorrectProjectStateException {
+            throws InvalidEditException,
+            IncorrectProjectStateException {
     }
 
-    public AggregationReview[] getAggregationReview(Project project, 
+    public AggregationReview[] getAggregationReview(Project project,
                                                     TCSubject requestor) {
         return aggregationReviews;
     }
 
     public void saveAggregationReview(AggregationReview aggReview, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException {
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException {
     }
 
     public FinalReview getFinalReview(Project project, TCSubject requestor) {
@@ -194,8 +194,8 @@ public class MyDocumentManager extends EJBBase implements DocumentManagerLocal {
     }
 
     public void saveFinalReview(FinalReview finalReview, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException {
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException {
     }
 }

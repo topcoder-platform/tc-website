@@ -4,20 +4,18 @@ import com.topcoder.web.common.TCWebException;
 
 /**
  * Base exception for Screening Tool
- * 
+ *
  * @author Grimicus
  * @version 1.0
  */
-public class ScreeningException extends TCWebException
-{
+public class ScreeningException extends TCWebException {
     /**
      * Default Constructor
      */
-    public ScreeningException()
-    {
+    public ScreeningException() {
         super();
     }
-    
+
     /**
      * <p>
      * Constructor taking a string message
@@ -25,8 +23,7 @@ public class ScreeningException extends TCWebException
      *
      * @param message - the message of the exception
      */
-    public ScreeningException(String message)
-    {
+    public ScreeningException(String message) {
         super(message);
     }
 
@@ -37,8 +34,7 @@ public class ScreeningException extends TCWebException
      *
      * @param nestedException the nested exception
      */
-    public ScreeningException(Throwable nestedException)
-    {
+    public ScreeningException(Throwable nestedException) {
         super(nestedException);
     }
 
@@ -50,8 +46,7 @@ public class ScreeningException extends TCWebException
      * @param message the message of this exception
      * @param nestedException the nested exception
      */
-    public ScreeningException(String message, Throwable nestedException)
-    {
+    public ScreeningException(String message, Throwable nestedException) {
         super(message, nestedException);
     }
 }

@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,16 +29,16 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDEUserRoleHome localHome;
-    
+
     /* default field values for entity instances */
     static final int DEF_RATING = 1000;
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDEUserRoleHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDEUserRoleHome configured to run the named
@@ -45,7 +46,7 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
      */
     public TestLocalDDEUserRoleHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -60,7 +61,7 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDEUserRoleHome) ctx.lookup(
                     LocalDDEUserRoleHome.EJB_REF_NAME);
         }
@@ -70,10 +71,10 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
      * creates a LocalDDEUserRole entity with default parameters
      */
     LocalDDEUserRole createDefault(LocalDDEUserMaster master,
-            LocalDDECompVersions version, LocalDDERoles roles) throws Exception {
+                                   LocalDDECompVersions version, LocalDDERoles roles) throws Exception {
         return localHome.create(DEF_RATING, master, version, roles);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -106,7 +107,7 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
                             TestLocalDDEUserMasterHome masterHome
                                     = new TestLocalDDEUserMasterHome();
                             masterHome.setUp();
-                            localMaster= masterHome.createDefault();
+                            localMaster = masterHome.createDefault();
                             assertNotNull(localMaster);
                             try {
                                 synchronized (TestLocalDDERolesHome.class) {
@@ -121,8 +122,8 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
                                             /* test normal creation */
                                             LocalDDEUserRole local =
                                                     createDefault(localMaster,
-                                                                  localVersion,
-                                                                  localRoles);
+                                                            localVersion,
+                                                            localRoles);
                                             assertNotNull(local);
                                             try {
                                                 assertEquals(DEF_RATING,
@@ -158,11 +159,11 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
-    
+
 //    public void testFindByCompVersId() {
 //        fail("Test not yet implemented");
 //    }
@@ -181,11 +182,11 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
         Long roleId;
         Long loginId;
         int tcsRating;
-        
+
         DDEUserRoleData(Object id, Long version, Long role, Long login, int rate) {
             this(keyToLong(id), version, role, login, rate);
         }
-        
+
         DDEUserRoleData(long id, Long version, Long role, Long login, int rate) {
             userRoleId = id;
             compVersId = version;
@@ -193,11 +194,11 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
             loginId = login;
             tcsRating = rate;
         }
-        
+
         DDEUserRoleData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(userRoleId);
         }
@@ -220,22 +221,22 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
             }
             rs.updateInt("TCS_RATING", tcsRating);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("USER_ROLE_ID", userRoleId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             userRoleId = rs.getLong("USER_ROLE_ID");
             l = rs.getLong("COMP_VERS_ID");
             if (rs.wasNull()) {
@@ -257,24 +258,24 @@ public class TestLocalDDEUserRoleHome extends PersistenceTestCase {
             }
             tcsRating = rs.getInt("TCS_RATING");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDEUserRoleData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDEUserRoleData) ) {
+            if (!(o instanceof DDEUserRoleData)) {
                 return false;
             }
             DDEUserRoleData d = (DDEUserRoleData) o;
             return (
-                (userRoleId == d.userRoleId)
-                && objectsMatch(compVersId, d.compVersId)
-                && objectsMatch(roleId, d.roleId)
-                && objectsMatch(loginId, d.loginId)
-                && (tcsRating == d.tcsRating) );
+                    (userRoleId == d.userRoleId)
+                    && objectsMatch(compVersId, d.compVersId)
+                    && objectsMatch(roleId, d.roleId)
+                    && objectsMatch(loginId, d.loginId)
+                    && (tcsRating == d.tcsRating));
         }
-        
+
     }
 
 }

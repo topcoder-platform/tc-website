@@ -78,15 +78,14 @@ public class SimpleRegInfo extends Base {
         setCompanyId(info.getCompanyId());
         setEventId(info.getEventId());
         setPhoneNumber(info.getPhoneNumber());
-        
+
         setNew(info.isNew());
     }
 
-    public String getPhoneNumber()
-    {
+    public String getPhoneNumber() {
         return phonenumber;
     }
-    
+
     public long getUserId() {
         return userId;
     }
@@ -94,7 +93,7 @@ public class SimpleRegInfo extends Base {
     public void setUserId(long userId) {
         this.userId = userId;
     }
-    
+
     public void setPhoneNumber(String number) {
         this.phonenumber = number;
     }

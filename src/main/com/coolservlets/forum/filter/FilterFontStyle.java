@@ -56,10 +56,13 @@
 
 package com.coolservlets.forum.filter;
 
-import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
-import java.util.*;
-import java.io.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
+import com.coolservlets.util.StringUtils;
+
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * A ForumMessageFilter that replaces [b][/b] and [i][/i] tags with their HTML
@@ -99,8 +102,7 @@ public class FilterFontStyle extends ForumMessageFilter implements Serializable 
      * @param propertyDescriptions the property descriptions for the filter.
      */
     public FilterFontStyle(ForumMessage message, Properties props,
-            Properties propDescriptions)
-    {
+                           Properties propDescriptions) {
         super(message);
         this.props = new Properties(props);
         this.propDescriptions = new Properties(propDescriptions);
@@ -112,7 +114,7 @@ public class FilterFontStyle extends ForumMessageFilter implements Serializable 
      *
      * @param message the ForumMessage to wrap the new filter around.
      */
-    public ForumMessageFilter clone(ForumMessage message){
+    public ForumMessageFilter clone(ForumMessage message) {
         return new FilterFontStyle(message, props, propDescriptions);
     }
 
@@ -181,7 +183,7 @@ public class FilterFontStyle extends ForumMessageFilter implements Serializable 
 
     /**
      * Sets a property of the filter. Each filter has a set number of
-     * properties that are determined by the filter author. 
+     * properties that are determined by the filter author.
      *
      * @param name the name of the property to set.
      * @param value the new value for the property.
@@ -190,8 +192,7 @@ public class FilterFontStyle extends ForumMessageFilter implements Serializable 
      *    exist.
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         if (props.getProperty(name) == null) {
             throw new IllegalArgumentException();
         }
@@ -210,42 +211,41 @@ public class FilterFontStyle extends ForumMessageFilter implements Serializable 
      * Creates properties and sets their descriptions.
      */
     private void initializeProperties() {
-        props.put("Bold","on");
-        props.put("Italics","on");
+        props.put("Bold", "on");
+        props.put("Italics", "on");
 
         propDescriptions.put(
-            "Bold", "Toggles translation of [b][/b] to HTML bold tags."
+                "Bold", "Toggles translation of [b][/b] to HTML bold tags."
         );
         propDescriptions.put(
-            "Italics", "Toggles translation of [i][/i] to HTML bold tags."
+                "Italics", "Toggles translation of [i][/i] to HTML bold tags."
         );
     }
-  
-   /**
-    * This method takes a string which may contain CoolServlets tags that
-    * the style of a font.  These will be converted to HTML tags.
-    *
-    * @param input The text to be converted.
-    * @return The input string with the CoolServlets tags [b] (indicating
-    * bold, and [i] (indicating italics) changed to the HTML tags <b> and
-    * <i>, respectively. In addition, the corresponding tags [/b] and [/i]
-    * will be changed to </b> and </i>
-    */
-    private String fontStyleToHTML( String input ) {
+
+    /**
+     * This method takes a string which may contain CoolServlets tags that
+     * the style of a font.  These will be converted to HTML tags.
+     *
+     * @param input The text to be converted.
+     * @return The input string with the CoolServlets tags [b] (indicating
+     * bold, and [i] (indicating italics) changed to the HTML tags <b> and
+     * <i>, respectively. In addition, the corresponding tags [/b] and [/i]
+     * will be changed to </b> and </i>
+     */
+    private String fontStyleToHTML(String input) {
         // Check if the string is null or zero length -- if so, return what was sent in.
-        if( input == null || input.length() == 0 ) {
+        if (input == null || input.length() == 0) {
             return input;
-        }
-        else {
+        } else {
             // Create int [] objects to determine if all bold and italic
             // tags have been closed
-            int [] boldStartCount = new int[1];
-            int [] italicsStartCount = new int[1];
-            int [] boldEndCount = new int[1];
-            int [] italicsEndCount = new int[1];
+            int[] boldStartCount = new int[1];
+            int[] italicsStartCount = new int[1];
+            int[] boldEndCount = new int[1];
+            int[] italicsEndCount = new int[1];
             if (props.getProperty("Bold").equals("on")) {
-                input = StringUtils.replace( input, "[b]", "<b>", boldStartCount );
-                input = StringUtils.replace( input, "[/b]", "</b>", boldEndCount );
+                input = StringUtils.replace(input, "[b]", "<b>", boldStartCount);
+                input = StringUtils.replace(input, "[/b]", "</b>", boldEndCount);
                 int bStartCount = boldStartCount[0];
                 int bEndCount = boldEndCount[0];
                 while (bStartCount > bEndCount) {
@@ -254,8 +254,8 @@ public class FilterFontStyle extends ForumMessageFilter implements Serializable 
                 }
             }
             if (props.getProperty("Italics").equals("on")) {
-                input = StringUtils.replace( input, "[i]", "<i>", italicsStartCount );
-                input = StringUtils.replace( input, "[/i]", "</i>", italicsEndCount );
+                input = StringUtils.replace(input, "[i]", "<i>", italicsStartCount);
+                input = StringUtils.replace(input, "[/i]", "</i>", italicsEndCount);
                 int iStartCount = italicsStartCount[0];
                 int iEndCount = italicsEndCount[0];
                 while (iStartCount > iEndCount) {

@@ -1,17 +1,17 @@
 package com.topcoder.web.tc.controller.request.util;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 import javax.naming.InitialContext;
 import java.util.Calendar;
@@ -35,7 +35,7 @@ public class TCCC04TermsAgree extends Base {
                 } else if (now.before(beginning)) {
                     throw new NavigationException("The registration period for the TCCC has not yet begun.");
                 } else {
-                    UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
+                    UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
                     if (!isRegistered(getUser().getId())) {
                         if (isEligible(getUser().getId())) {
                             log.info("registering " + getUser().getId() + " for the tccc04");
@@ -61,8 +61,8 @@ public class TCCC04TermsAgree extends Base {
         Request r = new Request();
         r.setContentHandle("tccc04_eligibility");
         r.setProperty("cr", String.valueOf(userId));
-        ResultSetContainer rsc = (ResultSetContainer)new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("tccc04_eligibility");
-        log.debug("they " + (rsc.isEmpty()?"are not":"are") + " eligible");
+        ResultSetContainer rsc = (ResultSetContainer) new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("tccc04_eligibility");
+        log.debug("they " + (rsc.isEmpty() ? "are not" : "are") + " eligible");
         return !rsc.isEmpty();
     }
 
@@ -71,9 +71,9 @@ public class TCCC04TermsAgree extends Base {
         boolean ret = false;
         try {
             ctx = TCContext.getInitial();
-            UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(ctx, UserTermsOfUse.class);
+            UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(ctx, UserTermsOfUse.class);
             ret = userTerms.hasTermsOfUse(userId, Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
-            log.debug("they " + (ret?"are":"are not") + " registered");
+            log.debug("they " + (ret ? "are" : "are not") + " registered");
         } finally {
             close(ctx);
         }

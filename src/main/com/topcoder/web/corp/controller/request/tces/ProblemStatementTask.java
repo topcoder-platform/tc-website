@@ -6,7 +6,7 @@
 
 package com.topcoder.web.corp.controller.request.tces;
 
-import com.topcoder.web.common.render.ProblemRenderer;
+import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.CStyleLanguage;
@@ -14,10 +14,8 @@ import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.common.TCESAuthenticationException;
+import com.topcoder.web.common.render.ProblemRenderer;
 import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
-import com.topcoder.security.NotAuthorizedException;
 
 import java.io.Serializable;
 import java.io.StringReader;

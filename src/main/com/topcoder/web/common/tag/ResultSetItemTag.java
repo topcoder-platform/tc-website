@@ -3,15 +3,13 @@ package com.topcoder.web.common.tag;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.TagSupport;
-import java.io.IOException;
 
 public class ResultSetItemTag extends FormatTag {
 
     private ResultSetContainer.ResultSetRow row;
     private ResultSetContainer set;
     private String name;
-    private int rowIndex=0;   //default to the first row
+    private int rowIndex = 0;   //default to the first row
 
     public void setRow(ResultSetContainer.ResultSetRow row) {
         this.row = row;
@@ -30,7 +28,7 @@ public class ResultSetItemTag extends FormatTag {
     }
 
     public int doStartTag() throws JspException {
-        if (row==null) {
+        if (row == null) {
             setObject(set.getItem(rowIndex, name).getResultData());
         } else {
             setObject(row.getItem(name).getResultData());
@@ -45,9 +43,9 @@ public class ResultSetItemTag extends FormatTag {
      */
     public int doEndTag() throws JspException {
         this.row = null;
-        this.set= null;
-        this.name  =null;
-        this.rowIndex=0;
+        this.set = null;
+        this.name = null;
+        this.rowIndex = 0;
         return super.doEndTag();
 
     }

@@ -2,11 +2,11 @@ package com.topcoder.dde.submission;
 
 import com.topcoder.util.idgenerator.bean.IdGenException;
 
-import javax.ejb.EJBObject;
 import javax.ejb.CreateException;
+import javax.ejb.EJBObject;
 import javax.naming.NamingException;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
@@ -26,6 +26,8 @@ public interface Submissions extends EJBObject, Serializable {
      * @return the primary key id of the submission
      */
     public long submit(long submitter_id, InputStream submission, String comment) throws IOException, SQLException, NamingException, CreateException, IdGenException, RemoteException;
+
     public Submission getSubmission(long submission_id) throws RemoteException, SQLException, SubmissionDoesNotExistException, NamingException;
+
     public Submission[] getSubmissions(long submitter_id) throws RemoteException, SQLException, NamingException;
 }

@@ -1,12 +1,12 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  * @author  dok
@@ -20,7 +20,7 @@ public class GeneratePayments extends BaseProcessor implements PactsConstants {
         try {
             setNextPage(INTERNAL_GENERATE_PAYMENTS);
             setIsNextPageInContext(true);
-            if (getRequest().getParameter(ROUND_ID)!=null) {
+            if (getRequest().getParameter(ROUND_ID) != null) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int count = 0;
                 if (StringUtils.checkNull(getRequest().getParameter(AFFIDAVIT_TYPE_ID)).trim().equals("")) {

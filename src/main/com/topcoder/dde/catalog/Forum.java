@@ -56,8 +56,8 @@ public class Forum implements java.io.Serializable {
          */
         this.startDate = (Date) startDate.clone();
         this.closeDate = (closeDate == null)
-            ? null
-            : (Date) closeDate.clone();
+                ? null
+                : (Date) closeDate.clone();
 
         this.status = status;
         this.version = version;
@@ -91,11 +91,11 @@ public class Forum implements java.io.Serializable {
      */
     public Date getCloseDate() {
         return (closeDate == null)
-            ? null
-            : (Date) closeDate.clone();
+                ? null
+                : (Date) closeDate.clone();
     }
 
-   /**
+    /**
      * Returns the status of this component discussion forum.
      *
      * @return the status of this forum
@@ -140,14 +140,13 @@ public class Forum implements java.io.Serializable {
         boolean closeDatesEqual;
         if (closeDate != null && other.closeDate != null) {
             closeDatesEqual = closeDate.equals(other.closeDate);
-        }
-        else
+        } else
             closeDatesEqual = (closeDate == null && other.closeDate == null);
         return getId() == other.getId()
-            && startDate.equals(other.startDate)
-            && closeDatesEqual && getStatus() == other.getStatus()
-            && getVersion() == other.getVersion()
-            && getVersionLabel().equals(other.getVersionLabel());
+                && startDate.equals(other.startDate)
+                && closeDatesEqual && getStatus() == other.getStatus()
+                && getVersion() == other.getVersion()
+                && getVersionLabel().equals(other.getVersionLabel());
     }
 
     /**

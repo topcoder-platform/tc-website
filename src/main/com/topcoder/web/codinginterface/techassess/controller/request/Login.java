@@ -1,12 +1,12 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningLoginResponse;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.common.NavigationException;
 
 /**
  * User: dok
@@ -51,7 +51,7 @@ public class Login extends Base {
 
                 showProcessingPage();
 
-                ScreeningLoginResponse response = (ScreeningLoginResponse)receive(5000);
+                ScreeningLoginResponse response = (ScreeningLoginResponse) receive(5000);
 
 
                 if (response.isSuccess()) {
@@ -69,7 +69,7 @@ public class Login extends Base {
                  * should go to which browser without the message id.
                  */
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
+                        new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
 
             }
         } else {

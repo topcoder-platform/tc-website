@@ -1,11 +1,12 @@
 /*
  * MyProject.java 1.0 7/2/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
 import java.net.URL;
+
 import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.projecttracker.Phase;
 import com.topcoder.apps.review.projecttracker.Project;
@@ -25,32 +26,32 @@ public class MyProject extends Project {
      * <p>Count of projects created, used for id's.</p>
      */
     private static long count = 0;
-    
+
     /**
      * <p>The project manager.</p>
      */
     private static User projectManager = new User(
-        -1, "kolanovic", "Chris","Kolanovic","ckolanovic@yahoo.com") {
+            -1, "kolanovic", "Chris", "Kolanovic", "ckolanovic@yahoo.com") {
         public long getId() {
-            return(-1);
+            return (-1);
         }
-        
+
         public String getHandle() {
-            return("kolanovic");
+            return ("kolanovic");
         }
-        
+
         public String getFirstName() {
-            return("Chris");
+            return ("Chris");
         }
-        
+
         public String getLastName() {
-            return("Kolanovic");
+            return ("Kolanovic");
         }
-        
+
         public String getEmail() {
-            return("ckolanovic@yahoo.com");
+            return ("ckolanovic@yahoo.com");
         }
-    };        
+    };
 
     /**
      * <p>The id of this project</p>
@@ -61,12 +62,12 @@ public class MyProject extends Project {
      * <p>The name of this project</p>
      */
     private String name;
-    
+
     /**
      * <p>The current phase of this project.</p>
      */
     private Phase currentPhase = null;
-    
+
     /**
      * <p>Constructs a new instance of MyProject with the
      * given project name and registers this project with
@@ -75,37 +76,37 @@ public class MyProject extends Project {
      * @param name the name of this project
      */
     public MyProject(String name) {
-        super(0,0,name,"", null, null,
-              null, null, null, null, null,
-              null, null, false,0,0);
-        this.id = count ++;
+        super(0, 0, name, "", null, null,
+                null, null, null, null, null,
+                null, null, false, 0, 0);
+        this.id = count++;
         this.name = name;
         MyProjectTracker.addProject(this);
     }
-    
+
     //Project methods
-    
+
     public PhaseInstance[] getTimeline() {
-        return(new PhaseInstance[0]);
+        return (new PhaseInstance[0]);
     }
 
     public void setTimeline(PhaseInstance[] timeline) {
     }
 
     public User getProjectManager() {
-        return(projectManager);
+        return (projectManager);
     }
 
     public String getName() {
-        return(name);
+        return (name);
     }
 
     public String getVersion() {
-        return("1.0");
+        return ("1.0");
     }
 
     public Phase getCurrentPhase() {
-        return(currentPhase);
+        return (currentPhase);
     }
 
     public void setCurrentPhase(Phase phase) {
@@ -113,52 +114,52 @@ public class MyProject extends Project {
     }
 
     public User getWinner() {
-        return(null);
+        return (null);
     }
 
     public void setWinner(User submitter) {
     }
 
     public URL getProjectInformationURL() {
-        return(null);
+        return (null);
     }
 
     public void setProjectInformationURL(URL url) {
     }
 
     public UserRole[] getParticipants() {
-        return(new UserRole[0]);
+        return (new UserRole[0]);
     }
 
     public void setParticipants(UserRole[] participants) {
     }
 
     public long getId() {
-        return(id);
+        return (id);
     }
 
     public ProjectType getProjectType() {
-        return(null);
+        return (null);
     }
 
     public void setProjectType(ProjectType type) {
     }
 
     public boolean isNotificationSent() {
-        return(false);
+        return (false);
     }
 
     public void setNotificationSent(boolean b) {
     }
 
     public String getNotes() {
-        return(null);
+        return (null);
     }
 
     public void setNotes(String notes) {
     }
-    
+
     public String getOverview() {
-        return(null);
+        return (null);
     }
 }

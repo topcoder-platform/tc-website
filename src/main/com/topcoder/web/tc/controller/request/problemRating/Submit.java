@@ -9,8 +9,6 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.problemrating.ProblemRatingServices;
 
-import javax.naming.InitialContext;
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;

@@ -55,11 +55,11 @@ public class Role implements Serializable {
     public Role(String name, String description) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for role name");
+                    "Null specified for role name");
         }
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for role description");
+                    "Null specified for role description");
         }
         this.name = name;
         this.description = description;
@@ -95,7 +95,7 @@ public class Role implements Serializable {
     public void setName(String name) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for role name");
+                    "Null specified for role name");
         }
         this.name = name;
     }
@@ -119,7 +119,7 @@ public class Role implements Serializable {
     public void setDescription(String description) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for role description");
+                    "Null specified for role description");
         }
         this.description = description;
     }
@@ -139,7 +139,7 @@ public class Role implements Serializable {
         }
         Role other = (Role) object;
         return getName().equals(other.getName())
-            && getDescription().equals(other.getDescription());
+                && getDescription().equals(other.getDescription());
     }
 
     /**
@@ -155,7 +155,7 @@ public class Role implements Serializable {
 
     public String toString() {
         return "Role " + getId() + " - " + getName()
-            + " (" + getDescription() + ")";
+                + " (" + getDescription() + ")";
     }
 
 

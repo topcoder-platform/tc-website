@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -98,7 +98,7 @@ class PhaseHelper {
      */
     static boolean canAggregate(Project project) {
         return (project.getCurrentPhase().getId() == Phase.ID_AGGREGATION) ||
-        	   (project.getCurrentPhase().getId() == Phase.ID_AGGREGATION_REVIEW);
+                (project.getCurrentPhase().getId() == Phase.ID_AGGREGATION_REVIEW);
     }
 
     /**
@@ -143,7 +143,7 @@ class PhaseHelper {
      */
     static boolean isClosed(UserProjectInfo projectInfo) {
         return projectInfo.getProjectStatus().getId() == ProjectStatus.ID_TERMINATED
-            || projectInfo.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED;
+                || projectInfo.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED;
     }
 
     /**

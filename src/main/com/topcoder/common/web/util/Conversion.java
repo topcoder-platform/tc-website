@@ -3,7 +3,10 @@ package com.topcoder.common.web.util;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.text.*;
+import java.text.DecimalFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 
 /**
  * Perform class Conversion with validation and error checking.

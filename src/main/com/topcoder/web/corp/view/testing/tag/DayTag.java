@@ -6,15 +6,14 @@ public class DayTag extends SelectTag {
         StringBuffer buffer = new StringBuffer();
 
         int selectedNum = -1;
-        if(selected != null) {
+        if (selected != null) {
             selectedNum = Integer.parseInt(selected);
         }
 
-        for(int i = 1; i <= 31; ++i) {
-            if(i == selectedNum) {
+        for (int i = 1; i <= 31; ++i) {
+            if (i == selectedNum) {
                 buffer.append("<option value=\"" + i + "\" SELECTED>" + i + "</option>\n");
-            }
-            else {
+            } else {
                 buffer.append("<option value=\"" + i + "\">" + i + "</option>\n");
             }
         }

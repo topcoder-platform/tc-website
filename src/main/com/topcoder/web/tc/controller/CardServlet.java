@@ -1,9 +1,6 @@
 package com.topcoder.web.tc.controller;
 
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.Resource;
 
 /**
  * Date: Jan 16, 2004

@@ -7,7 +7,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
-public class ResultSetItemTag extends TagSupport  {
+public class ResultSetItemTag extends TagSupport {
 
     private static Logger log = Logger.getLogger(ResultSetItemTag.class);
     private ResultSetContainer.ResultSetRow row;

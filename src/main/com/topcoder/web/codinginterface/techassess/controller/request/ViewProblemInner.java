@@ -27,17 +27,17 @@ public class ViewProblemInner extends Base {
                 loadSessionErrorsIntoRequest(messageId);
                 if (hasDefault(Constants.PROBLEM)) {
                     getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
-                    ProblemInfo problem = (ProblemInfo)getDefault(Constants.PROBLEM);
+                    ProblemInfo problem = (ProblemInfo) getDefault(Constants.PROBLEM);
                     getRequest().setAttribute(Constants.PROBLEM, problem);
                     setDefault(Constants.LANGUAGE_ID, String.valueOf(problem.getLanguage().getId()));
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_INNER);
                     setIsNextPageInContext(true);
-                //this logic is mostly for the case that they hit refresh
+                    //this logic is mostly for the case that they hit refresh
                 } else if (hasParameter(Constants.PROBLEM_TYPE_ID) && hasParameter(Constants.COMPONENT_ID)) {
                     setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
-                            new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
-                            new String[] {getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
-                                          getRequest().getParameter(Constants.COMPONENT_ID)}));
+                            new String[]{Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
+                            new String[]{getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
+                                         getRequest().getParameter(Constants.COMPONENT_ID)}));
                     setIsNextPageInContext(false);
 
                 }

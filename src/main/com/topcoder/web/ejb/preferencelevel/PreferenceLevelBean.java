@@ -7,10 +7,10 @@
  */
 package com.topcoder.web.ejb.preferencelevel;
 
-import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.corp.common.DuplicatePreferenceLevelException;
 import com.topcoder.web.corp.common.NoSuchPreferenceLevelException;
-import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 
@@ -75,9 +75,9 @@ public class PreferenceLevelBean extends BaseEJB {
             throw new DuplicatePreferenceLevelException("The preference level already exists", userId, companyId);
         }
 
-        String[] columnNames = new String[] {COMPANY_ID, USER_ID, LEVEL , USER_MODIFY_ID};
-        String[] columnValues = new String[] {String.valueOf(companyId), String.valueOf(userId),
-                                              String.valueOf(level), String.valueOf(modifyUserId)};
+        String[] columnNames = new String[]{COMPANY_ID, USER_ID, LEVEL, USER_MODIFY_ID};
+        String[] columnValues = new String[]{String.valueOf(companyId), String.valueOf(userId),
+                                             String.valueOf(level), String.valueOf(modifyUserId)};
 
         int numRowsInserted = insert(PREFERENCE_TABLE, columnNames, columnValues, dataSource);
 
@@ -106,15 +106,15 @@ public class PreferenceLevelBean extends BaseEJB {
      * @see    #createUserPreference(String, long, long, int, long)
      */
     public void update(String dataSource, long companyId, long userId, int level, long modifyUserId)
-            throws NoSuchPreferenceLevelException{
+            throws NoSuchPreferenceLevelException {
 
         // The columns to update
-        String[] columnsName = new String[] {LEVEL, USER_MODIFY_ID};
-        String[] columnsValue = new String[] {String.valueOf(level), String.valueOf(modifyUserId)};
+        String[] columnsName = new String[]{LEVEL, USER_MODIFY_ID};
+        String[] columnsValue = new String[]{String.valueOf(level), String.valueOf(modifyUserId)};
 
         // The columns used to locate the desired record
-        String[] constraintColumns = new String[] {COMPANY_ID, USER_ID};
-        String[] constraintValues = new String[] {String.valueOf(companyId), String.valueOf(userId)};
+        String[] constraintColumns = new String[]{COMPANY_ID, USER_ID};
+        String[] constraintValues = new String[]{String.valueOf(companyId), String.valueOf(userId)};
 
         int numRowsUpdated = update(PREFERENCE_TABLE, columnsName, columnsValue, constraintColumns,
                 constraintValues, dataSource);
@@ -140,13 +140,14 @@ public class PreferenceLevelBean extends BaseEJB {
     public int getLevel(String dataSource, long companyId, long userId) throws NoSuchPreferenceLevelException {
 
         // The columns to locate the desired record
-        String[] constraintColumns = new String[] {COMPANY_ID, USER_ID};
-        String[] constraintValues = new String[] {String.valueOf(companyId), String.valueOf(userId)};
+        String[] constraintColumns = new String[]{COMPANY_ID, USER_ID};
+        String[] constraintValues = new String[]{String.valueOf(companyId), String.valueOf(userId)};
 
         Integer level = null;
         try {
             level = selectInt(PREFERENCE_TABLE, LEVEL, constraintColumns, constraintValues, dataSource);
-        } catch(RowNotFoundException e) {}
+        } catch (RowNotFoundException e) {
+        }
 
         if (level == null) {
             throw new NoSuchPreferenceLevelException("No preference level has been specified", userId, companyId);
@@ -170,15 +171,16 @@ public class PreferenceLevelBean extends BaseEJB {
     public long getModifyUserId(String dataSource, long companyId, long userId) throws NoSuchPreferenceLevelException {
 
         // The columns to locate the desired record
-        String[] constraintColumns = new String[] {COMPANY_ID, USER_ID};
-        String[] constraintValues = new String[] {String.valueOf(companyId), String.valueOf(userId)};
+        String[] constraintColumns = new String[]{COMPANY_ID, USER_ID};
+        String[] constraintValues = new String[]{String.valueOf(companyId), String.valueOf(userId)};
 
         Long modifyUserId = null;
 
         try {
             modifyUserId = selectLong(PREFERENCE_TABLE, USER_MODIFY_ID, constraintColumns, constraintValues,
-                dataSource);
-        } catch(RowNotFoundException e) {}
+                    dataSource);
+        } catch (RowNotFoundException e) {
+        }
 
         if (modifyUserId == null) {
             throw new NoSuchPreferenceLevelException("No preference level has been specified", userId, companyId);
@@ -203,14 +205,15 @@ public class PreferenceLevelBean extends BaseEJB {
     public boolean exists(String dataSource, long companyId, long userId) {
 
         // The columns to locate the desired record
-        String[] constraintColumns = new String[] {COMPANY_ID, USER_ID};
-        String[] constraintValues = new String[] {String.valueOf(companyId), String.valueOf(userId)};
+        String[] constraintColumns = new String[]{COMPANY_ID, USER_ID};
+        String[] constraintValues = new String[]{String.valueOf(companyId), String.valueOf(userId)};
 
         Integer level = null;
 
         try {
             level = selectInt(PREFERENCE_TABLE, LEVEL, constraintColumns, constraintValues, dataSource);
-        } catch(RowNotFoundException e) {}
+        } catch (RowNotFoundException e) {
+        }
 
         return level != null;
     }

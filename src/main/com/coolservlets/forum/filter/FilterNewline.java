@@ -55,10 +55,12 @@
  */
 package com.coolservlets.forum.filter;
 
-import java.util.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
+import com.coolservlets.util.StringUtils;
 
-import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * A ForumMessageFilter that converts newline characters into HTML &lt;br&gt; tags.
@@ -98,8 +100,7 @@ public class FilterNewline extends ForumMessageFilter {
      * @param propertyDescriptions the property descriptions for the filter.
      */
     public FilterNewline(ForumMessage message, Properties props,
-            Properties propDescriptions)
-    {
+                         Properties propDescriptions) {
         super(message);
         this.props = new Properties(props);
         this.propDescriptions = new Properties(propDescriptions);
@@ -111,7 +112,7 @@ public class FilterNewline extends ForumMessageFilter {
      *
      * @param message the ForumMessage to wrap the new filter around.
      */
-    public ForumMessageFilter clone(ForumMessage message){
+    public ForumMessageFilter clone(ForumMessage message) {
         return new FilterNewline(message, props, propDescriptions);
     }
 
@@ -189,8 +190,7 @@ public class FilterNewline extends ForumMessageFilter {
      *    exist.
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         if (props.getProperty(name) == null) {
             throw new IllegalArgumentException();
         }
@@ -209,14 +209,14 @@ public class FilterNewline extends ForumMessageFilter {
     }
 
     /**
-    * This method takes a string which may contain newline characters
-    * '\n' which it converts to html newline tags.
-    *
-    * @param input The text to be converted.
-    * @return The input string with the newline character '\n' replaced
-    * with <br>.
-    */
-    private String convertNewlines( String input ) {
+     * This method takes a string which may contain newline characters
+     * '\n' which it converts to html newline tags.
+     *
+     * @param input The text to be converted.
+     * @return The input string with the newline character '\n' replaced
+     * with <br>.
+     */
+    private String convertNewlines(String input) {
         String result = StringUtils.replace(input, "\r\n", BR_TAG);
         return StringUtils.replace(result, "\n", BR_TAG);
     }

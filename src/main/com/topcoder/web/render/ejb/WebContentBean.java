@@ -7,9 +7,10 @@ import javax.ejb.SessionContext;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.sql.*;
-import java.sql.Date;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
 
 public class WebContentBean implements javax.ejb.SessionBean {
 

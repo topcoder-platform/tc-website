@@ -1,13 +1,11 @@
 package com.topcoder.web.corp.controller.request.tces;
 
 
+import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.corp.controller.request.tces.BaseTask;
-import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -212,17 +210,17 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = null;
-		if (super.getSessionInfo().isAdmin())
-			setCompanyName(TCESConstants.ADMIN_COMPANY);
-		else {
-			rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
+        if (super.getSessionInfo().isAdmin())
+            setCompanyName(TCESConstants.ADMIN_COMPANY);
+        else {
+            rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
             if (rsc.getRowCount() == 0) {
                 throw new Exception("No company name!");
             }
             ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
 
-			setCompanyName(cmpyNameRow.getItem("company_name").toString());
-		}
+            setCompanyName(cmpyNameRow.getItem("company_name").toString());
+        }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
         if (rsc.getRowCount() == 0) {

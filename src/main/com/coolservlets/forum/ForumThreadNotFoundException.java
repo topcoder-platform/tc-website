@@ -66,6 +66,6 @@ public class ForumThreadNotFoundException extends Exception {
     }
 
     public ForumThreadNotFoundException(String msg) {
-        super( msg );
+        super(msg);
     }
-} 
+}

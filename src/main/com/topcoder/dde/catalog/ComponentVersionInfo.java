@@ -49,7 +49,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
 
 
     ComponentVersionInfo(long versionId, long version, String versionLabel,
-            String comments, long phase, Date phaseDate, double price) {
+                         String comments, long phase, Date phaseDate, double price) {
         this.versionId = versionId;
         this.version = version;
         this.versionLabel = versionLabel;
@@ -58,7 +58,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
         this.phaseDate = (Date) phaseDate.clone();
         this.price = price;
     }
-    
+
     public boolean getPublicForum() {
         return publicForum;
     }
@@ -104,7 +104,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
     public void setVersionLabel(String versionLabel) {
         if (versionLabel == null) {
             throw new IllegalArgumentException(
-            "Null specified for version label");
+                    "Null specified for version label");
         }
         this.versionLabel = versionLabel;
     }
@@ -128,7 +128,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
     public void setComments(String comments) {
         if (comments == null) {
             throw new IllegalArgumentException(
-            "Null specified for component version comment");
+                    "Null specified for component version comment");
         }
         this.comments = comments;
     }
@@ -155,7 +155,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
             this.phase = phase;
         else
             throw new IllegalArgumentException(
-            "Invalid value specified for component version phase");
+                    "Invalid value specified for component version phase");
     }
 
     /**
@@ -178,7 +178,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
     public void setPhaseDate(Date phaseDate) {
         if (phaseDate == null) {
             throw new IllegalArgumentException(
-            "Null specified for phase date");
+                    "Null specified for phase date");
         }
         this.phaseDate = (Date) phaseDate.clone();
     }
@@ -202,11 +202,11 @@ public class ComponentVersionInfo implements java.io.Serializable {
     public void setPrice(double price) {
         if (price < 0.0) {
             throw new IllegalArgumentException(
-            "Negative number specified for price");
+                    "Negative number specified for price");
         }
         if (Double.isInfinite(price) || Double.isNaN(price)) {
             throw new IllegalArgumentException(
-            "Non-finite number specified for price");
+                    "Non-finite number specified for price");
         }
         this.price = price;
     }
@@ -227,12 +227,12 @@ public class ComponentVersionInfo implements java.io.Serializable {
         }
         ComponentVersionInfo other = (ComponentVersionInfo) object;
         return getVersionId() == other.getVersionId()
-            && getVersion() == other.getVersion()
-            && getVersionLabel().equals(other.getVersionLabel())
-            && getComments().equals(other.getComments())
-            && getPhase() == other.getPhase()
-            && phaseDate.equals(other.phaseDate)
-            && getPrice() == other.getPrice();
+                && getVersion() == other.getVersion()
+                && getVersionLabel().equals(other.getVersionLabel())
+                && getComments().equals(other.getComments())
+                && getPhase() == other.getPhase()
+                && phaseDate.equals(other.phaseDate)
+                && getPrice() == other.getPrice();
     }
 
     /**
@@ -252,15 +252,15 @@ public class ComponentVersionInfo implements java.io.Serializable {
 
     public static String getPhaseName(long phaseId) {
         if (phaseId == ComponentVersionInfo.COLLABORATION) {
-                return "Collaboration";
+            return "Collaboration";
         } else if (phaseId == ComponentVersionInfo.COMPLETED) {
-                return "Completed";
+            return "Completed";
         } else if (phaseId == ComponentVersionInfo.DEVELOPMENT) {
-                return "Development";
+            return "Development";
         } else if (phaseId == ComponentVersionInfo.SPECIFICATION) {
-                return "Specification";
+            return "Specification";
         } else {
-                return "Unknown Phase";
+            return "Unknown Phase";
         }
     }
 }

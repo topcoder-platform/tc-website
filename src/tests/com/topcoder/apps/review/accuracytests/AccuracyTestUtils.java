@@ -68,19 +68,19 @@ public class AccuracyTestUtils {
             if (!rs.next()) {
                 throw new IndexOutOfBoundsException("Not enough users");
             }
-	}
+        }
         for (int i = 0; i < count; i++) {
             if (!rs.next()) {
                 throw new IndexOutOfBoundsException("Not enough users");
             }
             users[i] = new UserImpl(rs.getString(1), rs.getString(3),
-                                    rs.getString(4), rs.getString(5),
-                                    rs.getString(6));
+                    rs.getString(4), rs.getString(5),
+                    rs.getString(6));
         }
 
         con.close();
 
-	return users;
+        return users;
     }
 
 }

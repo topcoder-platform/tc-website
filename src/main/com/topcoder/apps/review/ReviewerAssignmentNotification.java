@@ -1,27 +1,15 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
-import com.topcoder.apps.review.projecttracker.ProjectType;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.projecttracker.UserManagerLocal;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.UserRole;
+import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.security.TCSubject;
 import com.topcoder.util.scheduler.Job;
 import com.topcoder.util.scheduler.Schedulable;
 import com.topcoder.util.scheduler.Scheduler;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 /**
  * Utility class that handles sending the weekly email notifications for review assignments.
@@ -83,9 +71,9 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
 
             // add job
             scheduler.addJob(
-                new Job("weekly_notifications", startDate, null,
-                        1, Calendar.WEEK_OF_YEAR, Scheduler.JOB_TYPE_JAVA_CLASS,
-                        ReviewerAssignmentNotification.class.getName())
+                    new Job("weekly_notifications", startDate, null,
+                            1, Calendar.WEEK_OF_YEAR, Scheduler.JOB_TYPE_JAVA_CLASS,
+                            ReviewerAssignmentNotification.class.getName())
             );
 
             // start job
@@ -162,13 +150,13 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
 
             // send the mails
             MailHelper.weeklyAssignmentNotification(
-                   user,
-                   (User[]) designReviewers.toArray(new User[0]),
-                   (Project[]) designProjects.toArray(new Project[0]));
+                    user,
+                    (User[]) designReviewers.toArray(new User[0]),
+                    (Project[]) designProjects.toArray(new Project[0]));
             MailHelper.weeklyAssignmentNotification(
-                   user,
-                   (User[]) developmentReviewers.toArray(new User[0]),
-                   (Project[]) developmentProjects.toArray(new Project[0]));
+                    user,
+                    (User[]) developmentReviewers.toArray(new User[0]),
+                    (Project[]) developmentProjects.toArray(new Project[0]));
 
             // set notification flags to true
             for (Iterator it = designProjects.iterator(); it.hasNext();) {

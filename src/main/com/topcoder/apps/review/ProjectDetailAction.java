@@ -4,34 +4,23 @@
 
 package com.topcoder.apps.review;
 
+import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.Role;
 import com.topcoder.apps.review.projecttracker.UserRole;
-import com.topcoder.apps.review.document.AbstractScorecard;
-import com.topcoder.apps.review.document.Appeal;
-import com.topcoder.apps.review.document.InitialSubmission;
-import com.topcoder.apps.review.document.ReviewScorecard;
-import com.topcoder.apps.review.document.AbstractSubmission;
-import com.topcoder.apps.review.document.FinalFixSubmission;
-import com.topcoder.apps.review.document.ScorecardTemplate;
-import com.topcoder.apps.review.document.TestCase;
-
-import com.topcoder.apps.review.document.ScreeningScorecard;
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ArrayList;
-
-import java.util.Collections;
 
 /**
  * <p>
@@ -70,8 +59,8 @@ public final class ProjectDetailAction extends ReviewAction {
                                    OnlineReviewProjectData orpd) {
 
         log(Level.INFO, "ProjectDetailAction: User '"
-                        + orpd.getUser().getHandle() + "' in session "
-                        + request.getSession().getId());
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
 
         // Call business layer
         BusinessDelegate businessDelegate = new BusinessDelegate();
@@ -189,15 +178,15 @@ public final class ProjectDetailAction extends ReviewAction {
                     double minscore;
                     try {
                         minscore = ConfigHelper.getMinimumScore();
-                    } catch(Exception e) {
+                    } catch (Exception e) {
                         minscore = 75;
                     }
 
-                    for(int i = 0; i < submissions.length; i++) {
+                    for (int i = 0; i < submissions.length; i++) {
                         if (!submissions[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
                                 if (scorecards[j] instanceof ScreeningScorecard && scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
-                                    if (((ScreeningScorecard)scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
+                                    if (((ScreeningScorecard) scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
                                         scores.add(new Double(scorecards[j].getScore()));
                                     }
                                 }
@@ -209,18 +198,18 @@ public final class ProjectDetailAction extends ReviewAction {
                     Collections.sort(scores);
                     Collections.reverse(scores);
                     //remove all but top five scores.  No need to check ties, this will gaurentee they advance
-                    while(scores.size() > 5) {
+                    while (scores.size() > 5) {
                         scores.remove(5);
                     }
 
-                    for(int i = 0; i < submissions.length; i++) {
+                    for (int i = 0; i < submissions.length; i++) {
                         if (!submissions[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
                                 if (scorecards[j] instanceof ScreeningScorecard && scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted() && !scorecards[j].isPMReviewed()) {
-                                    if (((ScreeningScorecard)scorecards[j]).getPassed() && scores.contains(new Double(scorecards[j].getScore()))) {
-                                        ((InitialSubmission)submissions[i]).setAdvancedToReview(true);
+                                    if (((ScreeningScorecard) scorecards[j]).getPassed() && scores.contains(new Double(scorecards[j].getScore()))) {
+                                        ((InitialSubmission) submissions[i]).setAdvancedToReview(true);
                                     } else {
-                                        ((InitialSubmission)submissions[i]).setAdvancedToReview(false);
+                                        ((InitialSubmission) submissions[i]).setAdvancedToReview(false);
                                     }
                                 }
                             }
@@ -228,10 +217,10 @@ public final class ProjectDetailAction extends ReviewAction {
                     }
 
                     AdminScreeningScorecardBean[] beans =
-                        new AdminScreeningScorecardBean[submissions.length];
+                            new AdminScreeningScorecardBean[submissions.length];
                     for (int i = 0; i < submissions.length; i++) {
                         beans[i] = new AdminScreeningScorecardBean(submissions[i],
-                                                                   pr.getScorecards());
+                                pr.getScorecards());
                     }
                     request.setAttribute(Constants.SCREENING_LIST_KEY, beans);
                 }
@@ -239,9 +228,9 @@ public final class ProjectDetailAction extends ReviewAction {
                     for (int i = 0; i < pr.getScorecards().length; i++) {
                         if (!pr.getScorecards()[i].isCompleted()) {
                             String arg0 =
-                                messages.getMessage("prompt.screeningScorecards");
+                                    messages.getMessage("prompt.screeningScorecards");
                             String notice =
-                                messages.getMessage("prompt.incompleteTemplate", arg0);
+                                    messages.getMessage("prompt.incompleteTemplate", arg0);
 
                             utility.setNotice(notice);
                             break;
@@ -253,11 +242,11 @@ public final class ProjectDetailAction extends ReviewAction {
                     List beansList = new LinkedList();
                     for (int i = 0; i < submissions.length; i++) {
                         //added advanced to review - rfairfax 10-26
-                        if (((InitialSubmission)submissions[i]).isAdvancedToReview()) {
+                        if (((InitialSubmission) submissions[i]).isAdvancedToReview()) {
                             AdminReviewScorecardBean adminBean =
-                                new AdminReviewScorecardBean(pr.getProject(),
-                                                             submissions[i],
-                                                             pr.getScorecards());
+                                    new AdminReviewScorecardBean(pr.getProject(),
+                                            submissions[i],
+                                            pr.getScorecards());
                             beansList.add(adminBean);
                         }
                     }
@@ -271,9 +260,9 @@ public final class ProjectDetailAction extends ReviewAction {
 
                         if (scorecard instanceof ReviewScorecard && !scorecard.isCompleted()) {
                             String arg0 =
-                                messages.getMessage("prompt.reviewScorecards");
+                                    messages.getMessage("prompt.reviewScorecards");
                             String notice =
-                                messages.getMessage("prompt.incompleteTemplate", arg0);
+                                    messages.getMessage("prompt.incompleteTemplate", arg0);
 
                             utility.setNotice(notice);
                             break;
@@ -294,8 +283,10 @@ public final class ProjectDetailAction extends ReviewAction {
                         }
                         if (testcases != null && testcases.length != nrReviewers) {
                             String notice = utility.getNotice();
-                            if (notice == null) notice = "";
-                            else notice += "\n";
+                            if (notice == null)
+                                notice = "";
+                            else
+                                notice += "\n";
                             notice += messages.getMessage("prompt.missingTestcases");
                             utility.setNotice(notice);
                         }
@@ -310,8 +301,10 @@ public final class ProjectDetailAction extends ReviewAction {
                         }
                         if (isMissing) {
                             String notice = utility.getNotice();
-                            if (notice == null) notice = "";
-                            else notice += "\n";
+                            if (notice == null)
+                                notice = "";
+                            else
+                                notice += "\n";
                             notice += messages.getMessage("prompt.missingTestcases");
                             utility.setNotice(notice);
                         }
@@ -339,22 +332,22 @@ public final class ProjectDetailAction extends ReviewAction {
 */
             } else if (phaseId == Constants.PHASE_APPEALS) {
                 AppealData aData = new AppealData(orpd, null, -1, -1);
-                AppealsRetrieval ar = (AppealsRetrieval)businessDelegate.appealProject(aData);
+                AppealsRetrieval ar = (AppealsRetrieval) businessDelegate.appealProject(aData);
                 Appeal[] appeals = ar.getAppeals();
                 request.setAttribute(Constants.APPEAL_LIST_KEY, appeals);
 
             } else if (phaseId == Constants.PHASE_APPEALS_RESPONSE) {
                 AppealData aData = new AppealData(orpd, null, -1, -1);
-                AppealsRetrieval ar = (AppealsRetrieval)businessDelegate.appealProject(aData);
+                AppealsRetrieval ar = (AppealsRetrieval) businessDelegate.appealProject(aData);
                 Appeal[] appeals = ar.getAppeals();
 
                 // check that all appeals are resolved
                 for (int i = 0; i < appeals.length; i++) {
                     if (!appeals[i].isResolved() &&
                             (isAdmin || isPM || (isReviewer &&
-                                    orpd.getUser().getId() == appeals[i].getReviewer().getId()))) {
+                            orpd.getUser().getId() == appeals[i].getReviewer().getId()))) {
                         String notice =
-                            messages.getMessage("prompt.unresolvedAppeals");
+                                messages.getMessage("prompt.unresolvedAppeals");
                         utility.setNotice(notice);
                         break;
                     }
@@ -369,17 +362,17 @@ public final class ProjectDetailAction extends ReviewAction {
                 result = businessDelegate.aggregationWorksheet(data);
                 if (result instanceof SuccessResult) {
                     AggregationWorksheetRetrieval awr =
-                        (AggregationWorksheetRetrieval) result;
+                            (AggregationWorksheetRetrieval) result;
                     if (isAdmin || isPM) {
                         request.setAttribute(Constants.AGGREGATION_KEY,
-                                             awr.getWorksheet());
+                                awr.getWorksheet());
                     }
                     if (awr.getWorksheet() != null) {
                         if (!awr.getWorksheet().isCompleted()) {
                             String arg0 =
-                                messages.getMessage("prompt.aggregationWorksheet");
+                                    messages.getMessage("prompt.aggregationWorksheet");
                             String notice =
-                                messages.getMessage("prompt.incompleteTemplate", arg0);
+                                    messages.getMessage("prompt.incompleteTemplate", arg0);
 
                             utility.setNotice(notice);
                         }
@@ -389,11 +382,11 @@ public final class ProjectDetailAction extends ReviewAction {
                 }
             } else if (phaseId == Constants.PHASE_AGG_REVIEW) {
                 AggregationReviewData data =
-                    new AggregationReviewData(orpd, null);
+                        new AggregationReviewData(orpd, null);
                 result = businessDelegate.aggregationReview(data);
                 if (result instanceof SuccessResult) {
                     AggregationReviewRetrieval arr =
-                        (AggregationReviewRetrieval) result;
+                            (AggregationReviewRetrieval) result;
                     if (isAdmin || isPM) {
                         List list = new ArrayList();
                         AdminAggregationReviewBean[] beans = null;
@@ -402,8 +395,8 @@ public final class ProjectDetailAction extends ReviewAction {
                             if (pr.getProject().getParticipants()[i].getRole().getId()
                                     == Constants.ROLE_REVIEWER) {
                                 list.add(new AdminAggregationReviewBean(pr.getProject(),
-                                                pr.getProject().getParticipants()[i].getUser(),
-                                                arr.getAggregationReviews()));
+                                        pr.getProject().getParticipants()[i].getUser(),
+                                        arr.getAggregationReviews()));
                             }
                         }
                         beans = new AdminAggregationReviewBean[list.size()];
@@ -415,9 +408,9 @@ public final class ProjectDetailAction extends ReviewAction {
                         for (int i = 0; i < arr.getAggregationReviews().length; i++) {
                             if (!arr.getAggregationReviews()[i].isCompleted()) {
                                 String arg0 =
-                                    messages.getMessage("prompt.aggregationReview");
+                                        messages.getMessage("prompt.aggregationReview");
                                 String notice =
-                                    messages.getMessage("prompt.incompleteTemplate", arg0);
+                                        messages.getMessage("prompt.incompleteTemplate", arg0);
 
                                 utility.setNotice(notice);
                                 break;
@@ -432,14 +425,14 @@ public final class ProjectDetailAction extends ReviewAction {
                     int idx = pr.getSubmissions().length - 1;
                     if (idx >= 0 && pr.getSubmissions()[idx] instanceof FinalFixSubmission) {
                         request.setAttribute(Constants.FINAL_FIX_KEY,
-                                             String.valueOf(pr.getProject().getId()));
+                                String.valueOf(pr.getProject().getId()));
                     } else {
                         request.setAttribute(Constants.FINAL_FIX_KEY,
-                                             new Boolean(false));
+                                new Boolean(false));
                         String arg0 =
                                 messages.getMessage("prompt.finalFix");
                         String notice =
-                            messages.getMessage("prompt.incompleteTemplate", arg0);
+                                messages.getMessage("prompt.incompleteTemplate", arg0);
 
                         utility.setNotice(notice);
                     }
@@ -462,17 +455,17 @@ public final class ProjectDetailAction extends ReviewAction {
                 result = businessDelegate.finalReview(data);
                 if (result instanceof SuccessResult) {
                     FinalReviewRetrieval frr =
-                        (FinalReviewRetrieval) result;
+                            (FinalReviewRetrieval) result;
                     if (isAdmin || isPM) {
                         request.setAttribute(Constants.FINAL_REVIEW_KEY,
-                                             frr.getFinalReview());
+                                frr.getFinalReview());
                     }
                     if (frr.getFinalReview() != null) {
                         if (!frr.getFinalReview().isCompleted()) {
                             String arg0 =
-                                messages.getMessage("prompt.finalReview");
+                                    messages.getMessage("prompt.finalReview");
                             String notice =
-                                messages.getMessage("prompt.incompleteTemplate", arg0);
+                                    messages.getMessage("prompt.incompleteTemplate", arg0);
 
                             utility.setNotice(notice);
                         }
@@ -480,7 +473,7 @@ public final class ProjectDetailAction extends ReviewAction {
                 } else {
                     if (isAdmin || isPM) {
                         request.setAttribute(Constants.FINAL_REVIEW_KEY,
-                                             new Boolean(false));
+                                new Boolean(false));
                     }
                     return null;
                 }

@@ -4,8 +4,8 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.Role;
 import com.topcoder.apps.review.projecttracker.Phase;
+import com.topcoder.apps.review.projecttracker.Role;
 
 /**
  * <p>
@@ -26,7 +26,7 @@ public final class Constants {
      * The message resource name for this application.
      */
     public static final String MESSAGE_RESOURCE_KEY =
-        "com.topcoder.apps.review.ReviewResources";
+            "com.topcoder.apps.review.ReviewResources";
 
     /**
      * The message key for the error message from logic layer.

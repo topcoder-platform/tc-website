@@ -1,10 +1,10 @@
 package com.topcoder.web.tc.model;
 
-import java.util.List;
+import java.text.FieldPosition;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.text.NumberFormat;
-import java.text.FieldPosition;
+import java.util.List;
 
 public class ProblemRatingDistribution {
 
@@ -41,14 +41,14 @@ public class ProblemRatingDistribution {
             format.format(it.next(), buf, fp);
             buf.append(',');
         }
-        return buf.substring(0, buf.length()>0?buf.length() - 1:0);  //skip that last comma
+        return buf.substring(0, buf.length() > 0 ? buf.length() - 1 : 0);  //skip that last comma
     }
 
     /**
      * @return
      */
     public String getkeyValueString() {
-        return name+"="+getList();
+        return name + "=" + getList();
     }
 
 }

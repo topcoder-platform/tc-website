@@ -1,7 +1,7 @@
 /*
  * MyLoginLocal.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -24,13 +24,13 @@ import com.topcoder.security.GeneralSecurityException;
  * @version 1.0
  */
 public class MyLoginLocal implements LoginLocal {
-    public TCSubject login(String username, String password) 
-                throws GeneralSecurityException {
-        return(MyLoginImpl.login(username,password));
+    public TCSubject login(String username, String password)
+            throws GeneralSecurityException {
+        return (MyLoginImpl.login(username, password));
     }
-    
+
     //EJB methods
-    
+
     public EJBLocalHome getEJBLocalHome() {
         return null;
     }
@@ -44,5 +44,5 @@ public class MyLoginLocal implements LoginLocal {
 
     public boolean isIdentical(EJBLocalObject ejbLocalObject) {
         return false;
-    }    
+    }
 }

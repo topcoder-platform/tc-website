@@ -53,9 +53,11 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum;
-import java.util.*;
+
+import java.util.Date;
+
 /**
  * Defines properties of the Jive indexer for searching. Indexing can either
  * be done real-time by calling indexMessage() every time a new message is

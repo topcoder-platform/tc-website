@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
@@ -14,19 +14,19 @@ public class ReviewScorecardsData extends OnlineReviewProjectData {
 
     private boolean retrieveQuestions = false;
     // ------------------------------------------------------------ Constructor
-    
+
     /**
      * <p>
      * Creates the instance of <code>ReviewScorecardsData</code> class.
      * </p>
-     * 
+     *
      * @param orpd The OnlineReviewProjectData to be set.
      */
     protected ReviewScorecardsData(OnlineReviewProjectData orpd) {
         super(orpd);
         this.retrieveQuestions = false;
     }
-   
+
     /**
      * @return Returns the retrieveQuestions.
      */

@@ -1,16 +1,10 @@
 package com.topcoder.web.corp.model;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.Serializable;
 import java.util.Set;
-
-import java.io.*;
-import java.util.*;
-
-import com.topcoder.shared.security.*;
-import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Holds some details about the current user for the benefit of curious JSPs.

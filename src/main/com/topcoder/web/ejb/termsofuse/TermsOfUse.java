@@ -12,7 +12,7 @@ public interface TermsOfUse extends EJBObject {
             throws EJBException, RemoteException;
 
     void setTermsOfUseTypeId(long termsOfUseId,
-                                    long termsOfUseTypeId, String dataSource)
+                             long termsOfUseTypeId, String dataSource)
             throws EJBException, RemoteException;
 
     String getText(long termsOfUseId, String dataSource)

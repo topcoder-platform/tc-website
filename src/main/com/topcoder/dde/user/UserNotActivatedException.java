@@ -3,7 +3,7 @@ package com.topcoder.dde.user;
 import com.topcoder.dde.DDEException;
 
 /**
- * Throw this if an attempt is made to login before a user has activated 
+ * Throw this if an attempt is made to login before a user has activated
  * thier account.
  *
  * @author Heather Van Aelst
@@ -12,11 +12,11 @@ import com.topcoder.dde.DDEException;
 public class UserNotActivatedException extends DDEException {
 
     public UserNotActivatedException() {
-	super();
+        super();
     }
 
     public UserNotActivatedException(String message) {
-	super(message);
+        super(message);
     }
 
 }

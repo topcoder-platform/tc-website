@@ -5,14 +5,13 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
@@ -23,14 +22,14 @@ import org.apache.struts.action.ActionForwards;
  * @version 1.0
  */
 public final class SaveScreeningScorecardAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -45,19 +44,19 @@ public final class SaveScreeningScorecardAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "SaveScreeningScorecardAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "SaveScreeningScorecardAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         ScreeningScorecardForm ssForm = (ScreeningScorecardForm) form;
         String action = ssForm.getAction();
         ScreeningData data = null;
         ResultData result = null;
-        
+
         if (Constants.ACTION_ADD.equals(action)) {
-            ssForm.addResponse(ssForm.getQuestionIndex(), 
-                               ssForm.getResponseIndex());
+            ssForm.addResponse(ssForm.getQuestionIndex(),
+                    ssForm.getResponseIndex());
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
             forwards.addForward(mapping.findForward(Constants.EDIT_KEY));
             // Call the business layer
@@ -66,8 +65,8 @@ public final class SaveScreeningScorecardAction extends ReviewAction {
 //            return result;
             return new SuccessResult();
         } else if (Constants.ACTION_DELETE.equals(action)) {
-            ssForm.deleteResponse(ssForm.getQuestionIndex(), 
-                                  ssForm.getResponseIndex());
+            ssForm.deleteResponse(ssForm.getQuestionIndex(),
+                    ssForm.getResponseIndex());
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
             forwards.addForward(mapping.findForward(Constants.EDIT_KEY));
             // Call the business layer
@@ -79,13 +78,13 @@ public final class SaveScreeningScorecardAction extends ReviewAction {
             // Call the business layer
             data = ssForm.toScreeningData(orpd);
             result = new BusinessDelegate().screeningScorecard(data);
-                   
-            if (result instanceof SuccessResult)  {
+
+            if (result instanceof SuccessResult) {
                 request.getSession().removeAttribute(mapping.getAttribute());
             }
-            
+
             AutoPilot.screeningEmail(data);
-                
+
             return result;
         }
     }

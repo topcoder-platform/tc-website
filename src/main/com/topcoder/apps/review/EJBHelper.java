@@ -17,12 +17,13 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.login.LoginRemoteHome;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
-import java.rmi.RemoteException;
+
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+import java.rmi.RemoteException;
 
 /**
  * Helper class that handles the communication with the EJBs from the persistance layer and with the security
@@ -228,7 +229,7 @@ public class EJBHelper {
                 Context initial = new InitialContext();
                 Object objref = initial.lookup(PolicyMgrRemoteHome.EJB_REF_NAME);
                 PolicyMgrRemoteHome home =
-                    (PolicyMgrRemoteHome) PortableRemoteObject.narrow(objref, PolicyMgrRemoteHome.class);
+                        (PolicyMgrRemoteHome) PortableRemoteObject.narrow(objref, PolicyMgrRemoteHome.class);
                 policyMgr = home.create();
             }
         }
@@ -256,7 +257,7 @@ public class EJBHelper {
                 Context initial = new InitialContext();
                 Object objref = initial.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
                 PrincipalMgrRemoteHome home =
-                    (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objref, PrincipalMgrRemoteHome.class);
+                        (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objref, PrincipalMgrRemoteHome.class);
                 principalMgr = home.create();
             }
         }

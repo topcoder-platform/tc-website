@@ -1,22 +1,21 @@
 package com.topcoder.web.corp.controller.request.screening;
 
 import com.topcoder.security.UserPrincipal;
-
-import com.topcoder.web.common.security.PrincipalMgr;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.common.PermissionDeniedException;
-import com.topcoder.web.corp.common.Util;
-import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.security.PrincipalMgr;
+import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.PermissionDeniedException;
+import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.corp.common.Util;
+import com.topcoder.web.corp.model.CandidateInfo;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 
 import javax.servlet.http.HttpUtils;
@@ -214,26 +213,25 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     // Save the candidate's problem solving data to the request
                     result = (ResultSetContainer) map.get(Constants.CANDIDATE_PROBLEMS_INFO);
                     request.setAttribute(Constants.CANDIDATE_PROBLEMS_INFO, result);
-                    
+
                     result = (ResultSetContainer) map.get(Constants.CANDIDATE_PREFERENCE_INFO);
                     request.setAttribute(Constants.CANDIDATE_PREFERENCE_INFO, result);
-                    
+
                     request.setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
-                    
+
                     PrincipalMgr mgr = new PrincipalMgr();
                     request.setAttribute("password", mgr.getPassword(Long.parseLong(cid)));
-                    
+
                     //get Resume Information
-                    ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-                    Resume resume = resumeServices.getResume(Long.parseLong(cid), Constants.DATA_SOURCE); 
-                    
-                    if(resume == null) {
+                    ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+                    Resume resume = resumeServices.getResume(Long.parseLong(cid), Constants.DATA_SOURCE);
+
+                    if (resume == null) {
                         request.setAttribute("resume", "");
-                    }
-                    else
+                    } else
                         request.setAttribute("resume", StringUtils.checkNull(resume.getFileName()));
-                    
-                    
+
+
                     log.debug("The problems info list contains : " + result.size() + " records");
 
                 } else {

@@ -1,17 +1,17 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.tc.model.SoftwareComponent;
-import com.topcoder.web.tc.model.ReviewBoardApplication;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.ReviewBoardApplication;
+import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author dok
@@ -37,7 +37,7 @@ public class ReviewProjectDetail extends Base {
                 //set submission count to 1 for zero submissions
                 int numSubmissions = detail.getIntItem(0, "submission_count");
                 int numSubmissionsPassed = detail.getIntItem(0, "submission_passed_screening_count");
-                if(numSubmissions == 0) {
+                if (numSubmissions == 0) {
                     numSubmissions = 1;
                     numSubmissionsPassed = 1;
                 }
@@ -155,8 +155,8 @@ public class ReviewProjectDetail extends Base {
     }
 
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
-                                           int levelId, long userId, String handle, boolean primary,
-                                           long projectId, int reviewerTypeId) throws Exception {
+                                             int levelId, long userId, String handle, boolean primary,
+                                             long projectId, int reviewerTypeId) throws Exception {
         ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId, projectId, reviewerTypeId);
         ret.setHandle(handle);
         ret.setPrimary(primary);
@@ -165,7 +165,7 @@ public class ReviewProjectDetail extends Base {
     }
 
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
-                                           int levelId, long projectId, int reviewerTypeId) throws Exception {
+                                             int levelId, long projectId, int reviewerTypeId) throws Exception {
         //figure out if we have default money values for the reviewers
         Request r = new Request();
         r.setContentHandle("review_board_payments");

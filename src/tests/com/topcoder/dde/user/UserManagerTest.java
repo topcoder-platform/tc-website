@@ -13,6 +13,7 @@ import javax.naming.NamingEnumeration;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+
 import junit.framework.TestCase;
 
 import com.topcoder.dde.DDEException;
@@ -30,8 +31,8 @@ public class UserManagerTest extends TestCase {
         Context context = getContext();
 
         Object um = context.lookup("dde/UserManager");
-        
-        UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(um, UserManagerRemoteHome.class); 
+
+        UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(um, UserManagerRemoteHome.class);
         UserManagerRemote userManager = userManagerHome.create();
         Object prinmgr = context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
         PrincipalMgrRemoteHome home = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(prinmgr, PrincipalMgrRemoteHome.class);
@@ -41,15 +42,15 @@ public class UserManagerTest extends TestCase {
         Collection c = userManager.getPricingTiers();
         System.out.println("got c");
         //assertEquals(c.size(), 1);
-        
+
         try {
             User user = userManager.getUser(100000);
         } catch (NoSuchUserException e) {
             System.out.println("correctly caught NoSuchUserException");
         }
-        
+
         String username = "test8";
-        
+
         //Change username to test again
         RegistrationInfo ri = new RegistrationInfo();
         ri.setUsername(username);
@@ -82,14 +83,15 @@ public class UserManagerTest extends TestCase {
         v.add(ut4);
         v.add(ut5);
         ri.setTechnologies(v);
-        PricingTier pt = new PricingTier(1,5);
-        
+        PricingTier pt = new PricingTier(1, 5);
+
         try {
             TCSubject requestor = null;
             UserPrincipal old = remote.getUser(username);
             remote.removeUser(old, requestor);
-        } catch (com.topcoder.security.NoSuchUserException ignore) {}
-        
+        } catch (com.topcoder.security.NoSuchUserException ignore) {
+        }
+
         try {
             User user = userManager.register(ri);
         } catch (InvalidRegistrationException e) {
@@ -108,7 +110,7 @@ public class UserManagerTest extends TestCase {
         /*
         userManager.removeUser(user);
         System.out.println("removed user");
-        
+
         User user2 = userManager.getUser(username);
         System.out.println("got user");
         //assertEquals(user2.getStatus(), UserStatus.INACTIVE);
@@ -123,7 +125,7 @@ public class UserManagerTest extends TestCase {
         //user2.setRegInfo(ri);
         userManager.updateUser(user2);
         System.out.println("reactivate user");
-        
+
         //userManager.activate("bE8JdRqSBD2ke03Qaz-1028770003712");
         User user3 = userManager.getUser(username);
         //assertEquals(user.getRegInfo().getFirstName(), "Testy");
@@ -131,18 +133,18 @@ public class UserManagerTest extends TestCase {
         assertEquals(user3.getStatus(), UserStatus.PENDINGACTIVATION);
         System.out.println("user was reactivated");
         */
-        
+
         TCSubject tcsubject = userManager.login(username, "test");
         User user4 = userManager.getUser(username);
         assertEquals(1, user4.getNumLogins());
-        
+
     }
-    
+
     private static Context getContext() throws NamingException {
-        Hashtable environment=new Hashtable();
+        Hashtable environment = new Hashtable();
         environment.put(Context.PROVIDER_URL, "localhost:1099");
         environment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
         return new InitialContext(environment);
     }
 }
-            
+

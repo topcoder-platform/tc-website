@@ -1,7 +1,9 @@
 package com.topcoder.common.web.render;
 
 import com.topcoder.shared.language.Language;
-import com.topcoder.shared.problem.*;
+import com.topcoder.shared.problem.Element;
+import com.topcoder.shared.problem.ElementRenderer;
+import com.topcoder.shared.problem.TestCase;
 
 /**
  * Handles the display of a <code>com.topcoder.shared.problem.TestCase</code>
@@ -29,7 +31,7 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
         buf.append("<table>");
 
         buf.append("<tr><td");
-        if (getTdClass()!=null) {
+        if (getTdClass() != null) {
             buf.append(" class=\"");
             buf.append(getTdClass());
             buf.append("\"");
@@ -39,7 +41,7 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
         String[] inputs = testCase.getInput();
         for (int i = 0; i < inputs.length; i++) {
             buf.append("<tr><td");
-            if (getTdClass()!=null) {
+            if (getTdClass() != null) {
                 buf.append(" class=\"");
                 buf.append(getTdClass());
                 buf.append("\"");
@@ -54,7 +56,7 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
         buf.append("</td></tr>");
 
         buf.append("<tr><td");
-        if (getTdClass()!=null) {
+        if (getTdClass() != null) {
             buf.append(" class=\"");
             buf.append(getTdClass());
             buf.append("\"");
@@ -66,7 +68,7 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
         buf.append("</td></tr>");
 
         buf.append("<tr><td");
-        if (getTdClass()!=null) {
+        if (getTdClass() != null) {
             buf.append(" class=\"");
             buf.append(getTdClass());
             buf.append("\"");
@@ -75,7 +77,7 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
         if (testCase.getAnnotation() != null) {
             buf.append("<table>");
             buf.append("<tr><td colspan=\"2\"");
-            if (getTdClass()!=null) {
+            if (getTdClass() != null) {
                 buf.append(" class=\"");
                 buf.append(getTdClass());
                 buf.append("\"");
@@ -123,7 +125,7 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
             out = new StringBuffer(s.length());
             out.append("\n");
             for (int i = 0; i < s.length(); i++) {
-                if (s.charAt(i) == '\"' && s.length() > i+1 && s.charAt(i + 1) == ',') {
+                if (s.charAt(i) == '\"' && s.length() > i + 1 && s.charAt(i + 1) == ',') {
                     out.append("\",\n");
                     i += 2;
                 } else {

@@ -1,12 +1,12 @@
 package com.topcoder.web.privatelabel.view.tag;
 
-import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 
-import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
-import java.util.Map;
+import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
+import java.util.Map;
 
 public class DemographicQuestionText extends TagSupport {
     private DemographicResponse response = null;
@@ -22,7 +22,7 @@ public class DemographicQuestionText extends TagSupport {
 
     public int doStartTag() throws JspException {
         try {
-            DemographicQuestion question = (DemographicQuestion)questions.get(new Long(response.getQuestionId()));
+            DemographicQuestion question = (DemographicQuestion) questions.get(new Long(response.getQuestionId()));
             pageContext.getOut().print(question.getText());
         } catch (IOException e) {
             throw new JspException(e.getMessage());

@@ -1,9 +1,8 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.AggregationApproval;
 import com.topcoder.apps.review.document.AggregationReview;
 import com.topcoder.apps.review.document.AggregationWorksheet;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
@@ -60,7 +59,7 @@ public class ReviewAggregate implements Model {
         try {
             // check permission
             if (!PermissionHelper.isAdmin(user) && !PermissionHelper.hasReviewPermission(user, userProjectInfo)
-                        && !RoleHelper.isProductManager(user, userProjectInfo)) {
+                    && !RoleHelper.isProductManager(user, userProjectInfo)) {
                 return new FailureResult("You cannot review aggregate for this project");
             }
 
@@ -102,7 +101,7 @@ public class ReviewAggregate implements Model {
                 return new SuccessResult();
             }
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

@@ -2,7 +2,7 @@ package com.topcoder.dde.user;
 
 /**
  * An object representing the types of status a user can have.  Contains
- * public static ACTIVE and INACTIVE attributes.  The values of those 
+ * public static ACTIVE and INACTIVE attributes.  The values of those
  * attributes are the respective primary keys of those statuses in the
  * database.
  *
@@ -15,5 +15,6 @@ public class UserStatus {
     public static final long INACTIVE = 0;
     public static final long PENDINGACTIVATION = 201;
 
-    private UserStatus() {}
+    private UserStatus() {
+    }
 }

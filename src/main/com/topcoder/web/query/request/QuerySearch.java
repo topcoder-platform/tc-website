@@ -2,16 +2,16 @@ package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.ejb.query.Query;
-import com.topcoder.web.query.bean.QueryBean;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.query.Query;
+import com.topcoder.web.query.bean.QueryBean;
+import com.topcoder.web.query.common.Constants;
 
-import java.util.Enumeration;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author Greg Paul

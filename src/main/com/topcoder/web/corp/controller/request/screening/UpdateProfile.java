@@ -4,20 +4,19 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.Transaction;
-import com.topcoder.web.ejb.sessionprofile.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.ProfileInfo;
 import com.topcoder.web.corp.model.TestSessionInfo;
-import com.topcoder.web.corp.controller.request.screening.BaseProfileProcessor;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.ejb.sessionprofile.*;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpSession;
@@ -151,7 +150,7 @@ public class UpdateProfile extends BaseProfileProcessor {
                 throw(new TCWebException(e));
             }
 
-            setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
+            setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
                     Constants.MODULE_KEY + "=" +
                     Constants.POPULATE_SESSION_PROCESSOR);
             setIsNextPageInContext(false);

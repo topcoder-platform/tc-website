@@ -1,7 +1,7 @@
 /*
  * FinalFixStatus.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -31,7 +31,7 @@ public class FinalFixStatus implements Serializable {
      * <p>
      * Return the name of the final fix status.
      * </p>
-     * 
+     *
      * @return a String with the name of the final fix status.
      */
     public String getName() {
@@ -42,7 +42,7 @@ public class FinalFixStatus implements Serializable {
      * <p>
      * Return the id of the final fix status.
      * </p>
-     * 
+     *
      * @return the id of the final fix status.
      */
     public long getId() {

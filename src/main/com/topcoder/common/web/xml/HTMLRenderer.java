@@ -7,8 +7,8 @@ import com.topcoder.shared.docGen.xml.xsl.XSLTransformerWrapper;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.io.ByteArrayOutputStream;
-import java.io.StringReader;
 import java.io.FileReader;
+import java.io.StringReader;
 
 public class HTMLRenderer {
 
@@ -45,8 +45,8 @@ public class HTMLRenderer {
                 int lineCount = 1;
                 char ch = 0;
                 while (fr.ready()) {
-                    ch=(char)fr.read();
-                    if (ch=='\n') lineCount++;
+                    ch = (char) fr.read();
+                    if (ch == '\n') lineCount++;
                     if (!(ch > 0 && ch < 128)) {
                         log.info("possible bad char: " + ch + " found on line " + lineCount);
                     }

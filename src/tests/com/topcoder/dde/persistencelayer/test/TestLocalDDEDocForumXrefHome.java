@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,16 +32,16 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
     /* an instance of the localHome interface implementation to work with */
     private LocalDDEDocForumXrefHome localHome;
     private long forumId;
-    
+
     /* default field values for entity instances */
     static private long DEF_TOPIC_ID = 1L;
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDEDocForumXrefHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDEDocForumXrefHome configured to run the named
@@ -48,7 +49,7 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
      */
     public TestLocalDDEDocForumXrefHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -64,7 +65,7 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDEDocForumXrefHome) ctx.lookup(
                     LocalDDEDocForumXrefHome.EJB_REF_NAME);
         }
@@ -72,20 +73,20 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
         Statement stmt = con.createStatement(
                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet rs = stmt.executeQuery(
-            "SELECT * FROM FORUM_MASTER WHERE 1=0;");
-            
+                "SELECT * FROM FORUM_MASTER WHERE 1=0;");
+
         forumId = nextId();
         rs.moveToInsertRow();
         rs.updateLong("FORUM_ID", forumId);
         rs.updateLong("STATUS_ID", 1L);
         rs.updateTimestamp("CREATE_TIME",
-                           new Timestamp(System.currentTimeMillis()));
+                new Timestamp(System.currentTimeMillis()));
         rs.updateNull("CLOSED_TIME");
         rs.insertRow();
-        
+
         DEF_TOPIC_ID = nextId();
         rs = stmt.executeQuery(
-            "SELECT * FROM FORUM_TOPICS WHERE 1=0;");
+                "SELECT * FROM FORUM_TOPICS WHERE 1=0;");
         rs.moveToInsertRow();
         rs.updateLong("TOPIC_ID", DEF_TOPIC_ID);
         rs.updateLong("FORUM_ID", forumId);
@@ -94,10 +95,10 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
         rs.updateString("TOPIC_NAME", "Antidisestablishmentarianism");
         rs.updateString("TOPIC_TEXT", "[Test] Extremely long words");
         rs.insertRow();
-        
+
         con.close();
     }
-    
+
     public void tearDown() throws Exception {
         Connection con = dataSource.getConnection();
         con.createStatement().executeUpdate(
@@ -115,7 +116,7 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
             throws Exception {
         return localHome.create(DEF_TOPIC_ID, doc);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -130,30 +131,30 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
             TestLocalDDECompCatalogHome compHome
                     = new TestLocalDDECompCatalogHome();
             LocalDDECompCatalog localComp;
-            
+
             compHome.setUp();
             localComp = compHome.createDefault();
             assertNotNull(localComp);
             try {
                 synchronized (TestLocalDDECompVersionsHome.class) {
                     TestLocalDDECompVersionsHome versionsHome
-                        = new TestLocalDDECompVersionsHome();
+                            = new TestLocalDDECompVersionsHome();
                     LocalDDECompVersions localVersion;
-                    
+
                     versionsHome.setUp();
-                    localVersion = versionsHome.createDefault(localComp); 
+                    localVersion = versionsHome.createDefault(localComp);
                     assertNotNull(localVersion);
                     try {
                         synchronized (TestLocalDDECompDocumentationHome.class) {
-                             TestLocalDDECompDocumentationHome docHome
+                            TestLocalDDECompDocumentationHome docHome
                                     = new TestLocalDDECompDocumentationHome();
-                             LocalDDECompDocumentation localDoc;
-                             
-                             docHome.setUp();
-                             localDoc = docHome.createDefault(localVersion);
-                             assertNotNull(localDoc);
-                             try {
-                         
+                            LocalDDECompDocumentation localDoc;
+
+                            docHome.setUp();
+                            localDoc = docHome.createDefault(localVersion);
+                            assertNotNull(localDoc);
+                            try {
+
                                 synchronized (TestLocalDDEDocForumXrefHome.class) {
                                     /* test standard creation */
                                     LocalDDEDocForumXref local
@@ -166,9 +167,9 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
                                                 localDoc));
                                         transactionBoundary();
                                         assertMatchesDB(new DDEDocForumXrefData(
-                                            local.getPrimaryKey(),
-                                            (Long) local.getCompDocumentation().getPrimaryKey(),
-                                            new Long(local.getTopicId())
+                                                local.getPrimaryKey(),
+                                                (Long) local.getCompDocumentation().getPrimaryKey(),
+                                                new Long(local.getTopicId())
                                         ));
                                     } finally {
                                         local.remove();
@@ -178,7 +179,7 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
                                     assertNotNull(local);
                                     local.remove();
                                 }
-                        
+
                             } finally {
                                 localDoc.remove();
                             }
@@ -186,7 +187,7 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
                     } finally {
                         localVersion.remove();
                     }
-                }    
+                }
             } finally {
                 localComp.remove();
             }
@@ -199,7 +200,7 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
     public void testFindByPrimaryKey() throws Exception {
         fail("Test not yet implemented");
     }
-    
+
     /**
      * tests the findByCompVersId finder method
      */
@@ -211,21 +212,21 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
         long docForumId;
         Long documentId;
         Long topicId;
-        
+
         DDEDocForumXrefData(Object id, Long doc, Long topic) {
             this(keyToLong(id), doc, topic);
         }
-        
+
         DDEDocForumXrefData(long id, Long doc, Long topic) {
             docForumId = id;
             documentId = doc;
             topicId = topic;
         }
-        
+
         DDEDocForumXrefData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(docForumId);
         }
@@ -242,19 +243,19 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
                 rs.updateLong("TOPIC_ID", topicId.longValue());
             }
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("DOC_FORUM_ID", docForumId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             docForumId = rs.getLong("DOC_FORUM_ID");
             documentId = new Long(rs.getLong("DOCUMENT_ID"));
@@ -266,20 +267,20 @@ public class TestLocalDDEDocForumXrefHome extends PersistenceTestCase {
                 topicId = null;
             }
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDEDocForumXrefData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDEDocForumXrefData) ) {
+            if (!(o instanceof DDEDocForumXrefData)) {
                 return false;
             }
             DDEDocForumXrefData d = (DDEDocForumXrefData) o;
             return (
-                (docForumId == d.docForumId)
-                && objectsMatch(documentId, d.documentId)
-                && objectsMatch(topicId, d.topicId) );
+                    (docForumId == d.docForumId)
+                    && objectsMatch(documentId, d.documentId)
+                    && objectsMatch(topicId, d.topicId));
         }
     }
 

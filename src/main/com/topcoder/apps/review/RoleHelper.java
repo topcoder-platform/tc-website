@@ -1,15 +1,10 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.InitialSubmission;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.Role;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.UserRole;
+import com.topcoder.apps.review.projecttracker.*;
 
 /**
  * Helper class for checking the role of a user.
@@ -188,7 +183,7 @@ class RoleHelper {
      * @exception Exception propagate exceptions
      */
     static boolean isSubmitterOnly(User user, /*UserProjectInfo projinfo,*/ Project project)
-                throws Exception {
+            throws Exception {
         // determine if the user has only the role of submitter
         boolean isSubmitterOnly = false;
         UserRole[] roles = /*projinfo != null ? projinfo.getUserRoles() :*/ project.getParticipants();
@@ -222,14 +217,14 @@ class RoleHelper {
      * @exception   Exception
      */
     static boolean isFakeSubmitter(User user, Project project, SecurityEnabledUser inquirer)
-                throws Exception {
+            throws Exception {
         // if the user has only submitter role, check if he did submit
         if (isSubmitterOnly(user, project)) {
             //if (project == null) {
             //    project = EJBHelper.getProjectTracker().getProject(projinfo, inquirer.getTCSubject());
             //}
             InitialSubmission[] submissions =
-                EJBHelper.getDocumentManager().getInitialSubmissions(project, false, inquirer.getTCSubject());
+                    EJBHelper.getDocumentManager().getInitialSubmissions(project, false, inquirer.getTCSubject());
             boolean foundSubmission = false;
             for (int i = 0; i < submissions.length; i++) {
                 if (submissions[i].getSubmitter().getId() == user.getId() && submissions[i].isSubmitted()) {

@@ -3,17 +3,13 @@
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.User;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.PageContext;
-import org.apache.struts.util.ResponseUtils;
+import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMappings;
-import org.apache.struts.action.Action;
+import org.apache.struts.util.ResponseUtils;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
 
 /**
  * <p>
@@ -32,12 +28,12 @@ public class FormNameTag extends BaseTag {
      * The action name.
      */
     private String action = null;
-    
+
     // ------------------------------------------------------------- Properties
 
     /**
      * Return the attribute action.
-     * 
+     *
      * @return the attribute action.
      */
     public String getAction() {
@@ -52,7 +48,7 @@ public class FormNameTag extends BaseTag {
     public void setAction(String action) {
         this.action = action;
     }
-    
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -63,8 +59,8 @@ public class FormNameTag extends BaseTag {
      */
     public int doStartTag() throws JspException {
         ActionMappings mappings = (ActionMappings)
-            pageContext.getAttribute(Action.MAPPINGS_KEY,
-                                     PageContext.APPLICATION_SCOPE);
+                pageContext.getAttribute(Action.MAPPINGS_KEY,
+                        PageContext.APPLICATION_SCOPE);
 
         if (mappings != null) {
             // Look up the action mapping we will be submitting to

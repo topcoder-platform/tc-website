@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -37,7 +37,7 @@ public class ContactProductManagerTestCase extends TestCase {
     public void testContact() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("user1", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 3);
         UserProjectInfo proj = projectsRetrieval.getProjects()[0];
 

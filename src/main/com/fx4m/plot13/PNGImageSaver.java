@@ -13,17 +13,11 @@
 //package fi.faidon.jis;
 package com.fx4m.plot13;
 
-import java.io.*;
-import java.awt.Image;
-import java.awt.image.ImageProducer;
-import java.awt.image.ImageConsumer;
-import java.awt.image.ImageObserver;
-import java.awt.image.ColorModel;
-import java.awt.image.IndexColorModel;
-import java.util.Hashtable;
-import java.awt.Toolkit;
+import java.awt.image.*;
 import java.io.Serializable;
-import java.util.zip.*;
+import java.util.Hashtable;
+import java.util.zip.CRC32;
+import java.util.zip.Deflater;
 
 //import fi.faidon.util.ByteArrayConversion;
 

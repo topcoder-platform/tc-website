@@ -1,14 +1,13 @@
 package com.topcoder.web.corp.controller.request.screening;
 
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.model.ProblemInfo;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.util.logging.Logger;
 
 public class PopulateProblemDetail extends BaseScreeningProcessor {
-    
+
     private static Logger log = Logger.getLogger(PopulateProblemDetail.class);
 
     protected void screeningProcessing() throws TCWebException {
@@ -28,17 +27,14 @@ public class PopulateProblemDetail extends BaseScreeningProcessor {
         long problemId = Long.parseLong(roundProblemId.substring(index + 1));
         ProblemInfo info = null;
         try {
-            if(super.getUsageType() == Constants.USAGE_TYPE_SCREENING)
-            {
+            if (super.getUsageType() == Constants.USAGE_TYPE_SCREENING) {
                 log.debug("GOOD");
                 info =
-                    ProblemInfo.createProblemInfo(getUser(), roundId, problemId, true);
-            }
-            else
-            {
+                        ProblemInfo.createProblemInfo(getUser(), roundId, problemId, true);
+            } else {
                 log.debug("BAD");
                 info =
-                    ProblemInfo.createProblemInfo(getUser(), roundId, problemId);
+                        ProblemInfo.createProblemInfo(getUser(), roundId, problemId);
             }
         } catch (TCWebException e) {
             throw e;

@@ -1,15 +1,14 @@
 package com.topcoder.web.corp.view.testing.tag;
 
-import java.io.IOException;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.corp.common.Constants;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
-
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
+import java.io.IOException;
 
 /**
  * Custom tag to simplify linking to the servlet.
@@ -17,7 +16,7 @@ import com.topcoder.web.common.BaseServlet;
  * @author Grimicus
  */
 public class ServletLinkTag extends TagSupport {
-    
+
     private String param;
     private String processor;
     private String onClick;
@@ -29,21 +28,19 @@ public class ServletLinkTag extends TagSupport {
      *
      * @param target
      */
-    public void setTarget( String val )
-    {
+    public void setTarget(String val) {
         target = val;
     }
 
-    /** 
+    /**
      * Sets the value of <code>styleClass</code>.  This parameter should
      * be substituted for the <code>class</code> parameter normally used
      * by the anchor tag as class is a reserved word and java and cannot
      * be used by the JSP tag. This tag is optional.
-     * 
+     *
      * @param val
      */
-    public void setStyleClass(String val)
-    {
+    public void setStyleClass(String val) {
         styleClass = val;
     }
 
@@ -53,8 +50,7 @@ public class ServletLinkTag extends TagSupport {
      *
      * @param val
      */
-    public void setProcessor( String val )
-    {
+    public void setProcessor(String val) {
         processor = val;
     }
 
@@ -65,8 +61,7 @@ public class ServletLinkTag extends TagSupport {
      *
      * @param param
      */
-    public void setParam( String val )
-    {
+    public void setParam(String val) {
         param = val;
     }
 
@@ -75,12 +70,11 @@ public class ServletLinkTag extends TagSupport {
      *
      * @param onClick
      */
-    public void setOnClick( String val )
-    {
+    public void setOnClick(String val) {
         onClick = val;
     }
-    
-    /** 
+
+    /**
      * JSP Tag Specific method.  Checks that href and page are set correctly
      * (i.e. only one is set and not both or neither).  Then it writes the
      * &lt;a&gt; part of the anchor tag given what parameters have been
@@ -90,61 +84,54 @@ public class ServletLinkTag extends TagSupport {
      * @throws javax.servlet.jsp.JspException Thrown if the href and page are set incorrectly or
      *              if there is an IO problem writing out the tag.
      */
-    public int doStartTag() throws JspException
-    {
+    public int doStartTag() throws JspException {
         HttpServletResponse response =
-            (HttpServletResponse)pageContext.getResponse();
+                (HttpServletResponse) pageContext.getResponse();
 
         StringBuffer buffer = new StringBuffer();
         buffer.append("<a href=\"");
-        
+
         buffer.append(response.encodeURL(buildUrl()) + "\"");
-    
-        if(onClick != null)
-        {
+
+        if (onClick != null) {
             buffer.append(" onClick=\"" + onClick + "\"");
         }
 
-        if(styleClass != null)
-        {
+        if (styleClass != null) {
             buffer.append(" class=\"" + styleClass + "\"");
         }
 
-        if(target != null)
-        {
+        if (target != null) {
             buffer.append(" target=\"" + target + "\"");
         }
 
         buffer.append(">");
 
-        try
-        {
+        try {
             pageContext.getOut().println(buffer.toString());
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
 
         return EVAL_BODY_INCLUDE;
     }
-    
-    private String buildUrl(){
+
+    private String buildUrl() {
         HttpServletRequest request =
-            (HttpServletRequest)pageContext.getRequest();
+                (HttpServletRequest) pageContext.getRequest();
 
         StringBuffer buffer = new StringBuffer();
 
-        SessionInfo info = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+        SessionInfo info = (SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
         buffer.append(info.getServletPath());
-        if(processor != null || param != null){
+        if (processor != null || param != null) {
             buffer.append("?");
-            if(processor != null){
+            if (processor != null) {
                 buffer.append(Constants.MODULE_KEY + "=");
                 buffer.append(processor);
             }
-            if(param != null){
-                if(!buffer.toString().endsWith("?") && !param.startsWith("&"))
+            if (param != null) {
+                if (!buffer.toString().endsWith("?") && !param.startsWith("&"))
                     buffer.append("&");
                 buffer.append(param);
             }
@@ -152,24 +139,20 @@ public class ServletLinkTag extends TagSupport {
         return buffer.toString();
     }
 
-    /** 
+    /**
      * JSP Tag Specific method.  Sets the &lt;/a&gt; part of the anchor.
-     * 
+     *
      * @return JSP Tag specific return (Always returns EVAL_PAGE)
      * @throws javax.servlet.jsp.JspException Thrown if there is a problem write out the tag.
      */
-    public int doEndTag() throws JspException
-    {
-        try
-        {
+    public int doEndTag() throws JspException {
+        try {
             pageContext.getOut().println("</a>");
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
 
         return EVAL_PAGE;
     }
-    
+
 }

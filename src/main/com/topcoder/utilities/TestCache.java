@@ -47,7 +47,7 @@ public class TestCache {
             }
             long end = System.currentTimeMillis();
 
-            log.debug("took " + (double)(end-start)/1000 + " seconds");
+            log.debug("took " + (double) (end - start) / 1000 + " seconds");
         } catch (Exception e) {
             log.error("error", e);
         }

@@ -1,7 +1,9 @@
 package com.topcoder.common.web.render;
 
 import com.topcoder.shared.language.Language;
-import com.topcoder.shared.problem.*;
+import com.topcoder.shared.problem.Element;
+import com.topcoder.shared.problem.ElementRenderer;
+import com.topcoder.shared.problem.TextElement;
 
 /**
  * Handles the display of a <code>com.topcoder.shared.problem.TextElement</code>
@@ -22,6 +24,7 @@ public class TextElementRenderer extends BaseRenderer implements ElementRenderer
     public void setElement(Element element) throws Exception {
         textElement = (TextElement) element;
     }
+
     public String toHTML(Language language) {
         return super.encodeHTML(textElement.getEditableText());
     }

@@ -10,15 +10,16 @@ package com.topcoder.web.tc.view.tag;
  *
  * @author  rfairfax
  */
+
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.Preference;
 import com.topcoder.web.tc.model.PreferenceValue;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.tag.BaseTag;
-import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
-import java.util.*;
 import java.io.IOException;
+import java.util.List;
 
 public class PreferenceInput extends BaseTag {
     protected static Logger log = Logger.getLogger(PreferenceInput.class);
@@ -43,8 +44,8 @@ public class PreferenceInput extends BaseTag {
             throws JspException {
         if (preference != null) {
             StringBuffer output = new StringBuffer(400);
-            setName(Constants.PREFERENCE_PREFIX+preference.getID());
-            if(preference.getType() == Constants.PREFERENCE_MULTIPLE_ANSWER) {
+            setName(Constants.PREFERENCE_PREFIX + preference.getID());
+            if (preference.getType() == Constants.PREFERENCE_MULTIPLE_ANSWER) {
                 output.append(buildSelect());
             } else if (preference.getType() == Constants.PREFERENCE_TEXT_ANSWER) {
                 output.append(buildText());
@@ -71,7 +72,7 @@ public class PreferenceInput extends BaseTag {
             s.append(" class=\"" + cssclass + "\"");
         }
         s.append(" value=\"");
-        if(getDefaultValue() != null) {
+        if (getDefaultValue() != null) {
             s.append(getDefaultValue());
         }
         s.append("\" ");
@@ -92,7 +93,7 @@ public class PreferenceInput extends BaseTag {
         s.append(" value=\"");
         s.append(getTrueValue());
         s.append("\" ");
-        if(getDefaultValue() != null && getDefaultValue().equals(getTrueValue())) {
+        if (getDefaultValue() != null && getDefaultValue().equals(getTrueValue())) {
             s.append("checked ");
         }
 
@@ -105,8 +106,8 @@ public class PreferenceInput extends BaseTag {
         if (answers != null) {
             PreferenceValue answer = null;
             for (int i = 0; i < answers.size(); i++) {
-                answer = (PreferenceValue)answers.get(i);
-                if(answer.getText().equals("true"))
+                answer = (PreferenceValue) answers.get(i);
+                if (answer.getText().equals("true"))
                     return String.valueOf(answer.getID());
             }
         }
@@ -130,11 +131,11 @@ public class PreferenceInput extends BaseTag {
             s.append("<option value=\"\"> - </option>");
             PreferenceValue answer = null;
             for (int i = 0; i < answers.size(); i++) {
-                answer = (PreferenceValue)answers.get(i);
+                answer = (PreferenceValue) answers.get(i);
                 s.append("<option value=\"");
                 s.append(answer.getID());
                 s.append("\"");
-                if (getDefaultValue()!=null && getDefaultValue().equals(String.valueOf(answer.getID()))) {
+                if (getDefaultValue() != null && getDefaultValue().equals(String.valueOf(answer.getID()))) {
                     s.append(" selected");
                 }
                 s.append(">");
@@ -147,8 +148,8 @@ public class PreferenceInput extends BaseTag {
     }
 
     protected void init() {
-        this.cssclass=null;
-        this.preference=null;
+        this.cssclass = null;
+        this.preference = null;
 
     }
 

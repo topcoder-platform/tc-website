@@ -1,7 +1,9 @@
 package com.topcoder.common.web.render;
 
 import com.topcoder.shared.language.Language;
-import com.topcoder.shared.problem.*;
+import com.topcoder.shared.problem.Element;
+import com.topcoder.shared.problem.ElementRenderer;
+import com.topcoder.shared.problem.MaxSizeConstraint;
 
 /**
  * Handles the display of a <code>com.topcoder.shared.problem.MaxSizeConstraint</code>
@@ -20,7 +22,7 @@ public class MaxSizeConstraintRenderer implements ElementRenderer {
     }
 
     public void setElement(Element element) throws Exception {
-        maxSizeConstraint= (MaxSizeConstraint) element;
+        maxSizeConstraint = (MaxSizeConstraint) element;
     }
 
     public String toHTML(Language language) {

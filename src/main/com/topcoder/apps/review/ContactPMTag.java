@@ -3,18 +3,18 @@
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.review.projecttracker.User;
+import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import org.apache.struts.util.RequestUtils;
+import org.apache.struts.util.ResponseUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
-import org.apache.struts.util.ResponseUtils;
-import org.apache.struts.util.RequestUtils;
 
 /**
  * <p>
- * Generate a URL-encoded hyperlink or button to the a URL for 
+ * Generate a URL-encoded hyperlink or button to the a URL for
  * contacting the project manager.
  * </p>
  *
@@ -30,27 +30,27 @@ public class ContactPMTag extends BaseBodyTag {
      * The attribute name.
      */
     private String name = Constants.PROJECT_KEY;
-    
+
     /**
      * Name of the property to be accessed on the specified bean.
      */
     protected String property = null;
-    
+
     /**
      * The attribute button.
      */
     private boolean button = false;
-    
+
     /**
      * The attribute of CSS stylesheet class .
      */
     private String styleClass = null;
-    
+
     // ------------------------------------------------------------- Properties
 
     /**
      * Return the attribute name.
-     * 
+     *
      * @return the attribute name.
      */
     public String getName() {
@@ -65,10 +65,10 @@ public class ContactPMTag extends BaseBodyTag {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * Return the attribute property.
-     * 
+     *
      * @return the attribute property.
      */
     public String getProperty() {
@@ -83,10 +83,10 @@ public class ContactPMTag extends BaseBodyTag {
     public void setProperty(String property) {
         this.property = property;
     }
-    
+
     /**
      * Return the attribute button.
-     * 
+     *
      * @return the attribute button.
      */
     public boolean getButton() {
@@ -101,10 +101,10 @@ public class ContactPMTag extends BaseBodyTag {
     public void setButton(boolean button) {
         this.button = button;
     }
-    
+
     /**
      * Return the attribute styleClass.
-     * 
+     *
      * @return the attribute styleClass.
      */
     public String getStyleClass() {
@@ -119,7 +119,7 @@ public class ContactPMTag extends BaseBodyTag {
     public void setStyleClass(String styleClass) {
         this.styleClass = styleClass;
     }
-    
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -130,31 +130,31 @@ public class ContactPMTag extends BaseBodyTag {
      */
     public int doEndTag() throws JspException {
         HttpServletRequest request =
-            (HttpServletRequest) pageContext.getRequest();
+                (HttpServletRequest) pageContext.getRequest();
         HttpServletResponse response =
-            (HttpServletResponse) pageContext.getResponse();
+                (HttpServletResponse) pageContext.getResponse();
         long id = Long.parseLong(
-                    RequestUtils.lookup(pageContext, name, 
-                                        property, null).toString());
+                RequestUtils.lookup(pageContext, name,
+                        property, null).toString());
         UserProjectInfo project = getInfoById(id);
-        User user = 
-            (User) RequestUtils.lookup(pageContext, Constants.USER_KEY, null);
+        User user =
+                (User) RequestUtils.lookup(pageContext, Constants.USER_KEY, null);
         StringBuffer url = new StringBuffer(request.getContextPath());
         StringBuffer result = new StringBuffer("");
 
         if (project == null || user == null) {
             return (EVAL_PAGE);  // Nothing to output
         }
-        
+
         if (text == null) {
             text = messages.getMessage("button.contactPM");
         }
-        
+
         // Generate the URL to be encoded
         url.append("/contactPM.do?");
         url.append(Constants.ID_KEY + "=");
         url.append(project.getId());
-        
+
         if (button) {
             // Generate the button
             result.append("<input type=\"button\" onClick='document.location=\"");
@@ -173,10 +173,10 @@ public class ContactPMTag extends BaseBodyTag {
             result.append("\">");
             result.append(text + "</a>");
         }
-        
+
         // Print this result to our output writer, no filtered
         ResponseUtils.write(pageContext, result.toString());
-        
+
         return (EVAL_PAGE);
     }
 

@@ -56,18 +56,21 @@
 
 package com.coolservlets.forum.filter;
 
-import java.io.*;
-import java.util.*;
-import com.coolservlets.forum.*;
-import com.coolservlets.codeviewer.*;
+import com.coolservlets.codeviewer.CodeViewer;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
+
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Properties;
+import java.util.StringTokenizer;
 
 /**
  * A ForumMessageFilter that syntax highlights Java code appearing between
  * [code][/code] tags in the body of ForumMessage.
  */
 public class FilterCodeHighlight extends ForumMessageFilter
-        implements Serializable
-{
+        implements Serializable {
 
     private static final String NEW_LINE = System.getProperty("line.separator");
 
@@ -109,8 +112,7 @@ public class FilterCodeHighlight extends ForumMessageFilter
      * @param propertyDescriptions the property descriptions for the filter.
      */
     public FilterCodeHighlight(ForumMessage message, Properties properties,
-            Properties propertyDescriptions)
-    {
+                               Properties propertyDescriptions) {
         super(message);
         this.props = new Properties(properties);
         this.propDescriptions = new Properties(propertyDescriptions);
@@ -124,7 +126,7 @@ public class FilterCodeHighlight extends ForumMessageFilter
      *
      * @param message the ForumMessage to wrap the new filter around.
      */
-    public ForumMessageFilter clone(ForumMessage message){
+    public ForumMessageFilter clone(ForumMessage message) {
         return new FilterCodeHighlight(message, props, propDescriptions);
     }
 
@@ -192,7 +194,7 @@ public class FilterCodeHighlight extends ForumMessageFilter
 
     /**
      * Sets a property of the filter. Each filter has a set number of
-     * properties that are determined by the filter author. 
+     * properties that are determined by the filter author.
      *
      * @param name the name of the property to set.
      * @param value the new value for the property.
@@ -201,8 +203,7 @@ public class FilterCodeHighlight extends ForumMessageFilter
      *    exist.
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         if (props.getProperty(name) == null) {
             throw new IllegalArgumentException();
         }
@@ -222,19 +223,19 @@ public class FilterCodeHighlight extends ForumMessageFilter
      * Creates properties and sets their descriptions.
      */
     private void initializeProperties() {
-        props.put("commentStart",cv.getCommentStart());
-        props.put("commentEnd",cv.getCommentEnd());
-        props.put("stringStart",cv.getStringStart());
-        props.put("stringEnd",cv.getStringEnd());
-        props.put("reservedWordStart",cv.getReservedWordStart());
-        props.put("reservedWordEnd",cv.getReservedWordEnd());
+        props.put("commentStart", cv.getCommentStart());
+        props.put("commentEnd", cv.getCommentEnd());
+        props.put("stringStart", cv.getStringStart());
+        props.put("stringEnd", cv.getStringEnd());
+        props.put("reservedWordStart", cv.getReservedWordStart());
+        props.put("reservedWordEnd", cv.getReservedWordEnd());
 
-        propDescriptions.put("commentStart","A HTML start tag that determines how comments will be displayed");
-        propDescriptions.put("commentEnd","A HTML end tag that should correspond to the commentStart tag");
-        propDescriptions.put("stringStart","A HTML start tag that determines how strings will be displayed");
-        propDescriptions.put("stringEnd","A HTML end tag that should correspond to the stringStart tag");
-        propDescriptions.put("reservedWordStart","A HTML start tag that determines how reserved words will be displayed");
-        propDescriptions.put("reservedWordEnd","A HTML end tag that should correspond to the reservedWordStart tag");
+        propDescriptions.put("commentStart", "A HTML start tag that determines how comments will be displayed");
+        propDescriptions.put("commentEnd", "A HTML end tag that should correspond to the commentStart tag");
+        propDescriptions.put("stringStart", "A HTML start tag that determines how strings will be displayed");
+        propDescriptions.put("stringEnd", "A HTML end tag that should correspond to the stringStart tag");
+        propDescriptions.put("reservedWordStart", "A HTML start tag that determines how reserved words will be displayed");
+        propDescriptions.put("reservedWordEnd", "A HTML end tag that should correspond to the reservedWordStart tag");
     }
 
     private void applyProperties() {
@@ -247,42 +248,41 @@ public class FilterCodeHighlight extends ForumMessageFilter
     }
 
     /**
-    * This method takes a string which may contain Java code.
-    * The Java code will be highlighted.
-    *
-    * @param input The text to be converted.
-    * @return The input string with any Java code highlighted.
-    */
-    private String highlightCode( String input ) {
+     * This method takes a string which may contain Java code.
+     * The Java code will be highlighted.
+     *
+     * @param input The text to be converted.
+     * @return The input string with any Java code highlighted.
+     */
+    private String highlightCode(String input) {
         // Check if the string is null or zero length -- if so, return what was sent in.
-        if( input == null || input.length() == 0 ) {
+        if (input == null || input.length() == 0) {
             return input;
-        }
-        else {
+        } else {
             StringBuffer buf = new StringBuffer();
             int i = 0, j = 0, oldend = 0;
 
-            while ( ( i=input.indexOf( "[code]", oldend ) ) >= 0 ) {
+            while ((i = input.indexOf("[code]", oldend)) >= 0) {
                 //Check to see where the ending code tag is and store than in j
-                if ( (j=input.indexOf( "[/code]", i+6 ) ) < 0)  {
+                if ((j = input.indexOf("[/code]", i + 6)) < 0) {
                     //End at end of input if no closing tag is given
-                    j = input.length()-7;
+                    j = input.length() - 7;
                 }
                 // Take the string up to the code, append the string returned by CodeViewer
-                buf.append(input.substring(oldend,i));
+                buf.append(input.substring(oldend, i));
                 buf.append("<pre>");
                 //Read line by line and filter accordingly.
                 //StringTokenizer tokens = new StringTokenizer(input.substring(i+6,j-1), NEW_LINE);
-                StringTokenizer tokens = new StringTokenizer(input.substring(i+6,j), NEW_LINE);
+                StringTokenizer tokens = new StringTokenizer(input.substring(i + 6, j), NEW_LINE);
                 while (tokens.hasMoreTokens()) {
                     buf.append(cv.syntaxHighlight(tokens.nextToken()));
                     buf.append(NEW_LINE);
                 }
                 buf.append("</pre>");
                 // Next time, want to start looking after ending [/code] tag
-                oldend = j+7;
+                oldend = j + 7;
             }
-            buf.append(input.substring(oldend,input.length()));
+            buf.append(input.substring(oldend, input.length()));
             return buf.toString();
         }
     }

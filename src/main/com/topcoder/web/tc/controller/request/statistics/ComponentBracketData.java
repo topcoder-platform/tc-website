@@ -7,39 +7,36 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-
-import javax.xml.transform.Transformer;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.sax.TransformerHandler;
-import javax.xml.transform.sax.SAXTransformerFactory;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.text.DecimalFormat;
-import java.util.Iterator;
-
-import org.xml.sax.helpers.AttributesImpl;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import org.xml.sax.Attributes;
+import org.xml.sax.helpers.AttributesImpl;
+
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.sax.SAXTransformerFactory;
+import javax.xml.transform.sax.TransformerHandler;
+import javax.xml.transform.stream.StreamResult;
+import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
  * @author  rfairfax
  */
 public class ComponentBracketData extends Base {
-    
+
     private void writeMemberProfile() {
-        
-            
+
+
     }
-    
-    private final String[] tco04_des_finalists = new String[] {"277356","278342","289824","152342" };
-    private final String[] tco04_dev_finalists = new String[] {"7270519", "7463987", "310233" };
+
+    private final String[] tco04_des_finalists = new String[]{"277356", "278342", "289824", "152342"};
+    private final String[] tco04_dev_finalists = new String[]{"7270519", "7463987", "310233"};
 
     public void businessProcessing() throws TCWebException {
 
@@ -64,19 +61,19 @@ public class ComponentBracketData extends Base {
 
             AttributesImpl emptyAtts = new AttributesImpl();
             hd.startElement("", "", "finalists", emptyAtts);
-            
+
             SimpleDateFormat sdf = new SimpleDateFormat("MM.dd.yyyy");
             DecimalFormat df = new DecimalFormat("0");
-            
+
             String[] arr;
-            if(type.equals("tco04_design")) {
+            if (type.equals("tco04_design")) {
                 arr = tco04_des_finalists;
-            } else if(type.equals("tco04_development")) {
+            } else if (type.equals("tco04_development")) {
                 arr = tco04_dev_finalists;
             } else {
                 throw new TCWebException("Invalid type in request");
             }
-            
+
             Request profileRequest = new Request();
             profileRequest.setContentHandle("member_profile");
 
@@ -85,7 +82,7 @@ public class ComponentBracketData extends Base {
 
             DataAccessInt dataAccess = getDataAccess(true);
 
-            for(int i = 0; i < arr.length; i++) {
+            for (int i = 0; i < arr.length; i++) {
                 profileRequest.setProperty("cr", arr[i]);
                 profileRsc = (ResultSetContainer) dataAccess.getData(profileRequest).get("Coder_Data");
 
@@ -94,7 +91,7 @@ public class ComponentBracketData extends Base {
                 addElement(hd, "room_seed", String.valueOf(i), emptyAtts);
                 addElement(hd, "coderID", arr[i], emptyAtts);
                 String img = "";
-                if(profileRsc.getStringItem(0, "image_path") == null || profileRsc.getStringItem(0, "image_path").equals("")) {
+                if (profileRsc.getStringItem(0, "image_path") == null || profileRsc.getStringItem(0, "image_path").equals("")) {
                     img = "/i/m/nophoto.jpg";
                 } else {
                     img = profileRsc.getStringItem(0, "image_path");
@@ -102,21 +99,21 @@ public class ComponentBracketData extends Base {
                 addElement(hd, "photo", img, emptyAtts);
                 addElement(hd, "AlgRating", profileRsc.getStringItem(0, "rating"), emptyAtts);
                 String desRating;
-                if(profileRsc.getItem(0, "design_rating").getResultData() == null) {
+                if (profileRsc.getItem(0, "design_rating").getResultData() == null) {
                     desRating = "Not Rated";
                 } else {
                     desRating = df.format(Double.parseDouble(profileRsc.getStringItem(0, "design_rating")));
                 }
                 addElement(hd, "DesRating", desRating, emptyAtts);
                 String devRating;
-                if(profileRsc.getItem(0, "development_rating").getResultData() == null) {
+                if (profileRsc.getItem(0, "development_rating").getResultData() == null) {
                     devRating = "Not Rated";
                 } else {
                     devRating = df.format(Double.parseDouble(profileRsc.getStringItem(0, "development_rating")));
                 }
                 addElement(hd, "DevRating", devRating, emptyAtts);
                 addElement(hd, "memberSince", sdf.format(profileRsc.getItem(0, "member_since").getResultData()), emptyAtts);
-                
+
                 hd.endElement("", "", "competitor");
             }
 

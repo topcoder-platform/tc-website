@@ -58,7 +58,8 @@ package com.coolservlets.forum;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Protection proxy for Forum iterators. This is a special case iterator proxy
@@ -73,25 +74,23 @@ class ForumIteratorProxy extends IteratorProxy {
     private static Logger log = Logger.getLogger(ForumIteratorProxy.class);
 
     public ForumIteratorProxy(Iterator iterator, Authorization
-        authorization, ForumPermissions permissions)
-    {
+            authorization, ForumPermissions permissions) {
         //Dummy call to super-class. This specialized iterator proxy doesn't
         //use the superclass like the other iterators do.
         super(iterator, authorization, permissions);
 
         while (iterator.hasNext()) {
-            Forum forum = (Forum)iterator.next();
+            Forum forum = (Forum) iterator.next();
             ForumPermissions forumPermissions = forum.getPermissions(authorization);
             //Create a new permissions object with the combination of the
             //permissions of this object and tempPermissions.
             ForumPermissions newPermissions =
-                new ForumPermissions(permissions, forumPermissions);
+                    new ForumPermissions(permissions, forumPermissions);
             //Check and see if the user has READ permissions. If not, throw an
             //an UnauthorizedException.
             if (newPermissions.get(ForumPermissions.READ) ||
                     newPermissions.get(ForumPermissions.FORUM_ADMIN) ||
-                    newPermissions.get(ForumPermissions.SYSTEM_ADMIN))
-            {
+                    newPermissions.get(ForumPermissions.SYSTEM_ADMIN)) {
                 ForumProxy proxy = new ForumProxy(forum, authorization, newPermissions);
                 forums.add(proxy);
             }

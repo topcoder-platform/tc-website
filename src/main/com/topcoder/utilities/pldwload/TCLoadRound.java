@@ -28,8 +28,13 @@ package com.topcoder.utilities.pldwload;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Hashtable;
 
 public class TCLoadRound extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadRound.class);
@@ -169,7 +174,7 @@ public class TCLoadRound extends TCLoad {
 
             getLastUpdateTime();
 
-           clearRound();
+            clearRound();
 
             loadContest();
 
@@ -541,7 +546,7 @@ public class TCLoadRound extends TCLoad {
                 int submission_number = rs.getInt(14);
                 int last_submission = 0;
                 if (rs.getInt(8) > 0) {  //they submitted at least once
-                    last_submission = rs.getInt(8) == submission_number?1:0;
+                    last_submission = rs.getInt(8) == submission_number ? 1 : 0;
                 }
 
                 psDel.clearParameters();
@@ -1470,8 +1475,8 @@ public class TCLoadRound extends TCLoad {
      * point_standard_deviation. We get these later on in the aggregate
      * load.
 
-important: dw:room_result.school_id comes from oltp:user_school_xref;
-if students change schools, reloading an old round will lose historical data
+     important: dw:room_result.school_id comes from oltp:user_school_xref;
+     if students change schools, reloading an old round will lose historical data
 
      */
     private void loadRoomResult() throws Exception {
@@ -1854,7 +1859,7 @@ if students change schools, reloading an old round will lose historical data
                 component_id = rs.getInt("component_id");
                 // if they didn't submit, use the difference between open time and the end of the coding phase
                 // otherwise use the difference between open time and submit time
-                long elapsed_time = rs.getLong(10) == 0?rs.getDate(16).getTime() - rs.getLong(9):rs.getLong(11);
+                long elapsed_time = rs.getLong(10) == 0 ? rs.getDate(16).getTime() - rs.getLong(9) : rs.getLong(11);
 
                 psSel2.clearParameters();
                 psSel2.setInt(1, component_id);

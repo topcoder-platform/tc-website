@@ -1,7 +1,7 @@
 /*
  * MyProjectTrackerHome.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -18,12 +18,12 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome;
  * @author kolanovic
  * @version 1.0
  */
-public class MyProjectTrackerHome extends EJBHomeBase 
-                                  implements ProjectTrackerLocalHome {
+public class MyProjectTrackerHome extends EJBHomeBase
+        implements ProjectTrackerLocalHome {
     /**
      * <p>Returns a new instance of MyProjectTracker.</p>
      */
     public ProjectTrackerLocal create() throws CreateException {
-        return(new MyProjectTracker());
+        return (new MyProjectTracker());
     }
 }

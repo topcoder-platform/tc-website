@@ -1,7 +1,12 @@
 package com.topcoder.common.web.data.stat;
 
-import com.topcoder.common.web.data.stat.contest.*;
-import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.common.web.data.stat.contest.Contest;
+import com.topcoder.common.web.data.stat.contest.ContestItem;
+import com.topcoder.common.web.data.stat.contest.GeneralRoom;
+import com.topcoder.common.web.data.stat.contest.RoomResult;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.TagRenderer;
+import com.topcoder.shared.docGen.xml.ValueTag;
 
 import java.io.Serializable;
 import java.util.ArrayList;

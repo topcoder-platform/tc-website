@@ -1,17 +1,17 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.DBMS;
 
-import java.util.TreeMap;
 import java.util.Enumeration;
-import java.util.Map;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * @author  dok

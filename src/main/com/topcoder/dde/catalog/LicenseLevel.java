@@ -37,7 +37,7 @@ public class LicenseLevel implements java.io.Serializable {
     private double pricePerUnit;
 
     LicenseLevel(long id, String description, double priceMultiplier,
-            double pricePerUnit) {
+                 double pricePerUnit) {
         this(description, priceMultiplier);
         this.id = id;
         this.pricePerUnit = pricePerUnit;
@@ -55,16 +55,16 @@ public class LicenseLevel implements java.io.Serializable {
     public LicenseLevel(String description, double priceMultiplier) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for license description");
+                    "Null specified for license description");
         }
         if (priceMultiplier < 0.0) {
             throw new IllegalArgumentException(
-            "Negative number specified for price multiplier");
+                    "Negative number specified for price multiplier");
         }
         if (Double.isInfinite(priceMultiplier)
                 || Double.isNaN(priceMultiplier)) {
             throw new IllegalArgumentException(
-            "Non-finite number specified for price multiplier");
+                    "Non-finite number specified for price multiplier");
         }
         this.description = description;
         this.priceMultiplier = priceMultiplier;
@@ -103,7 +103,7 @@ public class LicenseLevel implements java.io.Serializable {
     public void setDescription(String description) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for license level description");
+                    "Null specified for license level description");
         }
         this.description = description;
     }
@@ -127,12 +127,12 @@ public class LicenseLevel implements java.io.Serializable {
     public void setPriceMultiplier(double priceMultiplier) {
         if (priceMultiplier < 0.0) {
             throw new IllegalArgumentException(
-            "Negative number specified for price multiplier");
+                    "Negative number specified for price multiplier");
         }
         if (Double.isInfinite(priceMultiplier)
                 || Double.isNaN(priceMultiplier)) {
             throw new IllegalArgumentException(
-            "Non-finite number specified for price multiplier");
+                    "Non-finite number specified for price multiplier");
         }
         this.priceMultiplier = priceMultiplier;
     }
@@ -163,14 +163,14 @@ public class LicenseLevel implements java.io.Serializable {
     public int calculateUnitCost(double price) {
         if (price < 0.0) {
             throw new IllegalArgumentException(
-            "Negative number specified for price");
+                    "Negative number specified for price");
         }
         if (Double.isInfinite(price) || Double.isNaN(price)) {
             throw new IllegalArgumentException(
-            "Non-finite number specified for price");
+                    "Non-finite number specified for price");
         }
         if (getId() == -1 || getPricePerUnit() == 0.0) {
-            throw new IllegalStateException(            "The price per unit is unknown. Only license levels returned by the catalog can be used to calculate the unit cost.");
+            throw new IllegalStateException("The price per unit is unknown. Only license levels returned by the catalog can be used to calculate the unit cost.");
         }
         return (int) Math.round(price * priceMultiplier / pricePerUnit);
     }
@@ -191,7 +191,7 @@ public class LicenseLevel implements java.io.Serializable {
         }
         LicenseLevel other = (LicenseLevel) object;
         return getDescription().equals(other.getDescription())
-            && getPriceMultiplier() == other.getPriceMultiplier();
+                && getPriceMultiplier() == other.getPriceMultiplier();
     }
 
     /**
@@ -204,12 +204,12 @@ public class LicenseLevel implements java.io.Serializable {
      */
     public int hashCode() {
         return getDescription().hashCode() ^
-            (new Double(getPriceMultiplier())).hashCode();
+                (new Double(getPriceMultiplier())).hashCode();
     }
 
     public String toString() {
         return "License Level " + getId() + " - " + getDescription()
-            + " x" + getPriceMultiplier();
+                + " x" + getPriceMultiplier();
     }
 
 

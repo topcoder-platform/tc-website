@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -32,11 +32,11 @@ public final class CheckLogonTag extends TagSupport {
 
     /**
      * Return the bean name.
-     * 
+     *
      * @return the bean name.
      */
     public String getName() {
-	    return (this.name);
+        return (this.name);
     }
 
     /**
@@ -45,16 +45,16 @@ public final class CheckLogonTag extends TagSupport {
      * @param name The new bean name
      */
     public void setName(String name) {
-	    this.name = name;
+        this.name = name;
     }
 
     /**
      * Return the forward page.
-     * 
+     *
      * @return the forward page.
      */
     public String getPage() {
-	    return (this.page);
+        return (this.page);
     }
 
     /**
@@ -63,7 +63,7 @@ public final class CheckLogonTag extends TagSupport {
      * @param page The new forward page
      */
     public void setPage(String page) {
-	    this.page = page;
+        this.page = page;
     }
 
     // ------------------------------------------------------- Public Methods
@@ -75,7 +75,7 @@ public final class CheckLogonTag extends TagSupport {
      * @exception JspException if a JSP exception has occurred
      */
     public int doStartTag() throws JspException {
-	    return (SKIP_BODY);
+        return (SKIP_BODY);
     }
 
 
@@ -88,26 +88,26 @@ public final class CheckLogonTag extends TagSupport {
      * @exception JspException if a JSP exception has occurred
      */
     public int doEndTag() throws JspException {
-	    // Is there a valid user logged on?
-	    boolean valid = false;
-	    HttpSession session = pageContext.getSession();
+        // Is there a valid user logged on?
+        boolean valid = false;
+        HttpSession session = pageContext.getSession();
         if ((session != null) && (session.getAttribute(name) != null)) {
-	        valid = true;
+            valid = true;
         } else if (session.getAttribute("public") != null) {
             valid = true;
         }
-        
-	    // Forward control based on the results
-        if (valid){
-	        return (EVAL_PAGE);
+
+        // Forward control based on the results
+        if (valid) {
+            return (EVAL_PAGE);
         } else {
-	        try {
-	    	    pageContext.forward(page);
-	        } catch (Exception e) {
-	    	    throw new JspException(e.toString());
-	        }
-	        return (SKIP_PAGE);
-	    }
+            try {
+                pageContext.forward(page);
+            } catch (Exception e) {
+                throw new JspException(e.toString());
+            }
+            return (SKIP_PAGE);
+        }
     }
 
 

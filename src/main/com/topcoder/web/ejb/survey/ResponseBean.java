@@ -1,18 +1,16 @@
 package com.topcoder.web.ejb.survey;
 
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.ejb.EJBException;
-import java.sql.PreparedStatement;
+import javax.naming.Context;
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ResponseBean extends BaseEJB {
 
@@ -21,7 +19,7 @@ public class ResponseBean extends BaseEJB {
     private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     public void createResponse(long userId, long questionId, long answerId) {
-        log.debug("createResponse called... user_id="+userId+" questionId="+questionId+" answerId="+answerId);
+        log.debug("createResponse called... user_id=" + userId + " questionId=" + questionId + " answerId=" + answerId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -42,9 +40,9 @@ public class ResponseBean extends BaseEJB {
                 throw new EJBException("Wrong number of rows in insert: " + rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating response user_id="+userId+" questionId="+questionId+" answerId="+answerId);
+            throw new EJBException("SQLException creating response user_id=" + userId + " questionId=" + questionId + " answerId=" + answerId);
         } catch (Exception e) {
-            throw new EJBException("Exception creating response user_id="+userId+" questionId="+questionId+" answerId="+answerId+
+            throw new EJBException("Exception creating response user_id=" + userId + " questionId=" + questionId + " answerId=" + answerId +
                     ":\n" + e.getMessage());
         } finally {
             close(ps);
@@ -54,7 +52,7 @@ public class ResponseBean extends BaseEJB {
     }
 
     public void createResponse(long userId, long questionId, String text) {
-        log.debug("createResponse called... user_id="+userId+" questionId="+questionId+" text="+text);
+        log.debug("createResponse called... user_id=" + userId + " questionId=" + questionId + " text=" + text);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -75,9 +73,9 @@ public class ResponseBean extends BaseEJB {
                 throw new EJBException("Wrong number of rows in insert: " + rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating response user_id="+userId+" questionId="+questionId+" text="+text);
+            throw new EJBException("SQLException creating response user_id=" + userId + " questionId=" + questionId + " text=" + text);
         } catch (Exception e) {
-            throw new EJBException("Exception creating response user_id="+userId+" questionId="+questionId+" text="+text +
+            throw new EJBException("Exception creating response user_id=" + userId + " questionId=" + questionId + " text=" + text +
                     ":\n" + e.getMessage());
         } finally {
             close(ps);
@@ -87,9 +85,8 @@ public class ResponseBean extends BaseEJB {
     }
 
 
-
     public boolean exists(long userId, long questionId) {
-        log.debug("exists called... user_id="+userId+" questionId="+questionId);
+        log.debug("exists called... user_id=" + userId + " questionId=" + questionId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -107,9 +104,9 @@ public class ResponseBean extends BaseEJB {
             return rs.next();
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating user_id="+userId+" questionId="+questionId);
+            throw new EJBException("SQLException creating user_id=" + userId + " questionId=" + questionId);
         } catch (Exception e) {
-            throw new EJBException("Exception creating user_id="+userId+" questionId="+questionId+":\n" + e.getMessage());
+            throw new EJBException("Exception creating user_id=" + userId + " questionId=" + questionId + ":\n" + e.getMessage());
         } finally {
             close(ps);
             close(conn);

@@ -5,14 +5,10 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
@@ -24,14 +20,14 @@ import org.apache.struts.action.ActionForwards;
  * @version 1.0
  */
 public final class SaveTestCaseReviewAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -46,18 +42,18 @@ public final class SaveTestCaseReviewAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "SaveTestCaseReviewAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "SaveTestCaseReviewAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         TestCaseReviewForm tcrForm = (TestCaseReviewForm) form;
-        
+
         // Check valid token
         if (!isTokenValid(request)) {
             request.getSession().removeAttribute(mapping.getAttribute());
             errors.add(ActionErrors.GLOBAL_ERROR,
-                       new ActionError("error.transaction.token"));
+                    new ActionError("error.transaction.token"));
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
             forwards.addForward(mapping.findForward(Constants.FAILURE_KEY));
             return null;
@@ -65,13 +61,13 @@ public final class SaveTestCaseReviewAction extends ReviewAction {
             // Call the business layer
             TestCaseReviewData data = tcrForm.toTestCaseReviewData(orpd);
             ResultData result = new BusinessDelegate().testCaseReviews(data);
-        
-            if (result instanceof SuccessResult)  {
+
+            if (result instanceof SuccessResult) {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
             }
-            
+
             return result;
-        }        
+        }
     }
 }

@@ -45,8 +45,8 @@ public class InitialSubmission extends AbstractSubmission implements Serializabl
      * @param versionId DOCUMENT ME!
      */
     public InitialSubmission(long id, URL url, String messagePMReview, String messagePMScreening,
-            User submitter, Project project, boolean isRemoved, float finalScore, int placement, boolean passedScreening,
-            boolean advancedToReview, long requestorId, long versionId) {
+                             User submitter, Project project, boolean isRemoved, float finalScore, int placement, boolean passedScreening,
+                             boolean advancedToReview, long requestorId, long versionId) {
         super(id, url, messagePMReview, messagePMScreening, submitter, project, isRemoved, requestorId, versionId);
         this.finalScore = finalScore;
         this.placement = placement;
@@ -94,15 +94,15 @@ public class InitialSubmission extends AbstractSubmission implements Serializabl
     public boolean isPassedScreening() {
         return passedScreening;
     }
-    
+
     public boolean isAdvancedToReview() {
         return advancedToReview;
     }
-    
+
     public void setAdvancedToReview(boolean advancedToReview) {
         //if(this.advancedToReview != advancedToReview) {
-            this.advancedToReview = advancedToReview;
-            this.dirtyFlag = true;
+        this.advancedToReview = advancedToReview;
+        this.dirtyFlag = true;
         //}
     }
 

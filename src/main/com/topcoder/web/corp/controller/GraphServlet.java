@@ -1,36 +1,34 @@
 package com.topcoder.web.corp.controller;
 
-import org.faceless.graph.Style;
-import org.faceless.graph.Graph;
+import com.fx4m.plot13.HistoryPlot;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 import org.faceless.graph.BarGraph;
+import org.faceless.graph.Graph;
+import org.faceless.graph.Style;
 import org.faceless.graph.output.PNGOutput;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpUtils;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import java.awt.*;
-import java.io.IOException;
 import java.io.ByteArrayOutputStream;
-import java.util.Map;
-import java.util.Iterator;
+import java.io.IOException;
 import java.util.Date;
-
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.common.web.constant.TCServlet;
-import com.fx4m.plot13.HistoryPlot;
+import java.util.Iterator;
+import java.util.Map;
 
 
 /**
@@ -119,7 +117,7 @@ public final class GraphServlet extends HttpServlet {
                         dataRequest.getContentHandle());
             }
             response.setContentType("image/gif");
-            response.setHeader("content-disposition","inline; filename=graph.png");
+            response.setHeader("content-disposition", "inline; filename=graph.png");
             response.setContentType("image/png");
             o = response.getOutputStream();
             o.write(result);
@@ -259,7 +257,7 @@ public final class GraphServlet extends HttpServlet {
     }
 
 
-        /**
+    /**
      * returns the datawarehouse database to be used for
      * the authenticated user.  if it's not in the database
      * we'll return a default
@@ -268,7 +266,7 @@ public final class GraphServlet extends HttpServlet {
      */
     protected static String getDw(long userId) throws Exception {
         String ret = getDb(DW_DB_TYPE, userId);
-        if (ret==null) {
+        if (ret == null) {
             ret = DBMS.DW_DATASOURCE_NAME;
         }
         return ret;
@@ -280,9 +278,9 @@ public final class GraphServlet extends HttpServlet {
         r.setProperty("uid", String.valueOf(userId));
         r.setProperty("dstid", String.valueOf(type));
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
-        ResultSetContainer rsc = (ResultSetContainer)m.get("contact_datasource");
+        ResultSetContainer rsc = (ResultSetContainer) m.get("contact_datasource");
         String ret = null;
-        if (!(rsc==null || rsc.isEmpty())) {
+        if (!(rsc == null || rsc.isEmpty())) {
             ret = rsc.getStringItem(0, "datasource_name");
         }
         return ret;

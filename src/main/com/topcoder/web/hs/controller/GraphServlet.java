@@ -1,26 +1,45 @@
 package com.topcoder.web.hs.controller;
 
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.distCache.*;
-import com.topcoder.shared.util.*;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.*;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.*;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.common.web.constant.TCServlet;
 import com.fx4m.plot13.HistoryPlot;
-
-import org.faceless.graph.*;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.RequestInt;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.Persistor;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.HSAuthorization;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
+import org.faceless.graph.BarGraph;
+import org.faceless.graph.Graph;
+import org.faceless.graph.Style;
 import org.faceless.graph.output.PNGOutput;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 import java.awt.*;
-import java.io.*;
-import java.text.*;
-import java.util.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  *  A servlet for graph images.
@@ -79,9 +98,9 @@ public class GraphServlet extends HttpServlet {
                     HttpObjectFactory.createResponse(response), BasicAuthentication.HS_SITE);
             Authorization hsa = new HSAuthorization(auth.getActiveUser());
             Resource r = new ClassResource(this.getClass());
-            if(!hsa.hasPermission(r))
+            if (!hsa.hasPermission(r))
                 throw new PermissionException(auth.getUser(), r);
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.fatal("permission check failed, giving up", e);
             return;  // just give them a red x
         }
@@ -171,7 +190,6 @@ public class GraphServlet extends HttpServlet {
             log.error("ERROR GETTING OBJECT FROM CACHE");
         }
     }
-
 
 
     private static byte[] getRatingsHistory(RequestInt dataRequest)
@@ -366,25 +384,25 @@ public class GraphServlet extends HttpServlet {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 double points = new Double(rsr.getItem("points").toString()).doubleValue();
                 problemName = rsr.getItem("name").toString();
-                g.optionTitle("Problem Distribution :: "+problemName);
-                int columns = rsc.getColumnCount()-2;
-                double pointsPerBucket = (points*.7)/columns;
-                double start = points*.3;
+                g.optionTitle("Problem Distribution :: " + problemName);
+                int columns = rsc.getColumnCount() - 2;
+                double pointsPerBucket = (points * .7) / columns;
+                double start = points * .3;
                 for (int i = 0; i < columns; i++) {
-                    String columnName = df.format(start+pointsPerBucket*i) + " - " + df.format(start+pointsPerBucket*(i+1));
+                    String columnName = df.format(start + pointsPerBucket * i) + " - " + df.format(start + pointsPerBucket * (i + 1));
                     g.set(columnName,
                             ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
                     g.setColor(columnName, MAROON);
                 }
             }
             it = info.iterator();
-            while(it.hasNext()){
+            while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 int opened = Integer.parseInt(rsr.getItem("opened").toString());
                 int challenged = Integer.parseInt(rsr.getItem("challenged").toString());
                 int passed = Integer.parseInt(rsr.getItem("passed").toString());
                 int failed = Integer.parseInt(rsr.getItem("failed").toString());
-                g.optionSubTitle((opened+challenged+failed)+" out of "+(opened+challenged+failed+passed)+" coders who opened "+problemName+", received 0 points.");
+                g.optionSubTitle((opened + challenged + failed) + " out of " + (opened + challenged + failed + passed) + " coders who opened " + problemName + ", received 0 points.");
             }
             baos = new ByteArrayOutputStream();
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);

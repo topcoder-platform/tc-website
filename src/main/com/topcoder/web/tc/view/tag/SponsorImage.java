@@ -1,7 +1,7 @@
 package com.topcoder.web.tc.view.tag;
 
-import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
 public class SponsorImage extends TagSupport {
@@ -105,7 +105,7 @@ public class SponsorImage extends TagSupport {
                 buffer.append(" border=\"" + border + "\"");
             }
             buffer.append(" />");
-            if (href!=null) {
+            if (href != null) {
                 buffer.append("</a>");
             }
         }

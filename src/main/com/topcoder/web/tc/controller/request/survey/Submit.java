@@ -1,17 +1,16 @@
 package com.topcoder.web.tc.controller.request.survey;
 
-import com.topcoder.web.common.*;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.view.tag.AnswerInput;
-import com.topcoder.web.tc.model.Question;
-import com.topcoder.web.tc.model.Answer;
-import com.topcoder.web.tc.model.SurveyResponse;
-import com.topcoder.web.ejb.survey.Response;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.survey.Response;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.Answer;
+import com.topcoder.web.tc.model.Question;
+import com.topcoder.web.tc.model.SurveyResponse;
+import com.topcoder.web.tc.view.tag.AnswerInput;
 
-import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
 import java.util.*;
 
@@ -66,7 +65,7 @@ public class Submit extends View {
                     setNextPage(Constants.SURVEY_THANKS);
                     setIsNextPageInContext(true);
                 } else {
-                    SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+                    SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                     setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
                     setIsNextPageInContext(false);
                 }

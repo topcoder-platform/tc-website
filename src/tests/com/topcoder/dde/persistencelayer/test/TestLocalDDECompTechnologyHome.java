@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,13 +29,13 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDECompTechnologyHome localHome;
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDECompTechnologyHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECompTechnologyHome configured to run the named
@@ -42,7 +43,7 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
      */
     public TestLocalDDECompTechnologyHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -58,7 +59,7 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECompTechnologyHome) ctx.lookup(
                     LocalDDECompTechnologyHome.EJB_REF_NAME);
         }
@@ -68,10 +69,10 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
      * creates a LocalDDECompTechnology entity with default parameters
      */
     LocalDDECompTechnology createDefault(LocalDDECompVersions version,
-            LocalDDETechnologyTypes tech) throws Exception {
+                                         LocalDDETechnologyTypes tech) throws Exception {
         return localHome.create(version, tech);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -104,13 +105,13 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
                             TestLocalDDETechnologyTypesHome techHome
                                     = new TestLocalDDETechnologyTypesHome();
                             techHome.setUp();
-                            localTech= techHome.createDefault();
+                            localTech = techHome.createDefault();
                             try {
                                 synchronized (TestLocalDDECompTechnologyHome.class) {
                                     /* test normal creation */
                                     LocalDDECompTechnology local =
                                             createDefault(localVersion,
-                                                          localTech);
+                                                    localTech);
                                     assertNotNull(local);
                                     try {
                                         assertTrue(localVersion.isIdentical(
@@ -120,7 +121,7 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
                                         try {
                                             LocalDDECompTechnology local2 =
                                                     createDefault(localVersion,
-                                                                  localTech);
+                                                            localTech);
                                             local2.remove();
                                             fail("Expected a CreateException");
                                         } catch (CreateException ce) {
@@ -129,7 +130,7 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
                                     } finally {
                                         local.remove();
                                     }
-                        
+
                                     /* test creation with null component version */
                                     local = localHome.create(null, localTech);
                                     assertNotNull(local);
@@ -156,11 +157,11 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
-    
+
 //    public void testFindByCompVersId() {
 //        fail("Test not yet implemented");
 //    }
@@ -173,21 +174,21 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
         long compTechId;
         Long compVersId;
         Long technologyTypeId;
-        
+
         DDECompTechnologyData(Object id, Long version, Long tech) {
             this(keyToLong(id), version, tech);
         }
-        
+
         DDECompTechnologyData(long id, Long version, Long tech) {
             compTechId = id;
             compVersId = version;
             technologyTypeId = tech;
         }
-        
+
         DDECompTechnologyData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(compTechId);
         }
@@ -204,22 +205,22 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
                 rs.updateLong("TECHNOLOGY_TYPE_ID", technologyTypeId.longValue());
             }
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("COMP_TECH_ID", compTechId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             compTechId = rs.getLong("COMP_TECH_ID");
             l = rs.getLong("COMP_VERS_ID");
             if (rs.wasNull()) {
@@ -234,22 +235,22 @@ public class TestLocalDDECompTechnologyHome extends PersistenceTestCase {
                 technologyTypeId = new Long(l);
             }
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECompTechnologyData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDECompTechnologyData) ) {
+            if (!(o instanceof DDECompTechnologyData)) {
                 return false;
             }
             DDECompTechnologyData d = (DDECompTechnologyData) o;
             return (
-                (technologyTypeId == d.technologyTypeId)
-                && objectsMatch(compVersId, d.compVersId)
-                && objectsMatch(technologyTypeId, d.technologyTypeId) );
+                    (technologyTypeId == d.technologyTypeId)
+                    && objectsMatch(compVersId, d.compVersId)
+                    && objectsMatch(technologyTypeId, d.technologyTypeId));
         }
-        
+
     }
 
 }

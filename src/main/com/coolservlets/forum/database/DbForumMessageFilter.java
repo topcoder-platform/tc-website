@@ -56,9 +56,12 @@
 
 package com.coolservlets.forum.database;
 
-import com.coolservlets.forum.*;
-import java.io.*;
-import java.util.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
+
+import java.io.Serializable;
+import java.util.Enumeration;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**
@@ -67,8 +70,7 @@ import java.util.*;
  * wrapped with an instance of this class.
  */
 public class DbForumMessageFilter extends ForumMessageFilter
-        implements Serializable
-{
+        implements Serializable {
 
     /**
      * Reference to the forum object this filter belongs to. It's neeeded so
@@ -88,42 +90,42 @@ public class DbForumMessageFilter extends ForumMessageFilter
      * @param message the ForumMessage to wrap the new filter around.
      */
     public ForumMessageFilter clone(ForumMessage message) {
-        return ((ForumMessageFilter)message).clone(message);
+        return ((ForumMessageFilter) message).clone(message);
     }
 
     /**
      * Returns the name of the filter.
      */
     public String getName() {
-        return ((ForumMessageFilter)message).getName();
+        return ((ForumMessageFilter) message).getName();
     }
 
     /**
      * Returns a description of the filter.
      */
     public String getDescription() {
-        return ((ForumMessageFilter)message).getDescription();
+        return ((ForumMessageFilter) message).getDescription();
     }
 
     /**
      * Returns the author of the filter.
      */
     public String getAuthor() {
-        return ((ForumMessageFilter)message).getAuthor();
+        return ((ForumMessageFilter) message).getAuthor();
     }
 
     /**
      * Returns the major version number of the filter.
      */
     public int getMajorVersion() {
-        return ((ForumMessageFilter)message).getMajorVersion();
+        return ((ForumMessageFilter) message).getMajorVersion();
     }
 
     /**
      * Returns the minor version number of the filter.
      */
     public int getMinorVersion() {
-        return ((ForumMessageFilter)message).getMinorVersion();
+        return ((ForumMessageFilter) message).getMinorVersion();
     }
 
     /**
@@ -131,8 +133,8 @@ public class DbForumMessageFilter extends ForumMessageFilter
      *
      * @param name the name of the property to get.
      */
-    public String getFilterProperty(String name){
-        return ((ForumMessageFilter)message).getFilterProperty(name);
+    public String getFilterProperty(String name) {
+        return ((ForumMessageFilter) message).getFilterProperty(name);
     }
 
     /**
@@ -142,9 +144,8 @@ public class DbForumMessageFilter extends ForumMessageFilter
      * @param value the new value for the property
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
-        ((ForumMessageFilter)message).setFilterProperty(name,value);
+            throws IllegalArgumentException {
+        ((ForumMessageFilter) message).setFilterProperty(name, value);
         //Save properties to db
         saveFilterProperties();
     }
@@ -153,7 +154,7 @@ public class DbForumMessageFilter extends ForumMessageFilter
      * Returns an enumeration of the property names for the filter.
      */
     public Enumeration filterPropertyNames() {
-        return ((ForumMessageFilter)message).filterPropertyNames();
+        return ((ForumMessageFilter) message).filterPropertyNames();
     }
 
     /**
@@ -170,7 +171,7 @@ public class DbForumMessageFilter extends ForumMessageFilter
      * @param name the name of the property to get a description of.
      */
     public String getFilterPropertyDescription(String name) {
-        return ((ForumMessageFilter)message).getFilterPropertyDescription(name);
+        return ((ForumMessageFilter) message).getFilterPropertyDescription(name);
     }
 
     /**

@@ -10,10 +10,9 @@
 
 package com.topcoder.dde.forum;
 
-import com.topcoder.dde.forum.*;
-import com.topcoder.dde.catalog.ComponentSummary;
 import com.topcoder.forum.*;
-import com.topcoder.security.*;
+import com.topcoder.security.TCSubject;
+
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -42,7 +41,7 @@ public interface DDEForum extends javax.ejb.EJBObject {
      * if the pemission cannot be checked
      */
     public boolean canPost(long forumId, TCSubject subject)
-           throws RemoteException, ForumException;
+            throws RemoteException, ForumException;
 
     /**
      * Checks if a subject has permission to moderate a forum.
@@ -57,7 +56,7 @@ public interface DDEForum extends javax.ejb.EJBObject {
      * if the pemission cannot be checked
      */
     public boolean canModerate(long forumId, TCSubject subject)
-           throws RemoteException, ForumException;
+            throws RemoteException, ForumException;
 
     /**
      * Returns the summary information for the component linked to the specified
@@ -83,7 +82,7 @@ public interface DDEForum extends javax.ejb.EJBObject {
      * @throws ForumException if the specified forum is not linked to exactly
      * one component version
      */
-    public List getActiveForums(long forumType) 
+    public List getActiveForums(long forumType)
             throws RemoteException, ForumException;
-            
+
 }

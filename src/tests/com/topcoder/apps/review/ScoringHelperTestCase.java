@@ -37,10 +37,10 @@ public class ScoringHelperTestCase extends TestCase {
     public void testCalculation() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("marc", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewAllProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewAllProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 5);
         ResultData result =
-            new RetrieveReviewScorecards().start(new ReviewScorecardsData(new OnlineReviewProjectData(user, projectsRetrieval.getProjects()[0])));
+                new RetrieveReviewScorecards().start(new ReviewScorecardsData(new OnlineReviewProjectData(user, projectsRetrieval.getProjects()[0])));
         assertTrue(result instanceof ReviewScorecardsRetrieval);
         ReviewScorecardsRetrieval scorecards = (ReviewScorecardsRetrieval) result;
         assertTrue(scorecards.getScorecards().length == 3);

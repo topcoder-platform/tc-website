@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -18,7 +18,7 @@ public class LoginActionFailureTest extends MockStrutsTestCase {
      * Business delegate instance.
      */
     private BusinessDelegate businessDelegate = null;
-    
+
     /**
      * Initialize the business delegate for the tests.
      */
@@ -26,7 +26,7 @@ public class LoginActionFailureTest extends MockStrutsTestCase {
         super(testName);
         businessDelegate = new BusinessDelegate();
     }
-    
+
     /**
      * Initialize for the tests.
      */
@@ -34,7 +34,7 @@ public class LoginActionFailureTest extends MockStrutsTestCase {
         super.setUp();
         setConfigFile("conf/struts-config.xml");
     }
-    
+
     /**
      * Tear down for the tests.
      */
@@ -47,14 +47,14 @@ public class LoginActionFailureTest extends MockStrutsTestCase {
      */
     public void testLoginMissingUsername1() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
-        addRequestParameter("username", (String)null);
+        addRequestParameter("username", (String) null);
         addRequestParameter("password", "xxx");
         actionPerform();
-        
+
         verifyForward("login");
-        verifyActionErrors(new String[] {"error.username.required"});
+        verifyActionErrors(new String[]{"error.username.required"});
         assertNull(getSession().getAttribute("user"));
     }
 
@@ -63,30 +63,30 @@ public class LoginActionFailureTest extends MockStrutsTestCase {
      */
     public void testLoginMissingUsername2() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
         addRequestParameter("username", new String(""));
         addRequestParameter("password", "xxx");
         actionPerform();
-        
+
         verifyForward("login");
-        verifyActionErrors(new String[] {"error.username.required"});
+        verifyActionErrors(new String[]{"error.username.required"});
         assertNull(getSession().getAttribute("user"));
     }
-    
+
     /**
      * Test for missing password (password = null)
      */
     public void testLoginMissingPassword1() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
         addRequestParameter("username", "pzhao");
-        addRequestParameter("password", (String)null);
+        addRequestParameter("password", (String) null);
         actionPerform();
-        
+
         verifyForward("login");
-        verifyActionErrors(new String[] {"error.password.required"});
+        verifyActionErrors(new String[]{"error.password.required"});
         assertNull(getSession().getAttribute("user"));
     }
 
@@ -95,30 +95,30 @@ public class LoginActionFailureTest extends MockStrutsTestCase {
      */
     public void testLoginMissingPassword2() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
         addRequestParameter("username", "xxx");
         addRequestParameter("password", new String(""));
         actionPerform();
-        
+
         verifyForward("login");
-        verifyActionErrors(new String[] {"error.password.required"});
+        verifyActionErrors(new String[]{"error.password.required"});
         assertNull(getSession().getAttribute("user"));
     }
-    
+
     /**
      * Test unknown username.
      */
     public void testLoginUnknownUser() {
         Object user = null;
-        
+
         setRequestPathInfo("/login");
         addRequestParameter("username", "JJOck");
         addRequestParameter("password", "pzhaoxxx");
         actionPerform();
-        
+
         verifyForward("login");
-        verifyActionErrors(new String[] {"error.password.mismatch"});
+        verifyActionErrors(new String[]{"error.password.mismatch"});
         assertNull(getSession().getAttribute("user"));
     }
 }

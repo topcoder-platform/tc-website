@@ -1,33 +1,22 @@
 package com.topcoder.apps.review.autopilottimer;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
+import com.topcoder.apps.review.*;
+import com.topcoder.apps.review.document.DocumentManagerLocal;
+import com.topcoder.apps.review.document.ScreeningScorecard;
+import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.message.email.EmailEngine;
+import com.topcoder.message.email.TCSEmailMessage;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
 import org.apache.log4j.Logger;
 import org.jboss.system.ServiceMBeanSupport;
 
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.RolePrincipal;
-
-import com.topcoder.apps.review.projecttracker.*;
-import com.topcoder.apps.review.document.*;
-import com.topcoder.apps.review.EJBHelper;
-import com.topcoder.apps.review.OnlineReviewProjectData;
-import com.topcoder.apps.review.ProjectForm;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-
-import com.topcoder.apps.review.ProjectData;
-import com.topcoder.apps.review.BusinessDelegate;
-import com.topcoder.apps.review.ResultData;
-import com.topcoder.apps.review.SuccessResult;
-
 import javax.naming.NameNotFoundException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import com.topcoder.message.email.EmailEngine;
-import com.topcoder.message.email.TCSEmailMessage;
-
-import java.util.*;
 /********************************************************************
  * This class creates a timer that will perform auto pilot logic.
  * This functionality is implemented as a JBoss-specific MBean.
@@ -96,9 +85,9 @@ public class AutoPilotTimer
 
                 UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
 
-                for(int i = 0; i < projs.length;i++) {
-                    if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_SUBMISSION) {
-                        if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                for (int i = 0; i < projs.length; i++) {
+                    if (projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_SUBMISSION) {
+                        if (projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() != null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
                             //move to screening
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
@@ -106,7 +95,7 @@ public class AutoPilotTimer
 
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
 
-                            if(!p.getAutoPilot()) continue;
+                            if (!p.getAutoPilot()) continue;
 
                             form.fromProject(p);
 
@@ -117,21 +106,21 @@ public class AutoPilotTimer
                             form.setReason("auto pilot advancing to screening");
 
                             //check for screening scorecard template
-                            if(form.getScreeningTemplateId() == -1 ) {
+                            if (form.getScreeningTemplateId() == -1) {
                                 String template = docManager.getDefaultScorecardTemplate(p.getProjectType().getId(), ScreeningScorecard.SCORECARD_TYPE).getName();
                                 form.setScreeningTemplate(template);
                             }
 
                             ProjectData data = form.toActionData(orpd);
                             ResultData result = new BusinessDelegate().projectAdmin(data);
-                            if(!(result instanceof SuccessResult)) {
-                                logger.debug("ERROR " + result.toString() );
+                            if (!(result instanceof SuccessResult)) {
+                                logger.debug("ERROR " + result.toString());
                             }
                         }
 // by cucu
-                    // if in appeals phase and it ended, move to appeals response
-                    } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
-                        if(projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                        // if in appeals phase and it ended, move to appeals response
+                    } else if (projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
+                        if (projs[i].getCurrentPhaseInstance().getEndDate() != null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
 
                             //move to appeals response
@@ -140,7 +129,7 @@ public class AutoPilotTimer
 
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
 
-                            if(!p.getAutoPilot()) continue;
+                            if (!p.getAutoPilot()) continue;
 
                             form.fromProject(p);
 
@@ -155,8 +144,8 @@ public class AutoPilotTimer
 
                             ProjectData data = form.toActionData(orpd);
                             ResultData result = new BusinessDelegate().projectAdmin(data);
-                            if(!(result instanceof SuccessResult)) {
-                                logger.debug("ERROR " + result.toString() );
+                            if (!(result instanceof SuccessResult)) {
+                                logger.debug("ERROR " + result.toString());
                             }
                         }
                     }
@@ -220,8 +209,8 @@ public class AutoPilotTimer
                     }
                     */
                 }
-            } catch(Exception e) {
-                if(!(e instanceof NameNotFoundException))
+            } catch (Exception e) {
+                if (!(e instanceof NameNotFoundException))
                     logger.error(e.getMessage());
             }
         }
@@ -255,25 +244,25 @@ public class AutoPilotTimer
 
     private Date formDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
-        if(year == null || month == null || day == null || hour == null) {
+        if (year == null || month == null || day == null || hour == null) {
             return new Date(); //so we don't blow up in certain places
         }
         Calendar c = Calendar.getInstance();
         c.set(Integer.parseInt(year),
-               months[Integer.parseInt(month)],
-               Integer.parseInt(day),
-               Integer.parseInt(hour), 0, 0);
+                months[Integer.parseInt(month)],
+                Integer.parseInt(day),
+                Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
     }
 
     private static int[] months =
-        new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
-                  Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
-                  Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
-                  Calendar.NOVEMBER, Calendar.DECEMBER};
+            new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
+                      Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
+                      Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
+                      Calendar.NOVEMBER, Calendar.DECEMBER};
 
-  static void sendMail(String from, String to, String subject, String messageText) throws Exception {
+    static void sendMail(String from, String to, String subject, String messageText) throws Exception {
         TCSEmailMessage message = new TCSEmailMessage();
         message.setFromAddress(from);
         message.setToAddress(to, TCSEmailMessage.TO);

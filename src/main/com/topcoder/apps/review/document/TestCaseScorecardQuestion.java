@@ -1,12 +1,10 @@
 /*
  * TestCaseScorecardQuestion.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
-
-import com.topcoder.apps.review.document.Evaluation;
 
 import java.io.Serializable;
 
@@ -34,9 +32,9 @@ public class TestCaseScorecardQuestion extends ScorecardQuestion implements Seri
      *
      */
     public TestCaseScorecardQuestion(long id, Evaluation evaluation, String questionText, int weight,
-            ScorecardSection scorecardSection, int sequenceLocation, SubjectiveResponse[] subjectiveResponse,
-            int totalPass, int totalTests,
-            long questionTemplateId, long versionId) {
+                                     ScorecardSection scorecardSection, int sequenceLocation, SubjectiveResponse[] subjectiveResponse,
+                                     int totalPass, int totalTests,
+                                     long questionTemplateId, long versionId) {
         super(id, evaluation, questionText, weight, scorecardSection, sequenceLocation, questionTemplateId, versionId);
         this.subjectiveResponse = subjectiveResponse;
         this.totalPass = totalPass;
@@ -67,8 +65,8 @@ public class TestCaseScorecardQuestion extends ScorecardQuestion implements Seri
      * @return DOCUMENT ME!
      */
     public double getValue() {
-        return (double)totalPass/totalTests;
-    }    
+        return (double) totalPass / totalTests;
+    }
 
     /**
      * @return
@@ -89,7 +87,7 @@ public class TestCaseScorecardQuestion extends ScorecardQuestion implements Seri
      */
     public void setTotalTests(int totalTests) {
         this.totalTests = totalTests;
-        this.testCaseDirtyFlag = true; 
+        this.testCaseDirtyFlag = true;
     }
 
     /**
@@ -97,14 +95,14 @@ public class TestCaseScorecardQuestion extends ScorecardQuestion implements Seri
      */
     public void setTotalPass(int totalPass) {
         this.totalPass = totalPass;
-        this.testCaseDirtyFlag = true; 
+        this.testCaseDirtyFlag = true;
     }
 
     /**
      * <p>
      * Return the responses of this question.
      * </p>
-     * 
+     *
      * @return a SubjectiveResponse[] with the responses of this question.
      */
     public SubjectiveResponse[] getResponses() {
@@ -115,7 +113,7 @@ public class TestCaseScorecardQuestion extends ScorecardQuestion implements Seri
      * <p>
      * Set the responses of this question.
      * </p>
-     * 
+     *
      * @param responses The responses of this question.
      */
     public void setResponses(SubjectiveResponse[] responses) {

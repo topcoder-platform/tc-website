@@ -2,21 +2,18 @@ package com.topcoder.web.admin.task;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.Round;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
-import com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.admin.XSLConstants;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,7 +61,7 @@ public final class Compilation {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestAdminServicesEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestAdminServicesEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 rounds = contestAdminServicesEJB.getRounds();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -105,7 +102,7 @@ public final class Compilation {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestAdminServicesEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestAdminServicesEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 coders = contestAdminServicesEJB.getCodersByRound(Integer.parseInt(request.getParameter("RoundId")));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -149,7 +146,7 @@ public final class Compilation {
         try {
             InitialContext ctx = TCContext.getInitial();
             try {
-                contestAdminServicesEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
+                contestAdminServicesEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 compilations = contestAdminServicesEJB.getCoderCompilations(Integer.parseInt(request.getParameter("RoundId")), Integer.parseInt(request.getParameter("CoderId")));
             } catch (Exception e) {
                 e.printStackTrace();

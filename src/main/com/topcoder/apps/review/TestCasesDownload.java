@@ -5,16 +5,13 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.TestCase;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.apps.review.projecttracker.*;
+
 import java.net.URL;
 
 /**
  * This Model provides business logic through which users can download testcases.
- * 
+ *
  * @author FatClimber
  * @version 1.0
  */
@@ -28,7 +25,7 @@ public class TestCasesDownload implements Model {
      *
      * @return a SubmissionDownloadRetrieval if the project was retrieved successfully containing the filename that
      *         the user should see (instead of the real local filename) and an input stream from where to read the
-               submission data
+     submission data
      *         a FailureResult object if the data object is not populated correctly or if the user doesn't have
      *         project permission
      *         a FailureResult containing an exception in case one is thrown
@@ -60,7 +57,7 @@ public class TestCasesDownload implements Model {
             // check permission: admin, PM or any type of reviewer
             boolean isJustSubmitter = false;
             if (!PermissionHelper.isAdmin(user) && !PermissionHelper.hasAnyReviewerPermission(user, userProjectInfo)
-                        && !RoleHelper.isProductManager(user, userProjectInfo)) {
+                    && !RoleHelper.isProductManager(user, userProjectInfo)) {
                 if (!PermissionHelper.hasSubmitPermission(user, userProjectInfo)) {
                     return new FailureResult("You don't have permission to download testcases for this project");
                 } else {
@@ -79,7 +76,7 @@ public class TestCasesDownload implements Model {
 
             // find the submission with that id
             TestCase[] testCases =
-                documentManager.getTestCases(project, submissionDownloadData.getSubmissionId(), user.getTCSubject());
+                    documentManager.getTestCases(project, submissionDownloadData.getSubmissionId(), user.getTCSubject());
             if (testCases != null && testCases.length == 1) {
                 testCasesURL = testCases[0].getURL();
                 reviewer = testCases[0].getReviewer();
@@ -96,10 +93,10 @@ public class TestCasesDownload implements Model {
                 return new FailureResult("Cannot find the reviewer user role for the testcases");
             }
             String userFilename = "TestCases_" + userRoleId + "_"
-                                + project.getName() + getExtension(testCasesURL.getFile());
+                    + project.getName() + getExtension(testCasesURL.getFile());
             return new SubmissionDownloadRetrieval(userFilename, testCasesURL.openStream());
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

@@ -1,16 +1,14 @@
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.InitialContext;
 import javax.naming.Context;
-import java.sql.PreparedStatement;
+import javax.naming.InitialContext;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashSet;
 
 public class NumRatingsFix {
     private static Logger log = Logger.getLogger(NumRatingsFix.class);
@@ -32,12 +30,12 @@ public class NumRatingsFix {
 
         String roundListQuery = "select distinct round_id  from room_result where num_ratings is null order by round_id asc";
         String numRatingsQuery = "select count(*) " +
-                                  " from room_result rr, round r, round r1 " +
-                                 " where r.round_id =rr.round_id " +
-                                   " and rr.coder_id =? " +
-                                   " and r.calendar_id <= r1.calendar_id" +
-                                   " and r1.round_id = ? " +
-                                   " and rated_flag = 1";
+                " from room_result rr, round r, round r1 " +
+                " where r.round_id =rr.round_id " +
+                " and rr.coder_id =? " +
+                " and r.calendar_id <= r1.calendar_id" +
+                " and r1.round_id = ? " +
+                " and rated_flag = 1";
         String updateQuery = " update room_result set num_ratings = ? where round_id = ? and coder_id = ?";
         String coderListQuery = "select coder_id from room_result where round_id = ?";
 
@@ -56,11 +54,11 @@ public class NumRatingsFix {
             updatePS = con.prepareStatement(updateQuery);
             coderListPS = con.prepareStatement(coderListQuery);
 
-            while(roundListRS.next()) {
+            while (roundListRS.next()) {
                 log.debug("running for round id " + roundListRS.getLong(1));
                 long roundId = roundListRS.getLong(1);
 
-                coderListPS.setLong(1,roundId);
+                coderListPS.setLong(1, roundId);
                 coderListRS = coderListPS.executeQuery();
 
                 int count = 0;
@@ -73,8 +71,8 @@ public class NumRatingsFix {
                         updatePS.setInt(1, numRatingsRS.getInt(1));
                         updatePS.setLong(2, roundId);
                         updatePS.setLong(3, coderListRS.getLong(1));
-                        count+=updatePS.executeUpdate();
-                        if (count%10==0) log.debug(count + " rows updated");
+                        count += updatePS.executeUpdate();
+                        if (count % 10 == 0) log.debug(count + " rows updated");
                     }
                 }
 

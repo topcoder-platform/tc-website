@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  *
  * @author TCDEVELOPER
  * @version 1.0
- * @version Copyright © 2003, TopCoder Software, Inc. All rights reserved
+ * @version Copyright ï¿½ 2003, TopCoder Software, Inc. All rights reserved
  */
 public class DocumentManagerHomeTester implements DocumentManagerHome {
 
@@ -50,6 +50,6 @@ public class DocumentManagerHomeTester implements DocumentManagerHome {
     }
 
     public DocumentManager create() throws CreateException, EJBException {
-        return (DocumentManager)DocumentManagerLocalHomeTester.getInstance().create();
+        return (DocumentManager) DocumentManagerLocalHomeTester.getInstance().create();
     }
 }

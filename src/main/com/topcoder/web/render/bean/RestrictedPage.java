@@ -8,7 +8,10 @@ package com.topcoder.web.render.bean;
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import javax.naming.NamingException;
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.rmi.RemoteException;
 
 // Referenced classes of package com.topcoder.web.render.bean:

@@ -11,7 +11,7 @@ import com.topcoder.apps.review.projecttracker.*;
 
 /**
  * Test ProjectDetailAction class
- * 
+ *
  * @author TCDEVELOPER
  * @version 1.0
  */
@@ -20,16 +20,16 @@ public class TestProjectDetail extends MockStrutsTestCase {
      * Business delegate instance.
      */
     private BusinessDelegate businessDelegate = null;
-    
+
     /**
      * Initialize the business delegate for the tests.
      */
     public TestProjectDetail(String testName) {
         super(testName);
         businessDelegate = new BusinessDelegate();
-		businessDelegate.setUseMockup(true);
+        businessDelegate.setUseMockup(true);
     }
-    
+
     /**
      * Initialize for the tests.
      */
@@ -37,12 +37,12 @@ public class TestProjectDetail extends MockStrutsTestCase {
         super.setUp();
         setConfigFile("conf/struts-config.xml");
     }
-    
+
     /**
      * Tear down for the tests.
      */
-    public void tearDown() throws Exception { 
-        super.tearDown(); 
+    public void tearDown() throws Exception {
+        super.tearDown();
     }
 
     /**
@@ -51,22 +51,22 @@ public class TestProjectDetail extends MockStrutsTestCase {
     public void testEditTerminate() {
         User user = businessDelegate.getUserByHandle("pzhao");
         UserProjectInfo[] infos = businessDelegate.getUserProjectInfos();
-        SecurityEnabledUser seUser = new SecurityEnabledUser(user.getId(), 
-        	user.getHandle(), user.getFirstName(), user.getLastName(), user.getEmail(),
-        	null, null);        
-            
+        SecurityEnabledUser seUser = new SecurityEnabledUser(user.getId(),
+                user.getHandle(), user.getFirstName(), user.getLastName(), user.getEmail(),
+                null, null);
+
         getSession().setAttribute(Constants.USER_KEY, user);
-		getSession().setAttribute(Constants.PROJECT_LIST_KEY, infos);
-		getSession().setAttribute(Constants.UTILITY_KEY, new UtilityBean(seUser));
+        getSession().setAttribute(Constants.PROJECT_LIST_KEY, infos);
+        getSession().setAttribute(Constants.UTILITY_KEY, new UtilityBean(seUser));
         addRequestParameter("id", "1");
         setRequestPathInfo("/projectDetail");
         actionPerform();
-        
+
         verifyForward("success");
-        Project pr = (Project)getRequest().getAttribute(Constants.PROJECT_KEY);
+        Project pr = (Project) getRequest().getAttribute(Constants.PROJECT_KEY);
         assertNotNull(pr);
         assertEquals(pr.getId(), 1);  // because in request in was 1
-                                              
+
         verifyNoActionErrors();
     }
 }

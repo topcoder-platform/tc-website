@@ -5,13 +5,13 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
@@ -47,8 +47,8 @@ public final class ScreeningScorecardAction extends ReviewAction {
                                    ActionForwards forwards,
                                    OnlineReviewProjectData orpd) {
         log(Level.INFO, "ScreeningScorecardAction: User '"
-                        + orpd.getUser().getHandle() + "' in session "
-                        + request.getSession().getId());
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
 
         String action = Constants.ACTION_VIEW;
         if (request.getParameter(Constants.ACTION_KEY) != null) {
@@ -70,7 +70,7 @@ public final class ScreeningScorecardAction extends ReviewAction {
         ScreeningData data = new ScreeningData(orpd, sid, null);
         ResultData result = new BusinessDelegate().screeningScorecard(data);
 
-        if (result instanceof SuccessResult)  {
+        if (result instanceof SuccessResult) {
             ScreeningScorecardRetrieval ssr = (ScreeningScorecardRetrieval) result;
             // Populate the form
             form = new ScreeningScorecardForm();

@@ -53,11 +53,11 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
-      
+
 package com.coolservlets.forum;
 
-import java.util.*;
 import java.io.*;
+import java.util.Properties;
 
 /**
  * Manages properties for the entire Jive system. Properties are merely
@@ -88,7 +88,7 @@ public class PropertyManager {
      */
     public static String getProperty(String name) {
         if (manager == null) {
-            synchronized(managerLock) {
+            synchronized (managerLock) {
                 if (manager == null) {
                     manager = new PropertyManager(propsName);
                 }
@@ -105,7 +105,7 @@ public class PropertyManager {
      */
     public static void setProperty(String name, String value) {
         if (manager == null) {
-            synchronized(managerLock) {
+            synchronized (managerLock) {
                 if (manager == null) {
                     manager = new PropertyManager(propsName);
                 }
@@ -121,7 +121,7 @@ public class PropertyManager {
      */
     public static boolean propertyFileIsReadable() {
         if (manager == null) {
-            synchronized(managerLock) {
+            synchronized (managerLock) {
                 if (manager == null) {
                     manager = new PropertyManager(propsName);
                 }
@@ -137,7 +137,7 @@ public class PropertyManager {
      */
     public static boolean propertyFileIsWritable() {
         if (manager == null) {
-            synchronized(managerLock) {
+            synchronized (managerLock) {
                 if (manager == null) {
                     manager = new PropertyManager(propsName);
                 }
@@ -152,7 +152,7 @@ public class PropertyManager {
      */
     public static boolean propertyFileExists() {
         if (manager == null) {
-            synchronized(managerLock) {
+            synchronized (managerLock) {
                 if (manager == null) {
                     manager = new PropertyManager(propsName);
                 }
@@ -171,7 +171,7 @@ public class PropertyManager {
     private PropertyManager(String resourceURI) {
         this.resourceURI = resourceURI;
     }
-   
+
     /**
      * Gets a Jive property. Jive properties are stored in jive.properties.
      * The properties file should be accesible from the classpath. Additionally,
@@ -182,7 +182,7 @@ public class PropertyManager {
         //If properties aren't loaded yet. We also need to make this thread
         //safe, so synchronize...
         if (properties == null) {
-            synchronized(propertiesLock) {
+            synchronized (propertiesLock) {
                 //Need an additional check
                 if (properties == null) {
                     loadProps();
@@ -191,6 +191,7 @@ public class PropertyManager {
         }
         return properties.getProperty(name);
     }
+
     /**
      * Sets a Jive property. Because the properties must be saved to disk
      * every time a property is set, property setting is relatively slow.
@@ -211,20 +212,20 @@ public class PropertyManager {
             try {
                 out = new FileOutputStream(path);
                 properties.store(out, "jive.properties -- " + (new java.util.Date()));
-            }
-            catch (Exception ioe) {
+            } catch (Exception ioe) {
                 System.err.println("There was an error writing jive.properties to " + path + ". " +
-                    "Ensure that the path exists and that the Jive process has permission " +
-                    "to write to it -- " + ioe);
+                        "Ensure that the path exists and that the Jive process has permission " +
+                        "to write to it -- " + ioe);
                 ioe.printStackTrace();
-            }
-            finally {
+            } finally {
                 try {
                     out.close();
-                } catch (Exception e) { }
+                } catch (Exception e) {
+                }
             }
         }
     }
+
     /**
      * Loads Jive properties from the disk.
      */
@@ -234,15 +235,14 @@ public class PropertyManager {
         try {
             in = getClass().getResourceAsStream(resourceURI);
             properties.load(in);
-        }
-        catch (IOException ioe) {
+        } catch (IOException ioe) {
             System.err.println("Error reading Jive properties in DbForumFactory.loadProperties() " + ioe);
             ioe.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 in.close();
-            } catch (Exception e) { }
+            } catch (Exception e) {
+            }
         }
     }
 
@@ -255,8 +255,7 @@ public class PropertyManager {
         try {
             InputStream in = getClass().getResourceAsStream(resourceURI);
             return true;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return true;
         }
     }
@@ -267,11 +266,10 @@ public class PropertyManager {
      */
     public boolean propFileExists() {
         String path = getProp("path");
-		File file = new File(path);
+        File file = new File(path);
         if (file.isFile()) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -283,17 +281,15 @@ public class PropertyManager {
      */
     public boolean propFileIsWritable() {
         String path = getProp("path");
-		File file = new File(path);
-		if (file.isFile()) {
-			//See if we can write to the file
-			if (file.canWrite()) {
+        File file = new File(path);
+        if (file.isFile()) {
+            //See if we can write to the file
+            if (file.canWrite()) {
                 return true;
-            }
-			else {
+            } else {
                 return false;
             }
-        }
-        else {
+        } else {
             return false;
         }
     }

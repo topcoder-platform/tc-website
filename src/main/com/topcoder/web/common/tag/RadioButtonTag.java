@@ -6,9 +6,9 @@ package com.topcoder.web.common.tag;
  * Time: 5:53:26 PM
  */
 public class RadioButtonTag extends BaseTag {
-    private String value=null;
-    private String selected=null;
-    private String onClick=null;
+    private String value = null;
+    private String selected = null;
+    private String onClick = null;
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
@@ -16,14 +16,14 @@ public class RadioButtonTag extends BaseTag {
             ret.append("<input type=\"radio\" name=\"").append(name).append("\" ");
             ret.append(" value=\"").append(value).append("\" ");
 
-            if (selected==null) {
-                selected = getDefaultValue()==null?null:getDefaultValue().toString();
+            if (selected == null) {
+                selected = getDefaultValue() == null ? null : getDefaultValue().toString();
             }
-            boolean checked = value.equalsIgnoreCase(selected)||"true".equalsIgnoreCase(selected);
+            boolean checked = value.equalsIgnoreCase(selected) || "true".equalsIgnoreCase(selected);
             if (checked) {
                 ret.append("checked=\"").append(value).append("\" ");
             }
-            if (onClick!=null)
+            if (onClick != null)
                 ret.append("onClick=\"").append(onClick).append("\" ");
             ret.append("/>");
             pageContext.getOut().print(ret.toString());
@@ -41,7 +41,7 @@ public class RadioButtonTag extends BaseTag {
     }
 
     public void setSelected(String selected) {
-        this.selected=selected;
+        this.selected = selected;
     }
 
     public void setOnClick(String onClick) {
@@ -49,8 +49,8 @@ public class RadioButtonTag extends BaseTag {
     }
 
     protected void init() {
-        this.value =null;
-        this.selected=null;
+        this.value = null;
+        this.selected = null;
         this.onClick = null;
     }
 

@@ -48,15 +48,15 @@ public class ApplicationServer {
                 config.refresh(CONFIG_NAMESPACE);
             } else {
                 config.add(CONFIG_NAMESPACE,
-                    ConfigManager.CONFIG_PROPERTIES_FORMAT);
+                        ConfigManager.CONFIG_PROPERTIES_FORMAT);
             }
 
             TC_SERVER = config.getString(CONFIG_NAMESPACE, "TC_SERVER");
             CORP_SERVER = config.getString(CONFIG_NAMESPACE, "CORP_SERVER");
             SOFTWARE_SERVER = config.getString(CONFIG_NAMESPACE, "SOFTWARE_SERVER");
             ONLINE_REVIEW_SERVER = config.getString(CONFIG_NAMESPACE, "ONLINE_REVIEW_SERVER");
-  
-        } catch(ConfigManagerException cme) {
+
+        } catch (ConfigManagerException cme) {
             System.err.println("Could not read config" + cme);
         }
     }

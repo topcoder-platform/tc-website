@@ -1,7 +1,7 @@
 /*
  * MyPolicyRemoteHome.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -23,12 +23,12 @@ import com.topcoder.security.policy.PolicyRemoteHome;
  * @author kolanovic
  * @version 1.0
  */
-public class MyPolicyRemoteHome extends EJBHomeBase 
-                                implements PolicyRemoteHome {
+public class MyPolicyRemoteHome extends EJBHomeBase
+        implements PolicyRemoteHome {
     /**
      * <p>Returns a new instance of MyPolicyRemote.</p>
      */
     public PolicyRemote create() throws RemoteException, CreateException {
-        return(new MyPolicyRemote());
+        return (new MyPolicyRemote());
     }
 }

@@ -1,10 +1,9 @@
 package com.topcoder.web.common.tag;
 
-import java.io.IOException;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
+import java.io.IOException;
 
 public class CheckboxTag extends TagSupport {
     protected String name;
@@ -16,7 +15,7 @@ public class CheckboxTag extends TagSupport {
      *
      * @param val
      */
-    public void setName( String val ) {
+    public void setName(String val) {
         name = val;
     }
 
@@ -25,7 +24,7 @@ public class CheckboxTag extends TagSupport {
      *
      * @param val
      */
-    public void setValue( String val ) {
+    public void setValue(String val) {
         value = val;
     }
 
@@ -34,25 +33,23 @@ public class CheckboxTag extends TagSupport {
      *
      * @param val
      */
-    public void setChecked( String val ) {
+    public void setChecked(String val) {
         checked = val;
     }
 
     public int doStartTag() throws JspException {
-        if(name == null || value == null) {
+        if (name == null || value == null) {
             throw new JspException("Name and value must be set");
         }
 
         JspWriter out = pageContext.getOut();
         try {
-            if(value.equals(checked)) {
+            if (value.equals(checked)) {
                 out.print("<input type=\"checkbox\" name=\"" + name + "\" value=\"" + value + "\" CHECKED>");
-            }
-            else {
+            } else {
                 out.print("<input type=\"checkbox\" name=\"" + name + "\" value=\"" + value + "\">");
             }
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
 
@@ -65,7 +62,8 @@ public class CheckboxTag extends TagSupport {
      * end of execution
      */
     public int doEndTag() throws JspException {
-        this.name = null;;
+        this.name = null;
+        ;
         this.value = null;
         this.checked = null;
 

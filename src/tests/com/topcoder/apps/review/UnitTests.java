@@ -14,7 +14,7 @@ public class UnitTests extends TestCase {
 
     public static Test suite() {
         final TestSuite suite = new TestSuite();
-        
+
         suite.addTest(new TestSuite(ActionDataTest.class));
         suite.addTest(new TestSuite(FormBeanTest.class));
         suite.addTest(new TestSuite(LoginActionTest.class));
@@ -29,7 +29,7 @@ public class UnitTests extends TestCase {
         suite.addTest(new TestSuite(AggregationReviewActionTest.class));
         suite.addTest(new TestSuite(FinalReviewActionTest.class));
         suite.addTest(new TestSuite(ContactPMActionTest.class));
-        
+
         return suite;
     }
 

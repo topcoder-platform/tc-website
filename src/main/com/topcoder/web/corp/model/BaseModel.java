@@ -9,8 +9,8 @@ public abstract class BaseModel implements java.io.Serializable {
         isNew = true;
     }
 
-    /** 
-     * Set the variable isNew 
+    /**
+     * Set the variable isNew
      *
      * @param val The value to set isNew to
      */
@@ -18,7 +18,7 @@ public abstract class BaseModel implements java.io.Serializable {
         isNew = val;
     }
 
-    /** 
+    /**
      * Get the value of isNew
      *
      * @return boolean The value of isNew
@@ -27,9 +27,9 @@ public abstract class BaseModel implements java.io.Serializable {
         return isNew;
     }
 
-    /** 
+    /**
      * Alternative method to retrieve the value of isNew
-     * @return 
+     * @return
      */
     public boolean isNew() {
         return isNew;

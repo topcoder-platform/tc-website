@@ -1,13 +1,13 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 /**
  * User: dok
@@ -35,8 +35,8 @@ public class EmailActivate extends Base {
                 Email email = (Email) createEJB(getInitialContext(), Email.class);
                 email.setStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
                         ACTIVE_STATUS, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    setNextPage(Constants.ACTIVATE);
-                    setIsNextPageInContext(true);
+                setNextPage(Constants.ACTIVATE);
+                setIsNextPageInContext(true);
             } else {
                 throw new NavigationException("Sorry, incorrect activation code, account not activated.");
             }

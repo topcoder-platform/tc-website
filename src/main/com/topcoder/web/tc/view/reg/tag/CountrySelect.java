@@ -3,11 +3,8 @@ package com.topcoder.web.tc.view.reg.tag;
 import com.topcoder.common.web.data.Country;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.ejb.DataCache.DataCache;
-import com.topcoder.ejb.DataCache.DataCacheHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.jsp.JspException;
 import java.util.ArrayList;

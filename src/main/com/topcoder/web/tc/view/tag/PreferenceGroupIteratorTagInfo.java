@@ -15,7 +15,7 @@ import javax.servlet.jsp.tagext.VariableInfo;
  * @author  rfairfax
  */
 public class PreferenceGroupIteratorTagInfo extends TagExtraInfo {
-    
+
     public VariableInfo[] getVariableInfo(TagData data) {
         return new VariableInfo[]{
             new VariableInfo(data.getId(),
@@ -24,5 +24,5 @@ public class PreferenceGroupIteratorTagInfo extends TagExtraInfo {
                     VariableInfo.NESTED)
         };
     }
-    
+
 }

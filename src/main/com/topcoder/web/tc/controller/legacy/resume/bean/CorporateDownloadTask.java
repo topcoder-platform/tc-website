@@ -10,8 +10,8 @@ import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.corp.common.TCESConstants;
+import com.topcoder.web.ejb.resume.ResumeServices;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * @deprecated
  */
-public class CorporateDownloadTask extends ResumeTask{
+public class CorporateDownloadTask extends ResumeTask {
     private Resume resume = null;
     private static Logger log = Logger.getLogger(CorporateDownloadTask.class);
     private int userId = -1;
@@ -29,7 +29,7 @@ public class CorporateDownloadTask extends ResumeTask{
     private int campaignId = -1;
     private int memberId = -1;
 
-    public CorporateDownloadTask() throws ResumeTaskException{
+    public CorporateDownloadTask() throws ResumeTaskException {
         super();
     }
 
@@ -46,7 +46,7 @@ public class CorporateDownloadTask extends ResumeTask{
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {
-            userId = (int)authToken.getActiveUser().getId();
+            userId = (int) authToken.getActiveUser().getId();
         }
 
         Request oltpDataRequest = new Request();
@@ -61,19 +61,18 @@ public class CorporateDownloadTask extends ResumeTask{
 
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
         if (oltpRSC.getRowCount() == 0) {
-            throw new ResumeTaskException (" mid="+Integer.toString(getMemberId())
-                                 + " jid="+Integer.toString(getJobId())
-                                 + " cid="+Integer.toString(getCampaignId())
-                                 + "does not belong to uid="+Integer.toString(getUserId()) );
+            throw new ResumeTaskException(" mid=" + Integer.toString(getMemberId())
+                    + " jid=" + Integer.toString(getJobId())
+                    + " cid=" + Integer.toString(getCampaignId())
+                    + "does not belong to uid=" + Integer.toString(getUserId()));
         }
-
 
 
     }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        response.setHeader("content-disposition","inline; filename="+resume.getFileName());
+        response.setHeader("content-disposition", "inline; filename=" + resume.getFileName());
         response.setContentType(resume.getMimeType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
@@ -86,10 +85,10 @@ public class CorporateDownloadTask extends ResumeTask{
     }
 
     public void processStep(String step) throws Exception {
-        try{
-            ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+        try {
+            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             resume = resumeServices.getResume(getMemberId(), db);
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new ResumeTaskException(e);
         }
 
@@ -98,10 +97,10 @@ public class CorporateDownloadTask extends ResumeTask{
     /** Sets attributes for the task.
      * @param paramName The name of the attribute being set.
      * @param paramValues The values to be associated with the given attribute.
-     */    
+     */
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignId(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))

@@ -1,16 +1,14 @@
 package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.CommentStripper;
 
-import javax.sql.DataSource;
-import java.util.*;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.*;
 
 public class Contest {
     private static Logger log = Logger.getLogger(Contest.class);
@@ -109,14 +107,14 @@ public class Contest {
                 Set worst = h.getSortedSet();
                 log.debug("worst " + worst);
                 StringBuffer worstBuf = new StringBuffer(1000);
-                int i=0;
+                int i = 0;
                 Map.Entry me = null;
                 worstBuf.append("\n");
-                for (Iterator it = worst.iterator(); it.hasNext()&&i<Fraud.MAX_REPORT; i++) {
-                    me = (Map.Entry)it.next();
-                    worstBuf.append(((User)me.getKey()).getHandle());
+                for (Iterator it = worst.iterator(); it.hasNext() && i < Fraud.MAX_REPORT; i++) {
+                    me = (Map.Entry) it.next();
+                    worstBuf.append(((User) me.getKey()).getHandle());
                     worstBuf.append("(");
-                    worstBuf.append(((User)me.getKey()).getUserId());
+                    worstBuf.append(((User) me.getKey()).getUserId());
                     worstBuf.append(")");
                     worstBuf.append(" showed up ").append(me.getValue()).append(" times");
                     worstBuf.append("\n");

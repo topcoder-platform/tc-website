@@ -10,9 +10,11 @@ package com.topcoder.dde.catalog.test;
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.Role;
 import com.topcoder.dde.catalog.CatalogException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -30,18 +32,18 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
     public TestCatalog_Role(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         catalog = catalogHome.create();
         role = new Role("Test role #" + idGen.nextId(), "A role for testing");
     }
-    
+
     public void tearDown() throws Exception {
         catalog.remove();
         super.tearDown();
     }
-    
+
     public void testAddRole() throws Exception {
         Role l2 = catalog.addRole(role);
         try {
@@ -51,7 +53,7 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
             catalog.removeRole(l2.getId());
         }
     }
-    
+
     public void testAddRole_Null() throws Exception {
         try {
             catalog.addRole(null);
@@ -60,7 +62,7 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testAddRole_Duplicate() throws Exception {
         Role r2 = catalog.addRole(role);
         try {
@@ -72,12 +74,12 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
             catalog.removeRole(r2.getId());
         }
     }
-    
+
     public void testGetRoles() throws Exception {
         ArrayList active = new ArrayList();
         ArrayList deleted = new ArrayList();
         Collection roles;
-        
+
         active.add(catalog.addRole(role));
         active.add(catalog.addRole(new Role("Test role #" + idGen.nextId(),
                 "A role for testing")));
@@ -91,13 +93,13 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
                 "A role for testing"));
         catalog.removeRole(role.getId());
         deleted.add(role);
-        
+
         roles = catalog.getRoles();
-        
+
         try {
             Iterator it = roles.iterator();
             assertTrue("Missing active Roles",
-                       roles.containsAll(active) );
+                    roles.containsAll(active));
             deleted.retainAll(roles);
             assertEquals("Retrieved deleted Roles", 0, deleted.size());
             String last = ((Role) it.next()).getName();
@@ -112,10 +114,10 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
                 Role l2 = (Role) it.next();
                 catalog.removeRole(l2.getId());
             }
-            
+
         }
     }
-    
+
     public void testGetRole_Missing() throws Exception {
         try {
             catalog.getRole(idGen.nextId());
@@ -127,7 +129,7 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
 
 /*
  * removeRole tested implicitly in the getRoles test
- *    
+ *
     public void testRemoveRole() throws Exception {
         Role l2 = catalog.addRole(role);
         catalog.removeRole(l2.getId());
@@ -135,7 +137,7 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
                 !catalog.getRoles().contains(l2));
     }
  */
-    
+
     public void testRemoveRole_Missing() throws Exception {
         try {
             catalog.removeRole(idGen.nextId());
@@ -144,14 +146,14 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testUpdateRole() throws Exception {
         Role l2 = catalog.addRole(role);
         l2.setDescription("Updated description");
         catalog.updateRole(l2);
         try {
             assertEquals("Role update not successful", l2,
-                         catalog.getRole(l2.getId()));
+                    catalog.getRole(l2.getId()));
         } finally {
             catalog.removeRole(l2.getId());
         }
@@ -165,7 +167,7 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testUpdateRole_Null() throws Exception {
         try {
             catalog.updateRole(null);
@@ -178,5 +180,5 @@ public class TestCatalog_Role extends RemoteCatalogTestCase {
     public static Test suite() {
         return new CatalogTestSetup(new TestSuite(TestCatalog_Role.class));
     }
-    
+
 }

@@ -1,14 +1,14 @@
 package com.topcoder.dde.servlet;
 
-import com.topcoder.dde.submission.*;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
+import com.topcoder.dde.submission.*;
 import com.topcoder.security.TCSubject;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.naming.NamingException;
 import javax.ejb.CreateException;
-import java.io.InputStream;
+import javax.naming.NamingException;
+import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
@@ -68,7 +68,7 @@ public class DDESubmissionDownload extends DBDownloadServlet {
             Submission s = Utility.getSubmissions().getSubmission(submission_id);
             Submitter sub = Utility.getSubmitters().getSubmitter(s.getSubmitterId());
             String phase = ComponentVersionInfo.getPhaseName(sub.getPhaseId());
-            return "Submitter"+s.getSubmitterId()+"_"+request.getParameter("Project").replace(' ','_')+"_"+request.getParameter("ver")+"_"+phase+"_submission.jar";
+            return "Submitter" + s.getSubmitterId() + "_" + request.getParameter("Project").replace(' ', '_') + "_" + request.getParameter("ver") + "_" + phase + "_submission.jar";
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;

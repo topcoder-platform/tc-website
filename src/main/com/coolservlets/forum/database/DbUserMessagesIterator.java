@@ -56,29 +56,35 @@
 
 package com.coolservlets.forum.database;
 
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import java.sql.*;
 import com.coolservlets.forum.*;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
 /**
  * An Iterator for all the user's Messages in a forum.
  */
 public class DbUserMessagesIterator implements Iterator, ListIterator {
     /** DATABASE QUERIES **/
     private static final String USER_MESSAGES =
-        "SELECT messageID, jiveMessage.threadID FROM jiveMessage,jiveForum,jiveThread WHERE " +
-        "jiveMessage.userID=? AND jiveForum.forumID=? AND " +
-        "jiveThread.forumID=jiveForum.forumID AND " +
-        "jiveMessage.threadID=jiveThread.threadID";
+            "SELECT messageID, jiveMessage.threadID FROM jiveMessage,jiveForum,jiveThread WHERE " +
+            "jiveMessage.userID=? AND jiveForum.forumID=? AND " +
+            "jiveThread.forumID=jiveForum.forumID AND " +
+            "jiveMessage.threadID=jiveThread.threadID";
     private int currentIndex = -1;
-    private int [] messages;
+    private int[] messages;
     //The threads that correspond to each message.
-    private int [] threads;
+    private int[] threads;
     private Forum forum;
     private DbForumFactory factory;
-    protected DbUserMessagesIterator(DbForumFactory factory, User user, Forum forum)
-    {
+
+    protected DbUserMessagesIterator(DbForumFactory factory, User user, Forum forum) {
         this.factory = factory;
         this.forum = forum;
         //We don't know how many results will be returned, so store them
@@ -88,7 +94,7 @@ public class DbUserMessagesIterator implements Iterator, ListIterator {
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(USER_MESSAGES);
             pstmt.setInt(1, user.getID());
             pstmt.setInt(2, forum.getID());
@@ -97,40 +103,47 @@ public class DbUserMessagesIterator implements Iterator, ListIterator {
                 tempMessages.add(new Integer(rs.getInt(1)));
                 tempThreads.add(new Integer(rs.getInt(2)));
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbUserMessagesIterator:constructor()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Now copy into an array.
         messages = new int[tempMessages.size()];
-        for (int i=0; i<messages.length; i++) {
-            messages[i] = ((Integer)tempMessages.get(i)).intValue();
+        for (int i = 0; i < messages.length; i++) {
+            messages[i] = ((Integer) tempMessages.get(i)).intValue();
         }
         //Now copy into an array.
         threads = new int[tempThreads.size()];
-        for (int i=0; i<threads.length; i++) {
-            threads[i] = ((Integer)tempThreads.get(i)).intValue();
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = ((Integer) tempThreads.get(i)).intValue();
         }
     }
+
     /**
      * Returns true if there are more users left to iteratate through forwards.
      */
     public boolean hasNext() {
-        return (currentIndex+1 < messages.length);
+        return (currentIndex + 1 < messages.length);
     }
+
     /**
      * Returns true if there are more users left to iteratore through backwards.
      */
     public boolean hasPrevious() {
         return (currentIndex > 0);
     }
+
     /**
      * Returns the next User.
      */
@@ -142,15 +155,14 @@ public class DbUserMessagesIterator implements Iterator, ListIterator {
         }
         try {
             message = forum.getThread(threads[currentIndex]).getMessage(messages[currentIndex]);
-        }
-        catch (ForumThreadNotFoundException ftnfe) {
+        } catch (ForumThreadNotFoundException ftnfe) {
             ftnfe.printStackTrace();
-        }
-        catch (ForumMessageNotFoundException fmnfe) {
+        } catch (ForumMessageNotFoundException fmnfe) {
             fmnfe.printStackTrace();
         }
         return message;
     }
+
     /**
      * For security reasons, the add operation is not supported. Use
      * ProfileManager instead.
@@ -160,6 +172,7 @@ public class DbUserMessagesIterator implements Iterator, ListIterator {
     public void add(Object o) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
     /**
      * For security reasons, the remove operation is not supported. Use
      * ProfileManager instead.
@@ -169,6 +182,7 @@ public class DbUserMessagesIterator implements Iterator, ListIterator {
     public void remove() {
         throw new UnsupportedOperationException();
     }
+
     /**
      * For security reasons, the set operation is not supported. Use
      * ProfileManager instead.
@@ -178,12 +192,14 @@ public class DbUserMessagesIterator implements Iterator, ListIterator {
     public void set(Object o) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
     /**
      * Returns the index number that would be returned with a call to next().
      */
     public int nextIndex() {
-        return currentIndex+1;
+        return currentIndex + 1;
     }
+
     /**
      * Returns the previous user.
      */
@@ -196,19 +212,18 @@ public class DbUserMessagesIterator implements Iterator, ListIterator {
         }
         try {
             message = forum.getThread(threads[currentIndex]).getMessage(messages[currentIndex]);
-        }
-        catch (ForumThreadNotFoundException ftnfe) {
+        } catch (ForumThreadNotFoundException ftnfe) {
             ftnfe.printStackTrace();
-        }
-        catch (ForumMessageNotFoundException fmnfe) {
+        } catch (ForumMessageNotFoundException fmnfe) {
             fmnfe.printStackTrace();
         }
         return message;
     }
+
     /**
      * Returns the index number that would be returned with a call to previous().
      */
     public int previousIndex() {
-        return currentIndex-1;
+        return currentIndex - 1;
     }
 }

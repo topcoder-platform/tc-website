@@ -2,14 +2,20 @@ package com.topcoder.ejb.Search;
 
 import com.topcoder.common.web.constant.OLTP;
 import com.topcoder.common.web.constant.Sort;
-import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.data.MemberSearch;
+import com.topcoder.common.web.data.Scroll;
+import com.topcoder.common.web.data.SearchResult;
+import com.topcoder.common.web.data.SortKey;
 import com.topcoder.common.web.data.stat.coder.Coder;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.rmi.RemoteException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /*************************************************************************************************
@@ -96,7 +102,7 @@ public class SearchBean extends BaseEJB {
         }
         if (search.getMonthsSinceLastComp() != -1) {
             query.append(" AND cal.date > CURRENT - ");
-            query.append(search.getMonthsSinceLastComp() * 30 );
+            query.append(search.getMonthsSinceLastComp() * 30);
             query.append(" UNITS DAY");
         }
         query.append(" ORDER BY rating_order, lower_case_handle");

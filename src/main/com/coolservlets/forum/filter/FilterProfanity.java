@@ -56,10 +56,13 @@
 
 package com.coolservlets.forum.filter;
 
-import java.util.*;
-
-import com.coolservlets.forum.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
 import com.coolservlets.util.StringUtils;
+
+import java.util.Enumeration;
+import java.util.Properties;
+import java.util.StringTokenizer;
 
 /**
  * A ForumMessageFilter that replaces profanity.
@@ -69,7 +72,7 @@ public class FilterProfanity extends ForumMessageFilter {
     /**
      * Array of all the bad words to filter.
      */
-    private String [] filterList;
+    private String[] filterList;
 
     /**
      * Indicates if case of words should be ignored.
@@ -107,8 +110,7 @@ public class FilterProfanity extends ForumMessageFilter {
      * @param propertyDescriptions the property descriptions for the filter.
      */
     public FilterProfanity(ForumMessage message, Properties props,
-            Properties propDescriptions, String [] filterList, boolean ignoreCase)
-    {
+                           Properties propDescriptions, String[] filterList, boolean ignoreCase) {
         super(message);
         this.props = new Properties(props);
         this.propDescriptions = new Properties(propDescriptions);
@@ -122,7 +124,7 @@ public class FilterProfanity extends ForumMessageFilter {
      *
      * @param message the ForumMessage to wrap the new filter around.
      */
-    public ForumMessageFilter clone(ForumMessage message){
+    public ForumMessageFilter clone(ForumMessage message) {
         return new FilterProfanity(message, props, propDescriptions,
                 filterList, ignoreCase);
     }
@@ -200,8 +202,7 @@ public class FilterProfanity extends ForumMessageFilter {
      *    exist.
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         if (props.getProperty(name) == null) {
             throw new IllegalArgumentException();
         }
@@ -230,27 +231,26 @@ public class FilterProfanity extends ForumMessageFilter {
      */
     private void initializeProperties() {
         filterList = new String[0];
-        props.put("filterList","");
-        props.put("ignoreCase","on");
+        props.put("filterList", "");
+        props.put("ignoreCase", "on");
 
-        propDescriptions.put("filterList","A comma delimitted list of "
-            + "the bad words to filter out.");
-        propDescriptions.put("ignoreCase","Indicates whether the case "
-            + "of words should be ignored or not. For example, when on, the "
-            + "words 'CRap' and 'crap' would both be filterd if an entry of "
-            + "'CRAP' was found in the filter list.");
+        propDescriptions.put("filterList", "A comma delimitted list of "
+                + "the bad words to filter out.");
+        propDescriptions.put("ignoreCase", "Indicates whether the case "
+                + "of words should be ignored or not. For example, when on, the "
+                + "words 'CRap' and 'crap' would both be filterd if an entry of "
+                + "'CRAP' was found in the filter list.");
     }
 
     private void applyProperties() {
-        ignoreCase = ((String)props.getProperty("ignoreCase")).equals("on");
-        String list = (String)props.get("filterList");
-        StringTokenizer tokens = new StringTokenizer(list,",");
-        String [] newFilterList = new String[tokens.countTokens()];
-        for (int i=0; i<newFilterList.length; i++) {
+        ignoreCase = ((String) props.getProperty("ignoreCase")).equals("on");
+        String list = (String) props.get("filterList");
+        StringTokenizer tokens = new StringTokenizer(list, ",");
+        String[] newFilterList = new String[tokens.countTokens()];
+        for (int i = 0; i < newFilterList.length; i++) {
             if (ignoreCase) {
                 newFilterList[i] = tokens.nextToken().toLowerCase().trim();
-            }
-            else {
+            } else {
                 newFilterList[i] = tokens.nextToken().trim();
             }
         }
@@ -264,11 +264,10 @@ public class FilterProfanity extends ForumMessageFilter {
         String lower;
         if (ignoreCase) {
             lower = str.toLowerCase();
-        }
-        else {
+        } else {
             lower = str;
         }
-        for (int i=0; i<filterList.length; i++) {
+        for (int i = 0; i < filterList.length; i++) {
             str = replace(str, lower, filterList[i], cleanWord(filterList[i].length()));
         }
         return str;
@@ -280,7 +279,7 @@ public class FilterProfanity extends ForumMessageFilter {
      */
     private String cleanWord(int length) {
         char[] newWord = new char[length];
-        for (int i=0; i<newWord.length; i++) {
+        for (int i = 0; i < newWord.length; i++) {
             newWord[i] = '*';
         }
         return new String(newWord);
@@ -290,18 +289,17 @@ public class FilterProfanity extends ForumMessageFilter {
      * Replaces all instances of oldString with newString in the String line.
      */
     private String replace(String line, String lowerCaseLine,
-            String oldString, String newString )
-    {
-        int i=0;
-        if ( ( i=lowerCaseLine.indexOf( oldString, i ) ) >= 0 ) {
+                           String oldString, String newString) {
+        int i = 0;
+        if ((i = lowerCaseLine.indexOf(oldString, i)) >= 0) {
             int oLength = oldString.length();
             int nLength = newString.length();
-            StringBuffer buf = new StringBuffer(line.length()+15);
-            buf.append(line.substring(0,i)).append(newString);
+            StringBuffer buf = new StringBuffer(line.length() + 15);
+            buf.append(line.substring(0, i)).append(newString);
             i += oLength;
             int j = i;
-            while( ( i=lowerCaseLine.indexOf( oldString, i ) ) > 0 ) {
-                buf.append(line.substring(j,i)).append(newString);
+            while ((i = lowerCaseLine.indexOf(oldString, i)) > 0) {
+                buf.append(line.substring(j, i)).append(newString);
                 i += oLength;
                 j = i;
             }

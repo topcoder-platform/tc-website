@@ -1,11 +1,8 @@
 package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.ejb.JavaDocServices.JavaDocServices;
-import com.topcoder.ejb.JavaDocServices.JavaDocServicesHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tc.controller.legacy.HTMLLinkChanger;
 import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
@@ -44,7 +41,7 @@ public final class JavaDocServlet extends HttpServlet {
         try {
             log.debug("JavaDocServlet getting JavaDocServices...");
             InitialContext ctx = (InitialContext) TCContext.getInitial();
-            services = (JavaDocServices)BaseProcessor.createEJB(ctx, JavaDocServices.class);
+            services = (JavaDocServices) BaseProcessor.createEJB(ctx, JavaDocServices.class);
             log.debug("...successful");
         } catch (Exception e) {
             log.error("Error getting JavaDocServices:", e);

@@ -21,7 +21,9 @@ package com.topcoder.utilities.pldwload;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 public class TCLoadRank extends TCLoad {
@@ -70,7 +72,7 @@ public class TCLoadRank extends TCLoad {
         return true;
     }
 
-   /**
+    /**
      * This method performs the load for the round information tables
      */
     public boolean performLoad() {
@@ -112,15 +114,15 @@ public class TCLoadRank extends TCLoad {
         try {
 
             query = new StringBuffer(100);
-            query.append( " DELETE");
-            query.append(   " FROM coder_rank");
-            query.append(  " WHERE coder_rank_type_id = " + OVERALL_RATING_RANK_TYPE_ID);
+            query.append(" DELETE");
+            query.append(" FROM coder_rank");
+            query.append(" WHERE coder_rank_type_id = " + OVERALL_RATING_RANK_TYPE_ID);
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append( " INSERT");
-            query.append(   " INTO coder_rank (coder_id, percentile, rank, coder_rank_type_id)");
-            query.append( " VALUES (?, ?, ?, " + OVERALL_RATING_RANK_TYPE_ID + ")");
+            query.append(" INSERT");
+            query.append(" INTO coder_rank (coder_id, percentile, rank, coder_rank_type_id)");
+            query.append(" VALUES (?, ?, ?, " + OVERALL_RATING_RANK_TYPE_ID + ")");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             /* coder_rank table should be kept "up-to-date" so get the most recent stuff
@@ -138,16 +140,16 @@ public class TCLoadRank extends TCLoad {
             int size = ratings.size();
             int tempRating = 0;
             int tempCoderId = 0;
-            for (int j=0; j<size; j++) {
+            for (int j = 0; j < size; j++) {
                 i++;
-                tempRating = ((CoderRating)ratings.get(j)).getRating();
-                tempCoderId = ((CoderRating)ratings.get(j)).getCoderId();
+                tempRating = ((CoderRating) ratings.get(j)).getRating();
+                tempCoderId = ((CoderRating) ratings.get(j)).getCoderId();
                 if (tempRating != rating) {
                     rating = tempRating;
                     rank = i;
                 }
                 psIns.setInt(1, tempCoderId);
-                psIns.setFloat(2, (float)100*((float)(coderCount-rank)/coderCount));
+                psIns.setFloat(2, (float) 100 * ((float) (coderCount - rank) / coderCount));
                 psIns.setInt(3, rank);
                 count += psIns.executeUpdate();
                 printLoadProgress(count, "overall rating rank");
@@ -185,16 +187,16 @@ public class TCLoadRank extends TCLoad {
         try {
 
             query = new StringBuffer(100);
-            query.append( " DELETE");
-            query.append(   " FROM coder_rank_history");
-            query.append(  " WHERE coder_rank_type_id = " + OVERALL_RATING_RANK_TYPE_ID);
-            query.append(    " AND round_id = " + roundId);
+            query.append(" DELETE");
+            query.append(" FROM coder_rank_history");
+            query.append(" WHERE coder_rank_type_id = " + OVERALL_RATING_RANK_TYPE_ID);
+            query.append(" AND round_id = " + roundId);
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append( " INSERT");
-            query.append(   " INTO coder_rank_history (coder_id, round_id, percentile, rank, coder_rank_type_id)");
-            query.append( " VALUES (?, ?, ?, ?, " + OVERALL_RATING_RANK_TYPE_ID + ")");
+            query.append(" INSERT");
+            query.append(" INTO coder_rank_history (coder_id, round_id, percentile, rank, coder_rank_type_id)");
+            query.append(" VALUES (?, ?, ?, ?, " + OVERALL_RATING_RANK_TYPE_ID + ")");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
 
@@ -204,7 +206,7 @@ public class TCLoadRank extends TCLoad {
              * all the people who have competed up until the time
              * of the given round
              */
-            if (roundId==getMostRecentRound()) {
+            if (roundId == getMostRecentRound()) {
                 ratings = getCurrentCoderRatings();
             } else {
                 ratings = getCoderRatingsForRound();
@@ -220,17 +222,17 @@ public class TCLoadRank extends TCLoad {
             int size = ratings.size();
             int tempRating = 0;
             int tempCoderId = 0;
-            for (int j=0; j<size; j++) {
+            for (int j = 0; j < size; j++) {
                 i++;
-                tempRating = ((CoderRating)ratings.get(j)).getRating();
-                tempCoderId = ((CoderRating)ratings.get(j)).getCoderId();
+                tempRating = ((CoderRating) ratings.get(j)).getRating();
+                tempCoderId = ((CoderRating) ratings.get(j)).getCoderId();
                 if (tempRating != rating) {
                     rating = tempRating;
                     rank = i;
                 }
                 psIns.setInt(1, tempCoderId);
                 psIns.setInt(2, roundId);
-                psIns.setFloat(3, (float)100*((float)(coderCount-rank)/coderCount));
+                psIns.setFloat(3, (float) 100 * ((float) (coderCount - rank) / coderCount));
                 psIns.setInt(4, rank);
                 count += psIns.executeUpdate();
                 printLoadProgress(count, "overall rating rank history");
@@ -319,7 +321,7 @@ public class TCLoadRank extends TCLoad {
 */
 
 
-/******* utility methods ********/
+    /******* utility methods ********/
 
 
     /**
@@ -405,13 +407,13 @@ public class TCLoadRank extends TCLoad {
 
             query = new StringBuffer(100);
             query.append(" SELECT c.coder_id");
-            query.append(       " ,r.rating");
-            query.append(  " FROM coder c");
-            query.append(       " ,rating r");
-            query.append( " WHERE c.status = 'A'");
-            query.append(   " AND r.rating > 0");
-            query.append(   " AND c.coder_id = r.coder_id");
-            query.append( " ORDER BY r.rating DESC");
+            query.append(" ,r.rating");
+            query.append(" FROM coder c");
+            query.append(" ,rating r");
+            query.append(" WHERE c.status = 'A'");
+            query.append(" AND r.rating > 0");
+            query.append(" AND c.coder_id = r.coder_id");
+            query.append(" ORDER BY r.rating DESC");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             rs = psSel.executeQuery();
@@ -433,7 +435,6 @@ public class TCLoadRank extends TCLoad {
     }
 
 
-
     /**
      * Gets the of ratings for all the active coders that have
      * taken part in a match prior to and including the given round.
@@ -451,14 +452,14 @@ public class TCLoadRank extends TCLoad {
 
         try {
             query = new StringBuffer(100);
-            query.append( " SELECT round_id");
-            query.append(        " ,calendar_id");
-            query.append(   " FROM round");
-            query.append(  " WHERE calendar_id <= (SELECT calendar_id");
-            query.append(                          " FROM round");
-            query.append(                         " WHERE round_id = ?)");
-            query.append(    " AND round_type_id in (?,?)");
-            query.append(  " ORDER BY calendar_id");
+            query.append(" SELECT round_id");
+            query.append(" ,calendar_id");
+            query.append(" FROM round");
+            query.append(" WHERE calendar_id <= (SELECT calendar_id");
+            query.append(" FROM round");
+            query.append(" WHERE round_id = ?)");
+            query.append(" AND round_type_id in (?,?)");
+            query.append(" ORDER BY calendar_id");
             ps = prepareStatement(query.toString(), SOURCE_DB);
             ps.setInt(1, roundId);
             ps.setInt(2, SRM_ROUND_TYPE);
@@ -472,19 +473,19 @@ public class TCLoadRank extends TCLoad {
             close(rs);
 
             query = new StringBuffer(100);
-            query.append( " SELECT rr.coder_id");
-            query.append(       "  ,rr.new_rating");
-            query.append(   " FROM room_result rr");
-            query.append(        " ,coder c");
-            query.append(  " WHERE rr.round_id = ?");
-            query.append(    " AND rr.attended = 'Y'");
-            query.append(    " AND rr.coder_id = c.coder_id");
-            query.append(    " AND c.status = 'A'");
+            query.append(" SELECT rr.coder_id");
+            query.append("  ,rr.new_rating");
+            query.append(" FROM room_result rr");
+            query.append(" ,coder c");
+            query.append(" WHERE rr.round_id = ?");
+            query.append(" AND rr.attended = 'Y'");
+            query.append(" AND rr.coder_id = c.coder_id");
+            query.append(" AND c.status = 'A'");
             ps = prepareStatement(query.toString(), SOURCE_DB);
 
             HashMap tempHash = new HashMap();
-            for (int i=0; i<rounds.size(); i++) {
-                ps.setInt(1, ((Integer)rounds.get(i)).intValue());
+            for (int i = 0; i < rounds.size(); i++) {
+                ps.setInt(1, ((Integer) rounds.get(i)).intValue());
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     tempHash.put(new Integer(rs.getInt("coder_id")), new Integer(rs.getInt("new_rating")));
@@ -496,9 +497,9 @@ public class TCLoadRank extends TCLoad {
             Map.Entry entry = null;
             CoderRating cr = null;
             while (it.hasNext()) {
-                entry = (Map.Entry)it.next();
-                int coderId = ((Integer)entry.getKey()).intValue();
-                int rating = ((Integer)entry.getValue()).intValue();
+                entry = (Map.Entry) it.next();
+                int coderId = ((Integer) entry.getKey()).intValue();
+                int rating = ((Integer) entry.getValue()).intValue();
                 ret.add(new CoderRating(coderId, rating));
             }
 
@@ -513,7 +514,7 @@ public class TCLoadRank extends TCLoad {
             close(ps);
         }
         long endTime = System.currentTimeMillis();
-        log.info("TIME IN METHOD: " + (endTime-startTime) + " milliseconds");
+        log.info("TIME IN METHOD: " + (endTime - startTime) + " milliseconds");
         return ret;
 
 
@@ -535,11 +536,11 @@ public class TCLoadRank extends TCLoad {
         try {
             query = new StringBuffer();
             query.append(" SELECT count(*) AS count");
-            query.append(  " FROM coder c");
-            query.append(       " ,rating r");
-            query.append( " WHERE c.status = 'A'");
-            query.append(   " AND r.rating > 0");
-            query.append(   " AND c.coder_id = r.coder_id");
+            query.append(" FROM coder c");
+            query.append(" ,rating r");
+            query.append(" WHERE c.status = 'A'");
+            query.append(" AND r.rating > 0");
+            query.append(" AND c.coder_id = r.coder_id");
             ps = prepareStatement(query.toString(), SOURCE_DB);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -575,9 +576,9 @@ public class TCLoadRank extends TCLoad {
         try {
             query = new StringBuffer();
             query.append(" SELECT round_id");
-            query.append(  " FROM round");
-            query.append( " WHERE calendar_id = (SELECT MAX(calendar_id)");
-            query.append(                        " FROM round)");
+            query.append(" FROM round");
+            query.append(" WHERE calendar_id = (SELECT MAX(calendar_id)");
+            query.append(" FROM round)");
             ps = prepareStatement(query.toString(), SOURCE_DB);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -597,20 +598,40 @@ public class TCLoadRank extends TCLoad {
     private class CoderRating implements Comparable {
         private int _coderId = 0;
         private int _rating = 0;
+
         CoderRating(int coderId, int rating) {
             _coderId = coderId;
             _rating = rating;
         }
+
         public int compareTo(Object other) {
-            if (((CoderRating)other).getRating()>_rating) return 1;
-            else if (((CoderRating)other).getRating()<_rating) return -1;
-            else return 0;
+            if (((CoderRating) other).getRating() > _rating)
+                return 1;
+            else if (((CoderRating) other).getRating() < _rating)
+                return -1;
+            else
+                return 0;
         }
-        int getCoderId() {return _coderId;}
-        int getRating() {return _rating;}
-        void setCoderId(int coderId) {_coderId = coderId;}
-        void setRating(int rating) {_rating = rating;}
-        public String toString() { return new String(_coderId+":"+_rating); }
+
+        int getCoderId() {
+            return _coderId;
+        }
+
+        int getRating() {
+            return _rating;
+        }
+
+        void setCoderId(int coderId) {
+            _coderId = coderId;
+        }
+
+        void setRating(int rating) {
+            _rating = rating;
+        }
+
+        public String toString() {
+            return new String(_coderId + ":" + _rating);
+        }
     }
 
 /*

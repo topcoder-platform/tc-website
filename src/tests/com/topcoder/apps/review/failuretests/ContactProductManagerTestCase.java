@@ -1,7 +1,7 @@
 /*
  * ContactProductManagerTestCase.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -27,14 +27,14 @@ public class ContactProductManagerTestCase extends BaseTestCase {
      * <p>Returns an instance of ContactProductManager.</p>
      */
     public Model getModel() {
-        return(new ContactProductManager());
+        return (new ContactProductManager());
     }
-    
+
     /**
      * <p>Returns an instance of LoginData.</p>
      */
     public ActionData getWrongActionData() {
-        return(ActionDataUtil.getLoginData("temp","aaa"));
+        return (ActionDataUtil.getLoginData("temp", "aaa"));
     }
 
     /**
@@ -42,26 +42,26 @@ public class ContactProductManagerTestCase extends BaseTestCase {
      * parameters set to null.</p>
      */
     public ActionData[] getNullParams() {
-        MyUser user = new MyUser("temp","aaa");
+        MyUser user = new MyUser("temp", "aaa");
         Project project = new MyProject("tempProj");
-        UserProjectInfo projectInfo = new MyUserProjectInfo(user,project);
-        ContactPMData data1 = 
-            ActionDataUtil.getContactPMData(user,projectInfo,"aaa",null);
-        ContactPMData data2 = 
-            ActionDataUtil.getContactPMData(user,projectInfo,null,"bbb");
-        ContactPMData data3 = 
-            ActionDataUtil.getContactPMData(user,null,"aaa","bbb");
-        ContactPMData data4 = 
-            ActionDataUtil.getContactPMData(null,projectInfo,"aaa","bbb");
-        return(new ActionData[] {data1, data2, data3, data4});
+        UserProjectInfo projectInfo = new MyUserProjectInfo(user, project);
+        ContactPMData data1 =
+                ActionDataUtil.getContactPMData(user, projectInfo, "aaa", null);
+        ContactPMData data2 =
+                ActionDataUtil.getContactPMData(user, projectInfo, null, "bbb");
+        ContactPMData data3 =
+                ActionDataUtil.getContactPMData(user, null, "aaa", "bbb");
+        ContactPMData data4 =
+                ActionDataUtil.getContactPMData(null, projectInfo, "aaa", "bbb");
+        return (new ActionData[]{data1, data2, data3, data4});
     }
-    
+
     /**
      * <p>Returns the TestSuite for this TestCase.</p>
      *
      * @return the TestSuite for this TestCase
      */
     public static Test suite() {
-        return(new TestSuite(ContactProductManagerTestCase.class));
+        return (new TestSuite(ContactProductManagerTestCase.class));
     }
 }

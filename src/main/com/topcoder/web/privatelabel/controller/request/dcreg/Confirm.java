@@ -1,7 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.dcreg;
 
-import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
 
 /**
  * @author dok

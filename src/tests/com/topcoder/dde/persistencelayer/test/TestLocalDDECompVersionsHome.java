@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -29,7 +30,7 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDECompVersionsHome localHome;
-    
+
     /* default field values for entity instances */
     private static final long DEF_VERSION = 42L;
     private static final Timestamp DEF_CREATE_T =
@@ -48,7 +49,7 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
      */
     TestLocalDDECompVersionsHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECompVersionsHome configured to run the named
@@ -56,7 +57,7 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
      */
     public TestLocalDDECompVersionsHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -72,7 +73,7 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECompVersionsHome) ctx.lookup(
                     LocalDDECompVersionsHome.EJB_REF_NAME);
         }
@@ -83,10 +84,10 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
      */
     LocalDDECompVersions createDefault(LocalDDECompCatalog comp)
             throws Exception {
-        return localHome.create(DEF_VERSION, DEF_CREATE_T, DEF_PHASE, 
+        return localHome.create(DEF_VERSION, DEF_CREATE_T, DEF_PHASE,
                 DEF_PHASE_T, DEF_PRICE, DEF_COMMENTS, comp, DEF_VTEXT);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -122,14 +123,14 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
                         assertEquals(DEF_VTEXT, local.getVersionText());
                         transactionBoundary();
                         assertMatchesDB(new DDECompVersionsData(
-                                local.getPrimaryKey(), 
+                                local.getPrimaryKey(),
                                 (Long) localComponent.getPrimaryKey(),
                                 DEF_VERSION, DEF_VTEXT, DEF_CREATE_T,
                                 DEF_PHASE, DEF_PHASE_T, DEF_PRICE, DEF_COMMENTS));
                     } finally {
                         local.remove();
                     }
-                    
+
                     /* test creation with null component */
                     local = createDefault(null);
                     assertNotNull(local);
@@ -140,15 +141,15 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
             }
         }
     }
-    
+
 //    public void testFindByComponentId() {
 //        fail("Test not yet implemented");
 //    }
-    
+
 //    public void testFindByComponentIdAndVersion() {
 //        fail("Test not yet implemented");
 //    }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
@@ -163,17 +164,17 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
         Timestamp phaseTime;
         double price;
         String comments;
-        
+
         DDECompVersionsData(Object id, Long component, long vers, String vtext,
-                Timestamp create, long phase, Timestamp phaseT, double p,
-                String com) {
+                            Timestamp create, long phase, Timestamp phaseT, double p,
+                            String com) {
             this(keyToLong(id), component, vers, vtext, create, phase, phaseT, p,
-                 com);
+                    com);
         }
-        
+
         DDECompVersionsData(long id, Long component, long vers, String vtext,
-                Timestamp create, long phase, Timestamp phaseT, double p,
-                String com) {
+                            Timestamp create, long phase, Timestamp phaseT, double p,
+                            String com) {
             compVersId = id;
             componentId = component;
             version = vers;
@@ -184,11 +185,11 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
             price = p;
             comments = com;
         }
-        
+
         DDECompVersionsData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(compVersId);
         }
@@ -207,22 +208,22 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
             rs.updateDouble("PRICE", price);
             rs.updateString("COMMENTS", comments);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("COMP_VERS_ID", compVersId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             compVersId = rs.getLong("COMP_VERS_ID");
             l = rs.getLong("COMPONENT_ID");
             if (rs.wasNull()) {
@@ -238,29 +239,29 @@ public class TestLocalDDECompVersionsHome extends PersistenceTestCase {
             price = rs.getDouble("PRICE");
             comments = rs.getString("COMMENTS");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECompVersionsData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDECompVersionsData) ) {
+            if (!(o instanceof DDECompVersionsData)) {
                 return false;
             }
             DDECompVersionsData d = (DDECompVersionsData) o;
             return (
-                (compVersId == d.compVersId)
-                && objectsMatch(componentId, d.componentId)
-                && (version == d.version)
-                && objectsMatch(versionText, d.versionText)
-                && objectsMatch(createTime, d.createTime)
-                && (phaseId == d.phaseId)
-                && objectsMatch(phaseTime, d.phaseTime)
-                && (price == d.price)
-                && objectsMatch(comments, d.comments) );
+                    (compVersId == d.compVersId)
+                    && objectsMatch(componentId, d.componentId)
+                    && (version == d.version)
+                    && objectsMatch(versionText, d.versionText)
+                    && objectsMatch(createTime, d.createTime)
+                    && (phaseId == d.phaseId)
+                    && objectsMatch(phaseTime, d.phaseTime)
+                    && (price == d.price)
+                    && objectsMatch(comments, d.comments));
         }
-        
-        
+
+
     }
 
 }

@@ -19,7 +19,7 @@ public class AllUserTests extends TestSuite {
         addTest(TestUserManagerRemote.suite());
         addTest(TestUserManagerLocal.suite());
     }
-    
+
     public static Test suite() {
         return new UserTestSetup(new AllUserTests());
     }

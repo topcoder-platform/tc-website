@@ -5,20 +5,16 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.projecttracker.ProjectType;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
+import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.*;
 
-import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMapping;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * Extends from <strong>BaseAction</strong> that renders the information
@@ -52,7 +48,7 @@ public final class ViewOpenProjectsAction extends BaseAction {
                                  ActionForm form,
                                  HttpServletRequest request,
                                  HttpServletResponse response)
-        throws IOException, ServletException {
+            throws IOException, ServletException {
 
         // Validate the request parameters specified by the user
         ActionErrors errors = new ActionErrors();
@@ -60,9 +56,9 @@ public final class ViewOpenProjectsAction extends BaseAction {
         // Create the UserData from the session
         HttpSession session = request.getSession();
         SecurityEnabledUser user =
-			(SecurityEnabledUser) session.getAttribute(Constants.USER_KEY);
+                (SecurityEnabledUser) session.getAttribute(Constants.USER_KEY);
         UtilityBean utility =
-            (UtilityBean) session.getAttribute(Constants.UTILITY_KEY);
+                (UtilityBean) session.getAttribute(Constants.UTILITY_KEY);
 
         // Call the business logic layer
         ActionForward forward = null;
@@ -72,7 +68,7 @@ public final class ViewOpenProjectsAction extends BaseAction {
         if (user == null || utility == null) {
             // Login needed
             errors.add(ActionErrors.GLOBAL_ERROR,
-                       new ActionError("error.login.required"));
+                    new ActionError("error.login.required"));
             forward = mapping.findForward(Constants.LOGIN_KEY);
         } else {
             BusinessDelegate businessDelegate = new BusinessDelegate();
@@ -111,10 +107,10 @@ public final class ViewOpenProjectsAction extends BaseAction {
                 if (result instanceof FailureResult
                         && ((FailureResult) result).getMessage() != null) {
                     errors.add(ActionErrors.GLOBAL_ERROR,
-                               new ActionError(Constants.MESSAGE_ERROR_KEY, ((FailureResult) result).getMessage()));
+                            new ActionError(Constants.MESSAGE_ERROR_KEY, ((FailureResult) result).getMessage()));
                 } else {
                     errors.add(ActionErrors.GLOBAL_ERROR,
-                               new ActionError("error.general"));
+                            new ActionError("error.general"));
                 }
                 forward = mapping.findForward(Constants.FAILURE_KEY);
             }
@@ -127,8 +123,8 @@ public final class ViewOpenProjectsAction extends BaseAction {
             OpenProjectBean[] bean = new OpenProjectBean[projectTypes.length];
 
             log(Level.INFO, "ViewOpenProjectsAction: User '"
-                            + user.getHandle() + "' in session "
-                            + session.getId());
+                    + user.getHandle() + "' in session "
+                    + session.getId());
 
             // Save the projects info in the session
             for (int i = 0; i < projectTypes.length; i++) {

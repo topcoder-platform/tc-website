@@ -9,7 +9,9 @@ import weblogic.io.common.T3File;
 import weblogic.io.common.T3FileSystem;
 
 import javax.naming.Context;
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.ObjectOutputStream;
 
 
 public final class FileIO {

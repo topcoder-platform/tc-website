@@ -1,7 +1,7 @@
 /*
  * DocumentManagerTest.java
  *
- * Copyright © 2002, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2002, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -146,7 +146,7 @@ public class DocumentManagerTest extends ServletTestCase {
 
         Context ctx = new InitialContext();
         DocumentManagerLocalHome home = (DocumentManagerLocalHome) PortableRemoteObject.narrow(ctx.lookup(
-                    "com.topcoder.apps.review.document.DocumentManagerLocalHome"), DocumentManagerLocalHome.class);
+                "com.topcoder.apps.review.document.DocumentManagerLocalHome"), DocumentManagerLocalHome.class);
         this.documentManager = home.create();
 
         try {
@@ -170,7 +170,7 @@ public class DocumentManagerTest extends ServletTestCase {
         _revResp = new ReviewerResponsibility(3, "Accuracy");
         _projectType = new ProjectType(2, "Development");
         _projectStatus = new ProjectStatus(1, "In Progress");
-        
+
         // CREATE USERS
         _user1 = new User(ProjectTrackerTest.USER_ID1, ProjectTrackerTest.USER_HANDLE1,
                 ProjectTrackerTest.USER_FIRST_NAME1, ProjectTrackerTest.USER_LAST_NAME1, ProjectTrackerTest.USER_EMAIL1);
@@ -208,27 +208,27 @@ public class DocumentManagerTest extends ServletTestCase {
         java.sql.Date _startDate2 = _endDate1;
         java.sql.Date _endDate2 = new java.sql.Date(103, 5, 30);
         ProjectTrackerTest.insertPhaseInstance(conn, 1, 1, _startDate1, _endDate1, 2, ProjectTrackerTest.COMP_VERS_ID1,
-            ProjectTrackerTest.USER_ID1, true);
+                ProjectTrackerTest.USER_ID1, true);
         _pi1 = new PhaseInstance(1, _phase1, _startDate1, _endDate1, 1);
 
         ProjectTrackerTest.insertPhaseInstance(conn, 2, 2, _startDate2, _endDate2, 3, ProjectTrackerTest.COMP_VERS_ID1,
-            ProjectTrackerTest.USER_ID1, true);
+                ProjectTrackerTest.USER_ID1, true);
         _pi2 = new PhaseInstance(2, _phase2, _startDate2, _endDate2, 2);
 
-        _piArr = new PhaseInstance[] { _pi1, _pi2 };
+        _piArr = new PhaseInstance[]{_pi1, _pi2};
 
         // CREATE USER_ROLES
         ps = conn.prepareStatement("DELETE FROM r_user_role");
         ps.executeUpdate();
         ProjectTrackerTest.insertUserRole(conn, 1, 1, 2, ProjectTrackerTest.COMP_VERS_ID1, ProjectTrackerTest.USER_ID1,
-            1, 0, ProjectTrackerTest.USER_ID1, true);
+                1, 0, ProjectTrackerTest.USER_ID1, true);
         _ur1 = new UserRole(1, _role1, _user1, _paymentInfo1, null, 1);
 
         ProjectTrackerTest.insertUserRole(conn, 2, 2, 3, ProjectTrackerTest.COMP_VERS_ID1, ProjectTrackerTest.USER_ID1,
-            2, 3, ProjectTrackerTest.USER_ID1, true);
+                2, 3, ProjectTrackerTest.USER_ID1, true);
         _ur2 = new UserRole(2, _role2, _user1, _paymentInfo2, _revResp, 2);
 
-        _userRoleArr = new UserRole[] { _ur1, _ur2 };
+        _userRoleArr = new UserRole[]{_ur1, _ur2};
 
         // CREATE PROJECTS
         ps = conn.prepareStatement("DELETE FROM project");
@@ -239,7 +239,7 @@ public class DocumentManagerTest extends ServletTestCase {
         User requestor = _user1;
 
         ProjectTrackerTest.insertProject(conn, 1, 1, ProjectTrackerTest.COMP_VERS_ID1, 1, ProjectTrackerTest.USER_ID1,
-            "overview", "notes", 2, 1, false, ProjectTrackerTest.USER_ID1, "created", true);
+                "overview", "notes", 2, 1, false, ProjectTrackerTest.USER_ID1, "created", true);
         _project = new Project(1, ProjectTrackerTest.COMP_VERS_ID1, ProjectTrackerTest.PROJECT_NAME1,
                 ProjectTrackerTest.PROJECT_VERSION1, pm, winner, _piArr, _piArr[0], _userRoleArr, "notes", "overview",
                 _projectType, _projectStatus, false, requestor.getId(), 1);
@@ -260,7 +260,7 @@ public class DocumentManagerTest extends ServletTestCase {
         ps.executeUpdate();
         insertSubjResponse(conn, 1, 1, "subjective text", 1, 1, ProjectTrackerTest.USER_ID1, true);
         _sr1 = new SubjectiveResponse(1, "subjective text", _rt1, 1);
-        _subjRespArr = new SubjectiveResponse[] { _sr1 };
+        _subjRespArr = new SubjectiveResponse[]{_sr1};
 
         // CREATE SCORECARD_QUESTIONS
         ps = conn.prepareStatement("DELETE FROM scorecard_question");
@@ -271,7 +271,7 @@ public class DocumentManagerTest extends ServletTestCase {
         insertQuestion(conn, 2, 2, "Properly indented2", 4, 2, 1, 1, 1, 1, ProjectTrackerTest.USER_ID1, true);
         // TODO Change to proper template version id
         _sq2 = new ScorecardQuestion(2, _eval1, "Properly indented2", 4, _section1, 2, 1, 2);
-        _sqArr1 = new ScorecardQuestion[] { _sq1, _sq2 };
+        _sqArr1 = new ScorecardQuestion[]{_sq1, _sq2};
 
         insertQuestion(conn, 3, 3, "Properly indented", 2, 1, 1, 1, 3, 2, ProjectTrackerTest.USER_ID1, true);
         // TODO Change to proper template version id
@@ -279,22 +279,22 @@ public class DocumentManagerTest extends ServletTestCase {
         insertQuestion(conn, 4, 4, "Properly indented2", 3, 2, 1, 1, 3, 1, ProjectTrackerTest.USER_ID1, true);
         // TODO Change to proper template version id
         _sq4 = new ScorecardQuestion(4, _eval1, "Properly indented2", 3, _section1, 2, 2, 4);
-        _sqArr3 = new ScorecardQuestion[] { _sq3, _sq4 };
+        _sqArr3 = new ScorecardQuestion[]{_sq3, _sq4};
 
         // CREATE SUBMISSIONS
         ps = conn.prepareStatement("DELETE FROM submission");
         ps.executeUpdate();
         insertSubmission(conn, 1, 1, 1, "test.jar", "Review message", "Screening message", ProjectTrackerTest.USER_ID1,
-            ProjectTrackerTest.COMP_VERS_ID1, false, ProjectTrackerTest.USER_ID1, false);
+                ProjectTrackerTest.COMP_VERS_ID1, false, ProjectTrackerTest.USER_ID1, false);
         insertSubmission(conn, 2, 1, 1, "test2.jar", "Review message", "Screening message",
-            ProjectTrackerTest.USER_ID1, ProjectTrackerTest.COMP_VERS_ID1, false, ProjectTrackerTest.USER_ID1, true);
+                ProjectTrackerTest.USER_ID1, ProjectTrackerTest.COMP_VERS_ID1, false, ProjectTrackerTest.USER_ID1, true);
         _sub1 = new InitialSubmission(1, new URL("test2.jar"), "Review message", "Screening message", _user1, _project,
                 false, ProjectTrackerTest.USER_ID1, 2);
         _sub1error = new InitialSubmission(511, new URL("test2.jar"), "Review message", "Screening message", _user1,
                 _project, false, ProjectTrackerTest.USER_ID1, 512);
 
         insertSubmission(conn, 3, 2, 2, "sub2.jar", "Rev message", "Screen message", ProjectTrackerTest.USER_ID1,
-            ProjectTrackerTest.COMP_VERS_ID1, false, ProjectTrackerTest.USER_ID1, true);
+                ProjectTrackerTest.COMP_VERS_ID1, false, ProjectTrackerTest.USER_ID1, true);
         _sub2 = new FinalFixSubmission(2, new URL("sub2.jar"), "Rev message", "Screen message", _user1, _project,
                 false, ProjectTrackerTest.USER_ID1, 3);
 
@@ -306,40 +306,40 @@ public class DocumentManagerTest extends ServletTestCase {
         long _reqId = ProjectTrackerTest.USER_ID1;
 
         insertScorecard(conn, 1, 1, 1, true, false, ProjectTrackerTest.USER_ID1, ProjectTrackerTest.COMP_VERS_ID1,
-            1, 21, ProjectTrackerTest.USER_ID1, true);
+                1, 21, ProjectTrackerTest.USER_ID1, true);
         _sc1 = new ScreeningScorecard(1, true, false, _sqArr1, _author, _project, _sub1, 21, _reqId, 1);
 
         insertScorecard(conn, 2, 2, 1, false, true, ProjectTrackerTest.USER_ID1, ProjectTrackerTest.COMP_VERS_ID1,
-            1, 23, ProjectTrackerTest.USER_ID1, false);
+                1, 23, ProjectTrackerTest.USER_ID1, false);
         insertScorecard(conn, 3, 2, 1, true, false, ProjectTrackerTest.USER_ID1, ProjectTrackerTest.COMP_VERS_ID1,
-            1, 25, ProjectTrackerTest.USER_ID1, false);
+                1, 25, ProjectTrackerTest.USER_ID1, false);
         insertScorecard(conn, 4, 2, 1, false, true, ProjectTrackerTest.USER_ID1, ProjectTrackerTest.COMP_VERS_ID1,
-            1, 28, ProjectTrackerTest.USER_ID1, true);
+                1, 28, ProjectTrackerTest.USER_ID1, true);
         _sc2 = new ScreeningScorecard(2, false, true, _sqArr1, _author, _project, _sub1, 28, _reqId, 4);
 
         insertScorecard(conn, 5, 3, 2, false, true, ProjectTrackerTest.USER_ID1, ProjectTrackerTest.COMP_VERS_ID1,
-            1, 28, ProjectTrackerTest.USER_ID1, true);
+                1, 28, ProjectTrackerTest.USER_ID1, true);
         _sc3 = new ReviewScorecard(3, false, true, _sqArr3, _author, _project, _sub1, 28, _reqId, 5);
 
         // CREATE AGGREGATION_RESPONSES
         ps = conn.prepareStatement("DELETE FROM agg_response");
         ps.executeUpdate();
         insertAggResponse(conn, 1, 1, 1, 1, 1, ProjectTrackerTest.USER_ID1, true);
-        _ar1 = new AggregationResponse(1, _sr1, _ars1, _sq1, _author ,1);
-        _arArr = new AggregationResponse[] { _ar1 };
+        _ar1 = new AggregationResponse(1, _sr1, _ars1, _sq1, _author, 1);
+        _arArr = new AggregationResponse[]{_ar1};
 
         // CREATE AGGREGATION_WORKSHEETS
         ps = conn.prepareStatement("DELETE FROM agg_worksheet");
         ps.executeUpdate();
         insertWorksheet(conn, 1, 1, true, false, ProjectTrackerTest.USER_ID1, ProjectTrackerTest.COMP_VERS_ID1,
-            ProjectTrackerTest.USER_ID1, true);
+                ProjectTrackerTest.USER_ID1, true);
         _worksheet1 = new AggregationWorksheet(1, true, false, _user1, _arArr, _project, _user1.getId(), 1);
 
         // CREATE TESTCASE_REVIEWS
         ps = conn.prepareStatement("DELETE FROM testcase_review");
         ps.executeUpdate();
         insertTestCaseReview(conn, 1, 1, 1, "Nice case", ProjectTrackerTest.COMP_VERS_ID1, ProjectTrackerTest.USER_ID1,
-            ProjectTrackerTest.USER_ID1, true, ProjectTrackerTest.USER_ID1, true);
+                ProjectTrackerTest.USER_ID1, true, ProjectTrackerTest.USER_ID1, true);
         _tcr1 = new TestCaseReview(1, _tca1, _project, "Nice case", _user1, _user1, true, ProjectTrackerTest.USER_ID1, 1);
 
         // CREATE AGGREGATION_REVIEWS
@@ -349,11 +349,11 @@ public class DocumentManagerTest extends ServletTestCase {
         _aa1 = new AggregationApproval(1, "Approved");
 
         insertAggregationReview(conn, 1, 1, 1, "Nice review, ok", true, 1, true, ProjectTrackerTest.USER_ID1,
-            ProjectTrackerTest.USER_ID1, true);
+                ProjectTrackerTest.USER_ID1, true);
         _arev1 = new AggregationReview(1, _aa1, "Nice review, ok", true, _worksheet1, true, _user1,
                 ProjectTrackerTest.USER_ID1, 1);
 
-        // CREATE FIX_ITEMS        
+        // CREATE FIX_ITEMS
         ps = conn.prepareStatement("DELETE FROM fix_item");
         ps.executeUpdate();
 
@@ -443,7 +443,7 @@ public class DocumentManagerTest extends ServletTestCase {
             documentManager.saveReviewScorecard(scorecard[0], _tcuser1);
         } catch (Exception e) {
             fail("Exception: " + e);
-        } 
+        }
         scorecard = documentManager.getReviewScorecard(_project, _tcuser1);
         assertNotNull(scorecard);
         assertEquals("scorecard.length equals", 1, scorecard.length);
@@ -516,34 +516,33 @@ public class DocumentManagerTest extends ServletTestCase {
      * DOCUMENT ME!
      */
     final public void testGetAggregation() {
-        try
-        {
-        AggregationWorksheet worksheet = documentManager.getAggregation(_project, _tcuser1);
-        checkWorksheet("testGetAggregationWorksheet():", _worksheet1, worksheet);
+        try {
+            AggregationWorksheet worksheet = documentManager.getAggregation(_project, _tcuser1);
+            checkWorksheet("testGetAggregationWorksheet():", _worksheet1, worksheet);
 
-        _worksheet1.setCompleted(false);
-        worksheet.setCompleted(false);
-        documentManager.saveAggregation(worksheet, _tcuser1);
-        worksheet = documentManager.getAggregation(_project, _tcuser1);
-        checkWorksheet("testGetAggregationWorksheet().save:", _worksheet1, worksheet);
+            _worksheet1.setCompleted(false);
+            worksheet.setCompleted(false);
+            documentManager.saveAggregation(worksheet, _tcuser1);
+            worksheet = documentManager.getAggregation(_project, _tcuser1);
+            checkWorksheet("testGetAggregationWorksheet().save:", _worksheet1, worksheet);
 
-        _worksheet1.setCompleted(true);
-        worksheet.setCompleted(true);
-        documentManager.saveAggregation(worksheet, _tcuser1);
-        worksheet = documentManager.getAggregation(_project, _tcuser1);
-        checkWorksheet("testGetAggregationWorksheet().save2:", _worksheet1, worksheet);
+            _worksheet1.setCompleted(true);
+            worksheet.setCompleted(true);
+            documentManager.saveAggregation(worksheet, _tcuser1);
+            worksheet = documentManager.getAggregation(_project, _tcuser1);
+            checkWorksheet("testGetAggregationWorksheet().save2:", _worksheet1, worksheet);
 
-        _worksheet1.setPMReviewed(true);
-        worksheet.setPMReviewed(true);
+            _worksheet1.setPMReviewed(true);
+            worksheet.setPMReviewed(true);
 
-        AggregationResponseStatus _ars2 = new AggregationResponseStatus(2, "Rejected");
-        _worksheet1.getAggregationResponses()[0].setAggregationResponseStatus(_ars2);
-        worksheet.getAggregationResponses()[0].setAggregationResponseStatus(_ars2);
+            AggregationResponseStatus _ars2 = new AggregationResponseStatus(2, "Rejected");
+            _worksheet1.getAggregationResponses()[0].setAggregationResponseStatus(_ars2);
+            worksheet.getAggregationResponses()[0].setAggregationResponseStatus(_ars2);
 
-        documentManager.saveAggregation(worksheet, _tcuser1);
-        worksheet = documentManager.getAggregation(_project, _tcuser1);
-        checkWorksheet("testGetAggregationWorksheet().save2:", _worksheet1, worksheet);
-        } catch(Exception e) {
+            documentManager.saveAggregation(worksheet, _tcuser1);
+            worksheet = documentManager.getAggregation(_project, _tcuser1);
+            checkWorksheet("testGetAggregationWorksheet().save2:", _worksheet1, worksheet);
+        } catch (Exception e) {
             fail("Exception: " + e);
         }
     }
@@ -640,11 +639,11 @@ public class DocumentManagerTest extends ServletTestCase {
         assertNotNull(s + "worksheet(setup).aggresponses!null", a1.getAggregationResponses());
         assertNotNull(s + "worksheet.aggresponses!null", a2.getAggregationResponses());
         assertEquals(s + "worksheet.aggresponses.length", a1.getAggregationResponses().length,
-            a2.getAggregationResponses().length);
+                a2.getAggregationResponses().length);
 
         for (int i = 0; i < a1.getAggregationResponses().length; i++) {
             checkAggregationResponse(s + "worksheet.aggresponses[" + i + "]:", a1.getAggregationResponses()[i],
-                a2.getAggregationResponses()[i]);
+                    a2.getAggregationResponses()[i]);
         }
 
         ProjectTrackerTest.checkProject(s + "worksheet.project:", a1.getProject(), a2.getProject());
@@ -664,12 +663,12 @@ public class DocumentManagerTest extends ServletTestCase {
         assertEquals(s + "aggresponse.id", a1.getId(), a2.getId());
         checkSubjectiveResponse(s + "aggresponse.subjresponse", a1.getSubjectiveResponse(), a2.getSubjectiveResponse());
         checkAggregationResponseStatus(s + "aggresponse.aggresponsestatus", a1.getAggregationResponseStatus(),
-            a2.getAggregationResponseStatus());
+                a2.getAggregationResponseStatus());
 
         // TODO fix subjective check
         //checkSubjectiveScorecardQuestion(s + "aggresponse.subjscorecardquestion", a1.getSubjectiveScorecardQuestion(), a2.getSubjectiveScorecardQuestion());
         checkQuestion(s + "aggresponse.subjscorecardquestion", a1.getScorecardQuestion(),
-            a2.getScorecardQuestion());
+                a2.getScorecardQuestion());
     }
 
     /**
@@ -717,7 +716,7 @@ public class DocumentManagerTest extends ServletTestCase {
         assertEquals(s + "scorecardquestion.questiontext", s1.getQuestionText(), s2.getQuestionText());
         assertEquals(s + "scorecardquestion.weight", s1.getWeight(), s2.getWeight());
         checkScorecardSection(s + "scorecardquestion.scorecardsection:", s1.getScorecardSection(),
-            s2.getScorecardSection());
+                s2.getScorecardSection());
         assertEquals(s + "scorecardquestion.sequencelocation", s1.getSequenceLocation(), s2.getSequenceLocation());
     }
 
@@ -779,7 +778,7 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param a2 DOCUMENT ME!
      */
     public static void checkAggregationResponseStatus(String s, AggregationResponseStatus a1,
-        AggregationResponseStatus a2) {
+                                                      AggregationResponseStatus a2) {
         assertNotNull(s + "aggrespstat(setup)!null", a1);
         assertNotNull(s + "aggrespstat!null", a2);
         assertEquals(s + "aggrespstat.id", a1.getId(), a2.getId());
@@ -876,8 +875,8 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertScorecard(Connection conn, long sc_v_id, long sc_id, int sc_type, boolean isComp,
-        boolean isPMR, long authorId, long projectId, long subId, double score, long modUserId,
-        boolean curVersion) {
+                                       boolean isPMR, long authorId, long projectId, long subId, double score, long modUserId,
+                                       boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO scorecard VALUES (" +
                     "?,?,?,?,?,?,?,?,?,current year to fraction(3),?,?)");
@@ -915,8 +914,8 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertSubmission(Connection conn, long sub_v_id, long sub_id, int sub_type, String sub_url,
-            String sub_pm_review_msg, String sub_pm_screen_msg, long submitterId, long projectId, boolean isRemoved,
-            long modUserId, boolean curVersion) {
+                                        String sub_pm_review_msg, String sub_pm_screen_msg, long submitterId, long projectId, boolean isRemoved,
+                                        long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO submission VALUES (" +
                     "?,?,?,?,?,?,?,?,?,current year to fraction(3),?,?)");
@@ -955,7 +954,7 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertQuestion(Connection conn, long q_v_id, long q_id, String qText, int qWeight, int qSeqLoc,
-        long evalId, long sectionId, long scorecardId, int qType, long modUserId, boolean curVersion) {
+                                      long evalId, long sectionId, long scorecardId, int qType, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO scorecard_question VALUES (" +
                     "?,?,?,?,?,?,?,?,?,current year to fraction(3),?,?)");
@@ -990,7 +989,7 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertSubjResponse(Connection conn, long subj_r_v_id, long subj_resp_id, String respText,
-        long respTypeId, long questionId, long modUserId, boolean curVersion) {
+                                          long respTypeId, long questionId, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO subjective_resp VALUES (" +
                     "?,?,?,?,?,current year to fraction(3),?,?)");
@@ -1021,7 +1020,7 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertAggResponse(Connection conn, long agg_resp_v_id, long agg_resp_id, long subjRespId,
-        long aggRespStatId, long worksheetId, long modUserId, boolean curVersion) {
+                                         long aggRespStatId, long worksheetId, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO agg_response VALUES (" +
                     "?,?,?,?,?,current year to fraction(3),?,?)");
@@ -1053,7 +1052,7 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertWorksheet(Connection conn, long worksheet_v_id, long worksheet_id, boolean isCompleted,
-        boolean isPMReviewed, long aggregatorId, long projectId, long modUserId, boolean curVersion) {
+                                       boolean isPMReviewed, long aggregatorId, long projectId, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO agg_worksheet VALUES (" +
                     "?,?,?,?,?,?, current year to fraction(3),?,?)");
@@ -1087,8 +1086,8 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertTestCaseReview(Connection conn, long review_v_id, long review_id, long testcaseAppId,
-            String reviewText, long projectId, long reviewerId, long revieweeId, boolean isCompleted,
-            long modUserId, boolean curVersion) {
+                                            String reviewText, long projectId, long reviewerId, long revieweeId, boolean isCompleted,
+                                            long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO testcase_review VALUES (" +
                     "?,?,?,?,?,?,?,?, current year to fraction(3),?,?)");
@@ -1124,8 +1123,8 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertAggregationReview(Connection conn, long agg_review_v_id, long agg_review_id,
-        long aggApprovalId, String aggReviewText, boolean isPMReviewed, long worksheetId, boolean isCompleted,
-        long reviewerId, long modUserId, boolean curVersion) {
+                                               long aggApprovalId, String aggReviewText, boolean isPMReviewed, long worksheetId, boolean isCompleted,
+                                               long reviewerId, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO agg_review VALUES (" +
                     "?,?,?,?,?,?,?,?,current year to fraction(3),?,?)");
@@ -1159,7 +1158,7 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertFixItem(Connection conn, long fix_item_v_id, long fix_item_id, long finalFixStatId,
-        long aggRespId, long finalReviewId, long modUserId, boolean curVersion) {
+                                     long aggRespId, long finalReviewId, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO fix_item VALUES (" +
                     "?,?,?,?,?,current year to fraction(3),?,?)");
@@ -1188,7 +1187,7 @@ public class DocumentManagerTest extends ServletTestCase {
      * @param curVersion DOCUMENT ME!
      */
     public static void insertFinalReview(Connection conn, long final_review_v_id, long final_review_id,
-        long worksheetId, boolean isComplete, long modUserId, boolean curVersion) {
+                                         long worksheetId, boolean isComplete, long modUserId, boolean curVersion) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO final_review VALUES (" +
                     "?,?,?,?,current year to fraction(3),?,?)");

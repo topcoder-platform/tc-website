@@ -4,20 +4,15 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.*;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
 
 import javax.servlet.http.HttpUtils;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Date;
+import java.util.*;
 
 /**
  * Processing for the Test Results page.
@@ -35,7 +30,7 @@ public class TestResults extends BaseScreeningProcessor {
      */
     protected void screeningProcessing() throws TCWebException {
         try {
-           
+
             DataAccessInt dAccess = Util.getDataAccess();
             Request dr = new Request();
             dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
@@ -59,7 +54,7 @@ public class TestResults extends BaseScreeningProcessor {
             if (pinfo.hasTestSetA()) {
                 String roundId = result.getItem(0, "contest_round_id").toString();
                 String divisionId = result.getItem(0, "contest_division_id").toString();
-                DataAccessInt dwAccess  = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
+                DataAccessInt dwAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
                 dr = new Request();
                 dr.setContentHandle("roundProblemStats");
                 dr.setProperty("rd", roundId);
@@ -102,31 +97,30 @@ public class TestResults extends BaseScreeningProcessor {
 
             ResultSetContainer rscB = (ResultSetContainer) map.get("testSetBResults");
             Map percents = new HashMap();
-            for(int i = 0; i < tinfo.getProblemSetBCount(); i++)
-            {
+            for (int i = 0; i < tinfo.getProblemSetBCount(); i++) {
                 dAccess = Util.getDataAccess();
                 //get percentile info
                 Request dr2 = new Request();
                 dr2.setContentHandle("candidate_percentile");
-                dr2.setProperty("cid", String.valueOf( cinfo.getUserId() ));
-                dr2.setProperty("pid", String.valueOf( rscB.getLongItem(i, "problem_id" )));
-                dr2.setProperty("tm", String.valueOf( rscB.getLongItem(i, "total_time" )));
+                dr2.setProperty("cid", String.valueOf(cinfo.getUserId()));
+                dr2.setProperty("pid", String.valueOf(rscB.getLongItem(i, "problem_id")));
+                dr2.setProperty("tm", String.valueOf(rscB.getLongItem(i, "total_time")));
                 Map m2 = dAccess.getData(dr2);
-                
-                percents.put(String.valueOf( rscB.getLongItem(i, "problem_id" )), new Double(((ResultSetContainer)m2.get("candidate_percentile")).getDoubleItem(0, "percentile") ));
-                
+
+                percents.put(String.valueOf(rscB.getLongItem(i, "problem_id")), new Double(((ResultSetContainer) m2.get("candidate_percentile")).getDoubleItem(0, "percentile")));
+
             }
-            
+
             tinfo.setProblemSetBPercentiles(percents);
-            
+
             //lookup stats
             Request dr3 = new Request();
             dr3.setContentHandle("problem_statistics");
             dr3.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
             Map map3 = dAccess.getData(dr3);
-            
-            tinfo.setProblemSetBStats((ResultSetContainer)map3.get("problem_statistics"));
-            
+
+            tinfo.setProblemSetBStats((ResultSetContainer) map3.get("problem_statistics"));
+
             getRequest().setAttribute("testResultsInfo", tinfo);
 
             pinfo.setProfileName(result.getItem(0, "session_profile_desc").toString());
@@ -152,5 +146,5 @@ public class TestResults extends BaseScreeningProcessor {
         setNextPage(Constants.TEST_RESULTS_PAGE);
         setIsNextPageInContext(true);
     }
-    
+
 }

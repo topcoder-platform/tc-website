@@ -2,13 +2,14 @@ package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
 
-public class Survey  implements Serializable {
+public class Survey implements Serializable {
     private long id;
     private String name;
     private int statusId;
     private String text;
 
-    public Survey() {}
+    public Survey() {
+    }
 
     public long getId() {
         return id;

@@ -15,18 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Iterator;
 
-public class UploadTask extends ResumeTask{
+public class UploadTask extends ResumeTask {
     private byte file[] = null;
     private int fileType = -1;
     private String fileName = null;
     private int userId = -1;
     private static Logger log = Logger.getLogger(UploadTask.class);
 
-    public void process() throws ResumeTaskException{
-        try{
-            ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resumeServices.putResume(userId,fileType, fileName, file, db);
-        }catch(Exception e){
+    public void process() throws ResumeTaskException {
+        try {
+            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+            resumeServices.putResume(userId, fileType, fileName, file, db);
+        } catch (Exception e) {
             throw new ResumeTaskException(e);
         }
     }
@@ -39,16 +39,17 @@ public class UploadTask extends ResumeTask{
                 new SessionPersistor(request.getSession()),
                 HttpObjectFactory.createRequest(request),
                 HttpObjectFactory.createResponse(response), BasicAuthentication.MAIN_SITE);
-        if (navigation==null) navigation = new Navigation();
+        if (navigation == null) navigation = new Navigation();
         if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't upload a file.");
             throw new Exception("User not logged in, can't upload a file.");
         } else {
             if (navigation.isIdentified())
                 userId = navigation.getUserId();
-            else userId = (int)auth.getActiveUser().getId();
+            else
+                userId = (int) auth.getActiveUser().getId();
         }
-        if (getRequestParameter(request, "compid")!=null) {
+        if (getRequestParameter(request, "compid") != null) {
             companyId = Long.parseLong(getRequestParameter(request, "compid"));
             db = getCompanyDb(companyId);
         }
@@ -58,22 +59,22 @@ public class UploadTask extends ResumeTask{
             Iterator it = super.getFileUpload().getAllUploadedFiles();
             //only need to worry about a single resume
             if (it.hasNext()) {
-                uf = (UploadedFile)it.next();
+                uf = (UploadedFile) it.next();
                 log.debug(uf.getContentType());
                 if (uf == null) {
                     throw new ResumeTaskException("Empty file uploaded");
                 } else {
-                    fileBytes = new byte[(int)uf.getSize()];
+                    fileBytes = new byte[(int) uf.getSize()];
                     uf.getInputStream().read(fileBytes);
                     fileType = Integer.parseInt(super.getFileUpload().getParameter("fileType"));
                     fileName = uf.getRemoteFileName();
                     file = fileBytes;
 
                 }
-            }else{
+            } else {
                 throw new ResumeTaskException("No files uploaded");
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new ResumeTaskException(e);
         }
@@ -87,11 +88,11 @@ public class UploadTask extends ResumeTask{
     }
 
     public void processStep(String step) throws Exception {
-        try{
-            ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resumeServices.putResume(userId,fileType, fileName, file, db);
+        try {
+            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+            resumeServices.putResume(userId, fileType, fileName, file, db);
             super.setNextPage(Constants.SUCCESS_PAGE);
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new ResumeTaskException(e);
         }
     }
@@ -103,8 +104,6 @@ public class UploadTask extends ResumeTask{
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
-
 
 
 }

@@ -56,7 +56,9 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Iterator;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**
@@ -134,7 +136,7 @@ public interface ForumThread {
     public Date getModifiedDate();
 
     /**
-     * Returns the User that last modified the thread. 
+     * Returns the User that last modified the thread.
      */
     public User getUser();
 
@@ -205,7 +207,7 @@ public interface ForumThread {
     public TreeWalker treeWalker();
 
     /**
-     * Return an Iterator for all the messages in a thread. 
+     * Return an Iterator for all the messages in a thread.
      */
     public Iterator messages();
 

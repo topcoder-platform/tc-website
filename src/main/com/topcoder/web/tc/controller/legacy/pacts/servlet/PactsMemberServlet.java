@@ -17,11 +17,17 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.*;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.ContractBean;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.PaymentBean;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserTaxFormBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

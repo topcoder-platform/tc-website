@@ -3,14 +3,15 @@
  */
 package com.topcoder.apps.review;
 
-import javax.servlet.jsp.JspException;
 import org.apache.struts.util.RequestUtils;
 import org.apache.struts.util.ResponseUtils;
+
+import javax.servlet.jsp.JspException;
 
 /**
  * <p>
  * Generate the filtered string, which can be shown properly in the html page,
- * on the basis of the given string. 
+ * on the basis of the given string.
  * </p>
  *
  * @author TCSDEVELOPER
@@ -24,7 +25,7 @@ public class ShowStringTag extends BaseTag {
      * The attribute name.
      */
     private String name = null;
-    
+
     /**
      * Name of the property to be accessed on the specified bean.
      */
@@ -34,12 +35,12 @@ public class ShowStringTag extends BaseTag {
      * The attribute of CSS stylesheet class .
      */
     private String styleClass = null;
-    
+
     // ------------------------------------------------------------- Properties
 
     /**
      * Return the attribute name.
-     * 
+     *
      * @return the attribute name.
      */
     public String getName() {
@@ -54,10 +55,10 @@ public class ShowStringTag extends BaseTag {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * Return the attribute property.
-     * 
+     *
      * @return the attribute property.
      */
     public String getProperty() {
@@ -75,7 +76,7 @@ public class ShowStringTag extends BaseTag {
 
     /**
      * Return the attribute styleClass.
-     * 
+     *
      * @return the attribute styleClass.
      */
     public String getStyleClass() {
@@ -106,7 +107,7 @@ public class ShowStringTag extends BaseTag {
         if (obj == null) {
             return (SKIP_BODY);  // Nothing to output
         }
-        
+
         // Make the output string
         text = obj.toString();
         if (styleClass == null) {
@@ -117,10 +118,10 @@ public class ShowStringTag extends BaseTag {
             text = text.replaceAll("\\n", "</p><p class='" + styleClass + "'>");
             text = "<p class='" + styleClass + "'>" + text + "</p>";
         }
-        
+
         // Print this result to our output writer, no filtered
         ResponseUtils.write(pageContext, text);
-        
+
         // Skip the body of this tag
         return (SKIP_BODY);
     }

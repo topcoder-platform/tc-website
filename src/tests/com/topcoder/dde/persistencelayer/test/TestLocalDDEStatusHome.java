@@ -10,6 +10,7 @@ package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDEStatusHome;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDEStatus;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -27,22 +28,22 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
 
     /* descriptions used for testing the create method */
     private static final String DEFAULT_DESC = "Test Description";
-    private static final String LONG_DESC = 
+    private static final String LONG_DESC =
             "260-character test description xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
     private static final String[] STRANGE_DESC = {
-            "/* not a comment */", "'not quoted'", "embedded'quote",
-            "% SQL metachar", "WHERE 1=0", "; not a terminator",
-            "embedded \0 null" , "trailing backslash \\"};
-    
+        "/* not a comment */", "'not quoted'", "embedded'quote",
+        "% SQL metachar", "WHERE 1=0", "; not a terminator",
+        "embedded \0 null", "trailing backslash \\"};
+
     /* the size of the description field */
     private static final int DESC_WIDTH = 254;
-    
+
     private LocalDDEStatusHome localHome;
 
     public TestLocalDDEStatusHome(String testName) {
         this(testName, null);
     }
-    
+
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
      * test in the specified session context
@@ -56,7 +57,7 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDEStatusHome) ctx.lookup(
                     LocalDDEStatusHome.EJB_REF_NAME);
         }
@@ -68,10 +69,10 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
     LocalDDEStatus createDefault() throws Exception {
         return localHome.create(nextId(), DEFAULT_DESC);
     }
-    
+
     /**
      * tests the basic operation of the create method
-     */    
+     */
     public void testCreate() throws Exception {
         synchronized (TestLocalDDEStatusHome.class) {
             LocalDDEStatus local = createDefault();
@@ -80,17 +81,17 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
                 assertEquals(DEFAULT_DESC, local.getDescription());
                 transactionBoundary();
                 assertMatchesDB(new DDEStatusData(
-                        local.getPrimaryKey(), DEFAULT_DESC) );
+                        local.getPrimaryKey(), DEFAULT_DESC));
             } finally {
                 local.remove();
             }
         }
     }
-    
+
     /**
      * tests the operation of the create method when invoked with a
      * <code>null</code> argument
-     */    
+     */
     public void testCreateNull() throws Exception {
         try {
             LocalDDEStatus local = localHome.create(nextId(), null);
@@ -101,7 +102,7 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
             /* The expected behavior */
         }
     }
-    
+
     /**
      * tests the operation of the create method when invoked with an empty
      * string argument
@@ -113,7 +114,7 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
             try {
                 assertEquals("", local.getDescription());
                 transactionBoundary();
-                assertMatchesDB(new DDEStatusData(local.getPrimaryKey(), "") );
+                assertMatchesDB(new DDEStatusData(local.getPrimaryKey(), ""));
             } finally {
                 local.remove();
             }
@@ -122,7 +123,7 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
 
 //
 // This test determined not relevant
-//    
+//
 //  /**
 //   * tests the operation of the create method when invoked with a string
 //   * argument of length greater than the length of the underlying DB field
@@ -137,7 +138,7 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
 //          local.remove();
 //      }
 //  }
-    
+
     /**
      * tests the operation of the create method when invoked with each of
      * several string arguments that should be legal but have potential to be
@@ -152,7 +153,7 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
                 try {
                     assertEquals(STRANGE_DESC[i], local.getDescription());
                     assertMatchesDB(new DDEStatusData(
-                            local.getPrimaryKey(), STRANGE_DESC[i]) );
+                            local.getPrimaryKey(), STRANGE_DESC[i]));
                 } finally {
                     local.remove();
                 }
@@ -167,7 +168,7 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
     public void testFindByPrimaryKeyNormal() throws Exception {
         DDEStatusData rowData =
                 new DDEStatusData(nextId(), DEFAULT_DESC);
-                
+
         synchronized (TestLocalDDEStatusHome.class) {
             ensureInDB(rowData);
             try {
@@ -176,13 +177,13 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
                                 (Long) rowData.getPrimaryKey());
                 assertNotNull("findByPrimaryKey lookup failed", local);
                 assertEquals(rowData, new DDEStatusData(
-                        local.getPrimaryKey(), local.getDescription()) );
+                        local.getPrimaryKey(), local.getDescription()));
             } finally {
                 deleteRow(rowData);
             }
         }
     }
-     
+
     /**
      * tests that findByPrimaryKey throws the correct exception if the requested
      * object is not in the database
@@ -202,7 +203,7 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     /*
      * findAll not tested -- no reliable way to predict the correct test results
      */
@@ -256,54 +257,56 @@ public class TestLocalDDEStatusHome extends PersistenceTestCase {
     class DDEStatusData implements RowData {
         long statusId;
         String description;
-        
+
         DDEStatusData(Object id, String desc) {
             this(keyToLong(id), desc);
         }
-        
+
         DDEStatusData(long id, String desc) {
             statusId = id;
             description = desc;
         }
-        
+
         DDEStatusData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(statusId);
         }
+
         private void updateResultSet(ResultSet rs) throws SQLException {
             rs.updateString("DESCRIPTION", description);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("STATUS_ID", statusId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             statusId = rs.getLong("STATUS_ID");
             description = rs.getString("DESCRIPTION");
         }
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDEStatusData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDEStatusData) ) {
+            if (!(o instanceof DDEStatusData)) {
                 return false;
             }
             DDEStatusData d = (DDEStatusData) o;
-            return ( (statusId == d.statusId)
-                     && objectsMatch(description, d.description) );
+            return ((statusId == d.statusId)
+                    && objectsMatch(description, d.description));
         }
     }
 }

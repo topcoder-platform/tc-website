@@ -1,17 +1,15 @@
 package com.topcoder.web.hs.controller.requests;
 
-import com.topcoder.shared.security.*;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.hs.common.*;
+import com.topcoder.shared.security.LoginException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.hs.common.Constants;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.util.Map;
 
 /**

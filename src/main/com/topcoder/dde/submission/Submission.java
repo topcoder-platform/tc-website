@@ -1,7 +1,7 @@
 package com.topcoder.dde.submission;
 
-import java.sql.Date;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * Created by IntelliJ IDEA.

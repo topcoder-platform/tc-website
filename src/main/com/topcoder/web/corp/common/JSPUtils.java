@@ -79,7 +79,7 @@ public class JSPUtils {
      */
     public static String timeFormat(TCResultItem result) {
         double millisec = 0.0D;
-        if (result.getResultData()!=null) {
+        if (result.getResultData() != null) {
             millisec = Double.parseDouble(result.toString());
         }
         int sec = (int) (millisec / 1000);

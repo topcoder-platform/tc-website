@@ -1,9 +1,9 @@
 package com.topcoder.web.tc.view.tag;
 
-import com.topcoder.web.common.tag.BaseTag;
-import com.topcoder.web.tc.model.Question;
-import com.topcoder.web.tc.model.Answer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.tc.model.Answer;
+import com.topcoder.web.tc.model.Question;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
@@ -36,7 +36,7 @@ public class AnswerInput extends BaseTag {
 
     public int doStartTag() throws JspException {
         List l = question.getAnswerInfo();
-        if (l!=null) {
+        if (l != null) {
             answers = l.iterator();
         }
         return doAfterBody();
@@ -59,11 +59,11 @@ public class AnswerInput extends BaseTag {
                 processed = true;
                 return EVAL_BODY_TAG;
             }
-        } else if (answers!=null && answers.hasNext()) {
-            answer = (Answer)answers.next();
-            if (question.getStyleId()==Question.MULTIPLE_CHOICE) {
+        } else if (answers != null && answers.hasNext()) {
+            answer = (Answer) answers.next();
+            if (question.getStyleId() == Question.MULTIPLE_CHOICE) {
                 inputText = buildCheckBox(answer.getId());
-            } else if (question.getStyleId()==Question.SINGLE_CHOICE) {
+            } else if (question.getStyleId() == Question.SINGLE_CHOICE) {
                 inputText = buildRadioButton(answer.getId());
             }
             pageContext.setAttribute(ANSWER_TEXT, answer.getText(), PageContext.PAGE_SCOPE);
@@ -89,7 +89,7 @@ public class AnswerInput extends BaseTag {
     private String buildText() {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(200);
-        if (question.getStyleId()==Question.LONG_ANSWER) {
+        if (question.getStyleId() == Question.LONG_ANSWER) {
             s.append("<textarea ");
             s.append("cols=\"").append(60).append("\" ");
             s.append("rows=\"").append(8).append("\" ");
@@ -118,7 +118,6 @@ public class AnswerInput extends BaseTag {
     }
 
 
-
     private String buildCheckBox(long answerId) {
         setName(PREFIX + question.getId() + "," + answerId);
         StringBuffer s = new StringBuffer(200);
@@ -130,7 +129,7 @@ public class AnswerInput extends BaseTag {
             s.append(cssclass);
             s.append("\"");
         }
-        if (getDefaultValue()!=null && getDefaultValue().equals("true")) {
+        if (getDefaultValue() != null && getDefaultValue().equals("true")) {
             s.append(" checked");
         }
         s.append("/>");
@@ -161,9 +160,9 @@ public class AnswerInput extends BaseTag {
     }
 
     protected void init() {
-        this.cssclass=null;
-        this.question=null;
-        this.answers=null;
+        this.cssclass = null;
+        this.question = null;
+        this.answers = null;
         this.processed = false;
     }
 }

@@ -11,7 +11,9 @@ import com.topcoder.dde.user.*;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.util.idgenerator.bean.IdGen;
+
 import java.util.Iterator;
+
 import junit.framework.*;
 
 public class TestUserManagerRemote extends TestCase {
@@ -23,7 +25,7 @@ public class TestUserManagerRemote extends TestCase {
     public TestUserManagerRemote(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
 
@@ -33,24 +35,24 @@ public class TestUserManagerRemote extends TestCase {
         user = UserTestSetup.defaultUser;
         setUserStatus(UserStatus.ACTIVE);
     }
-    
+
     public void tearDown() throws Exception {
         userManager.remove();
         super.tearDown();
     }
-    
+
     protected void setUserStatus(long status) throws Exception {
         user.setStatus(status);
         userManager.updateUser(user);
     }
-    
+
 /*
  *  cannot test remotely -- no way to obtain the activation code
  *
     public void testActivate() {
     }
  */
- 
+
     public void testGetPricingTiers() throws Exception {
         /*
          * This is a strange test because the correct result of the method
@@ -64,15 +66,15 @@ public class TestUserManagerRemote extends TestCase {
                     tierIterator.next() instanceof PricingTier);
         }
     }
-    
+
     public void testGetUser_Long() throws Exception {
         User localUser = userManager.getUser(user.getId());
-        
+
         assertEquals("Wrong user obtained", user.getId(), localUser.getId());
         assertEquals("Wrong user obtained", user.getRegInfo().getUsername(),
                 localUser.getRegInfo().getUsername());
     }
-    
+
     public void testGetUser_LongMissing() throws Exception {
         try {
             userManager.getUser(idGen.nextId());
@@ -81,15 +83,15 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testGetUser_String() throws Exception {
         User localUser = userManager.getUser(user.getRegInfo().getUsername());
-        
+
         assertEquals("Wrong user obtained", user.getRegInfo().getUsername(),
                 localUser.getRegInfo().getUsername());
         assertEquals("Wrong user obtained", user.getId(), localUser.getId());
     }
-    
+
     public void testGetUser_StringNull() throws Exception {
         try {
             userManager.getUser(null);
@@ -98,7 +100,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testGetUser_StringMissing() throws Exception {
         try {
             userManager.getUser("Missing User #" + idGen.nextId());
@@ -107,7 +109,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testLogin() throws Exception {
         user = userManager.getUser(user.getId());
         Thread.currentThread().sleep(1);
@@ -118,14 +120,14 @@ public class TestUserManagerRemote extends TestCase {
          * of those roles could be tested here
          */
         User localUser = userManager.getUser(user.getId());
-        
+
         assertEquals("Number of logins not incremented",
                 user.getNumLogins() + 1, localUser.getNumLogins());
         assertTrue("Last Logon date not updated correctly",
                 user.getLastLogonTime().compareTo(localUser.getLastLogonTime())
-                < 0 );
+                < 0);
     }
-    
+
     public void testLogin_NullUsername() throws Exception {
         try {
             userManager.login(null, user.getRegInfo().getPassword());
@@ -134,7 +136,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testLogin_NullPassword() throws Exception {
         try {
             userManager.login(user.getRegInfo().getUsername(), null);
@@ -143,7 +145,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testLogin_InvalidUsername() throws Exception {
         try {
             userManager.login("Username #" + idGen.nextId(),
@@ -153,7 +155,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testLogin_WrongPassword() throws Exception {
         try {
             userManager.login(user.getRegInfo().getUsername(),
@@ -163,7 +165,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testLogin_NotActivated() throws Exception {
         setUserStatus(UserStatus.PENDINGACTIVATION);
         try {
@@ -174,7 +176,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testLogin_Inactive() throws Exception {
         setUserStatus(UserStatus.INACTIVE);
         try {
@@ -188,11 +190,11 @@ public class TestUserManagerRemote extends TestCase {
 
 /*
  * Normal registration functionality tested in the test setup and elsewhere
- *    
+ *
     public void testRegister() {
     }
  */
- 
+
     public void testRegister_Null() throws Exception {
         try {
             userManager.register(null);
@@ -201,16 +203,16 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testRemoveUser_User() throws Exception {
         User localUser;
-        
+
         userManager.removeUser(user);
         localUser = userManager.getUser(user.getId());
         assertEquals("User not removed", UserStatus.INACTIVE,
                 localUser.getStatus());
     }
-    
+
     public void testRemoveUser_UserMissing() throws Exception {
         try {
             userManager.removeUser(new User(idGen.nextId()));
@@ -219,7 +221,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testRemoveUser_UserNull() throws Exception {
         try {
             User localUser = null;
@@ -229,16 +231,16 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testRemoveUser_String() throws Exception {
         User localUser;
-        
+
         userManager.removeUser(user.getRegInfo().getUsername());
         localUser = userManager.getUser(user.getId());
         assertEquals("User not removed", UserStatus.INACTIVE,
                 localUser.getStatus());
     }
-    
+
     public void testRemoveUser_StringMissing() throws Exception {
         try {
             userManager.removeUser("MissingUser" + idGen.nextId());
@@ -247,7 +249,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testRemoveUser_StringNull() throws Exception {
         try {
             String localUser = null;
@@ -257,11 +259,11 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testUpdateUser() throws Exception {
         RegistrationInfo regInfo1 = user.getRegInfo();
         RegistrationInfo regInfo2;
-        
+
         regInfo1.setPostalcode("" + idGen.nextId());
         regInfo1.setLastName("Name" + idGen.nextId());
         user.setRegInfo(regInfo1);
@@ -273,7 +275,7 @@ public class TestUserManagerRemote extends TestCase {
         assertEquals("Update did not work", regInfo1.getLastName(),
                 regInfo2.getLastName());
     }
-    
+
     public void testUpdateUser_Invalid() throws Exception {
         try {
             userManager.updateUser(new User(idGen.nextId()));
@@ -282,7 +284,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public void testUpdateUser_Null() throws Exception {
         try {
             userManager.updateUser(null);
@@ -291,7 +293,7 @@ public class TestUserManagerRemote extends TestCase {
             /* the expected case */
         }
     }
-    
+
     public static Test suite() {
         return new UserTestSetup(new TestSuite(TestUserManagerRemote.class));
     }

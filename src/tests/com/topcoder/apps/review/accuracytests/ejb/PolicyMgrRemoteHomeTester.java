@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  *
  * @author TCDEVELOPER
  * @version 1.0
- * @version Copyright © 2003, TopCoder Software, Inc. All rights reserved
+ * @version Copyright ï¿½ 2003, TopCoder Software, Inc. All rights reserved
  */
 public class PolicyMgrRemoteHomeTester implements PolicyMgrRemoteHome {
 
@@ -49,6 +49,6 @@ public class PolicyMgrRemoteHomeTester implements PolicyMgrRemoteHome {
     }
 
     public com.topcoder.security.admin.PolicyMgrRemote create() throws CreateException, EJBException {
-        return (PolicyMgrRemote)PolicyMgrLocalHomeTester.getInstance().create();
+        return (PolicyMgrRemote) PolicyMgrLocalHomeTester.getInstance().create();
     }
 }

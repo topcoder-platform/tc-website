@@ -4,14 +4,13 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.apps.review.document.*;
-
-import com.topcoder.apps.review.document.TestCaseReview;
 import com.topcoder.apps.review.document.FinalReview;
+import com.topcoder.apps.review.document.TestCaseReview;
+import com.topcoder.apps.review.projecttracker.*;
 
-import java.util.GregorianCalendar;
 import java.net.URL;
+import java.util.GregorianCalendar;
 
 /**
  * <p>
@@ -174,11 +173,11 @@ public final class FEMockupData {
         new UserRole(1, roles[0], users[0], paymentInfos[0], null, 1),
         new UserRole(2, roles[1], users[0], paymentInfos[1], null, 2),
         new UserRole(3, roles[2], users[0], paymentInfos[0],
-                     reviewerResponsibilities[0], 3),
+                reviewerResponsibilities[0], 3),
         new UserRole(4, roles[2], users[1], paymentInfos[1],
-                     reviewerResponsibilities[1], 4),
+                reviewerResponsibilities[1], 4),
         new UserRole(5, roles[2], users[2], paymentInfos[0],
-                     reviewerResponsibilities[2], 5),
+                reviewerResponsibilities[2], 5),
         new UserRole(6, roles[3], users[0], paymentInfos[1], null, 6),
         new UserRole(7, roles[4], users[0], paymentInfos[0], null, 7),
         new UserRole(8, roles[5], users[6], paymentInfos[1], null, 8),
@@ -188,7 +187,7 @@ public final class FEMockupData {
     /**
      * The review scorecard section groups.
      */
-    ScorecardSectionGroup[] reviewSectionGroups =  {
+    ScorecardSectionGroup[] reviewSectionGroups = {
         new ScorecardSectionGroup(1, "Minimum Requirements Checklist", 1),
         new ScorecardSectionGroup(2, "Class Diagram", 2),
         new ScorecardSectionGroup(3, "Overall", 3)
@@ -197,7 +196,7 @@ public final class FEMockupData {
     /**
      * The review scorecard sections.
      */
-    ScorecardSection[] reviewSections =  {
+    ScorecardSection[] reviewSections = {
         new ScorecardSection(1, "Component Development", 1, 1, reviewSectionGroups[0]),
         new ScorecardSection(2, "Class Implementation", 1, 2, reviewSectionGroups[1]),
         new ScorecardSection(3, "Code Review", 1, 3, reviewSectionGroups[1]),
@@ -210,15 +209,15 @@ public final class FEMockupData {
      */
     ScorecardQuestion[] reviewQuestions = {
         new ScorecardQuestion(1, null, "Class Diagram exists", 1,
-                              reviewSections[0], 1, 1, 1),
+                reviewSections[0], 1, 1, 1),
         new ScorecardQuestion(2, null, "Use-Case Diagram(s) exists covering each public method in the Class Diagram",
-                              1, reviewSections[0], 2, 1, 2),
+                1, reviewSections[0], 2, 1, 2),
         new ScorecardQuestion(3, null, "Sequence Diagram(s) exists", 1,
-                              reviewSections[0], 3, 1, 3),
+                reviewSections[0], 3, 1, 3),
         new ScorecardQuestion(4, null, "Component Specification exists", 1,
-                              reviewSections[0], 4, 1, 4),
+                reviewSections[0], 4, 1, 4),
         new SubjectiveScorecardQuestion(5, null, "Class Diagram exists", 1,
-                                        reviewSections[1], 1, null, 1, 5),
+                reviewSections[1], 1, null, 1, 5),
 
         new SubjectiveScorecardQuestion(6, null,
                 "Provides descriptive overview of class usage",
@@ -263,7 +262,7 @@ public final class FEMockupData {
     /**
      * The screening scorecard section groups.
      */
-    ScorecardSectionGroup[] screeningSectionGroups =  {
+    ScorecardSectionGroup[] screeningSectionGroups = {
         new ScorecardSectionGroup(1, "Minimum Requirements Checklist", 1),
         new ScorecardSectionGroup(2, "Class Diagram", 2),
         new ScorecardSectionGroup(3, "Overall", 3)
@@ -272,7 +271,7 @@ public final class FEMockupData {
     /**
      * The screening scorecard sections.
      */
-    ScorecardSection[] screeningSections =  {
+    ScorecardSection[] screeningSections = {
         new ScorecardSection(1, "Deliverable", 1, 1, screeningSectionGroups[0]),
         new ScorecardSection(2, "Class Definition", 1, 2, screeningSectionGroups[1]),
         new ScorecardSection(3, "Variable Definition", 1, 3, screeningSectionGroups[1]),
@@ -285,15 +284,15 @@ public final class FEMockupData {
      */
     ScorecardQuestion[] screeningQuestions = {
         new ScorecardQuestion(1, null, "Class Diagram exists", 1,
-                              screeningSections[0], 1, 1, 1),
+                screeningSections[0], 1, 1, 1),
         new ScorecardQuestion(2, null, "Use-Case Diagram(s) exists covering each public method in the Class Diagram",
-                              1, screeningSections[0], 2, 1, 2),
+                1, screeningSections[0], 2, 1, 2),
         new ScorecardQuestion(3, null, "Sequence Diagram(s) exists", 1,
-                              screeningSections[0], 3, 1, 3),
+                screeningSections[0], 3, 1, 3),
         new ScorecardQuestion(4, null, "Component Specification exists", 1,
-                              screeningSections[0], 4, 1, 4),
+                screeningSections[0], 4, 1, 4),
         new SubjectiveScorecardQuestion(5, null, "Class Diagram exists", 1,
-                                        screeningSections[1], 1, null, 1, 5),
+                screeningSections[1], 1, null, 1, 5),
 
         new SubjectiveScorecardQuestion(6, null,
                 "Provides descriptive overview of class usage",
@@ -439,12 +438,12 @@ public final class FEMockupData {
 
             for (int i = 0; i < phases.length; i++) {
                 GregorianCalendar start =
-                    new GregorianCalendar(2003, 5, i * 3 + 1);
+                        new GregorianCalendar(2003, 5, i * 3 + 1);
                 GregorianCalendar stop =
-                    new GregorianCalendar(2003, 5, i * 3 + 4);
+                        new GregorianCalendar(2003, 5, i * 3 + 4);
                 phaseInstances[i] =
-                    new PhaseInstance(i + 1, phases[i], start.getTime(),
-                                      stop.getTime(), 1);
+                        new PhaseInstance(i + 1, phases[i], start.getTime(),
+                                stop.getTime(), 1);
             }
 
             // User project infos
@@ -452,109 +451,109 @@ public final class FEMockupData {
 
             for (int i = 0; i < phaseInstances.length; i++) {
                 String pName = phaseInstances[i].getPhase().getName()
-                               + " project";
+                        + " project";
                 userProjectInfos[i] =
-                    new UserProjectInfo(phaseInstances[i].getPhase().getId(),
-                                        pName, "1." + i, userRoles,
-                                        phaseInstances[i],
-                                        projectTypes[i / 5],
-                                        users[0],
-                                        projectStatuses[0]);
+                        new UserProjectInfo(phaseInstances[i].getPhase().getId(),
+                                pName, "1." + i, userRoles,
+                                phaseInstances[i],
+                                projectTypes[i / 5],
+                                users[0],
+                                projectStatuses[0]);
             }
 
             // Projects
             projects = new Project[userProjectInfos.length];
 
             for (int i = 0; i < userProjectInfos.length; i++) {
-              projects[i] =
-                  new Project(userProjectInfos[i].getId(), 1, 1, 1,
-                              userProjectInfos[i].getProjectName(),
-                              userProjectInfos[i].getProjectVersion(),
-                              users[6], users[0],
-                              phaseInstances,
-                              userProjectInfos[i].getCurrentPhaseInstance(),
-                              userProjectInfos[i].getUserRoles(),
-                              "notes notes notes",
-                              "overview overview overview",
-                              userProjectInfos[i].getProjectType(),
-                              projectStatuses[0], true, -1, -1, 1, 1, 100, false);
+                projects[i] =
+                        new Project(userProjectInfos[i].getId(), 1, 1, 1,
+                                userProjectInfos[i].getProjectName(),
+                                userProjectInfos[i].getProjectVersion(),
+                                users[6], users[0],
+                                phaseInstances,
+                                userProjectInfos[i].getCurrentPhaseInstance(),
+                                userProjectInfos[i].getUserRoles(),
+                                "notes notes notes",
+                                "overview overview overview",
+                                userProjectInfos[i].getProjectType(),
+                                projectStatuses[0], true, -1, -1, 1, 1, 100, false);
             }
 
             // Test case reviews
-            testCaseReviews = new TestCaseReview[] {
+            testCaseReviews = new TestCaseReview[]{
                 new TestCaseReview(1, null, projects[2], null,
-                                   users[0], users[1], true, 1, 1),
+                        users[0], users[1], true, 1, 1),
                 new TestCaseReview(2, null, projects[2], null,
-                                   users[0], users[2], true, 2, 1)
+                        users[0], users[2], true, 2, 1)
             };
 
             // The initial submissions.
             submissions = new InitialSubmission[2];
             submissions[0] = new InitialSubmission(1,
-                                new URL("http://www.cs.ubc.ca/"),
-                                "good good good", "ok ok ok", users[1],
-                                projects[1], false, -1, -1, false,false, 1, 1);
+                    new URL("http://www.cs.ubc.ca/"),
+                    "good good good", "ok ok ok", users[1],
+                    projects[1], false, -1, -1, false, false, 1, 1);
             submissions[1] = new InitialSubmission(2,
-                                new URL("http://www.yahoo.com/"),
-                                "good good good", "ok ok ok", users[2],
-                                projects[2], false, -1, -1, false, false, 2, 1);
+                    new URL("http://www.yahoo.com/"),
+                    "good good good", "ok ok ok", users[2],
+                    projects[2], false, -1, -1, false, false, 2, 1);
 
             // The screening scorecards.
             screeningScorecards = new ScreeningScorecard[2];
             screeningScorecards[0] =
-                new ScreeningScorecard(1, false, false, screeningQuestions,
-                                       users[0], projects[1],
-                                       submissions[0], 0.0, 1, 1, 0.0, null);
+                    new ScreeningScorecard(1, false, false, screeningQuestions,
+                            users[0], projects[1],
+                            submissions[0], 0.0, 1, 1, 0.0, null);
             screeningScorecards[1] =
-                new ScreeningScorecard(2, false, false, screeningQuestions,
-                                       users[1], projects[1],
-                                       submissions[1], 0.0, 2, 1, 0.0, null);
+                    new ScreeningScorecard(2, false, false, screeningQuestions,
+                            users[1], projects[1],
+                            submissions[1], 0.0, 2, 1, 0.0, null);
 
             // The review scorecards.
             reviewScorecards = new ReviewScorecard[6];
             reviewScorecards[0] =
-                new ReviewScorecard(1, true, false, reviewQuestions, users[0],
-                                    projects[2], submissions[0], 60.0, 1, 1, 0.0, null);
+                    new ReviewScorecard(1, true, false, reviewQuestions, users[0],
+                            projects[2], submissions[0], 60.0, 1, 1, 0.0, null);
             reviewScorecards[1] =
-                new ReviewScorecard(2, false, false, reviewQuestions, users[0],
-                                    projects[2], submissions[1], 0.0, 2, 1, 0.0, null);
+                    new ReviewScorecard(2, false, false, reviewQuestions, users[0],
+                            projects[2], submissions[1], 0.0, 2, 1, 0.0, null);
             reviewScorecards[2] =
-                new ReviewScorecard(1, true, false, reviewQuestions, users[1],
-                                    projects[2], submissions[0], 70.0, 1, 1, 0.0, null);
+                    new ReviewScorecard(1, true, false, reviewQuestions, users[1],
+                            projects[2], submissions[0], 70.0, 1, 1, 0.0, null);
             reviewScorecards[3] =
-                new ReviewScorecard(2, true, false, reviewQuestions, users[1],
-                                    projects[2], submissions[1], 50.0, 2, 1, 0.0, null);
+                    new ReviewScorecard(2, true, false, reviewQuestions, users[1],
+                            projects[2], submissions[1], 50.0, 2, 1, 0.0, null);
             reviewScorecards[4] =
-                new ReviewScorecard(1, true, false, reviewQuestions, users[2],
-                                    projects[2], submissions[0], 50.0, 1, 1, 0.0, null);
+                    new ReviewScorecard(1, true, false, reviewQuestions, users[2],
+                            projects[2], submissions[0], 50.0, 1, 1, 0.0, null);
             reviewScorecards[5] =
-                new ReviewScorecard(2, true, false, reviewQuestions, users[2],
-                                    projects[2], submissions[1], 60.0, 2, 1, 0.0, null);
+                    new ReviewScorecard(2, true, false, reviewQuestions, users[2],
+                            projects[2], submissions[1], 60.0, 2, 1, 0.0, null);
 
             // The aggregation worksheet.
             aggregationWorksheet =
-                new AggregationWorksheet(1, false, false, users[0],
-                                         aggregationResponses, projects[3],
-                                         1, 1);
+                    new AggregationWorksheet(1, false, false, users[0],
+                            aggregationResponses, projects[3],
+                            1, 1);
 
             // The aggregation review.
             aggregationReviews = new AggregationReview[3];
             aggregationReviews[0] =
-                new AggregationReview(1, aggregationApprovals[0], null, false,
-                                      aggregationWorksheet, false, users[0],
-                                      1, 1);
+                    new AggregationReview(1, aggregationApprovals[0], null, false,
+                            aggregationWorksheet, false, users[0],
+                            1, 1);
             aggregationReviews[1] =
-                new AggregationReview(1, aggregationApprovals[0], null, false,
-                                      aggregationWorksheet, false, users[1],
-                                      1, 1);
+                    new AggregationReview(1, aggregationApprovals[0], null, false,
+                            aggregationWorksheet, false, users[1],
+                            1, 1);
             aggregationReviews[2] =
-                new AggregationReview(1, aggregationApprovals[1], null, false,
-                                      aggregationWorksheet, false, users[2],
-                                      1, 1);
+                    new AggregationReview(1, aggregationApprovals[1], null, false,
+                            aggregationWorksheet, false, users[2],
+                            1, 1);
 
             // The final review.
             finalReview = new FinalReview(1, fixItems, aggregationWorksheet,
-                                          false, 1, 1);
+                    false, 1, 1);
         } catch (Exception e) {
             System.out.println("error........");
         }
@@ -605,10 +604,10 @@ public final class FEMockupData {
      */
     public ResultData aggregationWorksheet(ActionData data) {
         aggregationWorksheet =
-            new AggregationWorksheet(1, false, false, users[0],
-                                     aggregationResponses,
-                                     projects[(int) ((AggregationData) data).getProject().getId() - 1],
-                                     1, 1);
+                new AggregationWorksheet(1, false, false, users[0],
+                        aggregationResponses,
+                        projects[(int) ((AggregationData) data).getProject().getId() - 1],
+                        1, 1);
 
         return new AggregationWorksheetRetrieval(aggregationWorksheet);
     }
@@ -620,22 +619,22 @@ public final class FEMockupData {
      */
     public ResultData aggregationReview(ActionData data) {
         aggregationWorksheet =
-            new AggregationWorksheet(1, false, false, users[0],
-                                    aggregationResponses,
-                                    projects[(int) ((AggregationReviewData) data).getProject().getId() - 1],
-                                    1, 1);
+                new AggregationWorksheet(1, false, false, users[0],
+                        aggregationResponses,
+                        projects[(int) ((AggregationReviewData) data).getProject().getId() - 1],
+                        1, 1);
         aggregationReviews[0] =
-            new AggregationReview(1, aggregationApprovals[0], null, false,
-                                  aggregationWorksheet, false, users[0],
-                                  1, 1);
+                new AggregationReview(1, aggregationApprovals[0], null, false,
+                        aggregationWorksheet, false, users[0],
+                        1, 1);
         aggregationReviews[1] =
-            new AggregationReview(1, aggregationApprovals[0], null, false,
-                                  aggregationWorksheet, false, users[1],
-                                  1, 1);
+                new AggregationReview(1, aggregationApprovals[0], null, false,
+                        aggregationWorksheet, false, users[1],
+                        1, 1);
         aggregationReviews[2] =
-            new AggregationReview(1, aggregationApprovals[1], null, false,
-                                  aggregationWorksheet, false, users[2],
-                                  1, 1);
+                new AggregationReview(1, aggregationApprovals[1], null, false,
+                        aggregationWorksheet, false, users[2],
+                        1, 1);
 
         return new AggregationReviewRetrieval(aggregationReviews);
     }
@@ -647,12 +646,12 @@ public final class FEMockupData {
      */
     public ResultData finalReview(ActionData data) {
         aggregationWorksheet =
-            new AggregationWorksheet(1, false, false, users[0],
-                                        aggregationResponses,
-                                        projects[(int) ((FinalReviewData) data).getProject().getId() - 1],
-                                        1, 1);
+                new AggregationWorksheet(1, false, false, users[0],
+                        aggregationResponses,
+                        projects[(int) ((FinalReviewData) data).getProject().getId() - 1],
+                        1, 1);
         finalReview = new FinalReview(1, fixItems, aggregationWorksheet,
-                                      false, 1, 1);
+                false, 1, 1);
 
         return new FinalReviewRetrieval(finalReview);
     }
@@ -668,16 +667,16 @@ public final class FEMockupData {
             if (projects[i].getId() == id) {
                 if (projects[i].getCurrentPhase().getId() == Phase.ID_SCREENING) {
                     return new ProjectRetrieval(projects[i],
-                                                screeningScorecards,
-                                                submissions,
-												null,
-                                                null);
+                            screeningScorecards,
+                            submissions,
+                            null,
+                            null);
                 } else {
                     return new ProjectRetrieval(projects[i],
-                                                reviewScorecards,
-                                                submissions,
-												null,
-                                                null);
+                            reviewScorecards,
+                            submissions,
+                            null,
+                            null);
                 }
             }
         }
@@ -760,14 +759,13 @@ public final class FEMockupData {
     }
 
     /**
-         * Submit the final fix.
-         *
-         * @return the result of submission.
-         */
-        public ResultData submitFinalFix(ActionData data)
-        {
-                return new SuccessResult();
-        }
+     * Submit the final fix.
+     *
+     * @return the result of submission.
+     */
+    public ResultData submitFinalFix(ActionData data) {
+        return new SuccessResult();
+    }
 
     /**
      * Sent the message to project manager.

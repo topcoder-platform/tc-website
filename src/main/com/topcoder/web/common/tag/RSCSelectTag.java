@@ -70,7 +70,7 @@ public class RSCSelectTag extends SelectTag {
      * @see com.topcoder.web.common.tag.SelectTag#getSelected()
      */
     protected String getSelected() throws JspException {
-        setSelectedValue(getDefaultValue()==null?"":getDefaultValue().toString());
+        setSelectedValue(getDefaultValue() == null ? "" : getDefaultValue().toString());
         return super.getSelected();
     }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.mockup;
 
@@ -14,6 +14,7 @@ import com.topcoder.apps.review.document.ScreeningScorecard;
 import com.topcoder.apps.review.document.TestCaseReview;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.security.TCSubject;
+
 import java.util.List;
 
 /**
@@ -65,14 +66,29 @@ public class DocumentManagerMockup extends EJBBase implements DocumentManagerLoc
         return MockupData.getFinalReview(project, requestor);
     }
 
-    public void saveInitialSubmission(InitialSubmission submission, TCSubject requestor) { }
-    public void saveScreeningScorecard(ScreeningScorecard scorecard, TCSubject requestor) { }
-    public void saveReviewScorecard(ReviewScorecard scorecard, TCSubject requestor) { }
-    public void saveTestCaseReview(TestCaseReview tcReview, TCSubject requestor) { }
-    public void saveAggregation(AggregationWorksheet worksheet, TCSubject requestor) { }
-    public void saveAggregationReview(AggregationReview aggReview, TCSubject requestor) { }
-    public void saveFinalFixSubmission(FinalFixSubmission submission, TCSubject requestor) { }
-    public void saveFinalReview(FinalReview finalReview, TCSubject requestor) { }
+    public void saveInitialSubmission(InitialSubmission submission, TCSubject requestor) {
+    }
+
+    public void saveScreeningScorecard(ScreeningScorecard scorecard, TCSubject requestor) {
+    }
+
+    public void saveReviewScorecard(ReviewScorecard scorecard, TCSubject requestor) {
+    }
+
+    public void saveTestCaseReview(TestCaseReview tcReview, TCSubject requestor) {
+    }
+
+    public void saveAggregation(AggregationWorksheet worksheet, TCSubject requestor) {
+    }
+
+    public void saveAggregationReview(AggregationReview aggReview, TCSubject requestor) {
+    }
+
+    public void saveFinalFixSubmission(FinalFixSubmission submission, TCSubject requestor) {
+    }
+
+    public void saveFinalReview(FinalReview finalReview, TCSubject requestor) {
+    }
 
     public List createScorecards(Project project, long authorId, List scorecardList) {
         return null;

@@ -1,26 +1,23 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import com.topcoder.web.common.*;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.CoderSessionInfo;
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.security.LoginException;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.LoginException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.tc.model.CoderSessionInfo;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.naming.InitialContext;
 import java.util.Arrays;
 
 public class Login extends Base {
-
 
 
     public static final String USER_NAME = "username";
@@ -51,8 +48,8 @@ public class Login extends Base {
                             throw new LoginException("Incorrect handle");
                         char status = getStatus(userId);
                         log.debug("status: " + status);
-                        if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)>0) {
-                            if (getEmailStatus(userId)!=EmailActivate.ACTIVE_STATUS) {
+                        if (Arrays.binarySearch(Activate.ACTIVE_STATI, status) > 0) {
+                            if (getEmailStatus(userId) != EmailActivate.ACTIVE_STATUS) {
                                 getAuthentication().logout();
                                 log.debug("inactive email");
                                 setNextPage(Constants.EMAIL_ACTIVATE);
@@ -70,13 +67,13 @@ public class Login extends Base {
                             }
                         } else {
                             getAuthentication().logout();
-                            if (Arrays.binarySearch(Activate.INACTIVE_STATI, status)>0) {
+                            if (Arrays.binarySearch(Activate.INACTIVE_STATI, status) > 0) {
                                 log.debug("user inactive");
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
-                            } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status)>0) {
+                            } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status) > 0) {
                                 log.debug("user unactive");
-                                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  "+
+                                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
                                         "Please review the activation email that was sent to you after registration.");
                             } else {
                                 throw new NavigationException("Invalid account status");
@@ -104,8 +101,6 @@ public class Login extends Base {
     }
 
 
-
-
     /**
      * shouldn't use ejb slooooooooow
      * @param userId
@@ -114,7 +109,7 @@ public class Login extends Base {
      */
     private char getStatus(long userId) throws Exception {
         char result;
-        User user = (User)createEJB(getInitialContext(), User.class);
+        User user = (User) createEJB(getInitialContext(), User.class);
         result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
 
@@ -133,8 +128,8 @@ public class Login extends Base {
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
         TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
         CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
-        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-        if (nav==null) {
+        Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
+        if (nav == null) {
             nav = new Navigation(request, ret);
             request.getSession(true).setAttribute("navigation", nav);
         } else {
@@ -146,10 +141,11 @@ public class Login extends Base {
         Request r = new Request();
         r.setContentHandle("user_id_using_handle");
         r.setProperty("ha", handle);
-        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("user_id");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("user_id");
         if (rsc.isEmpty())
             return -1;
-        else return rsc.getLongItem(0, "user_id");
+        else
+            return rsc.getLongItem(0, "user_id");
     }
 
 }

@@ -1,7 +1,7 @@
 /*
  * FinalFixSubmission.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -40,7 +40,7 @@ public class FinalFixSubmission extends AbstractSubmission implements Serializab
      * @param versionId DOCUMENT ME!
      */
     public FinalFixSubmission(long id, URL url, String messagePMReview, String messagePMScreening,
-        User submitter, Project project, boolean isRemoved, long requestorId, long versionId) {
+                              User submitter, Project project, boolean isRemoved, long requestorId, long versionId) {
         super(id, url, messagePMReview, messagePMScreening, submitter, project, isRemoved, requestorId, versionId);
     }
 }

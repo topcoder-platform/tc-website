@@ -1,13 +1,13 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
+import com.topcoder.shared.netCommon.screening.request.ScreeningCompileRequest;
+import com.topcoder.shared.netCommon.screening.response.ScreeningCompileResponse;
+import com.topcoder.shared.problem.Problem;
+import com.topcoder.shared.problem.ProblemComponent;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.shared.netCommon.screening.request.ScreeningCompileRequest;
-import com.topcoder.shared.netCommon.screening.response.ScreeningCompileResponse;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
-import com.topcoder.shared.problem.Problem;
-import com.topcoder.shared.problem.ProblemComponent;
 
 /**
  * User: dok
@@ -20,7 +20,7 @@ public class Compile extends Base {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
-                    new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
+                    new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
 
@@ -60,15 +60,15 @@ public class Compile extends Base {
 
             showProcessingPage();
 
-            ScreeningCompileResponse response = (ScreeningCompileResponse)receive(5000);
+            ScreeningCompileResponse response = (ScreeningCompileResponse) receive(5000);
 
             addError(Constants.CODE, response.getMessage());
             Problem p = new Problem();
-            p.setProblemComponents(new ProblemComponent[] {response.getProblemComponent()});
+            p.setProblemComponents(new ProblemComponent[]{response.getProblemComponent()});
             setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, p, problemTypeId));
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
+                    new String[]{Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
                     new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
 
         }

@@ -2,9 +2,9 @@ package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * This fraud detection module takes the given list of tokenized
@@ -37,18 +37,18 @@ public class Similar implements Fraud {
             for (int j = i + 1; j < tokens.size(); j++) {
                 s1 = (Submission) submissions.get(i);
                 s2 = (Submission) submissions.get(j);
-                if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId()==s2.getLanguageId() && s1.getCoderId()!=s2.getCoderId()) {
+                if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId() == s2.getLanguageId() && s1.getCoderId() != s2.getCoderId()) {
                     l1 = ((TokenizedSource) tokens.get(i)).getTokens();
                     l2 = ((TokenizedSource) tokens.get(j)).getTokens();
                     int sim1 = 0;
                     int sim2 = 0;
-                    for (int k=0; k<l1.size(); k++) {
+                    for (int k = 0; k < l1.size(); k++) {
                         if (l2.contains(l1.get(k))) sim1++;
                     }
-                    for (int k=0; k<l2.size(); k++) {
+                    for (int k = 0; k < l2.size(); k++) {
                         if (l1.contains(l2.get(k))) sim2++;
                     }
-                    double similarPercentage = ((double)sim1/(double)l1.size() + (double)sim2/(double)l2.size())/2;
+                    double similarPercentage = ((double) sim1 / (double) l1.size() + (double) sim2 / (double) l2.size()) / 2;
                     results.add(new ComparisonResult(i, j, similarPercentage));
                 }
             }
@@ -62,8 +62,8 @@ public class Similar implements Fraud {
         Collections.sort(results);
         double suspicious = avg + STD_DEV_THRESHHOLD * stddev;
         ComparisonResult r = null;
-        for (int i=results.size()-1, k=0; i>-1&&k<MAX_REPORT; i--,k++) {
-            r = (ComparisonResult)results.get(i);
+        for (int i = results.size() - 1, k = 0; i > -1 && k < MAX_REPORT; i--, k++) {
+            r = (ComparisonResult) results.get(i);
             if (r.getValue() > suspicious) {
                 s1 = (Submission) submissions.get(r.getIndex1());
                 s2 = (Submission) submissions.get(r.getIndex2());
@@ -90,6 +90,7 @@ public class Similar implements Fraud {
     public String getReport() {
         return report.toString();
     }
+
     public List getPotentialViolators() {
         return potentialViolators;
     }

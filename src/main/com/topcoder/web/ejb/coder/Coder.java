@@ -1,9 +1,9 @@
 package com.topcoder.web.ejb.coder;
 
-import java.sql.Date;
-import javax.ejb.EJBObject;
 import javax.ejb.EJBException;
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import java.sql.Date;
 
 /**
  *
@@ -19,6 +19,7 @@ public interface Coder extends EJBObject {
      * @throws RemoteException
      */
     void createCoder(long coderId, String dataSource) throws EJBException, RemoteException;
+
     /**
      *
      * @param coderId
@@ -71,7 +72,7 @@ public interface Coder extends EJBObject {
      * @throws EJBException
      * @throws RemoteException
      */
-    Date getMemberSince(long coderId, String dataSource)  throws EJBException, RemoteException;
+    Date getMemberSince(long coderId, String dataSource) throws EJBException, RemoteException;
 
     /**
      *

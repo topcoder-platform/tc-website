@@ -1,22 +1,18 @@
 package com.topcoder.web.corp.model;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Arrays;
-
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.PermissionDeniedException;
+import com.topcoder.web.corp.common.ScreeningException;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Bean for holding info about a coder's submission.
@@ -28,7 +24,11 @@ public class SubmissionInfo implements java.io.Serializable {
 
     private static final int[] DONE_STATUSES = {130, 150, 160};
     private static final int COMPILED = 121;
-    static { Arrays.sort(DONE_STATUSES); }
+
+    static {
+        Arrays.sort(DONE_STATUSES);
+    }
+
     private static DataAccessInt cached;
     private static DataAccessInt dwAccess;
 
@@ -48,18 +48,19 @@ public class SubmissionInfo implements java.io.Serializable {
     private int statusId;
 
 
-    public SubmissionInfo() { }
+    public SubmissionInfo() {
+    }
 
     public SubmissionInfo(User user, long sessionId, long sessionRoundId,
-                                                      long problemId, int problemTypeId) throws Exception {
+                          long problemId, int problemTypeId) throws Exception {
 
         log.debug("getting sumbmission info for session: " + sessionId + " round: " + sessionRoundId +
                 " problem: " + problemId + " probletype: " + problemTypeId);
-        if(cached == null) {
+        if (cached == null) {
             cached = new CachedDataAccess(Constants.DATA_SOURCE);
         }
 
-        if(dwAccess == null) {
+        if (dwAccess == null) {
             dwAccess = new CachedDataAccess(Constants.DW_DATA_SOURCE);
         }
 
@@ -76,44 +77,44 @@ public class SubmissionInfo implements java.io.Serializable {
         //accesses this that may first access it before someone has submitted
         //and then again after thus getting a bad value from the cache
         Map map = cached.getData(dr);
-        if(map == null)
+        if (map == null)
             throw new ScreeningException("getData failed!");
 
         ResultSetContainer result =
-            (ResultSetContainer)map.get("submissionInfo");
-        if(result.getRowCount() == 0){
+                (ResultSetContainer) map.get("submissionInfo");
+        if (result.getRowCount() == 0) {
             throw new PermissionDeniedException(user,
-                "User not authorized to view information about problem: " +
-                        dr.getProperty("pid")==null?"?":dr.getProperty("pid"));
+                    "User not authorized to view information about problem: " +
+                    dr.getProperty("pid") == null ? "?" : dr.getProperty("pid"));
         }
-        String divisionId = result.getItem(0,"contest_division_id").toString();
+        String divisionId = result.getItem(0, "contest_division_id").toString();
 
         dr = new Request();
         dr.setContentHandle("topProblemSolutions");
         dr.setProperty("pm", String.valueOf(problemId));
         dr.setProperty("dn", divisionId);
         Map dwMap = dwAccess.getData(dr);
-        if(map == null)
+        if (map == null)
             throw new ScreeningException("getData failed!");
 
-        String code = (String)result.getItem(0,"submission_text").getResultData();
-        if (code==null) {
-            code = (String)result.getItem(0,"compilation_text").getResultData();
+        String code = (String) result.getItem(0, "submission_text").getResultData();
+        if (code == null) {
+            code = (String) result.getItem(0, "compilation_text").getResultData();
         }
         this.setCode(code);
-        this.setTestResults((ResultSetContainer)map.get("systemTestResults"));
+        this.setTestResults((ResultSetContainer) map.get("systemTestResults"));
         //consider doing this better, ie, limit the results in the db.
-        this.setTopTCSolutions(((List)dwMap.get("topProblemSolutions")).subList(0,3));
-        this.setHandle(result.getItem(0,"handle").toString());
-        this.setUserId(((Long)result.getItem(0,"user_id").getResultData()).longValue());
-        this.setProfileName(result.getItem(0,"session_profile_desc").toString());
-        this.setTestSetAName(result.getItem(0,"round_name").toString());
-        this.setStatusId(((Integer)result.getItem(0, "status_id").getResultData()).intValue());
+        this.setTopTCSolutions(((List) dwMap.get("topProblemSolutions")).subList(0, 3));
+        this.setHandle(result.getItem(0, "handle").toString());
+        this.setUserId(((Long) result.getItem(0, "user_id").getResultData()).longValue());
+        this.setProfileName(result.getItem(0, "session_profile_desc").toString());
+        this.setTestSetAName(result.getItem(0, "round_name").toString());
+        this.setStatusId(((Integer) result.getItem(0, "status_id").getResultData()).intValue());
 
     }
 
     public boolean isSubmitted() {
-        return Arrays.binarySearch(DONE_STATUSES, getStatusId())>=0;
+        return Arrays.binarySearch(DONE_STATUSES, getStatusId()) >= 0;
     }
 
     public boolean isCompiled() {

@@ -53,15 +53,16 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum.filter;
 
-import java.util.*;
-import java.io.*;
-
-import com.coolservlets.forum.*;
-import com.coolservlets.codeviewer.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
 import com.coolservlets.util.StringUtils;
+
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * A ForumMessageFilter that Translates normal text into 'Hacker Speak'.
@@ -98,8 +99,7 @@ public class FilterHackerSpeak extends ForumMessageFilter implements Serializabl
      * @param propertyDescriptions the property descriptions for the filter.
      */
     public FilterHackerSpeak(ForumMessage message, Properties props,
-            Properties propDescriptions)
-    {
+                             Properties propDescriptions) {
         super(message);
         this.props = new Properties(props);
         this.propDescriptions = new Properties(propDescriptions);
@@ -111,8 +111,8 @@ public class FilterHackerSpeak extends ForumMessageFilter implements Serializabl
      *
      * @param message the ForumMessage to wrap the new filter around.
      */
-    public ForumMessageFilter clone(ForumMessage message){
-        return new FilterHackerSpeak(message,props,propDescriptions);
+    public ForumMessageFilter clone(ForumMessage message) {
+        return new FilterHackerSpeak(message, props, propDescriptions);
     }
 
     /**
@@ -189,8 +189,7 @@ public class FilterHackerSpeak extends ForumMessageFilter implements Serializabl
      *    exist.
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         if (props.getProperty(name) == null) {
             throw new IllegalArgumentException();
         }
@@ -222,46 +221,38 @@ public class FilterHackerSpeak extends ForumMessageFilter implements Serializabl
      * @return The input string with the characters '<' and '>' replaced with
      *  &lt; and &gt; respectively.
      */
-    private String makeHacker( String input ) {
+    private String makeHacker(String input) {
         //Check if the string is null or zero length -- if so, return
         //what was sent in.
-        if( input == null || input.length() == 0 ) {
+        if (input == null || input.length() == 0) {
             return input;
         }
         //Use a StringBuffer in lieu of String concatenation -- it is
         //much more efficient this way.
         StringBuffer buf = new StringBuffer(input.length());
         char ch = ' ';
-        for( int i=0; i<input.length(); i++ ) {
+        for (int i = 0; i < input.length(); i++) {
             ch = input.charAt(i);
             if (Math.random() < .20) {
-                if( ch == 'a' ) {
-                    buf.append( "@" );
+                if (ch == 'a') {
+                    buf.append("@");
+                } else if (ch == 'e') {
+                    buf.append("3");
+                } else if (ch == 'g') {
+                    buf.append("6");
+                } else if (ch == 'i') {
+                    buf.append("1");
+                } else if (ch == 'o') {
+                    buf.append("0");
+                } else if (ch == 't') {
+                    buf.append("7");
+                } else if (ch == 's') {
+                    buf.append("$");
+                } else {
+                    buf.append(ch);
                 }
-                else if( ch == 'e' ) {
-                    buf.append( "3" );
-                }
-                else if( ch == 'g' ) {
-                    buf.append( "6" );
-                }
-                else if( ch == 'i' ) {
-                    buf.append( "1" );
-                }
-                else if( ch == 'o' ) {
-                    buf.append( "0" );
-                }
-                else if( ch == 't' ) {
-                    buf.append( "7" );
-                }
-                else if( ch == 's' ) {
-                    buf.append( "$" );
-                }
-                else {
-                    buf.append( ch );
-                }
-            }
-            else {
-                buf.append( ch );
+            } else {
+                buf.append(ch);
             }
         }
         return buf.toString();

@@ -14,10 +14,10 @@ public class AllFETests extends TestCase {
 
     public static Test suite() {
         final TestSuite suite = new TestSuite();
-        
+
         // Unit tests
         suite.addTest(UnitTests.suite());
-        
+
         return suite;
     }
 

@@ -7,14 +7,14 @@
  */
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.corp.common.Util;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.corp.common.Util;
 
 import java.util.Map;
 
@@ -76,7 +76,7 @@ public class PositionResults extends BaseScreeningProcessor {
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.debug("The details retrieval for position " + positionId + " failed." );
+                log.debug("The details retrieval for position " + positionId + " failed.");
                 throw new ScreeningException("Position details retrieval error for position : " + positionId);
             }
 
@@ -86,7 +86,7 @@ public class PositionResults extends BaseScreeningProcessor {
 
             // Notify the user if there is an empty result
             if (result.size() == 0) {
-                log.debug("The details retrieval for position " + positionId + " failed." );
+                log.debug("The details retrieval for position " + positionId + " failed.");
                 throw new ScreeningException("Position details retrieval error for position : " + positionId);
             }
 
@@ -118,11 +118,9 @@ public class PositionResults extends BaseScreeningProcessor {
             // Check if the results list should be sorted
             String sortBy = request.getParameter(Constants.SORT_BY);
             if (sortBy != null) {
-                if(sortBy.equals("preference"))
-                {
+                if (sortBy.equals("preference")) {
                     result.sortByColumn(sortBy, false);
-                }
-                else
+                } else
                     result.sortByColumn(sortBy, true);
                 request.setAttribute(Constants.SORT_BY, sortBy);
             }

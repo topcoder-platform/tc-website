@@ -53,11 +53,10 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum;
 
-import java.util.*;
-import java.lang.reflect.*;
+
 
 /**
  * Provides authorization service for the Jive forum system. The service
@@ -67,28 +66,26 @@ public abstract class AuthorizationFactory {
 
     private static Object lock = new Object();
     private static String classname =
-        "com.coolservlets.forum.database.DbAuthorizationFactory";
+            "com.coolservlets.forum.database.DbAuthorizationFactory";
     private static AuthorizationFactory factory = null;
 
     public static AuthorizationFactory getInstance() {
         if (factory == null) {
-            synchronized(lock) {
+            synchronized (lock) {
                 if (factory == null) {
                     if (classname != null) {
                         try {
                             Class c = Class.forName(classname);
-                            factory = (AuthorizationFactory)c.newInstance();
-                        }
-                        catch (Exception e) {
+                            factory = (AuthorizationFactory) c.newInstance();
+                        } catch (Exception e) {
                             System.err.println("Exception loading class: " + e);
                             e.printStackTrace();
                             return null;
                         }
-                    }
-                    else {
+                    } else {
                         System.err.println("Error: could not create AuthorizationFactory " +
-                            "because the AuthorizationFactory classname has not been set. " +
-                            "Be sure to call the setClass method.");
+                                "because the AuthorizationFactory classname has not been set. " +
+                                "Be sure to call the setClass method.");
                         return null;
                     }
                 }
@@ -103,7 +100,7 @@ public abstract class AuthorizationFactory {
      * @throws UnauthorizedException if authentication failed.
      */
     public abstract Authorization getAuthorization(String username,
-        String password) throws UnauthorizedException;
+                                                   String password) throws UnauthorizedException;
 
     /**
      * Gets the anonymous user authorization.

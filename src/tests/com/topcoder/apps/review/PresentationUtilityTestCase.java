@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -41,39 +41,51 @@ public class PresentationUtilityTestCase extends TestCase {
             public Evaluation[] getSubjectiveEvaluations() {
                 return new Evaluation[3];
             }
+
             public Evaluation[] getObjectiveEvaluations() {
                 return new Evaluation[3];
             }
+
             public ScorecardSection[] getScorecardSections() {
                 return new ScorecardSection[3];
             }
+
             public AggregationResponseStatus[] getAggregationResponseStatuses() {
                 return new AggregationResponseStatus[3];
             }
+
             public TestCaseApproval[] getTestCaseApprovals() {
                 return new TestCaseApproval[3];
             }
+
             public FinalFixStatus[] getFinalFixStatuses() {
                 return new FinalFixStatus[3];
             }
+
             public AggregationApproval[] getAggregationApproval() {
                 return new AggregationApproval[3];
             }
+
             public Phase[] getPhases() {
                 return new Phase[3];
             }
+
             public PaymentStatus[] getPaymentStatuses() {
                 return new PaymentStatus[3];
             }
+
             public ReviewerResponsibility[] getReviewerResponsibilities() {
                 return new ReviewerResponsibility[3];
             }
+
             public ProjectType[] getProjectTypes() {
                 return new ProjectType[3];
             }
+
             public ResponseType[] getResponseTypes() {
                 return new ResponseType[3];
             }
+
             public ProjectStatus[] getProjectStatuses() {
                 return new ProjectStatus[3];
             }

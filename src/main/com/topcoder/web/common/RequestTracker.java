@@ -1,17 +1,20 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.InitialContext;
-import java.util.*;
-import java.sql.Timestamp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * User: dok
@@ -59,7 +62,7 @@ public class RequestTracker {
      * @param request
      */
     public static void trackRequest(User u, TCRequest request) {
-        if (Arrays.binarySearch(IGNORE_LIST, request.getRemoteAddr())<0)
+        if (Arrays.binarySearch(IGNORE_LIST, request.getRemoteAddr()) < 0)
             q.add(new UserRequest(u, request));
     }
 
@@ -97,14 +100,14 @@ public class RequestTracker {
                 String sessionId = null;
                 for (Iterator it = a.iterator(); it.hasNext();) {
                     UserRequest r = (UserRequest) it.next();
-                    if (ApplicationServer.SESSION_ID_LENGTH>0) {
+                    if (ApplicationServer.SESSION_ID_LENGTH > 0) {
                         sessionId = r.sessionId.substring(0, ApplicationServer.SESSION_ID_LENGTH);
                     } else {
                         sessionId = r.sessionId;
                     }
                     if (r.userId == GUEST.getId()) {
                         createRequest(r.url, new Timestamp(r.time),
-                                sessionId,DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                                sessionId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     } else {
                         createRequest(r.userId, r.url, new Timestamp(r.time),
                                 sessionId,
@@ -119,8 +122,6 @@ public class RequestTracker {
 
         }
     }
-
-
 
 
     protected static void createRequest(long userId, String url, Timestamp time,
@@ -184,17 +185,13 @@ public class RequestTracker {
     }
 
 
-
-
-
-
     /**
      * An object that contains all the useful data that we will be
      * adding to the database.
      */
     private static class UserRequest {
         private long userId;
-        private String  url;
+        private String url;
         private String sessionId;
         private long time;
 
@@ -206,7 +203,7 @@ public class RequestTracker {
          * @param r
          */
         private UserRequest(User u, TCRequest r) {
-            this.userId = u==null?GUEST.getId():u.getId();
+            this.userId = u == null ? GUEST.getId() : u.getId();
             StringBuffer buf = new StringBuffer(254);
             buf.append("http://");
             buf.append(r.getServerName());
@@ -216,22 +213,26 @@ public class RequestTracker {
             buf.append((query == null) ? ("") : ("?" + query));
             this.url = buf.toString();
             this.time = System.currentTimeMillis();
-            this.sessionId=r.getSession().getId();
+            this.sessionId = r.getSession().getId();
             log.debug("session: " + this.sessionId);
         }
     }
 
     private static class Queue {
         private final LinkedList q = new LinkedList();
+
         public synchronized boolean add(Object o) {
             return q.add(o);
         }
+
         public synchronized int size() {
             return q.size();
         }
+
         public synchronized boolean isEmpty() {
             return q.isEmpty();
         }
+
         public synchronized Object pop() {
             return q.removeLast();
         }

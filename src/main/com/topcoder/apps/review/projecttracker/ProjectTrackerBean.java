@@ -15,21 +15,9 @@ import com.topcoder.dde.catalog.Forum;
 
 import com.topcoder.apps.review.ConcurrentModificationException;
 import com.topcoder.apps.review.GeneralSecurityException;
-import com.topcoder.apps.review.document.DocumentManagerLocal;
-import com.topcoder.apps.review.document.DocumentManagerLocalHome;
-import com.topcoder.apps.review.document.InvalidEditException;
-import com.topcoder.apps.review.document.ReviewScorecard;
-import com.topcoder.apps.review.document.ScreeningScorecard;
+import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.persistence.Common;
-import com.topcoder.apps.review.security.AdminPermission;
-import com.topcoder.apps.review.security.AggregationPermission;
-import com.topcoder.apps.review.security.FinalReviewPermission;
-import com.topcoder.apps.review.security.ReviewPermission;
-import com.topcoder.apps.review.security.ScreenPermission;
-import com.topcoder.apps.review.security.SubmitFinalFixPermission;
-import com.topcoder.apps.review.security.SubmitPermission;
-import com.topcoder.apps.review.security.ViewProjectPermission;
-
+import com.topcoder.apps.review.security.*;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -49,30 +37,21 @@ import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
 
-import java.rmi.RemoteException;
-
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
+import java.rmi.RemoteException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -834,17 +813,17 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.execute();
                     Common.close(ps);
 
-                } else if (oldPhaseId == Phase.ID_FINAL_FIXES && currentPhase.getId()== Phase.ID_FINAL_REVIEW) {
+                } else if (oldPhaseId == Phase.ID_FINAL_FIXES && currentPhase.getId() == Phase.ID_FINAL_REVIEW) {
                     //set it to not complete so that the final reviewer can make changes...this is just incase this
                     //isn't the first final review.
                     ps = conn.prepareStatement(
                             "UPDATE final_review " +
-                               "SET is_completed = 0 " +
-                             "WHERE cur_version = 1 " +
-                               "AND agg_worksheet_id = (SELECT agg_worksheet_id " +
-                                                         "FROM agg_worksheet " +
-                                                        "WHERE cur_version = 1 " +
-                                                          "AND project_id = ?)");
+                            "SET is_completed = 0 " +
+                            "WHERE cur_version = 1 " +
+                            "AND agg_worksheet_id = (SELECT agg_worksheet_id " +
+                            "FROM agg_worksheet " +
+                            "WHERE cur_version = 1 " +
+                            "AND project_id = ?)");
                     ps.setLong(1, project.getId());
                     ps.execute();
                     Common.close(ps);
@@ -858,7 +837,6 @@ public class ProjectTrackerBean implements SessionBean {
                         throw new InvalidEditException("Finalize Score Exception: " + e.getMessage());
                     }
                 }
-
 
 
                 if (oldStatusId != project.getProjectStatus().getId() && (
@@ -1763,10 +1741,10 @@ public class ProjectTrackerBean implements SessionBean {
             //insert default scorecards
             long templateId = documentManager.getDefaultScorecardTemplate(projectTypeId, ScreeningScorecard.SCORECARD_TYPE).getId();
             ps = conn.prepareStatement(
-                                    "INSERT INTO project_template " +
-                                    "(project_id, scorecard_type, template_id) " +
-                                    "VALUES (?,?,?)");
-            ps.setLong(1,projectId);
+                    "INSERT INTO project_template " +
+                    "(project_id, scorecard_type, template_id) " +
+                    "VALUES (?,?,?)");
+            ps.setLong(1, projectId);
             ps.setInt(2, ScreeningScorecard.SCORECARD_TYPE);
             ps.setLong(3, templateId);
 
@@ -1775,10 +1753,10 @@ public class ProjectTrackerBean implements SessionBean {
 
             templateId = documentManager.getDefaultScorecardTemplate(projectTypeId, ReviewScorecard.SCORECARD_TYPE).getId();
             ps = conn.prepareStatement(
-                                    "INSERT INTO project_template " +
-                                    "(project_id, scorecard_type, template_id) " +
-                                    "VALUES (?,?,?)");
-            ps.setLong(1,projectId);
+                    "INSERT INTO project_template " +
+                    "(project_id, scorecard_type, template_id) " +
+                    "VALUES (?,?,?)");
+            ps.setLong(1, projectId);
             ps.setInt(2, ReviewScorecard.SCORECARD_TYPE);
             ps.setLong(3, templateId);
 
@@ -2066,7 +2044,7 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "SELECT rating from user_rating where user_id = ? and phase_id = " +
-                     "(select 111+project_type_id from project where project_id = ? and cur_version = 1)");
+                    "(select 111+project_type_id from project where project_id = ? and cur_version = 1)");
             ps.setLong(1, userId);
             ps.setLong(2, projectId);
             rs = ps.executeQuery();
@@ -2210,7 +2188,6 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(conn, ps, rs);
         }
     }
-
 
 
     /**

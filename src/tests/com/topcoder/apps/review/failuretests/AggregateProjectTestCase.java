@@ -1,7 +1,7 @@
 /*
  * AggregateProjectTestCase.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -31,15 +31,15 @@ public class AggregateProjectTestCase extends PermissionTestCase {
      * <p>Returns an instance of AggregateProject.</p>
      */
     public Model getModel() {
-        return(new AggregateProject());
+        return (new AggregateProject());
     }
-    
+
     /**
      * <p>Returns an instance of OnlineReviewData.</p>
      */
     public ActionData getWrongActionData() {
-        MyUser user = new MyUser("temp","aaa");
-        return(ActionDataUtil.getOnlineReviewData(user));
+        MyUser user = new MyUser("temp", "aaa");
+        return (ActionDataUtil.getOnlineReviewData(user));
     }
 
     /**
@@ -48,22 +48,22 @@ public class AggregateProjectTestCase extends PermissionTestCase {
      */
     public ActionData[] getNullParams() {
         Project project = new MyProject("test");
-        MyUser user = new MyUser("screener","aaa");
-        AggregationWorksheet worksheet = 
-            new MyAggregationWorksheet(user,project); 
-        UserProjectInfo userProject = new MyUserProjectInfo(user,project);
+        MyUser user = new MyUser("screener", "aaa");
+        AggregationWorksheet worksheet =
+                new MyAggregationWorksheet(user, project);
+        UserProjectInfo userProject = new MyUserProjectInfo(user, project);
 
-        project.setCurrentPhase(AGGREGATION_PHASE);        
-        user.addPermission(new ReviewPermission(project.getId()));        
+        project.setCurrentPhase(AGGREGATION_PHASE);
+        user.addPermission(new ReviewPermission(project.getId()));
         user.addPermission(new AggregationPermission(project.getId()));
         user.addPermission(new ViewProjectPermission(project.getId()));
 
-        AggregationData data2 = 
-            ActionDataUtil.getAggregationData(user,null,worksheet);
-        AggregationData data3 = 
-            ActionDataUtil.getAggregationData(null,userProject,worksheet); 
+        AggregationData data2 =
+                ActionDataUtil.getAggregationData(user, null, worksheet);
+        AggregationData data3 =
+                ActionDataUtil.getAggregationData(null, userProject, worksheet);
 
-        return(new ActionData[] {data2, data3});
+        return (new ActionData[]{data2, data3});
     }
 
     /**
@@ -72,28 +72,28 @@ public class AggregateProjectTestCase extends PermissionTestCase {
      */
     public OnlineReviewData[] getWrongPermissions() {
         Project project = new MyProject("test");
-        MyUser usera = new MyUser("a","aaa");
-        MyUser userb = new MyUser("b","bbb");
-        AggregationWorksheet worksheet1 = 
-            new MyAggregationWorksheet(usera,project);
-        AggregationWorksheet worksheet2 = 
-            new MyAggregationWorksheet(userb,project);
-        
+        MyUser usera = new MyUser("a", "aaa");
+        MyUser userb = new MyUser("b", "bbb");
+        AggregationWorksheet worksheet1 =
+                new MyAggregationWorksheet(usera, project);
+        AggregationWorksheet worksheet2 =
+                new MyAggregationWorksheet(userb, project);
+
         project.setCurrentPhase(REVIEW_PHASE);
         usera.addPermission(new ReviewPermission(project.getId() + 1));
         userb.addPermission(new ViewProjectPermission(project.getId()));
-        
-        UserProjectInfo userProject1 = new MyUserProjectInfo(usera,project);
-        UserProjectInfo userProject2 = new MyUserProjectInfo(userb,project);
-        
-        AggregationData data1 = 
-            ActionDataUtil.getAggregationData(usera,userProject1,worksheet1);
-        AggregationData data2 = 
-            ActionDataUtil.getAggregationData(userb,userProject2,worksheet2);
-        
-        return(new OnlineReviewData[] {data1, data2});
+
+        UserProjectInfo userProject1 = new MyUserProjectInfo(usera, project);
+        UserProjectInfo userProject2 = new MyUserProjectInfo(userb, project);
+
+        AggregationData data1 =
+                ActionDataUtil.getAggregationData(usera, userProject1, worksheet1);
+        AggregationData data2 =
+                ActionDataUtil.getAggregationData(userb, userProject2, worksheet2);
+
+        return (new OnlineReviewData[]{data1, data2});
     }
-    
+
     /**
      * <p>Tests the start method by trying to make a submission
      * for a project that is not in the Aggregation phase.</p>
@@ -102,20 +102,20 @@ public class AggregateProjectTestCase extends PermissionTestCase {
         Model model = getModel();
 
         Project project = new MyProject("test");
-        MyUser user = new MyUser("screener","aaa");
-        AggregationWorksheet worksheet = new MyAggregationWorksheet(user,project); 
-        UserProjectInfo userProject = new MyUserProjectInfo(user,project);
+        MyUser user = new MyUser("screener", "aaa");
+        AggregationWorksheet worksheet = new MyAggregationWorksheet(user, project);
+        UserProjectInfo userProject = new MyUserProjectInfo(user, project);
 
         project.setCurrentPhase(SUBMIT_PHASE);
         user.addPermission(new ReviewPermission(project.getId()));
-        user.addPermission(new AggregationPermission(project.getId()));        
+        user.addPermission(new AggregationPermission(project.getId()));
         user.addPermission(new ViewProjectPermission(project.getId()));
 
-        AggregationData data = 
-            ActionDataUtil.getAggregationData(user,userProject,worksheet);
+        AggregationData data =
+                ActionDataUtil.getAggregationData(user, userProject, worksheet);
         ResultData result = model.start(data);
         assertFailureResult("Should only be able to submitt when the " +
-                            "project is not in the Aggregation phase.", result);
+                "project is not in the Aggregation phase.", result);
     }
 
     /**
@@ -124,6 +124,6 @@ public class AggregateProjectTestCase extends PermissionTestCase {
      * @return the TestSuite for this TestCase
      */
     public static Test suite() {
-        return(new TestSuite(AggregateProjectTestCase.class));
+        return (new TestSuite(AggregateProjectTestCase.class));
     }
 }

@@ -1,38 +1,35 @@
 package com.topcoder.web.privatelabel.controller.request.brooks;
 
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.controller.request.BaseActivate;
-import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.shared.util.*;
-import com.topcoder.web.ejb.sessionprofile.*;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-
-import java.sql.Timestamp;
-
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.corp.ejb.coder.Coder;
+import com.topcoder.web.corp.ejb.coder.CompanyCandidate;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.session.Session;
 import com.topcoder.web.ejb.session.SessionHome;
 import com.topcoder.web.ejb.session.SessionSegment;
 import com.topcoder.web.ejb.session.SessionSegmentHome;
-import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.corp.ejb.coder.Coder;
-import com.topcoder.web.corp.ejb.coder.CompanyCandidate;
-
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.ejb.sessionprofile.*;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.BaseActivate;
+import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.ResumeRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.rmi.PortableRemoteObject;
-
-import java.util.*;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author dok
@@ -69,7 +66,7 @@ public class Submit extends FullRegSubmit {
         long ret = super.storeWithoutCoder(regInfo);
 
         //need to add coder record to avoid breaking a bunch of foreign keys
-        Coder coder = (Coder)createEJB(getInitialContext(),Coder.class);
+        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         coder.createCoder(ret, 1);
 
         super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
@@ -127,7 +124,7 @@ public class Submit extends FullRegSubmit {
 
             try {
                 //placed here to fix transaction woes.
-                CompanyCandidate candidate = (CompanyCandidate)createEJB(getInitialContext(), CompanyCandidate.class);
+                CompanyCandidate candidate = (CompanyCandidate) createEJB(getInitialContext(), CompanyCandidate.class);
 
                 long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
 

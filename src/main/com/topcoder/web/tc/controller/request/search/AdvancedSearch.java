@@ -1,14 +1,9 @@
 package com.topcoder.web.tc.controller.request.search;
 
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.MemberSearch;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-
-import java.util.Map;
 
 public class AdvancedSearch extends SimpleSearch {
 
@@ -18,9 +13,9 @@ public class AdvancedSearch extends SimpleSearch {
             MemberSearch m = getResults();
             getRequest().setAttribute("memberSearch", m);
             setDefaults(m);
-            if (m.getTotal()==1) {
+            if (m.getTotal() == 1) {
                 long userId = m.getResults().getLongItem(0, "user_id");
-                setNextPage("/stat?c=member_profile&cr="+userId);
+                setNextPage("/stat?c=member_profile&cr=" + userId);
                 setIsNextPageInContext(false);
             } else {
                 setNextPage(Constants.ADVANCED_SEARCH_RESULTS);

@@ -6,26 +6,26 @@ import com.topcoder.common.web.data.MemberSearch;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.Scroll;
 import com.topcoder.common.web.data.SortKey;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.Search.Search;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.TagRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.PathResource;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 
 import javax.naming.InitialContext;
@@ -81,7 +81,8 @@ public final class TaskSearch {
             else if (command.equals("refer")) {
                 if (nav.isIdentified())
                     result = displayReferrals(HTMLmaker, request, nav, document, search, listTag);
-                else throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new PathResource("referrals"));
+                else
+                    throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new PathResource("referrals"));
             } else {
                 result = TaskStatic.process(request, response, HTMLmaker, nav, document);
             }

@@ -1,39 +1,39 @@
 package com.topcoder.dde.persistencelayer.bean;
 
-import java.sql.Timestamp;
-import javax.ejb.CreateException;
-
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompDownload;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevel;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMaster;
 
+import javax.ejb.CreateException;
+import java.sql.Timestamp;
+
 /**
  * The bean implementation class representing the CMP bean for the download_tracking table.
- * 
- * @version     1.0  
+ *
+ * @version     1.0
  * @author      Timur Zambalayev
- */ 
+ */
 public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
 
     /**
      * Creates a new instance.
-     */ 
+     */
     public DDEDownloadTrackingBean() {
     }
 
     /**
      * Gets the userMaster (CMR).
-     * 
+     *
      * @return userMaster.
-     */ 
+     */
     public abstract LocalDDEUserMaster getUserMaster();
 
     /**
      * Sets the userMaster (CMR).
-     * 
+     *
      * @param userMaster    userMaster.
-     */ 
+     */
     public abstract void setUserMaster(LocalDDEUserMaster userMaster);
 
     /**
@@ -52,63 +52,63 @@ public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
 
     /**
      * Gets the price.
-     * 
+     *
      * @return  price.
-     */ 
+     */
     public abstract double getPrice();
 
     /**
      * Sets the price.
-     * 
+     *
      * @param price     price.
-     */ 
+     */
     public abstract void setPrice(double price);
 
     /**
      * Gets the create time.
-     * 
+     *
      * @return create time.
-     */ 
+     */
     public abstract Timestamp getCreateTime();
 
     /**
      * Sets the create time.
-     * 
+     *
      * @param createTime    create time.
-     */ 
+     */
     public abstract void setCreateTime(Timestamp createTime);
 
     /**
-     * Gets licenseLevel (CMR). 
-     * 
+     * Gets licenseLevel (CMR).
+     *
      * @return  licenseLevel.
-     */ 
+     */
     public abstract LocalDDELicenseLevel getLicenseLevel();
 
     /**
-     * Sets licenseLevel (CMR). 
-     * 
+     * Sets licenseLevel (CMR).
+     *
      * @param licenseLevel  licenseLevel.
-     */ 
+     */
     public abstract void setLicenseLevel(LocalDDELicenseLevel licenseLevel);
 
     /**
      * Gets compDownload (CMR).
-     * 
+     *
      * @return  compDownload.
-     */ 
+     */
     public abstract LocalDDECompDownload getCompDownload();
 
     /**
      * Sets compDownload (CMR).
-     * 
+     *
      * @param compDownload  compDownload.
-     */ 
+     */
     public abstract void setCompDownload(LocalDDECompDownload compDownload);
 
     /**
      * Creates an entity object.
-     * 
+     *
      * @param price                 price.
      * @param createTime            create time.
      * @param compVersions          compVersions.
@@ -118,9 +118,9 @@ public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
      * @param unitCost              unitCost.
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
-     */ 
+     */
     public Long ejbCreate(double price, Timestamp createTime, LocalDDECompVersions compVersions, LocalDDEUserMaster userMaster,
-            LocalDDELicenseLevel licenseLevel, LocalDDECompDownload compDownload, long unitCost) throws CreateException {
+                          LocalDDELicenseLevel licenseLevel, LocalDDECompDownload compDownload, long unitCost) throws CreateException {
         setPrimaryKey();
         setPrice(price);
         setUnitCost(unitCost);
@@ -130,7 +130,7 @@ public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
 
     /**
      * Creates an entity object.
-     * 
+     *
      * @param price                 price.
      * @param createTime            create time.
      * @param compVersions          compVersions.
@@ -140,7 +140,7 @@ public abstract class DDEDownloadTrackingBean extends DDEBaseCompVersionsBean {
      * @param unitCost              unitCost.
      */
     public void ejbPostCreate(double price, Timestamp createTime, LocalDDECompVersions compVersions, LocalDDEUserMaster userMaster,
-            LocalDDELicenseLevel licenseLevel, LocalDDECompDownload compDownload, long unitCost) {
+                              LocalDDELicenseLevel licenseLevel, LocalDDECompDownload compDownload, long unitCost) {
         setCompVersions(compVersions);
         setUserMaster(userMaster);
         setLicenseLevel(licenseLevel);

@@ -53,10 +53,11 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Iterator;
+
 //JDK1.1// import com.sun.java.util.collections.*;
 
 /**
@@ -75,16 +76,14 @@ public class ProfileManagerProxy implements ProfileManager {
      * Creates a new ProfileManagerProxy.
      */
     public ProfileManagerProxy(ProfileManager profileManager, Authorization
-            authorization, ForumPermissions permissions)
-    {
+            authorization, ForumPermissions permissions) {
         this.profileManager = profileManager;
         this.authorization = authorization;
         this.permissions = permissions;
     }
 
     public User createUser(String username, String password, String email)
-            throws UserAlreadyExistsException
-    {
+            throws UserAlreadyExistsException {
         return profileManager.createUser(username, password, email);
     }
 
@@ -115,8 +114,7 @@ public class ProfileManagerProxy implements ProfileManager {
     public void deleteUser(User user) throws UnauthorizedException {
         if (permissions.get(ForumPermissions.SYSTEM_ADMIN)) {
             profileManager.deleteUser(user);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -143,4 +141,4 @@ public class ProfileManagerProxy implements ProfileManager {
         Iterator iterator = profileManager.userMessages(user, forum);
         return new MessageIteratorProxy(iterator, authorization, permissions);
     }
-} 
+}

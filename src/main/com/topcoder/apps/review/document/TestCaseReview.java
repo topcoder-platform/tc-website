@@ -1,7 +1,7 @@
 /*
  * TestCaseReview.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -44,7 +44,7 @@ public class TestCaseReview implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public TestCaseReview(long id, TestCaseApproval testCaseApproval, Project project, String reviewText,
-        User reviewer, User reviewee, boolean isCompleted, long requestorId, long versionId) {
+                          User reviewer, User reviewee, boolean isCompleted, long requestorId, long versionId) {
         this.id = id;
         this.testCaseApproval = testCaseApproval;
         this.project = project;
@@ -103,7 +103,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Return the id of the testcase review.
      * </p>
-     * 
+     *
      * @return the id of the testcase review.
      */
     public long getId() {
@@ -122,7 +122,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Return the status of test case review.
      * </p>
-     * 
+     *
      * @return a TestCaseApproval with the status of test case review.
      */
     public TestCaseApproval getTestCaseApproval() {
@@ -133,7 +133,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Set the status of test case review.
      * </p>
-     * 
+     *
      * @param tcReviewStatus The status of test case review to be set.
      */
     public void setTestCaseApproval(TestCaseApproval tcReviewStatus) {
@@ -145,7 +145,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Return the response of the reviewer.
      * </p>
-     * 
+     *
      * @return a String with the response of the reviewer.
      */
     public String getReviewText() {
@@ -156,7 +156,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Set the response of the reviewer.
      * </p>
-     * 
+     *
      * @param text The response text to be set.
      */
     public void setReviewText(String text) {
@@ -168,7 +168,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Return the project related to this review.
      * </p>
-     * 
+     *
      * @return a Project with the project related to this review.
      */
     public Project getProject() {
@@ -179,7 +179,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Return the reviewer of this review.
      * </p>
-     * 
+     *
      * @return a User with the reviewer of this review.
      */
     public User getReviewer() {
@@ -190,7 +190,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Return the reviewee of this review.
      * </p>
-     * 
+     *
      * @return a User with the reviewee of this review.
      */
     public User getReviewee() {
@@ -201,7 +201,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Return whether this review is completed.
      * </p>
-     * 
+     *
      * @return true if the review is completed, otherwise false.
      */
     public boolean isCompleted() {
@@ -212,7 +212,7 @@ public class TestCaseReview implements Serializable {
      * <p>
      * Set whether this review is completed.
      * </p>
-     * 
+     *
      * @param isCompleted Whether this review is completed.
      */
     public void setCompleted(boolean isCompleted) {

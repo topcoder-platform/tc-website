@@ -1,9 +1,9 @@
 package com.topcoder.web.ejb.idgeneratorclient;
 
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

@@ -15,12 +15,12 @@ import java.io.Serializable;
 public class WebQueueResponseManager extends QueueResponseManager {
 
     public WebQueueResponseManager(String factoryName, String queueName,
-                                Context ctx, String selector) {
+                                   Context ctx, String selector) {
         super(factoryName, queueName, ctx, selector, new WebResponsePool());
     }
 
     public WebQueueResponseManager(String factoryName, String queueName,
-                                Context ctx, String selector, WebResponsePool responses) {
+                                   Context ctx, String selector, WebResponsePool responses) {
         super(factoryName, queueName, ctx, selector, responses);
     }
 
@@ -34,7 +34,7 @@ public class WebQueueResponseManager extends QueueResponseManager {
      * @throws com.topcoder.shared.messaging.TimeOutException
      */
     public Serializable receive(int waitTime, String correlationId, TCResponse response) throws TimeOutException {
-        return ((WebResponsePool)responses).get(waitTime, correlationId, response);
+        return ((WebResponsePool) responses).get(waitTime, correlationId, response);
     }
 
 

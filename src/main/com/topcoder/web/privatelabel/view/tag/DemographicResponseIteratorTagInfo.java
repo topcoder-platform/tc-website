@@ -1,7 +1,8 @@
 package com.topcoder.web.privatelabel.view.tag;
+
+import javax.servlet.jsp.tagext.TagData;
 import javax.servlet.jsp.tagext.TagExtraInfo;
 import javax.servlet.jsp.tagext.VariableInfo;
-import javax.servlet.jsp.tagext.TagData;
 
 public class DemographicResponseIteratorTagInfo extends TagExtraInfo {
 

@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -36,10 +36,10 @@ public class RetrieveScreeningScorecardsTestCase extends TestCase {
     public void testForAdmin() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("marc", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewAllProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewAllProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 5);
         ResultData result = new RetrieveScreeningScorecards().start(
-            new ScreeningScorecardsData(new OnlineReviewProjectData(user, projectsRetrieval.getProjects()[0])));
+                new ScreeningScorecardsData(new OnlineReviewProjectData(user, projectsRetrieval.getProjects()[0])));
         assertTrue(result instanceof ScreeningScorecardsRetrieval);
         ScreeningScorecardsRetrieval scorecards = (ScreeningScorecardsRetrieval) result;
         assertTrue(scorecards.getScorecards().length == 1);
@@ -53,10 +53,10 @@ public class RetrieveScreeningScorecardsTestCase extends TestCase {
     public void testForNonAdmin() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("user1", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 3);
         ResultData result = new RetrieveScreeningScorecards().start(
-            new ScreeningScorecardsData(new OnlineReviewProjectData(user, projectsRetrieval.getProjects()[0])));
+                new ScreeningScorecardsData(new OnlineReviewProjectData(user, projectsRetrieval.getProjects()[0])));
         assertTrue(result instanceof ScreeningScorecardsRetrieval);
         ScreeningScorecardsRetrieval scorecards = (ScreeningScorecardsRetrieval) result;
         assertTrue(scorecards.getScorecards().length == 1);
@@ -70,11 +70,11 @@ public class RetrieveScreeningScorecardsTestCase extends TestCase {
     public void testBadRequest1() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("user1", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 3);
         SecurityEnabledUser user2 = ((LoginResult) new Login().start(new LoginData("user2", "secret"))).getUser();
         ResultData result = new RetrieveScreeningScorecards().start(
-            new ScreeningScorecardsData(new OnlineReviewProjectData(user2, projectsRetrieval.getProjects()[0])));
+                new ScreeningScorecardsData(new OnlineReviewProjectData(user2, projectsRetrieval.getProjects()[0])));
         assertTrue(result instanceof FailureResult);
     }
 
@@ -84,7 +84,8 @@ public class RetrieveScreeningScorecardsTestCase extends TestCase {
      * @throws Exception propagate exceptions to JUnit
      */
     public void testBadRequest2() throws Exception {
-        ResultData result = new RetrieveScreeningScorecards().start(new ActionData() { });
+        ResultData result = new RetrieveScreeningScorecards().start(new ActionData() {
+        });
         assertTrue(result instanceof FailureResult);
     }
 

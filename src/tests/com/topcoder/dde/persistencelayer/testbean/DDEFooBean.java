@@ -15,7 +15,7 @@ public class DDEFooBean implements SessionBean {
     }
 
     public void setSessionContext(SessionContext sessionContext) {
-        ejbContext=sessionContext;
+        ejbContext = sessionContext;
     }
 
     public void ejbRemove() {

@@ -4,18 +4,15 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.UserRole;
-import com.topcoder.apps.review.document.AbstractScorecard;
-import com.topcoder.apps.review.document.ReviewScorecard;
 import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
@@ -36,7 +33,7 @@ public final class ReviewScorecardOverviewAction extends ReviewAction {
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -52,16 +49,16 @@ public final class ReviewScorecardOverviewAction extends ReviewAction {
                                    ActionErrors errors,
                                    ActionForwards forwards,
                                    OnlineReviewProjectData orpd) {
-        log(Level.INFO, "ReviewScorecardOverviewAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+        log(Level.INFO, "ReviewScorecardOverviewAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         long sid = -1;
 
         // Get the id parameter
         try {
             sid = Long.parseLong
-                (request.getParameter(Constants.SUBMITTER_ID_KEY).toString());
+                    (request.getParameter(Constants.SUBMITTER_ID_KEY).toString());
         } catch (NumberFormatException e) {
             sid = -1;
         }
@@ -71,14 +68,14 @@ public final class ReviewScorecardOverviewAction extends ReviewAction {
         //ResultData result = businessDelegate.projectDetail(orpd);
         ReviewScorecardsData rsData = new ReviewScorecardsData(orpd);
         rsData.setRetrieveQuestions(true);
-        ResultData result = 
-            businessDelegate.getReviewList(rsData);
+        ResultData result =
+                businessDelegate.getReviewList(rsData);
         AbstractSubmission submission = null;
-        
+
         if (result instanceof SuccessResult) {
             //ProjectRetrieval pr = (ProjectRetrieval) result;
             ReviewScorecardsRetrieval rsr = (ReviewScorecardsRetrieval) result;
-            
+
 //            if (pr.getSubmissions() != null) {
 //                for (int i = 0; i < pr.getSubmissions().length; i++) {
 //                    if (pr.getSubmissions()[i].getSubmitter().getId() == sid) {
@@ -92,21 +89,21 @@ public final class ReviewScorecardOverviewAction extends ReviewAction {
             if (submission == null) {
                 return new FailureResult("No submission found!");
             } else {
-//                AdminReviewScorecardBean bean =  
+//                AdminReviewScorecardBean bean =
 //                    new AdminReviewScorecardBean(pr.getProject(),
 //                            submission,
 //                            pr.getScorecards());
-                AdminReviewScorecardBean bean =  
-                    new AdminReviewScorecardBean(rsr.getScorecards()[0].getProject(),
-                            submission,
-                            rsr.getScorecards());
+                AdminReviewScorecardBean bean =
+                        new AdminReviewScorecardBean(rsr.getScorecards()[0].getProject(),
+                                submission,
+                                rsr.getScorecards());
                 if (bean.getAvgScoreReady()) {
                     request.setAttribute(Constants.REVIEW_LIST_KEY, bean);
                 } else {
                     return new FailureResult("Not all review scorecards are completed!");
                 }
             }
-        }            
+        }
         return result;
     }
 }

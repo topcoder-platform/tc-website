@@ -53,14 +53,15 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum.filter;
 
-import java.util.*;
-import java.io.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageFilter;
 
-import com.coolservlets.forum.*;
-import com.coolservlets.codeviewer.*;
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * A ForumMessageFilter that escapes all HTML tags to prevent a user
@@ -69,7 +70,7 @@ import com.coolservlets.codeviewer.*;
 public class FilterHtml extends ForumMessageFilter implements Serializable {
 
     private static final String OPEN_PRE = "<pre>";
-    private static final String CLOSE_PRE= "</pre>";
+    private static final String CLOSE_PRE = "</pre>";
 
     /**
      * Property values of the filter.
@@ -101,8 +102,7 @@ public class FilterHtml extends ForumMessageFilter implements Serializable {
      * @param propertyDescriptions the property descriptions for the filter.
      */
     public FilterHtml(ForumMessage message, Properties props,
-            Properties propDescriptions)
-    {
+                      Properties propDescriptions) {
         super(message);
         this.props = new Properties(props);
         this.propDescriptions = new Properties(propDescriptions);
@@ -114,8 +114,8 @@ public class FilterHtml extends ForumMessageFilter implements Serializable {
      *
      * @param message the ForumMessage to wrap the new filter around.
      */
-    public ForumMessageFilter clone(ForumMessage message){
-        return new FilterHtml(message,props,propDescriptions);
+    public ForumMessageFilter clone(ForumMessage message) {
+        return new FilterHtml(message, props, propDescriptions);
     }
 
     /**
@@ -193,8 +193,7 @@ public class FilterHtml extends ForumMessageFilter implements Serializable {
      *    exist.
      */
     public void setFilterProperty(String name, String value)
-            throws IllegalArgumentException
-    {
+            throws IllegalArgumentException {
         if (props.getProperty(name) == null) {
             throw new IllegalArgumentException();
         }
@@ -226,42 +225,40 @@ public class FilterHtml extends ForumMessageFilter implements Serializable {
      * @return The input string with the characters '<' and '>' replaced with
      *  &lt; and &gt; respectively.
      */
-    private String escapeHTMLTags( String input ) {
+    private String escapeHTMLTags(String input) {
         //Check if the string is null or zero length -- if so, return
         //what was sent in.
-        if( input == null || input.length() == 0 ) {
+        if (input == null || input.length() == 0) {
             return input;
         }
         //Use a StringBuffer in lieu of String concatenation -- it is
         //much more efficient this way.
-        StringBuffer buf = new StringBuffer(input.length()+6);
+        StringBuffer buf = new StringBuffer(input.length() + 6);
         char ch = ' ';
-        for( int i=0; i<input.length(); i++ ) {
+        for (int i = 0; i < input.length(); i++) {
             ch = input.charAt(i);
-            if( ch == '<' ) {
-                if (i<=input.length()-OPEN_PRE.length() && input.substring(i, i+OPEN_PRE.length()).toLowerCase().equals(OPEN_PRE)) {
+            if (ch == '<') {
+                if (i <= input.length() - OPEN_PRE.length() && input.substring(i, i + OPEN_PRE.length()).toLowerCase().equals(OPEN_PRE)) {
                     buf.append(OPEN_PRE);
-                    i+=OPEN_PRE.length()-1;
-                } else if (i<=input.length()-CLOSE_PRE.length() && input.substring(i, i+CLOSE_PRE.length()).toLowerCase().equals(CLOSE_PRE)) {
-                        buf.append(CLOSE_PRE);
-                        i+=CLOSE_PRE.length()-1;
+                    i += OPEN_PRE.length() - 1;
+                } else if (i <= input.length() - CLOSE_PRE.length() && input.substring(i, i + CLOSE_PRE.length()).toLowerCase().equals(CLOSE_PRE)) {
+                    buf.append(CLOSE_PRE);
+                    i += CLOSE_PRE.length() - 1;
                 } else {
-                    buf.append( "&lt;" );
+                    buf.append("&lt;");
                 }
-            }
-            else if( ch == '>' ) {
-                if ((i>=OPEN_PRE.length()-1 && !input.substring(i-(OPEN_PRE.length()-1), i+1).toLowerCase().equals(OPEN_PRE))
+            } else if (ch == '>') {
+                if ((i >= OPEN_PRE.length() - 1 && !input.substring(i - (OPEN_PRE.length() - 1), i + 1).toLowerCase().equals(OPEN_PRE))
                         ||
-                    (i>=CLOSE_PRE.length()-1 && !input.substring(i-(CLOSE_PRE.length()-1), i+1).toLowerCase().equals(CLOSE_PRE))
+                        (i >= CLOSE_PRE.length() - 1 && !input.substring(i - (CLOSE_PRE.length() - 1), i + 1).toLowerCase().equals(CLOSE_PRE))
                         ||
-                     (i<OPEN_PRE.length()-1 && i<CLOSE_PRE.length()-1)) {
-                    buf.append( "&gt;" );
+                        (i < OPEN_PRE.length() - 1 && i < CLOSE_PRE.length() - 1)) {
+                    buf.append("&gt;");
                 }
-            }
-            else {
-                buf.append( ch );
+            } else {
+                buf.append(ch);
             }
         }
         return buf.toString();
     }
-} 
+}

@@ -1,7 +1,7 @@
 package com.topcoder.web.corp.common;
 
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.User;
 
 /**
  *
@@ -31,7 +31,7 @@ public class PermissionDeniedException extends ScreeningException {
 
     public PermissionDeniedException(User u, Resource r, Throwable nestedException) {
         super(u.getUserName() + " does not have permission to access " + r.getName(), nestedException);
-   }
+    }
 
     /**
      * <p>

@@ -1,4 +1,3 @@
-
 /*****************************************************************************
  *
  *                             ImageSaverInterface.java
@@ -8,7 +7,7 @@
  *
  * Java source created by Kary FRAMLING 12/2/1998
  *
- * Copyright 1998-2003 Kary Främling
+ * Copyright 1998-2003 Kary Frï¿½mling
  * Source code distributed under GNU LESSER GENERAL PUBLIC LICENSE,
  * included in the LICENSE.txt file in the topmost directory
  *
@@ -17,7 +16,7 @@
 //package fi.faidon.jis;
 package com.topcoder.utilities.graph;
 
-import java.awt.Image;
+import java.awt.*;
 
 /**
  * Abstract class that defines the methods supported by all classes that save

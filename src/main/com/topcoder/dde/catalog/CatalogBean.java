@@ -10,35 +10,47 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.dde.catalog.*;
-import com.topcoder.dde.*;
-import com.topcoder.dde.forum.*;
-import com.topcoder.dde.user.*;
-import com.topcoder.forum.*;
-import com.topcoder.dde.persistencelayer.interfaces.*;
-import com.topcoder.util.config.*;
-import com.topcoder.file.render.*;
-import com.topcoder.message.email.*;
-import com.topcoder.search.*;
-import com.topcoder.security.*;
-import com.topcoder.security.admin.*;
-import com.topcoder.security.policy.*;
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
+import com.topcoder.apps.review.projecttracker.ProjectTracker;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
+import com.topcoder.dde.DDEException;
+import com.topcoder.dde.forum.ForumModeratePermission;
+import com.topcoder.dde.forum.ForumPostPermission;
+import com.topcoder.dde.persistencelayer.interfaces.*;
+import com.topcoder.dde.user.RegistrationInfo;
+import com.topcoder.dde.user.UserManagerLocalHome;
+import com.topcoder.file.render.*;
+import com.topcoder.forum.*;
+import com.topcoder.message.email.*;
+import com.topcoder.search.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.admin.PolicyMgrRemote;
+import com.topcoder.security.admin.PolicyMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.policy.PermissionCollection;
+import com.topcoder.security.policy.PolicyRemoteHome;
+import com.topcoder.util.config.*;
 
+import javax.ejb.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+import javax.sql.DataSource;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import java.io.File;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.rmi.RemoteException;
+import java.sql.*;
 import java.util.*;
 import java.util.Date;
-import java.io.*;
-import java.sql.*;
-import javax.ejb.*;
-import javax.naming.*;
-import javax.rmi.PortableRemoteObject;
-import java.rmi.RemoteException;
-import javax.xml.transform.*;
-import javax.xml.transform.stream.*;
-import javax.sql.DataSource;
 
 
 /**
@@ -54,7 +66,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(CatalogBean.class);
 
     private static final String
-        CONFIG_NAMESPACE = "com.topcoder.dde.catalog.CatalogBean";
+            CONFIG_NAMESPACE = "com.topcoder.dde.catalog.CatalogBean";
 
     private SessionContext ejbContext;
     private LocalDDECompCatalogHome catalogHome;
@@ -79,7 +91,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private DocumentManagerHome documentManagerHome;
     private PolicyRemoteHome policyHome;
 
-    public CatalogBean() {}
+    public CatalogBean() {
+    }
 
 
     private static Connection getConnection() throws SQLException, NamingException {
@@ -97,37 +110,37 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             Context homeBindings = new InitialContext();
 
             catalogHome = (LocalDDECompCatalogHome)
-                homeBindings.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
             versionsHome = (LocalDDECompVersionsHome)
-                homeBindings.lookup(LocalDDECompVersionsHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompVersionsHome.EJB_REF_NAME);
             compcatsHome = (LocalDDECompCategoriesHome)
-                homeBindings.lookup(LocalDDECompCategoriesHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompCategoriesHome.EJB_REF_NAME);
             keywordsHome = (LocalDDECompKeywordsHome)
-                homeBindings.lookup(LocalDDECompKeywordsHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompKeywordsHome.EJB_REF_NAME);
             comptechHome = (LocalDDECompTechnologyHome)
-                homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
             compforumHome = (LocalDDECompForumXrefHome)
-                homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
             categoriesHome = (LocalDDECategoriesHome)
-                homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
             technologiesHome = (LocalDDETechnologyTypesHome)
-                homeBindings.lookup(LocalDDETechnologyTypesHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDETechnologyTypesHome.EJB_REF_NAME);
             rolesHome = (LocalDDERolesHome)
-                homeBindings.lookup(LocalDDERolesHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDERolesHome.EJB_REF_NAME);
             licenseHome = (LocalDDELicenseLevelHome)
-                homeBindings.lookup(LocalDDELicenseLevelHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDELicenseLevelHome.EJB_REF_NAME);
             docHome = (LocalDDECompDocumentationHome)
-                homeBindings.lookup(LocalDDECompDocumentationHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompDocumentationHome.EJB_REF_NAME);
             downloadHome = (LocalDDECompDownloadHome)
-                homeBindings.lookup(LocalDDECompDownloadHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompDownloadHome.EJB_REF_NAME);
             userroleHome = (LocalDDEUserRoleHome)
-                homeBindings.lookup(LocalDDEUserRoleHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDEUserRoleHome.EJB_REF_NAME);
             userHome = (LocalDDEUserMasterHome)
-                homeBindings.lookup(LocalDDEUserMasterHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDEUserMasterHome.EJB_REF_NAME);
             forumadminHome = (ForumAdminLocalHome)
-                homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
+                    homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
             usermanHome = (UserManagerLocalHome)
-                homeBindings.lookup(UserManagerLocalHome.EJB_REF_NAME);
+                    homeBindings.lookup(UserManagerLocalHome.EJB_REF_NAME);
 /*
             /** SECURITY MANAGER
     		Hashtable principalMgrEnvironment=new Hashtable();
@@ -137,15 +150,15 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 */
 
             principalmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.
-                narrow(homeBindings.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
-                PrincipalMgrRemoteHome.class);
+                    narrow(homeBindings.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
+                            PrincipalMgrRemoteHome.class);
             policymgrHome = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(
-                homeBindings.lookup(PolicyMgrRemoteHome.EJB_REF_NAME),
-                PolicyMgrRemoteHome.class);
+                    homeBindings.lookup(PolicyMgrRemoteHome.EJB_REF_NAME),
+                    PolicyMgrRemoteHome.class);
             policyHome = (PolicyRemoteHome)
-                   PortableRemoteObject.narrow(
-                       homeBindings.lookup(PolicyRemoteHome.EJB_REF_NAME),
-                       PolicyRemoteHome.class);
+                    PortableRemoteObject.narrow(
+                            homeBindings.lookup(PolicyRemoteHome.EJB_REF_NAME),
+                            PolicyRemoteHome.class);
 
             // Online Review
             projectTrackerHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
@@ -154,33 +167,33 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             documentManagerHome = (DocumentManagerHome) PortableRemoteObject.narrow(
                     homeBindings.lookup(DocumentManagerHome.EJB_REF_NAME),
                     DocumentManagerHome.class);
-        } catch(NamingException exception) {
+        } catch (NamingException exception) {
             throw new EJBException(
-            "Unable to access persistence layer: " + exception.toString());
+                    "Unable to access persistence layer: " + exception.toString());
         }
 
     }
 
     // Convenience method to generate a ComponentSummary from beans
     public static ComponentSummary generateSummary(LocalDDECompCatalog comp,
-            LocalDDECompVersions ver) {
+                                                   LocalDDECompVersions ver) {
         /*
          * The version text must be trim()ed because the database currently
          * stores it as a fixed-length string.  The trim() should be removed
          * once this is corrected.
          */
         return new ComponentSummary(
-            ((Long) comp.getPrimaryKey()).longValue(),
-            ((Long) ver.getPrimaryKey()).longValue(),
-            ver.getVersion(), comp.getComponentName(),
-            ver.getVersionText().trim(),
-            ver.getComments(), comp.getShortDesc(), comp.getDescription(),
-            ver.getPhaseId(), new Date(ver.getPhaseTime().getTime()),
-            ver.getPrice(), comp.getStatusId(), comp.getRootCategory());
+                ((Long) comp.getPrimaryKey()).longValue(),
+                ((Long) ver.getPrimaryKey()).longValue(),
+                ver.getVersion(), comp.getComponentName(),
+                ver.getVersionText().trim(),
+                ver.getComments(), comp.getShortDesc(), comp.getDescription(),
+                ver.getPhaseId(), new Date(ver.getPhaseTime().getTime()),
+                ver.getPrice(), comp.getStatusId(), comp.getRootCategory());
     }
 
     public CatalogSearchView search(String searchtext, Map options)
-           throws CatalogException {
+            throws CatalogException {
         if (searchtext == null) {
             throw new CatalogException("Null specified for search text");
         }
@@ -191,15 +204,15 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 buffer = ((Integer) value).intValue();
             } else {
                 throw new CatalogException(
-                "Value mapped to \"buffer\" option must be of type Integer");
+                        "Value mapped to \"buffer\" option must be of type Integer");
             }
             if (buffer <= 0) {
                 throw new CatalogException(
-                "Negative number or zero specified for buffer size");
+                        "Negative number or zero specified for buffer size");
             }
         }
         SearchIterator matches =
-            CatalogSearchEngine.getInstance().search(searchtext, buffer);
+                CatalogSearchEngine.getInstance().search(searchtext, buffer);
         List results = new ArrayList();
         try {
             while (matches.hasNext()) {
@@ -207,19 +220,19 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 LocalDDECompCatalog foundComp;
                 try {
                     foundComp =
-                        catalogHome.findByPrimaryKey(new Long(componentId));
-                } catch(ObjectNotFoundException exception) {
+                            catalogHome.findByPrimaryKey(new Long(componentId));
+                } catch (ObjectNotFoundException exception) {
                     throw new CatalogException(
-                    "Component returned by search does not exist in catalog: "
-                    + exception.toString());
-                } catch(FinderException exception) {
+                            "Component returned by search does not exist in catalog: "
+                            + exception.toString());
+                } catch (FinderException exception) {
                     throw new CatalogException(exception.toString());
                 }
                 LocalDDECompVersions currentVer;
                 try {
                     currentVer = versionsHome.findByComponentIdAndVersion(
-                        componentId, foundComp.getCurrentVersion());
-                } catch(FinderException exception) {
+                            componentId, foundComp.getCurrentVersion());
+                } catch (FinderException exception) {
                     throw new CatalogException(exception.toString());
                 }
                 results.add(generateSummary(foundComp, currentVer));
@@ -231,7 +244,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     }
 
     public CatalogSearchView searchComponents(String searchtext, long[] phase, long[] catalog, long[] technology, String[] category)
-           throws RemoteException, CatalogException, NamingException, SQLException {
+            throws RemoteException, CatalogException, NamingException, SQLException {
 
         if (searchtext == null) {
             throw new CatalogException("Null specified for search text");
@@ -340,9 +353,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             for (int i = 0; i < elements.size(); i++) {
                 Object o = elements.get(i);
                 if (o instanceof Long) {
-                    ps.setLong(i+1, ((Long) o).longValue());
+                    ps.setLong(i + 1, ((Long) o).longValue());
                 } else if (o instanceof String) {
-                    ps.setString(i+1, (String) o);
+                    ps.setString(i + 1, (String) o);
                 }
             }
 
@@ -363,10 +376,31 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             c.close();
             c = null;
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
-            try { if (c  != null) {  c.close();  c = null; } } catch (SQLException e) {}
-            try { matches.close(); } catch (Exception e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                matches.close();
+            } catch (Exception e) {
+            }
         }
 
         List results = new ArrayList();
@@ -427,9 +461,27 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             rs = ps.executeQuery();
             while (rs.next()) results.add(rs.getString(1));
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
-            try { if (c  != null) {  c.close();  c = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (SQLException e) {
+            }
         }
 
         return (String[]) results.toArray(new String[0]);
@@ -457,9 +509,27 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             rs = ps.executeQuery();
             while (rs.next()) results.add(new Category(rs.getLong(1), rs.getString(2), rs.getString(3), null));
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
-            try { if (c  != null) {  c.close();  c = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (SQLException e) {
+            }
         }
 
         return (Category[]) results.toArray(new Category[0]);
@@ -487,39 +557,57 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             rs = ps.executeQuery();
             while (rs.next()) results.add(new Technology(rs.getLong(1), rs.getString(2), rs.getString(3)));
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
-            try { if (c  != null) {  c.close();  c = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (SQLException e) {
+            }
         }
 
         return (Technology[]) results.toArray(new Technology[0]);
     }
 
     public Collection getCategoryComponents(long categoryId)
-           throws CatalogException {
+            throws CatalogException {
         List summaries = new ArrayList();
         Iterator compIterator;
         try {
             compIterator = compcatsHome.findByCategoryId(categoryId).iterator();
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified category does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified category does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         while (compIterator.hasNext()) {
             LocalDDECompCatalog comp = ((LocalDDECompCategories)
-                compIterator.next()).getCompCatalog();
+                    compIterator.next()).getCompCatalog();
             LocalDDECompVersions ver;
             try {
                 ver = versionsHome.findByComponentIdAndVersion(
-                    ((Long) comp.getPrimaryKey()).longValue(),
-                    comp.getCurrentVersion());
-            } catch(FinderException exception) {
+                        ((Long) comp.getPrimaryKey()).longValue(),
+                        comp.getCurrentVersion());
+            } catch (FinderException exception) {
                 throw new CatalogException(
-                "Failed to retrieve current version information for component "
-                + comp.getPrimaryKey() + ": " + exception.toString());
+                        "Failed to retrieve current version information for component "
+                        + comp.getPrimaryKey() + ": " + exception.toString());
             }
             summaries.add(generateSummary(comp, ver));
         }
@@ -529,19 +617,25 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
     public CategorySummary getCategorySummary(long categoryId)
             throws RemoteException, CatalogException,
-                   NamingException, SQLException {
+            NamingException, SQLException {
 
-            Connection c = null;
-            c = getConnection();
+        Connection c = null;
+        c = getConnection();
+        try {
+            return getCategorySummary(categoryId, c);
+        } finally {
             try {
-                return getCategorySummary(categoryId, c);
-            } finally {
-                try { if (c != null) { c.close(); c = null; } } catch (SQLException e) {}
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (SQLException e) {
             }
+        }
     }
 
     private CategorySummary getCategorySummary(long categoryId, Connection c)
-                throws RemoteException, CatalogException, SQLException {
+            throws RemoteException, CatalogException, SQLException {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -562,15 +656,28 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ps.setLong(1, categoryId);
             rs = ps.executeQuery();
 
-            if (!rs.next()) throw new CatalogException("Category Not Found");
+            if (!rs.next())
+                throw new CatalogException("Category Not Found");
             else {
                 name = rs.getString(1);
                 description = rs.getString(2);
             }
 
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
         }
 
         query = new StringBuffer(200);
@@ -591,8 +698,20 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
 
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
         }
 
         categories = new CategorySummary[cats.size()];
@@ -630,17 +749,29 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
 
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
         }
 
-        return new CategorySummary(categoryId, name, description, (ComponentSummary[]) components.toArray(new ComponentSummary [0]), categories);
+        return new CategorySummary(categoryId, name, description, (ComponentSummary[]) components.toArray(new ComponentSummary[0]), categories);
     }
 
     public ComponentSummary[] getAllComponents()
-                throws RemoteException, CatalogException, SQLException, NamingException {
+            throws RemoteException, CatalogException, SQLException, NamingException {
 
-	    Connection c = null;
+        Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         List components = new ArrayList();
@@ -673,9 +804,27 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
 
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
-            try { if (c  != null) {  c.close();  c = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (SQLException e) {
+            }
         }
 
         return (ComponentSummary[]) components.toArray(new ComponentSummary[0]);
@@ -725,8 +874,20 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
 
             } finally {
-                try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
+                try {
+                    if (rs != null) {
+                        rs.close();
+                        rs = null;
+                    }
+                } catch (Exception e) {
+                }
+                try {
+                    if (ps != null) {
+                        ps.close();
+                        ps = null;
+                    }
+                } catch (Exception e) {
+                }
             }
 
 
@@ -739,8 +900,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("  FROM comp_catalog c, comp_versions v                 ");
             query.append(" WHERE v.component_id = c.component_id                 ");
             query.append("   AND c.component_id = ?                              ");
-            if (version < 0) query.append("   AND c.current_version = v.version ");
-            else query.append("   AND ? = v.version ");
+            if (version < 0)
+                query.append("   AND c.current_version = v.version ");
+            else
+                query.append("   AND ? = v.version ");
             try {
 
                 ps = c.prepareStatement(query.toString());
@@ -748,7 +911,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 if (version >= 0) ps.setLong(2, version);
                 rs = ps.executeQuery();
 
-                if (!rs.next()) throw new CatalogException("Component Not Found");
+                if (!rs.next())
+                    throw new CatalogException("Component Not Found");
                 else {
                     info = new ComponentInfo(rs.getLong(1), rs.getLong(7), rs.getString(3),
                             rs.getString(2), rs.getString(4), rs.getString(5),
@@ -764,8 +928,20 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
 
             } finally {
-                try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
+                try {
+                    if (rs != null) {
+                        rs.close();
+                        rs = null;
+                    }
+                } catch (Exception e) {
+                }
+                try {
+                    if (ps != null) {
+                        ps.close();
+                        ps = null;
+                    }
+                } catch (Exception e) {
+                }
             }
 
 
@@ -779,8 +955,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("   AND c.component_id = ?                        ");
             query.append("   AND c.component_id = v.component_id           ");
             query.append("   AND ( NOT ( f.status_id = ? ) )               ");
-            if (version < 0) query.append("   AND c.current_version = v.version ");
-            else query.append("   AND ? = v.version ");
+            if (version < 0)
+                query.append("   AND c.current_version = v.version ");
+            else
+                query.append("   AND ? = v.version ");
 
             try {
 
@@ -791,14 +969,27 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 rs = ps.executeQuery();
 
                 List list = new ArrayList();
-                while (rs.next()) list.add(new Forum(rs.getLong(1), rs.getDate(2),
-                        rs.getDate(3), rs.getLong(4), rs.getLong(5), rs.getString(6)));
+                while (rs.next())
+                    list.add(new Forum(rs.getLong(1), rs.getDate(2),
+                            rs.getDate(3), rs.getLong(4), rs.getLong(5), rs.getString(6)));
 
                 forums = (Forum[]) list.toArray(new Forum[0]);
 
             } finally {
-                try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
+                try {
+                    if (rs != null) {
+                        rs.close();
+                        rs = null;
+                    }
+                } catch (Exception e) {
+                }
+                try {
+                    if (ps != null) {
+                        ps.close();
+                        ps = null;
+                    }
+                } catch (Exception e) {
+                }
             }
 
 
@@ -812,8 +1003,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("   AND c.component_id = ?                          ");
             query.append("   AND c.component_id = v.component_id             ");
             query.append("   AND ( NOT ( t.status_id = ? ) )                 ");
-            if (version < 0) query.append("   AND c.current_version = v.version    ORDER BY 2 ");
-            else query.append("   AND ? = v.version    ORDER BY 2 ");
+            if (version < 0)
+                query.append("   AND c.current_version = v.version    ORDER BY 2 ");
+            else
+                query.append("   AND ? = v.version    ORDER BY 2 ");
 
             try {
 
@@ -824,14 +1017,27 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 rs = ps.executeQuery();
 
                 List list = new ArrayList();
-                while (rs.next()) list.add(new Technology(rs.getLong(1),
-                        rs.getString(2), rs.getString(3)));
+                while (rs.next())
+                    list.add(new Technology(rs.getLong(1),
+                            rs.getString(2), rs.getString(3)));
 
                 techs = (Technology[]) list.toArray(new Technology[0]);
 
             } finally {
-                try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
+                try {
+                    if (rs != null) {
+                        rs.close();
+                        rs = null;
+                    }
+                } catch (Exception e) {
+                }
+                try {
+                    if (ps != null) {
+                        ps.close();
+                        ps = null;
+                    }
+                } catch (Exception e) {
+                }
             }
 
 
@@ -843,8 +1049,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append(" WHERE d.comp_vers_id = v.comp_vers_id        ");
             query.append("   AND c.component_id = v.component_id        ");
             query.append("   AND c.component_id = ?                     ");
-            if (version < 0) query.append("   AND c.current_version = v.version  ORDER BY 4, 2 ");
-            else query.append("   AND ? = v.version     ORDER BY 4, 2 ");
+            if (version < 0)
+                query.append("   AND c.current_version = v.version  ORDER BY 4, 2 ");
+            else
+                query.append("   AND ? = v.version     ORDER BY 4, 2 ");
 
             try {
 
@@ -854,26 +1062,39 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 rs = ps.executeQuery();
 
                 List list = new ArrayList();
-                while (rs.next()) list.add(new Document(rs.getLong(1), rs.getString(2),
-                        rs.getString(3), rs.getLong(4)));
+                while (rs.next())
+                    list.add(new Document(rs.getLong(1), rs.getString(2),
+                            rs.getString(3), rs.getLong(4)));
 
                 long compVersId = versionInfo.getVersionId();
                 if (isAggregated(1, compVersId)) {
                     list.add(new Document("Aggregate Design Scorecard",
-                                          "/review/publicaggregation.do?id=" + getProjectId(1, compVersId),
-                                          Document.OTHER));
+                            "/review/publicaggregation.do?id=" + getProjectId(1, compVersId),
+                            Document.OTHER));
                 }
                 if (isAggregated(2, compVersId)) {
                     list.add(new Document("Aggregate Development Scorecard",
-                                          "/review/publicaggregation.do?id=" + getProjectId(2, compVersId),
-                                          Document.OTHER));
+                            "/review/publicaggregation.do?id=" + getProjectId(2, compVersId),
+                            Document.OTHER));
                 }
 
                 docs = (Document[]) list.toArray(new Document[0]);
 
             } finally {
-                try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
+                try {
+                    if (rs != null) {
+                        rs.close();
+                        rs = null;
+                    }
+                } catch (Exception e) {
+                }
+                try {
+                    if (ps != null) {
+                        ps.close();
+                        ps = null;
+                    }
+                } catch (Exception e) {
+                }
             }
 
 
@@ -885,8 +1106,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append(" WHERE r.role_id = ur.role_id                                  ");
             query.append("   AND c.component_id = ? AND c.component_id = v.component_id  ");
             query.append("   AND s.login_id = ur.login_id                                ");
-            if (version < 0) query.append("   AND c.current_version = v.version          ");
-            else query.append("   AND ? = v.version                          ");
+            if (version < 0)
+                query.append("   AND c.current_version = v.version          ");
+            else
+                query.append("   AND ? = v.version                          ");
             query.append("   AND ur.comp_vers_id = v.comp_vers_id            ORDER BY 3 ");
 
             try {
@@ -897,15 +1120,28 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 rs = ps.executeQuery();
 
                 List list = new ArrayList();
-                while (rs.next()) list.add(new TeamMemberRole(rs.getLong(1),
-                        rs.getLong(2), rs.getString(3), rs.getLong(4),
-                        rs.getString(5), rs.getString(6), rs.getInt(7)));
+                while (rs.next())
+                    list.add(new TeamMemberRole(rs.getLong(1),
+                            rs.getLong(2), rs.getString(3), rs.getLong(4),
+                            rs.getString(5), rs.getString(6), rs.getInt(7)));
 
                 members = (TeamMemberRole[]) list.toArray(new TeamMemberRole[0]);
 
             } finally {
-                try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
+                try {
+                    if (rs != null) {
+                        rs.close();
+                        rs = null;
+                    }
+                } catch (Exception e) {
+                }
+                try {
+                    if (ps != null) {
+                        ps.close();
+                        ps = null;
+                    }
+                } catch (Exception e) {
+                }
             }
 
 
@@ -923,8 +1159,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("   AND v2.comp_vers_id = d.child_comp_vers_id           ");
             query.append("   AND c2.component_id = v2.component_id                ");
             query.append("   AND c1.component_id = ?                              ");
-            if (version < 0) query.append("   AND c1.current_version = v1.version    ORDER BY 4 ");
-            else query.append("   AND ? = v1.version    ORDER BY 4 ");
+            if (version < 0)
+                query.append("   AND c1.current_version = v1.version    ORDER BY 4 ");
+            else
+                query.append("   AND ? = v1.version    ORDER BY 4 ");
 
             try {
 
@@ -934,21 +1172,40 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 rs = ps.executeQuery();
 
                 List list = new ArrayList();
-                while (rs.next()) list.add(new ComponentSummary(rs.getLong(1),
-                        rs.getLong(2), rs.getLong(3), rs.getString(4),
-                        rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getLong(9), rs.getDate(10),
-                        rs.getDouble(11), rs.getLong(12), rs.getLong(13)));
+                while (rs.next())
+                    list.add(new ComponentSummary(rs.getLong(1),
+                            rs.getLong(2), rs.getLong(3), rs.getString(4),
+                            rs.getString(5), rs.getString(6), rs.getString(7),
+                            rs.getString(8), rs.getLong(9), rs.getDate(10),
+                            rs.getDouble(11), rs.getLong(12), rs.getLong(13)));
 
                 dependencies = (ComponentSummary[]) list.toArray(new ComponentSummary[0]);
 
             } finally {
-                try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
+                try {
+                    if (rs != null) {
+                        rs.close();
+                        rs = null;
+                    }
+                } catch (Exception e) {
+                }
+                try {
+                    if (ps != null) {
+                        ps.close();
+                        ps = null;
+                    }
+                } catch (Exception e) {
+                }
             }
 
         } finally {
-            try { if (c  != null) { c.close();  c = null;  } } catch (Exception e) {}
+            try {
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (Exception e) {
+            }
         }
 
         return new ComponentDetail(info, summary, versionInfo, docs, techs, forums, members, dependencies);
@@ -956,28 +1213,28 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
 
     private final static String COMPONENTS_BY_STATUS =
-        " select cc.component_id " +
-             " , cv.comp_vers_id " +
-             " , cc.current_version as version " +
-             " , cc.component_name " +
-             " , cv.version_text " +
-             " , cv.comments " +
-             " , cc.short_desc " +
-             " , cc.description " +
-             " , cv.phase_time " +
-             " , cv.phase_id " +
-             " , cv.price " +
-             " , cc.status_id " +
-             " , cc.root_category_id " +
-          " from comp_catalog cc " +
-             " , comp_versions cv " +
-         " where cc.status_id = ? " +
-           " and cv.component_id = cc.component_id " +
-           " and cc.current_version = cv.version ";
+            " select cc.component_id " +
+            " , cv.comp_vers_id " +
+            " , cc.current_version as version " +
+            " , cc.component_name " +
+            " , cv.version_text " +
+            " , cv.comments " +
+            " , cc.short_desc " +
+            " , cc.description " +
+            " , cv.phase_time " +
+            " , cv.phase_id " +
+            " , cv.price " +
+            " , cc.status_id " +
+            " , cc.root_category_id " +
+            " from comp_catalog cc " +
+            " , comp_versions cv " +
+            " where cc.status_id = ? " +
+            " and cv.component_id = cc.component_id " +
+            " and cc.current_version = cv.version ";
 
 
     public Collection getComponentsByStatus(long status)
-           throws CatalogException, SQLException, NamingException {
+            throws CatalogException, SQLException, NamingException {
 
         Connection conn = null;
         ResultSet rs = null;
@@ -988,7 +1245,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ps.setLong(1, status);
             rs = ps.executeQuery();
 
-            ArrayList ret = new ArrayList();;
+            ArrayList ret = new ArrayList();
+            ;
             while (rs.next()) {
                 ret.add(new ComponentSummary(
                         rs.getLong("component_id"),
@@ -1009,55 +1267,72 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             return ret;
 
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
-            try { if (conn  != null) {  conn.close();  conn = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
+                }
+            } catch (SQLException e) {
+            }
         }
     }
 
 
-
     public Collection getComponentsByStatusAndCatalog(long status, long catalogId)
-           throws CatalogException, NamingException, SQLException {
+            throws CatalogException, NamingException, SQLException {
 
 
         Collection ret = getComponentsByStatus(status);
         ComponentSummary cs = null;
         for (Iterator it = ret.iterator(); it.hasNext();) {
-            cs = (ComponentSummary)it.next();
-            if (cs.getRootCategory()!=catalogId)
+            cs = (ComponentSummary) it.next();
+            if (cs.getRootCategory() != catalogId)
                 it.remove();
         }
 
-        Collections.sort((List)ret, new Comparators.ComponentSummarySorter());
+        Collections.sort((List) ret, new Comparators.ComponentSummarySorter());
         return ret;
 
     }
 
 
     private final static String COMPONENT =
-        " select cc.component_id " +
-             " , cv.comp_vers_id " +
-             " , cc.current_version as version " +
-             " , cc.component_name " +
-             " , cv.version_text " +
-             " , cv.comments " +
-             " , cc.short_desc " +
-             " , cc.description " +
-             " , cv.phase_time " +
-             " , cv.phase_id " +
-             " , cv.price " +
-             " , cc.status_id " +
-             " , cc.root_category_id " +
-          " from comp_catalog cc " +
-             " , comp_versions cv " +
-         " where cc.component_id = ? " +
-           " and cv.component_id = cc.component_id " +
-           " and cc.current_version = cv.version ";
+            " select cc.component_id " +
+            " , cv.comp_vers_id " +
+            " , cc.current_version as version " +
+            " , cc.component_name " +
+            " , cv.version_text " +
+            " , cv.comments " +
+            " , cc.short_desc " +
+            " , cc.description " +
+            " , cv.phase_time " +
+            " , cv.phase_id " +
+            " , cv.price " +
+            " , cc.status_id " +
+            " , cc.root_category_id " +
+            " from comp_catalog cc " +
+            " , comp_versions cv " +
+            " where cc.component_id = ? " +
+            " and cv.component_id = cc.component_id " +
+            " and cc.current_version = cv.version ";
 
 
     public ComponentSummary getComponent(long componentId)
-           throws CatalogException, NamingException, SQLException {
+            throws CatalogException, NamingException, SQLException {
 
         Connection conn = null;
         ResultSet rs = null;
@@ -1088,9 +1363,27 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
 
         } finally {
-            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
-            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
-            try { if (conn  != null) {  conn.close();  conn = null; } } catch (SQLException e) {}
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
+                }
+            } catch (SQLException e) {
+            }
         }
 
     }
@@ -1123,21 +1416,21 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             policyManager.addPermissions(adminRole, perms, null);
             policyManager.addPermissions(subscriptionDownloadRole, perms, null);
 
-        } catch(ConfigManagerException exception) {
+        } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to obtain configuration data: " + exception.toString());
-        } catch(CreateException exception) {
+                    "Failed to obtain configuration data: " + exception.toString());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create security role for component: "
-            + exception.toString());
-        } catch(GeneralSecurityException exception) {
+                    "Failed to create security role for component: "
+                    + exception.toString());
+        } catch (GeneralSecurityException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create security role for component: "
-            + exception.toString());
-        } catch(RemoteException exception) {
+                    "Failed to create security role for component: "
+                    + exception.toString());
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
     }
@@ -1185,64 +1478,64 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 policyManager.addPermissions(collabModeratorRole, perms, null);
             }
 
-        } catch(ConfigManagerException exception) {
+        } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to obtain configuration data: " + exception.toString());
-        } catch(CreateException exception) {
+                    "Failed to obtain configuration data: " + exception.toString());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create security roles for forum: "
-            + exception.toString());
-        } catch(GeneralSecurityException exception) {
+                    "Failed to create security roles for forum: "
+                    + exception.toString());
+        } catch (GeneralSecurityException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create security roles for forum: "
-            + exception.toString());
-        } catch(RemoteException exception) {
+                    "Failed to create security roles for forum: "
+                    + exception.toString());
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
     }
 
     public ComponentSummary requestComponent(ComponentRequest request)
-           throws CatalogException {
+            throws CatalogException {
         if (request == null) {
             throw new CatalogException(
-            "Null specified for component request");
+                    "Null specified for component request");
         }
 
         Timestamp currentTime = new Timestamp((new Date()).getTime());
         LocalDDECompCatalog newComponent;
         try {
             newComponent = catalogHome.create(1,
-                request.getName(), request.getDescription(),
-                currentTime, ComponentInfo.REQUESTED,
-                request.getShortDescription(),
-                request.getFunctionalDescription(), 0);
-        } catch(CreateException exception) {
+                    request.getName(), request.getDescription(),
+                    currentTime, ComponentInfo.REQUESTED,
+                    request.getShortDescription(),
+                    request.getFunctionalDescription(), 0);
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException("Failed to create component: "
-                + exception.toString());
+                    + exception.toString());
         }
         Iterator catIterator = request.getCategories().iterator();
         try {
             while (catIterator.hasNext()) {
                 compcatsHome.create(newComponent,
-                    categoriesHome.findByPrimaryKey((Long) catIterator.next()));
+                        categoriesHome.findByPrimaryKey((Long) catIterator.next()));
             }
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Specified category does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified category does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to associate new component with category: "
-            + exception.toString());
+                    "Failed to associate new component with category: "
+                    + exception.toString());
         }
         StringTokenizer keywords = new StringTokenizer(request.getKeywords(),
                 ComponentInfo.KEYWORD_DELIMITER);
@@ -1250,44 +1543,44 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             while (keywords.hasMoreTokens()) {
                 keywordsHome.create(keywords.nextToken(), newComponent);
             }
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to associate new component with keyword: "
-            + exception.toString());
+                    "Failed to associate new component with keyword: "
+                    + exception.toString());
         }
 
         LocalDDECompVersions newVersion;
         try {
             newVersion = versionsHome.create(1,
-                currentTime, ComponentVersionInfo.COLLABORATION, currentTime,
-                0.00, request.getComments(), newComponent,
-                request.getVersionLabel());
-        } catch(CreateException exception) {
+                    currentTime, ComponentVersionInfo.COLLABORATION, currentTime,
+                    0.00, request.getComments(), newComponent,
+                    request.getVersionLabel());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create initial version of component: "
-            + exception.toString());
+                    "Failed to create initial version of component: "
+                    + exception.toString());
         }
         Iterator techIterator = request.getTechnologies().iterator();
         try {
             while (techIterator.hasNext()) {
                 comptechHome.create(newVersion, technologiesHome.
-                    findByPrimaryKey((Long) techIterator.next()));
+                        findByPrimaryKey((Long) techIterator.next()));
             }
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Specified technology does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified technology does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to associate new version with technology: "
-            + exception.toString());
+                    "Failed to associate new version with technology: "
+                    + exception.toString());
         }
 
         long newForum;
@@ -1295,11 +1588,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
             try {
                 forum = forumadminHome.create().createForum(forum,
-                            Long.parseLong(getConfigValue("collab_forum_template")));
-            } catch(ConfigManagerException cme) {
+                        Long.parseLong(getConfigValue("collab_forum_template")));
+            } catch (ConfigManagerException cme) {
                 log.warn("Encountered a configuration manager exception reading collab_forum_template property");
                 forum = forumadminHome.create().createForum(forum);
-            } catch(NumberFormatException nfe) {
+            } catch (NumberFormatException nfe) {
                 log.warn("Failed to parse the collab_forum_template property");
                 forum = forumadminHome.create().createForum(forum);
             }
@@ -1307,43 +1600,43 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             compforumHome.create(newForum, Forum.COLLABORATION, newVersion);
             createForumRoles(newForum, Forum.COLLABORATION);
 
-        } catch(ForumException exception) {
+        } catch (ForumException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create new collaboration forum for component: "
-            + exception.toString());
-        } catch(CreateException exception) {
+                    "Failed to create new collaboration forum for component: "
+                    + exception.toString());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create new collaboration forum for component: "
-            + exception.toString());
+                    "Failed to create new collaboration forum for component: "
+                    + exception.toString());
         }
 
         createComponentRole(((Long) newComponent.getPrimaryKey()).longValue());
 
         try {
             LocalDDEUserMaster user = userHome.findByPrimaryKey(
-                new Long(request.getUserId()));
+                    new Long(request.getUserId()));
             LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
-                new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
+                    new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
             userroleHome.create(0, user, newVersion, roleBean);
-        } catch(ConfigManagerException exception) {
+        } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to obtain configuration data: " + exception.toString());
-        } catch(FinderException exception) {
+                    "Failed to obtain configuration data: " + exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Failed to create Requestor development role: "
-            + exception.toString());
+                    "Failed to create Requestor development role: "
+                    + exception.toString());
         }
 
         try {
             sendConfirmationEmail(request.getUserId());
-        } catch(DDEException exception) {
+        } catch (DDEException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1365,45 +1658,45 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         indexDigest.append(CatalogSearchEngine.DELIMITER);
         try {
             Iterator keywordIterator =
-                keywordsHome.findByComponentId(componentId).iterator();
+                    keywordsHome.findByComponentId(componentId).iterator();
             while (keywordIterator.hasNext()) {
                 LocalDDECompKeywords keyword =
-                    (LocalDDECompKeywords) keywordIterator.next();
+                        (LocalDDECompKeywords) keywordIterator.next();
                 indexDigest.append(keyword.getKeyword());
                 indexDigest.append(CatalogSearchEngine.DELIMITER);
             }
             Long versionId = (Long) versionsHome.findByComponentIdAndVersion(
-                componentId, comp.getCurrentVersion()).getPrimaryKey();
+                    componentId, comp.getCurrentVersion()).getPrimaryKey();
             Iterator techIterator = comptechHome.findByCompVersId(
-                versionId.longValue()).iterator();
+                    versionId.longValue()).iterator();
             while (techIterator.hasNext()) {
                 LocalDDETechnologyTypes tech = ((LocalDDECompTechnology)
-                    techIterator.next()).getTechnologyTypes();
+                        techIterator.next()).getTechnologyTypes();
                 indexDigest.append(tech.getName());
                 indexDigest.append(CatalogSearchEngine.DELIMITER);
             }
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Could not index component: " + exception.toString());
+                    "Could not index component: " + exception.toString());
         }
         CatalogSearchEngine.getInstance().index(
-            componentId, indexDigest.toString());
+                componentId, indexDigest.toString());
     }
 
     public void approveComponent(long componentId) throws CatalogException {
         if (componentId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of component");
+                    "Negative number specified for primary key of component");
         }
         LocalDDECompCatalog compBean;
         try {
             compBean = catalogHome.findByPrimaryKey(new Long(componentId));
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified component does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified component does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1414,19 +1707,19 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     }
 
     public void declineComponent(long componentId, boolean isDuplicate)
-           throws CatalogException {
+            throws CatalogException {
         if (componentId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of component");
+                    "Negative number specified for primary key of component");
         }
         try {
             catalogHome.findByPrimaryKey(new Long(componentId)).setStatusId(
-                isDuplicate ? ComponentInfo.DUPLICATE : ComponentInfo.DECLINED);
-        } catch(ObjectNotFoundException exception) {
+                    isDuplicate ? ComponentInfo.DUPLICATE : ComponentInfo.DECLINED);
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified component does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified component does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1436,16 +1729,16 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public void removeComponent(long componentId) throws CatalogException {
         if (componentId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of component");
+                    "Negative number specified for primary key of component");
         }
         try {
             catalogHome.findByPrimaryKey(new Long(componentId)).setStatusId(
-                ComponentInfo.DELETED);
-        } catch(ObjectNotFoundException exception) {
+                    ComponentInfo.DELETED);
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified component does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified component does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1475,13 +1768,13 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         Iterator beanIterator;
         try {
             beanIterator = categoriesHome.findAllActive().iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
 
         while (beanIterator.hasNext()) {
             LocalDDECategories categoryBean =
-                (LocalDDECategories) beanIterator.next();
+                    (LocalDDECategories) beanIterator.next();
             Long key = (Long) categoryBean.getPrimaryKey();
             Long parentKey = categoryBean.getParentCategoryId();
             List subcategories;
@@ -1498,8 +1791,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 subcategoryMap.put(key, subcategories);
             }
             Category category = new Category(key.longValue(),
-                categoryBean.getName(), categoryBean.getDescription(),
-                subcategories);
+                    categoryBean.getName(), categoryBean.getDescription(),
+                    subcategories);
 
             /*
              * Only return this category if it is a top-level category (in other
@@ -1521,7 +1814,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 subcategoryMap.put(parentKey, parentSubs);
             }
             int insertPoint =
-                Collections.binarySearch(parentSubs, category, sorter);
+                    Collections.binarySearch(parentSubs, category, sorter);
             // See Java API documentation on binarySearch for clarification
             if (insertPoint < 0) {
                 insertPoint = -insertPoint - 1;
@@ -1536,33 +1829,33 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public Category getCategory(long categoryId) throws CatalogException {
         if (categoryId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of category");
+                    "Negative number specified for primary key of category");
         }
         LocalDDECategories categoryBean;
         try {
             categoryBean =
-                categoriesHome.findByPrimaryKey(new Long(categoryId));
-        } catch(ObjectNotFoundException exception) {
+                    categoriesHome.findByPrimaryKey(new Long(categoryId));
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified category does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified category does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         Collection subcategories = new HashSet();
         Category result = new Category(categoryId, categoryBean.getName(),
-            categoryBean.getDescription(), subcategories);
+                categoryBean.getDescription(), subcategories);
         Iterator subIterator;
         try {
             subIterator =
-                categoriesHome.findByParentCategoryId(new Long(categoryId)).
-                iterator();
-        } catch(FinderException impossible) {
+                    categoriesHome.findByParentCategoryId(new Long(categoryId)).
+                    iterator();
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (subIterator.hasNext()) {
             Long subId = (Long)
-                ((LocalDDECategories) subIterator.next()).getPrimaryKey();
+                    ((LocalDDECategories) subIterator.next()).getPrimaryKey();
             subcategories.add(getCategory(subId.longValue()));
         }
         return result;
@@ -1576,7 +1869,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
          */
         if (categoryId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of category");
+                    "Negative number specified for primary key of category");
         }
         LocalDDECategories categoryBean;
         List categoryPath = new ArrayList();
@@ -1584,16 +1877,16 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         do {
             try {
                 categoryBean = categoriesHome.findByPrimaryKey(target);
-            } catch(ObjectNotFoundException exception) {
+            } catch (ObjectNotFoundException exception) {
                 throw new CatalogException(
-                "Category does not exist in the catalog: "
-                + exception.toString());
-            } catch(FinderException exception) {
+                        "Category does not exist in the catalog: "
+                        + exception.toString());
+            } catch (FinderException exception) {
                 throw new CatalogException(exception.toString());
             }
             categoryPath.add(new Category(
-                ((Long) categoryBean.getPrimaryKey()).longValue(),
-                categoryBean.getName(), categoryBean.getDescription(), null));
+                    ((Long) categoryBean.getPrimaryKey()).longValue(),
+                    categoryBean.getName(), categoryBean.getDescription(), null));
             target = categoryBean.getParentCategoryId();
         } while (target != null);
         Collections.reverse(categoryPath);
@@ -1605,14 +1898,14 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         Iterator beanIterator;
         try {
             beanIterator = rolesHome.findAllActive().iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (beanIterator.hasNext()) {
             LocalDDERoles roleBean = (LocalDDERoles) beanIterator.next();
             roles.add(new Role(
-                ((Long) roleBean.getPrimaryKey()).longValue(),
-                roleBean.getName(), roleBean.getDescription()));
+                    ((Long) roleBean.getPrimaryKey()).longValue(),
+                    roleBean.getName(), roleBean.getDescription()));
         }
         Collections.sort(roles, new Comparators.RoleSorter());
         return roles;
@@ -1621,20 +1914,20 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public Role getRole(long roleId) throws CatalogException {
         if (roleId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of role");
+                    "Negative number specified for primary key of role");
         }
         LocalDDERoles roleBean;
         try {
             roleBean = rolesHome.findByPrimaryKey(new Long(roleId));
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified role does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified role does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         return new Role(roleId, roleBean.getName(),
-            roleBean.getDescription());
+                roleBean.getDescription());
     }
 
     public Collection getTechnologies() throws CatalogException {
@@ -1642,15 +1935,15 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         Iterator beanIterator;
         try {
             beanIterator = technologiesHome.findAllActive().iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (beanIterator.hasNext()) {
             LocalDDETechnologyTypes techBean =
-                (LocalDDETechnologyTypes) beanIterator.next();
+                    (LocalDDETechnologyTypes) beanIterator.next();
             techs.add(new Technology(
-                ((Long) techBean.getPrimaryKey()).longValue(),
-                techBean.getName(), techBean.getDescription()));
+                    ((Long) techBean.getPrimaryKey()).longValue(),
+                    techBean.getName(), techBean.getDescription()));
         }
         Collections.sort(techs, new Comparators.TechnologySorter());
         return techs;
@@ -1659,21 +1952,21 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public Technology getTechnology(long technologyId) throws CatalogException {
         if (technologyId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of technology");
+                    "Negative number specified for primary key of technology");
         }
         LocalDDETechnologyTypes techBean;
         try {
             techBean =
-                technologiesHome.findByPrimaryKey(new Long(technologyId));
-        } catch(ObjectNotFoundException exception) {
+                    technologiesHome.findByPrimaryKey(new Long(technologyId));
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified technology does not exist in catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified technology does not exist in catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         return new Technology(technologyId, techBean.getName(),
-            techBean.getDescription());
+                techBean.getDescription());
     }
 
     public Collection getLicenseLevels() throws CatalogException {
@@ -1681,70 +1974,70 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         Iterator beanIterator;
         try {
             beanIterator = licenseHome.findAllActive().iterator();
-        } catch(FinderException impossible) {
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         double pricePerUnit;
         try {
             pricePerUnit = Double.parseDouble(getConfigValue("price_per_unit"));
-        } catch(ConfigManagerException exception) {
+        } catch (ConfigManagerException exception) {
             throw new CatalogException(
-            "Failed to obtain configuration data: " + exception.toString());
+                    "Failed to obtain configuration data: " + exception.toString());
         }
         while (beanIterator.hasNext()) {
             LocalDDELicenseLevel licBean =
-                (LocalDDELicenseLevel) beanIterator.next();
+                    (LocalDDELicenseLevel) beanIterator.next();
             licenses.add(new LicenseLevel(
-                ((Long) licBean.getPrimaryKey()).longValue(),
-                licBean.getDescription(), licBean.getPriceMultiplier(),
-                pricePerUnit));
+                    ((Long) licBean.getPrimaryKey()).longValue(),
+                    licBean.getDescription(), licBean.getPriceMultiplier(),
+                    pricePerUnit));
         }
         Collections.sort(licenses, new Comparators.LicenseLevelSorter());
         return licenses;
     }
 
     public LicenseLevel getLicenseLevel(long licenseId)
-           throws CatalogException {
+            throws CatalogException {
         if (licenseId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of license level");
+                    "Negative number specified for primary key of license level");
         }
         LocalDDELicenseLevel licBean;
         try {
             licBean =
-                licenseHome.findByPrimaryKey(new Long(licenseId));
-        } catch(ObjectNotFoundException exception) {
+                    licenseHome.findByPrimaryKey(new Long(licenseId));
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified license level does not exist in catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified license level does not exist in catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         double pricePerUnit;
         try {
             pricePerUnit = Double.parseDouble(getConfigValue("price_per_unit"));
-        } catch(ConfigManagerException exception) {
+        } catch (ConfigManagerException exception) {
             throw new CatalogException(
-            "Failed to obtain configuration data: " + exception.toString());
+                    "Failed to obtain configuration data: " + exception.toString());
         }
         return new LicenseLevel(licenseId, licBean.getDescription(),
-            licBean.getPriceMultiplier(), pricePerUnit);
+                licBean.getPriceMultiplier(), pricePerUnit);
     }
 
     public Document getDocument(long documentId) throws CatalogException {
         if (documentId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of document");
+                    "Negative number specified for primary key of document");
         }
         LocalDDECompDocumentation docBean;
         try {
             docBean =
-                docHome.findByPrimaryKey(new Long(documentId));
-        } catch(ObjectNotFoundException exception) {
+                    docHome.findByPrimaryKey(new Long(documentId));
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified document does not exist in catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified document does not exist in catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         return new Document(
@@ -1756,55 +2049,55 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public Download getDownload(long downloadId) throws CatalogException {
         if (downloadId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of download location");
+                    "Negative number specified for primary key of download location");
         }
         LocalDDECompDownload downBean;
         try {
             downBean =
-                downloadHome.findByPrimaryKey(new Long(downloadId));
-        } catch(ObjectNotFoundException exception) {
+                    downloadHome.findByPrimaryKey(new Long(downloadId));
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified download location does not exist in catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
+                    "Specified download location does not exist in catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         return new Download(downloadId, downBean.getDescription(),
-            downBean.getUrl());
+                downBean.getUrl());
     }
 
     public Category addCategory(long parentId, Category category)
             throws CatalogException {
         if (parentId < -1) {
             throw new CatalogException(
-            "Invalid key specified for parent category");
+                    "Invalid key specified for parent category");
         }
-        if (category == null ) {
+        if (category == null) {
             throw new CatalogException(
-            "Null specified for category description");
+                    "Null specified for category description");
         }
         if (category.getId() != -1) {
             throw new CatalogException(
-            "Specified category may already exist in the catalog");
+                    "Specified category may already exist in the catalog");
         }
         try {
             if (parentId != -1) {
                 categoriesHome.findByPrimaryKey(new Long(parentId));
             }
-        } catch(ObjectNotFoundException exception) {
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified parent category does not exist in the catalog");
-        } catch(FinderException exception) {
+                    "Specified parent category does not exist in the catalog");
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
         try {
             LocalDDECategories newCategory = categoriesHome.create(
-                (parentId == -1) ? null : new Long(parentId),
-                category.getName(), category.getDescription(),
-                Category.ACTIVE);
+                    (parentId == -1) ? null : new Long(parentId),
+                    category.getName(), category.getDescription(),
+                    Category.ACTIVE);
             return
-                getCategory(((Long) newCategory.getPrimaryKey()).longValue());
-        } catch(CreateException exception) {
+                    getCategory(((Long) newCategory.getPrimaryKey()).longValue());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1817,61 +2110,61 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public Role addRole(Role role) throws CatalogException {
         if (role == null) {
             throw new CatalogException(
-            "Null specified for role description");
+                    "Null specified for role description");
         }
         if (role.getId() != -1) {
             throw new CatalogException(
-            "Specified role may already exist in the catalog");
+                    "Specified role may already exist in the catalog");
         }
         try {
             LocalDDERoles newRole = rolesHome.create(role.getName(),
-                role.getDescription(), Role.ACTIVE);
+                    role.getDescription(), Role.ACTIVE);
             return getRole(((Long) newRole.getPrimaryKey()).longValue());
-        } catch(CreateException exception) {
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
     }
 
     public Technology addTechnology(Technology technology)
-           throws CatalogException {
+            throws CatalogException {
         if (technology == null) {
             throw new CatalogException(
-            "Null specified for new technology");
+                    "Null specified for new technology");
         }
         if (technology.getId() != -1) {
             throw new CatalogException(
-            "Specified technology may already exist in the catalog");
+                    "Specified technology may already exist in the catalog");
         }
         try {
             LocalDDETechnologyTypes newTechnology = technologiesHome.create(
-                technology.getName(), technology.getDescription(),
-                Technology.ACTIVE);
+                    technology.getName(), technology.getDescription(),
+                    Technology.ACTIVE);
             return getTechnology(
-                ((Long) newTechnology.getPrimaryKey()).longValue());
-        } catch(CreateException exception) {
+                    ((Long) newTechnology.getPrimaryKey()).longValue());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
     }
 
     public LicenseLevel addLicenseLevel(LicenseLevel license)
-           throws CatalogException {
+            throws CatalogException {
         if (license == null) {
             throw new CatalogException(
-            "Null specified for new license level");
+                    "Null specified for new license level");
         }
         if (license.getId() != -1) {
             throw new CatalogException(
-            "Specified license level may already exist in the catalog");
+                    "Specified license level may already exist in the catalog");
         }
         try {
             LocalDDELicenseLevel newLicense = licenseHome.create(
-                license.getPriceMultiplier(), license.getDescription(),
-                LicenseLevel.ACTIVE);
+                    license.getPriceMultiplier(), license.getDescription(),
+                    LicenseLevel.ACTIVE);
             return getLicenseLevel(
-                ((Long) newLicense.getPrimaryKey()).longValue());
-        } catch(CreateException exception) {
+                    ((Long) newLicense.getPrimaryKey()).longValue());
+        } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1880,18 +2173,18 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public void updateCategory(Category category) throws CatalogException {
         if (category == null) {
             throw new CatalogException(
-            "Null specified for category");
+                    "Null specified for category");
         }
         if (category.getId() == -1) {
             throw new CatalogException(
-            "Specified category does not exist in the catalog");
+                    "Specified category does not exist in the catalog");
         }
         try {
             LocalDDECategories targetCat =
-                categoriesHome.findByPrimaryKey(new Long(category.getId()));
+                    categoriesHome.findByPrimaryKey(new Long(category.getId()));
             targetCat.setName(category.getName());
             targetCat.setDescription(category.getDescription());
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
@@ -1899,57 +2192,57 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public void updateRole(Role role) throws CatalogException {
         if (role == null) {
             throw new CatalogException(
-            "Null specified for role");
+                    "Null specified for role");
         }
         if (role.getId() == -1) {
             throw new CatalogException(
-            "Specified role does not exist in the catalog");
+                    "Specified role does not exist in the catalog");
         }
         try {
             LocalDDERoles targetRole =
-                rolesHome.findByPrimaryKey(new Long(role.getId()));
+                    rolesHome.findByPrimaryKey(new Long(role.getId()));
             targetRole.setName(role.getName());
             targetRole.setDescription(role.getDescription());
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
 
-    public void updateTechnology(Technology technology) throws CatalogException{
+    public void updateTechnology(Technology technology) throws CatalogException {
         if (technology == null) {
             throw new CatalogException(
-            "Null specified for technology");
+                    "Null specified for technology");
         }
         if (technology.getId() == -1) {
             throw new CatalogException(
-            "Specified technology does not exist in the catalog");
+                    "Specified technology does not exist in the catalog");
         }
         try {
             LocalDDETechnologyTypes targetTech =
-                technologiesHome.findByPrimaryKey(new Long(technology.getId()));
+                    technologiesHome.findByPrimaryKey(new Long(technology.getId()));
             targetTech.setName(technology.getName());
             targetTech.setDescription(technology.getDescription());
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
 
     public void updateLicenseLevel(LicenseLevel license)
-           throws CatalogException{
+            throws CatalogException {
         if (license == null) {
             throw new CatalogException(
-            "Null specified for license level");
+                    "Null specified for license level");
         }
         if (license.getId() == -1) {
             throw new CatalogException(
-            "Specified license level does not exist in the catalog");
+                    "Specified license level does not exist in the catalog");
         }
         try {
             LocalDDELicenseLevel targetLic =
-                licenseHome.findByPrimaryKey(new Long(license.getId()));
+                    licenseHome.findByPrimaryKey(new Long(license.getId()));
             targetLic.setDescription(license.getDescription());
             targetLic.setPriceMultiplier(license.getPriceMultiplier());
-        } catch(FinderException exception) {
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
@@ -1957,30 +2250,30 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public void removeCategory(long categoryId) throws CatalogException {
         if (categoryId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of category");
+                    "Negative number specified for primary key of category");
         }
         Iterator subIterator;
         try {
             subIterator =
-                categoriesHome.findByParentCategoryId(new Long(categoryId)).
-                iterator();
-        } catch(FinderException impossible) {
+                    categoriesHome.findByParentCategoryId(new Long(categoryId)).
+                    iterator();
+        } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
         while (subIterator.hasNext()) {
             Long subId = (Long)
-                ((LocalDDECategories) subIterator.next()).getPrimaryKey();
+                    ((LocalDDECategories) subIterator.next()).getPrimaryKey();
             removeCategory(subId.longValue());
         }
         try {
             categoriesHome.findByPrimaryKey(new Long(categoryId)).setStatusId(
-                Category.DELETED);
-        } catch(ObjectNotFoundException exception) {
+                    Category.DELETED);
+        } catch (ObjectNotFoundException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
-            "Specified category does not exist in the catalog: " +
-            exception.toString());
-        } catch(FinderException exception) {
+                    "Specified category does not exist in the catalog: " +
+                    exception.toString());
+        } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
@@ -1989,16 +2282,16 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public void removeRole(long roleId) throws CatalogException {
         if (roleId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of role");
+                    "Negative number specified for primary key of role");
         }
         try {
             rolesHome.findByPrimaryKey(new Long(roleId)).setStatusId(
-                Role.DELETED);
-        } catch(ObjectNotFoundException exception) {
+                    Role.DELETED);
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified role does not exist in the catalog: " +
-            exception.toString());
-        } catch(FinderException exception) {
+                    "Specified role does not exist in the catalog: " +
+                    exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
@@ -2006,16 +2299,16 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public void removeTechnology(long technologyId) throws CatalogException {
         if (technologyId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of technology");
+                    "Negative number specified for primary key of technology");
         }
         try {
             technologiesHome.findByPrimaryKey(new Long(technologyId)).
-                setStatusId(Technology.DELETED);
-        } catch(ObjectNotFoundException exception) {
+                    setStatusId(Technology.DELETED);
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified technology does not exist in the catalog: " +
-            exception.toString());
-        } catch(FinderException exception) {
+                    "Specified technology does not exist in the catalog: " +
+                    exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
@@ -2023,16 +2316,16 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     public void removeLicenseLevel(long licenseId) throws CatalogException {
         if (licenseId < 0) {
             throw new CatalogException(
-            "Negative number specified for primary key of license level");
+                    "Negative number specified for primary key of license level");
         }
         try {
             licenseHome.findByPrimaryKey(new Long(licenseId)).
-                setStatusId(LicenseLevel.DELETED);
-        } catch(ObjectNotFoundException exception) {
+                    setStatusId(LicenseLevel.DELETED);
+        } catch (ObjectNotFoundException exception) {
             throw new CatalogException(
-            "Specified license level does not exist in the catalog: " +
-            exception.toString());
-        } catch(FinderException exception) {
+                    "Specified license level does not exist in the catalog: " +
+                    exception.toString());
+        } catch (FinderException exception) {
             throw new CatalogException(exception.toString());
         }
     }
@@ -2044,7 +2337,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             config.refresh(CONFIG_NAMESPACE);
         } else {
             config.add(CONFIG_NAMESPACE,
-                ConfigManager.CONFIG_PROPERTIES_FORMAT);
+                    ConfigManager.CONFIG_PROPERTIES_FORMAT);
         }
 
         /*
@@ -2053,7 +2346,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
          * problem with Email Engine has been corrected, the following section
          * can and should be removed.
          */
-        String EMAIL_NAMESPACE="com.topcoder.message.email.EmailEngine";
+        String EMAIL_NAMESPACE = "com.topcoder.message.email.EmailEngine";
         if (config.existsNamespace(EMAIL_NAMESPACE)) {
             config.refresh(EMAIL_NAMESPACE);
         } else {
@@ -2069,29 +2362,29 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private void sendConfirmationEmail(long recipientId) throws DDEException {
         try {
             RegistrationInfo requestorInfo = usermanHome.create().
-                getUser(recipientId).getRegInfo();
+                    getUser(recipientId).getRegInfo();
             TCSEmailMessage confirmation = new TCSEmailMessage();
             confirmation.setFromAddress(getConfigValue("confirmation_from"));
             confirmation.setSubject(getConfigValue("confirmation_subject"));
             confirmation.setToAddress(requestorInfo.getEmail(),
-                TCSEmailMessage.TO);
+                    TCSEmailMessage.TO);
 
             XMLDocument data = new XMLDocument("confirmation");
             data.addTag(
-                new ValueTag("firstname", requestorInfo.getFirstName()));
+                    new ValueTag("firstname", requestorInfo.getFirstName()));
             Transformer transformer = TransformerFactory.newInstance().
-                newTransformer(new StreamSource(
-                    new File(getConfigValue("confirmation_template"))));
+                    newTransformer(new StreamSource(
+                            new File(getConfigValue("confirmation_template"))));
             StringWriter body = new StringWriter();
             transformer.transform(
-                new StreamSource(new StringReader(data.getXML())),
-                new StreamResult(body));
+                    new StreamSource(new StringReader(data.getXML())),
+                    new StreamResult(body));
             confirmation.setBody(body.toString());
 
             EmailEngine.send(confirmation);
-        } catch(Exception exception) {
+        } catch (Exception exception) {
             throw new DDEException(
-            "Failed to send confirmation email: " + exception.toString());
+                    "Failed to send confirmation email: " + exception.toString());
         }
     }
 
@@ -2117,7 +2410,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return propNames.elements();
     }
 
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     public void ejbPassivate() {
         /*
@@ -2125,9 +2419,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
          * instances of <code>SessionContext</code>, so nothing needs to be done
          * to enable serialization.
          */
-     }
+    }
 
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     public void setSessionContext(SessionContext context) {
         ejbContext = context;
@@ -2143,7 +2438,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         try {
             ProjectTracker pt = projectTrackerHome.create();
             return pt.getProjectIdByComponentVersionId(compVersId, projectType);
-        } catch(RemoteException e) {
+        } catch (RemoteException e) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
         } catch (CreateException e) {
@@ -2166,7 +2461,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         try {
             DocumentManager dm = documentManagerHome.create();
             return dm.isProjectAggregated(projectId);
-        } catch(RemoteException e) {
+        } catch (RemoteException e) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
         } catch (CreateException e) {

@@ -1,25 +1,39 @@
 package com.topcoder.web.hs.common;
 
-import com.topcoder.security.*;
-import com.topcoder.security.admin.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.user.*;
-import com.topcoder.web.ejb.email.*;
-import com.topcoder.web.ejb.termsofuse.*;
-import com.topcoder.web.ejb.rating.*;
-import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.hs.model.*;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.web.ejb.rating.Rating;
+import com.topcoder.web.ejb.rating.RatingHome;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
+import com.topcoder.web.ejb.user.*;
+import com.topcoder.web.hs.model.CoachRegistrationBean;
+import com.topcoder.web.hs.model.ListPairBean;
+import com.topcoder.web.hs.model.SessionInfoBean;
+import com.topcoder.web.hs.model.StudentRegistrationBean;
 
-import java.rmi.*;
-import java.util.*;
-import javax.ejb.*;
-import javax.naming.*;
+import javax.ejb.CreateException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.transaction.UserTransaction;
+import java.rmi.RemoteException;
+import java.util.*;
 
 
 /**
@@ -397,7 +411,7 @@ public class RegistrationHelper {
             email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             email.setStatusId(email_id, 1, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
-            Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
+            Coder coder = (Coder) BaseProcessor.createEJB(ctx, Coder.class);
             coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setMemberSince(user_id, new java.sql.Date(new Date().getTime()), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setEditorId(user_id, srb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -484,7 +498,7 @@ public class RegistrationHelper {
             email.setAddress(emailId, srb.getEmail(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
-            Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
+            Coder coder = (Coder) BaseProcessor.createEJB(ctx, Coder.class);
             coder.setEditorId(userId, srb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setLanguageId(userId, srb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
@@ -754,7 +768,7 @@ public class RegistrationHelper {
             email.setAddress(email_id, crb.getEmail(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
-            Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
+            Coder coder = (Coder) BaseProcessor.createEJB(ctx, Coder.class);
             coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setMemberSince(user_id, new java.sql.Date(new Date().getTime()), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setEditorId(user_id, crb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -846,7 +860,7 @@ public class RegistrationHelper {
             email.setAddress(emailId, crb.getEmail(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
-            Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
+            Coder coder = (Coder) BaseProcessor.createEJB(ctx, Coder.class);
             coder.setEditorId(userId, crb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             coder.setLanguageId(userId, crb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
@@ -1024,7 +1038,7 @@ public class RegistrationHelper {
 
         DataAccessInt dai = new DataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
 
-        ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("user exists");
+        ResultSetContainer rsc = (ResultSetContainer) dai.getData(r).get("user exists");
         return !rsc.isEmpty();
 
     }

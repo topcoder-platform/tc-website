@@ -103,7 +103,7 @@ public class ForumPermissions {
      */
     public static final int CREATE_MESSAGE = 7;
 
-    private boolean [] values = new boolean[8];
+    private boolean[] values = new boolean[8];
 
     /**
      * Factory method to create full permissions.
@@ -137,9 +137,8 @@ public class ForumPermissions {
      * Create a new permissions object with the specified permissions.
      */
     public ForumPermissions(boolean READ, boolean SYSTEM_ADMIN,
-            boolean FORUM_ADMIN, boolean USER_ADMIN, boolean GROUP_ADMIN,
-            boolean MODERATOR, boolean CREATE_THREAD, boolean CREATE_MESSAGE)
-    {
+                            boolean FORUM_ADMIN, boolean USER_ADMIN, boolean GROUP_ADMIN,
+                            boolean MODERATOR, boolean CREATE_THREAD, boolean CREATE_MESSAGE) {
         values[0] = READ;
         values[1] = SYSTEM_ADMIN;
         values[2] = FORUM_ADMIN;
@@ -155,8 +154,7 @@ public class ForumPermissions {
      * objects. The higher permission of each permission type will be used.
      */
     public ForumPermissions(ForumPermissions perm1,
-            ForumPermissions perm2)
-    {
+                            ForumPermissions perm2) {
         values[0] = perm1.get(0) || perm2.get(0);
         values[1] = perm1.get(1) || perm2.get(1);
         values[2] = perm1.get(2) || perm2.get(2);
@@ -167,16 +165,16 @@ public class ForumPermissions {
         values[7] = perm1.get(7) || perm2.get(7);
     }
 
-    public ForumPermissions(boolean [] permissions) {
+    public ForumPermissions(boolean[] permissions) {
         this.values = permissions;
     }
 
     public String toString() {
         StringBuffer buf = new StringBuffer();
-        for (int i=0; i<values.length-1; i++) {
+        for (int i = 0; i < values.length - 1; i++) {
             buf.append(values[i]).append(",");
         }
-        buf.append(values[values.length -1]);
+        buf.append(values[values.length - 1]);
         return buf.toString();
     }
 
@@ -193,4 +191,4 @@ public class ForumPermissions {
     public boolean isSystemOrForumAdmin() {
         return (values[FORUM_ADMIN] || values[SYSTEM_ADMIN]);
     }
-} 
+}

@@ -1,23 +1,24 @@
 package com.topcoder.ejb.UserServices;
 
-import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.data.User;
+import com.topcoder.common.web.error.TCException;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.address.AddressHome;
+import com.topcoder.web.ejb.phone.Phone;
+import com.topcoder.web.ejb.phone.PhoneHome;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.user.UserAddressHome;
-import com.topcoder.web.ejb.address.AddressHome;
-import com.topcoder.web.ejb.address.Address;
-import com.topcoder.web.ejb.phone.PhoneHome;
-import com.topcoder.web.ejb.phone.Phone;
 
 import javax.naming.InitialContext;
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 
 final class UserDbCoder {
@@ -116,7 +117,7 @@ final class UserDbCoder {
             coder.getCoderReferral().setCoderId(coder.getCoderId());
             insertCoderReferral(conn, coder.getCoderReferral());
             coder.getCurrentSchool().setUserId(coder.getCoderId());
-            if (coder.getCoderType().getCoderTypeId()==1) //if they're a student
+            if (coder.getCoderType().getCoderTypeId() == 1) //if they're a student
                 insertCurrentSchool(conn, coder.getCurrentSchool());
             demographicResponses = coder.getDemographicResponses();
 //            coderConfirmations = coder.getCoderConfirmations();
@@ -268,13 +269,13 @@ final class UserDbCoder {
         log.debug("ejb.User.UserDbCoder:insertCurrentSchool():called.");
         PreparedStatement ps = null;
         String query = "INSERT INTO current_school(coder_id, school_id, school_name, gpa, gpa_scale)" +
-                      " VALUES (?, ?, ?, ?, ?)";
+                " VALUES (?, ?, ?, ?, ?)";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, currentSchool.getUserId());
             ps.setInt(2, currentSchool.getSchoolId());
             ps.setString(3, currentSchool.getName());
-            if (currentSchool.getGpa()>0 || currentSchool.getGpaScale()>0) {
+            if (currentSchool.getGpa() > 0 || currentSchool.getGpaScale() > 0) {
                 ps.setFloat(4, currentSchool.getGpa());
                 ps.setFloat(5, currentSchool.getGpaScale());
             } else {
@@ -569,7 +570,7 @@ final class UserDbCoder {
 */
                 updateCoderNotify(conn, coder);
                 updateCoderReferral(conn, coder.getCoderReferral());
-                if (coder.getCoderType().getCoderTypeId()==1) //if they're a student
+                if (coder.getCoderType().getCoderTypeId() == 1) //if they're a student
                     updateCurrentSchool(conn, coder.getCurrentSchool());
                 ArrayList demographicResponses = coder.getDemographicResponses();
                 updateDemographicResponses(conn, coder.getCoderType().getCoderTypeId(), demographicResponses);
@@ -582,11 +583,11 @@ final class UserDbCoder {
 
                 ResultSetContainer addresses = userAddressEJB.getUserAddresses(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
-                if (addresses.size()!=1) {
+                if (addresses.size() != 1) {
                     log.warn("Not sure what to do, user: " + coder.getCoderId() +
                             " does not have one address, they have " + addresses.size());
                 } else {
-                    long addressId = ((Long)addresses.getItem(0, "address_id").getResultData()).longValue();
+                    long addressId = ((Long) addresses.getItem(0, "address_id").getResultData()).longValue();
                     addressEJB.setAddress1(addressId, coder.getHomeAddress1(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     addressEJB.setAddress2(addressId, coder.getHomeAddress2(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     addressEJB.setCity(addressId, coder.getHomeCity(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
@@ -726,7 +727,7 @@ final class UserDbCoder {
                 ps = conn.prepareStatement(query);
                 ps.setInt(1, currentSchool.getSchoolId());
                 ps.setString(2, currentSchool.getName());
-                if (currentSchool.getGpa()>0 || currentSchool.getGpaScale()>0) {
+                if (currentSchool.getGpa() > 0 || currentSchool.getGpaScale() > 0) {
                     log.debug("setting gpa: " + currentSchool.getGpa());
                     log.debug("setting gpaScale: " + currentSchool.getGpaScale());
                     ps.setFloat(3, currentSchool.getGpa());
@@ -995,13 +996,13 @@ final class UserDbCoder {
         query.append(" ,crr.reference_id");
         query.append(" ,crr.other");
         query.append(" ,(SELECT count(*)");
-        query.append(    " FROM coder_image_xref cix");
-        query.append(       " , image i");
-        query.append(  " WHERE cix.image_id = i.image_id");
-        query.append(    " AND cix.coder_id = c.coder_id");
-        query.append(    " AND i.image_type_id = 1) as image_flag");
-        query.append( " ,c.comp_country_code");
-        query.append( " ,co1.country_name as comp_country_name");
+        query.append(" FROM coder_image_xref cix");
+        query.append(" , image i");
+        query.append(" WHERE cix.image_id = i.image_id");
+        query.append(" AND cix.coder_id = c.coder_id");
+        query.append(" AND i.image_type_id = 1) as image_flag");
+        query.append(" ,c.comp_country_code");
+        query.append(" ,co1.country_name as comp_country_name");
         query.append(" FROM");
         query.append(" coder c");
         query.append(" ,country co");
@@ -1099,10 +1100,10 @@ final class UserDbCoder {
                 loadRating(conn, coder);
                 loadRanking(coder);
                 loadDemographicResponses(conn, coder);
-                if (coder.getCoderType().getCoderTypeId()==1) //if they're a student
+                if (coder.getCoderType().getCoderTypeId() == 1) //if they're a student
                     loadCurrentSchool(conn, coder);
 //                loadCoderConfirmations(conn, coder);
-                Coder tempCoder = (Coder)user.getUserTypeDetails().get("Coder");
+                Coder tempCoder = (Coder) user.getUserTypeDetails().get("Coder");
                 log.debug("loaded coder " + tempCoder.getFirstName() + " " + tempCoder.getLastName());
             }
         } catch (SQLException sqe) {
@@ -1377,10 +1378,10 @@ final class UserDbCoder {
 
         try {
             query = new StringBuffer(300);
-            query.append( " SELECT rank");
-            query.append(   " FROM coder_rank");
-            query.append(  " WHERE coder_id = ?");
-            query.append(    " AND coder_rank_type_id = ?");
+            query.append(" SELECT rank");
+            query.append(" FROM coder_rank");
+            query.append(" WHERE coder_id = ?");
+            query.append(" AND coder_rank_type_id = ?");
             conn = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
 
             ps = conn.prepareStatement(query.toString());

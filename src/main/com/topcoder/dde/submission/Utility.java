@@ -1,22 +1,22 @@
 package com.topcoder.dde.submission;
 
+import com.topcoder.dde.user.User;
 import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.dde.user.User;
 import com.topcoder.util.idgenerator.bean.IdGenException;
 
+import javax.ejb.CreateException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.ejb.CreateException;
 import javax.rmi.PortableRemoteObject;
-import java.util.Iterator;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.IOException;
 import java.io.InputStream;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  */
@@ -44,7 +44,7 @@ public class Utility {
                 list.add(subList[j]);
             }
         }
-        return (Submission []) list.toArray(new Submission[0]);
+        return (Submission[]) list.toArray(new Submission[0]);
     }
 
     public static boolean submit(FileUpload fileUpload, User user, long comp_version_id, long phase_id, String comment) throws SubmitterDoesNotExistException, IOException, NamingException, CreateException, SQLException, IdGenException {
@@ -53,8 +53,10 @@ public class Utility {
         boolean rv = false;
         while (it.hasNext()) {
             InputStream is = ((UploadedFile) it.next()).getInputStream();
-            if (is.available() <= 0) continue;
-            else rv = true;
+            if (is.available() <= 0)
+                continue;
+            else
+                rv = true;
             getSubmissions().submit(getSubmitters().getSubmitterId(user.getId(),
                     comp_version_id, phase_id, true), is, comment);
         }
@@ -66,28 +68,28 @@ public class Utility {
         for (int i = 0; i >= 0;) {
             i = text.indexOf("&");
             if (i >= 0) {
-                text = text.substring(0,i) + "&amp" + text.substring(i+1);
+                text = text.substring(0, i) + "&amp" + text.substring(i + 1);
                 i++;
             }
         }
         for (int i = 0; i >= 0;) {
             i = text.indexOf("<");
             if (i >= 0) {
-                text = text.substring(0,i) + "&lt" + text.substring(i+1);
+                text = text.substring(0, i) + "&lt" + text.substring(i + 1);
                 i++;
             }
         }
         for (int i = 0; i >= 0;) {
             i = text.indexOf(">");
             if (i >= 0) {
-                text = text.substring(0,i) + "&gt" + text.substring(i+1);
+                text = text.substring(0, i) + "&gt" + text.substring(i + 1);
                 i++;
             }
         }
         for (int i = 0; i >= 0;) {
             i = text.indexOf("\"");
             if (i >= 0) {
-                text = text.substring(0,i) + "&quot" + text.substring(i+1);
+                text = text.substring(0, i) + "&quot" + text.substring(i + 1);
                 i++;
             }
         }

@@ -12,25 +12,25 @@ import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
 
 public final class DDECompDownloadTest extends DDEServerTestCase {
 
-    private static final String URL="http://www.someurl2.com/";
-    private static final String DESCRIPTION="ExamplesDesc6";
-    
+    private static final String URL = "http://www.someurl2.com/";
+    private static final String DESCRIPTION = "ExamplesDesc6";
+
     private LocalDDECompDownloadHome compDownloadHome;
 
     DDECompDownloadTest() {
     }
-    
+
     static LocalDDECompDownload create(LocalDDECompVersions versions) throws CreateException {
         try {
-            LocalDDECompDownloadHome compDownloadHome=lookup();
+            LocalDDECompDownloadHome compDownloadHome = lookup();
             return compDownloadHome.create(URL, DESCRIPTION, versions);
         } catch (NamingException e) {
-            throw new CreateException(""+e);
+            throw new CreateException("" + e);
         }
     }
 
     protected void setUp() throws NamingException {
-        compDownloadHome=lookup();
+        compDownloadHome = lookup();
     }
 
     private static LocalDDECompDownloadHome lookup() throws NamingException {
@@ -38,12 +38,12 @@ public final class DDECompDownloadTest extends DDEServerTestCase {
     }
 
     public void test() throws Exception {
-        LocalDDECompCatalog catalog=DDECompCatalogTest.create();
-        LocalDDECompVersions versions=DDECompVersionsTest.create(catalog);
-        String url=URL;
-        String description=DESCRIPTION;
-        LocalDDECompDownload compDownload=create(versions);
-        Long primaryKey=testGetPrimaryKey(compDownload);
+        LocalDDECompCatalog catalog = DDECompCatalogTest.create();
+        LocalDDECompVersions versions = DDECompVersionsTest.create(catalog);
+        String url = URL;
+        String description = DESCRIPTION;
+        LocalDDECompDownload compDownload = create(versions);
+        Long primaryKey = testGetPrimaryKey(compDownload);
         testGetUrl(compDownload, url);
         testGetDescription(compDownload, description);
         testGetCompVersions(compDownload, versions);
@@ -51,22 +51,22 @@ public final class DDECompDownloadTest extends DDEServerTestCase {
     }
 
     private void testGetCompVersions(LocalDDECompDownload compDownload, LocalDDECompVersions versions) {
-        LocalDDECompVersions versions2=compDownload.getCompVersions();
+        LocalDDECompVersions versions2 = compDownload.getCompVersions();
         assertTrue(versions.isIdentical(versions2));
     }
 
     private void testGetDescription(LocalDDECompDownload compDownload, String description) {
-        String description2=compDownload.getDescription();
+        String description2 = compDownload.getDescription();
         assertEquals(description, description2);
     }
 
     private void testGetUrl(LocalDDECompDownload compDownload, String url) {
-        String url2=compDownload.getUrl();
+        String url2 = compDownload.getUrl();
         assertEquals(url, url2);
     }
 
-    private void testRemove(LocalDDECompDownload compDownload, LocalDDECompVersions versions, LocalDDECompCatalog catalog, 
-            Long primaryKey) throws RemoveException {
+    private void testRemove(LocalDDECompDownload compDownload, LocalDDECompVersions versions, LocalDDECompCatalog catalog,
+                            Long primaryKey) throws RemoveException {
         compDownload.remove();
         versions.remove();
         catalog.remove();
@@ -78,8 +78,8 @@ public final class DDECompDownloadTest extends DDEServerTestCase {
     }
 
     private Long testGetPrimaryKey(LocalDDECompDownload compDownload) throws FinderException {
-        Long primaryKey=(Long) compDownload.getPrimaryKey();
-        LocalDDECompDownload compDownload2=compDownloadHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) compDownload.getPrimaryKey();
+        LocalDDECompDownload compDownload2 = compDownloadHome.findByPrimaryKey(primaryKey);
         assertTrue(compDownload.isIdentical(compDownload2));
         return primaryKey;
     }

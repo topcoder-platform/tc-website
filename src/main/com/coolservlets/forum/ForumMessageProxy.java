@@ -56,7 +56,8 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Enumeration;
 
 /**
  * A protection proxy for ForumMessage objects.
@@ -72,8 +73,7 @@ public class ForumMessageProxy implements ForumMessage {
      * the specified permissions
      */
     public ForumMessageProxy(ForumMessage message, Authorization authorization,
-            ForumPermissions permissions)
-    {
+                             ForumPermissions permissions) {
         this.message = message;
         this.authorization = authorization;
         this.permissions = permissions;
@@ -105,12 +105,10 @@ public class ForumMessageProxy implements ForumMessage {
      * @throws UnauthorizedException if does not have ADMIN permissions.
      */
     public void setCreationDate(Date creationDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             this.message.setCreationDate(creationDate);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -134,12 +132,10 @@ public class ForumMessageProxy implements ForumMessage {
      * @throws UnauthorizedException if does not have ADMIN permissions.
      */
     public void setModifiedDate(Date modifiedDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin()) {
             this.message.setModifiedDate(modifiedDate);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -156,13 +152,11 @@ public class ForumMessageProxy implements ForumMessage {
      *
      * @throws UnauthorizedException if does not have ADMIN permissions.
      */
-    public void setSubject(String subject) throws UnauthorizedException  {
+    public void setSubject(String subject) throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin() ||
-                getUser().hasPermission(ForumPermissions.USER_ADMIN))
-        {
+                getUser().hasPermission(ForumPermissions.USER_ADMIN)) {
             this.message.setSubject(subject);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -181,11 +175,9 @@ public class ForumMessageProxy implements ForumMessage {
      */
     public void setBody(String body) throws UnauthorizedException {
         if (permissions.isSystemOrForumAdmin() ||
-                getUser().hasPermission(ForumPermissions.USER_ADMIN))
-        {
+                getUser().hasPermission(ForumPermissions.USER_ADMIN)) {
             this.message.setBody(body);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -267,5 +259,5 @@ public class ForumMessageProxy implements ForumMessage {
     public String toString() {
         return message.toString();
     }
-    
-} 
+
+}

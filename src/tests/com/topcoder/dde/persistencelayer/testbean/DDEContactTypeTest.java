@@ -10,54 +10,54 @@ import com.topcoder.dde.persistencelayer.interfaces.LocalDDEContactTypeHome;
 
 public final class DDEContactTypeTest extends DDEServerTestCase {
 
-    private static final String DESCRIPTION="ContactTypeDesc8";
-    private static final long STATUS_ID=DDEStatusTest.STATUS_ID;
+    private static final String DESCRIPTION = "ContactTypeDesc8";
+    private static final long STATUS_ID = DDEStatusTest.STATUS_ID;
 
     private LocalDDEContactTypeHome contactTypeHome;
 
     DDEContactTypeTest() {
     }
-    
+
     static LocalDDEContactType create() throws CreateException {
         try {
-            LocalDDEContactTypeHome contactTypeHome=lookup();
+            LocalDDEContactTypeHome contactTypeHome = lookup();
             return contactTypeHome.create(DESCRIPTION, STATUS_ID);
         } catch (NamingException e) {
-            throw new CreateException(""+e);
+            throw new CreateException("" + e);
         }
     }
 
     protected void setUp() throws NamingException {
-        contactTypeHome=lookup();
+        contactTypeHome = lookup();
     }
 
     private static LocalDDEContactTypeHome lookup() throws NamingException {
         return (LocalDDEContactTypeHome) lookup(LocalDDEContactTypeHome.EJB_REF_NAME);
     }
-    
+
     public void test() throws Exception {
-        String description=DESCRIPTION;
-        long status=STATUS_ID;
-        LocalDDEContactType contactType=create();
-        Long primaryKey=testGetPrimaryKey(contactType);
+        String description = DESCRIPTION;
+        long status = STATUS_ID;
+        LocalDDEContactType contactType = create();
+        Long primaryKey = testGetPrimaryKey(contactType);
         testGetDescription(contactType, description);
         testGetStatus(contactType, status);
         testRemove(contactType, primaryKey);
     }
 
     private void testGetStatus(LocalDDEContactType contactType, long status) {
-        long status2=contactType.getStatusId();
+        long status2 = contactType.getStatusId();
         assertEquals(status, status2);
     }
 
     private void testGetDescription(LocalDDEContactType contactType, String description) {
-        String description2=contactType.getDescription();
+        String description2 = contactType.getDescription();
         assertEquals(description, description2);
     }
 
     private Long testGetPrimaryKey(LocalDDEContactType contactType) throws FinderException {
-        Long primaryKey=(Long) contactType.getPrimaryKey();
-        LocalDDEContactType contactType2=contactTypeHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) contactType.getPrimaryKey();
+        LocalDDEContactType contactType2 = contactTypeHome.findByPrimaryKey(primaryKey);
         assertTrue(contactType.isIdentical(contactType2));
         return primaryKey;
     }

@@ -17,8 +17,8 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Map;
 
@@ -195,7 +195,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     }
 
     public boolean payReferrer() {
-        return _typeId==CONTEST_PAYMENT;
+        return _typeId == CONTEST_PAYMENT;
     }
 
 }

@@ -1,13 +1,13 @@
 package com.topcoder.web.hs.controller.requests;
 
 import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.util.*;
-import com.topcoder.shared.util.logging.*;
-import com.topcoder.web.hs.model.*;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.TCRequest;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.hs.model.SearchBean;
 
 import java.util.*;
 

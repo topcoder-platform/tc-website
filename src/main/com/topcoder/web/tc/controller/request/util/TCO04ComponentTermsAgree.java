@@ -1,12 +1,11 @@
 package com.topcoder.web.tc.controller.request.util;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserEvent;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.util.DBMS;
 
 import java.util.Calendar;
 

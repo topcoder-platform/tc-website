@@ -26,7 +26,9 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.util.idgenerator.bean.*;
+
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -76,9 +78,9 @@ public class TestDDEForum extends TestCase {
         topic1 = ForumTestSetup.topic1;
         topic2 = ForumTestSetup.topic2;
         subtopic1 = ForumTestSetup.subtopic1;
-        doc1 =  ForumTestSetup.doc1;
-        doc2 =  ForumTestSetup.doc2;
-        doc3 =  ForumTestSetup.doc3;
+        doc1 = ForumTestSetup.doc1;
+        doc2 = ForumTestSetup.doc2;
+        doc3 = ForumTestSetup.doc3;
     }
 
     public void testCanModerate() throws Exception {
@@ -87,13 +89,13 @@ public class TestDDEForum extends TestCase {
                 defaultUser.getRegInfo().getPassword());
 
         assertTrue("User already has moderate permission",
-                   !ddeForum.canModerate(forumId, subject));
+                !ddeForum.canModerate(forumId, subject));
         principalMgr.assignRole(defaultUserPrincipal, moderateRole, null);
         subject = login.login(
                 defaultUser.getRegInfo().getUsername(),
                 defaultUser.getRegInfo().getPassword());
         assertTrue("User already doesn't have moderate permission",
-                   ddeForum.canModerate(forumId, subject));
+                ddeForum.canModerate(forumId, subject));
     }
 
     public void testCanModerate_InvalidForum() throws Exception {
@@ -119,13 +121,13 @@ public class TestDDEForum extends TestCase {
                 defaultUser.getRegInfo().getPassword());
 
         assertTrue("User already has post permission",
-                   !ddeForum.canPost(forumId, subject));
+                !ddeForum.canPost(forumId, subject));
         principalMgr.assignRole(defaultUserPrincipal, postRole, null);
         subject = login.login(
                 defaultUser.getRegInfo().getUsername(),
                 defaultUser.getRegInfo().getPassword());
         assertTrue("User doesnn't have post permission",
-                   ddeForum.canPost(forumId, subject));
+                ddeForum.canPost(forumId, subject));
     }
 
     public void testCanPost_InvalidForum() throws Exception {
@@ -156,7 +158,7 @@ public class TestDDEForum extends TestCase {
         view = forum.generateView();
         // Added by Albert
         viewIterator = view.iterator();
-        while(viewIterator.hasNext()) {
+        while (viewIterator.hasNext()) {
             System.out.println("From ForumView: " + ((Topic) viewIterator.next()).getName());
         }
         // End of added
@@ -174,8 +176,8 @@ public class TestDDEForum extends TestCase {
 
             System.out.println("Spec Topic Name: " + t.getName() + ".");
             assertTrue("Bad or garbled specification topic",
-                       t.getName().equals(topic1.getName())
-                       || t.getName().equals(topic2.getName()) );
+                    t.getName().equals(topic1.getName())
+                    || t.getName().equals(topic2.getName()));
             count++;
         }
         assertEquals("Wrong number of specification topics", 2, count);
@@ -188,12 +190,12 @@ public class TestDDEForum extends TestCase {
         /* test whether it contains the correct element and no others */
         viewIterator = sView.iterator();
         assertTrue("SpecificationView contains no element",
-                   viewIterator.hasNext());
+                viewIterator.hasNext());
         SpecificationTopic t = (SpecificationTopic) viewIterator.next();
         assertTrue("Bad or garbled specification topic",
-                   t.getName().equals(topic1.getName()) );
+                t.getName().equals(topic1.getName()));
         assertTrue("Wrong number of specification topics",
-                   !viewIterator.hasNext());
+                !viewIterator.hasNext());
 
         /* Specification view test tacked on here: */
         assertTrue("The view has an empty XML representation",
@@ -224,7 +226,7 @@ public class TestDDEForum extends TestCase {
     }
 
     public void testGetLinkedComponent() throws Exception {
-        ComponentSummary compSummary =  ddeForum.getLinkedComponent(forumId);
+        ComponentSummary compSummary = ddeForum.getLinkedComponent(forumId);
         assertEquals("Wrong component", componentId, compSummary.getComponentId());
     }
 

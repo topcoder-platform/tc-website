@@ -4,17 +4,17 @@ CLASSPATH=$LIBDIR/j2ee.jar:$LIBDIR/ns.jar:$CLASSPATH
 export CLASSPATH
 if [ $# -lt 1 ]
 then
-	JARFILE=TopCoder
+JARFILE=TopCoder
 else
-	JARFILE=$1
+JARFILE=$1
 fi
 if [ ! -d classes ]
 then
-	mkdir classes
+mkdir classes
 fi
 if [ ! -d classes/META-INF ]
 then
-	mkdir classes/META-INF
+mkdir classes/META-INF
 fi
 cp *.xml *.xmi classes/META-INF
 cd classes

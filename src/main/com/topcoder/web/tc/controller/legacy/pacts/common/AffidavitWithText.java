@@ -11,9 +11,9 @@ public class AffidavitWithText {
     public Affidavit affidavit;
     public String affidavitText;
     public Payment payment;
-    private boolean hasTaxForm=false;
-    private boolean hasNotarizedAffidavit=false;
-    private boolean hasAllDemographicAnswers=false;
+    private boolean hasTaxForm = false;
+    private boolean hasNotarizedAffidavit = false;
+    private boolean hasAllDemographicAnswers = false;
     //public long daysLeft;  // the number of days left that it can be affirmed online
 
     public AffidavitWithText() {
@@ -24,7 +24,7 @@ public class AffidavitWithText {
     }
 
     public boolean canAffirmOnline() {
-        return hasTaxForm && hasNotarizedAffidavit && hasAllDemographicAnswers && affidavit._daysLeftToAffirm>0;
+        return hasTaxForm && hasNotarizedAffidavit && hasAllDemographicAnswers && affidavit._daysLeftToAffirm > 0;
     }
 
     public boolean hasTaxForm() {

@@ -1,17 +1,15 @@
 package com.topcoder.web.corp.ejb.coder;
 
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.ejb.EJBException;
+import javax.naming.Context;
+import javax.sql.DataSource;
 import java.rmi.RemoteException;
-import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -33,7 +31,7 @@ public class CompanyCandidateBean extends BaseEJB {
      * @throws RemoteException
      */
     public void createCompanyCandidate(long companyId, long candidateId)
-        throws RemoteException {
+            throws RemoteException {
 
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
@@ -62,13 +60,13 @@ public class CompanyCandidateBean extends BaseEJB {
             conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
-            pstmt.setLong(1,companyId);
-            pstmt.setLong(2,candidateId);
+            pstmt.setLong(1, companyId);
+            pstmt.setLong(2, candidateId);
 
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            DBMS.printSqlException(true,e);
+            DBMS.printSqlException(true, e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
@@ -79,9 +77,27 @@ public class CompanyCandidateBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createCompanyCandidate");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createCompanyCandidate");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createCompanyCandidate");}}
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in createCompanyCandidate");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in createCompanyCandidate");
+                }
+            }
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in createCompanyCandidate");
+                }
+            }
         }
     }
 
@@ -92,7 +108,7 @@ public class CompanyCandidateBean extends BaseEJB {
      * @throws RemoteException
      */
     public void removeCompanyCandidate(long companyId, long candidateId)
-        throws RemoteException {
+            throws RemoteException {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
         StringBuffer varBuf = new StringBuffer(200);
@@ -121,13 +137,13 @@ public class CompanyCandidateBean extends BaseEJB {
             conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
-            pstmt.setLong(1,companyId);
-            pstmt.setLong(2,candidateId);
+            pstmt.setLong(1, companyId);
+            pstmt.setLong(2, candidateId);
 
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            DBMS.printSqlException(true,e);
+            DBMS.printSqlException(true, e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in removeCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
@@ -138,9 +154,27 @@ public class CompanyCandidateBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in removeCompanyCandidate");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in removeCompanyCandidate");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in removeCompanyCandidate");}}
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in removeCompanyCandidate");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in removeCompanyCandidate");
+                }
+            }
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in removeCompanyCandidate");
+                }
+            }
         }
     }
 }

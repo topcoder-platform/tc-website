@@ -1,12 +1,10 @@
 /*
  * ScorecardQuestion.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
-
-import com.topcoder.apps.review.document.Evaluation;
 
 import java.io.Serializable;
 
@@ -46,7 +44,7 @@ public class ScorecardQuestion implements Serializable {
 
     /** doc */
     protected long templateVersionId;
-    
+
     /** dirtyFlag */
     protected boolean dirtyFlag = false;
 
@@ -57,7 +55,7 @@ public class ScorecardQuestion implements Serializable {
      *
      */
     public ScorecardQuestion(long id, Evaluation evaluation, String questionText, int weight,
-        ScorecardSection scorecardSection, int sequenceLocation, long templateVersionId, long versionId) {
+                             ScorecardSection scorecardSection, int sequenceLocation, long templateVersionId, long versionId) {
         this.id = id;
         this.evaluation = evaluation;
         this.questionText = questionText;
@@ -107,7 +105,7 @@ public class ScorecardQuestion implements Serializable {
      * <p>
      * Return the id of this the question.
      * </p>
-     * 
+     *
      * @return the id of this the question.
      */
     public long getId() {
@@ -126,7 +124,7 @@ public class ScorecardQuestion implements Serializable {
      * <p>
      * Return the evaluation of this question.
      * </p>
-     * 
+     *
      * @return the evaluation of this question.
      */
     public Evaluation getEvaluation() {
@@ -137,7 +135,7 @@ public class ScorecardQuestion implements Serializable {
      * <p>
      * Set the evaluation of this question.
      * </p>
-     * 
+     *
      * @param eval The evaluation of this question.
      */
     public void setEvaluation(Evaluation eval) {
@@ -149,7 +147,7 @@ public class ScorecardQuestion implements Serializable {
      * <p>
      * Return the text of this question.
      * </p>
-     * 
+     *
      * @return a String with the text of this question.
      */
     public String getQuestionText() {
@@ -160,7 +158,7 @@ public class ScorecardQuestion implements Serializable {
      * <p>
      * Return the weight of this question.
      * </p>
-     * 
+     *
      * @return the weight of this question.
      */
     public int getWeight() {
@@ -171,7 +169,7 @@ public class ScorecardQuestion implements Serializable {
      * <p>
      * Return the section of this question.
      * </p>
-     * 
+     *
      * @return the section of this question.
      */
     public ScorecardSection getScorecardSection() {
@@ -182,7 +180,7 @@ public class ScorecardQuestion implements Serializable {
      * <p>
      * Return the location of this question.
      * </p>
-     * 
+     *
      * @return the location of this question.
      */
     public int getSequenceLocation() {
@@ -193,7 +191,7 @@ public class ScorecardQuestion implements Serializable {
      * <p>
      * Return the template version used to construct this question.
      * </p>
-     * 
+     *
      * @return the template version used to construct this question.
      */
     public long getVersion() {

@@ -2,9 +2,9 @@ package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class SimilarHistogram implements Fraud {
     private static Logger log = Logger.getLogger(SimilarHistogram.class);
@@ -27,9 +27,9 @@ public class SimilarHistogram implements Fraud {
         Submission s2 = null;
         for (int i = 0; i < tokens.size() - 1; i++) {
             for (int j = i + 1; j < tokens.size(); j++) {
-                s1 = (Submission)submissions.get(i);
-                s2 = (Submission)submissions.get(j);
-                if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId()==s2.getLanguageId() && s1.getCoderId()!=s2.getCoderId()) {
+                s1 = (Submission) submissions.get(i);
+                s2 = (Submission) submissions.get(j);
+                if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId() == s2.getLanguageId() && s1.getCoderId() != s2.getCoderId()) {
                     t1 = new TokenHistogram(((TokenizedSource) tokens.get(i)).getTokens());
                     t2 = new TokenHistogram(((TokenizedSource) tokens.get(j)).getTokens());
                     int val = t1.getDifference(t2);
@@ -46,7 +46,7 @@ public class SimilarHistogram implements Fraud {
         Collections.sort(results);
         ComparisonResult r = null;
         for (int i = 0; i < MAX_REPORT && i < results.size(); i++) {
-            r = (ComparisonResult)results.get(i);
+            r = (ComparisonResult) results.get(i);
             s1 = (Submission) submissions.get(r.getIndex1());
             s2 = (Submission) submissions.get(r.getIndex2());
             report.append(r.getValue());

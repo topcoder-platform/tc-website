@@ -4,7 +4,9 @@ package com.topcoder.web.email.bean;
 import com.topcoder.web.email.servlet.EmailConstants;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 
 /**

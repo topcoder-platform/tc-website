@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class DownloadTask extends ResumeTask{
+public class DownloadTask extends ResumeTask {
     private Resume resume = null;
     private static Logger log = Logger.getLogger(DownloadTask.class);
     private int userId = -1;
 
-    public DownloadTask() throws ResumeTaskException{
+    public DownloadTask() throws ResumeTaskException {
         super();
     }
 
@@ -29,16 +29,17 @@ public class DownloadTask extends ResumeTask{
         BasicAuthentication auth = new BasicAuthentication(
                 new SessionPersistor(request.getSession()), HttpObjectFactory.createRequest(request),
                 HttpObjectFactory.createResponse(response), BasicAuthentication.MAIN_SITE);
-        if (navigation==null) navigation = new Navigation();
+        if (navigation == null) navigation = new Navigation();
         if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {
             if (navigation.isIdentified())
                 userId = navigation.getUserId();
-            else userId = (int)auth.getActiveUser().getId();
+            else
+                userId = (int) auth.getActiveUser().getId();
         }
-        if (getRequestParameter(request, "compid")!=null) {
+        if (getRequestParameter(request, "compid") != null) {
             companyId = Long.parseLong(getRequestParameter(request, "compid"));
             db = getCompanyDb(companyId);
         }
@@ -47,7 +48,7 @@ public class DownloadTask extends ResumeTask{
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 //        response.setHeader("content-disposition","attachment; filename="+resume.getFileName());
-        response.setHeader("content-disposition","inline; filename="+resume.getFileName());
+        response.setHeader("content-disposition", "inline; filename=" + resume.getFileName());
         response.setContentType(resume.getMimeType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
@@ -60,10 +61,10 @@ public class DownloadTask extends ResumeTask{
     }
 
     public void processStep(String step) throws Exception {
-        try{
-            ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+        try {
+            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             resume = resumeServices.getResume(userId, db);
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new ResumeTaskException(e);
         }
 

@@ -53,11 +53,10 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum;
 
-import java.lang.reflect.*;
-import java.util.*;
+import java.util.Iterator;
 
 /**
  * A ForumFactory provides access to and management of Forums. It is the point
@@ -107,7 +106,7 @@ public abstract class ForumFactory {
             return null;
         }
         if (factory == null) {
-            synchronized(initLock) {
+            synchronized (initLock) {
                 if (factory == null) {
                     String classNameProp = PropertyManager.getProperty("ForumFactory.className");
                     System.out.println("classNameProp = " + classNameProp);
@@ -118,19 +117,17 @@ public abstract class ForumFactory {
                         try {
                             //Load the class and create an instance.
                             Class c = Class.forName(className);
-                            factory = (ForumFactory)c.newInstance();
-                        }
-                        catch (Exception e) {
+                            factory = (ForumFactory) c.newInstance();
+                        } catch (Exception e) {
                             System.err.println("Failed to load ForumFactory class "
-                                + className + ". Jive cannot function normally.");
+                                    + className + ". Jive cannot function normally.");
                             e.printStackTrace();
                             return null;
                         }
-                    }
-                    else {
+                    } else {
                         System.err.println("Error: could not create ForumFactory " +
-                            "because the ForumFactory classname has not been set. "
-                            );
+                                "because the ForumFactory classname has not been set. "
+                        );
                         return null;
                     }
                 }
@@ -141,10 +138,10 @@ public abstract class ForumFactory {
         //in the username and password to the proxy for its special
         //implementation of the getForum() method. See below for more details.
         ForumFactoryProxy proxy = new ForumFactoryProxy(
-                                    factory,
-                                    authorization,
-                                    factory.getPermissions(authorization)
-                                  );
+                factory,
+                authorization,
+                factory.getPermissions(authorization)
+        );
         return proxy;
     }
 
@@ -209,7 +206,7 @@ public abstract class ForumFactory {
      * of the forum objects that the clients have handles on is unspecified and
      * may result in errors.
      *
-     * @param forum the forum to delete.     
+     * @param forum the forum to delete.
      * @throws UnauthorizedException if not allowed to delete a forum.
      */
     public abstract void deleteForum(Forum forum)
@@ -232,7 +229,7 @@ public abstract class ForumFactory {
 
     /**
      * Returns the permissions for the factory that correspond to the
-     * passed-in Authorization. 
+     * passed-in Authorization.
      *
      * @param authorization the auth token for the user.
      * @return the permissions for this object.
@@ -249,4 +246,4 @@ public abstract class ForumFactory {
      * @see ForumPermissions
      */
     public abstract boolean hasPermission(int type);
-} 
+}

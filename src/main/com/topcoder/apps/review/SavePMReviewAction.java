@@ -4,23 +4,12 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.AbstractScorecard;
-import com.topcoder.apps.review.document.ScreeningScorecard;
-import com.topcoder.apps.review.document.ReviewScorecard;
-import com.topcoder.apps.review.document.InitialSubmission;
-
+import com.topcoder.apps.review.document.*;
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionForwards;
-import org.apache.struts.action.ActionMapping;
-
-import com.topcoder.apps.review.document.DocumentManagerLocal;
 
 /**
  * <p>
@@ -32,14 +21,14 @@ import com.topcoder.apps.review.document.DocumentManagerLocal;
  * @version 1.0
  */
 public final class SavePMReviewAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -54,20 +43,20 @@ public final class SavePMReviewAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "SavePMReviewAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "SavePMReviewAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         // Was this transaction cancelled?
-	    if (isCancelled(request)) {
+        if (isCancelled(request)) {
             ActionForward forward = null;
 
             request.getSession().removeAttribute(mapping.getAttribute());
-	        forward = mapping.findForward(Constants.CANCEL_KEY);
-            forward = new ActionForward(forward.getPath() + "?" + 
-                                        Constants.ID_KEY + "=" + 
-                                        orpd.getProject().getId(), true);
+            forward = mapping.findForward(Constants.CANCEL_KEY);
+            forward = new ActionForward(forward.getPath() + "?" +
+                    Constants.ID_KEY + "=" +
+                    orpd.getProject().getId(), true);
             forward.setName(Constants.CANCEL_KEY);
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
             forwards.addForward(forward);
@@ -75,7 +64,7 @@ public final class SavePMReviewAction extends ReviewAction {
         } else {
             if (!isTokenValid(request)) {
                 errors.add(ActionErrors.GLOBAL_ERROR,
-                           new ActionError("error.transaction.token"));
+                        new ActionError("error.transaction.token"));
                 forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
                 forwards.addForward(mapping.findForward(Constants.FAILURE_KEY));
                 return null;
@@ -84,26 +73,26 @@ public final class SavePMReviewAction extends ReviewAction {
                 BusinessDelegate businessDelegate = new BusinessDelegate();
                 ResultData result = businessDelegate.projectAdmin(data);
                 DocumentManagerLocal documentManager;
-                
+
                 log(Level.ERROR, "HERE");
-                //struts checkbox doesn't record unchecked state properly, need to reset if not in request
-                if(request.getParameter("advanced") == null) {
+//struts checkbox doesn't record unchecked state properly, need to reset if not in request
+                if (request.getParameter("advanced") == null) {
                     ((SubmissionForm) form).setAdvanced(false);
                 }
-                
+
                 try {
                     documentManager = EJBHelper.getDocumentManager();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     return null;
                 }
-                
-                if (result instanceof SuccessResult)  {
+
+                if (result instanceof SuccessResult) {
                     long sid = ((SubmissionForm) form).getSubmission().getId();
 
                     request.getSession().removeAttribute(mapping.getAttribute());
                     resetToken(request);
-                    
-                    // Set the PM Review flag
+
+// Set the PM Review flag
                     for (int i = 0; i < ((SubmissionForm) form).getScorecards().length; i++) {
                         AbstractScorecard scorecard = ((SubmissionForm) form).getScorecards()[i];
                         if (scorecard.getSubmission().getId() == sid) {
@@ -114,22 +103,22 @@ public final class SavePMReviewAction extends ReviewAction {
                             if (scorecard instanceof ScreeningScorecard) {
                                 log(Level.ERROR, "ADVANCED: " + ((SubmissionForm) form).getAdvanced());
                                 if (((SubmissionForm) form).getIsScreening()) {
-                                    /*((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
-                                    
+/*((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
+
                                     try {
                                         documentManager.saveInitialSubmission((InitialSubmission)((SubmissionForm) form).getSubmission(), data.getUser().getTCSubject());
                                     } catch(Exception e) {
                                         log(Level.ERROR, e.getMessage());
                                         return null;
                                     }*/
-                                    
+
                                     ScreeningData sData = new ScreeningData(orpd, sid, (ScreeningScorecard) scorecard);
                                     result = businessDelegate.screeningScorecard(sData);
-                                    
+
                                 }
                             } else {
-                                ReviewData rData = new ReviewData(orpd, sid, scorecard.getAuthor().getId(), 
-                                                                 (ReviewScorecard) scorecard);
+                                ReviewData rData = new ReviewData(orpd, sid, scorecard.getAuthor().getId(),
+                                        (ReviewScorecard) scorecard);
                                 result = businessDelegate.reviewScorecard(rData);
                             }
 
@@ -138,30 +127,30 @@ public final class SavePMReviewAction extends ReviewAction {
                             }
                         }
                     }
-                    
-                    //save
+
+//save
                     if (((SubmissionForm) form).getIsScreening()) {
                         InitialSubmission sub = documentManager.getInitialSubmission(data.getProject(), sid, orpd.getUser().getTCSubject());
                         sub.setAdvancedToReview(((SubmissionForm) form).getAdvanced());
 
                         try {
                             documentManager.saveInitialSubmission(sub, data.getUser().getTCSubject());
-                        } catch(Exception e) {
+                        } catch (Exception e) {
                             return new FailureResult("ERROR SAVING SUBMISSION");
                         }
-                        
+
                         ResultData rs = AutoPilot.screeningPMReview(data);
-                        if(!(rs instanceof SuccessResult))
+                        if (!(rs instanceof SuccessResult))
                             return rs;
-                    } else  {
+                    } else {
                         ResultData rs = AutoPilot.reviewPMReview(data);
-                        if(!(rs instanceof SuccessResult))
+                        if (!(rs instanceof SuccessResult))
                             return rs;
                     }
                 }
-                
+
                 return result;
             }
-        }        
+        }
     }
 }

@@ -6,40 +6,41 @@
 
 package com.topcoder.dde.forum;
 
-import java.util.Date;
+
+
 /**
  *
  * @author  jimmy
  */
 public class ForumComponent {
-    
+
     /** Holds value of property componentId. */
     private long componentId;
-    
+
     /** Holds value of property name. */
     private String name;
-    
+
     /** Holds value of property shortDescription. */
     private String shortDescription;
-    
+
     /** Holds value of property rootCategory. */
     private long rootCategory;
-    
+
     /** Holds value of property versionId. */
     private long versionId;
-    
+
     /** Holds value of property versionText. */
     private String versionText;
-    
+
     /** Holds value of property versionPhase. */
     private long versionPhase;
-    
+
     /** Holds value of property collabForumId. */
     private long collabForumId;
-    
+
     /** Holds value of property collabForumId. */
     private long specForumId;
-    
+
     /** Creates a new instance of ActiveForum */
     public ForumComponent() {
     }
@@ -56,7 +57,7 @@ public class ForumComponent {
         this.collabForumId = forum.collabForumId;
         this.specForumId = forum.specForumId;
     }
-    
+
     /** Getter for property componentId.
      * @return Value of property componentId.
      *
@@ -64,7 +65,7 @@ public class ForumComponent {
     public long getComponentId() {
         return this.componentId;
     }
-    
+
     /** Setter for property componentId.
      * @param componentId New value of property componentId.
      *
@@ -72,7 +73,7 @@ public class ForumComponent {
     void setComponentId(long componentId) {
         this.componentId = componentId;
     }
-    
+
     /** Getter for property componentName.
      * @return Value of property componentName.
      *
@@ -80,7 +81,7 @@ public class ForumComponent {
     public String getName() {
         return this.name;
     }
-    
+
     /** Setter for property componentName.
      * @param componentName New value of property componentName.
      *
@@ -88,7 +89,7 @@ public class ForumComponent {
     void setName(String name) {
         this.name = name;
     }
-    
+
     /** Getter for property shortDescription.
      * @return Value of property shortDescription.
      *
@@ -96,7 +97,7 @@ public class ForumComponent {
     public String getShortDescription() {
         return this.shortDescription;
     }
-    
+
     /** Setter for property shortDescription.
      * @param shortDescription New value of property shortDescription.
      *
@@ -104,7 +105,7 @@ public class ForumComponent {
     void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }
-    
+
     /** Getter for property rootCategory.
      * @return Value of property rootCategory.
      *
@@ -112,7 +113,7 @@ public class ForumComponent {
     public long getRootCategory() {
         return this.rootCategory;
     }
-    
+
     /** Setter for property rootCategory.
      * @param rootCategory New value of property rootCategory.
      *
@@ -120,7 +121,7 @@ public class ForumComponent {
     void setRootCategory(long rootCategory) {
         this.rootCategory = rootCategory;
     }
-    
+
     /** Getter for property versionId.
      * @return Value of property versionId.
      *
@@ -128,7 +129,7 @@ public class ForumComponent {
     public long getVersionId() {
         return this.versionId;
     }
-    
+
     /** Setter for property versionId.
      * @param versionId New value of property versionId.
      *
@@ -136,7 +137,7 @@ public class ForumComponent {
     void setVersionId(long versionId) {
         this.versionId = versionId;
     }
-    
+
     /** Getter for property versionText.
      * @return Value of property versionText.
      *
@@ -144,7 +145,7 @@ public class ForumComponent {
     public String getVersionText() {
         return this.versionText;
     }
-    
+
     /** Setter for property versionText.
      * @param versionText New value of property versionText.
      *
@@ -152,7 +153,7 @@ public class ForumComponent {
     void setVersionText(String versionText) {
         this.versionText = versionText;
     }
-    
+
     /** Getter for property versionPhase.
      * @return Value of property versionPhase.
      *
@@ -160,7 +161,7 @@ public class ForumComponent {
     public long getVersionPhase() {
         return this.versionPhase;
     }
-    
+
     /** Setter for property versionPhase.
      * @param versionPhase New value of property versionPhase.
      *
@@ -168,7 +169,7 @@ public class ForumComponent {
     void setVersionPhase(long versionPhase) {
         this.versionPhase = versionPhase;
     }
-    
+
     /** Getter for property collabForumId.
      * @return Value of property collabForumId.
      *
@@ -176,7 +177,7 @@ public class ForumComponent {
     public long getCollabForumId() {
         return this.collabForumId;
     }
-    
+
     /** Setter for property collabForumId.
      * @param collabForumId New value of property collabForumId.
      *
@@ -192,7 +193,7 @@ public class ForumComponent {
     public long getSpecForumId() {
         return this.specForumId;
     }
-    
+
     /** Setter for property specForumId.
      * @param collabForumId New value of property specForumId.
      *

@@ -1,7 +1,7 @@
 /*
  * AggregationReview.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -43,7 +43,7 @@ public class AggregationReview implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public AggregationReview(long id, AggregationApproval status, String text, boolean isPMReviewed,
-        AggregationWorksheet aggWorksheet, boolean isCompleted, User reviewer, long requestorId, long versionId) {
+                             AggregationWorksheet aggWorksheet, boolean isCompleted, User reviewer, long requestorId, long versionId) {
         this.id = id;
         this.status = status;
         this.text = text;
@@ -103,7 +103,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Return the id of the aggregation review.
      * </p>
-     * 
+     *
      * @return the id of the aggregation review.
      */
     public long getId() {
@@ -122,7 +122,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Return the status of aggregation approval.
      * </p>
-     * 
+     *
      * @return a AggregationApproval with the status of aggregation approval.
      */
     public AggregationApproval getStatus() {
@@ -133,7 +133,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Set the status of aggregation approval.
      * </p>
-     * 
+     *
      * @param aggApp The status of aggregation approval.
      */
     public void setStatus(AggregationApproval aggApp) {
@@ -145,7 +145,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Return the review text.
      * </p>
-     * 
+     *
      * @return a String with the review text.
      */
     public String getText() {
@@ -156,7 +156,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Set the review text.
      * </p>
-     * 
+     *
      * @param reviewText The review text.
      */
     public void setText(String reviewText) {
@@ -168,7 +168,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Return whether the project manager has reviewed it.
      * </p>
-     * 
+     *
      * @return whether the project manager has reviewed it.
      */
     public boolean isPMReviewed() {
@@ -179,7 +179,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Set whether the project manager has reviewed it.
      * </p>
-     * 
+     *
      * @param isPMReviewed Whether the project manager has reviewed it.
      */
     public void setPMReviewed(boolean isPMReviewed) {
@@ -191,7 +191,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Return the aggregation worksheet.
      * </p>
-     * 
+     *
      * @return the aggregation worksheet.
      */
     public AggregationWorksheet getAggregationWorksheet() {
@@ -202,7 +202,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Return whether this review is completed.
      * </p>
-     * 
+     *
      * @return true if the review is completed, otherwise false.
      */
     public boolean isCompleted() {
@@ -213,7 +213,7 @@ public class AggregationReview implements Serializable {
      * <p>
      * Set whether this review is completed.
      * </p>
-     * 
+     *
      * @param isCompleted Whether this review is completed.
      */
     public void setCompleted(boolean isCompleted) {

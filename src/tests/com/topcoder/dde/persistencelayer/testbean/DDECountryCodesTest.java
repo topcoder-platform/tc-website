@@ -10,24 +10,24 @@ import com.topcoder.dde.persistencelayer.interfaces.LocalDDECountryCodesHome;
 
 public final class DDECountryCodesTest extends DDEServerTestCase {
 
-    private static final String DESCRIPTION="CountryCodesDesc8";
+    private static final String DESCRIPTION = "CountryCodesDesc8";
 
     private LocalDDECountryCodesHome countryCodesHome;
 
     DDECountryCodesTest() {
     }
-    
+
     static LocalDDECountryCodes create() throws CreateException {
         try {
-            LocalDDECountryCodesHome countryCodesHome=lookup();
+            LocalDDECountryCodesHome countryCodesHome = lookup();
             return countryCodesHome.create(DESCRIPTION);
         } catch (NamingException e) {
-            throw new CreateException(""+e);
+            throw new CreateException("" + e);
         }
     }
 
     protected void setUp() throws NamingException {
-        countryCodesHome=lookup();
+        countryCodesHome = lookup();
     }
 
     private static LocalDDECountryCodesHome lookup() throws NamingException {
@@ -35,22 +35,22 @@ public final class DDECountryCodesTest extends DDEServerTestCase {
     }
 
     public void test() throws Exception {
-        String description=DESCRIPTION;
-        LocalDDECountryCodes countryCodes=create();
-        Long primaryKey=testFindByPrimaryKey(countryCodes);
+        String description = DESCRIPTION;
+        LocalDDECountryCodes countryCodes = create();
+        Long primaryKey = testFindByPrimaryKey(countryCodes);
         testGetDescription(countryCodes, description);
         testRemove(countryCodes, primaryKey);
     }
 
     private Long testFindByPrimaryKey(LocalDDECountryCodes countryCodes) throws FinderException {
-        Long primaryKey=(Long) countryCodes.getPrimaryKey();
-        LocalDDECountryCodes countryCodes2=countryCodesHome.findByPrimaryKey(primaryKey);
+        Long primaryKey = (Long) countryCodes.getPrimaryKey();
+        LocalDDECountryCodes countryCodes2 = countryCodesHome.findByPrimaryKey(primaryKey);
         assertTrue(countryCodes.isIdentical(countryCodes2));
         return primaryKey;
     }
 
     private void testGetDescription(LocalDDECountryCodes countryCodes, String description) {
-        String description2=countryCodes.getDescription();
+        String description2 = countryCodes.getDescription();
         assertEquals(description, description2);
     }
 

@@ -1,13 +1,12 @@
 /*
  * ScorecardSectionManager.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
 
 import com.topcoder.apps.review.persistence.Common;
-
 import com.topcoder.util.cache.refreshable.RefreshException;
 import com.topcoder.util.cache.refreshable.Refreshable;
 
@@ -15,7 +14,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,9 +70,9 @@ public class ScorecardSectionManager implements Refreshable {
                 int weight = rs.getInt(3);
                 int seqLoc = rs.getInt(4);
                 long groupId = rs.getLong(5);
-                
+
                 ScorecardSectionGroupManager scorecardSectionGroupManager =
-                    (ScorecardSectionGroupManager) Common.getFromCache("ScorecardSectionGroupManager");
+                        (ScorecardSectionGroupManager) Common.getFromCache("ScorecardSectionGroupManager");
                 ScorecardSectionGroup sectionGroup = scorecardSectionGroupManager.getScorecardSectionGroup(groupId);
 
                 ScorecardSection scorecardSection = new ScorecardSection(id, name, weight, seqLoc, sectionGroup);
@@ -89,4 +87,5 @@ public class ScorecardSectionManager implements Refreshable {
         scorecardSectionMap = newMap;
     }
 }
- // end ScorecardSectionManager
+
+// end ScorecardSectionManager

@@ -1,14 +1,14 @@
 /*
  * PaymentInfo.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
 
-import java.io.Serializable;
-
 import com.topcoder.apps.review.persistence.Common;
+
+import java.io.Serializable;
 
 
 /**
@@ -17,7 +17,7 @@ import com.topcoder.apps.review.persistence.Common;
  * managers in keeping track of the status of their projects, but is
  * not for direct use by the financial department.
  * </p>
- * 
+ *
  * @author FatClimber
  * @version 1.0
  */
@@ -76,7 +76,7 @@ public class PaymentInfo implements Serializable {
      * <p>
      * Set the amount of payment.
      * </p>
-     * 
+     *
      * @param amount The amount of payment.
      */
     public void setPayment(float newAmount) {
@@ -90,7 +90,7 @@ public class PaymentInfo implements Serializable {
      * <p>
      * Return the amount of payment.
      * </p>
-     * 
+     *
      * @return the amount of payment.
      */
     public float getPayment() {
@@ -101,7 +101,7 @@ public class PaymentInfo implements Serializable {
      * <p>
      * Return the payment status.
      * </p>
-     * 
+     *
      * @return the payment status.
      */
     public PaymentStatus getPaymentStatus() {
@@ -112,7 +112,7 @@ public class PaymentInfo implements Serializable {
      * <p>
      * Set the payment status.
      * </p>
-     * 
+     *
      * @param status The payment status.
      */
     public void setPaymentStatus(PaymentStatus newStatus) {

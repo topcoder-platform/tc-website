@@ -24,7 +24,7 @@ import java.util.Hashtable;
  *
  * @author TCDEVELOPER
  * @version 1.0
- * @version Copyright © 2003, TopCoder Software, Inc. All rights reserved
+ * @version Copyright ï¿½ 2003, TopCoder Software, Inc. All rights reserved
  */
 public class TestingContext implements Context {
 
@@ -148,18 +148,31 @@ public class TestingContext implements Context {
      * @return the xxxHomeTester if the EJB_REF_NAME is recognized
      */
     public Object lookup(String name) {
-        if (PolicyLocalHome.EJB_REF_NAME.equals(name)) return PolicyLocalHomeTester.getInstance();
-        else if (LoginLocalHome.EJB_REF_NAME.equals(name)) return LoginLocalHomeTester.getInstance();
-        else if (ProjectTrackerLocalHome.EJB_REF_NAME.equals(name)) return ProjectTrackerLocalHomeTester.getInstance();
-        else if (UserManagerLocalHome.EJB_REF_NAME.equals(name)) return UserManagerLocalHomeTester.getInstance();
-        else if (DocumentManagerLocalHome.EJB_REF_NAME.equals(name)) return DocumentManagerLocalHomeTester.getInstance();
-        else if (PolicyRemoteHome.EJB_REF_NAME.equals(name)) return PolicyRemoteHomeTester.getInstance();
-        else if (LoginRemoteHome.EJB_REF_NAME.equals(name)) return LoginRemoteHomeTester.getInstance();
-        else if (ProjectTrackerHome.EJB_REF_NAME.equals(name)) return ProjectTrackerHomeTester.getInstance();
-        else if (UserManagerHome.EJB_REF_NAME.equals(name)) return UserManagerHomeTester.getInstance();
-        else if (DocumentManagerHome.EJB_REF_NAME.equals(name)) return DocumentManagerHomeTester.getInstance();
-        else if (PolicyMgrLocalHome.EJB_REF_NAME.equals(name)) return PolicyMgrLocalHomeTester.getInstance();
-        else if (PolicyMgrRemoteHome.EJB_REF_NAME.equals(name)) return PolicyMgrRemoteHomeTester.getInstance();
-        else return null;
+        if (PolicyLocalHome.EJB_REF_NAME.equals(name))
+            return PolicyLocalHomeTester.getInstance();
+        else if (LoginLocalHome.EJB_REF_NAME.equals(name))
+            return LoginLocalHomeTester.getInstance();
+        else if (ProjectTrackerLocalHome.EJB_REF_NAME.equals(name))
+            return ProjectTrackerLocalHomeTester.getInstance();
+        else if (UserManagerLocalHome.EJB_REF_NAME.equals(name))
+            return UserManagerLocalHomeTester.getInstance();
+        else if (DocumentManagerLocalHome.EJB_REF_NAME.equals(name))
+            return DocumentManagerLocalHomeTester.getInstance();
+        else if (PolicyRemoteHome.EJB_REF_NAME.equals(name))
+            return PolicyRemoteHomeTester.getInstance();
+        else if (LoginRemoteHome.EJB_REF_NAME.equals(name))
+            return LoginRemoteHomeTester.getInstance();
+        else if (ProjectTrackerHome.EJB_REF_NAME.equals(name))
+            return ProjectTrackerHomeTester.getInstance();
+        else if (UserManagerHome.EJB_REF_NAME.equals(name))
+            return UserManagerHomeTester.getInstance();
+        else if (DocumentManagerHome.EJB_REF_NAME.equals(name))
+            return DocumentManagerHomeTester.getInstance();
+        else if (PolicyMgrLocalHome.EJB_REF_NAME.equals(name))
+            return PolicyMgrLocalHomeTester.getInstance();
+        else if (PolicyMgrRemoteHome.EJB_REF_NAME.equals(name))
+            return PolicyMgrRemoteHomeTester.getInstance();
+        else
+            return null;
     }
 }

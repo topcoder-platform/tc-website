@@ -10,7 +10,9 @@
 
 package com.topcoder.dde.catalog;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 
 
 /**
@@ -56,28 +58,28 @@ public class ComponentRequest extends ComponentVersionRequest {
      * <code>null</code>
      */
     public ComponentRequest(String name, String shortDescription,
-            String description, String functionalDescription, String keywords,
-            String comments, String versionLabel, long userId) {
+                            String description, String functionalDescription, String keywords,
+                            String comments, String versionLabel, long userId) {
         super(comments, versionLabel, userId);
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for component name");
+                    "Null specified for component name");
         }
-        if (shortDescription== null) {
+        if (shortDescription == null) {
             throw new IllegalArgumentException(
-            "Null specified for short description");
+                    "Null specified for short description");
         }
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for component description");
+                    "Null specified for component description");
         }
-        if (functionalDescription== null) {
+        if (functionalDescription == null) {
             throw new IllegalArgumentException(
-            "Null specified for functional description");
+                    "Null specified for functional description");
         }
         if (keywords == null) {
             throw new IllegalArgumentException(
-            "Null specified for keywords");
+                    "Null specified for keywords");
         }
         this.name = name;
         this.shortDescription = shortDescription;
@@ -106,7 +108,7 @@ public class ComponentRequest extends ComponentVersionRequest {
     public void setName(String name) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for component name");
+                    "Null specified for component name");
         }
         this.name = name;
     }
@@ -128,9 +130,9 @@ public class ComponentRequest extends ComponentVersionRequest {
      * <code>null</code>
      */
     public void setShortDescription(String shortDescription) {
-        if (shortDescription== null) {
+        if (shortDescription == null) {
             throw new IllegalArgumentException(
-            "Null specified for short description");
+                    "Null specified for short description");
         }
         this.shortDescription = shortDescription;
     }
@@ -154,7 +156,7 @@ public class ComponentRequest extends ComponentVersionRequest {
     public void setDescription(String description) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for component description");
+                    "Null specified for component description");
         }
         this.description = description;
     }
@@ -178,7 +180,7 @@ public class ComponentRequest extends ComponentVersionRequest {
     public void setFunctionalDescription(String functionalDescription) {
         if (functionalDescription == null) {
             throw new IllegalArgumentException(
-            "Null specified for functional description");
+                    "Null specified for functional description");
         }
         this.functionalDescription = functionalDescription;
     }
@@ -205,7 +207,7 @@ public class ComponentRequest extends ComponentVersionRequest {
     public void setKeywords(String keywords) {
         if (keywords == null) {
             throw new IllegalArgumentException(
-            "Null specified for keywords");
+                    "Null specified for keywords");
         }
         this.keywords = keywords;
     }
@@ -268,16 +270,16 @@ public class ComponentRequest extends ComponentVersionRequest {
         }
         ComponentRequest other = (ComponentRequest) object;
         return getName().equals(other.getName())
-            && getShortDescription().equals(other.getShortDescription())
-            && getDescription().equals(other.getDescription())
-            && getFunctionalDescription().equals(
-                other.getFunctionalDescription())
-            && getKeywords().equals(other.getKeywords())
-            && getComments().equals(other.getComments())
-            && getVersionLabel().equals(other.getVersionLabel())
-            && getUserId() == other.getUserId()
-            && categories.equals(other.categories)
-            && technologies.equals(other.technologies);
+                && getShortDescription().equals(other.getShortDescription())
+                && getDescription().equals(other.getDescription())
+                && getFunctionalDescription().equals(
+                        other.getFunctionalDescription())
+                && getKeywords().equals(other.getKeywords())
+                && getComments().equals(other.getComments())
+                && getVersionLabel().equals(other.getVersionLabel())
+                && getUserId() == other.getUserId()
+                && categories.equals(other.categories)
+                && technologies.equals(other.technologies);
     }
 
     /**
@@ -293,7 +295,7 @@ public class ComponentRequest extends ComponentVersionRequest {
 
     public String toString() {
         return "Requested Component - " + getName()
-            + " (" + getShortDescription() + ")";
+                + " (" + getShortDescription() + ")";
     }
 
 

@@ -3,19 +3,8 @@
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.AbstractScorecard;
-import com.topcoder.apps.review.document.AbstractSubmission;
-import com.topcoder.apps.review.document.Appeal;
-import com.topcoder.apps.review.document.DocumentManagerLocal;
-import com.topcoder.apps.review.document.ReviewScorecard;
-import com.topcoder.apps.review.document.ScreeningScorecard;
-import com.topcoder.apps.review.document.TestCase;
-import com.topcoder.apps.review.projecttracker.Phase;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.UserRole;
+import com.topcoder.apps.review.document.*;
+import com.topcoder.apps.review.projecttracker.*;
 
 /**
  * This Model provides business logic through which users view project details.
@@ -107,7 +96,7 @@ public class ProjectDetail implements Model {
 
             return new ProjectRetrieval(project, temp, submissions, testCases, templateId);
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;
@@ -148,7 +137,7 @@ public class ProjectDetail implements Model {
                 isAdmin |= RoleHelper.isProductManager(roles[i]);
                 isSubmitter |= RoleHelper.isSubmitter(roles[i]);
                 isReviewer |= RoleHelper.isReviewer(roles[i]) || RoleHelper.isScreener(roles[i])
-                    || RoleHelper.isAggregator(roles[i]) || RoleHelper.isFinalReviewer(roles[i]);
+                        || RoleHelper.isAggregator(roles[i]) || RoleHelper.isFinalReviewer(roles[i]);
             }
         }
 
@@ -183,7 +172,7 @@ public class ProjectDetail implements Model {
             ok |= isReviewer && (scorecards[i].isCompleted() || scorecards[i].getAuthor().getId() == user.getId());
             // submitters can see only his scorecards if they are completed
             ok |= isSubmitter && scorecards[i].isCompleted()
-                  && scorecards[i].getSubmission().getSubmitter().getId() == user.getId();
+                    && scorecards[i].getSubmission().getSubmitter().getId() == user.getId();
             // submitters can see all scorecards during appeals phase
             ok |= isSubmitter && project.getCurrentPhase().getId() == Phase.ID_APPEALS;
 

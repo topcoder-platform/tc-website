@@ -5,18 +5,14 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
- * Extends from <strong>ReviewAction</strong> that saves the project 
+ * Extends from <strong>ReviewAction</strong> that saves the project
  * information.
  * </p>
  *
@@ -24,14 +20,14 @@ import org.apache.struts.action.ActionForwards;
  * @version 1.0
  */
 public final class SaveProjectAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -46,18 +42,18 @@ public final class SaveProjectAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "SaveProjectAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "SaveProjectAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         ProjectForm pForm = (ProjectForm) form;
-        
+
         // Check valid token
         if (!isTokenValid(request)) {
             request.getSession().removeAttribute(mapping.getAttribute());
             errors.add(ActionErrors.GLOBAL_ERROR,
-                       new ActionError("error.transaction.token"));
+                    new ActionError("error.transaction.token"));
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
             forwards.addForward(mapping.findForward(Constants.FAILURE_KEY));
             return null;
@@ -74,11 +70,11 @@ public final class SaveProjectAction extends ReviewAction {
                 forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
                 forwards.addForward(mapping.findForward(Constants.EDIT_KEY));
                 return null;
-            } else if (result instanceof SuccessResult)  {
+            } else if (result instanceof SuccessResult) {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
             }
-        
+
             return result;
         }
     }

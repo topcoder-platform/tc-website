@@ -1,4 +1,3 @@
-
 /**
  *  Tree.java
  */
@@ -19,8 +18,8 @@ public class Tree implements TreeInterface {
     public Tree() {
         children = new Vector();
     }
-    
-    public Tree( String name ) {
+
+    public Tree(String name) {
         this.name = name;
         children = new Vector();
     }
@@ -28,7 +27,8 @@ public class Tree implements TreeInterface {
     public String getName() {
         return this.name;
     }
-    public void setName( String name ) {
+
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -36,16 +36,16 @@ public class Tree implements TreeInterface {
         return this.selected;
     }
 
-    public void setSelected( int selected ) {
+    public void setSelected(int selected) {
         this.selected = selected;
     }
 
-    public void addChild (TreeObject child) {
+    public void addChild(TreeObject child) {
         children.addElement(child);
     }
 
     public TreeObject getChild(int index) {
-        return (TreeObject)children.elementAt(index);
+        return (TreeObject) children.elementAt(index);
     }
 
     public int size() {

@@ -1,7 +1,5 @@
 package com.topcoder.web.ejb.user;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 

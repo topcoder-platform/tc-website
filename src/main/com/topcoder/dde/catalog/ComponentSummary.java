@@ -27,7 +27,7 @@ import java.util.Date;
  * @see     Catalog
  * @see     ComponentManager
  */
-public class    ComponentSummary implements java.io.Serializable {
+public class ComponentSummary implements java.io.Serializable {
 
 
     private long componentId;
@@ -51,9 +51,9 @@ public class    ComponentSummary implements java.io.Serializable {
 
 
     ComponentSummary(long compId, long verId, long ver, String name,
-            String versionLabel, String comments, String shortDescription,
-            String description, long phase, Date phaseDate, double price,
-            long status, long rootCategory) {
+                     String versionLabel, String comments, String shortDescription,
+                     String description, long phase, Date phaseDate, double price,
+                     long status, long rootCategory) {
         componentId = compId;
         versionId = verId;
         version = ver;
@@ -194,18 +194,18 @@ public class    ComponentSummary implements java.io.Serializable {
         }
         ComponentSummary other = (ComponentSummary) object;
         return getComponentId() == other.getComponentId()
-            && getVersionId() == other.getVersionId()
-            && getVersion() == other.getVersion()
-            && getName().equals(other.getName())
-            && getVersionLabel().equals(other.getVersionLabel())
-            && getShortDescription().equals(other.getShortDescription())
-            && getDescription().equals(other.getDescription())
-            && getComments().equals(other.getComments())
-            && getPhase() == other.getPhase()
-            && phaseDate.equals(other.phaseDate)
-            && getPrice() == other.getPrice()
-            && getStatus() == other.getStatus()
-            && getRootCategory() == other.getRootCategory();
+                && getVersionId() == other.getVersionId()
+                && getVersion() == other.getVersion()
+                && getName().equals(other.getName())
+                && getVersionLabel().equals(other.getVersionLabel())
+                && getShortDescription().equals(other.getShortDescription())
+                && getDescription().equals(other.getDescription())
+                && getComments().equals(other.getComments())
+                && getPhase() == other.getPhase()
+                && phaseDate.equals(other.phaseDate)
+                && getPrice() == other.getPrice()
+                && getStatus() == other.getStatus()
+                && getRootCategory() == other.getRootCategory();
     }
 
     /**
@@ -221,9 +221,8 @@ public class    ComponentSummary implements java.io.Serializable {
 
     public String toString() {
         return "Component " + getName() + " (" + getShortDescription()
-        + ") Version " + getVersion() + " (" + getComments() + ")";
+                + ") Version " + getVersion() + " (" + getComments() + ")";
     }
-
 
 
 }

@@ -1,8 +1,8 @@
 package com.topcoder.web.tc.controller.request.card;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
 /**

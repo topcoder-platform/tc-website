@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,16 +29,16 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDECompKeywordsHome localHome;
-    
+
     /* default field values for entity instances */
     static final private String DEF_KEYWORD = "KEYWORD";
-    
+
     /**
      * a default constructor for use only by other test cases in this package
      */
     TestLocalDDECompKeywordsHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECompKeywordsHome configured to run the named
@@ -45,7 +46,7 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
      */
     public TestLocalDDECompKeywordsHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -60,7 +61,7 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDECompKeywordsHome) ctx.lookup(
                     LocalDDECompKeywordsHome.EJB_REF_NAME);
         }
@@ -73,7 +74,7 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
             throws Exception {
         return localHome.create(DEF_KEYWORD, component);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -88,7 +89,7 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
             TestLocalDDECompCatalogHome compHome
                     = new TestLocalDDECompCatalogHome();
             LocalDDECompCatalog localComp;
-            
+
             compHome.setUp();
             localComp = compHome.createDefault();
             assertNotNull(localComp);
@@ -141,7 +142,7 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
     public void testFindByPrimaryKey() throws Exception {
         fail("Test not yet implemented");
     }
-    
+
     /**
      * tests the findByCompVersId finder method
      */
@@ -153,21 +154,21 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
         long compKeywordsId;
         Long componentId;
         String keyword;
-        
+
         DDECompKeywordsData(Object id, Long component, String key) {
             this(((Long) id).longValue(), component, key);
         }
-        
+
         DDECompKeywordsData(long id, Long component, String key) {
             compKeywordsId = id;
             componentId = component;
             keyword = key;
         }
-        
+
         DDECompKeywordsData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(compKeywordsId);
         }
@@ -180,19 +181,19 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
             }
             rs.updateString("KEYWORD", keyword);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("COMP_KEYWORDS_ID", compKeywordsId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             compKeywordsId = rs.getLong("COMP_KEYWORDS_ID");
             componentId = new Long(rs.getLong("COMPONENT_ID"));
@@ -201,20 +202,20 @@ public class TestLocalDDECompKeywordsHome extends PersistenceTestCase {
             }
             keyword = rs.getString("KEYWORD");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDECompKeywordsData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDECompKeywordsData) ) {
+            if (!(o instanceof DDECompKeywordsData)) {
                 return false;
             }
             DDECompKeywordsData d = (DDECompKeywordsData) o;
             return (
-                (compKeywordsId == d.compKeywordsId)
-                && objectsMatch(componentId, d.componentId)
-                && objectsMatch(keyword, d.keyword) );
+                    (compKeywordsId == d.compKeywordsId)
+                    && objectsMatch(componentId, d.componentId)
+                    && objectsMatch(keyword, d.keyword));
         }
     }
 

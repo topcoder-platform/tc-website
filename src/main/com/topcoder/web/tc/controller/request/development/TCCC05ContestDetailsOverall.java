@@ -11,9 +11,9 @@ package com.topcoder.web.tc.controller.request.development;
  * @author rfairfax
  */
 public class TCCC05ContestDetailsOverall extends TCCC05ContestDetails {
-    
+
     int getMax() {
         return 3;
     }
-    
+
 }

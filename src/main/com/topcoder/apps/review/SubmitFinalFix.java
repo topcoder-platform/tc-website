@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -9,8 +9,8 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.UserRole;
 import com.topcoder.util.format.FormatMethodFactory;
+
 import java.io.File;
 import java.io.InputStream;
 import java.util.Date;
@@ -61,7 +61,7 @@ public class SubmitFinalFix implements Model {
         try {
             // check permission
             if (!PermissionHelper.isAdmin(user)
-                        && !PermissionHelper.hasSubmitFinalFixPermission(user, userProjectInfo)) {
+                    && !PermissionHelper.hasSubmitFinalFixPermission(user, userProjectInfo)) {
                 return new FailureResult("You cannot submit final fixes for this project");
             }
 
@@ -83,7 +83,7 @@ public class SubmitFinalFix implements Model {
 
             // retrieve the final fix submission
             FinalFixSubmission submission =
-                        documentManager.getFinalFixSubmission(project, user.getTCSubject());
+                    documentManager.getFinalFixSubmission(project, user.getTCSubject());
             if (submission == null) {
                 return new FailureResult("PL did not return a non-null final fix document as expected");
             }
@@ -97,18 +97,18 @@ public class SubmitFinalFix implements Model {
             //    return new FailureResult("Invalid submission file, it seems to have no data");
             //}
             String destFilename = "Submitter_" + userRoleId + "_"
-                + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date())
-                + SubmissionDownload.getExtension(remoteName);
+                    + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date())
+                    + SubmissionDownload.getExtension(remoteName);
             SubmitSolution.copy(is, ConfigHelper.getSubmissionPathPrefix() + destFilename);
             is.close();
-            
+
             // save URL and save submission
             //submission.setURL(new URL(ConfigHelper.getSubmissionURLPrefix() + destFilename));
             submission.setURL(new File(ConfigHelper.getSubmissionPathPrefix() + destFilename).toURL());
             documentManager.saveFinalFixSubmission(submission, user.getTCSubject());
             return new SuccessResult();
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

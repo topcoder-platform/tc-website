@@ -6,13 +6,13 @@
  */
 package com.topcoder.apps.review.document;
 
-import javax.ejb.EJBLocalObject;
-
 import com.topcoder.apps.review.ConcurrentModificationException;
 import com.topcoder.apps.review.GeneralSecurityException;
 import com.topcoder.apps.review.IncorrectProjectStateException;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.security.TCSubject;
+
+import javax.ejb.EJBLocalObject;
 
 
 /**
@@ -33,7 +33,7 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @return DOCUMENT ME!
      */
     public ScreeningScorecard[] getScreeningScorecard(Project project, TCSubject requestor);
-    
+
     /**
      * DOCUMENT ME!
      *
@@ -43,7 +43,7 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @return DOCUMENT ME!
      */
     public ScreeningScorecard[] getScreeningScorecardFull(Project project, TCSubject requestor);
-    
+
     /**
      * DOCUMENT ME!
      *
@@ -55,11 +55,11 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveScreeningScorecard(ScreeningScorecard scorecard, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               GeneralSecurityException,
-               ConcurrentModificationException;
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            GeneralSecurityException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -72,7 +72,7 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @return DOCUMENT ME!
      */
     public ReviewScorecard getReviewScorecard(Project project, long reviewerId, long submitterId, TCSubject requestor);
-    
+
     /**
      * DOCUMENT ME!
      *
@@ -103,11 +103,11 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveReviewScorecard(ReviewScorecard scorecard, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               GeneralSecurityException,
-               ConcurrentModificationException;
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            GeneralSecurityException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -130,10 +130,10 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws ConcurrentModificationException DOCUMENT ME!
      */
     public void saveTestCaseReview(TestCaseReview tcReview, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -157,9 +157,9 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveInitialSubmission(InitialSubmission submission, TCSubject requestor)
-        throws InvalidEditException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws InvalidEditException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -182,10 +182,10 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws ConcurrentModificationException
      */
     public void saveAggregation(AggregationWorksheet worksheet, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -206,9 +206,9 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveFinalFixSubmission(FinalFixSubmission submission, TCSubject requestor)
-        throws InvalidEditException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws InvalidEditException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -230,10 +230,10 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveAggregationReview(AggregationReview aggReview, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException ;
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * DOCUMENT ME!
@@ -256,10 +256,10 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws IncorrectProjectStateException DOCUMENT ME!
      */
     public void saveFinalReview(FinalReview finalReview, TCSubject requestor)
-        throws InvalidEditException,
-               DocumentAlreadySubmittedException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws InvalidEditException,
+            DocumentAlreadySubmittedException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     /**
      * @param project
@@ -269,7 +269,7 @@ public interface DocumentManagerLocal extends EJBLocalObject {
     /**
      * Check if the project is aggregated, with the
      * aggregation completed and pm-reviewed.
-     * 
+     *
      * @param projectId The ProjectId
      * @return true if project is aggregated
      */
@@ -298,15 +298,15 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws IncorrectProjectStateException
      */
     public void saveTestCase(TestCase testCase, TCSubject requestor)
-        throws InvalidEditException,
-               IncorrectProjectStateException,
-               ConcurrentModificationException;
+            throws InvalidEditException,
+            IncorrectProjectStateException,
+            ConcurrentModificationException;
 
     public Appeal[] getAppeals(Project project, long appealerId, long questionId, TCSubject requestor);
 
     /**
      * Save Appeal to DB.
-     * 
+     *
      * @param appeal
      * @param project
      * @param requestor
@@ -314,17 +314,17 @@ public interface DocumentManagerLocal extends EJBLocalObject {
      * @throws ConcurrentModificationException
      */
     public void saveAppeal(Appeal appeal, Project project, TCSubject requestor)
-        throws DocumentAlreadySubmittedException, ConcurrentModificationException;
+            throws DocumentAlreadySubmittedException, ConcurrentModificationException;
 
     public ScorecardTemplate[] getScorecardTemplates();
-        
+
     public ScorecardTemplate getScorecardTemplate(long reqTemplateId);
-    
+
     public ScorecardTemplate getDefaultScorecardTemplate(long projectTypeId, long scorecardTypeId);
-       
+
     public void saveScorecardTemplate(ScorecardTemplate template,
-            boolean saveNew, boolean saveQuestions);
-        
+                                      boolean saveNew, boolean saveQuestions);
+
     /**
      * @param project
      */

@@ -1,10 +1,10 @@
 package com.topcoder.web.privatelabel.controller.request.resume;
 
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.servlet.request.UploadedFile;
 
 import java.util.Iterator;
 

@@ -38,64 +38,64 @@ public final class JNLPServlet extends HttpServlet {
         String tunnel = "";
 
         try {
-             host = request.getParameter("host");
-             if ((host==null) || host.equals("")) host="corporate.topcoder.com";
+            host = request.getParameter("host");
+            if ((host == null) || host.equals("")) host = "corporate.topcoder.com";
 
-             port = request.getParameter("port");
-             if ((port==null) || port.equals("")) port="8001";
+            port = request.getParameter("port");
+            if ((port == null) || port.equals("")) port = "8001";
 
-             tunnel = request.getParameter("tunnel");
-             if ((tunnel==null) || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening+port=8001";
+            tunnel = request.getParameter("tunnel");
+            if ((tunnel == null) || tunnel.equals("")) tunnel = "http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening+port=8001";
 
-             companyID = request.getParameter("company");
-             if ((companyID==null) || companyID.equals("")) companyID="1";
+            companyID = request.getParameter("company");
+            if ((companyID == null) || companyID.equals("")) companyID = "1";
 
 
-             /***********************************************************************/
-             out = response.getOutputStream();
-             response.setHeader("Content-Type", "application/x-java-jnlp-file; charset=utf-8");
-             response.setContentType("application/x-java-jnlp-file");
-             /***********************************************************************/
+            /***********************************************************************/
+            out = response.getOutputStream();
+            response.setHeader("Content-Type", "application/x-java-jnlp-file; charset=utf-8");
+            response.setContentType("application/x-java-jnlp-file");
+            /***********************************************************************/
 
-             out.print("<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                     "<jnlp spec=\"1.0+\" " +
-                     //"codebase=\"http://corporate.topcoder.com/contest/screening/\" " +
-                     //"href=\"ScreeningApp.jnlp\">\r\n" +
-                     ">\r\n" +
-                     "<information>\r\n" +
-                     "<title>TopCoder Technical Assessment Application</title>\r\n" +
-                     "<vendor>TopCoder, Inc.</vendor>\r\n" +
-                     "<homepage href=\"http://www.topcoder.com\"/>\r\n" +
-                     "<description>TopCoder Technical Assessment Application</description>\r\n" +
-                     "<icon href=\"http://www.topcoder.com/i/ScreeningJWS.jpg\"/>\r\n" +
-                     "</information>\r\n" +
-                     "<security>\r\n" +
-                     "<all-permissions/>\r\n" +
-                     "</security>\r\n" +
-                     "<resources>\r\n" +
-                     "<j2se version=\"1.4+\"/>\r\n" +
-                     "<jar href=\"http://www.topcoder.com/contest/classes/ScreeningClient.jar\"/>\r\n" +
-                     "</resources>\r\n" +
-                     "<application-desc " +
-                     "main-class=\"com.topcoder.client.screening.tool.view.screeningClient.GenericStarter\">\r\n"+
-                     "<argument>");
-             out.print(host);
-             out.print("</argument>\r\n" +
-                     "<argument>");
-             out.print(port);
-             out.print("</argument>\r\n" +
-                     "<argument>");
-             out.print(companyID);
-             out.print("</argument>\r\n" +
-                     "<argument>");
-             out.print(tunnel);
-             out.print("</argument>\r\n" +
-                     "</application-desc>\r\n" +
-                     "</jnlp>\r\n");
-             //out.write(result);
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
+            out.print("<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                    "<jnlp spec=\"1.0+\" " +
+                    //"codebase=\"http://corporate.topcoder.com/contest/screening/\" " +
+                    //"href=\"ScreeningApp.jnlp\">\r\n" +
+                    ">\r\n" +
+                    "<information>\r\n" +
+                    "<title>TopCoder Technical Assessment Application</title>\r\n" +
+                    "<vendor>TopCoder, Inc.</vendor>\r\n" +
+                    "<homepage href=\"http://www.topcoder.com\"/>\r\n" +
+                    "<description>TopCoder Technical Assessment Application</description>\r\n" +
+                    "<icon href=\"http://www.topcoder.com/i/ScreeningJWS.jpg\"/>\r\n" +
+                    "</information>\r\n" +
+                    "<security>\r\n" +
+                    "<all-permissions/>\r\n" +
+                    "</security>\r\n" +
+                    "<resources>\r\n" +
+                    "<j2se version=\"1.4+\"/>\r\n" +
+                    "<jar href=\"http://www.topcoder.com/contest/classes/ScreeningClient.jar\"/>\r\n" +
+                    "</resources>\r\n" +
+                    "<application-desc " +
+                    "main-class=\"com.topcoder.client.screening.tool.view.screeningClient.GenericStarter\">\r\n" +
+                    "<argument>");
+            out.print(host);
+            out.print("</argument>\r\n" +
+                    "<argument>");
+            out.print(port);
+            out.print("</argument>\r\n" +
+                    "<argument>");
+            out.print(companyID);
+            out.print("</argument>\r\n" +
+                    "<argument>");
+            out.print(tunnel);
+            out.print("</argument>\r\n" +
+                    "</application-desc>\r\n" +
+                    "</jnlp>\r\n");
+            //out.write(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

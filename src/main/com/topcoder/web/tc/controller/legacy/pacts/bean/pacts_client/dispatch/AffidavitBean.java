@@ -15,7 +15,9 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
-import javax.xml.transform.*;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.StringReader;
@@ -273,7 +275,7 @@ public class AffidavitBean implements PactsConstants {
                 dm.addTag(new ValueTag("demographic_answer", demog.answers[idx]));
                 a.addTag(dm);
             }
-            if (demog._schoolName.trim().length()>0)
+            if (demog._schoolName.trim().length() > 0)
                 a.addTag(new ValueTag("current_school", demog._schoolName));
             tc.addTag(a);
 

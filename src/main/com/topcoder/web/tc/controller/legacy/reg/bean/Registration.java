@@ -2,30 +2,26 @@ package com.topcoder.web.tc.controller.legacy.reg.bean;
 
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.Cache;
-import com.topcoder.ejb.AuthenticationServices.*;
+import com.topcoder.ejb.AuthenticationServices.AuthenticationServices;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.tc.view.reg.tag.Demographic;
-import com.topcoder.web.tc.view.reg.tag.Notification;
-import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.GroupPrincipal;
-import com.topcoder.security.UserPrincipal;
-
 import com.topcoder.web.ejb.email.Email;
-import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.tc.view.reg.tag.Demographic;
+import com.topcoder.web.tc.view.reg.tag.Notification;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -60,7 +56,7 @@ public class Registration
     public static final String PAGE_3 = PATH + "confirm.jsp";
     public static final String PAGE_4 = PATH + "activate.jsp";
     public static final String PAGE_5A = PATH + "mail_sent.jsp";
-    public static final String PAGE_5B = PROTOCOL + "://" + HOST +"/tc";
+    public static final String PAGE_5B = PROTOCOL + "://" + HOST + "/tc";
     //public static final String PAGE_5 = "/";
 
     // step 1 attributes
@@ -138,11 +134,10 @@ public class Registration
     public static final int MAGAZINE_ADVERT = 33;
 
 
-
     private final static String PUNCTUATION = "-_.{}[]()";
-    private final static String HANDLE_ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
-                                                "abcdefghijklmnopqrstuvwxyz"+
-                                                "0123456789"+PUNCTUATION;
+    private final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "abcdefghijklmnopqrstuvwxyz" +
+            "0123456789" + PUNCTUATION;
 
     // school ids
     //public static final int OTHER_SCHOOL = 0;
@@ -289,7 +284,7 @@ public class Registration
         //we're doing this because when we get the input
         //from the request, we'll only have the notifications
         //that are chosen, not the ones that are not chosen
-        if (step!=null&&step.equalsIgnoreCase(STEP_1)) {
+        if (step != null && step.equalsIgnoreCase(STEP_1)) {
             notifications.clear();
             log.debug("notifications cleared...");
         }
@@ -330,7 +325,7 @@ public class Registration
         confirmEmail = email;
         language = Integer.toString(coder.getLanguage().getLanguageId());
         coderType = Integer.toString(coder.getCoderType().getCoderTypeId());
-        terms = (checkNull(user.getTerms()).equals("Y")?CHECKBOX_YES:"");
+        terms = (checkNull(user.getTerms()).equals("Y") ? CHECKBOX_YES : "");
         // referral data only used in Registration
         referral = Integer.toString(coder.getCoderReferral().getReferral().getReferralId());
         referralChanged = false;
@@ -382,9 +377,9 @@ public class Registration
             schoolStateChanged = false;
             school = Integer.toString(coder.getCurrentSchool().getSchoolId());
             schoolName = coder.getCurrentSchool().getName();
-            if (coder.getCurrentSchool().getGpa()!=0 && coder.getCurrentSchool().getGpaScale()!=0) {
-                gpa = ""+coder.getCurrentSchool().getGpa();
-                gpaScale = ""+coder.getCurrentSchool().getGpaScale();
+            if (coder.getCurrentSchool().getGpa() != 0 && coder.getCurrentSchool().getGpaScale() != 0) {
+                gpa = "" + coder.getCurrentSchool().getGpa();
+                gpaScale = "" + coder.getCurrentSchool().getGpaScale();
             }
         } else {
             schoolState = "";
@@ -398,13 +393,12 @@ public class Registration
 
         ResumeServices rServices = null;
         try {
-            rServices = (ResumeServices)BaseProcessor.createEJB(TCContext.getInitial(), ResumeServices.class);
+            rServices = (ResumeServices) BaseProcessor.createEJB(TCContext.getInitial(), ResumeServices.class);
             hasResume = rServices.hasResume(user.getUserId(), DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
         }
     }
-
 
 
     public void process()
@@ -431,7 +425,7 @@ public class Registration
                     this.handle.toLowerCase().indexOf("guest") >= 0
                     //  or new registration and the handle exists
                     || (isRegister() && handleExists(this.handle))
-                    || (isRegister() && this.handle.trim().length()<=1)
+                    || (isRegister() && this.handle.trim().length() <= 1)
                     //  or update registration, the handle changes, and the new handle exists
                     || (!isRegister() && !this.handle.equalsIgnoreCase(user.getHandle()) && handleExists(this.handle))
             ) {
@@ -475,7 +469,6 @@ public class Registration
             }
 
 
-
             if (isRegister() && isEmpty(this.terms)) addError(TERMS, "Please read and agree to terms to register.");
 
         } else if (isStep(STEP_2)) {
@@ -515,16 +508,16 @@ public class Registration
                 }
 
                 if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
-                       (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
+                        (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
                     addError(GPA, "Please enter a valid GPA.");
                 }
                 if ((!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true)) ||
-                       (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
+                        (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
                     addError(GPA_SCALE, "Please enter a valid GPA Scale.");
                 }
                 if (!isEmpty(this.gpa) && isNumber(this.gpa, true) &&
-                    !isEmpty(this.gpaScale) && isNumber(this.gpaScale, true) &&
-                    Float.parseFloat(this.gpa) > Float.parseFloat(this.gpaScale)) {
+                        !isEmpty(this.gpaScale) && isNumber(this.gpaScale, true) &&
+                        Float.parseFloat(this.gpa) > Float.parseFloat(this.gpaScale)) {
                     addError(GPA, "GPA must be less than or equal to the GPA scale.");
                 }
             }
@@ -539,7 +532,7 @@ public class Registration
                     String strAnswerId = (String) answerList.get(i);
                     if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES)) {
                         employed = true;
-                    } else if(strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
+                    } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
                         this.schoolName = strAnswerId;
                         this.school = "-1";
                     }
@@ -554,7 +547,7 @@ public class Registration
                                 } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYER)) {
                                     employerBlank = true;
                                     employerQuestionText = question.getDemographicQuestionText();
-                                } else if(strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !this.country.equals(USA)) {
+                                } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !this.country.equals(USA)) {
                                     addError(DEMO_PREFIX + strQuestionId, "Please enter your school name.");
                                 }
                                 break;
@@ -571,7 +564,7 @@ public class Registration
 
 
             //check yet again
-            if (isRegister()&&handleExists(handle)) {
+            if (isRegister() && handleExists(handle)) {
                 addError(HANDLE, "Please choose another handle.");
             } else {
                 register();
@@ -628,8 +621,8 @@ public class Registration
 
     public static boolean containsAllPunctuation(String handle) {
         boolean allPunctuation = true;
-        for (int i=0; i<handle.length()&&allPunctuation; i++) {
-            allPunctuation&=PUNCTUATION.indexOf(handle.charAt(i))>=0;
+        for (int i = 0; i < handle.length() && allPunctuation; i++) {
+            allPunctuation &= PUNCTUATION.indexOf(handle.charAt(i)) >= 0;
         }
         return allPunctuation;
     }
@@ -646,7 +639,7 @@ public class Registration
 
     public String getNextPage() {
         log.debug("Registration.getNextPage() step = : " + step);
-        if (step==null) {
+        if (step == null) {
             return PAGE_1;
         }
         if (isStep(STEP_0)) {
@@ -695,7 +688,7 @@ public class Registration
             } else {
                 return PAGE_4;
             }
-        } else if( isStep(STEP_5)) {
+        } else if (isStep(STEP_5)) {
             return PAGE_1;
         }
 
@@ -708,7 +701,8 @@ public class Registration
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
 
             return userbean.getHandle(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME);
-        } catch (Exception ignore) {}
+        } catch (Exception ignore) {
+        }
 
         return "";
     }
@@ -718,28 +712,29 @@ public class Registration
             InitialContext ctx = TCContext.getInitial();
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
 
-            if(!userbean.userExists(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME))
+            if (!userbean.userExists(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME))
                 return false;
 
             char status = userbean.getStatus(Long.parseLong(memberId), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            if(Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
+            if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                 return true;
             }
-        } catch (Exception ignore) {}
+        } catch (Exception ignore) {
+        }
 
         return false;
     }
 
     public boolean setAttributes(String name, String[] valArray) {
         String value = valArray[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
         if (!name.equals("TermDesc")) {
             log.debug("Registration.setAttribute(\"" + name + "\",\"" + value + "\")");
         }
         //added this to detect referral pass-in - rfairfax
-        if(name.equalsIgnoreCase(REFERRAL_PASS_IN)) {
+        if (name.equalsIgnoreCase(REFERRAL_PASS_IN)) {
             //check to see if member exists
-            if(memberExists(value)) {
+            if (memberExists(value)) {
                 this.referral = String.valueOf(MEMBER_REFERRAL);
                 this.referralOther = getHandle(value);
             }
@@ -763,7 +758,7 @@ public class Registration
             else if (name.equalsIgnoreCase(COUNTRY)) {
                 setCountry(value);
                 if (isRegister()) setCompCountry(value);
-            }else if (name.equalsIgnoreCase(COMP_COUNTRY))
+            } else if (name.equalsIgnoreCase(COMP_COUNTRY))
                 setCompCountry(value);
             else if (name.equalsIgnoreCase(PHONE))
                 setPhone(value);
@@ -815,7 +810,6 @@ public class Registration
         }
         return true;
     }
-
 
 
     public void setFirstName(String value) {
@@ -885,6 +879,7 @@ public class Registration
     public void setCoderType(String value) {
         this.coderType = checkNull(value);
     }
+
     public void setTerms(String value) {
         this.terms = checkNull(value);
     }
@@ -1206,7 +1201,7 @@ public class Registration
     }
 
     public String getReferralOther() {
-        return isEmpty(this.referralOther)?getReferralOtherPrompt():this.referralOther;
+        return isEmpty(this.referralOther) ? getReferralOtherPrompt() : this.referralOther;
     }
 
     public String getReferralOtherPrompt() {
@@ -1214,7 +1209,7 @@ public class Registration
     }
 
     public String getReferralOtherPrompt(int referralId) {
-        return isEmpty(getReferralOtherDesc(referralId))?"":"(" + getReferralOtherDesc(referralId) + ")";
+        return isEmpty(getReferralOtherDesc(referralId)) ? "" : "(" + getReferralOtherDesc(referralId) + ")";
     }
 
     public String getReferralOtherDesc() {
@@ -1341,7 +1336,7 @@ public class Registration
 
         ResultSetContainer rsc = null;
         try {
-            rsc = (ResultSetContainer)new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("user exists");
+            rsc = (ResultSetContainer) new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("user exists");
         } catch (Exception e) {
             throw new TaskException("failed trying to check if user exists: " + e.getMessage());
         }
@@ -1354,7 +1349,7 @@ public class Registration
         Map users = null;
         try {
             context = TCContext.getInitial();
-            AuthenticationServices authenticationServices = (AuthenticationServices)BaseProcessor.createEJB(context, AuthenticationServices.class);
+            AuthenticationServices authenticationServices = (AuthenticationServices) BaseProcessor.createEJB(context, AuthenticationServices.class);
             users = authenticationServices.getLikeUsers(handle);
         } catch (Exception e) {
             log.error(e.toString());
@@ -1607,7 +1602,7 @@ public class Registration
         coderType.setCoderTypeId(Integer.parseInt(this.coderType));
         coder.setCoderType(coderType);
         if (isRegister()) {
-            user.setTerms((terms.equalsIgnoreCase(CHECKBOX_YES)?"Y":"N"));
+            user.setTerms((terms.equalsIgnoreCase(CHECKBOX_YES) ? "Y" : "N"));
         }
 
         if (isRegister()) {
@@ -1718,8 +1713,7 @@ public class Registration
                     School currentSchool = coder.getCurrentSchool();
                     // SB -- added country.equals(USA) to fix problem with foreign student changing their school
                     //if (currentSchool.getName().equals("") && this.country.equals(USA))  //&& isRegister() )
-                    if(isRegister())
-                    {
+                    if (isRegister()) {
                         currentSchool.setModified("A");
                     } else {
                         currentSchool.setModified("U");
@@ -1731,18 +1725,18 @@ public class Registration
                     } else {
                         //lookup school by name
                         InitialContext ctxSchool = TCContext.getInitial();
-                            com.topcoder.web.ejb.school.School s = (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool, com.topcoder.web.ejb.school.School.class);
+                        com.topcoder.web.ejb.school.School s = (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool, com.topcoder.web.ejb.school.School.class);
 
                         schoolId = s.getSchoolId(this.schoolName, DBMS.OLTP_DATASOURCE_NAME);
-                        if(schoolId == 0) {
+                        if (schoolId == 0) {
                             //create school
                             schoolId = s.createSchool(DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME,
-                                        schoolName.substring(0,1).toUpperCase(), "NA", this.country, coder.getCoderId(), schoolName );
+                                    schoolName.substring(0, 1).toUpperCase(), "NA", this.country, coder.getCoderId(), schoolName);
                         }
                     }
 
                     currentSchool.setUserId(coder.getCoderId());
-                    currentSchool.setSchoolId((int)schoolId);
+                    currentSchool.setSchoolId((int) schoolId);
                     currentSchool.setName(schoolName);
 
                     if (!this.gpa.equals("")) {
@@ -1765,7 +1759,7 @@ public class Registration
             //we're working outsite a transaction now...
             if (isRegister()) {
                 Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-                PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
                 PrincipalMgrRemote pmr = pmrh.create();
                 TCSubject tcs = new TCSubject(132456);
                 Collection groups = pmr.getGroups(tcs);
@@ -1793,7 +1787,7 @@ public class Registration
             coder.setAllModifiedStable();
 
             //auto activate
-            if(isRegister() && autoActivate) {
+            if (isRegister() && autoActivate) {
                 InitialContext ctx = TCContext.getInitial();
                 com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
                 doLegacyCrap(coder.getCoderId());
@@ -1829,7 +1823,7 @@ public class Registration
                 mail.setSubject("TopCoder Activation");
                 StringBuffer msgText = new StringBuffer(3000);
 
-                if(autoActivate) {
+                if (autoActivate) {
 
                     msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
                     msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
@@ -1967,7 +1961,7 @@ public class Registration
         } catch (Exception e) {
             log.error(e.getMessage());
         } finally {
-            if (ctx!=null) {
+            if (ctx != null) {
                 try {
                     ctx.close();
                 } catch (Exception e) {
@@ -2005,7 +1999,7 @@ public class Registration
         InitialContext context = null;
         try {
             context = TCContext.getInitial();
-            AuthenticationServices authenticationServices = (AuthenticationServices)BaseProcessor.createEJB(context, AuthenticationServices.class);
+            AuthenticationServices authenticationServices = (AuthenticationServices) BaseProcessor.createEJB(context, AuthenticationServices.class);
             Authentication authentication = authenticationServices.getActivation(coderId);
             if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code)) {
                 if (authentication.getStatus().equals("U")) {

@@ -56,7 +56,7 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+
 
 /**
  * Protection proxy for User objects.
@@ -73,12 +73,12 @@ public class UserProxy implements User {
      * Create a new UserProxy.
      */
     public UserProxy(User user, Authorization authorization,
-            ForumPermissions permissions)
-    {
+                     ForumPermissions permissions) {
         this.user = user;
         this.authorization = authorization;
         this.permissions = permissions;
     }
+
     /**
      * Returns the user's rating.
      */
@@ -111,13 +111,11 @@ public class UserProxy implements User {
      * Returns the user's name. The user's name does not have to be to be
      * unique in the system.
      */
-    public String getName(){
+    public String getName() {
         if (isNameVisible() || permissions.get(ForumPermissions.SYSTEM_ADMIN) ||
-                permissions.get(ForumPermissions.USER_ADMIN))
-        {
+                permissions.get(ForumPermissions.USER_ADMIN)) {
             return user.getName();
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -132,11 +130,9 @@ public class UserProxy implements User {
      */
     public void setName(String name) throws UnauthorizedException {
         if (permissions.get(ForumPermissions.SYSTEM_ADMIN) ||
-               permissions.get(ForumPermissions.USER_ADMIN))
-        {
+                permissions.get(ForumPermissions.USER_ADMIN)) {
             user.setName(name);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -159,11 +155,9 @@ public class UserProxy implements User {
      */
     public void setNameVisible(boolean visible) throws UnauthorizedException {
         if (permissions.get(ForumPermissions.SYSTEM_ADMIN) ||
-               permissions.get(ForumPermissions.USER_ADMIN))
-        {
+                permissions.get(ForumPermissions.USER_ADMIN)) {
             user.setNameVisible(visible);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -180,11 +174,9 @@ public class UserProxy implements User {
      */
     public void setPassword(String password) throws UnauthorizedException {
         if (permissions.get(ForumPermissions.SYSTEM_ADMIN) ||
-               permissions.get(ForumPermissions.USER_ADMIN))
-        {
+                permissions.get(ForumPermissions.USER_ADMIN)) {
             user.setPassword(password);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -218,12 +210,10 @@ public class UserProxy implements User {
      * user operations performing.
      */
     public String getEmail() {
-        if (isEmailVisible() ||  permissions.get(ForumPermissions.SYSTEM_ADMIN) ||
-                permissions.get(ForumPermissions.USER_ADMIN))
-        {
+        if (isEmailVisible() || permissions.get(ForumPermissions.SYSTEM_ADMIN) ||
+                permissions.get(ForumPermissions.USER_ADMIN)) {
             return user.getEmail();
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -239,11 +229,9 @@ public class UserProxy implements User {
      */
     public void setEmail(String email) throws UnauthorizedException {
         if (permissions.get(ForumPermissions.SYSTEM_ADMIN) ||
-               permissions.get(ForumPermissions.USER_ADMIN))
-        {
+                permissions.get(ForumPermissions.USER_ADMIN)) {
             user.setEmail(email);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
@@ -266,18 +254,16 @@ public class UserProxy implements User {
      */
     public void setEmailVisible(boolean visible) throws UnauthorizedException {
         if (permissions.get(ForumPermissions.SYSTEM_ADMIN) ||
-               permissions.get(ForumPermissions.USER_ADMIN))
-        {
+                permissions.get(ForumPermissions.USER_ADMIN)) {
             user.setEmailVisible(visible);
-        }
-        else {
+        } else {
             throw new UnauthorizedException();
         }
     }
 
     /**
      * Returns the permissions for the user that correspond to the
-     * passed-in Authorization. 
+     * passed-in Authorization.
      *
      * @param authorization the auth token to look up permissions with.
      */
@@ -305,4 +291,4 @@ public class UserProxy implements User {
     public String toString() {
         return user.toString();
     }
-} 
+}

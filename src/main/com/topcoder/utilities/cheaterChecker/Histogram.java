@@ -20,7 +20,7 @@ public class Histogram {
 
     public Histogram(List l) {
         this();
-        for(Iterator it = l.iterator(); it.hasNext();) {
+        for (Iterator it = l.iterator(); it.hasNext();) {
             add(it.next());
         }
     }
@@ -29,8 +29,8 @@ public class Histogram {
         Integer count = null;
         if (histogram.containsKey(o)) {
             log.debug("found " + o);
-            count = (Integer)histogram.get(o);
-            histogram.put(o, new Integer(count.intValue()+1));
+            count = (Integer) histogram.get(o);
+            histogram.put(o, new Integer(count.intValue() + 1));
         } else {
             log.debug("not found " + o);
             histogram.put(o, new Integer(1));
@@ -40,17 +40,15 @@ public class Histogram {
     public SortedSet getSortedSet() {
         Comparator histogramComparator = new Comparator() {
             public int compare(Object o1, Object o2) {
-                return ((Integer)((Map.Entry)o2).getValue()).compareTo(((Integer)((Map.Entry)o1).getValue()));
-            }};
+                return ((Integer) ((Map.Entry) o2).getValue()).compareTo(((Integer) ((Map.Entry) o1).getValue()));
+            }
+        };
         TreeSet s = new TreeSet(histogramComparator);
         for (Iterator it = histogram.entrySet().iterator(); it.hasNext();) {
             s.add(it.next());
         }
         return s;
     }
-
-
-
 
 
 }

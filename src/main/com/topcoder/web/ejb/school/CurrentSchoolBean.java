@@ -1,16 +1,14 @@
 package com.topcoder.web.ejb.school;
 
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CurrentSchoolBean extends BaseEJB {
     public void createCurrentSchool(long coderId, String dataSource) throws EJBException {
@@ -22,7 +20,7 @@ public class CurrentSchoolBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
-            query.append(  "INTO current_school (coder_id) ");
+            query.append("INTO current_school (coder_id) ");
             query.append("VALUES (?)");
 
             conn = DBMS.getConnection(dataSource);
@@ -124,7 +122,7 @@ public class CurrentSchoolBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT '1' ");
-            query.append( " FROM current_school");
+            query.append(" FROM current_school");
             query.append(" WHERE coder_id = ?");
 
             conn = DBMS.getConnection(dataSource);

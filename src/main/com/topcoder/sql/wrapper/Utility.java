@@ -2,8 +2,8 @@ package com.topcoder.sql.wrapper;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,7 +16,8 @@ public class Utility {
 
     private long maxAge = 30000; // 30 seconds
 
-    public Utility() {}
+    public Utility() {
+    }
 
     public Utility(long maxAge) {
         this.maxAge = maxAge;
@@ -56,8 +57,10 @@ public class Utility {
         for (int e = 0; e < exceptions.size(); e++) {
             if (e == 0) printWriter.print("<tr><td colspan=\"5\"><pre>Respective SQLExceptions follow:");
             ((SQLException) exceptions.get(e)).printStackTrace(printWriter);
-            if (e + 1 == exceptions.size()) printWriter.print("</pre></td></tr>");
-            else printWriter.println("====================================================================");
+            if (e + 1 == exceptions.size())
+                printWriter.print("</pre></td></tr>");
+            else
+                printWriter.println("====================================================================");
         }
     }
 
@@ -75,8 +78,10 @@ public class Utility {
         long age = c.getAge();
         int closed;
         try {
-            if (c.isClosed()) closed = 1;
-            else closed = 0;
+            if (c.isClosed())
+                closed = 1;
+            else
+                closed = 0;
         } catch (SQLException sqle) {
             closed = -1;
             rv = sqle;
@@ -112,7 +117,8 @@ public class Utility {
         boolean closed = s.isClosed();
         long age = s.getAge();
         printWriter.print("<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"checkbox\" name=\"statementId\" value=\"" + s.getId() + "\"");
-        if (closed) printWriter.print(" disabled");
+        if (closed)
+            printWriter.print(" disabled");
         else if (age > maxAge) printWriter.print(" checked");
         printWriter.print(">");
         printWriter.print("<a href=\"driverWrapper.jsp?t=stackTrace&statementId=" + s.getId() + "\">");
@@ -127,7 +133,8 @@ public class Utility {
         boolean closed = r.isClosed();
         long age = r.getAge();
         printWriter.print("<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"checkbox\" name=\"resultSetId\" value=\"" + r.getId() + "\"");
-        if (closed) printWriter.print(" disabled");
+        if (closed)
+            printWriter.print(" disabled");
         else if (age > maxAge) printWriter.print(" checked");
         printWriter.print(">");
         printWriter.print("<a href=\"driverWrapper.jsp?t=stackTrace&resultSetId=" + r.getId() + "\">");

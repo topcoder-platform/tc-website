@@ -176,7 +176,5 @@ public interface PactsServices extends EJBObject {
     public boolean hasTaxForm(long userId) throws RemoteException, SQLException;
 
 
-
-
 }
 

@@ -40,11 +40,11 @@ interface DMProxy {
     ScreeningScorecard[] getScreeningScorecard(Project project,
                                                User requestor);
 
-    void saveScreeningScorecard(ScreeningScorecard scorecard, User requestor) 
-             throws Exception;
+    void saveScreeningScorecard(ScreeningScorecard scorecard, User requestor)
+            throws Exception;
 
     ReviewScorecard getReviewScorecard(Project project, long reviewerId,
-            long submitterId, User requestor) ;
+                                       long submitterId, User requestor);
 
     ReviewScorecard[] getReviewScorecard(Project project, User requestor);
 
@@ -68,7 +68,7 @@ interface DMProxy {
 
     FinalFixSubmission getFinalFixes(Project project, User requestor);
 
-    void saveFinalFixSubmission(FinalFixSubmission submission, User requestor) 
+    void saveFinalFixSubmission(FinalFixSubmission submission, User requestor)
             throws Exception;
 
     FinalReview getFinalReview(Project project, User requestor);

@@ -36,11 +36,11 @@ public class TestAdminLogin extends TestCase {
     private User defaultUser;
     private UserPrincipal defaultUserPrincipal;
     private IdGen idGen;
-    
+
     public TestAdminLogin(String testName) {
         super(testName);
     }
-    
+
     public void setUp() {
         principalMgr = AdminTestSetup.principalMgr;
         adminLogin = AdminTestSetup.adminLogin;
@@ -50,11 +50,11 @@ public class TestAdminLogin extends TestCase {
         defaultUserPrincipal = AdminTestSetup.defaultUserPrincipal;
         idGen = AdminTestSetup.idGen;
     }
-    
+
     public void testLogin() throws Exception {
         TCSubject subject;
         TCSubject adminSubject;
-        
+
         principalMgr.assignRole(defaultUserPrincipal, adminRole, null);
         subject = login.login(defaultUser.getRegInfo().getUsername(),
                 defaultUser.getRegInfo().getPassword());
@@ -62,11 +62,11 @@ public class TestAdminLogin extends TestCase {
         adminSubject = adminLogin.login(defaultUser.getRegInfo().getUsername(),
                 defaultUser.getRegInfo().getPassword());
         assertEquals("Subject not returned correctly", subject, adminSubject);
-        
+
         principalMgr.unAssignRole(defaultUserPrincipal, adminRole, null);
         try {
             adminLogin.login(defaultUser.getRegInfo().getUsername(),
-                             defaultUser.getRegInfo().getPassword());
+                    defaultUser.getRegInfo().getPassword());
             fail("Expected an AuthenticationException");
         } catch (AuthenticationException ae) {
             /* the expected case */
@@ -84,7 +84,7 @@ public class TestAdminLogin extends TestCase {
             principalMgr.unAssignRole(defaultUserPrincipal, adminRole, null);
         }
     }
-    
+
     public void testLogin_NullPassword() throws Exception {
         principalMgr.assignRole(defaultUserPrincipal, adminRole, null);
         try {
@@ -96,7 +96,7 @@ public class TestAdminLogin extends TestCase {
             principalMgr.unAssignRole(defaultUserPrincipal, adminRole, null);
         }
     }
-    
+
     public void testLogin_BadPassword() throws Exception {
         principalMgr.assignRole(defaultUserPrincipal, adminRole, null);
         try {
@@ -108,7 +108,7 @@ public class TestAdminLogin extends TestCase {
             principalMgr.unAssignRole(defaultUserPrincipal, adminRole, null);
         }
     }
-    
+
     public void testLogin_BadUsername() throws Exception {
         principalMgr.assignRole(defaultUserPrincipal, adminRole, null);
         try {
@@ -120,8 +120,8 @@ public class TestAdminLogin extends TestCase {
         } finally {
             principalMgr.unAssignRole(defaultUserPrincipal, adminRole, null);
         }
-    }    
-    
+    }
+
     public static Test suite() {
         return new AdminTestSetup(new TestSuite(TestAdminLogin.class));
     }

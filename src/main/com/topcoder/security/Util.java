@@ -10,8 +10,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.rmi.PortableRemoteObject;
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,11 +19,11 @@ import java.security.Key;
 import java.security.KeyStore;
 import java.security.Security;
 import java.security.cert.Certificate;
-import java.util.Enumeration;
-import java.util.Vector;
-import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Enumeration;
+import java.util.Vector;
 
 /**
  * A bunch of static methods used in various com.topcoder.security (and subpackage)
@@ -384,7 +384,7 @@ public class Util implements ConfigManagerInterface {
         DataSource ds = null;
         try {
             ds = (DataSource) PortableRemoteObject.narrow(
-                    context.lookup(dataSourceName),DataSource.class);
+                    context.lookup(dataSourceName), DataSource.class);
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());

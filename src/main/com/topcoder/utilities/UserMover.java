@@ -1,32 +1,32 @@
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.ejb.user.UserHome;
-import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.user.UserAddressHome;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.ejb.email.EmailHome;
-import com.topcoder.web.ejb.address.Address;
-import com.topcoder.web.ejb.address.AddressHome;
-import com.topcoder.web.ejb.phone.Phone;
-import com.topcoder.web.ejb.phone.PhoneHome;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.address.AddressHome;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.web.ejb.phone.Phone;
+import com.topcoder.web.ejb.phone.PhoneHome;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.user.UserAddressHome;
+import com.topcoder.web.ejb.user.UserHome;
 
 import javax.naming.Context;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Iterator;
+import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Iterator;
 
 public class UserMover {
     private static Logger log = Logger.getLogger(UserMover.class);

@@ -1,12 +1,11 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.web.common.NavigationException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

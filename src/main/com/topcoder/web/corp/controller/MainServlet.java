@@ -1,16 +1,16 @@
 package com.topcoder.web.corp.controller;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.Constants;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.corp.Constants;
 
-import javax.servlet.ServletException;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 
 
 public class MainServlet extends BaseServlet {

@@ -49,11 +49,11 @@ public class Download implements Serializable {
     public Download(String description, String url) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for download description");
+                    "Null specified for download description");
         }
         if (url == null) {
             throw new IllegalArgumentException(
-            "Null specified for download URL");
+                    "Null specified for download URL");
         }
         this.description = description;
         this.url = url;
@@ -90,7 +90,7 @@ public class Download implements Serializable {
     public void setDescription(String description) {
         if (description == null) {
             throw new IllegalArgumentException(
-            "Null specified for download description");
+                    "Null specified for download description");
         }
         this.description = description;
     }
@@ -114,7 +114,7 @@ public class Download implements Serializable {
     public void setURL(String url) {
         if (url == null) {
             throw new IllegalArgumentException(
-            "Null specified for download URL");
+                    "Null specified for download URL");
         }
         this.url = url;
     }
@@ -134,7 +134,7 @@ public class Download implements Serializable {
         }
         Download other = (Download) object;
         return getDescription().equals(other.getDescription())
-            && getURL().equals(other.getURL());
+                && getURL().equals(other.getURL());
     }
 
     /**
@@ -151,7 +151,7 @@ public class Download implements Serializable {
 
     public String toString() {
         return "Download " + getId() + " - " + getDescription()
-            + " (" + getURL() + ")";
+                + " (" + getURL() + ")";
     }
 
 

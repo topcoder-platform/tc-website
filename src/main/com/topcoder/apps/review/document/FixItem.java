@@ -1,7 +1,7 @@
 /*
  * FixItem.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -33,7 +33,7 @@ public class FixItem implements Serializable {
      * @param aggregationResponse DOCUMENT ME!
      */
     public FixItem(long id, FinalFixStatus finalFixStatus,
-            AggregationResponse aggregationResponse, long versionId) {
+                   AggregationResponse aggregationResponse, long versionId) {
         this.id = id;
         this.finalFixStatus = finalFixStatus;
         this.aggregationResponse = aggregationResponse;
@@ -79,7 +79,7 @@ public class FixItem implements Serializable {
      * <p>
      * Return the id of the fixitem.
      * </p>
-     * 
+     *
      * @return the id of the fixitem.
      */
     public long getId() {
@@ -98,7 +98,7 @@ public class FixItem implements Serializable {
      * <p>
      * Return the status.
      * </p>
-     * 
+     *
      * @return a FinalFixStatus with the status.
      */
     public FinalFixStatus getFinalFixStatus() {
@@ -109,7 +109,7 @@ public class FixItem implements Serializable {
      * <p>
      * Set the status.
      * </p>
-     * 
+     *
      * @param finalFixStatus The status to be set.
      */
     public void setFinalFixStatus(FinalFixStatus finalFixStatus) {
@@ -118,12 +118,12 @@ public class FixItem implements Serializable {
     }
 
     /**
-    * <p>
-    * Return the response.
-    * </p>
-    * 
-    * @return the response.
-    */
+     * <p>
+     * Return the response.
+     * </p>
+     *
+     * @return the response.
+     */
     public AggregationResponse getAggregationResponse() {
         return aggregationResponse;
     }

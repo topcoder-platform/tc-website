@@ -103,7 +103,7 @@ public class ViewMyOpenProjects implements Model {
 
             return new ProjectsRetrieval(temp);
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

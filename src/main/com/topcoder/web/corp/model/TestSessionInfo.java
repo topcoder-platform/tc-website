@@ -1,20 +1,19 @@
 package com.topcoder.web.corp.model;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
+
 import java.util.Calendar;
 import java.util.Date;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.corp.model.BaseModel;
-import com.topcoder.shared.util.logging.Logger;
-
 public class TestSessionInfo extends BaseModel {
     private final static Logger log = Logger.getLogger(TestSessionInfo.class);
-    
-    private static int[] months = 
-        new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
-                  Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
-                  Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
-                  Calendar.NOVEMBER, Calendar.DECEMBER};
+
+    private static int[] months =
+            new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
+                      Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
+                      Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
+                      Calendar.NOVEMBER, Calendar.DECEMBER};
     private String profileId;
     private String candidateId;
     private ResultSetContainer profileList;
@@ -31,8 +30,8 @@ public class TestSessionInfo extends BaseModel {
     private String repEmail;
 
     public TestSessionInfo() {
-        candidateEmail="YES";
-        repEmail="YES";
+        candidateEmail = "YES";
+        repEmail = "YES";
 
         Calendar c = Calendar.getInstance();
         beginMonth = endMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
@@ -46,18 +45,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param profile
      */
-    public void setProfileId( String val )
-    {
+    public void setProfileId(String val) {
         profileId = val;
     }
 
     /**
      * Gets the value of <code>profile</code>.
      *
-     * @return 
+     * @return
      */
-    public String getProfileId()
-    {
+    public String getProfileId() {
         return profileId;
     }
 
@@ -66,18 +63,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param candidate
      */
-    public void setCandidateId( String val )
-    {
+    public void setCandidateId(String val) {
         candidateId = val;
     }
 
     /**
      * Gets the value of <code>candidate</code>.
      *
-     * @return 
+     * @return
      */
-    public String getCandidateId()
-    {
+    public String getCandidateId() {
         return candidateId;
     }
 
@@ -86,18 +81,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param profileList
      */
-    public void setProfileList( ResultSetContainer val )
-    {
+    public void setProfileList(ResultSetContainer val) {
         profileList = val;
     }
 
     /**
      * Gets the value of <code>profileList</code>.
      *
-     * @return 
+     * @return
      */
-    public ResultSetContainer getProfileList()
-    {
+    public ResultSetContainer getProfileList() {
         return profileList;
     }
 
@@ -106,18 +99,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param candidateList
      */
-    public void setCandidateList( ResultSetContainer val )
-    {
+    public void setCandidateList(ResultSetContainer val) {
         candidateList = val;
     }
 
     /**
      * Gets the value of <code>candidateList</code>.
      *
-     * @return 
+     * @return
      */
-    public ResultSetContainer getCandidateList()
-    {
+    public ResultSetContainer getCandidateList() {
         return candidateList;
     }
 
@@ -126,18 +117,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param beginMonth
      */
-    public void setBeginMonth( String val )
-    {
+    public void setBeginMonth(String val) {
         beginMonth = val;
     }
 
     /**
      * Gets the value of <code>beginMonth</code>.
      *
-     * @return 
+     * @return
      */
-    public String getBeginMonth()
-    {
+    public String getBeginMonth() {
         return beginMonth;
     }
 
@@ -146,18 +135,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param beginDay
      */
-    public void setBeginDay( String val )
-    {
+    public void setBeginDay(String val) {
         beginDay = val;
     }
 
     /**
      * Gets the value of <code>beginDay</code>.
      *
-     * @return 
+     * @return
      */
-    public String getBeginDay()
-    {
+    public String getBeginDay() {
         return beginDay;
     }
 
@@ -166,18 +153,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param beginYear
      */
-    public void setBeginYear( String val )
-    {
+    public void setBeginYear(String val) {
         beginYear = val;
     }
 
     /**
      * Gets the value of <code>beginYear</code>.
      *
-     * @return 
+     * @return
      */
-    public String getBeginYear()
-    {
+    public String getBeginYear() {
         return beginYear;
     }
 
@@ -186,18 +171,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param beginHour
      */
-    public void setBeginHour( String val )
-    {
+    public void setBeginHour(String val) {
         beginHour = val;
     }
 
     /**
      * Gets the value of <code>beginHour</code>.
      *
-     * @return 
+     * @return
      */
-    public String getBeginHour()
-    {
+    public String getBeginHour() {
         return beginHour;
     }
 
@@ -206,18 +189,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param endMonth
      */
-    public void setEndMonth( String val )
-    {
+    public void setEndMonth(String val) {
         endMonth = val;
     }
 
     /**
      * Gets the value of <code>endMonth</code>.
      *
-     * @return 
+     * @return
      */
-    public String getEndMonth()
-    {
+    public String getEndMonth() {
         return endMonth;
     }
 
@@ -226,18 +207,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param endDay
      */
-    public void setEndDay( String val )
-    {
+    public void setEndDay(String val) {
         endDay = val;
     }
 
     /**
      * Gets the value of <code>endDay</code>.
      *
-     * @return 
+     * @return
      */
-    public String getEndDay()
-    {
+    public String getEndDay() {
         return endDay;
     }
 
@@ -246,18 +225,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param endYear
      */
-    public void setEndYear( String val )
-    {
+    public void setEndYear(String val) {
         endYear = val;
     }
 
     /**
      * Gets the value of <code>endYear</code>.
      *
-     * @return 
+     * @return
      */
-    public String getEndYear()
-    {
+    public String getEndYear() {
         return endYear;
     }
 
@@ -266,18 +243,16 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param endHour
      */
-    public void setEndHour( String val )
-    {
+    public void setEndHour(String val) {
         endHour = val;
     }
 
     /**
      * Gets the value of <code>endHour</code>.
      *
-     * @return 
+     * @return
      */
-    public String getEndHour()
-    {
+    public String getEndHour() {
         return endHour;
     }
 
@@ -286,9 +261,8 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param candidateEmail
      */
-    public void setCandidateEmail( String val )
-    {
-        if(val == null) {
+    public void setCandidateEmail(String val) {
+        if (val == null) {
             val = "NO";
         }
         candidateEmail = val;
@@ -297,10 +271,9 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Gets the value of <code>candidateEmail</code>.
      *
-     * @return 
+     * @return
      */
-    public String getCandidateEmail()
-    {
+    public String getCandidateEmail() {
         return candidateEmail;
     }
 
@@ -313,9 +286,8 @@ public class TestSessionInfo extends BaseModel {
      *
      * @param repEmail
      */
-    public void setRepEmail( String val )
-    {
-        if(val == null) {
+    public void setRepEmail(String val) {
+        if (val == null) {
             val = "NO";
         }
         repEmail = val;
@@ -324,10 +296,9 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Gets the value of <code>repEmail</code>.
      *
-     * @return 
+     * @return
      */
-    public String getRepEmail()
-    {
+    public String getRepEmail() {
         return repEmail;
     }
 
@@ -347,7 +318,7 @@ public class TestSessionInfo extends BaseModel {
         Calendar c = Calendar.getInstance();
         c.setTime(beginDate);
         setBeginYear(String.valueOf(c.get(Calendar.YEAR)));
-        setBeginMonth(String.valueOf(c.get(Calendar.MONTH)+1));
+        setBeginMonth(String.valueOf(c.get(Calendar.MONTH) + 1));
         setBeginDay(String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
         setBeginHour(String.valueOf(c.get(Calendar.HOUR_OF_DAY)));
     }
@@ -356,7 +327,7 @@ public class TestSessionInfo extends BaseModel {
         Calendar c = Calendar.getInstance();
         c.setTime(endDate);
         setEndYear(String.valueOf(c.get(Calendar.YEAR)));
-        setEndMonth(String.valueOf(c.get(Calendar.MONTH)+1));
+        setEndMonth(String.valueOf(c.get(Calendar.MONTH) + 1));
         setEndDay(String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
         setEndHour(String.valueOf(c.get(Calendar.HOUR_OF_DAY)));
     }
@@ -371,14 +342,14 @@ public class TestSessionInfo extends BaseModel {
 
     private Date formDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
-        if(year == null || month == null || day == null || hour == null) {
+        if (year == null || month == null || day == null || hour == null) {
             return new Date(); //so we don't blow up in certain places
         }
         Calendar c = Calendar.getInstance();
         c.set(Integer.parseInt(year),
-               months[Integer.parseInt(month)],
-               Integer.parseInt(day),
-               Integer.parseInt(hour), 0, 0);
+                months[Integer.parseInt(month)],
+                Integer.parseInt(day),
+                Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
     }
@@ -394,7 +365,8 @@ public class TestSessionInfo extends BaseModel {
      */
     public static int sessionStatus(Date curr, Date sessBegin, Date segEnd, Date sessEnd) {
         int ret = 0;
-        if (curr.getTime() < sessBegin.getTime()) ret = -1;
+        if (curr.getTime() < sessBegin.getTime())
+            ret = -1;
         else if (Math.min(segEnd.getTime(), sessEnd.getTime()) < curr.getTime()) ret = 1;
         return ret;
     }

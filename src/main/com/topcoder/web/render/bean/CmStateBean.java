@@ -16,8 +16,13 @@ import com.topcoder.web.render.common.config;
 import com.topcoder.web.render.ejb.*;
 
 import javax.ejb.CreateException;
-import javax.naming.*;
-import javax.servlet.http.*;
+import javax.naming.AuthenticationException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
 import java.io.*;
 import java.rmi.RemoteException;
 import java.sql.SQLException;

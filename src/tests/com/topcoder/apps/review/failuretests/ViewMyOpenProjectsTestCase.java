@@ -1,7 +1,7 @@
 /*
  * ViewMyOpenProjectsTestCase.java 1.0 7/1/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -26,14 +26,14 @@ public class ViewMyOpenProjectsTestCase extends BaseTestCase {
      * <p>Returns an instance of ViewMyOpenProjects.</p>
      */
     public Model getModel() {
-        return(new ViewMyOpenProjects());
+        return (new ViewMyOpenProjects());
     }
-    
+
     /**
      * <p>Returns an instance of LoginData.</p>
      */
     public ActionData getWrongActionData() {
-        return(ActionDataUtil.getLoginData("temp","aaa"));
+        return (ActionDataUtil.getLoginData("temp", "aaa"));
     }
 
     /**
@@ -42,15 +42,15 @@ public class ViewMyOpenProjectsTestCase extends BaseTestCase {
      */
     public ActionData[] getNullParams() {
         OnlineReviewData data = ActionDataUtil.getOnlineReviewData(null);
-        return(new ActionData[] {data});
+        return (new ActionData[]{data});
     }
-    
+
     /**
      * <p>Returns the TestSuite for this TestCase.</p>
      *
      * @return the TestSuite for this TestCase
      */
     public static Test suite() {
-        return(new TestSuite(ViewMyOpenProjectsTestCase.class));
+        return (new TestSuite(ViewMyOpenProjectsTestCase.class));
     }
 }

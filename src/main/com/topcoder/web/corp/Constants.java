@@ -3,7 +3,6 @@ package com.topcoder.web.corp;
 import com.topcoder.shared.util.TCResourceBundle;
 
 import javax.servlet.ServletConfig;
-import java.util.Hashtable;
 
 /**
  * General set of constants to be used in scope of this web application.
@@ -66,14 +65,14 @@ public class Constants {
     public static void init(ServletConfig cfg) {
         JSP_ROOT = cfg.getInitParameter("jsp_root");
 
-        REGISTRATION_PAGE_SUCCESS = JSP_ROOT+cfg.getInitParameter("page-Registration-success");
+        REGISTRATION_PAGE_SUCCESS = JSP_ROOT + cfg.getInitParameter("page-Registration-success");
         REGISTRATION_UPDATE_SUCCESS = cfg.getInitParameter("page-Registration-update");
-        REGISTRATION_PAGE_RETRY = JSP_ROOT+cfg.getInitParameter("page-Registration-retry");
-        USEREDIT_PAGE_SUCCESS = JSP_ROOT+cfg.getInitParameter("page-UserEdit-success");
-        USEREDIT_PAGE_RETRY = JSP_ROOT+cfg.getInitParameter("page-UserEdit-retry");
-        USERLIST_PAGE = JSP_ROOT+cfg.getInitParameter("page-UserList");
-        LOGIN_PAGE = JSP_ROOT+cfg.getInitParameter("page-login");
-        WELCOME_PAGE  = JSP_ROOT+cfg.getInitParameter("page-welcome");
+        REGISTRATION_PAGE_RETRY = JSP_ROOT + cfg.getInitParameter("page-Registration-retry");
+        USEREDIT_PAGE_SUCCESS = JSP_ROOT + cfg.getInitParameter("page-UserEdit-success");
+        USEREDIT_PAGE_RETRY = JSP_ROOT + cfg.getInitParameter("page-UserEdit-retry");
+        USERLIST_PAGE = JSP_ROOT + cfg.getInitParameter("page-UserList");
+        LOGIN_PAGE = JSP_ROOT + cfg.getInitParameter("page-login");
+        WELCOME_PAGE = JSP_ROOT + cfg.getInitParameter("page-welcome");
 
     }
 

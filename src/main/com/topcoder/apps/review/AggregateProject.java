@@ -7,8 +7,8 @@ import com.topcoder.apps.review.document.AggregationWorksheet;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
+import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.security.TCSubject;
 
 /**
@@ -52,7 +52,7 @@ public class AggregateProject implements Model {
                 // should never happen if front-end works properly
                 return new FailureResult("Null user, you have to login first");
             }
-    
+
             userProjectInfo = aggregationData.getProject();
             if (userProjectInfo == null) {
                 // should never happen if front-end works properly
@@ -103,11 +103,11 @@ public class AggregateProject implements Model {
 
                 // save the AggregationWorksheet
                 documentManager.saveAggregation(aggregationData.getAggregationWorksheet(), user.getTCSubject());
-                
+
                 return new SuccessResult();
             }
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

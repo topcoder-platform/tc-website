@@ -12,7 +12,7 @@ import java.rmi.RemoteException;
  *
  * @author TCDEVELOPER
  * @version 1.0
- * @version Copyright © 2003, TopCoder Software, Inc. All rights reserved
+ * @version Copyright ï¿½ 2003, TopCoder Software, Inc. All rights reserved
  */
 public class DocumentManagerTester implements DocumentManagerLocal, DocumentManager {
 
@@ -32,7 +32,7 @@ public class DocumentManagerTester implements DocumentManagerLocal, DocumentMana
     public void setProjectId(long projectId) {
         this.projectId = projectId;
     }
-    
+
     public void setScreeningScorecards(ScreeningScorecard[] screeningScorecards) {
         this.screeningScorecards = screeningScorecards;
     }
@@ -93,7 +93,7 @@ public class DocumentManagerTester implements DocumentManagerLocal, DocumentMana
 
     public ScreeningScorecard[] getScreeningScorecard(Project project, TCSubject user) {
         if (projectId != project.getId()) return null;
-        return (ScreeningScorecard[])screeningScorecards.clone();
+        return (ScreeningScorecard[]) screeningScorecards.clone();
     }
 
     public void saveScreeningScorecard(ScreeningScorecard scorecard, TCSubject req) throws InvalidEditException, DocumentAlreadySubmittedException, IncorrectProjectStateException {
@@ -104,19 +104,20 @@ public class DocumentManagerTester implements DocumentManagerLocal, DocumentMana
         if (this.projectId != projectId) return null;
         for (int i = 0; i < reviewScorecards.length; i++) {
             if (reviewScorecards[i].getSubmission().getSubmitter().getId() == submitterId &&
-                reviewScorecards[i].getAuthor().getId() == reviewerId) return reviewScorecards[i];
+                    reviewScorecards[i].getAuthor().getId() == reviewerId)
+                return reviewScorecards[i];
         }
         return null;
     }
 
     public ReviewScorecard[] getReviewScorecard(Project project, TCSubject user) {
         if (projectId != project.getId()) return null;
-        return (ReviewScorecard[])reviewScorecards.clone();
+        return (ReviewScorecard[]) reviewScorecards.clone();
     }
 
     public TestCaseReview[] getTestCaseReview(Project project, TCSubject user) {
         if (projectId != project.getId()) return null;
-        return (TestCaseReview[])testCaseReview.clone();
+        return (TestCaseReview[]) testCaseReview.clone();
     }
 
     public void saveReviewScorecard(ReviewScorecard scorecard, TCSubject user) throws InvalidEditException, DocumentAlreadySubmittedException, IncorrectProjectStateException {
@@ -131,7 +132,7 @@ public class DocumentManagerTester implements DocumentManagerLocal, DocumentMana
         if (projectId != project.getId()) return null;
         for (int i = 0; i < initialSubmission.length; i++) {
             if (initialSubmission[i].getSubmitter().getId() == user.getUserId()) {
-                return new InitialSubmission[] {initialSubmission[i]};
+                return new InitialSubmission[]{initialSubmission[i]};
             }
         }
         return initialSubmission;
@@ -177,7 +178,7 @@ public class DocumentManagerTester implements DocumentManagerLocal, DocumentMana
         throwMe();
     }
 
-    
+
     public void throwMe() {
         if (incorrectProjectStateException != null) throw incorrectProjectStateException;
         if (invalidEditException != null) throw invalidEditException;
@@ -187,33 +188,34 @@ public class DocumentManagerTester implements DocumentManagerLocal, DocumentMana
     public javax.ejb.EJBLocalHome getEJBLocalHome() throws javax.ejb.EJBException {
         return null;
     }
-    
+
     public javax.ejb.EJBHome getEJBHome() throws javax.ejb.EJBException {
         return null;
     }
-    
+
     public Object getPrimaryKey() throws javax.ejb.EJBException {
         return null;
     }
-    
+
     public boolean isIdentical(javax.ejb.EJBLocalObject eJBLocalObject) throws javax.ejb.EJBException {
         return false;
     }
-    
+
     public boolean isIdentical(javax.ejb.EJBObject eJBLocalObject) throws javax.ejb.EJBException {
         return false;
     }
-    
+
     public void remove() throws javax.ejb.RemoveException, javax.ejb.EJBException {
     }
-    
+
     public javax.ejb.Handle getHandle() throws java.rmi.RemoteException {
         return null;
     }
-    
+
     public java.util.List createScorecards(Project project, long authorId, java.util.List scorecardList) {
         return new java.util.ArrayList();
     }
-    
-    public void createAggregation(Project project) {}
+
+    public void createAggregation(Project project) {
+    }
 }

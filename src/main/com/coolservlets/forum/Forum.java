@@ -53,17 +53,18 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Iterator;
 
 /**
  * A top level container for discussions. It contains a list of threads, each
  * of which contains a tree of messages.
  */
 public interface Forum {
-    
+
     /**
      * Returns the id of the forum.
      */
@@ -118,7 +119,7 @@ public interface Forum {
     public Date getModifiedDate();
 
     /**
-     * Returns the CoderId that last modified the forum. 
+     * Returns the CoderId that last modified the forum.
      */
     public User getUser();
 
@@ -175,7 +176,7 @@ public interface Forum {
      * Factory method to create a Message.
      *
      * @param user the user for the message.
-      *
+     *
      * @throws UnauthorizedException if does not have CREATE_MESSAGE permissions.
      */
     public abstract ForumMessage createMessage(User user)
@@ -257,7 +258,7 @@ public interface Forum {
      *
      * @throws UnauthorizedException if does not have ADMIN permissions.
      */
-    public int [] usersWithPermission(int permissionType)
+    public int[] usersWithPermission(int permissionType)
             throws UnauthorizedException;
 
     /**
@@ -308,7 +309,7 @@ public interface Forum {
 
     /**
      * Returns the permissions for the forum that correspond to the
-     * passed-in Authorization. 
+     * passed-in Authorization.
      *
      * @param authorization the auth token to lookup permissions for.
      */

@@ -1,13 +1,11 @@
 package com.topcoder.web.corp.model;
 
-import java.util.HashSet;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.model.BaseModel;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 public class ProfileInfo extends BaseModel {
     private Long profileId;

@@ -1,12 +1,12 @@
 package com.topcoder.web.tc.controller.request;
 
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.SoftwareComponent;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.util.DBMS;
 
 /**
  * User: dok
@@ -16,7 +16,7 @@ public class ReviewBoard extends Base {
 
     protected void businessProcessing() throws TCWebException {
         String phaseId = getRequest().getParameter(Constants.PHASE_ID);
-        if (phaseId.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))||phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {
+        if (phaseId.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE)) || phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {
             Request r = new Request();
             r.setContentHandle("review_board_members");
             r.setProperty(Constants.PHASE_ID, phaseId);

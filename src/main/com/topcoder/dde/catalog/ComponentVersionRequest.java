@@ -10,7 +10,9 @@
 
 package com.topcoder.dde.catalog;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 
 
 /**
@@ -44,18 +46,18 @@ public class ComponentVersionRequest implements java.io.Serializable {
      * is negative.
      */
     public ComponentVersionRequest(String comments, String versionLabel,
-           long userId) {
+                                   long userId) {
         if (comments == null) {
             throw new IllegalArgumentException(
-            "Null specified for version comment");
+                    "Null specified for version comment");
         }
         if (versionLabel == null) {
             throw new IllegalArgumentException(
-            "Null specified for version label");
+                    "Null specified for version label");
         }
         if (userId < 0) {
             throw new IllegalArgumentException(
-            "Negative number specified for user id of requestor");
+                    "Negative number specified for user id of requestor");
         }
         this.comments = comments;
         this.versionLabel = versionLabel;
@@ -83,7 +85,7 @@ public class ComponentVersionRequest implements java.io.Serializable {
     public void setComments(String comments) {
         if (comments == null) {
             throw new IllegalArgumentException(
-            "Null specified for version comment");
+                    "Null specified for version comment");
         }
         this.comments = comments;
     }
@@ -107,7 +109,7 @@ public class ComponentVersionRequest implements java.io.Serializable {
     public void setVersionLabel(String versionLabel) {
         if (versionLabel == null) {
             throw new IllegalArgumentException(
-            "Null specified for verion label");
+                    "Null specified for verion label");
         }
         this.versionLabel = versionLabel;
     }
@@ -130,7 +132,7 @@ public class ComponentVersionRequest implements java.io.Serializable {
     public void setUserId(long userId) {
         if (userId < 0) {
             throw new IllegalArgumentException(
-            "Negative number specified for user id of requestor");
+                    "Negative number specified for user id of requestor");
         }
         this.userId = userId;
     }
@@ -191,9 +193,9 @@ public class ComponentVersionRequest implements java.io.Serializable {
         }
         ComponentVersionRequest other = (ComponentVersionRequest) object;
         return getComments().equals(other.getComments())
-            && getVersionLabel().equals(other.getVersionLabel())
-            && getUserId() == other.getUserId()
-            && technologies.equals(other.technologies);
+                && getVersionLabel().equals(other.getVersionLabel())
+                && getUserId() == other.getUserId()
+                && technologies.equals(other.technologies);
     }
 
     /**

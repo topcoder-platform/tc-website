@@ -1,7 +1,7 @@
 /*
  * MyProjectTracker.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -29,13 +29,13 @@ public class MyProjectTracker extends EJBBase implements ProjectTrackerLocal {
      * <p>Maps id's to projects</p>
      */
     private static HashMap projects = new HashMap();
-    
+
     /**
      * <p>Maps user id's to lists of projects which that
      * user is involved in.</p>
      */
     private static HashMap userProjects = new HashMap();
-    
+
     /**
      * <p>Adds the given project to the project tracker.</p>
      *
@@ -43,9 +43,9 @@ public class MyProjectTracker extends EJBBase implements ProjectTrackerLocal {
      */
     public static void addProject(Project project) {
         Long id = new Long(project.getId());
-        projects.put(id,project);
+        projects.put(id, project);
     }
-    
+
     /**
      * <p>Adds the specified Project to the list of projects
      * associated with the given User.</p>
@@ -57,14 +57,14 @@ public class MyProjectTracker extends EJBBase implements ProjectTrackerLocal {
     public static void addUserProject(User user,
                                       UserProjectInfo userProjectInfo) {
         Long id = new Long(user.getId());
-        ArrayList list = (ArrayList)userProjects.get(id);
-        if(list == null) {
+        ArrayList list = (ArrayList) userProjects.get(id);
+        if (list == null) {
             list = new ArrayList();
-            userProjects.put(id,list);
+            userProjects.put(id, list);
         }
         list.add(userProjectInfo);
     }
-    
+
     /**
      * <p>Clears all projects.</p>
      */
@@ -72,38 +72,38 @@ public class MyProjectTracker extends EJBBase implements ProjectTrackerLocal {
         projects.clear();
         userProjects.clear();
     }
-    
+
     //ProjectTracker methods
-    
+
     public Project getProject(UserProjectInfo info, TCSubject requestor) {
         Long id = new Long(info.getId());
-        return((Project)projects.get(id));
+        return ((Project) projects.get(id));
     }
 
     public Project getProjectById(long projectId, TCSubject requestor) {
-        Long id = new Long(projectId);                
-        return((Project)projects.get(id));
-    }    
-    
+        Long id = new Long(projectId);
+        return ((Project) projects.get(id));
+    }
+
     public UserProjectInfo[] getProjectInfo(TCSubject user) {
         Long id = new Long(user.getUserId());
-        List list = (List)userProjects.get(id);
-        return((UserProjectInfo[])list.toArray());
+        List list = (List) userProjects.get(id);
+        return ((UserProjectInfo[]) list.toArray());
     }
 
     public void saveProject(Project project, String reason, TCSubject requestor)
-        throws InvalidEditException {
+            throws InvalidEditException {
     }
 
     public Project getProject(long projectId, User user) {
         Long id = new Long(projectId);
-        return((Project)projects.get(id));
+        return ((Project) projects.get(id));
     }
 
     public Project[] getAllProjects() throws RemoteException {
-        return((Project[])projects.values().toArray());
+        return ((Project[]) projects.values().toArray());
     }
-    
+
     public long createProject(
             String projectName,
             String projectVersion,
@@ -112,12 +112,12 @@ public class MyProjectTracker extends EJBBase implements ProjectTrackerLocal {
             String overview,
             Date[] dates,
             TCSubject requestor) {
-            return(1);
+        return (1);
     }
 
-    public void userInquiry(long userId, long componentId, 
+    public void userInquiry(long userId, long componentId,
                             long version, long projectTypeId)
-                            throws TCException {
+            throws TCException {
     }
 
     public long convertProject(
@@ -126,6 +126,6 @@ public class MyProjectTracker extends EJBBase implements ProjectTrackerLocal {
             long compVersId, long phaseId, long projectTypeId,
             String overview, Date[] dates, TCSubject requestor)
             throws TCException {
-        return(1);                
+        return (1);
     }
 }

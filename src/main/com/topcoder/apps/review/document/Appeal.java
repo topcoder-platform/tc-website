@@ -1,15 +1,15 @@
 /*
  * Appeal.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
 
-import java.io.Serializable;
-
 import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.projecttracker.User;
+
+import java.io.Serializable;
 
 
 /**
@@ -40,10 +40,10 @@ public class Appeal implements Serializable {
      * @param aggregationResponse DOCUMENT ME!
      */
     public Appeal(long id, String appealText, String appealResponse,
-            boolean isResolved, ScorecardQuestion question,
-            User appealer, User submitter, User reviewer,
-            long submissionId, long appealerSubmissionId,
-            long versionId) {
+                  boolean isResolved, ScorecardQuestion question,
+                  User appealer, User submitter, User reviewer,
+                  long submissionId, long appealerSubmissionId,
+                  long versionId) {
         this.id = id;
         this.appealText = appealText;
         this.appealResponse = appealResponse;
@@ -99,7 +99,7 @@ public class Appeal implements Serializable {
      * <p>
      * Return the id of the fixitem.
      * </p>
-     * 
+     *
      * @return the id of the fixitem.
      */
     public long getId() {
@@ -273,5 +273,5 @@ public class Appeal implements Serializable {
     public int hashCode() {
         return (int) (id ^ (id >>> 32));
     }
-    
+
 }

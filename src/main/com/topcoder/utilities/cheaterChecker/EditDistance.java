@@ -2,9 +2,9 @@ package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class EditDistance implements Fraud {
     private static Logger log = Logger.getLogger(EditDistance.class);

@@ -55,21 +55,21 @@
  */
 package com.coolservlets.forum.database;
 
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import com.coolservlets.util.*;
-import com.coolservlets.forum.*;
+import com.coolservlets.forum.ForumMessage;
+
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class DbQueryIterator implements Iterator, ListIterator {
 
     //maintain an array of message ids to iterator through.
-    private int [] messages;
+    private int[] messages;
     //points to the current message id that the user has iterated to.
     private int currentIndex = -1;
 
     private DbForumFactory factory;
 
-    public DbQueryIterator(int [] messages, DbForumFactory factory) {
+    public DbQueryIterator(int[] messages, DbForumFactory factory) {
         this.messages = messages;
         this.factory = factory;
     }
@@ -78,8 +78,9 @@ public class DbQueryIterator implements Iterator, ListIterator {
      * Returns true if there are more messages left to iteratate through.
      */
     public boolean hasNext() {
-        return (currentIndex+1 < messages.length);
+        return (currentIndex + 1 < messages.length);
     }
+
     /**
      * Returns the next message.  Not correct as is!!!
      */
@@ -91,43 +92,47 @@ public class DbQueryIterator implements Iterator, ListIterator {
         }
         try {
             message = factory.getMessage(messages[currentIndex]);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return message;
     }
+
     /**
      * For security reasons, the remove operation is not supported.
      */
     public void remove() {
         throw new UnsupportedOperationException();
     }
+
     /**
      * Returns true if there are more messages left to iterate through backwards.
      */
     public boolean hasPrevious() {
         return (currentIndex > 0);
     }
+
     /**
      * For security reasons, the add operation is not supported.
      */
     public void add(Object o) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
-   
+
     /**
      * For security reasons, the set operation is not supported.
      */
     public void set(Object o) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
     /**
      * Returns the index number that would be returned with a call to next().
      */
     public int nextIndex() {
-        return currentIndex+1;
+        return currentIndex + 1;
     }
+
     /**
      * Returns the previous group.
      */
@@ -140,16 +145,16 @@ public class DbQueryIterator implements Iterator, ListIterator {
         }
         try {
             message = factory.getMessage(messages[currentIndex]);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return message;
     }
+
     /**
      * Returns the index number that would be returned with a call to previous().
      */
     public int previousIndex() {
-        return currentIndex-1;
+        return currentIndex - 1;
     }
 }

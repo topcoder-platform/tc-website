@@ -10,9 +10,11 @@ package com.topcoder.dde.catalog.test;
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.Technology;
 import com.topcoder.dde.catalog.CatalogException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -30,19 +32,19 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
     public TestCatalog_Technology(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         catalog = catalogHome.create();
         tech = new Technology("Test technology #" + idGen.nextId(),
-                              "A technology for testing");
+                "A technology for testing");
     }
-    
+
     public void tearDown() throws Exception {
         catalog.remove();
         super.tearDown();
     }
-    
+
     public void testAddTechnology() throws Exception {
         Technology l2 = catalog.addTechnology(tech);
         try {
@@ -52,7 +54,7 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
             catalog.removeTechnology(l2.getId());
         }
     }
-    
+
     public void testAddTechnology_Null() throws Exception {
         try {
             catalog.addTechnology(null);
@@ -61,7 +63,7 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testAddTechnology_Duplicate() throws Exception {
         Technology t2 = catalog.addTechnology(tech);
         try {
@@ -73,12 +75,12 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
             catalog.removeTechnology(t2.getId());
         }
     }
-    
+
     public void testGetTechnologies() throws Exception {
         ArrayList active = new ArrayList();
         ArrayList deleted = new ArrayList();
         Collection technologies;
-        
+
         active.add(catalog.addTechnology(tech));
         active.add(catalog.addTechnology(new Technology(
                 "Test technology #" + idGen.nextId(),
@@ -96,20 +98,20 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
                 "A technology for testing"));
         catalog.removeTechnology(tech.getId());
         deleted.add(tech);
-        
+
         technologies = catalog.getTechnologies();
-        
+
         try {
             Iterator it = technologies.iterator();
             assertTrue("Missing active technologies",
-                       technologies.containsAll(active) );
+                    technologies.containsAll(active));
             deleted.retainAll(technologies);
             assertEquals("Retrieved deleted technologies", 0, deleted.size());
             String last = ((Technology) it.next()).getName();
             while (it.hasNext()) {
                 String next = ((Technology) it.next()).getName();
                 assertTrue("Technologies out of order",
-                           next.compareTo(last) >= 0);
+                        next.compareTo(last) >= 0);
                 last = next;
             }
         } finally {
@@ -120,7 +122,7 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
             }
         }
     }
-    
+
     public void testGetTechnology_Missing() throws Exception {
         try {
             catalog.getTechnology(idGen.nextId());
@@ -132,7 +134,7 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
 
 /*
  * removeTechnology tested implicitly in the getTechnologies test
- *    
+ *
     public void testRemoveTechnology() throws Exception {
         Technology l2 = catalog.addTechnology(tech);
         catalog.removeTechnology(l2.getId());
@@ -149,14 +151,14 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testUpdateTechnology() throws Exception {
         Technology l2 = catalog.addTechnology(tech);
         l2.setDescription("Updated description");
         catalog.updateTechnology(l2);
         try {
             assertEquals("Technology update not successful", l2,
-                         catalog.getTechnology(l2.getId()));
+                    catalog.getTechnology(l2.getId()));
         } finally {
             catalog.removeTechnology(l2.getId());
         }
@@ -170,7 +172,7 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testUpdateTechnology_Null() throws Exception {
         try {
             catalog.updateTechnology(null);
@@ -183,5 +185,5 @@ public class TestCatalog_Technology extends RemoteCatalogTestCase {
     public static Test suite() {
         return new CatalogTestSetup(new TestSuite(TestCatalog_Technology.class));
     }
-    
+
 }

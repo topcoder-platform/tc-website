@@ -1,17 +1,12 @@
 package com.topcoder.web.ejb.email;
 
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -298,17 +293,17 @@ public class EmailBean extends BaseEJB {
     public int getStatusId(long emailId, String dataSource) {
         return selectInt("email",
                 "status_id",
-                new String[] {"email_id"},
-                new String[] {String.valueOf(emailId)},
+                new String[]{"email_id"},
+                new String[]{String.valueOf(emailId)},
                 dataSource).intValue();
     }
 
     public void setStatusId(long emailId, int statusId, String dataSource) {
         int ret = update("email",
-                new String[] {"status_id"},
-                new String[] {String.valueOf(statusId)},
-                new String[] {"email_id"},
-                new String[] {String.valueOf(emailId)},
+                new String[]{"status_id"},
+                new String[]{String.valueOf(statusId)},
+                new String[]{"email_id"},
+                new String[]{String.valueOf(emailId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows updated in " +
@@ -316,7 +311,6 @@ public class EmailBean extends BaseEJB {
                     "should have updated 1."));
         }
     }
-
 
 
 }

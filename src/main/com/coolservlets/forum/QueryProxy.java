@@ -56,7 +56,8 @@
 
 package com.coolservlets.forum;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Iterator;
 
 /**
  * Protection proxy for the query class.
@@ -71,8 +72,7 @@ public class QueryProxy implements Query {
     private ForumPermissions permissions;
 
     public QueryProxy(Query query, Authorization authorization,
-            ForumPermissions permissions)
-    {
+                      ForumPermissions permissions) {
         this.query = query;
         this.authorization = authorization;
         this.permissions = permissions;
@@ -80,7 +80,7 @@ public class QueryProxy implements Query {
 
     public String getQueryString() {
         return query.getQueryString();
-    } 
+    }
 
     public void setQueryString(String queryString) {
         query.setQueryString(queryString);
@@ -89,16 +89,19 @@ public class QueryProxy implements Query {
     public Date getBeforeDate() {
         return query.getBeforeDate();
     }
+
     public void setBeforeDate(Date beforeDate) {
         query.setBeforeDate(beforeDate);
     }
-    
+
     public Date getAfterDate() {
         return query.getAfterDate();
     }
+
     public void setAfterDate(Date afterDate) {
         query.setAfterDate(afterDate);
     }
+
     //public int resultCount() {
     //    return query.resultCount();
     //}
@@ -108,8 +111,9 @@ public class QueryProxy implements Query {
         Iterator iterator = query.execute();
         return new MessageIteratorProxy(iterator, authorization, permissions);
     }
+
     public Iterator execute(int startIndex, int numResults) {
         Iterator iterator = query.execute(startIndex, numResults);
         return new MessageIteratorProxy(iterator, authorization, permissions);
     }
-} 
+}

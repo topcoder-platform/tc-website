@@ -1,7 +1,7 @@
 /*
  * MyInitialContextFactory.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -18,8 +18,8 @@ import javax.naming.spi.InitialContextFactory;
  * @version 1.0
  */
 public class MyInitialContextFactory implements InitialContextFactory {
-    public Context getInitialContext(Hashtable environment) 
-                                     throws NamingException {
-        return(new MyContext());
+    public Context getInitialContext(Hashtable environment)
+            throws NamingException {
+        return (new MyContext());
     }
 }

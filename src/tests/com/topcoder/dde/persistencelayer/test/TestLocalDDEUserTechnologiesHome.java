@@ -9,6 +9,7 @@
 package com.topcoder.dde.persistencelayer.test;
 
 import com.topcoder.dde.persistencelayer.interfaces.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -28,7 +29,7 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
 
     /* an instance of the localHome interface implementation to work with */
     private LocalDDEUserTechnologiesHome localHome;
-    
+
     /* default field values for entity instances */
     private static final int DEF_RATING = 5;
     private static final int DEF_MONTHS = 12;
@@ -38,7 +39,7 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
      */
     TestLocalDDEUserTechnologiesHome() {
         this("testCreate");
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDEUserTechnologiesHome configured to run the named
@@ -46,7 +47,7 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
      */
     public TestLocalDDEUserTechnologiesHome(String testName) {
         this(testName, null);
-    } 
+    }
 
     /**
      * constructs a new TestLocalDDECategoriesHome configured to run the named
@@ -62,7 +63,7 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        synchronized(contextLock) {
+        synchronized (contextLock) {
             localHome = (LocalDDEUserTechnologiesHome) ctx.lookup(
                     LocalDDEUserTechnologiesHome.EJB_REF_NAME);
         }
@@ -72,10 +73,10 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
      * creates a LocalDDEUserTechnologies entity with default parameters
      */
     LocalDDEUserTechnologies createDefault(LocalDDEUserMaster master,
-            LocalDDETechnologyTypes type) throws Exception {
+                                           LocalDDETechnologyTypes type) throws Exception {
         return localHome.create(DEF_RATING, DEF_MONTHS, master, type);
     }
-    
+
     /**
      * tests all entity creation functionality of the bean
      */
@@ -98,8 +99,8 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
                 synchronized (TestLocalDDETechnologyTypesHome.class) {
                     LocalDDETechnologyTypes localType;
                     TestLocalDDETechnologyTypesHome typeHome =
-                        new TestLocalDDETechnologyTypesHome();
-                    
+                            new TestLocalDDETechnologyTypesHome();
+
                     typeHome.setUp();
                     localType = typeHome.createDefault();
                     assertNotNull(localType);
@@ -119,7 +120,7 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
                             } finally {
                                 local.remove();
                             }
-                    
+
                             /* test creation with null user */
                             local = createDefault(null, localType);
                             assertNotNull(local);
@@ -140,7 +141,7 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
             }
         }
     }
-    
+
     public void testFindByPrimaryKey() {
         fail("Test not yet implemented");
     }
@@ -155,25 +156,25 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
         Long loginId;
         int rating;
         int months;
-        
+
         DDEUserTechnologiesData(Object id, Long type, Long login, int rate,
-                int time) {
+                                int time) {
             this(keyToLong(id), type, login, rate, time);
         }
-        
+
         DDEUserTechnologiesData(long id, Long type, Long login, int rate,
-                int time) {
+                                int time) {
             userTechId = id;
             technologyTypeId = type;
             loginId = login;
             rating = rate;
             months = time;
         }
-        
+
         DDEUserTechnologiesData(ResultSet rs) throws SQLException {
             readRowData(rs);
         }
-        
+
         public Object getPrimaryKey() {
             return new Long(userTechId);
         }
@@ -192,22 +193,22 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
             rs.updateInt("RATING", rating);
             rs.updateInt("MONTHS", months);
         }
-        
+
         public void storeRowData(ResultSet rs) throws SQLException {
             updateResultSet(rs);
             rs.updateRow();
         }
-        
+
         public void insertRowData(ResultSet rs) throws SQLException {
             rs.moveToInsertRow();
             rs.updateLong("USER_TECH_ID", userTechId);
             updateResultSet(rs);
             rs.insertRow();
         }
-        
+
         public void readRowData(ResultSet rs) throws SQLException {
             long l;
-            
+
             userTechId = rs.getLong("USER_TECH_ID");
             l = rs.getLong("TECHNOLOGY_TYPE_ID");
             if (rs.wasNull()) {
@@ -224,25 +225,25 @@ public class TestLocalDDEUserTechnologiesHome extends PersistenceTestCase {
             rating = rs.getInt("RATING");
             months = rs.getInt("MONTHS");
         }
-        
+
         public boolean matchesResultSet(ResultSet rs) throws SQLException {
             return equals(new DDEUserTechnologiesData(rs));
         }
-        
+
         public boolean equals(Object o) {
-            if (! (o instanceof DDEUserTechnologiesData) ) {
+            if (!(o instanceof DDEUserTechnologiesData)) {
                 return false;
             }
             DDEUserTechnologiesData d = (DDEUserTechnologiesData) o;
             return (
-                (userTechId == d.userTechId)
-                && objectsMatch(technologyTypeId, d.technologyTypeId)
-                && objectsMatch(loginId, d.loginId)
-                && (rating == d.rating)
-                && (months == d.months) );
+                    (userTechId == d.userTechId)
+                    && objectsMatch(technologyTypeId, d.technologyTypeId)
+                    && objectsMatch(loginId, d.loginId)
+                    && (rating == d.rating)
+                    && (months == d.months));
         }
-        
-        
+
+
     }
 
 }

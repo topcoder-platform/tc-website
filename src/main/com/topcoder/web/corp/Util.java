@@ -46,7 +46,7 @@ public class Util {
             throws NamingException, SystemException, NotSupportedException {
         InitialContext ic = null;
         try {
-            ic = (InitialContext)TCContext.getInitial();
+            ic = (InitialContext) TCContext.getInitial();
             TransactionManager tm;
             tm = (TransactionManager) ic.lookup(ApplicationServer.TRANS_MANAGER);
             tm.begin();

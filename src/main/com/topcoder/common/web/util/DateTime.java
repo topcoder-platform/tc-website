@@ -1,16 +1,15 @@
 package com.topcoder.common.web.util;
 
 import com.topcoder.ejb.Util.Util;
-import com.topcoder.ejb.Util.UtilHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.*;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 
 public final class DateTime {
 
@@ -33,7 +32,7 @@ public final class DateTime {
         InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
+            Util util = (Util) BaseProcessor.createEJB(ctx, Util.class);
             result = util.getCurrentDate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,7 +82,7 @@ public final class DateTime {
         InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
+            Util util = (Util) BaseProcessor.createEJB(ctx, Util.class);
             result = util.getCurrentTime();
         } catch (Exception e) {
             e.printStackTrace();
@@ -133,7 +132,7 @@ public final class DateTime {
         InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
+            Util util = (Util) BaseProcessor.createEJB(ctx, Util.class);
             result = util.getCurrentTimestamp();
         } catch (Exception e) {
             throw new Exception("common.DateTime:getCurrentTimestamp: Error " + e);

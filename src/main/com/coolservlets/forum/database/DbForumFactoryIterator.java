@@ -56,12 +56,17 @@
 
 package com.coolservlets.forum.database;
 
-import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import java.sql.*;
-import com.topcoder.shared.util.*;
+import com.coolservlets.forum.Forum;
+import com.coolservlets.forum.ForumFactory;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 /**
  * Iterator for all forums defined for a ForumFactory instance.
@@ -72,7 +77,7 @@ public class DbForumFactoryIterator implements Iterator, ListIterator {
     private static final String GET_FORUMS = "SELECT forumID, modifieddate FROM jiveForum ORDER BY modifiedDate DESC";
 
     private ForumFactory factory;
-    private int [] forums;
+    private int[] forums;
     //The current index points to
     int currentIndex = -1;
 
@@ -88,15 +93,19 @@ public class DbForumFactoryIterator implements Iterator, ListIterator {
             while (rs.next()) {
                 allForums.add(new Integer(rs.getInt("forumID")));
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Now, elimiante all forums the user doesn't have read access to.
         /*for (int i=0; i<allForums.size(); i++) {
@@ -112,8 +121,8 @@ public class DbForumFactoryIterator implements Iterator, ListIterator {
         */
         //Now, put in array
         forums = new int[allForums.size()];
-        for (int i=0; i<forums.length; i++) {
-            forums[i] = ((Integer)allForums.get(i)).intValue();
+        for (int i = 0; i < forums.length; i++) {
+            forums[i] = ((Integer) allForums.get(i)).intValue();
         }
     }
 
@@ -121,7 +130,7 @@ public class DbForumFactoryIterator implements Iterator, ListIterator {
      * Returns true if there are more forums left to iteratate through.
      */
     public boolean hasNext() {
-        return (currentIndex+1 < forums.length);
+        return (currentIndex + 1 < forums.length);
     }
 
     /**
@@ -135,8 +144,7 @@ public class DbForumFactoryIterator implements Iterator, ListIterator {
         }
         try {
             forum = factory.getForum(forums[currentIndex]);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return forum;
@@ -161,7 +169,7 @@ public class DbForumFactoryIterator implements Iterator, ListIterator {
     }
 
     public int nextIndex() {
-        return currentIndex+1;
+        return currentIndex + 1;
     }
 
     public Object previous() throws java.util.NoSuchElementException {
@@ -173,18 +181,17 @@ public class DbForumFactoryIterator implements Iterator, ListIterator {
         }
         try {
             forum = factory.getForum(forums[currentIndex]);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return forum;
     }
 
     public int previousIndex() {
-        return currentIndex-1;
+        return currentIndex - 1;
     }
 
     public void set(Object o) throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
-} 
+}

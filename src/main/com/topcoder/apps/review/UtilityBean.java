@@ -15,12 +15,12 @@ import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 public final class UtilityBean {
 
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The login user.
      */
     private SecurityEnabledUser user = null;
-    
+
     /**
      * Whether to view all the projects.
      */
@@ -40,9 +40,9 @@ public final class UtilityBean {
      * Whether the user is one of the review board.
      */
     private boolean isBoard = false;
-    
+
     // --------------------------------------------------------- Constructor
-    
+
     /**
      * <p>
      * Creates the instance.
@@ -60,29 +60,29 @@ public final class UtilityBean {
      * <p>
      * Return whether the user is admin.
      * </p>
-     * 
+     *
      * @return whether the user is admin.
      */
     public boolean getAdmin() {
         return new BusinessDelegate().getAdmin(user);
-    } // end getAdmin     
-    
+    } // end getAdmin
+
     /**
      * <p>
      * Return whether to view all the projects.
      * </p>
-     * 
+     *
      * @return whether to view all the projects.
      */
     public boolean getViewAllProjects() {
         return viewAllProjects;
     }
-    
+
     /**
      * <p>
      * Set whether to view all the projects.
      * </p>
-     * 
+     *
      * @param viewAllProjects Whether to view all the projects.
      */
     public void setViewAllProjects(boolean viewAllProjects) {
@@ -93,7 +93,7 @@ public final class UtilityBean {
      * <p>
      * Return the notic message.
      * </p>
-     * 
+     *
      * @return the notice message.
      */
     public String getNotice() {
@@ -104,7 +104,7 @@ public final class UtilityBean {
      * <p>
      * Return whether the notic message is empty.
      * </p>
-     * 
+     *
      * @return whether the notice message is empty.
      */
     public boolean getEmptyNotice() {
@@ -119,7 +119,7 @@ public final class UtilityBean {
      * <p>
      * Set the notic message.
      * </p>
-     * 
+     *
      * @param notice The new notice message.
      */
     public void setNotice(String notice) {
@@ -130,7 +130,7 @@ public final class UtilityBean {
      * <p>
      * Set the submitted flag.
      * </p>
-     * 
+     *
      * @param isSubmitted Whether the user has submitted the solution.
      */
     public void setSubmitted(boolean isSubmitted) {
@@ -141,7 +141,7 @@ public final class UtilityBean {
      * <p>
      * Get the submitted flag.
      * </p>
-     * 
+     *
      * @return whether the user has submitted the solution.
      */
     public boolean getSubmitted() {
@@ -152,7 +152,7 @@ public final class UtilityBean {
      * <p>
      * Set whether the user is one of the review board.
      * </p>
-     * 
+     *
      * @param isBoard Whether the user is one of the review board.
      */
     public void setBoard(boolean isBoard) {
@@ -163,7 +163,7 @@ public final class UtilityBean {
      * <p>
      * Get whether the user is one of the review board.
      * </p>
-     * 
+     *
      * @return whether the user is one of the review board.
      */
     public boolean getBoard() {

@@ -10,9 +10,8 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.dde.catalog.*;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Comparator;
 
 
 /**
@@ -25,11 +24,12 @@ import java.util.*;
 class Comparators {
 
 
-    private Comparators() {}
+    private Comparators() {
+    }
 
 
     public static class ComponentSummarySorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             ComponentSummary t1 = (ComponentSummary) o1;
             ComponentSummary t2 = (ComponentSummary) o2;
@@ -38,7 +38,7 @@ class Comparators {
     }
 
     public static class CategorySorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             Category t1 = (Category) o1;
             Category t2 = (Category) o2;
@@ -47,7 +47,7 @@ class Comparators {
     }
 
     public static class VersionSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             long t1 = ((ComponentVersionInfo) o1).getVersion();
             long t2 = ((ComponentVersionInfo) o2).getVersion();
@@ -62,7 +62,7 @@ class Comparators {
     }
 
     public static class ReviewSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             Review t1 = (Review) o1;
             Review t2 = (Review) o2;
@@ -71,7 +71,7 @@ class Comparators {
     }
 
     public static class DocumentSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             Document t1 = (Document) o1;
             Document t2 = (Document) o2;
@@ -86,7 +86,7 @@ class Comparators {
     }
 
     public static class ExampleSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             Example t1 = (Example) o1;
             Example t2 = (Example) o2;
@@ -95,7 +95,7 @@ class Comparators {
     }
 
     public static class DownloadSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             Download t1 = (Download) o1;
             Download t2 = (Download) o2;
@@ -104,7 +104,7 @@ class Comparators {
     }
 
     public static class TechnologySorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             Technology t1 = (Technology) o1;
             Technology t2 = (Technology) o2;
@@ -113,7 +113,7 @@ class Comparators {
     }
 
     public static class RoleSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             Role t1 = (Role) o1;
             Role t2 = (Role) o2;
@@ -122,7 +122,7 @@ class Comparators {
     }
 
     public static class TeamMemberRoleSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         /*
          * WARNING: This comparator is inconsistent with equals. Since the
          * username is not defined (has a value of null) in TeamMemberRole
@@ -137,7 +137,7 @@ class Comparators {
     }
 
     public static class LicenseLevelSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             double t1 = ((LicenseLevel) o1).getPriceMultiplier();
             double t2 = ((LicenseLevel) o2).getPriceMultiplier();
@@ -152,7 +152,7 @@ class Comparators {
     }
 
     public static class ForumSorter
-           implements Serializable, Comparator {
+            implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
             Forum t1 = (Forum) o1;
             Forum t2 = (Forum) o2;

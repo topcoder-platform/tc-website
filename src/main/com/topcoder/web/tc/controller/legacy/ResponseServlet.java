@@ -2,10 +2,7 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.data.Authentication;
 import com.topcoder.ejb.AuthenticationServices.AuthenticationServices;
-import com.topcoder.ejb.AuthenticationServices.AuthenticationServicesHome;
 import com.topcoder.ejb.Util.Util;
-import com.topcoder.ejb.Util.UtilHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
@@ -74,11 +71,11 @@ public final class ResponseServlet extends HttpServlet {
             }
 
             ctx = TCContext.getInitial();
-            AuthenticationServices authServices = (AuthenticationServices)BaseProcessor.createEJB(ctx, AuthenticationServices.class);
+            AuthenticationServices authServices = (AuthenticationServices) BaseProcessor.createEJB(ctx, AuthenticationServices.class);
             Authentication authentication = authServices.getActivation(coderId);
             if (authentication.getActivationCode().equals(activationCode)) {
                 try {
-                    Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
+                    Util util = (Util) BaseProcessor.createEJB(ctx, Util.class);
                     util.addResponse(coderId, answerId, questionId);
                     //forward to success page
                     forwardToErrorPage(request, response, new Exception(), "Thank you for your response.");

@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class ViewUploadTask extends ResumeTask{
+public class ViewUploadTask extends ResumeTask {
     private static Logger log = Logger.getLogger(UploadTask.class);
 
     private int userId;
     private boolean hasResume;
     private ResultSetContainer fileTypes;
 
-    public ViewUploadTask() throws ResumeTaskException{
+    public ViewUploadTask() throws ResumeTaskException {
         super();
         setUserId(-1);
         setHasResume(false);
@@ -36,16 +36,17 @@ public class ViewUploadTask extends ResumeTask{
                 new SessionPersistor(request.getSession()),
                 HttpObjectFactory.createRequest(request),
                 HttpObjectFactory.createResponse(response), BasicAuthentication.MAIN_SITE);
-        if (navigation==null) navigation = new Navigation();
+        if (navigation == null) navigation = new Navigation();
         if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {
             if (navigation.isIdentified())
                 userId = navigation.getUserId();
-            else userId = (int)auth.getActiveUser().getId();
+            else
+                userId = (int) auth.getActiveUser().getId();
         }
-        if (getRequestParameter(request, "compid")!=null) {
+        if (getRequestParameter(request, "compid") != null) {
             companyId = Long.parseLong(getRequestParameter(request, "compid"));
             db = getCompanyDb(companyId);
         }
@@ -53,7 +54,7 @@ public class ViewUploadTask extends ResumeTask{
 
     public void processStep(String step) throws Exception {
         Resume resume = null;
-        ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+        ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
         resume = resumeServices.getResume(userId, db);
         if (resume != null) {
             setHasResume(true);
@@ -87,7 +88,6 @@ public class ViewUploadTask extends ResumeTask{
     public void setFileTypes(ResultSetContainer fileTypes) {
         this.fileTypes = fileTypes;
     }
-
 
 
 }

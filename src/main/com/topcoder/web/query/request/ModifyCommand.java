@@ -2,11 +2,11 @@ package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.ejb.query.Command;
-import com.topcoder.web.ejb.query.CommandGroup;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.query.Command;
+import com.topcoder.web.ejb.query.CommandGroup;
+import com.topcoder.web.query.common.Constants;
 
 import java.util.Enumeration;
 import java.util.Iterator;

@@ -29,10 +29,10 @@ public class AllCatalogBeanTests extends TestSuite {
 
     /**
      * create and return an instance of this test suite
-     */    
+     */
     public static Test suite() {
         return new CatalogTestSetup(new AllCatalogBeanTests());
     }
-    
+
 
 }

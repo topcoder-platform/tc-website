@@ -13,11 +13,14 @@ package com.topcoder.web.tc.controller.legacy.pacts.messaging.handler;
  *      PactsConstants.java
  */
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserProfile;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 
 import javax.jms.JMSException;
 import javax.jms.ObjectMessage;

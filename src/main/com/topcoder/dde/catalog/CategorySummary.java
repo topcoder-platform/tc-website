@@ -42,8 +42,10 @@ public class CategorySummary implements Serializable {
 
     public boolean isEmpty() {
         if ((subcategories == null || subcategories.length == 0)
-         && (components == null || components.length == 0)) return true;
-        if (components != null && components.length > 0) return false;
+                && (components == null || components.length == 0))
+            return true;
+        if (components != null && components.length > 0)
+            return false;
         else {
             for (int i = 0; i < subcategories.length; i++) {
                 if (!subcategories[i].isEmpty()) return false;

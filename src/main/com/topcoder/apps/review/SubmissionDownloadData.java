@@ -16,7 +16,7 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 public class SubmissionDownloadData extends OnlineReviewProjectData {
 
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The id of submission.
      */
@@ -28,7 +28,7 @@ public class SubmissionDownloadData extends OnlineReviewProjectData {
      * <p>
      * Creates the instance of <code>SubmissionDownloadData</code> class.
      * </p>
-     * 
+     *
      * @param sdd The SubmissionDownloadData to be set.
      */
     SubmissionDownloadData(SubmissionDownloadData sdd) {
@@ -40,7 +40,7 @@ public class SubmissionDownloadData extends OnlineReviewProjectData {
      * <p>
      * Creates the instance of <code>SubmissionDownloadData</code> class.
      * </p>
-     * 
+     *
      * @param orpd The OnlineReviewProjectData to be set.
      * @param submissionId The id of submission to be set.
      */
@@ -53,7 +53,7 @@ public class SubmissionDownloadData extends OnlineReviewProjectData {
      * <p>
      * Creates the instance of <code>SubmissionDownloadData</code> class.
      * </p>
-     * 
+     *
      * @param user The SecurityEnabledUser to be set.
      * @param info The UserProjectInfo to be set.
      * @param submissionId The id of submission to be set.
@@ -64,12 +64,12 @@ public class SubmissionDownloadData extends OnlineReviewProjectData {
     }
 
     // --------------------------------------------------------- Public Methods
-    
+
     /**
      * <p>
      * Return the id of submission.
      * </p>
-     * 
+     *
      * @return the id of submission.
      */
     public long getSubmissionId() {

@@ -10,8 +10,10 @@ package com.topcoder.dde.catalog.test;
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.TeamMemberRole;
+
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -23,7 +25,7 @@ import junit.framework.TestSuite;
  * @version 1.0
  */
 public class TestComponentManager_TeamMemberRole
-       extends RemoteComponentManagerTestCase {
+        extends RemoteComponentManagerTestCase {
 
     protected Catalog catalog;
     protected TeamMemberRole teamMemberRole;
@@ -40,8 +42,8 @@ public class TestComponentManager_TeamMemberRole
 
     public void setUp() throws Exception {
         super.setUp();
-        teamMemberRole = new TeamMemberRole( defaultUser, memberRole,
-                (int) (idGen.nextId() % (TeamMemberRole.MAX_RATING + 1)) );
+        teamMemberRole = new TeamMemberRole(defaultUser, memberRole,
+                (int) (idGen.nextId() % (TeamMemberRole.MAX_RATING + 1)));
     }
 
     /**
@@ -56,9 +58,9 @@ public class TestComponentManager_TeamMemberRole
         try {
             Iterator it;
             assertTrue("TeamMemberRole not added correctly",
-                       teamMemberRoles.contains(teamMemberRole));
+                    teamMemberRoles.contains(teamMemberRole));
             it = teamMemberRoles.iterator();
-            while(it.hasNext()) {
+            while (it.hasNext()) {
                 Object o = it.next();
                 if (teamMemberRole.equals(o)) {
                     TeamMemberRole tmr = (TeamMemberRole) o;
@@ -117,7 +119,7 @@ public class TestComponentManager_TeamMemberRole
         teamMemberRoles = manager1.getTeamMemberRoles();
 
         assertTrue("TeamMemberRole not removed",
-                   !teamMemberRoles.contains(teamMemberRole));
+                !teamMemberRoles.contains(teamMemberRole));
     }
 
     /**
@@ -146,7 +148,7 @@ public class TestComponentManager_TeamMemberRole
         manager1.removeTeamMemberRole(teamMemberRole.getId());
         teamMemberRoles = manager2.getTeamMemberRoles();
         assertTrue("TeamMemberRole not removed",
-                   !teamMemberRoles.contains(teamMemberRole));
+                !teamMemberRoles.contains(teamMemberRole));
     }
 
     public static Test suite() {

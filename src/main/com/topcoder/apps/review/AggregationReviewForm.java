@@ -6,15 +6,15 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.AggregationApproval;
 import com.topcoder.apps.review.document.AggregationReview;
-
-import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * <p>
- * Form bean for the aggregation review editing page.  
+ * Form bean for the aggregation review editing page.
  * </p>
  *
  * @author TCSDEVELOPER
@@ -22,16 +22,16 @@ import org.apache.struts.action.ActionMapping;
  */
 
 public class AggregationReviewForm extends AggregationWorksheetForm {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The aggregation review.
      */
     private AggregationReview aggregationReview = null;
-    
+
     // ----------------------------------------------------------- Properties
-    
+
     /**
      * Return the aggregation review text.
      *
@@ -44,7 +44,7 @@ public class AggregationReviewForm extends AggregationWorksheetForm {
             return null;
         }
     }
-    
+
     /**
      * Set the aggregation review text.
      *
@@ -55,7 +55,7 @@ public class AggregationReviewForm extends AggregationWorksheetForm {
             aggregationReview.setText(text.trim());
         }
     }
-    
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -67,54 +67,54 @@ public class AggregationReviewForm extends AggregationWorksheetForm {
      *
      * @param mapping The mapping used to select this instance
      * @param request The servlet request we are processing
-     * 
+     *
      * @return an <code>ActionErrors</code> object that encapsulates any
      * validation errors that have been found.
      */
     public ActionErrors validate(ActionMapping mapping,
                                  HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        
+
         setValid(true);
-        if (Constants.ACTION_REJECT.equals(getAction()) 
+        if (Constants.ACTION_REJECT.equals(getAction())
                 && aggregationReview != null) {
             String text = aggregationReview.getText();
             if (text == null || text.length() < 1) {
                 setValid(false);
 
-                errors.add("aggregationReviewText", 
-                           new ActionError("error.reason.required"));
-            } 
+                errors.add("aggregationReviewText",
+                        new ActionError("error.reason.required"));
+            }
         }
-        
+
         return errors;
     }
-    
+
     // ------------------------------------------------------ Protected Methods
-    
+
     /**
      * Creates the form bean from the aggregation review.
      *
-     * @param aggregationReview The aggregation review for creating the 
+     * @param aggregationReview The aggregation review for creating the
      * form bean.
      */
     protected void fromReview(AggregationReview aggregationReview) {
         super.fromWorksheet(aggregationReview.getAggregationWorksheet(), null);
         this.aggregationReview = aggregationReview;
     }
-    
+
     /**
      * Creates the AggregationReviewData from this form bean.
-     * 
-     * @param orpd The OnlineReviewProjectData to create the 
+     *
+     * @param orpd The OnlineReviewProjectData to create the
      * AggregationReviewData.
      * @return the AggregationReviewData created from this form bean.
      */
     protected AggregationReviewData toReviewData(OnlineReviewProjectData orpd) {
         BusinessDelegate businessDelegate = new BusinessDelegate();
-        AggregationApproval[] approvals = 
-            businessDelegate.getAggregationApprovals();
-        
+        AggregationApproval[] approvals =
+                businessDelegate.getAggregationApprovals();
+
         if (Constants.ACTION_REJECT.equals(getAction())) {
             for (int i = 0; i < approvals.length; i++) {
                 if (approvals[i].getId() == AggregationApproval.ID_REJECTED) {

@@ -6,53 +6,51 @@
 
 package com.topcoder.web.tc.controller.request.contracting;
 
-import com.topcoder.web.tc.model.ContractingInfo;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.*;
-
 import com.topcoder.web.tc.model.Skill;
 
-import java.util.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author  rfairfax
  */
 public class Technologies extends ContractingBase {
-    
+
 
     protected void contractingProcessing() throws TCWebException {
         try {
             ArrayList skills = new ArrayList();
-            
+
             //load skill list from db
             Request r = new Request();
             r.setContentHandle("skill_list");
             r.setProperty("stid", String.valueOf(Constants.SKILL_TYPE_TECHNOLOGIES));
 
-            ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_list");
-            for(int i = 0; i < rsc.size(); i++) {
+            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("skill_list");
+            for (int i = 0; i < rsc.size(); i++) {
                 Skill s = new Skill();
 
                 s.setText(rsc.getStringItem(i, "skill_desc"));
                 s.setID(rsc.getIntItem(i, "skill_id"));
-                
-                skills.add(s);                
+
+                skills.add(s);
             }
-            
+
             getRequest().setAttribute("skills", skills);
-        } catch(TCWebException tce) {
+        } catch (TCWebException tce) {
             throw tce;
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new TCWebException(e);
         }
     }
 
     protected void setNextPage() {
-        setNextPage(Constants.CONTRACTING_TECHNOLOGIES_PAGE); 
+        setNextPage(Constants.CONTRACTING_TECHNOLOGIES_PAGE);
         setIsNextPageInContext(true);
     }
-    
+
 }

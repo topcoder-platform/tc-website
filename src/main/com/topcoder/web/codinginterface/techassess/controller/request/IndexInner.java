@@ -13,7 +13,7 @@ public class IndexInner extends Base {
     protected void techAssessProcessing() throws Exception {
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
-                    new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
+                    new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
             setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));

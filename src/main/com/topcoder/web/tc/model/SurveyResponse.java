@@ -9,7 +9,8 @@ public class SurveyResponse implements Serializable {
     private String text;
     private boolean freeForm;
 
-    public SurveyResponse() {}
+    public SurveyResponse() {
+    }
 
     public long getUserId() {
         return userId;

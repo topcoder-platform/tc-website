@@ -1,15 +1,14 @@
 /*
  * UserManagerHome.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
 
-import java.rmi.RemoteException;
-
 import javax.ejb.CreateException;
 import javax.ejb.EJBHome;
+import java.rmi.RemoteException;
 
 
 /**
@@ -19,6 +18,7 @@ import javax.ejb.EJBHome;
  */
 public interface UserManagerHome extends EJBHome {
     public static final String EJB_REF_NAME = "com.topcoder.apps.review.projecttracker.UserManagerHome";
+
     /**
      * DOCUMENT ME!
      *

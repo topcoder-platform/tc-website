@@ -1,4 +1,4 @@
-/* 
+/*
  * TestComponentManager_Dependency.java
  *
  * By John C. Bollinger
@@ -10,8 +10,10 @@ package com.topcoder.dde.catalog.test;
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.ComponentSummary;
+
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -23,9 +25,9 @@ import junit.framework.TestSuite;
  * @version 1.0
  */
 public class TestComponentManager_Dependency
-       extends RemoteComponentManagerTestCase {
-    
-    protected Catalog catalog;   
+        extends RemoteComponentManagerTestCase {
+
+    protected Catalog catalog;
     protected ComponentSummary dependency;
 
     /**
@@ -37,12 +39,12 @@ public class TestComponentManager_Dependency
     public TestComponentManager_Dependency(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         dependency = summary2;
     }
-    
+
     /**
      * tests the normal functioning of the addDependency method
      */
@@ -62,7 +64,7 @@ public class TestComponentManager_Dependency
     /**
      * tests the functioning of the addDependency method when a dependency matching
      * the argument already exists
-     */    
+     */
     synchronized public void testAddDependency_Missing() throws Exception {
         try {
             manager1.addDependency(idGen.nextId());
@@ -98,7 +100,7 @@ public class TestComponentManager_Dependency
     /*
      * getDependencies tested implicitly throughout this test case
      */
-    
+
     /**
      * tests the normal functioning of the removeDependency method
      */
@@ -108,14 +110,14 @@ public class TestComponentManager_Dependency
         manager1.addDependency(dependency.getVersionId());
         manager1.removeDependency(dependency.getVersionId());
         categories = manager1.getDependencies();
-        
+
         assertTrue("Dependency not removed", !categories.contains(dependency));
     }
-    
+
     /**
      * tests the functioning of the removeDependency method when no dependency
      * matching the argument exists
-     */    
+     */
     public void testRemoveDependency_Missing() throws Exception {
         try {
             manager1.removeDependency(idGen.nextId());
@@ -128,7 +130,7 @@ public class TestComponentManager_Dependency
     /**
      * tests the functioning of the removeDependency method when the dependency
      * matching the argument is not associated with the component being managed
-     */    
+     */
     synchronized public void testRemoveDependency_NotAssigned() throws Exception {
         manager2.addDependency(dependency.getVersionId());
         try {
@@ -143,5 +145,5 @@ public class TestComponentManager_Dependency
     public static Test suite() {
         return new ComponentManagerTestSetup(new TestSuite(TestComponentManager_Dependency.class));
     }
-    
+
 }

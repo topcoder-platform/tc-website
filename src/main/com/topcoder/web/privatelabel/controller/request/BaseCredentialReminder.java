@@ -1,14 +1,14 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -34,7 +34,7 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
             addError(Constants.EMAIL, "Please enter a valid email address.");
             setDefault(Constants.EMAIL, email);
             setNextPage(getStartPage());
-        } else{
+        } else {
             try {
                 Request r = new Request();
                 r.setContentHandle("user_info_using_email");
@@ -77,17 +77,21 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
         buf.append("TopCoder");
         return buf.toString();
     }
+
     protected String getEmailSubject() {
         return "Login Credentials from TopCoder";
     }
+
     protected String getEmailFromAddress() {
         return "service@topcoder.com";
     }
+
     protected String getEmailFromAddressName() {
         return "TopCoder Service";
     }
 
     abstract protected String getSuccessPage();
+
     abstract protected String getStartPage();
 
 }

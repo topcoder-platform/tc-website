@@ -1,7 +1,7 @@
 /*
  * UserProjectInfo.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -14,7 +14,7 @@ import java.io.Serializable;
  * A lightweight version of the Project which is provided to speed performance
  * and minimise storage needs as these objects are stored in a user's session.
  * </p>
- * 
+ *
  * @author FatClimber
  * @version 1.0
  */
@@ -25,12 +25,12 @@ public class UserProjectInfo implements Serializable {
     private UserRole[] userRole;
     private PhaseInstance phaseInstance;
     private ProjectType projectType;
-	private User winner;
+    private User winner;
 
-	private ProjectStatus projectStatus;
-	private String catalog;
+    private ProjectStatus projectStatus;
+    private String catalog;
 
-	/**
+    /**
      * Creates a new UserProjectInfo object.
      *
      * @param id DOCUMENT ME!
@@ -41,7 +41,7 @@ public class UserProjectInfo implements Serializable {
      * @param projectType DOCUMENT ME!
      */
     public UserProjectInfo(long id, String name, String version, UserRole[] userRole, PhaseInstance phaseInstance,
-        ProjectType projectType, User winner, ProjectStatus projectStatus) {
+                           ProjectType projectType, User winner, ProjectStatus projectStatus) {
         this.id = id;
         this.name = name;
         this.version = version;
@@ -49,7 +49,7 @@ public class UserProjectInfo implements Serializable {
         this.phaseInstance = phaseInstance;
         this.projectType = projectType;
         this.winner = winner;
-        
+
         this.projectStatus = projectStatus;
     }
 
@@ -57,7 +57,7 @@ public class UserProjectInfo implements Serializable {
      * <p>
      * Return the project id.
      * </p>
-     * 
+     *
      * @return the project id.
      */
     public long getId() {
@@ -84,7 +84,7 @@ public class UserProjectInfo implements Serializable {
      * <p>
      * Return the project name.
      * </p>
-     * 
+     *
      * @return a String the project name.
      */
     public String getProjectName() {
@@ -95,7 +95,7 @@ public class UserProjectInfo implements Serializable {
      * <p>
      * Return the project version.
      * </p>
-     * 
+     *
      * @return a String with the project version.
      */
     public String getProjectVersion() {
@@ -106,7 +106,7 @@ public class UserProjectInfo implements Serializable {
      * <p>
      * Return the users involved in this project.
      * </p>
-     * 
+     *
      * @return a UserRole[] with the users involved in this project.
      */
     public UserRole[] getUserRoles() {
@@ -117,7 +117,7 @@ public class UserProjectInfo implements Serializable {
      * <p>
      * Return the current phase.
      * </p>
-     * 
+     *
      * @return a PhaseInstance with the current phase.
      */
     public PhaseInstance getCurrentPhaseInstance() {
@@ -128,7 +128,7 @@ public class UserProjectInfo implements Serializable {
      * <p>
      * Return the project type.
      * </p>
-     * 
+     *
      * @return a ProjectType with the project type.
      */
     public ProjectType getProjectType() {
@@ -139,12 +139,12 @@ public class UserProjectInfo implements Serializable {
      * <p>
      * Return the winner of this project.
      * </p>
-     * 
+     *
      * @return the winner of this project.
      */
-	public User getWinner() {
-		return winner;
-	}
+    public User getWinner() {
+        return winner;
+    }
 
     /**
      * @return

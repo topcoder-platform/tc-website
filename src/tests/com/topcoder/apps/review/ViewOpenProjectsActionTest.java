@@ -19,7 +19,7 @@ public class ViewOpenProjectsActionTest extends MockStrutsTestCase {
      * Business delegate instance.
      */
     private BusinessDelegate businessDelegate = null;
-    
+
     /**
      * Initialize the business delegate for the tests.
      */
@@ -28,7 +28,7 @@ public class ViewOpenProjectsActionTest extends MockStrutsTestCase {
         businessDelegate = new BusinessDelegate();
         businessDelegate.setUseMockup(true);
     }
-    
+
     /**
      * Initialize for the tests.
      */
@@ -36,12 +36,12 @@ public class ViewOpenProjectsActionTest extends MockStrutsTestCase {
         super.setUp();
         setConfigFile("conf/struts-config.xml");
     }
-    
+
     /**
      * Tear down for the tests.
      */
-    public void tearDown() throws Exception { 
-        super.tearDown(); 
+    public void tearDown() throws Exception {
+        super.tearDown();
     }
 
     /**
@@ -49,29 +49,29 @@ public class ViewOpenProjectsActionTest extends MockStrutsTestCase {
      */
     public void testViewSuccess() {
         User user = businessDelegate.getUserByHandle("pzhao");
-        
+
         getSession().setAttribute(Constants.USER_KEY, user);
-        getSession().setAttribute(Constants.UTILITY_KEY, 
-                                  new UtilityBean((SecurityEnabledUser) user));
+        getSession().setAttribute(Constants.UTILITY_KEY,
+                new UtilityBean((SecurityEnabledUser) user));
         setRequestPathInfo("/viewOpenProjects");
         actionPerform();
-        
+
         verifyForward("success");
         assertNotNull(getRequest().getAttribute(Constants.PROJECT_TYPE_KEY));
         assertNotNull(getSession().getAttribute(Constants.PROJECT_LIST_KEY));
-                                              
+
         verifyNoActionErrors();
     }
-    
+
     /**
      * Test the fail view.
      */
     public void testViewFail() {
         setRequestPathInfo("/viewOpenProjects");
         actionPerform();
-        
+
         verifyForward("login");
-        verifyActionErrors(new String[] {"error.login.required"});
+        verifyActionErrors(new String[]{"error.login.required"});
         assertNull(getRequest().getAttribute(Constants.PROJECT_TYPE_KEY));
         assertNull(getSession().getAttribute(Constants.PROJECT_LIST_KEY));
     }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * PricingTier contains pricing information for a user's company.  This
- * information includes an id for referencing the pricing tier in the 
+ * information includes an id for referencing the pricing tier in the
  * database and any company specific dicount information.
  */
 public class PricingTier implements Serializable {

@@ -1,16 +1,16 @@
 package com.topcoder.web.tc.controller.request.survey;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.Question;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import java.util.List;
-import java.util.Map;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class Results extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
@@ -32,7 +32,7 @@ public class Results extends SurveyData {
         DataAccessInt dataAccess = getDataAccess();
         responseRequest.setContentHandle("survey_responses");
         responseRequest.setProperty("qid", String.valueOf(questionId));
-        return (ResultSetContainer)dataAccess.getData(responseRequest).get("response_info");
+        return (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info");
     }
 
     protected final List getQuestionInfo(long surveyId) throws Exception {
@@ -49,7 +49,7 @@ public class Results extends SurveyData {
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
             int temp = question.getIntItem("question_style_id");
-            if (!Question.isFreeForm(temp) && question.getIntItem("question_type_id")!=Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE) {
+            if (!Question.isFreeForm(temp) && question.getIntItem("question_type_id") != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE) {
                 questionList.add(makeQuestion(question));
             }
         }

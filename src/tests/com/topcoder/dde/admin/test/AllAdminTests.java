@@ -15,7 +15,7 @@ public class AllAdminTests extends TestSuite {
     public AllAdminTests() {
         addTestSuite(TestAdminLogin.class);
     }
-    
+
     public static Test suite() {
         return new AdminTestSetup(new AllAdminTests());
     }

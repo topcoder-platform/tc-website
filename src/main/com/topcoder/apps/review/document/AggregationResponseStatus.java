@@ -1,7 +1,7 @@
 /*
  * AggregationResponseStatus.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -21,7 +21,7 @@ public class AggregationResponseStatus implements Serializable {
     public static final long ID_ACCEPTED = 1;
     public static final long ID_REJECTED = 1;
     public static final long ID_DUPLICATE = 1;
-    
+
     private long id;
     private String name;
 
@@ -37,7 +37,7 @@ public class AggregationResponseStatus implements Serializable {
      * <p>
      * Return the name of the aggregation response status.
      * </p>
-     * 
+     *
      * @return a String with the name of the aggregation response status.
      */
     public String getName() {
@@ -48,7 +48,7 @@ public class AggregationResponseStatus implements Serializable {
      * <p>
      * Return the id of the aggregation response status.
      * </p>
-     * 
+     *
      * @return the id of the aggregation response status.
      */
     public long getId() {

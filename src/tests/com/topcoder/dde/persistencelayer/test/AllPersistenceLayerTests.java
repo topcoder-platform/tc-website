@@ -1,14 +1,14 @@
-
 package com.topcoder.dde.persistencelayer.test;
 
 import javax.naming.Context;
+
 import junit.framework.*;
 
 public class AllPersistenceLayerTests extends TestSuite {
-    
+
     /**
      * constructs a TestSuite containing all the persistence layer tests.
-     * Loads the static <code>PersistenceLayerTest.namingContextEnv</code> 
+     * Loads the static <code>PersistenceLayerTest.namingContextEnv</code>
      * with appropriate values (at present these are hardcoded values suitable
      * for the development environment)
      */
@@ -51,7 +51,7 @@ public class AllPersistenceLayerTests extends TestSuite {
         addTest(new TestSuite(TestLocalDDELicenseLevelHome.class));
         addTest(new TestSuite(TestLocalDDEDownloadTrackingHome.class));
     }
-    
+
     /**
      * a hook to tell JUnit which tests to run
      *
@@ -61,5 +61,5 @@ public class AllPersistenceLayerTests extends TestSuite {
     public static Test suite() {
         return new AllPersistenceLayerTests();
     }
-    
+
 }

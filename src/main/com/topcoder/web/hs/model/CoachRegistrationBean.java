@@ -1,7 +1,7 @@
 package com.topcoder.web.hs.model;
 
-import java.io.*;
-import java.util.*;
+import java.io.Serializable;
+import java.util.List;
 
 public class CoachRegistrationBean implements Serializable {
 

@@ -1,19 +1,19 @@
 package com.topcoder.web.privatelabel.controller.request.googleindia05;
 
-import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.ResumeRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import java.util.Map;
-import java.util.Iterator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author  dok

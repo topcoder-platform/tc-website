@@ -11,13 +11,12 @@ package com.topcoder.web.tc.view.tag;
  * @author  rfairfax
  */
 
-import com.topcoder.web.tc.model.Skill;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.tag.BaseTag;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.Skill;
 
 import javax.servlet.jsp.JspException;
-import java.util.*;
 import java.io.IOException;
 
 public class SkillInput extends BaseTag {
@@ -32,7 +31,7 @@ public class SkillInput extends BaseTag {
         cssclass = null;
     }
 
-     public void setClass(String cssclass) {
+    public void setClass(String cssclass) {
         this.cssclass = cssclass;
     }
 
@@ -44,7 +43,7 @@ public class SkillInput extends BaseTag {
             throws JspException {
         if (skill != null) {
             StringBuffer output = new StringBuffer(1000);
-            setName(Constants.SKILL_PREFIX+skill.getID());
+            setName(Constants.SKILL_PREFIX + skill.getID());
 
             output.append(buildRadios());
 
@@ -63,12 +62,13 @@ public class SkillInput extends BaseTag {
         String checkVal = "0";
         try {
             int n = Integer.parseInt(String.valueOf(getDefaultValue()));
-            if(n <= 5) {
+            if (n <= 5) {
                 checkVal = String.valueOf(n);
             }
-        } catch(Exception e) {}
+        } catch (Exception e) {
+        }
 
-        for(int i = 0; i <= 5; i++) {
+        for (int i = 0; i <= 5; i++) {
             s.append("<td valign=top align=center ");
             if (cssclass != null) {
                 s.append(" class=\"");
@@ -82,7 +82,7 @@ public class SkillInput extends BaseTag {
             s.append("\" value=\"");
             s.append(i);
             s.append("\" ");
-            if(checkVal.equals(String.valueOf(i))) {
+            if (checkVal.equals(String.valueOf(i))) {
                 s.append("checked ");
             }
 
@@ -93,8 +93,8 @@ public class SkillInput extends BaseTag {
     }
 
     protected void init() {
-        this.cssclass=null;
-        this.skill=null;
+        this.cssclass = null;
+        this.skill = null;
 
     }
 }

@@ -56,15 +56,15 @@
 
 package com.coolservlets.forum.database;
 
-import java.sql.*;
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import java.text.*;
-
-import com.topcoder.shared.util.*;
 import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
-import com.coolservlets.forum.filter.*;
+import com.coolservlets.util.StringUtils;
+import com.topcoder.shared.util.DBMS;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
 
 /**
  * Database implementation of the ForumThread interface.
@@ -73,28 +73,28 @@ public class DbForumThread implements ForumThread {
 
     /** DATABASE QUERIES **/
     private static final String MESSAGE_COUNT =
-        "SELECT count(*) FROM jiveMessage WHERE threadID=?";
+            "SELECT count(*) FROM jiveMessage WHERE threadID=?";
     private static final String ADD_MESSAGE1 =
-        "UPDATE jiveMessage SET threadID=?, userID=? WHERE messageID=?";
+            "UPDATE jiveMessage SET threadID=?, userID=? WHERE messageID=?";
     private static final String ADD_MESSAGE2 =
-        "INSERT INTO jiveMessageTree(parentID,childID) VALUES(?,?)";
+            "INSERT INTO jiveMessageTree(parentID,childID) VALUES(?,?)";
     private static final String UPDATE_THREAD_MODIFIED_DATE =
-        "UPDATE jiveThread SET modifiedDate=?, userID=? WHERE threadID=?";
+            "UPDATE jiveThread SET modifiedDate=?, userID=? WHERE threadID=?";
     private static final String DELETE_MESSAGE1 =
-        "DELETE FROM jiveMessageTree WHERE childID=?";
+            "DELETE FROM jiveMessageTree WHERE childID=?";
     private static final String DELETE_MESSAGE2 =
-        "DELETE FROM jiveMessage WHERE messageID=?";
+            "DELETE FROM jiveMessage WHERE messageID=?";
     private static final String DELETE_MESSAGE_PROPERTIES =
-        "DELETE FROM jiveMessageProp WHERE messageID=?";
+            "DELETE FROM jiveMessageProp WHERE messageID=?";
     private static final String LOAD_THREAD = "SELECT * FROM jiveThread WHERE threadID=?";
     private static final String INSERT_THREAD1 =
-        "INSERT INTO jiveThread(threadID,rootMessageID,creationDate,modifiedDate," +
-        "name,approved,userID) VALUES(?,?,?,?,?,?,?)";
+            "INSERT INTO jiveThread(threadID,rootMessageID,creationDate,modifiedDate," +
+            "name,approved,userID) VALUES(?,?,?,?,?,?,?)";
     private static final String INSERT_THREAD2 =
-        "UPDATE jiveMessage SET threadID=? WHERE messageID=?";
+            "UPDATE jiveMessage SET threadID=? WHERE messageID=?";
     private static final String SAVE_THREAD =
-        "UPDATE jiveThread SET name=?, rootMessageID=?, creationDate=?, " +
-        "modifiedDate=?, userID=? WHERE threadID=?";
+            "UPDATE jiveThread SET name=?, rootMessageID=?, creationDate=?, " +
+            "modifiedDate=?, userID=? WHERE threadID=?";
 
     private int id = -1;
     private String name;
@@ -114,12 +114,11 @@ public class DbForumThread implements ForumThread {
      * Creates a new DbForumThread.
      */
     protected DbForumThread(ForumMessage rootMessage, boolean approved,
-            DbForum forum, DbForumFactory factory) throws UnauthorizedException
-    {
+                            DbForum forum, DbForumFactory factory) throws UnauthorizedException {
         try {
-          this.id = DBMS.getSeqId(DBMS.RTABLE_SEQ);
+            this.id = DBMS.getSeqId(DBMS.RTABLE_SEQ);
         } catch (Exception e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
         this.forum = forum;
         this.factory = factory;
@@ -138,8 +137,7 @@ public class DbForumThread implements ForumThread {
      * Loads a DbForumThread from the database based on its id.
      */
     protected DbForumThread(int id, DbForum forum, DbForumFactory factory)
-            throws ForumThreadNotFoundException
-    {
+            throws ForumThreadNotFoundException {
         this.id = id;
         this.forum = forum;
         this.factory = factory;
@@ -162,19 +160,17 @@ public class DbForumThread implements ForumThread {
     }
 
     /**
-     * Returns the userID of the thread. 
+     * Returns the userID of the thread.
      */
     public User getUser() {
         User user = null;
         try {
             if (userID == -1) {
                 user = factory.getProfileManager().getAnonymousUser();
-            }
-            else {
+            } else {
                 user = factory.getProfileManager().getUser(userID);
             }
-        }
-        catch (UserNotFoundException unfe) {
+        } catch (UserNotFoundException unfe) {
             unfe.printStackTrace();
         }
         return user;
@@ -211,8 +207,7 @@ public class DbForumThread implements ForumThread {
      * @throws UnauthorizedException if does not have ADMIN permissions.
      */
     public void setCreationDate(java.util.Date creationDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         this.creationDate = creationDate;
         saveToDb();
     }
@@ -237,8 +232,7 @@ public class DbForumThread implements ForumThread {
      * @throws UnauthorizedException if does not have ADMIN permissions.
      */
     public void setModifiedDate(java.util.Date modifiedDate)
-            throws UnauthorizedException
-    {
+            throws UnauthorizedException {
         this.modifiedDate = modifiedDate;
         saveToDb();
     }
@@ -251,14 +245,14 @@ public class DbForumThread implements ForumThread {
         try {
             forum = factory.getForum(forumID);
         }
-        //Since the thread in the forum exists, there is basically
-        //no chance that the forum won't. Therefore, we need no special
-        //handling of the error condition.
+                //Since the thread in the forum exists, there is basically
+                //no chance that the forum won't. Therefore, we need no special
+                //handling of the error condition.
         catch (ForumNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
-        //We already have a handle on the thread within the forum, so there
-        //shouldn't be a security exception.
+                //We already have a handle on the thread within the forum, so there
+                //shouldn't be a security exception.
         catch (UnauthorizedException ue) {
             ue.printStackTrace();
         }
@@ -271,10 +265,9 @@ public class DbForumThread implements ForumThread {
      * @param messageID the ID of the message to get from the thread.
      */
     public ForumMessage getMessage(int messageID)
-            throws ForumMessageNotFoundException
-    {
+            throws ForumMessageNotFoundException {
         ForumMessage message = factory.getMessage(messageID);
-        
+
         //Apply filters to message.
         message = forum.applyFilters(message);
         return message;
@@ -305,15 +298,19 @@ public class DbForumThread implements ForumThread {
             ResultSet rs = pstmt.executeQuery();
             rs.next();
             messageCount = rs.getInt(1 /*"mCount"*/);
-        }
-        catch( SQLException sqle ) {
-            System.err.println("DbForumThread:getMessageCount() failed: "+sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } catch (SQLException sqle) {
+            System.err.println("DbForumThread:getMessageCount() failed: " + sqle);
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return messageCount;
     }
@@ -340,21 +337,25 @@ public class DbForumThread implements ForumThread {
             pstmt.setInt(1, parentMessage.getID());
             pstmt.setInt(2, newMessage.getID());
             pstmt.executeUpdate();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForumThread:addMessage()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //Added new message, so update the modified date of this thread
-        updateModifiedDate(newMessage.getUser().getID(),newMessage.getModifiedDate());
+        updateModifiedDate(newMessage.getUser().getID(), newMessage.getModifiedDate());
         //Also, update the modified date of the forum
-        forum.updateModifiedDate(newMessage.getUser().getID(),modifiedDate);
+        forum.updateModifiedDate(newMessage.getUser().getID(), modifiedDate);
     }
 
     /**
@@ -369,7 +370,7 @@ public class DbForumThread implements ForumThread {
     public void deleteMessage(ForumMessage message) {
         //First, delete from the cache.
         factory.messageCache.remove(message.getID());
-        
+
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
@@ -384,8 +385,8 @@ public class DbForumThread implements ForumThread {
             //Recursively delete all children
             TreeWalker walker = treeWalker();
             int childCount = walker.getChildCount(message);
-            for (int i=0; i<childCount; i++) {
-                deleteMessage(walker.getChild(message,i));
+            for (int i = 0; i < childCount; i++) {
+                deleteMessage(walker.getChild(message, i));
             }
 
             //Delete the actual message.
@@ -399,15 +400,19 @@ public class DbForumThread implements ForumThread {
             pstmt = con.prepareStatement(DELETE_MESSAGE_PROPERTIES);
             pstmt.setInt(1, message.getID());
             pstmt.execute();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForumThread:deleteMessage()-" + sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -471,20 +476,24 @@ public class DbForumThread implements ForumThread {
         try {
             con = DBMS.getConnection();
             pstmt = con.prepareStatement(UPDATE_THREAD_MODIFIED_DATE);
-            pstmt.setString(1, ""+modifiedDate.getTime());
+            pstmt.setString(1, "" + modifiedDate.getTime());
             pstmt.setInt(2, uId);
             pstmt.setInt(3, id);
             pstmt.executeUpdate();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForumThread:updateModifiedDate()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -499,31 +508,34 @@ public class DbForumThread implements ForumThread {
             pstmt = con.prepareStatement(LOAD_THREAD);
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
-            if( !rs.next() ) { 
+            if (!rs.next()) {
                 throw new ForumThreadNotFoundException("Thread " + id +
-                    " could not be loaded from the database.");
+                        " could not be loaded from the database.");
             }
             name = rs.getString("name");
             rootMessageID = rs.getInt("rootMessageID");
             creationDate = new java.util.Date(Long.parseLong(rs.getString("creationDate").trim()));
-            modifiedDate =  new java.util.Date(Long.parseLong(rs.getString("modifiedDate").trim()));
+            modifiedDate = new java.util.Date(Long.parseLong(rs.getString("modifiedDate").trim()));
             forumID = rs.getInt("forumID");
             userID = rs.getInt("userID");
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             throw new ForumThreadNotFoundException("Thread " + id +
-                " could not be loaded from the database.");
-        }
-        catch (NumberFormatException nfe) {
+                    " could not be loaded from the database.");
+        } catch (NumberFormatException nfe) {
             System.err.println("WARNING: In DbForumThread.loadFromDb() -- there " +
-                "was an error parsing the dates returned from the database. Ensure " +
-                "that they're being stored correctly.");
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+                    "was an error parsing the dates returned from the database. Ensure " +
+                    "that they're being stored correctly.");
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -538,10 +550,10 @@ public class DbForumThread implements ForumThread {
             pstmt = con.prepareStatement(INSERT_THREAD1);
             pstmt.setInt(1, id);
             pstmt.setInt(2, rootMessageID);
-            pstmt.setString(3, ""+creationDate.getTime());
-            pstmt.setString(4, ""+modifiedDate.getTime());
+            pstmt.setString(3, "" + creationDate.getTime());
+            pstmt.setString(4, "" + modifiedDate.getTime());
             pstmt.setString(5, name);
-            pstmt.setInt(6, approved?1:0);
+            pstmt.setInt(6, approved ? 1 : 0);
             pstmt.setInt(7, userID);
             pstmt.executeUpdate();
             pstmt.close();
@@ -550,16 +562,20 @@ public class DbForumThread implements ForumThread {
             pstmt.setInt(1, id);
             pstmt.setInt(2, rootMessageID);
             pstmt.executeUpdate();
-        }
-        catch( SQLException sqle ) {
-            System.err.println("Error in DbForumThread:insertIntoDb()-"+sqle);
+        } catch (SQLException sqle) {
+            System.err.println("Error in DbForumThread:insertIntoDb()-" + sqle);
             sqle.printStackTrace();
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -569,27 +585,30 @@ public class DbForumThread implements ForumThread {
     private void saveToDb() {
         Connection con = null;
         PreparedStatement pstmt = null;
-         try {
+        try {
             con = DBMS.getConnection();
             pstmt = con.prepareStatement(SAVE_THREAD);
             pstmt.setString(1, name);
             pstmt.setInt(2, rootMessageID);
-            pstmt.setString(3, ""+creationDate.getTime());
-            pstmt.setString(4, ""+modifiedDate.getTime());
+            pstmt.setString(3, "" + creationDate.getTime());
+            pstmt.setString(4, "" + modifiedDate.getTime());
             pstmt.setInt(5, userID);
             pstmt.setInt(6, id);
             pstmt.executeUpdate();
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbForumThread:saveToDb()-" + sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  
-                  con.commit();
-                  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.commit();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
-} 
+}

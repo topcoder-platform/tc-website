@@ -1,19 +1,11 @@
 package com.topcoder.web.privatelabel.controller.request.amazon;
 
-import com.topcoder.web.privatelabel.controller.request.FullRegDemog;
-import com.topcoder.web.privatelabel.model.*;
-import com.topcoder.web.privatelabel.Constants;
-
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
-
-import java.util.*;
-
-import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.servlet.request.*;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.FullRegDemog;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 /**
  * @author dok

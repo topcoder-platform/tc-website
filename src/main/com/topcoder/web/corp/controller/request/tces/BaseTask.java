@@ -175,7 +175,7 @@ public abstract class BaseTask implements Task {
      */
     protected String getOltp() throws Exception {
         String ret = getDb(TRANSACTIONAL_DB_TYPE);
-        if (ret==null) {
+        if (ret == null) {
             ret = DBMS.OLTP_DATASOURCE_NAME;
         }
         return ret;
@@ -190,7 +190,7 @@ public abstract class BaseTask implements Task {
      */
     protected String getDw() throws Exception {
         String ret = getDb(DW_DB_TYPE);
-        if (ret==null) {
+        if (ret == null) {
             ret = DBMS.DW_DATASOURCE_NAME;
         }
         return ret;
@@ -202,9 +202,9 @@ public abstract class BaseTask implements Task {
         r.setProperty("uid", String.valueOf(getAuthenticityToken().getActiveUser().getId()));
         r.setProperty("dstid", String.valueOf(type));
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
-        ResultSetContainer rsc = (ResultSetContainer)m.get("contact_datasource");
+        ResultSetContainer rsc = (ResultSetContainer) m.get("contact_datasource");
         String ret = null;
-        if (!(rsc==null || rsc.isEmpty())) {
+        if (!(rsc == null || rsc.isEmpty())) {
             ret = rsc.getStringItem(0, "datasource_name");
         }
         return ret;
@@ -230,19 +230,19 @@ public abstract class BaseTask implements Task {
         Request r = new Request();
         r.setContentHandle("restricted_campaign");
         r.setProperty("cid", String.valueOf(campaignId));
-        return !((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("restricted_campaign")).isEmpty();
+        return !((ResultSetContainer) getDataAccess(getOltp()).getData(r).get("restricted_campaign")).isEmpty();
     }
 
     protected String getRoundList(long campaignId) throws Exception {
         StringBuffer buf = new StringBuffer();
         List l = getRoundIds(campaignId);
-        int i=0;
+        int i = 0;
         for (Iterator it = l.iterator(); it.hasNext(); i++) {
             buf.append(it.next().toString());
             buf.append(", ");
         }
-        if (i>0)
-            buf.setLength(buf.length()-2);
+        if (i > 0)
+            buf.setLength(buf.length() - 2);
         log.debug("round list is " + buf.toString());
         return buf.toString();
 
@@ -252,11 +252,11 @@ public abstract class BaseTask implements Task {
         Request r = new Request();
         r.setContentHandle("campaign_rounds");
         r.setProperty("cid", String.valueOf(campaignId));
-        ResultSetContainer rsc = ((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("campaign_rounds"));
+        ResultSetContainer rsc = ((ResultSetContainer) getDataAccess(getOltp()).getData(r).get("campaign_rounds"));
         ArrayList ret = new ArrayList(rsc.size());
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = rsc.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
+            row = (ResultSetContainer.ResultSetRow) it.next();
             ret.add(new Long(row.getLongItem("round_id")));
         }
         return ret;

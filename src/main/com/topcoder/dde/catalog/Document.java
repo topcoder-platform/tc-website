@@ -81,15 +81,15 @@ public class Document implements Serializable {
     public Document(String name, String url, long type) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for document name");
+                    "Null specified for document name");
         }
         if (url == null) {
             throw new IllegalArgumentException(
-            "Null specified for document URL");
+                    "Null specified for document URL");
         }
         if (type < 0) {
             throw new IllegalArgumentException(
-            "Negative number specified for document type");
+                    "Negative number specified for document type");
         }
         this.id = -1;
         this.name = name;
@@ -125,7 +125,7 @@ public class Document implements Serializable {
     public void setName(String name) {
         if (name == null) {
             throw new IllegalArgumentException(
-            "Null specified for document name");
+                    "Null specified for document name");
         }
         this.name = name;
     }
@@ -149,7 +149,7 @@ public class Document implements Serializable {
     public void setURL(String url) {
         if (url == null) {
             throw new IllegalArgumentException(
-            "Null specified for document URL");
+                    "Null specified for document URL");
         }
         this.url = url;
     }
@@ -173,7 +173,7 @@ public class Document implements Serializable {
     public void setType(long type) {
         if (type < 0) {
             throw new IllegalArgumentException(
-            "Negative number specified for type");
+                    "Negative number specified for type");
         }
         this.type = type;
     }
@@ -193,7 +193,7 @@ public class Document implements Serializable {
         }
         Document other = (Document) object;
         return getName().equals(other.getName())
-            && getURL().equals(other.getURL());
+                && getURL().equals(other.getURL());
     }
 
     /**
@@ -210,7 +210,7 @@ public class Document implements Serializable {
 
     public String toString() {
         return "Document " + getId() + " - " + getName()
-            + " (" + getURL() + ")";
+                + " (" + getURL() + ")";
     }
 
 

@@ -1,7 +1,7 @@
 /*
  * Role.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -14,7 +14,7 @@ import java.io.Serializable;
  * Object representation of the various options for the roles a user might be
  * assigned with respect to a project.
  * </p>
- * 
+ *
  * @author FatClimber
  * @version 1.0
  */
@@ -45,7 +45,7 @@ public class Role implements Serializable {
      * <p>
      * Return the name of this role.
      * </p>
-     * 
+     *
      * @return a String with the name of this role.
      */
     public String getName() {
@@ -56,7 +56,7 @@ public class Role implements Serializable {
      * <p>
      * Return the id of this role.
      * </p>
-     * 
+     *
      * @return the id of this role.
      */
     public long getId() {

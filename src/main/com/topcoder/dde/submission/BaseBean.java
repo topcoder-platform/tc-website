@@ -1,15 +1,18 @@
 package com.topcoder.dde.submission;
 
 import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.bean.LocalIdGenHome;
-import com.topcoder.util.idgenerator.bean.LocalIdGen;
 import com.topcoder.util.idgenerator.bean.IdGenException;
+import com.topcoder.util.idgenerator.bean.LocalIdGen;
+import com.topcoder.util.idgenerator.bean.LocalIdGenHome;
 
-import javax.ejb.*;
-import javax.sql.DataSource;
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -53,7 +56,7 @@ public class BaseBean implements SessionBean {
     }
 
     public void ejbCreate() throws CreateException {
-	}
+    }
 
     public void ejbRemove() throws EJBException, RemoteException {
     }
@@ -66,10 +69,10 @@ public class BaseBean implements SessionBean {
 
     public long getNewId() throws SQLException, CreateException, NamingException, IdGenException {
 
-        Context context=new InitialContext();
-        LocalIdGenHome localIdGenHome=(LocalIdGenHome) context.lookup(LocalIdGenHome.EJB_REF_NAME);
-        LocalIdGen localIdGen=localIdGenHome.create();
-        long id=localIdGen.nextId();
+        Context context = new InitialContext();
+        LocalIdGenHome localIdGenHome = (LocalIdGenHome) context.lookup(LocalIdGenHome.EJB_REF_NAME);
+        LocalIdGen localIdGen = localIdGenHome.create();
+        long id = localIdGen.nextId();
         return id;
     }
 }

@@ -4,35 +4,29 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.ScorecardQuestion;
-import com.topcoder.apps.review.document.Evaluation;
-import com.topcoder.apps.review.document.SubjectiveScorecardQuestion;
-import com.topcoder.apps.review.document.SubjectiveResponse;
-import com.topcoder.apps.review.document.TestCaseScorecardQuestion;
-
+import com.topcoder.apps.review.document.*;
 import org.apache.struts.util.MessageResources;
-import org.apache.struts.util.ResponseUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * <p>
- * Java bean for the scorecard question.  
+ * Java bean for the scorecard question.
  * </p>
  *
  * @author TCSDEVELOPER
  * @version 1.0
  */
 public class ScorecardQuestionBean {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The type of subjective question.
      */
     public final static String SUBJECTIVE = "subjective";
-    
+
     /**
      * The type of objective question.
      */
@@ -41,33 +35,33 @@ public class ScorecardQuestionBean {
     /**
      * The type of test case question.
      */
-    public final static String TESTCASE= "testcase";
-    
+    public final static String TESTCASE = "testcase";
+
     /**
      * The scorecard question.
      */
     private ScorecardQuestion question = null;
-    
+
     /**
      * The list of responses.
      */
     private List responses = null;
-    
+
     /**
      * The list of possible evaluations.
      */
     private Evaluation[] evaluations = null;
-    
+
     /**
      * The list of possible evaluation strings.
      */
     private String[] evaluationAnswers = null;
-    
+
     /**
      * Whether the question is the first in the section.
      */
     private boolean isFirst = false;
-    
+
     /**
      * Whether the question is the last in the section.
      */
@@ -77,43 +71,43 @@ public class ScorecardQuestionBean {
      * Whether the section is the first in the group.
      */
     private boolean isGroupFirst = false;
-    
+
     /**
      * Whether the section is the last in the group.
      */
     private boolean isGroupLast = false;
-    
+
     /**
      * Whether the input of this question is valid.
      */
     private boolean isValid = true;
-    
+
     // --------------------------------------------------------- Constructors
-        
+
     /**
-     * Creates the <code>ScorecardQuestionBean</code> instance from the 
+     * Creates the <code>ScorecardQuestionBean</code> instance from the
      * ScorecardQuestion.
-     * 
+     *
      * @param question The ScorecardQuestion.
      * @param isFirst Whether the question is the first in the section.
      * @param isLast Whether the question is the last in the section.
      * @param isGroupFirst Whether the section is the first in the group.
      * @param isGroupLast Whether the section is the last in the group.
      */
-    protected ScorecardQuestionBean(ScorecardQuestion question, 
+    protected ScorecardQuestionBean(ScorecardQuestion question,
                                     boolean isFirst, boolean isLast,
                                     boolean isGroupFirst, boolean isGroupLast) {
         MessageResources messages =
-            MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
+                MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
         BusinessDelegate businessDelegate = new BusinessDelegate();
-        
+
         this.question = question;
         this.isFirst = isFirst;
         this.isLast = isLast;
         this.isGroupFirst = isGroupFirst;
         this.isGroupLast = isGroupLast;
         responses = new ArrayList();
-            
+
         if (question instanceof SubjectiveScorecardQuestion
                 || question instanceof TestCaseScorecardQuestion) {
             SubjectiveResponse[] responses = null;
@@ -126,7 +120,7 @@ public class ScorecardQuestionBean {
                 responses = testCaseQuestion.getResponses();
                 evaluations = businessDelegate.getSubjectiveEvaluations();
             }
-                
+
             if (responses == null || responses.length == 0) {
                 // Each subjective question has at least one response
                 responses = new SubjectiveResponse[1];
@@ -138,15 +132,15 @@ public class ScorecardQuestionBean {
             } else {
                 ((TestCaseScorecardQuestion) question).setResponses(responses);
             }
-                
+
             for (int i = 0; i < responses.length; i++) {
                 this.responses.add(new SubjectiveResponseBean(responses[i]));
             }
-            
+
         } else {
             evaluations = businessDelegate.getObjectiveEvaluations();
         }
-        
+
         // Prepare the values for the <html:options>
         evaluationAnswers = new String[evaluations.length + 1];
         evaluationAnswers[0] = messages.getMessage("prompt.answer");
@@ -156,10 +150,10 @@ public class ScorecardQuestionBean {
     }
 
     // --------------------------------------------------------- Public Methods
-    
+
     /**
      * Return the question text.
-     * 
+     *
      * @return the question text.
      */
     public String getQuestionText() {
@@ -169,7 +163,7 @@ public class ScorecardQuestionBean {
 
     /**
      * Return the evaluation of this question.
-     * 
+     *
      * @return the evaluation of this question.
      */
     public String getEvaluation() {
@@ -182,7 +176,7 @@ public class ScorecardQuestionBean {
 
     /**
      * Set the evaluation of this question.
-     * 
+     *
      * @param eval The evaluation of this question.
      */
     public void setEvaluation(String eval) {
@@ -192,28 +186,28 @@ public class ScorecardQuestionBean {
             }
         }
     }
-    
+
     /**
      * Return the section name of this question.
-     * 
+     *
      * @return the section name of this question.
-     */  
+     */
     public String getScorecardSection() {
         return question.getScorecardSection().getName();
     }
 
     /**
      * Return the section group name of this question.
-     * 
+     *
      * @return the section group name of this question.
-     */  
+     */
     public String getSectionGroup() {
         return question.getScorecardSection().getSectionGroup().getName();
     }
-        
+
     /**
      * Return the type of this question.
-     * 
+     *
      * @return the type of this question.
      */
     public String getType() {
@@ -228,13 +222,13 @@ public class ScorecardQuestionBean {
 
     /**
      * Return the responses of this question.
-     * 
+     *
      * @return the responses of this question.
      */
     public SubjectiveResponseBean[] getResponses() {
-        SubjectiveResponseBean[] srbs = 
-            new SubjectiveResponseBean[responses.size()];
-        
+        SubjectiveResponseBean[] srbs =
+                new SubjectiveResponseBean[responses.size()];
+
         for (int i = 0; i < responses.size(); i++) {
             srbs[i] = (SubjectiveResponseBean) responses.get(i);
         }
@@ -243,7 +237,7 @@ public class ScorecardQuestionBean {
 
     /**
      * Return the number of responses of this question.
-     * 
+     *
      * @return the number of responses of this question.
      */
     public int getResponseNum() {
@@ -252,7 +246,7 @@ public class ScorecardQuestionBean {
 
     /**
      * Return whether the question is the first in the section.
-     * 
+     *
      * @return whether the question is the first in the section.
      */
     public boolean getFirst() {
@@ -261,7 +255,7 @@ public class ScorecardQuestionBean {
 
     /**
      * Return whether the question is the last in the section.
-     * 
+     *
      * @return whether the question is the last in the section.
      */
     public boolean getLast() {
@@ -270,7 +264,7 @@ public class ScorecardQuestionBean {
 
     /**
      * Return whether the section is the first in the group.
-     * 
+     *
      * @return whether the section is the first in the group.
      */
     public boolean getGroupFirst() {
@@ -279,34 +273,34 @@ public class ScorecardQuestionBean {
 
     /**
      * Return whether the section is the last in the group.
-     * 
+     *
      * @return whether the section is the last in the group.
      */
     public boolean getGroupLast() {
         return isGroupLast;
     }
-    
+
     /**
      * Set whether the input of this question is valid.
-     * 
+     *
      * @param isValid Whether the input of this question is valid.
      */
     protected void setValid(boolean isValid) {
         this.isValid = isValid;
     }
-    
+
     /**
      * Return whether the input of this question is valid.
-     * 
+     *
      * @return whether the input of this question is valid.
      */
     public boolean getValid() {
         return isValid;
     }
-    
+
     /**
      * Return the list of possible evaluation strings.
-     * 
+     *
      * @return the list of possible evaluation strings.
      */
     public String[] getEvaluationAnswers() {
@@ -315,12 +309,12 @@ public class ScorecardQuestionBean {
 
     /**
      * Return the total test cases.
-     * 
+     *
      * @return the total test cases.
      */
     public String getTotalTests() {
         if (question instanceof TestCaseScorecardQuestion) {
-            return String .valueOf(((TestCaseScorecardQuestion) question).getTotalTests());
+            return String.valueOf(((TestCaseScorecardQuestion) question).getTotalTests());
         } else {
             return "-1";
         }
@@ -328,7 +322,7 @@ public class ScorecardQuestionBean {
 
     /**
      * Set the total test cases.
-     * 
+     *
      * @param totalTests The total test cases.
      */
     public void setTotalTests(String totalTests) {
@@ -340,12 +334,12 @@ public class ScorecardQuestionBean {
         }
         if (question instanceof TestCaseScorecardQuestion) {
             ((TestCaseScorecardQuestion) question).setTotalTests(num);
-        } 
+        }
     }
 
     /**
      * Return the total passed test cases.
-     * 
+     *
      * @return the total passed test cases.
      */
     public String getTotalPass() {
@@ -358,7 +352,7 @@ public class ScorecardQuestionBean {
 
     /**
      * Set the total passed test cases.
-     * 
+     *
      * @param totalPass The total passed test cases.
      */
     public void setTotalPass(String totalPass) {
@@ -370,18 +364,20 @@ public class ScorecardQuestionBean {
         }
         if (question instanceof TestCaseScorecardQuestion) {
             ((TestCaseScorecardQuestion) question).setTotalPass(num);
-        } 
+        }
     }
-    
+
     /**
      * @return id of the scorecardQuestion
      */
     public long getId() {
-        if (question != null) return question.getId();
-        else return -1;
+        if (question != null)
+            return question.getId();
+        else
+            return -1;
     }
     // ------------------------------------------------------ Protected Methods
-    
+
     /**
      * Delete the response in the question.
      *
@@ -393,7 +389,7 @@ public class ScorecardQuestionBean {
             saveResponses();
         }
     }
-    
+
     /**
      * Add the response in a question.
      *
@@ -432,4 +428,3 @@ public class ScorecardQuestionBean {
         return question;
     }
 }
-    

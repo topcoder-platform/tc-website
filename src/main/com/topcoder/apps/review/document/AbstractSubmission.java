@@ -1,7 +1,7 @@
 /*
  * AbstractSubmission.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -47,7 +47,7 @@ public abstract class AbstractSubmission implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public AbstractSubmission(long id, URL url, String messagePMReview, String messagePMScreening,
-        User submitter, Project project, boolean isRemoved, long requestorId, long versionId) {
+                              User submitter, Project project, boolean isRemoved, long requestorId, long versionId) {
         this.id = id;
         this.url = url;
         this.messagePMReview = messagePMReview;
@@ -123,7 +123,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Return the URL of this submission.
      * </p>
-     * 
+     *
      * @return a String with the URL of this submission.
      */
     public URL getURL() {
@@ -134,7 +134,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Set the URL of this submission.
      * </p>
-     * 
+     *
      * @param url The URL of this submission.
      */
     public void setURL(URL url) {
@@ -146,7 +146,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Return the review message of project manager.
      * </p>
-     * 
+     *
      * @return a String with the review message of project manager.
      */
     public String getPMReviewMessage() {
@@ -157,7 +157,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Set the review message of project manager.
      * </p>
-     * 
+     *
      * @param message The review message of project manager.
      */
     public void setPMReviewMessage(String message) {
@@ -171,7 +171,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Return the screening message of project manager.
      * </p>
-     * 
+     *
      * @return a String with the screening message of project manager.
      */
     public String getPMScreeningMessage() {
@@ -182,7 +182,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Set the screening message of project manager.
      * </p>
-     * 
+     *
      * @param message The screening message of project manager.
      */
     public void setPMScreeningMessage(String message) {
@@ -196,7 +196,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Return the submitter.
      * </p>
-     * 
+     *
      * @return the submitter.
      */
     public User getSubmitter() {
@@ -207,7 +207,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Return whether this submission is removed.
      * </p>
-     * 
+     *
      * @return true if the submission is removed, otherwise false.
      */
     public boolean isRemoved() {
@@ -218,13 +218,14 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Set whether this submission is removed.
      * </p>
-     * 
+     *
      * @param isCompleted Whether this submission is removed.
      */
     public void setRemoved(boolean isRemoved) {
         this.isRemoved = isRemoved;
         this.dirtyFlag = true;
     }
+
     /**
      * <p>
      * Return the project related to this submission.
@@ -240,7 +241,7 @@ public abstract class AbstractSubmission implements Serializable {
      * <p>
      * Check if the submission is submitted.
      * </p>
-     * 
+     *
      * @return true if submitted, false otherwise
      */
     public boolean isSubmitted() {

@@ -1,14 +1,12 @@
 package com.topcoder.web.ejb.user;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -354,7 +352,6 @@ public class UserBean extends BaseEJB {
     }
 
 
-
     public String getLastName(long userId, String dataSource)
             throws EJBException {
 
@@ -605,10 +602,10 @@ public class UserBean extends BaseEJB {
 
     public void setPassword(long userId, String password, String dataSource) throws EJBException {
         int ret = update("user",
-                new String[] {"password"},
-                new String[] {password},
-                new String[] {"user_id"},
-                new String[] {String.valueOf(userId)},
+                new String[]{"password"},
+                new String[]{password},
+                new String[]{"user_id"},
+                new String[]{String.valueOf(userId)},
                 dataSource);
         if (ret != 1) {
             throw(new EJBException("Wrong number of rows updated in " +
@@ -622,11 +619,10 @@ public class UserBean extends BaseEJB {
     public String getPassword(long userId, String dataSource) throws EJBException {
         return selectString("user",
                 "password",
-                new String[] {"user_id"},
-                new String[] {String.valueOf(userId)},
+                new String[]{"user_id"},
+                new String[]{String.valueOf(userId)},
                 dataSource);
     }
-
 
 
 }

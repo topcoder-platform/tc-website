@@ -1,10 +1,10 @@
 package com.topcoder.web.common.tag;
 
-import javax.servlet.jsp.tagext.BodyTagSupport;
-import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.JspException;
-import java.lang.reflect.Method;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.tagext.BodyTagSupport;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * User: dok
@@ -12,10 +12,10 @@ import java.lang.reflect.InvocationTargetException;
  * Time: 12:59:20 PM
  */
 public class UseBeanTag extends BodyTagSupport {
-    private static final String DEFAULT_TYPE= "java.lang.String";
+    private static final String DEFAULT_TYPE = "java.lang.String";
     private static final int DEFAULT_SCOPE = PageContext.PAGE_SCOPE;
 
-    private String type= DEFAULT_TYPE;
+    private String type = DEFAULT_TYPE;
     private int toScope = DEFAULT_SCOPE;
     private int fromScope = -1;
     private String id = null;
@@ -23,7 +23,7 @@ public class UseBeanTag extends BodyTagSupport {
     private String property = null;
 
     public void setType(String type) {
-        this.type= type;
+        this.type = type;
     }
 
     public void setProperty(String property) {
@@ -31,7 +31,7 @@ public class UseBeanTag extends BodyTagSupport {
     }
 
     public void setFromScope(String fromScope) {
-        this.fromScope =scopeFigureOuterer(fromScope);
+        this.fromScope = scopeFigureOuterer(fromScope);
     }
 
     public void setToScope(String toScope) {
@@ -62,14 +62,14 @@ public class UseBeanTag extends BodyTagSupport {
     public int doEndTag() throws JspException {
         Object propertyObject = null;
         Object o = null;
-        if (fromScope>=0) {
-             o = pageContext.getAttribute(name, fromScope);
+        if (fromScope >= 0) {
+            o = pageContext.getAttribute(name, fromScope);
         } else {
-             o = pageContext.findAttribute(name);
+            o = pageContext.findAttribute(name);
         }
-        if (o==null) {
+        if (o == null) {
             throw new JspException("attribute " + name + " not found");
-        } else if (property!=null) {
+        } else if (property != null) {
             Method getMethod = null;
             Method[] methods = null;
 
@@ -99,9 +99,9 @@ public class UseBeanTag extends BodyTagSupport {
             }
 
         }
-        pageContext.setAttribute(id, propertyObject==null?o:propertyObject, toScope);
+        pageContext.setAttribute(id, propertyObject == null ? o : propertyObject, toScope);
 
-        this.type= DEFAULT_TYPE;
+        this.type = DEFAULT_TYPE;
         this.toScope = DEFAULT_SCOPE;
         this.fromScope = -1;
         this.name = null;

@@ -1,9 +1,9 @@
 package com.topcoder.web.privatelabel.controller.request;
 
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.VerizonRegInfo;
-import com.topcoder.web.common.TCWebException;
 
 public class VerizonRegDemog extends FullRegDemog {
     protected void setNextPage() {

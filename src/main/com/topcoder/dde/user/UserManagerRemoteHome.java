@@ -1,7 +1,7 @@
 package com.topcoder.dde.user;
 
-import java.rmi.RemoteException;
 import javax.ejb.CreateException;
+import java.rmi.RemoteException;
 
 public interface UserManagerRemoteHome extends javax.ejb.EJBHome {
 

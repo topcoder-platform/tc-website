@@ -1,4 +1,4 @@
-/* 
+/*
  * TestComponentManager_Document.java
  *
  * By John C. Bollinger
@@ -9,8 +9,10 @@ package com.topcoder.dde.catalog.test;
 
 import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.Document;
+
 import java.util.Collection;
 import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -22,8 +24,8 @@ import junit.framework.TestSuite;
  * @version 1.0
  */
 public class TestComponentManager_Document
-       extends RemoteComponentManagerTestCase {
-       
+        extends RemoteComponentManagerTestCase {
+
     protected Document document;
 
     /**
@@ -35,13 +37,13 @@ public class TestComponentManager_Document
     public TestComponentManager_Document(String testName) {
         super(testName);
     }
-    
+
     public void setUp() throws Exception {
         super.setUp();
         document = new Document("Test Document #" + idGen.nextId(),
                 "http://test.com/doc", Document.OTHER);
     }
-    
+
     /**
      * tests the normal functioning of the addDocument method
      */
@@ -58,10 +60,10 @@ public class TestComponentManager_Document
     /**
      * tests the functioning of the addDocument method when a document matching
      * the argument already exists
-     */ 
+     */
 /*
  * Objecting to this case is not required
- *   
+ *
     synchronized public void testAddDocument_Exists() throws Exception {
         Document doc = manager1.addDocument(document);
         try {
@@ -74,11 +76,11 @@ public class TestComponentManager_Document
         }
     }
  */
- 
+
     /**
      * tests the functioning of the addDocument method when the argument is
      * <code>null</code>
-     */    
+     */
     public void testAddDocument_Null() throws Exception {
         try {
             manager1.addDocument(null);
@@ -91,24 +93,24 @@ public class TestComponentManager_Document
     /*
      * getDocuments tested implicitly throughout this test case
      */
-    
+
     /**
      * tests the normal functioning of the removeDocument method
      */
     synchronized public void testRemoveDocument() throws Exception {
         Document doc = manager1.addDocument(document);
         Collection documents;
-        
+
         manager1.removeDocument(doc.getId());
         documents = manager1.getDocuments();
-        
+
         assertTrue("Document not removed", !documents.contains(document));
     }
-    
+
     /**
      * tests the functioning of the removeDocument method when no document
      * matching the argument exists
-     */    
+     */
     public void testRemoveDocument_Missing() throws Exception {
         try {
             manager1.removeDocument(idGen.nextId());
@@ -131,7 +133,7 @@ public class TestComponentManager_Document
             throw e;
         }
     }
-    
+
     /**
      * tests the normal functioning of the updateDocument method
      */
@@ -139,24 +141,24 @@ public class TestComponentManager_Document
         Document doc = manager1.addDocument(document);
         Document doc2 = new Document(doc.getName(), doc.getURL(), doc.getType());
         Collection documents;
-        
+
         try {
             doc.setURL("https://test.com/docs/doc");
             manager1.updateDocument(doc);
             documents = manager1.getDocuments();
             assertTrue("Document not updated on the server",
-                       documents.contains(doc));
+                    documents.contains(doc));
             assertTrue("Document duplicated, not updated",
-                       !documents.contains(doc2));
+                    !documents.contains(doc2));
         } finally {
             manager1.removeDocument(doc.getId());
         }
     }
-    
+
     /**
      * tests the functioning of the updateDocument method when the argument is
      * <code>null</code>
-     */    
+     */
     public void testUpdateDocument_Null() throws Exception {
         try {
             manager1.updateDocument(null);
@@ -165,11 +167,11 @@ public class TestComponentManager_Document
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the functioning of the updateDocument method when no document
      * matching the argument exists
-     */    
+     */
     public void testUpdateDocument_Missing() throws Exception {
         try {
             manager1.updateDocument(document);
@@ -178,11 +180,11 @@ public class TestComponentManager_Document
             /* the expected case */
         }
     }
-    
+
     /**
      * tests the functioning of the updateDocument method when the document
      * matching the argument is not associated with the component being managed
-     */    
+     */
 /*
  * Not a valid test -- this behavior is not required or expected
  *
@@ -202,5 +204,5 @@ public class TestComponentManager_Document
     public static Test suite() {
         return new ComponentManagerTestSetup(new TestSuite(TestComponentManager_Document.class));
     }
-    
+
 }

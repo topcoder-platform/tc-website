@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -48,7 +48,7 @@ public class Login implements Model {
             SecurityEnabledUser user = userManager.getUser(subject);
             return new LoginResult(user);
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (AuthenticationException e) {
             return new FailureResult("User name or password is incorrect", e);
         } catch (RuntimeException e) {

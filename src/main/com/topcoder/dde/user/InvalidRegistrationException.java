@@ -12,11 +12,11 @@ import com.topcoder.dde.DDEException;
 public class InvalidRegistrationException extends DDEException {
 
     public InvalidRegistrationException() {
-	super();
+        super();
     }
 
     public InvalidRegistrationException(String message) {
-	super(message);
+        super(message);
     }
 
 }

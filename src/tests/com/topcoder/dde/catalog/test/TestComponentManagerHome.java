@@ -12,7 +12,9 @@ import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.ComponentRequest;
 import com.topcoder.dde.catalog.ComponentSummary;
+
 import javax.ejb.CreateException;
+
 import junit.framework.AssertionFailedError;
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -31,12 +33,12 @@ public class TestComponentManagerHome extends RemoteCatalogTestCase {
     public TestComponentManagerHome(String testName) {
         super(testName);
     }
-    
+
 /*
  * basic functionality of create(long) is already implicitly tested elsewhere
  * throughout the test suite
  */
- 
+
     public void testCreate_Long_Missing() throws Exception {
         try {
             ComponentManager cm = componentManagerHome.create(idGen.nextId());
@@ -46,7 +48,7 @@ public class TestComponentManagerHome extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testCreate_LongLong() throws Exception {
         Catalog myCatalog = null;
         ComponentRequest request = null;
@@ -57,7 +59,7 @@ public class TestComponentManagerHome extends RemoteCatalogTestCase {
         ComponentManager componentManagerNew1 = null;
         ComponentManager componentManagerNew2 = null;
         Throwable caught = null;
-        
+
         try {
             /* setup */
             myCatalog = catalogHome.create();
@@ -76,18 +78,18 @@ public class TestComponentManagerHome extends RemoteCatalogTestCase {
                     componentManagerHome.create(compSummary.getComponentId());
             componentManagerNew2 =
                     componentManagerHome.create(compSummary.getComponentId(), 2L);
-            
+
             /* test */
             assertTrue("Wrong component version retrieved",
-                       !componentManagerOld.getVersionInfo().equals(
-                               componentManagerNew1.getVersionInfo()));
+                    !componentManagerOld.getVersionInfo().equals(
+                            componentManagerNew1.getVersionInfo()));
             assertTrue("Wrong component version retrieved",
-                       !componentManagerOld.getVersionInfo().equals(
-                               componentManagerNew2.getVersionInfo()));
+                    !componentManagerOld.getVersionInfo().equals(
+                            componentManagerNew2.getVersionInfo()));
             assertEquals("Wrong component version retrieved",
-                         componentManagerNew1.getVersionInfo(),
-                         componentManagerNew2.getVersionInfo());
-                         
+                    componentManagerNew1.getVersionInfo(),
+                    componentManagerNew2.getVersionInfo());
+
         } catch (Exception e) {
             caught = e;
         } catch (AssertionFailedError afe) {
@@ -97,13 +99,13 @@ public class TestComponentManagerHome extends RemoteCatalogTestCase {
         /* teardown */
         if (componentManagerOld != null) {
             componentManagerOld.remove();
-        }        
+        }
         if (componentManagerNew1 != null) {
             componentManagerNew1.remove();
-        }        
+        }
         if (componentManagerNew2 != null) {
             componentManagerNew2.remove();
-        }        
+        }
         myCatalog.removeComponent(compSummary.getComponentId());
         myCatalog.remove();
         if (caught != null) {
@@ -112,9 +114,9 @@ public class TestComponentManagerHome extends RemoteCatalogTestCase {
             } else {
                 throw (Error) caught;
             }
-        }        
+        }
     }
-    
+
     public void testCreate_LongLong_Missing() throws Exception {
         try {
             ComponentManager cm =
@@ -125,7 +127,7 @@ public class TestComponentManagerHome extends RemoteCatalogTestCase {
             /* the expected case */
         }
     }
-    
+
     public void testCreate_LongLong_BadVersion() throws Exception {
         try {
             ComponentManager cm = componentManagerHome.create(
@@ -140,5 +142,5 @@ public class TestComponentManagerHome extends RemoteCatalogTestCase {
     public static Test suite() {
         return new CatalogTestSetup(new TestSuite(TestComponentManagerHome.class));
     }
-    
+
 }

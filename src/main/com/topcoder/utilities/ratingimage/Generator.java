@@ -1,8 +1,8 @@
 package com.topcoder.utilities.ratingimage;
 
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -35,13 +35,13 @@ public class Generator {
         try {
 
             Generator g = new Generator();
-            g.makeImage("./ri/"+colorNames[ADMIN]+colorNames[ADMIN]+colorNames[ADMIN]+".png",
-                    new Color[] {colors[ADMIN], colors[ADMIN], colors[ADMIN]});
-            for (int i=1; i<colors.length; i++) {
-                for (int j=1; j<colors.length; j++) {
-                    for (int k=1; k<colors.length; k++) {
-                        g.makeImage("./ri/"+colorNames[i]+colorNames[j]+colorNames[k]+".png",
-                                new Color[] {colors[i], colors[j], colors[k]});
+            g.makeImage("./ri/" + colorNames[ADMIN] + colorNames[ADMIN] + colorNames[ADMIN] + ".png",
+                    new Color[]{colors[ADMIN], colors[ADMIN], colors[ADMIN]});
+            for (int i = 1; i < colors.length; i++) {
+                for (int j = 1; j < colors.length; j++) {
+                    for (int k = 1; k < colors.length; k++) {
+                        g.makeImage("./ri/" + colorNames[i] + colorNames[j] + colorNames[k] + ".png",
+                                new Color[]{colors[i], colors[j], colors[k]});
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class Generator {
         BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
         Graphics2D g = bi.createGraphics();
 
-        for (int i=0; i<colors.length; i++) {
+        for (int i = 0; i < colors.length; i++) {
             g.setColor(colors[i]);
-            drawBlock(g, i+1);
+            drawBlock(g, i + 1);
         }
 
         g.setColor(FRAME_COLOR);

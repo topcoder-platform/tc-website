@@ -6,13 +6,13 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.ScorecardTemplate;
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
@@ -24,14 +24,14 @@ import org.apache.struts.action.ActionForwards;
  * @version 1.0
  */
 public final class EditProjectAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -46,23 +46,23 @@ public final class EditProjectAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "EditProjectAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
-                        + request.getSession().getId());
-        
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "EditProjectAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
+
         String action = null;
         if (request.getParameter(Constants.ACTION_KEY) != null) {
             action = request.getParameter(Constants.ACTION_KEY).toString();
         } else if (form != null) {
             action = ((ProjectForm) form).getAction();
         }
-        
+
         // Call the business layer
         BusinessDelegate businessDelegate = new BusinessDelegate();
         ResultData result = businessDelegate.projectDetail(orpd);
-        
-        if (result instanceof SuccessResult)  {
+
+        if (result instanceof SuccessResult) {
             ProjectRetrieval pr = (ProjectRetrieval) result;
             // Populate the form
             form = new ProjectForm();
@@ -73,9 +73,9 @@ public final class EditProjectAction extends ReviewAction {
             myForm.setScorecardTemplates(templates);
 
             request.getSession().setAttribute(mapping.getAttribute(), form);
-            
+
             saveToken(request);
-            
+
             if (Constants.ACTION_TERMINATE.equals(action)) {
                 ((ProjectForm) form).setAction(Constants.ACTION_TERMINATE);
                 forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
@@ -84,7 +84,7 @@ public final class EditProjectAction extends ReviewAction {
                 ((ProjectForm) form).setAction(Constants.ACTION_EDIT);
             }
         }
-        
+
         return result;
     }
 }

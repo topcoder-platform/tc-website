@@ -1,7 +1,7 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.User;
 
 /**
  * Indicates a permission test was failed.

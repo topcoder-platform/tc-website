@@ -1,39 +1,36 @@
 package com.topcoder.web.privatelabel.controller.request.amazon;
 
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.controller.request.BaseActivate;
-import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.shared.util.*;
-import com.topcoder.web.corp.ejb.coder.*;
-import com.topcoder.web.ejb.sessionprofile.*;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-
-import javax.transaction.UserTransaction;
-import java.sql.Timestamp;
-
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.corp.ejb.coder.Coder;
+import com.topcoder.web.corp.ejb.coder.CoderHome;
+import com.topcoder.web.corp.ejb.coder.CompanyCandidate;
+import com.topcoder.web.corp.ejb.coder.CompanyCandidateHome;
 import com.topcoder.web.ejb.session.Session;
 import com.topcoder.web.ejb.session.SessionHome;
 import com.topcoder.web.ejb.session.SessionSegment;
 import com.topcoder.web.ejb.session.SessionSegmentHome;
-import com.topcoder.web.corp.common.ScreeningException;
-
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.ejb.sessionprofile.*;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.BaseActivate;
+import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.rmi.PortableRemoteObject;
-
-import java.util.*;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author dok

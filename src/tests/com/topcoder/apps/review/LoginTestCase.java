@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -67,14 +67,15 @@ public class LoginTestCase extends TestCase {
      */
     public void testBadRequest1() throws Exception {
         ResultData result = new Login().start(
-            new LoginData("", "") {
-                public String getUserName() {
-                   return null;
+                new LoginData("", "") {
+                    public String getUserName() {
+                        return null;
+                    }
+
+                    public String getPassword() {
+                        return null;
+                    }
                 }
-                public String getPassword() {
-                    return null;
-                }
-            }
         );
         assertTrue(result instanceof FailureResult);
     }
@@ -85,7 +86,8 @@ public class LoginTestCase extends TestCase {
      * @throws Exception propagate exceptions to JUnit
      */
     public void testBadRequest2() throws Exception {
-        ResultData result = new Login().start(new ActionData() { });
+        ResultData result = new Login().start(new ActionData() {
+        });
         assertTrue(result instanceof FailureResult);
     }
 

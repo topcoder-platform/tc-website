@@ -2,7 +2,9 @@ package com.topcoder.ejb.UserServices;
 
 import com.topcoder.common.web.data.User;
 
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
+import javax.ejb.FinderException;
 import java.rmi.RemoteException;
 
 

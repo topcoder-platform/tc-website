@@ -2,24 +2,23 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.common.NavigationException;
+import com.topcoder.common.web.data.User;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.common.web.data.User;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.Constants;
-import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.model.CoderSessionInfo;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.TCSubject;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -31,9 +30,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.*;
-import java.util.zip.GZIPOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.StringTokenizer;
+import java.util.zip.GZIPOutputStream;
 
 
 public final class MainServlet extends HttpServlet {
@@ -103,7 +102,7 @@ public final class MainServlet extends HttpServlet {
             //just trying to protect against invalid requests getting to the
             //app server.  currently, we don't have a way to stop this ad the web
             //server layer.
-            if (ApplicationServer.PROD==ApplicationServer.ENVIRONMENT) {
+            if (ApplicationServer.PROD == ApplicationServer.ENVIRONMENT) {
                 if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME)) {
                     log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
                     throw new NavigationException("Invalid Request - Wrong Server Name");
@@ -140,9 +139,9 @@ public final class MainServlet extends HttpServlet {
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
             }
 
-            if (requestTask==null)
+            if (requestTask == null)
                 requestTask = Conversion.checkNull((String) request.getAttribute("t"));
-            if (requestCommand==null)
+            if (requestCommand == null)
                 requestCommand = Conversion.checkNull((String) request.getAttribute("c"));
             String handle = "";
             if (nav.isIdentified()) {
@@ -162,7 +161,7 @@ public final class MainServlet extends HttpServlet {
             trail.append(" ****]");
             log.info(trail.toString());
             User user = nav.getUser();
-            if (user==null)  {
+            if (user == null) {
                 //user must have been transient and we got a navigation object that had been serialized at some point
                 user = new User();
                 nav.setUser(user);
@@ -257,8 +256,7 @@ public final class MainServlet extends HttpServlet {
                 fetchRegularPage(request, response, com.topcoder.web.tc.Constants.HOME_PAGE, true);
 //                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/tc"));
                 return;
-            }
-            else {
+            } else {
                 HTMLString = TaskStatic.process(request, response, htmlMaker, nav, document);
             }
             // IF ANY OF THE PROCESSORS RETURN A STRING
@@ -307,10 +305,10 @@ public final class MainServlet extends HttpServlet {
                     fetchRegularPage(request, response, "/tc", true);
                     return;
 
-                 } else {
+                } else {
                     log.info("already logged in, rethrowing");
                     throw pe;
-                 }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 showInternalError(response);
@@ -344,7 +342,6 @@ public final class MainServlet extends HttpServlet {
     }
 
 
-
     protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e)
             throws Exception {
         log.error("caught exception, forwarding to error page", e);
@@ -357,15 +354,15 @@ public final class MainServlet extends HttpServlet {
         } else {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             request.setAttribute(BaseServlet.MESSAGE_KEY, "An error has occurred when attempting to process your request.");
-       }
+        }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
     }
 
 
     private Navigation getNav(TCRequest request, HttpServletResponse response) throws Exception {
-        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-        if (nav==null) {
+        Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
+        if (nav == null) {
             nav = new Navigation(request, response);
         }
         TCResponse tcResponse = HttpObjectFactory.createResponse(response);
@@ -380,7 +377,7 @@ public final class MainServlet extends HttpServlet {
     }
 
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
-                                  boolean forward) throws Exception {
+                                          boolean forward) throws Exception {
 
         if (forward) {
             if (!dest.startsWith("/")) {
@@ -408,9 +405,6 @@ public final class MainServlet extends HttpServlet {
             ie.printStackTrace();
         }
     }
-
-
-
 
 
     private void addURLTags(Navigation nav, HttpServletRequest request,

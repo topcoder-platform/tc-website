@@ -4,40 +4,29 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.util.format.FormatMethodFactory;
-import com.topcoder.util.format.DateFormatMethod;
-import com.topcoder.util.format.PrimitiveFormatterFactory;
-import com.topcoder.util.format.PrimitiveFormatter;
-                                
 import com.topcoder.apps.review.document.ScorecardTemplate;
-import com.topcoder.apps.review.projecttracker.Phase;
-import com.topcoder.apps.review.projecttracker.PhaseInstance;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ReviewerResponsibility;
-import com.topcoder.apps.review.projecttracker.UserRole;
-import com.topcoder.apps.review.projecttracker.PaymentInfo;
-import com.topcoder.apps.review.projecttracker.PaymentStatus;
-import com.topcoder.apps.review.projecttracker.ProjectStatus;
-import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.projecttracker.Role;
-
-import javax.servlet.http.HttpServletRequest;
-import org.apache.struts.action.ActionErrors;
+import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.util.format.DateFormatMethod;
+import com.topcoder.util.format.FormatMethodFactory;
+import com.topcoder.util.format.PrimitiveFormatter;
+import com.topcoder.util.format.PrimitiveFormatterFactory;
 import org.apache.struts.action.ActionError;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.util.MessageResources;
 
+import javax.servlet.http.HttpServletRequest;
+import java.text.DecimalFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.text.DecimalFormat;
 
 /**
  * <p>
- * Form bean for the project editing page and admin project detail page.  
+ * Form bean for the project editing page and admin project detail page.
  * </p>
  *
  * @author TCSDEVELOPER
@@ -46,7 +35,7 @@ import java.text.DecimalFormat;
 public final class ProjectForm extends ReviewForm {
 
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The project.
      */
@@ -61,37 +50,37 @@ public final class ProjectForm extends ReviewForm {
      * The reviewer sequence of corresponding participant.
      */
     private int[] reviewerSeqs = null;
-    
+
     /**
      * The formater for the date.
      */
     private DateFormatMethod dateFormatter = null;
-    
+
     /**
      * The formater for the currency.
      */
     private PrimitiveFormatter currencyFormatter = null;
-    
+
     /**
      * The list of possible responsibilities.
      */
     private ReviewerResponsibility[] responsibilityTypes = null;
-    
+
     /**
      * The list of possible responsibilities as string.
      */
     private String[] responsibilityAnswers = null;
-    
+
     /**
      * The list of possible payment statuses.
      */
     private PaymentStatus[] paymentStatuses = null;
-    
+
     /**
      * The user action.
      */
     private String action = null;
-    
+
     /**
      * The reason of termination.
      */
@@ -151,28 +140,28 @@ public final class ProjectForm extends ReviewForm {
      * If mail notification should be sent.
      */
     private boolean sendMail = false;
-    
+
     private boolean autopilot = false;
-    
+
     /**
      * If a submitter role can be removed.
      * Used if admin assigns a submitter a review role.
      */
     private boolean submitterRemoval = false;
-    
+
     private Set submitterRemovalSet = null;
-    
+
     private ScorecardTemplate[] templates = null;
     private String[] screeningTemplates = null;
     private String[] reviewTemplates = null;
-    
+
     private String screeningTemplate = null;
     private String reviewTemplate = null;
     // ----------------------------------------------------------- Properties
-    
+
     /**
      * Return the project.
-     * 
+     *
      * @return the project.
      */
     public Project getProject() {
@@ -181,16 +170,16 @@ public final class ProjectForm extends ReviewForm {
 
     /**
      * Return the current phase.
-     * 
+     *
      * @return the current phase.
      */
     public String getCurrentPhase() {
         return project.getCurrentPhase().getName();
     }
-    
+
     /**
      * Set the current phase.
-     * 
+     *
      * @param phase The new current phase.
      */
     public void setCurrentPhase(String phase) {
@@ -202,19 +191,19 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
-    
+
     /**
      * Return the project notes.
-     * 
+     *
      * @return the project notes.
      */
     public String getNotes() {
         return project.getNotes();
     }
-    
+
     /**
      * Set the project notes.
-     * 
+     *
      * @param notes The new project notes.
      */
     public void setNotes(String notes) {
@@ -222,46 +211,46 @@ public final class ProjectForm extends ReviewForm {
             project.setNotes(notes.trim());
         }
     }
-    
+
     /**
      * Return the project name.
-     * 
+     *
      * @return the project name.
      */
     public String getName() {
         return project.getName();
     }
-    
+
     /**
      * Return the project version.
-     * 
+     *
      * @return the project version.
      */
     public String getVersion() {
         return project.getVersion();
     }
-    
+
     /**
      * Return the project overview.
-     * 
+     *
      * @return the project overview.
      */
     public String getOverview() {
         return project.getOverview();
     }
-    
+
     /**
      * Return the project timeline.
-     * 
+     *
      * @return the project timeline.
      */
     public PhaseInstance[] getTimeline() {
         return project.getTimeline();
     }
-    
+
     /**
      * Return the project participants.
-     * 
+     *
      * @return the project participants.
      */
     public UserRole[] getParticipants() {
@@ -270,7 +259,7 @@ public final class ProjectForm extends ReviewForm {
 
     /**
      * Return whether the corresponding participant should be shown.
-     * 
+     *
      * @return whether the corresponding participant should be shown.
      */
     public int getShowParticipants(int index) {
@@ -279,7 +268,7 @@ public final class ProjectForm extends ReviewForm {
 
     /**
      * Return the reviewer sequence of corresponding participant.
-     * 
+     *
      * @return the reviewer sequence of corresponding participant.
      */
     public int getReviewerSeqs(int index) {
@@ -288,7 +277,7 @@ public final class ProjectForm extends ReviewForm {
 
     /**
      * Return whether the participant is PM.
-     * 
+     *
      * @return whether the participant is PM.
      */
     public boolean getProjectManager(int index) {
@@ -297,7 +286,7 @@ public final class ProjectForm extends ReviewForm {
 
     /**
      * Return the project winner.
-     * 
+     *
      * @return the project winner.
      */
     public User getWinner() {
@@ -306,36 +295,36 @@ public final class ProjectForm extends ReviewForm {
 
     /**
      * Return whether the project winner exists.
-     * 
+     *
      * @return whether the project winner exists.
      */
     public boolean getWinnerValid() {
         return (project.getWinner() != null);
     }
-    
+
     /**
      * Return the specified phase's start time.
-     * 
+     *
      * @param index The index of phase.
      * @return the specified phase's start time.
      */
     public String getPhaseStart(int index) {
         return startDates[index];
     }
-    
+
     /**
      * Return the specified phase's end time.
-     * 
+     *
      * @param index The index of phase.
      * @return the specified phase's end time.
      */
     public String getPhaseEnd(int index) {
         return endDates[index];
     }
-    
+
     /**
      * Set the specified phase's start time.
-     * 
+     *
      * @param index The index of phase.
      * @param start The new phase's start time.
      */
@@ -353,19 +342,19 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
-    
+
     /**
      * Set the specified phase's end time.
-     * 
+     *
      * @param index The index of phase.
      * @param end The new phase's end time.
-     */    
+     */
     public void setPhaseEnd(int index, String end) {
         if (project != null) {
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
             SimpleDateFormat sdf2 = new SimpleDateFormat(Constants.DATE_FORMAT2);
             PhaseInstance phase = project.getTimeline()[index];
-        
+
             endDates[index] = end.trim();
             if (end.indexOf(".") >= 0) {
                 phase.setEndDate(sdf.parse(end.trim(), new ParsePosition(0)));
@@ -374,30 +363,30 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
-    
+
     /**
      * Return the name of specified role.
-     * 
+     *
      * @param index The index of role.
      * @return the name of specified role.
      */
     public String getRole(int index) {
         return project.getParticipants()[index].getRole().getName();
     }
-    
+
     /**
      * Return the name of specified user.
-     * 
+     *
      * @param index The index of user.
      * @return the name of specified user.
      */
     public String getUser(int index) {
         return participantsHandle[index];
     }
-    
+
     /**
      * Set the specified user.
-     * 
+     *
      * @param index The index of user.
      * @param handle The new user's name.
      */
@@ -418,10 +407,10 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
-    
+
     /**
      * Return the specified responsibility.
-     * 
+     *
      * @param index The index of responsibility.
      * @return the specified responsibility.
      */
@@ -433,10 +422,10 @@ public final class ProjectForm extends ReviewForm {
             return null;
         }
     }
-    
+
     /**
      * Set the specified responsibility.
-     * 
+     *
      * @param index The index of responsibility.
      * @param responsibility The new responsibility.
      */
@@ -452,10 +441,10 @@ public final class ProjectForm extends ReviewForm {
             project.getParticipants()[index].setReviewerResponsibility(null);
         }
     }
-    
+
     /**
      * Return the specified payment.
-     * 
+     *
      * @param index The index of payment.
      * @return the specified payment.
      */
@@ -467,10 +456,10 @@ public final class ProjectForm extends ReviewForm {
             return null;
         }
     }
-    
+
     /**
      * Set the specified payment.
-     * 
+     *
      * @param index The index of payment.
      * @param payment The new payment.
      */
@@ -479,7 +468,7 @@ public final class ProjectForm extends ReviewForm {
             PaymentInfo info = project.getParticipants()[index].getPaymentInfo();
             DecimalFormat df = new DecimalFormat(Constants.CURRENCY_FORMAT);
             Number number = df.parse(payment.trim(), new ParsePosition(0));
-            
+
             if (info != null) {
                 if (number != null) {
                     info.setPayment(number.floatValue());
@@ -494,10 +483,10 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
-    
+
     /**
      * Return the specified payment status.
-     * 
+     *
      * @param index The index of payment status.
      * @return the specified payment status.
      */
@@ -509,17 +498,17 @@ public final class ProjectForm extends ReviewForm {
             return null;
         }
     }
-    
+
     /**
      * Set the specified payment status.
-     * 
+     *
      * @param index The index of payment status.
      * @param payment The new payment status.
      */
     public void setPaymentStatus(int index, String status) {
         if (project != null) {
             PaymentInfo info = project.getParticipants()[index].getPaymentInfo();
-            
+
             if (info != null) {
                 for (int i = 0; i < paymentStatuses.length; i++) {
                     if (paymentStatuses[i].getName().equals(status)) {
@@ -529,25 +518,25 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
-    
+
     /**
      * Return the list of possible payment status answers.
-     * 
+     *
      * @return the list of possible payment status answers.
      */
     public PaymentStatus[] getPaymentStatusAnswers() {
         return paymentStatuses;
     }
-    
+
     /**
      * Return the list of possible responsibility answers.
-     * 
+     *
      * @return the list of possible responsibility answers.
      */
     public String[] getResponsibilityAnswers() {
         return responsibilityAnswers;
     }
-    
+
     /**
      * Return the user action.
      *
@@ -556,7 +545,7 @@ public final class ProjectForm extends ReviewForm {
     public String getAction() {
         return action;
     }
-    
+
     /**
      * Set the user action.
      *
@@ -565,7 +554,7 @@ public final class ProjectForm extends ReviewForm {
     public void setAction(String action) {
         this.action = action;
     }
-    
+
     /**
      * Return the user reason.
      *
@@ -574,7 +563,7 @@ public final class ProjectForm extends ReviewForm {
     public String getReason() {
         return reason;
     }
-    
+
     /**
      * Set the user reason.
      *
@@ -647,7 +636,7 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
-    
+
     /**
      * Return the sendMail-flag.
      *
@@ -656,7 +645,7 @@ public final class ProjectForm extends ReviewForm {
     public boolean getSendMail() {
         return sendMail;
     }
-    
+
     /**
      * Set the sendMail-flag.
      *
@@ -665,7 +654,7 @@ public final class ProjectForm extends ReviewForm {
     public void setSendMail(boolean sendMail) {
         this.sendMail = sendMail;
     }
-    
+
     /**
      * @return Returns the submitterRemoval.
      */
@@ -721,8 +710,7 @@ public final class ProjectForm extends ReviewForm {
                     if (templates[i].getId() == project.getScreeningTemplateId()) {
                         this.screeningTemplate = templates[i].getName();
                     }
-                }
-                else if (templates[i].getScorecardType() == 2) {
+                } else if (templates[i].getScorecardType() == 2) {
                     reviewList.add(templates[i].getName());
                     if (templates[i].getId() == project.getReviewTemplateId()) {
                         this.reviewTemplate = templates[i].getName();
@@ -731,13 +719,14 @@ public final class ProjectForm extends ReviewForm {
             }
         }
         this.templates = templates;
-        this.screeningTemplates = (String[])screeningList.toArray(new String[0]);
-        this.reviewTemplates = (String[])reviewList.toArray(new String[0]);
+        this.screeningTemplates = (String[]) screeningList.toArray(new String[0]);
+        this.reviewTemplates = (String[]) reviewList.toArray(new String[0]);
     }
-    
+
     public String getScreeningTemplate() {
         return screeningTemplate;
     }
+
     public long getScreeningTemplateId() {
         for (int i = 0; i < templates.length; i++) {
             if (screeningTemplate.equals(templates[i].getName())) {
@@ -746,12 +735,12 @@ public final class ProjectForm extends ReviewForm {
         }
         return -1;
     }
-    
+
     public void setScreeningTemplate(String template) {
         this.screeningTemplate = template;
         this.project.setScreeningTemplateId(getScreeningTemplateId());
     }
-    
+
     public String getReviewTemplate() {
         return reviewTemplate;
     }
@@ -764,7 +753,7 @@ public final class ProjectForm extends ReviewForm {
         }
         return -1;
     }
-    
+
     public void setReviewTemplate(String template) {
         this.reviewTemplate = template;
         this.project.setReviewTemplateId(getReviewTemplateId());
@@ -788,7 +777,7 @@ public final class ProjectForm extends ReviewForm {
      *
      * @param mapping The mapping used to select this instance
      * @param request The servlet request we are processing
-     * 
+     *
      * @return an <code>ActionErrors</code> object that encapsulates any
      * validation errors that have been found.
      */
@@ -796,43 +785,43 @@ public final class ProjectForm extends ReviewForm {
                                  HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         setValid(true);
-        
+
         if (Constants.ACTION_TERMINATE.equals(action)) {
             if (reason == null || reason.equals("")) {
                 setValid(false);
-                errors.add(ActionErrors.GLOBAL_ERROR, 
-                           new ActionError("error.reason.required"));
+                errors.add(ActionErrors.GLOBAL_ERROR,
+                        new ActionError("error.reason.required"));
             }
         } else if (Constants.ACTION_EDIT.equals(action)) {
             timelineValid = true;
-            
+
             for (int i = 0; i < project.getTimeline().length; i++) {
                 String phaseName = project.getTimeline()[i].getPhase().getName();
                 Date start = project.getTimeline()[i].getStartDate();
                 Date end = project.getTimeline()[i].getEndDate();
 
                 if (start == null) {
-                    errors.add("timeline", 
-                               new ActionError("error.format", "Error in the start date of phase " + phaseName));
+                    errors.add("timeline",
+                            new ActionError("error.format", "Error in the start date of phase " + phaseName));
                     timelineValid = false;
                 }
                 if (end == null) {
-                    errors.add("timeline", 
-                               new ActionError("error.format", "Error in the end date of phase " + phaseName));
+                    errors.add("timeline",
+                            new ActionError("error.format", "Error in the end date of phase " + phaseName));
                     timelineValid = false;
                 }
                 if (start != null && end != null && start.compareTo(end) > 0) {
-                    errors.add("timeline", 
-                               new ActionError("error.format", 
-                                               "Start date of phase " + phaseName + " must be ahead of end date"));
+                    errors.add("timeline",
+                            new ActionError("error.format",
+                                    "Start date of phase " + phaseName + " must be ahead of end date"));
                     timelineValid = false;
                 }
-                if (start != null && i > 0 && project.getTimeline()[i-1].getEndDate() != null 
-                        && start.compareTo(project.getTimeline()[i-1].getEndDate()) < 0) {
-                    errors.add("timeline", 
-                               new ActionError("error.format", 
-                                               "Start date of phase " + phaseName 
-                                                    + " must be after the previous end date"));
+                if (start != null && i > 0 && project.getTimeline()[i - 1].getEndDate() != null
+                        && start.compareTo(project.getTimeline()[i - 1].getEndDate()) < 0) {
+                    errors.add("timeline",
+                            new ActionError("error.format",
+                                    "Start date of phase " + phaseName
+                            + " must be after the previous end date"));
                     timelineValid = false;
                 }
             }
@@ -844,18 +833,18 @@ public final class ProjectForm extends ReviewForm {
             for (int i = 0; i < project.getParticipants().length; i++) {
                 if (!participantsValid[i]) {
                     setValid(false);
-                    errors.add("participants[" + i + "]", 
-                               new ActionError("error.format", "Error in the user handle"));
+                    errors.add("participants[" + i + "]",
+                            new ActionError("error.format", "Error in the user handle"));
                 }
             }
 
             for (int i = 0; i < project.getParticipants().length; i++) {
-                if (project.getParticipants()[i].getPaymentInfo() != null 
+                if (project.getParticipants()[i].getPaymentInfo() != null
                         && project.getParticipants()[i].getPaymentInfo().getPayment() < 0.0f) {
                     setValid(false);
                     participantsValid[i] = false;
-                    errors.add("participants[" + i + "]", 
-                               new ActionError("error.format", "Error in the payment amount"));
+                    errors.add("participants[" + i + "]",
+                            new ActionError("error.format", "Error in the payment amount"));
                 }
             }
 
@@ -876,8 +865,8 @@ public final class ProjectForm extends ReviewForm {
             }
             reasonValid = true;
             if (reason == null || reason.trim().equals("")) {
-                errors.add("reason", 
-                           new ActionError("error.format", "Please input reason."));
+                errors.add("reason",
+                        new ActionError("error.format", "Please input reason."));
                 setValid(false);
                 reasonValid = false;
             }
@@ -885,9 +874,9 @@ public final class ProjectForm extends ReviewForm {
 
         return errors;
     }
-    
+
     // ------------------------------------------------------ Protected Methods
-    
+
     /**
      * Creates the form bean from the project.
      *
@@ -896,27 +885,27 @@ public final class ProjectForm extends ReviewForm {
     public void fromProject(Project project) {
         BusinessDelegate businessDelegate = new BusinessDelegate();
         MessageResources messages =
-            MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
+                MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
         int seq = 0;
         int show = 1;
-        
+
         this.project = project;
         responsibilityTypes = businessDelegate.getReviewerResponsibilities();
         paymentStatuses = businessDelegate.getPaymentStatuses();
         projectStatuses = businessDelegate.getProjectStatuses();
         responsibilityAnswers = new String[responsibilityTypes.length + 1];
         responsibilityAnswers[0] = messages.getMessage("prompt.nonAvailable");
-        terminationTypes =  new String[projectStatuses.length];
+        terminationTypes = new String[projectStatuses.length];
         for (int i = 1; i < responsibilityAnswers.length; i++) {
             responsibilityAnswers[i] = responsibilityTypes[i - 1].getName();
         }
         for (int i = 0; i < projectStatuses.length; i++) {
             terminationTypes[i] = projectStatuses[i].getName();
         }
-            
+
         dateFormatter = FormatMethodFactory.getDefaultDateFormatMethod(Constants.DATE_FORMAT);
         currencyFormatter = PrimitiveFormatterFactory.getFormatter(Constants.CURRENCY_FORMAT);
-        
+
         showParticipants = new int[project.getParticipants().length];
         participantsValid = new boolean[project.getParticipants().length];
         participantsHandle = new String[project.getParticipants().length];
@@ -932,9 +921,9 @@ public final class ProjectForm extends ReviewForm {
                 showParticipants[i] = 0;
             }
             participantsValid[i] = true;
-            participantsHandle[i] = (project.getParticipants()[i].getUser() == null) 
-                                        ? null
-                                        : project.getParticipants()[i].getUser().getHandle();
+            participantsHandle[i] = (project.getParticipants()[i].getUser() == null)
+                    ? null
+                    : project.getParticipants()[i].getUser().getHandle();
 
             if (roleId == Role.ID_REVIEWER) {
                 seq++;
@@ -956,14 +945,14 @@ public final class ProjectForm extends ReviewForm {
                 endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
             }
         }
-        
+
         for (int i = 0; i < projectStatuses.length; i++) {
             if (projectStatuses[i].getId() == ProjectStatus.ID_TERMINATED) {
                 terminatedStatus = businessDelegate.getProjectStatuses()[i];
                 break;
             }
         }
-        
+
         this.autopilot = project.getAutoPilot();
 
         setId(project.getId());
@@ -972,11 +961,11 @@ public final class ProjectForm extends ReviewForm {
         this.submitterRemoval = false;
         this.submitterRemovalSet = null;
     }
-    
+
     /**
      * Creates the ProjectData from this form bean.
-     * 
-     * @param orpd The OnlineReviewProjectData to create the 
+     *
+     * @param orpd The OnlineReviewProjectData to create the
      * ProjectData.
      * @return the ProjectData created from this form bean.
      */
@@ -986,11 +975,11 @@ public final class ProjectForm extends ReviewForm {
         pData.setSubmitterRemoval(submitterRemoval);
         return pData;
     }
-    
+
     public boolean getAutoPilot() {
         return project.getAutoPilot();
     }
-    
+
     public void setAutoPilot(boolean b) {
         project.setAutoPilot(b);
     }

@@ -11,12 +11,15 @@
 package com.topcoder.dde.catalog;
 
 import com.topcoder.search.*;
-import com.topcoder.util.idgenerator.sql.*;
-import java.util.*;
-import javax.naming.*;
-import java.sql.*;
-import javax.sql.*;
+import com.topcoder.util.idgenerator.sql.DB;
+import com.topcoder.util.idgenerator.sql.InformixDB;
+
 import javax.ejb.EJBException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import java.sql.SQLException;
 
 
 /**
@@ -37,7 +40,7 @@ class CatalogSearchEngine {
     /** The constant representing the string document parser */
     public static final String STRINGPARSE = "stringparse";
     /** The categories to use for the search engine */
-    public static final String[] CATALOG = new String[] {"DDECATALOG"};
+    public static final String[] CATALOG = new String[]{"DDECATALOG"};
 
     private static CatalogSearchEngine singleton = null;
 
@@ -50,19 +53,19 @@ class CatalogSearchEngine {
         try {
             Context dsBinding = new InitialContext();
             ds = (DataSource) dsBinding.lookup("java:comp/env/jdbc/DefaultDS");
-        } catch(NamingException exception) {
+        } catch (NamingException exception) {
             throw new EJBException(
-            "Failed to obtain data source for search engine: "
-            + exception.toString());
+                    "Failed to obtain data source for search engine: "
+                    + exception.toString());
         }
         DB tableLocker = new InformixDB();
 
         try {
             searchEngine.addStrategy(WORDCOUNT,
-                new WordCountStrategy(ds, tableLocker, searchEngine));
-        } catch(SQLException exception) {
+                    new WordCountStrategy(ds, tableLocker, searchEngine));
+        } catch (SQLException exception) {
             throw new EJBException(
-            "Failed to initialize search engine: " + exception.toString());
+                    "Failed to initialize search engine: " + exception.toString());
         }
         searchEngine.addDocParser(STRINGPARSE, new StringDocParser());
     }
@@ -87,13 +90,13 @@ class CatalogSearchEngine {
     public synchronized void index(long componentId, String words) {
         IndexStrategy indexer = searchEngine.getIndexStrategy(WORDCOUNT);
         indexer.indexDoc(CATALOG, componentId,
-            new InMemoryLoc(words, STRINGPARSE));
+                new InMemoryLoc(words, STRINGPARSE));
     }
 
     public synchronized void reIndex(long componentId, String words) {
         IndexStrategy indexer = searchEngine.getIndexStrategy(WORDCOUNT);
         indexer.reIndexDoc(CATALOG, componentId,
-                    new InMemoryLoc(words, STRINGPARSE));
+                new InMemoryLoc(words, STRINGPARSE));
 
     }
 

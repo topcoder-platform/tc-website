@@ -1,21 +1,23 @@
 package com.topcoder.web.common.security;
 
-import java.util.*;
-import java.security.*;
-import javax.servlet.http.*;
-
-import com.topcoder.security.*;
-import com.topcoder.security.admin.*;
-import com.topcoder.security.login.*;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.login.LoginRemote;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.*;
-import com.topcoder.shared.util.*;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 
 import javax.servlet.http.Cookie;
+import java.security.MessageDigest;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * Uses the TCS security component to process login requests, and HTTP cookies or a Persistor to store a User.
@@ -239,7 +241,7 @@ public class BasicAuthentication implements WebAuthentication {
     private User checkCookie() {
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
-            if (ca[i].getName().equals(USER_COOKIE_NAME)&&defaultCookiePath.getName().equals(ca[i].getPath())) {
+            if (ca[i].getName().equals(USER_COOKIE_NAME) && defaultCookiePath.getName().equals(ca[i].getPath())) {
 
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");

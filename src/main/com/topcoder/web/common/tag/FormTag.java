@@ -1,9 +1,8 @@
 package com.topcoder.web.common.tag;
 
-import java.io.IOException;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
+import java.io.IOException;
 
 /**
  * <p>
@@ -113,10 +112,10 @@ public class FormTag extends TagSupport {
         } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
-        this.action=null;
-        this.method=null;
-        this.onSubmit=null;
-        this.name=null;
+        this.action = null;
+        this.method = null;
+        this.onSubmit = null;
+        this.name = null;
 
 
         return super.doEndTag();

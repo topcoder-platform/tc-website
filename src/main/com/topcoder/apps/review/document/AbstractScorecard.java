@@ -1,20 +1,20 @@
 /*
  * AbstractScorecard.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
 
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.User;
-import java.sql.Timestamp;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 
 /**
- * Class common to both screening and review scorecards 
+ * Class common to both screening and review scorecards
  * within this application.
  *
  * @author FatClimber
@@ -44,9 +44,9 @@ public abstract class AbstractScorecard implements Serializable {
 
     /** Doc */
     protected double score;
-    
+
     protected double raw_score;
-    
+
     protected Timestamp pm_review_timestamp;
 
     /** Dirtyflag */
@@ -58,8 +58,8 @@ public abstract class AbstractScorecard implements Serializable {
      *
      */
     public AbstractScorecard(long id, boolean isCompleted, boolean isPMReviewed,
-        ScorecardQuestion[] scorecardQuestion, User author, Project project,
-        InitialSubmission submission, double score, long requestorId, long versionId, double raw_score, Timestamp pm_review_timestamp) {
+                             ScorecardQuestion[] scorecardQuestion, User author, Project project,
+                             InitialSubmission submission, double score, long requestorId, long versionId, double raw_score, Timestamp pm_review_timestamp) {
         this.id = id;
         this.isCompleted = isCompleted;
         this.isPMReviewed = isPMReviewed;
@@ -94,7 +94,7 @@ public abstract class AbstractScorecard implements Serializable {
     protected boolean getDirty() {
         return dirtyFlag;
     }
-    
+
     /**
      * @param id
      */
@@ -136,12 +136,12 @@ public abstract class AbstractScorecard implements Serializable {
         this.id = id;
         this.dirtyFlag = true;
     }
-    
+
     /**
      * <p>
      * Return whether this scorecard is completed.
      * </p>
-     * 
+     *
      * @return true if the scorecard is completed, otherwise false.
      */
     public boolean isCompleted() {
@@ -152,7 +152,7 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Set whether this scorecard is completed.
      * </p>
-     * 
+     *
      * @param isCompleted Whether this scorecard is completed.
      */
     public void setCompleted(boolean isCompleted) {
@@ -164,7 +164,7 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Return whether the project manager has reviewed this scorecard.
      * </p>
-     * 
+     *
      * @return true if the project manager has reviewed this scorecard,
      * otherwise false.
      */
@@ -176,8 +176,8 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Set whether the project manager has reviewed this scorecard.
      * </p>
-     * 
-     * @param isPMReviewed Whether the project manager has reviewed 
+     *
+     * @param isPMReviewed Whether the project manager has reviewed
      * this scorecard.
      */
     public void setPMReviewed(boolean isPMReviewed) {
@@ -189,7 +189,7 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Return the questions in this scorecard.
      * </p>
-     * 
+     *
      * @return a ScorecardQuestion[] with the questions in this scorecard.
      */
     public ScorecardQuestion[] getQuestions() {
@@ -200,7 +200,7 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Return the author of this scorecard.
      * </p>
-     * 
+     *
      * @return a User with the author of this scorecard.
      */
     public User getAuthor() {
@@ -211,7 +211,7 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Return the project related to this scorecard.
      * </p>
-     * 
+     *
      * @return a Project with the project related to this scorecard.
      */
     public Project getProject() {
@@ -222,8 +222,8 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Return the submission related to this scorecard.
      * </p>
-     * 
-     * @return a InitialSubmission with the submission related to this 
+     *
+     * @return a InitialSubmission with the submission related to this
      * scorecard.
      */
     public InitialSubmission getSubmission() {
@@ -234,7 +234,7 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Return the score of this scorecard.
      * </p>
-     * 
+     *
      * @return the score of this scorecard.
      */
     public double getScore() {
@@ -245,7 +245,7 @@ public abstract class AbstractScorecard implements Serializable {
      * <p>
      * Set the score of this scorecard.
      * </p>
-     * 
+     *
      * @param score The score to be set.
      */
     public void setScore(double score) {
@@ -269,25 +269,21 @@ public abstract class AbstractScorecard implements Serializable {
 
         return scorecard.getId() == this.id;
     }
-    
-    public Timestamp getPMReviewTimestamp()
-    {
+
+    public Timestamp getPMReviewTimestamp() {
         return pm_review_timestamp;
     }
-    
-    public void setPMReviewTimestamp(Timestamp pm_review_timestamp)
-    {
+
+    public void setPMReviewTimestamp(Timestamp pm_review_timestamp) {
         this.pm_review_timestamp = pm_review_timestamp;
         this.dirtyFlag = true;
     }
-    
-    public double getRawScore()
-    {
+
+    public double getRawScore() {
         return raw_score;
     }
-    
-    public void setRawScore(double raw_score)
-    {
+
+    public void setRawScore(double raw_score) {
         this.raw_score = raw_score;
         this.dirtyFlag = true;
     }

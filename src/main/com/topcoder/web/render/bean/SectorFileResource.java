@@ -11,7 +11,9 @@
 
 package com.topcoder.web.render.bean;
 
-import com.topcoder.web.render.ejb.*;
+import com.topcoder.web.render.ejb.SectorFile;
+import com.topcoder.web.render.ejb.SectorFileHome;
+import com.topcoder.web.render.ejb.SectorFileObject;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;

@@ -14,13 +14,13 @@ import javax.naming.spi.*;
  * @author  Admin
  */
 public class TestingContextFactory implements InitialContextFactory {
-    
+
     /** Creates a new instance of TestingContextFactory */
     public TestingContextFactory() {
     }
-    
+
     public Context getInitialContext(java.util.Hashtable environment) throws NamingException {
         return new TestingContext();
     }
-    
+
 }

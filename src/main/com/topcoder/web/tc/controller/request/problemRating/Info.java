@@ -1,10 +1,10 @@
 package com.topcoder.web.tc.controller.request.problemRating;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 public class Info extends Base {
     protected void businessProcessing() throws TCWebException {

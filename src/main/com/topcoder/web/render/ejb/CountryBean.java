@@ -6,8 +6,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.InputStream;
 import java.sql.*;
-import java.sql.Date;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
 
 public class CountryBean implements javax.ejb.SessionBean {
 

@@ -10,15 +10,24 @@
 
 package com.topcoder.dde.admin;
 
-import com.topcoder.dde.admin.*;
-import com.topcoder.security.*;
-import com.topcoder.security.login.*;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.login.LoginRemote;
+import com.topcoder.security.login.LoginRemoteHome;
 import com.topcoder.util.config.*;
-import java.util.*;
-import java.rmi.RemoteException;
-import javax.ejb.*;
-import javax.naming.*;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+import java.rmi.RemoteException;
+import java.util.Enumeration;
+import java.util.Vector;
 
 
 /**
@@ -32,13 +41,14 @@ import javax.rmi.PortableRemoteObject;
 public class AdminLoginBean implements SessionBean, ConfigManagerInterface {
 
     private static final String
-        CONFIG_NAMESPACE = "com.topcoder.dde.admin.AdminLoginBean";
+            CONFIG_NAMESPACE = "com.topcoder.dde.admin.AdminLoginBean";
 
     private SessionContext ejbContext;
     private LoginRemote authenticator;
 
 
-    public AdminLoginBean() {}
+    public AdminLoginBean() {
+    }
 
 
     public void ejbCreate() throws CreateException {
@@ -48,46 +58,46 @@ public class AdminLoginBean implements SessionBean, ConfigManagerInterface {
                 config.refresh(CONFIG_NAMESPACE);
             } else {
                 config.add(CONFIG_NAMESPACE,
-                    ConfigManager.CONFIG_PROPERTIES_FORMAT);
+                        ConfigManager.CONFIG_PROPERTIES_FORMAT);
             }
             /*
             Hashtable principalMgrEnvironment=new Hashtable();
             principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
             //Object url = contexts.getObject(key);
-            principalMgrEnvironment.put(Context.PROVIDER_URL, config.getString(CONFIG_NAMESPACE,"securitymanagerip")); 
-            Context remoteContext = new InitialContext(principalMgrEnvironment);   
+            principalMgrEnvironment.put(Context.PROVIDER_URL, config.getString(CONFIG_NAMESPACE,"securitymanagerip"));
+            Context remoteContext = new InitialContext(principalMgrEnvironment);
             */
             Context remoteContext = new InitialContext();
             LoginRemoteHome loginHome = (LoginRemoteHome)
-                PortableRemoteObject.narrow(
-                    remoteContext.lookup(LoginRemoteHome.EJB_REF_NAME),
-                    LoginRemoteHome.class);
+                    PortableRemoteObject.narrow(
+                            remoteContext.lookup(LoginRemoteHome.EJB_REF_NAME),
+                            LoginRemoteHome.class);
             authenticator = loginHome.create();
-        } catch(ConfigManagerException exception) {
+        } catch (ConfigManagerException exception) {
             throw new EJBException(
-            "Failed to obtain configuration data: " + exception.toString());
-        } catch(NamingException exception) {
+                    "Failed to obtain configuration data: " + exception.toString());
+        } catch (NamingException exception) {
             throw new EJBException(exception.toString());
-        } catch(RemoteException exception) {
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
     }
 
     public TCSubject login(String username, String password)
-           throws GeneralSecurityException {
+            throws GeneralSecurityException {
         if (username == null) {
             throw new GeneralSecurityException(
-            "Null specified for username");
+                    "Null specified for username");
         }
         if (password == null) {
             throw new GeneralSecurityException(
-            "Null specified for password");
+                    "Null specified for password");
         }
 
         TCSubject subject;
         try {
             subject = authenticator.login(username, password);
-        } catch(RemoteException exception) {
+        } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
 
@@ -99,23 +109,23 @@ public class AdminLoginBean implements SessionBean, ConfigManagerInterface {
                 config.refresh(CONFIG_NAMESPACE);
             } else {
                 config.add(CONFIG_NAMESPACE,
-                    ConfigManager.CONFIG_PROPERTIES_FORMAT);
+                        ConfigManager.CONFIG_PROPERTIES_FORMAT);
             }
             principalName = config.getString(CONFIG_NAMESPACE,
-                "admin_principal_name");
+                    "admin_principal_name");
             principalId = Long.parseLong(
-                config.getString(CONFIG_NAMESPACE, "admin_principal_id"));
-        } catch(ConfigManagerException exception) {
+                    config.getString(CONFIG_NAMESPACE, "admin_principal_id"));
+        } catch (ConfigManagerException exception) {
             throw new GeneralSecurityException(
-            "Failed to obtain configuration data: " + exception.toString());
-        } catch(NumberFormatException exception) {
+                    "Failed to obtain configuration data: " + exception.toString());
+        } catch (NumberFormatException exception) {
             throw new GeneralSecurityException(
-            "Configuration data contains invalid id: " + exception.toString());
+                    "Configuration data contains invalid id: " + exception.toString());
         }
         if (!subject.getPrincipals().contains(
                 new RolePrincipal(principalName, principalId))) {
             throw new com.topcoder.security.login.AuthenticationException(
-            "Specified user does not have the administrator role");
+                    "Specified user does not have the administrator role");
         }
         return subject;
     }
@@ -131,7 +141,8 @@ public class AdminLoginBean implements SessionBean, ConfigManagerInterface {
         return propNames.elements();
     }
 
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     public void ejbPassivate() {
         /*
@@ -141,7 +152,8 @@ public class AdminLoginBean implements SessionBean, ConfigManagerInterface {
          */
     }
 
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     public void setSessionContext(SessionContext context) {
         ejbContext = context;

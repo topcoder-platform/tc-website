@@ -2,32 +2,35 @@ package com.topcoder.web.admin.controller;
 
 
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.shared.docGen.xml.ValueTag;
-import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.admin.task.*;
-import com.topcoder.web.admin.XSLConstants;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.TCSAuthorization;
-import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.admin.XSLConstants;
+import com.topcoder.web.admin.task.Challenge;
+import com.topcoder.web.admin.task.Compilation;
+import com.topcoder.web.admin.task.Home;
+import com.topcoder.web.admin.task.Login;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.web.common.security.WebAuthentication;
 
+import javax.naming.Context;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.naming.Context;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -103,15 +106,15 @@ public final class TC extends HttpServlet {
                 else if (requestTask.equals("compilation")) {
                     html = Compilation.process(request, response, renderer, nav, document);
                 } else {
-                        StringBuffer msg = new StringBuffer(150);
-                        msg.append("com.topcoder.web.admin.controller.TC:processCommands:ERROR:invalid task:");
-                        msg.append(requestTask);
-                        msg.append(":\n");
-                        throw new NavigationException(
-                                msg.toString()
-                                , XSLConstants.NAVIGATION_ERROR_URL
-                        );
-                    }
+                    StringBuffer msg = new StringBuffer(150);
+                    msg.append("com.topcoder.web.admin.controller.TC:processCommands:ERROR:invalid task:");
+                    msg.append(requestTask);
+                    msg.append(":\n");
+                    throw new NavigationException(
+                            msg.toString()
+                            , XSLConstants.NAVIGATION_ERROR_URL
+                    );
+                }
                 out = response.getWriter();
                 out.print(html);
                 out.flush();
@@ -119,7 +122,7 @@ public final class TC extends HttpServlet {
                 Login processor = new Login();
                 processor.process(request, response);
                 log.debug("forwarding to " + processor.getNextPage());
-                if(processor.isPageInContext()) {
+                if (processor.isPageInContext()) {
                     getServletContext().getRequestDispatcher(response.encodeURL(processor.getNextPage())).forward(request, response);
                 } else {
                     response.sendRedirect(response.encodeRedirectURL(processor.getNextPage()));
@@ -194,7 +197,7 @@ public final class TC extends HttpServlet {
     }
 
 
-    private Navigation setupSession(HttpServletResponse response,HttpSession session) throws Exception {
+    private Navigation setupSession(HttpServletResponse response, HttpSession session) throws Exception {
         Navigation result = null;
         try {
             response.setContentType("text/html");
@@ -232,7 +235,7 @@ public final class TC extends HttpServlet {
         TCSAuthorization authorization = new TCSAuthorization(user);
         log.debug("groups: " + authorization.getGroups().toString());
         boolean isAdmin = authorization.getGroups().contains("Admin");
-        log.debug(String.valueOf(authToken.getActiveUser().getId()) + (isAdmin?" is":" is not") + " an admin");
+        log.debug(String.valueOf(authToken.getActiveUser().getId()) + (isAdmin ? " is" : " is not") + " an admin");
         return isAdmin;
     }
 

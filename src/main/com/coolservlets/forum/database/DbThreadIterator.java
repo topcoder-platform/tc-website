@@ -53,16 +53,20 @@
  * individuals on behalf of CoolServlets.com. For more information
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
- 
+
 package com.coolservlets.forum.database;
 
-import java.util.*;
-//JDK1.1// import com.sun.java.util.collections.*;
-import java.sql.*;
+import com.coolservlets.forum.ForumMessage;
+import com.coolservlets.forum.ForumMessageNotFoundException;
+import com.coolservlets.forum.ForumThread;
+import com.topcoder.shared.util.DBMS;
 
-import com.topcoder.shared.util.*;
-import com.coolservlets.forum.*;
-import com.coolservlets.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 /**
  * Database implementation of Iterator for ForumMesages in a ForumThread.
@@ -71,13 +75,13 @@ public class DbThreadIterator implements Iterator, ListIterator {
 
     /** DATABASE QUERIES **/
     private static final String MESSAGE_COUNT =
-        "SELECT count(messageID) FROM jiveMessage WHERE threadID=?";
+            "SELECT count(messageID) FROM jiveMessage WHERE threadID=?";
     private static final String GET_MESSAGES =
-        "SELECT messageID, creationDate FROM jiveMessage WHERE threadID=? " +
-        "ORDER BY creationDate ASC";
+            "SELECT messageID, creationDate FROM jiveMessage WHERE threadID=? " +
+            "ORDER BY creationDate ASC";
 
     private ForumThread thread;
-    private int [] messages;
+    private int[] messages;
     private int currentIndex = -1;
 
     protected DbThreadIterator(ForumThread thread) {
@@ -85,7 +89,7 @@ public class DbThreadIterator implements Iterator, ListIterator {
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(MESSAGE_COUNT);
             pstmt.setInt(1, thread.getID());
             ResultSet rs = pstmt.executeQuery();
@@ -96,24 +100,27 @@ public class DbThreadIterator implements Iterator, ListIterator {
             pstmt = con.prepareStatement(GET_MESSAGES);
             pstmt.setInt(1, thread.getID());
             rs = pstmt.executeQuery();
-            for (int i=0; i<messages.length; i++) {
+            for (int i = 0; i < messages.length; i++) {
                 rs.next();
                 messages[i] = rs.getInt("messageID");
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbThreadIterator:constructor()-" + sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    protected DbThreadIterator(ForumThread thread, int startIndex, int numResults)
-    {
+    protected DbThreadIterator(ForumThread thread, int startIndex, int numResults) {
         this.thread = thread;
 
         int[] tempMessages = new int[numResults];
@@ -126,36 +133,39 @@ public class DbThreadIterator implements Iterator, ListIterator {
         PreparedStatement pstmt = null;
 
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(GET_MESSAGES);
             pstmt.setInt(1, thread.getID());
-            ResultSet rs = pstmt.executeQuery();            
+            ResultSet rs = pstmt.executeQuery();
             //Move to start of index
-            for (int i=0; i<startIndex; i++) {
+            for (int i = 0; i < startIndex; i++) {
                 rs.next();
             }
             //Now read in desired number of results
-            for (int i=0; i<numResults; i++) {
+            for (int i = 0; i < numResults; i++) {
                 if (rs.next()) {
                     tempMessages[messageCount] = rs.getInt("messageID");
                     messageCount++;
-                }
-                else {
+                } else {
                     break;
                 }
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             System.err.println("Error in DbThreadIterator:constructor()-" + sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         messages = new int[messageCount];
-        for (int i=0; i<messageCount; i++) {
+        for (int i = 0; i < messageCount; i++) {
             messages[i] = tempMessages[i];
         }
     }
@@ -164,7 +174,7 @@ public class DbThreadIterator implements Iterator, ListIterator {
      * Returns true if there is a next message in the list.
      */
     public boolean hasNext() {
-        return (currentIndex+1 < messages.length);
+        return (currentIndex + 1 < messages.length);
     }
 
     /**
@@ -185,8 +195,7 @@ public class DbThreadIterator implements Iterator, ListIterator {
         }
         try {
             message = thread.getMessage(messages[currentIndex]);
-        }
-        catch (ForumMessageNotFoundException mnfe) {
+        } catch (ForumMessageNotFoundException mnfe) {
             System.err.println(mnfe);
             throw new java.util.NoSuchElementException();
         }
@@ -194,7 +203,7 @@ public class DbThreadIterator implements Iterator, ListIterator {
     }
 
     public int nextIndex() {
-        return currentIndex+1;
+        return currentIndex + 1;
     }
 
     /**
@@ -209,8 +218,7 @@ public class DbThreadIterator implements Iterator, ListIterator {
         }
         try {
             message = thread.getMessage(messages[currentIndex]);
-        }
-        catch (ForumMessageNotFoundException mnfe) {
+        } catch (ForumMessageNotFoundException mnfe) {
             System.err.println(mnfe);
             throw new java.util.NoSuchElementException();
         }
@@ -218,7 +226,7 @@ public class DbThreadIterator implements Iterator, ListIterator {
     }
 
     public int previousIndex() {
-        return currentIndex-1;
+        return currentIndex - 1;
     }
 
     /**

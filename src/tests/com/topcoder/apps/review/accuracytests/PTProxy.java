@@ -28,17 +28,24 @@ import java.sql.Connection;
  */
 interface PTProxy {
     public Project getProject(UserProjectInfo projectInfo) throws Exception;
+
     public UserProjectInfo[] getProjectInfo(User user) throws Exception;
+
     public Project getProject(long projectId, User requestor)
             throws Exception;
+
     public void saveProject(Project project, String reason, User requestor)
             throws Exception;
+
     public void remove() throws Exception;
+
     public Project createProject(String name, String version, User manager)
             throws Exception;
+
     public void assignUserRole(User user, Role role,
                                ReviewerResponsibility resp, Project proj)
             throws Exception;
+
     public void registerDeveloper(User user, Project proj, Connection con)
             throws Exception;
 }

@@ -1,26 +1,26 @@
 package com.topcoder.web.common.tag;
 
+import com.topcoder.util.format.FormatMethodFactory;
+import com.topcoder.util.format.ObjectFormatter;
+import com.topcoder.util.format.ObjectFormatterFactory;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 import java.util.Date;
 
-import com.topcoder.util.format.FormatMethodFactory;
-import com.topcoder.util.format.ObjectFormatter;
-import com.topcoder.util.format.ObjectFormatterFactory;
 
-
-public class FormatTag  extends TagSupport {
+public class FormatTag extends TagSupport {
     private Object object = null;
     private String format = null;
     private String ifNull = "";
 
     public int doStartTag() throws JspException {
         try {
-            ObjectFormatter  formatter = null;
-            if (object!=null) {
+            ObjectFormatter formatter = null;
+            if (object != null) {
                 formatter = ObjectFormatterFactory.getEmptyFormatter();
-                if (format!=null) {
+                if (format != null) {
                     if (object instanceof Number) {
                         formatter.setFormatMethodForClass(Number.class,
                                 new NumberFormatMethod(format), true);

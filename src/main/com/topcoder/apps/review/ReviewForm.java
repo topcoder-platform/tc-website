@@ -6,10 +6,10 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-
-import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Base form bean for the form editting. This form has the following fields,
@@ -23,9 +23,9 @@ import org.apache.struts.action.ActionMapping;
  */
 
 public class ReviewForm extends ActionForm {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The project id.
      */
@@ -50,7 +50,7 @@ public class ReviewForm extends ActionForm {
 
     /**
      * Return the project id.
-     * 
+     *
      * @return the project id.
      */
     public long getId() {
@@ -68,7 +68,7 @@ public class ReviewForm extends ActionForm {
 
     /**
      * Return whether this form is valid.
-     * 
+     *
      * @return whether this form is valid.
      */
     public boolean getValid() {
@@ -83,7 +83,7 @@ public class ReviewForm extends ActionForm {
     public void setValid(boolean isValid) {
         this.isValid = isValid;
     }
-    
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -103,7 +103,7 @@ public class ReviewForm extends ActionForm {
 
     /**
      * Get the user project info by project id.
-     * 
+     *
      * @param id The project id.
      * @return the user project info according to the project id, or null if
      * it can not be found.

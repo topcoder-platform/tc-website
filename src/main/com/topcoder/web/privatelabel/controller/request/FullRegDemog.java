@@ -2,11 +2,10 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 
 /**

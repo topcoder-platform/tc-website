@@ -1,17 +1,16 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Map;
-import java.util.Iterator;
 
 /**
  * @author dok
@@ -25,9 +24,9 @@ public abstract class Base extends BaseProcessor {
         /*try {
 
             log.debug("ENTERING businessProcessing");
-            
+
             //no longer using, removed - rfairfax 6-9-2004
-            
+
              ResultSetContainer openProjects = getOpenProjects();
 
             double devSum = 0.0d;
@@ -48,7 +47,7 @@ public abstract class Base extends BaseProcessor {
             getRequest().setAttribute("DesignSum", new Double(designSum));
             getRequest().setAttribute("OpenProjects", openProjects);
 
-             
+
             log.debug("LEAVING businessProcessing");
 
         } catch (TCWebException e) {

@@ -1,17 +1,15 @@
 package com.topcoder.web.tc.controller.request.card;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.RowNotFoundException;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.ejb.user.UserPreference;
-import com.topcoder.web.tc.Constants;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.Transaction;
-import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.user.UserPreference;
+import com.topcoder.web.tc.Constants;
 
 import javax.transaction.UserTransaction;
-import java.rmi.RemoteException;
 
 /**
  * @author dok
@@ -33,7 +31,7 @@ public class Unlock extends Preview {
                             up.createUserPreference(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID,
                                     DBMS.COMMON_OLTP_DATASOURCE_NAME);
                             up.setValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID,
-                                    String.valueOf(true),DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                                    String.valueOf(true), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         } catch (Exception e) {
                             if (tx != null) {
                                 Transaction.rollback(tx);

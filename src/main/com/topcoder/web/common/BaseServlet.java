@@ -1,21 +1,21 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.Authorization;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.distCache.CacheClientFactory;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.web.common.security.*;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.security.*;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -89,8 +89,8 @@ public abstract class BaseServlet extends HttpServlet {
         process(request, response);
     }
 
-    protected void process(HttpServletRequest request, HttpServletResponse response )
-            throws IOException  {
+    protected void process(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
         SessionInfo info = null;
@@ -181,7 +181,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
-                                  boolean forward) throws Exception {
+                                          boolean forward) throws Exception {
 
         if (forward) {
             if (!dest.startsWith("/")) {
@@ -245,12 +245,12 @@ public abstract class BaseServlet extends HttpServlet {
         } else if (e instanceof NavigationException) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             request.setAttribute(MESSAGE_KEY, e.getMessage());
-            if (((NavigationException)e).hasUrl())
-                request.setAttribute(URL_KEY, ((NavigationException)e).getUrl());
+            if (((NavigationException) e).hasUrl())
+                request.setAttribute(URL_KEY, ((NavigationException) e).getUrl());
         } else {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
-       }
+        }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
     }
@@ -296,7 +296,7 @@ public abstract class BaseServlet extends HttpServlet {
         boolean hasCacheConnection = true;
         try {
             cc = CacheClientFactory.createCacheClient();
-            user = (TCSubject)(cc.get(buf.toString()));
+            user = (TCSubject) (cc.get(buf.toString()));
         } catch (Exception e) {
             log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
             hasCacheConnection = false;
@@ -306,7 +306,7 @@ public abstract class BaseServlet extends HttpServlet {
             user = pmgr.getUserSubject(id);
             try {
                 if (hasCacheConnection) {
-                    cc.set(buf.toString(), user, 30*60*1000);
+                    cc.set(buf.toString(), user, 30 * 60 * 1000);
                 } else {
                     log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: ");
                 }

@@ -27,8 +27,8 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

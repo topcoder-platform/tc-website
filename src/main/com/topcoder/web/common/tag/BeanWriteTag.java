@@ -1,7 +1,7 @@
 package com.topcoder.web.common.tag;
 
-import java.lang.reflect.Method;
 import javax.servlet.jsp.JspException;
+import java.lang.reflect.Method;
 
 /**
  * <p>
@@ -89,7 +89,7 @@ public class BeanWriteTag extends FormatTag {
      */
     public int doEndTag() throws JspException {
         this.name = null;
-        this.property=null;
+        this.property = null;
         return super.doEndTag();
     }
 

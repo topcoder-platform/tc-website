@@ -89,14 +89,14 @@ public class QueryInputBean implements Serializable {
 
     public boolean equals(Object o) {
         if (o instanceof QueryInputBean) {
-            return ((QueryInputBean)o).getInputId()==this.getInputId() &&
-                   ((QueryInputBean)o).getInputDesc().equals(this.getInputDesc()) &&
-                   ((QueryInputBean)o).getDataTypeId()==this.getDataTypeId() &&
-                   ((QueryInputBean)o).getInputCode().equals(this.getInputCode()) &&
-                   ((QueryInputBean)o).getQueryId()==this.getQueryId() &&
-                   ((QueryInputBean)o).isOptional()==this.isOptional() &&
-                   ((QueryInputBean)o).getDefaultValue().equals(this.getDefaultValue()) &&
-                   ((QueryInputBean)o).getSortOrder()==this.getSortOrder();
+            return ((QueryInputBean) o).getInputId() == this.getInputId() &&
+                    ((QueryInputBean) o).getInputDesc().equals(this.getInputDesc()) &&
+                    ((QueryInputBean) o).getDataTypeId() == this.getDataTypeId() &&
+                    ((QueryInputBean) o).getInputCode().equals(this.getInputCode()) &&
+                    ((QueryInputBean) o).getQueryId() == this.getQueryId() &&
+                    ((QueryInputBean) o).isOptional() == this.isOptional() &&
+                    ((QueryInputBean) o).getDefaultValue().equals(this.getDefaultValue()) &&
+                    ((QueryInputBean) o).getSortOrder() == this.getSortOrder();
         } else {
             return false;
         }

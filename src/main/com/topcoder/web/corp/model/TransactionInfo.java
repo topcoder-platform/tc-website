@@ -1,43 +1,38 @@
 package com.topcoder.web.corp.model;
 
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.ejb.product.*;
-import com.topcoder.web.ejb.user.Contact;
-import com.topcoder.web.ejb.user.ContactHome;
-import com.topcoder.web.ejb.user.UserTermsOfUseHome;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.corp.Util;
-import com.topcoder.web.corp.controller.TransactionServlet;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.security.User;
+import com.topcoder.security.NotAuthorizedException;
+import com.topcoder.security.RolePrincipal;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
-import com.topcoder.security.NotAuthorizedException;
-import com.topcoder.security.RolePrincipal;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.controller.TransactionServlet;
+import com.topcoder.web.ejb.product.*;
+import com.topcoder.web.ejb.user.Contact;
+import com.topcoder.web.ejb.user.ContactHome;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUseHome;
 
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.naming.NamingException;
-import javax.naming.InitialContext;
-import javax.ejb.CreateException;
-
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 import java.sql.Date;
-import java.io.Serializable;
+import java.util.*;
 
 
 public class TransactionInfo implements Serializable {
@@ -81,9 +76,8 @@ public class TransactionInfo implements Serializable {
      * information
      */
     public TransactionInfo(HttpServletRequest req, HttpServletResponse resp)
-    throws NamingException, RemoteException, CreateException,
-            NotAuthorizedException, Exception
-    {
+            throws NamingException, RemoteException, CreateException,
+            NotAuthorizedException, Exception {
         productID = Long.parseLong(req.getParameter(TransactionServlet.KEY_PRODUCT_ID));
 
         // find out purchase parameters
@@ -128,7 +122,7 @@ public class TransactionInfo implements Serializable {
             agreed = userTerms.hasTermsOfUse(buyerID, termsId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
             setRolesPerProduct(productID);
-            
+
             verify();
         } finally {
             Util.closeIC(icEJB);
@@ -175,10 +169,10 @@ public class TransactionInfo implements Serializable {
         InitialContext icEJB = null;
         try {
             icEJB = TCContext.getInitial();
-                ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
+            ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
             ResultSetContainer unitList = productUnit.getUnits(productId);
-            if (unitList.size()==0) {
-                throw new Exception("No units exist for product: "+ productId);
+            if (unitList.size() == 0) {
+                throw new Exception("No units exist for product: " + productId);
             }
             ResultSetContainer.ResultSetRow row = null;
             for (Iterator it = unitList.iterator(); it.hasNext();) {
@@ -316,10 +310,10 @@ public class TransactionInfo implements Serializable {
 
     /**
      * by djFD 03/19/2003
-     * 
+     *
      * Returns the roles to be assigned upon successful product purchase
      * completion.
-     * 
+     *
      * @return Set a set of role IDs (RolePrincipal encapsulated)
      */
     public Set getRolesPerProduct() {
@@ -328,46 +322,45 @@ public class TransactionInfo implements Serializable {
 
     /**
      * by djFD 03/19/2003
-     * 
+     *
      * Sets the rolesPerProduct based on productID given. Query tool along
      * with CachedDataAccess is used to retrieve it.
-     * 
+     *
      * @param productID an ID of product of interest
      */
     private void setRolesPerProduct(long productID)
-    throws NamingException, Exception
-    {
+            throws NamingException, Exception {
         Request dataRequest = new Request();
         ResultSetContainer rsc = null;
         rolesPerProduct = new HashSet();
-            DataAccessInt dai = new CachedDataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
-            dataRequest.setContentHandle("cmd-roles-per-product");
-            dataRequest.setProperty("prodID", ""+productID);
-            Map resultMap = dai.getData(dataRequest);
-            rsc = (ResultSetContainer) resultMap.get("qry-roles-per-product");
-            for( int i=0; i<rsc.size(); ++i ) {
-                TCResultItem roleID  =rsc.getItem(i, "role_id");
-                String roleDescr = (String)rsc.getItem(i, "description").getResultData();
-                long id;
-                switch( roleID.getType() ) {
-                    case TCResultItem.LONG:
-                        id = ((Long)roleID.getResultData()).longValue();
-                       break;
-                       
-                    case TCResultItem.INT:
-                        id = ((Integer)roleID.getResultData()).longValue();
-                        break;
-                        
-                    case TCResultItem.BIGDECIMAL:
-                        id = ((BigDecimal)roleID.getResultData()).longValue();
-                        break;
-                        
-                    default:
-                        throw new Exception("unsupported data type was returned"+
-                        roleID.getResultData().getClass().getName());
-                }
-                rolesPerProduct.add( new RolePrincipal(roleDescr, id));
+        DataAccessInt dai = new CachedDataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
+        dataRequest.setContentHandle("cmd-roles-per-product");
+        dataRequest.setProperty("prodID", "" + productID);
+        Map resultMap = dai.getData(dataRequest);
+        rsc = (ResultSetContainer) resultMap.get("qry-roles-per-product");
+        for (int i = 0; i < rsc.size(); ++i) {
+            TCResultItem roleID = rsc.getItem(i, "role_id");
+            String roleDescr = (String) rsc.getItem(i, "description").getResultData();
+            long id;
+            switch (roleID.getType()) {
+                case TCResultItem.LONG:
+                    id = ((Long) roleID.getResultData()).longValue();
+                    break;
+
+                case TCResultItem.INT:
+                    id = ((Integer) roleID.getResultData()).longValue();
+                    break;
+
+                case TCResultItem.BIGDECIMAL:
+                    id = ((BigDecimal) roleID.getResultData()).longValue();
+                    break;
+
+                default:
+                    throw new Exception("unsupported data type was returned" +
+                            roleID.getResultData().getClass().getName());
             }
+            rolesPerProduct.add(new RolePrincipal(roleDescr, id));
+        }
     }
 
     public String getCacheKey() {

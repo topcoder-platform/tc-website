@@ -1,7 +1,7 @@
 /*
  * AggregationResponse.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -40,7 +40,7 @@ public class AggregationResponse implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public AggregationResponse(long id, SubjectiveResponse subjResp, AggregationResponseStatus aggRespStatus,
-        ScorecardQuestion scorecardQuestion, User reviewer, long versionId) {
+                               ScorecardQuestion scorecardQuestion, User reviewer, long versionId) {
         this.id = id;
         this.subjectiveResponse = subjResp;
         this.aggregationResponseStatus = aggRespStatus;
@@ -107,7 +107,7 @@ public class AggregationResponse implements Serializable {
      * <p>
      * Return the response.
      * </p>
-     * 
+     *
      * @return the response.
      */
     public SubjectiveResponse getSubjectiveResponse() {
@@ -118,7 +118,7 @@ public class AggregationResponse implements Serializable {
      * <p>
      * Set the response.
      * </p>
-     * 
+     *
      * @param response The response to be set.
      */
     public void setSubjectiveResponse(SubjectiveResponse response) {
@@ -130,7 +130,7 @@ public class AggregationResponse implements Serializable {
      * <p>
      * Return the response status.
      * </p>
-     * 
+     *
      * @return the response status.
      */
     public AggregationResponseStatus getAggregationResponseStatus() {
@@ -141,7 +141,7 @@ public class AggregationResponse implements Serializable {
      * <p>
      * Set the response status.
      * </p><p>
-     * 
+     *
      * @param ars The response status.
      */
     public void setAggregationResponseStatus(AggregationResponseStatus ars) {
@@ -153,7 +153,7 @@ public class AggregationResponse implements Serializable {
      * <p>
      * Return the related question.
      * </p>
-     * 
+     *
      * @return the related question.
      */
     public ScorecardQuestion getScorecardQuestion() {
@@ -164,12 +164,12 @@ public class AggregationResponse implements Serializable {
      * <p>
      * Return the reviewer.
      * </p>
-     * 
+     *
      * @return the reviewer.
      */
-	public User getReviewer() {
+    public User getReviewer() {
         return reviewer;
-	}
+    }
 
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)

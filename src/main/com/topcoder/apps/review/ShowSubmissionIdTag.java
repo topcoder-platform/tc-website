@@ -3,13 +3,13 @@
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.projecttracker.UserRole;
-import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.document.AbstractSubmission;
+import com.topcoder.apps.review.projecttracker.User;
+import com.topcoder.apps.review.projecttracker.UserRole;
+import org.apache.struts.util.RequestUtils;
+import org.apache.struts.util.ResponseUtils;
 
 import javax.servlet.jsp.JspException;
-import org.apache.struts.util.ResponseUtils;
-import org.apache.struts.util.RequestUtils;
 
 /**
  * <p>
@@ -28,7 +28,7 @@ public class ShowSubmissionIdTag extends BaseTag {
      * The attribute name.
      */
     private String name = null;
-    
+
     /**
      * Name of the property to be accessed on the specified bean.
      */
@@ -38,7 +38,7 @@ public class ShowSubmissionIdTag extends BaseTag {
 
     /**
      * Return the attribute name.
-     * 
+     *
      * @return the attribute name.
      */
     public String getName() {
@@ -53,10 +53,10 @@ public class ShowSubmissionIdTag extends BaseTag {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * Return the attribute property.
-     * 
+     *
      * @return the attribute property.
      */
     public String getProperty() {
@@ -88,7 +88,7 @@ public class ShowSubmissionIdTag extends BaseTag {
         if (submission == null || user == null) {
             return (SKIP_BODY);  // Nothing to output
         }
-        
+
         // Make the output string
         for (int i = 0; i < submission.getProject().getParticipants().length; i++) {
             UserRole userRole = submission.getProject().getParticipants()[i];
@@ -97,7 +97,7 @@ public class ShowSubmissionIdTag extends BaseTag {
                 break;
             }
         }
-        
+
         // Skip the body of this tag
         return (SKIP_BODY);
     }

@@ -1,7 +1,7 @@
 /*
  * FinalReview.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -14,10 +14,10 @@ import java.io.Serializable;
  * The FinalReview interface represents a collection of FixItems which bear a
  * one-to-one relationship with those AggregationResponses marked as either
  * &quot;Required&quot; or &quot;Recommended&quot; in the AggregationWorksheet.
- * Their status after submission of final fixes must be evaluated by 
+ * Their status after submission of final fixes must be evaluated by
  * assigning them each a FinalFixStatus.
  * </p>
- * 
+ *
  * @author FatClimber
  * @version 1.0
  */
@@ -40,7 +40,7 @@ public class FinalReview implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public FinalReview(long id, FixItem[] fixItem, AggregationWorksheet aggWorksheet,
-            boolean isCompleted, long requestorId, long versionId) {
+                       boolean isCompleted, long requestorId, long versionId) {
         this.id = id;
         this.fixItem = fixItem;
         this.aggregationWorksheet = aggWorksheet;
@@ -97,7 +97,7 @@ public class FinalReview implements Serializable {
      * <p>
      * Return the id of the final review.
      * </p>
-     * 
+     *
      * @return the id of the final review.
      */
     public long getId() {
@@ -116,7 +116,7 @@ public class FinalReview implements Serializable {
      * <p>
      * Return the list of final fixes.
      * </p>
-     * 
+     *
      * @return a FixItem[] with the list of final fixes.
      */
     public FixItem[] getFixCheckList() {
@@ -127,7 +127,7 @@ public class FinalReview implements Serializable {
      * <p>
      * Set the list of final fixes.
      * </p>
-     * 
+     *
      * @param items The list of final fixes to be set.
      */
     public void setFixCheckList(FixItem[] item) {
@@ -138,8 +138,8 @@ public class FinalReview implements Serializable {
      * <p>
      * Return the aggregation worksheet related to this final review.
      * </p>
-     * 
-     * @return a AggregationWorksheet with the aggregation worksheet 
+     *
+     * @return a AggregationWorksheet with the aggregation worksheet
      * related to this final review.
      */
     public AggregationWorksheet getAggregationWorkSheet() {
@@ -150,7 +150,7 @@ public class FinalReview implements Serializable {
      * <p>
      * Return whether this review is completed.
      * </p>
-     * 
+     *
      * @return true if the review is completed, otherwise false.
      */
     public boolean isCompleted() {
@@ -161,7 +161,7 @@ public class FinalReview implements Serializable {
      * <p>
      * Set whether this review is completed.
      * </p>
-     * 
+     *
      * @param isCompleted Whether this review is completed.
      */
     public void setCompleted(boolean isCompleted) {

@@ -1,20 +1,19 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.ContractingResponseGroup;
-import com.topcoder.web.tc.model.ContractingResponse;
-import com.topcoder.web.tc.model.ContractingInfo;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.ejb.user.UserPreference;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.coderskill.CoderSkill;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserPreference;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.tc.model.ContractingInfo;
+import com.topcoder.web.tc.model.ContractingResponse;
+import com.topcoder.web.tc.model.ContractingResponseGroup;
 
 import javax.naming.InitialContext;
 import java.util.ArrayList;
@@ -217,12 +216,12 @@ public class PlacementInfoDetail extends Base {
             Request noteRequest = new Request();
             noteRequest.setContentHandle("has_notes");
             noteRequest.setProperty(Constants.USER_ID, String.valueOf(userId));
-            ResultSetContainer hasNotesRSC = (ResultSetContainer)getDataAccess().getData(noteRequest).get("has_notes");
+            ResultSetContainer hasNotesRSC = (ResultSetContainer) getDataAccess().getData(noteRequest).get("has_notes");
             getRequest().setAttribute("has_notes", new Boolean(hasNotesRSC.getStringItem(0, "has_notes").equals("1")));
 
             ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
 
-            User user = (User)createEJB(getInitialContext(), User.class);
+            User user = (User) createEJB(getInitialContext(), User.class);
             getRequest().setAttribute(Constants.HANDLE, user.getHandle(userId, DBMS.OLTP_DATASOURCE_NAME));
             getRequest().setAttribute("has_resume", String.valueOf(resumeServices.hasResume(userId, DBMS.OLTP_DATASOURCE_NAME)));
             getRequest().setAttribute("contractingInfo", info);
@@ -243,9 +242,11 @@ public class PlacementInfoDetail extends Base {
         r.setContentHandle("skill_note");
         r.setProperty(Constants.USER_ID, String.valueOf(userId));
         r.setProperty("ntid", String.valueOf(noteTypeId));
-        ResultSetContainer skillNote = (ResultSetContainer)getDataAccess().getData(r).get("skill_note");
-        if (skillNote.isEmpty()) return "";
-        else return skillNote.getStringItem(0, "text");
+        ResultSetContainer skillNote = (ResultSetContainer) getDataAccess().getData(r).get("skill_note");
+        if (skillNote.isEmpty())
+            return "";
+        else
+            return skillNote.getStringItem(0, "text");
 
     }
 

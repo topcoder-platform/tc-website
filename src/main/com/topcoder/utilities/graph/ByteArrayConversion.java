@@ -2,7 +2,7 @@
  *
  *                            ByteArrayConversion.java
  *
- * Copyright 1998-2003 Kary Främling
+ * Copyright 1998-2003 Kary Frï¿½mling
  * Source code distributed under GNU LESSER GENERAL PUBLIC LICENSE,
  * included in the LICENSE.txt file in the topmost directory
  *

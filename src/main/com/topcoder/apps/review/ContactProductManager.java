@@ -1,12 +1,12 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
+import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 
 /**
  * This Model provides business logic through which users contact a product manager.
@@ -64,11 +64,11 @@ public class ContactProductManager implements Model {
             ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
             User pm = projectTracker.getProject(userProjectInfo, user.getTCSubject()).getProjectManager();
             MailHelper.sendMail(user, pm, "Online Review: " + userProjectInfo.getProjectName() + " "
-                                    + contactPMData.getSubject(), contactPMData.getMessageText());
+                    + contactPMData.getSubject(), contactPMData.getMessageText());
 
             return new SuccessResult();
 
-        // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;

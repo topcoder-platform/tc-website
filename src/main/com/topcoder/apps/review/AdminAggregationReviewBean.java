@@ -4,11 +4,9 @@
 
 package com.topcoder.apps.review;
 
+import com.topcoder.apps.review.document.AggregationReview;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.document.AggregationReview;
-
-import org.apache.struts.util.MessageResources;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +22,7 @@ import java.util.Map;
 public class AdminAggregationReviewBean {
 
     // ------------------------------------------------ Instance Variables
-        
+
     /**
      * The aggregation review.
      */
@@ -39,20 +37,20 @@ public class AdminAggregationReviewBean {
      * The map for generating the URL parameters.
      */
     private Map mapping = new HashMap();
-    
+
     // ------------------------------------------------------------ Constructor
-    
+
     /**
      * <p>
      * Creates the instance of <code>AdminAggregationReviewBean</code> class.
      * </p>
-     * 
+     *
      * @param project The related project.
      * @param reviewer The reviewer to be set.
      * @param reviews The aggregation reviews to be set.
      */
     public AdminAggregationReviewBean(Project project,
-                                      User reviewer, 
+                                      User reviewer,
                                       AggregationReview[] reviews) {
         this.reviewer = reviewer;
         if (reviews != null) {
@@ -66,14 +64,14 @@ public class AdminAggregationReviewBean {
         mapping.put(Constants.ID_KEY, new Long(project.getId()));
         mapping.put(Constants.REVIEWER_ID_KEY, new Long(reviewer.getId()));
     }
-    
+
     // ----------------------------------------------------- Public Methods
-    
+
     /**
      * <p>
      * Return the mapping for generating the URL parameters.
      * </p>
-     * 
+     *
      * @return the mapping for generating the URL parameters.
      */
     public Map getMapping() {
@@ -84,7 +82,7 @@ public class AdminAggregationReviewBean {
      * <p>
      * Return the reviewer.
      * </p>
-     * 
+     *
      * @return the reviewer.
      */
     public User getReviewer() {
@@ -95,7 +93,7 @@ public class AdminAggregationReviewBean {
      * <p>
      * Return the aggregation review.
      * </p>
-     * 
+     *
      * @return the aggregation review.
      */
     public AggregationReview getReview() {
@@ -106,7 +104,7 @@ public class AdminAggregationReviewBean {
      * <p>
      * Return whether the aggregation review exists.
      * </p>
-     * 
+     *
      * @return whether the aggregation review exists.
      */
     public boolean getExists() {
@@ -117,7 +115,7 @@ public class AdminAggregationReviewBean {
      * <p>
      * Return whether the PM has reviewed.
      * </p>
-     * 
+     *
      * @return whether the PM has reviewed.
      */
     public boolean getIsPMReviewed() {

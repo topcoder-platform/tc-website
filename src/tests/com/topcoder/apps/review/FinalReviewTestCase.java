@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -38,7 +38,7 @@ public class FinalReviewTestCase extends TestCase {
     public void testGetDocument() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("user1", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 3);
         UserProjectInfo proj = projectsRetrieval.getProjects()[0];
 
@@ -56,7 +56,7 @@ public class FinalReviewTestCase extends TestCase {
     public void testSaveDocument() throws Exception {
         SecurityEnabledUser user = ((LoginResult) new Login().start(new LoginData("user1", "secret"))).getUser();
         ProjectsRetrieval projectsRetrieval =
-            (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
+                (ProjectsRetrieval) new ViewMyOpenProjects().start(new OnlineReviewData(user));
         assertTrue(projectsRetrieval.getProjects().length == 3);
         UserProjectInfo proj = projectsRetrieval.getProjects()[0];
 

@@ -32,8 +32,7 @@ public class NullFailureCases extends FailureTestsBase {
      *
      * @param name
      */
-    public NullFailureCases(String name)
-    {
+    public NullFailureCases(String name) {
         super(name);
     }
 
@@ -48,7 +47,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -66,7 +65,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -84,7 +83,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -102,7 +101,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -120,7 +119,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -138,7 +137,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -156,7 +155,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -174,7 +173,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -192,7 +191,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -210,7 +209,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -228,7 +227,7 @@ public class NullFailureCases extends FailureTestsBase {
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -242,11 +241,11 @@ public class NullFailureCases extends FailureTestsBase {
      */
     public void testNullArgssaveAggregation() throws Exception {
         try {
-            dm.saveAggregation(null,null);
+            dm.saveAggregation(null, null);
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -260,11 +259,11 @@ public class NullFailureCases extends FailureTestsBase {
      */
     public void testNullArgssaveAggregationReview() throws Exception {
         try {
-            dm.saveAggregationReview(null,null);
+            dm.saveAggregationReview(null, null);
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -278,11 +277,11 @@ public class NullFailureCases extends FailureTestsBase {
      */
     public void testNullArgssaveFinalFixSubmission() throws Exception {
         try {
-            dm.saveFinalFixSubmission(null,null);
+            dm.saveFinalFixSubmission(null, null);
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -296,11 +295,11 @@ public class NullFailureCases extends FailureTestsBase {
      */
     public void testNullArgssaveFinalReview() throws Exception {
         try {
-            dm.saveFinalReview(null,null);
+            dm.saveFinalReview(null, null);
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -314,11 +313,11 @@ public class NullFailureCases extends FailureTestsBase {
      */
     public void testNullArgssaveReviewScorecard() throws Exception {
         try {
-            dm.saveReviewScorecard(null,null);
+            dm.saveReviewScorecard(null, null);
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -332,9 +331,9 @@ public class NullFailureCases extends FailureTestsBase {
      */
     public void testNullArgssaveScreeningScorecard() throws Exception {
         try {
-            dm.saveScreeningScorecard(null,null);
+            dm.saveScreeningScorecard(null, null);
         } catch (RuntimeException e) {
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -348,11 +347,11 @@ public class NullFailureCases extends FailureTestsBase {
      */
     public void testNullArgssaveSubmission() throws Exception {
         try {
-            dm.saveInitialSubmission(null,null);
+            dm.saveInitialSubmission(null, null);
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");
@@ -366,11 +365,11 @@ public class NullFailureCases extends FailureTestsBase {
      */
     public void testNullArgssaveTestCaseReview() throws Exception {
         try {
-            dm.saveTestCaseReview(null,null);
+            dm.saveTestCaseReview(null, null);
         } catch (RuntimeException e) {
 
 
-                return;
+            return;
         }
 
         fail("expected a nullpointerexception.");

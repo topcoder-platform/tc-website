@@ -6,7 +6,8 @@ public class DemographicResponse extends Base implements Comparable {
     private String text;
     private int sort;
 
-    public DemographicResponse() {}
+    public DemographicResponse() {
+    }
 
     public Object clone() throws OutOfMemoryError {
         DemographicResponse ret = new DemographicResponse();
@@ -16,6 +17,7 @@ public class DemographicResponse extends Base implements Comparable {
         ret.setSort(sort);
         return ret;
     }
+
     public long getQuestionId() {
         return questionId;
     }
@@ -49,7 +51,7 @@ public class DemographicResponse extends Base implements Comparable {
     }
 
     public int compareTo(Object o) {
-        DemographicResponse other = (DemographicResponse)o;
+        DemographicResponse other = (DemographicResponse) o;
         return new Integer(getSort()).compareTo(new Integer(other.getSort()));
     }
 }

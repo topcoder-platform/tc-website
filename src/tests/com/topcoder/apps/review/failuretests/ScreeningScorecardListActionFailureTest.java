@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests;
 
@@ -20,7 +20,7 @@ public class ScreeningScorecardListActionFailureTest extends MockStrutsTestCase 
      * Business delegate instance.
      */
     private BusinessDelegate businessDelegate = null;
-    
+
     /**
      * Initialize the business delegate for the tests.
      */
@@ -29,7 +29,7 @@ public class ScreeningScorecardListActionFailureTest extends MockStrutsTestCase 
         businessDelegate = new BusinessDelegate();
         businessDelegate.setUseMockup(true);
     }
-    
+
     /**
      * Initialize for the tests.
      */
@@ -37,7 +37,7 @@ public class ScreeningScorecardListActionFailureTest extends MockStrutsTestCase 
         super.setUp();
         setConfigFile("conf/struts-config.xml");
     }
-    
+
     /**
      * Tear down for the tests.
      */
@@ -51,9 +51,9 @@ public class ScreeningScorecardListActionFailureTest extends MockStrutsTestCase 
     public void testViewFail() {
         setRequestPathInfo("/screeningScorecardList");
         actionPerform();
-        
+
         verifyForward("login");
-        verifyActionErrors(new String[] {"error.login.required"});
+        verifyActionErrors(new String[]{"error.login.required"});
         assertNull(getRequest().getAttribute(Constants.PROJECT_KEY));
         assertNull(getRequest().getAttribute(Constants.SCORECARD_LIST_KEY));
     }

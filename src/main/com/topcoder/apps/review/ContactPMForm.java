@@ -5,19 +5,18 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-
-import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.util.MessageResources;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Form bean for the contact project manager page.  This form has the following 
+ * Form bean for the contact project manager page.  This form has the following
  * fields, with default values in square brackets:
  * <ul>
  * <li><b>messageType</b> - Selected message type
@@ -29,9 +28,9 @@ import java.util.List;
  */
 
 public final class ContactPMForm extends ActionForm {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The message text.
      */
@@ -41,27 +40,27 @@ public final class ContactPMForm extends ActionForm {
      * The message subject.
      */
     private String messageSubject = null;
-    
+
     /**
      * The project id.
      */
     private long id = 0;
-    
+
     /**
      * The subject types.
      */
     private List types = null;
-    
+
     /**
      * The related project.
      */
     private UserProjectInfo project = null;
-    
+
     // ----------------------------------------------------------- Properties
-    
+
     /**
      * Return the project id.
-     * 
+     *
      * @return the project id.
      */
     public long getId() {
@@ -79,7 +78,7 @@ public final class ContactPMForm extends ActionForm {
 
     /**
      * Return the message text.
-     * 
+     *
      * @return the message text.
      */
     public String getMessageText() {
@@ -97,7 +96,7 @@ public final class ContactPMForm extends ActionForm {
 
     /**
      * Return the message subject.
-     * 
+     *
      * @return the message subject.
      */
     public String getSubject() {
@@ -112,10 +111,10 @@ public final class ContactPMForm extends ActionForm {
     public void setSubject(String messageSubject) {
         this.messageSubject = messageSubject;
     }
-    
+
     /**
      * Return the related project.
-     * 
+     *
      * @return the related project.
      */
     public UserProjectInfo getProject() {
@@ -130,16 +129,16 @@ public final class ContactPMForm extends ActionForm {
     public void setProject(UserProjectInfo project) {
         this.project = project;
     }
-    
+
     /**
      * Return the message subject types.
-     * 
+     *
      * @return the message subject types.
      */
     public List getSubjectTypes() {
         return (this.types);
     }
-    
+
     // --------------------------------------------------------- Constructor
 
     /**
@@ -147,17 +146,17 @@ public final class ContactPMForm extends ActionForm {
      */
     public ContactPMForm() {
         super();
-        
+
         MessageResources messages =
-            MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
-        
+                MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
+
         types = new ArrayList();
         types.add(messages.getMessage("contactPM.subject.question"));
         types.add(messages.getMessage("contactPM.subject.comment"));
         types.add(messages.getMessage("contactPM.subject.complaint"));
         types.add(messages.getMessage("contactPM.subject.other"));
     }
-    
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -181,31 +180,31 @@ public final class ContactPMForm extends ActionForm {
      *
      * @param mapping The mapping used to select this instance
      * @param request The servlet request we are processing
-     * 
+     *
      * @return an <code>ActionErrors</code> object that encapsulates any
      * validation errors that have been found.
      */
     public ActionErrors validate(ActionMapping mapping,
                                  HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        
+
         if ((messageSubject == null) || (messageSubject.length() < 1)) {
-            errors.add("subject", 
-                       new ActionError("error.messageSubject.required"));
+            errors.add("subject",
+                    new ActionError("error.messageSubject.required"));
         }
-        
+
         if ((messageText == null) || (messageText.length() < 1)) {
-            errors.add("messageText", 
-                       new ActionError("error.messageText.required"));
+            errors.add("messageText",
+                    new ActionError("error.messageText.required"));
         }
-        
+
         return errors;
     }
-    
+
     /**
      * Creates the ContactPMData from this form bean.
-     * 
-     * @param orpd The OnlineReviewProjectData to create the 
+     *
+     * @param orpd The OnlineReviewProjectData to create the
      * ContactPMData.
      * @return the ContactPMData created from this form bean.
      */

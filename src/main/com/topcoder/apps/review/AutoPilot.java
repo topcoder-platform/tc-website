@@ -8,11 +8,11 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.*;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.RolePrincipal;
-
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
+
 /**
  *
  * @author  rfairfax
@@ -33,18 +33,18 @@ public class AutoPilot {
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
             //lookup pm
             String email = "";
             UserRole[] participants = project.getParticipants();
-            for(int i = 0; i < participants.length;i++) {
-                if( participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER ) {
+            for (int i = 0; i < participants.length; i++) {
+                if (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
                     email = participants[i].getUser().getEmail();
                 }
             }
 
-            if(email.equals("")) {
+            if (email.equals("")) {
                 return new FailureResult("Cannot locate PM for Auto Pilot");
             }
 
@@ -62,7 +62,7 @@ public class AutoPilot {
             sendMail("autopilot@topcoder.com", email, "AutoPilot: Final Review Notification", mail.toString());
 
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -83,7 +83,7 @@ public class AutoPilot {
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
             //move to final review
             ProjectForm form = new ProjectForm();
@@ -100,23 +100,23 @@ public class AutoPilot {
 
             UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
             UserProjectInfo info = null;
-            for(int i = 0; i < projs.length; i++) {
-                if(projs[i].getId() == project.getId()) {
+            for (int i = 0; i < projs.length; i++) {
+                if (projs[i].getId() == project.getId()) {
                     info = projs[i];
                 }
             }
 
-            if(info == null) return new FailureResult("Project not found");
+            if (info == null) return new FailureResult("Project not found");
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
 
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
-            if(!(result instanceof SuccessResult)) {
+            if (!(result instanceof SuccessResult)) {
                 return result;
             }
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -137,21 +137,21 @@ public class AutoPilot {
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
             //get all review worksheets
             AggregationReview[] aggReviews = docManager.getAggregationReview(project, user.getTCSubject());
 
             int count = 0;
 
-            for(int i = 0; i < aggReviews.length;i++) {
-                if(aggReviews[i].isCompleted())
+            for (int i = 0; i < aggReviews.length; i++) {
+                if (aggReviews[i].isCompleted())
                     count++;
                 else
                     return new SuccessResult();
             }
 
-            if(count < 2)
+            if (count < 2)
                 return new SuccessResult();
 
             //move to final fixes
@@ -169,23 +169,23 @@ public class AutoPilot {
 
             UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
             UserProjectInfo info = null;
-            for(int i = 0; i < projs.length; i++) {
-                if(projs[i].getId() == project.getId()) {
+            for (int i = 0; i < projs.length; i++) {
+                if (projs[i].getId() == project.getId()) {
                     info = projs[i];
                 }
             }
 
-            if(info == null) return new FailureResult("Project not found");
+            if (info == null) return new FailureResult("Project not found");
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
 
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
-            if(!(result instanceof SuccessResult)) {
+            if (!(result instanceof SuccessResult)) {
                 return result;
             }
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -206,9 +206,9 @@ public class AutoPilot {
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
-            if(!data.getAggregationWorksheet().isCompleted()) return new SuccessResult();
+            if (!data.getAggregationWorksheet().isCompleted()) return new SuccessResult();
 
             //move to aggregation review
             ProjectForm form = new ProjectForm();
@@ -225,23 +225,23 @@ public class AutoPilot {
 
             UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
             UserProjectInfo info = null;
-            for(int i = 0; i < projs.length; i++) {
-                if(projs[i].getId() == project.getId()) {
+            for (int i = 0; i < projs.length; i++) {
+                if (projs[i].getId() == project.getId()) {
                     info = projs[i];
                 }
             }
 
-            if(info == null) return new FailureResult("Project not found");
+            if (info == null) return new FailureResult("Project not found");
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
 
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
-            if(!(result instanceof SuccessResult)) {
+            if (!(result instanceof SuccessResult)) {
                 return result;
             }
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -262,13 +262,13 @@ public class AutoPilot {
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
             //check if appeals phase should be over
 /* by cucu
             if(data.getProject().getCurrentPhaseInstance().getPhase().getId() != Phase.ID_APPEALS) return new SuccessResult();
 */
-            if(data.getProject().getCurrentPhaseInstance().getPhase().getId() != Phase.ID_APPEALS_RESPONSE) return new SuccessResult();
+            if (data.getProject().getCurrentPhaseInstance().getPhase().getId() != Phase.ID_APPEALS_RESPONSE) return new SuccessResult();
 
 /* by cucu
             // we don't care if we're before or after the deadline, because appeals can't be created in appeals_response phase.
@@ -277,21 +277,21 @@ public class AutoPilot {
 */
             //after appeals phase end, check for open appeals
             Appeal[] appeals = docManager.getAppeals(project, -1, -1, user.getTCSubject());
-            for(int i = 0; i < appeals.length; i++) {
-                if(!appeals[i].isResolved())
+            for (int i = 0; i < appeals.length; i++) {
+                if (!appeals[i].isResolved())
                     return new SuccessResult();
             }
 
             //lookup pm
             String email = "";
             UserRole[] participants = project.getParticipants();
-            for(int i = 0; i < participants.length;i++) {
-                if( participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER ) {
+            for (int i = 0; i < participants.length; i++) {
+                if (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
                     email = participants[i].getUser().getEmail();
                 }
             }
 
-            if(email.equals("")) {
+            if (email.equals("")) {
                 return new FailureResult("Cannot locate PM for Auto Pilot");
             }
 
@@ -309,7 +309,7 @@ public class AutoPilot {
             sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Response Notification", mail.toString());
 
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -330,7 +330,7 @@ public class AutoPilot {
 
             Project project = data.getProject();
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
             //check if all screenings are done,check to see if something passes
             boolean passed = false;
@@ -339,37 +339,37 @@ public class AutoPilot {
             int count = 0;
             ReviewScorecard[] scorecard = docManager.getReviewScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
-                if(!scorecard[i].isCompleted() || !scorecard[i].isPMReviewed()) {
+                if (!scorecard[i].isCompleted() || !scorecard[i].isPMReviewed()) {
                     //nothing to do
                     return new SuccessResult();
                 }
 
                 count++;
 
-                if(scorecard[i].getScore() >= minscore) {
+                if (scorecard[i].getScore() >= minscore) {
                     passed = true;
                 }
             }
 
-            if(!passed)
+            if (!passed)
                 return new SuccessResult();
 
             int sub_count = 0;
             InitialSubmission[] arr = docManager.getInitialSubmissions(project, false, user.getTCSubject());
-            for(int i = 0; i < arr.length; i++) {
-                if(arr[i].isAdvancedToReview())
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i].isAdvancedToReview())
                     sub_count++;
             }
 
             //get submission count
-            if(count != (sub_count * 3) )
+            if (count != (sub_count * 3))
                 return new SuccessResult();
 
             //check test cases
             TestCase[] testcases = null;
             testcases = docManager.getTestCases(project, -1, user.getTCSubject());
 
-            if(testcases.length != 3)
+            if (testcases.length != 3)
                 return new SuccessResult();
 
             //advance to appeals
@@ -387,23 +387,23 @@ public class AutoPilot {
 
             UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
             UserProjectInfo info = null;
-            for(int i = 0; i < projs.length; i++) {
-                if(projs[i].getId() == project.getId()) {
+            for (int i = 0; i < projs.length; i++) {
+                if (projs[i].getId() == project.getId()) {
                     info = projs[i];
                 }
             }
 
-            if(info == null) return new FailureResult("Project not found");
+            if (info == null) return new FailureResult("Project not found");
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
 
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
-            if(!(result instanceof SuccessResult)) {
+            if (!(result instanceof SuccessResult)) {
                 return result;
             }
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -423,7 +423,7 @@ public class AutoPilot {
 
             Project project = data.getProject();
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
             //check if all screenings are done,check to see if something passes
             boolean passed = false;
@@ -432,30 +432,30 @@ public class AutoPilot {
             int count = 0;
             ScreeningScorecard[] scorecard = docManager.getScreeningScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
-                if(!scorecard[i].isCompleted() || !scorecard[i].isPMReviewed()) {
+                if (!scorecard[i].isCompleted() || !scorecard[i].isPMReviewed()) {
                     //nothing to do
                     return new SuccessResult();
                 }
 
                 count++;
 
-                if(scorecard[i].getScore() >= minscore) {
+                if (scorecard[i].getScore() >= minscore) {
                     passed = true;
                 }
             }
 
-            if(!passed)
+            if (!passed)
                 return new SuccessResult();
 
             //get submission count
-            if(count != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
+            if (count != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
                 return new SuccessResult();
 
             //check project for reviewers
             UserRole[] participants = project.getParticipants();
-            for(int i = 0; i < participants.length;i++) {
-                if( participants[i].getRole().getId() == Role.ID_REVIEWER ) {
-                    if(participants[i].getUser() == null) {
+            for (int i = 0; i < participants.length; i++) {
+                if (participants[i].getRole().getId() == Role.ID_REVIEWER) {
+                    if (participants[i].getUser() == null) {
                         //nothing to do, need to fill reviewer spots
                         return new SuccessResult();
                     }
@@ -476,31 +476,31 @@ public class AutoPilot {
             form.setReason("auto pilot advancing to review");
 
             //check for screening scorecard template
-            if(form.getReviewTemplateId() == -1 ) {
+            if (form.getReviewTemplateId() == -1) {
                 String template = docManager.getDefaultScorecardTemplate(project.getProjectType().getId(), ReviewScorecard.SCORECARD_TYPE).getName();
                 form.setReviewTemplate(template);
             }
 
             UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
             UserProjectInfo info = null;
-            for(int i = 0; i < projs.length; i++) {
-                if(projs[i].getId() == project.getId()) {
+            for (int i = 0; i < projs.length; i++) {
+                if (projs[i].getId() == project.getId()) {
                     info = projs[i];
                 }
             }
 
-            if(info == null) return new FailureResult("Project not found");
+            if (info == null) return new FailureResult("Project not found");
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
 
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
-            if(!(result instanceof SuccessResult)) {
+            if (!(result instanceof SuccessResult)) {
                 return result;
             }
 
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -521,7 +521,7 @@ public class AutoPilot {
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
             //check if all screenings are done,check to see if something passes
             boolean passed = false;
@@ -530,32 +530,32 @@ public class AutoPilot {
             int count = 0;
             ScreeningScorecard[] scorecard = docManager.getScreeningScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
-                if(!scorecard[i].isCompleted()) {
+                if (!scorecard[i].isCompleted()) {
                     //nothing to do
                     return new SuccessResult();
                 }
 
                 count++;
 
-                if(scorecard[i].getScore() >= minscore) {
+                if (scorecard[i].getScore() >= minscore) {
                     passed = true;
                 }
             }
 
             //get submission count
-            if(count != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
+            if (count != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
                 return new SuccessResult();
 
             //lookup pm
             String email = "";
             UserRole[] participants = project.getParticipants();
-            for(int i = 0; i < participants.length;i++) {
-                if( participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER ) {
+            for (int i = 0; i < participants.length; i++) {
+                if (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
                     email = participants[i].getUser().getEmail();
                 }
             }
 
-            if(email.equals("")) {
+            if (email.equals("")) {
                 return new FailureResult("Cannot locate PM for Auto Pilot");
             }
 
@@ -564,7 +564,7 @@ public class AutoPilot {
 
 
             //check if nothing passed, send email
-            if(!passed) {
+            if (!passed) {
 
                 StringBuffer mail = new StringBuffer();
                 mail.append("The following project: \n\n");
@@ -584,8 +584,7 @@ public class AutoPilot {
             }
 
 
-
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -606,7 +605,7 @@ public class AutoPilot {
 
             Project project = data.getReviewScorecard().getProject();
 
-            if(!project.getAutoPilot()) return new SuccessResult();
+            if (!project.getAutoPilot()) return new SuccessResult();
 
             //check if all screenings are done,check to see if something passes
             boolean passed = false;
@@ -615,39 +614,39 @@ public class AutoPilot {
             int count = 0;
             ReviewScorecard[] scorecard = docManager.getReviewScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
-                if(!scorecard[i].isCompleted()) {
+                if (!scorecard[i].isCompleted()) {
                     //nothing to do
                     return new SuccessResult();
                 }
 
                 count++;
 
-                if(scorecard[i].getScore() >= minscore) {
+                if (scorecard[i].getScore() >= minscore) {
                     passed = true;
                 }
             }
 
             int sub_count = 0;
             InitialSubmission[] arr = docManager.getInitialSubmissions(project, false, user.getTCSubject());
-            for(int i = 0; i < arr.length; i++) {
-                if(arr[i].isAdvancedToReview())
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i].isAdvancedToReview())
                     sub_count++;
             }
 
             //get submission count
-            if(count != (sub_count * 3) )
+            if (count != (sub_count * 3))
                 return new SuccessResult();
 
             //lookup pm
             String email = "";
             UserRole[] participants = project.getParticipants();
-            for(int i = 0; i < participants.length;i++) {
-                if( participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER ) {
+            for (int i = 0; i < participants.length; i++) {
+                if (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
                     email = participants[i].getUser().getEmail();
                 }
             }
 
-            if(email.equals("")) {
+            if (email.equals("")) {
                 return new FailureResult("Cannot locate PM for Auto Pilot");
             }
 
@@ -656,7 +655,7 @@ public class AutoPilot {
 
 
             //check if nothing passed, send email
-            if(!passed) {
+            if (!passed) {
 
                 StringBuffer mail = new StringBuffer();
                 mail.append("The following project: \n\n");
@@ -676,8 +675,7 @@ public class AutoPilot {
             }
 
 
-
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 

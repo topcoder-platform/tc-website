@@ -1,7 +1,7 @@
 package com.topcoder.web.common.tag;
 
-import javax.servlet.jsp.tagext.TagExtraInfo;
 import javax.servlet.jsp.tagext.TagData;
+import javax.servlet.jsp.tagext.TagExtraInfo;
 import javax.servlet.jsp.tagext.VariableInfo;
 
 /**
@@ -13,13 +13,13 @@ public class UseBeanTagInfo extends TagExtraInfo {
 
     public VariableInfo[] getVariableInfo(TagData data) {
 
-        String clazz= (String)data.getAttribute("type");
+        String clazz = (String) data.getAttribute("type");
 
-        return new VariableInfo[] {
-          new VariableInfo(data.getAttributeString("id"),
-                           clazz,
-                           true,
-                           VariableInfo.AT_END )
+        return new VariableInfo[]{
+            new VariableInfo(data.getAttributeString("id"),
+                    clazz,
+                    true,
+                    VariableInfo.AT_END)
         };
 
     }

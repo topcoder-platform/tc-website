@@ -1,7 +1,7 @@
 /*
  * ScorecardSection.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -27,7 +27,7 @@ public class ScorecardSection implements Serializable {
      *
      */
     public ScorecardSection(long id, String name, int weight, int sequenceLocation,
-            ScorecardSectionGroup sectionGroup) {
+                            ScorecardSectionGroup sectionGroup) {
         this.id = id;
         this.name = name;
         this.weight = weight;
@@ -39,7 +39,7 @@ public class ScorecardSection implements Serializable {
      * <p>
      * Return the weight of this section.
      * </p>
-     * 
+     *
      * @return the weight of this section.
      */
     public int getWeight() {
@@ -50,7 +50,7 @@ public class ScorecardSection implements Serializable {
      * <p>
      * Return the location of this section.
      * </p>
-     * 
+     *
      * @return the location of this section.
      */
     public int getSequenceLocation() {
@@ -61,7 +61,7 @@ public class ScorecardSection implements Serializable {
      * <p>
      * Return the id of this scorecard section.
      * </p>
-     * 
+     *
      * @return the id of this scorecard section.
      */
     public long getId() {
@@ -72,7 +72,7 @@ public class ScorecardSection implements Serializable {
      * <p>
      * Return the name of scorecard section.
      * </p>
-     * 
+     *
      * @return a String with the name of scorecard section.
      */
     public String getName() {
@@ -83,7 +83,7 @@ public class ScorecardSection implements Serializable {
      * <p>
      * Return the SectionGroup of this scorecard section.
      * </p>
-     * 
+     *
      * @return the SectionGroup of this scorecard section.
      */
     public ScorecardSectionGroup getSectionGroup() {

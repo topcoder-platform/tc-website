@@ -7,14 +7,14 @@
  */
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.common.Util;
-import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.corp.common.Constants;
+import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.corp.common.Util;
 
 import java.util.Map;
 
@@ -116,9 +116,9 @@ public class CampaignResults extends BaseScreeningProcessor {
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
                 log.debug("The campaign details retrieval failed for user : " + userId + ", campaign : "
-                    + campaignId + ", company : " + companyId);
+                        + campaignId + ", company : " + companyId);
                 throw new ScreeningException("Campaign details retrieval error for user : " + userId + ", campaign : "
-                    + campaignId + ", company : " + companyId);
+                        + campaignId + ", company : " + companyId);
             }
 
             // Get the campaign details and save them to request for further rendering by the campaign results JSP
@@ -139,9 +139,9 @@ public class CampaignResults extends BaseScreeningProcessor {
             // Notify the user if something went wrong
             if (map == null) {
                 log.error("The search for campaign results returned null for user : " + userId + ", campaign : "
-                    + campaignId + ", company : " + companyId);
+                        + campaignId + ", company : " + companyId);
                 throw new ScreeningException("Campaign results retrieval error for user : " + userId + ", campaign : "
-                    + campaignId + ", company : " + companyId);
+                        + campaignId + ", company : " + companyId);
             }
 
             // Get the campaign results to be rendered by the campaign results JSP
@@ -150,11 +150,9 @@ public class CampaignResults extends BaseScreeningProcessor {
             // Check if the results list should be sorted
             String sortBy = request.getParameter(Constants.SORT_BY);
             if (sortBy != null) {
-                if(sortBy.equals("preference"))
-                {
+                if (sortBy.equals("preference")) {
                     result.sortByColumn(sortBy, false);
-                }
-                else
+                } else
                     result.sortByColumn(sortBy, true);
                 request.setAttribute(Constants.SORT_BY, sortBy);
             }
@@ -168,7 +166,7 @@ public class CampaignResults extends BaseScreeningProcessor {
 
             // Redirect the user to campaign results JSP
             log.debug("Forwarding the request to " + Constants.CAMPAIGN_RESULTS_PAGE);
-            
+
             getRequest().setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
             setNextPage(Constants.CAMPAIGN_RESULTS_PAGE);
             setIsNextPageInContext(true);

@@ -1,12 +1,10 @@
 package com.topcoder.web.ejb.query;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
+import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -44,15 +42,16 @@ public class CommandGroupBean extends BaseEJB {
             query.append(" (command_group_id, command_group_name)");
             query.append(" VALUES (?, ?)");
             ctx = new InitialContext();
-            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            if (dataSourceName == null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
-            ret = (int)getNextValue();
+            ret = (int) getNextValue();
             ps.setInt(1, ret);
             ps.setString(2, commandGroupName);
             int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
-                    " name: " + commandGroupName);
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in insert: " + rows +
+                        " name: " + commandGroupName);
             return ret;
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -63,9 +62,27 @@ public class CommandGroupBean extends BaseEJB {
             throw new EJBException("Exception creating command group: " + commandGroupName +
                     "\n " + e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context");
+                }
+            }
         }
 
     }
@@ -80,16 +97,16 @@ public class CommandGroupBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" UPDATE command_group_lu");
-            query.append(   " SET command_group_name = ?");
-            query.append( " WHERE command_group_id = ?");
+            query.append(" SET command_group_name = ?");
+            query.append(" WHERE command_group_id = ?");
             ctx = new InitialContext();
-            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            if (dataSourceName == null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, commandGroupName);
             ps.setInt(2, commandGroupId);
             int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for group: " + commandGroupId);
+            if (rows != 1) throw new EJBException("Wrong number of rows in update: " + rows + " for group: " + commandGroupId);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating command name, command: " + commandGroupId + " name: " + commandGroupName);
@@ -99,9 +116,27 @@ public class CommandGroupBean extends BaseEJB {
             throw new EJBException("Exception updating command name, command: " + commandGroupId + " name: " + commandGroupName +
                     "\n " + e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context");
+                }
+            }
         }
 
     }
@@ -118,10 +153,10 @@ public class CommandGroupBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" SELECT command_group_name");
-            query.append(  " FROM command_group_lu");
-            query.append( " WHERE command_group_id = ?");
+            query.append(" FROM command_group_lu");
+            query.append(" WHERE command_group_id = ?");
             ctx = new InitialContext();
-            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            if (dataSourceName == null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, commandGroupId);
@@ -136,10 +171,34 @@ public class CommandGroupBean extends BaseEJB {
         } catch (Exception e) {
             throw new EJBException("Exception getting group name for command: " + commandGroupId + "\n " + e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context");
+                }
+            }
         }
         return ret;
     }
@@ -156,12 +215,12 @@ public class CommandGroupBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" SELECT command_group_name");
-            query.append(     " , command_group_id");
-            query.append(     " , LOWER(command_group_name)");
-            query.append(  " FROM command_group_lu");
-            query.append( " ORDER BY 3 ASC");
+            query.append(" , command_group_id");
+            query.append(" , LOWER(command_group_name)");
+            query.append(" FROM command_group_lu");
+            query.append(" ORDER BY 3 ASC");
             ctx = new InitialContext();
-            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            if (dataSourceName == null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
@@ -174,10 +233,34 @@ public class CommandGroupBean extends BaseEJB {
         } catch (Exception e) {
             throw new EJBException("Exception getting all command groups\n " + e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context");
+                }
+            }
         }
         return ret;
     }

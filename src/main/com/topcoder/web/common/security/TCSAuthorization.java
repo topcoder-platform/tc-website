@@ -1,7 +1,7 @@
 package com.topcoder.web.common.security;
 
-import com.topcoder.security.TCSubject;
 import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PolicyRemote;
@@ -13,9 +13,9 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
-import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 /**
  * This will be using the TopCoder Software security component to determine if a

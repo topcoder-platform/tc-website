@@ -1,7 +1,7 @@
 /*
  * MyContext.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -23,7 +23,7 @@ import com.topcoder.apps.review.projecttracker.UserManagerLocalHome;
 /**
  * <p>Context used for testing purposes, it implements the lookup
  * method so that the mockup objects are returned.
- * 
+ *
  * @author kolanovic
  * @version 1.0
  */
@@ -144,10 +144,10 @@ public class MyContext implements Context {
      * @return the mockup object correspoding to EJB_REF_NAME
      */
     public Object lookup(String name) {
-        if (PolicyLocalHome.EJB_REF_NAME.equals(name)) { 
+        if (PolicyLocalHome.EJB_REF_NAME.equals(name)) {
             return new MyPolicyLocalHome();
         }
-        if (PolicyRemoteHome.EJB_REF_NAME.equals(name)) { 
+        if (PolicyRemoteHome.EJB_REF_NAME.equals(name)) {
             return new MyPolicyRemoteHome();
         }
         if (LoginLocalHome.EJB_REF_NAME.equals(name)) {

@@ -1,12 +1,5 @@
 package com.topcoder.web.corp.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Map;
-
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.sql.DataSource;
-
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
@@ -15,12 +8,13 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
-
-import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.corp.model.BaseModel;
+
+import java.text.SimpleDateFormat;
+import java.util.Map;
 
 public class EmailInfo extends BaseModel {
     private static DataAccess access;
@@ -31,7 +25,7 @@ public class EmailInfo extends BaseModel {
     private String candidateAddress;
     private String candidatePassword;
     private String candidateHandle;
-    private long   companyId;
+    private long companyId;
     private String companyName;
     private String repName;
     private String repAddress;
@@ -45,7 +39,7 @@ public class EmailInfo extends BaseModel {
         candidateHandle = "candidate";
         candidatePassword = "password";
         repName = "Rep Name";
-        companyName ="Rep's Company";
+        companyName = "Rep's Company";
         repAddress = "rep@somecompany.com";
     }
 
@@ -54,7 +48,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setSessionInfo( TestSessionInfo val ) {
+    public void setSessionInfo(TestSessionInfo val) {
         sessionInfo = val;
     }
 
@@ -72,7 +66,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setSubject( String val ) {
+    public void setSubject(String val) {
         subject = val;
     }
 
@@ -91,7 +85,7 @@ public class EmailInfo extends BaseModel {
      * @return
      */
     public String getMsgText() {
-        if(sessionInfo == null) return null;
+        if (sessionInfo == null) return null;
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
 //        msgText.append("Thank you for your interest in working at ");
@@ -136,7 +130,7 @@ public class EmailInfo extends BaseModel {
     }
 
     private String getRepMsgText() {
-        if(sessionInfo == null) return null;
+        if (sessionInfo == null) return null;
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
         msgText.append(candidateHandle);
@@ -177,7 +171,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setCandidateAddress( String val ) {
+    public void setCandidateAddress(String val) {
         candidateAddress = val;
     }
 
@@ -195,7 +189,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setCandidatePassword( String val ) {
+    public void setCandidatePassword(String val) {
         candidatePassword = val;
     }
 
@@ -213,7 +207,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setCandidateHandle( String val ) {
+    public void setCandidateHandle(String val) {
         candidateHandle = val;
     }
 
@@ -231,7 +225,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setCompanyId( long val ) {
+    public void setCompanyId(long val) {
         companyId = val;
     }
 
@@ -249,7 +243,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setCompanyName( String val ) {
+    public void setCompanyName(String val) {
         companyName = val;
     }
 
@@ -267,7 +261,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setRepName( String val ) {
+    public void setRepName(String val) {
         repName = val;
     }
 
@@ -285,7 +279,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setRepAddress( String val ) {
+    public void setRepAddress(String val) {
         repAddress = val;
     }
 
@@ -307,7 +301,7 @@ public class EmailInfo extends BaseModel {
     }
 
     public void sendEmail() throws Exception {
-        if(sessionInfo.useCandidateEmail()) {
+        if (sessionInfo.useCandidateEmail()) {
             log.debug("send candidate emali to: " + candidateAddress);
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject(getSubject());
@@ -317,7 +311,7 @@ public class EmailInfo extends BaseModel {
             EmailEngine.send(mail);
         }
 
-        if(sessionInfo.useRepEmail()) {
+        if (sessionInfo.useRepEmail()) {
             log.debug("send rep emali to: " + repAddress);
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject(getRepSubject());
@@ -330,14 +324,14 @@ public class EmailInfo extends BaseModel {
     }
 
     public static EmailInfo createEmailInfo(TestSessionInfo info, User repInfo)
-        throws Exception {
+            throws Exception {
         EmailInfo emailInfo = new EmailInfo();
         emailInfo.setSessionInfo(info);
         PrincipalMgr mgr = new PrincipalMgr();
         long candidateId = Long.parseLong(info.getCandidateId());
         emailInfo.setCandidatePassword(mgr.getPassword(candidateId));
 
-        if(access == null) {
+        if (access == null) {
             access = new DataAccess(Constants.DATA_SOURCE);
         }
 
@@ -349,20 +343,20 @@ public class EmailInfo extends BaseModel {
         emailLookup.setProperty("cid", info.getCandidateId());
         Map map = access.getData(emailLookup);
         ResultSetContainer rsc = (ResultSetContainer)
-                    map.get(Constants.REP_EMAIL_INFO_QUERY_KEY);
-        if(rsc.size() == 0) {
+                map.get(Constants.REP_EMAIL_INFO_QUERY_KEY);
+        if (rsc.size() == 0) {
             throw new ScreeningException(
                     "Data Error, Rep Email info not found - uid " +
                     repInfo.getId());
         }
-        if(rsc.size() > 1) {
+        if (rsc.size() > 1) {
             throw new ScreeningException(
                     "Data Error, Rep Email info returned too many results (" +
                     rsc.size() + ") - uid " + repInfo.getId());
         }
 
         ResultSetContainer.ResultSetRow row =
-            (ResultSetContainer.ResultSetRow)rsc.get(0);
+                (ResultSetContainer.ResultSetRow) rsc.get(0);
         emailInfo.setCompanyId(
                 Long.parseLong(row.getItem("company_id").toString()));
         emailInfo.setCompanyName(row.getItem("company_name").toString());
@@ -370,19 +364,19 @@ public class EmailInfo extends BaseModel {
         emailInfo.setRepAddress(row.getItem("email_address").toString());
 
         rsc = (ResultSetContainer)
-            map.get(Constants.CANDIDATE_EMAIL_INFO_QUERY_KEY);
-        if(rsc.size() == 0) {
+                map.get(Constants.CANDIDATE_EMAIL_INFO_QUERY_KEY);
+        if (rsc.size() == 0) {
             throw new ScreeningException(
                     "Data Error, Candidate Email info not found - cid " +
                     info.getCandidateId());
         }
-        if(rsc.size() > 1) {
+        if (rsc.size() > 1) {
             throw new ScreeningException(
                     "Data Error, Candidate Email info returned too many results (" +
                     rsc.size() + ") - cid " + info.getCandidateId());
         }
 
-        row = (ResultSetContainer.ResultSetRow)rsc.get(0);
+        row = (ResultSetContainer.ResultSetRow) rsc.get(0);
         emailInfo.setCandidateAddress(row.getItem("email_address").toString());
         emailInfo.setCandidateHandle(row.getItem("handle").toString());
 

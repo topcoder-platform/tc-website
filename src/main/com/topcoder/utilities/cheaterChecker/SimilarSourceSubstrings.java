@@ -2,9 +2,9 @@ package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class SimilarSourceSubstrings implements Fraud {
     private static Logger log = Logger.getLogger(SimilarSourceSubstrings.class);
@@ -28,7 +28,7 @@ public class SimilarSourceSubstrings implements Fraud {
             for (int j = i + 1; j < tokens.size(); j++) {
                 s1 = (Submission) submissions.get(i);
                 s2 = (Submission) submissions.get(j);
-                if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId()==s2.getLanguageId()) {
+                if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId() == s2.getLanguageId()) {
                     int val = Util.getLongestCommonSubsequence(((TokenizedSource) tokens.get(i)).getTokens(),
                             ((TokenizedSource) tokens.get(j)).getTokens(), true);
                     results.add(new ComparisonResult(i, j, val));
@@ -44,7 +44,7 @@ public class SimilarSourceSubstrings implements Fraud {
         Collections.sort(results);
         double suspicious = avg + STD_DEV_THRESHHOLD * stddev;
         ComparisonResult r = null;
-        for (int i=results.size()-1, k=0; i>-1&&k<MAX_REPORT; i--,k++) {
+        for (int i = results.size() - 1, k = 0; i > -1 && k < MAX_REPORT; i--, k++) {
             r = (ComparisonResult) results.get(i);
             if (r.getValue() > suspicious) {
                 s1 = (Submission) submissions.get(r.getIndex1());

@@ -1,7 +1,7 @@
 package com.topcoder.web.ejb.school;
 
-import javax.ejb.EJBObject;
 import javax.ejb.EJBException;
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
 public interface CurrentSchool extends EJBObject {

@@ -5,8 +5,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 
-import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
 import java.util.Map;
 
 public class RatingTag extends TagSupport {
@@ -23,8 +23,8 @@ public class RatingTag extends TagSupport {
     public final static String DEVELOPMENT = "development";
 
     private static final String[] lightStyles =
-           {"coderTextOrange", "coderTextBlack", "coderTextGray",
-            "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
+            {"coderTextOrange", "coderTextBlack", "coderTextGray",
+             "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     private static final String[] darkStyles =
             {"coderTextOrange", "coderTextWhite", "coderTextGray",
@@ -43,7 +43,7 @@ public class RatingTag extends TagSupport {
     }
 
     public void setDarkBG(String s) {
-        this.darkBG=(s.toLowerCase().trim().equals("true"));
+        this.darkBG = (s.toLowerCase().trim().equals("true"));
     }
 
     public void setContext(String s) {
@@ -65,24 +65,24 @@ public class RatingTag extends TagSupport {
 
             Map m = da.getData(r);
 
-            ResultSetContainer rsc = (ResultSetContainer)m.get("coder_all_ratings");
+            ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
 
             //check if link is in place, if so use a, otherwise use span
             boolean bLink = false;
-            if(link != null && !link.equals("")) {
+            if (link != null && !link.equals("")) {
                 bLink = true;
             }
 
             //check for css override
             boolean bCSSOverride = false;
-            if(cssclass != null && !cssclass.equals("")) {
+            if (cssclass != null && !cssclass.equals("")) {
                 bCSSOverride = true;
             }
 
             StringBuffer output = new StringBuffer();
             output.append("<");
 
-            if(bLink) {
+            if (bLink) {
                 output.append("a href=\"");
                 output.append(link);
                 output.append("\" class=\"");
@@ -90,7 +90,7 @@ public class RatingTag extends TagSupport {
                 output.append("span class=\"");
             }
 
-            if(bCSSOverride) {
+            if (bCSSOverride) {
                 output.append(cssclass);
             } else {
                 int rating = 0;
@@ -98,10 +98,12 @@ public class RatingTag extends TagSupport {
                     rating = rsc.getIntItem(0, "algorithm_rating");
                 else if (design)
                     rating = rsc.getIntItem(0, "design_rating");
-                else if (development) rating = rsc.getIntItem(0, "development_rating");
-                else rating = max(rsc.getIntItem(0, "algorithm_rating"),
-                                                    rsc.getIntItem(0, "design_rating"),
-                                                    rsc.getIntItem(0, "development_rating"));
+                else if (development)
+                    rating = rsc.getIntItem(0, "development_rating");
+                else
+                    rating = max(rsc.getIntItem(0, "algorithm_rating"),
+                            rsc.getIntItem(0, "design_rating"),
+                            rsc.getIntItem(0, "development_rating"));
                 output.append(getRatingCSS(rating));
             }
 
@@ -109,7 +111,7 @@ public class RatingTag extends TagSupport {
 
             output.append(rsc.getStringItem(0, "handle"));
 
-            if(bLink) {
+            if (bLink) {
                 output.append("</a>");
             } else {
                 output.append("</span>");
@@ -123,22 +125,28 @@ public class RatingTag extends TagSupport {
     }
 
     private String getRatingCSS(int rating) {
-        if (rating < 0) return darkBG?lightStyles[0]:darkStyles[0];
-        else if (rating == 0) return darkBG?lightStyles[1]:darkStyles[1];
-        else if (rating > 0 && rating < 900) return darkBG?lightStyles[2]:darkStyles[2];
-        else if (rating > 899 && rating < 1200) return darkBG?lightStyles[3]:darkStyles[3];
-        else if (rating > 1199 && rating < 1500) return darkBG?lightStyles[4]:darkStyles[4];
-        else if (rating > 1499 && rating < 2200) return darkBG?lightStyles[5]:darkStyles[5];
-        else if (rating > 2199) return darkBG?lightStyles[6]:darkStyles[6];
+        if (rating < 0)
+            return darkBG ? lightStyles[0] : darkStyles[0];
+        else if (rating == 0)
+            return darkBG ? lightStyles[1] : darkStyles[1];
+        else if (rating > 0 && rating < 900)
+            return darkBG ? lightStyles[2] : darkStyles[2];
+        else if (rating > 899 && rating < 1200)
+            return darkBG ? lightStyles[3] : darkStyles[3];
+        else if (rating > 1199 && rating < 1500)
+            return darkBG ? lightStyles[4] : darkStyles[4];
+        else if (rating > 1499 && rating < 2200)
+            return darkBG ? lightStyles[5] : darkStyles[5];
+        else if (rating > 2199) return darkBG ? lightStyles[6] : darkStyles[6];
         return "";
     }
 
     private int max(int a, int b, int c) {
-        return max(max(a,b),c);
+        return max(max(a, b), c);
     }
 
     private int max(int a, int b) {
-        if (a>=b) return a;
+        if (a >= b) return a;
         return b;
     }
 }

@@ -4,20 +4,19 @@
 
 package com.topcoder.apps.review;
 
-import java.util.HashMap;
-
 import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.projecttracker.Phase;
 import com.topcoder.apps.review.projecttracker.Role;
 import com.topcoder.apps.review.projecttracker.UserRole;
 import com.topcoder.util.log.Level;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionForwards;
+import java.util.HashMap;
 
 /**
  * <p>
@@ -53,8 +52,8 @@ public final class ReviewScorecardAction extends ReviewAction {
                                    ActionForwards forwards,
                                    OnlineReviewProjectData orpd) {
         log(Level.INFO, "EditReviewScorecardAction: User '"
-                        + orpd.getUser().getHandle() + "' in session "
-                        + request.getSession().getId());
+                + orpd.getUser().getHandle() + "' in session "
+                + request.getSession().getId());
 
         String action = Constants.ACTION_VIEW;
         if (request.getParameter(Constants.ACTION_KEY) != null) {
@@ -76,7 +75,7 @@ public final class ReviewScorecardAction extends ReviewAction {
         ReviewData data = new ReviewData(orpd, sid, rid, null);
         ResultData result = new BusinessDelegate().reviewScorecard(data);
 
-        if (result instanceof ReviewScorecardRetrieval)  {
+        if (result instanceof ReviewScorecardRetrieval) {
             ReviewScorecardRetrieval rsr = (ReviewScorecardRetrieval) result;
             // Populate the form
             form = new ReviewScorecardForm();
@@ -113,11 +112,11 @@ public final class ReviewScorecardAction extends ReviewAction {
 
         long phase = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
         if (Constants.ACTION_VIEW.equals(action) &&
-                 (phase == Phase.ID_APPEALS || phase == Phase.ID_APPEALS_RESPONSE) &&
+                (phase == Phase.ID_APPEALS || phase == Phase.ID_APPEALS_RESPONSE) &&
                 isSubmitter) {
             AppealData aData = new AppealData(orpd, null, -1, -1);
             ResultData rData = new BusinessDelegate().appealProject(aData);
-            Appeal[] appealArr = ((AppealsRetrieval)rData).getAppeals();
+            Appeal[] appealArr = ((AppealsRetrieval) rData).getAppeals();
             HashMap appeals = new HashMap();
             for (int i = 0; i < appealArr.length; i++) {
                 appeals.put(new Long(appealArr[i].getQuestion().getId()), appealArr[i]);

@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Encapsulates all of the information about a user: id, last logon time, number of logins, 
- * status, RegistrationInfo.  
+ * Encapsulates all of the information about a user: id, last logon time, number of logins,
+ * status, RegistrationInfo.
  *
  * @author Heather Van Aelst
  * @version 1.0
@@ -18,9 +18,10 @@ public class User implements Serializable {
     private long status;
     private RegistrationInfo regInfo;
 
-    /* this empty constructor is just for skeleton classes, testing, 
+    /* this empty constructor is just for skeleton classes, testing,
      * should eventually be removed. --- actually, may need it, wait on that */
-    public User() {}
+    public User() {
+    }
 
     public User(long id) {
         this.id = id;

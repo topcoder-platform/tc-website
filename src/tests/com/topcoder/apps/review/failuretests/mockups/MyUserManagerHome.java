@@ -1,7 +1,7 @@
 /*
  * MyUserManagerHome.java 1.0 6/30/2003
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review.failuretests.mockups;
 
@@ -18,12 +18,12 @@ import com.topcoder.apps.review.projecttracker.UserManagerLocalHome;
  * @author kolanovic
  * @version 1.0
  */
-public class MyUserManagerHome extends EJBHomeBase 
-                               implements UserManagerLocalHome {
+public class MyUserManagerHome extends EJBHomeBase
+        implements UserManagerLocalHome {
     /**
      * <p>Returns a new instance of MyUserManager.</p>
      */
     public UserManagerLocal create() throws CreateException {
-        return(new MyUserManager());
+        return (new MyUserManager());
     }
 }
