@@ -60,7 +60,7 @@
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>					
 						<TR>
-							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;June 3 - 9, 2002</TD>
+							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;May 27 - June 2, 2002</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -69,79 +69,58 @@
 							<TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <!-- <A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
-<IMG SRC="/i/m/SnapDragon_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
+<IMG SRC="/i/m/along_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="coderTextRed">SnapDragon</A><BR/>
-<B>Rating: </B>3005<BR/>
-<B>Member Since: </B>March&#160;17,&#160;2002<BR/>
-<B>Total Competitions: </B>17<BR/>
+<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=251223" CLASS="coderTextYellow">along</A><BR/>
+<B>Rating: </B>1832<BR/>
+<B>Member Since: </B>December &#160;7,&#160;2001<BR/>
+<B>Total Competitions: </B>1<BR/>
 </P>
 
 <P>
-TopCoder, Inc. announced today that <B>SnapDragon</B>, based on his performance in Single 
-Round Match 94, has been named the "Coder of the Week" for Single Round Matches 
-94 and 95, which took place between June 3 and June 9, 2002.  
+TopCoder, Inc. announced today that <B>along</B>, based on his performance in Single Round 
+Match 93, has been named the "Coder of the Week" for Single Round Matches 92 and 93, 
+which took place between May 27 and June 2, 2002.  
 </P>
 
 <P>
-In Single Round Match 94, <B>SnapDragon</B> won Room 1 and increased his rating to 3005, 
-becoming just the second member ever to reach that mark.  Also, by reaching 3000 
-in 17 matches, <B>SnapDragon</B> is the quickest to reach 3000.  
-<A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A> is the only 
-other TopCoder member to reach 3000.  He had a 3000 or better rating for SRM 47, 
-54-65, and 77-84, and needed 22 matches to reach that mark.
+In Single Round Match 93, along, in his initial TopCoder competition, earned 
+a rating of 1832, which is the 16th best debut rating ever 
+(<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).  
+<B>along</B> won Room 67 with 1315.00 final points.  
+He earned 236.92 points on the Level One problem, 376.99 on the Level Two problem, 
+and 551.09 on the Level Three problem, for a total of 1165.00 points in the "Coding Phase".  
+<B>along</B> then added 150 points to his total with successful challenges of the 
+Level One submissions of <A HREF="/stat?c=member_profile&amp;cr=266698" CLASS="coderTextBlue">vietchau</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=286590" CLASS="coderTextGray">samosa</A>, and the Level Two submission of 
+<A HREF="/stat?c=member_profile&amp;cr=267505" CLASS="coderTextGray">kidprogram</A>
+ in the "Challenge Phase".  <B>vietchau</B> tried to challenge the Level 
+Three submission of <B>along</B>, but failed.
 </P>
 
 <P>
-"Well, to be honest, I've been extraordinarily lucky recently," said <B>SnapDragon</B>.  
-"I never actually expected to reach #1 on the site; I've been intimidated by 
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A>
- and <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>'s 
- speed, <A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="coderTextRed">reid</A>'s 
- credentials, and <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="coderTextRed">dmwright</A>'s 
-persistence ever since I first discovered TopCoder.  My last 5 TC matches 
-all went very well, and I keep waiting for this bubble of good fortune to burst around me. :)
+Although he registered on the site last year, <B>along</B> waited to compete until 
+China became a country eligible to receive prizes on Tuesday, May 28.  
+"I love all types of online contests," said <B>along</B>.
 </P>
 
 <P>
-The main reason for my success, of course, is that I am VERY experienced in 
-computer competitions.  In many ways, TC is more about practice than intelligence.  
-I've literally solved thousands of problems before, and by the time you've done 
-that, it's rare to encounter a problem that ISN'T similar to something you've solved before.
+<B>along</B> has been a TopCoder member since December 7, 2001 and has won $100.   
 </P>
 
 <P>
-For SRM 94 in particular, I had an extremely good day.  The 1050, especially, 
-was key to my large rating gain.  When I saw it, something just clicked, and I 
-immediately thought of the algorithm that made it fairly simple to implement.  
-I was lucky; nobody else used the same approach.  I coded it up, and it didn't 
-work the first time.  I scanned the code, quickly located a typo, and fixed it.  
-It worked the second time on all the sample inputs.  It's always a relief when a 
-complex program you've written works immediately out of the gate!  I was so 
-worried about the 1050's complexity that even after submitting it, I ran 
-tens of test cases on it.  But my program stood up to them, and eventually 
-passed system tests.  It was quite a relief!"
+"It's wonderful to win 'Coder of the Week'," added <B>along</B>, who 
+appreciates the great work the TopCoder staff has done on building such a wonderful site.  
+"I love this game!  I will participate in future matches, and will try my best to win."
 </P>
 
 <P>
-<B>SnapDragon</B> has been a TopCoder member since March 17, 2002 and has won $100.   
+Other members nominated for "Coder of the Week" were: 
+<A HREF="/stat?c=member_profile&amp;cr=272490" CLASS="coderTextBlue">kolanovic</A>
+ and 
+<A HREF="/stat?c=member_profile&amp;cr=282718" CLASS="coderTextGreen">rustyoldman</A>, 
+who won their rooms in both matches, and have three match consecutive win streaks.
 </P>
-
-<P>
-"I never expected to break 3000, and I still can't really picture myself 
-as a 3000-level coder. :)  I'm starting to feel nervous before every round, 
-now that I'm getting a reputation that I feel I need to uphold.  It's 
-important not to get in that mindset, and just to try to do the best you 
-can as each contest comes up.  That's the way to have fun."
-</P>
-
-<P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=156420" CLASS="coderTextGreen">edragon</A>
-, who won his 
-room in both SRM's 94 and 95 with seven total successful challenges; and 
-<A HREF="/stat?c=member_profile&amp;cr=286907" CLASS="coderTextYellow">WishingBone</A>, who had a 355-point rating gain in SRM 95, which is the fourth highest in Division-I.
-</P>
-
 
 </TD>						
 						</TR>						
