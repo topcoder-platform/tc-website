@@ -61,7 +61,6 @@
 						
 						<p>Contact us if you have questions about <a class="statText" href="mailto:service@topcodersoftware.com">registering</a> at TopCoderSoftware.com.</p>
 
-                        <p>If you have any problems please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 						<p><br /></p>
 					</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>

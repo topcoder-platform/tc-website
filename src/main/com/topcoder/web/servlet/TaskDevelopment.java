@@ -132,7 +132,6 @@ public final class TaskDevelopment {
                 if (nav.getLoggedIn()) {
                     devTag.addTag(new ValueTag("Project", project));
                     String handle = nav.getUser().getHandle();
-                    devTag.addTag(new ValueTag("handle", handle));
                     String from = nav.getUser().getEmail();
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String experience = Conversion.clean(request.getParameter("Experience"));
@@ -173,6 +172,8 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("Project", project));
 
                     String handle = nav.getUser().getHandle();
+                    devTag.addTag(new ValueTag("handle", handle));
+
                     String from = nav.getUser().getEmail();
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String comment = Conversion.clean(request.getParameter("Comment"));
