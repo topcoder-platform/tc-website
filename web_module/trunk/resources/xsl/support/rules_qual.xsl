@@ -206,6 +206,8 @@ TopCoder, in its sole discretion, reserves the right to disqualify any person ta
                                         <LI>All Legal Permanent Residents of India.</LI>
                                         <LI>All Legal Permanent Residents of the United Kingdom.</LI>
                                         <LI>All Legal Permanent Residents of Ireland.</LI>
+                                        <LI>All Legal Permanent Residents of China.</LI>
+                                        <LI>All Legal Permanent Residents of New Zealand.</LI>
                                         <LI>All non-immigrants** currently residing in the US with a valid Visa.</LI>
                                     </UL>
                         
