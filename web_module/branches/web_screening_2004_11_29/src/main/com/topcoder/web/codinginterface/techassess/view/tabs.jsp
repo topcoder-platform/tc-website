@@ -4,13 +4,14 @@
 <%
     String tabLev1 = request.getParameter("tabLev1")==null?"":request.getParameter("tabLev1");
 %>
+<%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 
 <table cellspacing=0 cellpadding=0 class=tabTable>
    <tr>
-      <td class=logoBox rowspan=2><img src="/i/corp/screening/clientLogo.gif" alt=""/></td>
+      <td class=logoBox rowspan=2><ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="" border=""/></td>
       <%-- colspan must equal # of tabs --%>
       <% if (tabLev1.equals("login")) { %>
         <td class=titleBar colspan=1><img src="/i/corp/screening/pbtcLogo.gif" alt=""/></td>
