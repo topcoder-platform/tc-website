@@ -29,6 +29,7 @@ public class ServerMonitorBot {
 
     public boolean fiveone = true;
     public boolean fivetwo = true;
+    public boolean software = true;
 
     public void run() {
         
@@ -76,6 +77,45 @@ public class ServerMonitorBot {
                 //delete file
                 try {
                     File f = new File("index.html");
+                    f.delete();
+                } catch (Exception e) {
+                    
+                }
+                
+                String[] callAndArgs2 = {"wget",
+                                         "http://192.168.10.151:8080/index.jsp",
+                                         "--timeout=30",
+                                         "-t1",
+                                         ""};
+
+                p = r.exec(callAndArgs2);
+                p.waitFor();
+
+                ret = getData(p.getErrorStream());
+                System.out.println("2:" + ret);
+                System.out.println(p.exitValue());
+
+                if (ret.indexOf("failed") != -1) {
+                    if (software) {
+                        software = false;
+                        System.out.println("FAILED, SENDING MAIL");
+                        addError("connetion to 10.151 failed");
+                        sendError();
+                    }
+                } else if (ret.indexOf("200 OK") == -1) {
+                    if (software) {
+                        software = false;
+                        System.out.println("FAILED, SENDING MAIL");
+                        addError("response from 10.151 failed");
+                        addError(ret);
+                        sendError();
+                    }
+                } else {
+                    software = true;
+                }
+                
+                try {
+                    File f = new File("index.jsp");
                     f.delete();
                 } catch (Exception e) {
                     
