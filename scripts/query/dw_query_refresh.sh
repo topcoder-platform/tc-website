@@ -234,6 +234,7 @@ FROM problem_submission
 WHERE round_id = @rd@
 AND coder_id = @cr@
 AND problem_id = @pm@
+AND last_submission = 1
 "
 java com.topcoder.utilities.QueryLoader 14 "Coder_Data" 0 0 "
 SELECT c.handle,
