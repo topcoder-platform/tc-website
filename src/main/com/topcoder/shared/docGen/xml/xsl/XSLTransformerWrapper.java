@@ -21,7 +21,7 @@ import org.apache.xml.utils.WrappedRuntimeException;
  * @version  $Revision$
  *
  */
-public class XSLTransformerWrapper {
+public class XSLTransformerWrapper implements Serializable {
     /**
      * The actual transformer object that is being wrapped
      */
