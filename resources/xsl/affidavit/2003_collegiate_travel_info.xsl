@@ -62,6 +62,8 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+
+        <p>
         <CENTER>
             2032 Sun Microsystems and <BR/>
             TopCoder Collegiate Challenge<BR/>
@@ -102,6 +104,9 @@
           <BR/>
           <FONT color="#FF0000"><U><B>REGISTRATION DEADLINE:</B></U>  March 17, 2003</FONT>
         </CENTER>
+        </p>
+
+
         <TABLE border="0" cellspacing="3" cellpadding="0" width="100%">
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
