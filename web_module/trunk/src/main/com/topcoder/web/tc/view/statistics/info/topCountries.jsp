@@ -79,7 +79,9 @@
          </td>
       </tr>
       <br/>
-      <tr><td align="right" class="bodyText">formula courtesy of ChristopherH</td></tr>
+      <br/>
+      <br/>
+      <tr><td align="right" class="bodyText">rating formula courtesy of ChristopherH</td></tr>
       <tr>
          <td align="center">
            <p><br /></p>
