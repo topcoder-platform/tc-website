@@ -125,7 +125,7 @@ public final class TaskStatic {
             }
         }
 
-/*
+        /* getting this here for the tces/hiring page */
         try {
             ctx = TCContext.getInitial();
             dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
@@ -142,7 +142,7 @@ public final class TaskStatic {
             log.error("failed to get top school list from DB");
             e.printStackTrace();
         }
-*/
+
 //        log.debug(document.getXML(2));
         try {
             result = HTMLmaker.render(document, xsldocURLString);
