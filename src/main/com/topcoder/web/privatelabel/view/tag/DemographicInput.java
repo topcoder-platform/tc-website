@@ -3,12 +3,15 @@ package com.topcoder.web.privatelabel.view.tag;
 import com.topcoder.web.privatelabel.model.DemographicAnswer;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import java.util.*;
 import java.io.IOException;
 
 public class DemographicInput extends BaseTag {
+    protected static Logger log = Logger.getLogger(DemographicInput.class);
+
     public static final String PREFIX = "demog_";
 
     private String cssclass;
@@ -35,21 +38,21 @@ public class DemographicInput extends BaseTag {
     public int doAfterBody()
             throws JspException {
         if (question != null) {
-            StringBuffer out = new StringBuffer(400);
+            StringBuffer output = new StringBuffer(400);
             setName(PREFIX+question.getDemographicQuestionId());
             switch (question.getAnswerType()) {
                 case DemographicQuestion.FREE_FORM:
-                    out.append(buildText());
+                    output.append(buildText());
                     break;
                 case DemographicQuestion.MULTIPLE_SELECT:
-                    out.append("multiselect");
+                    output.append("multiselect");
                 case DemographicQuestion.SINGLE_SELECT:
-                    out.append(buildSelect());
+                    output.append(buildSelect());
                     break;
                 default: break;
             }
             try {
-                pageContext.getOut().print(out);
+                pageContext.getOut().print(output.toString());
             } catch (IOException e) {
                 throw new JspException(e.getMessage());
             }
@@ -73,6 +76,7 @@ public class DemographicInput extends BaseTag {
 
 
     private String buildText() {
+        log.debug("buildText called " + question.toString());
         StringBuffer s = new StringBuffer(500);
         s.append("<input type=\"text\" size=\"40\" maxlength=\"255\"");
         s.append(" name=\"");
@@ -90,7 +94,7 @@ public class DemographicInput extends BaseTag {
 
 
     private String buildSelect() {
-
+        log.debug("buildSelect called " + question.toString());
         StringBuffer s = new StringBuffer(2000);
         s.append("<select");
         s.append(" name=\"");
