@@ -81,6 +81,7 @@ public class Constants implements CodingInterfaceConstants {
     public static int TEST_SET_A_ID;
     public static int TEST_SET_B_ID;
     public static int EXAMPLE_ID;
+    public static int TEST_IMAGE_TYPE;
 
     public static final String SHORT_CONTENT =
         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">" +
