@@ -115,8 +115,8 @@ public class Controller
             throws ServletException, IOException {
         ServletContext sc = getServletContext();
         sc = sc.getContext("/");
-        sc.getRequestDispatcher(
-                response.encodeURL(CONTROLLER_ERROR_URL)).forward(request, response);
+        RequestDispatcher requestDispatcher = sc.getRequestDispatcher(response.encodeURL(CONTROLLER_ERROR_URL));
+        requestDispatcher.forward(request, response);
     }
 
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
