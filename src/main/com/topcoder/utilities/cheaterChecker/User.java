@@ -36,9 +36,9 @@ public class User {
         this.handle = handle;
     }
 
-    public boolean equals(Object o) {
-        log.debug("equals " + o);
-        return ((User)o).getUserId()==userId;
+    public boolean equals(Object obj) {
+        log.debug("equals " + obj);
+        return ((User)obj).getUserId()==userId;
     }
 
     public String toString() {
