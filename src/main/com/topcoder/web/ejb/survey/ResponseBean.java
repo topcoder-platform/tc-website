@@ -73,7 +73,7 @@ public class ResponseBean extends BaseEJB {
             ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("UPDATE response SET answer_id = ? WHERE coder_id = ? AND question_id = ?");
+            ps = conn.prepareStatement("UPDATE response SET answer_id = ? WHERE user_id = ? AND question_id = ?");
             ps.setLong(1, answerId);
             ps.setLong(2, userId);
             ps.setLong(3, questionId);
