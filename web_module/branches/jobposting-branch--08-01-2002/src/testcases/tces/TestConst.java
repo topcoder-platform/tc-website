@@ -1,8 +1,7 @@
-//package com.topcoder.web.tces.test;
-
 
 /**
  * interface for constants
+ * For Node #, view class PageNumTest or "_site_flow.gif" in docs\tces 
  * 
  * @author Lai Kwan Wong <laikwanwong@hotmail.com> 
  * @version 1.0 - 8/20/2002

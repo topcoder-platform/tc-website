@@ -1,10 +1,9 @@
-
-import com.meterware.httpunit.*;
-import org.xml.sax.SAXException;
 import java.io.*;
 import java.net.URL;
 
 /**
+ * Store message. 
+ * 
  * @author Lai Kwan Wong <laikwanwong@hotmail.com> 
  * @version 1.0 - 8/27/2002
  *
@@ -14,28 +13,57 @@ public class TestMessage{
 	private static StringBuffer sb;			// store message instead of printing directly to System.out
 	private static StringBuffer title;		// store message instead of printing directly to System.out
 	private static int titleId;
+	private static boolean showDetail;
+	private static boolean htmlDoc;
+	private static String nextLine;
+	private static String bold;
+	private static String _bold;
+	private static String line1;
+	private static String line5;
 
 	static {
 		clearMessage();
 	}
 
 
-	// Message methods 
+	// get and set methods
 
 	public static void clearMessage() { 
+		clearMessage(true, true);
+	}
+
+	public static void clearMessage(boolean showDetail, boolean htmlDoc) { 
 		sb = new StringBuffer();
 		title = new StringBuffer();
 		titleId = 0;
+		setShowDetail(showDetail);
+		setHtmlDoc(htmlDoc);
 	}
 
-	public static String getMessage() { 
-		return title.toString()+"<br><br><br>"+sb.toString(); 
+	public static void setShowDetail(boolean b) { showDetail=b;	}
+	public static boolean getShowDetail() { return showDetail;	}
+
+	public static void setHtmlDoc(boolean b) { 
+		htmlDoc=b;	
+		nextLine = htmlDoc?"<br>":"\n";
+		line1 = htmlDoc?"<hr size=1>":"------------------------------------------------------";
+		line5 = htmlDoc?"<hr size=5>":"======================================================";
+		bold = htmlDoc?"<b>":"";
+		_bold = htmlDoc?"</b>":"";
 	}
+	public static boolean getHtmlDoc() { return htmlDoc;	}
+
+	public static String getTitle() { 
+		return title.toString(); 
+	}
+	public static String getMessage() { 
+		return sb.toString(); 
+	}
+
+	// add methods
 
 	public static void addDetailMessage(String str) { 
-		str = str.replaceAll("<", "&lt;");
-		str = str.replaceAll(">", "&gt;");
-		sb.append("<br>"+str); 
+		if(showDetail) sb.append(nextLine+str); 
 	}
 
 	public static void addDetailMessage(java.net.URL url) { 
@@ -43,47 +71,23 @@ public class TestMessage{
 	}
 
 	public static void addTitleMessage(String str) { 
-		title.append("<br><br><a href=\"#title"+(++titleId)+"\"><b>"+str+"</b></a>");
-		sb.append("<br><br><br><hr size=5><a name=\"title" + titleId + "\"><b>" + 
-				str + "</b></a><hr size=5>"); 
+		if(htmlDoc)title.append(nextLine+nextLine+ bold + 
+				"<a href=\"#title"+(++titleId)+"\">"+str+"</a>"+ _bold);
+		sb.append(nextLine+nextLine+nextLine + line5 + bold +
+				(htmlDoc?("<a name=\"title" + titleId + "\">"):"") + 
+				str + (htmlDoc?("</a>"):"") + _bold + line5); 
 	}
+
 	public static void addSubTitleMessage(String str) { 
-		title.append("<br><a href=\"#title"+(++titleId)+"\">"+str+"</a>");
-		sb.append("<br><br><br><a name=\"title" + titleId + "\"><b>" + str + "</b></a><hr size=1>"); 
+		if(htmlDoc)title.append(nextLine+nextLine+"<a href=\"#title"+(++titleId)+"\">"+str+"</a>");
+		sb.append(nextLine+nextLine+nextLine + bold +
+				(htmlDoc?("<a name=\"title" + titleId + "\">"):"") + 
+				str + (htmlDoc?("</a>"):"") + _bold + line1); 
 	}
 	public static void addError(String str) { 
-		sb.append("<br><font color=FF0000>" + str + "</font>");
+		sb.append(nextLine + (htmlDoc?"<font color=FF0000>":"ERR: ") + str + (htmlDoc?"</font>":""));
 	}
 
-	// Response checking methods
-
-	public static boolean hasError(WebResponse resp)  throws IOException	{ 
-		if (resp==null)	{	return true; }
-		return (resp.getText().indexOf("Navigation Error")!=-1);
-	}
-
-	public static void checkResponse(WebResponse resp) throws IOException	{ 
-		checkResponse(resp, null);
-	}
-
-	public static void checkResponse(WebResponse resp, String match) throws IOException	{ 
-		if (resp==null)	{	
-			sb.append("<br><font color=FF0000>NULL</font>"); 
-		}else if (resp.getText().indexOf("Navigation Error")!=-1){
-			sb.append("<br><font color=FF0000>Navigation Error</font>");
-		}else if (match!=null){
-			if(resp.getText().indexOf(match)==-1){
-				sb.append("<br><font color=FF0000>Invalid Page</font>");
-			}else{
-				sb.append("<br><font color=000099>Valid Page</font>");
-			}
-		}else{
-			sb.append("<br><font color=009900>No Match</font>");
-		}
-	}
-
-
-
-}// end class PageNumTest
+}// end class TestMessage
 
 

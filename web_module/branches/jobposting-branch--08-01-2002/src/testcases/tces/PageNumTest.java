@@ -9,22 +9,39 @@ import java.io.*;
  * Tests flow of site. Each method represent a different page and will call all 
  * methods for pages before it to check all links leading to the page. Since 
  * there could be more than one path to a page, the actual path can be determine 
- * by setting the "FLOW PATH variables". When getting link from data table, 
+ * by setting the "from_x_x variables". When getting link from data table, 
  * always use link in first row.
+ * Used by PageNumTestView(application) and PageNumTestCase(JUnit TestCase).
+ * 
+ * For Node #, view below or "_site_flow.gif" in docs\tces 
+ *		page 1 - loginTask
+ *		page 2 - mainTask
+ *		page 3 - campaignDetailTask
+ *		page 4 - campaignInterestTask
+ *		page 5 - positionInterestTask
+ *		page 6 - overallDemographicInfoTask
+ *		page 7 - memberProfileTask
+ *		page 8 - individualDemographicInfoTask
+ *		page 9 - competitionHistoryTask
+ *		page 10 - problemSubmissionTask
+ *		page 11 - ratingHistoryTask
+ *		page 12 - overallRatingDistributionGraphTask
+ *		page 13 - competitionStatisticsTask
+ *		page 14 - problemStatisticsTask
+ *		page 15 - problemStatementTask
  *
  * @author Lai Kwan Wong <laikwanwong@hotmail.com> 
- * @version 1.0 - 8/27/2002
+ * @version 1.0 - 8/28/2002
  *
  */
 public class PageNumTest implements TestConst{
 
-	private static boolean showTableDetail;	// if set to true, each link in data table will be shown
+	// if set to true, each link in data table will be shown
+	private static boolean showTableDetail;	
 
 
-	// FLOW PATH variables
-
-	//	Path taken depends on from_x_x variables. Set them using access methods.
-	//	The to_x_x variables are set inside the methods to let previous page know which link to use.
+	//	from_x_x:	determines path taken. Set them using access methods.
+	//	to_x_x:		variables are set inside the page methods to let previous page know which link to use.
 	private int from_4_5	= 4,
 				from_10_13	= 10;
 	private int to_4_5		= 4,
@@ -77,6 +94,22 @@ public class PageNumTest implements TestConst{
 		return showTableDetail; 
 	}
 
+	// Response checking methods
+
+	public static boolean hasError(WebResponse resp)  throws IOException	{ 
+		if (resp==null)	{	return true; }
+		return (resp.getText().indexOf("Navigation Error")!=-1);
+	}
+
+	public static void checkResponse(WebResponse resp) throws IOException	{ 
+		if (resp==null)	{	
+			TestMessage.addDetailMessage("== Null Response =="); 
+		}else if (resp.getText().indexOf("Navigation Error")!=-1){
+			TestMessage.addDetailMessage("== Navigation Error =="); 
+		}else{
+			TestMessage.addDetailMessage("== Page Found =="); 
+		}
+	}
 
 	//===================================================
 	// Public Instance methods 
@@ -109,7 +142,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse loginTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= loginPage();
-			TestMessage.addDetailMessage( "<b>loginTask: </b>" );
+			TestMessage.addDetailMessage( "loginTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				WebForm form		= resp.getFormWithName( LOGIN_FORM );
@@ -129,7 +162,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse mainTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= loginTask();
-			TestMessage.addDetailMessage( "<b>mainTask: </b>" );
+			TestMessage.addDetailMessage( "mainTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				return getLinkOfRowWith(resp, mainTableRow, "task="+PAGE_2_TABLE_LINK_HREF);
@@ -146,7 +179,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse campaignDetailTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= mainTask();
-			TestMessage.addDetailMessage( "<b>campaignDetailTask: </b>" );
+			TestMessage.addDetailMessage( "campaignDetailTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				if(to_4_5 == 4){
@@ -168,7 +201,7 @@ public class PageNumTest implements TestConst{
 		try{
 			to_4_5 = 4;
 			WebResponse resp	= campaignDetailTask();
-			TestMessage.addDetailMessage( "<b>campaignInterestTask: </b>" );
+			TestMessage.addDetailMessage( "campaignInterestTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				if(to_6_7 == 6){
@@ -190,7 +223,7 @@ public class PageNumTest implements TestConst{
 		try{
 			to_4_5 = 5;
 			WebResponse resp	= campaignDetailTask();
-			TestMessage.addDetailMessage( "<b>positionInterestTask: </b>" );
+			TestMessage.addDetailMessage( "positionInterestTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				if(to_6_7 == 7){
@@ -216,7 +249,7 @@ public class PageNumTest implements TestConst{
 				resp	= campaignInterestTask();
 			else	
 				resp	= positionInterestTask();
-			TestMessage.addDetailMessage( "<b>overallDemographicInfoTask: </b>" );
+			TestMessage.addDetailMessage( "overallDemographicInfoTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 			}
@@ -236,7 +269,7 @@ public class PageNumTest implements TestConst{
 				resp	= campaignInterestTask();
 			else	
 				resp	= positionInterestTask();
-			TestMessage.addDetailMessage( "<b>memberProfileTask: </b>" );
+			TestMessage.addDetailMessage( "memberProfileTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				WebLink viewLink=null;
@@ -261,7 +294,7 @@ public class PageNumTest implements TestConst{
 		try{
 			to_8_9_10 = 8;
 			WebResponse resp	= memberProfileTask();
-			TestMessage.addDetailMessage( "<b>individualDemographicInfoTask: </b>" );
+			TestMessage.addDetailMessage( "individualDemographicInfoTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 			}
@@ -277,7 +310,7 @@ public class PageNumTest implements TestConst{
 		try{
 			to_8_9_10 = 9;
 			WebResponse resp	= memberProfileTask();
-			TestMessage.addDetailMessage( "<b>competitionHistoryTask: </b>" );
+			TestMessage.addDetailMessage( "competitionHistoryTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				WebLink viewLink=null;
@@ -302,7 +335,7 @@ public class PageNumTest implements TestConst{
 		try{
 			to_8_9_10 = 10;
 			WebResponse resp	= memberProfileTask();
-			TestMessage.addDetailMessage( "<b>problemSubmissionTask: </b>" );
+			TestMessage.addDetailMessage( "problemSubmissionTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				return getLinkOfRowWith(resp, problemSubmissionRow, "task="+PAGE_10_TABLE_LINK_HREF);
@@ -319,7 +352,7 @@ public class PageNumTest implements TestConst{
 		try{
 			to_11_12_13 = 11;
 			WebResponse resp	= competitionHistoryTask();
-			TestMessage.addDetailMessage( "<b>ratingHistoryTask: </b>" );
+			TestMessage.addDetailMessage( "ratingHistoryTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 			}
@@ -335,7 +368,7 @@ public class PageNumTest implements TestConst{
 		try{
 			to_11_12_13 = 12;
 			WebResponse resp	= competitionHistoryTask();
-			TestMessage.addDetailMessage( "<b>overallRatingDistributionGraphTask: </b>" );
+			TestMessage.addDetailMessage( "overallRatingDistributionGraphTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 			}
@@ -351,7 +384,7 @@ public class PageNumTest implements TestConst{
 		try{
 			to_11_12_13 = 13;
 			WebResponse resp	= competitionHistoryTask();
-			TestMessage.addDetailMessage( "<b>competitionStatisticsTask: </b>" );
+			TestMessage.addDetailMessage( "competitionStatisticsTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				return getLinkOfRowWith(resp, competitionStatsRow, "task="+PAGE_13_TABLE_LINK_HREF);
@@ -371,7 +404,7 @@ public class PageNumTest implements TestConst{
 				resp	= problemSubmissionTask();
 			else	
 				resp	= competitionStatisticsTask();
-			TestMessage.addDetailMessage( "<b>problemStatisticsTask: </b>" );
+			TestMessage.addDetailMessage( "problemStatisticsTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 				WebLink viewLink = resp.getLinkWith(PROB_STMT_LINK_TEXT);
@@ -388,7 +421,7 @@ public class PageNumTest implements TestConst{
 	public WebResponse problemStatementTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp	= problemStatisticsTask();
-			TestMessage.addDetailMessage( "<b>problemStatementTask: </b>" );
+			TestMessage.addDetailMessage( "problemStatementTask: " );
 			if(resp!=null){
 				TestMessage.addDetailMessage( resp.getURL() );
 			}

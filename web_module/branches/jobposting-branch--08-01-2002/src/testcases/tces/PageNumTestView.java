@@ -5,30 +5,49 @@ import java.util.*;
 
 
 /**
+ * Test page flow using class PageNumTest. 
+ * This is a independent app as oppose to PageNumTestCase. 
+ * Running this will create log output in an html file.
+ * For Node #, view class PageNumTest or "_site_flow.gif" in docs\tces 
+ * Run time: approx 3 min
+ *
  * @author Lai Kwan Wong <laikwanwong@hotmail.com> 
- * @version 1.0 - 8/27/2002
+ * @version 1.0 - 8/28/2002
  *
  */
-public class RunTest{
+public class PageNumTestView{
 	// main method 
 	public static void main(String args[]) {
-		pageNumTest();
+		System.out.println("PageNumTestView running.");
+		String fileName = pageNumTest();
+		if (fileName != null){
+			System.out.println("PageNumTestView successful.");
+			System.out.println("View File at: "+fileName);
+		}else{
+			System.out.println("PageNumTestView failed.");
+		}
 	}
 
 
-	public static void pageNumTest() {
+	public static String pageNumTest() {
 		try{
 			TestMessage.clearMessage();
 			long fileId = System.currentTimeMillis();
 			String beginTime = "Start Time: " + getCurrentTime();
+
 			pageNumTestEndNode();
 			pageNumTestMultPathNode();
+
 			String endTime = "End Time: " + getCurrentTime();
 
-			PrintWriter out = new PrintWriter(new FileOutputStream("result"+File.separatorChar+"PageNumTest"+fileId+".html"));
-			out.print(beginTime+"<br>"+endTime+"<br>"+TestMessage.getMessage());
+			String fileName = "result"+File.separatorChar+"PageNumTest"+fileId+".html";
+			PrintWriter out = new PrintWriter(new FileOutputStream(fileName));
+			out.print(beginTime+"<br>"+endTime+"<br>" + TestMessage.getTitle() + 
+					"<br><br><br>" + TestMessage.getMessage());
 			out.flush();	out.close();
+			return fileName;
 		}catch(IOException ioe){}
+		return null;
 	}
 
 	//		PageNumTest.setShowTableDetail(true);
@@ -37,15 +56,15 @@ public class RunTest{
 		try{
 		// Test end-node: 6, 8, 11, 12, 15
 			TestMessage.addSubTitleMessage("TESTING END-NODES: 6");
-			TestMessage.checkResponse((new PageNumTest()).overallDemographicInfoTask());	
+			PageNumTest.checkResponse((new PageNumTest()).overallDemographicInfoTask());	
 			TestMessage.addSubTitleMessage("TESTING END-NODES: 8");
-			TestMessage.checkResponse((new PageNumTest()).individualDemographicInfoTask());	
+			PageNumTest.checkResponse((new PageNumTest()).individualDemographicInfoTask());	
 			TestMessage.addSubTitleMessage("TESTING END-NODES: 11");
-			TestMessage.checkResponse((new PageNumTest()).ratingHistoryTask());	
+			PageNumTest.checkResponse((new PageNumTest()).ratingHistoryTask());	
 			TestMessage.addSubTitleMessage("TESTING END-NODES: 12");
-			TestMessage.checkResponse((new PageNumTest()).overallRatingDistributionGraphTask());	
+			PageNumTest.checkResponse((new PageNumTest()).overallRatingDistributionGraphTask());	
 			TestMessage.addSubTitleMessage("TESTING END-NODES: 15");
-			TestMessage.checkResponse((new PageNumTest()).problemStatementTask());	
+			PageNumTest.checkResponse((new PageNumTest()).problemStatementTask());	
 		}catch(org.xml.sax.SAXException se){
 		}catch(IOException ioe){
 		}
@@ -58,26 +77,26 @@ public class RunTest{
 			//	6 thru 4 & 5
 			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 6 thru 4");
 			pnt = new PageNumTest();	pnt.setFrom_4_5(4);			
-			TestMessage.checkResponse(pnt.overallDemographicInfoTask());	
+			PageNumTest.checkResponse(pnt.overallDemographicInfoTask());	
 			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 6 thru 5");
 			pnt = new PageNumTest();	pnt.setFrom_4_5(5);			
-			TestMessage.checkResponse(pnt.overallDemographicInfoTask());	
+			PageNumTest.checkResponse(pnt.overallDemographicInfoTask());	
 
 			//	7 thru 4 & 5
 			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 7 thru 4");
 			pnt = new PageNumTest();	pnt.setFrom_4_5(4);			
-			TestMessage.checkResponse(pnt.memberProfileTask());	
+			PageNumTest.checkResponse(pnt.memberProfileTask());	
 			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 7 thru 5");
 			pnt = new PageNumTest();	pnt.setFrom_4_5(5);			
-			TestMessage.checkResponse(pnt.memberProfileTask());	
+			PageNumTest.checkResponse(pnt.memberProfileTask());	
 
 			//	14 thru 13 & 10
 			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 14 thru 10");
 			pnt = new PageNumTest();	pnt.setFrom_10_13(10);		
-			TestMessage.checkResponse(pnt.problemStatisticsTask());	
+			PageNumTest.checkResponse(pnt.problemStatisticsTask());	
 			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 14 thru 13");
 			pnt = new PageNumTest();	pnt.setFrom_10_13(13);		
-			TestMessage.checkResponse(pnt.problemStatisticsTask());	
+			PageNumTest.checkResponse(pnt.problemStatisticsTask());	
 
 		}catch(org.xml.sax.SAXException se){
 		}catch(IOException ioe){
