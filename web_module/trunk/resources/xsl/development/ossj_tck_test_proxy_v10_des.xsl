@@ -236,32 +236,32 @@
 
                                             <tr>
                                                 <td class="sidebarText">Member Acceptance:</td>
-                                                <td class="sidebarText" align="right">01.22.2004</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Design Start:</td>
                                                 <td class="sidebarText" align="right">01.23.2004</td>
                                             </tr>
 
                                             <tr>
+                                                <td class="sidebarText">Design Start:</td>
+                                                <td class="sidebarText" align="right">01.26.2004</td>
+                                            </tr>
+
+                                            <tr>
                                                 <td class="sidebarText">Design Submissions Due:</td>
-                                                <td class="sidebarText" valign="top" align="right">01.30.2004</td>
+                                                <td class="sidebarText" valign="top" align="right">02.02.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Winner Announced:</td>
-                                                <td class="sidebarText" align="right">02.12.2004</td>
+                                                <td class="sidebarText" align="right">02.13.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Updated Submission Due Date:</td>
-                                                <td class="sidebarText" align="right">02.17.2004</td>
+                                                <td class="sidebarText" align="right">02.18.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Design Complete:</td>
-                                                <td class="sidebarText" align="right">02.23.2004</td>
+                                                <td class="sidebarText" align="right">02.24.2004</td>
                                             </tr>
 
                                             <tr>
