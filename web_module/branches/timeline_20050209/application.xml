@@ -69,6 +69,16 @@
     </module>
 
     <module>
+        <java>workdays.jar</java>
+    </module>
+    <module>
+        <java>project_phases.jar</java>
+    </module>
+    <module>
+        <java>typesafe_enum.jar</java>
+    </module>
+
+    <module>
         <web>
             <web-uri>dde.war</web-uri>
             <context-root>/</context-root>
