@@ -505,7 +505,7 @@ public class DataRetriever implements DataRetrieverInt {
                 String queryText = (String) queryTextMap.get(new Integer(queryIdList[i]));
                 for (int j=0; j<rowcount; j++) {
                     if (queryText.indexOf(DataAccessConstants.INPUT_DELIMITER +
-                            rsc.getItem(i, "input_code").toString() +
+                            rsc.getItem(j, "input_code").toString() +
                             DataAccessConstants.INPUT_DELIMITER) > -1) {
                         throw new Exception("Query input entries missing from database: " + queryText);
                     }
