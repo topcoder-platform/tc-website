@@ -2,6 +2,6 @@ package com.topcoder.shared.docGen.xml;
 
 public interface TagRenderer {
 
-  public RecordTag getXML();
+  public RecordTag getXML() throws Exception;
 
 }
