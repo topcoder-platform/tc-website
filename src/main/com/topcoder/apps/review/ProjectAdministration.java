@@ -38,6 +38,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Comparator;
 import java.util.Map;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -359,7 +360,7 @@ public class ProjectAdministration implements Model {
 
                 double max = -1.0;
                 User winner = null;
-                ReviewScorecard[] scorecards = documentManager.getReviewScorecard(newProject, user.getTCSubject());
+                final ReviewScorecard[] scorecards = documentManager.getReviewScorecard(newProject, user.getTCSubject());
 
                 for (int i = 0; i < submissions.length; i++) {
                     if (!submissions[i].isRemoved() && submissions[i].isPassedScreening()) {
@@ -404,7 +405,7 @@ public class ProjectAdministration implements Model {
                         documentManager.saveInitialSubmission(submissions[i], user.getTCSubject());
                     }
                 }
-                Item[] itemsTemp = (Item[])itemList.toArray(new Item[itemList.size()]);
+                Item[] items = (Item[])itemList.toArray(new Item[itemList.size()]);
 
                 // the winner must have at least MINSCORE (75.0 currently)
                 if (minscore < 0) {
@@ -415,84 +416,56 @@ public class ProjectAdministration implements Model {
                     return new FailureResult("Cannot establish winner because the maximum score is below " + minscore);
                 }
 
-                Arrays.sort(itemsTemp);
-                
-                Item[] items = new Item[itemsTemp.length];
-                //load data, breaking ties where applicable
-                for(int i = 0; i < itemsTemp.length;i++)
-                {
-                    if( (i+1) < itemsTemp.length && (itemsTemp[i+1].getScore() - itemsTemp[i].getScore()) < EPS)
-                    {
-                        ArrayList alTies = new ArrayList();
-                        alTies.add(itemsTemp[i]);
-                        int j = 1;
-                        while((i+j) < itemsTemp.length && (itemsTemp[i+j].getScore() - itemsTemp[i].getScore()) < EPS )
-                        {
-                            alTies.add(itemsTemp[i+j]);
-                            j++;
-                        }
-                        //generate tiebreaker values
-                        int[] vals = new int[alTies.size()];
-                        for(int y = 0; y < scorecards.length; y++)
-                        {
-                            for(int x = 0; x < alTies.size(); x++)
-                            {
-                                Item itm = (Item)alTies.get(x);
-
-                                    if(scorecards[y].getSubmission().equals(itm.getSubmission()) && scorecards[y].isCompleted())
+                Arrays.sort(items, new Comparator() {
+                            public int compare(Object obj1, Object obj2) {
+                                if(Double.compare(((Item) obj2).getSubmission().getFinalScore(),
+                                        ((Item) obj1).getSubmission().getFinalScore()) == 0)
+                                {
+                                    //break ties
+                                    int[] vals = new int[2];
+                                    for(int y = 0; y < scorecards.length; y++)
                                     {
-                                            double scr = scorecards[y].getScore();
-                                            boolean good = true;
-                                            for(int z = 0; z < scorecards.length; z++)
+                                            if(scorecards[y].getSubmission().equals(((Item)obj1).getSubmission()) && scorecards[y].isCompleted())
                                             {
-                                                if((!scorecards[z].getSubmission().equals(itm.getSubmission())) && scorecards[z].isCompleted() 
-                                                    && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS)
-                                                {
-                                                    for(int a = 0; a < alTies.size(); a++)
+                                                    double scr = scorecards[y].getScore();
+                                                    boolean good = true;
+                                                    for(int z = 0; z < scorecards.length; z++)
                                                     {
-                                                        if(((Item)alTies.get(a)).getSubmission().getSubmitter().getId() == scorecards[z].getSubmission().getSubmitter().getId())
+                                                        if((!scorecards[z].getSubmission().equals(((Item)obj1).getSubmission())) && scorecards[z].isCompleted() 
+                                                            && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
+                                                            && scorecards[z].getSubmission().getSubmitter().getId() == ((Item)obj2).getSubmission().getSubmitter().getId())
                                                         {
                                                             good = false;
                                                         }
                                                     }
-                                                }
+                                                    if(good)
+                                                        vals[0]++;
                                             }
-                                            if(good)
-                                                vals[x]++;
+                                            
+                                            if(scorecards[y].getSubmission().equals(((Item)obj2).getSubmission()) && scorecards[y].isCompleted())
+                                            {
+                                                    double scr = scorecards[y].getScore();
+                                                    boolean good = true;
+                                                    for(int z = 0; z < scorecards.length; z++)
+                                                    {
+                                                        if((!scorecards[z].getSubmission().equals(((Item)obj2).getSubmission())) && scorecards[z].isCompleted() 
+                                                            && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
+                                                            && scorecards[z].getSubmission().getSubmitter().getId() == ((Item)obj1).getSubmission().getSubmitter().getId())
+                                                        {
+                                                            good = false;
+                                                        }
+                                                    }
+                                                    if(good)
+                                                        vals[1]++;
+                                            }
                                     }
-                            }
-                        }
-                        
-                        for(int y = 0; y < j; y++)
-                        {
-                            LogHelper.log(((Item)alTies.get(y)).getSubmission().getSubmitter().getId() + "=" + vals[y]);
-                        }
-                        
-                        for(int y = 0; y < j; y++)
-                        {
-                            int ceil = Integer.MAX_VALUE;
-                            int mx = 0;
-                            int v = 0;
-                            for(int x = 0; x < vals.length; x++)
-                            {
-                                if(vals[x] < ceil && vals[x] > mx)
-                                {
-                                    v = x;
-                                    mx = vals[x];
+                                    return vals[0] - vals[1];
                                 }
-                            }
-                            ceil = mx;
-                            
-                            items[i++] = (Item)alTies.get(v);
-                        }
-                    
-                    }
-                    else
-                    {
-                        items[i] = itemsTemp[i];
-                    }
-                }
-                
+                                return Double.compare(((Item) obj2).getSubmission().getFinalScore(),
+                                        ((Item) obj1).getSubmission().getFinalScore());
+                            }});
+               
+
                 winner = items[0].getSubmission().getSubmitter();
                 
                 // set winner and assign permission to submit final fix for winner
