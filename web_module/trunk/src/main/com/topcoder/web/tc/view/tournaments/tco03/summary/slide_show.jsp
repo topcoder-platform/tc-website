@@ -129,8 +129,7 @@ function changeImage(place, imageIndex) {
             </div></p>
             
             <table cellpadding="0" cellspacing="5" border="0" align="center">
-                <tr valign="middle"><form name="blah" action="/tc">
-                    <td class="terciary">&lt;&lt; <a href="#" onClick="prevImage('slideImg');">previous</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <tr valign="middle"><form name="blah" action="/tc"><td class="terciary">&lt;&lt; <a href="#" onClick="prevImage('slideImg');">previous</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td class="terciary">
                         <input type="hidden" name="module" value="Static"/>
                         <input type="hidden" name="d1" value="tournaments"/>
@@ -143,8 +142,7 @@ function changeImage(place, imageIndex) {
                             //-->
                         </script>
                     </td>
-                    <td class="terciary">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onClick="nextImage('slideImg');">next</a> &gt;&gt;</td>
-                </form></tr>
+                    <td class="terciary">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onClick="nextImage('slideImg');">next</a> &gt;&gt;</td></form></tr>
             </table>
 
             <div align="center">
