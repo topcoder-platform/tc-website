@@ -24,7 +24,7 @@
 	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">ActivationSuccessful!</p>
+         <p class="pageTitle">Activation Successful!</p>
          <p>You have successfully activated your account.</p>
 
 		</td>
