@@ -589,20 +589,20 @@ Otherwise, there were no major issues. The Division-I Level 1 and Level 2 proble
      </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=fbi</xsl:attribute></A>  
+<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=fbi</xsl:attribute></A>  
 <IMG USEMAP="#artifact_home" SRC="/i/artifact/artifact_home.gif" alt="" width="244" height="160" border="0"/>  
-<BR/>
+  <BR/> -->
 <MAP NAME="artifact_home">
 <AREA ALT="Artifact Software" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>
 <!--<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4365&amp;t=schedule&amp;c=srm"/>-->
 <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
 </MAP>
+<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A>
 <A HREF="/?&amp;t=development&amp;c=index">
-<IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
+<IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="1" BORDER="0"/></A>
 <!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
 <IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A> -->
-<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/> -->
  
 <xsl:call-template name="my_stats"/> 
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
