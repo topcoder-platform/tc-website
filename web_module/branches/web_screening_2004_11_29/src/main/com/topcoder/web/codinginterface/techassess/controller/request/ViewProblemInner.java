@@ -20,6 +20,7 @@ public class ViewProblemInner extends Base {
             if (hasParameter(Constants.MESSAGE_ID)) {
                 String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
                 loadSessionDefaultsIntoRequest(messageId, false);
+                loadSessionErrorsIntoRequest(messageId);
                 if (hasDefault(Constants.PROBLEM)) {
                     getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
                     getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));

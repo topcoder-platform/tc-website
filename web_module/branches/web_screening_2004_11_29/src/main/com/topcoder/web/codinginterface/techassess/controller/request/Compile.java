@@ -43,16 +43,13 @@ public class Compile extends Base {
             }
 
             if (hasParameter(Constants.LANGUAGE_ID)) {
-                problemTypeId = Integer.parseInt(getRequest().getParameter(Constants.LANGUAGE_ID).trim());
+                languageId = Integer.parseInt(getRequest().getParameter(Constants.LANGUAGE_ID).trim());
             } else {
                 throw new NavigationException("Invalid Request, missing parameter");
             }
 
-            if (hasParameter(Constants.CODE)) {
-                problemTypeId = Integer.parseInt(getRequest().getParameter(Constants.CODE).trim());
-            } else {
-                throw new NavigationException("Invalid Request, missing parameter");
-            }
+            if (hasParameter(Constants.CODE))
+                code = getRequest().getParameter(Constants.CODE);
 
 
             ScreeningCompileRequest request = new ScreeningCompileRequest(componentId, problemTypeId, languageId, code);
