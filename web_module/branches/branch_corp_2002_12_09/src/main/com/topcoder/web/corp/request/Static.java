@@ -12,19 +12,19 @@ import java.util.Enumeration;
 * validates them, and then begin to process them.  In the above example, 
 * that would mean the static processor should serve up
 * <document_root>/statistics/tourney_overview/myPage.jsp
-* @version   1.3
+* @version   1.4
 * @author    Daniel Cohn
 */
 public class Static extends BaseProcessor { 
-    
+
+    private static final String PREFIX = "d";  // Prefix for parameters
+
     /** Constructor sets pageInContext to true since all Static pages are in
      *  the same context 
      */
     public Static() {
         pageInContext = true; 
     }
-
-    private final String STATIC_PREFIX = "d";  // Prefix for parameters
 
     /** process() method in BaseProcessor calls this businessProcessing() 
      *  method to define the next Page.
@@ -44,35 +44,30 @@ public class Static extends BaseProcessor {
      */ 
     private String requestProcessor() throws Exception {
 
-        int levelsDeep = levelsDeep();  // see method below
-        
-        String page = request.getParameter(STATIC_PREFIX+levelsDeep);
-        if (page == null) {
-            throw new Exception
-                   ("no page specified in request.");
-        }
+        boolean found = true;
+        String cur = null;
 
         /* start generating the return string containing the URL.    */
-        StringBuffer ret = new StringBuffer("/");
-        for (int i=1; i<levelsDeep; i++) {
-            String cur = request.getParameter(STATIC_PREFIX+i);
-            if (cur == null || cur.equals("")) {
-                throw new Exception (
-                    "parameter \"" + STATIC_PREFIX + i + 
-                    "\" was not found in request.");
+        StringBuffer ret = new StringBuffer();
+        for (int i=1; !found; ++i) {
+            cur = request.getParameter(PREFIX+i);
+            if (cur == null) {
+                found = false;
             }
-            int check = validParameter(cur);  // returns -1 if valid.
-            if (check == -1) { 
-                ret.append(cur+"/");
-            }
-            else {
-                char invalidChar = cur.charAt(check);
-                throw new Exception ( 
-                    "parameter #" + i + ": \"" + cur + 
-                    "\" invalid character found: '" + invalidChar + "'.");
+            else { 
+                int check = validParameter(cur);  // returns -1 if valid.
+                if (check == -1) { 
+                    ret.append("/"+cur);
+                }
+                else {
+                    char invalidChar = cur.charAt(check);
+                    throw new Exception ( 
+                        "parameter #" + i + ": \"" + cur + 
+                        "\" invalid character found: '" + invalidChar + "'.");
+                }
             }
         }
-        ret.append(page + ".jsp");
+        ret.append(".jsp");
         return ret.toString();
     }
 
@@ -90,28 +85,5 @@ public class Static extends BaseProcessor {
                 return i;
         }
         return -1;
-    }
-
-
-    /** Determine how many STATIC_PREFIX levels the static address has, 
-     *  ie: /statistics/tourney_overview/myPage.jsp page is 3 
-     *  static levels deep.                                       
-     * @return total levels deep of request (int).
-     */
-    private int levelsDeep() {
-        int curIndex = 0;
-        int lastIndex = 0;
-        int pL = STATIC_PREFIX.length();
-        Enumeration keys = request.getParameterNames(); 
-        while (keys.hasMoreElements()) {
-            String current = (String)keys.nextElement();
-            if (current.startsWith(STATIC_PREFIX)) { 
-                try { 
-                    curIndex = Integer.parseInt(current.substring(pL));
-                } catch (NumberFormatException e) { } // do nothing;
-            if (curIndex > lastIndex) { lastIndex = curIndex; }
-            }
-        }
-        return lastIndex;
     }
 }
