@@ -59,7 +59,7 @@
             <div align="center">
             <table border="0" cellpadding="5" cellspacing="0">
                 <tr>
-                    <td colspan="2" class="bodyText"><strong>Wednesday, December 3</strong></td>
+                    <td colspan="2" class="bodyText" bgcolor="#EEEEEE"><strong>Wednesday, December 3</strong></td>
                 </tr>
                 
                 <tr>
@@ -72,7 +72,7 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2" class="bodyText"><strong>Thursday, December 4</strong></td>
+                    <td colspan="2" class="bodyText" bgcolor="#EEEEEE"><strong>Thursday, December 4</strong></td>
                 </tr>
                 
                 <tr>
@@ -119,7 +119,7 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2" class="bodyText"><strong>Friday, December 5</strong></td>
+                    <td colspan="2" class="bodyText" bgcolor="#EEEEEE"><strong>Friday, December 5</strong></td>
                 </tr>
                 
                 <tr>
