@@ -8,7 +8,6 @@
   <head>
     <title></title>
     <META HTTP-EQUIV=Refresh CONTENT="600; URL=<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=CurrentTime">
-    <script language="JavaScript" type="text/javascript" src="/js/techassess.js"></script>
   </head>
   <body>
     <script language="javascript">
@@ -94,7 +93,6 @@
         }
 
         function updateDivOrSpan(root, name, text) {
-            alert(root + "\n"+name+"\n"+text);
             if(root.getElementById) {
                 root.getElementById(name).innerHTML = text;
             } else {
