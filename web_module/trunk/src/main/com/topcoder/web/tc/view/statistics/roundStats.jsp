@@ -1,6 +1,7 @@
 <%@ page 
   language="java"
-  import="java.net.URLEncoder,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="java.net.URLEncoder,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.common.web.data.Navigation"
 
 %>
 
@@ -19,7 +20,6 @@ boolean bSorted = sContentHandle.endsWith("_sorted");
 if (bSorted) 
   sContentHandle = sContentHandle.substring(0, sContentHandle.indexOf("_sorted"));
 
-boolean bRequireLogin = sContentHandle.startsWith("round_stats");
 %>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
@@ -103,14 +103,14 @@ function goTo(selection){
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-            <% if (bRequireLogin) { %>
+            <% if (srb.getProperty("rd")==null) { %>
                 <jsp:include page="../includes/global_left.jsp">
                     <jsp:param name="level1" value="statistics"/>
+                    <jsp:param name="level2" value="last_match"/>
                 </jsp:include>
             <% } else { %>
                 <jsp:include page="../includes/global_left.jsp">
                     <jsp:param name="level1" value="statistics"/>
-                    <jsp:param name="level2" value="last_match"/>
                 </jsp:include>
             <% } %>
        </TD>
@@ -124,7 +124,7 @@ function goTo(selection){
              <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
              <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
              <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;<%= bRequireLogin?"Round Statistics":"Last Match Results"%>&#160;&#160;</SPAN>
+               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;<%= srb.getProperty("rd")==null?"Last Match Results":"Round Statistics"%>&#160;&#160;</SPAN>
              </TD>
              <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
            </TR>
@@ -135,7 +135,7 @@ function goTo(selection){
 
 <%
 String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("round_id").toString();
-if (bRequireLogin){
+if (((Navigation)request.getAttribute("navigation")).isIdentified()){
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
 %>
