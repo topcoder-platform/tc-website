@@ -38,6 +38,15 @@
       <required>false</required>
     </attribute>
 
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+    </attribute>
+
+    <attribute>
+      <name>onKeyPress</name>
+      <required>false</required>
+    </attribute>
   </tag>
 
   <tag>

@@ -5,6 +5,8 @@ public class TextInputTag extends BaseTag {
     private int size = -1;
     private int maxlength = -1;
     private boolean passw = false;
+    private String aclass = null;
+    private String onKeyPress = null;
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
@@ -16,6 +18,12 @@ public class TextInputTag extends BaseTag {
             }
             if( maxlength >= 0 ) {
                 ret.append("maxlength=\"").append(maxlength).append("\" ");
+            }
+            if(aclass != null) {
+                ret.append("class=\"").append(aclass).append("\" ");
+            }
+            if(onKeyPress != null) {
+                ret.append("onKeyPress=\"").append(onKeyPress).append("\" ");
             }
 
             if(value == null) {
@@ -63,4 +71,20 @@ public class TextInputTag extends BaseTag {
     public void setPassw(boolean passw) {
         this.passw = passw;
     }
+    /**
+     * Sets the aclass.
+     * @param aclass The aclass to set
+     */
+    public void setClass(String aclass) {
+        this.aclass = aclass;
+    }
+
+    /**
+     * Sets the onKeyPress.
+     * @param onKeyPress The onKeyPress to set
+     */
+    public void setOnKeyPress(String onKeyPress) {
+        this.onKeyPress = onKeyPress;
+    }
+
 }

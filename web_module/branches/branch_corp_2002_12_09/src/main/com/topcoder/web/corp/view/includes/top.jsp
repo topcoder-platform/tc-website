@@ -17,7 +17,7 @@
                 <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160;
 <% if( auth.getUser().isAnonymous() ) {  // no logged user
  %>
-                <A HREF="<%=appContext%>/?module=Static&d1=Login" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
+                <A HREF="<%=appContext%>/?module=Static&d1=LoginPage" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
 <% }
    else {
  %>

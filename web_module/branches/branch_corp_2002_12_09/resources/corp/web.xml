@@ -20,13 +20,13 @@
   |
   -->
   <init-param>
-    <param-name>processor-static</param-name>
+    <param-name>processor-Static</param-name>
     <param-value>com.topcoder.web.corp.request.Static</param-value>
     <description>handles static pages</description>
   </init-param>
 
   <init-param>
-    <param-name>processor-prim-reg</param-name>
+    <param-name>processor-Registration</param-name>
     <param-value>com.topcoder.web.corp.request.Registration</param-value>
     <description>handles primary registration page</description>
   </init-param>
@@ -44,19 +44,13 @@
   </init-param>
 
   <init-param>
-    <param-name>processor-try</param-name>
-    <param-value>com.topcoder.web.corp.request.TrySecurity</param-value>
-    <description>handles user list page</description>
-  </init-param>
-
-  <init-param>
-    <param-name>processor-login</param-name>
+    <param-name>processor-Login</param-name>
     <param-value>com.topcoder.web.corp.request.Login</param-value>
     <description>handles user list page</description>
   </init-param>
 
   <init-param>
-    <param-name>processor-logout</param-name>
+    <param-name>processor-Logout</param-name>
     <param-value>com.topcoder.web.corp.request.Logout</param-value>
     <description>handles user list page</description>
   </init-param>

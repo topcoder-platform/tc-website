@@ -620,12 +620,6 @@
             <param name="unit-jar-name" value="company"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
         </antcall>
-
-        <!-- CountryMgr bean -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="country"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/country"/>
-        </antcall>
     </target>
     
     <target name="build-ejb-unit" depends="compile">

@@ -148,22 +148,13 @@ public class BasicAuthentication implements WebAuthentication {
     }
     
     /**
-     * Get current user logged out. This method does not drop pre-identification
-     * cookies.
-	 * @see com.topcoder.shared.security.Authentication#logout()
+     * Get current user logged out and also clears pre-identification cookies in
+     * addition to basic interface functionality.
+     * @see com. topcoder.shared.security. Authentication#logout()
      */
     public void logout() {
         store.removeObject(KEY_LOGGEDIN_USER);
-    }
-    
-    /**
-     * @see com.topcoder.web.common.security.WebAuthentication#logout(boolean)
-     */
-    public void logout(boolean clearCookies) {
-        logout();
-        if( clearCookies ) {
-            embedPreIDCookies(-1, true);
-        }
+        embedPreIDCookies(-1, true);
     }
     
     /**

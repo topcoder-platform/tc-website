@@ -28,14 +28,4 @@ public interface WebAuthentication extends Authentication {
      * reasons.
      */
     public User getActiveUser();
-    
-    /**
-     * Extends logout() method of super type providing additional functionality
-     * as clearing pre-identification cookies when clearCookies parameter is
-     * true.
-     * 
-     * @param clearCookies if true, then pre-identification cookies will be
-     * cleared upon logout, otherwise cookies will remain in place
-     */
-    public void logout(boolean clearCookies);
 }

@@ -69,7 +69,7 @@ public class Registration extends BaseProcessor {
     	// for all methods except POST
     	//just return form to the user
     	if( ! "POST".equals(request.getMethod()) ) {
-    		nextPage = "/reg/prim-reg.jsp";
+    		nextPage = "/reg/Registration.jsp";
     		return;
     	}
     	
@@ -98,11 +98,11 @@ public class Registration extends BaseProcessor {
         	log.debug("data entered seem to be valid");
 
         	makePersistent();
-            nextPage = "/reg/success.jsp";
+            nextPage = "/reg/RegSuccess.jsp";
         }
         else {
         	log.debug("invalid data entered");
-            nextPage = "/reg/prim-reg.jsp";
+            nextPage = "/reg/Registration.jsp";
         }
     }
     
