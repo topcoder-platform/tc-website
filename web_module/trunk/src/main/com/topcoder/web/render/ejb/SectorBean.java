@@ -25,7 +25,6 @@ public class SectorBean implements javax.ejb.SessionBean {
   public SessionContext  context = null;
   public static int  MAXSIZE = -1;
   public static final DecimalFormat  fmt0 = new DecimalFormat( "0000000000" );
-        private static final boolean VERBOSE = true;
 
   public String getKey( Integer sector_id ) {
     String  key = "";
@@ -113,7 +112,6 @@ public class SectorBean implements javax.ejb.SessionBean {
       break;
 
     case Sector.SELECT:
-                        if (VERBOSE ) System.out.println ( obj.sector_id );
       obj = getRecord( obj.sector_id );
       if( obj == null )
         throw new EJBException(
@@ -164,7 +162,6 @@ public class SectorBean implements javax.ejb.SessionBean {
     PreparedStatement  ps = null;
     ResultSet  rs = null;
     SectorObject  obj = null;
-    if (VERBOSE ) System.out.println ( "getRecord=" + sector_id );
     try {
       String  key = getKey( sector_id );
       SectorObjectWrapper  wobj = (SectorObjectWrapper) cache.get( key );
@@ -174,7 +171,6 @@ public class SectorBean implements javax.ejb.SessionBean {
       }
       obj = new SectorObject();
       String  query = "SELECT * FROM SECTOR WHERE SECTOR_ID = " + sector_id;
-      if ( VERBOSE ) System.out.println ( "query=" + query );
       conn = com.topcoder.common.DBMS.getConnection();
       ps = conn.prepareStatement ( query );
       rs = ps.executeQuery();
