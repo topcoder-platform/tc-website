@@ -297,7 +297,6 @@
               {
                 ocl = document.profileListForm[othercol].length;
                 cl = document.profileListForm[col].length;
-                var s1=0;
                 if(s1< document.profileListForm[col].options.length){
 
                   pText = document.profileListForm[col].options[sl].text;
