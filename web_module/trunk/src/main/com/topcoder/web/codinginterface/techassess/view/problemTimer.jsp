@@ -34,7 +34,7 @@ if (o!=null) {
                     %> ids[<%=i%>] = 'problemTimer<%=((ProblemInfo)problems.get(i)).getComponentId()%>'; <%
                     %> types[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getProblemTypeId()%>; <%
                     %> startTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getStartTime()%>; <%
-                    %> statuses[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getStatusDesc()%>; <%
+                    %> statuses[<%=i%>] = '<%=((ProblemInfo)problems.get(i)).getStatusDesc()%>'; <%
                 }
         %>
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
