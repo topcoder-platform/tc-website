@@ -99,12 +99,7 @@ public class Controller extends HttpServlet {
             }
         } catch (AuthenticationException authex) {
             log.debug(authex.getMessage());
-            try {
-                Authentication.attemptLogin("","",ctx,request.getSession(true),
-                        request.getContextPath()+request.getServletPath()+"?"+request.getQueryString());
-            } catch (AuthenticationException e) {
-                forwardToLoginPage(request, response);
-            }
+            forwardToLoginPage(request, response);
         } catch (ClassNotFoundException cnfex) {
             forwardToErrorPage(request, response, cnfex);
         } catch (NamingException ex) {
