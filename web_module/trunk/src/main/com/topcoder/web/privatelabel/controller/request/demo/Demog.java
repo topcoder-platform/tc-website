@@ -88,6 +88,13 @@ public class Demog extends FullRegDemog {
         removeError(Constants.PASSWORD);
         removeError(Constants.PASSWORD_CONFIRM);
         
+        //make a bunch of fields not required
+        removeError(Constants.EMAIL);
+        removeError(Constants.ADDRESS1);
+        removeError(Constants.COUNTRY_CODE);
+        removeError(Constants.CITY);
+        removeError(Constants.PHONE_NUMBER);
+        
         info.setPassword(generatePassword());
         info.setPasswordConfirm(info.getPassword());
         
