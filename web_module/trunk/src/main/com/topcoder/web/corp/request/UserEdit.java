@@ -31,7 +31,6 @@ import javax.sql.DataSource;
 import javax.transaction.Transaction;
 import java.rmi.RemoteException;
 import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -555,37 +554,34 @@ public class UserEdit extends BaseProcessor {
             throws RemoteException, GeneralSecurityException, MisconfigurationException {
         UserPrincipal securityUser = null;
         securityUser = secTok.man.createUser(userName, password, secTok.requestor);
-        Iterator groups = secTok.man.getGroups(secTok.requestor).iterator();
-        GroupPrincipal group = null;
-        while (groups.hasNext()) {
-            group = (GroupPrincipal) groups.next();
-            if (group.getName().equalsIgnoreCase(Constants.CORP_GROUP)) break;
+        Object[] groups = secTok.man.getGroups(secTok.requestor).toArray();
+        GroupPrincipal corpGroup = null;
+        GroupPrincipal anonGroup = null;
+        GroupPrincipal userGroup = null;
+        for (int i=0; i<groups.length; i++) {
+            if (((GroupPrincipal)groups[i]).getName().equals(Constants.CORP_GROUP)) {
+                corpGroup = (GroupPrincipal)groups[i];
+            } else if (((GroupPrincipal)groups[i]).getName().equals(Constants.CORP_ANONYMOUS_GROUP)) {
+                anonGroup = (GroupPrincipal)groups[i];
+            } else if (((GroupPrincipal)groups[i]).getName().equals(Constants.SOFTWARE_USER_GROUP)) {
+                userGroup = (GroupPrincipal)groups[i];
+            }
         }
-        if (group == null) {
-            throw new MisconfigurationException(
-                    "Can't find corporate group '" + Constants.CORP_GROUP + "'"
-            );
+        if (corpGroup == null) {
+            throw new MisconfigurationException("Can't find corporate group '" + Constants.CORP_GROUP + "'");
+        } else if (anonGroup == null) {
+            throw new MisconfigurationException("Can't find anonymous group '" + Constants.CORP_ANONYMOUS_GROUP + "'");
+        } else if (userGroup == null) {
+            throw new MisconfigurationException("Can't find software user group '" + Constants.SOFTWARE_USER_GROUP + "'");
         }
 
         log.debug("including to the corporate group");
-        secTok.man.addUserToGroup(group, securityUser, secTok.requestor);
-
-        // as requested add user to the anonymous group
-        groups = secTok.man.getGroups(secTok.requestor).iterator();
-        group = null;
-        while (groups.hasNext()) {
-            group = (GroupPrincipal) groups.next();
-            if (group.getName().equalsIgnoreCase(Constants.CORP_ANONYMOUS_GROUP)) {
-                break;
-            }
-        }
-        if (group == null) {
-            throw new MisconfigurationException(
-                    "Can't find anonymous group '" + Constants.CORP_ANONYMOUS_GROUP + "'"
-            );
-        }
+        secTok.man.addUserToGroup(corpGroup, securityUser, secTok.requestor);
         log.debug("including to the anonymous group");
-        secTok.man.addUserToGroup(group, securityUser, secTok.requestor);
+        secTok.man.addUserToGroup(anonGroup, securityUser, secTok.requestor);
+        log.debug("including to the software user group");
+        secTok.man.addUserToGroup(userGroup, securityUser, secTok.requestor);
+
         return securityUser;
     }
 

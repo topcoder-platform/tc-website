@@ -12,12 +12,19 @@ import com.topcoder.web.ejb.password.PasswordRemote;
 import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.UserPrincipal;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Collection;
+import java.util.Iterator;
 
 
 final class UserDb {
@@ -100,6 +107,30 @@ final class UserDb {
                 log.error("insertUser():did not update security user record");
             }
 
+            InitialContext ctx = new InitialContext();
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            TCSubject tcs = new TCSubject(132456);
+            Collection groups = pmr.getGroups(tcs);
+            GroupPrincipal anonGroup = null;
+            GroupPrincipal userGroup = null;
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                anonGroup = (GroupPrincipal) iterator.next();
+                if (anonGroup.getName().equals("Anonymous")) {
+                    break;
+                }
+            }
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                userGroup = (GroupPrincipal) iterator.next();
+                if (anonGroup.getName().equals("Users")) {
+                    break;
+                }
+            }
+
+            UserPrincipal up = pmr.getUser(user.getUserId());
+            pmr.addUserToGroup(anonGroup, up, tcs);
+            pmr.addUserToGroup(userGroup, up, tcs);
+
 
             HashMap userTypeDetails = user.getUserTypeDetails();
             if (userTypeDetails.containsKey("Coder")) {
@@ -107,7 +138,6 @@ final class UserDb {
                 coder.setCoderId(user.getUserId());
 
                 /* make inserts for common db */
-                InitialContext ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
                 Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
                 userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0));
