@@ -81,7 +81,7 @@ sub = NavZone.getLevel1();
         <%=subitem("?module=Statistics&c=coder_ratings", "Coder Rankings", "coder_ratings")%>
         <%=subitem("?module=Statistics&c=school_round_rank", "High School Rankings", "school_round_rank")%>
         <%=subitem("?module=Statistics&c=ratings_history&cr="+SessionInfo.getUserId(), "Rating History", "ratings_history")%>
-        <%=subitem("?module=Static&d1=articles&d2=m_edi", "Match Editorials", "m_edi")%>
+<%--        <%=subitem("?module=Static&d1=articles&d2=m_edi", "Match Editorials", "m_edi")%> --%>
         <%=subitem("?module=Statistics&c=school_round_stats&hs="+SessionInfo.getSchoolId(), "High School Round Stats", "school_round_stats")%>
         <%=subitem("?module=Statistics&c=round_overview", "Round Overview", "round_overview")%>
         <%=subitem("?module=Statistics&c=round_stats", "Round Stats", "round_stats")%>
