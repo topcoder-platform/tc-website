@@ -67,12 +67,10 @@ an opportunity to showcase their competition achievements and be able to upload 
 </P>
 
 <P>
-While the program is open to all members, regardless of rating status, rated members will have a 
-distinct advantage over non-rated members since potential employers will be able to view their competition 
-statistics and code samples, in addition to any uploaded resume information. In line with TopCoder's 
-overall philosophy, this will allow companies to differentiate coders who would otherwise look the same 
-on paper. Non-rated members wishing to obtain a rating should review the <A HREF="/?&amp;t=schedule&amp;c=index" CLASS="bodyText">competition calendar</A> for the 
-next Single Round Match date.
+The ability to apply for a job at TopCoder is restricted to rated members. In line with TopCoder's overall philosophy, this policy allows companies to differentiate coders who otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the competition calendar for the next Single Round Match. 
+</P>
+<P>
+<A HREF="/?&amp;t=schedule&amp;c=index" CLASS="bodyText">Click here</A> for a complete list of upcoming Single Round Matches.
 </P>
 <BR/>
 
