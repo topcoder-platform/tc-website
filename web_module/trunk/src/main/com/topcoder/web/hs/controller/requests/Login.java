@@ -40,7 +40,7 @@ public class Login extends Base {
 
                     auth.login(new SimpleUser(0, username, password));
 
-                    if (!hasActiveAccount(username)) throw new LoginException("Account is not active.");
+                    if (!hasActiveAccount(username)) throw new LoginException("Sorry, your account is not active.");
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
                     String dest = Constants.checkNull(request.getParameter("nextpage"));
