@@ -146,9 +146,11 @@
                       <LI>All US* Citizens</LI>
                       <LI>All Lawful Permanent Residents of the US (i.e., Green Card Holders)</LI>
                       <LI>All Citizens and Legal Permanent Residents of Canada, excluding Quebec</LI>
+                      <LI>All Citizens and Legal Permanent Residents of China</LI>                      
                       <LI>All Citizens and Legal Permanent Residents of Australia</LI>
                       <LI>All Citizens and Legal Permanent Residents of India</LI>
                       <LI>All Citizens and Legal Permanent Residents of Ireland</LI>
+                      <LI>All Citizens and Legal Permanent Residents of New Zealand</LI>                      
                       <LI>All Citizens and Legal Permanent Residents of the United Kingdom</LI>
                       <LI>All non-immigrants** currently residing in the US with a valid Visa</LI></UL>
                       *(including the US Territories of Guam, Puerto Rico and the US Virgin Islands)<BR/>
