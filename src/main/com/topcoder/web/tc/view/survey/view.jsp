@@ -81,9 +81,9 @@
                      <p><br/></p>
                   </tc:questionIterator> 
                      <table class="bodyText" align="center">
-                        <tr><td><a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="60" height="18" border="0"/></a>
+                        <tr><td><a href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img src="/i/results.gif" width="60" height="18" border="0"/></a>
                                      <img src="/i/clear.gif" width="10" height="18" border="0"/>
-                                     <a href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img src="/i/results.gif" width="60" height="18" border="0"/></a>
+                                     <a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="60" height="18" border="0"/></a>
                                </td>
                         </tr>
                      </table>
