@@ -164,9 +164,9 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05
                 <tr><td class=problem colspan=5 align=right><p class=bodyText><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_description">back to the Spectator Showdown details</A>
 				</p></td></tr>
 				<tr>
-                    <td class="problem" align=center colspan=2>Problem Set 1</td>
+                    <td class="problem" align=center colspan=2>Day 1</td>
                     <td class="problem" ></td>
-                    <td class="problem" align=center colspan=2>Problem Set 2</td>
+                    <td class="problem" align=center colspan=2>Day 2</td>
                 </tr>
                 <tr>
                     <td valign=top class="leaderParentL" style="border-collapse: collapse" width="25%">
