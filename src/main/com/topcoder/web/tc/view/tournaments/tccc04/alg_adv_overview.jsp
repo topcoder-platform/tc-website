@@ -1,3 +1,6 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map,
+                 com.topcoder.web.common.StringUtils"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -6,8 +9,12 @@
 
 <jsp:include page="../../script.jsp" />
 
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc04_bracket"); %>
+
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -44,43 +51,61 @@
 </jsp:include>
 
             <h2>Overview</h2>
-            
+
             <p>This will be Dok's advancers/elimination page.</p>
 
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="">Seed</a></td>
-                    <td width = "15%" class="brac_head"><a class="topLink" href="">Handle</a></td>
-                    <td width = "5%" align = "right" class="brac_head"><a class="topLink" href="">Rating</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="">Round 1</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="">Round 2</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="">Round 3</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="">Round 4</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="">Semi</a></td>
-                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="">Final</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=seed">Seed</a></td>
+                    <td width = "15%" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=handle_sort">Handle</a></td>
+                    <td width = "5%" align = "right" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=desc&sc=rating">Rating</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=round1_sort">Round 1</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=round2_sort">Round 2</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=round3_sort">Round 3</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=round4_sort">Round 4</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=semi_sort">Semi</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=alg_adv_overview&trans=true&sd=asc&sc=finals_sort">Final</a></td>
                 </tr>
-                <tr>
-                    <td align="center" class="formHandleEven">seed</td>
-                    <td class="formHandleEven"><A HREF="">Handle</A></td>
-                    <td class="formHandleEven">rating</td>
-                    <td class="advanceDk">advanced</td>
-                    <td class="advanceDk">advanced</td>
-                    <td class="advanceDk">advanced</td>
-                    <td class="eliminateDk">eliminated</td>
-                    <td class="eliminateDk">&#160;</td>
-                    <td class="eliminateDk">&#160;</td>
-                </tr>
-                <tr>
-                    <td align="center" class="formHandleOdd">seed</td>
-                    <td class="formHandleOdd"><A HREF="">Handle</A></td>
-                    <td class="formHandleOdd">rating</td>
-                    <td class="advanceLt">advanced</td>
-                    <td class="advanceLt">advanced</td>
-                    <td class="advanceLt">advanced</td>
-                    <td class="eliminateLt">eliminated</td>
-                    <td class="eliminateLt">&#160;</td>
-                    <td class="eliminateLt">&#160;</td>
-                </tr>
+
+               <%-- formatting this crappy to save space in the download to the client --%>
+                <%boolean even = false;%>
+                <rsc:iterator list="<%=rsc%>" id="resultRow">
+<td align="center" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td class="<%=even?"formHandleEven":"formHandleOdd"%>" ><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+<td class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="rating" row="<%=resultRow%>"/></td>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
+<% } %>
+</tr>
+<%even=!even;%>
+</rsc:iterator>
             </table>
 
 
