@@ -138,9 +138,8 @@
          
 <!-- Right Column-->
         <td width=170 align=right>
-        	<a href="/"><img src="/i/tournament/tco04/topcoder_logo.gif" width=170 height=24 border=0></a><br/>
             <jsp:include page="../../public_right.jsp">
-            <jsp:param name="level1" value="privatelabel"/>
+            <jsp:param name="level1" value="tco04"/>
             </jsp:include>
          </td>
 		
