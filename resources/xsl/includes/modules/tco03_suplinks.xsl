@@ -5,7 +5,7 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                    <td width="33%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
+                    <td width="28%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 
 <!-- Coding tab -->
             <xsl:choose>
@@ -17,7 +17,7 @@
                 </xsl:otherwise>
             </xsl:choose>
             
-            <td width="33%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
+            <td width="44%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 
 
 <!-- Component tab -->
@@ -30,7 +30,7 @@
                 </xsl:otherwise>
             </xsl:choose>
 
-                    <td width="33%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
+                    <td width="28%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
                </tr>
             </table>
 

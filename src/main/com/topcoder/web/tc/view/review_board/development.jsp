@@ -277,7 +277,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=302018"><img src="/i/m/Tomson _mug.gif" alt="Tomson " width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=302018"><img src="/i/m/Tomson_mug.gif" alt="Tomson" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=302018"><strong>Tomson</strong></a><span class="smallText"> attends the Shanghai Jiaotong University.  In high school, he was the runner-up in the National Olympic of Information and won the first-class prize in the National Physics Olympics.</span>
