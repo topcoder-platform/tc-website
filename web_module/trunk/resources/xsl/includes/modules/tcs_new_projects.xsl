@@ -46,14 +46,14 @@
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+							<!-- <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=encrypt-design">Encryption:&#160;Design</a></td>
 								<td background="" class="statText" align="center">12.11.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
+							</tr> -->
 
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
