@@ -25,6 +25,8 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
     public DBSelectionTask() {
         super();
         dbList = new ArrayList();
+        dbList.add(DBMS.OLTP_DATASOURCE_NAME);
+        dbList.add(DBMS.DW_DATASOURCE_NAME);
     }
 
 
@@ -41,8 +43,6 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
     }
 
     public void process(String step) throws Exception {
-        dbList.add(DBMS.OLTP_DATASOURCE_NAME);
-        dbList.add(DBMS.DW_DATASOURCE_NAME);
         super.setNextPage(Constants.COMMAND_LIST_PAGE);
     }
 
