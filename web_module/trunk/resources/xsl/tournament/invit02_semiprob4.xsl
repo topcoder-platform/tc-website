@@ -69,25 +69,25 @@
 <P>
 Friday, November 22, 2002
 </P>
-              
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
+    <P><BR/></P><A NAME="Traffic"></A>
+    <FONT SIZE="+2"><B>Traffic</B></FONT><BR/>
+    <FONT SIZE="-1">Used as: Level 1</FONT><H4>Implementation</H4><P>
+This problem was a pretty straightforward simulation.  You basically just have to follow the instructions and go from one stop light to the next.
+It takes you 150/speed to get from one light to the next, though you have to use double because of the possibilty of the speed being 20.  Then, once you get to the light, you just have to check if it is red or green, and wait for it to turn green if it is red.</P>
+            
+            <P>&#160;</P><A NAME="TopPilot"></A><FONT SIZE="+2"><B>TopPilot</B></FONT><BR/><FONT SIZE="-1">
+    Used as: Level 2</FONT><H4>Implementation</H4><P>
+Undoubtedly the easiest medium problem of the match, this problem simply involved running floyds to find the transitive closure.  Since the indexes of all the airports are between 0 and 50, inclusive, it is simple to just build an adjacency matrix.  Once you have this, you simply run floyds, and count the number of connected vertices.  DjinnKahn's solution was probably the cleanest, and he got the most points on this one. </P>
 
-<P>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut 
-laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud exerci tation 
-ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor 
-in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis 
-at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue 
-duis dolore te feugait nulla facilisi.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed 
-diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad 
-minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</P>
-
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
+            <P>&#160;</P><A NAME="DNAsynth"></A><FONT SIZE="+2"><B>DNAsynth</B></FONT><BR/><FONT SIZE="-1">
+    Used as: Level 3</FONT><H4>Implementation</H4>
+    <P>
+To make up for the easy medium, the hardest hard problem was used in this round.  You are given a list of rules of the form &lt;SEQ1&gt;:&lt;SEQ2&gt; indicating that strings starting with &lt;SEQ2&gt; can be appended to strings ending with &lt;SEQ1&gt;.  You start with an unlimited supply of all of the strings that are &lt;SEQ1&gt; or &lt;SEQ2&gt; in one of these rules.  Additionally, sequences are the same forwards and backwards, but this is easily handled by including the reverse of all the rules.</P>
+<P>
+Since the length of &lt;SEQ1&gt; and &lt;SEQ2&gt; are limited to 4, it appears at first glance that we can simply keep track of the longest string with a given ending and then keep trying to add new strings from &lt;SEQ1&gt; or &lt;SEQ2&gt;.  However, a close examination of example 4 shows that this will fail.  However, this approach is on the right track.  In order to get example 4 correct, then we have to do some preproccessing.  So, after reversing the rules, we then take each of the rules, and remove the semicolon.  It is obvious that all of these strings can be formed.  Then, for each of these strings, we go through all of the rules, and if the string we formed starts with &lt;SEQ2&gt; in one of the rules then we add a new rule, &lt;SEQ1&gt;:&lt;new string&gt;, and its reverse.</P>
+<P>
+Once we have these extra rules, we can just do some simple dynamic programming to keep track of the longest strings with each of 4 character ending.  If the length every get over 404, then we can form an infinite loop.
+</P>
 
 
 <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>

@@ -130,13 +130,21 @@
                 <TD CLASS="statText" ALIGN="center">16</TD>
                 <TD CLASS="statText" ALIGN="center">Room 2</TD>
               </TR>
-                            <TR>
+              <TR>
                 <TD CLASS="statText">
                     <A HREF="/stat?c=member_profile&amp;cr=264949" CLASS="coderTextRed">moira</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">487.01</TD>
                 <TD CLASS="statText" ALIGN="center">59</TD>
                 <TD CLASS="statText" ALIGN="center">Room 3</TD>
+              </TR>
+              <TR>
+                <TD CLASS="statText">
+                    <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
+                  </TD>
+                <TD CLASS="statText" ALIGN="right">502.94</TD>
+                <TD CLASS="statText" ALIGN="center">4</TD>
+                <TD CLASS="statText" ALIGN="center">Room 4</TD>
               </TR>
           </TABLE><BR/>
             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
