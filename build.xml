@@ -297,14 +297,19 @@
      </target>
 
      <target name="package-EJB-EmailServicesBean" depends="compile">
-         <antcall target="build-ejb-unit">
-             <param name="unit-jar-name" value="EmailServices"/>
-             <param name="unit-class-path" value="com/topcoder/shared/ejb/EmailServices"/>
-         </antcall>
-         <jar jarfile="${ejb_jars}/EmailServices.jar" update="true">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+         <delete dir="${classes}/ejb-stuff"/>
+         <mkdir dir="${classes}/ejb-stuff"/>
+
+         <jar jarfile="${classes}/ejb-stuff/EmailServices.jar">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/EmailServices/**/*.class"/>
+             <zipfileset dir="${shared}/com/topcoder/shared/ejb/EmailServices" includes="*.xml" prefix="META-INF"/>
          </jar>
+         <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
+             <sysproperty key="compiler" value="javac"/>
+             <sysproperty key="classpath" path="class.path"/>
+             <arg line="${tmp-dir}/EmailServices.jar ${ejb_jars}/EmailServices.jar"/>
+         </java>
+         <echo message="EmailServices.jar done"/>
      </target>
 
      <target name="package-EJB-DataCacheBean" depends="compile">
