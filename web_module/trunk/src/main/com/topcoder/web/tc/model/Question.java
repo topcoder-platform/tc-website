@@ -9,6 +9,8 @@ public class Question implements Serializable {
     public static final int LONG_ANSWER = 3;
     public static final int SHORT_ANSWER = 4;
 
+    public static final int GENERAL_DO_NOT_SHOW_RESULTS_TYPE = 6;
+
     private long id;
     private int typeId;
     private int styleId;
