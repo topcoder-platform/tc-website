@@ -15,6 +15,7 @@ public class EmailBean implements SessionBean {
     private transient InitialContext init_ctx = null;
     private static Logger log = Logger.getLogger(EmailBean.class);
     private DataSource ds = null;
+    private DataSource transDs = null;
 
     private SessionContext ctx;
 
@@ -30,6 +31,7 @@ public class EmailBean implements SessionBean {
         try {
             init_ctx = new InitialContext();
             ds = (DataSource) init_ctx.lookup("java:comp/env/datasource");
+            transDs = (DataSource) init_ctx.lookup("java:comp/env/jts_datasource");
         } catch (NamingException _ne) {
             _ne.printStackTrace();
         }
@@ -64,7 +66,7 @@ public class EmailBean implements SessionBean {
             query.append("INTO email (email_id,user_id) ");
             query.append("VALUES (?,?)");
 
-            conn = ds.getConnection();
+            conn = transDs.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, email_id);
             ps.setLong(2, _user_id);
@@ -222,7 +224,7 @@ public class EmailBean implements SessionBean {
             query.append("SET email_type_id=? ");
             query.append("WHERE email_id=? AND user_id=?");
 
-            conn = ds.getConnection();
+            conn = transDs.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, _email_type_id);
             ps.setLong(2, _email_id);
@@ -264,7 +266,7 @@ public class EmailBean implements SessionBean {
             query.append("SET address=? ");
             query.append("WHERE email_id=? AND user_id=?");
 
-            conn = ds.getConnection();
+            conn = transDs.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, _address);
             ps.setLong(2, _email_id);
@@ -318,7 +320,7 @@ public class EmailBean implements SessionBean {
             query.append("WHERE email_id = ? ");
             query.append(" AND user_id = ?");
 
-            conn = ds.getConnection();
+            conn = transDs.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, primary ? 1 : 0);
             ps.setLong(2, emailId);

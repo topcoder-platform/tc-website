@@ -13,6 +13,12 @@
                 <jndi-name>SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
+        <reference-descriptor>
+            <resource-description>
+                <res-ref-name>jts_datasource</res-ref-name>
+                <jndi-name>JTS_SCREENING_OLTP</jndi-name>
+            </resource-description>
+        </reference-descriptor>
         <jndi-name>com.topcoder.web.ejb.email.EmailHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
