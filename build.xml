@@ -635,7 +635,7 @@
             </webinf>
 
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix="corp"/>
-            <zipfileset dir="${java}/com/topcoder/web/screening/view/" includes="*.jsp, **/*.jsp" prefix="screening"/>
+            <zipfileset dir="${java}/com/topcoder/web/screening/view/" includes="*.jsp, **/*.jsp" prefix="testing"/>
             <zipfileset dir="${java}/com/topcoder/web/tces/servlet/jsp/" includes="*.jsp, **/*.jsp" prefix="tces"/>
             <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
         </war>
