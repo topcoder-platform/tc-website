@@ -55,7 +55,7 @@
                                         <span class="statTextBig">Web Services Proof of Concept</span>
                                     </font>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Web Services Proof of Concept';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Web Services Proof of Concept';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <b>Preface</b>
@@ -125,7 +125,7 @@ The project will begin on the 16th of April. There will be a Kick-Off conference
                                         <li>Project Start Date:    April 16, 2002</li>
                                         <li>Project End Date:      April 29, 2002</li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Web Services Proof of Concept';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Web Services Proof of Concept';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
           <P><br/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
