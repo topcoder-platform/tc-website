@@ -91,7 +91,7 @@ TopCoder, Inc. organizes and hosts online and onsite programming competitions fo
 	<!-- Right Column Begins -->
 		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
 <!-- Right Column Include Begins --> 
-        <xsl:call-template name="public_right_col"/>       
+        <xsl:call-template name="pr_right_col"/>
 <!-- Right Column Include Ends -->       
         </TD>
 	<!-- Right Column Ends -->
