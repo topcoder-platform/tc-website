@@ -68,7 +68,7 @@ public class CommandList extends BaseProcessor {
             setDb(value);
         if (paramName.equalsIgnoreCase(Constants.COMMAND_GROUP_ID_PARAM)) {
             try {
-                setCommandGroupId(Integer.parseInt(Constants.COMMAND_GROUP_ID_PARAM));
+                setCommandGroupId(Integer.parseInt(value));
             } catch (NumberFormatException e) {
                 addError(Constants.COMMAND_GROUP_ID_PARAM, e);
             }
