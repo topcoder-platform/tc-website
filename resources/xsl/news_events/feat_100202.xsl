@@ -84,7 +84,7 @@ So you've written your resume, gotten your best suit dry-cleaned, and are ready 
 <B>Option 1: College Recruitment Centers</B>
 </P>
 <P>
-Almost all colleges have a recruitment center to help the new college grad get that first job.  The best thing about the companies that come to interview at colleges is that they realize you will have no experience (all too often, in want ads or internet postings, they add on that phrase:  &quot;x years experience in xyz required&quot.)  What many job-seekers may not realize (or have simply forgotten), is that college recruitment centers also help grads who have been out in the real world for a while.  Often the company representative is from the company's personnel department, and they will be aware of the job openings for experienced professionals as well.  
+Almost all colleges have a recruitment center to help the new college grad get that first job.  The best thing about the companies that come to interview at colleges is that they realize you will have no experience (all too often, in want ads or internet postings, they add on that phrase:  &quot;x years experience in xyz required&quot:.)  What many job-seekers may not realize (or have simply forgotten), is that college recruitment centers also help grads who have been out in the real world for a while.  Often the company representative is from the company's personnel department, and they will be aware of the job openings for experienced professionals as well.  
 </P>
 <P>
 <B>Option 2:  Professional Recruiters</B>
@@ -120,7 +120,7 @@ These sites allow you to post your resume for everyone to see.  It is very impor
 <B>Option 7:  On-line sites such as TopCoder</B>
 </P>
 <P>
-Then there is TopCoder, an online community like no other.  At this site, a potential employer can view actual samples of your work, and see that you really do have the skills your resume lists.  This is very important to potential employers, as all too often applicants who are great at interviewing and have all the correct buzzwords on their resume, have absolutely no programming skill whatsoever.  TopCoder is rolling out the new TCES (TopCoder Employment Services) in September-check out the details at http://www.topcoder.com/?&t=jobs&c=index.
+Then there is TopCoder, an online community like no other.  At this site, a potential employer can view actual samples of your work, and see that you really do have the skills your resume lists.  This is very important to potential employers, as all too often applicants who are great at interviewing and have all the correct buzzwords on their resume, have absolutely no programming skill whatsoever.  TopCoder is rolling out the new TCES (TopCoder Employment Services) in September-check out the details at <A HREF="http://www.topcoder.com/?&t=jobs&amp;c=index"  CLASS="bodyGeneric">Job section of http://www.topcoder.com/</A>
 </P>
 <P>
 <B>Other Options</B>
