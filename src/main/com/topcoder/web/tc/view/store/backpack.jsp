@@ -46,12 +46,11 @@
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
                     <td class="bodyText" colspan="3">   
                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                                    <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy ash t-shirt has double needle hems, and is 
-                                    taped shoulder to shoulder. The Topcoder logo is silkscreened on the left chest and on the upper back. </td></tr>
+                                    <tr><td colspan="3" class="bodyText"> The computer backpack, is pewter and has the TopCoder logo embroidered on it. </td></tr>
                                     <tr>
                                         <td valign="middle" nowrap>$34.95</td>
                                         <td valign="middle" width="100%" nowrap>
-                                          <input type="image" src="/i/store/buy_button.gif" width="60" height="18" border="0" onClick="window.open.href='http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=309541&PID=309346&name=Go%20Shopping'" value="Buy Now" class="bodyText">
+                                        <button type="submit" onClick="window.open(http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309541&name=Go%20Shopping, 'buyWindow');" value="Buy Now" class="bodyText">Buy Now</button>
                                         </td>
                                     </tr>
                                 </table>
