@@ -65,8 +65,6 @@
 <!-- Client Message Begins -->
                         <p><A href="/?&amp;t=tces&amp;c=alphasimplex" class="bodyText"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></A></p>
 
-                       <p>AlphaSimplex Group, LLC (ASG) is a quantitative investment management company based in Cambridge, Massachusetts which, together with its technology 
-                       affiliate RiskPlex, Inc., develops and integrates cutting-edge technologies from several disciplines to create risk-controlled quantitative investment strategies.
                        <p>Diversified Data sees the big picture!</p>
                        <p>Solutions</p>
                        <p>Understanding clients’ requirements, challenges, and technology goals is the foundation of our customer-centric solutions. Diversified Data is the leader in 
