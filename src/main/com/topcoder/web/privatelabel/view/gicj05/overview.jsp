@@ -105,7 +105,7 @@
 
                            <tr valign="top">
                               <td class="sidebarText">Sunday, February 27</td>
-                              <td class="sidebarText">2:00 PM</td>
+                              <td class="sidebarText">9:00 PM</td>
                               <td class="sidebarText">Qualification Round ends</td>
                            </tr>
 
@@ -129,7 +129,7 @@
 			<br/>
 			<span class=greenSubtitle>Prizes</span>
 			<br/><br/>
-			The 500 participants in Round 1 will receive a "Google India Code Jam 2005, Powered by TopCoder" t-shirt. The top five scorers in the Championship Round will receive the following cash prizes:
+			The top five scorers in the Championship Round will receive the following cash prizes:
 			<br/><br/>
 			<div class=indented>
 			      <b>1st Place - Rs. 300,000</b><br/>
