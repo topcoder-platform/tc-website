@@ -17,12 +17,8 @@ import com.topcoder.web.tc.Constants;
 public class DOCConversion extends BaseProcessor {
     
 
-    
-    protected void setNextPage() {
+    protected void businessProcessing() throws TCWebException {
         setNextPage(Constants.PROFILE_DOC_CONVERTOR_PAGE); 
         setIsNextPageInContext(true);
-    }
-
-    protected void businessProcessing() throws TCWebException {
     }
 }
