@@ -180,7 +180,7 @@
                     <td class="formHandleOdd" align="center">3</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=278460">Ukraine</a></td>
                     <td class="formHandleOdd" align="right">96.25</td>
-                    <td class="formHandleOdd" align="right">86.78, 97.04</td>
+                    <td class="formHandleOdd" align="right">96.25</td>
                     <td class="formHandleOdd" align="right">$96.00</td>
                 </tr>
 
@@ -188,7 +188,7 @@
                     <td class="formHandleEven" align="center">4</td>
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
                     <td class="formHandleEven" align="right">95.88</td>
-                    <td class="formHandleEven" align="right">96.25</td>
+                    <td class="formHandleEven" align="right">95.88</td>
                     <td class="formHandleEven" align="right">$48.00</td>
                 </tr>
 
@@ -196,7 +196,7 @@
                     <td class="formHandleOdd" align="center">5</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904">mishagam</a></td>
                     <td class="formHandleOdd" align="right">93.64</td>
-                    <td class="formHandleOdd" align="right">95.88</td>
+                    <td class="formHandleOdd" align="right">93.64</td>
                     <td class="formHandleOdd" align="right">$96.00</td>
                 </tr>
 
@@ -204,7 +204,7 @@
                     <td class="formHandleEven" align="center">6</td>
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=139153">johnm4</a></td>
                     <td class="formHandleEven" align="right">92.41</td>
-                    <td class="formHandleEven" align="right">93.64</td>
+                    <td class="formHandleEven" align="right">92.41</td>
                     <td class="formHandleEven" align="right">$0.00</td>
                 </tr>
 
