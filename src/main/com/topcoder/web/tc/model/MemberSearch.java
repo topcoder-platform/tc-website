@@ -16,6 +16,7 @@ public class MemberSearch {
     private ResultSetContainer stateList = null;
     private ResultSetContainer results = null;
     private ResultSetContainer countryList = null;
+    private Integer maxDaysSinceLastComp = null;
 
     public Integer getStart() {
         return start;
@@ -112,4 +113,13 @@ public class MemberSearch {
     public void setMaxNumRatings(Integer maxNumRatings) {
         this.maxNumRatings = maxNumRatings;
     }
+
+    public Integer getMaxDaysSinceLastComp() {
+        return maxDaysSinceLastComp;
+    }
+
+    public void setMaxDaysSinceLastComp(Integer maxDaysSinceLastComp) {
+        this.maxDaysSinceLastComp = maxDaysSinceLastComp;
+    }
+
 }
