@@ -50,7 +50,7 @@ public class PreferenceGroup implements Serializable, Comparable {
     public int compareTo(Object obj) {
         PreferenceGroup o2 = (PreferenceGroup)obj;
         
-        return o2.getSortOrder() - this.getSortOrder();
+        return this.getSortOrder() - o2.getSortOrder();
     }
     
 }
