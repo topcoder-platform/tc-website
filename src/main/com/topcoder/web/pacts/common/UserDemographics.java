@@ -13,7 +13,7 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
 
     public String[] answers;
     public String[] questions;
-
+    public String _schoolName;
     public UserDemographics () {
 	setDefaults();
     }
@@ -21,6 +21,7 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
     private void setDefaults() {
 	answers = new String[0];
 	questions = new String[0];
+    _schoolName = "";
     }
 
 
@@ -48,22 +49,31 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
 	    ResultSetContainer.ResultSetRow rRow = rsc.getRow(idx);	    
 
 	    try {
-		questions[idx] = TCData.getTCString(rRow,"demographic_question_text");
-		answers[idx] = TCData.getTCString(rRow, "demographic_response");
-		if(answers[idx].length() <= 0) {
-		    answers[idx] = TCData.getTCString(rRow,"demographic_answer_text");
-		    log.debug("rRow = " + rRow.toString());
-		}
-		log.debug("q = " + questions[idx]);
-		log.debug("a = " + answers[idx]);
+		  questions[idx] = TCData.getTCString(rRow,"demographic_question_text");
+		  answers[idx] = TCData.getTCString(rRow, "demographic_response");
+		  if(answers[idx].length() <= 0) {
+		      answers[idx] = TCData.getTCString(rRow,"demographic_answer_text");
+  		    log.debug("rRow = " + rRow.toString());
+        }
+            log.debug("q = " + questions[idx]);
+            log.debug("a = " + answers[idx]);
 	    } catch (Exception e) {
 		log.error("ther was an exception trying to read the user demographic data");
 		setDefaults();
 		e.printStackTrace();
 		return;
 	    }
-	}
-	
-    }          
 
+	}
+
+      rsc = null;
+      rsc = (ResultSetContainer) results.get(USER_CURRENT_SCHOOL);
+      if(rsc == null) {
+          log.error("The result map did not contain " + USER_CURRENT_SCHOOL);
+          _schoolName = "";
+      } else {
+          ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
+          _schoolName = TCData.getTCString(rRow,"school_name");
+      }
+    }
 }

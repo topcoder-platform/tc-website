@@ -118,7 +118,7 @@ public class QueueRequest {
         }
 
         if (msg != null) {
-          log.debug("QueueReader got message.");
+          log.info("QueueReader got message.");
 
           boolean success = false;
 

@@ -275,7 +275,7 @@ public class AffidavitBean implements PactsConstants {
 		dm.addTag(new ValueTag("demographic_answer",demog.answers[idx]));
 		a.addTag(dm);
 	    }
-	    
+	    a.addTag(new ValueTag("current_school",demog._schoolName));
 	    tc.addTag(a);
 	    
 	    log.debug(tc.getXML());

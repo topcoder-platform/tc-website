@@ -54,6 +54,7 @@
   <tr><td class="statText" valign="top" colspan="3"><b>Demographics</b></td></tr>
   <tr><td class="statText" valign="top" colspan="3">
     <table width="552" cellspacing="0" cellpadding="1" border="0" align="center">
+      <tr><td class="statText" valign="top">School:</td><td class="statText" valign="top"><xsl:value-of select="/TC/Affidavit/current_school"/></td></tr>
       <xsl:for-each select="/TC/Affidavit/demographic_assignment">
         <tr><td class="statText" align="left"><xsl:value-of select="demographic_question" />:&#160;</td><td class="statText" align="left"><xsl:value-of select="demographic_answer" /></td></tr>
       </xsl:for-each >

@@ -153,6 +153,7 @@ public interface PactsConstants {
     public static final String ROUND_LIST = "round_list";
     public static final String USER_DEMOGRAPHICS = "user_demographics";
     public static final String ENTRY_HEADER_LIST = "entry_header_list";
+    public static final String USER_CURRENT_SCHOOL = "user_current_school";
 
     /*
     public static final String AFFIDAVIT_DETAIL = "affidavit";

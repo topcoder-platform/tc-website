@@ -68,3 +68,7 @@ date wrong.
 *************** COMPLETED  ******************************
 6/6/2002 1:53 am edt  jason n. evans
 Put payments on hold if users do not have a tax form on file
+
+6/12/2002 01:10 edt jason n. evans
+Current school is not displayed on the affidavits.
+
