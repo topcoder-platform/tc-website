@@ -84,9 +84,12 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
             "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" + 
             TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
             TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
-        setTrail(a);
-
-    }
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+            TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM + 
+            "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
+        setTrail(a);    }
 
     /** Processes the given step or phase of the task.
      * @param step The step to be processed.
