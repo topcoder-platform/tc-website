@@ -271,10 +271,8 @@
       Single round matches and tournament rounds are considered rated events, and therefore rating will be adjusted 
       after each.  Finishing first and advancing does not necessarily guarantee your rating will go up. It is 
       based on your performance compared everyone else participating in that round, taking into account relative 
-      ratings. Click here to see a detailed description of the rating process.  
-                        <A HREF="JavaScript:doSubmitNavBar('','rating')" CLASS="bodyText">
-                          Click here to see a detailed description of the rating process.
-                        </A>
+      ratings. <A HREF="/index?t=support&amp;c=ratings" CLASS="bodyText">Click here to see a detailed description of the rating process.</A>                          
+                        
                                     <BR/>
                                     <A HREF="#top" CLASS="bodyText">[back to top]</A>
                                     <BR/>
