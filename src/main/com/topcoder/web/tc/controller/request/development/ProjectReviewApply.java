@@ -59,12 +59,20 @@ public class ProjectReviewApply extends Base {
                     ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
                     int catalog = detail.getIntItem(0, "category_id");
 
-                    if (catalog == Constants.JAVA_CATALOG_ID &&
-                            rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
-                        apply(getUser().getId(), projectId, phaseId);
-                    } else if (catalog == Constants.DOT_NET_CATALOG_ID &&
-                            rbu.canReviewDotNet(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
-                        apply(getUser().getId(), projectId, phaseId);
+                    if (catalog == Constants.JAVA_CATALOG_ID) {
+                        if (rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            apply(getUser().getId(), projectId, phaseId);
+                        } else {
+                            throw new NavigationException("Sorry, you can not review this project because " +
+                                    "you are not a Java reviewer");
+                        }
+                    } else if (catalog == Constants.DOT_NET_CATALOG_ID) {
+                        if (rbu.canReviewDotNet(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            apply(getUser().getId(), projectId, phaseId);
+                        } else {
+                            throw new NavigationException("Sorry, you can not review this project because " +
+                                    "you are not a .Net reviewer");
+                        }
                     } else {
                         throw new TCWebException("unknown catalog found " + catalog);
                     }
