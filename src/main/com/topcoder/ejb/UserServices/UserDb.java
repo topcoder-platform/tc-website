@@ -12,19 +12,12 @@ import com.topcoder.web.ejb.password.PasswordRemote;
 import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.GroupPrincipal;
-import com.topcoder.security.UserPrincipal;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Collection;
-import java.util.Iterator;
 
 
 final class UserDb {
@@ -108,30 +101,6 @@ final class UserDb {
                 log.error("insertUser():did not insert  security user record");
             }
 
-            Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmr = pmrh.create();
-            TCSubject tcs = new TCSubject(132456);
-            Collection groups = pmr.getGroups(tcs);
-            GroupPrincipal anonGroup = null;
-            GroupPrincipal userGroup = null;
-            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                anonGroup = (GroupPrincipal) iterator.next();
-                if (anonGroup.getName().equals("Anonymous")) {
-                    break;
-                }
-            }
-            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                userGroup = (GroupPrincipal) iterator.next();
-                if (anonGroup.getName().equals("Users")) {
-                    break;
-                }
-            }
-
-            //we're in a transaction on the security user table, so we can't select out the user principal object.
-            UserPrincipal up = new UserPrincipal("", user.getUserId());
-            pmr.addUserToGroup(anonGroup, up, tcs);
-            pmr.addUserToGroup(userGroup, up, tcs);
 
 
             HashMap userTypeDetails = user.getUserTypeDetails();
