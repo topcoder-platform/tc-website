@@ -1,8 +1,9 @@
 package com.topcoder.web.tces.common;
 
 import java.util.*;
+import	java.io.Serializable;
 
-public class Lookup {
+public class Lookup implements Serializable {
 
     private ArrayList list;
 
@@ -68,7 +69,7 @@ public class Lookup {
     }
 
 
-    class Pair {
+    class Pair implements Serializable {
 
 
         private String value;
