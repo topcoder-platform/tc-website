@@ -42,6 +42,7 @@ public class Constants {
     public static String SESSION_ID;
 
     //request processors
+    public static String RP_CURRENT_TIME;
     public static String RP_LOGOUT;
     public static String RP_LOGIN;
     public static String RP_LOGIN_RESPONSE;
