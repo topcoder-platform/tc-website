@@ -4,6 +4,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.legacy.TaskDevelopment;
 import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -29,6 +30,10 @@ public class ProjectDetail extends Base {
             ResultSetContainer details = (ResultSetContainer)resultMap.get("project_detail");
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
+
+            boolean full = TaskDevelopment.isProjectLockedOut(details.getLongItem(0, "component_id"),
+                    details.getLongItem(0, "version_id"), details.getLongItem(0, "phase_id"), getUser().getId());
+            getRequest().setAttribute("projectFull", new Boolean(full));
 
             if (details.isEmpty()) {
                 throw new NavigationException("Could not find project information.");
