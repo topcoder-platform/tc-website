@@ -65,8 +65,9 @@ public class SessionInfo implements Serializable {
         absoluteServletPath = request.getServerName() + servletPath;
 
         isLoggedIn = !authentication.getUser().isAnonymous();
-        //log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
-        //        getQueryString() + " request: " + getRequestString());
+        if (log.isDebugEnabled())
+            log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
+                    getQueryString() + " request: " + getRequestString());
         CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
         countDai.setExpireTime(15 * 60 * 1000);
         Request countReq = new Request();
