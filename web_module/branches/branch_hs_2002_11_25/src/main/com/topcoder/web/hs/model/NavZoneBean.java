@@ -22,7 +22,7 @@ public class NavZoneBean implements Serializable {
 
     public void setFolder(int i, String s) {
         if(s==null || s.equals("")) {
-            folder.removeRange(i, folder.size());
+            while(folder.size() > i) folder.remove(folder.size()-1);
         } else {
            while(folder.size() <= i) folder.add(null);
            folder.set(i, s);
