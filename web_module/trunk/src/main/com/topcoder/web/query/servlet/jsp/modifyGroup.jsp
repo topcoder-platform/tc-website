@@ -5,7 +5,7 @@
            com.topcoder.web.query.request.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="ModifyGroupTask" scope="request" class="com.topcoder.web.query.request.ModifyGroupTask" />
+<jsp:useBean id="ModifyGroup" scope="request" class="com.topcoder.web.query.request.ModifyGroup" />
 <jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -22,7 +22,7 @@
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyGroupTask.getDb()%>"/>
+          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyGroup.getDb()%>"/>
           <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=SessionInfo.getServletPath()%>"/>
         </jsp:include>      </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
@@ -30,24 +30,24 @@
         <TABLE WIDTH="40%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="SessionInfo" property="ServletPath"/>" method="post" name="ModGroupForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_GROUP_TASK%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.GROUP_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroupTask" property="GroupId"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.GROUP_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="GroupId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroupTask" property="Db"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="Db"/>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_GROUP_NAME%></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
               <TD CLASS="statText" ALIGN="left">
-                  <jsp:getProperty name="ModifyGroupTask" property="Db"/>
+                  <jsp:getProperty name="ModifyGroup" property="Db"/>
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyGroupTask%>" key="<%=Constants.GROUP_ID_PARAM%>"/></TD></TR>
-            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyGroupTask%>" key="<%=Constants.GROUP_DESC_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyGroup%>" key="<%=Constants.GROUP_ID_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyGroup%>" key="<%=Constants.GROUP_DESC_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
-                <input type="text" name="<%=Constants.GROUP_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyGroupTask" property="GroupDesc" />" size="30" maxlength="100">
+                <input type="text" name="<%=Constants.GROUP_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyGroup" property="GroupDesc" />" size="30" maxlength="100">
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>

@@ -5,7 +5,7 @@
            com.topcoder.web.query.request.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="ModifyInputTask" scope="request" class="com.topcoder.web.query.request.ModifyInputTask" />
+<jsp:useBean id="ModifyInput" scope="request" class="com.topcoder.web.query.request.ModifyInput" />
 <jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -22,7 +22,7 @@
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyInputTask.getDb()%>"/>
+          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyInput.getDb()%>"/>
           <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=SessionInfo.getServletPath()%>"/>
         </jsp:include>      </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
@@ -30,40 +30,40 @@
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="SessionInfo" property="ServletPath"/>" method="post" name="ModInputForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_INPUT_TASK%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.INPUT_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyInputTask" property="InputId"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.INPUT_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyInput" property="InputId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyInputTask" property="Db"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyInput" property="Db"/>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_INPUT_NAME%></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
               <TD CLASS="statText" ALIGN="left">
-                  <jsp:getProperty name="ModifyInputTask" property="Db"/>
+                  <jsp:getProperty name="ModifyInput" property="Db"/>
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.INPUT_ID_PARAM%>"/></TD></TR>
-            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.INPUT_DESC_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_ID_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_DESC_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Description: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
-                <input type="text" name="<%=Constants.INPUT_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyInputTask" property="InputDesc" />" size="30" maxlength="100">
+                <input type="text" name="<%=Constants.INPUT_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyInput" property="InputDesc" />" size="30" maxlength="100">
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.INPUT_CODE_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_CODE_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">Code: </TD>
               <TD CLASS="statText" ALIGN="left">
-                <input type="text" name="<%=Constants.INPUT_CODE_PARAM%>" value ="<jsp:getProperty name="ModifyInputTask" property="InputCode" />" size="10" maxlength="30">
+                <input type="text" name="<%=Constants.INPUT_CODE_PARAM%>" value ="<jsp:getProperty name="ModifyInput" property="InputCode" />" size="10" maxlength="30">
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.DATA_TYPE_ID_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.DATA_TYPE_ID_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">Data Type: </TD>
               <TD CLASS="statText" ALIGN="left">
-                <query:dataTypeSelect name="<%=Constants.DATA_TYPE_ID_PARAM%>" class="dropdown" selectedValue='<%=""+ModifyInputTask.getDataTypeId()%>'/>
+                <query:dataTypeSelect name="<%=Constants.DATA_TYPE_ID_PARAM%>" class="dropdown" selectedValue='<%=""+ModifyInput.getDataTypeId()%>'/>
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>

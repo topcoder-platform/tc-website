@@ -5,7 +5,7 @@
            com.topcoder.web.query.request.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="ModifyCommandQueryTask" scope="request" class="com.topcoder.web.query.request.ModifyCommandQueryTask" />
+<jsp:useBean id="ModifyCommandQuery" scope="request" class="com.topcoder.web.query.request.ModifyCommandQuery" />
 <jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -22,7 +22,7 @@
     <TR>
       <TD WIDTH="170" VALIGN="top">
         <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyCommandQueryTask.getDb()%>"/>
+          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyCommandQuery.getDb()%>"/>
           <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=SessionInfo.getServletPath()%>"/>
         </jsp:include>      </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
@@ -30,18 +30,18 @@
         <TABLE WIDTH="80%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="SessionInfo" property="ServletPath"/>" method="post" name="ModifyCommandQueryForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_COMMAND_QUERY_TASK%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandQueryTask" property="CommandId"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandQuery" property="CommandId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandQueryTask" property="Db"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandQuery" property="Db"/>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_QUERY_NAME%></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR><TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">Command: <jsp:getProperty name="ModifyCommandQueryTask" property="CommandDesc"/></TD></TR>
+            <TR><TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">Command: <jsp:getProperty name="ModifyCommandQuery" property="CommandDesc"/></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
-              <TD CLASS="statText" ALIGN="center" COLSPAN="2">DB: <jsp:getProperty name="ModifyCommandQueryTask" property="Db"/></TD>
+              <TD CLASS="statText" ALIGN="center" COLSPAN="2">DB: <jsp:getProperty name="ModifyCommandQuery" property="Db"/></TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
             <TR>
               <TD COLSPAN="2">
                 <TABLE WIDTH="100%" BGCOLOR="#000000" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -52,11 +52,11 @@
                     <TD CLASS="statTextBig"></TD>
                   </TR>
                   <TR><TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-                  <query:commandQueryIterator id="commandQuery" list="<%=ModifyCommandQueryTask.getCurrentQueryList()%>">
-                    <TR><TD CLASS="errorText" COLSPAN="4"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"/></TD></TR>
+                  <query:commandQueryIterator id="commandQuery" list="<%=ModifyCommandQuery.getCurrentQueryList()%>">
+                    <TR><TD CLASS="errorText" COLSPAN="4"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"/></TD></TR>
                     <TR>
                       <TD CLASS="statTextBig">
-                        <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQueryTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>" class="statText">
+                        <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>" class="statText">
                           [edit]
                         </A>
                       </TD>
@@ -65,7 +65,7 @@
                         <input type="text" name="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>" value ="<jsp:getProperty name="commandQuery" property="SortOrder"/>" size="3" maxlength="3"/>
                       </TD>
                       <TD CLASS="statTextBig">
-                        <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQueryTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="ModifyCommandQueryTask" property="commandId"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>&<%=Constants.STEP_PARAM%>=<%=Constants.REMOVE_STEP%>" class="statText">
+                        <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="commandId"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>&<%=Constants.STEP_PARAM%>=<%=Constants.REMOVE_STEP%>" class="statText">
                           [remove]
                         </A>
                       </TD>
@@ -83,10 +83,10 @@
                 </TABLE>
               </TD>
             </TR>
-           <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.QUERY_ID_PARAM%>"/></TD></TR>
+           <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.QUERY_ID_PARAM%>"/></TD></TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
-               <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQueryTask.getOtherQueryList()%>" size="30" multiple="false"/>
+               <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQuery.getOtherQueryList()%>" size="30" multiple="false"/>
              </TD>
            </TR>
            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
