@@ -883,6 +883,20 @@ private Log log = null;
         phaseLengths[index] = phaseLength;
     }
 
+    public int getPhaseHours(int index) {
+        return phaseLengths[index] / 60;
+    }
+    public int getPhaseMinutes(int index) {
+        return phaseLengths[index] % 60;
+    }
+    public void setPhaseHours(int index, int hours) {
+        phaseLengths[index] = hours * 60 + getPhaseMinutes(index);
+    }
+    public void setPhaseMinutes(int index, int minutes) {
+        phaseLengths[index] = getPhaseHours(index) * 60 + minutes;
+    }
+
+
 
     /**
      * Get if the phase must adjust its start date to the end date of the previous phase.
