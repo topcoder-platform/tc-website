@@ -27,16 +27,30 @@
               	</TR>        		
               				<TR> 
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.03.02</TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.10.02</TD>
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="/index?t=news_events&amp;c=pr_03_25_02" CLASS="bodyGeneric">TopCoder Announces Sixteen Finalists for $150,000 Sun Microsystems and TopCoder Collegiate Challenge</A></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.motorola.com/mediacenter/news/detail/0,1958,1329_1001_23,00.html" CLASS="bodyGeneric">Motorola Premiers Live Demo of Universal Mobile Telecommunications System (UMTS) Applications in China</A></TD>
               				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
               				</TR>             				
               				<TR> 
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.03.02</TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.10.02</TD>
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="/index?t=jobs&amp;c=index" CLASS="bodyGeneric">TopCoder Employment Services posts job opportunities to members</A></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.motorola.com/mediacenter/news/detail/0,1958,1328_1002_23,00.html" CLASS="bodyGeneric">Motorola and Mt. Sinai Medical Center Look Forward to Exciting Results from Liver Cancer Microarray Study</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>             				
+              				<TR> 
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.09.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.sun.com/smi/Press/sunflash/2002-04/sunflash.20020409.1.html" CLASS="bodyGeneric">SUN FIRE[tm] 12K Server Breaks Industry Price/Performance Barrier</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>             				
+              				<TR> 
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.08.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.sun.com/smi/Press/sunflash/2002-04/sunflash.20020408.7.html" CLASS="bodyGeneric">Sun Microsystems Announces New Enterprise Skills Management Solution</A></TD>
               				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
               				</TR>              				              		
 							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
