@@ -65,32 +65,5 @@ public abstract class BaseTask implements TaskInt {
 
     public abstract void setAttributes(String paramName, String paramValues[]);
 
-    public String getDate(ResultSetContainer.ResultSetRow row,
-                          String key) {
-        String defaultVal = "00/00/0000";
-        try {
-            StringTokenizer tok1 = new StringTokenizer(
-                    ((TCTimestampResult) row.getItem(key)).toString());
-            StringTokenizer token = new StringTokenizer(
-                    (String) tok1.nextElement(), "-");
-
-            String year = (String) token.nextElement();
-            String returnString = "";
-            while (token.hasMoreElements()) {
-                returnString += (String) token.nextElement() + "/";
-            }
-
-            return returnString + year;
-        } catch (Exception e) {
-            log.debug("getTCDate got excepted with key=" + key);
-            e.printStackTrace();
-
-            if (defaultVal != null && defaultVal.equals("00/00/00"))
-                return "00/00/0000";
-            else
-                return defaultVal;
-        }
-    }
-
 }
 
