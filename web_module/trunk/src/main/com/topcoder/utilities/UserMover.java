@@ -27,7 +27,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Iterator;
 import java.util.Collection;
-import java.rmi.UnmarshalException;
 
 public class UserMover {
     private static Logger log = Logger.getLogger(UserMover.class);
@@ -93,6 +92,16 @@ public class UserMover {
 
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
+            TCSubject tcs = new TCSubject(132456);
+            Collection groups = pmr.getGroups(tcs);
+            GroupPrincipal gp = null;
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                gp = (GroupPrincipal) iterator.next();
+                if (gp.getName().equals("Anonymous")) {
+                    break;
+                }
+            }
+
 
             int count = 0;
             while (rs.next()) {
@@ -139,14 +148,8 @@ public class UserMover {
                     phoneEJB.setPhoneTypeId(phoneId, 2);
 
                     UserPrincipal up = pmr.getUser(userId);
-                    TCSubject tcs = new TCSubject(132456);
-                    Collection groups = pmr.getGroups(tcs);
-                    for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                        GroupPrincipal gp = (GroupPrincipal) iterator.next();
-                        if (gp.getName().equals("Anonymous")) {
-                            pmr.addUserToGroup(gp, up, tcs);
-                        }
-                    }
+                    pmr.addUserToGroup(gp, up, tcs);
+
                 } catch (Exception e) {
                     log.error("error moving over " + handle + "(" + userId + ")");
                     e.printStackTrace();
