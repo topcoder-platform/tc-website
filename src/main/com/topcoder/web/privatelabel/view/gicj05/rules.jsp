@@ -45,7 +45,7 @@
          <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 			<br><br>
          <span class="greenSubtitle">Summary of the Tournament</span><br>
-         The Google&#153; India Code Jam 2005 (GICJ05) is being offered by Google Online India Private Limited ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the GICJ05 to identify possible employees for Google's Research & Development Center in Bangalore, India.  The GICJ05 will take place between Tuesday, February 8 and Saturday, March 26, 2005.  It begins with an 18-day online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) qualification round, one (1) online elimination round and one (1) onsite final round.  In addition, Google will award Rs. 1,600,000 in cash prizes to the 50 finalists in the tournament.
+         The Google&#153; India Code Jam 2005 (GICJ05) is being offered by Google Online India Private Limited ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the GICJ05 to identify possible employees for Google's Research & Development Center in Bangalore, India.  The GICJ05 will take place between Tuesday, February 8 and Saturday, March 26, 2005.  It begins with an 18-day online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) qualification round, one (1) online elimination round and one (1) onsite final round.  In addition, Google will award Rs. 16,00,000 in cash prizes to the 50 finalists in the tournament.
          <br><br>
          <strong>Eligibility</strong><br>
          All individuals who are residents of India, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2005.  
@@ -137,7 +137,7 @@
 
          <a name="prizes"></a>
          <span class="greenSubtitle">About the Prizes</span><br>
-         The 50 finalists in the Championship Round will receive cash prizes totaling Rs. 1,600,000.  As required by Indian law, Google India will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess.  Prizes will be distributed as follows:
+         The 50 finalists in the Championship Round will receive cash prizes totaling Rs. 16,00,000.  As required by Indian law, Google India will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess.  Prizes will be distributed as follows:
          <br><br>
          
          <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
@@ -147,18 +147,18 @@
          </tr>
          <tr valign="top">
          <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
-         <td class="sidebarText" align=right><b>Rs. 300,000</b>
+         <td class="sidebarText" align=right><b>Rs. 3,00,000</b>
          </td>
          </tr>
          <tr valign="top">
          <td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 200,000
+         <td class="sidebarText" nowrap align=right>Rs. 2,00,000
          </td>
          </tr>
          <tr valign="top">
          <td class="sidebarText" nowrap>3rd place
          finisher* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 125,000
+         <td class="sidebarText" nowrap align=right>Rs. 1,25,000
          </td>
          </tr>                
          <tr valign="top">

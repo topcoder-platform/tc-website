@@ -138,18 +138,18 @@
          </tr>
          <tr valign="top">
          <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
-         <td class="sidebarText" align=right><b>Rs. 300,000</b>
+         <td class="sidebarText" align=right><b>Rs. 3,00,000</b>
          </td>
          </tr>
          <tr valign="top">
          <td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 200,000
+         <td class="sidebarText" nowrap align=right>Rs. 2,00,000
          </td>
          </tr>
          <tr valign="top">
          <td class="sidebarText" nowrap>3rd place
          finisher* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 125,000
+         <td class="sidebarText" nowrap align=right>Rs. 1,25,000
          </td>
          </tr>                
          <tr valign="top">
@@ -201,8 +201,6 @@
          <td class="sidebarText" colspan="2">* Winner must correctly answer at least 1 question and do so in less than 1 hour to receive prize.</td>
          </tr>
          </table>
-			<br><br>
-			Those finalists not finishing as one of the top five scorers in the Championship Round will share Rs. 850,000.
 
 			<br/><br/>
 			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
