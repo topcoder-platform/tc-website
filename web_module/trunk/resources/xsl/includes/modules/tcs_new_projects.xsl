@@ -69,7 +69,7 @@
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                 </a>
                                     <xsl:if test="number(./version) &gt;  number('1')">
-                                        v<xsl:value-of select="./version"/>
+                                        version <xsl:value-of select="./version"/>
                                     </xsl:if>
                             </td>
                             <td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
@@ -122,7 +122,7 @@
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                 </a>
                                     <xsl:if test="number(./version) &gt;  number('1')">
-                                        v<xsl:value-of select="./version"/>
+                                        version <xsl:value-of select="./version"/>
                                     </xsl:if>
                             </td>
                             <td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission"/></xsl:call-template></td>

@@ -83,8 +83,9 @@
 
                 <tr>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="statText" colspan="3">
-                        <p>Currently open projects total <span id="totalMoney">$6,131.00*</span> in payments to the winning designers and developers. Send us
+                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price), $priceFormat)"/></span> in payments to the winning designers and developers. Send us
                         your solutions today so you can start collecting your share.</p>
 
                         <p>*And that's before royalty payments. The more <a class="statText" href="http://www.topcodersoftware.com/pages/s_subscriptions.jsp">Component Subscriptions</a> we sell, the more royalties we pay out to our winners!</p></td>
@@ -112,7 +113,7 @@
                     <td background="/i/steel_bluebv_bg.gif" width="50%" class="statText">Design Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center"># of Inquiries</td>
                     <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Payment*</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Submit by</td>\
+                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Submit by</td>
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                 </tr>
 
@@ -120,7 +121,6 @@
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
-                <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$design-phase">
                         <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
@@ -147,7 +147,7 @@
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
-                                        v<xsl:value-of select="./version"/>
+                                        version <xsl:value-of select="./version"/>
                                     </xsl:if>
                                 </a>
                             </td>
@@ -222,7 +222,7 @@
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
-                                        v<xsl:value-of select="./version"/>
+                                        version <xsl:value-of select="./version"/>
                                     </xsl:if>
                                 </a>
                             </td>
