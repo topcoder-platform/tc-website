@@ -23,6 +23,14 @@ public class Controller
     static final String TASK_PACKAGE = "com.topcoder.web.tces.bean";
 		 
     public void init(Servlet servletConfig) throws ServletException {
+	    /* a previous instance of the servlet may have already created the dispatcherMap */
+	        dispatcherMap = (Map) getServletContext().getAttribute("dispatcherMap");
+	    /* if not, then create the map and bind it to the ServletContext */
+	        if (dispatcherMap == null) {
+	            dispatcherMap = new Hashtable();
+	            getServletContext().setAttribute("dispatcherMap", dispatcherMap);
+	        }
+	    }
     }
 
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -130,6 +138,7 @@ public class Controller
         response.setHeader("Cache-Control","no-store");
         response.setHeader("Pragma","no-cache");
         response.setDateHeader ("Expires", 0);
+/*				
         try
         {
             if (url != null) {
@@ -141,6 +150,18 @@ public class Controller
             Log.msg(e.getMessage());
             throw new ServletException(e);
         }
+*/
+        if (url == null || url.length() == 0) url = "error";
+        RequestDispatcher rd = null;
+        synchronized(this) {
+            rd = (RequestDispatcher) dispatcherMap.get(target);
+            if (rd == null) {
+                rd = getServletContext().getRequestDispatcher(Registration.PATH + url + ".jsp");
+                if (rd == null) throw new ServletException("cannot obtain request dispatcher");
+            }
+        }
+        req.setAttribute("dispatched", "true");
+        rd.forward(req, resp);
     }
    
     void forwardToError(HttpServletRequest request, HttpServletResponse response)
