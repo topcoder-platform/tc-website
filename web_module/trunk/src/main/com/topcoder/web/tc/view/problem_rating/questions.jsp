@@ -25,6 +25,9 @@ BODY
 	padding: 0px;
 	margin: 0px;
 }
+FONT{
+    color: #FFFFFF;
+}
 </STYLE>
 </head>
 <body bgcolor="#001B35">
