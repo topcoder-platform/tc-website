@@ -13,7 +13,7 @@
     <jsp:include page="../top.jsp" />
 
 <!-- Menu begins -->
-<jsp:include page="../includes/menu.jsp">
+<jsp:include page="../menu.jsp">
     <jsp:param name="level1" value="jobs"/>
 </jsp:include>
 <!-- Menu ends -->
