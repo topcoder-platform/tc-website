@@ -63,7 +63,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Image Converter component translates one image format to another format.  Conversion between different image types requires distinct decompression and compression algorithms defined by the Image Converter.  These initial conversion supports converting BMP to PNG.  Additional conversions may be added through a pluggable interface.
+						The Image Converter component translates one image format to another format.  Conversion between different image types requires distinct decompression and compression algorithms defined by the Image Converter.  The initial conversion supports converting BMP to PNG.  Additional conversions may be added through a pluggable interface.
 						</p>
 
 <!-- Project Type -->
