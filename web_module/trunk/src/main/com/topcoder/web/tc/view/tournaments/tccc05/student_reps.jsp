@@ -30,7 +30,29 @@
 
         <p class=bigTitle>Student Representatives</p>
 
-               <p>The following is the results for the TCCC05 Referral Program.</p>
+      <table cellpadding="0" cellspacing="3" border="0" class="bodyText" width="510">
+         <tr>
+            <td align="left" class="bodyText" valign="top">
+               <img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" vspace="5" align="left" class="myStatsPhoto"/>
+            </td>
+
+            <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+
+            <td align="left" width ="100%" class="bodyText" valign="top" rowspan="2">
+               <p>
+               The following are the results for the TCCC05 Referral Program.
+               <br><br>
+               Congratulations to <strong>supernova</strong> for outperforming the rest of the Student Representatives!  As a result of his efforts, he has won a trip to the 2005 TopCoder Collegiate Challenge onsite finals, and has added more than <strong>75 new TopCoder members</strong>!</p>
+            </td>
+         </tr>
+         <tr>
+            <td align="left" class="bodyText" valign="top">
+               <a class="bodyText" href="/stat?c=member_profile&amp;cr=7371063"><strong>supernova</strong></a>
+            </td>
+         </tr>
+      </table>
+
+               <br><br>
 
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
