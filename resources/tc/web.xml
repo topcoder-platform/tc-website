@@ -109,7 +109,7 @@
             <description></description>
         </init-param>
 
-        <init-params>
+        <init-param>
             <param-name>ProblemRatingResults</param-name>
             <param-value>problemRating.Results</param-value>
             <description></description>
