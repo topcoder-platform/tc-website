@@ -37,7 +37,7 @@ public class UploadTask extends ResumeTask{
         BasicAuthentication auth = new BasicAuthentication(
                 new SessionPersistor(request.getSession()), request, response);
         if (navigation==null) navigation = new Navigation();
-        if (!navigation.getLoggedIn() && auth.getActiveUser().isAnonymous()) {
+        if (!navigation.getLoggedIn() && auth.getUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {

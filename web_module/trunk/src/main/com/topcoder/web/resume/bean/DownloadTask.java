@@ -34,7 +34,7 @@ public class DownloadTask extends ResumeTask{
         } else {
             if (navigation.getLoggedIn())
                 userId = navigation.getUserId();
-            else userId = (int)auth.getUser().getId();
+            else userId = (int)auth.getActiveUser().getId();
         }
         if (getRequestParameter(request, "compid")!=null) {
             companyId = Long.parseLong(getRequestParameter(request, "compid"));
