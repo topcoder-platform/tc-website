@@ -56,20 +56,20 @@
                   <td width = "20%" align = "right" class="advancers_header">Wildcards</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_top100" class="topLink">Top 100</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_top100">100</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=SimpleStats&c=tco03_top100" class="topLink">Top 100</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_top100">100</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_advancers" class="topLink">Qualification Round 1</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_advancers">200</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4700" class="topLink">Qualification Round 1</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4700">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_advancers" class="topLink">Qualification Round 2</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_advancers">200</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4701" class="topLink">Qualification Round 2</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4701">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
@@ -85,10 +85,10 @@
                   <td width = "15%" align = "right" class="advancers_header">radeye's Odds</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_advancers" class="topLink">Online Round 1</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_advancers">200</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_advancers">47</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_advancers">153</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4702" class="topLink">Online Round 1</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4702">200</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4702">47</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4702">153</a></td>
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_rd1','radeye1',900,600);">view</A></td>
                </tr>
                <tr>
