@@ -58,10 +58,69 @@
                
 
                <blockquote>
-               </blockquote>
+</html>            <h2>Schedule</h2>
             
-            <p><br /></p>
-         </td>                       
+<!-- Online Rounds begins -->
+           <p><span class="bodySubtitle">Qualification Rounds</span></p>
+           
+           <p> All competitors must be 18 years of age or older as of November 11th, 2003.</p>
+
+            <p><strong>$25 USD Donation</strong> - If you and/or any sponsors have combined to donate at least $25 in honor of your name or handle, 
+            you will receive an automatic berth into the first round of the TopCoder Charity Challenge. </p>
+            
+            <p><strong>Donations</strong> - Donations can be made online at <A href="http://www.christopherreeve.org/topcoder">www.christopherreeve.org/topcoder</A>. 
+            Donations can also be mailed in with the following form:</p>
+            
+            
+            <a name="sched"></a>
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="35%">Date and Time*</td>
+                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">Online Round 1</td>
+                    <td class="sidebarText">
+                        Tuesday, November 11th<br />
+                        Registration:  6:00 PM - 8:55 PM<br />
+                        Compete: 9:00 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">Open</td>
+                    <td class="sidebarText" align="center">100</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Online Round 2</td>
+                    <td class="sidebarText">
+                        Thursday, November 13th<br />
+                        Login by: 8:50 PM<br />
+                        Compete: 9:00 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">100</td>
+                    <td class="sidebarText" align="center">50</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Online Round 3</td>
+                    <td class="sidebarText">
+                        Monday, November 17th<br />
+                        Login by: 8:50 PM<br />
+                        Compete: 9:00 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">50</td>
+                    <td class="sidebarText" align="center"></td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
+                        will be the following day at the same time.
+                    </td>
+                </tr>
+            </table><br />
+<!-- Online Rounds ends -->
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
