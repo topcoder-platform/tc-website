@@ -13,25 +13,29 @@ import com.topcoder.shared.security.User;
  * @version 1.02
  */
 public interface WebAuthentication extends Authentication {
+
+    /**
+     * Returns <i>active</i> user, ie. user who seems to be known to the system
+     * but it is possible that he is not logged in yet. If there is user
+     * currently logged in, then this method will return same user as getUser()
+     * method of super type. Otherwise, active user is to be determined via
+     * cookies, received from user in which case this method will return some
+     * valid user, if pre-identification was successfull. If not, then anonymous
+     * user object will be returned.
+     * 
+     * @return User active, but possible still not logged in, user. If user is
+     * not logged in, then his password field will be set as null for security
+     * reasons.
+     */
+    public User getActiveUser();
     
     /**
-     * Because user can be connected while not logged in yet, this method will
-     * return user, who is currenly connected. Eg. user who provided logon name
-     * but omitted password supposed to be connected but he does not logged in.
-     * So returned user must be supposed as untrusted user because
-     * authentification process supposes that user must trust his identity by
-     * providing valid password.
+     * Extends logout() method of super type providing additional functionality
+     * as clearing pre-identification cookies when clearCookies parameter is
+     * true.
      * 
-     * @param checkCookie when true, then cookies will be checked.
-     * @return User currently connected user
+     * @param clearCookies if true, then pre-identification cookies will be
+     * cleared upon logout, otherwise cookies will remain in place
      */
-    public User getUser(boolean checkCookie);
-    
-    /**
-     * Get current user logged out. If parameter is true, then cookies will be
-     * reset too (so user becomes disconnected). 
-     * 
-     * @param clearCookies specifies, if connection cookies must be cleared too
-     */
-    public void logout(boolean clearCookies); 
+    public void logout(boolean clearCookies);
 }

@@ -4,7 +4,7 @@
                 com.topcoder.web.common.security.BasicAuthentication "
  %>
 <% String appContext = request.getContextPath(); %> 
-<% BasicAuthentication auth = new BasicAuthentication(SessionPersistor.getInstance(request), request, response);
+<% BasicAuthentication auth = new BasicAuthentication(SessionPersistor.getInstance(request.getSession(true)), request, response);
    User loggedIn = auth.getUser();
  %>
 <A NAME="top"/>
@@ -15,7 +15,7 @@
       <TD VALIGN="middle" BGCOLOR="#333333" WIDTH="100%" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0"> 
                 <A HREF="http://www.topcodersoftware.com" TARGET="_parent" CLASS="globalNavSmall">TopCoder Software</A>&#160;&#160;&#160;|&#160;&#160;&#160;
                 <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160;
-<% if( !auth.isLoggedIn() ) {  // no logged user
+<% if( auth.getUser().isAnonymous() ) {  // no logged user
  %>
                 <A HREF="<%=appContext%>/?module=static&d1=login" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
 <% }
@@ -50,7 +50,7 @@
                         <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="190" BGCOLOR="#000000">&#160;
                            <FORM NAME="mini_login" METHOD="POST" onSubmit="<%=appContext%>/">
-<% if( !auth.isLoggedIn() ) {  // no logged user
+<% if( auth.getUser().isAnonymous() ) {  // no logged user
  %>
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                  <TR>

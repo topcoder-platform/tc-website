@@ -88,7 +88,7 @@ public class Controller extends HttpServlet {
 
 //---------
                 /* Code for initializing WebAuthentication tokens in each task */
-                SessionPersistor persistor = SessionPersistor.getInstance(request);
+                SessionPersistor persistor = SessionPersistor.getInstance(request.getSession(true));
                 WebAuthentication authToken;
                 authToken = new BasicAuthentication(persistor, request, response); 
                 task.setAuthToken(authToken);

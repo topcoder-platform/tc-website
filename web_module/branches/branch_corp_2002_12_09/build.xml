@@ -555,7 +555,7 @@
                 <include name="pstore.xml"/>
             </webinf>
 
-            <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="**/*" prefix=""/>
+            <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix=""/>
             <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
         </war>
     </target>
@@ -592,13 +592,9 @@
 
     <target name="deploy-corp" depends="war_corp">
         <copy todir="${public_html}" file="${war.dir}/${corp.war.name}.war" />
-        <unwar src="${public_html}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes">
-           <patternset>
-             <exclude name="META-INF/**"/>
-             <include name="**/**"/>
-           </patternset>
-        </unwar>
+        <unwar src="${public_html}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
         <delete file="${public_html}/${corp.war.name}.war" />
+        <delete dir="${public_html}/${corp.war.name}/META-INF"/>
 
         <!-- libraries to be included in weblogic classpath -->
         <copy todir="${public_html}/../ext-lib">

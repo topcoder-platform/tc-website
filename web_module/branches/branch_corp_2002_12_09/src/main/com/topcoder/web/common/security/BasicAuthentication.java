@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginRemote;
-import com.topcoder.shared.security.AuthenticationException;
-import com.topcoder.shared.security.InvalidLogonException;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
@@ -53,109 +53,13 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     /**
-     * Get current user logged out. This method does not change connection
-     * cookies.
-     * 
-     * @see com.topcoder.shared.security.Authentication#logout()
-     */
-    public void logout() {
-        store.removeObject(KEY_LOGGEDIN_USER);
-    }
-
-    /**
-     * Get user logged out and, optionally disconnected if parameter is true.
-     * 
-     * @see com.topcoder.web.common.security.WebAuthentication#logout(boolean)
-     */
-    public void logout(boolean clearCookies) {
-        logout();
-        embedAutoConnectCookies(-1, true);
-    }
-
-    /**
-     * @see com.topcoder.web.common.security.WebAuthentication#getUser(boolean)
-     */
-    public User getUser(boolean checkCookie) {
-        User u = getUser();
-        if( ! u.isAnonymous() ) {
-            return u;
-        }
-        // user is not logged in yet
-        if( ! checkCookie ) {
-            return u;
-        }
-        return u;
-            
-//        long id = getIDFromCookies();
-//        if( id == User.USER_ANONYMOUS_ID ) {
-//            return u;
-//        }
-//        try {
-//            return pullUserFromDB(id);
-//        }
-//        catch(Exception e) { // it is impossible to pull that user from db
-//            return u; 
-//        }
-    }
-
-    /**
+     * Returns user who is <i>logged in</i>.
+     *  
      * @see com.topcoder.shared.security.Authentication#getUser()
      */
     public User getUser() {
-        User u = (User)store.getObject(KEY_LOGGEDIN_USER);
-        return u == null ? SimpleUser.createAnonymous() : u;
-    }
-
-    /**
-     * Checks, if user is currenltly logged in
-     * 
-     * @see com.topcoder.shared.security.Authentication#isLoggedIn()
-     */
-    public boolean isLoggedIn() {
-        return store.getObject(KEY_LOGGEDIN_USER) != null;
-    }
-
-    /**
-     * Get user logged in. Two fields required to be filled in are
-     * password and either userID or username.
-     * 
-     * @see com.topcoder.shared.security.Authentication#login(com.topcoder.shared.security.User)
-     */
-    public void login(User user) throws AuthenticationException {
-        try {
-            AppContext ac = AppContext.getInstance();
-            LoginRemote lrBean = ac.getRemoteLogin();
-            TCSubject subjUser = lrBean.login(user.getUserName(), user.getPassword());
-            long id = subjUser.getUserId();
-            User loggedUser = new SimpleUser(user.getUserName(), user.getPassword(), id);
-            store.setObject(KEY_LOGGEDIN_USER, loggedUser);
-            embedAutoConnectCookies(loggedUser.getId(), false);
-        }
-        catch(Exception e) { //
-            e.printStackTrace();
-            throw new InvalidLogonException(e.getMessage());
-        }
-
-//
-//
-//        
-//        try {
-//
-//
-//            if( user.getUserName() != null ) {
-//                desiredUser = pullUserFromDB(user.getUserName());
-//            }
-//            else {
-//                desiredUser = pullUserFromDB(user.getId());
-//            }
-//        }
-//        catch(Exception e) {
-//            e.printStackTrace(System.err);
-//            throw new InvalidLogonException(e);
-//        }
-//        if( ! desiredUser.getPassword().equals(user.getPassword()) ) {
-//            throw new InvalidLogonException();
-//        }
+        User user = (User)store.getObject(KEY_LOGGEDIN_USER);
+        return user == null ? SimpleUser.createAnonymous() : user;
     }
 
     /**
@@ -167,7 +71,7 @@ public class BasicAuthentication implements WebAuthentication {
      * is true
      * @param clear if true, then auto connect cookies are dropped out.
      */
-    private void embedAutoConnectCookies(long userID, boolean clear) {
+    private void embedPreIDCookies(long userID, boolean clear) {
         log.debug("embedding cookies ["+(clear?"clean up]" : "set up]"));
         Cookie [] ret = new Cookie [1];
         ret[0] = new Cookie(KEY_LOGON_COOKIE_ID, clear ? "" : ""+userID);
@@ -195,6 +99,7 @@ public class BasicAuthentication implements WebAuthentication {
                     ret = Long.parseLong(ca[i].getValue());
                 }
                 catch(Exception e) {
+                    /* id is invalid in some way - just ignore it*/
                 }
                 break;
             }
@@ -202,43 +107,88 @@ public class BasicAuthentication implements WebAuthentication {
         return ret;
     }
 
-//    /**
-//     * Pulls out user matching given id from db
-//     * 
-//     * @param id
-//     * @return User
-//     * @throws Exception
-//     */    
-//    private static User pullUserFromDB(long id) throws Exception {
-//        log.debug("pulling out user from db [id="+id+"]");
-//        PrincipalMgrRemote mgr = 
-//            AppContext.getInstance().getRemotePrincipalManager();
-//        String uname = mgr.getUser(id).getName();
-//        log.debug("[username="+uname+"]");
-//        String pw = mgr.getPassword(id);
-//        log.debug("[password="+pw+"]");
-//        String grp = mgr.getGroup(id).getName();
-//        log.debug("[group="+grp+"]");
-//        return new SimpleUser(uname, pw, grp, id);
-//    }
-//    
-//    /**
-//     * Pulls out user matching given username from db
-//     * 
-//     * @param uname
-//     * @return User
-//     * @throws Exception
-//     */
-//    private static User pullUserFromDB(String uname) throws Exception {
-//        log.debug("pulling out user from db [uname="+uname+"]");
-//        PrincipalMgrRemote mgr =
-//            AppContext.getInstance().getRemotePrincipalManager();
-//        long id = mgr.getUser(uname).getId();
-//        log.debug("[id="+id+"]");
-//        String pw = mgr.getPassword(id);
-//        log.debug("[password="+pw+"]");
-//        String grp = mgr.getGroup(id).getName();
-//        log.debug("[group="+grp+"]");
-//        return new SimpleUser(uname, pw, grp, id);
-//    }
+    /**
+     * Pulls out user matching given ID from database.
+     * 
+     * @param id of user to be pulled out
+     * @return User user matching an ID given
+     * @throws Exception if there is not user with given id in DB or some errors
+     * in underlying software has occured
+     */
+    private User pullUserFromDB(long id) throws Exception {
+        log.debug("pulling out user from db [id="+id+"]");
+        PrincipalMgrRemote mgr =
+            AppContext.getInstance().getRemotePrincipalManager();
+        String uname = mgr.getUser(id).getName();
+        // log.debug("[username="+uname+"]");
+        // password set to null because user is not logged in yet
+        return new SimpleUser(uname, null, id);
+    }
+
+    /**
+     * @see com.topcoder.web.common.security.WebAuthentication#getActiveUser()
+     */
+    public User getActiveUser() {
+        User user = getUser();
+        if( user.isAnonymous() ) {
+            // well, there is not user currently logged in
+            // will try to pre-identify user with cookies
+            long id = getIDFromCookies();
+            if( id != User.USER_ANONYMOUS_ID ) {
+                try {
+                    user = pullUserFromDB(id);
+                }
+                catch(Exception e) {
+                    // we may ignore this because pre-identification
+                    // process is second order task
+                }
+            }
+        }
+        return user;
+    }
+    
+    /**
+     * Get current user logged out. This method does not drop pre-identification
+     * cookies.
+	 * @see com.topcoder.shared.security.Authentication#logout()
+     */
+    public void logout() {
+        store.removeObject(KEY_LOGGEDIN_USER);
+    }
+    
+    /**
+     * @see com.topcoder.web.common.security.WebAuthentication#logout(boolean)
+     */
+    public void logout(boolean clearCookies) {
+        logout();
+        if( clearCookies ) {
+            embedPreIDCookies(-1, true);
+        }
+    }
+    
+    /**
+     * Tries to log supplied user in. Also automatically sets pre-
+     * identification cookies to allow user to be weakly identified while he is
+     * not logged in yet.
+     * 
+     * @param user an user to be logged in. Two fields of user must be set to
+     * get successfully logged in: username (handle) and password.
+     * 
+     * @see com.topcoder.shared.security.Authentication#login(com.topcoder.shared.security.User)
+     */
+    public void login(User user) throws AuthenticationException {
+        try {
+            AppContext ac = AppContext.getInstance();
+            LoginRemote lrBean = ac.getRemoteLogin();
+            TCSubject subjUser = lrBean.login(user.getUserName(), user.getPassword());
+            long id = subjUser.getUserId();
+            User loggedUser = new SimpleUser(user.getUserName(), user.getPassword(), id);
+            store.setObject(KEY_LOGGEDIN_USER, loggedUser);
+            embedPreIDCookies(loggedUser.getId(), false);
+        }
+        catch(Exception e) { //
+            e.printStackTrace();
+            throw new AuthenticationException("Login attempt has failed ["+e.getMessage()+"]");
+        }
+    }
 }

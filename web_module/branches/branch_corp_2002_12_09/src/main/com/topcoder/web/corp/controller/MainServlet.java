@@ -106,7 +106,7 @@ public class MainServlet extends HttpServlet {
 
         try {
             processorModule.setRequest(request);
-            SessionPersistor persistor = SessionPersistor.getInstance(request);
+            SessionPersistor persistor = SessionPersistor.getInstance(request.getSession(true));
             WebAuthentication authToken;
             authToken = new BasicAuthentication(persistor, request, response); 
             processorModule.setAuthToken(authToken);
@@ -142,7 +142,7 @@ public class MainServlet extends HttpServlet {
         if( dest == null ) {
             // it is supposed when processor returns null as next page, then
             // controller must use defaul page
-            dest = SessionPersistor.getInstance(req).popLastPage();
+            dest = SessionPersistor.getInstance(req.getSession(true)).popLastPage();
             if( dest == null ) { //still null
                 dest = req.getContextPath()+"/"; // deefault page is web app root
             } 

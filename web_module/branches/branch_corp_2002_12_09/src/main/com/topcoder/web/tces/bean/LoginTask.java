@@ -1,5 +1,6 @@
 package com.topcoder.web.tces.bean;
 
+import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -7,7 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCData;
 import com.topcoder.web.tces.common.TCESConstants;
 
-import com.topcoder.shared.security.AuthenticationException;
+//import com.topcoder.shared.security.AuthenticationException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 

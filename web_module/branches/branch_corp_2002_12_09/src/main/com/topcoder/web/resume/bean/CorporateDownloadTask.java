@@ -10,7 +10,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.web.resume.common.Constants;
-import com.topcoder.web.tces.bean.Authentication;
+//import com.topcoder.web.tces.bean.Authentication;
 import com.topcoder.web.tces.common.TCESConstants;
 
 import javax.servlet.http.*;
@@ -34,12 +34,12 @@ public class CorporateDownloadTask extends ResumeTask{
             throws Exception {
         HttpSession session = request.getSession(true);
 
-        if (!Authentication.isLoggedIn(session)) {
-            log.debug("User not logged in, can't download a file.");
-            throw new Exception("User not logged in, can't download a file.");
-        } else {
-            userId = Authentication.userLoggedIn(session);
-        }
+//        if (!Authentication.isLoggedIn(session)) {
+//            log.debug("User not logged in, can't download a file.");
+//            throw new Exception("User not logged in, can't download a file.");
+//        } else {
+//            userId = Authentication.userLoggedIn(session);
+//        }
 
        
         Request oltpDataRequest = new Request();

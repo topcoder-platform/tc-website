@@ -43,7 +43,7 @@ public class UserList extends BaseProcessor {
         pageInContext = true;
         long userId;
         WebAuthentication authToken = getAuthenticityToken();
-        if (!authToken.isLoggedIn()) {
+        if( authToken.getUser().isAnonymous() ){
 
 
             /* For testing purposes set company ID to 12345 until

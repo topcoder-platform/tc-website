@@ -1,7 +1,8 @@
 package com.topcoder.web.corp.request;
 
-import com.topcoder.shared.security.AuthenticationException;
-import com.topcoder.shared.security.InvalidLogonException;
+//import com.topcoder.shared.security.AuthenticationException;
+//import com.topcoder.shared.security.InvalidLogonException;
+import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -42,7 +43,6 @@ import com.topcoder.web.common.security.SessionPersistor;
 public class Login extends BaseProcessor {
     public static final String KEY_USER_HANDLE      = "handle";
     public static final String KEY_USER_PASS        = "passw";
-//    public static final String KEY_STICKY_LOGIN     = "sticky-login";
     public static final String KEY_DESTINATION_PAGE = "dest";
     
     // modes either full (form to be filled returned to user)
@@ -53,14 +53,14 @@ public class Login extends BaseProcessor {
     /**
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
-    void businessProcessing() throws AuthenticationException  
-    {
-        if( authToken.isLoggedIn() ) {
-            throw new InvalidLogonException("Already logged in. Try logout at first");
+    void businessProcessing() throws AuthenticationException {
+        if( ! authToken.getUser().isAnonymous() ) {
+            throw new AuthenticationException("Already logged in. Try logout at first");
         }
         if( ! "POST".equals(request.getMethod()) ) {
             pageInContext = true;
-            nextPage = SessionPersistor.getInstance(request).popLastPage();
+            nextPage = SessionPersistor.getInstance(request.getSession(true))
+                       .popLastPage();
             return;
         }
         
@@ -96,7 +96,7 @@ public class Login extends BaseProcessor {
         String destination = request.getParameter(KEY_DESTINATION_PAGE);
 
         if( ! miniLogin ) {
-            SessionPersistor.getInstance(request).popLastPage();
+            SessionPersistor.getInstance(request.getSession(true)).popLastPage();
         }
 
         // if destination is null then controller will fetch recently viewed page
