@@ -43,7 +43,7 @@
    <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
             
-            <p class="terciary">
+            <p>
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#conditions">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#structure">Competition Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -80,7 +80,7 @@
             </p>
 
             <ul>
-            <li>The member will advance to the competition in which he/she achieved a higher cumulative scores. (Details of how cumulative score is calculated are provided below)</li>
+            <li>The member will advance to the competition in which he/she achieved a higher cumulative score. (Details of how cumulative score is calculated are provided below.)</li>
             <li>If the member's cumulative score is the same in both competitions, then the member will advance to the competition in which he/she achieved a higher individual component score for his/her Online Round #2 component.</li>
             <li>If the member's Online Round #2 individual component score is the same for both competitions, then the member will choose the competition in which he/she will compete.</li>
             </ul>
@@ -119,14 +119,14 @@
             <p><span class="bodySubtitle">Scoring and Advancing</span><br/>
             During each online round of competition, eligible competitors will submit design and development solutions for at least one eligible component by the submission due date.  Submissions will be scored by the TopCoder Review Boards and will be subject to final review and appeal in the same manner as standard component design submissions.</p>
             
-            <p>ALL SUBMISSIONS MUST BE RECEIVED DURING THE ROUND'S SUBMISSION TIMELINE TO BE CONSIDERED A VIABLE ENTRY.  THERE WILL BE NO EXCEPTIONS.  There will be no elimination of contestants between Online Rounds #1 and #2.  All contestants who submit components that pass screening in Online Round #1 in either competition will be eligible to participate in Online Round #2 of the same competition. </p>
+            <p>ALL SUBMISSIONS MUST BE RECEIVED DURING THE ROUND'S SUBMISSION TIMELINE TO BE CONSIDERED A VIABLE ENTRY.  THERE WILL BE NO EXCEPTIONS.  There will be no elimination of contestants between Online Rounds #1 and #2.  All contestants who submit components that pass screening in Online Round #1 in either competition will be eligible to participate in Online Round #2 of the same competition. The specific structure of the online rounds is as follows:</p>
 
             <ul>
             <li><b>Online Round #1</b><br/>
-            All eligible members may compete in Online Round #1 of either or both competitions.  Those contestants who submit components that pass screening will advance to Online Round #2.</li>
+            All eligible members may compete in Online Round #1 of either or both competition(s).  Those contestants who submit components that pass screening will advance to Online Round #2.</li>
 
             <li><b>Online Round #2</b><br/>
-            All contestants who submitted components that passed screening in Online Round #1 will compete and the four (4) contestants in each competition with the highest cumulative score will advance to Round #3.  The Online Round #2 component score will be weighted more heavily than the Online Round #1 component score in calculating the cumulative score. Each contestant's cumulative score will be calculated as follows:
+            All contestants who submitted components that passed screening in Online Round #1 will compete and the four (4) contestants in each competition with the highest cumulative score will advance to Round #3.  The Online Round #2 component score will be weighted more heavily than the Online Round #1 component score in calculating the cumulative score. Each contestant's cumulative score will be calculated as follows:<br/><br/>
                <ul>
                <li>Highest individual component score from Online Round #1 + (Highest individual component score from Online Round #2 x 1.3)</li>
             </ul>
@@ -137,9 +137,9 @@
              <p>
              The four (4) advancers from Online Round #2 in each competition will travel to the Boston Park Plaza Hotel & Towers on Thursday, April 15th to compete in the final review stage of Round #3 being held on Friday, April 16th.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 PM on Thursday, April 15th.  If a contestant is unable to attend the onsite round, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest cumulative score from Online Round #2.</p>
              <p>
-             TopCoder will provide travel arrangements for each competitor up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  The Boston Park Plaza Hotel & Towers will provide travel arrangements to and from the airport and TopCoder will provide accomodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will <b>not</b> provide travel or lodging accommodations for competitor guests at the 2004 TCCC.</p>
+             TopCoder will provide travel arrangements for each competitor up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  The Boston Park Plaza Hotel & Towers will provide travel arrangements to and from the airport, and TopCoder will provide accomodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will <b>not</b> provide travel or lodging accommodations for competitor guests at the 2004 TCCC.</p>
              <p>
-             Championship Round #3 will be a single round of four (4) members in each competition.  The winners will be crowned, one Design Champion and one Development Champion will be the members with the highest score of his/her component submission in each competition.</p>
+             Championship Round #3 will be a single round of four (4) members in each competition.  Two winners will be crowned, one Design Champion and one Development Champion.  Each champion will be the members with the highest score of his/her component submission in each competition.</p>
 
             <p>Championship Tiebreaker:  In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):</p>
 
@@ -175,7 +175,7 @@
                     <td class="sidebarText">2nd place finisher* in the Championship Round</td>
                     <td class="sidebarText" align="right">$9,000</td>
                     <td class="sidebarText">2nd place finisher* in the Championship Round</td>
-                    <td class="sidebarText" align="right">$2,000</td>
+                    <td class="sidebarText" align="right">$2,500</td>
                 </tr>
 
                 <tr>

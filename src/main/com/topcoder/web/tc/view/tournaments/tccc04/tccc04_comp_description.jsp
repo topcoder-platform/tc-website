@@ -54,7 +54,7 @@
                 <li><strong>Elimination Starts</strong><br />
                     January 27, 2004<br />
                 <li><strong>Onsite Finals</strong><br />
-                    April 15 & 16, 2004 in athe Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
+                    April 15 & 16, 2004 in at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
                 <li><strong>Free Competition</strong></li>
                 <li><strong>Open to all college students</strong></li>
             </ul>

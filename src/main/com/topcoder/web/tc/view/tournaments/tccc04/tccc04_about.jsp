@@ -46,7 +46,7 @@
             <h2>The 2004 TopCoder Collegiate Challenge</h2>
 
             <p><span class="bodySubtitle">What is the TCCC?</span><br/>
-            TopCoder is bringing the frontline of competitive programming to a campus near you. Over the next couple months, the 2004 TopCoder Collegiate Challenge will have college students all over the world competing for a chance to attend the onsite finals in Boston, MA in April.  Students have their choice of playing field, either the Algorithm Competition or the Component Design and Development Competition, or both should you be that skilled.  The stage is set and the competition is fierce.  Let the games begin!
+            TopCoder is bringing the frontline of competitive programming to a campus near you. Over the next couple of months, the 2004 TopCoder Collegiate Challenge will have college students all over the world competing for a chance to attend the onsite finals in Boston, MA in April.  Students have their choice of playing field, either the Algorithm Competition or the Component Design and Development Competition, or both should you be that skilled.  The stage is set and the competition is fierce.  Let the games begin!
             </p>
             
             <p><span class="bodySubtitle">What's new?</span><br/>
@@ -63,7 +63,7 @@
                     January 27, 2004 - Component<br />
                     February 23, 2004 - Algorithm<br /></li>
                 <li><strong>Onsite Finals</strong><br />
-                    April 15 & 16, 2004 in athe Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
+                    April 15 & 16, 2004 in at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
                 <li><strong>Free Competition</strong></li>
                 <li><strong>Open to all college students</strong></li>
             </ul>
