@@ -38,42 +38,39 @@
 <%-- Gutter Ends --%>
 
 <%-- Center Column Begins --%>
-        <td class="bodyText" width="100%">
-            <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br/>
+        <td width="100%" align="center">
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="middle">
-                    <td class="bodyText">
+            <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
 
 <%-- Title --%>
-                        <h2 class="devSubhead"><strong><rsc:item set="<%=projectDetail%>" name="component_name"/>: Development</strong></h2>
-                    </td>
-                    <td align="right">
-                        <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
-                            <img src="/i/development/tccc04_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
-                        <% } %>
-                    </td>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectTitles" nowrap="nowrap">Development Component Project - <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
+                </tr>
+                <tr>
+                    <td class="projectHeaders" align="left">Overview</td>
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                        <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
+                            <img src="/i/development/tccc04_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
+                        <% } %>
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
                 <tr valign="top">
                     <td class="bodyText">
+
 <%-- Overview --%>
-                        <p><strong>Overview</strong><br />
+
+                        <p>
                         <rsc:item set="<%=projectDetail%>" name="description"/>
                         </p>
 
-<%-- Project Type --%>
-                        <p><strong>Project Type</strong><br />
-                        Component Development Project: Provide a complete development solution for the <strong><rsc:item set="<%=projectDetail%>" name="component_name"/></strong> component.</p>
-
-                        <p>Please review the TopCoder Software <a href="http://www.topcoder.com/?t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution.
-                        If you're not sure what to submit, go to <a href="/?t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.</p>
-
 <%-- Technologies --%>
-                        <p><strong>Technologies</strong></p>
-                        <ul>
+                        <p class="noSpListTitle"><strong>Technologies</strong></p>
+                        <ul class="noSpList">
                             <rsc:iterator list="<%=technologies%>" id="item">
                                 <li><rsc:item row="<%=item%>" name="technology_name"/></li>
                             </rsc:iterator>
@@ -89,7 +86,12 @@
                             </p>
 
 <%-- Payment --%>
-                        <p><strong>Payment</strong><br />
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Payment</td>
+                </tr>
+            </table>
+                        <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
                         70. First place compensation will consist of both initial payments and royalties on
                         the sale of the component. The initial payment will be distributed in two installments.
@@ -98,36 +100,55 @@
 
                         <p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 
-                        <p><strong>Winning Developer</strong><br />
-                        Royalty Percentage - 25%</p>
-
-                        <p>Total Payment - <rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></p>
+                        <p class="noSpListTitle"><strong>Winning Developer</strong></p>
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Royalty Percentage -</td><td class="bodyText" align="right">25%</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap" colspan="2">&#160;</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
+                            </tr>
+                        </table>
 
                         <p><strong>Second Place Developer</strong><br />
                            Total Payment - <rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br/>
                         </p>
 <%-- Definition of Completion --%>
-                        <p><sup>*</sup>Completion of the project is defined as follows:</p>
+                        <p class="noSpListTitle"><strong>Project Completion</strong><br />
+                        *Completion of the project is defined as follows:</p>
 
-                        <ul>
+                        <ul class="noSpList">
                             <li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
                             <li>The Submission has been selected by the board as the winning submission.</li>
                             <li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
                         </ul>
 
 <%-- Eligibility Requirements --%>
-                        <p><strong>Eligibility</strong><br />
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Eligibility</td>
+                </tr>
+            </table>
+                        <p class="noSpListTitle">
                         You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
-                        <ol>
+                        <ul class="noSpList">
                             <li>A US Citizen </li>
                             <li>A Lawful Permanent Resident of the US</li>
                             <li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
                             <li>A Non-US Citizen working in your country of residence.</li>
-                        </ol>
+                        </ul>
 
 <%-- Time Line --%>
-                        <p><strong>Time Line</strong><br/>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Timeline</td>
+                </tr>
+            </table>
+                        <p>
                         All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
                         <p><%--Component Posting: 1.23.2003<br/>--%>
@@ -140,13 +161,18 @@
                         <p><br /></p>
 
 <%-- Register at TCS --%>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Registration</td>
+                </tr>
+            </table>
 
-                            <p><strong>Registration</strong><br/>
+                            <p>
                            <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
                                Registration is closed.
                            <% } else { %>
                                <% if (projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_INQUIRIES) { %>
-                            <p>
+                            <p class="bigRed">
                             **Important Note:
                             By registering to work on this project you are committing to delivering the specified requirements.  Failure to submit the project requirements by the specified date will result in a one month suspension from TopCoder design and development competitions.</p>
                            <p>
@@ -160,12 +186,17 @@
                            </p>
                             <p><br /></p>
 
-                            <p><strong>Upload Your Submission</strong><br/>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Upload Your Submission</td>
+                </tr>
+            </table>
+                            <p>
                             Managing your projects is now easier than ever with the Project Submit &amp; Review application. After you've inquired about a project,
                             use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
                             <%-- Learn more about Project Submit & Review (link to future How-to guide --%>
 
-                           <p align="center"><strong><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit &amp; Review</A> &gt;</strong></p>
+                           <p align="left"><strong><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit &amp; Review</A> &gt;</strong></p>
                     </td>
                 </tr>
             </table>
