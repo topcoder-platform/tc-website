@@ -71,7 +71,7 @@
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
                     <td class="advCell" align="left">&#160;</td>
-                    <td class="advCell" align="right">76.75</td>
+                    <td class="advCell" align="right">77.25</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
@@ -141,7 +141,7 @@
                     <td class="advCell" align="center">1</td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="advCell" align="center">76.57</td>
-                    <td class="advCell" align="center">&#160;</td>
+                    <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell">&#160;</td>
@@ -149,7 +149,7 @@
                     <td class="advCell" align="center">2</td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
                     <td class="advCell" align="center">66.42</td>
-                    <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
+                    <td class="advCell" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=8444395" target="_blank">Heartbeat</a></td>
@@ -164,8 +164,8 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">2</td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
-                    <td class="advCell" align="center">76.75</td>
-                    <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
+                    <td class="advCell" align="center">77.25</td>
+                    <td class="advCell" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell">&#160;</td>
@@ -173,7 +173,7 @@
                     <td class="advCell" align="center">3</td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="advCell" align="center">74.75</td>
-                    <td class="advCell" align="center">&#160;</td>
+                    <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell">&#160;</td>
@@ -189,7 +189,7 @@
                     <td class="advCell" align="center">1</td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=251832">dark_lord</a></td>
                     <td class="advCell" align="center">75.01</td>
-                    <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
+                    <td class="advCell" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell">&#160;</td>
@@ -197,7 +197,7 @@
                     <td class="advCell" align="center">2</td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=260578">danno</a></td>
                     <td class="advCell" align="center">65.32</td>
-                    <td class="advCell" align="center">&#160;</td>
+                    <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
 
             </table>
