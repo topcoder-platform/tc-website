@@ -79,6 +79,13 @@ log.debug("setting company name: "+companyName);
 
     private void doGoCampaign() throws Exception
     {
+        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
+    }
+
+
+
+    private void viewMain() throws Exception
+    {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_main");
 
@@ -103,13 +110,6 @@ setCompanyName(str);
 
 //        setCompanyName( TCData.getTCString(rRow, "company_name") );
 
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
-    }
-
-
-
-    private void viewMain() throws Exception
-    {
         setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
     }
 

@@ -79,7 +79,7 @@ log.debug("getting handleinput "+handleInput);
     {
         HttpSession session = request.getSession(true);
 
-        if (userIdAuthenticated>0) {
+        if (userIdAuthenticated<0) {
             session.setAttribute("user_id", null);  // record the user as not being logged-in.
         }
         else {
