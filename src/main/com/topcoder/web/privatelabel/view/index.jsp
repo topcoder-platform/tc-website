@@ -5,11 +5,13 @@
 </head>
 <body>
 this is the default index page for the private label site.<br/>
-it should remain generic for any company that might to private label stuff.<br/>
+it should remain generic for any company that might do private label stuff.<br/>
 for company specific content we'll need a different page/backend<br/>
 <br/>
 <br/>
 <a href="?&<%=Constants.MODULE_KEY+"="+Constants.SIMPLE_REG_MAIN+"&"+Constants.COMPANY_ID+"=1"%>">Register</a>
 <br/>
-<a href="?&<%=Constants.MODULE_KEY+"="+Constants.FULL_REG_MAIN+"&"+Constants.COMPANY_ID+"=1&"+Constants.EVENT_ID+"=1"%>">Register Verizon</a>
+<a href="?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1&"+Constants.EVENT_ID+"=1"%>">Register Verizon</a>
+<br/>
+<a href="?&<%=Constants.MODULE_KEY+"="+Constants.GOOGLE_REG_MAIN+"&"+Constants.COMPANY_ID+"=1&"+Constants.EVENT_ID+"=1"%>">Register Verizon</a>
 </body>
