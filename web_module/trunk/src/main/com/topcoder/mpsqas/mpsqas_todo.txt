@@ -7,7 +7,11 @@
  
 - main problem room, method name = class name
 
--move "all solutions always agree" to after the results
+- move "all solutions always agree" to after the results
+ 
+- fix it so that it doesn't blow up the log every now and then
+
+- fix it so that one person can't log someone else off
 
 *********** ADDITIONAL FUNCTIONALITY ***************
 
