@@ -16,7 +16,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "component_admin.jsp";
-    String action = request.getParameter("a");	
+    String action = request.getParameter("a");
 %>
 <%!
     String masterList(Collection cats, String prefix) {
@@ -70,15 +70,15 @@ class CategoryNode {
             addChild(node);
             htIn.put("" + node.getCategory().getId(), node);
             node.loadChildren(htIn);
-        }		
+        }
     }
 
     public String buildBreadCrumb(boolean showAnchor) {
         if (parent == null) {
-            return "<a href=\"c_showroom.jsp\" class=\"breadcrumbLinks\">Component Catalog</a>";	
+            return "<a href=\"c_showroom.jsp\" class=\"breadcrumbLinks\">Component Catalog</a>";
         } else {
             String str = parent.buildBreadCrumb(true) + " &gt; ";
-            if (showAnchor) { 
+            if (showAnchor) {
                     str += "<a href=\"c_showroom.jsp?cat=" + category.getId() + "\" class=\"breadcrumbLinks\">" + category.getName() + "</a>";
             } else {
                     str += "<strong>" + category.getName() + "</strong>";
@@ -305,7 +305,7 @@ if (action != null) {
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td valign="middle" width="1%" class="adminBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="1" border="0"/></td>
-		<td valign="middle" width="1%" class="adminBreadcrumb" nowrap><a class="breadcrumbLinks" href="catalog.jsp">Catalog Admin</a> > <strong>Catalog Admin</strong></td>
+		<td valign="middle" width="1%" class="adminBreadcrumb" nowrap><a class="breadcrumbLinks" href="catalog.jsp">Catalog Admin</a> > <strong>Component Admin</strong></td>
 		<td valign="middle" width="98%" class="adminBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="1" border="0"/></td>
 	</tr>
 </table>
@@ -373,7 +373,7 @@ if (action != null) {
 
 				<tr><td class="adminSubhead"><%= comp.getName() %></td></tr>
 			</table>
-				
+
 			<table width="100%" cellpadding="0" cellspacing="0" align="center" border="0">
 				<tr valign="top">
 					<td align="center">
@@ -381,7 +381,7 @@ if (action != null) {
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tr><td width="445" height="29" colspan="2"><img src="/images/adminNameDescHead.gif" alt="Name and Description" width="500" height="29" border="0" /></td></tr>
 						</table>
-						
+
 						<table width="500" border="0" cellspacing="8" cellpadding="0" align="center" class="admin">
 
 <!-- Component Name -->
@@ -394,7 +394,7 @@ if (action != null) {
 								<td width="1%" class="adminText"><input class="adminSearchForm" type="text" size="35" maxlength="40" name="txtName" value="<%= comp.getName() %>"></input></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 							</tr>
-							
+
 <!-- Keywords -->
 							<tr valign="top">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
@@ -575,12 +575,12 @@ if (action != null) {
 								<td width="1%" class="adminTextCenter">Master Category List</td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 							</tr>
-							
+
 							<tr valign="middle">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 								<td width="1%" class="adminTextCenter">
 									<select name="selMasterCategory" size="8" multiple="multiple">
-            <% 
+            <%
                             for (int i=0; i < categories.length; i++) {
                                 if (rootCategory != null && rootCategory.getId() == categories[i].getId()) out.print(masterList(categories[i].getSubcategories(), ""));
                             }
@@ -588,35 +588,35 @@ if (action != null) {
 									</select></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 							</tr>
-							
+
 <!-- Navigation Buttons -->
 							<tr valign="middle">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 								<td width="1%" class="adminTextCenter"><input type="image" src="../images/buttonAdd.gif" alt="\/" name="add" value=">>" />&nbsp;&nbsp;&nbsp;<input type="image" src="../images/buttonRemove.gif" alt="/\" name="remove" value="<<" /></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 							</tr>
-							
+
 <!-- Associated Categories -->
 							<tr valign="middle">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 								<td width="1%" class="adminTextCenter">
 									<select name="selComponentCategory"size="4" multiple="multiple">
-<% 
-                    for (int i=0; i < compCategories.length; i++) { 
+<%
+                    for (int i=0; i < compCategories.length; i++) {
                         debug.addMsg("component admin", "adding comp category " + compCategories[i].getId());
                         if (htCategories.get("" + compCategories[i].getId()) != null) {
 %>
                             				<option value="<%= compCategories[i].getId() %>"><%= ((CategoryNode)htCategories.get("" + compCategories[i].getId())).toFullString() %></option>
-<%      
+<%
                         } else {
                             debug.addMsg("component admin", "comp category " + compCategories[i].getId() + " doesn't exist anymore");
                         }
-                    } 
+                    }
 %>
 									</select></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 							</tr>
-							
+
 							<tr valign="middle">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 								<td width="1%" class="adminTextCenter">Associated Categories for <strong><%= comp.getName() %></strong></td>
@@ -639,7 +639,7 @@ if (action != null) {
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr><td class="adminSubhead">Versions</td></tr>
 			</table>
-				
+
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
 				<tr valign="top">
 					<td width="20%" class="adminTitle">Version</td>
@@ -653,7 +653,7 @@ if (action != null) {
 %>
 
 	<%
-		for (int i=0; i < versions.length; i++) { 
+		for (int i=0; i < versions.length; i++) {
 	%>
 				<tr valign="top">
 					<td class="forumText"><strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= versions[i].getVersion() %>">Version <%= versions[i].getVersionLabel() %></a></strong></td>
@@ -691,7 +691,7 @@ if (action != null) {
 <!-- Gutter 3 ends -->
 	</tr>
 </table>
-	
+
 <!-- Footer begins -->
 <jsp:include page="/includes/footer.jsp" flush="true" />
 <!-- Footer ends -->
