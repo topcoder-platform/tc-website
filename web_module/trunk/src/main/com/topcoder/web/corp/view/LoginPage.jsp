@@ -57,29 +57,30 @@
     if(username==null) username = "";
 %>
 
-<%--<form name="loginform" action="<%= "https://"+request.getServerName()+request.getAttribute("canonpath") %>" method="POST">--%>
-<form name="loginform" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
-<input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
-<TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
-<TR>
-   <TD CLASS="bodyText"><font size="+1" color="#ff2010"><%= message %></font></TD>
-</TR>
-</TABLE>
-<TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
-<TR>
-    <TD CLASS="bodyText"><B>User Name</B><BR><INPUT TYPE="text" NAME="<%=Login.KEY_USER_HANDLE%>" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event,document.loginform)"></TD>
-</TR>
-<TR>
-    <TD CLASS="bodyText"><B>Password</B><BR><INPUT TYPE="password" NAME="<%=Login.KEY_USER_PASS%>" SIZE="25" onKeyPress="submitEnter(event,document.loginform)"><BR><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
-</TR>
-</TABLE>
-</form>
-<script>
-  document.loginform.<%=username.equals("")?Login.KEY_USER_HANDLE:Login.KEY_USER_PASS%>.focus();
-</script>
-
-
-
+                    <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
+                    <table border="0" cellpadding="3" cellspacing="0" align="center">
+                    <TR>
+                       <TD CLASS="bodyText"><font size="+1" color="#ff2010"><%= message %></font></TD>
+                    </TR>
+                    </TABLE>
+                    <table CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
+                           <tr valign="middle">
+                                <td class="loginText" align="right">User Name:</td>
+                                <td align="left"><INPUT TYPE="text" NAME="<%=Login.KEY_USER_HANDLE%>" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event,document.frmLogin)"></TD>
+                                <td class="loginText">&#160</td>
+                            </tr>
+                            <tr valign="middle">
+                                <td class="loginText" align="right">Password:</td>
+                                <td align="left"><INPUT TYPE="password" NAME="<%=Login.KEY_USER_PASS%>" VALUE="" SIZE="25" onKeyPress="submitEnter(event,document.frmLogin)"></TD>
+                                <td class="loginText"><a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a></td>
+                            </tr>
+                           <tr valign="middle">
+                                <td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td>
+                            </tr>
+                    </table>
+                    <script>
+                      document.loginform.<%=username.equals("")?Login.KEY_USER_HANDLE:Login.KEY_USER_PASS%>.focus();
+                    </script>
 
                     </td>
                     </form>
