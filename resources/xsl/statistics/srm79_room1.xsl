@@ -65,15 +65,15 @@
     	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=editorial_archive">Archive</A></TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
@@ -84,20 +84,39 @@
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
-<P><B>Single Round Match 78</B><BR/>
-April 9, 2002</P>
+<P><B>Single Round Match 79</B><BR/>
+April 10, 2002</P>
 <P><B>Room 1 Review</B></P>
-<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> won top honors in <A HREF="/stat?c=last_match" CLASS="bodyGeneric">SRM 78</A>, edging out top ranked 
-<A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> by submitting all three problems successfully for 1308.41 and then taking the lead during the challenge 
-phase by successfully challenging <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dgarthur's</A> CleanupCrew and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">bigg_nate's</A> pinball, 
-for a total of 1408.41, giving him second overall (to <A HREF="/stat?c=last_match" CLASS="bodyGeneric">SnapDragon</A> with 1483.30).</P>
-<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> was true to his usual form in this match, with the third highest score overall. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ambrose</A>
-, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">erdos</A>, and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">bigg_nate</A>, however, did not fair so well, each receiving points only for the 
-easy problem, resulting in big ratings drops of 150+ points.</P>
-<P>In addition, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A>, the number 2 and number 3 coders were absent tonight.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A>, last year's <A HREF="/index?t=schedule&amp;c=tourny_tci_01" CLASS="bodyText">2001 Invitational</A> winner, was rumored to be playing tennis.</P>
+<P>Room 1 started out rather normally, with <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> submitting the 300 first,
+taking only seven and a half minute for 281.73 points. Second was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge</A>, 
+spending eight minutes for 279.73 points, followed by the rest of the room. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> 
+came in last with 252.79 points after sixteen and a half minutes, but due to a three-and-a-half-minute late start, this only adds up
+to thirteen minutes of coding time.</P>
+
+<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A> submitted the fastest 500 by quite a bit, completing the code in 
+only 9 minutes.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Doeth</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> 
+followed soon after, taking 11.5 and almost 15 minutes respectively. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dgarthur</A> submitted the slowest 500pt
+solution, spending over 24 minutes on it. Only <A HREF="/stat?c=last_match" CLASS="bodyGeneric">evd</A> failed to submit the 500.</P>
+
+<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A> submitted an amazingly fast 950pt solution, taking only slightly 
+over 10 minutes to code it for 844.96 points and submitting even before most of the room had finished their 500s. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> 
+submitted a full 16 minutes later, spending about 21.5 minutes coding it for 648.72 points, but soon followed by 
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> making up for his slow 300 and 500 by submitting an 11-minute solution for 830.86 points. 
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">doeth</A> had the slowest 950pt solution, spending almost 32 minutes on his code. 
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">evd</A> failed to submit the 950pt.</P>
+
+<P>Challenge round was amazingly boring, as absolutely nothing happened.</P>
+
+<P>System tests produced a few upsets - <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut's</A> fast 950pt solution failed,
+dropping him from 1st to 6th. The only other failures were dgarthur's 500pt and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge's</A> 500pt. 
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> took the lead with his high-scoring 950pt and all three successful solutions, totaling 
+1434.10 points, followed by <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> with 1332.36 points and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">malpt</A> 
+with 1274.74 points, each with three working solutions. Last place was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">evd</A> with 269.99 points, followed by
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge</A> with 269.73, each with only their 300pt solution remaining.
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A> was the only other coder with less than 1000 points in Room 1.</P>
     
-    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+    <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

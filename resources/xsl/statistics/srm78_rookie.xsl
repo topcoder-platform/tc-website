@@ -50,10 +50,42 @@
   <TR>
     <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P>
-<A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">Room 1 Review</A> | <A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">Rookie Review</A> | <A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">Problem Set Analysis &amp; Opinion</A>
-</P>
-
+<!--body contextual links-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="250" ALIGN="right">
+ 	<TR>
+        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+        <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
+    </TR> 
+	<TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+	<TR>
+		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
+		<TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+	</TR>                    
+	<TR>
+    	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
+		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
+		<TR>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
+		</TR>
+		<TR>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
+		</TR>
+		<TR>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=editorial_archive">Archive</A></TD>
+		</TR>
+		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
+		</TABLE>
+		</TD>
+	</TR>
+ 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
+</TABLE>
+<!--end contextual links-->
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
+<P><B>Single Round Match 78</B><BR/>
+April 9, 2002</P>
 <P><B>Rookie Review</B></P>
 <P>First timer, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">antimatter</A>, blew away the competition, with an astounding 1441.00 points, only 50 of which came from the challenge phase.  
 This score beat out everyone in Division II by over 70 points.  The nearest competitor was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">brpy</A>, who came in second with 1370.79.  
@@ -63,8 +95,6 @@ was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">antimatter's</A> 1200 point
     
     <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>   
-<BR/><A HREF="mailto:editorial@topcoder.com">Are you a member interested in writing a review?</A>
-<BR/><BR/><A HREF="mailto:editorial@topcoder.com">Are you a member and want to comment on this editorial?</A>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

@@ -65,15 +65,15 @@
     	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=editorial_archive">Archive</A></TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
@@ -84,20 +84,25 @@
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
-<P><B>Single Round Match 78</B><BR/>
-April 9, 2002</P>
-<P><B>Room 1 Review</B></P>
-<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> won top honors in <A HREF="/stat?c=last_match" CLASS="bodyGeneric">SRM 78</A>, edging out top ranked 
-<A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> by submitting all three problems successfully for 1308.41 and then taking the lead during the challenge 
-phase by successfully challenging <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dgarthur's</A> CleanupCrew and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">bigg_nate's</A> pinball, 
-for a total of 1408.41, giving him second overall (to <A HREF="/stat?c=last_match" CLASS="bodyGeneric">SnapDragon</A> with 1483.30).</P>
-<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> was true to his usual form in this match, with the third highest score overall. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ambrose</A>
-, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">erdos</A>, and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">bigg_nate</A>, however, did not fair so well, each receiving points only for the 
-easy problem, resulting in big ratings drops of 150+ points.</P>
-<P>In addition, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A>, the number 2 and number 3 coders were absent tonight.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A>, last year's <A HREF="/index?t=schedule&amp;c=tourny_tci_01" CLASS="bodyText">2001 Invitational</A> winner, was rumored to be playing tennis.</P>
-    
-    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+<P><B>Single Round Match 79</B><BR/>
+April 10, 2002</P>
+<P><B>Problem Set Analysis &amp; Opinion</B></P>
+<P>The 300 was extremely simple, requiring nothing more than "implement what we just told you to." Some people chose 
+to make functions to determine if squares were Latin or orthogonal (see <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson's</A> solution for an example)
+whereas some people just hacked it into a single function (like <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A>). In the end, it's a simple matter 
+of accumulating all the data together and making a big if statement.</P>
+
+<P>The 500 was a little more complex, but in the end it's just a brute-force system. Check each possible move and see how many stones you'd get in your 
+home pit, then return the best one. The only tricky part is that if the last stone was placed in your home pit you have to check all the next possible 
+moves again, but the numbers are small enough that there's no danger of timing out. Aside from that it's just a matter of getting the logic right.</P>
+
+<P>The 950 was difficult in theory, but the low constraints made it much easier than it would have been otherwise. It's quite possible to go through and 
+just test every single possibility in some matter. My personal favorite solution is <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright's</A>. 
+He keeps an array of the four values and for each step he "accumulates" two of them together with some operator, recursively so he gets all the possible 
+values. Then it's just a matter of keeping track of the current "best". A common mistake was to only do the operators in order, which wouldn't allow 
+results like (3/14)+(11/14). In fact, this is the mistake that I made :P</P>
+    <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
