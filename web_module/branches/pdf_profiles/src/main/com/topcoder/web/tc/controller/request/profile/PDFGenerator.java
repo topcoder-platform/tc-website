@@ -14,6 +14,8 @@ import com.lowagie.text.pdf.*;
 
 import java.util.List;
 
+import com.topcoder.shared.util.ApplicationServer;
+
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
@@ -239,7 +241,7 @@ public class PDFGenerator extends BaseProcessor {
     }    
     
     private void drawPageOne(Document doc, PlacementConfig info) throws Exception {
-        Image logo = Image.getInstance("http://www.topcoder.com/i/profile/topcoder_logo_tagline.jpg");
+        Image logo = Image.getInstance("http://" + ApplicationServer.HOST_URL + "/i/profile/topcoder_logo_tagline.jpg");
         logo.setAlignment(Element.ALIGN_CENTER);
         logo.scalePercent(60f);
         Paragraph p = new Paragraph(" ");
@@ -399,7 +401,7 @@ public class PDFGenerator extends BaseProcessor {
         ranking.addCell(inner);
         ranking.addCell(" ");
 
-        Image chart = Image.getInstance("http://www.topcoder.com/graph?c=rating_distribution_graph&width=600&height=400");
+        Image chart = Image.getInstance("http://" + ApplicationServer.HOST_URL + "/graph?c=rating_distribution_graph&width=600&height=400");
         ranking.addCell(chart);
 
         t.addCell(ranking);
@@ -771,7 +773,7 @@ public class PDFGenerator extends BaseProcessor {
             
             try {
                 //super.onEndPage(writer, document);
-                Image footerimg = Image.getInstance("http://www.topcoder.com/i/profiles/topcoder_logo_footer.jpg");
+                Image footerimg = Image.getInstance("http://" + ApplicationServer.HOST_URL + "/i/profiles/topcoder_logo_footer.jpg");
                 footerimg.setAlignment(Element.ALIGN_LEFT);
                 footerimg.scalePercent(70f);
 
