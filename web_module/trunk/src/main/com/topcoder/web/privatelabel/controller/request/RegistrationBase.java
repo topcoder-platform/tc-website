@@ -1,24 +1,19 @@
 package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.Persistor;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import javax.naming.InitialContext;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -156,6 +151,8 @@ public abstract class RegistrationBase extends BaseProcessor {
         }
     }
 
+/*  we're not going to create security user's anymore (at least for now, we'll just create the user in the
+    company specific db
     protected final PrincipalMgrRemote getPrincipalManager() throws Exception {
         InitialContext ctx = null;
         try {
@@ -172,6 +169,7 @@ public abstract class RegistrationBase extends BaseProcessor {
         }
 
     }
+*/
 
      protected String getRequestParameter(String name) throws Exception {
         String ret = null;

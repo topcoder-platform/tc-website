@@ -5,18 +5,15 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.shared.util.*;
 import com.topcoder.web.corp.ejb.coder.*;
 import com.topcoder.web.ejb.sessionprofile.*;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import javax.transaction.UserTransaction;
 import java.sql.Timestamp;
 import com.topcoder.web.ejb.session.Session;
 import com.topcoder.web.ejb.session.SessionHome;
@@ -64,8 +61,8 @@ public class Submit extends FullRegSubmit {
         }
     }
 
-    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-        UserPrincipal ret = super.storeWithoutCoder(regInfo, newUser);
+    protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+        long ret = super.storeWithoutCoder(regInfo);
 
         //need to add coder record to avoid breaking a bunch of foreign keys
         CoderHome cHome = (CoderHome)
@@ -74,8 +71,8 @@ public class Submit extends FullRegSubmit {
         Coder coder = cHome.create();
         coder.createCoder(newUser.getId(), 1);
 
-        super.setCoderType(ret.getId(), ((FullRegInfo)regInfo).getCoderType());
-        ret = super.storeQuestions(regInfo, ret);
+        super.setCoderType(ret, ((FullRegInfo)regInfo).getCoderType());
+        super.storeQuestions(regInfo, ret);
 
         //check for resume save
         ResumeRegInfo info = (ResumeRegInfo)regInfo;
@@ -103,7 +100,7 @@ public class Submit extends FullRegSubmit {
                 }
                 fileName = info.getUploadedFile().getRemoteFileName();
                 ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                resumeServices.putResume(ret.getId(), fileType, fileName, fileBytes, transDb);
+                resumeServices.putResume(ret, fileType, fileName, fileBytes, transDb);
             }
         }
 

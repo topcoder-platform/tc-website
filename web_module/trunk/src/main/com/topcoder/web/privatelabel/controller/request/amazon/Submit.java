@@ -64,8 +64,8 @@ public class Submit extends FullRegSubmit {
         }
     }
 
-    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-        UserPrincipal ret = super.storeWithoutCoder(regInfo, newUser);
+    protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+        long ret = super.storeWithoutCoder(regInfo);
 
         //need to add coder record to avoid breaking a bunch of foreign keys
         CoderHome cHome = (CoderHome)
@@ -74,8 +74,8 @@ public class Submit extends FullRegSubmit {
         Coder coder = cHome.create();
         coder.createCoder(newUser.getId(), 1);
 
-        super.setCoderType(ret.getId(), ((FullRegInfo)regInfo).getCoderType());
-        ret = super.storeQuestions(regInfo, ret);
+        super.setCoderType(ret, ((FullRegInfo)regInfo).getCoderType());
+        super.storeQuestions(regInfo, ret);
 
         return ret;
     }

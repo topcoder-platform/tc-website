@@ -152,23 +152,22 @@ public class VerizonRegSubmit extends FullRegSubmit {
     /**
      * set verizon specific stuff
      * @param regInfo
-     * @param newUser
      * @return
      * @throws Exception
      */
-    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-        UserPrincipal ret = super.store(regInfo, newUser);
+    protected long store(SimpleRegInfo regInfo) throws Exception {
+        long ret = super.store(regInfo);
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
-        ResultSetContainer addresses = userAddress.getUserAddresses(ret.getId(), transDb);
+        ResultSetContainer addresses = userAddress.getUserAddresses(ret, transDb);
         if (addresses.size() != 1) {
-            throw new RuntimeException("found " + addresses.size() + " addresses for " + ret.getId() + " dunno what to do");
+            throw new RuntimeException("found " + addresses.size() + " addresses for " + ret + " dunno what to do");
         }
 
         long addressId = addresses.getLongItem(0, "address_id");
         address.setProvince(addressId, regInfo.getProvince(), transDb);
-        return newUser;
+        return ret;
 
     }
 
