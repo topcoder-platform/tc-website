@@ -24,6 +24,7 @@ AND rr.room_id < @br@ + @em@
 AND c.coder_id = rr.coder_id
 AND con.contest_id = r.contest_id
 AND room.room_id = rr.room_id
+AND r.round_type_id IN (1,2)
 ORDER BY rr.room_id, rr.final_points DESC, rr.new_rating DESC, c.handle
 "
 java com.topcoder.utilities.QueryLoader 2 "Rounds_By_Date" 0 0 "
@@ -37,6 +38,7 @@ cal.date,
 FROM contest c, round r, calendar cal
 WHERE cal.calendar_id = r.calendar_id
 AND c.contest_id = r.contest_id
+AND r.round_type_id IN (1,2)
 ORDER BY cal.date DESC
 "
 java com.topcoder.utilities.QueryLoader 3 "Rooms_For_Round" 0 0 "
@@ -73,6 +75,7 @@ AND r.room_id = @rm@
 AND c.coder_id = rr.coder_id
 AND round.round_id = @rd@
 AND con.contest_id = round.contest_id
+AND round.round_type_id IN (1,2)
 ORDER BY rr.final_points DESC, rr.new_rating DESC, c.handle
 "
 java com.topcoder.utilities.QueryLoader 5 "Coder_Ratings" 1 3 "
@@ -497,6 +500,7 @@ AND rr.paid > 0.0
 AND r.round_id = rr.round_id
 AND c.contest_id = r.contest_id
 AND cal.calendar_id = r.calendar_id
+AND r.round_type_id IN (1,2)
 ORDER BY @sc@ @sd@
 "
 java com.topcoder.utilities.QueryLoader 25 "Ratings_History" 0 0 "
@@ -512,6 +516,7 @@ WHERE rr.coder_id = @cr@
 AND r.round_id = rr.round_id
 AND c.contest_id = r.contest_id
 AND cal.calendar_id = r.calendar_id
+AND r.round_type_id IN (1,2)
 ORDER BY @sc@ @sd@
 "
 java com.topcoder.utilities.QueryLoader 26 "Most_Recent_Round" 0 0 "
@@ -519,7 +524,8 @@ SELECT MAX(round_id) AS round_id
 FROM round
 WHERE calendar_id =
 (SELECT MAX(calendar_id)
- FROM round)
+ FROM round
+WHERE round_type_id IN (1,2))
 "
 java com.topcoder.utilities.QueryLoader 27 "First_Room_For_Round" 0 0 "
 SELECT MIN(room_id)
@@ -668,7 +674,8 @@ WHERE rr.round_id =
     FROM round
     WHERE calendar_id =
     (SELECT MAX(calendar_id)
-     FROM round))
+     FROM round
+     WHERE round_type_id IN (1,2)))
 AND rr.division_id = @dn@
 AND r.round_id = rr.round_id
 AND rr.room_id >= @br@ + @sm@ - 1
@@ -700,7 +707,8 @@ WHERE rr.round_id =
     FROM round
     WHERE calendar_id =
     (SELECT MAX(calendar_id)
-     FROM round))
+     FROM round
+     WHERE round_type_id IN (1,2)))
 AND rr.division_id = @dn@
 AND r.round_id = rr.round_id
 AND c.coder_id = rr.coder_id
@@ -716,7 +724,8 @@ SELECT NVL(MIN(room_id), 0)
        FROM round
        WHERE calendar_id =
        (SELECT MAX(calendar_id)
-        FROM round))
+        FROM round
+       WHERE round_type_id IN (1,2)))
     AND division_id = @dn@
 "
 java com.topcoder.utilities.QueryLoader 39 "Division_Room_Count" 0 0 "
@@ -733,7 +742,8 @@ SELECT NVL(RANGE(room_id) + 1, 0)
      FROM round
      WHERE calendar_id =
      (SELECT MAX(calendar_id)
-      FROM round))
+      FROM round
+       WHERE round_type_id IN (1,2)))
     AND division_id = @dn@
 "
 java com.topcoder.utilities.QueryLoader 41 "Current_User_Info" 0 0 "
@@ -893,6 +903,7 @@ java com.topcoder.utilities.QueryLoader "DW" 50 "Rating_History_Graph" 0 0 "
  AND rr.round_id = r.round_id
  AND c.contest_id = r.contest_id
  AND r.calendar_id = cal.calendar_id
+ AND r.round_type_id IN (1,2)
  ORDER BY cal.date
 "
 
