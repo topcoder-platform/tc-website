@@ -109,22 +109,18 @@
                         <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b>
                             <%= TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES[i] %>
                         </b></TD>
-                        <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                        <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
                     <% } %>
                 </TR>                    
                 <tces:mapIterator id="level" MapList="<%=MemberProfileTask.getStatsByLevel()%>">
         
                 <TR>
-                  <TD class="statText" HEIGHT="18"></A>
-                    <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS.length;i++) { %>
-                        
+                  <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS.length;i++) { %>
+                      <TD class="statText" HEIGHT="18">
                         <%= level.get(TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[i]) %>
-                        
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
                     <% } %>
-                    
-                  </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-
                 </TR>
 
                 </tces:mapIterator>
