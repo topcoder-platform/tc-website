@@ -239,7 +239,7 @@
             <tr><td><br/></td><td><br/></td></tr>
             <TR>
               <TD COLSPAN="2">
-                  *For extended stays in San Jose/USA, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.  Any extra expenses will be the
+                  *For extended stays in the US, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.  Any extra expenses will be the
                   responsibility of the competitor (extra hotel nights, meals, higher air fares, etc.).
               </TD>
             </TR>
@@ -247,7 +247,7 @@
                 <td colspan="2">
                     <br/><br/>
             <font color="#ff0000">PLEASE NOTE:</font>
-            Guests are invited to attend the TCO04; however, all costs (hotel, travel, meals, etc.) are at their own
+            Guests are invited to attend the TCCC05; however, all costs (hotel, travel, meals, etc.) are at their own
                 expense.
                 <br/><br/>
                 </td>
