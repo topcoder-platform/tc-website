@@ -96,7 +96,7 @@ public final class AppealAction extends ReviewAction {
             }
 */
             long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
-            log(Level.INFO, "PhaseID" : + phaseId);
+            log(Level.INFO, "PhaseID:"  + phaseId);
 
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
                     appeal.getId() == -1 && phaseId == Phase.ID_APPEALS) {
