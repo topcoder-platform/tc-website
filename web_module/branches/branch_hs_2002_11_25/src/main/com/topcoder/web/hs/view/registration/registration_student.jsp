@@ -236,12 +236,12 @@
    }
   }
   function checkName() {
-   if (document.regForm.firstName.value.length==0) {
+   if (document.regForm.first_name.value.length==0) {
     alert("You must enter your first name");
     document.regForm.firstName.focus();
     return(false);
    }
-   if (document.regForm.lastName.value.length==0) {
+   if (document.regForm.last_name.value.length==0) {
     alert("You must enter your last name");
     document.regForm.lastName.focus();
     return(false);
@@ -255,7 +255,7 @@
     document.regForm.email.focus();
     return(false);
    }
-   if (email!=document.regForm.confirmEmail.value) {
+   if (email!=document.regForm.confirm_email.value) {
     alert("Email addresses do not match.");
     document.regForm.email.focus();
     return(false);
@@ -269,7 +269,7 @@
     document.regForm.password.focus();
     return(false);
    }
-   if (pass!=document.regForm.confirmPassword.value) {
+   if (pass!=document.regForm.confirm_password.value) {
     alert("Passwords do not match.");
     document.regForm.password.focus();
     return(false);
