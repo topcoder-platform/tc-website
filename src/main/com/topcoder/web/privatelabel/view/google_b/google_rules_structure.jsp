@@ -16,44 +16,59 @@
 <body>
 
 <!-- TCO Header -->
-
 <a name="top_page"></a>
 <table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
    <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-        <td align="center"><img src="/i/events/google2003/Logo_50wht.gif" width="163" height="74" border="0"/></td>
-
-         <td width="100%" align="center" colspan="3">
+         <td width="100%" align="center" colspan="7">
             <object 
             type="application/x-shockwave-flash"
-            data="/i/events/google2003/google3.swf"
+            data="/i/events/google2003/google.swf"
             width="100%"
-            height="125"
+            height="280"
             border="0">           
-            <param name="movie" value="/i/events/google2003/google3.swf" />
+            <param name="movie" value="/i/events/google2003/google.swf" />
             <param name="quality" value="high" />
             <param name="salign" value="t">
-            </object>
+            </object><br/>
       </td>
-   </tr>    
-   <tr>
+   </tr>
+   
 
 <!-- Gutter Begins -->
+   <tr>
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Left Column Begins-->
-         <td valign="top">
-         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
-         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
-         <img src="/i/clear.gif" width="180" height="40" border="0"/>
-         </p>
+<!-- Left Column Begins
+         <td valign="top" width="150">
+            <table border="0" width="100%" cellspacing="0" cellpadding="3">
+               <tr><td valign="middle" bgcolor="#3366CC" class="statText" width="100%"><font size="3"><strong>Important Dates</strong></font></td></tr>        
+               <tr>
+                  <td class="bodyText">
+                  <p><b>Registration Starts</b><br />
+                  Wednesday, October 1st</p>
+                  <p><b>Online Round 1</b><br />
+                  Friday, October 24th</p>
+                  <p><b>Onsite Championship Round</b><br />
+                  Friday, November 14th</p></td>
+               </tr>
+            </table><br />
+            <table border="0" width="100%" cellspacing="0" cellpadding="3">
+               <tr><td valign="middle" bgcolor="#3366CC" class="statText" width="100%" colspan="2"><font size="3"><strong>Cash Prizes</strong></font></td></tr>        
+               </tr>
+               <tr><td class="bodyText">1st Place<br />
+               2nd Place<br />
+               3rd Place<br />
+               4th Place</td>
+               <td class="bodyText" align="right">$10,000<br />
+               $5,000<br />
+               $3,500<br />
+               $1,250<br />
+               <p><br /></p></td></tr>
+            </table><br />
+     
          </td>         
-<!-- Left Column Ends -->
+Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
