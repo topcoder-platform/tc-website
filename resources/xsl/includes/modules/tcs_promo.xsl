@@ -21,6 +21,13 @@
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="right">98.75</td>
                 </tr>
+
+                <tr valign="top">
+               	    <td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+                    <td class="statText" align="center">2</td>
+                    <td class="statText" align="right">92.64</td>
+                </tr>
                 
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
@@ -29,27 +36,21 @@
                     <td class="statText" align="right">90.83</td>
                 </tr>
                 
-                 <tr valign="top">
+                <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
+                    <td class="statText" align="center">4</td>
+                    <td class="statText" align="right">89.80</td>
+                </tr>
+
+                <tr valign="top">
+               	    <td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
                     <td class="statText" align="center">2</td>
                     <td class="statText" align="right">89.26</td>
                 </tr>
                 
-                <tr valign="top">
-                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="right">89.16</td>
-                </tr>
                 
-                <tr valign="top">
-                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="right">88.37</td>
-                </tr>
-
                 <tr valign="top">
                     <td width="25%" colspan="4"><img src="/i/clear.gif" width="1" height="3" border="0" /></td>
                 </tr>
