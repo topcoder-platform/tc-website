@@ -6,19 +6,26 @@
 <%@  page 
   language="java"
   import="java.util.*,
-          com.topcoder.common.web.data.report.*"
+          com.topcoder.common.web.data.report.*,
+          com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
 
 %>
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+
 
 <%
-  ArrayList profiles = null;
-  Profile p = null;
-  ArrayList demographicList = null;
-  ArrayList notifyList = null;
+  ResultSetContainer profiles = null;
+  ResultSetContainer demographicList = null;
+  ResultSetContainer notifyList = null;
+  ResultSetContainer handleList = null;
+  ResultSetContainer addressList = null;
+  ResultSetContainer.ResultSetRow p = null;
+  ArrayList detailList = null;
   String className = null;
   Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY); 
   if (processed!=null && processed.booleanValue()) {
-    profiles = (ArrayList)request.getAttribute(Constants.REPORT_PROFILE_KEY);
+    profiles = (ResultSetContainer)request.getAttribute(Constants.REPORT_PROFILE_LIST_KEY);
+    detailList = (ArrayList)request.getAttribute(Constants.REPORT_PROFILE_DETAIL_KEY);
   } else if (request.getParameter(Constants.TASK_NAME_KEY)!=null && request.getParameter(Constants.REPORT_HANDLE_KEY)!=null) {
     String dest = Constants.SERVLET_ADDR + "?" + request.getQueryString();
 %>
@@ -65,11 +72,13 @@
 <%
   if (profiles != null && request.getParameter(Constants.TASK_NAME_KEY) != null ) {
     for (int k=0; k<profiles.size(); k++) {
-      p = (Profile)profiles.get(k);
-      demographicList = p.getDemographicList();
-      notifyList = p.getNotifyList();
-      
-      int rating = Integer.parseInt(p.getRating()); 
+      p = profiles.getRow(k);
+      demographicList = (ResultSetContainer)((Map)detailList.get(k)).get("coder_demographics");
+      notifyList = (ResultSetContainer)((Map)detailList.get(k)).get("notify");
+      handleList = (ResultSetContainer)((Map)detailList.get(k)).get("handle_history");
+      addressList = (ResultSetContainer)((Map)detailList.get(k)).get("address_history");
+
+      int rating = ((Integer)p.getItem("rating").getResultData()).intValue();
 
       if (rating >= 2200) 
         className = "coderTextRed";
@@ -87,16 +96,16 @@
 
   <table cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td colspan="3"><font size="+2"><center><b><%=p.getHandle()%></b></center></font></td>
+      <td colspan="3"><font size="+2"><center><b><rsc:item name="handle" row="<%=p%>"/></b></center></font></td>
     </tr>
     <tr>
-      <td colspan="3"><center><b><%=p.getUserId()%></b></center></td>
+      <td colspan="3"><center><b><rsc:item name="user_id" row="<%=p%>"/></b></center></td>
     </tr>
     <tr>
       <td><br/></td>
     </tr>
     <tr>
-      <td colspan="3"><center>&lt;A HREF="/stat?c=member_profile&amp;amp;cr=<%=p.getUserId()%>" CLASS="<%=className%>"&gt;<%=p.getHandle()%>&lt;/A&gt;</center></td>
+      <td colspan="3"><center>&lt;A HREF="/stat?c=member_profile&amp;amp;cr=<rsc:item name="user_id" row="<%=p%>"/>" CLASS="<%=className%>"&gt;<rsc:item name="handle" row="<%=p%>"/>&lt;/A&gt;</center></td>
     </tr>
     <tr>
       <td><br/></td>
@@ -104,50 +113,50 @@
     <tr>
       <td>Last Rated Event</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getLastRatedEvent().length()>0 ? p.getLastRatedEvent() : "Never Competed"%></td>
+      <td><rsc:item name="last_rated_event" row="<%=p%>" ifNull="Never Competed"/></td>
     </tr>
     <tr>
       <td>Referral Type</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getReferralType() + (p.getReferralInfo().length()>0 ? ", "+p.getReferralInfo() : "")%></td>
+      <td><rsc:item name="referral_desc" row="<%=p%>"/><%=p.getItem("referral_info")==null ? "" : ", "+p.getItem("referral_info").toString()%></td>
     </tr>
     <tr>
       <td>Status</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getStatus()%></td>
+      <td><rsc:item name="user_status_desc" row="<%=p%>"/></td>
     </tr>
     <tr><td><br/></td></tr>
     <br/><br/>
     <tr>
       <td>First Name</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getFirstName()%></td>
+      <td><rsc:item name="first_name" row="<%=p%>"/></td>
     </tr>
     <tr>
       <td>Last Name</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getLastName()%></td>
+      <td><rsc:item name="last_name" row="<%=p%>"/></td>
     </tr>
     <tr>
       <td>Email Address</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getEmail()%></td>
+      <td><rsc:item name="email" row="<%=p%>"/></td>
     </tr>
     <tr><td><br/></td></tr>
     <tr>
       <td>Rating</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getRating()%></td>
+      <td><rsc:item name="rating" row="<%=p%>"/></td>
     </tr>
     <tr>
       <td>Events</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getNumRatings()%></td>
+      <td><rsc:item name="num_ratings" row="<%=p%>"/></td>
     </tr>
     <tr>
       <td>Member Since</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getMemberSince()%></td>
+      <td><rsc:item name="member_since" row="<%=p%>"/></td>
     </tr>
 
 
@@ -156,27 +165,27 @@
       <td valign="top">Street Address</td>
       <td>&#160;&#160;&#160;</td>
       <td>
-        <%=p.getAddress1()%>
+        <rsc:item name="address1" row="<%=p%>"/>
 <%
-    if (p.getAddress2().length() > 0)
+    if (p.getItem("address2") != null)
 %>
-        <br/><%=p.getAddress2()%><br/>
-        <%=p.getCity()%>, <%=p.getState()%> <%=p.getZip()%>
+        <br/><rsc:item name="address2" row="<%=p%>"/><br/>
+        <rsc:item name="city" row="<%=p%>"/>, <rsc:item name="state_code" row="<%=p%>"/> <rsc:item name="zip" row="<%=p%>"/> <rsc:item name="country_name" row="<%=p%>"/>
       </td>
     </tr>
     <tr><td><br/></td></tr>
     <tr>
       <td>Home Phone</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getHomePhone()%></td>
+      <td><rsc:item name="home_phone" row="<%=p%>"/></td>
     </tr>
 <%
-    if (p.getWorkPhone().length() > 0) {
+    if (p.getItem("work_phone")!=null) {
 %>
     <tr>
       <td>Work Phone</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getWorkPhone()%></td>
+      <td><rsc:item name="work_phone" row="<%=p%>"/></td>
     </tr>
 <%
     }
@@ -184,13 +193,13 @@
     <tr>
       <td>Coder Type</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getCoderType()%></td>
+      <td><rsc:item name="coder_type_desc" row="<%=p%>"/></td>
     </tr>
-<% if (p.getSchoolName()!=null && !p.getSchoolName().equals("")) { %>
+<% if (p.getItem("school_name")!=null) { %>
     <tr>
       <td>School</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getSchoolName()%></td>
+      <td><rsc:item name="school_name" row="<%=p%>"/></td>
     </tr>
 <% } %>
   </table>
@@ -202,27 +211,23 @@
   <table cellpadding="0" cellspacing="0"> 
     <tr><td colspan="2"><b>Demographic Information</b></td></tr>
   
+       <rsc:iterator list="<%=demographicList%>" id="resultRow">
+         <tr>
 <%
-      for(int i=0; i<demographicList.size(); i++) {
+        for(int j=0; j<demographicList.getColumnCount(); j++) {
 %>
-    <tr>
-<%
-        ResultItem[] items = (ResultItem[])demographicList.get(i);
-        for(int j=0; j<items.length; j++) {
-%>
-      <td><%=items[j].toString()%></td>
+      <td><%=resultRow.getItem(j).toString()%></td>
       <td>&#160;&#160;&#160;</td>
 <%
         }
 %>
     </tr>
+    </rsc:iterator>
+  </table>
 <%
-      }
     }
 %>
 
-  </table>
- 
 
 
 <%
@@ -232,25 +237,59 @@
   <table cellpadding="0" cellspacing="0">
     <tr><td colspan="5"><b>Notifications</b></td></tr>
 
-<%
-      for(int i=0; i<notifyList.size(); i++) {
-%>
+       <rsc:iterator list="<%=notifyList%>" id="resultRow">
     <tr>
-<%
-        ResultItem[] items = (ResultItem[])notifyList.get(i);
-%>
       <td>
-
-      <%=items[0].toString()%>
+         <rsc:item name="name" row="<%=resultRow%>"/>
 
       </td>
     </tr>
+    </rsc:iterator>
+  </table>
 <%
-      }
     }
 %>
-  </table>
 
+  <br/>
+  <br/>
+<%
+        if (handleList!=null) {
+%>
+  <br/><br/>
+  <table cellpadding="0" cellspacing="0">
+    <tr><td colspan="5"><b>Handle History</b></td></tr>
+
+       <rsc:iterator list="<%=handleList%>" id="resultRow">
+    <tr>
+      <td><rsc:item name="old_value" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="new_value" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="timestamp" row="<%=resultRow%>"/></td>
+      </tr>
+    </rsc:iterator>
+  </table>
+<%
+        }
+%>
+  <br/>
+  <br/>
+<%
+        if (addressList!=null) {
+%>
+  <br/><br/>
+  <table cellpadding="0" cellspacing="0">
+    <tr><td colspan="5"><b>Address History</b></td></tr>
+
+       <rsc:iterator list="<%=addressList%>" id="resultRow">
+    <tr>
+      <td><rsc:item name="old_value" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="new_value" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="timestamp" row="<%=resultRow%>"/></td>
+      </tr>
+    </rsc:iterator>
+  </table>
+<%
+        }
+%>
   <br/>
   <br/>
 
