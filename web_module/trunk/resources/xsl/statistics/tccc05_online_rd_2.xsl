@@ -224,8 +224,8 @@ expressed as improper, reduced fractions, a/b:
 <pre>
     x, x+(1/4), x+(1/3), x+(1/2), x+(2/3), x+(3/4), x+1
 </pre>
-Now, lets say there are <tt>K</tt> integers between each pair of adjacent
-integer (only counting one of the boundaries).  Then, to find the
+Now, lets say there are <tt>K</tt> reduced fractions between each pair of adjacent
+integers (only counting one of the boundaries).  Then, to find the
 <tt>N<sup>th</sup></tt> fraction, we can use integer division to find
 <tt>N/K</tt>, which gives us integral part of the fraction to be returned.
 Next, to find the fractional part of the return, we find the
@@ -336,7 +336,7 @@ points, <tt>a &lt; b</tt>, you can use something like the following:
     while(max &gt; min+EPSILON){
         double s1 = (2*min+max)/3;
         double s2 = (min+2*max)/3;
-        if(f(s1) &gt; f(s2)){
+        if(f(s1) &lt; f(s2)){
             max = s2;
         }else{
             min = s1;
