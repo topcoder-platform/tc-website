@@ -43,6 +43,11 @@ public class GoogleRegSubmit extends FullRegSubmit {
             buf.append(Activate.ACTIVATION_CODE);
             buf.append("=");
             buf.append(user.getActivationCode(newUser.getId(), db));
+            buf.append("&");
+            buf.append(Constants.COMPANY_ID);
+            buf.append("=");
+            buf.append(regInfo.getCompanyId());
+
 
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
