@@ -406,9 +406,9 @@
      </tr>
      <tr>
 <% if (isNew) {%>
-       <td align="center" class="statText"><a class="statTextBig" href="Javascript:doValidate()"><b>Post &gt;&gt;</b></a></td>
+       <td align="center" class="statText"><a class="statTextBig" href="Javascript: void doValidate();"><b>Post &gt;&gt;</b></a></td>
 <% } else if (isReply) {%>
-       <td align="center" class="statText"><a class="statTextBig" href="Javascript:doReply()"><b>Post &gt;&gt;</b></a></td>
+       <td align="center" class="statText"><a class="statTextBig" href="Javascript: void doReply();"><b>Post &gt;&gt;</b></a></td>
 <% }%>
 
      </tr>
