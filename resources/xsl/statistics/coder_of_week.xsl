@@ -60,62 +60,76 @@
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>					
 						<TR>
-							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;April 22 - 28, 2002</TD>
+							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;April 29 - May 5, 2002</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>																	
 						<TR>
 							<TD VALIGN="top" COLSPAN="3" CLASS="statText">
-												
-<IMG SRC="/i/m/Yarin_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
+<!-- <A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>
+<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
+<IMG SRC="/i/m/sandeepgupta_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A><br/>
-<b>Rating: </b>2090<br/>
-<b>Member Since: </b>February&#160;28,&#160;2002<br/>
+<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A><br/>
+<b>Rating: </b>1788<br/>
+<b>Member Since: </b>April&#160;30,&#160;2002<br/>
 <b>Total Competitions: </b>2<br/>
 </P>
 
 <P>
-TopCoder, Inc. announced today that <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> has been named the "Coder of the Week" for Single Round Match 
-83, which took place between April 22 and 28, 2002.  
+TopCoder, Inc. announced today that <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+ has been named the "Coder of the Week" for Single 
+Round Matches 84 and 85, which took place between April 29 and May 5, 2002.  
 </P>
 
 <P>
-In Single Round Match 83, <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> won Room 22 and gained 530 rating points, which broke the Division-I 
-record of 335, set by <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
- in Single Round Match 71 
-(<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  
-<A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> won the room with 1226.13 final points, 
-earning 193.96 points on the Level One problem, 269.96 on the 
-Level Two problem, and 762.21 on the Level Three problem.  
+In Single Round Match 85, <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+ won Room 15 and gained 372 rating points, which is 
+the second highest total ever in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  
+<A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+ won the room with 1214.24 final points.  He earned 198.36 points on the Level One problem, 273.44 on the Level 
+Two problem, and 692.33 on the Level Three problem, for a total of 1164.24 points in the "Coding Phase", which placed him 
+second in the room behind Bender (1184.01).  <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+ successfully challenged the Level Three submission of Bob9000 
+for 50 additional points in the "Challenge Phase", earning enough points for the room win. 
 </P>
 
 <P>
-"This was only my second SRM at TopCoder and my debut in SRM 80 wasn't too successful, mainly due to my 
-inexperience with STL in C++," said <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A>.  
-"I guess because of this, and that many coders had big problems 
-with the problem set in SRM 83, was the main reason for my big rating gain."
+"My attention to detail helped me write code that required little rework before submission, 
+said <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+.  "More importantly, my wife took care of our two-year old daughter during 
+the competition!  This was my second match since registering with TopCoder.  This time I was 
+much more comfortable with the development environment provided by the applet."
+</P>
+ 
+<P>
+<A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+ has been a TopCoder member since April 30, 2002, and is a perfect six-for-six in 
+submissions and three-for-three in challenges in two overall matches.   
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> has been a TopCoder member since February 28, 2002, and is a perfect six-for-six in submissions 
-in two overall matches.   
+"In my honest opinion, TopCoder competitions are superior to other software development 
+competitions because there is an extra element of quality: If your submitted code has a bug, 
+you get 0 points; no second chance.  Other competitions allow you to resubmit after the system 
+test.  Delivering a quality solution to your customer the first time is extremely important."
 </P>
 
 <P>
-"TopCoder is great fun," added <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A>.  
-"It's of course an honor and a big boost for your confidence 
-to be awarded 'Coder of the Week'. I'll do my best in the future matches to show that this week was 
-no extraordinary week for me."
+"It's an honor to be selected (Coder of the Week) among the awesome developers who participate 
+in the competitions.  I'm looking forward to participating in future events.  And if I'm fortunate 
+enough, I hope to participate in the Invitational."
+</P>
+ 
+<P>
+Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=279524" CLASS="coderTextYellow">currane</A>
+, who had a 363-point rating gain 
+in Single Round Match 84, the third highest in Division-I; and <A HREF="/stat?c=member_profile&amp;cr=279526" CLASS="coderTextYellow">cbthiess</A>
+, who had a debut rating 
+of 1755, which is the 25th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
 </P>
 
-<P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=274885" CLASS="coderTextYellow">frenetic</A>, who had a 339-point rating gain, 
-the second highest in Division-I; <A HREF="/stat?c=member_profile&amp;cr=159549" CLASS="coderTextBlue">bhakar</A>, who used four successful challenges for 200 additional 
-points in the 'Challenge Phase' to win Room 29; and <A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="coderTextYellow">radeye</A>, who had a debut rating of 1762, which 
-is the 23rd highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
-</P>
 
 							</TD>						
 						</TR>						
