@@ -1,10 +1,10 @@
-package com.topcoder.web.tces.bean;
+bpackage com.topcoder.web.tces.bean;
 
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tces.common.TCESConstants;
+import com.topcoder.web.tces.common.*;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -273,7 +273,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
                        decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_final_points").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[9],
-                       memStatLvlRow.getItem("avg_time_elapsed").toString() );
+                       JSPUtils.timeFormat(memStatLvlRow.getItem("avg_time_elapsed")) );
 
             statsByLevel.add(level);
         }
@@ -302,7 +302,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
                    decFmt.format( Double.parseDouble(memStatRow.getItem("avg_final_points").toString()) ) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[9],
-                   memStatRow.getItem("avg_time_elapsed").toString() );
+                   JSPUtils.timeFormat(memStatRow.getItem("avg_time_elapsed")) );
 
         statsByLevel.add(totalLevel);
 
@@ -326,7 +326,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[5],
                        decFmt.format( Double.parseDouble( memStatLangRow.getItem("avg_submission_points").toString())) );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6],
-                       memStatLangRow.getItem("avg_submit_time").toString() );
+                       JSPUtils.timeFormat(memStatLangRow.getItem("avg_submit_time")) );
 
             statsByLang.add(language);
         }
@@ -345,7 +345,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[5],
                    decFmt.format( Double.parseDouble(memStatRow.getItem("avg_submission_points").toString()) ) );
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6],
-                   memStatRow.getItem("avg_time_elapsed").toString() );
+                   JSPUtils.timeFormat(memStatRow.getItem("avg_time_elapsed")) );
 
         statsByLang.add(totalLang);
 
