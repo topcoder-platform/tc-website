@@ -235,6 +235,65 @@ Once we can make no more new, unique coalitions, we return the size of the large
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
+
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%">
+ 	<TR>
+        <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
+    </TR> 
+	<TR><TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+	<TR>
+		<TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160;</TD>
+		<TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">COMMENTS</TD>
+	</TR>                                   
+</TABLE>
+
+<P>
+Hey I noticed in the overview of problem set 105 that you guys mention 
+creating an array of booleans for a-z and using that to solve the problem.  
+Well I had a bit of an easier way. 
+</P>
+
+<pre>
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std; 
+
+class StringSet 
+{ 
+public: 
+   string compliment(vector&lt;string&gt; input) 
+   { 
+      string output = ""; 
+      for(int x = 'A'; x &lt;= 'Z'; x++) 
+      { 
+         bool found = false; 
+         for(int y = 0; y &lt; input.size(); y++) 
+         { 
+            if(input[y].find((char)x) != string::npos) 
+               found = true; 
+         } 
+         if(!found) 
+            output += (char)x; 
+      } 
+  
+      return(output);    
+   }
+   
+}; </pre>
+
+<P>
+Now, I'm not professing to be the best coder in the world, but 
+I just happened to think it out this way, and I think it's better, 
+but I could be wrong.  It makes use of the string find algorithm. 
+</P>
+
+<P>
+<A HREF="/stat?c=member_profile&amp;cr=292601" CLASS="bodyGeneric">Ssmoimo</A>
+</P>
+
+          <P><BR/></P>          
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
