@@ -1079,6 +1079,8 @@ WHERE
   cp.division_id = @dn@ and
   p.division_id = @dn@ and
   cp.coder_id = c.coder_id and
+  p.division_id = cp.division_id and
+  p.round_id = cp.round_id and 
   c.status = 'A'
 GROUP BY
   p.class_name,
