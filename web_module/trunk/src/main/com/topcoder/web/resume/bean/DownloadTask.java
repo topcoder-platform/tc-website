@@ -37,7 +37,7 @@ public class DownloadTask extends ResumeTask{
             else userId = (int)auth.getActiveUser().getId();
         }
         if (getRequestParameter(request, "compid")!=null) {
-            companyId = Long.parseLong(super.getFileUpload().getParameter("compid"));
+            companyId = Long.parseLong(getRequestParameter(request, "compid"));
             db = getCompanyDb(companyId);
         }
     }
