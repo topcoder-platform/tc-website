@@ -107,8 +107,8 @@ final class UserDb {
                 log.error("insertUser():did not update security user record");
             }
 
-            InitialContext ctx = new InitialContext();
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
             TCSubject tcs = new TCSubject(132456);
             Collection groups = pmr.getGroups(tcs);
@@ -138,6 +138,7 @@ final class UserDb {
                 coder.setCoderId(user.getUserId());
 
                 /* make inserts for common db */
+                InitialContext ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
                 Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
                 userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0));
