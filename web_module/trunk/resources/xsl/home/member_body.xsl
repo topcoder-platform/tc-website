@@ -14,7 +14,6 @@
   <xsl:import href="../includes/modules/arena2.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/simple_search.xsl"/>
-  <xsl:import href="../includes/global_left.xsl"/>
   <!-- <xsl:import href="../includes/modules/editorials.xsl"/> -->
   <!-- <xsl:import href="../includes/modules/top_room_wins.xsl"/> -->
   <xsl:import href="../includes/modules/top_scorers.xsl"/>
@@ -553,87 +552,91 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 <!-- Software Promo Ends -->
 
 <!-- Software Leader Board Begins -->
-      <table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935" background="/i/steel_darkblue_bg.gif">
-        <tr><td height="17" class="moduleTitle" valign="middle"><img src="/i/module_labels_tcs_coders.gif" alt="TopCoder Software Leaders" width="226" height="17" border="0"/></td></tr>
-      </table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333333">
+				<tr><td height="20" class="moduleTitle"><img src="/i/module_labels_tcs_coders.gif" alt="TopCoder Software Leaders" width="244" height="20" border="0"/></td></tr>
+			</table>
 
-      <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif">
-        <tr valign="top">
-          <td width="10"><img src="/i/clear.gif" width="10" height="3" border="0"/></td>
-          <td width="59%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
-          <td width="39%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
-          <td width="10"><img src="/i/clear.gif" width="10" height="3" border="0"/></td>
-        </tr>              
-              
-        <tr valign="middle">
-          <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
-          <td class="statTextBig" background="/i/steel_bluebv_bg.gif">Handle</td>
-          <td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Average Score</td>  
-          <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
-        </tr>              
-              
-        <tr valign="top">
-          <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-        </tr>                             
-              
-        <tr valign="top">
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-          <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
-          <td class="statText" align="right">97.98</td>
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-        </tr>             
-              
-        <tr valign="top">
-          <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-        </tr>                             
-              
-        <tr valign="top">
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-          <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-          <td class="statText" align="right">90.11</td>
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-        </tr>             
-              
-        <tr valign="top">
-          <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-        </tr>                             
-              
-        <tr valign="top">
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-          <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
-          <td class="statText" align="right">85.21</td>
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-        </tr>             
-              
-        <tr valign="top">
-          <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-        </tr>                             
-              
-        <tr valign="top">
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-          <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=251162">SamBob</a></td>
-          <td class="statText" align="right">84.12</td>
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-        </tr>     
-                      
-        <tr valign="top">
-          <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-        </tr>                             
-              
-        <tr valign="top">
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-          <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">orb</a></td>
-          <td class="statText" align="right">83.78</td>
-          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-        </tr>             
-                      
-        <tr>
-          <td colspan="4"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
-        </tr>                       
-      </table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
+				<tr valign="middle">
+					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+					<td class="statTextBig" background="/i/steel_bluebv_bg.gif">Handle</td>
+					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Average Score</td>  
+					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+				</tr>              
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
+					<td class="statText" align="right">97.98</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+					<td class="statText" align="right">88.49</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+					<td class="statText" align="right">85.48</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=251162">SamBob</a></td>
+					<td class="statText" align="right">84.12</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>     
+											
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">orb</a></td>
+					<td class="statText" align="right">83.78</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+											
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
+					<td width="59%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
+					<td width="39%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
+				</tr>              
+			</table>
 <!-- Software Leader Board Ends -->
 
-      <img src="/i/clear.gif" alt="" width="244" height="1" border="0"/>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>                              
+			</table>
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935">
+				<tr><td height="17" class="moduleTitle" bgcolor="#333333"><img src="/i/module_labels_10_coders.gif" alt="Competition Leaders" width="244" height="20" border="0"/></td></tr>
+				<tr><td><img src="/i/clear.gif" width="1" height="3" border="0"/></td></tr>      
+			</table>
+
       <xsl:choose>
         <xsl:when test="number(/TC/Rating)&lt;1200">
           <xsl:call-template name="top_scorers"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
@@ -645,38 +648,42 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
         </xsl:otherwise>
       </xsl:choose>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
-                 <tr>
-                  <td colspan="3" bgcolor="#001935"><img src="/i/label_quick_stats_home.gif" alt="Quick Stats" width="166" height="17" border="0"/></td>
-                </tr>
-                 <tr>
-                  <td bgcolor="#FFFFFF" colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
-                </tr>
-              <tr>
-                <td rowspan="4"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
-                <td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td>
-                <td rowspan="4"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
-              </tr>
-              <tr>
-                <td class="statText" valign="top">Select a Quick Stat from the menu below.</td>
-              </tr>
-              <tr>
-                <td class="statText" valign="top"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td>
-              </tr>
-        <tr>
-    <!-- Quick Stat Pulldown Begins -->
-          <td class="quickstatText" valign="top">
-            <xsl:call-template name="quick_stats_pulldown"/>
-          </td>
-        </tr>
-      </table>
-      
-      <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
-        <tr><td><a href="/stat?c=member_profile&amp;cr=304168"><img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0"/></a></td></tr>
-      </table>
-    </td>
-<!-- Body Area Ends -->
-  </tr>
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td align="left" class="statText"><img src="/i/clear.gif" width="20" height="10" border="0"/></td>
+					<td></td>
+					<td></td>
+					<td align="left" class="statText"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
+				</tr>
+			</table>
+
+<!-- Statistics Begins --> 
+			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
+				<tr><td colspan="3" bgcolor="#333333"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
+				<tr>
+					<td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>                
+					<td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td>
+					<td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>             
+				</tr>              
+				<tr><td class="statText">Select a Statistic from the menu below.</td></tr>
+				<tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>                              
+				<tr><td class="quickstatText" valign="top">
+
+				<xsl:call-template name="quick_stats_pulldown"/>
+
+					</td>
+				</tr>               
+				<tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>                              
+			</table>
+<!-- Statistics Ends -->
+			
+<!-- Coder of the Month Begins --> 
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr><td><a href="/stat?c=member_profile&amp;cr=304168"><img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0" /></a></td></tr>
+			</table>
+<!-- Coder of the Month ends --> 
+		</td>
+	</tr>
 </table>
 
 </xsl:template>
