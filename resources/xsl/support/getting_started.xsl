@@ -88,8 +88,7 @@
                                     <BR/>
 	Only those participating in assigned rooms are considered contestants.  
 	Anyone else attending the competition is considered a spectator.  
-	Because they cannot register for a tournament, 
-	guests are always considered spectators.<BR/>
+	<BR/>
                                     <UL>
                                         <LI>
                                             <B>Restrictions</B><BR/><BR/>
