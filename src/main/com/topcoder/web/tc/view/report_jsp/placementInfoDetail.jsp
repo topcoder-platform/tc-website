@@ -45,6 +45,9 @@ List industryList = (List)request.getAttribute("industrySkills");
 				<td align=center><p><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(Constants.HANDLE)%>">View Report Profile</a></p></td>
             </tr>
             <tr>
+                        <td align=center><p><a href="/tc?module=ProfileConfig&uid=<%=request.getParameter("uid")%>">Generate PDF</a></p></td>
+            </tr>
+            <tr>
                 <td align=center>
                 <% if (((Boolean)request.getAttribute("has_notes")).booleanValue()) { %>
                      <A HREF="/tc?module=ViewNotes&uid=<jsp:getProperty name="contractingInfo" property="userId" />">View Notes</A>
