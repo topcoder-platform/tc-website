@@ -48,6 +48,10 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         switch(result.getType()){
             case TCResultItem.DOUBLE:
                 return TCESConstants.NUMBER_FORMAT.format(((Double)result.getResultData()).doubleValue());
+            case TCResultItem.FLOAT:
+                return TCESConstants.NUMBER_FORMAT.format(((Float)result.getResultData()).floatValue());
+            case TCResultItem.BIGDECIMAL:
+                return TCESConstants.NUMBER_FORMAT.format(((BigDecimal)result.getResultData()).doubleValue());
             default:
                 return result.toString();
         }
