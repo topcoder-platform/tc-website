@@ -68,7 +68,7 @@
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">1</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">2</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">3</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>4</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 111</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4275&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>4</B></FONT><BR/><SPAN CLASS="statText"><B>Match 111<BR/>Sponsored by: Sun</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4275&amp;t=schedule&amp;c=srm" CLASS="statText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">5</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">6</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">7</TD>
@@ -76,7 +76,7 @@
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">8</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>9</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 112</B></SPAN><BR/>Register: 5:00&#160;PM<BR/>Compete: 8:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4280&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>10</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 113</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4282&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>10</B></FONT><BR/><SPAN CLASS="statText"><B>Match 113<BR/>Sponsored by: Sun</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4282&amp;t=schedule&amp;c=srm" CLASS="statText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">11</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">12</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">13</TD>
@@ -86,9 +86,9 @@
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">15</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">16</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">17</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>18</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Qualification Round &amp; Qualification Period<BR/>11:30&#160;AM - 7:00&#160;PM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>19</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Quarterfinal, Semifinals and Championship Rounds<BR/>11:30&#160;AM - 6:00&#160;PM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>20</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Keynote Presentation<BR/>9:00&#160;AM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>18</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Qualification Round &amp; Qualification Period<BR/>11:30&#160;AM - 7:00&#160;PM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>19</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Quarterfinal, Semifinals and Championship Rounds<BR/>11:30&#160;AM - 6:00&#160;PM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>20</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Keynote Presentation<BR/>9:00&#160;AM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">21</TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
