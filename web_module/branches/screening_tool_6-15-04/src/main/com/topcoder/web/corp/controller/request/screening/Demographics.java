@@ -60,8 +60,10 @@ public class Demographics extends BaseScreeningProcessor {
                 m.setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
 
                 rsc = (ResultSetContainer) resultMap.get("campaign_coders_by_type");
-
                 ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
+                
+                log.info("COUNT: " +coderCountRow.getItem("coder_type_count").toString());
+                
                 if (types[typeI] == com.topcoder.web.privatelabel.Constants.STUDENT)
                     m.setStudentCount(Integer.parseInt(coderCountRow.getItem("coder_type_count").toString()));
                 else if (types[typeI] == com.topcoder.web.privatelabel.Constants.PROFESSIONAL)
@@ -107,8 +109,6 @@ public class Demographics extends BaseScreeningProcessor {
                         "does not belong to uid=" + getUser().getId());
             }
             
-            log.info("PRO COUNT:" + m.getProCount());
-            log.info("STUDENT COUNT:" + m.getStudentCount());
             getRequest().setAttribute("demographicInfo", m);
 
             setNextPage(Constants.DEMOGRAPHICS_PAGE);
