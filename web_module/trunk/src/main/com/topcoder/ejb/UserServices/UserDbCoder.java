@@ -958,7 +958,7 @@ final class UserDbCoder {
 
     static void loadCoder(Connection conn, User user)
             throws TCException {
-        log.debug("ejb.User.UserDbCoder:loadCoder():called...");
+        log.debug("loadCoder():called...");
         PreparedStatement ps = null;
         ResultSet rs = null;
         StringBuffer query = new StringBuffer(1000);
@@ -1099,6 +1099,8 @@ final class UserDbCoder {
                 loadDemographicResponses(conn, coder);
                 loadCurrentSchool(conn, coder);
 //                loadCoderConfirmations(conn, coder);
+                Coder tempCoder = (Coder)user.getUserTypeDetails().get("Coder");
+                log.debug("loaded coder " + tempCoder.getFirstName() + " " + tempCoder.getLastName());
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
