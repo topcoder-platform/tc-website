@@ -24,6 +24,7 @@ public class Search extends Base {
     private final static String ADVANCED_SEARCH_PAGE = "advanced_search.jsp";
     private final static String SEARCH_CMD = "adv";
     private final static String INVALID_STATE_CODE = "Please select a state";
+    private final static String INVALID_HANDLE = "Invalid handle search criteria";
     private final static String INVALID_SCHOOL_ID = "Please select a school";
     private final static String INVALID_STATE_SCHOOL = "Invalid school/state combination";
     private final static String NEGATIVE_MIN_RATING = "Ensure Min Rating non-negative";
@@ -210,12 +211,14 @@ public class Search extends Base {
             msgs = new ArrayList();
             errors.put(key, msgs);
         }
+        log.debug("error added " + message);
         msgs.add(message);
     }
 
 
     private boolean checkValidHandle(Map errors, String handle) {
         if (handle == null) {
+            addErrorMessage(errors, "Handle", INVALID_HANDLE);
             return (false);
         }
         return (true);
