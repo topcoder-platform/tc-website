@@ -63,7 +63,6 @@ public class BasicAuthentication implements WebAuthentication {
         this.request = (HttpServletRequest) request;
         this.response = (HttpServletResponse) response;
         this.defaultCookiePath = r;
-        log.debug("cookie path: " + defaultCookiePath.getName());
     }
 
 
