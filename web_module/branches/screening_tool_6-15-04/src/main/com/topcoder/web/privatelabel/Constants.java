@@ -133,6 +133,8 @@ public class Constants {
     public static String BROOKS_REG_CONFIRM;
     public static String BROOKS_REG_SUBMIT;
     public static String BROOKS_ACTIVATION;
+    
+    public static String BROOKS_REFERRAL_QUESTION_ID;
 
     //various constants
     public static int STUDENT;

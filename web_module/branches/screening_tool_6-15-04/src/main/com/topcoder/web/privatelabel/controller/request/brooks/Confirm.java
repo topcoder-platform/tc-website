@@ -78,6 +78,23 @@ public class Confirm extends FullRegConfirm {
                     }
                 }
             }
+            
+            DemographicResponse r = null;
+            DemographicQuestion q = null;
+            int count = 0;
+            for (Iterator it = ((FullRegInfo) info).getResponses().iterator(); it.hasNext();) {
+                r = (DemographicResponse) it.next();
+                if(r.getQuestionId() == Long.parseLong(Constants.BROOKS_REFERRAL_QUESTION_ID))
+                {
+                    count++;
+                }
+            }
+            
+            if(count != 0 && count > 3)
+            {
+                addError(Constants.DEMOG_PREFIX + Constants.BROOKS_REFERRAL_QUESTION_ID, "Please choose a maximum of three answers.");
+            }
+        
         }
         catch(Exception e)
         {
