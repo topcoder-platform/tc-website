@@ -65,6 +65,23 @@ private String getPercentage (ResultSetContainer total, int total_row, String to
    	return df.format(ret);
 	
 }
+
+private String getPercent (long subs, long succ)
+{
+	double ret2 = 0;
+	if (succ == 0)
+   {
+   	ret2 = (double)succ;
+   	}
+   else
+    {
+	ret2 = (double)succ / subs;
+	}
+	NumberFormat df = NumberFormat.getPercentInstance();	
+   	df.setMinimumFractionDigits(2);
+   	df.setMaximumFractionDigits(2);
+   	return df.format(ret2);
+}
 %>
 
 <!-- DIV 1 -->
@@ -102,6 +119,12 @@ private String getPercentage (ResultSetContainer total, int total_row, String to
 i=0;
 %>
   <rsc:iterator list="<%=rsc3%>" id="Row" >
+<% 
+lang_tot_subs=0;
+lang_tot_succ=0;
+lang_tot_subs = Long.parseLong(rsc3.getItem(i,"lev1_subs").toString()) + Long.parseLong(rsc3.getItem(i,"lev2_subs").toString()) + Long.parseLong(rsc3.getItem(i,"lev3_subs").toString());
+lang_tot_succ = Long.parseLong(rsc3.getItem(i,"lev1_succ").toString()) + Long.parseLong(rsc3.getItem(i,"lev2_succ").toString()) + Long.parseLong(rsc3.getItem(i,"lev3_succ").toString());
+%>
 
 <tr>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="language_name"%>' row="<%=Row%>"/></td>
@@ -114,9 +137,9 @@ i=0;
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_subs"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_succ"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc3,i,"lev3_subs",i,"lev3_succ")%></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >tot subs</td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >tot corr</td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >Accuracy</td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= lang_tot_subs %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= lang_tot_succ %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= getPercent(lang_tot_subs, lang_tot_succ) %></td>
 </tr>
 <%even=!even;
 tot_lev1_subs = tot_lev1_subs + Long.parseLong(rsc3.getItem(i,"lev1_subs").toString());
@@ -135,16 +158,16 @@ i++;
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Overall</strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev1_subs%></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev1_succ%></strong></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Accuracy</strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev1_subs, tot_lev1_succ) %></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev2_subs%></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev2_succ%></strong></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Accuracy</strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev2_subs, tot_lev2_succ) %></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev3_subs%></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev3_succ%></strong></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Accuracy</strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev3_subs, tot_lev3_succ) %></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= tot_subs %></strong></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= tot_succ %></strong></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Accuracy</strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_subs, tot_succ) %></strong></td>
 </tr>
 </table>
 
@@ -179,8 +202,20 @@ i++;
 </tr>
 <%even=!even;
 i=0;
+tot_lev1_subs = 0;
+tot_lev1_succ = 0;
+tot_lev2_subs = 0;
+tot_lev2_succ = 0;
+tot_lev3_subs = 0;
+tot_lev3_succ = 0;
 %>
   <rsc:iterator list="<%=rsc4%>" id="Row" >
+<% 
+lang_tot_subs=0;
+lang_tot_succ=0;
+lang_tot_subs = Long.parseLong(rsc4.getItem(i,"lev1_subs").toString()) + Long.parseLong(rsc4.getItem(i,"lev2_subs").toString()) + Long.parseLong(rsc4.getItem(i,"lev3_subs").toString());
+lang_tot_succ = Long.parseLong(rsc4.getItem(i,"lev1_succ").toString()) + Long.parseLong(rsc4.getItem(i,"lev2_succ").toString()) + Long.parseLong(rsc4.getItem(i,"lev3_succ").toString());
+%>
 <tr>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="language_name"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev1_subs"%>' row="<%=Row%>"/></td>
@@ -192,14 +227,38 @@ i=0;
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_subs"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_succ"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc4,i,"lev3_subs",i,"lev3_succ")%></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >tot subs</td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >tot corr</td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >Accuracy</td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= tot_subs %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= tot_succ %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= getPercent(tot_subs, tot_succ) %></td>
 </tr>
 <%even=!even;
+tot_lev1_subs = tot_lev1_subs + Long.parseLong(rsc4.getItem(i,"lev1_subs").toString());
+tot_lev1_succ = tot_lev1_succ + Long.parseLong(rsc4.getItem(i,"lev1_succ").toString());
+tot_lev2_subs = tot_lev2_subs + Long.parseLong(rsc4.getItem(i,"lev2_subs").toString());
+tot_lev2_succ = tot_lev2_succ + Long.parseLong(rsc4.getItem(i,"lev2_succ").toString());
+tot_lev3_subs = tot_lev3_subs + Long.parseLong(rsc4.getItem(i,"lev3_subs").toString());
+tot_lev3_succ = tot_lev3_succ + Long.parseLong(rsc4.getItem(i,"lev3_succ").toString());
+tot_subs = tot_lev1_subs + tot_lev2_subs + tot_lev3_subs;
+tot_succ = tot_lev1_succ + tot_lev2_succ + tot_lev3_succ;
 i++;
+
 %>
 </rsc:iterator>
+<tr>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Overall</strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev1_subs%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev1_succ%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev1_subs, tot_lev1_succ) %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev2_subs%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev2_succ%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev2_subs, tot_lev2_succ) %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev3_subs%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev3_succ%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev3_subs, tot_lev3_succ) %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= tot_subs %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= tot_succ %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_subs, tot_succ) %></strong></td>
+</tr>
 </table>
 
 
@@ -233,8 +292,23 @@ i++;
 </tr>
 <%even=!even;
 i=0;
+tot_lev1_subs = 0;
+tot_lev1_succ = 0;
+tot_lev2_subs = 0;
+tot_lev2_succ = 0;
+tot_lev3_subs = 0;
+tot_lev3_succ = 0;
 %>
   <rsc:iterator list="<%=rsc5%>" id="Row" >
+<% 
+lang_tot_subs=0;
+lang_tot_succ=0;
+
+
+lang_tot_subs = Long.parseLong(rsc5.getItem(i,"lev1_subs").toString()) + Long.parseLong(rsc5.getItem(i,"lev2_subs").toString()) + Long.parseLong(rsc5.getItem(i,"lev3_subs").toString());
+lang_tot_succ = Long.parseLong(rsc5.getItem(i,"lev1_succ").toString()) + Long.parseLong(rsc5.getItem(i,"lev2_succ").toString()) + Long.parseLong(rsc5.getItem(i,"lev3_succ").toString());
+%>
+
 <tr>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="language_name"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev1_subs"%>' row="<%=Row%>"/></td>
@@ -246,14 +320,39 @@ i=0;
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_subs"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_succ"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc5,i,"lev3_subs",i,"lev3_succ")%></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >tot subs</td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >tot corr</td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >Accuracy</td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= tot_subs %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= tot_succ %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= getPercent(tot_subs, tot_succ) %></td>
 </tr>
 <%even=!even;
+tot_lev1_subs = tot_lev1_subs + Long.parseLong(rsc5.getItem(i,"lev1_subs").toString());
+tot_lev1_succ = tot_lev1_succ + Long.parseLong(rsc5.getItem(i,"lev1_succ").toString());
+tot_lev2_subs = tot_lev2_subs + Long.parseLong(rsc5.getItem(i,"lev2_subs").toString());
+tot_lev2_succ = tot_lev2_succ + Long.parseLong(rsc5.getItem(i,"lev2_succ").toString());
+tot_lev3_subs = tot_lev3_subs + Long.parseLong(rsc5.getItem(i,"lev3_subs").toString());
+tot_lev3_succ = tot_lev3_succ + Long.parseLong(rsc5.getItem(i,"lev3_succ").toString());
+tot_subs = tot_lev1_subs + tot_lev2_subs + tot_lev3_subs;
+tot_succ = tot_lev1_succ + tot_lev2_succ + tot_lev3_succ;
 i++;
+
 %>
 </rsc:iterator>
+<tr>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Overall</strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev1_subs%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev1_succ%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev1_subs, tot_lev1_succ) %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev2_subs%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev2_succ%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev2_subs, tot_lev2_succ) %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev3_subs%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%=tot_lev3_succ%></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_lev3_subs, tot_lev3_succ) %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= tot_subs %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= tot_succ %></strong></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= getPercent(tot_subs, tot_succ) %></strong></td>
+</tr>
+
 
 </table>
   
