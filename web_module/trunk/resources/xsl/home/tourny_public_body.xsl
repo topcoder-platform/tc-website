@@ -314,21 +314,27 @@ Tuesday, October 15, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;lbackstrom<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>2002 TopCoder Invitational Round 1 - Part 2</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Singlel Round Match 116</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r1b_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm116_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
 	  <P>
-This round of the Invitational had well balanced problem set where all three problems were on par with their reported difficulty level. There were 324 participants in this round and 199 will advance into the next round (only people with score more then 0 are eligible for advance). <B>NDBronson</B> was a round leader with impressive score of 1535.36 even though he was not the fastest coder in any of the three problems. After this round <B>NDBronson</B> has regained the crown of the best Topcoder programmer with 3124 rating points. <B>SnapDragon</B> was the fastest coder for the second and third problem but it took him 4 submits of the first problem to get it right. After this round <B>SnapDragon</B> gained 2 rating points and became second highest (together with reid) rated coder...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r1b_prob</xsl:attribute>get&#160;analysis</A>
+Srm 116 had an unusual mix of problems. The lower level problems were simple and easy in 
+contrast to the upper level. In fact, no one solved all 3 Division-I problems. 
+<B>John Dethridge</B> made an appearance and won by over 150 points with 1039.72 due to an 
+impressive level 3 score and 150 points of challenges. One of Top Coder's newest red 
+members, <B>uglyfool</B>, got a total of 5 successful challenges. The second highest score went 
+to <B>Yarin</B> at 853.25 who managed to get the easy and the hard problems correct. In third 
+was <B>ZorbaThut</B>, who was able to hit his target, barely making it with a post-contest rating of 3000...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm116_prob</xsl:attribute>get&#160;analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
