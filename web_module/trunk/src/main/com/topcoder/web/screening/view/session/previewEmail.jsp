@@ -13,10 +13,6 @@
 
 <body>
 
-<!-- Header begins -->
-<jsp:include page="/includes/top.jsp" />
-<!-- Header ends -->
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
     <tr><td colspan="3" class="globalNavSmall"><img src="/i/clear.gif" width="1" height="15" border="0"/></td></tr>
 
@@ -37,8 +33,8 @@
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+        <td width="50%" align="center"><img src="/i/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="50%">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session - <font color="#000000">E-mail Preview</font></h1>
