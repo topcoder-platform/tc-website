@@ -74,7 +74,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
    <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
-                <p class="terciary">
+                <p>
                 Photos&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=crpf&d2=crpf_overview">Details</a>
             </p>
             
