@@ -6,7 +6,7 @@
 <%
     Request r = new Request();
     r.setContentHandle("top_downloads");
-    DataAccessInt dai = new CachedDataAccess(60*60*1000);
+    DataAccessInt dai = new CachedDataAccess(60*60*1000, "java:InformixDS");
     ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("top_downloads");
 %>
 
