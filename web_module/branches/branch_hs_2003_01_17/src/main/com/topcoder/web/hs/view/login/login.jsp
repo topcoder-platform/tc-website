@@ -76,10 +76,10 @@ if(username==null) username = "";
 </TABLE>
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
-    <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event)"></TD>
+    <TD CLASS="bodyText"><B>Handle</B><BR><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event)"></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="password" NAME="password" SIZE="25" onKeyPress="submitEnter(event)"><BR/><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
+    <TD CLASS="bodyText"><B>Password</B><BR><INPUT TYPE="password" NAME="password" SIZE="25" onKeyPress="submitEnter(event)"><BR><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
 </TR>
 </TABLE>
 </form>
@@ -106,7 +106,7 @@ if(username==null) username = "";
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>

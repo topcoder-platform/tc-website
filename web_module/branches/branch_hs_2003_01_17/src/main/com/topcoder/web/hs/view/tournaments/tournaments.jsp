@@ -74,11 +74,11 @@ Compete: 3:00 PM
 May,24 2003
 Championship
 Compete: 12:00 PM
-May, 2003<BR/>-->
+May, 2003<BR>-->
 
 
-    <!--Hartford Regional <BR>Hartford, CT<BR/><A CLASS="bodyText" HREF="?module=Static&d1=schedule&d2=sched_may_2003">Go to Summary</A></P>-->
-<P><BR/></P>
+    <!--Hartford Regional <BR>Hartford, CT<BR><A CLASS="bodyText" HREF="?module=Static&d1=schedule&d2=sched_may_2003">Go to Summary</A></P>-->
+<P><BR></P>
             <!--Body Ends Here-->
             </TD>
              <TD>
@@ -99,7 +99,7 @@ May, 2003<BR/>-->
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>

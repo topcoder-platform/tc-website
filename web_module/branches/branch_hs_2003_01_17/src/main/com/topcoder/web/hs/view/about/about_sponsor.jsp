@@ -42,7 +42,7 @@
             <TD HEIGHT="100%" CLASS="bodyText">
                         <P CLASS="bodyText">
 
-<P><B>FOR SPONSORS</B><BR/>
+<P><B>FOR SPONSORS</B><BR>
 TopCoder High School provides sponsoring companies the ability to proactively and directly support and promote high school math and science programs within their communities.  It also allows companies to reach a desirable and targeted market of high school consumers and their families.  Sponsorship of these academically competitive events may further position a company as a leader in the community and provide benefit to those students who previously had no "playing field" to showcase their skills.</P>
 
 <P>Three sponsorship packages are available to companies.  The investment and benefits of each package are as follows:</P>
@@ -85,19 +85,19 @@ TopCoder High School provides sponsoring companies the ability to proactively an
        <P><B>Companies interested in sponsoring the TopCoder High School program should contact TopCoder at <A HREF="mailto:sponsorships@topcoder.com">sponsorships@topcoder.com</A>.</B></P>
 
 
-             <P><BR/></P>
+             <P><BR></P>
 
 
                         <!--TopCoder HighSchool is fast becoming the major league for programming competitions. TopCoder brings members together once a week to compete online (Single Round Match) and twice a year both online and on location (Tournaments).</P>
 
-<P><B>Why Online Competitions</B><BR/>
+<P><B>Why Online Competitions</B><BR>
 Competitions provide an understanding of a person's capabilities through a demonstration of skill. What was lacking in the world of programming competitions was a format that offered immediate and objective scoring. The solution was the creation of a "Single Round Match".</P>
 
 <P>In order to drive repeated participation, TopCoder developed "Tournaments" that offer larger cash prizes to the members who successfully code their way through weekly Single Round Matches and build a rating that puts them in a seeding for either the Invitational Tournament (open to all members) or Collegiate Challenge (open to college students only).</P>
 
 <P><B>Who Benefits</B></P>
 
-<P><B>Members</B><BR/>
+<P><B>Members</B><BR>
 Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. TopCoder is in the process of establishing Teams. This coupled with the new Divisions will offer a more level field of competition for newer members in order to build ratings and move into potential tournament opportunities.</P>
 
 
@@ -122,7 +122,7 @@ Reaching the developer community is a difficult task at best. Marketing budgets 
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>

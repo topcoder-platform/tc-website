@@ -84,15 +84,15 @@ pageContext.setAttribute("resultSetDates", rsc);
   </TR>
   <TR>
     <TD   COLSPAN="16">
-      <IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
+      <IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="leaders"></A>
     </TD>
   </TR>
   <TR>
 
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0" HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;<B>Handle</B></TD>
-<TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP="0" HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;&#160;<B>School</B></TD>
-    <TD VALIGN="middle" ALIGN="right" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP="0" HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif"><B>Points&#160;&#160;</B></TD>
-  <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP="0" HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;&#160;<B>Room</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;<B>Handle</B></TD>
+<TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;&#160;<B>School</B></TD>
+    <TD VALIGN="middle" ALIGN="right" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif"><B>Points&#160;&#160;</B></TD>
+  <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;&#160;<B>Room</B></TD>
   </TR>
   <TR>
     <TD   COLSPAN="16"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
@@ -108,14 +108,14 @@ pageContext.setAttribute("resultSetDates", rsc);
         %>
             <TD></TD><TD></TD><TD></TD><TD></TD>
         <%}else{%>
-            <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">
+            <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText">
               <A HREF="?module=Statistics&c=member_profile&cr=<%= coderIDs[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
             </TD>
-            <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">
+            <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText">
               <A HREF="?module=Statistics&c=school_round_stats&rd=<%= currRound %>&hs=<%= hsids[j][i] %>" CLASS="statText"><%= schools[j][i] %></A>
             </TD>
-            <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
-            <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="center">&#160;<%= rooms[j][i] %></TD>
+            <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
+            <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="center">&#160;<%= rooms[j][i] %></TD>
   <%    }
         }%>
       </TR>
@@ -127,16 +127,16 @@ pageContext.setAttribute("resultSetDates", rsc);
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
     <TD   COLSPAN="16">
-      <IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="problem_stats"></A>
+      <IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="problem_stats"></A>
     </TD>
   </TR>
   <TR>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText">&#160;<B>Problem Stats</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP="0" WIDTH="25%" HEIGHT="15" CLASS="statText">&#160;<B>Problem Name</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP="0" WIDTH="9%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Submissions</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right"><B>Average Pts.</B></TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP="0" WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText">&#160;<B>Problem Stats</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="25%" HEIGHT="15" CLASS="statText">&#160;<B>Problem Name</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="9%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Submissions</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right"><B>Average Pts.</B></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" BACKGROUND="/i/hs/blue_heading_bg.gif" NOWRAP WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD>
   </TR>
   <%
       currentRow = percents.getRow(currentRowPtr);
@@ -155,19 +155,19 @@ pageContext.setAttribute("resultSetDates", rsc);
   %>
 
   <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;<%=problemLevel%></TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;&#160;<A HREF="?module=Statistics&c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></A></TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="JavaScript:void(getGraph('c=problem_distribution_graph&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400'))" class="statText">Distribution Graph</a></TD>
+    <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText">&#160;<%=problemLevel%></TD>
+    <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText">&#160;&#160;<A HREF="?module=Statistics&c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></A></TD>
+    <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
+    <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &#160;&#160;</TD>
+    <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>
+    <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="JavaScript:void(getGraph('c=problem_distribution_graph&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400'))" class="statText">Distribution Graph</a></TD>
   </TR>
   <%
       }
     }%>
 
   <TR>
-    <TD VALIGN="middle" COLSPAN="6" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;</TD>
+    <TD VALIGN="middle" COLSPAN="6" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;</TD>
   </TR>
   <TR>
     <TD BGCOLOR="#1B2E5D" COLSPAN="6" ALIGN="center" CLASS="statText">

@@ -42,7 +42,7 @@
            <TR>
              <TD BGCOLOR="#001934"   VALIGN="top" WIDTH="11"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
              <TD COLSPAN="2" VALIGN="top" BGCOLOR="#001934" WIDTH="100%"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDE
-R="0"/><BR/>
+R="0"/><BR>
 
 <%
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Coder_Ratings");

@@ -17,7 +17,7 @@ if (!bEmpty) {
       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
            <TR>
              <TD   VALIGN="top" WIDTH="11"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"></TD>
-             <TD COLSPAN="2" VALIGN="top"   WIDTH="100%"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR/>
+             <TD COLSPAN="2" VALIGN="top"   WIDTH="100%"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
                    <TD COLSPAN="5"  CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
@@ -47,7 +47,7 @@ if (!bEmpty) {
                    <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD CLASS="statText" ROWSPAN="12" VALIGN="top"><BR/>&nbsp;
+                   <TD CLASS="statText" ROWSPAN="12" VALIGN="top"><BR>&nbsp;
                    </TD>
                    <TD CLASS="statText" WIDTH="50%">Rating:</TD>
                    <TD CLASS="statText" WIDTH="20%"ALIGN="right"><%= coderrank.toString() %></TD>

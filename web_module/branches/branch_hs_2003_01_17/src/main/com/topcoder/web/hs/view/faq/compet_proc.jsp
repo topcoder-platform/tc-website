@@ -63,7 +63,7 @@
 	be adjusted in favor of the challenger. For more information on point distribution, review our <A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=ratings_ovrev">rating system</A>.<BR></LI><BR><LI><B>Phase III: System Testing</B><BR>
 	The final phase will run submitted solutions that have not been successfully challenged through
 	a set of system test cases.  Results will then be posted in the status window, and also be
-	available on the website.<BR></LI></UL><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=process_details">More details</A></TD></TR></TABLE><P><BR></P>					<P><BR/></P>
+	available on the website.<BR></LI></UL><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=process_details">More details</A></TD></TR></TABLE><P><BR></P>					<P><BR></P>
               <!--Body Ends Here-->
             </TD>
              <TD>
@@ -84,7 +84,7 @@
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>

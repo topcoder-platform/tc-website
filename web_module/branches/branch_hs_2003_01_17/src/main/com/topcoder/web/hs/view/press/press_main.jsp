@@ -48,7 +48,7 @@
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;10.30.02</TD><TD VALIGN="middle" CLASS="bodyText">&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=press&d2=pr_10_30_02" >TopCoder Competitions Expand to High Schools</A></TD></TR>
 		</TABLE>
 
-<P><BR/></P>
+<P><BR></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&#160;<B>Articles</B> - 2002&#160;&#160;&#160;</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
@@ -66,7 +66,7 @@
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;03.04.02</TD>
 <TD CLASS="bodyText" VALIGN="middle">&nbsp;&nbsp;&nbsp;&nbsp;<A CLASS="bodyText" HREF="http://www.informationweek.com/story/IWK20020228S0016" TARGET="_blank">Software Jocks Vie For The Prize</A></TD></TR>
 		</TABLE>
-<P><BR/></P>
+<P><BR></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="3"  BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&#160;<B>Features</B> - 2002&#160;&#160;&#160;</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
@@ -76,7 +76,7 @@
 <TR><TD COLSPAN="3" CLASS="bodyText" VALIGN="top"><IMG BORDER="0" HEIGHT="15" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR>
 
 		</TABLE>
-<P><BR/></P>
+<P><BR></P>
             <!-- Body Ends Here-->
             </TD>
              <TD>
@@ -95,9 +95,9 @@
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top" > <BR/>
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top" > <BR>
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" />
      </TD>
 	</TR>

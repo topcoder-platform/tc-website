@@ -41,24 +41,24 @@
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body Starts-->
-            <P><B><A HREF="?module=Static&d1=tour&d2=getting_started">Getting Started</A></B><BR/></P>
+            <P><B><A HREF="?module=Static&d1=tour&d2=getting_started">Getting Started</A></B><BR></P>
 
-<P><B><A HREF="?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</A></B><BR/></P>
+<P><B><A HREF="?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</A></B><BR></P>
 
-<P><B><EM>Coming Soon!</EM></B><BR/>
+<P><B><EM>Coming Soon!</EM></B><BR>
 These other Topics</P>
 
-<P><B>Practicing / Training in the TopCoder Arena</B><BR/></P>
+<P><B>Practicing / Training in the TopCoder Arena</B><BR></P>
 
-<P><B>Competing in a TopCoder Rated Event</B><BR/></P>
+<P><B>Competing in a TopCoder Rated Event</B><BR></P>
 
 <P><B>Further Customizing the TopCoder Arena</B></P>
 
-<P><B>The Coding Window</B><BR/>
+<P><B>The Coding Window</B><BR>
 How our software interfaces with the submissions.</P>
 
 <P><B>The Room Summary Window</B></P>
-<P><BR/></P>
+<P><BR></P>
 
             <!--Body Ends-->
             </TD>
@@ -80,7 +80,7 @@ How our software interfaces with the submissions.</P>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>

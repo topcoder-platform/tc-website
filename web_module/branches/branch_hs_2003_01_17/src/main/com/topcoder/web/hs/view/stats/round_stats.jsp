@@ -80,7 +80,7 @@ if(bSchool) {
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
            <TR>
              <TD   VALIGN="top" WIDTH="11"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"></TD>
-             <TD COLSPAN="2" VALIGN="top"   WIDTH="100%"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+             <TD COLSPAN="2" VALIGN="top"   WIDTH="100%"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
 
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>

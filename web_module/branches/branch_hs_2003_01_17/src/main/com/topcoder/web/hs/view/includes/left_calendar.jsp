@@ -103,8 +103,8 @@
         </TD></TR>
         </TABLE>
 <!--Schools Ends-->
-        <BR/>
+        <BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR VALIGN="baseline"><TD><BR/><IMG SRC="/i/hs/left_bottom_elements.gif" WIDTH="170" HEIGHT="116" ALT="" BORDER="0"/>
+        <TR VALIGN="baseline"><TD><BR><IMG SRC="/i/hs/left_bottom_elements.gif" WIDTH="170" HEIGHT="116" ALT="" BORDER="0"/>
         </TD></TR>
         </TABLE>

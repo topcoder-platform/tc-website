@@ -42,10 +42,10 @@
             <TD CLASS="bodyText" VALIGN="top">
             <!--body starts here-->
             <P>
-            <IMG SRC="/i/hs/home_sc_center_top2.gif" WIDTH="294" HEIGHT="204" BORDER="0" HSPACE="5" VSPACE="5"><BR/>
+            <IMG SRC="/i/hs/home_sc_center_top2.gif" WIDTH="294" HEIGHT="204" BORDER="0" HSPACE="5" VSPACE="5"><BR>
             <FONT SIZE="2"> <B>Learn
             JAVA, C++, and C# and participate with
-            other students in the TopCoder High School Competition Arena</B></FONT></P><BR/><BR/>
+            other students in the TopCoder High School Competition Arena</B></FONT></P><BR><BR>
 
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" WIDTH="100%">
 <TR>
@@ -78,8 +78,8 @@
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/transparent_1pix.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top" ALIGN="center">
  <jsp:include page="../includes/sponsor_right.jsp" />
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /><BR/><BR/><IMG SRC="/i/hs/right_bottom_elements.gif" WIDTH="225" HEIGHT="66" ALT="" BORDER="0"></TD>
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /><BR><BR><IMG SRC="/i/hs/right_bottom_elements.gif" WIDTH="225" HEIGHT="66" ALT="" BORDER="0"></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

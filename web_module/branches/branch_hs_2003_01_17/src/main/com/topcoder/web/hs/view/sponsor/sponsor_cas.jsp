@@ -56,7 +56,7 @@
 <LI>to develop new services for administrators.</LI>
  </UL>
 <P>CAS has emerged as an informed leader in Connecticut's education system, providing services to Connecticut's K-12 schools in areas ranging from academics to athletics.  Today, the Association has grown to represent well over 1,100 of Connecticut's public and parochial schools. <A HREF="http://www.casciac.org" TARGET="_blank">Click Here</A>  to visit their web site.</P>
-           <P><BR/></P>
+           <P><BR></P>
             <!-- End Body-->
             </TD>
              <TD>
@@ -77,7 +77,7 @@
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>

@@ -261,20 +261,20 @@
                         <TR><TD CLASS="bodyText">
 <P>Linux 2.4, gcc 3.1 (Redhat 7.1 default), glibc-2.2.2, and libstdc++-3.</P>
 <P>
-pointers to appropriate docs for each<BR/>
-<A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR/>
-<A HREF="http://www.gnu.org/software/libc/" TARGET="_blank" CLASS="bodyText">http://www.gnu.org/software/libc/</A><BR/>
-<A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/documentation.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/documentation.html</A><BR/>
+pointers to appropriate docs for each<BR>
+<A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR>
+<A HREF="http://www.gnu.org/software/libc/" TARGET="_blank" CLASS="bodyText">http://www.gnu.org/software/libc/</A><BR>
+<A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/documentation.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/documentation.html</A><BR>
 </P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="184"><B>What compiler options are used?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
-<P>The compiler is invoked as:<BR/>
+<P>The compiler is invoked as:<BR>
 g++ -Wall -W -s -pipe</P>
 <P>
-Additional info on gcc 3.1<BR/>
+Additional info on gcc 3.1<BR>
 <A HREF="http://gcc.gnu.org/bugs.html#updating" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/bugs.html#updating</A>
 </P>
                         </TD></TR>
@@ -332,21 +332,21 @@ longer be available; for details see the library documentation at
                         <TR><TD CLASS="bodyText"><A NAME="186"><B>How do I get 64-bit integers?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>
-Integer types on our platform:<BR/>
-  char - 8 bits (signed)<BR/>
-  short - 16 bits<BR/>
-  int - 32 bits<BR/>
-  long - 32 bits<BR/>
-  long long - 64 bits<BR/>
+Integer types on our platform:<BR>
+  char - 8 bits (signed)<BR>
+  short - 16 bits<BR>
+  int - 32 bits<BR>
+  long - 32 bits<BR>
+  long long - 64 bits<BR>
 </P>
 <P>long long is not merely a gcc extension, but part of ISO C99.</P>
 <P>If you test locally with a compiler other than gcc, the preprocessor may be useful for hiding the differences.  For example:</P>
 <P>
-#ifdef __GNUC__<BR/>
-#define int64 long long<BR/>
-#else /* MSVC, say */<BR/>
-#define int64 __int64<BR/>
-#endif<BR/>
+#ifdef __GNUC__<BR>
+#define int64 long long<BR>
+#else /* MSVC, say */<BR>
+#define int64 __int64<BR>
+#endif<BR>
 </P>
 <P>In this way, you can test the same code using 64 bit integers in our environment and on your system.</P>
 <P>The C++ standard libraries do not include support for arbitrary precision arithmetic.</P>
@@ -386,7 +386,7 @@ Some extensions are also present, including most of those from SGI's STL, such a
 
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                     </TABLE>
-					<P><BR/></P>
+					<P><BR></P>
               <!--Body Ends Here-->
             </TD>
              <TD>
@@ -407,7 +407,7 @@ Some extensions are also present, including most of those from SGI's STL, such a
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
