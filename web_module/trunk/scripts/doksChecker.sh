@@ -1,6 +1,8 @@
 #!/bin/ksh
-COMPONENTS="734"
-DIR="TESTING_CHEAT_LOGS"
+ROUND=2011
+COMPONENTS="1574 1575 1576"
+DATASOURCE=HS_OLTP
+DIR="DOK_CHEAT_LOGS"
 
 if [ ! -d $DIR ]
 then
@@ -24,7 +26,5 @@ fi
   for COMPONENT in $COMPONENTS
   do
     echo "running for round $ROUND component $COMPONENT"
-    java -Xms256m -Xmx512m -Xss256k -cp $CLASSPATH com.topcoder.utilities.fraudDetect.TestingFraudDetect $COMPONENT > "./${DIR}/component_$COMPONENT_`date +%Y-%m-%d-%H-%M-%S`.log" 2>&1 &
+    java -Xms256m -Xmx512m -Xss256k -cp $CLASSPATH com.topcoder.utilities.cheaterChecker.Contest $DATASOURCE $ROUND $COMPONENT > "./${DIR}/round_${ROUND}__component_$COMPONENT.log" 2>&1 &
   done
-
-
