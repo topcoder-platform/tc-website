@@ -156,7 +156,7 @@ String sSortUrl = "/stat?c=component_history&cr="+srb.getProperty("cr")+"&sq=com
                   </TD>
                   <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow2" property='<%= "item[" + 5 /* finish place */ + "]" %>'/></TD>
                   <TD CLASS="statText" ALIGN="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
-                  <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow2" property='<%= "item[" + 8 /* score */ + "]" %>'/></TD>
+                  <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow2" property='<%= "item[" + 8 /* score */ + "]" %>'/></TD>
                   <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
                 </TR>
 </logic:iterate>
