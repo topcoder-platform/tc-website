@@ -339,6 +339,8 @@
 <A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=ge_faq&amp;a=secure">GE IMLP FAQ</A>&#160;|&#160;
 
 <A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=ge_criteria&amp;a=secure">IMLP Criteria</A>&#160;|&#160;
+
+<A CLASS="bodyText" HREF="http://www.gecareers.com/AboutGE/e_ben.cfm" TARGET="_blank">GE Benefits</A>
 </TD>
 
 </TR>
@@ -521,7 +523,7 @@
 
 <P><B>What benefits does GE offer?</B></P>
 
-<A HREF="http://www.gecareers.com/AboutGE/e_ben.cfm">GE Benefits </A>
+<A HREF="http://www.gecareers.com/AboutGE/e_ben.cfm" TARGET="_blank">GE Benefits </A>
 
 
 

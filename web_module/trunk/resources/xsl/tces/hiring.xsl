@@ -5,7 +5,8 @@
   <xsl:import href="../includes/body_top.xsl"/>  
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
-  <xsl:import href="../includes/modules/module_login.xsl"/>  
+  <xsl:import href="../includes/modules/module_login.xsl"/> 
+  <xsl:import href="../includes/modules/top_10_schools.xsl"/>   
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/tces/public_tces_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
@@ -52,7 +53,26 @@
         <TR>
           <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
-
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%">
+ 	<TR>
+        <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
+    </TR> 
+	<TR><TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+	<TR>
+		<TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160; &#160;</TD>
+		<TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">FOR EMPLOYERS:</TD>
+	</TR>                    
+	<TR>
+    	<TD COLSPAN="2" VALIGN="top" BGCOLOR="#43515E">
+		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="" BGCOLOR="#FFFFFF">
+		<TR>
+			<TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?&amp;t=tces&amp;c=about_tces" CLASS="bodyText">&#160;Candidate Recruiting Program description and pricing&#160;</A></TD> 
+		    <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A></TD> -->
+		</TR>    		
+		</TABLE>
+		</TD>
+	</TR>               
+</TABLE>
 <P>
 <B>Hiring the Best and Brightest</B>
 </P>
@@ -91,12 +111,16 @@ TopCoder's rating system is an effective and objective measure of a programmer's
 Our collegiate and professional members compete for ratings and we assess their skills as compared to their peers.
 </P>
 
-<UL>
-	<LI> 	Top Schools by average Rating</LI>
-	<LI> 	Rating Distribution</LI>
-</UL>
+<P>
+<B>Top-10 Rated Schools</B>
+</P>
 
- 	
+<xsl:call-template name="top_10_schools"/>
+
+<P>
+<A HREF="JavaScript:void getGraph('/graph?c=rating_distribution_graph','600','400')" class="bodyText">Click here</A> to view the Rating Distribution.
+</P>
+
 <P>
 <B>Evaluate</B>
 </P>
@@ -140,15 +164,15 @@ and employers how good they really are.
 Our growing member base is a testament to our ability to attract developers.
 </P>
  
-<P>
+<!-- <P>
 <UL>
 	<LI> 	Member growth Chart</LI>
 	<LI> 	Member Demographics</LI>
 </UL>
-</P>
+</P> -->
 
 <P>
-Benefits of utilizing TopCoder Employment Services [TCES]
+<B>Benefits of utilizing TopCoder Employment Services [TCES]</B>
 </P>
 
 <UL>
