@@ -57,18 +57,18 @@
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-						<h1 class="devSubhead"><strong>Java Import: Design</strong></h1>
+						<h1 class="devSubhead"><strong>Java Import Statement: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Java Import: Design&amp;comp=4310739" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Java Import Statement: Design&amp;comp=4310739" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Java Import component analyzes java source code and determines the required import statements. The import statements are determined at the class level, not the package level, and are ordered alphabetically. While the performance benefits of ordering the import statements and defining them at the class level are negligable, doing so facilitates class testing and code maintenance by clearly stating what classes used.
+						The Java Import Statement component analyzes java source code and determines the required import statements. The import statements are determined at the class level, not the package level, and are ordered alphabetically. While the performance benefits of ordering the import statements and defining them at the class level are negligable, doing so facilitates class testing and code maintenance by clearly stating what classes used.
 						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Component Design Project: Provide a complete design for the Java Import component.<br />
+						Component Design Project: Provide a complete design for the Java Import Statement component.<br />
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -131,7 +131,7 @@
 <!-- Register at TCS -->
 						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Java Import: Design&amp;comp=4310739" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Java Import Statement: Design&amp;comp=4310739" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
