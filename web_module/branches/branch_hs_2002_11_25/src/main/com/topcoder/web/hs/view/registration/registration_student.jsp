@@ -19,7 +19,7 @@
     ArrayList school_codes=(ArrayList)codes.get(codes.size()-1);
     school_codes.add(rsr.getItem("school_id").getResultData());
    } %>
-<SCRIPT type="text/javascript">
+<SCRIPT language="Javascript">
  var schools=new Array(<%=schools.size()%>)
  var codes=new Array(<%=codes.size()%>)
  <% for (int i=0;i<schools.size();i++) {
