@@ -122,9 +122,6 @@ public abstract class BaseServlet extends HttpServlet {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
                     if (cmd.equals(""))
                         cmd = StringUtils.checkNull(tcRequest.getParameter(MODULE));
-                    
-                    log.info("RYAN: COMMAND IS " + cmd);
-                    log.info("RYAN: REQUEST TYPE IS " + tcRequest.getClass().getName());
 
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
