@@ -104,7 +104,7 @@
                                     <strong>Match 190</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">PayPal</A><br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4770&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">7</td>
