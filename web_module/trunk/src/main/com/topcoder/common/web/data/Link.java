@@ -1,32 +1,33 @@
 package com.topcoder.common.web.data;
 
 
-import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
+import java.io.Serializable;
 
-public class Link 
-  implements 
-    Serializable
-    ,TagRenderer
-    //,Comparable
-    //,Cloneable
-    //,Modifiable 
+
+public class Link
+        implements
+        Serializable
+        , TagRenderer
+        //,Comparable
+        //,Cloneable
+        //,Modifiable
 {
 
-  private int linkId;
-  private int screenId;
-  private String linkDesc;
-  private String status;
-  private String modified;
+    private int linkId;
+    private int screenId;
+    private String linkDesc;
+    private String status;
+    private String modified;
 
-  public Link() {
-    linkDesc = "";
-    modified = "";
-    status = "";
-    linkId = 0;
-    screenId = 0;
-  }
+    public Link() {
+        linkDesc = "";
+        modified = "";
+        status = "";
+        linkId = 0;
+        screenId = 0;
+    }
 
 /*
   public boolean equals ( Object other ) {
@@ -63,7 +64,7 @@ public class Link
       result.setCountry( (Country)getCountry().clone() );
       result.setModified( getModified() );
     } catch (Exception e) {
-      e.printStackTrace();  
+      e.printStackTrace();
     }
     return result;
   }
@@ -71,7 +72,7 @@ public class Link
 
 /*
   public int compareTo(Object other) {
-    Link otherLink = (Link) other; 
+    Link otherLink = (Link) other;
     StringBuffer temp = new StringBuffer(132);
     char[] beginLinkDesc = new char[4];
     temp.append(this.getSortLetter());
@@ -98,9 +99,7 @@ public class Link
 */
 
 /*
-  //////////////////////////////////////////////////////////////////////////
   public void setAllModifiedStable() throws Exception {
-  //////////////////////////////////////////////////////////////////////////
     setModified("S");
   }
 */
@@ -108,62 +107,62 @@ public class Link
 
 // set
 
-  public void setLinkDesc(String linkDesc) {
-    this.linkDesc = linkDesc;
-  }
+    public void setLinkDesc(String linkDesc) {
+        this.linkDesc = linkDesc;
+    }
 
-  public void setModified(String modified) {
-    this.modified = modified;
-  }
+    public void setModified(String modified) {
+        this.modified = modified;
+    }
 
-  public void setStatus ( String status ) {
-    this.status = status;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-  public void setLinkId(int linkId) {
-    this.linkId = linkId;
-  }
+    public void setLinkId(int linkId) {
+        this.linkId = linkId;
+    }
 
-  public void setScreenId (int screenId ) {
-    this.screenId  = screenId ;
-  }
+    public void setScreenId(int screenId) {
+        this.screenId = screenId;
+    }
 
 // get
 
-  public String getLinkDesc() {
-    return linkDesc;
-  }
-
-  public String getStatus() {
-    return status;
-  }
-
-  public String getModified() {
-    return modified;
-  }
-
-  public int getLinkId() {
-    return linkId;
-  }
-
-  public int getScreenId () {
-    return screenId;
-  }
-
-
-  public RecordTag getXML() throws Exception {
-    RecordTag result = null;
-    try {
-      result = new RecordTag("Link");
-      result.addTag( new ValueTag("LinkId", linkId) );
-      result.addTag( new ValueTag("ScreenId", screenId) );
-      result.addTag( new ValueTag("LinkDesc", linkDesc) );
-      result.addTag( new ValueTag("Status", status) );
-      result.addTag( new ValueTag("Modified", modified) );
-    } catch ( Exception e ) {
-      throw new Exception ( "common.web.data.Link getXML ERROR: " + e );
+    public String getLinkDesc() {
+        return linkDesc;
     }
-    return result;
-  }
-  
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getModified() {
+        return modified;
+    }
+
+    public int getLinkId() {
+        return linkId;
+    }
+
+    public int getScreenId() {
+        return screenId;
+    }
+
+
+    public RecordTag getXML() throws Exception {
+        RecordTag result = null;
+        try {
+            result = new RecordTag("Link");
+            result.addTag(new ValueTag("LinkId", linkId));
+            result.addTag(new ValueTag("ScreenId", screenId));
+            result.addTag(new ValueTag("LinkDesc", linkDesc));
+            result.addTag(new ValueTag("Status", status));
+            result.addTag(new ValueTag("Modified", modified));
+        } catch (Exception e) {
+            throw new Exception("common.web.data.Link getXML ERROR: " + e);
+        }
+        return result;
+    }
+
 }

@@ -1,10 +1,8 @@
-package	com.topcoder.web.render.ejb;
+package com.topcoder.web.render.ejb;
 
-import	javax.ejb.EJBHome;
-import	javax.ejb.CreateException;
-import	java.rmi.RemoteException;
-import	com.topcoder.web.render.ejb.SecureObject;
+import javax.ejb.CreateException;
+import java.rmi.RemoteException;
 
 public interface SecureObjectHome extends javax.ejb.EJBHome {
-	public SecureObject create() throws RemoteException, CreateException;
+    public SecureObject create() throws RemoteException, CreateException;
 }

@@ -1,19 +1,23 @@
 package com.topcoder.shared.dataAccess;
 
-import java.util.*;
-import javax.naming.*;
-import java.sql.Connection;
-import javax.sql.DataSource;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
-/** 
+import javax.naming.Context;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.util.Map;
+
+/**
  * This bean processes a Request and returns the data from the data warehouse.
  *
  * @author  Dave Pecora
  * @version $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.3  2002/07/23 23:37:21  gpaul
+ *           use DataSources rather than DBMS to get connections
+ *
  *           Revision 1.2  2002/07/12 17:15:46  gpaul
  *           merged baby
  *
@@ -62,12 +66,12 @@ import com.topcoder.shared.util.logging.Logger;
  */
 public class DWDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(DWDataAccess.class);
-    
+
     /**
-     * This method passes a query command request and a connection 
+     * This method passes a query command request and a connection
      * to the data retriever and receives and passes on the results
      *
-     * @param   request A <tt>RequestInt</tt> request object containing a number 
+     * @param   request A <tt>RequestInt</tt> request object containing a number
      * of input property values.
      * @return  A map of the query results, where the keys are strings
      * of query names and the values are <tt>ResultSetContainer</tt> objects.
@@ -77,16 +81,16 @@ public class DWDataAccess implements DataAccessInt {
     public Map getData(RequestInt request) throws Exception {
         try {
             Context ctx = TCContext.getInitial();
-            DataSource ds = (DataSource)ctx.lookup("DW");
+            DataSource ds = (DataSource) ctx.lookup("DW");
             Connection conn = ds.getConnection();
             DataRetriever dr = new DataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
             if (conn != null && !conn.isClosed()) {
-              try {
-                conn.close();
-              } catch (Exception ce) { 
-                log.error("Failed to close connection");
-              }
+                try {
+                    conn.close();
+                } catch (Exception ce) {
+                    log.error("Failed to close connection");
+                }
             }
             return map;
         } catch (Exception e) {

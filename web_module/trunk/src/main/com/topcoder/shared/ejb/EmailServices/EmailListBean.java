@@ -1,17 +1,21 @@
 package com.topcoder.shared.ejb.EmailServices;
 
-import java.util.*;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+
 import java.rmi.RemoteException;
+import java.util.*;
 
 /**
  * @see EmailList
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.3  2002/07/16 21:37:45  gpaul
+ *           merging in sord email changes
+ *
  *           Revision 1.5.2.11  2002/04/21 22:21:58  apps
  *           Added functions to set job properties.
  *
@@ -70,10 +74,21 @@ import java.rmi.RemoteException;
  *
  */
 public class EmailListBean extends BaseEJB {
-    public void ejbCreate () { }
-    
+    /**
+     *
+     */
+    public void ejbCreate() {
+    }
+
     private static Logger log = Logger.getLogger(EmailListBean.class);
-    
+
+    /**
+     *
+     * @param group
+     * @param name
+     * @return
+     * @throws RemoteException
+     */
     public int createList(int group, String name) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -81,18 +96,18 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int id = 1;
 
         log.debug("Create list requested (group " + group + ", name " + name + ")");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
             conn = ds.getConnection();
 
-            sqlStmt.setLength(0);            
+            sqlStmt.setLength(0);
             sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, EmailJobBean.EMAIL_LIST_SEQUENCE_ID);
@@ -118,25 +133,40 @@ public class EmailListBean extends BaseEJB {
             if (rows != 1) {
                 throw new Exception("insert command affected " + rows + " rows.");
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to create list"; 
+        } catch (Exception dberr) {
+            String err = "Failed to create list";
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
-        
+
         return id;
     }
 
+    /**
+     *
+     * @param listId
+     * @param data
+     * @return
+     * @throws RemoteException
+     */
     public int addMember(int listId, String data) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -144,18 +174,18 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int id = 1;
 
         log.debug("add list member requested (list " + listId + ")");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
             conn = ds.getConnection();
 
-            sqlStmt.setLength(0);            
+            sqlStmt.setLength(0);
             sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, EmailJobBean.EMAIL_LIST_SEQUENCE_ID);
@@ -181,25 +211,39 @@ public class EmailListBean extends BaseEJB {
             if (rows != 1) {
                 throw new Exception("insert command affected " + rows + " rows.");
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to create list"; 
+        } catch (Exception dberr) {
+            String err = "Failed to create list";
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
-        
+
         return id;
     }
 
+    /**
+     *
+     * @param listId
+     * @param memberId
+     * @throws RemoteException
+     */
     public void removeMember(int listId, int memberId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -207,11 +251,11 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
         log.debug("Remove list member requested (list " + listId + ", member " + memberId + ")");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -229,7 +273,7 @@ public class EmailListBean extends BaseEJB {
             ps.setInt(2, memberId);
             rows = ps.executeUpdate();
             if (rows == 0) {
-                log.debug("Removal of list member " + listId + ":" + memberId 
+                log.debug("Removal of list member " + listId + ":" + memberId
                         + " had no effect."
                         + " Most likely the member does not exist.");
                 throw new Exception("delete command affected " + rows + " rows.");
@@ -240,23 +284,36 @@ public class EmailListBean extends BaseEJB {
                             + " records removed).");
                 }
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to remove list member"; 
+        } catch (Exception dberr) {
+            String err = "Failed to remove list member";
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
     }
 
+    /**
+     *
+     * @return
+     * @throws RemoteException
+     */
     public Map getLists() throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -264,12 +321,12 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Map ret = new HashMap();
 
         log.debug("getLists requested");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -284,29 +341,43 @@ public class EmailListBean extends BaseEJB {
             sqlStmt.append(" email_list");
             ps = conn.prepareStatement(sqlStmt.toString());
             rs = ps.executeQuery();
-            for ( ; rs.next(); ) {
+            for (; rs.next();) {
                 ret.put(new Integer(rs.getInt(1)), rs.getString(2));
             }
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get list names"; 
+        } catch (Exception dberr) {
+            String err = "Failed to get list names";
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param groupId
+     * @return
+     * @throws RemoteException
+     */
     public Map getLists(int groupId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -314,12 +385,12 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Map ret = new HashMap();
 
         log.debug("getLists for group requested");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -337,29 +408,43 @@ public class EmailListBean extends BaseEJB {
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, groupId);
             rs = ps.executeQuery();
-            for ( ; rs.next(); ) {
+            for (; rs.next();) {
                 ret.put(new Integer(rs.getInt(1)), rs.getString(2));
             }
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get list names for group " + groupId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get list names for group " + groupId;
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param listId
+     * @return
+     * @throws RemoteException
+     */
     public Set getMembers(int listId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -367,12 +452,12 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Set ret = new HashSet();
 
         log.debug("getMembers for list requested");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -388,29 +473,43 @@ public class EmailListBean extends BaseEJB {
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, listId);
             rs = ps.executeQuery();
-            for ( ; rs.next(); ) {
+            for (; rs.next();) {
                 ret.add(new Integer(rs.getInt(1)));
             }
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get members for list " + listId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get members for list " + listId;
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param listId
+     * @return
+     * @throws RemoteException
+     */
     public String getListName(int listId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -418,12 +517,12 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = "";
 
         log.debug("getListName requested for list " + listId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -442,25 +541,39 @@ public class EmailListBean extends BaseEJB {
             rs.next();
             ret = rs.getString(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for " + listId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for " + listId;
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
-        
+
         return ret;
     }
 
+    /**
+     *
+     * @param listId
+     * @return
+     * @throws RemoteException
+     */
     public int getListGroupId(int listId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -468,12 +581,12 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int ret = 0;
 
         log.debug("getListGroupId requested for list " + listId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -492,25 +605,40 @@ public class EmailListBean extends BaseEJB {
             rs.next();
             ret = rs.getInt(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for " + listId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for " + listId;
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
-        
+
         return ret;
     }
 
+    /**
+     *
+     * @param listId
+     * @param memberId
+     * @return
+     * @throws RemoteException
+     */
     public String getData(int listId, int memberId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -518,12 +646,12 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = "";
 
         log.debug("getData for list member requested");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -543,30 +671,44 @@ public class EmailListBean extends BaseEJB {
             ps.setInt(2, memberId);
             rs = ps.executeQuery();
             if (rs.next()) {
-                byte [] bytes = rs.getBytes(1);
+                byte[] bytes = rs.getBytes(1);
                 if (bytes != null)
                     ret = new String(bytes);
             }
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get member data for " + listId + ":" + memberId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get member data for " + listId + ":" + memberId;
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
-        
+
         return ret;
     }
 
+    /**
+     *
+     * @param listId
+     * @param groupId
+     * @throws RemoteException
+     */
     public void setGroupId(int listId, int groupId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -574,11 +716,11 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
         log.debug("Update group id for list requested (list " + listId + ", group " + groupId + ")");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -596,7 +738,7 @@ public class EmailListBean extends BaseEJB {
             ps.setInt(2, listId);
             rows = ps.executeUpdate();
             if (rows == 0) {
-                log.debug("Update of list " + listId 
+                log.debug("Update of list " + listId
                         + " had no effect."
                         + " Most likely the list does not exist.");
                 throw new Exception("update command affected " + rows + " rows.");
@@ -607,23 +749,37 @@ public class EmailListBean extends BaseEJB {
                             + " records updated).");
                 }
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to update list"; 
+        } catch (Exception dberr) {
+            String err = "Failed to update list";
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
     }
 
+    /**
+     *
+     * @param listId
+     * @param name
+     * @throws RemoteException
+     */
     public void setName(int listId, String name) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -631,11 +787,11 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
         log.debug("Update name for list requested (list " + listId + ", name " + name + ")");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -653,7 +809,7 @@ public class EmailListBean extends BaseEJB {
             ps.setInt(2, listId);
             rows = ps.executeUpdate();
             if (rows == 0) {
-                log.debug("Update of list " + listId 
+                log.debug("Update of list " + listId
                         + " had no effect."
                         + " Most likely the list does not exist.");
                 throw new Exception("update command affected " + rows + " rows.");
@@ -664,23 +820,38 @@ public class EmailListBean extends BaseEJB {
                             + " records updated).");
                 }
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to update list"; 
+        } catch (Exception dberr) {
+            String err = "Failed to update list";
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
     }
-    
+
+    /**
+     *
+     * @param listId
+     * @param memberId
+     * @param data
+     * @throws RemoteException
+     */
     public void setData(int listId, int memberId, String data) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
@@ -688,11 +859,11 @@ public class EmailListBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
         RemoteException result = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
         log.debug("setData for list member requested");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -724,19 +895,27 @@ public class EmailListBean extends BaseEJB {
                             + ", " + rows + " records updated).");
                 }
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to set member data for " + listId + ":" + memberId; 
+        } catch (Exception dberr) {
+            String err = "Failed to set member data for " + listId + ":" + memberId;
             log.error(err, dberr);
             result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
-            
+
             if (result != null) throw result;
         }
     }

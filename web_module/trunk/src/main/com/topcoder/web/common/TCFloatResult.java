@@ -4,7 +4,7 @@ package com.topcoder.web.common;
  * This class stores a <tt>Float</tt>.  Instances of this class are
  * created by a <tt>ResultSetContainer</tt> object when it stores
  * results coming back from the database.
- * 
+ *
  * @author  Dave Pecora
  * @version 1.00, 02/11/2002
  * @see     TCResultItem
@@ -12,7 +12,7 @@ package com.topcoder.web.common;
  */
 public class TCFloatResult extends TCResultItem {
     private Float value;
-    
+
     /**
      * Contructs a <tt>TCFloatResult</tt> object from the specified
      * float input.
@@ -22,7 +22,7 @@ public class TCFloatResult extends TCResultItem {
     public TCFloatResult(float value) {
         this.value = new Float(value);
     }
-    
+
     /**
      * Contructs a <tt>TCFloatResult</tt> object from the specified
      * Float input.
@@ -32,23 +32,23 @@ public class TCFloatResult extends TCResultItem {
     public TCFloatResult(Float value) {
         this.value = value;
     }
-    
+
     /**
      * Compares this object with another object.  If the other object
      * is also a <tt>TCFloatResult</tt> then their embedded
      * <tt>Float</tt> objects will be compared directly, with a null
      * object considered less than any non-null object. <p>
      *
-     * If the other object is of different type, a case-insensitive 
+     * If the other object is of different type, a case-insensitive
      * comparison of the objects' <tt>toString()</tt> results will be applied.
      *
      * @param   other The object against which this will be compared.
-     * @return  -1, 0, or 1 depending on whether this object is less than, 
+     * @return  -1, 0, or 1 depending on whether this object is less than,
      * equal to, or greater than <tt>other</tt>, respectively.
      */
     public int compareTo(Object other) {
         if (other instanceof TCFloatResult) {
-            Float otherFloat = ((Float)((TCFloatResult)other).getResultData());
+            Float otherFloat = ((Float) ((TCFloatResult) other).getResultData());
             if (value == null && otherFloat == null)
                 return 0;
             if (value == null)
@@ -56,11 +56,10 @@ public class TCFloatResult extends TCResultItem {
             if (otherFloat == null)
                 return 1;
             return value.compareTo(otherFloat);
-        }
-        else 
+        } else
             return this.toString().compareToIgnoreCase(other.toString());
     }
- 
+
     /**
      * Returns the type of the embedded object, as defined in <tt>TCResultItem</tt>
      *
@@ -69,7 +68,7 @@ public class TCFloatResult extends TCResultItem {
     public int getType() {
         return TCResultItem.FLOAT;
     }
-   
+
     /**
      * Returns the string representation of the embedded <tt>Float</tt> object.
      * If it is null, this method returns an empty string.
@@ -80,7 +79,7 @@ public class TCFloatResult extends TCResultItem {
         if (value == null)
             return "";
         return value.toString();
-    }    
+    }
 
     /**
      * Returns the embedded <tt>Float</tt> object

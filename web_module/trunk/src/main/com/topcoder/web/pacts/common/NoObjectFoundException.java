@@ -25,5 +25,5 @@ public class NoObjectFoundException extends Exception {
      */
     public NoObjectFoundException(String s) {
         super(s);
-    }    
+    }
 }

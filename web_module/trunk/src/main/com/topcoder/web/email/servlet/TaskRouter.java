@@ -1,9 +1,11 @@
 package com.topcoder.web.email.servlet;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
 import com.topcoder.shared.util.logging.Logger;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import java.io.IOException;
+
 /**
  * TaskRouter.java
  *
@@ -14,8 +16,7 @@ import com.topcoder.shared.util.logging.Logger;
  *
  */
 
-public class TaskRouter
-{
+public class TaskRouter {
     private static Logger log = Logger.getLogger(TaskRouter.class);
 
     // the URL to which this router forwards/redirects
@@ -30,14 +31,12 @@ public class TaskRouter
      * @param forward    if true, forwards, else, redirects
      */
 
-    public TaskRouter(String url, boolean forward)
-    {
+    public TaskRouter(String url, boolean forward) {
         this.url = url;
         this.forward = forward;
     }
 
-    public TaskRouter(String url)
-    {
+    public TaskRouter(String url) {
         this(url, true);
     }
 
@@ -54,17 +53,16 @@ public class TaskRouter
      */
 
     public void route(HttpServlet servlet,
-            HttpServletRequest request,
-            HttpServletResponse response)
-        throws ServletException, IOException
-    {
+                      HttpServletRequest request,
+                      HttpServletResponse response)
+            throws ServletException, IOException {
         if (forward) {
             //response.setHeader("Cache-Control","no-store");
             //response.setHeader("Pragma","no-cache");
             //response.setDateHeader ("Expires", 0);
             log.debug("Forwarding to url: " + url);
             servlet.getServletContext().getRequestDispatcher(
-                response.encodeURL(url)
+                    response.encodeURL(url)
             ).forward(request, response);
         } else {
             log.debug("Redirecting to url: " + url);

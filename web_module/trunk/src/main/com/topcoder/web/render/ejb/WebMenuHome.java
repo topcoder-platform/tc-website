@@ -1,10 +1,8 @@
-package	com.topcoder.web.render.ejb;
+package com.topcoder.web.render.ejb;
 
-import	javax.ejb.EJBHome;
-import	javax.ejb.CreateException;
-import	java.rmi.RemoteException;
-import	com.topcoder.web.render.ejb.WebMenu;
+import javax.ejb.CreateException;
+import java.rmi.RemoteException;
 
 public interface WebMenuHome extends javax.ejb.EJBHome {
-	public WebMenu create() throws RemoteException, CreateException;
+    public WebMenu create() throws RemoteException, CreateException;
 }

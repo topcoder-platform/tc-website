@@ -1,15 +1,13 @@
 package com.topcoder.web.email.bean;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.naming.*;
-
-import com.topcoder.web.email.servlet.*;
 import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.email.servlet.EmailConstants;
+
+import javax.servlet.ServletException;
+import java.util.*;
 
 /**
  * Utilities for running statistics queries.
@@ -18,8 +16,7 @@ import com.topcoder.shared.util.logging.Logger;
  * @version    1.0
  */
 
-public class StatisticsUtilities
-{
+public class StatisticsUtilities {
     private static Logger log = Logger.getLogger(StatisticsUtilities.class);
 
     /**
@@ -32,8 +29,7 @@ public class StatisticsUtilities
      */
 
     public static Map runStatsQuery(String commandName, Map inputMap)
-        throws ServletException
-    {
+            throws ServletException {
         DataAccessInt dai = null;
         RequestInt dataRequest = null;
         Map resultMap = null;
@@ -60,8 +56,7 @@ public class StatisticsUtilities
      */
 
     public static String getCommandName(int commandId)
-        throws ServletException
-    {
+            throws ServletException {
         try {
             Map inputMap = new HashMap();
             inputMap.put("ci", String.valueOf(commandId));
@@ -71,8 +66,8 @@ public class StatisticsUtilities
 
             ResultSetContainer rsc = (ResultSetContainer) resultMap.get(EmailConstants.QUERY_DESCRIPTION_RESULT);
             if (rsc.size() > 0) {
-                                TCResultItem command_desc = rsc.getItem(0,0);
-                
+                TCResultItem command_desc = rsc.getItem(0, 0);
+
                 return String.valueOf(command_desc);
             } else {
                 return "Error looking up query name";
@@ -95,8 +90,7 @@ public class StatisticsUtilities
      */
 
     public static Set getCommandInputs(int commandId)
-        throws ServletException
-    {
+            throws ServletException {
         Set commandInputSet = new HashSet();
 
         try {
@@ -137,10 +131,9 @@ public class StatisticsUtilities
      */
 
     public static Map getCommandMap()
-        throws ServletException
-    {
+            throws ServletException {
         Map commandMap = new HashMap();
- 
+
         try {
             // no inputs..
             Map inputMap = new HashMap();
@@ -149,9 +142,9 @@ public class StatisticsUtilities
             Map resultMap = StatisticsUtilities.runStatsQuery(EmailConstants.EMAIL_QUERIES_COMMAND, inputMap);
 
             ResultSetContainer rsc = (ResultSetContainer) resultMap.get(EmailConstants.EMAIL_QUERIES_RESULT);
-                        for (int i = 0; i < rsc.size(); i++) {
-                                TCResultItem command_id = rsc.getItem(i,0);
-                                TCResultItem command_desc = rsc.getItem(i,1);
+            for (int i = 0; i < rsc.size(); i++) {
+                TCResultItem command_id = rsc.getItem(i, 0);
+                TCResultItem command_desc = rsc.getItem(i, 1);
 
                 commandMap.put(new Integer(command_id.toString()), command_desc.toString());
             }

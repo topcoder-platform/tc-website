@@ -1,24 +1,25 @@
 /******************************************************************************\
-*
-* File:          PactsEntry.java
-* Creation date: March 05, 2002 10:19
-* Author:        Matt Murphy
-* Purpose:       Store the more commonly requested information for a tax form
-* See:           TaxFormHeader.java
-*                ResultSetContainer.java
-*
-* Copyright 2002, TopCoder, Inc
-* All rights are reserved. Reproduction in whole or part is prohibited
-* without the written consent of the copyright owner.
-*
-\******************************************************************************/
+ *
+ * File:          PactsEntry.java
+ * Creation date: March 05, 2002 10:19
+ * Author:        Matt Murphy
+ * Purpose:       Store the more commonly requested information for a tax form
+ * See:           TaxFormHeader.java
+ *                ResultSetContainer.java
+ *
+ * Copyright 2002, TopCoder, Inc
+ * All rights are reserved. Reproduction in whole or part is prohibited
+ * without the written consent of the copyright owner.
+ *
+ \******************************************************************************/
 
 package com.topcoder.web.pacts.common;
 
-import com.topcoder.web.common.*;
-import java.util.*;
-import com.topcoder.web.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.ResultSetContainer;
+import com.topcoder.web.pacts.bean.pacts_internal.dispatch.*;
+
+import java.util.Map;
 
 public class PactsEntry implements PactsConstants {
 
@@ -42,19 +43,24 @@ public class PactsEntry implements PactsConstants {
             return;
         }
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
-        _type = TCData.getTCInt(rsr,OBJECT_TYPE,0,true);
-        _id1 = TCData.getTCLong(rsr,"first_id",0,true);
-        _id2 = TCData.getTCLong(rsr,"second_id",0,true);
+        _type = TCData.getTCInt(rsr, OBJECT_TYPE, 0, true);
+        _id1 = TCData.getTCLong(rsr, "first_id", 0, true);
+        _id2 = TCData.getTCLong(rsr, "second_id", 0, true);
     }
 
     public Object get() {
         try {
             switch (_type) {
-                case PAYMENT_OBJ: return getPayment();
-                case AFFIDAVIT_OBJ: return getAffidavit();
-                case CONTRACT_OBJ: return getContract();
-                case USER_TAX_FORM_OBJ: return getUserTaxForm();
-                case USER_PROFILE_OBJ: return getUserProfile();
+                case PAYMENT_OBJ:
+                    return getPayment();
+                case AFFIDAVIT_OBJ:
+                    return getAffidavit();
+                case CONTRACT_OBJ:
+                    return getContract();
+                case USER_TAX_FORM_OBJ:
+                    return getUserTaxForm();
+                case USER_PROFILE_OBJ:
+                    return getUserProfile();
             }
         } catch (Exception e) {
             log.error("Exception caught in PactsEntry.get():");
@@ -65,35 +71,35 @@ public class PactsEntry implements PactsConstants {
 
     public Payment getPayment() throws Exception {
         InternalDispatchPayment bean =
-            new InternalDispatchPayment(null, null);
+                new InternalDispatchPayment(null, null);
 
         return bean.get(_id1);
     }
 
     public Affidavit getAffidavit() throws Exception {
         InternalDispatchAffidavit bean =
-            new InternalDispatchAffidavit(null, null);
+                new InternalDispatchAffidavit(null, null);
 
         return bean.get(_id1);
     }
 
     public Contract getContract() throws Exception {
         InternalDispatchContract bean =
-            new InternalDispatchContract(null, null);
+                new InternalDispatchContract(null, null);
 
         return bean.get(_id1);
     }
 
     public TaxForm getUserTaxForm() throws Exception {
         InternalDispatchUserTaxForm bean =
-            new InternalDispatchUserTaxForm(null, null);
+                new InternalDispatchUserTaxForm(null, null);
 
         return bean.get(_id1, _id2);
     }
 
     public UserProfile getUserProfile() throws Exception {
         InternalDispatchUserProfile bean =
-            new InternalDispatchUserProfile(null, null);
+                new InternalDispatchUserProfile(null, null);
 
         return bean.get(_id1);
     }

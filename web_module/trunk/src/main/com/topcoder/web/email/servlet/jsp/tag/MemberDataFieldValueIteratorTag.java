@@ -1,16 +1,10 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-
-import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.email.bean.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.email.bean.FieldValue;
+import com.topcoder.web.email.bean.MemberData;
+
+import java.util.List;
 
 
 /**
@@ -24,25 +18,21 @@ import com.topcoder.shared.util.logging.Logger;
 
 
 public class MemberDataFieldValueIteratorTag
-    extends IteratorTag
-{
+        extends IteratorTag {
     private static Logger log = Logger.getLogger(MemberDataFieldValueIteratorTag.class);
 
     protected MemberData memberData;
     protected int index;
 
-    public void setFields(List fields)
-    {
+    public void setFields(List fields) {
         setCollection(fields);
     }
 
-    public void setMemberData(MemberData memberData)
-    {
+    public void setMemberData(MemberData memberData) {
         this.memberData = memberData;
     }
 
-    Object getElementAt(int index)
-    {
+    Object getElementAt(int index) {
         Object element = super.getElementAt(index);
         if (element != null) {
             FieldValue fieldValue = new FieldValue();
@@ -62,8 +52,7 @@ public class MemberDataFieldValueIteratorTag
         }
     }
 
-    public void release()
-    {
+    public void release() {
         super.release();
         this.memberData = null;
     }

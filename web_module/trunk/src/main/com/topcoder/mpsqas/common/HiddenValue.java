@@ -7,35 +7,29 @@ package com.topcoder.mpsqas.common;
  *
  * @author mitalub
  */
-public class HiddenValue
-{
-  public HiddenValue(String text, int value)
-  {
-    this.text = text;
-    this.value = value;
-  }
+public class HiddenValue {
+    public HiddenValue(String text, int value) {
+        this.text = text;
+        this.value = value;
+    }
 
-  public String toString()
-  {
-    return text;
-  }
+    public String toString() {
+        return text;
+    }
 
-  public int getValue()
-  {
-    return value;
-  }
+    public int getValue() {
+        return value;
+    }
 
-  public String getFullString()
-  {
-    return text + ": " + value;
-  }
+    public String getFullString() {
+        return text + ": " + value;
+    }
 
-  public void reset(String text, int value)
-  {
-    this.text = text;
-    this.value = value;
-  }
+    public void reset(String text, int value) {
+        this.text = text;
+        this.value = value;
+    }
 
-  private String text;
-  private int value;
+    private String text;
+    private int value;
 }

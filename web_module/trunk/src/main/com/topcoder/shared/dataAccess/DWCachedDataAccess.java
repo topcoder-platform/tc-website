@@ -1,14 +1,14 @@
 package com.topcoder.shared.dataAccess;
 
-import java.util.*;
-import java.rmi.RemoteException;
-import javax.naming.*;
-import java.sql.Connection;
-import javax.sql.DataSource;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+
+import javax.naming.Context;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.util.Map;
 
 /**
  * This bean processes a Request and returns the data from either the cache if it's available
@@ -17,8 +17,11 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  *
  * @author  Lars Backstrom
  * @version $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.4  2002/07/31 17:25:36  gpaul
+ *           make the default time for a cached item 1 week
+ *
  *           Revision 1.3  2002/07/23 23:37:21  gpaul
  *           use DataSources rather than DBMS to get connections
  *
@@ -62,7 +65,7 @@ import com.topcoder.shared.distCache.CacheClientFactory;
 public class DWCachedDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(DWCachedDataAccess.class);
     /**
-     * This method passes a query command request and a connection 
+     * This method passes a query command request and a connection
      * to the data retriever and receives and passes on the results.
      *
      * @param   request A <tt>RequestInt</tt> request object containing a number
@@ -74,26 +77,38 @@ public class DWCachedDataAccess implements DataAccessInt {
      */
     private static CacheClient client;
     private long expireTime;
-    public DWCachedDataAccess()
-    {
+
+    /**
+     * Constructor that sets the timeout for the object should it need to be
+     * cached, to 1 week.
+     */
+    public DWCachedDataAccess() {
         this(1000 * 60 * 60 * 24 * 7);                 //one week in ms
     }
-    public DWCachedDataAccess(long expireTime)
-    {
+
+    /**
+     * Construtor that takes the timeout for the object should it need to
+     * be cached
+     * @param expireTime
+     */
+    public DWCachedDataAccess(long expireTime) {
         super();
-        try
-        {
-            if(client==null)
+        try {
+            if (client == null)
                 client = CacheClientFactory.createCacheClient();
             this.expireTime = expireTime;
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("ERROR INITIALIZING CACHE CLIENT");
             e.printStackTrace();
         }
     }
 
+    /**
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
     public Map getData(RequestInt request) throws Exception {
         try {
             boolean cached = true;
@@ -102,34 +117,32 @@ public class DWCachedDataAccess implements DataAccessInt {
             Connection conn = null;
             DataRetriever dr = null;
             try {
-                map = (Map)(client.get(key));
-            }
-            catch(Exception e) {
-                System.out.println("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: "+e.getMessage());
+                map = (Map) (client.get(key));
+            } catch (Exception e) {
+                System.out.println("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 cached = false;
             }
             /* if it was not found in the cache */
             if (map == null) {
-              Context ctx = TCContext.getInitial();
-              DataSource ds = (DataSource)ctx.lookup("DW");
-              conn = ds.getConnection();
-              dr = new DataRetriever(conn);
-              map = dr.executeCommand(request.getProperties());
-              if (conn != null && !conn.isClosed()) {
-                try {
-                  conn.close();
-                } catch (Exception ce) { 
-                  log.error("Failed to close connection");
+                Context ctx = TCContext.getInitial();
+                DataSource ds = (DataSource) ctx.lookup("DW");
+                conn = ds.getConnection();
+                dr = new DataRetriever(conn);
+                map = dr.executeCommand(request.getProperties());
+                if (conn != null && !conn.isClosed()) {
+                    try {
+                        conn.close();
+                    } catch (Exception ce) {
+                        log.error("Failed to close connection");
+                    }
                 }
-              }
             }
             /* attempt to add this object to the cache */
-            if(cached) {
+            if (cached) {
                 try {
-                    client.set(key,map,expireTime);
-                }
-                catch(Exception e) {
-                    System.out.println("UNABLE TO INSERT INTO CACHE: "+e.getMessage());
+                    client.set(key, map, expireTime);
+                } catch (Exception e) {
+                    System.out.println("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                 }
             }
             return map;
@@ -137,12 +150,20 @@ public class DWCachedDataAccess implements DataAccessInt {
             throw e;
         }
     }
-    public void setExpireTime(long expireTime)
-    {
+
+    /**
+     *
+     * @param expireTime
+     */
+    public void setExpireTime(long expireTime) {
         this.expireTime = expireTime;
     }
-    public long getExpireTime()
-    {
+
+    /**
+     *
+     * @return
+     */
+    public long getExpireTime() {
         return expireTime;
     }
 }

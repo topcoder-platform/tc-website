@@ -15,13 +15,13 @@ public interface AuthenticationIfc {
        isAuthenticated returns true if the current session is associated with
        an authenticated user, and false otherwise.
      */
-    public boolean isAuthenticated ();
+    public boolean isAuthenticated();
 
     /*
        getAuthenticationPage returns the URL of a page to which the current
        request may be forwarded for Authentication.  (I.e., this returns the
        link to an appropriate login page.)
      */
-    public String getAuthenticationPage ();
+    public String getAuthenticationPage();
 
 }

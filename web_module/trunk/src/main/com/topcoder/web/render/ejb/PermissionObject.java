@@ -1,11 +1,10 @@
-package	com.topcoder.web.render.ejb;
+package com.topcoder.web.render.ejb;
 
-import	java.sql.Date;
-import	java.io.Serializable;
+import java.io.Serializable;
 
-public class PermissionObject 
-  implements Serializable {
-	public Integer	secure_object_id;
-	public Integer	sector_id;
-	public Integer	access_id;
+public class PermissionObject
+        implements Serializable {
+    public Integer secure_object_id;
+    public Integer sector_id;
+    public Integer access_id;
 }

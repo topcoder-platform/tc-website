@@ -15,10 +15,10 @@ public class AffidavitWithText {
     public long daysLeft;  // the number of days left that it can be affirmed online
 
     public AffidavitWithText() {
-	affidavit = new Affidavit();
-	affidavitText = new String("");
-	payment = new Payment();
-	canAffirmOnline = false;  //err on the safe side
-	daysLeft=0;
+        affidavit = new Affidavit();
+        affidavitText = new String("");
+        payment = new Payment();
+        canAffirmOnline = false;  //err on the safe side
+        daysLeft = 0;
     }
 }

@@ -25,5 +25,5 @@ public class PaymentAssignedException extends Exception {
      */
     public PaymentAssignedException(String s) {
         super(s);
-    }    
+    }
 }

@@ -1,15 +1,12 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.email.bean.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.email.bean.TemplateTask;
+
+import javax.servlet.ServletException;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.BodyTagSupport;
+import java.io.IOException;
 
 /**
  * Custom tag to retrieve the name of a template, given its id
@@ -20,14 +17,12 @@ import com.topcoder.shared.util.logging.Logger;
  */
 
 public class TemplateNameTag
-    extends BodyTagSupport
-{
+        extends BodyTagSupport {
     private static Logger log = Logger.getLogger(TemplateNameTag.class);
     // the template id
     protected int templateId;
 
-    public void setTemplateId(String templateId)
-    {
+    public void setTemplateId(String templateId) {
         try {
             this.templateId = Integer.parseInt(templateId);
         } catch (NumberFormatException e) {
@@ -37,14 +32,12 @@ public class TemplateNameTag
 
 
     public int doStartTag()
-        throws JspException
-    {
+            throws JspException {
         return EVAL_BODY_TAG;
     }
 
     public void doInitBody()
-        throws JspException
-    {
+            throws JspException {
         try {
             pageContext.setAttribute(getId(), TemplateTask.getTemplateName(templateId));
         } catch (ServletException e) {
@@ -53,8 +46,7 @@ public class TemplateNameTag
     }
 
     public int doAfterBody()
-        throws JspException
-    {
+            throws JspException {
         try {
             if (bodyContent != null) {
                 bodyContent.writeOut(getPreviousOut());

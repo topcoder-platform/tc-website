@@ -1,130 +1,131 @@
 package com.topcoder.common.web.data;
 
-import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
-import com.topcoder.common.web.error.*;
-import java.util.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 
 public final class RoundSegment implements Serializable, TagRenderer {
 
 
-  private int contestId;
-  private int roundId;
-  private int segmentId;
-  private String segmentDesc;
-  private Timestamp start;
-  private String startTime;
-  private int startYear;
-  private int startMonthNum;
-  private int startDay;
-  private int startHour;
-  private int startMinute;
-  private int startSecond;
-  private String startAMPM;
-  private String startTimeZoneLong;
-  private String startTimeZoneShort;
-  private Timestamp end;
-  private String endTime;
-  private int endYear;
-  private int endMonthNum;
-  private int endDay;
-  private int endHour;
-  private int endMinute;
-  private int endSecond;
-  private String endAMPM;
-  private String endTimeZoneLong;
-  private String endTimeZoneShort;
-  private String status;
-  private String modified;
-
-  
-  public RoundSegment ( int contestId, int round_id ) {
-    init();
-    this.contestId = contestId;
-    this.roundId = round_id;
-  }
+    private int contestId;
+    private int roundId;
+    private int segmentId;
+    private String segmentDesc;
+    private Timestamp start;
+    private String startTime;
+    private int startYear;
+    private int startMonthNum;
+    private int startDay;
+    private int startHour;
+    private int startMinute;
+    private int startSecond;
+    private String startAMPM;
+    private String startTimeZoneLong;
+    private String startTimeZoneShort;
+    private Timestamp end;
+    private String endTime;
+    private int endYear;
+    private int endMonthNum;
+    private int endDay;
+    private int endHour;
+    private int endMinute;
+    private int endSecond;
+    private String endAMPM;
+    private String endTimeZoneLong;
+    private String endTimeZoneShort;
+    private String status;
+    private String modified;
 
 
-  public RoundSegment () {
-    init();
-    this.contestId = 0;
-    this.roundId = 0;
-  }
+    public RoundSegment(int contestId, int round_id) {
+        init();
+        this.contestId = contestId;
+        this.roundId = round_id;
+    }
 
 
-  private void init() {
-    this.segmentId = 0;
-    this.segmentDesc = "";
-    this.start = null;
-    this.startTime = "";
-    this.startYear = 0;
-    this.startMonthNum = 0;
-    this.startDay = 0;
-    this.startHour = 0;
-    this.startMinute = 0;
-    this.startSecond = 0;
-    this.startAMPM = "";
-    this.startTimeZoneLong = "";
-    this.startTimeZoneShort = "";
-    this.end = null;
-    this.endTime = "";
-    this.endYear = 0;
-    this.endMonthNum = 0;
-    this.endDay = 0;
-    this.endHour = 0;
-    this.endMinute = 0;
-    this.endSecond = 0;
-    this.endAMPM = "";
-    this.endTimeZoneLong = "";
-    this.endTimeZoneShort = "";
-    this.status = "";
-    this.modified = "";
-  }
+    public RoundSegment() {
+        init();
+        this.contestId = 0;
+        this.roundId = 0;
+    }
+
+
+    private void init() {
+        this.segmentId = 0;
+        this.segmentDesc = "";
+        this.start = null;
+        this.startTime = "";
+        this.startYear = 0;
+        this.startMonthNum = 0;
+        this.startDay = 0;
+        this.startHour = 0;
+        this.startMinute = 0;
+        this.startSecond = 0;
+        this.startAMPM = "";
+        this.startTimeZoneLong = "";
+        this.startTimeZoneShort = "";
+        this.end = null;
+        this.endTime = "";
+        this.endYear = 0;
+        this.endMonthNum = 0;
+        this.endDay = 0;
+        this.endHour = 0;
+        this.endMinute = 0;
+        this.endSecond = 0;
+        this.endAMPM = "";
+        this.endTimeZoneLong = "";
+        this.endTimeZoneShort = "";
+        this.status = "";
+        this.modified = "";
+    }
 
 
 // set
-           
-  public void setSegmentId(int segmentId) {
-    this.segmentId = segmentId;
-  }
 
-  public void setContestId(int contestId) {
-    this.contestId = contestId;
-  }
-
-  public void setRoundId(int roundId) {
-    this.roundId = roundId;
-  }
-  
-  public void setSegmentDesc(String segmentDesc) {
-    this.segmentDesc = segmentDesc;
-  }
-  
-  public void setStart(Timestamp start) {
-    this.start = start;
-    this.startTime = getTime(start);
-    Calendar cal = Calendar.getInstance();
-    cal.setTime ( start );
-    this.startYear = cal.get(Calendar.YEAR);
-    this.startMonthNum = cal.get(Calendar.MONTH)+1;  //month is zero indexed
-    this.startDay = cal.get(Calendar.DAY_OF_MONTH);
-    this.startHour = cal.get(Calendar.HOUR);
-    if ( this.startHour == 0 ) this.startHour = 12;
-    this.startMinute = cal.get(Calendar.MINUTE);
-    this.startSecond = cal.get(Calendar.SECOND);
-    if ( cal.get(Calendar.AM_PM) == Calendar.AM ) {
-      this.startAMPM = "AM";
-    } else {
-      this.startAMPM = "PM";
+    public void setSegmentId(int segmentId) {
+        this.segmentId = segmentId;
     }
-    TimeZone tz = cal.getTimeZone();
-    boolean daylight = tz.inDaylightTime(start);
-    this.startTimeZoneLong = tz.getDisplayName ( daylight, TimeZone.LONG );
-    this.startTimeZoneShort = tz.getDisplayName ( daylight, TimeZone.SHORT );
-  }
+
+    public void setContestId(int contestId) {
+        this.contestId = contestId;
+    }
+
+    public void setRoundId(int roundId) {
+        this.roundId = roundId;
+    }
+
+    public void setSegmentDesc(String segmentDesc) {
+        this.segmentDesc = segmentDesc;
+    }
+
+    public void setStart(Timestamp start) {
+        this.start = start;
+        this.startTime = getTime(start);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(start);
+        this.startYear = cal.get(Calendar.YEAR);
+        this.startMonthNum = cal.get(Calendar.MONTH) + 1;  //month is zero indexed
+        this.startDay = cal.get(Calendar.DAY_OF_MONTH);
+        this.startHour = cal.get(Calendar.HOUR);
+        if (this.startHour == 0) this.startHour = 12;
+        this.startMinute = cal.get(Calendar.MINUTE);
+        this.startSecond = cal.get(Calendar.SECOND);
+        if (cal.get(Calendar.AM_PM) == Calendar.AM) {
+            this.startAMPM = "AM";
+        } else {
+            this.startAMPM = "PM";
+        }
+        TimeZone tz = cal.getTimeZone();
+        boolean daylight = tz.inDaylightTime(start);
+        this.startTimeZoneLong = tz.getDisplayName(daylight, TimeZone.LONG);
+        this.startTimeZoneShort = tz.getDisplayName(daylight, TimeZone.SHORT);
+    }
 
 
 /*
@@ -155,31 +156,31 @@ public final class RoundSegment implements Serializable, TagRenderer {
   public void setStartTimeZoneShort(String startTimeZoneShort) {
     this.startTimeZoneShort = startTimeZoneShort;
   }
-*/ 
+*/
 
 
-  public void setEnd(Timestamp end) {
-    this.end= end;
-    this.endTime = getTime(end);
-    Calendar cal = Calendar.getInstance();
-    cal.setTime ( end );
-    this.endYear = cal.get(Calendar.YEAR);
-    this.endMonthNum = cal.get(Calendar.MONTH)+1;  //month is zero indexed
-    this.endDay = cal.get(Calendar.DAY_OF_MONTH);
-    this.endHour = cal.get(Calendar.HOUR);
-    if ( this.endHour == 0 ) this.endHour = 12;
-    this.endMinute = cal.get(Calendar.MINUTE);
-    this.endSecond = cal.get(Calendar.SECOND);
-    if ( cal.get(Calendar.AM_PM) == Calendar.AM ) {
-      this.endAMPM = "AM";
-    } else {
-      this.endAMPM = "PM";
+    public void setEnd(Timestamp end) {
+        this.end = end;
+        this.endTime = getTime(end);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(end);
+        this.endYear = cal.get(Calendar.YEAR);
+        this.endMonthNum = cal.get(Calendar.MONTH) + 1;  //month is zero indexed
+        this.endDay = cal.get(Calendar.DAY_OF_MONTH);
+        this.endHour = cal.get(Calendar.HOUR);
+        if (this.endHour == 0) this.endHour = 12;
+        this.endMinute = cal.get(Calendar.MINUTE);
+        this.endSecond = cal.get(Calendar.SECOND);
+        if (cal.get(Calendar.AM_PM) == Calendar.AM) {
+            this.endAMPM = "AM";
+        } else {
+            this.endAMPM = "PM";
+        }
+        TimeZone tz = cal.getTimeZone();
+        boolean daylight = tz.inDaylightTime(end);
+        this.endTimeZoneLong = tz.getDisplayName(daylight, TimeZone.LONG);
+        this.endTimeZoneShort = tz.getDisplayName(daylight, TimeZone.SHORT);
     }
-    TimeZone tz = cal.getTimeZone();
-    boolean daylight = tz.inDaylightTime(end);
-    this.endTimeZoneLong = tz.getDisplayName ( daylight, TimeZone.LONG );
-    this.endTimeZoneShort = tz.getDisplayName ( daylight, TimeZone.SHORT );
-  }
 
 
 /*
@@ -213,183 +214,183 @@ public final class RoundSegment implements Serializable, TagRenderer {
 */
 
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
-  
-  public void setModified(String modified) {
-    this.modified = modified;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setModified(String modified) {
+        this.modified = modified;
+    }
 
 
 // get
-  public int getSegmentId() {
-    return this.segmentId;
-  }
-
-  public int getContestId() {
-    return this.contestId;
-  }
-
-  public int getRoundId() {
-    return this.roundId;
-  }
- 
-  public String getSegmentDesc() {
-    return this.segmentDesc;
-  }
-  
-  public Timestamp getStart() {
-    return this.start;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-  
-  public int getStartYear() {
-    return this.startYear;
-  }
-
-  public int getStartMonthNum() {
-    return this.startMonthNum;
-  }
-
-  public int getStartDay() {
-    return this.startDay;
-  }
-
-  public int getStartHour() {
-    return this.startHour;
-  }
-
-  public int setStartMinute() {
-    return this.startMinute;
-  }
-
-  public int getStartSecond() {
-    return this.startSecond;
-  }
-  
-  public String getStartAMPM() {
-    return this.startAMPM;
-  }
-  
-  public String getStartTimeZoneLong() {
-    return this.startTimeZoneLong;
-  }
-  
-  public String getStartTimeZoneShort() {
-    return this.startTimeZoneShort;
-  }
-  
-  public Timestamp getEnd() {
-    return this.end;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-  
-  public int getEndYear() {
-    return this.endYear;
-  }
-
-  public int getEndMonthNum() {
-    return this.endMonthNum;
-  }
-
-  public int getEndDay() {
-    return this.endDay;
-  }
-
-  public int getEndHour() {
-    return this.endHour;
-  }
-
-  public int setEndMinute() {
-    return this.endMinute;
-  }
-
-  public String getEndAMPM() {
-    return this.endAMPM;
-  }  
-  
-  public String getEndTimeZoneLong() {
-    return this.endTimeZoneLong;
-  }  
-  
-  public String getEndTimeZoneShort() {
-    return this.endTimeZoneShort;
-  }  
-  
-  public int getEndSecond() {
-    return this.endSecond;
-  }  
-  
-  public String getStatus() {
-    return this.status;
-  }
-  
-  public String getModified() {
-    return this.modified;
-  }
-
-  public RecordTag getXML() throws Exception {
-    RecordTag result = null;
-    try {
-      DecimalFormat fmt = new DecimalFormat ( "00" );
-      result = new RecordTag("RoundSegment");
-      result.addTag( new ValueTag("SegmentId", segmentId) );
-      result.addTag( new ValueTag("ContestId", contestId) );
-      result.addTag( new ValueTag("RoundId", roundId) );
-      result.addTag( new ValueTag("SegmentDesc", segmentDesc) );
-      result.addTag( new ValueTag("Start", start) );
-      result.addTag( new ValueTag("StartYear", startYear) );
-      result.addTag( new ValueTag("StartMonthNum", fmt.format(startMonthNum)) );
-      result.addTag( new ValueTag("StartDay", fmt.format(startDay)) );
-      result.addTag( new ValueTag("StartHour", fmt.format(startHour)) );
-      result.addTag( new ValueTag("StartMinute", fmt.format(startMinute)) );
-      result.addTag( new ValueTag("StartSecond", fmt.format(startSecond)) );
-      result.addTag( new ValueTag("StartAMPM", startAMPM) );
-      result.addTag( new ValueTag("StartTimeZoneLong", startTimeZoneLong) );
-      result.addTag( new ValueTag("StartTimeZoneShort", startTimeZoneShort) );
-      result.addTag( new ValueTag("StartTime", startTime) );
-      result.addTag( new ValueTag("End", end) );
-      result.addTag( new ValueTag("EndYear", endYear) );
-      result.addTag( new ValueTag("EndMonthNum", fmt.format(endMonthNum)) );
-      result.addTag( new ValueTag("EndDay", fmt.format(endDay)) );
-      result.addTag( new ValueTag("EndHour", fmt.format(endHour)) );
-      result.addTag( new ValueTag("EndMinute", fmt.format(endMinute)) );
-      result.addTag( new ValueTag("EndSecond", fmt.format(endSecond)) );
-      result.addTag( new ValueTag("EndAMPM", endAMPM) );
-      result.addTag( new ValueTag("EndTimeZoneLong", endTimeZoneLong) );
-      result.addTag( new ValueTag("EndTimeZoneShort", endTimeZoneShort) );
-      result.addTag( new ValueTag("EndTime", endTime) );
-      result.addTag( new ValueTag("Status", status) );
-      result.addTag( new ValueTag("Modified", modified) );
-    }catch (Exception e)  {
-      throw new Exception("common.web.data.RoundSegment getXML ERROR: " + e);
-    }
-    return result;
-  }
-
-
-  //Method to retrieve a time value in hh:mm:ss format from a 
-  //java.sql.Timestamp object
-  private String getTime ( Timestamp timeStamp) {
-    String timeStampString = null;
-    int spaceIndex = 0;
-    String timeVal = null;
-
-    if(timeStamp != null) {
-      timeStampString = timeStamp.toString();
-      spaceIndex = timeStampString.indexOf(" ") + 1;
-      timeVal = timeStampString.substring(spaceIndex, spaceIndex + 8);
+    public int getSegmentId() {
+        return this.segmentId;
     }
 
-    return timeVal;
-  }
+    public int getContestId() {
+        return this.contestId;
+    }
 
-  
+    public int getRoundId() {
+        return this.roundId;
+    }
+
+    public String getSegmentDesc() {
+        return this.segmentDesc;
+    }
+
+    public Timestamp getStart() {
+        return this.start;
+    }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public int getStartYear() {
+        return this.startYear;
+    }
+
+    public int getStartMonthNum() {
+        return this.startMonthNum;
+    }
+
+    public int getStartDay() {
+        return this.startDay;
+    }
+
+    public int getStartHour() {
+        return this.startHour;
+    }
+
+    public int setStartMinute() {
+        return this.startMinute;
+    }
+
+    public int getStartSecond() {
+        return this.startSecond;
+    }
+
+    public String getStartAMPM() {
+        return this.startAMPM;
+    }
+
+    public String getStartTimeZoneLong() {
+        return this.startTimeZoneLong;
+    }
+
+    public String getStartTimeZoneShort() {
+        return this.startTimeZoneShort;
+    }
+
+    public Timestamp getEnd() {
+        return this.end;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public int getEndYear() {
+        return this.endYear;
+    }
+
+    public int getEndMonthNum() {
+        return this.endMonthNum;
+    }
+
+    public int getEndDay() {
+        return this.endDay;
+    }
+
+    public int getEndHour() {
+        return this.endHour;
+    }
+
+    public int setEndMinute() {
+        return this.endMinute;
+    }
+
+    public String getEndAMPM() {
+        return this.endAMPM;
+    }
+
+    public String getEndTimeZoneLong() {
+        return this.endTimeZoneLong;
+    }
+
+    public String getEndTimeZoneShort() {
+        return this.endTimeZoneShort;
+    }
+
+    public int getEndSecond() {
+        return this.endSecond;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getModified() {
+        return this.modified;
+    }
+
+    public RecordTag getXML() throws Exception {
+        RecordTag result = null;
+        try {
+            DecimalFormat fmt = new DecimalFormat("00");
+            result = new RecordTag("RoundSegment");
+            result.addTag(new ValueTag("SegmentId", segmentId));
+            result.addTag(new ValueTag("ContestId", contestId));
+            result.addTag(new ValueTag("RoundId", roundId));
+            result.addTag(new ValueTag("SegmentDesc", segmentDesc));
+            result.addTag(new ValueTag("Start", start));
+            result.addTag(new ValueTag("StartYear", startYear));
+            result.addTag(new ValueTag("StartMonthNum", fmt.format(startMonthNum)));
+            result.addTag(new ValueTag("StartDay", fmt.format(startDay)));
+            result.addTag(new ValueTag("StartHour", fmt.format(startHour)));
+            result.addTag(new ValueTag("StartMinute", fmt.format(startMinute)));
+            result.addTag(new ValueTag("StartSecond", fmt.format(startSecond)));
+            result.addTag(new ValueTag("StartAMPM", startAMPM));
+            result.addTag(new ValueTag("StartTimeZoneLong", startTimeZoneLong));
+            result.addTag(new ValueTag("StartTimeZoneShort", startTimeZoneShort));
+            result.addTag(new ValueTag("StartTime", startTime));
+            result.addTag(new ValueTag("End", end));
+            result.addTag(new ValueTag("EndYear", endYear));
+            result.addTag(new ValueTag("EndMonthNum", fmt.format(endMonthNum)));
+            result.addTag(new ValueTag("EndDay", fmt.format(endDay)));
+            result.addTag(new ValueTag("EndHour", fmt.format(endHour)));
+            result.addTag(new ValueTag("EndMinute", fmt.format(endMinute)));
+            result.addTag(new ValueTag("EndSecond", fmt.format(endSecond)));
+            result.addTag(new ValueTag("EndAMPM", endAMPM));
+            result.addTag(new ValueTag("EndTimeZoneLong", endTimeZoneLong));
+            result.addTag(new ValueTag("EndTimeZoneShort", endTimeZoneShort));
+            result.addTag(new ValueTag("EndTime", endTime));
+            result.addTag(new ValueTag("Status", status));
+            result.addTag(new ValueTag("Modified", modified));
+        } catch (Exception e) {
+            throw new Exception("common.web.data.RoundSegment getXML ERROR: " + e);
+        }
+        return result;
+    }
+
+
+    //Method to retrieve a time value in hh:mm:ss format from a
+    //java.sql.Timestamp object
+    private String getTime(Timestamp timeStamp) {
+        String timeStampString = null;
+        int spaceIndex = 0;
+        String timeVal = null;
+
+        if (timeStamp != null) {
+            timeStampString = timeStamp.toString();
+            spaceIndex = timeStampString.indexOf(" ") + 1;
+            timeVal = timeStampString.substring(spaceIndex, spaceIndex + 8);
+        }
+
+        return timeVal;
+    }
+
+
 }

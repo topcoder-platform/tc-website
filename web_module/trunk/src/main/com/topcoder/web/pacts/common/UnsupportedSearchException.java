@@ -24,5 +24,5 @@ public class UnsupportedSearchException extends Exception {
      */
     public UnsupportedSearchException(String s) {
         super(s);
-    }    
+    }
 }

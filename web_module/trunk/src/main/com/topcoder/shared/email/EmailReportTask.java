@@ -1,33 +1,31 @@
 package com.topcoder.shared.email;
 
-import java.util.*;
-import java.net.*;
-import java.lang.*;
-import java.io.*;
-import java.rmi.RemoteException;
-import javax.ejb.CreateException;
-
-import javax.naming.*;
-import javax.xml.transform.*;
-import javax.xml.transform.stream.*;
-import javax.xml.parsers.*;
-import org.xml.sax.*;
-import org.w3c.dom.*;
-
-import org.apache.log4j.Category;
-import com.topcoder.shared.util.*;
 import com.topcoder.shared.ejb.EmailServices.*;
 import com.topcoder.shared.util.logging.Logger;
+import org.w3c.dom.*;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import javax.naming.Context;
+import javax.xml.parsers.*;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import java.io.*;
+import java.util.*;
 
 /**
  * The EmailReportTask watches another job and when it is complete
- * the EmailReportTask creates a report of the job results and 
+ * the EmailReportTask creates a report of the job results and
  * emails to the chosen destinations.
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/16 21:50:21  gpaul
+ *           merging sord's email changes
+ *
  *           Revision 1.1.2.6  2002/07/10 05:33:15  sord
  *           Increment the counts!!
  *
@@ -49,22 +47,26 @@ import com.topcoder.shared.util.logging.Logger;
  *           Split basic task functions into the base class EmailTask
  *
  */
-public class EmailReportTask extends EmailTask implements Runnable  {
+public class EmailReportTask extends EmailTask implements Runnable {
 
     private static Logger log = Logger.getLogger(EmailReportTask.class);
-    
- /**
-  * Creates a new object.  The object will be able to send a set of emails
-  * when the run method is called (probably from a new thread).
-  */
+
+    /**
+     * Creates a new object.  The object will be able to send a set of emails
+     * when the run method is called (probably from a new thread).
+     * @param ctx
+     * @param scheduler
+     * @param jobId
+     * @param controlId
+     */
     public EmailReportTask(Context ctx, EmailJobScheduler scheduler, int jobId, long controlId) {
         super(ctx, scheduler, jobId, controlId);
     }
-    
- /**
-  * This function is the main loop that checks if it is time to send the report
-  * and if it is, generates the report and schedules it to be sent.
-  */
+
+    /**
+     * This function is the main loop that checks if it is time to send the report
+     * and if it is, generates the report and schedules it to be sent.
+     */
     public void doWork() {
         boolean cancelReport = true;    // if it fails for unexpected reasons, just give up (if possible).
         try {
@@ -79,19 +81,19 @@ public class EmailReportTask extends EmailTask implements Runnable  {
                 cancelReport = false;
                 return;
             }
-            
+
             // check if the email job we're reporting on has completed yet.
             // if not, reschedule this job for a later time
             if (!isReadyToSend()) {
-            	GregorianCalendar nextAttempt = new GregorianCalendar();
-            	nextAttempt.add(Calendar.MINUTE, 10);
+                GregorianCalendar nextAttempt = new GregorianCalendar();
+                nextAttempt.add(Calendar.MINUTE, 10);
                 server.setJobStatus(jobId, server.CREATING);
                 job.setStartAfterDate(jobId, nextAttempt.getTime());
                 server.setJobStatus(jobId, server.READY);
                 cancelReport = false;
                 return;
             }
-            
+
             // get report data, merge with template, schedule broadcast
             int templateId = job.getTemplateId(jobId);
             String reportXML = getReportData();
@@ -102,15 +104,15 @@ public class EmailReportTask extends EmailTask implements Runnable  {
             int groupId = -1;
             Set groupIds = groupMap.keySet();
             Iterator itr = groupIds.iterator();
-            for ( ; itr.hasNext(); ) {
+            for (; itr.hasNext();) {
                 Object key = itr.next();
-                String name = (String)groupMap.get(key);
+                String name = (String) groupMap.get(key);
                 if (name.equalsIgnoreCase("[SentReports]")) {
-                    groupId = ((Integer)key).intValue();
+                    groupId = ((Integer) key).intValue();
                     break;
                 }
             }
-            
+
             if (groupId == -1) {
                 groupId = templateGroup.addGroup("[SentReports]");
             }
@@ -129,24 +131,36 @@ public class EmailReportTask extends EmailTask implements Runnable  {
                 try {
                     EmailServer server = ((EmailServerHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailServer")).create();
                     server.setJobStatus(jobId, server.INCOMPLETE);
-                } catch (Exception ignore) {}
+                } catch (Exception ignore) {
+                }
             }
-            if (ctx != null) { try { ctx.close(); } catch (Exception ignore) {} }
-            
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                }
+            }
+
         }
     }
 
 
- /**
-  * This function assembles the template and the report data.
-  */
+    /**
+     * This function assembles the template and the report data.
+     * @param templateXSL
+     * @param memberXML
+     * @param server
+     * @return
+     * @throws TransformerConfigurationException
+     * @throws Exception
+     */
     private String mergeData(String templateXSL, String memberXML, EmailServer server)
             throws TransformerConfigurationException, Exception {
         Reader memberReader = null;
         Reader templateReader = null;
 
         try {
-            TransformerFactory tFactory =  TransformerFactory.newInstance ();
+            TransformerFactory tFactory = TransformerFactory.newInstance();
             // Get the XML input document and the stylesheet, both in the servlet
             // engine document directory.
             memberReader = new StringReader(memberXML);
@@ -154,33 +168,46 @@ public class EmailReportTask extends EmailTask implements Runnable  {
             Source memberSource = new StreamSource(memberReader);
             Source templateSource = new StreamSource(templateReader);
             // Generate the transformer.
-            Transformer transformer =  tFactory.newTransformer ( templateSource );
+            Transformer transformer = tFactory.newTransformer(templateSource);
             // Perform the transformation, sending the output to the response.
             StringWriter msg = new StringWriter();
-            Result xmlResult = new StreamResult ( msg );
-            transformer.transform ( memberSource, xmlResult );
+            Result xmlResult = new StreamResult(msg);
+            transformer.transform(memberSource, xmlResult);
             return msg.toString();
         } finally {
-            try { if (memberReader != null) memberReader.close(); } catch (Exception e) {}
-            try { if (templateReader != null) templateReader.close(); } catch (Exception e) {}
+            try {
+                if (memberReader != null) memberReader.close();
+            } catch (Exception e) {
+            }
+            try {
+                if (templateReader != null) templateReader.close();
+            } catch (Exception e) {
+            }
         }
     }
-    
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     private int getSourceId() throws Exception {
         EmailJob job = ((EmailJobHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailJob")).create();
-        
+
         Map map = job.getJobDetailResults(jobId);
         Set key = map.keySet();
         if (key.isEmpty()) throw new Exception("Missing detail record for source job id");
         Iterator itr = key.iterator();
-        int detailId = ((Integer)itr.next()).intValue();
+        int detailId = ((Integer) itr.next()).intValue();
         String detailData = job.getJobDetailData(jobId, detailId);
         return Integer.parseInt(detailData);
     }
 
-    /* 
+    /*
      * isReadyToSend returns true if the email job to be reported on is
      * not ready or active, otherwise it returns false.
+     * @return
+     * @throws Exception
      */
     private boolean isReadyToSend() throws Exception {
         // find jobId of the source email job
@@ -193,17 +220,19 @@ public class EmailReportTask extends EmailTask implements Runnable  {
         // if status is READY or ACTIVE, return false
         // otherwise return true
         if (status == EmailServer.READY
-         || status == EmailServer.ACTIVE) {
+                || status == EmailServer.ACTIVE) {
             return false;
         }
-        
+
         return true;
     }
 
     /*
      * getReportData returns the results of the report in XML format
      * so that it can be merged with a report template.
-     */    
+     * @return
+     * @throws Exception
+     */
     private String getReportData() throws Exception {
         EmailJob job = ((EmailJobHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailJob")).create();
         EmailTemplate template = ((EmailTemplateHome) ctx.lookup("com.topcoder.shared.ejb.EmailServices.EmailTemplate")).create();
@@ -216,7 +245,7 @@ public class EmailReportTask extends EmailTask implements Runnable  {
         // Fetch the result set for the email job
         int sourceTempId = job.getTemplateId(sourceId);
         int sourceTempGrpId = template.getTemplateGroupId(sourceTempId);
-        
+
         // Collect counts for success/failure/other
         // Build list of email target results
         int SENT = 0;
@@ -230,18 +259,21 @@ public class EmailReportTask extends EmailTask implements Runnable  {
         list[SENT] = new StringBuffer(1000);
         list[FAILED] = new StringBuffer(1000);
         list[OTHER] = new StringBuffer(1000);
-        
+
         Map map = job.getJobDetailResults(sourceId);
         Set key = map.keySet();
         Iterator itr = key.iterator();
-        for ( ; itr.hasNext(); ) {
+        for (; itr.hasNext();) {
             Object obj = itr.next();
-            int detailId = ((Integer)obj).intValue();
-            int status = ((Integer)map.get(obj)).intValue();
-            if (status == EmailServer.MSG_SENT) status = SENT;
-            else if (status == EmailServer.MSG_FAILED) status = FAILED;
-            else status = OTHER;
-            
+            int detailId = ((Integer) obj).intValue();
+            int status = ((Integer) map.get(obj)).intValue();
+            if (status == EmailServer.MSG_SENT)
+                status = SENT;
+            else if (status == EmailServer.MSG_FAILED)
+                status = FAILED;
+            else
+                status = OTHER;
+
             count[status]++;
             String data = job.getJobDetailData(sourceId, detailId);
             list[status].append(parseData(data));
@@ -251,7 +283,7 @@ public class EmailReportTask extends EmailTask implements Runnable  {
             }
             list[status].append("\n");
         }
-            
+
         // Format XML output
         /* Sample output:
          * <id>35</id>
@@ -275,10 +307,10 @@ public class EmailReportTask extends EmailTask implements Runnable  {
          * </list_other>
          */
 
-        StringBuffer report = new StringBuffer( 10000 );
-        
+        StringBuffer report = new StringBuffer(10000);
+
         report.append("<report>");
-        report.append(buildTag("id", ""+sourceId));
+        report.append(buildTag("id", "" + sourceId));
         report.append(buildTag("status", job.getStatusText(sourceId)));
         report.append(buildTag("date", job.getStartAfterDate(sourceId).toString()));
         report.append(buildTag("template", template.getTemplateName(sourceTempId)));
@@ -286,24 +318,33 @@ public class EmailReportTask extends EmailTask implements Runnable  {
         report.append(buildTag("sender_email", job.getFromAddress(sourceId)));
         report.append(buildTag("sender_name", job.getFromPersonal(sourceId)));
         report.append(buildTag("subject", job.getSubject(sourceId)));
-        report.append(buildTag("count_sent", ""+count[SENT]));
-        report.append(buildTag("count_failed", ""+count[FAILED]));
-        report.append(buildTag("count_other", ""+count[OTHER]));
+        report.append(buildTag("count_sent", "" + count[SENT]));
+        report.append(buildTag("count_failed", "" + count[FAILED]));
+        report.append(buildTag("count_other", "" + count[OTHER]));
         report.append(buildTag("list_sent", list[SENT].toString()));
         report.append(buildTag("list_failed", list[FAILED].toString()));
         report.append(buildTag("list_other", list[OTHER].toString()));
         report.append("</report>");
 
-        return report.toString();        
+        return report.toString();
     }
-    
+
+    /**
+     *
+     * @param tag
+     * @param data
+     * @return
+     */
     private String buildTag(String tag, String data) {
-        return "<"+tag+">"+data+"</"+tag+">";
+        return "<" + tag + ">" + data + "</" + tag + ">";
     }
-    
- /**
-  * This function parses the source XML data and returns the member/email_address node.
-  */
+
+    /**
+     * This function parses the source XML data and returns the member/email_address node.
+     * @param data
+     * @return
+     * @throws Exception
+     */
     private String parseData(String data) throws Exception {
         String ret = null;
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -313,14 +354,14 @@ public class EmailReportTask extends EmailTask implements Runnable  {
             reader = new StringReader(data);
             InputSource source = new InputSource(reader);
             Document document = builder.parse(source);
-            
+
             NodeList nodes = document.getElementsByTagName("member");
-            nodes = ((Element)(nodes.item(0))).getElementsByTagName("email_address");
-            String emailAddress = ((Text)(((Element)(nodes.item(0))).getFirstChild())).getData();
+            nodes = ((Element) (nodes.item(0))).getElementsByTagName("email_address");
+            String emailAddress = ((Text) (((Element) (nodes.item(0))).getFirstChild())).getData();
             return emailAddress;
         } catch (SAXException sxe) {
             // Error generated during parsing
-            Exception  x = sxe;
+            Exception x = sxe;
             if (sxe.getException() != null)
                 x = sxe.getException();
             x.printStackTrace();
@@ -337,9 +378,12 @@ public class EmailReportTask extends EmailTask implements Runnable  {
             e.printStackTrace();
             throw new Exception("Failed to parse TO address : " + e.toString());
         } finally {
-            try { if (reader != null) reader.close(); } catch (Exception e) {}
+            try {
+                if (reader != null) reader.close();
+            } catch (Exception e) {
+            }
         }
     }
-    
+
 }
 

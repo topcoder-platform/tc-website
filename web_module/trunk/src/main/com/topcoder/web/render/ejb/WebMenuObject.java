@@ -1,12 +1,11 @@
-package	com.topcoder.web.render.ejb;
+package com.topcoder.web.render.ejb;
 
-import	java.sql.Date;
-import	java.io.Serializable;
+import java.io.Serializable;
 
-public class WebMenuObject 
-  implements Serializable {
-	public Integer	menu_id;
-	public String	menu_name;
-	public Object	menu_content;
-	public String	menu_isenabled;
+public class WebMenuObject
+        implements Serializable {
+    public Integer menu_id;
+    public String menu_name;
+    public Object menu_content;
+    public String menu_isenabled;
 }

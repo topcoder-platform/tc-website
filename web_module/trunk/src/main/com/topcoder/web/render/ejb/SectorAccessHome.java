@@ -1,10 +1,8 @@
-package	com.topcoder.web.render.ejb;
+package com.topcoder.web.render.ejb;
 
-import	javax.ejb.EJBHome;
-import	javax.ejb.CreateException;
-import	java.rmi.RemoteException;
-import	com.topcoder.web.render.ejb.SectorAccess;
+import javax.ejb.CreateException;
+import java.rmi.RemoteException;
 
 public interface SectorAccessHome extends javax.ejb.EJBHome {
-	public SectorAccess create() throws RemoteException, CreateException;
+    public SectorAccess create() throws RemoteException, CreateException;
 }

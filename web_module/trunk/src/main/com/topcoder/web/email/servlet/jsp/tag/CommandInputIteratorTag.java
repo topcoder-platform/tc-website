@@ -1,15 +1,12 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import com.topcoder.web.email.servlet.*;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.email.bean.*;
+import com.topcoder.web.email.bean.CommandInput;
+import com.topcoder.web.email.bean.StatisticsUtilities;
+
+import javax.servlet.ServletException;
+import javax.servlet.jsp.JspException;
+import java.util.*;
 
 /**
  * Custom tag to iterate through the list of parameter
@@ -23,15 +20,13 @@ import com.topcoder.web.email.bean.*;
 
 
 public class CommandInputIteratorTag
-    extends IteratorTag
-{
+        extends IteratorTag {
     private static Logger log = Logger.getLogger(CommandInputIteratorTag.class);
 
     int commandId;
     Map commandInputMap = null;
 
-    public void setCommandId(String commandId)
-    {
+    public void setCommandId(String commandId) {
         try {
             this.commandId = Integer.parseInt(commandId);
         } catch (NumberFormatException e) {
@@ -39,19 +34,17 @@ public class CommandInputIteratorTag
         }
     }
 
-    public void setCommandInputMap(Map commandInputMap)
-    {
+    public void setCommandInputMap(Map commandInputMap) {
         this.commandInputMap = commandInputMap;
     }
 
     public int doStartTag()
-        throws JspException
-    {
+            throws JspException {
         try {
             Set commandInputSet = StatisticsUtilities.getCommandInputs(commandId);
             // set values (if they exist)
             if (commandInputMap != null) {
-                for (Iterator i = commandInputSet.iterator(); i.hasNext(); ) {
+                for (Iterator i = commandInputSet.iterator(); i.hasNext();) {
                     CommandInput commandInput = (CommandInput) i.next();
                     String value = (String) commandInputMap.get(commandInput.getId());
                     commandInput.setValue(value);
@@ -66,8 +59,7 @@ public class CommandInputIteratorTag
         return super.doStartTag();
     }
 
-    public void release()
-    {
+    public void release() {
         commandInputMap = null;
         super.release();
     }

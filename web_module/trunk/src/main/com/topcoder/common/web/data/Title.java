@@ -1,39 +1,39 @@
 package com.topcoder.common.web.data;
 
 
-import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
-public final class Title 
-  implements 
-    Serializable
-    ,Cloneable
-    ,TagRenderer
-  {
+import java.io.Serializable;
 
-  private int TitleId;
-  private String TitleDesc;
-  private String Title;
+public final class Title
+        implements
+        Serializable
+        , Cloneable
+        , TagRenderer {
 
-  public Title() {
-    TitleId = 0;
-    TitleDesc = "";
-    Title= "";
-  }
+    private int TitleId;
+    private String TitleDesc;
+    private String Title;
+
+    public Title() {
+        TitleId = 0;
+        TitleDesc = "";
+        Title = "";
+    }
 
 /*
   public boolean equals ( Object obj ) {
     boolean result = false;
     Title other = (Title) obj;
     if (
-      this.getTitleId() == other.getTitleId() 
+      this.getTitleId() == other.getTitleId()
       && this.getTitleDesc().equals ( other.getTitleDesc() )
       && this.getTitle().equals ( other.getTitle() )
     ) {
       result = true;
     }
     return result;
-  } 
+  }
 */
 
 /*
@@ -55,72 +55,72 @@ public final class Title
     result.trimToSize();
     return result;
   }
-*/ 
+*/
 
 
-  public Object clone()
-    throws CloneNotSupportedException, OutOfMemoryError {
-    Title result = null;
-    try {
-      result = new Title();
-      result.setTitleId( getTitleId() );
-      result.setTitleDesc( getTitleDesc() );
-      result.setTitle( getTitle() );
-    } catch (Exception e) {
-      e.printStackTrace();
+    public Object clone()
+            throws CloneNotSupportedException, OutOfMemoryError {
+        Title result = null;
+        try {
+            result = new Title();
+            result.setTitleId(getTitleId());
+            result.setTitleDesc(getTitleDesc());
+            result.setTitle(getTitle());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
-    return result;
-  }
 
-     
-  // set methods
-  public void setTitleId(int TitleId) {
-    this.TitleId = TitleId;
-  }
-  
-  public void setTitleDesc(String TitleDesc) {
-    this.TitleDesc = TitleDesc;
-  }
-  
-  public void setTitle(String Title) {
-    this.Title = Title;
-  }
-  
-  // get methods
-  public int getTitleId() {
-    return TitleId;
-  }
-  
-  public String getTitleDesc() {
-    return TitleDesc;
-  }
-  
-  public String getTitle() {
-    return Title;
-  }
-  
-  public RecordTag getXML() throws Exception {
-    RecordTag result = null;
-    try {
-      result = getXML("Title");
-    }catch (Exception e)  {
-      throw new Exception("common.Title getXML ERROR: " + e);
-    }
-    return result;
-  }
 
-  public RecordTag getXML(String name) throws Exception {
-    RecordTag result = null; 
-    try {   
-      result = new RecordTag(name);
-      result.addTag( new ValueTag("TitleId", TitleId) );
-      result.addTag( new ValueTag("TitleDesc", TitleDesc) );
-      result.addTag( new ValueTag("Title", Title) );
-    }catch (Exception e)  {
-      throw new Exception("common.web.data.Title getXML ERROR: " + e); 
+    // set methods
+    public void setTitleId(int TitleId) {
+        this.TitleId = TitleId;
     }
-    return result; 
-  }
- 
+
+    public void setTitleDesc(String TitleDesc) {
+        this.TitleDesc = TitleDesc;
+    }
+
+    public void setTitle(String Title) {
+        this.Title = Title;
+    }
+
+    // get methods
+    public int getTitleId() {
+        return TitleId;
+    }
+
+    public String getTitleDesc() {
+        return TitleDesc;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public RecordTag getXML() throws Exception {
+        RecordTag result = null;
+        try {
+            result = getXML("Title");
+        } catch (Exception e) {
+            throw new Exception("common.Title getXML ERROR: " + e);
+        }
+        return result;
+    }
+
+    public RecordTag getXML(String name) throws Exception {
+        RecordTag result = null;
+        try {
+            result = new RecordTag(name);
+            result.addTag(new ValueTag("TitleId", TitleId));
+            result.addTag(new ValueTag("TitleDesc", TitleDesc));
+            result.addTag(new ValueTag("Title", Title));
+        } catch (Exception e) {
+            throw new Exception("common.web.data.Title getXML ERROR: " + e);
+        }
+        return result;
+    }
+
 }
 

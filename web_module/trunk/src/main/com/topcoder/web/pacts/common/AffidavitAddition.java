@@ -14,13 +14,13 @@ public class AffidavitAddition implements java.io.Serializable {
     public String affidavit_desc;
     public int affidavit_type_id;
     public String text;
-    
+
     /**
      * This constructor builds an AffidavitAddition from the specified data.
-     * A new affidavit database entry constructed using the data fields from this 
+     * A new affidavit database entry constructed using the data fields from this
      * class will be marked as not notarized and not affirmed.  The creation date
      * will be set to the current date/time.
-     * 
+     *
      * @param roundId The round ID of the affidavit (if applicable).
      * @param userId The user ID this affidavit will be associated with
      * @param statusId The status code for this affidavit
@@ -28,7 +28,7 @@ public class AffidavitAddition implements java.io.Serializable {
      * @param typeId The type code of the affidavit
      * @param text The affidavit text
      */
-    public AffidavitAddition(long roundId, long userId, int statusId, String description, 
+    public AffidavitAddition(long roundId, long userId, int statusId, String description,
                              int typeId, String text) {
         this.round_id = roundId;
         this.user_id = userId;
@@ -36,6 +36,6 @@ public class AffidavitAddition implements java.io.Serializable {
         this.affidavit_desc = description;
         this.affidavit_type_id = typeId;
         this.text = text;
-    }    
+    }
 }
 

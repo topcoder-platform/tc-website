@@ -1,12 +1,12 @@
 package com.topcoder.web.common;
 
-import java.sql.*;
+import java.sql.Timestamp;
 
 /**
  * This class stores a <tt>java.sql.Timestamp</tt>.  Instances of this class are
  * created by a <tt>ResultSetContainer</tt> object when it stores
  * results coming back from the database.
- * 
+ *
  * @author  Dave Pecora
  * @version 1.00, 02/11/2002
  * @see     TCResultItem
@@ -15,7 +15,7 @@ import java.sql.*;
 
 public class TCTimestampResult extends TCResultItem {
     private Timestamp value;
-    
+
     /**
      * Contructs a <tt>TCTimestampResult</tt> object from the specified
      * <tt>Timestamp</tt> input.
@@ -25,23 +25,23 @@ public class TCTimestampResult extends TCResultItem {
     public TCTimestampResult(Timestamp value) {
         this.value = value;
     }
-    
+
     /**
      * Compares this object with another object.  If the other object
      * is also a <tt>TCTimestampResult</tt> then their embedded
      * <tt>Timestamp</tt> objects will be compared directly, with a null
      * object considered less than any non-null object. <p>
      *
-     * If the other object is of different type, a case-insensitive comparison 
+     * If the other object is of different type, a case-insensitive comparison
      * of the objects' <tt>toString()</tt> results will be applied.
      *
      * @param   other The object against which this will be compared.
-     * @return  -1, 0, or 1 depending on whether this object is less than, 
+     * @return  -1, 0, or 1 depending on whether this object is less than,
      * equal to, or greater than <tt>other</tt>, respectively.
      */
     public int compareTo(Object other) {
         if (other instanceof TCTimestampResult) {
-            Timestamp otherTimestamp = ((Timestamp)((TCTimestampResult)other).getResultData());
+            Timestamp otherTimestamp = ((Timestamp) ((TCTimestampResult) other).getResultData());
             if (value == null && otherTimestamp == null)
                 return 0;
             if (value == null)
@@ -49,11 +49,10 @@ public class TCTimestampResult extends TCResultItem {
             if (otherTimestamp == null)
                 return 1;
             return value.compareTo(otherTimestamp);
-        }
-        else 
+        } else
             return this.toString().compareToIgnoreCase(other.toString());
     }
- 
+
     /**
      * Returns the type of the embedded object, as defined in <tt>TCResultItem</tt>
      *
@@ -62,7 +61,7 @@ public class TCTimestampResult extends TCResultItem {
     public int getType() {
         return TCResultItem.DATETIME;
     }
-   
+
     /**
      * Returns the string representation of the embedded <tt>Timestamp</tt> object.
      * The string will be in the format yyyy-mm-dd hh:mm:ss.fffffffff format,
@@ -78,7 +77,7 @@ public class TCTimestampResult extends TCResultItem {
         if (value == null)
             return "";
         return value.toString();
-    }    
+    }
 
     /**
      * Returns the embedded <tt>Timestamp</tt> object

@@ -1,10 +1,8 @@
-package	com.topcoder.web.render.ejb;
+package com.topcoder.web.render.ejb;
 
-import	javax.ejb.EJBHome;
-import	javax.ejb.CreateException;
-import	java.rmi.RemoteException;
-import	com.topcoder.web.render.ejb.WebSiteHdr;
+import javax.ejb.CreateException;
+import java.rmi.RemoteException;
 
 public interface WebSiteHdrHome extends javax.ejb.EJBHome {
-	public WebSiteHdr create() throws RemoteException, CreateException;
+    public WebSiteHdr create() throws RemoteException, CreateException;
 }

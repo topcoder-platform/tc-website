@@ -1,59 +1,83 @@
 package com.topcoder.web.email.bean;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+
+import java.io.Serializable;
+
 
 /**
+
  * Contains log entry for a job
+
  *
+
  * @author 	James Lee (jameslee@cs.stanford.edu)
+
  * @version	1.0
+
  */
 
+
 public class JobLogEntry
-	implements Serializable
-{
-	protected String detailStatus;
-	protected String detailReason;
-	protected int detailId;
 
-	public JobLogEntry()
-	{
-	}
+        implements Serializable {
 
-	public void setDetailStatus(String detailStatus)
-	{
-		this.detailStatus = detailStatus;
-	}
+    protected String detailStatus;
 
-	public String getDetailStatus()
-	{
-		return detailStatus;
-	}
+    protected String detailReason;
+
+    protected int detailId;
 
 
-	public void setDetailReason(String detailReason)
-	{
-		this.detailReason = detailReason;
-	}
+    public JobLogEntry() {
 
-	public String getDetailReason()
-	{
-		return detailReason;
-	}
+    }
 
-	public void setDetailId(String detailId)
-	{
-		try {
-			this.detailId = Integer.parseInt(detailId);
-		} catch (NumberFormatException e) {
-		}
-	}
 
-	public String getDetailId()
-	{
-		return String.valueOf(detailId);
-	}
+    public void setDetailStatus(String detailStatus) {
+
+        this.detailStatus = detailStatus;
+
+    }
+
+
+    public String getDetailStatus() {
+
+        return detailStatus;
+
+    }
+
+
+    public void setDetailReason(String detailReason) {
+
+        this.detailReason = detailReason;
+
+    }
+
+
+    public String getDetailReason() {
+
+        return detailReason;
+
+    }
+
+
+    public void setDetailId(String detailId) {
+
+        try {
+
+            this.detailId = Integer.parseInt(detailId);
+
+        } catch (NumberFormatException e) {
+
+        }
+
+    }
+
+
+    public String getDetailId() {
+
+        return String.valueOf(detailId);
+
+    }
+
 }

@@ -6,68 +6,67 @@ package com.topcoder.ejb.AuthenticationServices;
  * to secured sectors.  See the GroupUser class for the list of members of the Group.
  *
  * @version  $Revision$
- * @internal Log of Changes:
-*/
-public class Group 
-  extends SecureObject 
-  implements java.io.Serializable, PermissionAssignee {
+ *  Log of Changes:
+ */
+public class Group
+        extends SecureObject
+        implements java.io.Serializable, PermissionAssignee {
 
 
-  private java.util.ArrayList groups;
-  private String groupDesc;
-  private String modified;
+    private java.util.ArrayList groups;
+    private String groupDesc;
+    private String modified;
 
 
-  public Group () {
-    super();
-    groupDesc = "";
-  }
+    public Group() {
+        super();
+        groupDesc = "";
+    }
 
 
-  /**
-   * Set the groups belonged to.
-  */
-  public void setGroups ( java.util.ArrayList groups ) throws Exception {
-    this.groups = groups;
-  }
+    /**
+     * Set the groups belonged to.
+     */
+    public void setGroups(java.util.ArrayList groups) throws Exception {
+        this.groups = groups;
+    }
 
-  /**
-   * Set the group id.
-  */
-  public void setGroupId(int groupId) {
-    setSId(groupId);
-  }
+    /**
+     * Set the group id.
+     */
+    public void setGroupId(int groupId) {
+        setSId(groupId);
+    }
 
-  /**
-   * Set the group descriptive name.
-  */
-  public void setGroupDesc(String groupDesc) {
-  this.groupDesc = groupDesc;
-  }
-
-
-  /**
-   * Get the groups belonged to.
-  */
-  public java.util.ArrayList getGroups() {
-    return this.groups; 
-  }
-
-  /**
-   * Get the group id.
-  */
-  public int getGroupId() {
-    return super.getSId();
-  }
-
-  /**
-   * Get the group descriptive name.
-  */
-  public String getGroupDesc() {
-    return groupDesc;
-  }
+    /**
+     * Set the group descriptive name.
+     */
+    public void setGroupDesc(String groupDesc) {
+        this.groupDesc = groupDesc;
+    }
 
 
-  
+    /**
+     * Get the groups belonged to.
+     */
+    public java.util.ArrayList getGroups() {
+        return this.groups;
+    }
+
+    /**
+     * Get the group id.
+     */
+    public int getGroupId() {
+        return super.getSId();
+    }
+
+    /**
+     * Get the group descriptive name.
+     */
+    public String getGroupDesc() {
+        return groupDesc;
+    }
+
+
 }
 

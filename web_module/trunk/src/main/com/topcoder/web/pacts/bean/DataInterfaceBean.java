@@ -1,17 +1,19 @@
 package com.topcoder.web.pacts.bean;
 
-import java.sql.*;
-import javax.ejb.*;
-import javax.naming.*;
-import javax.jms.*;
-import java.util.*;
-import java.math.*;
-import java.text.*;
-import java.rmi.RemoteException;
-import com.topcoder.shared.util.*;
-import com.topcoder.web.common.*;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.ResultSetContainer;
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.ejb.PactsServices.*;
+
+import javax.jms.JMSException;
+import javax.naming.Context;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.rmi.RemoteException;
+import java.sql.SQLException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * This class receives incoming requests from the dispatch beans
@@ -21,9 +23,9 @@ import com.topcoder.web.pacts.ejb.PactsServices.*;
  * which each key is an object description in <tt>PactsConstants.java</tt>
  * and each value is a <tt>ResultSetContainer</tt> object with the
  * data promised by the object description.  With this scheme, the
- * content of data coming back is clearly identified.  Additionally, 
+ * content of data coming back is clearly identified.  Additionally,
  * function prototypes do not have to change if, for example, it is
- * subsequently desired to have a particular function return two 
+ * subsequently desired to have a particular function return two
  * <tt>ResultSetContainer</tt> objects instead of one. <p>
  *
  * Each search function in this class takes in a Map of search criteria,
@@ -32,13 +34,13 @@ import com.topcoder.web.pacts.ejb.PactsServices.*;
  * that search results will have for this criterion.  It is expected that
  * validation checks have already been performed on the search criteria values.
  * The search routines will throw exceptions if any criterion is invalid or not
- * applicable to the particular search.  For convenience, an input validator is 
+ * applicable to the particular search.  For convenience, an input validator is
  * provided here that checks integer, decimal, date, and boolean input. <p>
  *
  * For all update functions, it is assumed that the user has authority
  * to execute the update in question. <p>
  *
- * The database access routines in this class throw an <tt>SQLException</tt> 
+ * The database access routines in this class throw an <tt>SQLException</tt>
  * if there is some problem executing their associated database queries.
  *
  * @author  Dave Pecora
@@ -54,15 +56,15 @@ public class DataInterfaceBean implements PactsConstants {
     // Get handle to the EJB.  All miscellaneous exceptions that can be
     // thrown by the various calls herein (CreateException, NamingException,
     // RemoteException) get packaged into a RemoteException for convenience.
-    private PactsServices getEjbHandle() throws RemoteException {        
+    private PactsServices getEjbHandle() throws RemoteException {
         try {
             Context c = TCContext.getInitial();
-            PactsServicesHome psh = (PactsServicesHome) 
-                c.lookup("com.topcoder.web.pacts.ejb.PactsServices.PactsServicesHome");
+            PactsServicesHome psh = (PactsServicesHome)
+                    c.lookup("com.topcoder.web.pacts.ejb.PactsServices.PactsServicesHome");
             return psh.create();
         } catch (Exception e) {
             throw new RemoteException(e.getMessage());
-        }        
+        }
     }
 
     // Does the specified object type allow notes?
@@ -98,11 +100,11 @@ public class DataInterfaceBean implements PactsConstants {
                 objectType == NOTE_OBJ ||
                 objectType == USER_TAX_FORM_OBJ);
     }
-    
+
     /*****************************************************
      * Object retrieval functions
      *****************************************************/
-    
+
     /**
      * Returns the affidavit specified by the given affidavit ID.  <p>
      *
@@ -158,7 +160,7 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
-     * Returns the complete audit trail for the payment specified by the given payment ID.  
+     * Returns the complete audit trail for the payment specified by the given payment ID.
      * Data returned will include the payment header, all payment detail records (with print
      * addresses, if applicable), and the current coder address. <p>
      *
@@ -197,7 +199,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getUserProfileHeader(userId);
     }
-    
+
     /**
      * Returns the generic tax form specified by the given tax form ID.  <p>
      *
@@ -210,7 +212,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getTaxForm(taxFormId);
     }
-    
+
     /**
      * Returns the user-specific tax form specified by the given tax form ID.  <p>
      *
@@ -280,7 +282,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getUserTaxFormList(userId);
     }
-    
+
     /**
      * Returns the list of notes associated with the given object,
      * which can be an affidavit, contract, user tax form, payment, or
@@ -296,11 +298,11 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  IllegalArgumentException if the object type does not exist or does not have notes.
      * @throws  SQLException If there is some problem retrieving the data
      */
-    public Map getNoteList(long objectId, int objectType, long taxFormUserId) 
-    throws RemoteException, SQLException {
+    public Map getNoteList(long objectId, int objectType, long taxFormUserId)
+            throws RemoteException, SQLException {
         if (!objectTypeHasNotes(objectType))
-            throw new IllegalArgumentException("Object type " + objectType + 
-                                               " does not exist or does not have notes");
+            throw new IllegalArgumentException("Object type " + objectType +
+                    " does not exist or does not have notes");
         PactsServices ps = getEjbHandle();
         return ps.getNoteList(objectId, objectType, taxFormUserId);
     }
@@ -332,8 +334,8 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public Map getText(long objectId, int objectType) throws RemoteException, SQLException {
         if (!objectTypeHasText(objectType))
-            throw new IllegalArgumentException("Object type " + objectType + 
-                                              " does not exist or does not have text");
+            throw new IllegalArgumentException("Object type " + objectType +
+                    " does not exist or does not have text");
         PactsServices ps = getEjbHandle();
         return ps.getText(objectId, objectType);
     }
@@ -365,7 +367,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getContractTypes();
     }
-    
+
     /**
      * Returns the list of all note types.
      *
@@ -377,7 +379,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getNoteTypes();
     }
-    
+
     /**
      * Returns the list of all payment types.
      *
@@ -389,7 +391,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getPaymentTypes();
     }
-    
+
     /**
      * Returns the list of all payment modification rationales.
      *
@@ -401,7 +403,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getModificationRationales();
     }
-    
+
     /**
      * Returns the list of all status codes.
      *
@@ -414,7 +416,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getStatusCodes();
     }
-    
+
     /**
      * Returns the list of all status codes for a given object type.
      *
@@ -431,7 +433,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getStatusCodes(objectType);
     }
-    
+
     /**
      * Returns the list of all user types.
      *
@@ -443,7 +445,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getUserTypes();
     }
-    
+
     /**
      * Returns the list of all rounds.
      *
@@ -473,7 +475,7 @@ public class DataInterfaceBean implements PactsConstants {
      *****************************************************/
 
     /**
-     * Checks to see if the specified string input can be parsed to a 
+     * Checks to see if the specified string input can be parsed to a
      * valid example of the specified input type.
      *
      * @param   input  The input in question.
@@ -536,8 +538,8 @@ public class DataInterfaceBean implements PactsConstants {
      * by the search routine.
      * @throws  InvalidSearchInputException If any particular criterion fails validation.
      */
-    public Map findAffidavits(Map searchCriteria) 
-    throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
+    public Map findAffidavits(Map searchCriteria)
+            throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
         HashSet hs = new HashSet();
         Iterator i = searchCriteria.keySet().iterator();
         while (i.hasNext()) {
@@ -548,17 +550,17 @@ public class DataInterfaceBean implements PactsConstants {
             }
             hs.add(key);
             boolean inputOk;
-            if (key.equals(EARLIEST_CREATION_DATE) || 
-                key.equals(LATEST_CREATION_DATE))
+            if (key.equals(EARLIEST_CREATION_DATE) ||
+                    key.equals(LATEST_CREATION_DATE))
                 inputOk = validateInput(value, DATE);
             else if (key.equals(USER_ID) ||
-                     key.equals(STATUS_CODE) ||
-                     key.equals(AFFIDAVIT_ID) ||
-                     key.equals(ROUND_ID) ||
-                     key.equals(TYPE_CODE))
+                    key.equals(STATUS_CODE) ||
+                    key.equals(AFFIDAVIT_ID) ||
+                    key.equals(ROUND_ID) ||
+                    key.equals(TYPE_CODE))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(IS_AFFIRMED) ||
-                     key.equals(IS_NOTARIZED))
+                    key.equals(IS_NOTARIZED))
                 inputOk = validateInput(value, BOOLEAN);
             else if (key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
@@ -584,7 +586,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findContracts(Map searchCriteria)
-    throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
+            throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
         HashSet hs = new HashSet();
         Iterator i = searchCriteria.keySet().iterator();
         while (i.hasNext()) {
@@ -595,21 +597,21 @@ public class DataInterfaceBean implements PactsConstants {
             }
             hs.add(key);
             boolean inputOk;
-            if (key.equals(EARLIEST_CREATION_DATE) || 
-                key.equals(LATEST_CREATION_DATE) ||
-                key.equals(EARLIEST_START_DATE) ||
-                key.equals(LATEST_START_DATE) ||
-                key.equals(EARLIEST_END_DATE) ||
-                key.equals(LATEST_END_DATE))
+            if (key.equals(EARLIEST_CREATION_DATE) ||
+                    key.equals(LATEST_CREATION_DATE) ||
+                    key.equals(EARLIEST_START_DATE) ||
+                    key.equals(LATEST_START_DATE) ||
+                    key.equals(EARLIEST_END_DATE) ||
+                    key.equals(LATEST_END_DATE))
                 inputOk = validateInput(value, DATE);
             else if (key.equals(USER_ID) ||
-                     key.equals(STATUS_CODE) ||
-                     key.equals(CONTRACT_ID) ||
-                     key.equals(PAYMENT_ID) ||
-                     key.equals(TYPE_CODE))
+                    key.equals(STATUS_CODE) ||
+                    key.equals(CONTRACT_ID) ||
+                    key.equals(PAYMENT_ID) ||
+                    key.equals(TYPE_CODE))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(HANDLE) ||
-                     key.equals(CONTRACT_NAME))
+                    key.equals(CONTRACT_NAME))
                 inputOk = validateInput(value, STRING);
             else
                 throw new UnsupportedSearchException("Search by " + key + " not supported");
@@ -647,7 +649,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findNotes(Map searchCriteria)
-    throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
+            throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
         HashSet hs = new HashSet();
         Iterator i = searchCriteria.keySet().iterator();
         while (i.hasNext()) {
@@ -658,22 +660,22 @@ public class DataInterfaceBean implements PactsConstants {
             }
             hs.add(key);
             boolean inputOk;
-            if (key.equals(EARLIEST_CREATION_DATE) || 
-                key.equals(LATEST_CREATION_DATE))
+            if (key.equals(EARLIEST_CREATION_DATE) ||
+                    key.equals(LATEST_CREATION_DATE))
                 inputOk = validateInput(value, DATE);
-            else if (key.equals(CONTRACT_ID) || 
-                     key.equals(AFFIDAVIT_ID) ||
-                     key.equals(NOTE_ID) ||
-                     key.equals(USER_ID) ||
-                     key.equals(SUBMITTING_USER_ID) ||
-                     key.equals(PAYMENT_ID) ||
-                     key.equals(TYPE_CODE) ||
-                     key.equals(TAX_FORM_USER_ID) ||
-                     key.equals(TAX_FORM_ID))
+            else if (key.equals(CONTRACT_ID) ||
+                    key.equals(AFFIDAVIT_ID) ||
+                    key.equals(NOTE_ID) ||
+                    key.equals(USER_ID) ||
+                    key.equals(SUBMITTING_USER_ID) ||
+                    key.equals(PAYMENT_ID) ||
+                    key.equals(TYPE_CODE) ||
+                    key.equals(TAX_FORM_USER_ID) ||
+                    key.equals(TAX_FORM_ID))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(HANDLE) ||
-                     key.equals(SUBMITTING_HANDLE) ||
-                     key.equals(IN_DEPTH_HANDLE))
+                    key.equals(SUBMITTING_HANDLE) ||
+                    key.equals(IN_DEPTH_HANDLE))
                 inputOk = validateInput(value, STRING);
             else
                 throw new UnsupportedSearchException("Search by " + key + " not supported");
@@ -698,7 +700,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findPayments(Map searchCriteria)
-    throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
+            throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
         HashSet hs = new HashSet();
         Iterator i = searchCriteria.keySet().iterator();
         while (i.hasNext()) {
@@ -710,21 +712,21 @@ public class DataInterfaceBean implements PactsConstants {
             hs.add(key);
             boolean inputOk;
             if (key.equals(EARLIEST_PRINT_DATE) ||
-                key.equals(LATEST_PRINT_DATE) ||
-                key.equals(EARLIEST_PAY_DATE) ||
-                key.equals(LATEST_PAY_DATE) ||
-                key.equals(EARLIEST_DUE_DATE) ||
-                key.equals(LATEST_DUE_DATE))
+                    key.equals(LATEST_PRINT_DATE) ||
+                    key.equals(EARLIEST_PAY_DATE) ||
+                    key.equals(LATEST_PAY_DATE) ||
+                    key.equals(EARLIEST_DUE_DATE) ||
+                    key.equals(LATEST_DUE_DATE))
                 inputOk = validateInput(value, DATE);
-            else if (key.equals(CONTRACT_ID) || 
-                     key.equals(AFFIDAVIT_ID) ||
-                     key.equals(PAYMENT_ID) ||
-                     key.equals(USER_ID) ||
-                     key.equals(STATUS_CODE) ||
-                     key.equals(TYPE_CODE))
+            else if (key.equals(CONTRACT_ID) ||
+                    key.equals(AFFIDAVIT_ID) ||
+                    key.equals(PAYMENT_ID) ||
+                    key.equals(USER_ID) ||
+                    key.equals(STATUS_CODE) ||
+                    key.equals(TYPE_CODE))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(LOWEST_NET_AMOUNT) ||
-                     key.equals(HIGHEST_NET_AMOUNT))
+                    key.equals(HIGHEST_NET_AMOUNT))
                 inputOk = validateInput(value, DECIMAL);
             else if (key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
@@ -753,7 +755,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findTaxForms(Map searchCriteria)
-    throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
+            throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
         HashSet hs = new HashSet();
         Iterator i = searchCriteria.keySet().iterator();
         while (i.hasNext()) {
@@ -765,12 +767,12 @@ public class DataInterfaceBean implements PactsConstants {
             hs.add(key);
             boolean inputOk;
             if (key.equals(STATUS_CODE) ||
-                key.equals(TAX_FORM_ID))
+                    key.equals(TAX_FORM_ID))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(LOWEST_WITHHOLDING_AMOUNT) ||
-                     key.equals(HIGHEST_WITHHOLDING_AMOUNT) ||
-                     key.equals(LOWEST_WITHHOLDING_PERCENTAGE) ||
-                     key.equals(HIGHEST_WITHHOLDING_PERCENTAGE))
+                    key.equals(HIGHEST_WITHHOLDING_AMOUNT) ||
+                    key.equals(LOWEST_WITHHOLDING_PERCENTAGE) ||
+                    key.equals(HIGHEST_WITHHOLDING_PERCENTAGE))
                 inputOk = validateInput(value, DECIMAL);
             else
                 throw new UnsupportedSearchException("Search by " + key + " not supported");
@@ -781,7 +783,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.findTaxForms(searchCriteria);
     }
-    
+
     /**
      * Finds user-specific tax forms that match the specified search criteria.
      *
@@ -795,7 +797,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findUserTaxForms(Map searchCriteria)
-    throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
+            throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
         HashSet hs = new HashSet();
         Iterator i = searchCriteria.keySet().iterator();
         while (i.hasNext()) {
@@ -806,17 +808,17 @@ public class DataInterfaceBean implements PactsConstants {
             }
             hs.add(key);
             boolean inputOk;
-            if (key.equals(EARLIEST_DATE_FILED) || 
-                key.equals(LATEST_DATE_FILED))
+            if (key.equals(EARLIEST_DATE_FILED) ||
+                    key.equals(LATEST_DATE_FILED))
                 inputOk = validateInput(value, DATE);
-            else if (key.equals(USER_ID) || 
-                     key.equals(STATUS_CODE) ||
-                     key.equals(TAX_FORM_ID))
+            else if (key.equals(USER_ID) ||
+                    key.equals(STATUS_CODE) ||
+                    key.equals(TAX_FORM_ID))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(LOWEST_WITHHOLDING_AMOUNT) ||
-                     key.equals(HIGHEST_WITHHOLDING_AMOUNT) ||
-                     key.equals(LOWEST_WITHHOLDING_PERCENTAGE) ||
-                     key.equals(HIGHEST_WITHHOLDING_PERCENTAGE))
+                    key.equals(HIGHEST_WITHHOLDING_AMOUNT) ||
+                    key.equals(LOWEST_WITHHOLDING_PERCENTAGE) ||
+                    key.equals(HIGHEST_WITHHOLDING_PERCENTAGE))
                 inputOk = validateInput(value, DECIMAL);
             else if (key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
@@ -843,7 +845,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findUsers(Map searchCriteria)
-    throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
+            throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
         HashSet hs = new HashSet();
         Iterator i = searchCriteria.keySet().iterator();
         while (i.hasNext()) {
@@ -854,21 +856,21 @@ public class DataInterfaceBean implements PactsConstants {
             }
             hs.add(key);
             boolean inputOk;
-            if (key.equals(PAYMENT_ID) || 
-                key.equals(CONTRACT_ID) ||
-                key.equals(AFFIDAVIT_ID) ||
-                key.equals(TAX_FORM_ID) ||
-                key.equals(USER_ID))
+            if (key.equals(PAYMENT_ID) ||
+                    key.equals(CONTRACT_ID) ||
+                    key.equals(AFFIDAVIT_ID) ||
+                    key.equals(TAX_FORM_ID) ||
+                    key.equals(USER_ID))
                 inputOk = validateInput(value, INTEGER);
-            else if (key.equals(FIRST_NAME) || 
-                     key.equals(MIDDLE_NAME) || 
-                     key.equals(LAST_NAME) ||
-                     key.equals(HANDLE))
+            else if (key.equals(FIRST_NAME) ||
+                    key.equals(MIDDLE_NAME) ||
+                    key.equals(LAST_NAME) ||
+                    key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
             else if (key.equals(HAS_ACTIVE_CONTRACTS) ||
-                     key.equals(HAS_PENDING_AFFIDAVITS) ||
-                     key.equals(HAS_TAX_FORMS_ON_FILE) ||
-                     key.equals(IS_OWED_MONEY))
+                    key.equals(HAS_PENDING_AFFIDAVITS) ||
+                    key.equals(HAS_TAX_FORMS_ON_FILE) ||
+                    key.equals(IS_OWED_MONEY))
                 inputOk = validateInput(value, BOOLEAN);
             else
                 throw new UnsupportedSearchException("Search by " + key + " not supported");
@@ -877,13 +879,13 @@ public class DataInterfaceBean implements PactsConstants {
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
         }
         PactsServices ps = getEjbHandle();
-        return ps.findUsers(searchCriteria);        
+        return ps.findUsers(searchCriteria);
     }
 
     /*****************************************************
      * Data update functions - additions
      *****************************************************/
-    
+
     /**
      * Adds a new affidavit to the database without any corresponding payment.
      *
@@ -893,8 +895,8 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      * @return  The new affidavit's ID.
      */
-    public long addAffidavit(Affidavit a, String affidavitText) 
-    throws RemoteException, IllegalUpdateException, SQLException {
+    public long addAffidavit(Affidavit a, String affidavitText)
+            throws RemoteException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.addAffidavit(a, affidavitText);
     }
@@ -915,12 +917,12 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      * @return  The new affidavit's ID.
      */
-    public long addAffidavit(Affidavit a, String affidavitText, Payment p) 
-    throws RemoteException, IllegalUpdateException, SQLException {
+    public long addAffidavit(Affidavit a, String affidavitText, Payment p)
+            throws RemoteException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.addAffidavit(a, affidavitText, p);
     }
-    
+
     /**
      * Adds the specified contract to the database.
      *
@@ -932,7 +934,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public long addContract(Contract c, String contractText) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
-        return ps.addContract(c, contractText);    
+        return ps.addContract(c, contractText);
     }
 
     /**
@@ -963,7 +965,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public long addContractPayment(long contractId, Payment p) throws RemoteException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
-        return ps.addContractPayment(contractId, p);    
+        return ps.addContractPayment(contractId, p);
     }
 
     /**
@@ -980,7 +982,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.addTaxForm(t, taxFormText);
     }
-    
+
     /**
      * Adds a user tax form.
      *
@@ -992,7 +994,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         ps.addUserTaxForm(t);
     }
-    
+
     /**
      * Adds the specified note to the database, and also adds a cross-reference
      * attaching the note to the specified object.
@@ -1007,15 +1009,15 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  IllegalArgumentException If the specified object type does not exist or does
      * not allow notes.
-     * @throws  SQLException If the specified object does not exist or if there is some other 
+     * @throws  SQLException If the specified object does not exist or if there is some other
      * problem updating the data
      * @return  The new note's ID.
      */
-    public long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n) 
-    throws RemoteException, SQLException {
+    public long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
+            throws RemoteException, SQLException {
         if (!objectTypeHasNotes(objectType))
-            throw new IllegalArgumentException("Object type " + objectType + 
-                                              " does not exist or does not have notes");
+            throw new IllegalArgumentException("Object type " + objectType +
+                    " does not exist or does not have notes");
         PactsServices ps = getEjbHandle();
         return ps.addObjectNote(objectId, objectType, taxFormUserId, n);
     }
@@ -1034,11 +1036,11 @@ public class DataInterfaceBean implements PactsConstants {
      * not allow notes.
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void addObjectNoteLink(long objectId, int objectType, long taxFormUserId, long noteId) 
-    throws RemoteException, SQLException {
+    public void addObjectNoteLink(long objectId, int objectType, long taxFormUserId, long noteId)
+            throws RemoteException, SQLException {
         if (!objectTypeHasNotes(objectType))
-            throw new IllegalArgumentException("Object type " + objectType + 
-                                              " does not exist or does not have notes");
+            throw new IllegalArgumentException("Object type " + objectType +
+                    " does not exist or does not have notes");
         PactsServices ps = getEjbHandle();
         ps.addObjectNoteLink(objectId, objectType, taxFormUserId, noteId);
     }
@@ -1046,7 +1048,7 @@ public class DataInterfaceBean implements PactsConstants {
     /*****************************************************
      * Data update functions - updates
      *****************************************************/
-    
+
     /**
      * Affirms the specified affidavit.
      *
@@ -1059,8 +1061,8 @@ public class DataInterfaceBean implements PactsConstants {
      * been affirmed.
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate) 
-    throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+    public void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate)
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
         ps.affirmAffidavit(affidavitId, finalText, coderBirthDate);
     }
@@ -1093,8 +1095,8 @@ public class DataInterfaceBean implements PactsConstants {
 
     /**
      * Updates the given payment.  This process creates a new payment detail record, and also
-     * a new payment address record if the payment status is "Ready to Print".  It will throw an 
-     * IllegalUpdateException if the payment's status is "Printed" or "Paid" - these status 
+     * a new payment address record if the payment status is "Ready to Print".  It will throw an
+     * IllegalUpdateException if the payment's status is "Printed" or "Paid" - these status
      * updates are done automatically by the system.
      *
      * @param   p The updated payment information
@@ -1104,8 +1106,8 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  PaymentPaidException If the payment has already been paid.
      * @throws  SQLException If there is some problem updating the data
      */
-    public void updatePayment(Payment p) 
-    throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
+    public void updatePayment(Payment p)
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
         PactsServices ps = getEjbHandle();
         ps.updatePayment(p);
     }
@@ -1145,17 +1147,17 @@ public class DataInterfaceBean implements PactsConstants {
      * @param   objectId The object ID to update
      * @param   objectType The object type to update
      * @param   newText The updated text
-     * @throws  IllegalArgumentException If the specified object type does not exist or does not 
+     * @throws  IllegalArgumentException If the specified object type does not exist or does not
      * have updatable text.
      * @throws  NoObjectFoundException If the specified object does not exist.
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void updateText(long objectId, int objectType, String newText) 
-    throws NoObjectFoundException, RemoteException, SQLException {
+    public void updateText(long objectId, int objectType, String newText)
+            throws NoObjectFoundException, RemoteException, SQLException {
         if (!objectTypeHasUpdatableText(objectType))
-            throw new IllegalArgumentException("Object type " + objectType + 
-                                              " does not exist or does not have updatable text");
+            throw new IllegalArgumentException("Object type " + objectType +
+                    " does not exist or does not have updatable text");
         PactsServices ps = getEjbHandle();
         ps.updateText(objectId, objectType, newText);
     }
@@ -1170,8 +1172,8 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  SQLException If there is some other problem updating the data
      */
-    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId) 
-    throws RemoteException, SQLException {
+    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
+            throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.doBatchUpdatePaymentStatus(paymentId, statusId);
     }
@@ -1184,7 +1186,7 @@ public class DataInterfaceBean implements PactsConstants {
      * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
      *
      * This function actually just puts a message on the JMS queue.  The message handler,
-     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt> 
+     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
      * which performs the modifications.
      *
      * @param   paymentId[] The payments to update
@@ -1194,8 +1196,8 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  IllegalUpdateException If the user is attempting to update the status to Printed or Paid
      * @throws  JMSException If there is some problem putting the message on the queue
      */
-    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId) 
-    throws RemoteException, IllegalUpdateException, JMSException {
+    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
+            throws RemoteException, IllegalUpdateException, JMSException {
         PactsServices ps = getEjbHandle();
         ps.batchUpdatePaymentStatus(paymentId, statusId, userId);
     }
@@ -1212,19 +1214,19 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void reviewPayments(long paymentId[]) 
-    throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+    public void reviewPayments(long paymentId[])
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
         ps.reviewPayments(paymentId);
     }
-    
+
     /**
-     * Marks the given payments as paid.  Specifically, for each payment, this function 
+     * Marks the given payments as paid.  Specifically, for each payment, this function
      * searches through all its detail records, and marks the most recent record with a
      * status of "Printed" as having been paid - this is done by changing the status to
-     * "Paid" and filling in the date_paid field with the current date and time.  This method 
-     * will throw an IllegalUpdateException if it finds any of the given payments has already 
-     * been paid or lacks a detail record with the status of "Printed". 
+     * "Paid" and filling in the date_paid field with the current date and time.  This method
+     * will throw an IllegalUpdateException if it finds any of the given payments has already
+     * been paid or lacks a detail record with the status of "Printed".
      *
      * @param   paymentId[] The payments to update
      * @throws  NoObjectFoundException If any payment does not exist
@@ -1232,21 +1234,21 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  IllegalUpdateException If any payment could not be marked as paid
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void markPaymentsPaid(long paymentId[]) 
-    throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+    public void markPaymentsPaid(long paymentId[])
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
-        ps.markPaymentsPaid(paymentId);        
+        ps.markPaymentsPaid(paymentId);
     }
-        
+
     /*****************************************************
      * Utility functions
      *****************************************************/
-    
+
     /**
      * Returns true iff the specified user is allowed to affirm an affidavit of
-     * the specified type.  This will be the case if the user has at least one 
-     * notarized affidavit of that type on file, and has fully filled out the 
-     * member profile demographic information.  If the user does not exist in 
+     * the specified type.  This will be the case if the user has at least one
+     * notarized affidavit of that type on file, and has fully filled out the
+     * member profile demographic information.  If the user does not exist in
      * the database, the method returns false.
      *
      * @param   userId The user ID to check.
@@ -1261,9 +1263,9 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
-     * Prints the payments that have status of "Ready to Print" to an external location.  
+     * Prints the payments that have status of "Ready to Print" to an external location.
      * For each payment, updates the status to "Printed", updates the print count, sets
-     * the review field to zero, and sets the date printed to the current date and time.  
+     * the review field to zero, and sets the date printed to the current date and time.
      * The payment information, and the separate payee or "vendor" information, are returned
      * in a two-element string array, the payment information coming first.
      *
@@ -1293,16 +1295,16 @@ public class DataInterfaceBean implements PactsConstants {
      * has already been generated for this round.
      * @throws SQLException If there was some error updating the data.
      */
-    public int generateRoundPayments(long roundId, boolean makeChanges) 
-    throws RemoteException, IllegalUpdateException, SQLException {
+    public int generateRoundPayments(long roundId, boolean makeChanges)
+            throws RemoteException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.generateRoundPayments(roundId, makeChanges);
     }
 
     /**
      * Sets the status on all affidavits older than a specified time
-     * to Expired, and set the status on their associated payment (if any) 
-     * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt> 
+     * to Expired, and set the status on their associated payment (if any)
+     * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt>
      * and is currently set to 60 days.  Any payments that were already paid
      * that would here have been canceled are logged.
      *

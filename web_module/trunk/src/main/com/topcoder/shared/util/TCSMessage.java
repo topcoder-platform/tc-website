@@ -1,13 +1,17 @@
 package com.topcoder.shared.util;
 
 import com.topcoder.shared.util.logging.Logger;
+
 /**
  * The TCSMessage is the base class for messaging services
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/07/12 17:15:47  gpaul
+ *           merged baby
+ *
  *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
  *           switched to use com.topcoder.shared.util.logging.Logger
  *
@@ -24,5 +28,5 @@ import com.topcoder.shared.util.logging.Logger;
 public abstract class TCSMessage {
 
     private static Logger log = Logger.getLogger(TCSMessage.class);
-    
+
 }

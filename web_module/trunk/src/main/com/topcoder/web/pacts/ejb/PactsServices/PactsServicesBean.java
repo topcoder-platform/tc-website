@@ -1,18 +1,18 @@
 package com.topcoder.web.pacts.ejb.PactsServices;
 
-import java.util.*;
-import java.math.*;
-import java.rmi.*;
+import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.shared.messaging.QueueMessageSender;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.ResultSetContainer;
+import com.topcoder.web.pacts.common.*;
+
+import javax.jms.JMSException;
+import java.rmi.RemoteException;
 import java.sql.*;
 import java.text.*;
-import javax.naming.*;
-import javax.jms.JMSException;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.*;
-import com.topcoder.web.common.*;
-import com.topcoder.web.pacts.common.*;
-import com.topcoder.shared.messaging.*;
-import com.topcoder.shared.ejb.BaseEJB;
+import java.util.*;
 
 
 /**
@@ -56,7 +56,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private void printException(Exception e) {
         try {
             if (e instanceof SQLException) {
-                String sqlErrorDetails = DBMS.getSqlExceptionString((SQLException)e);
+                String sqlErrorDetails = DBMS.getSqlExceptionString((SQLException) e);
                 log.error("PACTS EJB: SQLException caught\n" + sqlErrorDetails, e);
             } else {
                 log.error("PACTS EJB: Exception caught", e);
@@ -83,7 +83,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
             return rsc;
         } catch (Exception e) {
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -103,7 +107,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ResultSetContainer rsc[] = new ResultSetContainer[query.length];
             if (setLockTimeout)
                 setLockTimeout(c);
-            for (int i=0; i<query.length; i++) {
+            for (int i = 0; i < query.length; i++) {
                 ps = c.prepareStatement(query[i]);
                 rs = ps.executeQuery();
                 rsc[i] = new ResultSetContainer(rs, false);
@@ -114,7 +118,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             return rsc;
         } catch (Exception e) {
-            for (int i=0; i<query.length; i++) {
+            for (int i = 0; i < query.length; i++) {
                 StringBuffer sb = new StringBuffer(1000);
                 sb.append("------------\n");
                 sb.append("Query " + i + ":\n");
@@ -123,8 +127,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 log.error(sb.toString());
             }
             printException(e);
-            try { if (rs != null) rs.close(); } catch (Exception e1) { printException(e1); }
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             rs = null;
             ps = null;
             throw new SQLException(e.getMessage());
@@ -140,7 +152,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
             return rowsModified;
         } catch (Exception e) {
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -164,7 +180,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             sb.append("------------\n");
             log.error(sb.toString());
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
             throw new SQLException(e.getMessage());
         }
@@ -179,12 +199,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (setLockTimeout)
                 setLockTimeout(c);
             ps = c.prepareStatement(query);
-            for (int i=0; i<objects.size(); i++) {
+            for (int i = 0; i < objects.size(); i++) {
                 Object o = objects.get(i);
                 if (o instanceof Timestamp)
-                    ps.setTimestamp(i+1, (Timestamp)o);
+                    ps.setTimestamp(i + 1, (Timestamp) o);
                 else if (o instanceof String)
-                    ps.setString(i+1, (String)o);
+                    ps.setString(i + 1, (String) o);
             }
             rs = ps.executeQuery();
             ResultSetContainer rsc = new ResultSetContainer(rs, false);
@@ -202,22 +222,34 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             sb.append("----- Query:\n");
             sb.append(query + "\n");
             sb.append("----- Objects:\n");
-            for (int i=0; i<objects.size(); i++)
+            for (int i = 0; i < objects.size(); i++)
                 sb.append(objects.get(i).toString());
             log.error(sb.toString());
 
-            try { if (rs != null) rs.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             rs = null;
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
     }
 
     private Timestamp makeTimestamp(String dateString, boolean allowNulls, boolean endOfDay)
-    throws Exception {
+            throws Exception {
         if (allowNulls) {
             if (dateString == null)
                 return null;
@@ -270,7 +302,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = c.prepareStatement("SET LOCK MODE TO WAIT " + LOCK_TIMEOUT_VALUE);
             ps.executeUpdate();
         } catch (SQLException e) {
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
         }
     }
@@ -311,7 +347,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = DBMS.getConnection();
             // Get affidavit header
             ResultSetContainer rsc = runSelectQuery(c, selectAffidavitHeader.toString(), true);
-            if (rsc.getRowCount()==0) {
+            if (rsc.getRowCount() == 0) {
                 c.close();
                 c = null;
                 throw new NoObjectFoundException("No affidavit found with ID " + affidavitId);
@@ -322,7 +358,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Get affidavit details
             rsc = runSelectQuery(c, selectAffidavitDetails.toString(), false);
-            if (rsc.getRowCount()==0) {
+            if (rsc.getRowCount() == 0) {
                 c.close();
                 throw new NoObjectFoundException("No affidavit details found with ID " + affidavitId);
             }
@@ -343,7 +379,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectPaymentHeader.append("AND p.user_id = u.user_id ");
 
             rsc = runSelectQuery(c, selectPaymentHeader.toString(), false);
-            if (rsc.getRowCount()==0) {
+            if (rsc.getRowCount() == 0) {
                 c.close();
                 throw new NoObjectFoundException("No payment header details found for payment ID " + paymentId);
             }
@@ -354,7 +390,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return hm;
         } catch (Exception e) {
             printException(e);
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -554,7 +594,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return hm;
         } catch (Exception e) {
             printException(e);
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -593,7 +637,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return hm;
         } catch (Exception e) {
             printException(e);
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -617,7 +665,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return m;
         } catch (Exception e) {
             printException(e);
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -734,10 +786,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectAffidavitHeaders.append("ORDER BY 1");
         */
 
-        // New version which sorts by a combination time field which is round start time 
+        // New version which sorts by a combination time field which is round start time
         // if the affidavit is associated with a contest, and the affidavit creation date
         // otherwise.  Also gets affidavit description.
-        selectAffidavitHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, "); 
+        selectAffidavitHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, ");
         selectAffidavitHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
         selectAffidavitHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, a.affidavit_desc, ");
         selectAffidavitHeaders.append("NVL(rs.start_time, a.date_created) AS origin_date ");
@@ -775,7 +827,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectContractHeaders.append("WHERE c.contracted_user_id = " + userId + " ");
         selectContractHeaders.append("AND u.user_id = " + userId + " ");
         selectContractHeaders.append("AND c.status_id = s.status_id ");
-    	selectContractHeaders.append("AND ct.contract_type_id = c.contract_type_id ");
+        selectContractHeaders.append("AND ct.contract_type_id = c.contract_type_id ");
         selectContractHeaders.append("ORDER BY 1");
 
         ResultSetContainer rsc = runSelectQuery(selectContractHeaders.toString(), true);
@@ -1123,7 +1175,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         hm.put(USER_DEMOGRAPHICS, rsc);
 
         sb.replace(0, sb.length(), "SELECT cs.school_id, cs.coder_id, cs.school_name from  ")
-        .append(" current_school cs where coder_id = " + userId );
+                .append(" current_school cs where coder_id = " + userId);
 
         rsc = null;
         rsc = runSelectQuery(sb.toString(), true);
@@ -1156,10 +1208,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("AND u.user_id = a.user_id");
         */
 
-        // New version which sorts by a combination time field which is round start time 
+        // New version which sorts by a combination time field which is round start time
         // if the affidavit is associated with a contest, and the affidavit creation date
         // otherwise.  Also gets affidavit description.
-        selectHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, "); 
+        selectHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, ");
         selectHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
         selectHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, a.affidavit_desc, ");
         selectHeaders.append("NVL(rs.start_time, a.date_created) AS origin_date ");
@@ -1182,8 +1234,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (key.equals(EARLIEST_CREATION_DATE)) {
                     selectHeaders.append(" AND a.date_created >= ?");
                     objects.add(makeTimestamp(value, false, false));
-                }
-                else if (key.equals(LATEST_CREATION_DATE)) {
+                } else if (key.equals(LATEST_CREATION_DATE)) {
                     selectHeaders.append(" AND a.date_created <= ?");
                     objects.add(makeTimestamp(value, false, true));
                 } else if (key.equals(USER_ID)) {
@@ -1200,9 +1251,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(TYPE_CODE)) {
                     selectHeaders.append(" AND a.affidavit_type_id = " + value);
                 } else if (key.equals(IS_AFFIRMED)) {
-                    selectHeaders.append(" AND a.affirmed = "  + (makeBoolean(value) ? 1 : 0));
+                    selectHeaders.append(" AND a.affirmed = " + (makeBoolean(value) ? 1 : 0));
                 } else if (key.equals(IS_NOTARIZED)) {
-                    selectHeaders.append(" AND a.notarized = "  + (makeBoolean(value) ? 1 : 0));
+                    selectHeaders.append(" AND a.notarized = " + (makeBoolean(value) ? 1 : 0));
                 }
             }
         } catch (Exception e) {
@@ -1239,7 +1290,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE c.status_id = s.status_id ");
         whereClauses.append(" AND c.contracted_user_id = u.user_id ");
-    	whereClauses.append(" AND ct.contract_type_id = c.contract_type_id ");
+        whereClauses.append(" AND ct.contract_type_id = c.contract_type_id ");
 
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();
@@ -1516,7 +1567,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } // end if
             } // end while
         } catch (Exception e) {
-            throw new SQLException (e.getMessage());
+            throw new SQLException(e.getMessage());
         }
 
         selectHeaders.append(from.toString());
@@ -1733,8 +1784,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         selectHeader.append(from.toString());
-        for (int j=0; j<whereClauses.size(); j++) {
-            if (j==0)
+        for (int j = 0; j < whereClauses.size(); j++) {
+            if (j == 0)
                 selectHeader.append(" WHERE ");
             else
                 selectHeader.append(" AND ");
@@ -1748,10 +1799,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             else
                 selectHeader.append(" WHERE (");
 
-            for (int j=0; j<ors; j++) {
-                if (j>0)
+            for (int j = 0; j < ors; j++) {
+                if (j > 0)
                     selectHeader.append(" OR ");
-                selectHeader.append((String)orClauses.get(j));
+                selectHeader.append((String) orClauses.get(j));
             }
             selectHeader.append(")");
         }
@@ -1778,7 +1829,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return  The new affidavit's ID.
      */
     public long addAffidavit(Affidavit a, String affidavitText)
-    throws IllegalUpdateException, SQLException {
+            throws IllegalUpdateException, SQLException {
         return addAffidavit(a, affidavitText, null);
     }
 
@@ -1798,7 +1849,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return  The new affidavit's ID.
      */
     public long addAffidavit(Affidavit a, String affidavitText, Payment p)
-    throws IllegalUpdateException, SQLException {
+            throws IllegalUpdateException, SQLException {
         Connection c = null;
         try {
             c = DBMS.getConnection();
@@ -1815,9 +1866,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return affidavitId;
         } catch (Exception e) {
             printException(e);
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
@@ -1865,7 +1928,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             return affidavitId;
         } catch (Exception e) {
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
             throw e;
         }
@@ -1915,9 +1982,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return contractId;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (con != null) con.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (con != null) con.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             con = null;
             throw new SQLException(e.getMessage());
         }
@@ -1925,7 +2000,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // Helper function that checks a payment for validity
     private void checkPayment(Connection c, Payment p, boolean newPayment)
-    throws IllegalUpdateException, PaymentPaidException, SQLException {
+            throws IllegalUpdateException, PaymentPaidException, SQLException {
         // Not allowed to manually set status to Printed or Paid.  This can only be done
         // by the system.
         if (p._statusId == PRINTED_STATUS || p._statusId == PAID_STATUS) {
@@ -1961,10 +2036,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         checkPaid.append("AND pd.status_id = " + PAID_STATUS + " ");
         checkPaid.append("AND p.payment_id = " + p._header._id);
         ResultSetContainer rsc = runSelectQuery(c, checkPaid.toString(), false);
-        int paidRecords = Integer.parseInt(rsc.getItem(0,0).toString());
+        int paidRecords = Integer.parseInt(rsc.getItem(0, 0).toString());
         if (paidRecords > 0) {
             throw new PaymentPaidException("Payment " + p._header._id + " has already been paid " +
-                                           "and cannot be updated");
+                    "and cannot be updated");
         }
     }
 
@@ -2024,7 +2099,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p._netAmount = p._grossAmount;
         if (dataFound) {
             if (usePercent == 1) {
-                p._netAmount *= (1-withholdPercent);
+                p._netAmount *= (1 - withholdPercent);
             } else {
                 p._netAmount -= withholdAmount;
             }
@@ -2125,8 +2200,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay._grossAmount = p._grossAmount * REFERRAL_PERCENTAGE;
                     referPay._netAmount = 0;
                     referPay._statusId = PAYMENT_OWED_STATUS;
-                    long referId = Long.parseLong(rsc.getItem(0,"reference_id").toString());
-                    String handle = rsc.getItem(0,"coder_handle").toString();
+                    long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
+                    String handle = rsc.getItem(0, "coder_handle").toString();
                     referPay._header._description = "Referral bonus for " + handle + " " + p._header._description;
                     referPay._header._typeID = CODER_REFERRAL_PAYMENT;
                     referPay._header._user._id = referId;
@@ -2187,7 +2262,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             return paymentId;
         } catch (Exception e) {
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
             throw e;
         }
@@ -2216,9 +2295,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return paymentId;
         } catch (Exception e) {
             printException(e);
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
@@ -2258,9 +2349,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return paymentId;
         } catch (Exception e) {
             printException(e);
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
@@ -2323,9 +2426,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return taxFormId;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -2376,9 +2487,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -2400,7 +2519,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return  The new note's ID.
      */
     public long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
-    throws SQLException {
+            throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         int rowsModified = 0;
@@ -2464,11 +2583,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return noteId;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -2486,7 +2621,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      */
     public void addObjectNoteLink(long objectId, int objectType, long taxFormUserId, long noteId)
-    throws SQLException {
+            throws SQLException {
         StringBuffer insertXref = new StringBuffer(300);
         if (objectType == AFFIDAVIT_OBJ) {
             insertXref.append("INSERT INTO affidavit_note_xref ");
@@ -2528,7 +2663,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some other problem updating the data
      */
     public void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate)
-    throws NoObjectFoundException, IllegalUpdateException, SQLException {
+            throws NoObjectFoundException, IllegalUpdateException, SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         int rowsModified = 0;
@@ -2570,9 +2705,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     okToUpdate = true;
                 } else {
                     long statusIdValue = paymentStatusId.longValue();
-                    if (statusIdValue != PAYMENT_ON_HOLD_STATUS && 
-                        statusIdValue != PAYMENT_CANCELED_STATUS) {
-                       okToUpdate = true;
+                    if (statusIdValue != PAYMENT_ON_HOLD_STATUS &&
+                            statusIdValue != PAYMENT_CANCELED_STATUS) {
+                        okToUpdate = true;
                     }
                 }
             }
@@ -2617,11 +2752,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof NoObjectFoundException)
                 throw (NoObjectFoundException) e;
@@ -2681,9 +2832,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -2736,9 +2895,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             con = null;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (con != null) con.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (con != null) con.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             con = null;
             throw new SQLException(e.getMessage());
         }
@@ -2759,7 +2926,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      */
     public void updatePayment(Payment p)
-    throws NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
+            throws NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         try {
@@ -2795,11 +2962,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof NoObjectFoundException)
                 throw (NoObjectFoundException) e;
@@ -2902,7 +3085,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw new NoObjectFoundException("Payment " + p._header._id + " not found in database");
             }
         } catch (Exception e) {
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
             throw e;
         }
@@ -2954,9 +3141,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -3017,9 +3212,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }
@@ -3042,7 +3245,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some other problem updating the data
      */
     public void updateText(long objectId, int objectType, String newText)
-    throws NoObjectFoundException, SQLException {
+            throws NoObjectFoundException, SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         int rowsModified = 0;
@@ -3072,9 +3275,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof NoObjectFoundException)
                 throw (NoObjectFoundException) e;
@@ -3086,8 +3297,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // Helper function to make a list of ID's into a String
     private String makeList(long idList[]) {
         StringBuffer listBuffer = new StringBuffer();
-        for (int i=0; i<idList.length; i++) {
-            if (i>0)
+        for (int i = 0; i < idList.length; i++) {
+            if (i > 0)
                 listBuffer.append(",");
             listBuffer.append(idList[i]);
         }
@@ -3098,7 +3309,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // a record of each payment update outcome.  Also commits after each payment update to release
     // locks.
     private UpdateResults batchUpdateStatus(Connection c, long paymentId[], int statusId)
-    throws SQLException {
+            throws SQLException {
         ResultSetContainer addressData, detailData;
         int i;
 
@@ -3113,10 +3324,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new SQLException("Status code " + statusId + " not found in database");
         }
 
-        String statusDesc = statusName.getItem(0,0).toString();
+        String statusDesc = statusName.getItem(0, 0).toString();
         UpdateResults ur = new UpdateResults(paymentId, statusId, statusDesc);
 
-        for (i=0; i<paymentId.length; i++) {
+        for (i = 0; i < paymentId.length; i++) {
             addressData = null;
 
             if (statusId == READY_TO_PRINT_STATUS) {
@@ -3173,7 +3384,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // Commit after each payment update to release locks for anybody else waiting on the
                 // payment tables
                 c.commit();
-            } catch(Exception e) {
+            } catch (Exception e) {
                 // Record error and keep going, unless there's a database problem
                 // dpecora 05/03 - a database problem is probably a lock timeout which
                 // is a transient problem.  Furthermore throwing an exception here will
@@ -3229,7 +3440,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectData.append("pd.modification_rationale_id, pd.payment_desc, pd.payment_type_id, pd.date_due ");
         selectData.append("FROM payment p, payment_detail pd ");
         selectData.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-        selectData.append("AND p.payment_id IN(" + paymentList +") ");
+        selectData.append("AND p.payment_id IN(" + paymentList + ") ");
         selectData.append("ORDER BY p.payment_id");
 
         detailData = runSelectQuery(c, selectData.toString(), false);
@@ -3238,7 +3449,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         Payment p = new Payment();
-        for (i=0; i<paymentId.length; i++) {
+        for (i = 0; i < paymentId.length; i++) {
             p._header._id = paymentId[i];
 
             p._netAmount = TCData.getTCDouble(detailData.getRow(i), "net_amount", 0, false);
@@ -3284,11 +3495,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
 
             return ur;
-        } catch(Exception e) {
+        } catch (Exception e) {
             printException(e);
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof SQLException)
                 throw (SQLException) e;
@@ -3314,7 +3537,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  JMSException If there is some problem putting the message on the queue
      */
     public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-    throws IllegalUpdateException, JMSException {
+            throws IllegalUpdateException, JMSException {
         try {
             log.debug("In batchUpdatePaymentStatus()");
 
@@ -3336,7 +3559,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (!pactsMsgSender.sendMessage(properties, paymentId)) {
                 throw new JMSException("Could not post batch update request to PACTS message queue.");
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             printException(e);
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
@@ -3356,7 +3579,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some other problem updating the data
      */
     public void reviewPayments(long paymentId[])
-    throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         Connection c = null;
 
         try {
@@ -3367,13 +3590,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String idList = makeList(paymentId);
 
             ResultSetContainer rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ")", false);
-            int paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
+            int paymentCount = Integer.parseInt(rsc.getItem(0, 0).toString());
             if (paymentCount != paymentId.length) {
                 throw new NoObjectFoundException("Some of the payments to update could not be found");
             }
 
             rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ") AND print_count > 0", false);
-            paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
+            paymentCount = Integer.parseInt(rsc.getItem(0, 0).toString());
             if (paymentCount != paymentId.length) {
                 throw new IllegalUpdateException("Some of the payments to mark as reviewed have not been printed");
             }
@@ -3383,7 +3606,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = null;
         } catch (Exception e) {
             printException(e);
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof NoObjectFoundException)
                 throw (NoObjectFoundException) e;
@@ -3419,7 +3646,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String idList = makeList(paymentId);
 
             ResultSetContainer rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ")", false);
-            int paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
+            int paymentCount = Integer.parseInt(rsc.getItem(0, 0).toString());
             if (paymentCount != paymentId.length) {
                 throw new NoObjectFoundException("Some of the payments to update could not be found");
             }
@@ -3432,7 +3659,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             checkPaid.append("AND pd.status_id = " + PAID_STATUS + " ");
             checkPaid.append("AND p.payment_id IN (" + idList + ")");
             rsc = runSelectQuery(c, checkPaid.toString(), false);
-            paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
+            paymentCount = Integer.parseInt(rsc.getItem(0, 0).toString());
             if (paymentCount > 0) {
                 throw new IllegalUpdateException("Some of the payments to mark as paid have already been paid");
             }
@@ -3454,10 +3681,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             StringBuffer idListBuffer = new StringBuffer(300);
-            for (int i=0; i<detailRowCount; i++) {
-                if (i>0)
+            for (int i = 0; i < detailRowCount; i++) {
+                if (i > 0)
                     idListBuffer.append(",");
-                idListBuffer.append(Long.parseLong(rsc.getItem(i,1).toString()));
+                idListBuffer.append(Long.parseLong(rsc.getItem(i, 1).toString()));
             }
 
             // Run the update
@@ -3472,11 +3699,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             c.close();
             c = null;
-        } catch(Exception e) {
+        } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
@@ -3527,7 +3762,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
 
             ResultSetContainer rsc = runSelectQuery(c, checkNotarized.toString(), false);
-            int notarizedCount = Integer.parseInt(rsc.getItem(0,0).toString());
+            int notarizedCount = Integer.parseInt(rsc.getItem(0, 0).toString());
 
             if (notarizedCount == 0) {
                 c.close();
@@ -3536,16 +3771,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             rsc = runSelectQuery(c, checkDemographics.toString(), false);
-            int questionsLeftBlank = Integer.parseInt(rsc.getItem(0,0).toString());
+            int questionsLeftBlank = Integer.parseInt(rsc.getItem(0, 0).toString());
 
             if (questionsLeftBlank > 0) {
                 c.close();
                 c = null;
                 return false;
             }
-        
+
             rsc = runSelectQuery(c, checkTaxForm.toString(), false);
-            int taxFormCount = Integer.parseInt(rsc.getItem(0,0).toString());
+            int taxFormCount = Integer.parseInt(rsc.getItem(0, 0).toString());
 
             c.close();
             c = null;
@@ -3553,7 +3788,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return (taxFormCount > 0);
         } catch (SQLException e) {
             printException(e);
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw e;
         }
@@ -3607,9 +3846,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // coders).
                 TreeSet holders = new TreeSet();
 
-                for (int i=0; i<rc; i++) {
-                    Long paymentId = (Long) rsc.getItem(i,0).getResultData();
-                    Long referId = (Long) rsc.getItem(i,1).getResultData();
+                for (int i = 0; i < rc; i++) {
+                    Long paymentId = (Long) rsc.getItem(i, 0).getResultData();
+                    Long referId = (Long) rsc.getItem(i, 1).getResultData();
                     holders.add(paymentId);
 
                     if (referId != null) {
@@ -3619,21 +3858,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                 long holdArray[] = new long[holders.size()];
                 Iterator it = holders.iterator();
-                int j=0;
+                int j = 0;
                 while (it.hasNext()) {
-                    holdArray[j++] = ((Long)it.next()).longValue();
+                    holdArray[j++] = ((Long) it.next()).longValue();
                 }
 
                 // There's a small chance that a referral payment in this set has
                 // already been paid.  So we can't update all at once.
                 long pid[] = new long[1];
-                for (int i=0; i<holdArray.length; i++) {
+                for (int i = 0; i < holdArray.length; i++) {
                     try {
                         pid[0] = holdArray[i];
                         updatePaymentStatus(c, pid, PAYMENT_ON_HOLD_STATUS);
                     } catch (PaymentPaidException e) {
                         log.warn("Payment " + pid[0] + " is a referral payment for an inactive coder.\n" +
-                                 "It should go on hold but has already been paid.");
+                                "It should go on hold but has already been paid.");
                     }
                 }
             }
@@ -3672,18 +3911,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Check the print_count and review fields to ensure that we're not printing
             // a payment without review
             int i, rowCount = rsc.getRowCount();
-            for (i=0; i<rowCount; i++) {
+            for (i = 0; i < rowCount; i++) {
                 int printCount = TCData.getTCInt(rsc.getRow(i), "print_count", 0, false);
                 int review = TCData.getTCInt(rsc.getRow(i), "review", 0, false);
                 if (printCount > 0 && review == 0) {
                     long pid = TCData.getTCLong(rsc.getRow(i), "payment_id", 0, false);
 
-                  //Matt 4/13/02 - Removed Carraige Return From The Exception Message
-                  //Front End Uses \n as a Token When Displaying Error
+                    //Matt 4/13/02 - Removed Carraige Return From The Exception Message
+                    //Front End Uses \n as a Token When Displaying Error
 
-                  //throw new PaymentNotReviewedException("Payment " + pid + " has been previously printed.\n" +
+                    //throw new PaymentNotReviewedException("Payment " + pid + " has been previously printed.\n" +
                     throw new PaymentNotReviewedException("Payment " + pid + " has been previously printed.  " +
-                                                          "It may not be printed again without being reviewed.");
+                            "It may not be printed again without being reviewed.");
                 }
             }
 
@@ -3700,9 +3939,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Get current date string
             GregorianCalendar g = new GregorianCalendar();
             String currentDate = g.get(Calendar.MONTH) + "/" + g.get(Calendar.DAY_OF_MONTH) + "/" +
-                                 g.get(Calendar.YEAR);
+                    g.get(Calendar.YEAR);
 
-            for (i=0; i<rowCount; i++) {
+            for (i = 0; i < rowCount; i++) {
                 // Build fields requiring manipulations
                 // Coder name and middle initial
                 StringBuffer name = new StringBuffer(100);
@@ -3711,12 +3950,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String middleInitial = "";
                 String lastName = rsc.getItem(i, "last_name").toString();
                 name.append(firstName);
-                if (middleName.length()>0) {
+                if (middleName.length() > 0) {
                     name.append(" " + middleName.charAt(0));
                     middleInitial = "" + middleName.charAt(0);
                 }
 
-                if (lastName.length()>0)
+                if (lastName.length() > 0)
                     name.append(" " + lastName);
                 String coderName = name.toString();
 
@@ -3726,9 +3965,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String zip = rsc.getItem(i, "zip").toString();
                 StringBuffer address = new StringBuffer();
                 address.append(city);
-                if (state_code.length()>0)
+                if (state_code.length() > 0)
                     address.append(", " + state_code);
-                if (zip.length()>0)
+                if (zip.length() > 0)
                     address.append("  " + zip);
                 String cityLine = address.toString();
 
@@ -3738,7 +3977,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 DecimalFormat df = new DecimalFormat("0.00");
                 String grossPay = df.format(gross);
                 String netPayDeduct = df.format(-net);
-                String withholdDeduct = df.format(net-gross);
+                String withholdDeduct = df.format(net - gross);
 
                 // Vendor type
                 String vendorType = "";
@@ -3757,7 +3996,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String email = rsc.getItem(i, "email").toString();
                 String userId = rsc.getItem(i, "user_id").toString();
                 String dueDate = rsc.getItem(i, "date_due").toString().equals("00/00/0000") ?  currentDate : rsc.getItem(i, "date_due").toString();
-                      vendors.append("!VEND,NAME,PRINTAS,ADDR1,ADDR2,ADDR3,ADDR4,ADDR5,VTYPE,CONT1,EMAIL,SALUTATION,FIRSTNAME,MIDINIT,LASTNAME\n");
+                vendors.append("!VEND,NAME,PRINTAS,ADDR1,ADDR2,ADDR3,ADDR4,ADDR5,VTYPE,CONT1,EMAIL,SALUTATION,FIRSTNAME,MIDINIT,LASTNAME\n");
                 // Add the vendor line if necessary
                 if (!codersPrinted.contains(userId)) {
                     codersPrinted.add(userId);
@@ -3815,7 +4054,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Log the stuff in case there are problems
             log.info("Payments printed.  Payment file:\n" + payments + "-----\nVendor file:\n" + vendors
-                     + "-----\n");
+                    + "-----\n");
 
             // Update print_count and review in payment headers
             StringBuffer updateHeaders = new StringBuffer(300);
@@ -3850,11 +4089,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return rv;
         } catch (Exception e) {
             printException(e);
-            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             ps = null;
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof PaymentNotReviewedException)
                 throw (PaymentNotReviewedException) e;
@@ -3876,7 +4131,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int generateRoundPayments(long roundId, boolean makeChanges)
-    throws IllegalUpdateException, SQLException {
+            throws IllegalUpdateException, SQLException {
         int i;
         Connection c = null;
 
@@ -3891,20 +4146,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Get list of users with taxforms
             StringBuffer getUsers = new StringBuffer(300);
             getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
-            .append(" , room_result rr where u.user_id = utfx.user_id and u.user_id = rr.coder_id ")
-            .append(" and utfx.user_id = rr.coder_id and rr.round_id = " + roundId);
+                    .append(" , room_result rr where u.user_id = utfx.user_id and u.user_id = rr.coder_id ")
+                    .append(" and utfx.user_id = rr.coder_id and rr.round_id = " + roundId);
             ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
             HashSet userTaxFormSet = new HashSet();
-            for (i=0; i<rscUser.getRowCount();i++)
-            {
-                userTaxFormSet.add(new Long(rscUser.getItem(i,0).toString()));
+            for (i = 0; i < rscUser.getRowCount(); i++) {
+                userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
             }
 
             // Make sure we haven't done this before for this round.
             StringBuffer checkNew = new StringBuffer(300);
             checkNew.append("SELECT COUNT(*) FROM affidavit WHERE round_id = " + roundId);
             ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
-            int existingAffidavits = Integer.parseInt(rsc.getItem(0,0).toString());
+            int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
             if (existingAffidavits > 0) {
                 throw new IllegalUpdateException("Data already generated for round " + roundId + "!");
             }
@@ -3921,7 +4175,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (rsc.getRowCount() != 1) {
                 throw new IllegalUpdateException("Round " + roundId + " does not exist or is not unique");
             }
-            String roundName = rsc.getItem(0,0).toString() + " " + rsc.getItem(0,1).toString();
+            String roundName = rsc.getItem(0, 0).toString() + " " + rsc.getItem(0, 1).toString();
             String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
 
             StringBuffer getWinners = new StringBuffer(300);
@@ -3932,7 +4186,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("AND rr.coder_id = c.coder_id ");
             getWinners.append("AND rr.coder_id = rp.coder_id ");
             getWinners.append("AND rr.round_id = rp.round_id ");
-            getWinners.append("AND rp.payment_type_id = " + CONTEST_PAYMENT );
+            getWinners.append("AND rp.payment_type_id = " + CONTEST_PAYMENT);
             getWinners.append("ORDER BY rr.room_id, rr.room_placed");
             ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
             int numWinners = winners.getRowCount();
@@ -3945,13 +4199,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int numTexts = texts.getRowCount();
 
             HashMap textMap = new HashMap();
-            for (i=0; i<numTexts; i++) {
-                String key = texts.getItem(i,0).toString();
-                String value = texts.getItem(i,1).toString();
+            for (i = 0; i < numTexts; i++) {
+                String key = texts.getItem(i, 0).toString();
+                String value = texts.getItem(i, 1).toString();
                 textMap.put(key, value);
             }
 
-            for (i=0; i<numWinners; i++) {
+            for (i = 0; i < numWinners; i++) {
                 long userId = Long.parseLong(winners.getItem(i, "coder_id").toString());
 
                 Affidavit a = new Affidavit();
@@ -3987,7 +4241,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     pairAdd.append("Affidavit type ID: " + a._header._typeID + "\n");
                     pairAdd.append("Affidavit text (start): ");
                     if (text != null) {
-                        pairAdd.append(text.substring(0,50));
+                        pairAdd.append(text.substring(0, 50));
                     }
                     pairAdd.append("\nPayment gross amount: " + p._grossAmount + "\n");
                     pairAdd.append("Payment status ID: " + p._statusId + "\n");
@@ -3996,7 +4250,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     pairAdd.append("Payment due date: " + p._dueDate + "\n");
                     pairAdd.append("Payment user ID: " + p._header._user._id + "\n");
                     ResultSetContainer referRsc = getReferrer(c, p._header._user._id);
-                    pairAdd.append("Added referral payment: " + (referRsc.getRowCount()==1 ? "yes" : "no") + "\n");
+                    pairAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
                     pairAdd.append("----------------------------------");
                     log.info(pairAdd.toString());
                 }
@@ -4011,13 +4265,25 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             return numWinners;
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             printException(e);
             if (makeChanges) {
-                try { c.rollback(); } catch(Exception e1) { printException(e1); }
-                try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
+                try {
+                    c.rollback();
+                } catch (Exception e1) {
+                    printException(e1);
+                }
+                try {
+                    c.setAutoCommit(true);
+                } catch (Exception e1) {
+                    printException(e1);
+                }
             }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
@@ -4060,14 +4326,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             int i, rowCount = payments.getRowCount();
             long j[] = new long[1];
-            for (i=0; i<rowCount; i++) {
+            for (i = 0; i < rowCount; i++) {
                 try {
-                    j[0] = Integer.parseInt(payments.getItem(i,0).toString());
+                    j[0] = Integer.parseInt(payments.getItem(i, 0).toString());
                     log.debug("updating payment id " + j[0]);
                     updatePaymentStatus(c, j, PAYMENT_CANCELED_STATUS);
-                } catch(PaymentPaidException e) {
+                } catch (PaymentPaidException e) {
                     log.warn("Payment ID " + j[0] + " would have been canceled due to expired affidavit\n" +
-                             "but has already been paid");
+                            "but has already been paid");
                 }
             }
 
@@ -4078,9 +4344,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return rowsUpdated;
         } catch (Exception e) {
             printException(e);
-            try { c.rollback(); } catch(Exception e1) { printException(e1); }
-            try { c.setAutoCommit(true); } catch(Exception e1) { printException(e1); }
-            try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
             c = null;
             throw new SQLException(e.getMessage());
         }

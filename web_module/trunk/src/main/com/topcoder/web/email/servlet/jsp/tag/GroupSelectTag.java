@@ -1,60 +1,91 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
+
+import javax.servlet.jsp.JspException;
 import java.util.*;
-import javax.naming.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
+
 
 /**
+
  * Creates comboboxes from a Map of id's to group names.
+
  *
+
  * @author	James Lee (jameslee@cs.stanford.edu)
+
  * @version	1.0
+
  *
+
  */
 
+
 public class GroupSelectTag
-	extends Select 
-{
-	Map groupMap;
 
-	String getOptionValue(Object o)
-	{
-		return o.toString();
-	}
+        extends Select {
 
-	String getOptionText(Object o)
-	{
-		return (String) groupMap.get(o);
-	}
+    Map groupMap;
 
-	void sortIDs(List idList)
-	{
-		Collections.sort(idList, new Comparator() {
-			public int compare(Object o1, Object o2)
-			{
-				Comparable c1 = (Comparable) groupMap.get(o1);
-				Comparable c2 = (Comparable) groupMap.get(o2);
-				
-				return c1.compareTo(c2);	
-			}
-		});
-	}
 
-	public void setGroupMap(Map groupMap)
-	{
-		this.groupMap = groupMap;
-	}
+    String getOptionValue(Object o) {
 
-	ArrayList getSelectOptions()
-		throws JspException
-	{
-		ArrayList idList = new ArrayList();
-		for (Iterator i = groupMap.keySet().iterator(); i.hasNext(); ) {
-			idList.add(i.next());	
-		}
-		sortIDs(idList);
+        return o.toString();
 
-		return idList;
-	}
+    }
+
+
+    String getOptionText(Object o) {
+
+        return (String) groupMap.get(o);
+
+    }
+
+
+    void sortIDs(List idList) {
+
+        Collections.sort(idList, new Comparator() {
+
+            public int compare(Object o1, Object o2) {
+
+                Comparable c1 = (Comparable) groupMap.get(o1);
+
+                Comparable c2 = (Comparable) groupMap.get(o2);
+
+
+                return c1.compareTo(c2);
+
+            }
+
+        });
+
+    }
+
+
+    public void setGroupMap(Map groupMap) {
+
+        this.groupMap = groupMap;
+
+    }
+
+
+    ArrayList getSelectOptions()
+
+            throws JspException {
+
+        ArrayList idList = new ArrayList();
+
+        for (Iterator i = groupMap.keySet().iterator(); i.hasNext();) {
+
+            idList.add(i.next());
+
+        }
+
+        sortIDs(idList);
+
+
+        return idList;
+
+    }
+
 }
+

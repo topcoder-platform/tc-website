@@ -16,11 +16,11 @@ public class ContractAddition implements java.io.Serializable {
     String contract_desc;
     int status_id;
     long contract_type_id;
-    
+
     /**
      * This constructor builds an ContractAddition from the specified data.
      * The contract creation date will be set to the current date/time.
-     * 
+     *
      * @param name The contract name
      * @param contractedUserId The user ID the contract is with
      * @param text The contract text
@@ -40,6 +40,6 @@ public class ContractAddition implements java.io.Serializable {
         this.contract_desc = description;
         this.status_id = statusId;
         this.contract_type_id = typeId;
-    }    
+    }
 }
 

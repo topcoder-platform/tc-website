@@ -1,32 +1,33 @@
 package com.topcoder.common.web.data;
 
 
-import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
+import java.io.Serializable;
 
-public class Menu 
-  implements 
-    Serializable
-    ,TagRenderer
-    //,Comparable
-    //,Cloneable
-    //,Modifiable 
+
+public class Menu
+        implements
+        Serializable
+        , TagRenderer
+        //,Comparable
+        //,Cloneable
+        //,Modifiable
 {
 
-  private int menuId;
-  private Link link;
-  private String menuDesc;
-  private String status;
-  private String modified;
+    private int menuId;
+    private Link link;
+    private String menuDesc;
+    private String status;
+    private String modified;
 
-  public Menu() {
-    menuDesc = "";
-    modified = "";
-    status = "";
-    menuId = 0;
-    link = new Link();
-  }
+    public Menu() {
+        menuDesc = "";
+        modified = "";
+        status = "";
+        menuId = 0;
+        link = new Link();
+    }
 
 /*
   public boolean equals ( Object other ) {
@@ -63,7 +64,7 @@ public class Menu
       result.setCountry( (Country)getCountry().clone() );
       result.setModified( getModified() );
     } catch (Exception e) {
-      e.printStackTrace();  
+      e.printStackTrace();
     }
     return result;
   }
@@ -71,7 +72,7 @@ public class Menu
 
 /*
   public int compareTo(Object other) {
-    Menu otherMenu = (Menu) other; 
+    Menu otherMenu = (Menu) other;
     StringBuffer temp = new StringBuffer(132);
     char[] beginMenuDesc = new char[4];
     temp.append(this.getSortLetter());
@@ -98,9 +99,7 @@ public class Menu
 */
 
 /*
-  //////////////////////////////////////////////////////////////////////////
   public void setAllModifiedStable() throws Exception {
-  //////////////////////////////////////////////////////////////////////////
     setModified("S");
   }
 */
@@ -108,62 +107,62 @@ public class Menu
 
 // set
 
-  public void setMenuDesc(String menuDesc) {
-    this.menuDesc = menuDesc;
-  }
+    public void setMenuDesc(String menuDesc) {
+        this.menuDesc = menuDesc;
+    }
 
-  public void setModified(String modified) {
-    this.modified = modified;
-  }
+    public void setModified(String modified) {
+        this.modified = modified;
+    }
 
-  public void setStatus ( String status ) {
-    this.status = status;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-  public void setMenuId(int menuId) {
-    this.menuId = menuId;
-  }
+    public void setMenuId(int menuId) {
+        this.menuId = menuId;
+    }
 
-  public void setLink ( Link link ) {
-    this.link  = link ;
-  }
+    public void setLink(Link link) {
+        this.link = link;
+    }
 
 // get
 
-  public String getMenuDesc() {
-    return menuDesc;
-  }
-
-  public String getStatus() {
-    return status;
-  }
-
-  public String getModified() {
-    return modified;
-  }
-
-  public int getMenuId() {
-    return menuId;
-  }
-
-  public Link getLink () {
-    return link;
-  }
-
-
-  public RecordTag getXML() throws Exception {
-    RecordTag result = null;
-    try {
-      result = new RecordTag("Menu");
-      result.addTag( new ValueTag("MenuId", menuId) );
-      result.addTag( link.getXML() );
-      result.addTag( new ValueTag("MenuDesc", menuDesc) );
-      result.addTag( new ValueTag("Status", status) );
-      result.addTag( new ValueTag("Modified", modified) );
-    } catch ( Exception e ) {
-      throw new Exception ( "common.web.data.Menu getXML ERROR: " + e );
+    public String getMenuDesc() {
+        return menuDesc;
     }
-    return result;
-  }
-  
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getModified() {
+        return modified;
+    }
+
+    public int getMenuId() {
+        return menuId;
+    }
+
+    public Link getLink() {
+        return link;
+    }
+
+
+    public RecordTag getXML() throws Exception {
+        RecordTag result = null;
+        try {
+            result = new RecordTag("Menu");
+            result.addTag(new ValueTag("MenuId", menuId));
+            result.addTag(link.getXML());
+            result.addTag(new ValueTag("MenuDesc", menuDesc));
+            result.addTag(new ValueTag("Status", status));
+            result.addTag(new ValueTag("Modified", modified));
+        } catch (Exception e) {
+            throw new Exception("common.web.data.Menu getXML ERROR: " + e);
+        }
+        return result;
+    }
+
 }

@@ -12,42 +12,43 @@
 package com.topcoder.web.render.bean;
 
 import com.topcoder.web.render.ejb.*;
+
+import javax.ejb.CreateException;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
-import javax.ejb.CreateException;
 import java.sql.SQLException;
 
 class WebPageResource extends SectorFileResource {
     protected WebPageObject webPage;
     protected WebPage wp;
 
-    public WebPageResource () {
+    public WebPageResource() {
         super();
         initialize();
     }
 
-    WebPageResource (Context context) throws NamingException, RemoteException, CreateException {
+    WebPageResource(Context context) throws NamingException, RemoteException, CreateException {
         super(context);
         initialize();
     }
 
-    private void initialize () {
+    private void initialize() {
         webPage = new WebPageObject();
     }
 
     void connect(Context context) throws NamingException, RemoteException, CreateException {
         super.connect(context);
         WebPageHome home;
-        synchronized(context) {
+        synchronized (context) {
             home = (WebPageHome) javax.rmi.PortableRemoteObject.narrow(
-                context.lookup( "com.topcoder.web.render.ejb.WebPage" ),
-                WebPageHome.class );
+                    context.lookup("com.topcoder.web.render.ejb.WebPage"),
+                    WebPageHome.class);
         }
         wp = home.create();
     }
 
-    void store (Integer user) throws RemoteException, SQLException {
+    void store(Integer user) throws RemoteException, SQLException {
         boolean localNew = isnew;
         super.store(user);
         webPage.modify_by = sectorFile.modify_by;
@@ -56,21 +57,22 @@ class WebPageResource extends SectorFileResource {
             webPage.page_path = sectorFile.path;
             wp.request(WebPage.INSERT, webPage);
         } else {
-            wp.request(WebPage.UPDATE, webPage );
+            wp.request(WebPage.UPDATE, webPage);
         }
     }
 
-    void load (Integer id) throws RemoteException, SQLException {
+    void load(Integer id) throws RemoteException, SQLException {
         webPage.page_id = id;
-        webPage = wp.request(WebPage.SELECT, webPage );
+        webPage = wp.request(WebPage.SELECT, webPage);
         super.load(id);
     }
 
-    void delete () {
+    void delete() {
         if (isnew) return;
         try {
             wp.request(WebPage.DELETE, webPage);
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+        }
         super.delete();
     }
 
@@ -78,23 +80,23 @@ class WebPageResource extends SectorFileResource {
         return "web page: " + getFileName();
     }
 
-    public String getName () {
+    public String getName() {
         return webPage.page_name;
     }
 
-    void setName (String n) {
+    void setName(String n) {
         webPage.page_name = n;
     }
 
-    public String getType () {
-       return "page";
+    public String getType() {
+        return "page";
     }
 
-    public String getFileName () {
+    public String getFileName() {
         return sectorFile.file;
     }
 
-    void setFileName (String fn) {
+    void setFileName(String fn) {
         sectorFile.file = fn;
     }
 
@@ -102,55 +104,55 @@ class WebPageResource extends SectorFileResource {
         return webPage.status_id;
     }
 
-    void setStatusIndex (Integer inx) {
+    void setStatusIndex(Integer inx) {
         webPage.status_id = inx;
     }
 
-    public String getTitle () {
+    public String getTitle() {
         return webPage.page_title;
     }
 
-    void setTitle (String t) {
+    void setTitle(String t) {
         webPage.page_title = t;
     }
 
-    public Integer getSortNumber () {
+    public Integer getSortNumber() {
         return webPage.sort_number;
     }
 
-    void setSortNumber (Integer n) {
+    void setSortNumber(Integer n) {
         webPage.sort_number = n;
     }
 
-    public Integer getSiteId () {
+    public Integer getSiteId() {
         return webPage.site_hdr_id;
     }
 
-    void setSiteId (Integer id) {
+    void setSiteId(Integer id) {
         webPage.site_hdr_id = id;
     }
 
-    public String getLanguage () {
+    public String getLanguage() {
         return webPage.language_cd;
     }
 
-    void setLanguage (String l) {
+    void setLanguage(String l) {
         webPage.language_cd = l;
     }
 
-    public String getCountry () {
+    public String getCountry() {
         return webPage.country_code;
     }
 
-    void setCountry (String c) {
+    void setCountry(String c) {
         webPage.country_code = c;
     }
 
-    public String getText () {
-      return "";
+    public String getText() {
+        return "";
     }
 
-    void setText ( String text ) {
+    void setText(String text) {
     }
 
 }

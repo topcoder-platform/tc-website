@@ -10,26 +10,26 @@ package com.topcoder.web.pacts.common;
 public interface PactsConstants {
     // Object types
     // Coordinate with note_type_lu table in the DB
-    public static final int USER_PROFILE_OBJ  = 4;
-    public static final int NOTE_OBJ          = 6;
-    public static final int AFFIDAVIT_OBJ     = 51;
-    public static final int CONTRACT_OBJ      = 52;
-    public static final int PAYMENT_OBJ       = 53;
-    public static final int TAX_FORM_OBJ      = 55;
+    public static final int USER_PROFILE_OBJ = 4;
+    public static final int NOTE_OBJ = 6;
+    public static final int AFFIDAVIT_OBJ = 51;
+    public static final int CONTRACT_OBJ = 52;
+    public static final int PAYMENT_OBJ = 53;
+    public static final int TAX_FORM_OBJ = 55;
     public static final int USER_TAX_FORM_OBJ = 57;
 
     // Message Properties
     public static final String STATUS_PROPERTY = "status_id";
-	public static final String USER_PROPERTY = "user_id";
-	public static final String UPDATE_TYPE_PROPERTY = "update_type";
+    public static final String USER_PROPERTY = "user_id";
+    public static final String UPDATE_TYPE_PROPERTY = "update_type";
 
-	// Types of updates that are queued
-	public static final int REVIEW_UPDATE_TYPE = 1;
-	public static final int STATUS_UPDATE_TYPE = 2;
-	public static final int PAID_UPDATE_TYPE = 3;
+    // Types of updates that are queued
+    public static final int REVIEW_UPDATE_TYPE = 1;
+    public static final int STATUS_UPDATE_TYPE = 2;
+    public static final int PAID_UPDATE_TYPE = 3;
 
-	// Default email address to which update results should be mailed
-	public static final String DEFAULT_STAFF_EMAIL = "grunt@topcoder.com";
+    // Default email address to which update results should be mailed
+    public static final String DEFAULT_STAFF_EMAIL = "grunt@topcoder.com";
 
     // Group ID codes
     public static final int TC_MEMBER = 10;
@@ -79,15 +79,15 @@ public interface PactsConstants {
     // Netscape died at 1 minute, IE at 2 minutes).  This value seems to be
     // a good compromise.
     public static final int LOCK_TIMEOUT_VALUE = 50;
-    
+
     // Account names
     public static final String CONTEST_ACCOUNT = "Prize Money";
     public static final String CONTRACTOR_ACCOUNT = "IT:IT Salaries:Independent contractor work";
     public static final String PROBLEM_WRITER_TESTER_ACCOUNT =
-        "IT:IT Salaries:Independent contractor work";
+            "IT:IT Salaries:Independent contractor work";
     public static final String CODER_REFERRAL_ACCOUNT = "Referral Commission";
     public static final String MAINTENANCE_ACCOUNT =
-        "IT:IT Salaries:Independent contractor work:Maintenance Fee";
+            "IT:IT Salaries:Independent contractor work:Maintenance Fee";
     public static final String PAYABLE_ACCOUNT = "Accounts Payable";
     public static final String WITHHOLDING_ACCOUNT = "Accrued Foreign Tax Withholding";
 
@@ -203,19 +203,19 @@ public interface PactsConstants {
     //status_id
 
     public static final int CONTRACT_INACTIVE_STATUS = 50;
-    public static final int CONTRACT_ACTIVE_STATUS   = 51;
+    public static final int CONTRACT_ACTIVE_STATUS = 51;
 
-    public static final int PRINTED_STATUS          = 52;
-    public static final int PAID_STATUS             = 53;
-    public static final int READY_TO_PRINT_STATUS   = 54;
-    public static final int PAYMENT_ON_HOLD_STATUS  = 55;
-    public static final int PAYMENT_OWED_STATUS     = 56;
-    public static final int PAYMENT_PENDING_STATUS  = 64;
+    public static final int PRINTED_STATUS = 52;
+    public static final int PAID_STATUS = 53;
+    public static final int READY_TO_PRINT_STATUS = 54;
+    public static final int PAYMENT_ON_HOLD_STATUS = 55;
+    public static final int PAYMENT_OWED_STATUS = 56;
+    public static final int PAYMENT_PENDING_STATUS = 64;
     public static final int PAYMENT_CANCELED_STATUS = 65;
 
-    public static final int AFFIDAVIT_PENDING_STATUS  = 57;
+    public static final int AFFIDAVIT_PENDING_STATUS = 57;
     public static final int AFFIDAVIT_AFFIRMED_STATUS = 58;
-    public static final int AFFIDAVIT_EXPIRED_STATUS  = 59;
+    public static final int AFFIDAVIT_EXPIRED_STATUS = 59;
 
 
     // Criteria descriptors
@@ -457,26 +457,26 @@ public interface PactsConstants {
     public static final String DEFAULT_MODIFICATION_RATIONALE = "Status Change";
     public static final String DEFAULT_BATCH_STATUS = "Ready to Print";
 
-	//Session attribute constants
-	public static final String PACTS_QUICKBOOKS_FILES = "pacts_quickbooks_files";
+    //Session attribute constants
+    public static final String PACTS_QUICKBOOKS_FILES = "pacts_quickbooks_files";
 
     //File constants
-    public static final String FILES[] = new String[] {"Payments File","Vendor File"};
-	public static final boolean INCLUDES_DATE[] = new boolean[] {true, true};
-    public static final String EXTS[] = new String[] {"iif","iif"};
-    public static final String MIME_TYPES[] = new String[] {"application/quickbooks","application/quickbooks"};
+    public static final String FILES[] = new String[]{"Payments File", "Vendor File"};
+    public static final boolean INCLUDES_DATE[] = new boolean[]{true, true};
+    public static final String EXTS[] = new String[]{"iif", "iif"};
+    public static final String MIME_TYPES[] = new String[]{"application/quickbooks", "application/quickbooks"};
     public static final String FILE_TOKEN = " for ";
-	public static final String FILE_DATE_FORMAT = "MM-dd-yyyy";
+    public static final String FILE_DATE_FORMAT = "MM-dd-yyyy";
 
     //Default file constants
     public static final String DEFAULT_FILE = "filename";
     public static final String DEFAULT_MIME_TYPE = "text/plain";
     public static final String DEFAULT_EXT = "txt";
-	public static final boolean DEFAULT_INCLUDES_DATE = false;
+    public static final boolean DEFAULT_INCLUDES_DATE = false;
 
-	//Forward options
-	public static final int TO_QUERY_OPTION = 1;
-	public static final int PAYMENT_UPDATE_FORWARD_OPTION = 0;
+    //Forward options
+    public static final int TO_QUERY_OPTION = 1;
+    public static final int PAYMENT_UPDATE_FORWARD_OPTION = 0;
 
 }
 

@@ -1,16 +1,9 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.naming.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.email.bean.*;
 import com.topcoder.shared.util.logging.Logger;
+
+import javax.servlet.jsp.JspException;
+import java.util.List;
 
 /**
  * ScheduledJobLogIteratorTag.java
@@ -24,21 +17,18 @@ import com.topcoder.shared.util.logging.Logger;
 
 
 public class ScheduledJobLogIteratorTag
-    extends IteratorTag
-{
+        extends IteratorTag {
     private static Logger log = Logger.getLogger(ScheduledJobLogIteratorTag.class);
 
     // list of log entries
     List logList;
 
-    public void setLogList(List logList)
-    {
+    public void setLogList(List logList) {
         this.logList = logList;
     }
 
     public int doStartTag()
-        throws JspException
-    {
+            throws JspException {
         setCollection(logList);
 
         return super.doStartTag();

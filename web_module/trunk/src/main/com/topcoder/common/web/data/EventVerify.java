@@ -5,67 +5,68 @@ import java.sql.Timestamp;
 
 public class EventVerify implements Serializable {
 
-  private int EventId;
-  private int EventTypeId;
-  private String EventDesc;
-  private String Status;
-  private Timestamp startRegistration;
-  private Timestamp endRegistration;
+    private int EventId;
+    private int EventTypeId;
+    private String EventDesc;
+    private String Status;
+    private Timestamp startRegistration;
+    private Timestamp endRegistration;
 
-  public EventVerify() {
-    EventTypeId = 0;
-    EventId = 0;
-    EventDesc = "";
-    Status = "";
-  }
+    public EventVerify() {
+        EventTypeId = 0;
+        EventId = 0;
+        EventDesc = "";
+        Status = "";
+    }
 
 // set
-  public void setEventTypeId(int EventTypeId) {
-    this.EventTypeId = EventTypeId;
-  }
-  public void setEventId(int EventId) {
-    this.EventId = EventId;
-  }
+    public void setEventTypeId(int EventTypeId) {
+        this.EventTypeId = EventTypeId;
+    }
 
-  public void setEventDesc(String EventDesc) {
-    this.EventDesc = EventDesc;
-  }
+    public void setEventId(int EventId) {
+        this.EventId = EventId;
+    }
 
-  public void setStatus (String Status) {
-     this.Status = Status;
-  }
+    public void setEventDesc(String EventDesc) {
+        this.EventDesc = EventDesc;
+    }
 
-  public void setStartRegistration(Timestamp startRegistration) {
-    this.startRegistration = startRegistration;
-  }
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
 
-  public void setEndRegistration(Timestamp endRegistration) {
-    this.endRegistration = endRegistration;
-  }
+    public void setStartRegistration(Timestamp startRegistration) {
+        this.startRegistration = startRegistration;
+    }
+
+    public void setEndRegistration(Timestamp endRegistration) {
+        this.endRegistration = endRegistration;
+    }
 
 // get
-  public String getStatus() {
-      return Status;
-  }
+    public String getStatus() {
+        return Status;
+    }
 
-  public int getEventId() {
-    return EventId;
-  }
+    public int getEventId() {
+        return EventId;
+    }
 
-  public int getEventTypeId() {
-    return EventTypeId;
-  }
+    public int getEventTypeId() {
+        return EventTypeId;
+    }
 
-  public String getEventDesc() {
-    return EventDesc;
-  }
+    public String getEventDesc() {
+        return EventDesc;
+    }
 
-  public Timestamp getStartRegistration() {
-    return this.startRegistration;
-  }
+    public Timestamp getStartRegistration() {
+        return this.startRegistration;
+    }
 
-  public Timestamp getEndRegistration() {
-    return this.endRegistration;
-  }
+    public Timestamp getEndRegistration() {
+        return this.endRegistration;
+    }
 
 }

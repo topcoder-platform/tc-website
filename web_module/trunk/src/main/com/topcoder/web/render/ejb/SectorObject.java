@@ -1,10 +1,9 @@
-package	com.topcoder.web.render.ejb;
+package com.topcoder.web.render.ejb;
 
-import	java.sql.Date;
-import	java.io.Serializable;
+import java.io.Serializable;
 
-public class SectorObject 
-  implements Serializable {
-	public Integer	sector_id;
-	public String	sector_desc;
+public class SectorObject
+        implements Serializable {
+    public Integer sector_id;
+    public String sector_desc;
 }

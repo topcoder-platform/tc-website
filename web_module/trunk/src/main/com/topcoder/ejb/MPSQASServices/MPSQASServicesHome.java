@@ -1,7 +1,9 @@
 package com.topcoder.ejb.MPSQASServices;
+
 //package ejb.MPSQASServices;
 
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 /**
@@ -9,7 +11,6 @@ import java.rmi.RemoteException;
  *
  * @author mitalub
  */
-public interface MPSQASServicesHome extends EJBHome 
-{
-	public MPSQASServices create() throws CreateException, RemoteException;
+public interface MPSQASServicesHome extends EJBHome {
+    public MPSQASServices create() throws CreateException, RemoteException;
 }

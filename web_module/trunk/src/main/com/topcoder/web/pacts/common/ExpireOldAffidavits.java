@@ -1,11 +1,11 @@
 package com.topcoder.web.pacts.common;
 
-import com.topcoder.web.pacts.bean.*;
+import com.topcoder.web.pacts.bean.DataInterfaceBean;
 
 /**
  * Sets the status on all affidavits older than a specified time
- * to Expired, and set the status on their associated payment (if any) 
- * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt> 
+ * to Expired, and set the status on their associated payment (if any)
+ * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt>
  * and is currently set to 60 days.  Any payments that were already paid
  * that would here have been canceled are logged. <p>
  *
