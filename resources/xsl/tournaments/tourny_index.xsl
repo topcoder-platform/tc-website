@@ -53,7 +53,7 @@
 
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1"> </xsl:with-param>
-                <xsl:with-param name="image">events_white</xsl:with-param>
+                <xsl:with-param name="image">events</xsl:with-param>
                 <xsl:with-param name="title">Tournaments</xsl:with-param>
             </xsl:call-template>
 
