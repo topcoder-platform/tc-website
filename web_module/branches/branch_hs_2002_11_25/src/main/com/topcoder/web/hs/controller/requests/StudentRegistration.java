@@ -1,24 +1,10 @@
 package com.topcoder.web.hs.controller.requests;
 
-import com.topcoder.security.*;
-import com.topcoder.security.admin.*;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.util.*;
-import com.topcoder.web.ejb.user.*;
-import com.topcoder.web.ejb.email.*;
-import com.topcoder.web.ejb.termsofuse.*;
-import com.topcoder.web.hs.ejb.coder.*;
-import com.topcoder.web.hs.ejb.rating.*;
+import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
-import java.rmi.*;
 import java.util.*;
-import javax.ejb.*;
-import javax.naming.*;
 import javax.servlet.*;
-import javax.sql.*;
-import javax.transaction.UserTransaction;
 
 /**
  * A RequestProcessor which handles the registration of new students.  It
@@ -29,14 +15,6 @@ import javax.transaction.UserTransaction;
  * @date 2003/1/2
  */
 public class StudentRegistration extends Base {
-
-  private final static String STATE_INPUT_CODE="st";
-
-  private final static long TERMS_OF_USE_ID=1;
-
-  private final static long EMAIL_TYPE_ID_PRIMARY=1;
-
-  private final static String STUDENT_GROUP_NAME="Student";
 
   private final static String REGISTRATION_BASE="/registration/";
 
@@ -53,72 +31,6 @@ public class StudentRegistration extends Base {
   private final static String INVALID_COMMAND="Invalid command passed to "+
                                               "registration module: ";
 
-  private final static String FIRST_NAME_NOT_EMPTY="Ensure that the first "+
-                                                  "name field is not empty";
-
-  private final static int MAX_FIRST_NAME_LENGTH=64;
-
-  private final static String FIRST_NAME_TOO_LONG="The first name field must "+
-                                                  "be less than 64 characters "+
-                                                  "long";
-
-  private final static String LAST_NAME_NOT_EMPTY="Ensure that the last name "+
-                                                  "field is not empty";
-
-  private final int MAX_LAST_NAME_LENGTH=64;
-
-  private final static String LAST_NAME_TOO_LONG="The last name field must be "+
-                                                  "less than 64 characters "+
-                                                  "long";
-
-  private final static String INVALID_STATE_CODE="Please select a state";
-
-  private final static String INVALID_SCHOOL_ID="Please select a school";
-
-  private final static String HANDLE_NOT_EMPTY="Ensure that the handle field "+
-                                               "is not empty";
-
-  private final static String HANDLE_ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
-                                              "abcdefghijklmnopqrstuvwxyz"+
-                                              "0123456789"+
-                                              "-_.";
-
-  private final static String INVALID_HANDLE="The handle field must contain "+
-                                             "only alpha numeric symbols";
-
-  private final static String HANDLE_TAKEN="This handle is already in use by "+
-                                           "another user";
-
-  private final static String TECHNICAL_PROBLEMS="Technical problems are "+
-                                                 "preventing further "+
-                                                 "processing, try again later";
-
-  private final static String PASSWORD_NOT_EMPTY="Ensure that the password "+
-                                                 "field is not empty";
-
-  private final static String PASSWORD_WRONG_LENGTH="The password field must "+
-                                                    "be 7 to 15 characters "+
-                                                    "long";
-
-  private final static String PASSWORD_NO_MATCH="The password field does not "+
-                                                "match the re-typed password";
-
-  private final static String EMAIL_NOT_EMPTY="Ensure that the email field "+
-                                              "is not empty";
-
-  private final static String INVALID_EMAIL="The email field must contain a "+
-                                            "valid email address";
-
-  private final static String EMAIL_NO_MATCH="The email field does not match "+
-                                             "the re-typed email";
-
-  private final static String INVALID_EDITOR_ID="Please select an editor";
-
-  private final static String INVALID_LANGUAGE_ID="Please select a language";
-
-  private final static String MUST_AGREE_TERMS="You must agree to the terms "+
-                                               "and conditions to register";
-
   protected void businessProcessing() throws Exception {
 
     String cmd=request.getParameter("cmd");
@@ -128,7 +40,9 @@ public class StudentRegistration extends Base {
      */
     if (cmd==null||cmd.equals("")) {
       StudentRegistrationBean srb=new StudentRegistrationBean();
-      populateStudentRegistrationBean(srb);
+
+      RegistrationHelper.populateStudentWithDefaults(srb);
+      RegistrationHelper.populateStudentFromRequest(request,srb);
 
       request.setAttribute("student",srb);
 
@@ -142,11 +56,16 @@ public class StudentRegistration extends Base {
      */
     else if (cmd.equals(REGISTER_CMD)) {
       StudentRegistrationBean srb=new StudentRegistrationBean();
-      populateStudentRegistrationBean(srb);
+
+      RegistrationHelper.populateStudentWithDefaults(srb);
+      RegistrationHelper.populateStudentFromRequest(request,srb);
 
       request.setAttribute("student",srb);
 
-      if (isValidStudent(srb)) {
+      HashMap errors=new HashMap();
+      request.setAttribute("form_errors",errors);
+   
+      if (RegistrationHelper.isValidStudent(errors,srb)) {
         setNextPage(REGISTRATION_BASE+CONFIRM_PAGE);
       }
       else {
@@ -161,12 +80,17 @@ public class StudentRegistration extends Base {
      */
     else if (cmd.equals(CONFIRM_CMD)) {
       StudentRegistrationBean srb=new StudentRegistrationBean();
-      populateStudentRegistrationBean(srb);
+
+      RegistrationHelper.populateStudentWithDefaults(srb);
+      RegistrationHelper.populateStudentFromRequest(request,srb);
 
       request.setAttribute("student",srb);
 
-      if (isValidStudent(srb)) {
-        persistStudent(srb);
+      HashMap errors=new HashMap();
+      request.setAttribute("form_errors",errors);
+
+      if (RegistrationHelper.isValidStudent(errors,srb)) {
+        RegistrationHelper.createStudent(srb);
         setNextPage(REGISTRATION_BASE+THANK_YOU_PAGE);
       }
       else {
@@ -181,430 +105,6 @@ public class StudentRegistration extends Base {
      */
     else {
       throw(new IllegalArgumentException(INVALID_COMMAND+cmd));
-    }
-  }
-
-  private void populateStudentRegistrationBean(StudentRegistrationBean _srb)
-                                                              throws Exception {
-    Context ctx=TCContext.getInitial();
-    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-    DataAccessInt dai=new CachedDataAccess(ds);
-    Map map=new HashMap();
-
-    map.put(DataAccessConstants.COMMAND,"student_form");
-    Request req=new Request(map);
-    Map data=dai.getData(req);
-
-    ResultSetContainer rsc;
-    ResultSetContainer.ResultSetRow rsr;
-
-    rsc=(ResultSetContainer)data.get("state_list");
-    List state_list=new ArrayList();
-    state_list.add(new ListPairBean(null,"Pick a state"));
-    for (Iterator i=rsc.iterator();i.hasNext();) {
-      rsr=(ResultSetContainer.ResultSetRow)i.next();
-      String state_code=(String)rsr.getItem("state_code").getResultData();
-      String state_name=(String)rsr.getItem("state_name").getResultData();
-      state_list.add(new ListPairBean(state_code,state_name));
-    }
-
-    _srb.setStateList(state_list);
-
-    rsc=(ResultSetContainer)data.get("editor_list");
-    List editor_list=new ArrayList();
-    for (Iterator i=rsc.iterator();i.hasNext();) {
-      rsr=(ResultSetContainer.ResultSetRow)i.next();
-      Integer editor_id=(Integer)rsr.getItem("editor_id").getResultData();
-      String editor_desc=(String)rsr.getItem("editor_desc").getResultData();
-      editor_list.add(new ListPairBean(editor_id,editor_desc));
-    }
-
-    _srb.setEditorList(editor_list);
-    
-    rsc=(ResultSetContainer)data.get("language_list");
-    List language_list=new ArrayList();
-    for (Iterator i=rsc.iterator();i.hasNext();) {
-      rsr=(ResultSetContainer.ResultSetRow)i.next();
-      Integer language_id=(Integer)rsr.getItem("language_id").getResultData();
-      String language_name=(String)rsr.getItem("language_name").getResultData();
-      language_list.add(new ListPairBean(language_id,language_name));
-    }
-
-    _srb.setLanguageList(language_list);
-
-    _srb.setFirstName(getParameterNonNull("first_name"));
-    _srb.setLastName(getParameterNonNull("last_name"));
-    _srb.setStateCode(getParameterNonNull("state"));
-    _srb.setSchoolId(getParameterLong("school"));
-    _srb.setHandle(getParameterNonNull("handle"));
-    _srb.setPassword(getParameterNonNull("password"));
-    _srb.setConfirmPassword(getParameterNonNull("confirm_password"));
-    _srb.setEmail(getParameterNonNull("email"));
-    _srb.setConfirmEmail(getParameterNonNull("confirm_email"));
-    _srb.setEditorId(getParameterInteger("editor"));
-    _srb.setLanguageId(getParameterInteger("language"));
-    _srb.setAgreeTerms(getParameterNonNull("terms").equals("true"));
-
-    List school_list=new ArrayList();
-    school_list.add(new ListPairBean(null,"Pick a school"));
-    if (isValidListValue(_srb.getStateCode(),_srb.getStateList())) {
-      map.put(DataAccessConstants.COMMAND,"state_schools");
-      map.put(STATE_INPUT_CODE,_srb.getStateCode());
-      req=new Request(map);
-      Map schools=dai.getData(req);
-
-      rsc=(ResultSetContainer)schools.get("state_schools");
-      for (Iterator i=rsc.iterator();i.hasNext();) {
-        rsr=(ResultSetContainer.ResultSetRow)i.next();
-        Long school_id=(Long)rsr.getItem("school_id").getResultData();
-        String full_name=(String)rsr.getItem("full_name").getResultData();
-        school_list.add(new ListPairBean(school_id,full_name));
-      }
-
-    }
-    _srb.setSchoolList(school_list);
-
-    TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
-    TermsOfUse tou=touh.create();
-    _srb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
-  }
-
-  private String getParameterNonNull(String _param) {
-    String value=request.getParameter(_param);
-    if (value==null) {
-      value="";
-    }
-    return(value);
-  }
-
-  private Integer getParameterInteger(String _param) {
-    Integer value=new Integer(-1);
-    try {
-      value=new Integer(request.getParameter(_param));
-    }
-    catch (Exception _e) {
-      /* do nothing */
-    }
-    return(value);
-  }
-
-  private Long getParameterLong(String _param) {
-    Long value=new Long(-1);
-    try {
-      value=new Long(request.getParameter(_param));
-    }
-    catch (Exception _e) {
-      /* do nothing */
-    }
-    return(value);
-  }
-
-  private boolean isValidListValue(Object _value,List _list) {
-    if (_value==null) {
-      return(false);
-    }
-    for (Iterator iterator=_list.iterator();iterator.hasNext();) {
-      ListPairBean lpb=(ListPairBean)iterator.next();
-      if (_value.equals(lpb.getValue())) {
-        return(true);
-      }
-    }
-    return(false);
-  }
-
-  private void addErrorMessage(HashMap _errors,String _key,String _message) {
-    List msgs=(List)_errors.get(_key);
-    if (msgs==null) {
-      msgs=new ArrayList();
-      _errors.put(_key,msgs);
-    }
-    msgs.add(_message);
-  }
-
-  private boolean isValidStudent(StudentRegistrationBean _srb)
-                                                              throws Exception {
-    HashMap errors=new HashMap();
-    boolean is_valid=true;
-
-    /* Check for a valid first name
-     */
-    String first_name=_srb.getFirstName();
-
-    if (first_name==null||first_name.length()==0) {
-      addErrorMessage(errors,"FirstName",FIRST_NAME_NOT_EMPTY);
-      is_valid=false;
-    }
-    else {
-      if (first_name.length()>=MAX_FIRST_NAME_LENGTH) {
-        addErrorMessage(errors,"FirstName",FIRST_NAME_TOO_LONG);
-        is_valid=false;
-      }
-    }
-
-    /* Check for a valid last name
-     */
-    String last_name=_srb.getLastName();
-
-    if (last_name==null||last_name.length()==0) {
-      addErrorMessage(errors,"LastName",LAST_NAME_NOT_EMPTY);
-      is_valid=false;
-    }
-    else {
-      if (last_name.length()>=MAX_LAST_NAME_LENGTH) {
-        addErrorMessage(errors,"LastName",LAST_NAME_TOO_LONG);
-        is_valid=false;
-      }
-    }
-
-    /* Check for valid state code
-     */
-    if (!isValidListValue(_srb.getStateCode(),_srb.getStateList())) {
-      addErrorMessage(errors,"StateCode",INVALID_STATE_CODE);
-      is_valid=false;
-    }
-    else {
-
-      /* Check for valid school
-       */
-       if (!isValidListValue(_srb.getSchoolId(),_srb.getSchoolList())) {
-         addErrorMessage(errors,"SchoolId",INVALID_SCHOOL_ID);
-         is_valid=false;
-       }
-    }
-
-    /* Check for valid handle
-     */
-    String handle=_srb.getHandle();
-
-    if (handle==null||handle.length()==0) {
-      addErrorMessage(errors,"Handle",HANDLE_NOT_EMPTY);
-      is_valid=false;
-    }
-    else {
-      boolean valid_handle=true;
-      for (int i=0;i<handle.length();i++) {
-        if (HANDLE_ALPHABET.indexOf(handle.charAt(i))==-1) {
-          valid_handle=false;
-          break;
-        }
-      }
-      if (!valid_handle) {
-        addErrorMessage(errors,"Handle",INVALID_HANDLE);
-        is_valid=false;
-      }
-      else {
-        boolean technical_problems=false;
-        try {
-          Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
-                                           ApplicationServer.SECURITY_HOST);
-          PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
-                                ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-          PrincipalMgrRemote pmr=pmrh.create();
-          try {
-            UserPrincipal up=pmr.getUser(handle);
-            addErrorMessage(errors,"Handle",HANDLE_TAKEN);
-            is_valid=false;
-          }
-          catch (NoSuchUserException _nsue) {
-            /* do nothing */
-          }
-        }
-        catch (RemoteException _re) {
-          _re.printStackTrace();
-          technical_problems=true;
-        }
-        catch (CreateException _ce) {
-          _ce.printStackTrace();
-          technical_problems=true;
-        }
-        catch (NamingException _ne) {
-          _ne.printStackTrace();
-          technical_problems=true;
-        }
-        catch (GeneralSecurityException _gse) {
-          _gse.printStackTrace();
-          technical_problems=true;
-        }
-        if (technical_problems) {
-          is_valid=false;
-          throw(new Exception(TECHNICAL_PROBLEMS));
-        }
-      }
-    }
-
-    /* Check for a valid password
-     */
-    String password=_srb.getPassword();
-    String confirm_password=_srb.getConfirmPassword();
-    
-    if (password==null||password.length()==0) {
-      addErrorMessage(errors,"Password",PASSWORD_NOT_EMPTY);
-      is_valid=false;
-    }
-    else {
-      if (password.length()<7||password.length()>15) {
-        addErrorMessage(errors,"Password",PASSWORD_WRONG_LENGTH);
-        is_valid=false;
-      }
-      else {
-        if (!password.equals(confirm_password)) {
-          addErrorMessage(errors,"Password",PASSWORD_NO_MATCH);
-          is_valid=false;
-        }
-      }
-    }
-
-    /* Check for valid email address
-     */
-    String email=_srb.getEmail();
-    String confirm_email=_srb.getConfirmEmail();
-
-    if (email==null||email.length()==0) {
-      addErrorMessage(errors,"Email",EMAIL_NOT_EMPTY);
-      is_valid=false;
-    }
-    else {
-      if (email.length()<5||email.indexOf("@")<0||email.indexOf(".")<0) {
-        addErrorMessage(errors,"Email",INVALID_EMAIL);
-        is_valid=false;
-      }
-      else {
-        if (!email.equals(confirm_email)) {
-          addErrorMessage(errors,"Email",EMAIL_NO_MATCH);
-          is_valid=false;
-        }
-      }
-    }
-
-    /* Check for valid editor id
-     */
-    if (!isValidListValue(_srb.getEditorId(),_srb.getEditorList())) {
-      addErrorMessage(errors,"EditorId",INVALID_EDITOR_ID);
-      is_valid=false;
-    }
-
-    /* Check for valid language id
-     */
-    if (!isValidListValue(_srb.getLanguageId(),_srb.getLanguageList())) {
-      addErrorMessage(errors,"LanguageId",INVALID_LANGUAGE_ID);
-      is_valid=false;
-    }
-
-    /* Check to make sure they agreed to the terms and conditions
-     */
-    if (!_srb.getAgreeTerms()) {
-      addErrorMessage(errors,"AgreeTerms",MUST_AGREE_TERMS);
-      is_valid=false;
-    }
-
-    request.setAttribute("form_errors",errors);
-
-    return(is_valid);
-  }
-
-  private void persistStudent(StudentRegistrationBean _srb) throws Exception {
-    /* !!This is a hack!! Because the persisting is done in a web container, or
-    * servlet, its not possible to use EJBContext.getUserTransaction(). Instead
-    * we simply get a UserTransaction object for each database we are accessing.
-    * The problem is that both commits cannot happen atomically. Hence errors in
-    * one database will not force a rollback in another. This should be fixed!
-    */
-    UserTransaction utx_common=null;
-    UserTransaction utx_tchs=null;
-    try {
-      /*utx=EJBContext.getUserTransaction();
-      utx.begin();*/
-
-      Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
-                                       ApplicationServer.SECURITY_HOST);
-
-      /*utx_common=(UserTransaction)ctx.lookup("java:comp/UserTransaction");
-      utx_common.begin();*/
-
-      PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
-                                ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-      PrincipalMgrRemote pmr=pmrh.create();
-
-      TCSubject tcs=new TCSubject(0);
-      UserPrincipal up=pmr.createUser(_srb.getHandle(),_srb.getPassword(),tcs);
-      long user_id=up.getId();
-
-      Collection groups=pmr.getGroups(tcs);
-      for (Iterator iterator=groups.iterator();iterator.hasNext();) {
-        GroupPrincipal gp=(GroupPrincipal)iterator.next();
-        if (gp.getName().equals(STUDENT_GROUP_NAME)) {
-          pmr.addUserToGroup(gp,up,tcs);
-        }
-      }
-
-      ctx=TCContext.getInitial();
-
-      utx_tchs=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
-      utx_tchs.begin();
-
-      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
-      User user=uh.create();
-      user.createUser(user_id,_srb.getHandle(),'A');
-      user.setFirstName(user_id,_srb.getFirstName());
-      user.setLastName(user_id,_srb.getLastName());
-
-      UserSchoolHome ush=(UserSchoolHome)
-                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
-      UserSchool user_school=ush.create();
-      user_school.createUserSchool(user_id,_srb.getSchoolId().longValue());
-      user_school.setCurrent(user_id,_srb.getSchoolId().longValue(),true);
-
-      UserTermsOfUseHome utouh=(UserTermsOfUseHome)
-                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
-      UserTermsOfUse user_terms_of_use=utouh.create();
-      user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
-
-      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
-      Email email=eh.create();
-      long email_id=email.createEmail(user_id);
-      email.setEmailTypeId(email_id,user_id,EMAIL_TYPE_ID_PRIMARY);
-      email.setAddress(email_id,user_id,_srb.getEmail());
-
-      CoderHome ch=(CoderHome)ctx.lookup(CoderHome.EJB_REF_NAME);
-      Coder coder=ch.create();
-      coder.createCoder(user_id);
-      coder.setMemberSince(user_id,new java.sql.Date(new Date().getTime()));
-      coder.setEditorId(user_id,_srb.getEditorId().intValue());
-      coder.setLanguageId(user_id,_srb.getLanguageId().intValue());
-
-      RatingHome rh=(RatingHome)ctx.lookup(RatingHome.EJB_REF_NAME);
-      Rating rating=rh.create();
-      rating.createRating(user_id);
-
-      /*utx.commit();*/
-
-      /*utx_common.commit();*/
-      utx_tchs.commit();
-    }
-    catch (Exception _e) {
-      _e.printStackTrace();
-      /*if (utx!=null) {
-        try {
-          utx.rollback();
-        }
-        catch (Exception _e1) {
-       
-      }*/
-      if (utx_common!=null) {
-        try {
-          utx_common.rollback();
-        }
-        catch (Exception _ex) {
-        }
-      }
-      if (utx_tchs!=null) {
-        try {
-          utx_tchs.rollback();
-        }
-        catch (Exception _ex) {
-        }
-      }
-      throw(_e);
     }
   }
 
