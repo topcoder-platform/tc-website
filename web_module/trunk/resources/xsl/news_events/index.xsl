@@ -93,6 +93,21 @@
 
             <hr width="100%" size="1" noshade="noshade" />
  
+<!-- Mass High Tech article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=64966&amp;cat_id=3" target="_blank"><img src="/i/pressroom/mass_high_tech.gif" alt="cio" width="135" height="60" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=64966&amp;cat_id=3" target="_blank">Regional programmers take the TopCoder challenge</A></strong></font><br />
+                       Called the TopCoder Collegiate Challenge and this year sponsored by Yahoo, the event is a nail-biting competition among a field of the world's most promising technologists, all vying for $100,000 in prize money. <span class="prHead">[March 1]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- DoubleClick Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
