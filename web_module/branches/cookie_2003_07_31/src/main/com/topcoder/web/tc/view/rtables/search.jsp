@@ -35,7 +35,9 @@
 
 <!-- Left Column Begins -->
         <TD WIDTH="180" VALIGN="top">
-         <jsp:include page="../includes/global_left.jsp" />
+        <jsp:include page="../includes/global_left.jsp">
+          <jsp:param name="level1" value="rtables"/>
+        </jsp:include>
         </TD>
 <!-- Left Column Ends -->
 

@@ -35,7 +35,9 @@
 
           <!-- Global Seconday Nav Begins -->
 
-         <jsp:include page="../includes/global_left.jsp" />
+        <jsp:include page="../includes/global_left.jsp">
+          <jsp:param name="level1" value="rtables"/>
+        </jsp:include>
 
           <!-- Global Seconday Nav Ends -->
 
