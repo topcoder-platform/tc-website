@@ -16,8 +16,8 @@
 <FONT SIZE="3"><B>NVIDIA - TopCoder Employment Program</B></FONT><BR/>
 Please view the following links for review of the NVIDIA Employment program.<BR/><BR/>
 <B>Website</B><BR/>
-<A HREF="public_home.gif">Public Home Page</A><BR/>
-<A HREF="member_home.gif">Member Home Page</A><BR/>
+<A HREF="/i/es/nvidia/public_home.gif">Public Home Page</A><BR/>
+<A HREF="/i/es/nvidia/member_home.gif">Member Home Page</A><BR/>
 <A HREF="http://www.topcoder.com/?&t=jobs&c=nvidia">NVIDIA Main Page</A><BR/>
 <A HREF="http://www.topcoder.com/?&t=jobs&c=nvidia_openings">NVIDIA Job Listing Page</A><BR/>
 <!-- <A HREF="statsindex.gif">Statistics Index Page</A><BR/>
@@ -27,10 +27,10 @@ Please view the following links for review of the NVIDIA Employment program.<BR/
 <A HREF="calendar.gif">Monthly Calendar</A><BR/> -->
 <BR/><BR/>
 <B>Arena Applet</B>- Updated<BR/>
-<A HREF="lobby_sample.jpg">Lobby Window</A><BR/>
-<A HREF="coding_sample.jpg">Coding Window</A><BR/>
-<A HREF="status_sample.jpg">Status Window</A><BR/>
-<A HREF="leaderboard_sample.jpg">Leaderboard</A><BR/>
+<A HREF="/i/es/nvidia/lobby_sample.jpg">Lobby Window</A><BR/>
+<A HREF="/i/es/nvidia/coding_sample.jpg">Coding Window</A><BR/>
+<A HREF="/i/es/nvidia/status_sample.jpg">Status Window</A><BR/>
+<A HREF="/i/es/nvidia/leaderboard_sample.jpg">Leaderboard</A><BR/>
 <BR/><BR/>
 <B>Email</B><BR/>
 <A HREF="ma.html">Employment Announcement</A><BR/>
