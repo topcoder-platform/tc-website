@@ -8,7 +8,7 @@
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
                               
-                <tr><td class="prHead"><A href="http://www.topcoder.com/?&t=news_events&c=pr_08_10_04">TopCoder Software Wins Three New Customer Contracts</A> [August 10]</td></tr>    
+                <tr><td class="prHead"><A href="http://www.topcoder.com/?&t=news_events&c=pr_08_10_04">TopCoder Software Wins New Customer Contracts</A> [August 10]</td></tr>    
                            
                 <tr><td class="prHead"><A href="http://www.devx.com/Java/Article/21602" target="_blank">The Smart Choice for Smart Clients: J2EE or .NET?</A> [July 27 - DevX]</td></tr>    
                            
