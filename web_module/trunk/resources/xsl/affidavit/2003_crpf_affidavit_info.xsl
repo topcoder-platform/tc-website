@@ -83,17 +83,17 @@
 
                             <ol>
                                 <li>
-                                <p><strong>AFFIDAVIT</strong> - please complete sign and fax to 860.659.4276 and mail originl
+                                <p><strong>AFFIDAVIT</strong> - please complete, sign and fax to 860.657.4276 and mail original
                                     to TopCoder at the address below.  Faxes must be received by 12:00 PM (noon) EST, Monday, November 17th.</p>
                                 <p>
                                     View a <a href="/?&amp;t=affidavit&amp;c=2003_crpf_affidavit">printable version</a> of your affidavit.
-                                    Please read the affidavit, sign it and return it to us at the address below.  Note that you do not
+                                    Please read and complete the affidavit, sign it, fax it and mail the original to us at the address below.  Note that you do not
                                     have to have this affidavit notarized.
                                 </p>
                                 </li>
                                 <li>
                                 <p><strong>TAX FORM</strong> - please complete, sign and fax to (860.657.4276) and mail original to
-                                    TopCoder at address below.  Fax must be received by 12:00 PM (noon) EST, Monday, November 17th:</p>
+                                    TopCoder at the address below.  Faxes must be received by 12:00 PM (noon) EST, Monday, November 17th.</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) via fax or mail to the address below.  If you don't know the form
