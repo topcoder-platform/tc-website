@@ -104,7 +104,7 @@
                     <td colspan="2">
                     <table>
                         <tr>
-                            <td> 
+                            <td class="bodyText"> 
                                 <p>Computer science graduates enjoy favorable job prospects and salaries, particularly if they have practical experience. </p>
                             </td >
                      
