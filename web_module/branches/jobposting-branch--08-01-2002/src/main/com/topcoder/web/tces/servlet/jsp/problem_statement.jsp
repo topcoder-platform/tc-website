@@ -59,7 +59,7 @@
                      <p>
                        Problem: <b><%= ProblemStatementTask.getProblemName() %></b>
                        <br>
-                       Match: <b><%= ProblemStatementTask.getContestName()) %></b>
+                       Match: <b><%= ProblemStatementTask.getContestName() %></b>
                        <br>
                        Division: <b><%= ProblemStatementTask.getDivisionName() %></b>
                        </p>
