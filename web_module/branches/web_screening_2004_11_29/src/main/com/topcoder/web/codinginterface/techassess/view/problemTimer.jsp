@@ -65,20 +65,20 @@ if (o!=null) {
                 if (types[i]==EXAMPLE_SET) {
                     text = "N/A";
                 } else  {
-                    var time=0;
+                    var myTime=0;
                     if (startTimes[i]==0) {
-                      time = 0;
+                      myTimetim = 0;
                     } else {
                       if (countDown==true)
-                        time = endTimes[i] - correctedLocalTime.getTime();
-                        alert(endTimes[i]+"\n"+correctedLocalTime.getTime()+"\n"+time);
-                        if (time < 0) time = 0;
+                        myTime = endTimes[i] - correctedLocalTime.getTime();
+                        alert(endTimes[i]+"\n"+correctedLocalTime.getTime()+"\n"+myTime);
+                        if (myTime < 0) myTime = 0;
                       else {
-                        time = correctedLocalTime.getTime()-startTimes[i];
-                        if (time>times[i]) time = times[i];
+                        myTime = correctedLocalTime.getTime()-startTimes[i];
+                        if (myTime>times[i]) myTime = times[i];
                       }
                     }
-                    text = convertToTimeString(time);
+                    text = convertToTimeString(myTime);
                 }
                 if (top.mainFrame) {
                     updateDivOrSpan(top.mainFrame.document, ids[i], text);
