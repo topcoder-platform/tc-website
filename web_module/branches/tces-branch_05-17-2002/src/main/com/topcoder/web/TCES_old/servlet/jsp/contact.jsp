@@ -4,6 +4,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
+		<%@ include file="nocache.jsp" %>
+		<%@ page errorPage="error.jsp" %>
+		<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
+		<%@ page import="com.topcoder.web.tces.servlet.*" %>
+
 		<%@ page import="com.topcoder.web.TCES.ejb.*" %>
     <TITLE>TCES</TITLE>
     <%@ include file="../script.jsp" %>
@@ -36,41 +41,25 @@
           <TR>
             <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-							<% //@ include file="nocache.jsp" %>
-							<% //@ page errorPage="error.jsp" %>
 
-							<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
-							<%@ page import="com.topcoder.web.tces.servlet.*" %>
 							<jsp:useBean id="TCES" scope="session" class="com.topcoder.web.tces.bean.TCES" />
 							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
-							<BR><BR><BR>
-							User is <%= user %><BR>
-							<%= user.getHandle() %> (<%= user.getUserId() %>)
 							<%
-									CoderBean beanHandle = new CoderBean();
-									CoderObject obj = new CoderObject();
-									obj.coder_id = new Long( (long)user.getUserId() );
-									obj = beanHandle.request( Coder.SELECT, obj );
+									CoderBean beanCoder = new CoderBean();
+									CoderObject objCoder = new CoderObject();
+									objCoder.coder_id = new Long( (long)user.getUserId() );
+									objCoder = beanCoder.request(Coder.SELECT, obj);
+
+									UserBean beanUser = new UserBean();
+									UserObject objUser = new UserObject();
+									ojbUser.user_id = new Long ((long)user.getUserId());
+									objUser = beanUser.request(User.SELECT, objUser);
 							%>
-							
-							<%= obj.last_name %>, <%= obj.first_name %>
-							<BR><BR>
-							<%
-								java.util.GregorianCalendar gc = new GregorianCalendar();
-								String dateStamp = (gc.get(Calendar.MONTH)+1) + "/" + gc.get(Calendar.DAY_OF_MONTH) + "/" + gc.get(Calendar.YEAR);
-								String timeStamp = gc.get(Calendar.HOUR) + ":" + gc.get(Calendar.MINUTE);
-								obj.first_name = dateStamp;
-								obj.last_name = timeStamp;
-								obj.date_of_birth = null;
-								obj.modify_date = null;
-								obj.member_since = null;
-								obj = beanHandle.request( Coder.UPDATE, obj );
-							%>
+
+<%= objCoder.first_name %> <%= objCoder.last_name %>
 
 <!--trj insert 6/11/2002 1943 -->
-
-
 <%
 
 String firstName = "";
