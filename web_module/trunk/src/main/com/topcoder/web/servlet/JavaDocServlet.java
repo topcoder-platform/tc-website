@@ -19,7 +19,7 @@ public final class JavaDocServlet extends HttpServlet {
 
     private static Logger log = Logger.getLogger(JavaDocServlet.class);
     private static final String ERROR_PAGE = "/errorPage.jsp";
-    private static final String SERVLET_NAME = "JavaDocServlet";
+    private static final String SERVLET_NAME = "javadocs";
     private static final String WEB_SERVICE_NAME = "webServiceName";
     private static final String PATH = "path";
     private static final String PASSWORD = "password";
@@ -142,7 +142,7 @@ public final class JavaDocServlet extends HttpServlet {
             }
             log.info("file = " + file);
 
-            //fix the links in the file to start with "JavaDocServlet?webServiceName=name&"
+            //fix the links in the file to start with "javadocs?webServiceName=name&"
 //              file = HTMLLinkChanger.preppendToAllAddresses(SERVLET_NAME + "?" + 
 //                        WEB_SERVICE_NAME + "=" + webServiceName + "&");
             out.append(file);
@@ -170,8 +170,8 @@ public final class JavaDocServlet extends HttpServlet {
         out.append(
                 "Please login to view the java docs for " + webServiceName + ".<P>" +
                 "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + SERVLET_NAME + "?" + WEB_SERVICE_NAME + "="+webServiceName+"\">" +
-                "Handle: + <INPUT TYPE=\"text\" NAME=\"" + PASSWORD + "\" SIZE=\"15\"<BR>" +
-                "Password: + <INPUT TYPE=\"password\" NAME=\"" + HANDLE + "\" SIZE=\"15\"<BR>" +
+                "Handle: <INPUT TYPE=\"text\" NAME=\"" + PASSWORD + "\" SIZE=\"15\"<BR>" +
+                "Password: <INPUT TYPE=\"password\" NAME=\"" + HANDLE + "\" SIZE=\"15\"<BR>" +
                 "<INPUT TYPE=\"submit\" NAME=\"login_button\" VALUE=\"Login\"><BR>" + 
                 "</FORM></BODY></HTML>");
     }
