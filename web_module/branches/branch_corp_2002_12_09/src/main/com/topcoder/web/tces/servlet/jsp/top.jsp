@@ -1,6 +1,5 @@
 <%@  page
   language="java"
-  errorPage="/errorPage.jsp"
   import="com.topcoder.common.web.data.CoderRegistration,
           com.topcoder.ejb.DataCache.*,
           com.topcoder.common.web.util.*,
