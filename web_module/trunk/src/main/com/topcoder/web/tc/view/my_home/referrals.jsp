@@ -4,7 +4,10 @@
 <head>
 <title>TopCoder Member Card</title>
 
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:include page="../../script.jsp" />
+<jsp:useBean id="referralList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 
 </head>
 
@@ -33,6 +36,33 @@
             <jsp:param name="image" value="referrals"/>  
             <jsp:param name="title" value=""/>  
         </jsp:include>
+
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    Handle
+                </td>
+                <td>
+                    Member Since
+                </td>
+            </tr>
+            <rsc:iterator list="<%=referralList%>" id="info">
+            <tr>
+                <td>
+                    <rsc:item row="<%=info%>" name="handle"/>
+                </td>
+                <td>
+                    <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
+                </td>
+                <td>
+                    <rsc:item row="<%=info%>" name="member_since" format="MM.dd.yyyy"/>
+                </td>
+            </tr>
+            </rsc:iterator>
+        </table>
+
+
+
 
 
         </div>
