@@ -1,13 +1,19 @@
 package com.topcoder.web.tc.model;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import java.util.List;
+import java.io.Serializable;
 
-public class Question {
+public class Question implements Serializable {
+    public static final int SINGLE_CHOICE = 1;
+    public static final int MULTIPLE_CHOICE = 2;
+    public static final int LONG_ANSWER = 3;
+    public static final int SHORT_ANSWER = 4;
+
     private long id;
     private int typeId;
     private int styleId;
     private String text;
-    private ResultSetContainer answerInfo;
+    private List answerInfo;
 
     public Question() {}
 
@@ -43,11 +49,11 @@ public class Question {
         this.text = text;
     }
 
-    public ResultSetContainer getAnswerInfo() {
+    public List getAnswerInfo() {
         return answerInfo;
     }
 
-    public void setAnswerInfo(ResultSetContainer answerInfo) {
+    public void setAnswerInfo(List answerInfo) {
         this.answerInfo = answerInfo;
     }
 
