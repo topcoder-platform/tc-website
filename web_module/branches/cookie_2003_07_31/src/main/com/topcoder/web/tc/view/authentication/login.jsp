@@ -74,7 +74,7 @@
                     </td>
                 </tr>
                 <tr valign="middle">
-                  <form method="post" name="frmLogin" action="/">
+                  <form method="post" name="frmLogin" action="/tc">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
                     <td class="bodyText" align="center">
