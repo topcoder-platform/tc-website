@@ -57,7 +57,7 @@ public class TermsOfUseBean implements SessionBean {
 
       if (!IdGenerator.isInitialized()) {
         IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
-                         "current_value",9999999999L,10,true);
+                         "current_value",9999999999L,1,true);
       }
 
       terms_of_use_id=IdGenerator.nextId("TERMS_OF_USE_SEQ");
