@@ -66,7 +66,7 @@ public class SearchBean extends BaseEJB {
         query.append(" WHERE r.coder_id = c.coder_id");
         query.append(" AND r.last_rated_round_id = ro.round_id");
         query.append(" AND c.status = 'A'");
-        if (search.getMonthsSinceLastComp() != -1) {
+        if (search.getMonthsSinceLastComp() != -1)
             query.append(" AND ro.calendar_id = cal.calendar_id");
         if (!search.getHandle().equals("%")) {
             query.append(" AND LOWER(c.handle) LIKE LOWER('");
