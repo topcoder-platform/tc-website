@@ -17,7 +17,7 @@
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="location" value="registration"/>
+    <jsp:param name="location" value="competition"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
