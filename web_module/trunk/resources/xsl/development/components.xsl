@@ -188,22 +188,22 @@
                             
                            <!-- <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>1st Place</strong></td></tr>-->
 
-                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304697"><strong>ozzie</strong></a></span></strong></td></tr>
+                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=157582"><strong>msuhocki</strong></a></span></strong></td></tr>
 
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                             <tr valign="top">
                                 <td class="statText" rowspan="5" width="55"><!-- <a href="/stat?c=member_profile&amp;cr=2058651" class="coderTextRed"><img src="/i/m/nophoto_login.gif" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a> --></td>
                                 <td class="statText" rowspan="5" width="5"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
-                                <td class="statText" width="65%">Designer Level:</td>
-                                <td class="statText" align="right" width="10%">III</td>
+                                <td class="statText" width="65%">Developer Level:</td>
+                                <td class="statText" align="right" width="10%">I</td>
                                 <td class="statText" width="25%"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Rating:</td>
                                 <td class="statText" align="right">1150</td>
-                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=290448" class="statText">[ ratings history ]</a></td>
+                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=2058651" class="statText">[ ratings history ]</a></td>
                             </tr>
 
                             <tr valign="top">
@@ -214,7 +214,7 @@
 
                             <tr valign="top">
                                 <td class="statText">Review Board Score for this Project:</td>
-                                <td class="statText" align="right">90.33</td>
+                                <td class="statText" align="right">90.83</td>
                                 <td class="statText"></td>
                             </tr>
 
