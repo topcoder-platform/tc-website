@@ -233,8 +233,15 @@ public class AutoPilot {
                 }
             } 
             
+            int sub_count = 0;
+            InitialSubmission[] arr = docManager.getInitialSubmissions(project, false, user.getTCSubject());
+            for(int i = 0; i < arr.length; i++) {
+                if(arr[i].isAdvancedToReview())
+                    sub_count++;
+            }
+            
             //get submission count
-            if(count != (docManager.getInitialSubmissions(project, false, user.getTCSubject()).length * 3) )
+            if(count != (sub_count * 3) )
                 return new SuccessResult();
 
             //lookup pm
