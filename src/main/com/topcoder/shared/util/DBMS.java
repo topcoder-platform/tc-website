@@ -120,10 +120,8 @@ public class DBMS {
         Connection conn = null;
         InitialContext ctx = null;
         try {
-            log.debug("begin");
             ctx = TCContext.getInitial();
             conn = getConnection(ctx, dataSourceName);
-            log.debug("end");
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
