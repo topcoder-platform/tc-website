@@ -14,13 +14,15 @@
 <!ELEMENT re-pattern (#PCDATA)>
 
 <!ELEMENT links (link*)>
-<!ELEMENT link (with-text, url?, target-name)>
+<!ELEMENT link (with-text, url?, target-name, add-patterns?)>
 <!ELEMENT with-text (#PCDATA)>
 <!ELEMENT url (#PCDATA)>
 <!ELEMENT target-name (#PCDATA)>
 
+<!ELEMENT add-patterns (text-pattern*, re-pattern*)>
+
 <!ELEMENT forms (form+)>
-<!ELEMENT form (index?, parameter*, submit-button-name?, target-name)>
+<!ELEMENT form (index?, parameter*, submit-button-name?, target-name, add-patterns?)>
 <!ELEMENT index (#PCDATA)>
 <!ELEMENT submit-button-name (#PCDATA)>
 <!ELEMENT parameter (name, value)>

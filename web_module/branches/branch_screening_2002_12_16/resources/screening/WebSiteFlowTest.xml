@@ -46,7 +46,7 @@
          <httpurl>screening?</httpurl>
          <identification>
             <re-pattern>.*Welcome.*Step 1.*Create a Test Profile.*</re-pattern>
-            <re-pattern>.*Step 2.*Set-Up or Add a Candidate.*</re-pattern>
+            <re-pattern>.*Step 2.*Set up or Add a Candidate.*</re-pattern>
          </identification>
          <links>
             <link>
@@ -132,7 +132,7 @@
       <page name="BuildCandidateList">
          <httpurl>?rp=BuildCandidateList</httpurl>
          <identification>
-            <re-pattern>.*Candidate List.*Handle.*Profile.*Begin.*End.*Status.*Notes.*</re-pattern>
+            <re-pattern>.*Candidate List.*Candidate.*Profile.*Status.*Notes.*</re-pattern>
          </identification>
          <links>
             <link>
@@ -145,7 +145,13 @@
       <page name="PopulateCandidate">
          <httpurl>?rp=PopulateCandidate</httpurl>
          <identification>
-            <re-pattern>.*Candidate List.*Set-Up a Candidate.*Email Address.*Password.*</re-pattern>
+            <re-pattern>.*Candidate List.*Set up a Candidate.*Email Address.*</re-pattern>
+         </identification>
+      </page>
+      <page name="PopulateCandidateInfo">
+         <httpurl>?rp=PopulateCandidate</httpurl>
+         <identification>
+            <re-pattern>.*Candidate List.*Candidate Info.*Email Address.*</re-pattern>
          </identification>
       </page>
       <page name="ProblemResult">
@@ -234,6 +240,18 @@
          <httpurl>?rp=PopulateProblemDetail&amp;roundProblemId=4001,168</httpurl>
          <identification>
             <re-pattern>.*Problem Detail.*Problem Statement.*Definition.*TopCoder.*</re-pattern>
+         </identification>
+      </page>
+      <page name="NoteList">
+         <httpurl/>
+         <identification>
+            <re-pattern>.*Note List.*Notes.*Author.*Date Created.*Add.*</re-pattern>
+         </identification>
+      </page>
+      <page name="NoteCreate">
+         <httpurl/>
+         <identification>
+            <re-pattern>.*Note Creation.*Save.*</re-pattern>
          </identification>
       </page>
    </pages>
@@ -380,6 +398,82 @@
             </form>
          </step>
          <step type="finish">ConfirmProfile</step>
+      </path>
+      <path name="CandidateToNoteCreate">
+         <step type="start">Main</step>
+         <step type="link">
+            <link>
+               <with-text>Candidates</with-text>
+               <url>/screening/?rp=BuildCandidateList</url>
+               <target-name>BuildCandidateList</target-name>
+            </link>
+         </step>
+         <step type="link">
+            <link>
+               <with-text>Add Candidate</with-text>
+               <url>?rp=PopulateCandidate&amp;amp;referrer=BuildCandidateList</url>
+               <target-name>PopulateCandidate</target-name>
+            </link>
+         </step>
+         <step type="form">
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>emailAddress</name>
+                  <value>tst$0$@yyy.ccc</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>BuildCandidateList</target-name>
+               <add-patterns>
+                  <text-pattern>tst$0$@yyy.ccc</text-pattern>
+               </add-patterns>
+            </form>
+         </step>
+         <step type="link">
+            <link>
+               <with-text>tst$0$@yyy.ccc</with-text>
+               <url/>
+               <target-name>PopulateCandidateInfo</target-name>
+               <add-patterns>
+                  <text-pattern>tst$0$@yyy.ccc</text-pattern>
+               </add-patterns>
+            </link>
+         </step>        
+         <step type="link">
+            <link>
+               <with-text>click here</with-text>
+               <url/>
+               <target-name>NoteList</target-name>
+               <add-patterns>
+                  <text-pattern>tst$0$@yyy.ccc</text-pattern>
+               </add-patterns>
+            </link>
+         </step>
+         <step type="link">
+            <link>
+               <with-text>Add</with-text>
+               <url/>
+               <target-name>NoteCreate</target-name>
+               <add-patterns>
+                  <text-pattern>tst$0$@yyy.ccc</text-pattern>
+               </add-patterns>
+            </link>
+         </step>
+         <step type="form">
+            <form>
+               <index/>
+               <parameter>
+                  <name>noteText</name>
+                  <value>Test Note $1$</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>NoteList</target-name>
+               <add-patterns>
+                  <text-pattern>Test Note $1$</text-pattern>
+               </add-patterns>
+            </form>
+         </step>
+         <step type="finish">NoteList</step>
       </path>
    </paths>
 </web-site-flow-test>
