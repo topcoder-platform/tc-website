@@ -1,12 +1,11 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,java.util.List"%>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
-
-<%@ taglib uri="screening.tld" prefix="screen" %>
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
