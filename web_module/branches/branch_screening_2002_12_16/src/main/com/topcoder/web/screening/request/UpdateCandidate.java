@@ -220,7 +220,8 @@ public class UpdateCandidate extends BaseProcessor
                 info.setPassword(generatePassword());
             }
         }
-        else {
+
+        if(!success) {
             request.setAttribute(Constants.ERRORS, errorMap);
         }
         return success;
