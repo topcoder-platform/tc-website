@@ -4,9 +4,15 @@ import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
 import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.privatelabel.Constants;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+
+import java.util.*;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.servlet.request.*;
-import com.topcoder.shared.util.logging.Logger;
 
 /**
  * @author dok
@@ -45,4 +51,43 @@ public class Confirm extends FullRegConfirm {
         return info;
     }
 
+    protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
+        super.checkRegInfo(info);    
+        
+        //validate uploaded file, if applicable
+        ResumeRegInfo rinfo = (ResumeRegInfo)info;
+        if(rinfo.getUploadedFile() != null)
+        {
+            byte[] fileBytes = null;   
+            
+            fileBytes = new byte[(int) rinfo.getUploadedFile().getSize()];
+            rinfo.getUploadedFile().getInputStream().read(fileBytes);
+            if (fileBytes == null || fileBytes.length == 0)
+                addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
+            else {
+                //fileType = Integer.parseInt(file.getParameter("fileType"));
+                Map types = getFileTypes(transDb);
+                if(!types.containsKey(rinfo.getUploadedFile().getContentType()) )
+                {
+                    log.info("DID NOT FIND TYPE " + rinfo.getUploadedFile().getContentType());
+                    addError(Constants.FILE, "Unknown file type (" + rinfo.getUploadedFile().getContentType() + ")");
+                }
+            }
+        }
+    }
+    
+    protected Map getFileTypes(String db) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("file_types");
+        Map qMap = getDataAccess(db, true).getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            ret.put(row.getStringItem("mime_type"), new Long( row.getLongItem("file_type_id")) );
+        }
+        return ret;
+    }
 }
