@@ -10,8 +10,6 @@
         <CENTER>2002 TopCoder Invitational<BR/>
         <BR/>
         Travel Information
-        <BR/>
-        November 22-23, 2002
         </CENTER><BR/>
         <BR/> <BR/> <BR/>
         <B><U>HOTEL INFORMATION:</U></B><BR/>
@@ -40,8 +38,7 @@
           <H1>Registration Form</H1>
           <BR/>
           <BR/>
-          <U><B>REGISTRATION DEADLINE:</B></U>  Monday, October 28, 2002<BR/>
-          Email to:  <A HREF="mailto:bhealy@topcoder.com">bhealy@topcoder.com</A> or fax to (860) 657-4276<BR/>
+          <U><B>REGISTRATION DEADLINE:</B></U>  Monday, October 28, 2002 12:00PM<BR/>
         </CENTER>
         <BR/>
         <BR/>
