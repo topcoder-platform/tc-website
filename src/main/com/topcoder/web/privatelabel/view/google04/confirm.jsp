@@ -60,7 +60,7 @@ function submitEnter(e) {
                           
 			<table width="100%" cellpadding="1" cellspacing="3" class="bodyText" align="center" >
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_REG_SUBMIT%>"/>
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE04_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
 
@@ -229,8 +229,8 @@ function submitEnter(e) {
             </pl:responseIterator>
 
             <tr>
-                            <td class="brRegTableQuestion">Resume</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
+                            <td align="right" nowrap>Resume</td>
+                            <td align="left"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
                         </tr>
             <tr>
                <td colspan="2" align="center">
