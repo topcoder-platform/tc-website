@@ -143,7 +143,7 @@
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
                                 <td id="calendar">25</td>
                                 <td id="calendarTourney">
-                                    <span id="calendarSRMDate">24</span><br/>
+                                    <span id="calendarSRMDate">26</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 1: Part 2<br/>
                                     Compete: 9:00&#160;PM<br/>
@@ -152,7 +152,7 @@
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
                                 <td id="calendar">27</td>
                                 <td id="calendarTourney">
-                                    <span id="calendarSRMDate">24</span><br/>
+                                    <span id="calendarSRMDate">28</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 1: Part 3<br/>
                                     Compete: 12:00&#160;PM<br/>
