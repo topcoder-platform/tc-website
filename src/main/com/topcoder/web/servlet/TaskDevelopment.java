@@ -118,8 +118,10 @@ public final class TaskDevelopment {
                 } else {
                     requiresLogin = true;
                 }
-            } else {
+            } else if (command.length()>0) {
                 xsldocURLString = XSL_DIR + command + ".xsl";
+            } else {
+                throw new Exception("Invalid command: " + command);
             }
             document.addTag(devTag);
             result = HTMLmaker.render(document, xsldocURLString);
