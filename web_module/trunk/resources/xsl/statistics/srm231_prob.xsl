@@ -610,7 +610,7 @@ Once the equations are in a matrix, you can solve them like this:
 Note that if we fail to find a value of j during an iteration of our
 loop it means that if the equation can be solved, it may be solved
 with any value of the j<sup>th</sup> variable, and so there is more
-than one solution.  Also, when there are more variables than rows, we
+than one solution.  Also, when there are less variables than rows, we
 can not be sure that the above steps will yield a solution, as there
 may be no solution.  Hence, you need to double check the answer (the
 last column) before assuming it is correct.<br/><br/>
