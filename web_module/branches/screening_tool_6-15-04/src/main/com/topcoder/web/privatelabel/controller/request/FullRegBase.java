@@ -8,6 +8,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.*;
+import com.topcoder.web.common.StringUtils;
 
 import java.util.*;
 
@@ -113,6 +114,9 @@ public abstract class FullRegBase extends SimpleRegBase {
         if (!(ret instanceof FullRegInfo)) {
             ret = new FullRegInfo(ret);
         }
+        
+        if (hasRequestParameter(Constants.CODER_TYPE))
+            ((FullRegInfo)ret).setCoderType(Integer.parseInt(StringUtils.checkNull(getRequestParameter(Constants.CODER_TYPE))));
         return ret;
     }
 
