@@ -166,7 +166,7 @@
                 <tr valign="middle">
                     <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                     <td background="/i/development/bluebv_lite_bg.gif" width="164" class="statText">New Projects</td>
-                    <td background="/i/development/bluebv_lite_bg.gif" width="70" class="statText" align="center">Submit by</td>
+                    <td background="/i/development/bluebv_lite_bg.gif" width="70" class="statText" align="center">Inquire by</td>
                     <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                 </tr>
                             

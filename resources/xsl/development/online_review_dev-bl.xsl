@@ -74,13 +74,13 @@ Online Review Application Business Logic Development Project The Online Review A
 The business logic development will be completed following the APIs as described in the UML provided in the design distribution.  The deliverable must include a fully functional business logic tier using stub classes, which should include test data as described in HTML mockup.  The stub classes will implement the persistence layer API.  In addition to the stubb classes, the developer must also implement unit test cases to emulate the front-end.  These test cases should also use test data as described in the HTML mock ups provided.
 						</p>
 						<p>
-All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
+All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="NEW">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
 						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
 Application Business Logic Development Project: Provide a complete development solution for the business logic tier of the Online Review Application.
-Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> and the <a class="statText" href="/i/development/downloads/Developer_Application_Deliverables.pdf">Development Deliverables Document</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
+Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth" target="NEW">Application Development Methodology</a> and the <a class="statText" href="/i/development/downloads/Developer_Application_Deliverables.pdf" target="NEW">Development Deliverables Document</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
                         </p>
                             
 <!-- Technologies -->
@@ -150,7 +150,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 <!-- Register at TCS -->
 						   <p>
-						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Business%20Logic">Inquire that will be contacted</a></strong> to be selected as one of the two (2) developers for this project.  Each development submission receiving a review score of fifty (50) points or greater will receive the minimum development payment.  
+						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Business%20Logic">Inquire for the project</a></strong> to be selected as one of the two (2) developers for this project.  Each development submission receiving a review score of fifty (50) points or greater will receive the minimum development payment.  
 						</p>
 						
                             <p>

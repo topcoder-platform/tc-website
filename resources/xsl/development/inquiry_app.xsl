@@ -77,11 +77,9 @@
                         <p><strong>Your inquiry has been sent. Thank You!</strong></p>
         
                         <p>
-                        Thank you for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/>: Design project.  You will be contacted on May 27th by a TopCoder Application Manager.  At that time you will be notified if you were selected as a developer for this project.
+                        Thank you for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> Development project.  You will be contacted on May 27th by a TopCoder Application Manager.  At that time you will be notified if you were selected as a developer for this project.
                         </p>
                             
-                        <p>Please submit your design to <a class="statText" href="mailto:submissions@topcodersoftware.com">submissions@topcodersoftware.com</a>.  All late submissions will be ignored.</p>
-                        
                         <p>If you have any questions please contact <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 
                         <p><br /></p>

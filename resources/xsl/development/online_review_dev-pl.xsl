@@ -73,13 +73,13 @@ Online Review Application Persistence Layer Development Project The Online Revie
 Test cases are to use test data implementations of that found in the provided HTML mock-ups.  Successful completion of this project requires submission of DDL for the supporting database schema as well as scripts to populate those tables required to support the system's operation and scripts to populate the required test data for the test cases to properly run.
 						</p>
 						<p>
-All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
+All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="NEW">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
 						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
 Application Business Persistence Layer Project: Provide a complete development solution for the persistence layer of the Online Review Application.
-Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> and the <a class="statText" href="/i/development/downloads/Developer_Application_Deliverables.pdf">Development Deliverables Document</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
+Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth" target="NEW">Application Development Methodology</a> and the <a class="statText" href="/i/development/downloads/Developer_Application_Deliverables.pdf" target="NEW">Development Deliverables Document</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
                         </p>
                             
 <!-- Technologies -->
