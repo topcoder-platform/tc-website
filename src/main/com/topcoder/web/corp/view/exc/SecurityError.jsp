@@ -33,10 +33,10 @@
    boolean authencityExc =  (exc instanceof AuthenticationException);
 %>
 
- <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
+ <TD valign="top" bgcolor="#FFFFFF" width="100%" class="bodyText">
    <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
    <table width="100%" border="0">
-   <tr><td class="errorText">
+   <tr><td class="bodyText">
 
      <!-- Error message content pane -->
 <% if( authencityExc ) { %>

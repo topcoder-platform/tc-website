@@ -32,38 +32,35 @@
 <table border="0" width="100%"><tr><td CLASS="bodyText" width="100%">
 <FONT SIZE="3" COLOR="#666666"><B>Premium Content</B></FONT><BR/>
 <P>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
 </P>
 
 <P>
-olor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+olor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
                        tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam.
 </P>
 
 <P>
-Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
 </P>
 
 <P>
-                       Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpased diam nonummy nibh euismod tincidunt 
-                       Nagna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-                       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, qt. Ut 
-                       wisi enim adminim veniam, quis nostrud exerci. 
+                       Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat volutpased diam nonummy nibh euismod tincidunt
+                       Nagna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
+                       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, qt. Ut
+                       wisi enim adminim veniam, quis nostrud exerci.
                        tuer adipiscing elit, sedsed dagna aliquam erat volu adminim veniam, qveniam.
 </P>
-<P><BR/></P>    
+<P><BR/></P>
 </td></tr>
 <tr><td>
-     <form method="GET" action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS%>">
-       <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
-       <input type="hidden" name="prod-id" value="1"/> <!-- product id -->
-       <table>
-         <tr><td width="100%" align ="center"><input type="submit" value=" buy it "/></td></tr>
+ <table>
+         <tr><td width="100%" align ="center"><a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&back-to="+request.getAttribute(Constants.KEY_LINK_PREFIX)+"&prod-id=1"%>">buy it</a></td></tr>
        </table>
      </form>
 </td></tr>
