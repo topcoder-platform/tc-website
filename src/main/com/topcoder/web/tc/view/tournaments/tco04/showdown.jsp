@@ -160,9 +160,9 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
 
             <table class="leaderTable" cellspacing=0 cellpadding=0 align=center width="95%">
                 <tr>
-                    <td class="problem" align=center colspan=2>Problem 1</td>
+                    <td class="problem" align=center colspan=2>Problem Set 1</td>
                     <td class="problem" ></td>
-                    <td class="problem" align=center colspan=2>Problem 2</td>
+                    <td class="problem" align=center colspan=2>Problem Set 2</td>
                 </tr>
                 <tr>
                     <td valign=top class="leaderParentL" style="border-collapse: collapse" width="25%">
