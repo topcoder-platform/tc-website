@@ -12,11 +12,15 @@ import java.text.DecimalFormat;
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.*; 
 import com.topcoder.server.messaging.*;
+import org.apache.log4j.*;
 
 
 public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   private Context InitContext;
   private SessionContext ctx;
+  private static Category log = Category.getInstance( ContestAdminServicesBean.class.getName() );
+
+
   static final boolean VERBOSE = false;
   static final int NUM_PROBLEMS = 3;
 
@@ -193,7 +197,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   ******************************************************************************************
   **/
   /*
-  public int saveRound (Round ra) throws RemoteException {
+  public int saveRound (com.topcoder.common.web.data.Round ra) throws RemoteException {
     Log.msg(VERBOSE, "Contest: saveRound() called ... ");
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -677,52 +681,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   }
   
   
-  ///////////////////////////////////////////////////////////////////////////////////////
-  // This is a generic method deserializes a Blob from the database and returns the 
-  // deserialized object.
-  ///////////////////////////////////////////////////////////////////////////////////////
-/*
-  public Object jason (String tableName, String fieldName, String whereClause) 
-    throws RemoteException  
-  {
-    java.sql.Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
-    String sqlStr = "";
-    Object retVal = new Object();
-    ObjectInputStream ois = null;
-    Blob bl = null;
-    ByteArrayInputStream bs = null;
-    
-  try {
-      conn = DBMS.getConnection();
-      
-
-      sqlStr = "execute procedure nextval()";
-      ps = conn.prepareStatement(sqlStr);      
-      rs = ps.executeQuery();
-        
-      if (rs.next() ) {
-        retVal = new Integer(rs.getInt(1));
-      } else {
-        System.out.println("Whoa, Nothing :\n"+sqlStr); 
-      }
-    }
-    catch (Exception e) {
-      e.printStackTrace();
-    }
-    finally {
-      try {
-        if (ps != null) ps.close();
-        if (rs != null) rs.close();
-        if (conn != null) { conn.commit(); conn.close(); }
-      } catch (Exception ignore) { }
-    }
-    return retVal;            
-  
-  } 
-*/
-
   /*****************************************************************************************
   * This is a generic method deserializes a Blob from the database and returns the 
   * deserialized object.
@@ -918,7 +876,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
    *  Modified By: 
    *  Reason: 
    *
-   *  Description:  This method will return remove a given system_test_result for a given
+   *  Description:  This method will remove a given system_test_result for a given
    *  coder for a given round
    *****************************************************************************************
    **/
@@ -967,7 +925,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   /////////////////////////////////////////////////////////////////////
   public void nullifyChallenge(int challengeId) throws RemoteException {
   /////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "Contest: nullifyChallenge (int challengeId) called ... ");
+    log.debug("Contest: nullifyChallenge (int challengeId ["+challengeId+"]) called ... ");
     int result = 0;
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -978,10 +936,10 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
  
     StringBuffer queryGetChallengeInfo = new StringBuffer(200);
     queryGetChallengeInfo.append(" select round_id, challenger_id, defendant_id, succeeded, problem_id ")
-    .append(" from challenge where challenge_id = ? ");
+    .append(" , challenger_points, defendant_points from challenge where challenge_id = ? ");
 
     StringBuffer queryUpdatePSSucessful = new StringBuffer(200);
-    queryUpdatePSSucessful.append(" update problem_state set status = ? and points = points - ? ")
+    queryUpdatePSSucessful.append(" update problem_state set status_id = ? , points = points - ? ")
     .append(" where round_id =  ? and coder_id = ? and problem_id = ? ");
   
     StringBuffer queryUpdateRR = new StringBuffer(200);
@@ -992,87 +950,112 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     queryUpdateChallenge.append(" update challenge set succeeded = ? where ")
     .append(" round_id =  ? and problem_id = ? and defendant_id = ? and challenger_id = ? and challenge_id = ? ");
   
-    try {
-        conn = DBMS.getConnection();
-        ps.setInt(1, challengeId);
-        ps = conn.prepareStatement( queryGetChallengeInfo.toString() ) ;
-        rs = ps.executeQuery();
-        if (rs.next()) {
-          roundId          = rs.getInt("round_id");
-          challengerId     = rs.getInt("challenger_id");
-          defendantId      = rs.getInt("defendant_id");
-          problemId        = rs.getInt("problem_id");
-          challengerPoints = rs.getFloat("challenger_points");
-          defendantPoints  = rs.getFloat("defendant_points");
-          succeeded        = rs.getInt("succeeded");
-          if (rs.wasNull()) {
-              throw new Exception("Succeede was null for challenge id " + challengeId + ".");  
-          }
-        } else {
-            throw new Exception("Challenge for id " + challengeId + " not found.");  
-        }
-        try { if (rs != null) rs.close();  rs = null;} catch (Exception exception1) { exception1.printStackTrace(); }
-        try { if (ps != null) ps.close();  ps = null;} catch (Exception exception2) { exception2.printStackTrace(); }
+    try 
+    {
+       try  
+       {
+           conn = DBMS.getConnection();
+       log.debug("after DBMS.java");
+           conn.setAutoCommit(false);
+       log.debug("after setAutocommit");
+           ps = conn.prepareStatement( queryGetChallengeInfo.toString() ) ;
+           ps.setInt(1, challengeId);
+           rs = ps.executeQuery();
+           if (rs.next()) {
+             roundId          = rs.getInt  ("round_id");
+             challengerId     = rs.getInt  ("challenger_id");
+             defendantId      = rs.getInt  ("defendant_id");
+             problemId        = rs.getInt  ("problem_id");
+             challengerPoints = rs.getFloat("challenger_points");
+             defendantPoints  = rs.getFloat("defendant_points");
+             succeeded        = rs.getInt  ("succeeded");
+             if (rs.wasNull()) {
+                 throw new Exception("Succeede was null for challenge id " + challengeId + ".");  
+             }
+           } else {
+               throw new Exception("Challenge for id " + challengeId + " not found.");  
+           }
+           try { if (rs != null) rs.close();  rs = null;} catch (Exception exception1) { exception1.printStackTrace(); }
+           try { if (ps != null) ps.close();  ps = null;} catch (Exception exception2) { exception2.printStackTrace(); }
+       } catch (Exception exception3 ) { log.error(queryGetChallengeInfo.toString() ); throw exception3; }; 
 
-       if (succeeded == 1) {
-         try { if (ps != null) ps.close(); ps = null; } catch (Exception exception2) { exception2.printStackTrace(); }
-         ps = conn.prepareStatement ( queryUpdatePSSucessful.toString() );
-         ps.setInt  (1, NOT_CHALLENGED);
-         ps.setFloat(2, defendantPoints);
-         ps.setInt  (3, roundId);
-         ps.setInt  (4, defendantId);
-         ps.setInt  (5, problemId);
-         retVal = ps.executeUpdate();
-         if (retVal != 1)  {
-            String err = "Update of probem_state defendant points and status failed: roundId: "+roundId+" defendantId: "+defendantId;
-            err += "problemId: "+problemId;
-            throw new Exception(err);
-         }
- 
-         ps = conn.prepareStatement ( queryUpdateRR.toString() );
-         ps.setFloat(1, defendantPoints); 
-         ps.setInt  (2, roundId); 
-         ps.setInt  (3, defendantId); 
-         retVal = ps.executeUpdate();
-         if (retVal != 1)  {
-            String err = "Update of room_result defendant points failed: roundId: "+roundId+" defendantId: "+defendantId;
-            err += "problemId: "+problemId;
-            throw new Exception(err);
-         }
-         try { if (ps != null) ps.close(); ps = null; } catch (Exception exception2) { exception2.printStackTrace(); }
+       if (succeeded == 1) 
+       {
+          try 
+          {
+             ps = conn.prepareStatement ( queryUpdatePSSucessful.toString() );
+             ps.setInt  (1, NOT_CHALLENGED);
+             ps.setFloat(2, defendantPoints);
+             ps.setInt  (3, roundId);
+             ps.setInt  (4, defendantId);
+             ps.setInt  (5, problemId);
+             retVal = ps.executeUpdate();
+             if (retVal != 1)  {
+                String err = "Update of probem_state defendant points and status failed: roundId: "+roundId+" defendantId: "+defendantId;
+                err += "problemId: "+problemId;
+                throw new Exception(err);
+             }
+             try { if (ps != null) ps.close(); ps = null; } catch (Exception exception2) { exception2.printStackTrace(); }
+          } catch (Exception exception3 ) { log.error (queryUpdatePSSucessful.toString()); throw exception3; }; 
+                   
+          try 
+          {
+             ps = conn.prepareStatement ( queryUpdateRR.toString() );
+             ps.setFloat(1, defendantPoints); 
+             ps.setInt  (2, roundId); 
+             ps.setInt  (3, defendantId); 
+             retVal = ps.executeUpdate();
+             if (retVal != 1)  {
+                String err = "Update of room_result defendant points failed: roundId: "+roundId+" defendantId: "+defendantId;
+                err += "problemId: "+problemId;
+                throw new Exception(err);
+             }
+             try { if (ps != null) ps.close(); ps = null; } catch (Exception exception2) { exception2.printStackTrace(); }
+          } catch (Exception exception3 ) { log.error (queryUpdateRR.toString()); throw exception3; }; 
        } 
-       ps = conn.prepareStatement ( queryUpdateRR.toString() );
-       ps.setFloat(1, challengerPoints); 
-       ps.setInt  (2, roundId); 
-       ps.setInt  (3, challengerId); 
-       retVal = ps.executeUpdate();
-       if (retVal != 1)  {
-         String err = "Update of room_result challenger points failed: roundId: "+roundId+" challenger: "+challengerId;
-         err += "problemId: "+problemId;
-         throw new Exception(err);
-       }
-       try { if (ps != null) ps.close(); ps = null; } catch (Exception exception2) { exception2.printStackTrace(); }
-           
-       ps = conn.prepareStatement ( queryUpdateChallenge.toString() );
-       ps.setInt  (1, NULLIFIED); 
-       ps.setInt  (2, roundId); 
-       ps.setInt  (3, problemId); 
-       ps.setInt  (4, defendantId); 
-       ps.setInt  (5, challengerId); 
-       ps.setInt  (6, challengeId); 
-       retVal = ps.executeUpdate();
-       if (retVal != 1)  {
-          String err = "Update of room_result challenger points failed: roundId: "+roundId+" challenger: "+challengerId;
-          err += "problemId: "+problemId;
-          throw new Exception(err);
-       }
-       try { if (ps != null) ps.close();  ps = null;} catch (Exception exception2) { exception2.printStackTrace(); }
+         
+       try 
+       {
+          ps = conn.prepareStatement ( queryUpdateRR.toString() );
+          ps.setFloat(1, challengerPoints); 
+          ps.setInt  (2, roundId); 
+          ps.setInt  (3, challengerId); 
+          retVal = ps.executeUpdate();
+          if (retVal != 1)  {
+            String err = "Update of room_result challenger points failed: roundId: "+roundId+" challenger: "+challengerId;
+            err += "problemId: "+problemId;
+            throw new Exception(err);
+          }
+          try { if (ps != null) ps.close(); ps = null; } catch (Exception exception2) { exception2.printStackTrace(); }
+       } catch (Exception exception3 ) { log.error( queryUpdateRR.toString()); throw exception3; }; 
+
+       try 
+       {     
+          ps = conn.prepareStatement ( queryUpdateChallenge.toString() );
+          ps.setInt  (1, NULLIFIED); 
+          ps.setInt  (2, roundId); 
+          ps.setInt  (3, problemId); 
+          ps.setInt  (4, defendantId); 
+          ps.setInt  (5, challengerId); 
+          ps.setInt  (6, challengeId); 
+          retVal = ps.executeUpdate();
+          if (retVal != 1)  {
+             String err = "Update of room_result challenger points failed: roundId: "+roundId+" challenger: "+challengerId;
+             err += "problemId: "+problemId;
+             throw new Exception(err);
+          }
+          try { if (ps != null) ps.close();  ps = null;} catch (Exception exception2) { exception2.printStackTrace(); }
+       } catch (Exception exception3 ) { log.error(queryUpdateChallenge.toString()); throw exception3; }; 
+       conn.commit();
+    } catch (SQLException sqle) {
+        DBMS.printSqlException(true, sqle);
     } catch (Exception e) {
-      throw new RemoteException ("Contest:nullifyChallenge :query: Error:\n"+e);
+        try { if (conn != null) conn.rollback();} catch (Exception exception2) { exception2.printStackTrace(); }
+        throw new RemoteException ("ContestAdminServices: nullifyChallenge Error:\n"+e);
     } finally {
         try { if (rs != null) rs.close(); rs = null;} catch (Exception exception1) { exception1.printStackTrace(); }
         try { if (ps != null) ps.close(); ps = null;} catch (Exception exception2) { exception2.printStackTrace(); }
-        try { if (conn != null) conn.close(); conn = null; } catch (Exception exception3) { exception3.printStackTrace(); }
+        try { if (conn != null) conn.setAutoCommit(true); conn.close(); conn = null; } catch (Exception exception3) { exception3.printStackTrace(); }
     }
   }
 

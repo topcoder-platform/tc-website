@@ -26,7 +26,7 @@ public interface ContestAdminServices extends EJBObject {
   // public int saveRound (Round ra) throws RemoteException;
   // public void saveRoundSegment (RoundSegment rsa) throws RemoteException;
   //public void insertContestCoder(ContestCoder contestCoder) throws RemoteException;
-  public ArrayList getRoundSegments(int round_id, int contest_id) throws RemoteException;
+  //public ArrayList getRoundSegments(int round_id, int contest_id) throws RemoteException;
   public ArrayList getRoundProblems(int round_id, int contest_id) throws RemoteException;
   public ArrayList getLanguages() throws RemoteException;
 
