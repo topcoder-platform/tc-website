@@ -4,9 +4,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.*;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
@@ -110,7 +108,8 @@ public class FullRegConfirm extends FullRegBase {
         FullRegInfo info = null;
         if (getRegInfoFromPersistor() == null) {
             //perhaps we should load it up from the db...in the case of updates...
-            throw new NavigationException("Sorry, your session has expired.");
+            SessionInfo sessInfo = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            throw new NavigationException("Sorry, your session has expired.", sessInfo.getServletPath());
         } else {
             info = (FullRegInfo) super.makeRegInfo();
 
