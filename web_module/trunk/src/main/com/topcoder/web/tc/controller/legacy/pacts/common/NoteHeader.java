@@ -102,7 +102,7 @@ public class NoteHeader implements PactsConstants, java.io.Serializable {
         }
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
         _id = TCData.getTCLong(rsr, "note_id", 0, true);
-        _creationDate = TCData.getTCDate(rsr, "date_created", "00/00/00", true);
+        _creationDate = TCData.getTCDate(rsr, "create_date", "00/00/00", true);
         _type = TCData.getTCString(rsr, "note_type_desc", "default note type", true);
         _typeId = TCData.getTCInt(rsr, "note_type_id", 0, true);
         _user = new UserProfileHeader();
