@@ -44,7 +44,7 @@ public class Controller
 //            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 String taskName = request.getParameter(TASK);
                 if (taskName == null || !isWord(taskName)) {
-                    log.debug(TASK + " not found in request.");
+                    log.debug(TASK + " not found in request. - "+taskName);
                     forwardToError(request, response, new Exception(TASK + " not found in request."));
                     return;
                 }
