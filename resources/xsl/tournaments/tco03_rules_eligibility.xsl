@@ -75,16 +75,28 @@
     
             <blockquote>
             <h2>Eligibility</h2>
-            
-            <p>TopCoder members meeting the following eligibility criteria are eligible to compete in the TCO:</p>
 
-            <ul>
-                <li>Must be at least 18 years of age (as of October 7, 2003); AND</li>
-                <li>Must be one of the 100 highest rated TopCoder members as of October 7th AND have participated in at least three 
-                (3) TopCoder rated events (i.e., Single Round Matches and previous tournaments) prior to October 7th with at one (1) of those
-                events being between July 7th and October 7th; OR</li>
-                <li>Must be one of the top 200 scorers in one of the two Qualification Rounds being held on October 7th and October 9th.</li>
-            </ul>
+            <p>
+            All TopCoder members who are 18 years of age or older may attempt to
+            qualify for the TCO.  500 members will qualify either through
+            Qualification Rounds or by receiving an automatic berth.
+            </p>
+            
+            <p><span class="bodySubtitle">Qualification Rounds</span><br />
+            All members who have not already qualified for the TCO can compete in
+            the Qualifying Rounds.  The top 200 scorers from each of the two
+            Qualification Rounds will be eligible to compete in Online Round #1 of
+            the TCO.  The Qualification Rounds will be held on Tuesday, October 7th
+            and Thursday, October 9th. </p>
+            
+            <p><span class="bodySubtitle">Automatic Berths</span><br />
+            The 100 highest rated TopCoder members as of October 7th who have
+            participated in at least three (3) TopCoder rated events (i.e., Single
+            Round Matches and previous tournaments) prior to October 7th, with at
+            least one (1) of those events being between July 7th and October 7th,
+            will receive an automatic berth into Online Round #1 of the TCO.  
+            </p>
+
 
             <p>All citizens and lawful permanent residents of the following countries (and all non-immigrants currently residing in 
             the United States with a valid Visa) are eligible to win cash prizes after completing the appropriate affidavit and tax form:</p>
