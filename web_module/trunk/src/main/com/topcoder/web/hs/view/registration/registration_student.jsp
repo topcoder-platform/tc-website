@@ -1,8 +1,8 @@
 <%@ taglib uri="/registration-taglib.tld" prefix="reg" %>
 <jsp:useBean id="student" type="com.topcoder.web.hs.model.StudentRegistrationBean" scope="request"/>
 <%@ include file="head.inc" %>
-<P><B>Registration for Students</B></P>
-<P>Welcome to TopCoder High School.  TopCoder, Inc., the leader in identifying and promoting computer programming talent through competition, is excited to offer TopCoder High School.  TopCoder's unprecedented competition field is now being offered to high school students who are already interested in programming.  Register now for the ability to participate in these competitions.</P>
+<h2>Registration for Students</h2>
+<P>Welcome to TopCoder High School.  TopCoder, Inc., the leader in identifying and promoting computer programming talent through competition, is excited to offer TopCoder High School.  TopCoder's unprecedented competition field is now being offered to high school students who are interested in programming.  Register now for the ability to participate in these competitions.</P>
 <P>Please read the Terms of Use and Privacy Policy carefully.  And let me be the first to say, "Good luck to you in the Arena."</P>
 <P>Jack Hughes</P>
 <P><I>Founder and Chairman, TopCoder, Inc.</I></P>
