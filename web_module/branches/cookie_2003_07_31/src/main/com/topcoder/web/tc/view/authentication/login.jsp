@@ -95,12 +95,14 @@
 
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                         </table>
+                        <p><br/></p>
 
                     <script>
                       document.frmLogin.<%=username.equals("")?Login.USER_NAME:Login.PASSWORD%>.focus();
                     </script>
 
-                    </td></form>
+                    </td>
+                  </form>
                 </tr>
             </table>
 
