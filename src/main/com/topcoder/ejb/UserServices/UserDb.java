@@ -231,6 +231,7 @@ final class UserDb {
                 Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
                 userEJB.setFirstName(user.getUserId(), coder.getFirstName());
                 userEJB.setLastName(user.getUserId(), coder.getLastName());
+                userEJB.setStatus(user.getUserId(), user.getStatus().charAt(0));
 
                 long emailId = emailEJB.getPrimaryEmailId(coder.getCoderId());
                 emailEJB.setAddress(emailId, user.getEmail());
