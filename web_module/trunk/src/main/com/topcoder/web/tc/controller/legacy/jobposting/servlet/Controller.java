@@ -184,6 +184,17 @@ public class Controller extends BaseServlet {
         getRegularPage(request, response, ERROR_PAGE, true);
     }
 
+    protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
+        /* forward to the login page, with a message and a way back */
+        request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
+                "and password.");
+        log.debug("going to " + info.getRequestString() + " on success login");
+        request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
+
+        request.setAttribute(MODULE, LOGIN_PROCESSOR);
+        getRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
+    }
+
 
 }
 
