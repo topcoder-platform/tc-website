@@ -38,7 +38,8 @@
                             <td class="brRegTableAnswer">
                             <br/><a class="brRegTableAnswer" href="/pl/?&module=Static&d1=brooks&d2=reg&d3=confirm">Submit</a>
                             <br/><br/>
-                            <span class="brErrorText"><b>OPTIONAL:</b></span> If you would like to upload a resume, click <a class="brRegTableAnswer" href="JavaScript:void window.open('/','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a></p>
+
+                            <span class="brErrorText"><b>OPTIONAL:</b></span> If you would like to upload a resume, click <a class="brRegTableAnswer" href="/">here</a></p>
                             </td>
                         </tr>
                         </table>
