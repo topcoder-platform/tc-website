@@ -99,12 +99,12 @@ TopCoder Software has engaged with a client to build and deploy a custom Project
 </p>
 
                                         <p>
-                                            <strong><a name="requirementspecification">View the</a>
+                                            <strong><a name="requirementspecification">View the</a> 
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/ServiceAbstract.pdf">Project Management Dashboard Service Requirement Specification</a> for this application project.
                                             </strong>
                                         </p>
                                         <p>
-                                            <strong>View the
+                                            <strong>View the 
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/ReportsAbstract.pdf">Project Management Dashboard Reports Requirement Specification</a> for this application project.
                                             </strong>
                                         </p>
@@ -286,8 +286,23 @@ TopCoder Software has engaged with a client to build and deploy a custom Project
                                             </tr>
 
                                             <tr>
+                                                <td class="sidebarText">Screening Due:</td>
+                                                <td class="sidebarText" align="right">07.20.2004</td>
+                                            </tr>
+
+                                            <tr>
                                                 <td class="sidebarText">Design Reviews Due:</td>
                                                 <td class="sidebarText" align="right">07.22.2004</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="sidebarText">Appeals Due:</td>
+                                                <td class="sidebarText" align="right">07.24.2004</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="sidebarText">Appeal Responses Due:</td>
+                                                <td class="sidebarText" align="right">07.25.2004</td>
                                             </tr>
 
                                             <tr>
@@ -301,7 +316,7 @@ TopCoder Software has engaged with a client to build and deploy a custom Project
                                             </tr>
 
                                             <tr>
-                                                <td class="sidebarText">Design Complete:</td>
+                                                <td class="sidebarText">Final Review Due, Design Complete:</td>
                                                 <td class="sidebarText" align="right">07.29.2004</td>
                                             </tr>
 
