@@ -72,6 +72,15 @@ public final class Registration extends UserEdit {
         successPage = Constants.REGISTRATION_PAGE_SUCCESS;
     }
 
+    protected void setNextPage() {
+        setIsNextPageInContext(true);
+        if (!secTok.createNew) {
+            setNextPage("/");
+        } else {
+            setNextPage(successPage);
+        }
+    }
+
     /**
      * @see com.topcoder.web.corp.controller.request.UserEdit#getFormFields()
      */
