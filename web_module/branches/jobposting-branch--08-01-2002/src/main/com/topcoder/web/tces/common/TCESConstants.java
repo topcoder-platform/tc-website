@@ -107,13 +107,13 @@ public class TCESConstants {
                                                           "pct_accuracy",
                                                           "avg_ptspersub",
                                                           "avg_timetosubmit" };
-    public static String[] MEM_RATING_STATSBYLANG_KEYS = {"",
-                                                          "Submitted",
-                                                          "Submit %",
-                                                          "Correct",
-                                                          "Submission Accuarcy",
-                                                          "Avg Points for Submissions",
-                                                          "Avg Time to Submit" };
+    public static String[] MEM_RATING_STATSBYLANG_TITLES = {"",
+                                                           "Submitted",
+                                                           "Submit %",
+                                                           "Correct",
+                                                           "Submission Accuarcy",
+                                                           "Avg Points for Submissions",
+                                                           "Avg Time to Submit" };
 
     public static int PRO_CODER_TYPE  = 2;
     public static int STUDENT_CODER_TYPE = 1;

@@ -343,13 +343,13 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[1],
                        memStatLangRow.getItem("submitted").toString() );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[2],
-                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("submit_percent").toString())) + "%" );
+                       decFmt.format( Double.parseDouble( memStatLangRow.getItem("submit_percent").toString())) + "%" );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[3],
                        memStatLangRow.getItem("num_correct").toString() );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[4],
-                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("submission_accuracy").toString())) +"%" );
+                       decFmt.format( Double.parseDouble( memStatLangRow.getItem("submission_accuracy").toString())) +"%" );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[5],
-                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("avg_submission_points").toString())) );
+                       decFmt.format( Double.parseDouble( memStatLangRow.getItem("avg_submission_points").toString())) );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6],
                        memStatLangRow.getItem("avg_submit_time").toString() );
 
