@@ -6,7 +6,7 @@
 
 <!--            <A href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></A><br />
 
-            <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#001935">
+            <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#001935"> 
                 <tr valign="middle">
                 	<td background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td width="40%" class="statText" background="/i/steel_bluebv_bg.gif">Handle</td>
