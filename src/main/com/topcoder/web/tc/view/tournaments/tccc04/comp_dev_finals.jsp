@@ -85,21 +85,21 @@ function openWin(url, name) {
                 </tr>
                 <tr>  
                   <td class="advCell" align="left">Initial score:</td>
-                  <td class="advCell" align="right">92.63&#160;&#160;</td>
-                  <td class="advCell" align="right">86.87&#160;&#160;</td>
-                  <td class="advCell" align="right">92.63&#160;&#160;</td>
+                  <td class="advCell" align="right">56.31&#160;&#160;</td>
+                  <td class="advCell" align="right">73.46&#160;&#160;</td>
+                  <td class="advCell" align="right">86.51&#160;&#160;</td>
                 </tr>
                 <tr>  
                   <td class="advCell" align="left" bgcolor="#FFCC00"><b>Final score:</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>92.24&#160;&#160;</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>86.65&#160;&#160;</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>92.24&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
                 </tr>
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=gladius_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=preben_init_doc1','kyky',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=roma_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_finals&d4=gladius_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_finals&d4=preben_init_doc1','kyky',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_finals&d4=roma_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
          <p><br/></p>

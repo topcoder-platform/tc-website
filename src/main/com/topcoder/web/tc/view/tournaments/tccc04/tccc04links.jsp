@@ -82,12 +82,12 @@
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true" class="statTextBig"><img src="/i/tournament/tccc04/tab_advancers_off.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
             <% } %>
-<%--            
             <% if (tabLev2.equals("summary")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_sum_onlinerounds" class="statTextBig"><img src="/i/tournament/tccc04/tab_summary_on.gif" alt="details" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_finals_analysis" class="statTextBig"><img src="/i/tournament/tccc04/tab_summary_on.gif" alt="details" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_sum_onlinerounds" class="statTextBig"><img src="/i/tournament/tccc04/tab_summary_off.gif" alt="details" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_finals_analysis" class="statTextBig"><img src="/i/tournament/tccc04/tab_summary_off.gif" alt="details" width="88" height="22" border="0" /></A></td>
             <% } %>
+<%--            
 --%>
 
     <% } else if (tabLev1.equals("component")) { %>
@@ -97,14 +97,14 @@
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_description" class="statTextBig"><img src="/i/tournament/tccc04/tab_details_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } %>
             <% if (tabLev2.equals("design")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_bracket" class="statTextBig"><img src="/i/tournament/tccc04/tab_design_on.gif" alt="design" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_editorial" class="statTextBig"><img src="/i/tournament/tccc04/tab_design_on.gif" alt="design" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_bracket" class="statTextBig"><img src="/i/tournament/tccc04/tab_design_off.gif" alt="design" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_editorial" class="statTextBig"><img src="/i/tournament/tccc04/tab_design_off.gif" alt="design" width="88" height="22" border="0" /></A></td>
             <% } %>
             <% if (tabLev2.equals("development")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_bracket" class="statTextBig"><img src="/i/tournament/tccc04/tab_development_on.gif" alt="development" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_editorial" class="statTextBig"><img src="/i/tournament/tccc04/tab_development_on.gif" alt="development" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_bracket" class="statTextBig"><img src="/i/tournament/tccc04/tab_development_off.gif" alt="development" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_editorial" class="statTextBig"><img src="/i/tournament/tccc04/tab_development_off.gif" alt="development" width="88" height="22" border="0" /></A></td>
             <% } %>
             <% if (tabLev2.equals("coaches")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coaches" class="statTextBig"><img src="/i/tournament/tccc04/tab_coaches_on.gif" alt="development" width="88" height="22" border="0" /></A></td>
@@ -131,13 +131,13 @@
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_sponsors" class="statTextBig"><img src="/i/tournament/tccc04/tab_sponsors_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } %>
+--%>
             
             <% if (tabLev2.equals("onsite_events")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=reception" class="statTextBig"><img src="/i/tournament/tccc04/tab_onsiteevents_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=reception" class="statTextBig"><img src="/i/tournament/tccc04/tab_onsiteevents_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } %>
---%>
    <% } %>
 
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
@@ -162,12 +162,10 @@
             <% } else if (tabLev2.equals("summary")) {%>
                     <td class="<%=tabLev3.equals("online")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_sum_onlinerounds" class="topLink">Online Rounds</a></td>
                     <td class="<%=tabLev3.equals("room1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room1_analysis" class="topLink">Room 1</a></td>
-<%--
                     <td class="<%=tabLev3.equals("room2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room2_analysis" class="topLink">Room 2</a></td>
                     <td class="<%=tabLev3.equals("room3")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room3_analysis" class="topLink">Room 3</a></td>
-                    <td class="<%=tabLev3.equals("room4")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room4_analysis" class="topLink">Room 4</a></td>
-                    <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_finals" class="topLink">Finals</a></td>
---%>
+                    <td class="<%=tabLev3.equals("wildcard")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_wildcard_analysis" class="topLink">Wildcard</a></td>
+                    <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_finals_analysis" class="topLink">Finals</a></td>
             <% } else { %>
                      <td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
             <% } %>
@@ -180,17 +178,15 @@
             <% } else if (tabLev2.equals("design")) {%>
                     <td class="<%=tabLev3.equals("round1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_rd1" class="topLink">Round 1</a></td>
                     <td class="<%=tabLev3.equals("round2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_rd2" class="topLink">Round 2</a></td>
-<%--
                     <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_finals" class="topLink">Finals</a></td>
---%>
+                    <td class="<%=tabLev3.equals("editorial")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_editorial" class="topLink">Editorial</a></td>
                     <td class="<%=tabLev3.equals("bracket")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_bracket" class="topLink">Bracket</a></td>
 
             <% } else if (tabLev2.equals("development")) {%>
                     <td class="<%=tabLev3.equals("round1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_rd1" class="topLink">Round 1</a></td>
                     <td class="<%=tabLev3.equals("round2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_rd2" class="topLink">Round 2</a></td>
-<%--
                     <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_finals" class="topLink">Finals</a></td>
---%>
+                    <td class="<%=tabLev3.equals("editorial")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_editorial" class="topLink">Editorial</a></td>
                     <td class="<%=tabLev3.equals("bracket")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_bracket" class="topLink">Bracket</a></td>
             <% } else if (tabLev2.equals("coaches")) {%>
                     <td class="<%=tabLev3.equals("description")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coaches" class="topLink">Description</a></td>
