@@ -73,7 +73,7 @@
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_dev_rd1" class="statTextBig"><img src="/i/tournament/tccc04/tab_development_off.gif" alt="development" width="88" height="22" border="0" /></A></td>
             <% } %>
 
-    <% } else if (tabLev1.equals("tournament")) { %>
+    <% } else if (tabLev1.equals("overview")) { %>
             <% if (tabLev2.equals("about")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about" class="statTextBig"><img src="/i/tournament/tccc04/tab_about_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } else { %>
@@ -148,16 +148,17 @@
                      </table>
             <% } %>
             
-      <% } else if (tabLev1.equals("tournament")) { %>
+      <% } else if (tabLev1.equals("overview")) { %>
             <% if (tabLev2.equals("onsite_info")) {%>
-                    <td class="<%=tabLev3.equals("description")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_description" class="topLink">Description</a></td>
-                    <td class="<%=tabLev3.equals("schedule")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_schedule" class="topLink">Schedule</a></td>
-                    <td class="<%=tabLev3.equals("rules")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_rules" class="topLink">Rules</a></td>
+                    <td class="<%=tabLev3.equals("join_us")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_join_us" class="topLink">Join Us</a></td>
+                    <td class="<%=tabLev3.equals("directions")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_directions" class="topLink">Directions</a></td>
+                    <td class="<%=tabLev3.equals("transportation")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_transportation" class="topLink">Transportation</a></td>
+                    <td class="<%=tabLev3.equals("hotels")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_hotels" class="topLink">Hotels</a></td>
             <% } else if (tabLev2.equals("onsite_events")) {%>
-                    <td class="<%=tabLev3.equals("round1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_des_rd1" class="topLink">Round1</a></td>
-                    <td class="<%=tabLev3.equals("round2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_des_rd1" class="topLink">Round2</a></td>
-                    <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_des_finals" class="topLink">Finals</a></td>
-                    <td class="<%=tabLev3.equals("bracket")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_des_bracket" class="topLink">Bracket</a></td>
+                    <td class="<%=tabLev3.equals("reception")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_reception" class="topLink">Reception</a></td>
+                    <td class="<%=tabLev3.equals("awards")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_awards" class="topLink">Awards</a></td>
+                    <td class="<%=tabLev3.equals("photos")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_photos" class="topLink">Photos</a></td>
+                    <td class="<%=tabLev3.equals("movies")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_movies" class="topLink">Movies</a></td>
             <% } else { %>
                      <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
             <% } %>
