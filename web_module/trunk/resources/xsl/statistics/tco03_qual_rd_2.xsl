@@ -84,7 +84,21 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2> 
 
 <p> 
-With another day of fierce competition in the books, the 2003 TC Open heads into its opening round.  600+ coders battled furiously for the 200 advancing spots.  Many competitors, who hadn't qualified on Tuesday, came back to try and change their fate.  The new unrated coders, covered in a veil of mystery, sparked much attention.  Each could potentially be the next SnapDragon or Tomek.  At 10:00 the round began, and submissions started flying in.  Minutes into the competition, many were already testing their medium problem.  Things changed once the hards were opened.  Average submission frequency remained low for a good 20-30 minutes.  It wasn't until the last 10 minutes, that most rooms had point totals in the thousands.  Unfortunately, many of these scores were inflated.  In a rush to claim a seat in the tournament, many coders hastily submitted incorrect solutions.  Only 13 level 3 submissions withstood systests.  Once the dust had settled, coders who accurately completed the first two in an average amount of time would move on.  Others will compete vicariously through the victors.
+With another day of fierce competition in the books, the 2003 TopCoder Open sponsored by Intel&#174; sponsored by Intel&#174; heads 
+into its opening round.  600+ coders battled furiously for the 200 advancing 
+spots.  Many competitors, who hadn't qualified on Tuesday, came back to try 
+and change their fate.  The new unrated coders, covered in a veil of mystery, 
+sparked much attention.  Each could potentially be the next SnapDragon or 
+Tomek.  At 10:00 the round began, and submissions started flying in.  Minutes 
+into the competition, many were already testing their medium problem.  Things 
+changed once the hards were opened.  Average submission frequency remained 
+low for a good 20-30 minutes.  It wasn't until the last 10 minutes, that most 
+rooms had point totals in the thousands.  Unfortunately, many of these scores 
+were inflated.  In a rush to claim a seat in the tournament, many coders hastily 
+submitted incorrect solutions.  Only 13 level 3 submissions withstood systests.  
+Once the dust had settled, coders who accurately completed the first two in an 
+average amount of time would move on.  Others will compete vicariously through 
+the victors.
 </p> 
  
 <p>
