@@ -342,7 +342,7 @@ public class PDFGenerator extends BaseProcessor {
             java.util.List skillsList = info.getSkills((String)groups.get(i));
 
             for(int j = 0 ; j < skillsList.size(); j++) {
-                inner.addCell(new Phrase((String)skillsList.get(j), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+                inner.addCell(new Phrase(((Skill)skillsList.get(j)).getText(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
             }
 
             skills.addCell(inner);
