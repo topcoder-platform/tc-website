@@ -98,16 +98,30 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
-<!--
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=GeneChip_Data_Interface_Back_End_Dev">GeneChip Data Interface Development - Back End</a>
+                                        <a href="?t=development&amp;c=PMD_Service">Project Management Dashboard Service</a>
                                     </td>
-                                    <td class="projectCells" align="right">$1,350 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.09.2004</td>
+                                    <td class="projectCells" align="right">$2,500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$935 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">08.11.2004</td>
                                 </tr>
--->
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=PMD_Service">Project Management Dashboard Reports - Formatting</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,350 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$875 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">08.11.2004</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=PMD_Service">Project Management Dashboard Reports - Execution</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$750 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">08.11.2004</td>
+                                </tr>
 
 
                             </table>
