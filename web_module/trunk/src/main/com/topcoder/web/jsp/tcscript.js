@@ -19,7 +19,7 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
   function getGraph(url,wd,ht,name) {
     var last=0;
     var daHt = parseInt(ht) + parseInt('49');
-    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
+    var size = "top=2,left=2,width="+wd+",height="+daHt+",status=0";
     popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
     return;
   }
@@ -57,11 +57,11 @@ function infoWindow(url) {
 }
 
 function openProblemRating(id) {
-    var width = screen.availWidth * 2 / 3;
-    var height = screen.availHeight / 2;
-    var left = (screen.availWidth - width) / 2;
+    var width = Math.round(screen.availWidth / 2);
+    var height = Math.round(screen.availHeight * 2 / 3);
+    var left = Math.round((screen.availWidth - width) / 2);
     var top = 0;
-    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top="+top+",left="+left+",width=" + width + ",height=" + height + ",status=0";
     var name="problemRating";
     window.open('/tc?module=ProblemRatingQuestions&pid='+id,name,cmd);
     return;
