@@ -740,6 +740,7 @@
         <fileset dir="${java}/com/topcoder/web/hs/view">
           <include name="**/*.jsp"/>
           <include name="**/*.inc"/>
+          <include name="**/*.html"/>
         </fileset>
       </copy>
       <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF">
@@ -844,6 +845,7 @@
             <fileset dir="${java}/com/topcoder/web/hs/view">
                 <include name="**/*.jsp"/>
                 <include name="**/*.inc"/>
+                <include name="**/*.html"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/hs/**"/>
