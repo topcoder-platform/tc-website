@@ -50,6 +50,7 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <%@ include file="../script.jsp" %>
+    <%@ include file="rating.jsp" %>
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
   <%@ include file="../top.jsp" %>
@@ -147,7 +148,7 @@
                         <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                         <TD VALIGN="top" class="statText"><I><%=(forumDescription!=null)?forumDescription:"&nbsp;"%></I></TD>
                         <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                        <TD VALIGN="top" ALIGN="left" CLASS="statText"><%=dateFormatter.format(forum.getModifiedDate())+(handle==null?"":" by "+handle)%></TD>
+                        <TD VALIGN="top" ALIGN="left" CLASS="statText"><%=dateFormatter.format(forum.getModifiedDate())+(handle==null?"":" by "+getUserDisplay(forum.getUser()))%></TD>
                       </TR>
     <TR>
       <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>    

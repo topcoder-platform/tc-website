@@ -196,6 +196,7 @@ String checked4 = "";
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 
     <%@ include file="../script.jsp" %>
+    <%@ include file="rating.jsp" %>
 
   </HEAD>
 
@@ -641,11 +642,11 @@ String checked4 = "";
 
                     <td><img src="/i/clear.gif" width="2" height="1" /></td>
 
-                    <td valign="top" nowrap="" class="statText"><%=username%></td>
+                    <td valign="top" nowrap="" class="statText"><%=getUserDisplay(rootMessageUser)%></td>
 
                     <td><img src="/i/clear.gif" width="2" height="1" /></td>
 
-                    <td valign="top" nowrap="" class="statText"><%= dateFormatter.format( thread.getModifiedDate() ) +(thread.getUser().getUsername()==null?"":" by "+thread.getUser().getUsername()) %></td>
+                    <td valign="top" nowrap="" class="statText"><%= dateFormatter.format( thread.getModifiedDate() ) +(thread.getUser().getUsername()==null?"":" by "+getUserDisplay(thread.getUser())) %></td>
 
                   </tr>
 
