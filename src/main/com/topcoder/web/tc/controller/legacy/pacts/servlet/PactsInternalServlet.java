@@ -2412,6 +2412,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 
     private void doPrintPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        log.debug("doPrintPayments called...");
         HttpSession session = request.getSession(true);
 
         DataInterfaceBean dib = new DataInterfaceBean();
