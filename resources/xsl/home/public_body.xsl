@@ -93,8 +93,8 @@
 <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 123</B></A><BR/>
-Tuesday, December 10, 2002<BR/><BR/>
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 124</B></A><BR/>
+Thursday, December 12, 2002<BR/><BR/>
 
 
     </TD>    
@@ -188,35 +188,30 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
-    By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;lbackstrom<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 123</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 124</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm123_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm124_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
 <P>
-SRM 123 had a difficult but balanced problem set for Div-I. Only 3 Div-I coders successfully completed 
-all three problems. The Div-II problem set was exactly where it should be and had a good spread of results - 17 Div-II 
-coders successfully completed all three problems. SRM123 had 5 different unique problems. 
+Tonight was smooth sailing as <B>radeye</B> was the only one to solve all three Division-I 
+problems correctly.  The hard problem turned out to be much harder than expected, as 
+there were only 8 submissions total, 7 of which failed.  After <B>radeye</B>, were <B>venco</B>, <B>Yarin</B>, 
+<B>SnapDragon</B>, and <B>kv</B>, all seperated by less than 30 points.
 </P>
 
-<P>
-The strongest Division-I performance of this match came from <B>SnapDragon</B> (1491.86 points, 48 rating points gain), 
-who beat the next runner up - <B>bstanescu</B> by 166 points who had 1325.41 points. After this SRM, <B>SnapDragon</B> again became the number one rated programmer with <B>John Dethridge</B> closely trailing. 
-There were 10 coders in Div-I who have moved to Div-II after this SRM and there were no new red coders.
-</P>
- 
-<P>
-Division-II had three-rookie coders <B>hersco</B>, <B>AdrianKuegel</B> and <B>Hurd</B> who successfully completed all three problems and were placed in Div-I. 
-<B>Wolf7</B> lead Div-II with an impressive 1354.53 points which is only 6 points more 
-then the next runner up - <B>AdrianKuegel</B> (the best rookie in this SRM). SRM 123 placed 24 Div-II coders into Div-I...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm123_prob</xsl:attribute>Get the analysis</A>
+<P> 
+In Division-II, a newcomer, <B>Wernie</B>,  was able to solve all three problems in about 45 
+minutes and win the division.  50 points behind him was another newcomer, <B>PMH</B>, who with 
+50 points during the challenge phase, cruised to second place...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm124_prob</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
