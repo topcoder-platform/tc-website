@@ -58,10 +58,10 @@
 </P>
 
 <P>
-TopCoder [TC], a site designed for programmers by programmers, builds opportunity and 
-community through computer programming tournaments. Weekly, hundreds of programmers from 
+TopCoder [TC], a site designed for programmers by programmers, builds opportunity 
+through computer programming tournaments. Weekly, hundreds of programmers from 
 around the world gather online at TopCoder to participate in Single Round Matches (SRMs). 
-The SRMs are designed to objectively assess a coder's ability by having them solve three 
+The SRMs are designed to objectively assess a coder's ability by having the coder solve three 
 algorithmic problems, scrutinize other competitors' code, and withstand a system-generated 
 test for correctness. Additionally, [TC] orchestrates major programming tournaments with
  prize purses up to $150,000. Upon completion of each competition, a coder's rating is 
@@ -72,45 +72,45 @@ test for correctness. Additionally, [TC] orchestrates major programming tourname
 
 <P>
 TopCoder Employment Services [TCES] provides employers with innovative programs designed 
-to attract, identify, evaluate and package collegiate candidates, as well as experienced 
-professionals, for full time employment consideration. [TCES] provides select employers with 
+to attract, identify, and evaluate collegiate candidates, as well as experienced 
+professionals, for full time employment consideration. [TCES] provides employers with 
 intelligence about both graduating students and experienced professionals. With a member base in 
-excess of 19,000 - including more than 10,000 students from over 750 schools - select employers 
+excess of 20,000 - including more than 10,000 students from over 750 schools - employers 
 obtain objective measurement and detail about candidates not found elsewhere. 
 </P>
 
 
 <P>
-The select employer receives the following: 
+The employer receives the following: 
 </P>
 
 <P>
 <B>Employment Advertisement and Job Postings</B><BR/>
-[TCES] will launch a page in the Jobs section of the [TC] site allowing employers to introduce 
-their company, the benefits of working in their organization and display a list of job openings. [TCES] 
-will include a link for a member to indicate interest in the position advertised. 
+[TCES] launches a page in the Jobs section of the [TC] site allowing employers to introduce 
+their company, the benefits of working in their organization and displays a list of job openings. [TCES] 
+includes a link for a member to indicate interest in the position advertised. 
 </P>
 
 <P>
 <B>Targeted Email Campaign</B><BR/>
-[TCES] will broadcast an email to those members who have opted to receive employment 
+[TCES] broadcasts an email to those members who have opted to receive employment 
 notifications to alert them of the employer's page in the Jobs section. 
-Additionally, the employer will have the opportunity to send one targeted email per month during 
+Additionally, the employer has the opportunity to send one targeted email per month during 
 the contract. The employer can focus on one or multiple criteria, including rating status, rating level, 
 state, professional/student status, school, and competition language. 
 </P>
 
 <P>
-<B>SRM Job Advertisement</B><BR/>
-During the membership term, the employer will have advertising time in the applet during one match per 
-month. As part of the employment package, the employer will be noted as a sponsor on the [TC] homepage, 
+<B>SRM Featured Employer</B><BR/>
+During the membership term, the employer has advertising time in the applet.
+As part of the employment package, the employer will be noted as a Featured Employer on the [TC] homepage, 
 member homepage, SRM summary page, and competition schedule page, as well as in the applet and practice rooms. 
 </P>
 
 <P>
 <B>Reporting Access</B><BR/>
-[TCES] will present the employer with reports on member responses to the employer's job advertisements 
-and targeted emails. In addition, the employer will be provided with the ability to view and download 
+[TCES] presents the employer with reports on member responses to the employer's job advertisements 
+and targeted emails. In addition, the employer is provided with the ability to view and download 
 resumes and access member profiles, contact information and competition detail, which includes comparative 
 statistics and code samples for rated TopCoder members. 
 </P>
@@ -129,24 +129,17 @@ statistics and code samples for rated TopCoder members.
 	<TR>
 		<TD class="bodyText">3 months</TD>
 		<TD class="bodyText">Up to 15</TD>
+		<TD class="bodyText">1</TD>
 		<TD class="bodyText">3</TD>
-		<TD class="bodyText">3</TD>
-		<TD class="bodyText">$3,000</TD>		
+		<TD class="bodyText">$5,000</TD>		
 	</TR>
 	<TR>
 		<TD class="bodyText">6 months</TD>
 		<TD class="bodyText">Up to 30</TD>
+		<TD class="bodyText">2</TD>
 		<TD class="bodyText">6</TD>
-		<TD class="bodyText">6</TD>
-		<TD class="bodyText">$5,000</TD>		
-	</TR>	
-	<TR>
-		<TD class="bodyText">12 months</TD>
-		<TD class="bodyText">Up to 60</TD>
-		<TD class="bodyText">12</TD>
-		<TD class="bodyText">12</TD>
-		<TD class="bodyText">$9,000</TD>		
-	</TR>			
+		<TD class="bodyText">$7,000</TD>		
+	</TR>				
 </TABLE>
 
 <P>
@@ -180,12 +173,12 @@ Animated elements are not accepted.
 <B>Position of Sponsored Areas</B>
 </P>
 
-<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="2" BGCOLOR="#FFFFFF" WIDTH="100%">
+<TABLE BORDER="1" BORDERCOLOR="#cccccc" CELLSPACING="1" CELLPADDING="2" BGCOLOR="#FFFFFF" WIDTH="100%">
 	<TR>
-		<TD class="bodyText" BGCOLOR="CCCCCC" WIDTH="25%"><B>Area</B></TD>
-		<TD class="bodyText" BGCOLOR="CCCCCC" WIDTH="25%"><B>Size</B></TD>
-		<TD class="bodyText" BGCOLOR="CCCCCC" WIDTH="25%"><B>Duration</B></TD>
-		<TD class="bodyText" BGCOLOR="CCCCCC" WIDTH="25%"><B>Deadline</B></TD>	
+		<TD class="bodyText" BGCOLOR="#CCCCCC" WIDTH="25%"><B>Area</B></TD>
+		<TD class="bodyText" BGCOLOR="#CCCCCC" WIDTH="25%"><B>Size</B></TD>
+		<TD class="bodyText" BGCOLOR="#CCCCCC" WIDTH="25%"><B>Duration</B></TD>
+		<TD class="bodyText" BGCOLOR="#CCCCCC" WIDTH="25%"><B>Deadline</B></TD>	
 	</TR>
 	<TR>
 		<TD class="bodyText">Employment Advertisement</TD>
@@ -218,21 +211,9 @@ Animated elements are not accepted.
 		<TD class="bodyText">2 weeks prior to posting</TD>		
 	</TR>	
 	<TR>
-		<TD class="bodyText">Match Results</TD>
-		<TD class="bodyText">170 x 117</TD>
-		<TD class="bodyText">Six months</TD>
-		<TD class="bodyText">2 weeks prior to posting</TD>		
-	</TR>	
-	<TR>
-		<TD class="bodyText">Statistics Index</TD>
-		<TD class="bodyText">170 x 117</TD>
-		<TD class="bodyText">Six months</TD>
-		<TD class="bodyText">2 weeks prior to posting</TD>		
-	</TR>	
-	<TR>
 		<TD class="bodyText">Calendar (Month View)</TD>
 		<TD class="bodyText">Text listing</TD>
-		<TD class="bodyText">One week</TD>
+		<TD class="bodyText">N/A</TD>
 		<TD class="bodyText">2 weeks prior to posting</TD>		
 	</TR>
 	<TR>
@@ -250,9 +231,9 @@ Animated elements are not accepted.
 		<TD class="bodyText">2 weeks prior to posting</TD>		
 	</TR>	
 	<TR>
-		<TD class="bodyText">Targeted email (3)</TD>
+		<TD class="bodyText">Targeted email</TD>
 		<TD class="bodyText">50 words each</TD>
-		<TD class="bodyText">n/a</TD>
+		<TD class="bodyText">N/A</TD>
 		<TD class="bodyText">3 days prior to distribution</TD>		
 	</TR>			
 </TABLE>
