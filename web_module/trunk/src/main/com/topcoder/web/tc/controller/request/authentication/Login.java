@@ -24,12 +24,15 @@ public class Login extends Base {
 
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
+    public static final String REMEMBER_USER = "rem";
 
     protected void businessProcessing() throws TCWebException {
 
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
+        String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
+        log.debug("rememberUser: " + rememberUser);
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -52,7 +55,7 @@ public class Login extends Base {
                             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                             setNextPage(dest);
                             setIsNextPageInContext(false);
-                            getAuthentication().login(new SimpleUser(0, username, password));
+                            getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("true"));
                             doLegacyCrap(getRequest());
                             return;
                         } else {
