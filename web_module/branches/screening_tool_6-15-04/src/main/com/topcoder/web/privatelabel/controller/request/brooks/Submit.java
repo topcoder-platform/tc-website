@@ -64,16 +64,6 @@ public class Submit extends FullRegSubmit {
         Coder coder = cHome.create();
         coder.createCoder(newUser.getId(), 1);
         
-        CompanyCandidateHome ccHome = (CompanyCandidateHome)
-                PortableRemoteObject.narrow(
-                        getInitialContext().lookup(CompanyCandidateHome.class.getName()),
-                        CompanyCandidateHome.class);
-        CompanyCandidate candidate = ccHome.create();
-        
-        long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
-        
-        candidate.createCompanyCandidate(companyId, newUser.getId());
-        
         ret = super.storeQuestions(regInfo, ret);
         
         //check for resume save
@@ -127,6 +117,17 @@ public class Submit extends FullRegSubmit {
 
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
         try {
+            //placed here to fix transaction woes.
+            CompanyCandidateHome ccHome = (CompanyCandidateHome)
+                PortableRemoteObject.narrow(
+                        getInitialContext().lookup(CompanyCandidateHome.class.getName()),
+                        CompanyCandidateHome.class);
+            CompanyCandidate candidate = ccHome.create();
+
+            long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
+
+            candidate.createCompanyCandidate(companyId, newUser.getId());
+
             if (((FullRegInfo)info).getCoderType()==Constants.STUDENT) {
                 StringBuffer buf = new StringBuffer(1000);
                 User user = (User) createEJB(getInitialContext(), User.class);
