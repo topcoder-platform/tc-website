@@ -48,7 +48,7 @@ abstract class FullLogin extends FullReg {
     }
 
     /**
-     * shouldn't use ejb slooooooooow
+     *
      * @param userId
      * @return
      * @throws Exception if user doesn't exist or some other ejb problem
