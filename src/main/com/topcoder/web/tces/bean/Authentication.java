@@ -86,14 +86,19 @@ public class Authentication implements Serializable {
      * @return A boolean indicating whether a user is authenticated within the given session
      */
     public static boolean isLoggedIn(HttpSession session) {
+        log.debug("isLoggedIn called...");
         Authentication auth = (Authentication)session.getAttribute("tces_auth");
 
-        if (auth==null)
+        if (auth==null) {
+            log.debug("no auth in session");
             return false;
-        else if (auth.getUserId()==USER_NOT_LOGGED_IN)
+        } else if (auth.getUserId()==USER_NOT_LOGGED_IN) {
+            log.debug("user not logged in");
             return false;
-        else
+        } else {
+            log.debug("user logged in");
             return true;
+        }
     }
 
     /** Indicates whether a user is authenticated within the given session, and the ID of that user
