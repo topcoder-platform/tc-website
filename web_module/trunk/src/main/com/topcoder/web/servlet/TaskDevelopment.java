@@ -103,7 +103,11 @@ public final class TaskDevelopment {
             String comp = Conversion.checkNull(request.getParameter("comp"));
             String date = Conversion.checkNull(request.getParameter("date"));
             String payment = Conversion.checkNull(request.getParameter("payment"));
+            String version = Conversion.checkNull(request.getParameter("version"));
+            String phase = Conversion.checkNull(request.getParameter("phase"));
             devTag.addTag(new ValueTag("comp", comp));
+            devTag.addTag(new ValueTag("version", version));
+            devTag.addTag(new ValueTag("phase", phase));
             
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
@@ -371,12 +375,13 @@ public final class TaskDevelopment {
 
                     long componentId = Long.parseLong(request.getParameter("comp"));
 
+
                     //add the user to the appropriate role to view the specification
                     java.util.HashSet rolesSet = (java.util.HashSet)PRINCIPAL_MANAGER.getRoles(null);  
                     RolePrincipal[] roles = (RolePrincipal[])rolesSet.toArray(new RolePrincipal[0]);
                     //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
 
-                    USER_MANAGER.registerInquiry(userId, componentId, rating,  (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, 1L, 1L);
+                    USER_MANAGER.registerInquiry(userId, componentId, rating,  (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, Long.parseLong(phase), Long.parseLong(version));
 
 
 
