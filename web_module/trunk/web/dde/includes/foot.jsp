@@ -4,7 +4,7 @@
     <tr><td width="100%" class="footer">
         <a href="/" class="footerLinks">Home</a>&#160;&#160;|&#160;&#160;
         <a href="http://www.topcoder.com/?t=about_tc&c=index" class="footerLinks">About TopCoder</a>&#160;&#160;|&#160;&#160;
-        <a href="http://www.topcoder.com/tc?d1=review_board&d2=design" class="footerLinks">Review Boards</a>&#160;&#160;|&#160;&#160;
+        <a href="http://www.topcoder.com/tc?module=ReviewBoard&ph=112" class="footerLinks">Review Boards</a>&#160;&#160;|&#160;&#160;
         <a href="http://www.topcoder.com/?t=news_events&c=index" class="footerLinks">Press Room</a>&#160;&#160;|&#160;&#160;
         <a href="http://www.topcoder.com/?&t=contacts&c=index" class="footerLinks">Contact Us</a>&#160;&#160;|&#160;&#160;
         <a href="../components/s_privacy.jsp" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
