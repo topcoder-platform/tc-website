@@ -143,6 +143,9 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     private void viewDemographics() throws Exception
     {
         Request dataRequest = new Request();
+        ResultSetConainter rsc = null;
+        Map resultMap = null;
+        DataAccessInt dai = null;
 
         if (getPositionID()>=0) {
             // Position Demographics
@@ -166,10 +169,10 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             dataRequest.setProperty("uid", Integer.toString(uid) );
             dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
             dataRequest.setProperty("ct", Integer.toString(types[typeI]) );
-            DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-            Map resultMap = dai.getData(dataRequest);
+            dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            resultMap = dai.getData(dataRequest);
 
-            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
+            rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
             ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
             setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
 
