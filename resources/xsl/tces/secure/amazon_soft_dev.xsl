@@ -65,7 +65,7 @@
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=amazon" class="bodyText"><img src="/i/es/amazon/amazon_logo.gif" width="139" height="34" alt="Amazon.com" border="0" /></A></p>
 
-                        <h3>Software Engineer, Algorithms Team, #03-007827</h3>
+                        <h3>Software Development Engineer, #03-008239</h3>
                         
                         <p><strong>Job Description</strong><br />
                         Amazon.com is looking for a passionate and skilled software development engineer to join its team. Desired skills 

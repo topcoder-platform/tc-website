@@ -65,7 +65,7 @@
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=amazon" class="bodyText"><img src="/i/es/amazon/amazon_logo.gif" width="139" height="34" alt="Amazon.com" border="0" /></A></p>
 
-                        <h3>Software Engineer, Algorithms Team, #03-007827</h3>
+                        <h3>Software Development Engineer, Item Management, #03-008293 </h3>
                         
                         <p><strong>Job Description</strong><br />
                         Amazon.com's Item Management team is looking for an exceptional software engineer to create and enhance 
