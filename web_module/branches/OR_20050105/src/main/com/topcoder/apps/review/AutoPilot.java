@@ -73,7 +73,7 @@ public class AutoPilot {
         return new SuccessResult();
     }
 
-    public static ResultData finalReviewFailed(FinalReviewData data) {
+    public static ResultData finalReviewFailed(FinalReviewData data, int notFixedItems, String comment) {
         try {
             //setup user info
             TCSubject subject = new TCSubject(100129);
@@ -89,31 +89,26 @@ public class AutoPilot {
 
             if(!project.getAutoPilot()) return new SuccessResult();
 
-            List emailAddresses = new ArrayList();
-
-            // add the PM and reviewers for receiving the mail
             UserRole[] participants = project.getParticipants();
             for(int i = 0; i < participants.length;i++) {
                 if( (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) ||
                     (participants[i].getRole().getId() == Role.ID_REVIEWER) )
                 {
-                    emailAddresses.add(participants[i].getUser().getEmail());
+                    MailHelper.failedReviewMail(user, participants[i].getUser(), notFixedItems, comment, project);
                 }
             }
 
             // add the winner for receiving the mail
-            emailAddresses.add(project.getWinner().getEmail());
+            MailHelper.failedReviewMail(user, project.getWinner(), notFixedItems, comment, project);
 
 
+            // Move to final fixes
+            ProjectForm form = new ProjectForm();
 
-            StringBuffer mail = new StringBuffer();
-            mail.append("The following project: \n\n");
-            mail.append(project.getName());
-            mail.append("\n\nhas some non fixed items.");
+            form.fromProject(project);
+            form.setCurrentPhase("Final Fixes");
+            form.setReason("auto pilot moving to Final FixesFinal Fixes");
 
-            for (int i = 0; i < emailAddresses.size(); i++) {
-                sendMail("autopilot@topcoder.com", (String) emailAddresses.get(0), "AutoPilot: Final Review Notification", mail.toString());
-           }
 
 
         } catch(Exception e) {

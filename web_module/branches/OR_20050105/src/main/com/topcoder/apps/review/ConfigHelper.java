@@ -92,6 +92,12 @@ public class ConfigHelper implements ConfigManagerInterface {
     private static final String APPEAL_RESOLVED_XSL = "appeal_resolved_xsl";
 
     /**
+     * Final review failed mail xsl file property name.
+     */
+    private static final String FINAL_REVIEW_FAIL_XSL = "final_review_fail_xsl";
+
+
+    /**
      * The list of properties.
      */
     private static List props;
@@ -263,25 +269,25 @@ public class ConfigHelper implements ConfigManagerInterface {
         return Collections.enumeration(props);
     }
 
-	/**
+    /**
      * Get the xsl mail template file for appeal creation.
      *
      * @return the name of the xsl file
-	 * @return
-	 */
-	public static String getAppealCreatedXSL() throws UnknownNamespaceException {
+     * @return
+     */
+    public static String getAppealCreatedXSL() throws UnknownNamespaceException {
         return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_CREATED_XSL);
-	}
+    }
 
-	/**
+    /**
      * Get the xsl mail template file for appeal creation.
      *
      * @return the name of the xsl file
-	 * @return
-	 */
-	public static String getAppealResolvedXSL() throws UnknownNamespaceException {
+     * @return
+     */
+    public static String getAppealResolvedXSL() throws UnknownNamespaceException {
         return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_RESOLVED_XSL);
-	}
+    }
 
 }
 
