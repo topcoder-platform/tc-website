@@ -4,6 +4,8 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.tc.controller.legacy.reg.bean.Task;
 import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
 import com.topcoder.web.tc.model.CoderSessionInfo;
@@ -48,9 +50,8 @@ public class Controller
                     return;
                 }
                 session = request.getSession(true); // for now create a new session, later this'll be done in the front page
-                if (session == null) {
-                    session = request.getSession(true);
-                }
+                Navigation nav = (Navigation)session.getAttribute("navigation");
+                if (!nav.isLoggedIn()) throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
                 Object taskObject = session.getAttribute(taskName);
                 Task task = null;
                 Class taskClass = null;

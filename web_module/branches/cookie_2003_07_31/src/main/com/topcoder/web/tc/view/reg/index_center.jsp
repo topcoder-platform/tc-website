@@ -135,7 +135,7 @@ function checkInputs(){
                 <tr valign="middle">
                     <td class="registerLabel">&nbsp;</td>
                     <td class="statText">
-                        <jsp:include page="../includes/modules/member_photo.jsp" >
+                        <jsp:include page="member_photo.jsp" >
                             <jsp:param name="class" value="statTextBig"/>
                         </jsp:include>
                     </td>
