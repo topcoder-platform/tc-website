@@ -150,7 +150,7 @@
    if (messageID!=msgID) {
         buf.append("<tr>");
             buf.append("<td></td>");
-            buf.append("<td colspan=\"2\" valign=\"middle\" class=\"statTextBig\" background=\"/i/steel_bluebv_bg.gif\" height=\"18\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" align=\"left\" /><b>");
+            buf.append("<td colspan=\"2\" valign=\"middle\" class=\"statTextBig\" background=\"/i/steel_bluebv_bg.gif\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" /><b>");
                 buf.append( "<a name =").append(messageID).append(">").append(subject).append("</a>" );
             buf.append("</b></td>");
         buf.append("</tr>");
@@ -182,7 +182,7 @@
         buf.append("</tr>");
         buf.append("<tr>");
             buf.append("<td></td>");
-            buf.append("<td valign=\"top\" colspan=\"2\" class=\"statText\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" />").append( (msgBody!=null)?msgBody:"" ).append("</td>");
+            buf.append("<td valign=\"top\" colspan=\"2\" class=\"statText\">").append( (msgBody!=null)?msgBody:"" ).append("</td>");
         buf.append("</tr>");
         buf.append("<tr>");
             buf.append("<td></td>");
@@ -365,17 +365,13 @@ int numReplies = thread.getMessageCount()-1;
                             <tr background="/i/steel_darkblue_bg.gif"><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="1" /></td></tr>
 
                             <tr>
-                                <td align="left" class="statText" height="18"><img src="/i/clear.gif" width="3" height="1" />Posted By: <%=getUserDisplay(author)%></td>
+                                <td align="left" class="statText" height="18">Posted By: <%=getUserDisplay(author)%></td>
                                 <td colspan="3" align="right" class="statText" height="18">Posted <i><%= dateFormatter.format(creationDate) %>&#160;<img src="/i/clear.gif" width="6" height="1" /></td>
                             </tr>
 
                             <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td></tr>
-                            <tr><td colspan="4" class="statText"><img src="/i/clear.gif" width="3" height="1" /><%= (rootMsgBody!=null)?rootMsgBody:"" %></td></tr>
-                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td></tr>
-                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="2" /></td></tr>
-                            <tr><td colspan="4"><img src="/i/clear.gif" width="1" height="4" /></td></tr>
-                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="5" /></td></tr>
-
+                            <tr><td colspan="4" class="statText"><%= (rootMsgBody!=null)?rootMsgBody:"" %></td></tr>
+                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="12" /></td></tr>
                             <tr><td width="1" colspan="4" align="center"><a class="statTextBig" href="<%=response.encodeURL("/rtables/post.jsp")%>?mode=reply&forum=<%=forumID%>&thread=<%=threadID%>&message=<%=rootMessageID%>">[ Reply ]</a></td></tr>
 
                             <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="15" /></td></tr>
