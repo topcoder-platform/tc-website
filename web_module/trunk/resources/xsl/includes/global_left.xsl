@@ -1030,6 +1030,28 @@
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
 
+
+        <xsl:when test="/TC/Task='sponsor'">
+            <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
+                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="sched_row"/>
+                <xsl:call-template name="stats_row"/>
+                <xsl:call-template name="feat_row"/>
+                <xsl:call-template name="dev_row"/>
+                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="rules_row"/>
+                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="about_row"/>
+                <xsl:call-template name="press_row"/>
+                <xsl:call-template name="contacts_row"/>
+          </table>
+
+            <xsl:call-template name="simple_search"/>
+            <xsl:call-template name="left_nav_btm_row"/>
+        </xsl:when>
+
+
         <xsl:when test="/TC/Task='contacts'">
             <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="label_row"/>
