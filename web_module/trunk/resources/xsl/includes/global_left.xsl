@@ -750,16 +750,56 @@
 <xsl:call-template name="simple_search"/>
 <xsl:call-template name="left_nav_btm_row"/>         
       </xsl:when>
-      
-      <xsl:when test="/TC/Command='reg'">
+
+      <xsl:when test="/TC/Task='tces'">
             <!-- <xsl:call-template name="module_login"/> -->       
           <TABLE WIDTH="170" BGCOLOR="#000000" CELLSPACING="0" CELLPADDING="0" BORDER="0">
-            <xsl:call-template name="read_row"/> 
-            <xsl:call-template name="terms_row"/>
-            <xsl:call-template name="privacy_row"/>
+            <TR> 
+              <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+              <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/arrow_white_down.gif" BORDER="0"/><FONT COLOR="#FFFFFF">&#160;<A HREF="/?&amp;t=tces&amp;c=index" CLASS="statTextBig">[TC] Employment Services</A></FONT></TD>
+              <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+            </TR>
+            <xsl:call-template name="div_line_row"/>
+            <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">
+            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+			<xsl:when test="/TC/Command='nopagehere'">graybv_lite_bg</xsl:when>
+			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>&#160;&#160;Jobs for Members</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
+            <xsl:call-template name="div_line_row"/>
+            <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">
+            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+			<xsl:when test="/TC/Command='hiring'">graybv_lite_bg</xsl:when>
+			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=hiring</xsl:attribute>&#160;&#160;Hiring for Employers</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
+            <xsl:call-template name="div_line_row"/>            
+            <TR> 
+              <TD VALIGN="top" BGCOLOR="#666666"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+              <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#666666"><FONT COLOR="#000000">&#160;[TCES] Reporting</FONT></TD>
+              <TD VALIGN="top" BGCOLOR="#666666"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+            </TR>
+			<TR>
+			  <TD VALIGN="top" BGCOLOR="#666666" CLASS="subNav" ALIGN="right">&#160;</TD>
+			  <TD VALIGN="top" HEIGHT="15" BGCOLOR="#666666" CLASS="statText" WIDTH="100%">Employers <A HREF="/tces/tces?task=LoginTask" CLASS="statText"><B>login</B></A> to access the [TCES] reporting application.<BR/></TD>
+			  <TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">&#160;</TD>
+			</TR>
+            <TR><TD COLSPAN="2" BGCOLOR="#666666"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="2"/></TD><TD WIDTH="1" BGCOLOR="#666666"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>            
+            <xsl:call-template name="label_row"/> 
+            <xsl:call-template name="sched_row"/>
+            <xsl:call-template name="stats_row"/>
+            <xsl:call-template name="feat_row"/>            
+            <xsl:call-template name="dev_row"/>             
+            <xsl:call-template name="tourney_row"/>
+            <xsl:call-template name="rtables_row"/> 
+            <xsl:call-template name="rules_row"/>
+            <!-- <xsl:call-template name="new_mbr_row"/> -->            
+            <xsl:call-template name="corp_label_row"/> 
+            <xsl:call-template name="about_row"/>
+            <xsl:call-template name="press_row"/>
+            <xsl:call-template name="contacts_row"/>
           </TABLE>
+<xsl:call-template name="simple_search"/>
 <xsl:call-template name="left_nav_btm_row"/>         
-      </xsl:when>            
+      </xsl:when>                 
 
                                          
       <xsl:otherwise>      
