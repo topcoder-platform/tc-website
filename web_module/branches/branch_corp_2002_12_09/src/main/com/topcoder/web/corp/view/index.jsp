@@ -57,7 +57,7 @@
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-		      <A HREF="/?module=Static&d1=prem_content&d2=index" CLASS="bodyText">Learn More &gt;</A>
+		      <A HREF="/corp/?module=Static&d1=prem_content&d2=index" CLASS="bodyText">Learn More &gt;</A>
 		       </TD>
 		       <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="8" HEIGHT="1"></TD>
 		       <TD VALIGN="top" WIDTH="1" BGCOLOR="#CCCCCC"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1"></TD>
@@ -70,7 +70,7 @@
 		       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, qt. Ut 
 		       wisi enim adminim veniam, quis nostrud exerci. 
 		       tuer adipiscing elit, sedsed dagna aliquam erat volu adminim veniam, qveniam, q
-		      <A HREF="/?module=Static&d1=acc_admin&d2=index" CLASS="bodyText">Learn More &gt;</A>		       
+		      <A HREF="/corp/?module=Static&d1=acc_admin&d2=index" CLASS="bodyText">Learn More &gt;</A>		       
 		       </TD>
 	        </TR>
 	        <TR>
@@ -88,7 +88,7 @@
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-		      <A HREF="/?module=Static&d1=spon_prog&d2=index" CLASS="bodyText">Learn More &gt;</A>
+		      <A HREF="/corp/?module=Static&d1=spon_prog&d2=index" CLASS="bodyText">Learn More &gt;</A>
 		       </TD>
 		       <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="8" HEIGHT="1"></TD>
 		       <TD VALIGN="top" WIDTH="1" BGCOLOR="#CCCCCC"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1"></TD>
