@@ -5,10 +5,8 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.reg.servlet.*" %>
 <jsp:useBean id="Registration" scope="session" class="com.topcoder.web.tc.controller.legacy.reg.bean.Registration" />
 <jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
-<%--
 <tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 <jsp:setProperty name="Registration" property="user" value="<%=user%>" />
---%>
 
 <SCRIPT type="text/javascript">
 var usIndex=0;
