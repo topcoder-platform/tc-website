@@ -33,7 +33,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$11,980</span> in payments.</td>
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$1,755</span> in payments.</td>
                             </tr>
                         </table>
                     </td>
