@@ -111,9 +111,9 @@ public final class ProjectDetailAction extends ReviewAction {
                     if ((len > 0) && (pr.getSubmissions()[len - 1] instanceof FinalFixSubmission) &&
                          orpd.getUser().equals(pr.getSubmissions()[len - 1].getSubmitter())
                         && pr.getSubmissions()[len - 1].isSubmitted()) {
-                        request.setAttribute(SUBMISSION_ID_KEY, new Long(-1));
+                        request.setAttribute(Constants.SUBMISSION_ID_KEY, new Long(-1));
                     } else {
-                        request.setAttribute(SUBMISSION_ID_KEY, new Long(pr.getSubmissions()[i].getId()));
+                        request.setAttribute(Constants.SUBMISSION_ID_KEY, new Long(pr.getSubmissions()[i].getId()));
                     }
 
                     break;

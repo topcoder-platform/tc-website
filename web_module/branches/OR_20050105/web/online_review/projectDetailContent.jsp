@@ -202,7 +202,7 @@
                 <tr>
                     <td class="forumTextOdd">
 						<bean:define id="projectId" name="project" property="id" />
-						<bean:define id="submissionId" name="submissionid" />
+						<bean:define id="submissionId" name="sid" />
 					    <html:link page='<%="/submissionDownload.do?id="+projectId+"&sid="+submissionId%>' styleClass="breadcrumbLinks"><bean:message key="prompt.download" /></html:link></td>
                 </tr>                
 </logic:present>                

@@ -143,12 +143,6 @@ public final class Constants {
      */
     public static final String TESTCASE_LIST_KEY = "testcases";
 
-    /**
-     * The request scope attribute under which the submission id needed
-     * for downloading is stored.
-     */
-    public static final String SUBMISSION_ID_KEY = "submissionid";
-
     // --------------------------------------------------------- Action Mapping
 
     /**
