@@ -896,6 +896,7 @@
                 <include name="foot.jsp"/>
                 <include name="script.jsp"/>
                 <include name="body_top.jsp"/>
+                <include name="date_time.jsp"/>
                 <include name="top.jsp"/>
             </fileset>
             <classes dir="${classes}">
