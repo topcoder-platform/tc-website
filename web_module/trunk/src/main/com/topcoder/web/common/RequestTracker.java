@@ -94,7 +94,7 @@ public class RequestTracker {
     }
 
 
-    private class UserRequest {
+    private static class UserRequest {
         private User u;
         private TCRequest r;
 
