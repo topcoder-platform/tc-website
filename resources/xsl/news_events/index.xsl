@@ -71,7 +71,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.computerworld.com/industrytopics/financial/story/0,10801,98834,00.html" target="_blank">Code Reuse Pays Off for ING </A></strong></font><br />
-						ING Americas last month finished work on a quality-management application built using an innovative development process that the company estimated saved it $300,000 and 1,200 man-hours. <span class="prHead">[January 10]</span></p>
+						ING Americas last month finished work on a quality-management application built using an innovative development process that the company estimated saved it $300,000 and 1,200 man-hours. <span class="prHead">[January 10 - ComputerWorld]</span></p>
                     </td>
                 </tr>
             </table>
