@@ -1,4 +1,4 @@
-
+<SCRIPT Language="javascript"> <!--
 if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   // Linux Stylesheets
   document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
@@ -33,3 +33,4 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
       }
     }
   }
+//--> </SCRIPT>
