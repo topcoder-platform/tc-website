@@ -240,7 +240,65 @@ size="+2"><B>CheatCode</B></FONT><br /><FONT size="-1">Used as: Division-I, Leve
       <td style="BACKGROUND: #eee" class="bodyText"><B>High Score</B></td>
       <td style="BACKGROUND: #eee" class="bodyText"><B>malpt</B> for 327.38 points 
     </td></TR></TBODY></TABLE></BLOCKQUOTE></FONT>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
+<p>
+                This problem can be modeled as a nondeterministic finite automaton (NFA).
+                That is, we iterate through each sequence of keystrokes.  At each keystroke, we
+                are in some set of states (which for this problem is a set of positions in the target cheat code).
+                For each keystroke, we iterate through each state and, for each state, find as many states that
+                can be reached from that state using that keystroke as possible.  These become part of the new set of states.
+            </p>
+<p>
+                For instance, initially our set of states consists of only one state: the beginning of the cheat code.
+                When we read a keystroke, we see if it matches the next character in the cheat code.  If it does, then
+                we know that advancing the position by one gives one possible next state.  If that character is the same as
+                the previous keystroke entered, then we can also ignore it, which means the current state is also a
+                possible next state.  And, we can also always go back to the beginning of the cheat code as the next state.
+            </p>
+<p>
+                We can represent the set of current states as a simple bitmask (e.g., an array of boolean values), where
+                the <i>i</i>th value of the bitmask specifies whether or not position <i>i</i> in the cheat code is reachable at this point.
+                Initially, <code>bitmask[0] = true</code> while the rest is <code>false</code>.
+                We then proceed through the keystrokes and generate a new bitmask.  After we process the keystroke, we replace the
+                previous bitmask with the new one.  If the <i>n</i>th bit of the bitmask is ever true, where <i>n</i> is the length
+                of the cheat code, then we have a valid entry of the cheat code.
+            </p>
+<p>
+                The trick to this problem is understanding the model (that is, how to map it to an NFA, and what an NFA is).
+                The implementation is actually rather easy.
+            </p>
+<p><br  /></p>
+<a name="PossibleOrders"></a><font size="+2"><b>PossibleOrders</b></font><br /><font size="-1">
+    Used as: Division-I, Level 3
+            :<blockquote><table cellspacing="2">
+<tr>
+<td style="background: #eee;" class="bodyText"><b>Value</b></td>
+<td style="background: #eee;" class="bodyText">1000</td>
+</tr>
+<tr>
+<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+<td style="background: #eee;" class="bodyText">18
+    /
+    137
+    (13.14%)
+</td>
+</tr>
+<tr>
+<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+<td style="background: #eee;" class="bodyText">14
+    /
+    18
+    (77.78%)
+</td>
+</tr>
+<tr>
+<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+<td style="background: #eee;" class="bodyText">
+<b>vorthys</b> for
+                    893.76 points
+                </td>
+</tr>
+</table></blockquote></font><H4>Implementation</H4>
 <p>
                 To begin, we use the information provided to build a graph.  Initially, we have a graph with no edges and a vertex for each
                 of the <i>num</i> objects.  Then, for each equivalence given, we construct an edge between the two objects.
