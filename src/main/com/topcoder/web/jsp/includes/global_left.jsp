@@ -5,12 +5,17 @@
           java.text.SimpleDateFormat,
           java.util.HashMap,
           java.util.Iterator,
-          com.topcoder.shared.util.ApplicationServer"
+          com.topcoder.shared.util.ApplicationServer,
+          com.topcoder.web.tc.model.CoderSessionInfo,
+          com.topcoder.web.common.BaseServlet"
 %>
 
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
+    CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+    //this can probably go if we can standardize the MVC.  rtables is the current exception
+    if (info==null) info = new Navigation(request, response).getSessionInfo();
 %>
 
             <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
@@ -77,6 +82,13 @@
                 <tr><td id="<%=level2.equals("quick_stats")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>
                 <tr><td id="<%=level2.equals("search")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=ViewAdvanced">Advanced Member Search</a></td></tr>
                 <tr><td id="<%=level2.equals("member_surveys")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?&module=SurveyList">Member Surveys</a></td></tr>
+                <% if (!info.isAnonymous() && info.getRating()>0) { %>
+                    <tr><td id="<%=level2.equals("member_profile")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=member_profile&cr=<%=info.getUserId()%>">Member Profile</a></td></tr>
+                    <tr><td id="<%=level2.equals("ratings_history")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=ratings_history&cr=<%=info.getUserId()%>">Ratings History</a></td></tr>
+                    <tr><td id="<%=level2.equals("earnings_history")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=earnings_history&cr=<%=info.getUserId()%>">Earnings History</a></td></tr>
+                    <tr><td id="<%=level2.equals("coder_room_stats")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=coder_room_stats&cr=<%=info.getUserId()%>">My Last Match</a></td></tr>
+                    <tr><td id="<%=level2.equals("round_stats")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=round_stats&cr=<%=info.getUserId()%>">Round Statistics</a></td></tr>
+                <% } %>
             <% } %>
 <%-- Statistics ends --%>
 
