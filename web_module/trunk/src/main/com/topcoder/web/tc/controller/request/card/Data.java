@@ -51,7 +51,7 @@ public class Data extends Base {
             distRequest.setContentHandle("rating_distribution_graph");
 
             ResultSetContainer profileRsc =
-                    (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(distRequest).get("card_profile_info");
+                    (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(profileRequest).get("card_profile_info");
 
             ResultSetContainer distRsc =
                     (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(distRequest).get("Rating_Distribution_Graph");
