@@ -44,22 +44,35 @@
         for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
             me = (Map.Entry)it.next();
             System.out.println("key: " + me.getKey() + " valu: " + (String)me.getValue());
-            if (me.getKey().equals(Constants.CLASS_NAME)
-                    || me.getKey().equals(Constants.MIN_DIV1_SUCCESS)
-                    || me.getKey().equals(Constants.MIN_DIV2_SUCCESS)
-                    || me.getKey().equals(Constants.MAX_DIV1_SUCCESS)
-                    || me.getKey().equals(Constants.MAX_DIV2_SUCCESS)
-                    || me.getKey().equals(Constants.DIV1_LEVEL)
-                    || me.getKey().equals(Constants.DIV2_LEVEL)) {
-                if (me.getValue()!=null) {
-                    buf.append("&");
-                    buf.append(me.getKey().toString());
-                    buf.append("=");
-                    buf.append(me.getValue().toString());
+            String[] sArray = null;
+
+            if (me.getValue() instanceof String) {
+                add(buf, me.getKey().toString(), me.getValue().toString());
+            } else if (me.getValue().getClass().isArray()) {
+                for (int i = 0; i < sArray.length; i++) {
+                    add(buf, me.getKey().toString(), sArray[i]);
                 }
             }
         }
         return buf.toString();
+    }
+
+    void add(StringBuffer buf, String key, String val) {
+        if (key.equals(Constants.CLASS_NAME)
+                || key.equals(Constants.MIN_DIV1_SUCCESS)
+                || key.equals(Constants.MIN_DIV2_SUCCESS)
+                || key.equals(Constants.MAX_DIV1_SUCCESS)
+                || key.equals(Constants.MAX_DIV2_SUCCESS)
+                || key.equals(Constants.DIV1_LEVEL)
+                || key.equals(Constants.DIV2_LEVEL)) {
+            if (val!=null) {
+                buf.append("&");
+                buf.append(key);
+                buf.append("=");
+                buf.append(val);
+            }
+        }
+
     }
 %>
 <script language="JavaScript"><!--
