@@ -4,7 +4,6 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.view.tag.DemographicInput;
 import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -62,32 +61,36 @@ public class FullRegConfirm extends FullRegBase {
 
         //get the demographic responses
         DemographicQuestion q = null;
-        String value = null;
+        String[] values = null;
         DemographicResponse r = null;
         String key = null;
         List questionList = getQuestionList();
         List responses = new ArrayList(questionList.size());
+        //loop through all the questions
         for (Iterator it = questionList.iterator(); it.hasNext();) {
             q = (DemographicQuestion) it.next();
             key = DemographicInput.PREFIX + q.getId();
-            value = StringUtils.checkNull(getRequest().getParameter(key));
-            r = new DemographicResponse();
-            r.setQuestionId(q.getId());
-            if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
-                r.setText(value);
-                responses.add(r);
-            } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
-                try {
-                    r.setAnswerId(Long.parseLong(value));
+            values = getRequest().getParameterValues(key);
+            //loop through all the responses in the request
+            for (int i=0; i<values.length; i++) {
+                r = new DemographicResponse();
+                r.setQuestionId(q.getId());
+                if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                    r.setText(values[i]);
                     responses.add(r);
-                } catch (NumberFormatException e) {
-                    //skip it, it's invalid, checking will have to pick it up later
+                } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                        q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT ) {
+                    try {
+                        r.setAnswerId(Long.parseLong(values[i]));
+                        responses.add(r);
+                    } catch (NumberFormatException e) {
+                        //skip it, it's invalid, checking will have to pick it up later
+                    }
+                } else {
+                    throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
                 }
-            } else if (q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                log.debug("don't know what to do with multiselect yet");
-            } else {
-                //todo error handling here, not a valid question
             }
+
         }
         info.setResponses(responses);
 
@@ -113,8 +116,9 @@ public class FullRegConfirm extends FullRegBase {
             for (Iterator it = info.getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
                 q = findQuestion(r.getQuestionId());
-                if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
-                    if (!validResponse(r) && q.isRequired()) {
+                if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                        q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                    if (!validResponse(r)) {
                         addError(DemographicInput.PREFIX + r.getQuestionId(), "Please choose an answer from the list.");
                     }
                 } else if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
@@ -123,8 +127,6 @@ public class FullRegConfirm extends FullRegBase {
                     } else if (q.isRequired() && r.getText().length() < 1) {
                         addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a valid answer.");
                     }
-                } else if (q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                    //todo handle these
                 }
             }
         } catch (Exception e) {
