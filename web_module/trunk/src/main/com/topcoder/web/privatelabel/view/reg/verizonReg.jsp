@@ -64,9 +64,9 @@
                         <h2 class="pgTitle">Registration</h2>
 
                         <% if (regInfo.isRegFull()) { %>
-                            <p class="bodyText">
-                                Registration for the Verizon Coding Challenge is full.  However, you may continue to
-                                provide your information below to be notified of future Verizon coding events.<br/>
+                            <p>
+                                <font color="#FF0000"><b>Registration for the Verizon Coding Challenge is full.  However, you may continue to
+                                provide your information below to be notified of future Verizon coding events.</b></font><br/>
                             </p>
                         <% } %>
 
@@ -84,7 +84,7 @@
             
             <tr>
                 <td align="right" nowrap>
-                    Handle
+                    Handle (nickname)
                 </td>
                 <td align="left" width="100%">
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>"/>
@@ -171,7 +171,7 @@
                     Email Address
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
                 </td>
             </tr>
 
@@ -185,7 +185,7 @@
                     Confirm Email Address
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>"  size="15" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
                 </td>
             </tr>
 

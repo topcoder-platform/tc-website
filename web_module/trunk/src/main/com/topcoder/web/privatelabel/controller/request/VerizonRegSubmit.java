@@ -65,9 +65,6 @@ public class VerizonRegSubmit extends FullRegSubmit {
             mail.setSubject("IMPORTANT - Verizon Coding Challenge Activation Email");
 
             buf.append("VERIZON CODING CHALLENGE ACTIVATION INFORMATION\n\n");
-            buf.append("Your Verizon activation code is ");
-            buf.append(code);
-            buf.append("\n\n");
             buf.append("To activate your account, navigate to the URL below.  Once you have activated your account, you will be notified of your participation status in the Verizon Coding Challenge.\n\n");
             buf.append(getUrl(code));
             buf.append("\n\n");
