@@ -82,7 +82,7 @@ public class TCCC05ContestDetails extends StatBase {
                     }
                 }
 
-                addPoints(rsc.getStringItem(i, "handle"), rsc.getIntItem(i, "user_id"), pts, bComplete);
+                addPoints(rscDetails.getStringItem(i, "handle"), rscDetails.getIntItem(i, "user_id"), pts, bComplete);
             }
         }
         
