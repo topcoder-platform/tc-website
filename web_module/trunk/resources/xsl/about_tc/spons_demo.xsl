@@ -94,8 +94,8 @@
 					<DIV ALIGN="center">
 					<!--top inner table-->
 					<TABLE WIDTH="75%" BORDER="1" CELLPADDING="4" CELLSPACING="0" BACKGROUND="/i/steel_gray_bg.gif">
-					<TR><TD ALIGN="left" CLASS="statText">Overall, members are the biggest driving force behind new membership in TopCoder, with <SPAN CLASS="statTextBig">word of mouth accounting for over 29&#37;</SPAN> of weekly new membership. 
-					Emails forwarded from Faculty accounts for more than 9&#37; of weekly growth.<BR/><BR/>Competition is the primary interest of both the student &#40;59&#37;&#41; and professional &#40;71&#37;&#41; demographic in comparison to cash prizes and employment opportunities.</TD></TR>
+					<TR><TD ALIGN="left" CLASS="statText">Overall, members are the biggest driving force behind new membership in TopCoder, with <SPAN CLASS="statTextBig">word of mouth accounting for over 31&#37;</SPAN> of weekly new membership. 
+					Emails forwarded from Faculty accounts for more than 10&#37; of weekly growth.<BR/><BR/>Competition is the primary interest of both the student &#40;59&#37;&#41; and professional &#40;71&#37;&#41; demographic in comparison to cash prizes and employment opportunities.</TD></TR>
 					</TABLE></DIV>
 					<DIV ALIGN="center"><BR/><BR/>
 					<TABLE WIDTH="75%" BORDER="0" CELLPADDING="4" CELLSPACING="0" BACKGROUND="/i/steel_gray_bg.gif">
@@ -125,14 +125,14 @@
 						<TD ALIGN="center" WIDTH="6%" VALIGN="top" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 						<TD ALIGN="left" WIDTH="47%" VALIGN="top" CLASS="statText">
 						<B>School Penetration</B><BR/>
-						TopCoder's student membership represents 698 schools with an average of 9 members at each school.<BR/><BR/>
+						TopCoder's student membership represents 699 schools with an average of 10 members at each school.<BR/><BR/>
 						<B>Top Five Schools</B><BR/>(by member count)<UL>
-						<LI>U. of Mich. Ann Arbor - 183</LI>
-						<LI>MIT - 179</LI>
-						<LI>Virginia Tech - 128</LI>
-						<LI>U. of Texas Austin - 128</LI>
-						<LI>Georgia Tech - 127</LI></UL>						
-						
+						<LI>U. of Mich. Ann Arbor - 184</LI>
+						<LI>MIT - 182</LI>
+						<LI>U. of Texas Austin - 133</LI>						
+						<LI>Georgia Tech - 129</LI></UL>						
+						<LI>Virginia Tech - 127</LI>
+
 						<B>Education to Workforce</B><UL>
 						<LI>30&#37;&#32;&#32;planned 2002 graduates</LI>
 						<LI>27&#37;&#32;&#32;planned 2003 graduates</LI>
