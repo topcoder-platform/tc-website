@@ -72,9 +72,9 @@
 				<tr>
 					<td valign="top" class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=tchs">TopCoder High School</a><br/>
-						Posted: 11.18.2002<br/>
-						Inquiry Deadline: 11.22.2002<br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=screening">Candidate Screening Tool</a><br/>
+						Posted: 12.09.2002<br/>
+						Inquiry Deadline: 12.14.2002<br/>
 						</p>   
                         <P><BR/></P>
 					</td>
@@ -82,11 +82,26 @@
 					<td valign="top" class="statText" width="50%">
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=tc_corp">TopCoder Corporate</a><br/>
-						Posted: 12.2.2002<br/>
-						Inquiry Deadline: 12.6.2002<br/>
+						Posted: 12.02.2002<br/>
+						Inquiry Deadline: 12.06.2002<br/>
 						</p>    
 					</td>
-				</tr>										
+				</tr>
+				<tr>
+					<td valign="top" class="statText" width="50%">
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=tchs">TopCoder High School</a><br/>
+						Posted: 11.18.2002<br/>
+						Inquiry Deadline: 11.22.2002<br/>
+						</p>   
+                        <P><BR/></P>
+					</td>
+
+					<td valign="top" class="statText" width="50%">&#160;   
+					</td>
+				</tr>				
+				
+														
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
