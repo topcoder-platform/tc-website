@@ -74,9 +74,9 @@
                 <tr><td class="tourney_subnav"><strong>Reception Summary</strong></td></tr>
                 <tr valign="top">
                     <td width="99%" class="bodyText">
-                        <table border="0" cellspacing="5" cellpadding="0" align="left">
-                            <tr valign="top"><td align="left"><img src="/i/tournament/invit02/tourney_photo_SFR1.jpg" alt="" width="200" height="435" class="photoFrameBig" /></td></tr>
-                            <tr valign="top"><td align="left" class="smallText">SnapDragon takes Round One with ease.</td></tr>
+                        <table border="0" cellspacing="5" cellpadding="0" width="200" align="right">
+                            <tr valign="top"><td align="left"><img src="/i/tournament/tccc03/recep_main.jpg" alt="Tom Longo, VP of Membership" width="200" height="325" class="photoFrameBig" /></td></tr>
+                            <tr valign="top"><td align="left" class="smallText">TopCoder VP of Membership, Tom Longo, addresses the crowd.</td></tr>
                         </table>
                                 
                         <h2> The Sweet 16 </h2>
@@ -84,50 +84,49 @@
                         Thursday, April 3, 2003<br />
                         <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current bracket</a></p>
 
-                       	<p>Competitors representing schools such as Duke, Michigan, Minnesota, Stanford, and UCLA 
-                       	will face off this weekend in an effort to be crowned champion of a collegiate tournament.  
-                       	Is it the culmination of the NCAA Men's Basketball tournament?  Nope, it's the Collegiate 
-                       	Challenge Finals - TopCoder style.</p>
+                        <p>Competitors representing schools such as Duke, Michigan, Minnesota, Stanford, and UCLA 
+                        will face off this weekend in an effort to be crowned champion of a collegiate tournament.  
+                        Is it the culmination of the NCAA Men's Basketball tournament?  Nope, it's the Collegiate 
+                        Challenge Finals - TopCoder style.</p>
 
-						<p>The field of over 500 college programmers has been narrowed to 16.  By Friday, it will be 
-						reduced again to just 4.  Saturday afternoon will see one coder presented with a very big 
-						check (in size and amount) and awarded the title of 2003 Sun Microsystems and TopCoder 
-						Collegiate Challenge Champion.</p>
+                        <p>The field of over 500 college programmers has been narrowed to 16.  By Friday, it will be 
+                        reduced again to just 4.  Saturday afternoon will see one coder presented with a very big 
+                        check (in size and amount) and awarded the title of 2003 Sun Microsystems and TopCoder 
+                        Collegiate Challenge Champion.</p>
 
-						<p>Tonight, however, we took the opportunity to relax and introduce ourselves to one 
-						another.  15 of the 16 competitors were on location at the time of the reception, and 
-						with 11 competitors new to the onsite finals, there were many introductions to be made. 
-						Fashionable red and black competition gear was handed out to all the participants - 
-						mandatory attire for the Final Four on Saturday.  The crowd broke up shortly after 
-						the rules were laid out, and the competitors are hoping to get a good night's sleep 
-						before a very big day of competition tomorrow.</p>  
+                        <p>Tonight, however, we took the opportunity to relax and introduce ourselves to one 
+                        another.  15 of the 16 competitors were on location at the time of the reception, and 
+                        with 11 competitors new to the onsite finals, there were many introductions to be made. 
+                        Fashionable red and black competition gear was handed out to all the participants - 
+                        mandatory attire for the Final Four on Saturday.  The crowd broke up shortly after 
+                        the rules were laid out, and the competitors are hoping to get a good night's sleep 
+                        before a very big day of competition tomorrow.</p>  
 
-						<p>Here's the lineup:<br />
-						<br />
-						Room 1, 10am:<br />
-						evd<br />
-						StefanPochmann<br />
-						Yarin<br />
-						yike<br />
-						<br />
-						Room 2, 1pm:<br />
-						axch<br />
-						dmwright<br />
-						mathewsb<br />
-						niteneb<br />
-						<br />
-						Room 3, 4pm:<br />
-						ante<br />
-						bstanescu<br />
-						sjelkjd<br />
-						WhiteShadow<br />
-						<br />
-						Room 4, 7pm:<br />
-						dgarthur<br />
-						DjinnKahn<br />
-						jburnim<br />
-						O_O<br />
-						</p>
+                        <p>Here's the lineup:</p>
+                        
+                        <p><strong>Room 1, 10am:</strong><br />
+                        evd<br />
+                        StefanPochmann<br />
+                        Yarin<br />
+                        yike</p>
+                        
+                        <p><strong>Room 2, 1pm:</strong><br />
+                        axch<br />
+                        dmwright<br />
+                        mathewsb<br />
+                        niteneb</p>
+                        
+                        <p><strong>Room 3, 4pm:</strong><br />
+                        ante<br />
+                        bstanescu<br />
+                        sjelkjd<br />
+                        WhiteShadow</p>
+                        
+                        <p><strong>Room 4, 7pm:</strong><br />
+                        dgarthur<br />
+                        DjinnKahn<br />
+                        jburnim<br />
+                        O_O</p>
 
                     </td>
                 </tr>
@@ -140,25 +139,21 @@
 
                 <tr>
                     <td class="bodyText" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR102.jpg');"><img src="/i/tournament/invit02//SFR102_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR102.jpg');"><img src="/i/tournament/invit02//SFR102_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR103.jpg');"><img src="/i/tournament/invit02//SFR103_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR104.jpg');"><img src="/i/tournament/invit02//SFR104_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR105.jpg');"><img src="/i/tournament/invit02//SFR105_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/recep_01.jpg');"><img src="/i/tournament/tccc03/recep_01_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/recep_02.jpg');"><img src="/i/tournament/tccc03/recep_02_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/recep_03.jpg');"><img src="/i/tournament/tccc03/recep_03_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" align="center"><img src="/i/tournament/invit02//SFR102.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig"/></td>
+                    <td class="bodyText" align="center"><img src="/i/tournament/tccc03/recep_01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
                 </tr>            
                 
                 <tr>
                     <td class="bodyText" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR106.jpg');"><img src="/i/tournament/invit02//SFR106_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR107.jpg');"><img src="/i/tournament/invit02//SFR107_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR108.jpg');"><img src="/i/tournament/invit02//SFR108_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR109.jpg');"><img src="/i/tournament/invit02//SFR109_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR1010.jpg');"><img src="/i/tournament/invit02//SFR1010_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>              
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/recep_04.jpg');"><img src="/i/tournament/tccc03/recep_04_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/recep_05.jpg');"><img src="/i/tournament/tccc03/recep_05_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/recep_06.jpg');"><img src="/i/tournament/tccc03/recep_06_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                     </td>
                 </tr>            
             </table>
