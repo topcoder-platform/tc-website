@@ -46,54 +46,62 @@
                 
                             
                 <tr valign="top">
-                    <td align="left" width="100%" class="bodyText">
+                    <td align="center" width="510" class="bodyText">
 
                         
-                        <table border="0" cellpadding="4" cellspacing="0">
-                            <tr valign="top">
-                                <td valign="top" width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Technical Training.</strong> 
-                                Offered in classrooms as well as via online tutorials and webcasts, our training can help you get up to speed on the latest information to develop and enhance your solutions.<br />
-                                    <li>"Building Mobile Apps for Intermittant Connections"</li>
-                                    <li>"Thread Programming and Hyper-Threading Technology"</li>
-                                    <li>"3D Animation for Engineers"</li>
-                                    <li>"Steal Our Secrets &#151; Make Your .NET* App Run Faster"</li><br />
-                                </td>
-                            </tr>
-
-                            <tr valign="top">
-                                <td valign="top" width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Focused Content.</strong> 
-                                Keep informed with articles and conversation on today's hottest software technologies and topics<br />
-                                    <li>Code Central &#151; offering free samples and downloads</li>
-                                    <li>Columns and Case Studies</li>
-                                      <li>Developer Community Forums</li>
-                                    <li>Developer Solutions Catalog &#151; a dynamic resources in which you can showcase your software products</li><br />
-                                </td>
-                            </tr>
-
-                            <tr valign="top">
-                                <td valign="top" width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Developer Centers.</strong> 
-                                These topic-specific community forums provide technical, e-Business and strategic content and developer discussions tailored to your software needs and interests. Some examples: <br />
-                                    <li>Software Technologies &#151; Mobile Technology, Peer-to-Peer, Java, .NET, Handheld and Wireless App Development  </li>
-                                    <li>Intel Processors &#151; Itanium Processor Family, Pentium 4 Processor, Xeon Processor  </li>
-                                    <li>Industry Segments &#151; Digital Media, Games </li>
-                                    <li>Operating Systems &#151; Windows*, Linux* </li><br />
-                                </td>
-                            </tr>
+                        <table border="0" cellpadding="0" cellspacing="0">
                             
-                            <tr valign="top">
-                                <td valign="top" width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Early Access Program.</strong> 
-                                Part of a company? If yes, membership to the Early Access Program gives your company early access to the following: <br />
-                                    <li>Intel's next-generation platforms &#151; directly or through Protected Remote Access</li>
-                                    <li>Comprehensive technical support  </li>
-                                    <li>Industry Segments &#151; Digital Media, Games </li>
-                                    <li>Extensive marketing and promotional opportunities</li><br />
-                                </td>
-                            </tr>
-                            
+                            	<tr valign="top">
+                                		<td valign="top" ><img src="/i/sponsor/intel_ids/IDS_TC_Rules_header.gif" width="510" height="115" /></td>
+                            	</tr>
+                            	
+                            	<tr>
+                            		<td class="bodyText">
+                            			<p><strong>NO PURCHASE NECESSARY</strong></p>
+                            			
+                            			<p><strong>PARTICIPATION</strong> <br/>Promotion begins September 26, 2003 at 8 a.m. PST, and is open to legal residents of the 50 United States 
+                            			and the District of Columbia, as well as to residents of countries that can accept sweepstakes awards, who are 18 years of age or older. 
+                            			Employees of Intel Corp. http://www.intel.com/ <http://www.intel.com/> <http://www.intel.com/>, their affiliated companies, 
+                            			advertising and promotion agencies and the immediate family members of each are not eligible. Subject to all federal, state and local 
+                            			laws and regulations apply. Void where prohibited. </p>
+                            			
+                            			<p><strong>TO ENTER</strong><br/>Entries may be made electronically by filling out, completing and submitting the online "registration form," 
+                            			or by regular mail: Write your name, address, phone number, and e-mail address on a 3" by 5" card and mail your entry to: Intel&#174; IDS E-mail 
+                            			Promotion, 5200 NE Elam Young Parkway, MS HF2-26, Hillsboro, OR 97124. All entries must be postmarked by October 9, 2003 at 5 p.m. PST 
+                            			to be eligible for the drawing, and must include your e-mail address. Only one entry per person.</p>
+                            			
+                            			<p>Sponsor is not responsible for entries not received due to lost, failed, delayed, or interrupted connection or miscommunications, or other 
+                            			electronic malfunctions, or due to lost, late, mutilated, illegible, incomplete, postage due, or misdirected mailed entries. Sponsor not responsible 
+                            			for incorrect or inaccurate entry information, whether caused by persons entered at the Web site or by any of the equipment or programming 
+                            			associated with or utilized in the promotion or by any human error which may occur in the processing of the entries in this promotion. All 
+                            			submissions become property of sponsor and will not be returned.</p>
+                            			
+                            			<p><strong>SELECTION OF WINNER</strong><br/>The winners will be selected at random from all eligible entries received by October 9, 2003. 
+                            			Random drawing will be held on October 17, 2003. Entrants agree to be bound by these rules. Winners will be notified via e-mail or phone. 
+                            			Acceptance of prize constitutes permission to use the winner's name and/or likeness on the Website for advertising/trade purposes without 
+                            			further compensation, except where prohibited. Entrants may be required to sign an affidavit of compliance with these rules, a prize release, 
+                            			and a release for the use of his/her name, likeness, or voice for publicity purposes by Intel within five (5) calendar days by return prepaid 
+                            			Federal Express overnight notification or prize may be forfeited and awarded to an alternative winner. If prize notification is returned as 
+                            			undeliverable, or if potential winner fails to claim or accept prize within five calendar days of notification, disqualification may result and 
+                            			an alternate winner may be selected. The winner will be notified by e-mail, phone, or mail. A list of winners can be obtained by sending a 
+                            			self addressed stamped envelope to Intel&#174; IDS E-mail Promotion,5200 NE Elam Young Parkway, MS HF2-26, Hillsboro, OR 97124. </p>
+                            			
+                            			<p><strong>PRIZES AND ODDS</strong><br/>Two (2) Intel&#174; Centrino&#73; mobile technology-based notebooks. Odds of winning depend upon 
+                            			number of eligible entries received. No substitution or transfer of prizes, except if prize becomes unavailable for any reason, sponsor 
+                            			may award substitute of equal or greater value. If winner is a minor, prize will be awarded to parent or guardian, who must sign all 
+                            			required documents. The winner accepts responsibility for all federal, state, and local taxes and fees in connection with the prize.</p>
+                            			
+                            			<p><strong>GENERAL CONDITIONS</strong><br/>Sponsor reserves the right, in its sole discretion, to cancel or suspend this promotion 
+                            			should a virus, bugs, or other causes beyond the control of the sponsor corrupt the administration, security, or proper operation of 
+                            			the promotion. </p>
+                            			
+                            			<p>*Other names and brands may be claimed as the property of others. Intel is a trademark or registered trademark of Intel Corporation or 
+                            			its subsidiaries in the United States and other countries.</p>
+                            			
+                            			
+                            	
+                            		</td>
+                           		</tr>
                         </table>
                             
                 
