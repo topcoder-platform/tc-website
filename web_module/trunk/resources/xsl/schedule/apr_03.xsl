@@ -8,162 +8,183 @@
   <xsl:import href="../includes/global_left.xsl"/>   
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
-        <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Schedule</TITLE>
-        <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-        <xsl:call-template name="Top"/>
-<!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
-	<TR>
-    <!-- Left Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
-        <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->			
-<!-- Left Column Include Ends -->					
-	  	</TD>
-	<!-- Left Column Ends -->
-	<!-- Gutter Begins -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
 
-<!-- Body Area -->
-	<!-- Center Column Begins -->	
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">white</xsl:with-param>
-  <xsl:with-param name="image">schedule</xsl:with-param>
-  <xsl:with-param name="title">Monthly View - April 2003</xsl:with-param>
-</xsl:call-template>			
-			<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-				<TR>
-					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-    <!-- Calendar Pulldown Begins -->	
-        <xsl:call-template name="calendar_view_pulldown"/>
-	<!-- Calendar Pulldown Ends -->	   
-      <TABLE BACKGROUND="/i/steel_gray_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
-        <TR> 
-          <TD VALIGN="top" COLSPAN="2"> 
-            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="3">
-              <TR> 
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center"><B>Sun</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Mon</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Tues</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Wed</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Thurs</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Fri</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center"><B>Sat</B></TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">1</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">2</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">3</TD>
-            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>4</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>Semifinals<BR/>Compete: 8:00&#160;AM-6:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched" CLASS="statText">Details</A></TD>
-            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>5</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>Championship<BR/>Compete: 11:00&#160;AM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched" CLASS="statText">Details</A></TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">6</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">7</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">8</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">9</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>10</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 141</B></SPAN><BR/>Register: 7:00&#160;PM<BR/>Compete: 10:00&#160;PM<BR/>Sponsored by: FBI<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4495&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">11</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">12</TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">13</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">14</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>15</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 142</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/>Sponsored by: NVIDIA<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4500&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">16</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">17</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">18</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">19</TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">20</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>21</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 143</B></SPAN><BR/>Register: 5:00&#160;PM<BR/>Compete: 8:00&#160;PM<BR/>Sponsored by: Gentleware<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4505&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">22</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">23</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">24</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">25</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">26</TD>
-              </TR>              
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">27</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">28</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">29</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>30</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 144</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><!--Sponsored by: NVIDIA<BR/>--><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4510&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-              </TR>
-              <!-- <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">30</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">31</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-              </TR> -->
-            </TABLE>
-          </TD>
-        </TR>
-      </TABLE>
+<html>
 
-<P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
-	<!-- Center Column Ends -->
-<!-- Body Area Ends -->
+<head>
 
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins -->        
-<!-- Right Column Include Ends -->        
-        </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-	</TR>
-</TABLE>
-<!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
+<xsl:call-template name="Preload"/>      
+
+<title>TopCoder | Schedule</title>
+
+<!-- Include External CSS file -->
+<xsl:call-template name="CSS"/>      
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+
+<!-- Top begins -->
+<xsl:call-template name="Top"/>
+<!-- Top ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+    <tr valign="top">
+
+<!-- Left Column Begins -->
+        <td width="170" bgcolor="#CCCCCC">
+
+            <xsl:call-template name="global_left"/>
+
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->	
+        <td class="bodyText" width="100%">
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">white</xsl:with-param>
+                <xsl:with-param name="image">schedule</xsl:with-param>
+                <xsl:with-param name="title">Monthly View - April 2003</xsl:with-param>
+            </xsl:call-template>			
+            
+            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td class="bodyText" width="100%">
+                        <img src="/i/clear.gif" alt="" width="400" height="1" border="0"/>
+
+<!-- Calendar Pulldown Begins -->	
+                        <xsl:call-template name="calendar_view_pulldown"/>
+<!-- Calendar Pulldown Ends -->	   
+
+                        <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
+                            <tr> 
+                                <td id="calendarDays" width="12%">Sun</td>
+                                <td id="calendarDays" width="15%">Mon</td>
+                                <td id="calendarDays" width="15%">Tues</td>
+                                <td id="calendarDays" width="15%">Wed</td>
+                                <td id="calendarDays" width="15%">Thurs</td>
+                                <td id="calendarDays" width="15%">Fri</td>
+                                <td id="calendarDays" width="13%">Sat</td>
+                            </tr>
+                          
+                            <tr> 
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendar">1</td>
+                                <td id="calendar">2</td>
+                                <td id="calendar">3</td>
+                                <td id="calendarTourney">
+                                    <span id="calendarSRMDate">4</span><br/>
+                                    <strong>2003 TopCoder Collegiate Challenge</strong><br/>
+                                    Semifinals<br/>
+                                    Compete: 8:00&#160;AM-6:00&#160;PM<br/>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?&amp;t=tournaments&amp;c=tccc03_sched" class="statText">Details</a></td>
+                                <td id="calendarTourney">
+                                    <span id="calendarSRMDate">5</span><br/>
+                                    <strong>2003 TopCoder Collegiate Challenge</strong><br/>
+                                    Championship<br/>
+                                    Compete: 11:00&#160;AM<br/>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?&amp;t=tournaments&amp;c=tccc03_sched" class="statText">Details</a></td>
+                            </tr>
+
+                            <tr> 
+                                <td id="calendar">6</td>
+                                <td id="calendar">7</td>
+                                <td id="calendar">8</td>
+                                <td id="calendar">9</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">10</span><br/>
+                                    <strong>Match 141</strong><br/>
+                                    Register: 7:00&#160;PM<br/>
+                                    Compete: 10:00&#160;PM<br/>
+                                    Sponsored by: FBI<br/>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?RoundId=4495&amp;t=schedule&amp;c=srm">Details</a></td>
+                                <td id="calendar">11</td>
+                                <td id="calendar">12</td>
+                            </tr>
+
+                            <tr> 
+                                <td id="calendar">13</td>
+                                <td id="calendar">14</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">15</span><br/>
+                                    <strong>Match 142</strong><br/>
+                                    Register: 6:00&#160;PM<br/>
+                                    Compete: 9:00&#160;PM<br/>
+                                    Sponsored by: NVIDIA<br/>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?RoundId=4500&amp;t=schedule&amp;c=srm">Details</a></td>
+                                <td id="calendar">16</td>
+                                <td id="calendar">17</td>
+                                <td id="calendar">18</td>
+                                <td id="calendar">19</td>
+                            </tr>
+
+                            <tr> 
+                                <td id="calendar">20</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">21</span><br/>
+                                    <strong>Match 143</strong><br/>
+                                    Register: 5:00&#160;PM<br/>
+                                    Compete: 8:00&#160;PM<br/>
+                                    Sponsored by: Gentleware<br/>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?RoundId=4505&amp;t=schedule&amp;c=srm">Details</a></td>
+                                <td id="calendar">22</td>
+                                <td id="calendar">23</td>
+                                <td id="calendar">24</td>
+                                <td id="calendar">25</td>
+                                <td id="calendar">26</td>
+                            </tr>
+
+                            <tr> 
+                                <td id="calendar">27</td>
+                                <td id="calendar">28</td>
+                                <td id="calendar">29</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">30</span><br/>
+                                    <strong>Match 144</strong><br/>
+                                    Register: 6:00&#160;PM<br/>
+                                    Compete: 9:00&#160;PM<br/>
+                                    <!--Sponsored by: NVIDIA<BR/>-->
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?RoundId=4510&amp;t=schedule&amp;c=srm">Details</a></td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                            </tr>
+                        </table>
+
+                        <p><br/></p>
+                        
+                    </td>
+                </tr>
+            </table>
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<!-- Footer Begins -->
+    <xsl:call-template name="Foot"/>
+<!-- Footer ends -->
+
+</body>
+</html>
+
   </xsl:template>
 </xsl:stylesheet>
