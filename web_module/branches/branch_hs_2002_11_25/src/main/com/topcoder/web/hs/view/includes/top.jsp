@@ -33,7 +33,7 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
     <TR VALIGN="middle">
         <TD WIDTH="100%" HEIGHT="21" BGCOLOR="#000000" BACKGROUND="/i/hs/top_rednav_bg.gif">
-        &nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=registration&d2=registration" CLASS="rednav">Register</A> 
+        &nbsp;&nbsp;&nbsp;<A HREF="?module=Registration" CLASS="rednav">Register</A> 
         &nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=arena&d2=arena_main" CLASS="rednav">Competition Arena</A> 
 
 <% if(SessionInfo.isLoggedIn()) { %>
