@@ -52,8 +52,8 @@ function submitEnter(e) {
 <!-- Center Column begins -->
         <td width="100%" class="bodyText"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
             <p>
-              We have determined that there is a problem with the email account currently associated with your account.
-              In order to participate in TopCoder, you will have to maintain a valid email account.  Please enter your
+              We have determined that there is a problem with the email address currently associated with your account.
+              In order to participate in TopCoder, you will have to maintain a valid email address.  Please enter your
               handle, password and valid email address below.  Your account will be updated and an email sent to the
               provided address.  Once you receive the email you will be able to reactivate your account.
 
