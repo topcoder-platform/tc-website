@@ -9,6 +9,7 @@
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 <link type="text/css" rel="stylesheet" href="/css/home.css"/>
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 </head>
 
 <%
