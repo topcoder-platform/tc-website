@@ -1,19 +1,21 @@
 package com.topcoder.web.tc;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCResourceBundle;
 
-import javax.servlet.ServletConfig;
 import java.lang.reflect.Field;
 
 public class Constants {
 
-    private static Logger log = Logger.getLogger(Constants.class);
-    private static boolean isInitialized = false;
 
+    private static final String INT_NOT_FOUND = "******NOT FOUND******";
+    private static TCResourceBundle bundle = new TCResourceBundle("TC");
+    private static boolean isInitialized = false;
+    private static Logger log = Logger.getLogger(Constants.class);
     /**
      *  variables that shouldn't be initialized
      */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList"};
+    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "INT_NOT_FOUND", "bundle"};
 
     public static String STATIC_PREFIX;
     public static String DEFAULT_PAGE;
@@ -26,6 +28,13 @@ public class Constants {
     public static String LAST_NAME;
     public static String EMAIL;
     public static String ACTIVATION_CODE;
+
+    public static String HANDLE;
+    public static String STATE_CODE;
+    public static String MIN_RATING;
+    public static String MAX_RATING;
+    public static String MIN_NUM_RATINGS;
+    public static String MAX_NUM_RATINGS;
 
     /* pages */
     public static String SURVEY_RESULTS;
@@ -47,23 +56,31 @@ public class Constants {
     public static String RECOVER_PASSWORD;
     public static String EMAIL_SENT;
 
+    public static String SIMPLE_SEARCH_RESULTS;
+    public static String ADVANCED_SEARCH_RESULTS;
+
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
+    public static int SEARCH_SCROLL_SIZE;
 
 
     private Constants() {
     }
 
-    public static void initialize(ServletConfig config) {
+    public static void initialize() {
 
         Field[] f = Constants.class.getFields();
+        String value;
         for (int i = 0; i < f.length; i++) {
             try {
                 if (!ignore(f[i].getName())) {
                     if (f[i].getType().getName().equals("int")) {
-                        f[i].setInt(null, Integer.parseInt(config.getInitParameter(f[i].getName().toLowerCase())));
+                        value = bundle.getProperty(f[i].getName().toLowerCase(), INT_NOT_FOUND);
+                        if (!value.equals(INT_NOT_FOUND)) {
+                            f[i].setInt(null, Integer.parseInt(value));
+                        }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
-                        f[i].set(null, config.getInitParameter(f[i].getName().toLowerCase()));
+                        f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase(), null));
                     } else {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
@@ -90,5 +107,4 @@ public class Constants {
         }
         return found;
     }
-
 }
