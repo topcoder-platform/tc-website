@@ -35,7 +35,7 @@
                 <tr><td align="center" colspan="5" BGcolor="#CCCCCC"><img src="/i/store/store_logo.gif" alt="TopCoder Gear Store" width="540" height="77" border="0" /></td></tr>
                 <tr BGcolor="#CCCCCC">
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
-                    <td BGcolor="#FFFFFF"><img src="/i/store/tshirt_gray.jpg" alt="Short Sleeve T-Shirt, Gray" width="328" height="326" border="0" /></td>
+                    <td BGcolor="#FFFFFF"><img src="/i/store/longsleeve_black.jpg" alt="Short Sleeve T-Shirt, Gray" width="328" height="326" border="0" /></td>
                     <td><img src="/i/clear.gif" alt="" width="5" height="15" border="0" /></td>
                     <td BGcolor="#CC0000">
                         <jsp:include page="inventory.jsp" />
@@ -50,15 +50,15 @@
                                     taped shoulder to shoulder. The Topcoder logo is silkscreened on the left chest and on the upper back. </td></tr>
                                     <tr>
                                         <form name="sizeSelect">
-                                        <td valign="middle" nowrap>$16.95 ($18.95 for XXL)</td>
+                                        <td valign="middle" nowrap>$26.95 ($28.95 for XXL)</td>
                                         <td valign="middle" class="bodyText">
                                           <select name="menu" size="1" class="dropdown">
                                              <option SELECTED VALUE="0">Select a Size:</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309353&name=Go%20Shopping">Small</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309354&name=Go%20Shopping">Medium</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309355&name=Go%20Shopping">Large</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309356&name=Go%20Shopping">X-Large</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309357&name=Go%20Shopping">XX-Large</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309536&name=Go%20Shopping">Small</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309537&name=Go%20Shopping">Medium</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309538&name=Go%20Shopping">Large</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309539&name=Go%20Shopping">X-Large</option>
+                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309540&name=Go%20Shopping">XX-Large</option>
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">

@@ -35,7 +35,7 @@
                 <tr><td align="center" colspan="5" BGcolor="#CCCCCC"><img src="/i/store/store_logo.gif" alt="TopCoder Gear Store" width="540" height="77" border="0" /></td></tr>
                 <tr BGcolor="#CCCCCC">
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
-                    <td BGcolor="#FFFFFF"><img src="/i/store/tshirt_gray.jpg" alt="Short Sleeve T-Shirt, Gray" width="328" height="326" border="0" /></td>
+                    <td BGcolor="#FFFFFF"><img src="/i/store/backpack.jpg" alt="Backpack" width="328" height="326" border="0" /></td>
                     <td><img src="/i/clear.gif" alt="" width="5" height="15" border="0" /></td>
                     <td BGcolor="#CC0000">
                         <jsp:include page="inventory.jsp" />
@@ -49,22 +49,10 @@
                                     <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy ash t-shirt has double needle hems, and is 
                                     taped shoulder to shoulder. The Topcoder logo is silkscreened on the left chest and on the upper back. </td></tr>
                                     <tr>
-                                        <form name="sizeSelect">
-                                        <td valign="middle" nowrap>$16.95 ($18.95 for XXL)</td>
-                                        <td valign="middle" class="bodyText">
-                                          <select name="menu" size="1" class="dropdown">
-                                             <option SELECTED VALUE="0">Select a Size:</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309353&name=Go%20Shopping">Small</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309354&name=Go%20Shopping">Medium</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309355&name=Go%20Shopping">Large</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309356&name=Go%20Shopping">X-Large</option>
-                                             <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309357&name=Go%20Shopping">XX-Large</option>
-                                          </select>
-                                          </td>
-                                          <td valign="middle" class="bodyText" width="100%">
-                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value);" value="Buy Now" class="bodyText">
-                                          </td>
-                                        </form>
+                                        <td valign="middle" nowrap>$34.95</td>
+                                        <td valign="middle" width="100%" nowrap>
+                                          <input type="image" src="/i/store/buy_button.gif" width="60" height="18" border="0" onClick="window.open.href='http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=309541&PID=309346&name=Go%20Shopping'" value="Buy Now" class="bodyText">
+                                        </td>
                                     </tr>
                                 </table>
                     </td>
