@@ -24,6 +24,8 @@ import javax.sql.DataSource;
 import javax.naming.NamingException;
 import javax.naming.InitialContext;
 import javax.ejb.CreateException;
+
+import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -348,6 +350,10 @@ public class TransactionInfo {
                        
                     case TCResultItem.INT:
                         id = ((Integer)roleID.getResultData()).longValue();
+                        break;
+                        
+                    case TCResultItem.BIGDECIMAL:
+                        id = ((BigDecimal)roleID.getResultData()).longValue();
                         break;
                         
                     default:
