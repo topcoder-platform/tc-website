@@ -481,7 +481,7 @@ public final class TaskDevelopment {
                     int i = 0;
                     boolean notFound = true;
                     //for(int i=0;i<roles.length && rating > 0 ;i++)
-                  if(rating >0)
+                  if(rating >0 || rating == -1)
                   {
                     //get catalog object
                     Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
@@ -528,7 +528,7 @@ public final class TaskDevelopment {
                      }
                     }
 
-                   if(!permissionAdded && rating > 0)
+                   if(!permissionAdded && rating > 0 || rating == -1)
                    {
 
                       log.error("Could not find a match for the forum");
@@ -541,7 +541,7 @@ public final class TaskDevelopment {
                     mail.setSubject(project);
 
 
-                    if (rating <= 0){
+                    if (rating <= 0 && rating != -1){
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
                         mail.setBody("Thank you, " + handle + ", for your inquiry.\r\n" +
                                      "Unfortunately, you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current schedule for details regarding upcoming matches. To view other components and discuss component ideas with other members, visit TopCoder Software. Your TopCoder handle and password will give you access to post questions or comments on the Customer Forums.\r\n" +
