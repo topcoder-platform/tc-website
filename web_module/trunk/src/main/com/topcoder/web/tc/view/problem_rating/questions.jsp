@@ -17,17 +17,15 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
 }
+</SCRIPT>
 <STYLE TYPE="text/css">
-<!--
 BODY
 {
 	background-color: #001B35;
 	padding: 0px;
 	margin: 0px;
 }
--->
 </STYLE>
-</SCRIPT>
 </head>
 <body bgcolor="#001B35">
 <center><h3><%= request.getAttribute("problemName") %></h3></center>
