@@ -7,7 +7,7 @@
             <xsl:sort data-type="number" select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,1,2)"/>
             <xsl:sort data-type="number" select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,4,2)"/>
                 <tr valign="top"> 
-                    <td class="leftDate">
+                    <td id="leftDate">
                         <A class="left">
                         <xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;RoundId=<xsl:value-of select="RoundId"/>&amp;t=schedule&amp;c=srm</xsl:attribute>
                         <strong><xsl:value-of select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,0,11)"/></strong><br/>
