@@ -70,6 +70,8 @@ public class UpdateProfile extends BaseProfileProcessor {
             info.setProfileId(new Long(spid));
 
         }
+        //everything should be new right now, if it is not, there is a bug
+        /*
         else {
             profile.setSessionRoundId(info.getProfileId().longValue(), 
                                       info.getTestSetA().longValue());
@@ -78,6 +80,7 @@ public class UpdateProfile extends BaseProfileProcessor {
             
             //delete all old ones from problem and language
         }
+        */
 
         long sessionProfileId = info.getProfileId().longValue();
         //now add in the example problem

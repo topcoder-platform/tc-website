@@ -397,4 +397,30 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>
+
+  <tag>
+    <name>checkbox</name>
+    <tagclass>com.topcoder.web.common.tag.CheckboxTag</tagclass>
+    <bodycontent>Empty</bodycontent>
+    <info>
+        Write out a checkbox input tag given name, value and optional checked
+        value.  checked is compared to value, and input tag is set CHECKED
+        if they are equal
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>checked</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
 </taglib>
