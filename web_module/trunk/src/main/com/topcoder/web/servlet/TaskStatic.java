@@ -161,7 +161,7 @@ public final class TaskStatic {
                         }
                         dataRequest.setProperty("rc", regionCode);
                         resultMap = dai.getData(dataRequest);
-                        rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Competitorss");
+                        rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Competitors");
                         if (sortCol != null && sortDir != null)
                             rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                         tournamentTag.addTag(rsc.getTag(regionCode+"Competitors", "Competitor"));
