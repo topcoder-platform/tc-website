@@ -1,7 +1,7 @@
 <%@ page
  errorPage="../home/error.jsp"
-    import="com.topcoder.shared.dataAccess.resultSet.*",
-           "java.util.*" %>
+    import="com.topcoder.shared.dataAccess.resultSet.*,
+            java.util.*" %>
 <HTML>
 <HEAD>
  <TITLE>::TopCoder High School::</TITLE>
