@@ -205,12 +205,7 @@ public final class Registration extends UserEdit {
                 "and punctuation signs only (no more than 7 words)"
                 );
 
-        valid &= // addr line 2 validity (optional)
-                checkItemValidity(KEY_ADDRLINE2, compAddress2,
-                        StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7,
-                        "Ensure address line 2 is not empty, consists of letters, digits " +
-                "and punctuation signs only (no more than 7 words)"
-                );
+        valid &=  simpleValidityCheck(KEY_ADDRLINE2,compAddress2,0,254, "Please enter a shorter address2.");
 
         valid &= // city validity (required)
                 checkItemValidity(KEY_CITY, city,
@@ -223,7 +218,7 @@ public final class Registration extends UserEdit {
                 checkStateOrCountryAgainstDB(
                         KEY_COUNTRY,
                         country,
-                        "Please choose country from the list carefully"
+                        "Please choose country from the list."
                 );
 
         if (COUNTRY_USA.equals(country)) {
