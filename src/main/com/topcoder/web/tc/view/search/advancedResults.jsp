@@ -44,6 +44,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level2" value="search"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
