@@ -105,8 +105,8 @@ I'm the winner of Room 1 (<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="
  <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
  and <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
  submitted within five seconds of each other after almost
- eight minutes of coding, getting 279.03 and 279.37 points. <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="coderTextRed">benetin</A>
- and <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A>
+ eight minutes of coding, getting 279.03 and 279.37 points. <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
  brought up the end, <B>evd</B> spending eleven and a half minutes for 260.29
  points.
 </P>

@@ -107,7 +107,7 @@ The Division-II Easy problem wasn't hard, though perhaps somewhat easier in
  with those names together, and sort, and you're
  done. The only tricky bit was figuring out a way to hold all the players,
  but as they limited it to 100 player names total, you could use a static
- array, a map&lt string, string &gt, or a HashMap.
+ array, a map&lt; string, string &gt;, or a HashMap.
 </P>
  
 <P>
