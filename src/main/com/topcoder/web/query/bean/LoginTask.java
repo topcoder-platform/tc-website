@@ -4,6 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.Authentication;
+import com.topcoder.web.query.common.LoginFailedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,20 +44,18 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         session = request.getSession(true);
     }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    }
-
     public void process(String step) throws Exception {
-        if (getRedirectPage().length()>0) {
-            setNextPage(getRedirectPage());
-        } else {
-            setNextPage(getServletPath()+"?"+Constants.TASK_PARAM+"="+Constants.DB_SELECTION_TASK);
-        }
-
-        try {
+        if (!super.getAuthentication().isLoggedIn())
             super.getAuthentication().attemptLogin(getHandleInput(), getPasswordInput(), getInitialContext(), session);
-        } catch (AuthenticationException e) {
-            setNextPage(Constants.LOGIN_PAGE );
+
+        if (super.getAuthentication().isLoggedIn()) {
+            if (getRedirectPage().length()>0) {
+                setNextPage(getRedirectPage());
+            } else {
+                setNextPage(getServletPath()+"?"+Constants.TASK_PARAM+"="+Constants.DB_SELECTION_TASK);
+            }
+        } else {
+            throw new LoginFailedException();
         }
         super.setInternalResource(false);
     }

@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.AuthenticationException;
+import com.topcoder.web.query.common.LoginFailedException;
 import com.topcoder.web.query.bean.Task;
 
 import javax.naming.InitialContext;
@@ -94,6 +95,9 @@ public class Controller extends HttpServlet {
                 sendToLoginPage(request, response, true);
             }
         } catch (AuthenticationException authex) {
+            request.setAttribute("Authentication", task.getAuthentication());
+            sendToLoginPage(request, response, false);
+        } catch (LoginFailedException authex) {
             request.setAttribute("Authentication", task.getAuthentication());
             sendToLoginPage(request, response, true);
         } catch (ClassNotFoundException cnfex) {

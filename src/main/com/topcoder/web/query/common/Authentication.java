@@ -52,38 +52,29 @@ public class Authentication implements Serializable {
      * or there is a problem with the ejb
      */
     public void attemptLogin(String handle, String password, InitialContext ctx,
-                                    HttpSession session) throws AuthenticationException {
-        try {
-            log.debug("handle: " + handle + " pass: " + password);
+                                    HttpSession session) throws Exception {
+        log.debug("handle: " + handle + " pass: " + password);
 
-            setRequestedURL(requestedURL);
+        setRequestedURL(requestedURL);
 
-            QueryAuthenticationHome qaHome = (QueryAuthenticationHome) ctx.lookup(ApplicationServer.Q_QUERY_AUTHENTICATION);
-            QueryAuthentication qa = qaHome.create();
-            ResultSetContainer rsc = qa.getLoginInfo(handle);
+        QueryAuthenticationHome qaHome = (QueryAuthenticationHome) ctx.lookup(ApplicationServer.Q_QUERY_AUTHENTICATION);
+        QueryAuthentication qa = qaHome.create();
+        ResultSetContainer rsc = qa.getLoginInfo(handle);
 
-            if (rsc.isEmpty()) {
-                log.debug("bad handle");
-                setErrorMessage("Incorrect handle.  Please retry.");
+        if (rsc.isEmpty()) {
+            log.debug("bad handle");
+            setErrorMessage("Incorrect handle.  Please retry.");
+        } else {
+            String actualPassword = rsc.getItem(0, "password").toString();
+            if (!actualPassword.trim().equals(password.trim())) {
+                log.debug("bad password");
+                setErrorMessage("Incorrect password.  Please retry.");
             } else {
-                String actualPassword = rsc.getItem(0, "password").toString();
-                if (!actualPassword.trim().equals(password.trim())) {
-                    log.debug("bad password");
-                    setErrorMessage("Incorrect password.  Please retry.");
-                } else {
-                    log.debug("successfull login");
-                    setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
-                    setLoggedIn(true);
-                    session.setAttribute(AUTHENTICATION_KEY, this);
-                }
+                log.debug("successfull login");
+                setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
+                setLoggedIn(true);
+                session.setAttribute(AUTHENTICATION_KEY, this);
             }
-        } catch (RemoteException e) {
-            throw new AuthenticationException(e.getMessage());
-        } catch (NamingException e) {
-            throw new AuthenticationException("Could not find ejb with name: " +
-                    ApplicationServer.Q_QUERY_AUTHENTICATION + "\n" + e.getMessage());
-        } catch (CreateException e) {
-            throw new AuthenticationException("Could not create instance of QueryAuthentication ejb\n" + e.getMessage());
         }
     }
 

@@ -34,9 +34,6 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
         }
 	}
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    }
-
     public void process(String step) throws Exception {
         super.setNextPage(Constants.DB_SELECTION_PAGE);
     }
