@@ -29,7 +29,7 @@
 					ResultSetContainer rsc3 = (ResultSetContainer)dataMap.get("srm_survey_total");
 					ResultSetContainer rsc4 = (ResultSetContainer)dataMap.get("srm_survey_answers");
 					ResultSetContainer rsc5 = (ResultSetContainer)dataMap.get("srm_qry_chooser");
-					ResultSetContainer rsc6 = (ResultSetContainer)dataMap.get("srm_match_info");
+					
 					
 					
 			%>		
@@ -50,7 +50,7 @@ private String getPercentage (ResultSetContainer total, ResultSetContainer.Resul
 
 
  <table width="100%" class="srmFrame">
- <tr><td colspan="7"><span class=sectionTitle><%= rsc6.getItem(0,"contest_name") %> on <%= rsc6.getItem(0,"contest_date") %></span></td></tr>
+ 
  <tr><td colspan="7" class="srmQuestion">QUESTION: <%= rsc.getItem(0,"question_text") %></td>
  </tr>
  <tr>

@@ -28,25 +28,33 @@
   </head>
   <body>
   <table>
-  <tr valign="top">
-  <td width="10%"><jsp:include page="srm_nav.jsp" /></td><td colspan="3"></td>
-  </tr>
-  <tr>
-  <td>&nbsp;</td><td colspan="5"><jsp:include page="srm_chooser.jsp" ><jsp:param name="link" value="srm_demo_general"/></jsp:include></td>
-  </tr>
-  
-  <tr valign="top">
     <tr valign="top">
-      <td>&nbsp;</td>
-      <td><jsp:include page="srm_demo_add_schools.jsp" /></td>
-      <td >&nbsp;</td>
-      <td ><jsp:include page="srm_demo_add_degrees.jsp" /></td>
-	  <td >&nbsp;</td>
-      <td ><jsp:include page="srm_demo_add_companies.jsp" /></td>
+      <td width="10%"><jsp:include page="srm_nav.jsp" /></td>
+      <td>
+	    <table>
+		  <tr>
+		    <td colspan="6"><jsp:include page="srm_info.jsp" /></td>
+		  </tr>
+		  <tr>
+		    <td colspan="6"><jsp:include page="srm_chooser.jsp" ><jsp:param name="link" value="srm_demo_add"/></jsp:include></td>
+		  </tr>
+		  <tr valign="top">
+            <td>&nbsp;</td>
+            <td><jsp:include page="srm_demo_add_schools.jsp" /></td>
+            <td >&nbsp;</td>
+            <td ><jsp:include page="srm_demo_add_degrees.jsp" /></td>
+	        <td >&nbsp;</td>
+            <td ><jsp:include page="srm_demo_add_companies.jsp" /></td>
+	      </tr>
+	    </table>
+	  </td>
     </tr>
-	
-  </tr>
-  </table>
+</table>
+
+
+
+ 
+
 
  
 

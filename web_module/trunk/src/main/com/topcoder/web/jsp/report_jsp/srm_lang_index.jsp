@@ -27,15 +27,23 @@
     <title>TopCoder SRM Reports</title>
   </head>
   <body>
-  <table>
-  
-  <tr valign="top">
-  <td width="170"><jsp:include page="srm_nav.jsp" /></td><td><jsp:include page="srm_demo_language_stats.jsp" /></td>
-  </tr>
-  <tr>
-
-  <td>&nbsp;</td><td><jsp:include page="srm_chooser.jsp" /></td>
-  </tr>
-  </table>
-  </body>
+  <table width=100%>
+    <tr valign="top">
+      <td width="170"><jsp:include page="srm_nav.jsp" /></td>
+  	  <td>
+	  <table>
+	    <tr>
+		  <td><jsp:include page="srm_info.jsp" /></td>
+		</tr>
+	    <tr>
+		  <td><jsp:include page="srm_chooser.jsp" /><jsp:param name="link" value="srm_lang_index"/></jsp:include></td>
+		</tr>
+		<tr>
+		  <td><jsp:include page="srm_demo_language_stats.jsp" /></td>
+		</tr>
+	  </table>
+	  </td>
+    </tr>
+ <table>
+</body>
 </html>
