@@ -709,15 +709,6 @@
 
 
         <xsl:otherwise>
-            <xsl:choose>
-                <xsl:when test="/TC/LoggedIn='true'">
-                     <!-- <xsl:call-template name="my_stats"/> -->
-                </xsl:when>
-                <xsl:otherwise>
-                     <!-- <xsl:call-template name="module_login"/> -->
-                </xsl:otherwise>
-            </xsl:choose>
-
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
