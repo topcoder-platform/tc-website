@@ -7,7 +7,6 @@ import com.topcoder.web.ejb.pacts.*;
 import com.topcoder.web.common.BaseProcessor;
 
 import javax.jms.JMSException;
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -63,6 +62,7 @@ public class DataInterfaceBean implements PactsConstants {
             InitialContext c = TCContext.getInitial();
             return (PactsServices)BaseProcessor.createEJB(c, PactsServices.class);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RemoteException(e.getMessage());
         }
     }
@@ -487,14 +487,14 @@ public class DataInterfaceBean implements PactsConstants {
     public boolean validateInput(String input, int inputType) {
         if (inputType == INTEGER) {
             try {
-                BigInteger b = new BigInteger(input);
+                new BigInteger(input);
                 return true;
             } catch (Exception e) {
                 return false;
             }
         } else if (inputType == DECIMAL) {
             try {
-                BigDecimal b = new BigDecimal(input);
+                new BigDecimal(input);
                 return true;
             } catch (Exception e) {
                 return false;
