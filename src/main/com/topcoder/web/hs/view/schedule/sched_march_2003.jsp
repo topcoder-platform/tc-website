@@ -52,9 +52,9 @@
                         <select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
                             <option value="SELECTED">&nbsp;Choose Monthly View</option>
                             <option value="schedule">--- 2003 ---</option>
-                            <option value="sched_march_2003" selected>&nbsp;March</option>
-                            <option value="sched_april_2003">&nbsp;April</option>
                             <option value="sched_may_2003">&nbsp;May</option>
+                            <option value="sched_april_2003">&nbsp;April</option>
+                            <option value="sched_march_2003" selected>&nbsp;March</option>
                         </select>
                         </form></div>
 
