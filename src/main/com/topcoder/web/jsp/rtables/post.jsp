@@ -29,12 +29,11 @@
       request.setAttribute("t", "authentication");
       request.setAttribute("c", "login");
       request.setAttribute("errorMsg", "You do not have an active session, please log in.");
-      getServletConfig().getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL("/")).forward(request, response);
+      getServletConfig().getServletContext().getContext("/").getRequestDispatcher(response.encodeURL("/index")).forward(request, response);
       return;
     }
     try {
-      n = (Navigation) session.getAttribute("navigation"); 
+      n = (Navigation) session.getAttribute("navigation");
     } catch( Exception e ) {
       e.printStackTrace();
       response.sendRedirect(Redirect_URL);
