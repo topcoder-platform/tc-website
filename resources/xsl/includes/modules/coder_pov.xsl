@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,15 +22,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=crpf_finals_prob">CRPF Finals - Problem Set &amp; Analysis</a></font></strong><br />
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm172_prob">SRM 172 - Problem Set &amp; Analysis</a></font></strong><br />
                         Monday, November 17, 2003</p>
 
 <p> 
-The final round of the TopCoder Charity Challenge saw a number of TopCoder's best vying for one of the 4 spots at the CRPF ball.  The 
-300 point problem proved to be little trouble for many members, with John Dethridge submitting first, after about 8 minutes.  But, 
-his lead was short lived as po submitted the 575 pointer first.
+Greased lightning! <b>NGBronson</b> took charge of Division One last night
+and put on a speed-coding clinic for the kiddies, shading <b>ZorbaTHut</b>
+by a handful of points. (Please note that our Zorba is not related to
+Zorba the Greek, nor does he have the girth of Jabba the Hutt.)
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=crpf_finals_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm172_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
