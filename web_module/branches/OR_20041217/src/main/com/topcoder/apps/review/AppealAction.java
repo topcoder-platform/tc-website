@@ -5,6 +5,7 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.Appeal;
+import com.topcoder.apps.review.Phase;
 import com.topcoder.util.log.Level;
 
 import javax.servlet.http.HttpServletRequest;
@@ -94,12 +95,12 @@ public final class AppealAction extends ReviewAction {
                 request.setAttribute("reviewerEdit", new Boolean(true));
             }
 */
-            int phaseId = orpd.getProject().getPhase().getCurrentPhaseInstance().getId();
+            int phaseId = orpd.getProject().getCurrentPhaseInstance().getId();
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
                     appeal.getId() == -1 && phaseId == Phase.ID_APPEALS) {
                 request.setAttribute("appealerEdit", new Boolean(true));
             } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
-                    !appeal.isResolved() && && phaseId == Phase.ID_APPEALS_RESPONSE) {
+                    !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
                 request.setAttribute("reviewerEdit", new Boolean(true));
             }
 
