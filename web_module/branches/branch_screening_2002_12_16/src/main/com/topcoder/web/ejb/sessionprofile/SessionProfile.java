@@ -15,11 +15,13 @@ public interface SessionProfile extends EJBObject {
     /**
      *
      * @param desc
-     * @param roundId
+     * @param sessionRoundId
+     * @param companyId
      * @return session profile id (int)
      * @throws RemoteException
      */
-    public long createSessionProfile(String desc, long roundId, int divisionId, long companyId)
+    public long createSessionProfile(String desc, long sessionRoundId,
+                                     long companyId)
             throws RemoteException;
 
     /**
@@ -34,10 +36,20 @@ public interface SessionProfile extends EJBObject {
     /**
      *
      * @param sessionProfileId
-     * @param roundId
+     * @param sessionRoundId
      * @throws RemoteException
      */
-    public void setRoundId(long sessionProfileId, long roundId)
+    public void setSessionRoundId(long sessionProfileId, long sessionRoundId)
+            throws RemoteException;
+
+
+    /**
+     *
+     * @param sessionProfileId
+     * @param companyId
+     * @throws RemoteException
+     */
+    public void setCompanyId(long sessionProfileId, long companyId)
             throws RemoteException;
 
     /**
@@ -55,6 +67,15 @@ public interface SessionProfile extends EJBObject {
      * @return
      * @throws RemoteException
      */
-    public long getRoundId(long sessionProfileId)
+    public long getSessionRoundId(long sessionProfileId)
+            throws RemoteException;
+
+    /**
+     *
+     * @param sessionProfileId
+     * @return
+     * @throws RemoteException
+     */
+    public long getCompanyId(long sessionProfileId)
             throws RemoteException;
 }

@@ -17,12 +17,14 @@ public interface SessionProfileProblem extends EJBObject {
      * @param problemId
      * @param problemTypeId
      * @param sortOrder
+     * @param sessionRoundId
      * @throws RemoteException
      */
     public void createSessionProfileProblem(long sessionProfileId,
                                             long problemId,
                                             int problemTypeId,
-                                            int sortOrder)
+                                            int sortOrder,
+                                            long sessionRoundId)
             throws RemoteException;
 
     /**
@@ -52,6 +54,18 @@ public interface SessionProfileProblem extends EJBObject {
      *
      * @param sessionProfileId
      * @param problemId
+     * @param sessionRoundId
+     * @throws RemoteException
+     */
+    public void setSessionRoundId(long sessionProfileId,
+                                  long problemId,
+                                  long sessionRoundId)
+            throws RemoteException;
+
+    /**
+     *
+     * @param sessionProfileId
+     * @param problemId
      * @return
      * @throws RemoteException
      */
@@ -72,10 +86,20 @@ public interface SessionProfileProblem extends EJBObject {
      *
      * @param sessionProfileId
      * @param problemId
+     * @return long of sessionRoundId
+     * @throws RemoteException
+     */
+    public long getSessionRoundId(long sessionProfileId, long problemId)
+            throws RemoteException;
+
+    /**
+     *
+     * @param sessionProfileId
+     * @param problemId
      * @return
      * @throws RemoteException
      */
-    public String getProblemTypeDesc(long sessionProfileId, long problemId)
-            throws RemoteException;
+    //public String getProblemTypeDesc(long sessionProfileId, long problemId)
+    //        throws RemoteException;
 
 }

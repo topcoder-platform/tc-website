@@ -26,13 +26,12 @@ public class SessionProfileBean extends BaseEJB {
     /**
      *
      * @param desc
-     * @param roundId
-     * @param divisionId
+     * @param sessionRoundId
      * @param companyId
      * @return The sessionProfileId created for this entry
      * @throws RemoteException
      */
-    public long createSessionProfile(String desc, long roundId, int divisionId,
+    public long createSessionProfile(String desc, long sessionRoundId,
                                      long companyId)
             throws RemoteException {
         // construct debug message
@@ -41,10 +40,8 @@ public class SessionProfileBean extends BaseEJB {
 
         varBuf.append("desc: ");
         varBuf.append(desc);
-        varBuf.append(" roundId: ");
-        varBuf.append(roundId);
-        varBuf.append(" divisionId: ");
-        varBuf.append(divisionId);
+        varBuf.append(" sessionRoundId: ");
+        varBuf.append(sessionRoundId);
         varBuf.append(" companyId: ");
         varBuf.append(companyId);
 
@@ -63,9 +60,9 @@ public class SessionProfileBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(180);
             query.append("INSERT INTO session_profile (session_profile_id, ");
-            query.append("session_profile_desc, round_id, modify_date, ");
-            query.append("create_date, division_id, company_id) ");
-            query.append("VALUES(?,?,?,?,?,?,?) ");
+            query.append("session_profile_desc, session_round_id, ");
+            query.append("modify_date, create_date, company_id) ");
+            query.append("VALUES(?,?,?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -75,9 +72,8 @@ public class SessionProfileBean extends BaseEJB {
             sessionId = IdGeneratorClient.getSeqId("SESSION_PROFILE_SEQ");
             pstmt.setLong(1, sessionId);
             pstmt.setString(2, desc);
-            pstmt.setLong(3, roundId);
-            pstmt.setInt(6, divisionId);
-            pstmt.setLong(7, companyId);
+            pstmt.setLong(3, sessionRoundId);
+            pstmt.setLong(6, companyId);
 
             pstmt.executeUpdate();
 
@@ -148,17 +144,17 @@ public class SessionProfileBean extends BaseEJB {
             pstmt.executeUpdate();
         } catch (SQLException sqe) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("SQLException in setSessioProfileDesc. ");
+            exceptionBuf.append("SQLException in setSessionProfileDesc. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in setSessioProfileDesc. ");
+            exceptionBuf.append("NamingException in setSessionProfileDesc. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("Exception in setSessioProfileDesc. ");
+            exceptionBuf.append("Exception in setSessionProfileDesc. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
@@ -171,48 +167,10 @@ public class SessionProfileBean extends BaseEJB {
     /**
      *
      * @param sessionProfileId
-     * @param roundId
+     * @param sessionRoundId
      * @throws RemoteException
      */
-    public void setRoundId(long sessionProfileId, long roundId)
-            throws RemoteException {
-        log.debug("setRoundId called. sessionProfileId: "
-                 + sessionProfileId + " roundId: " + roundId);
-
-        Context ctx = null;
-        PreparedStatement pstmt = null;
-        Connection conn = null;
-        DataSource ds = null;
-
-        try {
-            StringBuffer query = new StringBuffer(120);
-            query.append("UPDATE session_profile SET round_id = ? WHERE ");
-            query.append("session_profile_id = ?");
-
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
-
-            pstmt.setLong(1, roundId);
-            pstmt.setLong(2, sessionProfileId);
-
-            pstmt.executeUpdate();
-
-         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setRoundId sessionProfileId: " + sessionProfileId + " roundId: " + roundId);
-         } catch (NamingException e) {
-            throw new EJBException("NamingException in setRoundId sessionProfileId: " + sessionProfileId + " roundId: " + roundId);
-         } catch (Exception e) {
-            throw new EJBException("Exception in setRoundId sessionProfileId: " + sessionProfileId + " roundId: " + roundId);
-         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setRoundId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setRoundId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setRoundId");}}
-         }
-    }
-
-    public void setDivisionId(long sessionProfileId, int divisionId)
+    public void setSessionRoundId(long sessionProfileId, long sessionRoundId)
             throws RemoteException {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
@@ -220,15 +178,15 @@ public class SessionProfileBean extends BaseEJB {
 
         varBuf.append("sessionProfileId: ");
         varBuf.append(sessionProfileId);
-        varBuf.append(" divisionId: ");
-        varBuf.append(divisionId);
+        varBuf.append(" sessionRoundId: ");
+        varBuf.append(sessionRoundId);
 
-        debugBuf.append("setDivisionId called. ");
+        debugBuf.append("setSessionRoundId called. ");
         debugBuf.append(varBuf.toString());
 
         log.debug(debugBuf.toString());
-
         // begin method
+
         Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
@@ -236,40 +194,46 @@ public class SessionProfileBean extends BaseEJB {
 
         try {
             StringBuffer query = new StringBuffer(120);
-            query.append("UPDATE session_profile SET division_id = ? WHERE ");
-            query.append("session_profile_id = ?");
+            query.append("UPDATE session_profile SET session_round_id = ? ");
+            query.append("WHERE session_profile_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
-            pstmt.setInt(1, divisionId);
+            pstmt.setLong(1, sessionRoundId);
             pstmt.setLong(2, sessionProfileId);
 
             pstmt.executeUpdate();
-        } catch (SQLException sqe) {
+         } catch (SQLException sqe) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("SQLException in setDivisionId. ");
+            exceptionBuf.append("SQLException in setSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
+         } catch (NamingException e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in setDivisionId. ");
+            exceptionBuf.append("NamingException in setSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
-        } catch (Exception e) {
+         } catch (Exception e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("Exception in setDivisionId. ");
+            exceptionBuf.append("Exception in setSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
-        } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setDivisionId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setDivisionId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setDivisionId");}}
-        }
+         } finally {
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSessionRoundId");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSessionRoundId");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setSessionRoundId");}}
+         }
     }
 
+    /**
+     *
+     * @param sessionProfileId
+     * @param companyId
+     * @throws RemoteException
+     */
     public void setCompanyId(long sessionProfileId, long companyId)
             throws RemoteException {
         // construct debug message
@@ -406,7 +370,7 @@ public class SessionProfileBean extends BaseEJB {
      * @return the round Id corresponding to the sessionProfileId passed in.
      * @throws RemoteException
      */
-    public long getRoundId(long sessionProfileId)
+    public long getSessionRoundId(long sessionProfileId)
             throws RemoteException {
           // construct debug message
         StringBuffer debugBuf = new StringBuffer(100);
@@ -415,7 +379,7 @@ public class SessionProfileBean extends BaseEJB {
         varBuf.append("sessionProfileId: ");
         varBuf.append(sessionProfileId);
 
-        debugBuf.append("getRoundId called. ");
+        debugBuf.append("getSessionRoundId called. ");
         debugBuf.append(varBuf.toString());
 
         log.debug(debugBuf.toString());
@@ -430,7 +394,7 @@ public class SessionProfileBean extends BaseEJB {
 
         try {
             StringBuffer query = new StringBuffer(120);
-            query.append("SELECT round_id FROM session_profile ");
+            query.append("SELECT session_round_id FROM session_profile ");
             query.append("WHERE session_profile_id = ?");
 
             ctx = new InitialContext();
@@ -444,102 +408,41 @@ public class SessionProfileBean extends BaseEJB {
                 roundId = rs.getLong(1);
             }
             else{
-                throw new EJBException("EJBException in getRoundId. "
+                throw new EJBException("EJBException in getSessionRoundId. "
                     + " empty result set for query:  " + query.toString());
 
             }
 
         } catch (SQLException sqe) {
             StringBuffer exceptionBuf = new StringBuffer(100);
-            exceptionBuf.append("SQLException in getRoundId. ");
+            exceptionBuf.append("SQLException in getSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
             StringBuffer exceptionBuf = new StringBuffer(100);
-            exceptionBuf.append("NamingException in getRoundId. ");
+            exceptionBuf.append("NamingException in getSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
             StringBuffer exceptionBuf = new StringBuffer(100);
-            exceptionBuf.append("NamingException in getRoundId. ");
+            exceptionBuf.append("NamingException in getSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getRoundId");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getRoundId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getRoundId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getRoundId");}}
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSessionRoundId");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getSessionRoundId");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getSessionRoundId");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getSessionRoundId");}}
         }
         return roundId;
     }
 
-    public int getDivisionId(long sessionProfileId)
-            throws RemoteException {
-        // construct debug message
-      StringBuffer debugBuf = new StringBuffer(100);
-      StringBuffer varBuf = new StringBuffer(100);
-
-      varBuf.append("sessionProfileId: ");
-      varBuf.append(sessionProfileId);
-
-      debugBuf.append("getDivisionId called. ");
-      debugBuf.append(varBuf.toString());
-
-      log.debug(debugBuf.toString());
-
-      // begin method
-      Context ctx = null;
-      PreparedStatement pstmt = null;
-      Connection conn = null;
-      DataSource ds = null;
-      ResultSet rs = null;
-      int divisionId = 0;
-
-      try {
-          StringBuffer query = new StringBuffer(120);
-          query.append("SELECT division_id FROM session_profile ");
-          query.append("WHERE session_profile_id = ?");
-
-          ctx = new InitialContext();
-          ds = (DataSource)ctx.lookup(dataSourceName);
-          conn = ds.getConnection();
-          pstmt = conn.prepareStatement(query.toString());
-
-          pstmt.setLong(1,sessionProfileId);
-          rs = pstmt.executeQuery();
-          if ( rs.next() ) {
-              divisionId = rs.getInt(1);
-          }
-          else{
-              throw new EJBException("EJBException in getDivisionId. "
-                  + " empty result set for query:  " + query.toString());
-
-          }
-
-      } catch (SQLException sqe) {
-          StringBuffer exceptionBuf = new StringBuffer(100);
-          exceptionBuf.append("SQLException in getDivisionId. ");
-          exceptionBuf.append(varBuf.toString());
-          throw new EJBException(exceptionBuf.toString());
-      } catch (NamingException e) {
-          StringBuffer exceptionBuf = new StringBuffer(100);
-          exceptionBuf.append("NamingException in getDivisionId. ");
-          exceptionBuf.append(varBuf.toString());
-          throw new EJBException(exceptionBuf.toString());
-      } catch (Exception e) {
-          StringBuffer exceptionBuf = new StringBuffer(100);
-          exceptionBuf.append("Exception in getDivisionId. ");
-          exceptionBuf.append(varBuf.toString());
-          throw new EJBException(exceptionBuf.toString());
-      } finally {
-          if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getDivisionId");}}
-          if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getDivisionId");}}
-          if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getDivisionId");}}
-          if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getDivisionId");}}
-      }
-      return divisionId;
-    }
-
+    /**
+     *
+     * @param sessionProfileId
+     * @return long of companyId
+     * @throws RemoteException
+     */
     public long getCompanyId(long sessionProfileId)
             throws RemoteException {
         // construct debug message
