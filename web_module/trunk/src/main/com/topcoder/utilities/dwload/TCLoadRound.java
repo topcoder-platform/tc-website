@@ -188,6 +188,7 @@ public class TCLoadRound extends TCLoad {
             loadRating();
 
             //if running for an old round, the rating history load can not be run
+            //don't forget to remove it from the clear round method as well.
             loadRatingHistory();
 
             loadCoderProblem();
