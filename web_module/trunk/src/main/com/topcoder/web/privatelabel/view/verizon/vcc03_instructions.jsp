@@ -70,7 +70,7 @@
                         
 
                         <p><strong>Loading the Competition Arena</strong><br/>
-                        The Competition Arena is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the application by clicking the Compete Now link at the left. 
+                        The Competition Arena is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the application by clicking the Competition Arena link at the left. 
                         Once you click the button, you will be notified if 
                         you need to upgrade your Java runtime. If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade is not 
                         required, the application will load automatically and present you with a red "Launch Competition Arena" button.</p>
