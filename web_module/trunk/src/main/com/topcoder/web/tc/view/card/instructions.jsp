@@ -9,6 +9,7 @@
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 
 <% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
@@ -112,12 +113,12 @@ document.write( 'id="tc_card" ');
 document.write( 'align="middle"&gt; ');
 document.write( '&lt;param name="allowScriptAccess" value="sameDomain" /&gt; ');
 document.write( '&lt;param name="movie" ');
-document.write( 'value="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400"/&gt; ');
+document.write( 'value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"/&gt; ');
 document.write( '&lt;param name="menu" value="false" /&gt; ');
 document.write( '&lt;param name="quality" value="high" /&gt; ');
 document.write( '&lt;param name="bgcolor" value="#ffffff" /&gt; ');
 document.write( '&lt;embed ');
-document.write( 'src="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400" ');
+document.write( 'src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>" ');
 document.write( 'menu="false" ');
 document.write( 'quality="high" ');
 document.write( 'bgcolor="#ffffff" ');
@@ -173,12 +174,12 @@ height="410"
 id="tc_card"
 align="middle"&gt;
 &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
-&lt;param name="movie" value="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400"/&gt;
+&lt;param name="movie" value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"/&gt;
 &lt;param name="menu" value="false" /&gt;
 &lt;param name="quality" value="high" /&gt;
 &lt;param name="bgcolor" value="#ffffff" /&gt;
 &lt;embed
-src="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400"
+src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"
 menu="false"
 quality="high"
 bgcolor="#ffffff"
