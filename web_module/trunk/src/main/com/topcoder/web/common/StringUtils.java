@@ -163,4 +163,9 @@ public final class StringUtils {
         System.out.println(consistsOf(blabla, ALPHABET_ALPHA_EN, true));
         System.out.println(hasNotMoreWords(blabla, 1));
     }
+
+    /** Replaces null strings with "", others are returned untouched. */
+    public static String checkNull(String s) {
+        return s==null?"":s;
+    }
 }
