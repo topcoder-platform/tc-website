@@ -30,13 +30,14 @@ public class TrySecurity extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     void businessProcessing() throws Exception {
-        Iterator i = PersistStore.getInstance(null).userList();
-        while( i.hasNext() ) {
+//        Iterator i = PersistStore.getInstance(null).userList();
+//        while( i.hasNext() ) {
 //            System.err.println("------"+i.next()+"-------");
-        }
+//        }
         PrincipalMgrRemote remotePrincipalMgr = AppContext.getInstance().getRemotePrincipalManager();
+        log.debug("--- remote principal manager instantiated");
         UserPrincipal user = remotePrincipalMgr.getUser(132456);
-        log.debug("security component remote access check passed");
-        throw new Exception("debug exception");
+        log.debug("--- UserPrincipal instantiated");
+        throw new Exception("debug exception - successfully passed");
     }
 }
