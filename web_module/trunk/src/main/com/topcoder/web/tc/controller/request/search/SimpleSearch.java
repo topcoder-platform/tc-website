@@ -5,9 +5,7 @@ import com.topcoder.web.tc.model.MemberSearch;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 
@@ -97,20 +95,79 @@ public class SimpleSearch extends Base {
 
     protected MemberSearch getResults() throws Exception {
         MemberSearch m = buildMemberSearch();
-        Request r = new Request();
-        r.setContentHandle("member_search");
+
+        StringBuffer queryBottom = new StringBuffer(300);
+        queryBottom.append(" FROM coder c");
+        queryBottom.append(" , rating r");
+        if (m.getMaxDaysSinceLastComp() != null) {
+            queryBottom.append(" , round ro");
+            queryBottom.append(" , calendar cal");
+        } else {
+            queryBottom.append(" , OUTER round ro");
+        }
+        queryBottom.append(" , country co");
+        queryBottom.append(" WHERE c.coder_id = r.coder_id");
+        queryBottom.append(" AND c.status = 'A'");
+        if (m.getStateCode() != null) queryBottom.append(" AND c.state_code like '").append(m.getStateCode()).append("'");
+        if (m.getHandle() != null) queryBottom.append(" AND LOWER(c.handle) like LOWER('").append(m.getHandle()).append("'");
+        queryBottom.append(" AND r.last_rated_round_id = ro.round_id");
+        queryBottom.append(" AND r.rating BETWEEN ");
+        queryBottom.append(m.getMinRating()== null?"0":m.getMinRating().toString());
+        queryBottom.append(" AND ");
+        queryBottom.append(m.getMaxRating()== null?String.valueOf(Integer.MAX_VALUE):m.getMaxRating().toString());
+        queryBottom.append(" AND r.num_ratings BETWEEN ");
+        queryBottom.append(m.getMinNumRatings()== null?"0":m.getMinNumRatings().toString());
+        queryBottom.append(" AND ");
+        queryBottom.append(m.getMaxNumRatings()== null?String.valueOf(Integer.MAX_VALUE):m.getMaxNumRatings().toString());
+        if (m.getCountryCode() != null)queryBottom.append(" AND c.country_code like '").append(m.getCountryCode()).append("'");
+        if (m.getMaxDaysSinceLastComp() != null) {
+            queryBottom.append(" AND cal.calendar_id = ro.calendar_id");
+            queryBottom.append(" AND cal.date > CURRENT - ").append(m.getMaxDaysSinceLastComp()).append(" UNITS DAY");
+        }
+        queryBottom.append(" AND c.country_code = co.country_code");
+        queryBottom.append(" ORDER BY rating_order, lower_handle");
+
+
+        StringBuffer searchQuery = new StringBuffer(400);
+        searchQuery.append(" SELECT c.coder_id AS user_id");
+        searchQuery.append(" , c.handle");
+        searchQuery.append(" , LOWER(c.handle) lower_handle");
+        searchQuery.append(" , r.rating");
+        searchQuery.append(" , case when c.state_code='ZZ' then '' else c.state_code end as state_code");
+        searchQuery.append(" , r.num_ratings");
+        searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = ro.calendar_id) AS last_competed");
+        searchQuery.append(" , CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
+        searchQuery.append(" , co.country_name");
+        searchQuery.append(queryBottom.toString());
+
+        StringBuffer countQuery = new StringBuffer(400);
+        countQuery.append(" SELECT count(*) ");
+        countQuery.append(queryBottom.toString());
+
+
+        log.debug("searchQuery is \n"+searchQuery.toString());
+
+
+        QueryRequest r = new QueryRequest();
+        r.addQuery("member_search", searchQuery.toString());
+        r.addQuery("count", countQuery.toString());
         r.setProperty(DataAccessConstants.START_RANK, m.getStart().toString());
         r.setProperty(DataAccessConstants.END_RANK, m.getEnd().toString());
-        if (m.getHandle()!=null) r.setProperty(Constants.HANDLE, m.getHandle());
-        CachedDataAccess cda = (CachedDataAccess)getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
-        cda.setExpireTime(15*60*1000); //cache for 15 minutes
+
+
+        QueryDataAccess cda = new QueryDataAccess(DBMS.DW_DATASOURCE_NAME);
+        //todo cache
+//        cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
         Map res = cda.getData(r);
-        ResultSetContainer rsc = (ResultSetContainer)res.get("member_search");
-        ResultSetContainer count = (ResultSetContainer)res.get("count");
+        ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
+        ResultSetContainer count = (ResultSetContainer) res.get("count");
         m.setResults(rsc);
         m.setTotal(count.getIntItem(0, "count"));
-        if (m.getEnd().intValue()>m.getTotal()) {
+        if (m.getEnd().intValue() > m.getTotal()) {
             m.setEnd(new Integer(m.getTotal()));
+        }
+        if (m.getTotal()==0) {
+            m.setStart(new Integer(0));
         }
         return m;
     }
