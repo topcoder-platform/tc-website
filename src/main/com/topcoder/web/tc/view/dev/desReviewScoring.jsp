@@ -58,17 +58,14 @@
             For 3-based questions, the reviewer must include comments when giving a question a score of 1, 2 and 4.  1 and 2 should be obvious, the comments should indicate what is wrong.  For a score of 4 the comment should explain what the competitor did to exceed the requirements.  For a score of 3, the reviewer is not required to make significant comments other than "yes" or "ok", but an appropriate comment would be to indicate what the competitor could have done to achieve a 4.
             </p>
 
-<hr width="100%" size="1px" color="666666" />
 <p class="bodyText"><span class="bodySubtitle">Method Definition</span><br/>
-            The Exceptions defined is an inclusive list of the anticipated exceptions.
+<ul><li>The Exceptions defined is an inclusive list of the anticipated exceptions.</li></ul>
 
-<hr width="100%" size="1px" color="666666" />
 <p class="bodyText"><span class="bodySubtitle">Use-Case Diagram(s)</span><br/>
-            All public methods are represented in the use cases.
+<ul><li>All public methods are represented in the use cases.</li></ul>
 
-<hr width="100%" size="1px" color="666666" />
 <p class="bodyText"><span class="bodySubtitle">Sequence Diagram(s)</span><br/>
-            Sequence diagrams exist for each implementation of a use case
+<ul><li>Sequence diagrams exist for each implementation of a use case</li></ul>
 
 <hr width="100%" size="1px" color="666666" />
 
