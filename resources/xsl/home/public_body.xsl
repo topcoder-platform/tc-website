@@ -79,14 +79,14 @@
 <!-- Summary/Best/Worst Begins  -->
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 147</font></td>
+                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 148</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/stat?&amp;c=last_match" class="bodyText"><strong>View Summary</strong></a></td>
                 </tr>
             </table>
 
                 <table border="0" cellspacing="0" cellpadding="3" width="100%">
                     <tr>
-                        <td valign="top" colspan="3" class="bodyText">Thursday, May 22, 2003</td>
+                        <td valign="top" colspan="3" class="bodyText">Wednesday, May 28, 2003</td>
                     </tr>
 
                     <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
@@ -150,9 +150,14 @@
                 <tr valign="top">
                     <td width="55" class="bodyText"  valign="top">
 
-		    <img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+		     <img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span>
+                        
+                        
+                        <!--<img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <span class="smallText"><em>TopCoder Member</em></span>-->
 
                         <!--<img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
                         By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
@@ -161,14 +166,15 @@
                     </td>
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td width="99%" class="bodyText" valign="top">
-                        <p><font size="4"><strong>Single Round Match 147</strong></font><br />
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm147_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
+                        <p><font size="4"><strong>Single Round Match 148</strong></font><br />
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm148_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
 
-                        <p>This match provided some very impressive performances, perhaps <b>SnapDragon</b> and <b>Yarin</b> have some new competitors coming up the ranks.  <b>bladerunner</b> continues to improve 
-                        his rating while maintaining his 100% success rate in both challenges and submissions.  <b>overwise</b>, a newcomer to competition, must have spent his 6 months of TopCoder 
-                        membership practicing, because he managed to get spots on both the Highest Match Total and Impressive Debut lists with a score of 1846.62.  
+                      <p>SRM 148 went off without a hitch.  The division one set featured a deceivingly hard 1100 point problem that stumped most of the coders.  <b>SnapDragon</b>, who won the match, finished the first two problems before most 
+coders finished the first.  He successfully finished every problem quicker than all other coders.  <b>SnapDragon</b> was on pace to complete the entire round in 30 minutes until he ran into the 1100 point problem.  
+Numerous other coders also sped through the first two, later to be stopped in their tracks by the hard.  Once the challenge phase ended very few 1100 submissions still remained.  In division two, a new coder by the name 
+<b>bogklug</b> scored 1733.52 winning his division by a wide margin.  Division two coders did remarkably well on a relatively difficult set lending credence to the theory that their average ability is increasing steadily.
 
- <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm147_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
+ <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm148_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
