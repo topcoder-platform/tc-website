@@ -21,7 +21,10 @@
       <TD WIDTH="170" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <jsp:include page="../includes/left.jsp"/>
+        <jsp:include page="../includes/left.jsp">
+            <jsp:param name="level1" value="sponsorship"/>
+            <jsp:param name="level2" value="index"/>
+        </jsp:include>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -34,31 +37,31 @@
 <table border="0" width="100%"><tr><td CLASS="bodyText" width="100%">
 <FONT SIZE="3" COLOR="#666666"><B>TopCoder Sponsor Program</B></FONT><BR/>
 <P>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
 </P>
 
 <P>
-olor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+olor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
                        tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam.
 </P>
 
 <P>
-Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
 </P>
 
 <P>
-                       Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpased diam nonummy nibh euismod tincidunt 
-                       Nagna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-                       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, qt. Ut 
-                       wisi enim adminim veniam, quis nostrud exerci. 
+                       Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat volutpased diam nonummy nibh euismod tincidunt
+                       Nagna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
+                       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, qt. Ut
+                       wisi enim adminim veniam, quis nostrud exerci.
                        tuer adipiscing elit, sedsed dagna aliquam erat volu adminim veniam, qveniam.
 </P>
-<P><BR/></P>    
+<P><BR/></P>
 </td></tr>
 <tr><td>
      <form method="POST" action="<%=request.getContextPath()%>/Tx/?op=begin">

@@ -20,7 +20,10 @@
       <TD WIDTH="170" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <jsp:include page="../includes/left.jsp"/>
+        <jsp:include page="../includes/left.jsp">
+            <jsp:param name="level1" value="myAccount"/>
+            <jsp:param name="level2" value="index"/>
+        </jsp:include>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
