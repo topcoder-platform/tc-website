@@ -798,6 +798,8 @@ public class PDFGenerator extends BaseProcessor {
     final class MyPageEvents extends PdfPageEventHelper {
         // This is the contentbyte object of the writer
         PdfContentByte cb;
+        
+        boolean bFirstFooter = true;
 
         public void onStartPage(PdfWriter writer, Document document) {
             try {
@@ -825,6 +827,17 @@ public class PDFGenerator extends BaseProcessor {
             try {
                 if(!inResume) {
                     //super.onEndPage(writer, document);
+                    Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
+                    footerimg.setAlignment(Element.ALIGN_LEFT);
+                    footerimg.scalePercent(70f);
+
+                    footerimg.setAbsolutePosition(45,30);
+
+                    cb = writer.getDirectContent();
+                    cb.addImage(footerimg);
+                } else if(bFirstFooter) {
+                    bFirstFooter = false;
+                    
                     Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
                     footerimg.setAlignment(Element.ALIGN_LEFT);
                     footerimg.scalePercent(70f);
