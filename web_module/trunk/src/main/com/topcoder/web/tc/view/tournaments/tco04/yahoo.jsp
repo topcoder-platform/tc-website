@@ -10,9 +10,9 @@
 
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
-<jsp:param name="tabLev1" value="sponsor"/>
-<jsp:param name="tabLev2" value=""/>
-<jsp:param name="tabLev3" value=""/>
+<jsp:param name="tabLev1" value="overview"/>
+<jsp:param name="tabLev2" value="sponsors"/>
+<jsp:param name="tabLev3" value="yahoo"/>
 </jsp:include>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
