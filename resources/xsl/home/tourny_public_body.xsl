@@ -236,10 +236,11 @@ to come...<A HREF="/?t=statistics&amp;c=srm90_lessons" CLASS="bodyGeneric">full 
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-    <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=home','Citrix','1','1','680','489')"><IMG SRC="/i/sponspromo_citrix.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></a><BR/><BR/>
+    <!-- <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=home','Citrix','1','1','680','489')"><IMG SRC="/i/sponspromo_citrix.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></a><BR/><BR/> -->
+<A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/>
+<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A>
 <xsl:call-template name="top_10_coders"/>
-<!-- <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><BR/>
-<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A> -->
+
            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
  			<TR><TD COLSPAN="3" BGCOLOR="#001935"><IMG SRC="/i/label_quick_stats_home.gif" ALT="Quick Stats" WIDTH="166" HEIGHT="17" BORDER="0"/></TD></TR>
 			<TR><TD BGCOLOR="#FFFFFF" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>                
