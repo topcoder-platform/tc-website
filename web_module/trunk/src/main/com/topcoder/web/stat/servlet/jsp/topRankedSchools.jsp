@@ -85,7 +85,7 @@ pageContext.setAttribute("resultSet", rsc);
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 3 /* rank */ + "]" %>'/></TD>
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13" ALIGN="left"><bean:write name="resultRow" property='<%= "item[" + 0 /* name */ + "]" %>'/></TD>
-                     <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 2 /* rated count */ + "]" %>'/></TD>
+                     <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13" ALIGN="left"><bean:write name="resultRow" property='<%= "item[" + 2 /* rated count */ + "]" %>'/></TD>
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 1 /* avg. rating */ + "]" %>'/></TD>
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>
