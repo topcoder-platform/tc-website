@@ -88,10 +88,10 @@ public class RequestTracker {
             log.debug("begin request batch load");
             for (Iterator it = a.iterator(); it.hasNext();) {
                 UserRequest r = (UserRequest) it.next();
-                if (r.u.isAnonymous()) {
+                if (r.userId == GUEST.getId()) {
                     rs.createRequest(r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 } else {
-                    rs.createRequest(r.u.getId(), r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    rs.createRequest(r.userId, r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 }
             }
             log.debug("end request batch load");
@@ -110,7 +110,7 @@ public class RequestTracker {
      * adding to the database.
      */
     private static class UserRequest {
-        private User u;
+        private long userId;
         private String  url;
         private long time;
 
@@ -122,7 +122,7 @@ public class RequestTracker {
          * @param r
          */
         private UserRequest(User u, TCRequest r) {
-            this.u = u;
+            this.userId = u.getId();
             StringBuffer buf = new StringBuffer(254);
             buf.append("http://");
             buf.append(r.getServerName());
