@@ -24,7 +24,7 @@
       <tr>
          <td>
             <p class="bodyText">
-                This list represents the top rated component developers.
+                This list represents the top rated component designers.
             </p>
          </td>
       </tr>
