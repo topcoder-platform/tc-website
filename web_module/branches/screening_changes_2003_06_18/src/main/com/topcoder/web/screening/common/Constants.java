@@ -87,7 +87,8 @@ public class Constants
     public static String UPDATE_PROFILE_PROCESSOR;
     public static String CREATE_PROFILE_PROCESSOR;
     public static String PROFILE_CHECK_NAME_QUERY_KEY;
-    
+    public static int NO_TEST_SET_A;
+
     //Problem constants
     public static String PROBLEM_LIST_PAGE;
     public static String PROBLEM_DETAIL_PAGE;

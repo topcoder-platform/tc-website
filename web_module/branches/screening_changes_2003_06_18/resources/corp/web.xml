@@ -937,6 +937,14 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>no_test_set_a</param-name>
+            <param-value>0</param-value>
+            <description></description>
+        </init-param>
+
+
+
         <!-- Problem constants -->
         <init-param>
             <param-name>problem_list_page</param-name>

@@ -82,9 +82,10 @@ public class UpdateProfile extends BaseProfileProcessor {
                 long companyId =
                     Long.parseLong(row.getItem("company_id").toString());
     //            create a session somehow
-                long spid = profile.createSessionProfile(info.getProfileName(),
-                                                         info.getTestSetA().longValue(),
-                                                         companyId);
+                long spid = profile.createSessionProfile(info.getProfileName(), companyId);
+                if (info.getTestSetA().longValue()!=Constants.NO_TEST_SET_A) {
+                    profile.setSessionRoundId(spid, info.getTestSetA().longValue());
+                }
                 info.setProfileId(new Long(spid));
 
             }

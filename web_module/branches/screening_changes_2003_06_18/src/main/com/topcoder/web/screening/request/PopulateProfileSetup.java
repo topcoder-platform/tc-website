@@ -22,6 +22,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
     private Request profileCompanyProblem;
     private static Logger log = Logger.getLogger(PopulateProfileSetup.class);
 
+
     public PopulateProfileSetup() {
         profileProblemSet = new Request();
         profileProblemSet.setProperty(DataAccessConstants.COMMAND,

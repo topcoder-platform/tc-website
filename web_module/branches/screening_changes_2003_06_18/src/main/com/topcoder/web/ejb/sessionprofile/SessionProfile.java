@@ -15,13 +15,11 @@ public interface SessionProfile extends EJBObject {
     /**
      *
      * @param desc
-     * @param sessionRoundId
      * @param companyId
      * @return session profile id (int)
      * @throws RemoteException
      */
-    public long createSessionProfile(String desc, long sessionRoundId,
-                                     long companyId)
+    public long createSessionProfile(String desc, long companyId)
             throws RemoteException;
 
     /**

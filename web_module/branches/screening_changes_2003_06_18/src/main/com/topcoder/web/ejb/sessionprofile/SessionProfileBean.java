@@ -28,13 +28,11 @@ public class SessionProfileBean extends BaseEJB {
     /**
      *
      * @param desc
-     * @param sessionRoundId
      * @param companyId
      * @return The sessionProfileId created for this entry
      * @throws RemoteException
      */
-    public long createSessionProfile(String desc, long sessionRoundId,
-                                     long companyId)
+    public long createSessionProfile(String desc, long companyId)
             throws RemoteException {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
@@ -42,8 +40,6 @@ public class SessionProfileBean extends BaseEJB {
 
         varBuf.append("desc: ");
         varBuf.append(desc);
-        varBuf.append(" sessionRoundId: ");
-        varBuf.append(sessionRoundId);
         varBuf.append(" companyId: ");
         varBuf.append(companyId);
 
@@ -62,9 +58,8 @@ public class SessionProfileBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(180);
             query.append("INSERT INTO session_profile (session_profile_id, ");
-            query.append("session_profile_desc, session_round_id, ");
-            query.append("company_id) ");
-            query.append("VALUES(?,?,?,?) ");
+            query.append("session_profile_desc, company_id) ");
+            query.append("VALUES(?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(transDsName);
@@ -74,8 +69,7 @@ public class SessionProfileBean extends BaseEJB {
             sessionId = IdGeneratorClient.getSeqId("SESSION_PROFILE_SEQ");
             pstmt.setLong(1, sessionId);
             pstmt.setString(2, desc);
-            pstmt.setLong(3, sessionRoundId);
-            pstmt.setLong(4, companyId);
+            pstmt.setLong(3, companyId);
 
             pstmt.executeUpdate();
 
