@@ -113,7 +113,7 @@
                 <tr>
                     <td align="center">
                         <table border="0" cellspacing="0" cellpadding="3">
-
+                      
                 <tr>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Qualifying Contest Entries</h1></td>
@@ -210,12 +210,27 @@
 
                 <tr>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" colspan="3"></td>
+                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr>
+                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Other Contest Entries</h1></td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
+                <tr valign="middle">
+                    <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" border="0" /></td>
+                    <td background="/i/steel_bluebv_bg.gif" width="150" class="statText">Handle</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="80" class="statText" align="center">Submissions</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="80" class="statText" align="center">Average Score</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" border="0" /></td>
+                </tr>
+                
+
                  <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGrey" href="/stat?c=member_profile&amp;cr=289864"><strong>FTolToaster</strong></a></td>
+                    <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=289864"><strong>FTolToaster</strong></a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">95.34</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
