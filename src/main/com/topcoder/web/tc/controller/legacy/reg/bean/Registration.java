@@ -1786,7 +1786,7 @@ public class Registration
                 msgText.append("address spans two lines, please make sure you copy and paste");
                 msgText.append(" both sections without any spaces between them.\n\n");
                 msgText.append("You may utilize your activated TopCoder handle and password ");
-                msgText.append("in order to access your member home page on TopCoder�s web site ");
+                msgText.append("in order to access your member home page on TopCoder's web site ");
                 msgText.append("(<http://www.topcoder.com>).  Your handle and");
                 msgText.append(" password will also provide you with access to the TopCoder ");
                 msgText.append("Competition Arena, where you can practice, chat, and compete ");
