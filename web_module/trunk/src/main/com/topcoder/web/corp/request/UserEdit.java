@@ -167,9 +167,7 @@ public class UserEdit extends BaseProcessor {
         // associate with company
         if (secTok.createNew) {
             // find company item for user
-            Contact contactTable = (
-                    (ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)
-                    ).create();
+            Contact contactTable = ((ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
             // link user with company
             contactTable.createContact(secTok.primaryUserCompanyID, targetUserID);
         }
@@ -190,7 +188,7 @@ public class UserEdit extends BaseProcessor {
                 String pValue = request.getParameter("perm-" + permID);
                 boolean set = "on".equalsIgnoreCase(pValue);
                 RolePrincipal role = mgr.getRole(permID);
-                if (set) {
+                if (set && !hasRole(mgr.getUserSubject(targetUserID), role)) {
                     mgr.assignRole(secTok.targetUser, role, secTok.requestor);
                 } else {
                     mgr.unAssignRole(secTok.targetUser, role, secTok.requestor);
@@ -198,6 +196,15 @@ public class UserEdit extends BaseProcessor {
             }
         }
     }
+
+    private boolean hasRole(TCSubject user, RolePrincipal role) {
+        RolePrincipal[] roles = (RolePrincipal[])user.getPrincipals().toArray(new RolePrincipal[0]);
+        for (int i=0; i<roles.length && !isAccountAdmin; i++) {
+            if (roles[i].equals(role)) return true;
+        }
+        return false;
+    }
+
 
     /**
      * Fetches form fields from DB.
