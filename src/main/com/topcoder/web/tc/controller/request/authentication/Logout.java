@@ -15,13 +15,13 @@ public class Logout extends Base{
     protected void businessProcessing() throws TCWebException {
 
         getAuthentication().logout();
-        getRequest().getSession().invalidate();
         try {
             doLegacyCrap(getRequest());
         } catch (Exception e) {
             throw new TCWebException(e);
         }
 
+        getRequest().getSession().invalidate();
         setNextPage(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
         setIsNextPageInContext(false);
     }
