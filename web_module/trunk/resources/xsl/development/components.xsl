@@ -401,7 +401,7 @@
                     <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7323082" class="statText" target="parent">Generic Event Manager</a></td>
                     <td class="statText" height="15" align="center">5</td>
                     <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299180"><strong>srowen</strong></a></td>
-                    <td class="statText" height="15" align="center">78.59</td>
+                    <td class="statText" height="15" align="center">91.74</td>
                     <td class="statText" height="15" align="right">$3,548.60&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
