@@ -75,11 +75,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @return A User object representing the current user.
      */
     public User getUser() {
-        long id = getIdFromPersistor();
-        if(id == User.USER_ANONYMOUS_ID)
-            id = getIdFromCookie();
-        
-        return new SimpleUser(id,null,null);
+        return new SimpleUser(getIdFromPersistor(),null,null);
     }
     
     /**
@@ -88,7 +84,11 @@ public class BasicAuthentication implements WebAuthentication {
      * @return  User object containing user info stored in the persistor.
      */
     public User getActiveUser() {
-        return new SimpleUser(getIdFromPersistor(),null,null);
+        long id = getIdFromCookie();
+        if(id == User.USER_ANONYMOUS_ID)
+            id = getIdFromPersistor();
+        
+        return new SimpleUser(id,null,null);
     }
     
     /**
