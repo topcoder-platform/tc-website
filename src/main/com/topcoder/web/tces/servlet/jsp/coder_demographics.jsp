@@ -23,7 +23,12 @@
 <!-- Header Begins -->
 <jsp:include page="top.jsp" />
 <!-- Header Ends -->
-  
+
+<!-- Main Navigation bar begins -->
+<jsp:include page="../menu.jsp">
+    <jsp:param name="level1" value="employment_services"/>
+</jsp:include>
+<!-- Main Navigation bar ends -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
@@ -36,7 +41,7 @@
 
 <!-- Center Column Begins -->
         <td class="bodytext" width="100%" align="center">
-        
+
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodytext" width="100%">
