@@ -84,11 +84,13 @@
             <table border="0" cellspacing="0" cellpadding="5" width="100%">
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="4"><font size="3"><strong>Open Application Development Projects</strong></font></td></tr>
 
+                <!--
                 <tr valign="top">
                     <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
                 </tr>
+                -->
 
-                <!--
+
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" nowrap="nowrap">Project</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Winning Developer</td>
@@ -100,9 +102,9 @@
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
                     <td class="bodyText" align="center">$2,200</td>
                     <td class="bodyText" align="center">$665</td>
-                    <td class="bodyText" align="center">9.29.2003</td>
+                    <td class="bodyText" align="center">closed</td>
                 </tr>
-                -->
+
 
                 <!--
                 <tr valign="top">
