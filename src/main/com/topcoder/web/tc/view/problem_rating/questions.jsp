@@ -20,7 +20,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 function submit(){
     var rf = document.ratings;
     var tot = 0;
-    for(int i = 0; i<rf.elements.length; i++){
+    for(var i = 0; i<rf.elements.length; i++){
         if(rf.elements[i].name.charAt(0)=='q' && rf.elements[i].checked){
             tot ++;
         }
