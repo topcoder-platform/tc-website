@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- TCCC05 YAHOO -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_12_20_04"><img src="/i/pressroom/tccc05_logo.gif" alt="TCO04" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_12_20_04">TopCoder&#174; Announces Yahoo! as Title Sponsor for 2005 TCCC</A></strong></font><br />
+                        TopCoder today announced Yahoo! Inc. as the title sponsor of the 2005 TopCoder Collegiate Challenge (TCCC).  The 2005 TCCC will bring many of the world's finest student programmers together in competition for international ranking, notoriety and a share of the $150,000 prize purse.  <span class="prHead">[December 20]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- SCMP -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
