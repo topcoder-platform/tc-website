@@ -55,8 +55,8 @@
         </tr>
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <td width="15"><img src="/i/icon_help_blue.gif" width="15" height="11" border="0"></td>
-            <td class="bodyText">
+            <td class="bodyText" width="15"><img src="/i/icon_help_blue.gif" width="15" height="11" border="0"></td>
+            <td class="bodyText" width="100%">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
             <tc:counter min="1" max="10" inc="1" id="rating">
