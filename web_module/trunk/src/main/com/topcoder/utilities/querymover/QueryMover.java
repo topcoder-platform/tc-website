@@ -169,28 +169,21 @@ public class QueryMover {
                     sourceCommandGroup.getCommandGroupDesc(), targetDSN);
             CommandBean targetCommand = findCommand(targetC, sourceCommand.getCommandDesc(), targetDSN);
 
-            log.debug("source command: " + sourceCommand.toString());
-            log.debug("source group: " + sourceCommandGroup.toString());
-            log.debug("target command: " + targetCommand.toString());
-            log.debug("target group: " + targetCommandGroup.toString());
-
             int newCommandGroupId = 0;
 
             /* it's a new command. */
             if (targetCommand == null) {
-                log.info("command " + sourceCommand.getCommandDesc() + " not found, creating...");
-                long newCommandId = targetC.createCommand(sourceCommand.getCommandDesc(),
-                        (int) sourceCommand.getCommandId(), targetDSN);
-
                 /* it's a new command group */
                 if (targetCommandGroup == null) {
                     log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " not found, creating...");
                     newCommandGroupId = targetCG.createCommandGroup(sourceCommandGroup.getCommandGroupDesc(), targetDSN);
-                    targetC.setCommandGroupId(newCommandId, newCommandGroupId, targetDSN);
-                } else {
-                    log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " found, updating command...");
-                    targetC.setCommandGroupId(newCommandId, targetCommandGroup.getCommandGroupId(), targetDSN);
                 }
+
+                log.info("command " + sourceCommand.getCommandDesc() + " not found, creating...");
+                long newCommandId = targetC.createCommand(sourceCommand.getCommandDesc(),
+                        (int) sourceCommand.getCommandId(), targetDSN);
+                targetC.setCommandGroupId(newCommandId, newCommandGroupId, targetDSN);
+
                 commandMap.put(new Long(newCommandId), new Long(sourceCommandId));
                 moveQueries(sourceCommandId);
                 moveCommandQueries(newCommandId);
