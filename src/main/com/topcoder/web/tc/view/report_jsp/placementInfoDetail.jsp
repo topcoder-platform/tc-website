@@ -21,6 +21,8 @@ List osList = (List)request.getAttribute("osSkills");
 List industryList = (List)request.getAttribute("industrySkills");
 %>
 
+<jsp:usebean id="contractingInfo" class="com.topcoder.web.tc.model.ContractingInfo" scope="request" />
+
 </head>
 
 <body>
@@ -51,7 +53,17 @@ List industryList = (List)request.getAttribute("industrySkills");
             <td valign=top>&#160;</td>
 	</tr>
               <tr>
-                <td valign=top align=center colspan=2><%=request.getAttribute("resume")%></td>
+                <td valign=top align=center colspan=2>
+			<tr>
+				<td class=bodyText>
+
+ 			<%if(request.getAttribute("hasResume") != null && request.getAttribute("hasResume").equals("true")) {%>
+                <a href="/tc?module=DownloadResume&<%=Constants.USER_ID%>=<jsp:getProperty name="contractingInfo" property="userId" />">Download resume</a>
+
+			<%} else { %>
+                No resume on file.
+            <% } %>
+                </td>
             </tr>
 			<tr><td>&#160;</td></tr>
 
