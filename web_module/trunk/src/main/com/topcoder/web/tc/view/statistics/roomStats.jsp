@@ -313,7 +313,7 @@ if (pageContext.getAttribute("cr").toString().length()>0){
   ResultSetContainer rscProblems = (ResultSetContainer) queryEntries.get("Coder_Problems");
 if (rscProblems != null && rscProblems.size() > 0) {   
   pageContext.setAttribute("resultSet", rscProblems);
-  java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.S");
+  java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.SSS");
   sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">  
