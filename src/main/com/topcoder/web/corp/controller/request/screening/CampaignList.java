@@ -51,7 +51,7 @@ public class CampaignList extends BaseScreeningProcessor {
 
         // Get the user ID from request
         long userId = getUser().getId();
-        log.info("Got the request to display the campaigns for user : " + userId);
+        log.debug("Got the request to display the campaigns for user : " + userId);
 
         // Construct a request for company details
         Request dr = new Request();
@@ -60,12 +60,12 @@ public class CampaignList extends BaseScreeningProcessor {
 
         try {
             // Execute the request for company details
-            log.info("Getting the company details for user : " + userId);
+            log.debug("Getting the company details for user : " + userId);
             Map map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.info("The company details retrieval failed for user : " + userId);
+                log.debug("The company details retrieval failed for user : " + userId);
                 throw new ScreeningException("Company details retrieval error for user : " + userId);
             }
 
@@ -77,11 +77,11 @@ public class CampaignList extends BaseScreeningProcessor {
 
             // Notify the user if there is more than 1 company
             if (result.size() != 1) {
-                log.info("The user " + userId + " has more than 1 company associated with him.");
-                log.info("The following companies had been found:");
+                log.error("The user " + userId + " has more than 1 company associated with him.");
+                log.error("The following companies had been found:");
                 for (int i = 0; i < result.size(); i++) {
                     ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(i);
-                    log.info(row.getStringItem("company_name"));
+                    log.error(row.getStringItem("company_name"));
                 }
                 throw new ScreeningException("The user should be associated only with 1 company at once.");
             }
@@ -94,7 +94,7 @@ public class CampaignList extends BaseScreeningProcessor {
             dr.setProperty("cm", companyId);
 
             // Execute the request for company campaigns list
-            log.info("Getting the campaigns list for user : " + userId + " and company :" + companyId);
+            log.debug("Getting the campaigns list for user : " + userId + " and company :" + companyId);
             map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
@@ -105,21 +105,21 @@ public class CampaignList extends BaseScreeningProcessor {
             }
 
             result = (ResultSetContainer) map.get(Constants.COMPANY_CAMPAIGNS_LIST);
-            log.info("The number of campaigns found is : " + result.size());
+            log.debug("The number of campaigns found is : " + result.size());
 
             // Check if there is a single campaign for the company
             if (result.size() == 1) {
                 // if so redirect the user to campaign position list
                 row = (ResultSetContainer.ResultSetRow) result.get(0);
                 String campaignId = row.getStringItem("campaign_id");
-                log.info("There is a single campaign for the user : " + userId + ". Will redirect to campaign : "
+                log.debug("There is a single campaign for the user : " + userId + ". Will redirect to campaign : "
                         + campaignId);
                 setNextPage(buildProcessorURL(Constants.POSITION_LIST_PROCESSOR, null) + "&" + Constants.CAMPAIGN_ID
                         + "=" + campaignId);
                 setIsNextPageInContext(false);
             } else {
                 // Otherwise forward the user to company campaigns list
-                log.info("Forwarding to campaigns list page...");
+                log.debug("Forwarding to campaigns list page...");
                 request.setAttribute(Constants.COMPANY_CAMPAIGNS_LIST, result);
                 setNextPage(Constants.COMPANY_CAMPAIGNS_PAGE);
                 setIsNextPageInContext(true);
