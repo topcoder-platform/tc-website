@@ -7,7 +7,6 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleUser;
 
 import javax.naming.InitialContext;
-import javax.ejb.EJBException;
 import java.util.*;
 import java.sql.Timestamp;
 import java.sql.Connection;
@@ -117,7 +116,7 @@ public class RequestTracker {
 
 
     protected static void createRequest(long userId, String url, Timestamp time,
-                                        String sessionId, String dataSource) {
+                                        String sessionId, String dataSource) throws TCWebException {
         log.debug("createRequest called. url: " + url
                 + " userId: " + userId + " time: " + time + " session: " + sessionId);
 
@@ -139,7 +138,7 @@ public class RequestTracker {
             ps.executeUpdate();
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw new TCWebException(e);
         } finally {
             ApplicationServer.close(ps);
             ApplicationServer.close(conn);
@@ -147,7 +146,7 @@ public class RequestTracker {
         }
     }
 
-    protected static void createRequest(String url, Timestamp time, String sessionId, String dataSource) {
+    protected static void createRequest(String url, Timestamp time, String sessionId, String dataSource) throws TCWebException {
         log.debug("createRequest called. url: " + url + " time: " + time + " session: " + sessionId);
         StringBuffer query = new StringBuffer(200);
         query.append("insert into request (url, timestamp, session_id) ");
@@ -166,7 +165,7 @@ public class RequestTracker {
             ps.executeUpdate();
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw new TCWebException(e);
         } finally {
             ApplicationServer.close(ps);
             ApplicationServer.close(conn);
