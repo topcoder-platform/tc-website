@@ -198,7 +198,7 @@
           </TR>
           <TR>
             <TD CLASS="statText" VALIGN="middle" HEIGHT="15">&#160;</TD>
-            <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="2" HEIGHT="13"># of Competitions</TD>
+            <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="2" HEIGHT="13"># of Rated Events</TD>
             <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
           </TR>
           <TR>
