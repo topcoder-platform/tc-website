@@ -100,6 +100,11 @@
                     <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="review_end" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
+                    <td class="projectCells">Appeals</td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="appeals_start" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="appeals_end" format="MM.dd.yyyy"/></td>
+                </tr>
+                <tr>
                     <td class="projectCells">Aggregation</td>
                     <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="aggregation_start" format="MM.dd.yyyy"/></td>
                     <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="aggregation_end" format="MM.dd.yyyy"/></td>
