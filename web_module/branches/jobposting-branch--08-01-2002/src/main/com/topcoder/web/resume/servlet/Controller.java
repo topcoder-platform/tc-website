@@ -20,6 +20,8 @@ public class Controller
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
+    public static final String ALIAS = "/RESUME";
+    public static final String RESUME_UPLOAD_TASK = "ResumeUploadTask";
     static final String CONTROLLER_ERROR_URL = "/error.jsp";
     static final String TASK_PACKAGE = "com.topcoder.web.resume.bean";
 

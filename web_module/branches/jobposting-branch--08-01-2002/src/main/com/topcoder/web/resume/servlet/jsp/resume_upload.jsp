@@ -1,5 +1,6 @@
 <%@ page language="java"%>
 <%@ page errorPage="error.jsp"%>
+<%@ page import="com.topcoder.web.resume.servlet.*" %>
 
 
 <HTML>
@@ -7,11 +8,14 @@
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
         <TD>
-          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%="/Resume"%>">
-            <input type="hidden" name="<%="task"%>" value="<%="ResumeUploadTask"%>">
+          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%=Controller.ALIAS%>">
+            <input type="hidden" name="<%=Controller.TASK%>" value="<%=Controller.RESUME_UPLOAD_TASK%>">
             <input type=file name=file1>
-            <input type="submit" value="Upload"> 
-          </form>
+            <select name="fileType" class="dropdown">
+            <option value="AL">Alabama</option>
+            </select>
+            <input type="submit" value="Upload">
+            </form>
         </TD>
       </TR>
     </TABLE>
