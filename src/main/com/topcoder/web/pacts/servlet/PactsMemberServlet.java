@@ -605,8 +605,16 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	// IMPLEMENT WHEN WE HAVE ACCESS TO THE MAIN SITE
 	String forwardingURL = request.getRequestURI();
 	forwardingURL += (request.getQueryString()==null) ? "" : request.getQueryString();
-	String editHref = "/ref/index.jsp?forward=/PactsMemberServlet";
-	forward(editHref,request,response);
+	//  jevans changed String editHref = "/ref/index.jsp?forward=/PactsMemberServlet";
+	  String editHref = "/reg/index.jsp";
+	  forward(editHref,request,response);
+        /*try {
+          log.error("error in do personal infor post");
+          response.sendRedirect("http://www.topcoder.com");
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+*/
     }
 
     /**
