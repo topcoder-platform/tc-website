@@ -383,6 +383,26 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         endRow = data.size();
     }
 
+    public ResultSetContainer(ResultSetContainer rs, ResultFilter[] f) {
+        this();
+        log.debug("ResultSetContainer(ResultSetContainer, ResultFilter) called...");
+        initializeMetaData(rs);
+
+        ResultSetRow rsr = null;
+        for (Iterator it = rs.iterator(); it.hasNext();) {
+            rsr = (ResultSetRow)it.next();
+            boolean include = true;
+            for (int i=0; i<f.length&&include; i++) {
+                include = f[i].include(rsr);
+            }
+            if (include) {
+                addRow(rsr);
+            }
+        }
+        endRow = data.size();
+    }
+
+
 
     // Data item retrieval
     private TCResultItem getItem(ResultSet rs, int i) throws Exception {
