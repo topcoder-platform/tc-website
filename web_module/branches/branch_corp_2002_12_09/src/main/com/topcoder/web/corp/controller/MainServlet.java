@@ -61,10 +61,10 @@ public class MainServlet extends HttpServlet {
 
     /**
      * Method comments will go here  
-     * 
-     * 
-     * 
      * ----- some realization notes (to be removed upon completion) ---------<br>
+     *
+     * 2002/12/20 by NeoTuri
+     * I changed the search to directly read the initialization parameter.
      * 
      * 2002/12/20 by djFD
      * Hi NeoTuri, maybe is it better instead of iterating thru entire bundle of
@@ -92,62 +92,47 @@ public class MainServlet extends HttpServlet {
      * 
      * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest, HttpServletResponse)
      */
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException 
+    {
     	String moduleName = request.getParameter("module");
         ServletConfig srvCfg = getServletConfig();
-        Enumeration initNames = srvCfg.getInitParameterNames();
-        String initParam, initValue, nextPage;
-        Class opClass;
+        String initValue;
         RequestProcessor req = null;
-        boolean found = false;
         
-        if( moduleName != null ) {
-            while( initNames.hasMoreElements() ) {
-                initParam = (String)initNames.nextElement();
-                if( initParam == null ) continue;
-                initValue = srvCfg.getInitParameter( initParam );
-                if( initValue == null ) continue;
-                log.debug( "doGet: initParam = " + initParam + ", initValue = " + initValue );
-                if( initParam.equals( moduleName ) ) {
-                    try {
-                        /* 12/19/2002 - NeoTuri
-                         * I'm considering using the prefix Constants.QUERY_PACKAGE for all
-                         * servlets hiding behind this controller.  The associated items in
-                         * web.xml will be modified to reflect this change.
-                         */
-                        opClass = Class.forName( initValue );
-                        req = (RequestProcessor) opClass.newInstance();
-                    }
-                    catch( Exception e ) {
-                        log.debug( "doGet: bad module" );
-                        break;
-                    }
-                    try {
-                        req.setRequest( request );
-                        req.process();
-                    }
-                    catch( Exception e ) {
-                        /* Could not process module */
-                        log.debug( "doGet: unable to properly forward " );
-                    }
-                    /* 12/19/2002 - NeoTuri
-                     * RequestProcessor MUST prepare a next page on success
-                     * or error.  Returning null may not send the desired page.
-                     */
+        if( moduleName != null && isLegal(moduleName) ) {
+            initValue = srvCfg.getInitParameter( moduleName );
+            if( initValue != null ) {
+                log.debug( "doGet: moduleName = " + moduleName );
+                log.debug( "doGet: initValue = " + initValue );
+                try {
+                    req = (RequestProcessor) Class.forName(initValue).newInstance();
+                    req.setRequest( request );
+                    req.process();
                     if( req.getNextPage() != null ) {
                         sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
-                        found = true;
                     }
-                    break;
+                    else {
+                        sendQuickError( request, response, "doGet: " + initValue + " returned null" );
+                    }
+                }
+                catch( Exception e ) {
+                    sendQuickError( request, response, "doGet: " + e.getMessage() );
                 }
             }
+            else {
+                sendQuickError( request, response, "doGet: moduleName not found" );
+            }
         }
-        
-        if( !found ) {
-            log.debug( "doGet: module not found" );
-            /* Not sure what to do when no modules can be used to complete this request */
-            sendToPage( request, response, "index.jsp", false );
+        else {
+            sendQuickError( request, response, "doGet: moduleName is null" );
         }
+    }
+    
+    private void sendQuickError( HttpServletRequest request, HttpServletResponse response, String msg ) 
+        throws ServletException, IOException {
+        log.debug( msg );
+        sendToErrorPage( request, response, new Exception( msg ) );
     }
     
     /**
