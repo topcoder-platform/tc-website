@@ -87,11 +87,11 @@
 <P><B>Single Round Match 83</B><BR/>
 April 27, 2002</P>
 <P><B>Room 1 Review</B></P>
-<P>Room 1 started with everyone opening the Level One problem, except <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">dmwright</A> 
-who skipped to the Level Two and <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">reid</A> who did start with the Level One, but 
-for some reason started five minutes late. Meanwhile, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">ZorbaTHut</A> had finished 
+<P>Room 1 started with everyone opening the Level One problem, except <A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">dmwright</A> 
+who skipped to the Level Two and <A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">reid</A> who did start with the Level One, but 
+for some reason started five minutes late. Meanwhile, <A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">ZorbaTHut</A> had finished 
 and submitted the Level One problem in only seconds more than three and a half minutes, getting 196.90 points. 
-<A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">SnapDragon</A> and <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">doeth</A> 
+<A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">SnapDragon</A> and <A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">doeth</A> 
 submitted theirs in four and a half minutes for 195.07 and 195.15 points respectively, followed by the rest of Room One 
 (except <B>dmwright</B>), each coder proceeding to the Level Two problem.</P>
 
@@ -99,13 +99,13 @@ submitted theirs in four and a half minutes for 195.07 and 195.15 points respect
 finished his solution, taking almost 27 minutes for 333.96 points and going back to the Level One problem, finishing it in 6 minutes 
 for 192.60 points.</P>
 
-<P>In a surprise move, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">benetin</A> apparently gave up on the Level Two problem, moving 
-on to the Level Three problem after almost 18 minutes of work. Meanwhile, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">Joe</A>, 
-<A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">John Dethridge</A>, <B>reid</B>, and finally <B>ZorbaTHut</B> submitted their Level Two 
+<P>In a surprise move, <A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">benetin</A> apparently gave up on the Level Two problem, moving 
+on to the Level Three problem after almost 18 minutes of work. Meanwhile, <A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">Joe</A>, 
+<A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">John Dethridge</A>, <B>reid</B>, and finally <B>ZorbaTHut</B> submitted their Level Two 
 solutions within ten minutes, <B>Joe</B> getting 340.62 points due to a late start and <B>ZorbaTHut</B> bringing up the end with only 278.27 points, taking
 him 37 minutes.</P>
 
-<P>Aside from <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">derkuci's</A> late Level Two submission, only half a minute before the 
+<P>Aside from <A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">derkuci's</A> late Level Two submission, only half a minute before the 
 end of coding phase, getting 206.07 points for almost 70 minutes of work, all that was left were the Level Three submissions. <B>reid</B> 
 scored dramatically higher than anyone else, submitting in under 16 minutes and getting 787.79 points. <B>dmwright</B> took half an hour and 
 got 552.89 points, while <B>doeth</B> spent 48 minutes for 429.12 points.</P>
