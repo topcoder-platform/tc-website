@@ -986,6 +986,7 @@
     </target>
 
     <target name="fixpassword" depends="compile">
+        <echo message="${env.CLASSPATH"/>
         <java classname="com.topcoder.utilities.PasswordFix" fork="false">
             <classpath>
                 <pathelement path="${env.CLASSPATH}"/>
