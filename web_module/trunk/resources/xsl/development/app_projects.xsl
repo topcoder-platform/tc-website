@@ -81,9 +81,9 @@
 
 					<td valign="top" class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=portal">Portal</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=tc_corp">TopCoder Corporate</a><br/>
 						Posted: 12.2.2002<br/>
-						Submission Deadline: 12.8.2002<br/>
+						Inquiry Deadline: 12.6.2002<br/>
 						</p>    
 					</td>
 				</tr>										
