@@ -16,7 +16,9 @@
   function runFlash(){
 <tc:questionIterator list="<%=questionInfo%>" id="question">
     var test<%=question.getId()%> = "<rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer"><rsc:item row="<%=answer%>" name="percentage" format="#.##"/>,</rsc:iterator>";
+    var ans<%=question.getId()%> = "<rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer"><rsc:item row="<%=answer_text%>"/>|</rsc:iterator>";
     window.document.myFlash<%=question.getId()%>.SetVariable("answers", test<%=question.getId()%>.substring(0, test<%=question.getId()%>.length-2)); //wack that extra comma
+    window.document.myFlash<%=question.getId()%>.SetVariable("answersText", ans<%=question.getId()%>);
 </tc:questionIterator>
   }
 //-->
@@ -37,7 +39,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/> 
+                <jsp:param name="level2" value="competition"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -46,7 +48,7 @@
         <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td width="100%" class="bodyText">
             <img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
             <img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
@@ -120,7 +122,7 @@
        <td width="170">
             <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/> 
+                <jsp:param name="level2" value="competition"/>
             </jsp:include>
         </td>
 <!-- Right Column Ends -->
