@@ -27,7 +27,7 @@ public class Activate extends Base {
             String dbCode = null;
             try {
                 dbCode = coder.getActivationCode(userId, DBMS.OLTP_DATASOURCE_NAME);
-            } catch (EJBException e) {
+            } catch (Exception e) {
                 throw new NavigationException("Sorry, incorrect activation code, account not activated.", e);
             }
             if (dbCode.equals(code)) {

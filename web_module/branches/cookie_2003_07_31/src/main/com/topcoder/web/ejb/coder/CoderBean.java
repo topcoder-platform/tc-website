@@ -517,6 +517,8 @@ public class CoderBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getActivationCode coderId: " + coderId);
+        } catch (EJBException e) {
+            throw e;
         } catch (Exception e) {
             throw new EJBException("Exception in getActivationCode coderId: " + coderId);
         } finally {
