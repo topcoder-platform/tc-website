@@ -21,7 +21,7 @@
                 <!-- Header Begins -->
                 <xsl:call-template name="Top"/>
                 <!-- Header Begins -->
-                <table width="100%" border="0" cellpadding="0" cellspacing="0"  bgcolor="#001B35">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                         <!-- Left Column Begins -->
                         <td width="180" valign="top">
