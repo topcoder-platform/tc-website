@@ -120,6 +120,10 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <tr>
+                <td align=left colspan=2><%=request.getAttribute("techNote")%></td>
+            </tr>
+
 
 			<tr><td>&#160;</td></tr>
 
@@ -133,6 +137,10 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)db).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <tr>
+                <td align=left colspan=2><%=request.getAttribute("dbNote")%></td>
+            </tr>
+
 		</table>
 		</td>
 		<td valign=top width="50%">
@@ -147,6 +155,9 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)lang).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <tr>
+                <td align=left colspan=2><%=request.getAttribute("langNote")%></td>
+            </tr>
 
 			<tr><td>&#160;</td></tr>
 
@@ -160,6 +171,10 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)os).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <tr>
+                <td align=left colspan=2><%=request.getAttribute("osNote")%></td>
+            </tr>
+
             <tr><td>&#160;</td></tr>
 
             <tr>
@@ -172,6 +187,9 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)industry).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <tr>
+                <td align=left colspan=2><%=request.getAttribute("industryNote")%></td>
+            </tr>
 		</table>
 		</tr>
 		<tr><td colspan=2 align=center><br/><br/><a href="javascript:goToPage('ContractingSubmit');"><img src="/i/submit.jpg" border=0/></a></td></tr>

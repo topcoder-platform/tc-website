@@ -237,6 +237,7 @@ public class Confirm  extends ContractingBase {
         Request r = new Request();
         r.setContentHandle("skill_note");
         r.setProperty(Constants.USER_ID, String.valueOf(userId));
+        r.setProperty("ntid", String.valueOf(noteTypeId));
         ResultSetContainer skillNote = (ResultSetContainer)getDataAccess().getData(r).get("skill_note");
         return skillNote.getStringItem(0, "text")==null?"":skillNote.getStringItem(0, "text");
 
