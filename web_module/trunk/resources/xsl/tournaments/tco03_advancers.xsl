@@ -127,7 +127,7 @@
                                   </a>
                        </td>
                        <td class="advancers_list" align="right"><xsl:value-of select="rating"/></td>
-                       <td class="advancers_list" align="right"><xsl:value-of select="format-number(points,'#.##')"/></td>
+                       <td class="advancers_list" align="right"><xsl:value-of select="format-number(points,'0.00')"/></td>
                    </tr>
                 </xsl:for-each>
 
