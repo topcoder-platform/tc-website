@@ -1,8 +1,6 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.util.Transaction;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -18,8 +16,6 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.UserTransaction;
-import java.util.Collection;
-import java.util.Iterator;
 
 /**
  *
@@ -27,8 +23,10 @@ import java.util.Iterator;
  */
 public class SimpleRegSubmit extends SimpleRegBase {
 
+/*
     private static final String ANON_GROUP = "Anonymous";
     private static final String SOFTWARE_GROUP = "Users";
+*/
     private static final long ADDRESS_TYPE = 2; //2 is home address
     private static final long EMAIL_TYPE = 1; //1 is "primary"
     private static final int DEFAULT_EDITOR = 0;  //standard editor
@@ -66,6 +64,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
         try {
             tx = Transaction.get();
             Transaction.begin(tx);
+
+/*
             PrincipalMgrRemote mgr = getPrincipalManager();
             if (regInfo.isNew()) {
                 log.debug("RYAN NEW");
@@ -74,17 +74,19 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 log.debug("RYAN OLD");
                 newUser = mgr.getUser(regInfo.getHandle());
             }
-            store(regInfo, newUser);
+*/
+            store(regInfo);
             Transaction.commit(tx);
         } catch (Exception e) {
-            Exception ex = null;
+//            Exception ex = null;
             try {
                 if (tx != null) {
                     Transaction.rollback(tx);
                 }
             } catch (Exception x) {
-                ex = x;
+                throw new TCWebException(e);
             }
+/*
             try {
                 //since we don't have a transaction spanning the security
                 //stuff, attempt to remove this newly created user manually
@@ -96,22 +98,26 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 if (ex==null) ex = x;
                 throw new TCWebException(x);
             }
+*/
             throw new TCWebException(e);
         }
         return newUser;
     }
-    
-    public UserPrincipal storeWithoutCoder(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+
+    public long storeWithoutCoder(SimpleRegInfo regInfo) throws Exception {
         User user = (User) createEJB(getInitialContext(), User.class);
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class);
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
+/*
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
+*/
 
-        PrincipalMgrRemote mgr = getPrincipalManager();
+//        PrincipalMgrRemote mgr = getPrincipalManager();
 
         //add user to groups
+/*
         if (regInfo.isNew()) {
             Collection groups = mgr.getGroups(CREATE_USER);
             GroupPrincipal group = null;
@@ -135,26 +141,26 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 throw new Exception("Can't find software user group '" + SOFTWARE_GROUP + "'");
             }
         }
+*/
 
         //create user
-        if (!user.userExists(newUser.getId(), transDb)) {
-            user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus(), transDb);
-        }
-        user.setFirstName(newUser.getId(), regInfo.getFirstName(), transDb);
-        user.setMiddleName(newUser.getId(), regInfo.getMiddleName(), transDb);
-        user.setLastName(newUser.getId(), regInfo.getLastName(), transDb);
-        user.setActivationCode(newUser.getId(), StringUtils.getActivationCode(newUser.getId()), transDb);
+
+        long userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb);
+        user.setFirstName(userId, regInfo.getFirstName(), transDb);
+        user.setMiddleName(userId, regInfo.getMiddleName(), transDb);
+        user.setLastName(userId, regInfo.getLastName(), transDb);
+        user.setActivationCode(userId, StringUtils.getActivationCode(userId), transDb);
 
         //create address
         long addressId = 0;
         if (regInfo.isNew()) {
             addressId = address.createAddress(transDb, db);
-            userAddress.createUserAddress(newUser.getId(), addressId, transDb);
+            userAddress.createUserAddress(userId, addressId, transDb);
         } else {
-            ResultSetContainer rsc = userAddress.getUserAddresses(newUser.getId(), transDb);
+            ResultSetContainer rsc = userAddress.getUserAddresses(userId, transDb);
             if (rsc.isEmpty()) {
                 addressId = address.createAddress(transDb, db);
-                userAddress.createUserAddress(newUser.getId(), addressId, transDb);
+                userAddress.createUserAddress(userId, addressId, transDb);
             } else {
                 addressId = rsc.getLongItem(0, "address_id");
             }
@@ -175,34 +181,41 @@ public class SimpleRegSubmit extends SimpleRegBase {
         //create email
         long emailId = 0;
         if (regInfo.isNew()) {
-            emailId = email.createEmail(newUser.getId(), transDb, db);
+            emailId = email.createEmail(userId, transDb, db);
             email.setStatusId(emailId, 1, transDb);
         } else {
-            emailId = email.getPrimaryEmailId(newUser.getId(), transDb);
+            emailId = email.getPrimaryEmailId(userId, transDb);
         }
         email.setAddress(emailId, regInfo.getEmail(), transDb);
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
-        email.setPrimaryEmailId(newUser.getId(), emailId, transDb);
+        email.setPrimaryEmailId(userId, emailId, transDb);
 
-        return newUser;
+        return userId;
     }
 
-    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-        newUser = this.storeWithoutCoder(regInfo, newUser);
+    /**
+     * Store all teh data in the database.  This method is called within a transaction by the commit
+     * method.  Everything that is transactional should be done in here.
+     * @param regInfo
+     * @return
+     * @throws Exception
+     */
+    protected long store(SimpleRegInfo regInfo) throws Exception {
+        long userId = this.storeWithoutCoder(regInfo);
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
 
-        PrincipalMgrRemote mgr = getPrincipalManager();
+//        PrincipalMgrRemote mgr = getPrincipalManager();
 
         //create coder
-        if (!coder.exists(newUser.getId(), transDb)) { // check if the user exists in registration database already as a coder
-            coder.createCoder(newUser.getId(), transDb);
-            rating.createRating(newUser.getId(), transDb);
+        if (!coder.exists(userId, transDb)) { // check if the user exists in registration database already as a coder
+            coder.createCoder(userId, transDb);
+            rating.createRating(userId, transDb);
         }
-        coder.setEditorId(newUser.getId(), DEFAULT_EDITOR, transDb);
-        coder.setLanguageId(newUser.getId(), DEFAULT_LANGUAGE, transDb);
+        coder.setEditorId(userId, DEFAULT_EDITOR, transDb);
+        coder.setLanguageId(userId, DEFAULT_LANGUAGE, transDb);
 
-        return newUser;
+        return userId;
 
     }
 
