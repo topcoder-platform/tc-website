@@ -62,7 +62,7 @@
 
 
 
-<P><B>ANALOG/MIXED-SIGNAL DESIGN ENGINEER Ð WIRELESS</B></P>
+<P><B>ANALOG/MIXED-SIGNAL DESIGN ENGINEER - WIRELESS</B></P>
 <P><B>Role/Responsibilities:</B></P>
 
 <P>As a Analog/Mixed-Signal Design Engineer at NVIDIA, you'll be responsible for baseband mixed-signal design for Wireless LAN applications at the transistor level.
@@ -72,8 +72,8 @@ tuned-active RC filters, gm-C filters, oscillators, LVDS receivers, PLL, etc. Yo
 
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>MSEE or PhD with thesis in analog/mixed-signal design preferred.  Internship in IC design preferred. Previous experience designing PLLs, VCOs, Mixers, 
-Filters, Amplifiers, modulators, A/Ds, D/As, OP AMPs and references expected. Must have hands on experience using analog, mixed mode and RF tools 
+<P>MSEE or PhD with thesis in analog/mixed-signal design preferred. Internship in IC design preferred. Previous experience designing PLLs, VCOs, Mixers, 
+Filters, Amplifiers, modulators, A/Ds, D/As, OP AMPs and references expected. Must have hands on experience using analog, mixed mode and RF tools. 
 Must have CMOS transistor level design skills.  Must be self-starter and have passion in his/her work.</P>
 
 
@@ -82,7 +82,7 @@ Must have CMOS transistor level design skills.  Must be self-starter and have pa
 
 
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
