@@ -58,6 +58,28 @@
                
 
                <blockquote>
+            <h2>Overview of the Tournament</h2>
+            
+            <ul>
+                <li><strong>Dates: </strong><br />
+                     November 11th, 13th, and 17th</li>
+                <li><strong>Qualification: </strong><br />
+                     Must be over 18 years of age<br />
+                     Must raise a minimum of $25 USD for CRPF</li>
+                <li><strong>Rounds: </strong><br />
+                     All competitors that raise a minimum of $50 USD will be awarded a commemorative T-Shirt <br />
+                     All competitors that raise a minimum of $100 USD will be put into a grand prize drawing.<br />
+                     Grand Prize - An expenses paid trip to A Magical Evening, the annual star studded gala ball benefiting CRPF.  The ball will be held at the Marriott Marquis in New York City on November 24th.  Tickets to this event are valued at $1,000 USD each. <br />
+                     The grand prize will be awarded to:
+                     <ul>
+                     <li>The four top scorers in the final round </li>
+                     <li>The four members who raise the most money for CRPF ($500 minimum)</li>
+                     <li>Two "raffle" winners, which will be chosen from every member who raises a minimum of $100.</li>
+                     </ul></li>
+                <li><strong>Philanthropy: </strong><br />
+                     TopCoder will match every dollar raised by this competition, up to the first $50,000 USD</li>
+            </ul>
+               
                </blockquote>
             
             <p><br /></p>
