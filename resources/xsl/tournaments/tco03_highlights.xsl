@@ -98,7 +98,7 @@
                </tr>
                <tr>
                   <td align = "left" class="advancers_faded"></td>
-                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700">100</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
