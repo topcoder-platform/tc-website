@@ -48,7 +48,7 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google&d2=google_overview"><img src="/i/events/google2003/index_google.gif" alt="2003 GECC" width="274" height="75" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google&d2=google_overview"><img src="/i/events/google2003/index_google.gif" alt="2003 GECC" width="274" height="66" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2003 Google&#153; Extreme Coding Challenge</strong></font></td>
                 </tr>
