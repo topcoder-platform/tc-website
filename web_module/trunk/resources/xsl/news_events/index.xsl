@@ -305,6 +305,21 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
+<!-- Java.sun.com Article - TopCoders Vie For College Crown -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://developer.java.sun.com/developer/technicalArticles/Programming/TopCoder/" target="_blank"><img src="/i/pressroom/java_character_sm.gif" alt="java.sun.com" width="135" height="85" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://developer.java.sun.com/developer/technicalArticles/Programming/TopCoder/" target="_blank">TopCoders Vie For College Crown</A></strong></font><br />
+                        The 2003 TopCoder Collegiate Challenge began on February 18, 2003, and ended on April 5. With over 10,000 collegiate members on the TopCoder 
+                        site, representing over 750 colleges around the world, the tournament's four finalists clearly comprise an elite group of student programmers.  <span class="prHead">[April 17]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Princeton EQuad News Article - Newlyweds earn nest egg -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
