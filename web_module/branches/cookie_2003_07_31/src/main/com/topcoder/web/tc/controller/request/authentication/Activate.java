@@ -17,7 +17,7 @@ public class Activate extends Base {
 
     static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
     static final char[] UNACTIVE_STATI = {'U', '2'};
-    static final char[] ACTIVE_STATI = {'A', '1'};
+    static final char[] ACTIVE_STATI = {'1','A'};
 
     static {
         //sort them so that one can use Arrays.binarySearch to figure out if a particular
@@ -47,7 +47,7 @@ public class Activate extends Base {
                 User user = (User) createEJB(ctx, User.class);
                 char status = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(UNACTIVE_STATI, status)<0) {
-                    user.setStatus(userId, Constants.ACTIVE_STATUS.charAt(0), DBMS.OLTP_DATASOURCE_NAME);
+                    user.setStatus(userId, ACTIVE_STATI[1], DBMS.OLTP_DATASOURCE_NAME); //want to get 'A'
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
                 } else if (Arrays.binarySearch(ACTIVE_STATI, status)<0) {

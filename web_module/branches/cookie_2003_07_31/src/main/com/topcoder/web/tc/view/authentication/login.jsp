@@ -69,11 +69,6 @@ function submitEnter(e) {
            <jsp:param name="title" value="Login"/>
         </jsp:include>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top">
-                    <td class="bodyText" width="100%">
-                        <p><%= message %></p>
-                    </td>
-                </tr>
                <tr valign="top">
                     <td class="bodyText" width="100%">
                         <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
@@ -93,6 +88,11 @@ function submitEnter(e) {
                     <td class="bodyText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                            <tr valign="top">
+                                <td class="errorText" colspan="3">
+                                    <p><%= message %></p>
+                                </td>
+                            </tr>
 
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">User Name:</td>
