@@ -14,6 +14,8 @@ public class SimpleRegConfirm extends SimpleRegBase {
         checkRegInfo(regInfo);
 
         if (hasErrors()) {
+            getRequest().setAttribute("countryList", getCountryList());
+            getRequest().setAttribute("stateList", getStateList());
             setNextPage(Constants.SIMPLE_REG_PAGE);
             setDefaults(regInfo);
         } else {

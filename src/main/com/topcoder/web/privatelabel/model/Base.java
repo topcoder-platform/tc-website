@@ -30,11 +30,11 @@ public class Base {
                 methodName = m[i].getName();
                 if (methodName.startsWith("get")) {
                     buf.append(m[i].getName().substring(3) + " = " + m[i].invoke(this, null).toString());
+                    if (i<m.length-1) buf.append(", ");
                 }
             } catch (Exception e) {
                 buf.append(m[i].getName() + " is not accessible");
             }
-            if (i<m.length-1) buf.append(", ");
         }
         return buf.toString();
     }
