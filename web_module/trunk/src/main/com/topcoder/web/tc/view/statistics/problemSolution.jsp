@@ -71,6 +71,7 @@ String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").
         text = text.substring(0,i+1) + "&#160;" + text.substring(i+1);
 
       }
+      text = JSPUtils.htmlEncode(text);
     StringTokenizer strtok = new StringTokenizer(text,"\n");
     StringBuffer stBuffer = new StringBuffer(text.length());
     String sTemp = "";
@@ -79,10 +80,6 @@ String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").
       for (i=0; i<sTemp.length(); i++){
         if (sTemp.charAt(i)==' ')
           stBuffer.append("&#160;");
-        else if (sTemp.charAt(i)=='\t')
-          stBuffer.append("&#160;&#160;&#160;");
-        else
-          stBuffer.append(JSPUtils.htmlEncode(sTemp.substring(i, i+1)));
       }
       stBuffer.append("<BR>");
     }
