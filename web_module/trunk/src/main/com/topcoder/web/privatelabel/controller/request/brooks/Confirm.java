@@ -24,9 +24,9 @@ public class Confirm extends FullRegConfirm {
     protected void setNextPage() {
 
         if (hasErrors()) {
-            setNextPage(Constants.DEMO_REG_DEMOG_PAGE);
+            setNextPage(Constants.BROOKS_REG_DEMOG_PAGE);
         } else {
-            setNextPage(Constants.DEMO_REG_CONFIRM_PAGE);
+            setNextPage(Constants.BROOKS_REG_CONFIRM_PAGE);
         }
         setIsNextPageInContext(true);
     }
@@ -77,7 +77,7 @@ public class Confirm extends FullRegConfirm {
                 }
             }
             
-            /*DemographicResponse r = null;
+            DemographicResponse r = null;
             DemographicQuestion q = null;
             int count = 0;
             for (Iterator it = ((FullRegInfo) info).getResponses().iterator(); it.hasNext();) {
@@ -91,7 +91,7 @@ public class Confirm extends FullRegConfirm {
             if(count != 0 && count > 3)
             {
                 addError(Constants.DEMOG_PREFIX + Constants.BROOKS_REFERRAL_QUESTION_ID, "Please choose a maximum of three answers.");
-            }*/
+            }
         
         }
         catch(Exception e)

@@ -24,9 +24,9 @@ public class Confirm extends FullRegConfirm {
     protected void setNextPage() {
 
         if (hasErrors()) {
-            setNextPage(Constants.BROOKS_REG_DEMOG_PAGE);
+            setNextPage(Constants.DEMO_REG_DEMOG_PAGE);
         } else {
-            setNextPage(Constants.BROOKS_REG_CONFIRM_PAGE);
+            setNextPage(Constants.DEMO_REG_CONFIRM_PAGE);
         }
         setIsNextPageInContext(true);
     }

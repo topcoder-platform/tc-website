@@ -9,7 +9,7 @@ import com.topcoder.web.privatelabel.controller.request.BaseActivate;
  */
 public class Activate extends BaseActivate {
     protected void setNextPage() {
-        setNextPage(Constants.BROOKS_ACTIVATION_PAGE);
+        setNextPage(Constants.DEMO_ACTIVATION_PAGE);
         setIsNextPageInContext(true);
     }
 }
