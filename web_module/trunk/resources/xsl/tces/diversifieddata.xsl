@@ -86,12 +86,15 @@
                         </ul>
 
                         <p><strong>Proven, Results-Focused Methodology</strong></p>
-                        <p>Diversified Data has developed a clearly defined, results-based methodology, called 3DM, for implementing clients' Centera solution. Our proven 
-                        methodology provides a roadmap for the successful and rapid implementation of a customized Centera solution. 3DM includes guidelines, checklists and 
-                        templates to ensure product success and client satisfaction at every stage.</p>
+                        <p>
+                        Diversified Data has developed a clearly defined, results-based methodology utilizing industry-standard best practices. Diversified Data uses this methodology 
+                        for implementing clients' Centera solutions and developing its own Centera software products. Our proven methodology provides a roadmap for the successful and 
+                        rapid implementation of a customized Centera solution. The Diversified Data Methodology includes guidelines, checklists and templates to ensure product success 
+                        and client satisfaction at every stage.
+                        </p>
                         <p><strong>What we're looking for:</strong></p>
                         <p>Developers with 3+ years of experience to join our team on a contract-to-hire basis.  Check out more of the 
-                        details <A href="/?&amp;t=tces&amp;c=diversifieddata_softdev&amp;a=secure" class="bodyText">here</A>.</p>
+                        details <A href="/?&amp;t=tces&amp;c=diversifieddata_openings&amp;a=secure" class="bodyText">here</A>.</p>
 <!-- Client Message Ends -->
 
                         <p><br /></p>
