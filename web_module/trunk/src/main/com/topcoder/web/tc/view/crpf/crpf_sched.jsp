@@ -130,8 +130,7 @@
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="review_board"/>
-               <jsp:param name="level2" value="competition"/> 
+               <jsp:param name="level1" value="crpf"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->

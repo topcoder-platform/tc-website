@@ -1,13 +1,12 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
-    String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
 %>
 
             <img alt="" width="170" height="10" src="/i/spacer.gif" border="0"><br>
 
 <!-- Review Board begins -->
-<% if (request.getServletPath().indexOf("review_board")>-1) { %>
+<% if (level1.equals("review_board")||level1.equals("crpf")) { %>
                         
             <jsp:include page="calendar.jsp"/>
             <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br>
