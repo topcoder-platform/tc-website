@@ -8,7 +8,7 @@
 
 <html>
 <head>
-<title>Verizon Coding Challenge Powered by TopCoder - Rules</title>
+<title>Verizon Coding Challenge Powered by TopCoder - Competition Instructions</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -68,7 +68,7 @@
                         <a href="#conditions" class="sidebarHeadLink">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#other" class="sidebarHeadLink">Other</a>
 
-                        <h2 class="pgTitle">Official Rules and Regulations</h2>
+                        <h2 class="pgTitle">Competition Instructions</h2>
             
                         <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 

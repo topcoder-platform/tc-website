@@ -39,6 +39,14 @@ function openWin(url, name, w, h) {
                             <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
                             <tr><td class="grey"><img src="/i/events/verizon2003/ccc.gif" width="10" height="1" alt="" ></td></tr>
                             <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
+                            
+<!-- Instructions tab -->
+                            <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
+                            <tr><td><a class="subnavLink" href="/pl/?&module=Static&d1=verizon&d2=vcc03_instructions" style="margin-left:1px;display:inline;">Competition Instructions</a></td></tr>
+                            <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
+                            <tr><td class="grey"><img src="/i/events/verizon2003/ccc.gif" width="10" height="1" alt="" ></td></tr>
+                            <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
+                            
                         </table>
 
 <!-- Practice Arena tab -->
