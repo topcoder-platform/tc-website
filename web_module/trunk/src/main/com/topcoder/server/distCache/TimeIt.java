@@ -35,7 +35,7 @@ public class TimeIt
 
 	    try {
                 long time1 = System.currentTimeMillis();
-                cache.update(key, value, current % 7 + 1, time1);
+                cache.update(key, value, current % 7 + 1, time1,10000);
                 long time2 = System.currentTimeMillis();
 
                 int diff = (int) (time2 - time1);

@@ -73,8 +73,9 @@ public class SimpleClient
             try {
                 for (int i=0; i<100000; i++) {
                     client.set("foo." + i, new Integer(i), 10000);
-                    if (i%10000 == 0) {
-                        System.out.print(".");
+                    client.get("foo." + i);
+                    if (i%10 == 0) {
+                        System.out.println(i);
                     }
                 }
                 System.out.println();
