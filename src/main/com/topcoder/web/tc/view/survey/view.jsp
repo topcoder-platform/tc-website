@@ -11,7 +11,7 @@
 </head>
 <body>
     <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm">
-        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SurveySubmit"/>
+        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
         <tc:questionIterator list="<%=questionInfo%>" id="question">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
