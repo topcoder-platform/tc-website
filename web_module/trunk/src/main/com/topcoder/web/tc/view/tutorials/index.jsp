@@ -52,6 +52,10 @@
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=planApproach2"><strong>Section 2</strong></a><br/>
 				</td></tr>
 				<tr valign=top><td class="bodyText">
+					<a class="bodyText" href="/stat?c=member_profile&amp;cr=276230">dimkadimon</a>
+					</td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_010505"><strong>Mathematics for TopCoders</strong></a>
+				</td></tr>
+				<tr valign=top><td class="bodyText">
 					<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052">lbackstrom</a>
 					</td><td class="bodyText" nowrap=nowrap><strong>Geometry Concepts:</strong><br/>
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=geometry1"><strong>Section 1: Basic Concepts</strong></a><br/>
