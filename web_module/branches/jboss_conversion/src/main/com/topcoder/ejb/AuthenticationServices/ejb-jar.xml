@@ -39,7 +39,7 @@
                 <ejb-name>AuthenticationServices</ejb-name>
                 <method-name>*</method-name>
             </method>
-            <trans-attribute>NotSupported</trans-attribute>
+            <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
