@@ -45,7 +45,7 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
     <tr valign="middle">
         <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-        <td width="206"><a href="/" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
+        <td width="206"><a href="/" target="_parent"><img src="/i/logo_r.gif" width="206" height="49" border="0" vspace="5"/></a></td>
         <td width="20"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15"/></td>
         <td nowrap align="right">
             <table width="99%" border="0" cellpadding="0" cellspacing="0">            
