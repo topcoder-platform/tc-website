@@ -62,6 +62,8 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_13_03">TopCoder Hosts Charity Tournament</A> [August 13]</td></tr>  
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_11_03">TopCoder Launches Application Development Services</A> [August 11]</td></tr>  
  
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_23_03">Revelation Software to Sponsor 2003 TopCoder Open</A> [July 23]</td></tr>  
