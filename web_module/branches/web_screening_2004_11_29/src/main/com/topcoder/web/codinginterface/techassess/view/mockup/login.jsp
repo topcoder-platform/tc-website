@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Technical Assessment</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/screening.css"/>
 </head>
 <body>
@@ -34,7 +34,7 @@
 				<br/><br/>
 				</p>
 
-				<table width="400" cellspacing=0 cellpadding=0 border=1 class=tableFrame>
+				<table width="400" cellspacing=0 cellpadding=0 border=0 class=tableFrame>
 					<tr>
 						<td class=tableTitle colspan=2>Login</td>
 					</tr>
