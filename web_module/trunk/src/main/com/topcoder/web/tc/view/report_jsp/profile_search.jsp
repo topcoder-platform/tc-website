@@ -189,7 +189,7 @@
       <tr><td></td></tr>
     </table>
   </FORM>
-  <a href="JavaScript:sumbitForm()">Submit</a>
+  <a href="JavaScript:submitForm()">Submit</a>
   </body>
 </html>
 
