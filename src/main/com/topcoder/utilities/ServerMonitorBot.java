@@ -30,6 +30,7 @@ public class ServerMonitorBot {
     public boolean fivetwo = true;
 
     public void run() {
+        
         while (true) {
             try {
                 Runtime r = Runtime.getRuntime();
@@ -134,14 +135,15 @@ public class ServerMonitorBot {
     }
 
     public void sendError() {
-        return;
-        if (!errorText.equals("")) {
+       if (!errorText.equals("")) {
             System.out.println("SENDING ERROR LOG");
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
                 em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("8609182841@mobile.att.net", TCSEmailMessage.TO);
+                em.addToAddress("8604626228@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
                 em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
