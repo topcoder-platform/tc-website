@@ -11,7 +11,6 @@ import com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean;
 import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatListBean;
 import com.topcoder.web.tc.controller.legacy.stat.common.StatXMLParser;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 
 
 import org.w3c.dom.Document;
