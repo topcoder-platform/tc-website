@@ -406,30 +406,30 @@ Total - $1,746.50
 
                                             <tr>
                                                 <td class="sidebarText">Development Due:</td>
-                                                <td class="sidebarText" align="right">01.12.2004</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Winner Announced:</td>
-                                                <td class="sidebarText" align="right">01.17.2004 6:00PM</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Integration Start:</td>
                                                 <td class="sidebarText" align="right">01.19.2004</td>
                                             </tr>
 
                                             <tr>
-                                                <td class="sidebarText">QA Start:</td>
+                                                <td class="sidebarText">Winner Announced:</td>
+                                                <td class="sidebarText" align="right">01.24.2004 6:00PM</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="sidebarText">Integration Start:</td>
                                                 <td class="sidebarText" align="right">01.26.2004</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="sidebarText">QA Start:</td>
+                                                <td class="sidebarText" align="right">02.02.2004</td>
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Acceptance:</td>
-                                                <td class="sidebarText" align="right">02.04.2004</td>
+                                                <td class="sidebarText" align="right">02.11.2004</td>
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Deployment to Client:</td>
-                                                <td class="sidebarText" align="right">03.01.2004</td>
+                                                <td class="sidebarText" align="right">03.08.2004</td>
                                             </tr>
                                         </table>
 
