@@ -884,6 +884,17 @@
     </target>
 
     <target name="corp-ejb-all" depends="compile">
+        <!-- Resume ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="QueryServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
+        </antcall>
+
+        <!-- Resume ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="DataCache"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
+        </antcall>
         
         <!-- Resume ejb -->
         <antcall target="build-ejb-unit">
