@@ -50,7 +50,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">features</xsl:with-param>
-                <xsl:with-param name="title">&#160;Upcoming/Past Features</xsl:with-param>
+                <xsl:with-param name="title">Feature Article Archive</xsl:with-param>
             </xsl:call-template>
             
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
@@ -58,25 +58,8 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%">         
-                        <table width="100%" border="0" cellpadding="3" cellspacing="1">
-                            <tr><td valign="middle" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="23" border="0"/></td></tr>
-                            <tr><td valign="middle" class="statTextBig" background="/i/steel_gray_bg.gif" height="18">&#160;Upcoming Features</td></tr>
-                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Database security</td></tr>
-                            <tr><td valign="middle" class="bodyText">The ACE library - Adaptive Communication  Environment</td></tr>
-                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Authoring for an advanced morphing software (C++)</td></tr>        
-                            <tr><td valign="middle" class="bodyText">Massive-scale simulator to test an instant messaging server (C++)</td></tr>        
-                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Tools for debugging memory leaks</td></tr>
-                            <tr><td valign="middle" class="bodyText">Smart pointers in C++</td></tr>    
-                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Explaining dynamic Programming</td></tr>
-                            <tr><td valign="middle" class="bodyText">Genetic algorithms/programming</td></tr>            
-                            <tr><td valign="middle" class="bodyText" bgcolor="#CCCCCC">Reverse engineering the MSN Messenger protocol</td></tr>    
-                            <tr><td valign="middle" class="bodyText">XML-based UI description language that allows dynamic building and switching of UI screens at runtime</td></tr>
-                            <tr><td valign="middle" class="bodyText"><a href="/index?t=features&amp;c=feat_topics" class="bodyGeneric">Want to write?</a></td></tr>        
-                            <tr><td valign="middle" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="23" border="0"/></td></tr>
-                        </table>
-        
                         <table width="100%" border="0" cellpadding="0" cellspacing="1">
-                            <tr><td valign="middle" bgcolor="#666666" colspan="3" height="18" class="statText">&#160;&#160;<strong>2003 Features</strong></td></tr>        
+                            <tr><td valign="middle" bgcolor="#666666" colspan="3" height="18" class="statText">&#160;&#160;<strong>2003 Feature Articles</strong></td></tr>        
                             <tr>
                                 <td valign="middle" bgcolor="#CCCCCC" height="18" width="12%" class="bodyText">&#160;&#160;<strong>Date</strong></td>
                                 <td width="25%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Author</strong></td>
@@ -115,7 +98,7 @@
                         </table>
         
                         <table width="100%" border="0" cellpadding="0" cellspacing="1">
-                            <tr><td valign="middle" bgcolor="#666666" colspan="3" height="18" class="statText">&#160;&#160;<strong>2002 Features</strong></td></tr>        
+                            <tr><td valign="middle" bgcolor="#666666" colspan="3" height="18" class="statText">&#160;&#160;<strong>Feature Articles</strong></td></tr>        
                             <tr><td valign="middle" bgcolor="#CCCCCC" height="18" width="12%" class="bodyText">&#160;&#160;<strong>Date</strong></td><td width="25%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Author</strong></td><td width="63%" valign="middle" bgcolor="#CCCCCC" class="bodyText">&#160;&#160;<strong>Feature</strong></td></tr>
                             <tr><td valign="middle" class="statTextBig" colspan="3" background="/i/steel_gray_bg.gif" height="18">&#160;December</td></tr>
                             <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>        
@@ -173,7 +156,7 @@
                             <tr><td valign="middle" class="bodyText" height="14">&#160;04.24.02</td><td valign="middle" class="bodyText">&#160;&#160;TopCoder Staff</td><td valign="middle" class="bodyText"><a href="/index?t=statistics&amp;c=2002tccc_feature" class="bodyGeneric">A Matter of Time</a></td></tr>
                         </table>
                         
-                        <p><a href="/index?t=features&amp;c=feat_topics" class="bodyGeneric">Want to write?</a></p>
+                        <p><a href="/index?t=features&amp;c=feat_topics" class="bodyGeneric">Write feature articles for TopCoder.com</a></p>
                         
                         <p><br/></p>
                     </td>
