@@ -21,6 +21,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.shared.util.logging.Logger;
 
 
 import javax.naming.InitialContext;
@@ -30,6 +31,8 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 public class UpdateSession extends BaseSessionProcessor {
+    private final static Logger log = Logger.getLogger(UpdateSession.class);
+    
     protected void screeningProcessing() throws TCWebException {
         synchronized (UpdateSession.class) {
             if (getAuthentication().getUser().isAnonymous()) {
