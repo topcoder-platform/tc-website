@@ -295,7 +295,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.01.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.15.2004</td>
                                                         </tr>
                                                     </table>
 
