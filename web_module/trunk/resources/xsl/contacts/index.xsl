@@ -83,8 +83,8 @@
                                 </td>
                                     
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:thorgan@topcoder.com" class="bodyText">Public Relations</a><br />
-                                    Tanya Horgan<br />
+                                    <p><a href="mailto:jmckeown@topcoder.com" class="bodyText">Public Relations</a><br />
+                                    Jim McKeown<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
                                     &#160;</p>

@@ -15,10 +15,10 @@
                 <tr><td class="sidebarTitle" width="100%"><strong>PR Contact</strong></td></tr>
                 <tr valign="top">
                     <td class="sidebarText" width="100%">
-                        <p>Tanya Horgan<br />
+                        <p>Jim McKeown<br />
                             tel: 860.633.5540<br />
                             fax: 860.657.4276<br />
-                        <A href="mailto:thorgan@topcoder.com">thorgan@topcoder.com</A></p>
+                        <A href="mailto:jmckeown@topcoder.com">jmckeown@topcoder.com</A></p>
                     </td>
                 </tr>
             </table>
