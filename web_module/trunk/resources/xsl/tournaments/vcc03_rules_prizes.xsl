@@ -42,7 +42,14 @@ Top Ends -->
     <tr valign="top">
 
 <!-- Left Column Begins -->
-         <td><img src="/i/tournament/vcc03/vcc03_left.gif" width="140" height="140" border="0"/></td>         
+         <td>
+         <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
+         <img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br  />
+         <img src="/i/clear.gif" width="180" height="40" border="0"/>
+         </p>
+         </td>         
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -50,13 +57,7 @@ Top Ends -->
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-        <td class="bodyText">
-            <xsl:call-template name="BodyTop">
-                <xsl:with-param name="image1"></xsl:with-param>
-                <xsl:with-param name="image">events</xsl:with-param>
-                <xsl:with-param name="title">2003 Verizon Coding Challenge</xsl:with-param>
-            </xsl:call-template>
-        
+        <td class="bodyText" width="100%">
 <!-- TCO Header -->
    <p><br /></p>
    <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
@@ -80,10 +81,30 @@ Top Ends -->
             Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  
             Prizes will be distributed as follows:</p>
             
-            <table width="100%" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+            <table width="450" border="0" cellpadding="5" cellspacing="2" class="sidebarBox" align="center">
                 <tr>
                     <td width="50%" class="sidebarTitle">Competitor(s)</td>
                     <td width="50%" class="sidebarTitle" align="right">Prize</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText"><strong>1<span class="super">st</span> place finisher* in the Championship Round</strong></td>
+                    <td width="50%" class="sidebarText" align="right"><strong>$1,000 USD</strong></td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">2<span class="super">nd</span> place finisher* in the Championship Round</td>
+                    <td width="50%" class="sidebarText" align="right">$500 USD</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">3<span class="super">rd</span> place finisher* in the Championship Round</td>
+                    <td width="50%" class="sidebarText" align="right">$300 USD</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">4<span class="super">th</span> place finisher* in the Championship Round</td>
+                    <td width="50%" class="sidebarText" align="right">$100 USD</td>
                 </tr>
 
                 <tr>
@@ -91,25 +112,6 @@ Top Ends -->
                     <td width="50%" class="sidebarText" align="right">Verizon Coding Challenge t-shirt</td>
                 </tr>
 
-                <tr>
-                    <td width="50%" class="sidebarText">4<span class="super">th</span> place finisher* in the Championship Round</td>
-                    <td width="50%" class="sidebarText" align="right">US$100</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">3<span class="super">rd</span> place finisher* in the Championship Round</td>
-                    <td width="50%" class="sidebarText" align="right">US$300</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">2<span class="super">nd</span> place finisher* in the Championship Round</td>
-                    <td width="50%" class="sidebarText" align="right">US$500</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText"><strong>1<span class="super">st</span> place finisher* in the Championship Round</strong></td>
-                    <td width="50%" class="sidebarText" align="right"><strong>US$1,000</strong></td>
-                </tr>
 
                 <tr>
                     <td colspan="2" class="sidebarText">* Prize will be awarded at the conclusion of the Championship Round. 
@@ -128,7 +130,6 @@ Top Ends -->
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-           <td><img src="/i/tournament/vcc03/vcc03_right.gif" width="140" height="400" border="0"/></td>         
 <!-- Right Column Ends -->
 
 <!-- Gutter Begins -->
@@ -139,7 +140,7 @@ Top Ends -->
 </table>
 
 <!-- Footer Begins -->
-<xsl:call-template name="Foot"/>
+<xsl:call-template name="FootVCC"/>
 <!-- Footer Ends -->
 
 </body>
