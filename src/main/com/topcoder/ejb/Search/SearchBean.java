@@ -61,7 +61,7 @@ public class SearchBean extends BaseEJB {
             query.append(" ,OUTER round ro");
         else
             query.append(" ,round ro");
-        query.append(" ,calendar cal)");
+        query.append(" ,calendar cal");
         query.append(" WHERE r.coder_id = c.coder_id");
         query.append(" AND r.last_rated_round_id = ro.round_id");
         query.append(" AND c.status = 'A'");
