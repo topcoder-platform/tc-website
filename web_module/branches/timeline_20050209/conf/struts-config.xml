@@ -351,8 +351,8 @@
                 scope="session">
             <forward name="success" path="/editTimeline.jsp"/>
             <forward name="refresh" path="/editTimeline.jsp"/>
-            <forward name="store" path="/editProject.do?action=edit"/>
-            <forward name="cancel" path="/editProject.do?action=edit"/>
+            <forward name="store" path="/editProject.jsp?action=edit"/>
+            <forward name="cancel" path="/editProject.jsp?action=edit"/>
         </action>
 
         

@@ -67,9 +67,11 @@ ResultData result = new SuccessResult();
             log(Level.INFO, "store_timeline");
 
             result = ((ProjectForm) form).refreshTimeline();
+            //qq
             result = ((ProjectForm) form).commitTimeline();
 
             request.getSession().setAttribute(mapping.getAttribute(), form);
+
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
             forwards.addForward(mapping.findForward("store"));
 
