@@ -82,8 +82,8 @@
                 <tr valign="middle">
                     <td class="formHandleEven" align="center">2</td>
                     <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154714">rnielsen</a></td>
-                    <td class="formHandleEven" align="right">93.58</td>
-                    <td class="formHandleEven" align="right">96.08,91.08</td>
+                    <td class="formHandleEven" align="right">93.89</td>
+                    <td class="formHandleEven" align="right">93.90,96.71,91.08</td>
                     <td class="formHandleEven" align="right">$288.00</td>
                 </tr>
 
@@ -198,7 +198,7 @@
                     <td class="formHandleEven" align="center">5</td>
                     <td class="formHandleEven" align="center">1</td>
                     <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154714">rnielsen</a></td>
-                    <td class="formHandleEven" align="right">91.08</td>
+                    <td class="formHandleEven" align="right">96.71</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd"></td>
