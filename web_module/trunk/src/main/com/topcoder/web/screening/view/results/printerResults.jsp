@@ -33,7 +33,7 @@
         </td>
         <td width="99%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
    </tr>
-    <tr><td height="3" class="headStripe" colspan="3"><img src="/images/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
+    <tr><td height="3" class="headStripe" colspan="3"><img src="/i/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
 </table>
 
 
