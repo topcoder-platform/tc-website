@@ -127,6 +127,14 @@
         </war>
     </target>
 
+    <target name="move-war" depends="war-tcs">
+        <copy todir="../jboss-3.0.4_tomcat-4.0.6/server/default/deploy">
+            <fileset dir="${war.dir}">
+                <include name="tcs.war"/>
+            </fileset>
+        </copy>
+    </target>
+
 
 
 
