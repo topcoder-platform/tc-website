@@ -34,7 +34,7 @@
 
 			<tr><td colspan="2" class="sidebarTitle">Thursday, March 10, 2005</td></tr>
 			<tr><td class="formTextEven">9:00am - 4:00pm</td><td class="formTextEven">Component Design & Development Championship Round</td></tr>
-			<tr><td class="formTextOdd">9:30am - 10:00am</td><td class="formTextOdd">NVIDIA presentation</td></tr>
+			<tr><td class="formTextOdd">9:00am - 10:00am</td><td class="formTextOdd">NVIDIA presentation</td></tr>
 			<tr><td class="formTextEven">10:00am - 12:00pm</td><td class="formTextEven">Algorithm Semifinal Room 1</td></tr>
 			<tr><td class="formTextOdd">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
 			<tr><td class="formTextEven">1:00pm - 3:00pm</td><td class="formTextEven">Algorithm Semifinal Room 2</td></tr>
