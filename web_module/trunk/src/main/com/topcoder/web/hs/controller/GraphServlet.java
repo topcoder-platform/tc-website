@@ -201,9 +201,7 @@ public class GraphServlet extends HttpServlet {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return null;
     }
@@ -265,8 +263,7 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            throw new NavigationException("GraphServlet:getRatingsDistribution:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -326,8 +323,7 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            throw new NavigationException("GraphServlet:getRatingsDistributionDark:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -396,8 +392,7 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            throw new NavigationException("GraphServlet:getProblemDistribution:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 }

@@ -34,11 +34,7 @@ public final class TaskArena {
             xsldocURLString = XSL_DIR + command + ".xsl";
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("TaskArena:process:");
-            msg.append(":ERROR:\n");
-            msg.append(e.getMessage());
-            throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }

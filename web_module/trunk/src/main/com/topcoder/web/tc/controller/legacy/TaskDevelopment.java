@@ -567,13 +567,7 @@ public final class TaskDevelopment {
         } catch (PermissionException pe) {
             throw pe;
         } catch (Exception e) {
-            log.debug(e.getMessage());
-            e.printStackTrace();
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("TaskDevelopment:process:");
-            msg.append(":ERROR:\n");
-            msg.append(e.getMessage());
-            throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }

@@ -154,9 +154,7 @@ public final class GraphServlet extends HttpServlet {
             }
             /***********************************************************************/
             else {
-                throw new NavigationException("GraphServlet:process:ERROR:invalid command: " +
-                        dataRequest.getContentHandle(),
-                        TCServlet.NAVIGATION_ERROR_PAGE);
+                throw new NavigationException(e);
             }
             response.setContentType("image/gif");
             response.setHeader("content-disposition","inline; filename=graph.png");
@@ -248,8 +246,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getSchoolMembership:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -296,8 +293,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getProInterest:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -374,8 +370,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getProIndustry:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -422,8 +417,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getStudentInterest:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -499,8 +493,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getProTitle:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -576,8 +569,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getProAreaInterest:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -651,8 +643,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getProReferral:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -727,8 +718,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getStudentReferral:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -833,8 +823,7 @@ public final class GraphServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return null;
     }
@@ -897,8 +886,7 @@ public final class GraphServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -960,8 +948,7 @@ public final class GraphServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistributionDark:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
@@ -1031,8 +1018,7 @@ public final class GraphServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("GraphServlet:getProblemDistribution:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 
