@@ -47,7 +47,7 @@ public class CommandGroupBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ret = getNextValue();
+            ret = (int)getNextValue();
             ps.setInt(1, ret);
             ps.setString(2, commandGroupName);
             int rows = ps.executeUpdate();
