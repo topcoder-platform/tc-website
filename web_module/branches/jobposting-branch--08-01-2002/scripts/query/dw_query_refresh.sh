@@ -1109,6 +1109,7 @@ SELECT cal.date
    AND r.calendar_id = cal.calendar_id
    AND (cp.coder_id = @mid@)
    AND (cp.submission_points > 0.0)
+ ORDER BY cal.date
 "
 
 java com.topcoder.utilities.QueryLoader "DW" 1004 "TCES_Competition_History" 0 0 "
@@ -1119,6 +1120,7 @@ SELECT cal.date
      , rd.average_points
      , rr.old_rating
      , rr.new_rating
+     , rr.round_id
   FROM room_result rr
      , round r
      , calendar cal
@@ -1183,6 +1185,7 @@ SELECT contest.name AS contest_name
 
 java com.topcoder.utilities.QueryLoader "DW" 1006 "TCES_Coder_Comp_Stats_by_Level" 0 0 "
 SELECT cp.problem_id
+     , cp.level_id
      , cp.level_desc
      , cp.end_status_text
      , cp.final_points
@@ -1193,6 +1196,7 @@ SELECT cp.problem_id
  WHERE cp.language_id = langlu.language_id
    AND (cp.coder_id = @mid@)
    AND (cp.round_id = @rd@)
+ ORDER BY cp.level_id
 "
 
 java com.topcoder.utilities.QueryLoader "DW" 1007 "TCES_Overall_Comp_Stats_by_Level" 0 0 "
