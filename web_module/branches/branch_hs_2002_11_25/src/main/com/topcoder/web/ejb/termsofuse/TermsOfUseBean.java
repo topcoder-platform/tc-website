@@ -249,7 +249,7 @@ public class TermsOfUseBean implements SessionBean {
 
       ResultSet rs=ps.executeQuery();
       if (rs.next()) {
-        text=rs.getString(1);
+        text=DBMS.getTextString(rs,1);
       }
       else {
         throw(new EJBException("No rows found when selecting from "+
@@ -264,6 +264,10 @@ public class TermsOfUseBean implements SessionBean {
     catch (NamingException _ne) {
       _ne.printStackTrace();
       throw(new EJBException(_ne.getMessage()));
+    }
+    catch (Exception _e) {
+      _e.printStackTrace();
+      throw(new EJBException(_e.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -304,7 +308,7 @@ public class TermsOfUseBean implements SessionBean {
 
       con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
-      ps.setString(1,_text);
+      ps.setBytes(1,DBMS.serializeTextString(_text));
       ps.setLong(2,_terms_of_use_id);
 
       int rc=ps.executeUpdate();
@@ -321,6 +325,10 @@ public class TermsOfUseBean implements SessionBean {
     catch (NamingException _ne) {
       _ne.printStackTrace();
       throw(new EJBException(_ne.getMessage()));
+    }
+    catch (Exception _e) {
+      _e.printStackTrace();
+      throw(new EJBException(_e.getMessage()));
     }
     finally {
       if (con!=null) {
