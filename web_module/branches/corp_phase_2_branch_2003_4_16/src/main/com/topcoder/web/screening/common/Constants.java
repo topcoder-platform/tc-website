@@ -78,6 +78,7 @@ public class Constants
     public static String PROFILE_INFO_QUERY_KEY;
     public static String PROFILE_PROBLEMS_QUERY_KEY;
     public static String PROFILE_LANGUAGES_QUERY_KEY;
+    public static String PROFILE_SESSION_LIST_QUERY_KEY;
     public static String POPULATE_PROFILE_PROCESSOR;
     public static String PROFILE_SETUP_PAGE;
     public static String PROFILE_CONFIRM_PAGE;
@@ -217,6 +218,7 @@ public class Constants
         PROFILE_INFO_QUERY_KEY = config.getInitParameter("profile_info_query_key");
         PROFILE_PROBLEMS_QUERY_KEY = config.getInitParameter("profile_problems_query_key");
         PROFILE_LANGUAGES_QUERY_KEY = config.getInitParameter("profile_languages_query_key");
+        PROFILE_SESSION_LIST_QUERY_KEY = config.getInitParameter("profile_session_list_query_key");
         POPULATE_PROFILE_PROCESSOR = config.getInitParameter("populate_profile_processor");
         PROFILE_SETUP_PAGE = JSP_ROOT+config.getInitParameter("profile_setup_page");
         PROFILE_CONFIRM_PAGE = JSP_ROOT+config.getInitParameter("profile_confirm_page");

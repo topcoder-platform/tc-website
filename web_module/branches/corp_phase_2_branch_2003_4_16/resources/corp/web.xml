@@ -826,6 +826,12 @@
         </init-param>
 
         <init-param>
+            <param-name>profile_session_list_query_key</param-name>
+            <param-value>profileSessionList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>profile_info_query_key</param-name>
             <param-value>profileInfo</param-value>
             <description></description>
