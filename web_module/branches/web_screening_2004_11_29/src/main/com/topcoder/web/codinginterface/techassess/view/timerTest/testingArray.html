@@ -296,10 +296,10 @@
                         } else {
                             if(foundBreak) {
                                 //move up
-                                var temp = getOption("document.frmTesting", "listBox", i+1).value;
+                                var temp = getOption("document.frmTesting", "listBox", i+1).text;
                                 var tempSelected = getOption("document.frmTesting", "listBox", i+1).selected;
                                 
-                                var newVal = getOption("document.frmTesting", "listBox", i).value;
+                                var newVal = getOption("document.frmTesting", "listBox", i).text;
                                 var newSelected = getOption("document.frmTesting", "listBox", i).selected;
 
                                 putOption("document.frmTesting", "listBox", i+1, new Option(newVal, newVal, newSelected));
@@ -324,10 +324,10 @@
                         } else {
                             if(foundBreak) {
                                 //move up
-                                var temp = getOption("document.frmTesting", "listBox", i-1).value;
+                                var temp = getOption("document.frmTesting", "listBox", i-1).text;
                                 var tempSelected = getOption("document.frmTesting", "listBox", i-1).selected;
                                 
-                                var newVal = getOption("document.frmTesting", "listBox", i).value;
+                                var newVal = getOption("document.frmTesting", "listBox", i).text;
                                 var newSelected = getOption("document.frmTesting", "listBox", i).selected;
 
                                 putOption("document.frmTesting", "listBox", i-1, new Option(newVal, newVal, newSelected));
