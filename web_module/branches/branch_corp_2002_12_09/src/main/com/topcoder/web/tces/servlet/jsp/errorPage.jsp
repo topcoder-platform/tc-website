@@ -97,8 +97,7 @@
 <% 
 Exception excCaught = (Exception)request.getAttribute("caught-exception");
 if( excCaught != null ) { 
-    excCaught.printStackTrace();
-    out.println(excCaught.toString());
+     excCaught.printStackTrace(new java.io.PrintWriter(out));
 }
  %>
 </pre>
