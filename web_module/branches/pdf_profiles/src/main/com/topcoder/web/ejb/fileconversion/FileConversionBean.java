@@ -71,11 +71,6 @@ public class FileConversionBean implements SessionBean {
     {
         // get an instance of the converter
         ConversionClient client = Conversion.getInstance().getNewClient();
-        System.out.println(client.getInputFormats().length);
-        for(int i = 0; i < client.getInputFormats().length; i++)
-        {
-            System.out.println(client.getInputFormats()[i].getExtension());
-        }
         ConversionFormatDescriptor inFormat = client.getInputFormat("doc");
         ConversionFormatDescriptor outFormat = client.getOutputFormat(inFormat.getType(), "pdf");
         ConversionInputSource input = new ConversionInputSource(new ByteArrayInputStream(file), inFormat.getType());
@@ -96,6 +91,8 @@ public class FileConversionBean implements SessionBean {
               byte[] b = new byte[finishedFile.available()];
               finishedFile.read(b);
               finishedFile.close();
+        
+              System.out.println(b.length);
               
               return b;
             }
