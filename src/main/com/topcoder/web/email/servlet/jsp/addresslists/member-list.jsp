@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
-
+<jsp:useBean id="AddressList" scope="session" class="com.topcoder.web.email.bean.AddressListForm" />
+<%@ taglib uri="/email-taglib.tld" prefix="email"%>
 <h3>Mailing list members</h3>
 
 <% // alternate colors every row...
