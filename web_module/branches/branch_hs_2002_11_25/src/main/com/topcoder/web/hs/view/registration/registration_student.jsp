@@ -1,7 +1,7 @@
 <%@ page errorPage="../home/error.jsp" %>
 <%@ taglib uri="/registration-taglib.tld" prefix="reg" %>
 <jsp:useBean id="student" class="com.topcoder.web.hs.model.StudentRegistrationBean" scope="request"/>
-<jsp:include file="head.inc"/>
+<%@ include file="head.inc" %>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
 <P>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much demographic information as possible without making the registration process overly burdensome. Furthermore, we require that you verify the accuracy of the information you provide. This does not mean that sponsors have access to your personal information; they do not. It means that we want to give them as accurate aggregate information as possible.</P>
@@ -280,4 +280,4 @@
  </SCRIPT>
 </FORM>
 <P><BR></P>
-<jsp:include file="tail.inc"/>
+<%@ include file="tail.inc" %>
