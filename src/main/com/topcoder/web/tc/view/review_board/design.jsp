@@ -76,16 +76,30 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                  <td>
+                    <% int i=0; %>
                     <rsc:iterator list="<%=memberList%>" id="resultRow">
+                      <% if (i<3) { %>
+                        <td>
+                     <% } else {  %>
+                        <tr valign="top">
+                     <% } %>
+                        <% i++; %>
                         <a href="/stat?c=member_profile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><img src="<rsc:item row="<%=resultRow%>" name="image_path"/>" alt="<rsc:item row="<%=resultRow%>" name="handle"/>" width="126" height="140" border="0"  class="myStatsPhoto"/></a>
-                    <p>
-                      <a class="bodyText" href="/stat?c=member_profile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><strong><rsc:item row="<%=resultRow%>" name="handle"/></strong></a>
-                    </p>
+                        <p>
+                          <a class="bodyText" href="/stat?c=member_profile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><strong><rsc:item row="<%=resultRow%>" name="handle"/></strong></a>
+                        </p>
+                     <% if (i<3) { %>
+                          </td>
+                     <% } else {  %>
+                        </td>
+                        </tr>
+                        <hr width="100%" size="1" noshade="noshade" />
+                        <% i=0; %>
+                     <% } %>
                     </rsc:iterator>
-                  </td>
                 </tr>
             </table>
+
 
 
             <p align="middle" ><A href="mailto:service@topcodersoftware.com" class="bodyText">Have a question about the TopCoder Design Review Board?</strong></a></p>
