@@ -1,194 +1,166 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:import href="../top.xsl"/>
-  <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
-  <xsl:import href="../foot.xsl"/>
-  <xsl:import href="../includes/modules/stats_intro.xsl"/>  
-  <xsl:import href="../includes/dev/public_dev_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
-  <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
-  <xsl:template match="/">
-    <HTML>
-      <HEAD>
-        <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Development</TITLE>
-        <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-        <xsl:call-template name="Top"/>
+	<xsl:import href="../top.xsl"/>
+	<xsl:import href="../script.xsl"/>
+	<xsl:import href="../includes/body_top.xsl"/>  
+	<xsl:import href="../foot.xsl"/>
+	<xsl:import href="../includes/modules/stats_intro.xsl"/>  
+	<xsl:import href="../includes/dev/public_dev_left.xsl"/> 
+	<xsl:import href="../includes/dev/public_dev_right.xsl"/>     
+	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
+	<xsl:template match="/">
 
-<!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-  <TR>
-    <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->  
-    <!-- Global Seconday Nav Begins -->        
-        <xsl:call-template name="public_dev_left"/>
-  <!-- Global Seconday Nav Ends -->      
-<!-- Left Column Include Ends -->              
-      </TD>
-  <!-- Left Column Ends -->
-  <!-- Gutter Begins -->
-    <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
+<html>
 
-<!-- Body Area -->
-  <!-- Center Column Begins -->  
-    <TD CLASS="bodyText" WIDTH="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">steelblue</xsl:with-param>
-  <xsl:with-param name="image">development</xsl:with-param>
-  <xsl:with-param name="title">&#160;Overview</xsl:with-param>
-</xsl:call-template>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-  <TR>
-    <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-                                    <FORM method="POST" name="frmInquire" ACTION="/">
-                                        <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
-                                    </FORM>
-                                    <B>Object Pool Component Design</B>
-                                    <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Object Pool';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
-                                    <BR/>
-<P>
-<B>Overview</B>
-</P>
+<head>
 
-<P>
-Object Pools provide functionality to centralize the management of selected resources. Objects in the pool are created once and reused numerous times. This eliminates the need for continual object initialization and destruction; therefore, saving resources and reducing compilation overhead.
-While a pool can be used for any object type, it is most beneficial to use with objects that have a relatively high initialization overhead. An example is the initialization of database connection objects.
-<BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300000&amp;cat=14" CLASS="statText">Object Pool Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
-</P>
+	<xsl:call-template name="Preload"/>      
 
-<P>
-<B>Project Type</B>
-</P>
-<P>
-Component Design Project: Provide a complete design for the Object Pool component.
-Please review the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=index" CLASS="statText">TopCoder Software Component Development Methodology</a> for further details regarding this project type.
+<title>TopCoder :: Development</title>
 
-</P>
+	<xsl:call-template name="CSS"/>      
 
-<B>Technologies</B>
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
-<UL>
-	<LI>Java 1.4</LI>
-</UL>
+</head>
 
+<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 
-<P>
-<B>Payment</B>
-</P>
-<P>
-TopCoder will compensate the member with the winning solution.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in two installments.
-<BR/>First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-<BR/>Second Milestone: At the completion of the development project.  
-</P>
+<!-- Header Begins -->
+	<xsl:call-template name="Top"/>
+<!-- Header Begins -->
 
-<P>
-Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 10% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. 
-</P>
+<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+	<tr>
+<!-- Left Column Begins -->
+		<td width="170" bgcolor="#CCCCCC" valign="top">
+			<xsl:call-template name="public_dev_left"/>
+		</td>
+<!-- Left Column Ends -->
 
+<!-- Gutter Begins -->
+			<td width="4" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="4" height="8" alt="" border="0"/></td>
+<!-- Gutter Ends -->
 
-<P>
-<B>Designer</B>
-</P>
-<P>
-Royalty Percentage - 25%<BR/>
-Total Payment - $300.00<BR/>
-First Deliverable - $225.00<BR/>
-Project Completion - $75.00<BR/>
-</P>
+<!-- Center Column Begins -->  
+			<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
+				<xsl:call-template name="BodyTop">
+					<xsl:with-param name="image1">steelblue</xsl:with-param>
+					<xsl:with-param name="image">development</xsl:with-param>
+					<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+				</xsl:call-template>
+				
+				<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+					<tr>
+						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
+						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+							
+							<h1 class="devSubhead"><strong>Object Pool: Design</strong></h1>
+                                    
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Pool: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
-<P>
-<SUP>*</SUP>Completion of the project is defined as follows: 
-</P>
+							<p><strong>Overview</strong><br />
 
-<UL>
-	<LI>All tasks assigned by the product manager have been completed. </LI>
-	<LI>The deliverables are functioning properly and integrated within the other project software deliverables. </LI>
-	<LI>The product manager has signed off on all delivered components. </LI>
-	<LI>Project/task completion is not defined by the timeline listed above. The dates are to be used as guidelines and may change throughout the project. </LI>
-	<LI>Final payment is conditional on the fully functional component as defined in the requirements and by the product manager.</LI>
-</UL>
+                            Object Pools provide functionality to centralize the management of selected resources. Objects in the pool are created once and reused numerous times. This eliminates the need for continual object initialization and destruction; therefore, saving resources and reducing compilation overhead.
+                            While a pool can be used for any object type, it is most beneficial to use with objects that have a relatively high initialization overhead. An example is the initialization of database connection objects.							</p>
 
-<P>
-<B>Eligibility</B>
-</P>
-<P>
-You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:
-</P>
+							<p><strong>Project Type</strong><br />
+							Component Design Project: Provide a complete design for the Object Pool component.<br />
+							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> for further details regarding this project type.</p>
 
-<OL>
-	<LI>A US Citizen </LI>
-	<LI>A Lawful Permanent Resident of the US (i.e., a Green Card holder) </LI>
-	<LI>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</LI>
-	<LI>A Non US Citizen working in their country of residence.</LI>
-</OL>
+							<p><strong>Technologies</strong></p>
 
-<P>
-<B>Time Line</B>
-</P>
-<P>
-Component Posting: 10/25/2002<BR/>
-Initial Submission Due Date: 11/11/2002<BR/>
-Final Submission Due Date: 11/20/2002<BR/>
-Estimated Development End Date: 12/11/2002<BR/>
-</P>
+							<ul>
+								<li>Java 1.4</li>
+							</ul>
 
+							<p><strong>Payment</strong><br />
+							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
+							First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
+							Second Milestone: Is marked by the completion of the development project*.</p>
 
-                                    <a href="Javascript:document.frmInquire.Project.value='Object Pool';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
-          <P><BR/></P>
-    </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>     
-  <TR>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>  
-  <TR>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-</TABLE>
-    </TD>
-  <!-- Center Column Ends -->
-<!-- Body Area Ends -->
+							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the QA Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
+							
+							<p><strong>Designer</strong><br />
+							Royalty Percentage - 25%</p>
+							
+							<p>Total Payment - $300.00<br/>
+							First Deliverable - $225.00<br/>
+							Project Completion - $75.00</p>
 
-  <!-- Gutter -->
-    <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-  <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins -->        
-        <xsl:call-template name="public_right_col"/>        
-<!-- Right Column Include Ends -->        
-        </TD>
-  <!-- Right Column Ends -->
-  <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-  </TR>
-</TABLE>
-<!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
-  </xsl:template>
+							<p><sup>*</sup>Completion of the project is defined as follows:</p>
+
+							<ul>
+								<li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
+								<li>The Submission has been selected by the board as the winning submission.</li>
+								<li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
+							</ul>
+
+							<p><strong>Eligibility</strong><br />
+							You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
+
+							<ol>
+								<li>A US Citizen </li>
+								<li>A Lawful Permanent Resident of the US</li>
+								<li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
+								<li>A Non-US Citizen working in your country of residence.</li>
+							</ol>
+
+							<p><strong>Time Line</strong><br/>
+							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
+							
+							<p>Component Posting: 12/5/2002<br/>
+							Initial Submission Due Date: 12/18/2002<br/>
+							Final Submission Due Date: 12/30/2002<br/>
+							Estimated Development End Date: 1/29/2003</p>
+
+							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
+
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Pool: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><br /></p>
+					</td>
+
+					<td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+				</tr>
+
+				<tr><td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
+
+				<tr>
+					<td valign="top" background="" bgcolor="#CCCCCC" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+					<td valign="top" background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+				</tr>  
+
+				<tr>
+					<td valign="top" background="" width="11" align="right" bgcolor="#CCCCCC"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
+					<td valign="top" background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
+					<td valign="top" background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+					<td valign="top" background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+				</tr>
+			</table>
+		</td>
+<!-- Center Column Ends -->
+
+<!-- Gutter begins -->
+		<td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+<!-- Gutter Ends -->
+
+<!-- Right Column Begins -->
+		<td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" alt="" border="0" /><br/>
+			<xsl:call-template name="public_dev_right" />        
+		</td>
+<!-- Right Column Ends -->
+
+	</tr>
+</table>
+
+<!-- Footer begins -->
+	<xsl:call-template name="Foot" />
+<!-- Footer ends -->
+
+</body>
+</html>
+	</xsl:template>
 </xsl:stylesheet>
-
