@@ -63,6 +63,36 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- GCJ04 Article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_10_05_04"><img src="/i/pressroom/gcj_logo.gif" alt="GCJ04" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_10_05_04">Google announces 50 Google Code Jam Finalists</A></strong></font><br />
+						Google Inc. today announced the 50 finalists in the second annual Google Code Jam, Google's online coding competition consisting of a series of problem-solving challenges that invite participants to select a programming language and use their programming skills to code solutions to the problems. <span class="prHead">[October 5]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Newsforge Article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.newsforge.com/article.pl?sid=04/09/30/187225" target="_blank"><img src="/i/pressroom/newsforge_logo.gif" alt="Newsforge" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.newsforge.com/article.pl?sid=04/09/30/187225" target="_blank">Coders win, winners code</A></strong></font><br />
+						TopCoder announced on September 29 the completion of the final elimination round in the Algorithm Competition portion of its 2004 annual TopCoder Open coding contest. But the real winner may be TopCoder's open source development model, which gives programmers a chance to build enterprise applications for cash prizes. <span class="prHead">[October 5]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- CRPF -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
