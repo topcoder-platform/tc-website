@@ -44,7 +44,7 @@
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
-                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=ossj_tck_test_proxy_v10_dev"><strong>Sun OSS/J TCK Test Proxy</strong></A></td>
+                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=ossj_tck_test_proxy_v10_des"><strong>Sun OSS/J TCK Test Proxy</strong></A></td>
                             </tr>
 
                             <tr>
