@@ -33,7 +33,7 @@ public abstract class Select extends TagSupport {
     on_change=_on_change;
   }
 
-  public void setSelectedValue(String _selected_value) {
+  public void setSelected(String _selected_value) {
     selected_value=_selected_value;
   }
 
