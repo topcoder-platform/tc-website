@@ -223,23 +223,15 @@ function submitSession() {
                     <td class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()" CLASS="bodyText">click here</a></td>
                 </tr>
                 
-                <tr>
-                    <td class="testTableOdd" colspan="3"><img src="/i/ev/clear.gif" width="1" height="10" alt="" border="0"></td>
-                </tr>
-                
                  <tr>
-                    <td class="testTableOdd" colspan="3"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></td>
-                </tr>
-
-                <tr>
-                    <td class="testTableOdd" colspan="3"><img src="/i/ev/clear.gif" width="1" height="10" alt="" border="0"></td>
+                    <td class="testTableOdd" colspan="3"><div align="center"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></div></td>
                 </tr>
             </table>
 
            </screen:form>
  
              <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td width="100%"><img src="/i/ev/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
+                <tr><td width="100%"><img src="/i/ev/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>
  
             <p><br></p>
