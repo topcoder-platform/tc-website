@@ -78,8 +78,6 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            log.debug("user transaction " +
-                    ctx.lookup("javax/transaction/UserTransaction"));
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
