@@ -1,51 +1,58 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="top_10_schools">
-      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BGCOLOR="#001935">
-                 <TR> 
-                <TD BACKGROUND="/i/steel_gray_bg.gif"> 
-                  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="/i/steel_darkblue_bg.gif" BGCOLOR="#001935">
-                      <TR BGCOLOR="#000033">
-                        <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                        <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="1"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                                <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="60%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                                <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="40%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                                <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-              </TR> 
-              <TR>
-                <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="3" HEIGHT="16">&#160;Schools</TD>                    
-              </TR>                           
-              <TR>
-                <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="13" ALIGN="right">Rank&#160;&#160;</TD>  
-                <TD CLASS="statTextBig" VALIGN="middle">&#160;&#160;Name</TD>
-                <TD CLASS="statTextBig" VALIGN="middle" ALIGN="right">Avg. Rating&#160;&#160;</TD>                  
-              </TR>              
-              <TR>
-                <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-              </TR>                             
-              <xsl:for-each select="/TC/HOME/TopRankedSchools/School">
-                <TR>
-                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right" HEIGHT="12"><xsl:value-of select="rank"/>.&#160;&#160;</TD>
-                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">&#160;<xsl:value-of select="name"/></TD>
-                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><xsl:value-of select="avg_rating"/>&#160;&#160;</TD>               
-                </TR>             
-              </xsl:for-each>                     
-              <TR> 
-                <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-              </TR>              
-          </TABLE>
-          
-                  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="/i/steel_darkblue_bg.gif" BGCOLOR="#001935">
-                      <TR BGCOLOR="#000033">
-                        <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="8"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                        <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                                <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="60%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                                <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="40%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                                <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-              </TR> 
-          </TABLE>          
-        </TD>
-    </TR>
-  </TABLE>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935">
+				<tr>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td width="10%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
+					<td width="50%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
+					<td width="40%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				 </tr> 
+				
+				<tr valign="middle">
+					<td colspan="7" height="16" class="statTextBig" align="center">Schools</td>			  
+				</tr>						
+				
+				<tr>
+					<td colspan="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+				
+				<tr valign="middle">
+					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif">Rank</td>  
+ 					<td width="7" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="7" height="1" border="0"/></td>
+					<td class="statTextBig" background="/i/steel_bluebv_bg.gif">Name</td>
+ 					<td width="7" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="7" height="1" border="0"/></td>
+					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif">Avg. Rating</td>			
+					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+				</tr>				  
+				
+				<tr>
+					<td colspan="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+				
+				<xsl:for-each select="/TC/HOME/TopRankedSchools/School">
+				<tr valign="middle">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText" align="right"><xsl:value-of select="rank"/>.&#160;&#160;</td>
+ 					<td width="7"><img src="/i/clear.gif" width="7" height="1" border="0"/></td>
+					<td class="statText"><xsl:value-of select="name"/></td>
+ 					<td width="7"><img src="/i/clear.gif" width="7" height="1" border="0"/></td>
+					<td class="statText" align="right"><xsl:value-of select="avg_rating"/></td>					
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>				 
+				
+				<tr>
+					<td height="1" colspan="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+				</xsl:for-each>				
+				
+				<tr> 
+					<td height="10" colspan="7"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
+				</tr>				  
+			</table>
   </xsl:template>
 </xsl:stylesheet>
