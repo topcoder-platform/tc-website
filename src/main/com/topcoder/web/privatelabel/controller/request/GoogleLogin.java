@@ -12,7 +12,6 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -142,10 +141,10 @@ public class GoogleLogin extends FullLogin {
             }
         } else if (hasTCAccount) {
 
-            info = getCommonInfo(userId, DBMS.OLTP_DATASOURCE_NAME);
+            info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-            info.setCoderType(coder.getCoderTypeId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
 
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
