@@ -133,6 +133,7 @@
                                     <strong>Match 156</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
+                                    Sponsored by: Intel<br/>
                                     <!-- Sponsored by: Nvidia<br/> -->
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4585&amp;t=schedule&amp;c=srm">Details</a></td>
