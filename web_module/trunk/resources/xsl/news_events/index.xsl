@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>TopCoder Press Releases and Articles in other publications</title>
+<title>TopCoder Press Room - Press Releases and Articles featured in other publications</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -41,7 +41,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="5" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->	
@@ -49,98 +49,349 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">press_room</xsl:with-param>
-                <xsl:with-param name="title">Press Releases</xsl:with-param>
+                <xsl:with-param name="title"></xsl:with-param>
             </xsl:call-template>
             
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                <tr><td class="bodyText"><div align="right"><A href="/?t=news_events&amp;c=articles">Go to Articles</A></div></td></tr>
+                <tr><td class="bodyText"><div align="right"><strong>Current News</strong>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=press_release_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=article_archive">Articles Archive</A></div></td></tr>
+            </table>
             
-                <tr valign="top">
-                    <td class="bodyText" width="100%">      
-                        <table width="100%" border="0" cellpadding="4" cellspacing="0">
-
 <!-- 2003 -->
-                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
-
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_19_03">TopCoder Hosts Software Component Design and Development Contest</A> [August 19]</td></tr>  
-
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_13_03">TopCoder Hosts Charity Tournament</A> [August 13]</td></tr>  
-
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_11_03">TopCoder Launches Application Development Services</A> [August 11]</td></tr>  
- 
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_23_03">Revelation Software to Sponsor 2003 TopCoder Open</A> [July 23]</td></tr>  
-                                                       
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_22_03">TopCoder Adds VB.NET Competitions</A> [July 21]</td></tr>  
-                            
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_06_16_03">2003 TopCoder Open Announced</A> [June 16]</td></tr>    
-                           
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_javaone">TopCoder to Administer Contest at the 2003 JavaOne<span class="super">SM</span> Conference</A> [May 21]</td></tr>    
-                           
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_hs">Amity Regional Takes First Place in 2003 High School Challenge</A> [May 21]</td></tr>    
-                           
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_14_03">TopCoder and CAS Announce 2003 High School Challenge</A> [May 14]</td></tr>    
-                           
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_08_03">Duke University's David Arthur Wins 2003 Collegiate Challenge</A> [April 8]</td></tr>    
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
+            </table>
+            
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+                
+<!-- TopCoder Charity Challenge -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_08_13_03"><img src="/i/pressroom/crpf_announce.jpg" alt="CRPF Announcement" width="135" height="100" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_08_13_03">TopCoder Charity Challenge</A></strong></font><br />
+                        "By bringing together the world's top programmers to compete in an online tournament fundraiser, significant money will be raised so the world's 
+                        top scientists can continue their research to find a cure for paralysis," explained Mitchell Stoller,  President and CEO of the Christopher Reeve 
+                        Paralysis Foundation. <span class="prHead">[August 13]</span></p>
                         
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_03_13_03">Sun Microsystems<span class="super">TM</span> and TopCoder Highlight Field for 2003 Collegiate Challenge</A> [March 13]</td></tr>
-                            
-                            <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
-                        
-<!-- 2002 -->
-                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2002</font></td></tr>
-                            
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_11_11_02">Sixteen Finalists Announced in 2002 TopCoder Invitational</A> [November 11]</td></tr>
-
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_10_30_02">TopCoder Competitions Expand to High Schools</A> [October 30]</td></tr>
-
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_10_28_02">Finalists Announced for 2002 TopCoder Invitational</A> [October 28]</td></tr>
-
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_10_22_02">TopCoder Expands to Include Employment Services</A> [October 22]</td></tr>
-      
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_08_13_02">Sun Microsystems<span class="super">TM</span> and TopCoder Host SunNetwork<span class="super">SM</span> Coding Challenge</A> [August 13]</td></tr>
-        
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_05_28_02">China, New Zealand and Ireland Added to TopCoder Developer Community</A> [May 28]</td></tr>
-
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_03_25_02">Sixteen Finalists Announced for $150,000 Collegiate Challenge</A> [March 25]</td></tr>
-                                            
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_03_05_02">TopCoder Reaches 10,000 Member Milestone</A> [March 5]</td></tr>
-                        
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_02_19_02">Field Announced for 2002 Sun Microsystems and TopCoder Collegiate Challenge</A> [February 19]</td></tr>
-          
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_01_28_02">United Kingdom Added to TopCoder Developer Community</A> [January 28]</td></tr>
-                        
-                            <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
-                        
-<!-- 2001 -->
-                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2001</font></td></tr> 
-
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_12_10_01">Sun<span class="super">TM</span> Sponsoring 2002 Collegiate Challenge</A> [December 10]</td></tr>
-           
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_11_06_01">Houston Native Jon McAlister Wins $250,000 TopCoder Invitational</A> [November 6]</td></tr>
-
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_10_15_01">TopCoder Announces Sixteen Finalists For $250,000 Invitational Tournament</A> [October 15]</td></tr>
- 
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_09_24_01">Foxwoods to Host $250,000 TopCoder Invitational Tournament</A> [September 24]</td></tr>
-
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_06_07_01">Jason Woolever Wins 2001 TopCoder Collegiate Challenge</A> [June 7]</td></tr>
- 
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_05_29_01">TopCoder Addresses Demand for Elite Programmers with Coding Competitions</A> [May 29]</td></tr>
-                 
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_05_22_01">Sixteen Collegiate Programmers to Compete for Coveted "TopCoder" Title</A> [May 22]</td></tr>
-                 
-                            <tr><td class="prHead"><A href="/index?t=news_events&amp;c=pr_04_24_01">TopCoder Names Jack Hughes Chairman of the Board</A> [April 24]</td></tr>
-                        </table>
-
-                        <p><br /></p>
-
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://biz.yahoo.com/prnews/030813/nyw062_1.html" target="_blank"><img src="/i/pressroom/yahoo_finance_logo_sm.gif" alt="Yahoo! Finance" width="149" height="16" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
                     </td>
                 </tr>
             </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- TopCoder Software Announcment -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_08_11_03"><img src="/i/pressroom/app_dev_announce.gif" alt="Application Development" width="135" height="72" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_08_11_03">High quality software applications at a low cost</A></strong></font><br />
+                        "What makes TopCoder unique among component library vendors is their development strategy," said Rod Davenport, Enterprise Technology Strategist for 
+                        DTE Energy (Detroit Edison). TopCoder's strategy ensures quality through rigorous peer review and testing while at the same time providing the 
+                        contributors some additional incentive to participate in the process. <span class="prHead">[August 11]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://www.devx.com/enterprise/HTML/16970" target="_blank"><img src="/i/pressroom/devx_logo_sm.gif" alt="DevX" width="42" height="38" hspace="3" border="0" /></A></td>
+                                <td><A href="http://biz.yahoo.com/prnews/030819/nytu051_1.html" target="_blank"><img src="/i/pressroom/yahoo_finance_logo_sm.gif" alt="Yahoo! Finance" width="149" height="16" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Revelation Software Announcment -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_07_23_03"><img src="/i/pressroom/revelation_sponsor_announce.gif" alt="Revelation Sponsors the TCO" width="135" height="36" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_07_23_03">TopCoder has a Revelation</A></strong></font><br />
+                        "We are delighted to sponsor [the 2003 TopCoder Open]. It's an opportunity for us to show our support for the developer community. Events like this one 
+                        bring out the best solutions from the best developers, and those are the type of developers we want," said Mike Ruane, President and CEO of Revelation 
+                        Software. <span class="prHead">[July 23]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://biz.yahoo.com/prnews/030723/nyw022_1.html" target="_blank"><img src="/i/pressroom/yahoo_finance_logo_sm.gif" alt="Yahoo! Finance" width="149" height="16" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- VB.NET Added to Competitions -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_07_21_03"><img src="/i/pressroom/dotnet_added_arena.gif" alt="Microsoft VB.NET Added" width="135" height="52" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_07_21_03">I want my VB.NET</A></strong></font><br />
+                        "TopCoder is a company created by programmers for programmers, and the addition of VB.NET is yet another validation," said Jack Hughes, founder 
+                        and chairman of TopCoder. "Our members have assisted in the design and development of this addition to the competition engine." <span class="prHead">[July 21]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://www.finanznachrichten.de/nachrichten/artikel-2276932.asp" target="_blank"><img src="/i/pressroom/finanz_nachrichten_logo_sm.gif" alt="Finanz Nachrichten" width="164" height="26" hspace="3" border="0" /></A> <A href="http://biz.yahoo.com/prnews/030721/nym152_1.html" target="_blank"><img src="/i/pressroom/yahoo_finance_logo_sm.gif" alt="Yahoo! Finance" width="149" height="16" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Sweden Added to Competitions -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_06_17_03"><img src="/i/pressroom/sweden_added.gif" alt="Sweden Added" width="135" height="52" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_06_17_03">Sweden Added to TopCoder Developer Community </A></strong></font><br />
+                        "We are pleased to welcome the citizens of Sweden to TopCoder's developer community, and are excited about the continued international expansion 
+                        of our competitions," said Jack Hughes, Chairman and founder of TopCoder.  "Our Swedish member base continues to grow and in fact, produced a 
+                        finalist in our 2003 TopCoder Collegiate Challenge."  <span class="prHead">[June 17]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://www.nerac.com/webdata/CTC/Soft-2003-8-10.HTM#15" target="_blank"><img src="/i/pressroom/techtrack_logo_sm.gif" alt="TechTrack" width="99" height="20" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- 2003 TCO Announcment -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_06_16_03"><img src="/i/pressroom/2003_tco_announce.gif" alt="2003 TopCoder Open" width="135" height="40" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_06_16_03">Come In, We're Open</A></strong></font><br />
+                        "The skill level in the TopCoder tournaments increases dramatically each year and from the caliber of competition we've seen in recent weekly matches, 
+                        the 2003 TopCoder Open will be no exception," said Jack Hughes, founder of TopCoder, Inc. "Once again, we are thrilled to bring together the world's 
+                        best and brightest programmers for a tournament that promises to deliver plenty of excitement and opportunity." <span class="prHead">[June 16]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://www.eedesign.com/pressreleases/prnewswire/82547" target="_blank"><img src="/i/pressroom/eetimes_logo_sm.gif" alt="EETimes" width="73" height="18" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- 2003 JavaOne Coding Challenge -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03"><img src="/i/pressroom/javaone_event.gif" alt="2003 JavaOne Coding Challenge" width="135" height="40" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_21_03">JavaOne Coding Challenge is Powered by TopCoder</A></strong></font><br />
+                        "Sun is dedicated to making the JavaOne conference the essential source for Java technology education and innovation," said Mike Bellissimo, senior 
+                        director, Sun Software Developer Marketing and Management. "We are excited that TopCoder will offer onsite attendees a practical application testing 
+                        their knowledge of Java technology learned during the JavaOne conference." <span class="prHead">[May 21]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://java.sun.com/industry/news/story/52419-print.do" target="_blank"><img src="/i/pressroom/java_dot_sun_logo_sm.gif" alt="java.sun.com" width="103" height="20" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Amity Wins 2003 TCHS -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03"><img src="/i/pressroom/tchs_champions.jpg" alt="Amity wins TCHS" width="135" height="102" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_21_03">Amity clinches High School Challenge</A></strong></font><br />
+                        Amity Regional Senior High School out-performed 7 other Connecticut high school teams to claim the victory in the tournament, which concluded 
+                        yesterday at UConn's Homer Babbidge Library. The team's coach, Frank Barretta, said, "I'm proud of the whole team and we are all grateful to 
+                        TopCoder, CAS and UConn for hosting such a great event. We are looking forward to next year." <span class="prHead">[May 21]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://java.sun.com/industry/news/story/52424-print.do" target="_blank"><img src="/i/pressroom/java_dot_sun_logo_sm.gif" alt="java.sun.com" width="103" height="20" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- SD Times Article - Battle Royal for Jobs -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_15_03"><img src="/i/pressroom/sd_times_logo.gif" alt="SD Times" width="135" height="44" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_15_03">Battle royal for jobs</A></strong></font><br />
+                        David Rubinstein of Software Development Times writes, "All right, so it's not Tyson and Lewis. Heck, it's not even a 'Celebrity Death Match' 
+                        starring Gates and McNealy. But to the finalists of the TopCoder Collegiate Challenge, victory can mean as much as $50,000, the undying 
+                        respect of programming peers, and a possible fast track to employment with one of the industry heavyweights." <span class="prHead">[May 15]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- TCHS Announcment -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_14_03"><img src="/i/pressroom/tchs_logo_white.gif" alt="TopCoder High School" width="135" height="30" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_14_03">TopCoder Challenges High School Students</A></strong></font><br />
+                        "This competition brings the same platform that we use for college students and professionals every week to these incredibly talented high school 
+                        students," said Rob Hughes, President of TopCoder, Inc. "It is clear that these students will be amongst the best and the brightest at whatever institution 
+                        they pursue following high school. I'm sure we will see some of these same students in our collegiate and professional tournaments in years to come." 
+                        <span class="prHead">[May 14]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://www.eetimes.com/pressreleases/prnewswire/76344" target="_blank"><img src="/i/pressroom/eetimes_logo_sm.gif" alt="EETimes" width="73" height="18" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- DevX Article - International Collegiate Programming Champion talks shop -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_04_23_03"><img src="/i/pressroom/devx_logo.gif" alt="DevX" width="135" height="92" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_04_23_03">International Collegiate Programming Champion talks shop</A></strong></font><br />
+                        What first got me involved [with TopCoder] was the money. That did a lot to get me the first time, but it quickly became a lot more than that. There 
+                        was a time when I was doing it for not a lot of money because I felt I was getting better at competing, and also it really is a lot of fun to solve these 
+                        problems. They're sort of like little puzzles, and it's enjoyable to see what the tricks are [necessary to solve them]. <span class="prHead">[April 23]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Princeton EQuad News Article - Newlyweds earn nest egg -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_04_13_03"><img src="/i/pressroom/princeton_equad_logo.gif" alt="Princeton EQuad News" width="135" height="61" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_04_13_03">Newlyweds earn nest egg</A></strong></font><br />
+                        The couple has high aspirations for the ongoing spring competition, particularly for one another. "I think Zhiyan has more potential in the semifinals 
+                        than I do," Ruoming said, ignoring Zhiyan's protests to the contrary. "I'm not very comfortable with that style of competition. She's pretty good under 
+                        pressure." <span class="prHead">[April 13]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- David Arthur wins 2003 TCCC -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_04_07_03"><img src="/i/pressroom/dgarthur_tccc03_champ.jpg" alt="David Arthur" width="135" height="102" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_04_07_03">David Arthur takes home the Collegiate Challenge crown</A></strong></font><br />
+                        "What a great feeling this is to be able to compete against the best programmers in the world. I really didn't think I had much of a chance against these 
+                        other guys," said Arthur. "I'm also really thankful to TopCoder, Sun and Nvidia for putting on such an exciting and professional event." <span class="prHead">[April 7]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://www.newswire.ca/releases/April2003/07/c8582.html" target="_blank"><img src="/i/pressroom/canada_newswire_logo_sm.gif" alt="Canada NewsWire" width="51" height="35" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- 2003 TCCC Announcment -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_03_13_03"><img src="/i/pressroom/tccc03_logo.gif" alt="2003 TopCoder Collegiate Challenge" width="135" height="71" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_03_13_03">2003 Sun Microsystems TopCoder Collegiate Challenge</A></strong></font><br />
+                        The 2003 Sun Microsystems and TopCoder Collegiate Challenge brings together the world's highest-rated college-level Java and C&#43;&#43; computer 
+                        programmers and members of the TopCoder community. The programmers are ranked based upon their performance during weekly online 
+                        competitions and the top ranked members are then invited to participate in four online elimination rounds of regional competition. 
+                        <span class="prHead">[March 13]</span></p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle">
+                                <td class="prOtherPubs">AS SEEN ON:</td>
+                                <td><A href="http://java.sun.com/industry/news/story/51041-print.do" target="_blank"><img src="/i/pressroom/java_dot_sun_logo_sm.gif" alt="java.sun.com" width="103" height="20" hspace="3" border="0" /></A></td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Seattle Times - Ex-slacker, PLU Grad is world's smartest guy -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_02_01_03"><img src="/i/pressroom/seattle_times_logo.gif" alt="The Seattle Times" width="135" height="36" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_02_01_03">Ex-slacker, PLU Grad is world's smartest guy </A></strong></font><br />
+                        By winning, Nierman receives $500, a plaque he expects to hang in his home office for a laugh, a High IQ T-shirt and a lifetime membership in the society. 
+                        The monetary award pales in comparison to the $25,000 he won in 2001 by finishing in the top four of [the TopCoder Collegiate Challenge] 
+                        computer-programming competition. <span class="prHead">[February 1]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <p><br /></p>
+
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
