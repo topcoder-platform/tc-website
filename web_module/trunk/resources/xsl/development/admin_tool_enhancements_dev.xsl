@@ -185,8 +185,11 @@
                                         <p>
                                             <strong>Time Line</strong>
                                             <br/>
-                                            The Development Submission must be submitted on time. All questions submitted prior to 6PM EDT on the Submission Due Dates will be
-                                            answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.
+                                            The Development Submission must be submitted on time. All questions submitted
+                                            prior to 6PM EDT on the Submission Due Dates will be answered. Following review
+                                            from the board the winning member is given until the Updated Submission Due Date
+                                            to modify their submission.  The TopCoder Software Project Manager will assign
+                                            the development tasks for each phase at the start of the development phase.
                                         </p>
                                         <p>
                                             <table border="0" cellspacing="0" cellpadding="0"  width="40%">
