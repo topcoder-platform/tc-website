@@ -82,7 +82,7 @@
 						Before arriving at Cornell, Yotov designed a home delivery system for Kentucky Fried Chicken Bulgaria and also worked with the country's nuclear power industry. His main area of interest 
 						in computer science is compilers, programs that translate code into machine language so that the program can be executed. Eventually, Yotov aspires to found his own coding business as 
 						a chief of research and design. <BR/><BR/>
-						Copyright © 2001 by The Cornell Daily Sun, Inc. <BR/>
+						Copyright (c) 2001 by The Cornell Daily Sun, Inc. <BR/>
 						All rights reserved.<BR/><BR/>
 						</TD></TR>                                                                 
 					</TABLE>
