@@ -108,9 +108,13 @@ pageContext.setAttribute("resultSetDates", rsc);
                    <TD  COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
 
-<% if(resultRow_0!=null) {
+<% if (resultRow_0==null) { %>
+    <TR>
+      <TD CLASS="statText" COLSPAN="16" align="left">There were no coders from XXX in this round.</TD>
+    </TR>
+<% } else {
      pageContext.setAttribute("roomId",resultRow_0.getItem(4));
-     pageContext.setAttribute("roomName",resultRow_0.getItem(5)); 
+     pageContext.setAttribute("roomName",resultRow_0.getItem(5));
 %>
                  <TR>
                    <TD  CLASS="statText" COLSPAN="16"><%@include file="coderLegend.html" %><BR><BR>
