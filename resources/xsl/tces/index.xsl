@@ -71,65 +71,8 @@
 
                         <table border="0" cellspacing="10" cellpadding="0" width="100%">
 
-<!-- AlphaSimplex begins -->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=alphasimplex" target="_top"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></a></td>
-                                <td width="99%" class="bodyText">AlphaSimplex Group, LLC (ASG) is a quantitative investment management 
-                                company based in Cambridge, Massachusetts which, together with its technology affiliate RiskPlex, Inc., develops and integrates 
-                                cutting-edge technologies from several disciplines to create risk-controlled quantitative investment strategies. If you are excited 
-                                by the prospect of changing the investment management industry by developing and implementing cutting-edge technologies that 
-                                span many diverse disciplines, and you are at the top of your field, we want to hear from you.  
-                                <A href="/?&amp;t=tces&amp;c=alphasimplex" class="bodyText" target="_top"> Click here</A><br/><br/></td>
-                            </tr>
-<!-- AlphaSimplex ends -->
-                            
-                            <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-
-<!-- Appian begins -->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=appian" target="_top"><img src="/i/es/appian/appian_logo.gif" width="121" height="38" alt="Appian Corp" border="0" /></a></td>
-                                <td width="99%" class="bodyText">Appian is a young, fast growing software and technical consulting firm 
-                                specializing in highly scalable, high performance web and wireless applications for major government and commercial customers.  
-                                Our expertise is in large volume data systems and real-time analytics.  We are looking for. 
-                                <A href="/?&amp;t=tces&amp;c=appian" class="bodyText" target="_top">Software Engineers</A> with a passion for 
-                                coding and designing non-trivial applications.<br/><br/></td>
-                            </tr>
-<!-- Appian ends -->
-                            
-
-<!-- Cryptic begins 
-                            <tr valign="top">
-                              <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=cryptic"><img src="/i/es/cryptic/cryptic_logo.gif" width="120" height="63" alt="" border="0"/></a></td>
-                              <td width="99%" class="bodyText">Want to be a part of creating the world's first super powered MMP experience?  
-                              Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We have several open positions.            
-                              <a href="/?&amp;t=tces&amp;c=cryptic" class="bodyText">Click here</a> for more information.<br/><br/></td>
-                              </tr>
-Cryptic ends -->
 
 
-<!-- DiversifiedData begins 
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=diversifieddata" target="_top"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="AlphaSimplex" border="0" /></a></td>
-                                <td width="99%" class="bodyText">Diversified Data,   the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
-                                complex content and knowledge management environments, is looking to hire developers on a contract-to-hire basis.  Join teams comprised of their leading solutions 
-                                architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
-                                <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
-                            </tr>
- DiversifiedData ends -->
-                            
-                            <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-
-<!-- FBI begins -->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=fbi"><img src="/i/es/fbi/fbi_logo.gif" width="100" height="103" border="0"/></a></td>
-                                <td width="99%" class="bodyText">The FBI. It is like no other career choice you've explored. It's 
-                                    challenging. Compelling. Important. Whatever your background or expertise, you will find an FBI future exceptionally
-                                    rewarding. Because the work you perform will have a daily impact on the nation's security and the quality-of-life 
-                                    for all U.S. citizens.  <a href="/?&amp;t=tces&amp;c=fbi" class="bodyText">Are you ready?</a><br /><br /></td>
-                            </tr>
-<!-- FBI ends -->
-                        
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 
 <!-- Google begins -->
                             <tr valign="top">
@@ -164,20 +107,10 @@ Cryptic ends -->
                             </tr>
 <!-- PayPal ends -->
                         
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+                            
 
 
 
-<!-- TopCoder begins -->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><A HREF="/?&amp;t=tces&amp;c=topcoder_developer&amp;a=secure" CLASS="bodyText"><img src="/i/es/topcoder/topcoder_logo.gif" width="160" height="31" border="0"/></A></td>
-                                <td width="99%" class="bodyText">Incorporated in 2001, TopCoder, Inc. is fast becoming the standard by which talent 
-                                and software are measured. Our small staff is young, enthusiastic and welcomes the challenges of charting new territory within the 
-                                industry. Through our high-quality software, cutting-edge recruiting offerings, and world-renowned programming tournaments, we 
-                                are committed to excellence. We expect the same commitment and drive from our current and future employees. We're looking for 
-                                a <A HREF="/?&amp;t=tces&amp;c=topcoder_developer&amp;a=secure" CLASS="bodyText">Developer</A>.<br /><br /></td>
-                            </tr>
-<!--Topcoder ends -->
 
                         </table>
 
