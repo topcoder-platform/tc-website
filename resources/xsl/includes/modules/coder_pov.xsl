@@ -22,8 +22,8 @@
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> -->
 
-                        <img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=112902"><strong>Logan </strong></a><br/>
+                        <!--<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />-->
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys </strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -32,14 +32,18 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm154_prob">Problem Set Analysis &amp; Opinion: SRM 154</a></font></strong><br />
-                        Wednesday, July 9, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm155_prob">Problem Set Analysis &amp; Opinion: SRM 155</a></font></strong><br />
+                        Thursday, July 17, 2003</p>
 
-                        <p><b>Snapdragon</b> crushed the competition in Division One with an authoritative performance, winning the division by over 200 points.  
-                        <b>tomek</b> remains absolutely perfect, tying <b>Yarin</b> for the longest perfection streak ever (seven matches).  However all seven of 
-                        Yarin's matches were in Division One.  tomek has only competed in Division One six times to-date.  <strong>Veloso</strong>, back in Division One after a brief slump in Division 
-                        Two has turned up the heat again with a room win and the seventh highest score overall.
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm154_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                       <p>
+                        <b>SnapDragon</b> continues his dominance, winning for the sixth
+                        time out of the past eight contests. <b>Yarin</b> was hot on his heels
+                        until a late resubmit to fix a typo.  <b>ZorbaTHut</b> used one of
+                        only a handful of challenges in Division 1 to pull into second place.
+                        In Division 2, <b>TheFaxman</b> finished all three problems in a
+                        lightning quick 24 minutes, only to watch <b>ambclams</b> pull ahead
+                        for the victory two minutes later.
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm155_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
