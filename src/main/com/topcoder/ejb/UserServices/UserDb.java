@@ -77,7 +77,7 @@ final class UserDb {
                 /* make inserts for common db */
                 InitialContext ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
-                Email emailEJB = ((EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME)).create();
+                Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
                 userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0));
                 userEJB.setFirstName(user.getUserId(), coder.getFirstName());
                 userEJB.setLastName(user.getUserId(), coder.getLastName());
