@@ -169,7 +169,7 @@ abstract public class PRBase extends Base {
         int[] sums = new int[NUM_RATINGS+1];
         //generate the distribution of responses
         for (int k=list.size(); --k>=0;) {
-            sums[list.getIntItem(k, 1)]++;
+            sums[list.getIntItem(k, "avg")]++;
         }
         ProblemRatingDistribution ret = new ProblemRatingDistribution();
         List freqs = new ArrayList(NUM_RATINGS);
