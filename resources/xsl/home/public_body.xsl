@@ -23,7 +23,7 @@
   <xsl:template name="PublicBody">
 
 <!-- Body Begins -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
 	<tr>
 		<td valign="top" colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"/><br />
 <!-- SRM Promo Begins -->
@@ -278,35 +278,37 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
     <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
   <tr><td valign="top" colspan="5"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
 </table> 
-    </td>
+		</td>
   <!-- Center Column Ends -->    
 
-				<td bgcolor="#001935" valign="top" class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br /> 
+		<td valign="top" class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br /> 
 
 <!--SRM Sponsor Starts-->
-					<img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br />
-					<map name="srmanimation_home">
-						<!-- <area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>	 -->				
-						<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
-						<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4450&amp;t=schedule&amp;c=srm"/>
-						<!-- <area alt="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> --> 
-					</map>
+			<img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br />
+			<map name="srmanimation_home">
+				<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
+				<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4450&amp;t=schedule&amp;c=srm"/>
+			</map>
 <!--SRM Sponsor Ends-->
 
 <!-- TCES Quote Begins -->
-			<a href="/?&amp;t=schedule&amp;c=index"><img src="/i/tces_quote.gif" alt="Only rated members can apply for TCES jobs" width="244" height="138" border="0" /></a>
+			<a href=><img src="/i/tces_quote.gif" alt="Only rated members can apply for TCES jobs" width="244" height="138" border="0" /></a>
+			<map name="srmanimation_home">
+				<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
+				<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?&amp;t=schedule&amp;c=index"/>
+			</map>
 <!-- TCES Quote Ends -->
 
 <!-- Software Promo Begins -->
-					<a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_board.gif" alt="TCS" width="244" height="156" vspace="1" border="0"/></a>
+			<a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_board.gif" alt="TCS" width="244" height="156" vspace="1" border="0"/></a>
 <!-- Software Promo Ends -->
 
 <!-- Software Leader Board Begins -->
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935" background="/i/steel_darkblue_bg.gif">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935">
 				<tr><td height="17" class="moduleTitle" valign="middle"><img src="/i/module_labels_tcs_coders.gif" alt="TopCoder Software Leaders" width="226" height="17" border="0"/></td></tr>
 			</table>
 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="3" border="0"/></td>
 					<td width="59%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
@@ -382,7 +384,7 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 			</table>
 <!-- Software Leader Board Ends -->
 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935" background="/i/steel_darkblue_bg.gif">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935">
 				<tr><td height="17" class="moduleTitle" valign="middle"><img src="/i/module_labels_10_coders.gif" alt="TopCoder Competition Leaders" width="226" height="17" border="0"/></td></tr>
 				<tr><td bgcolor="#FFFFFF"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>
 				<tr><td><img src="/i/clear.gif" width="1" height="3" border="0"/></td></tr>      
@@ -391,7 +393,7 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 <xsl:call-template name="top_10_schools"/>
 <xsl:call-template name="top_10_coders"/>
 
-			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" background="/i/steel_darkblue_bg.gif" width="100%">
+			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
 				<tr>
 					<td align="left" class="statText"><img src="/i/clear.gif" width="20" height="4" border="0"/></td>
 					<td></td>
@@ -430,7 +432,7 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 				</tr>
 			</table>
 
-			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" background="/i/steel_darkblue_bg.gif" width="100%">
+			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
 				<tr><td colspan="3" bgcolor="#001935"><img src="/i/label_quick_stats_home.gif" alt="Quick Stats" width="166" height="17" border="0"/></td></tr>
 				<tr><td bgcolor="#FFFFFF" colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
 				<tr>
@@ -448,9 +450,11 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 
 					</td>
 				</tr>               
-			</table><br />
-			<a href="/stat?c=member_profile&amp;cr=304168">
-			<img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0"/></a>
+			</table>
+			
+			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
+				<tr><td><a href="/stat?c=member_profile&amp;cr=304168"><img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0" /></a></td></tr>
+			</table>
 		</td>
 	</tr>   
 </table>

@@ -24,7 +24,7 @@
 
 <!-- Body Begins -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
 	<tr>
 		<td valign="top" colspan="3"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /><br />
       <!-- SRM Promo Begins -->
@@ -515,7 +515,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 		</td>
   <!-- Center Column Ends -->
 
-		<td bgcolor="#001935" valign="top" class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br />
+		<td valign="top" class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br />
 
 <!--SRM Sponsor Starts-->
 			<img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br />
@@ -525,9 +525,6 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 				<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4450&amp;t=schedule&amp;c=srm"/>
 			</map>
 <!--SRM Sponsor Ends-->
-
-<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
 
 <!-- TCES Quote Begins -->
 			<a href="/?&amp;t=schedule&amp;c=index"><img src="/i/tces_quote.gif" alt="Only rated members can apply for TCES jobs" width="244" height="138" border="0" /></a>
@@ -618,19 +615,19 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 			</table>
 <!-- Software Leader Board Ends -->
 
-<!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02"> -->
+			<img src="/i/clear.gif" alt="" width="244" height="1" border="0"/>
+			<xsl:choose>
+				<xsl:when test="number(/TC/Rating)&lt;1200">
+					<xsl:call-template name="top_scorers"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
+				</xsl:when>
 
-<img src="/i/clear.gif" alt="" width="244" height="1" border="0"/>
-     <xsl:choose>
-     <xsl:when test="number(/TC/Rating)&lt;1200">
-       <xsl:call-template name="top_scorers"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
-     </xsl:when>
-     <xsl:otherwise>
-       <xsl:call-template name="top_scorers"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
-     </xsl:otherwise>
-     </xsl:choose>
+				<xsl:otherwise>
+				
+				<xsl:call-template name="top_scorers"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
+				</xsl:otherwise>
+			</xsl:choose>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" background="/i/steel_darkblue_bg.gif" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
                  <tr>
                   <td colspan="3" bgcolor="#001935"><img src="/i/label_quick_stats_home.gif" alt="Quick Stats" width="166" height="17" border="0"/></td>
                 </tr>
@@ -648,22 +645,21 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
               <tr>
                 <td class="statText" valign="top"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td>
               </tr>
-               <tr>
-                <td class="quickstatText" valign="top">
+				<tr>
     <!-- Quick Stat Pulldown Begins -->
-
-<xsl:call-template name="quick_stats_pulldown"/>
-
-                </td>
-              </tr>
-            </table><br />
-<!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
-<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->
-            <a href="/stat?c=member_profile&amp;cr=304168">
-            <img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0"/></a>
-    </td>
+					<td class="quickstatText" valign="top">
+						<xsl:call-template name="quick_stats_pulldown"/>
+					</td>
+				</tr>
+			</table>
+			
+			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
+				<tr><td><a href="/stat?c=member_profile&amp;cr=304168"><img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0"/></a></td></tr>
+			</table>
+		</td>
 <!-- Body Area Ends -->
-  </tr>
+	</tr>
 </table>
-  </xsl:template>
+
+</xsl:template>
 </xsl:stylesheet>
