@@ -93,7 +93,7 @@
 
 <!-- TCO Design Begins -->
                 <tr>
-                    <td class="statText" colspan="6" bgcolor="#004B33"><a name="design"></a><font size="3"><strong>2003 TopCoder Open Component Design Projects</strong></font></td>
+                    <td colspan="6" class="tcoHeader"><a name="design"></a>2003 TopCoder Open Component Design Projects</td>
                 </tr>
 
                 <tr valign="middle">
@@ -166,7 +166,7 @@
 
 <!-- TCO Development Begins -->
                 <tr>
-                    <td class="statText" colspan="6" bgcolor="#004B33"><font size="3"><strong>2003 TopCoder Open Component Development Projects</strong></font></td>
+                    <td class="tcoHeader" colspan="6">2003 TopCoder Open Component Development Projects</td>
                 </tr>
 
                 <tr valign="middle">
@@ -244,7 +244,7 @@
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
                 
                 <tr>
-                    <td class="statText" colspan="6" bgcolor="#999999"><font size="3"><strong>Component Design Projects</strong></font></td>
+                    <td class="header" colspan="6">Component Design Projects</td>
                 </tr>
 
 <!--                <tr valign="top">
@@ -318,7 +318,7 @@
                 </tr>  -->
 
                 <tr>
-                    <td class="statText" colspan="6" bgcolor="#999999"><font size="3"><strong>Component Development Projects</strong></font></td>
+                    <td class="header" colspan="6">Component Development Projects</td>
                 </tr>
 
                 <tr valign="middle">
