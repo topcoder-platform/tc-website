@@ -76,18 +76,10 @@ public class UserEdit extends BaseProcessor {
      */
     final void businessProcessing() throws Exception {
         secTok = new SecurityInfo(getFormFields());
-        log.debug(
-                secTok.createNew ?
-                "user creation intiated" :
-                "user modification initiated"
-        );
+        log.debug(secTok.createNew ?"user creation intiated":"user modification initiated");
 
         verifyAllowed();
-        log.debug(
-                secTok.createNew ?
-                "verification passed: create" :
-                "verification passed: edit"
-        );
+        log.debug(secTok.createNew ?"verification passed: create" :"verification passed: edit");
 
         if (authToken.getActiveUser().getId() != authToken.getUser().getId()) {
             throw new NotAuthorizedException(
