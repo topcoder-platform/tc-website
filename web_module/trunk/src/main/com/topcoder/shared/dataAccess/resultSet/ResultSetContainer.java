@@ -96,6 +96,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      */
     public ResultSetContainer(ResultSet rs) throws Exception {
         this();
+        log.debug("ResultSetContainer(ResultSet) called...");
         initializeMetaData(rs);
         while (rs.next()) {
             addRow(rs);
@@ -114,6 +115,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      */
     public ResultSetContainer(ResultSet rs, boolean replaceNulls) throws Exception {
         this();
+        log.debug("ResultSetContainer(ResultSet, boolean) called...");
         initializeMetaData(rs);
         while (rs.next()) {
             if (replaceNulls) {
@@ -149,6 +151,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      */
     public ResultSetContainer(ResultSet rs, int start, int end) throws Exception {
         this();
+        log.debug("ResultSetContainer(ResultSet, int, int) called...");
         if (start > end)
             throw new IllegalArgumentException("Start row cannot exceed end row");
         initializeMetaData(rs);
