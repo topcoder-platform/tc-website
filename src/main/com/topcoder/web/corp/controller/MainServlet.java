@@ -116,6 +116,7 @@ public class MainServlet extends HttpServlet {
             info = new SessionInfo();
             request.setAttribute("SessionInfo", info);
             Set groups = ((TCSAuthorization)authorization).getGroups();
+            log.debug("groups: " + groups.toString());
             info.setAll(authToken.getActiveUser(), groups);
 
             boolean allowedToRun = false;
@@ -135,9 +136,6 @@ public class MainServlet extends HttpServlet {
                     processorClassName
             ).newInstance();
             log.debug("processing module " + processorClassName + " instantiated");
-
-            // set main page in web.xml as homePage for Static Processor
-            request.setAttribute("homePage", Constants.WELCOME_PAGE);
 
             processorModule.setRequest(request);
             processorModule.setAuthentication(authToken);
