@@ -31,7 +31,7 @@ public class TermsOfUseBean implements SessionBean {
     private SessionContext ctx;
     private static Logger log = Logger.getLogger(TermsOfUseBean.class);
     private static final String dataSourceName = "CORP_OLTP";
-    private static final String idGenDataSourceName = "SCREENING_OLTP";
+    private static final String idGenDataSourceName = "CORP_OLTP";
 
 
     //required ejb methods
@@ -146,7 +146,7 @@ public class TermsOfUseBean implements SessionBean {
 
             try {
                 StringBuffer query = new StringBuffer();
-                query.append("UPDATE company SET terms_of_use_type_id = '" + id + "', modify_date = 'now' WHERE terms_of_use_id = ");
+                query.append("UPDATE company SET terms_of_use_type_id = " + id + ", modify_date = 'now' WHERE terms_of_use_id = ");
                 query.append(Long.toString(termsOfUseId));
 
                 ctx = new InitialContext();
