@@ -78,7 +78,11 @@ public final class Controller extends HttpServlet {
                     cmd = "com.topcoder.web.hs.controller.requests."+cmd;
 
                     log.debug("creating request processor of class "+cmd);
-                    rp = (RequestProcessor)Class.forName(cmd).newInstance();
+                    try {
+                        rp = (RequestProcessor)Class.forName(cmd).newInstance();
+                    } catch(Exception e) {
+                        throw new NavigationException("no such module");
+                    }
                     callProcess(rp, request, response);
 
                 } catch(PermissionException pe) {
