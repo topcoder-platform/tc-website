@@ -306,7 +306,6 @@
         <antcall target="package-EJB-AuthenticationServicesBean"/>
         <antcall target="package-EJB-CoderStatisticsBean"/>
         <antcall target="package-EJB-EmailServicesBean"/>
-        <antcall target="package-EJB-ContestAdminServicesBean"/>
         <antcall target="package-EJB-SearchBean"/>
         <antcall target="package-EJB-ReportingBean"/>
         <antcall target="package-EJB-JobPostingServicesBean"/>
@@ -402,13 +401,6 @@
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="AuthenticationServices"/>
             <param name="unit-class-path" value="com/topcoder/ejb/AuthenticationServices"/>
-        </antcall>
-    </target>
-
-    <target name="package-EJB-ContestAdminServicesBean" depends="compile">
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ContestAdminServices"/>
-            <param name="unit-class-path" value="com/topcoder/ejb/ContestAdminServices"/>
         </antcall>
     </target>
 
@@ -777,6 +769,10 @@
     </target>
 
     <target name="deploy-admin" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ContestAdminServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/ContestAdminServices"/>
+        </antcall>
         <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
             <fileset dir="${java}/com/topcoder/web/admin/view">
                 <include name="**/*.jsp"/>
