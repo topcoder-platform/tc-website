@@ -362,14 +362,14 @@
 <!-- Summary/Best/Worst Begins  -->
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 145</font></td>
+                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 146</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><A HREF="/stat?&amp;c=last_match" class="bodyText"><strong>View Summary</strong></A></td>
                 </tr>
             </table>
 
                 <table border="0" cellspacing="0" cellpadding="3" width="100%">
                     <tr>
-                        <td valign="top" colspan="3" class="bodyText">Tuesday, May 6, 2003</td>
+                        <td valign="top" colspan="3" class="bodyText">Wednesday, May 14, 2003</td>
                     </tr>
 
                     <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
@@ -433,29 +433,27 @@
                 <tr valign="top">
                     <td width="55" class="bodyText">
 
-						<img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
+						<!--<img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
                         By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span>
+                        <span class="smallText"><em>TopCoder Member</em></span>-->
 
-                        <!--<img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
                         By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span> -->
+                        <span class="smallText"><em>TopCoder Member</em></span> 
 
                     </td>
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="4"><strong>Single Round Match 145</strong></font><br />
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm145_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
+                        <p><font size="4"><strong>Single Round Match 146</strong></font><br />
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm146_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
 
-                        <p>
-                        Last night's problems were a good mix, with some dynamic programming, some simulation, and a couple relatively straightforward 
-                        number problems. The set seemed to be pretty well-balanced also. Despite a rather wordy div 1 medium /div 2 hard problem, 
-                        the submission percentages were all pretty well in line with the averages.</p>
-                        <p>
-						<b>SnapDragon</b> and <b>Yarin</b> were neck and neck during the challenge phase, and <b>Yarin</b> could have won the round 
-						if he had gotten one more challenge. But, in the end <b>SnapDragon</b> was able to hold on for the win, thanks to <b>Yarin's</b> 
-						resubmission of the 600 point problem. In division 2, <b>shadowless</b> was able to narrowly edge out first timer <b>andlehay</b> for the win. 
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm145_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
+                        <p>I don't know when it happened the last time, but in this SRM the top-scorer
+                        was not a "red", but a high ranked yellow, <b>along</b>, who scored <b>1285.02</b>.
+                        Another unique thing in Division-I was the presence of a problem worth 800 points,
+                        as well as the fact that the highest rating gainer in Division-I (<b>cnettel</b>) was the same as after the last SRM! In Division-II, first-timer <b>tomek</b> didn't give the other competitors
+                        a chance by scoring <b>1597.39</b>, more than 300 points ahead of the runner-up. This shouldn't
+                        come as a surprise though, as <b>tomek</b> was part of the team that won this years ACM ICPC in Hollywood!
+ <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm146_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
@@ -481,7 +479,7 @@
             <map name="srmanimation_home">
             <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" />  -->
             <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" />
-            <area shape="poly" alt="SRM Match 145" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4535&amp;t=schedule&amp;c=srm" />
+            <area shape="poly" alt="SRM Match 146" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4540&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
 
