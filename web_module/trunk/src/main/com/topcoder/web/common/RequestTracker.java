@@ -28,6 +28,7 @@ public class RequestTracker {
     private static Thread t = null;
 
     static {
+        log.info("starting request tracker thread");
         t = new RequestTrackerThread();
         t.run();
     }
