@@ -217,7 +217,7 @@ public class TCESConstants {
 
         MAIN_NAME = bundle.getProperty("main_name", "");
         CAMPAIGN_DETAIL_NAME = bundle.getProperty("campaign_detail_name", "");
-        CAMPAIGN_INTEREST_NAME = bundle.getProperty("camgpaign_interest_name", "");
+        CAMPAIGN_INTEREST_NAME = bundle.getProperty("campaign_interest_name", "");
         POSITION_INTEREST_NAME = bundle.getProperty("position_interest_name", "");
 
         JSP_ROOT = bundle.getProperty("jsp_root", "");
