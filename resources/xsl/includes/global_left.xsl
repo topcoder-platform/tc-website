@@ -1018,7 +1018,6 @@
             </table>
           
             <xsl:call-template name="srm_dates"/>
-            <xsl:call-template name="calendar"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:otherwise>
