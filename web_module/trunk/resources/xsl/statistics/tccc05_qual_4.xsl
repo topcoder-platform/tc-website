@@ -81,7 +81,12 @@ function openWin(url, name, w, h) {
                             </tr>
                         </table>
 <!--end contextual links-->
+<h2>Match summary</h2> 
 
+<p> 
+This set had the hardest hard problem, and only 12 competitors were able to solve both of them.  Top among them was John Dethridge, scoring over 60 points more than second place mathijs.  Luckily, the easy problem was straightforward, and almost everyone who submitted it got it correct.
+</p> 
+ 
 <H1> 
 The Problems 
 </H1>
