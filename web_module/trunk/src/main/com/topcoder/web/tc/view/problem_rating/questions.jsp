@@ -34,7 +34,6 @@
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="500" align="center" class="sidebarBox">
         <tr><td class="sidebarTitle" valign="top">Question</td>
-            <td class="sidebarTitle" valign="top">Description</td>
             <% for(int i = 1; i<=10; i++){ %>
                 <td class="sidebarTitle" align="center" valign="top">
                     <%=i%>
@@ -44,9 +43,8 @@
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
             <td class="sidebarText" valign="top">
-                <jsp:getProperty name="quest" property="question"/>
-            </td>
-            <td class="sidebarText" width="100%" valign="top"><jsp:getProperty name="quest" property="questionDesc"/></td>
+                <b><jsp:getProperty name="quest" property="question"/>:</b><br/>
+                <jsp:getProperty name="quest" property="questionDesc"/></td>
             <tc:counter min="1" max="10" inc="1" id="rating">
             <td valign="top" class="sidebarText">
                 <% boolean checked = rating.equals(request.getParameter("q"+quest.getID())); %>
@@ -55,8 +53,8 @@
             </tc:counter>
         </tr>
         </tc:problemRatingIterator>
-        <tr><td colspan="2" class="sidebarTitle"></td>
-        <td align="center" colspan="10" nowrap class="sidebarTitle" valign="top">
+        <tr>
+        <td align="center" colspan="11" nowrap class="sidebarTitle" valign="top">
             <a href="javascript:document.ratings.submit()"><img src="/i/submit.gif" width="60" height="18" border="0"></a>
             <img src="/i/clear.gif" width="10" height="18" border="0">
             <% if (request.getAttribute("showResults")!=null&&request.getAttribute("showResults").equals("true")) { %>
