@@ -129,9 +129,18 @@ abstract public class PRBase extends Base {
                                               ResultSetContainer rsc2,
                                               ResultSetContainer rsc3) throws Exception {
         ArrayList ret = new ArrayList(3);
-        ret.add(buildDistribution(rsc1));
-        ret.add(buildDistribution(rsc2));
-        ret.add(buildDistribution(rsc3));
+
+        ProblemRatingDistribution overall = buildDistribution(rsc1);
+        overall.setName("overallAll");
+        ret.add(overall);
+
+        ProblemRatingDistribution div1 = buildDistribution(rsc2);
+        div1.setName("overalllDiv1");
+        ret.add(div1);
+
+        ProblemRatingDistribution div2 = buildDistribution(rsc3);
+        div2.setName("overallDiv2");
+        ret.add(div2);
         return ret;
     }
 
