@@ -68,7 +68,8 @@
     }catch(Exception e){}
     boolean lastMatch = request.getParameter("rd") == null;
 //    if(!lastMatch)lastMatch = request.getAttribute("rd").toString().length()==0;
-    if(topN<0||topN>100)topN = 5;
+    if(topN<0)topN = 5;
+    if(topN>1000)topN=1000;
     currentRow = leaders.getRow(0);
     String contestName = currentRow.getItem("contest_name").toString();
     int roundID = Integer.parseInt(currentRow.getItem("round_id").toString());
