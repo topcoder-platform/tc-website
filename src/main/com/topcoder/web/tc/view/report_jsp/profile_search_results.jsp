@@ -13,7 +13,9 @@
   <%= request.getAttribute("QUERY") %>
   -->
 <%
-  if(!"on".equals("queryOnly")){
+  if("on".equals(request.getParameter("queryOnly"))){
+    out.print("<pre>"+StringUtils.htmlEncode(request.getAttribute("QUERY").toString())+"</pre>");
+  }else{
     Map m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY);
     ResultSetContainer results = (ResultSetContainer)m.get("results");
     List headers = (List)request.getAttribute("column_headers");
