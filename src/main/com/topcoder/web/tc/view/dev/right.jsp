@@ -10,6 +10,8 @@
             <table width="170" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
                     <td width="100%">
+                    	<a href="/tc?module=Static&d1=dev&d2=usdc_overview"><img src="/i/promos/usdc_promo_small.gif" width="170" height="150" border="0"/></a><br/>
+                    	<img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
                         <a href="/index?t=development&amp;c=components"><img src="/i/development/winners_promo.gif" border="0"/></a>
                     </td>
                 </tr>
