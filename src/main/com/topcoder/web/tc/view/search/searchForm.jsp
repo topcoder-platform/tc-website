@@ -4,7 +4,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-
+<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 
                  <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AdvancedSearch"/>
