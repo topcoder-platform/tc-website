@@ -326,26 +326,21 @@ Wednesday, Novmeber 13, 2002<BR/><BR/>
     By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 119</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 120</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm119_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm120_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
 <P>
-Division-I coders probably felt abused after tonight's match. Those expecting an easy Level 1 
-problem to warm up with were unpleasantly surprised, while an exceptionally messy Level 3 problem 
-awaited those that opened it. Only two coders solved the Level 3 problem (<B>SnapDragon</B> and <B>ddv</B>), both in the same room. 
+ This match was marred by some downtime, which fortunately occurred during intermission. Unfortunately, this meant there was no challenge phase, which was made even worse by the fact that yours truly failed to devise good test data for the Vending problem.
 </P>
 
 <P>
-Division-II, on the other hand, had an easier time. Their Level 1 and Level 2 problems were quite easy, 
-leading to rather high success rates, while their Level 3 problem was the same as Division-I's Level 2 
-problem (arguably the easiest Division-I problem of the match)...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm119_prob</xsl:attribute>Get the analysis</A>
+Otherwise, there were no major issues. The Division-I Level 1 and Level 2 problems were relatively easy, but the Level 3 problem appeared to make up for it in difficulty, as only 13 coders were able to complete a submission in time. Division-II made off like bandits with a very easy Level 1 and my flawed Level 3, but the difficulty of their Level 2 problem perhaps made up for that...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm120_prob</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
