@@ -6,9 +6,8 @@
 <link type="text/css" rel="stylesheet" href="/css/home.css"/>
 </head>
 <body>
-
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
-<!-- Header -->
+<%-- Header --%>
 	<tr>
 		<td colspan=7>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
@@ -24,32 +23,25 @@
 		</table>
 		</td>
 	</tr>
-
-<!-- Banners -->
+<%-- Banners --%>
 	<tr>
 		<td width="50%" rowspan=2>&#160;</td>
 		<td class=homeLeftBan><img src="/i/home/tab_developercenter.gif" border=0 /></td>
-		<td class=homeGutter>&#160;</td>
+		<td class=homeGutter rowspan=2>&#160;</td>
 		<td class=homeCentBan><img src="/i/home/tab_corporateservices.gif" border=0 /></td>
-		<td class=homeGutter>&#160;</td>
+		<td class=homeGutter rowspan=2>&#160;</td>
 		<td class=homeRightBan><img src="/i/home/tab_newsevents.gif" border=0 /></td>
 		<td width="50%" rowspan=2>&#160;</td>
 	</tr>
-
-<!-- Body -->
+<%-- Body --%>
 	<tr>
-<!-- Left Column -->
+<%-- Left Column --%>
 		<td class=homeLeftCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr>
-				<td class=homeBigPromo><A href="/"><img src="/i/promos/developercenter.gif" border=0 /></A></td>
-			</tr>
-			<tr>
-				<td class=homeSmallPromo><A href="/"><img src="/i/promos/earncash.jpg" border=0 /></A></td>
-			</tr>
+			<tr><td class=homeBigPromo><A href="/"><img src="/i/promos/developercenter.gif" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/"><img src="/i/promos/earncash.jpg" border=0 /></A></td></tr>
 		</table>
-
-		<table width="100%" border=0 cellpadding=0 cellspacing=0 class=homeTextTable>
+		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
 				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Algorithm Competitions</A></td>
@@ -77,22 +69,14 @@
 				<td class=homeText>Now you can buy infrastructure components in both .NET and Java to serve as the building blocks for software components.  Only $12.95 a month for personal <A href="/">subscriptions</A></td>
 			</tr>
 		</table>
-	</td>
-
-	<td></td>
-
-<!-- Center Column -->
+		</td>
+<%-- Center Column --%>
 		<td class=homeCentCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr>
-				<td class=homeBigPromo><A href="/"><img src="/i/promos/techAssessTool.jpg" border=0 /></A></td>
-			</tr>
-			<tr>
-				<td class=homeSmallPromo><A href="/"><img src="/i/promos/compSubscriptions.jpg" border=0 /></A></td>
-			</tr>
+			<tr><td class=homeBigPromo><A href="/"><img src="/i/promos/techAssessTool.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/"><img src="/i/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
 		</table>
-
-		<table width="100%" border=0 cellpadding=0 cellspacing=0 class=homeTextTable>
+		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
 				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Software</A></td>
@@ -110,7 +94,6 @@
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText>Is your company looking to interact with the most talented developers from around the world? TopCoder offers many <A href="/">opportunities</A> to do just that.</td>
 			</tr>
-
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
 				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Employment Services</A></td>
@@ -120,21 +103,14 @@
 				<td class=homeText>Are you a company interested in <A href="/">hiring</A> the best talent?  Let TopCoder bring you together with software engineers looking for jobs.</td>
 			</tr>
 		</table>
-
-	<td></td>
-
-<!-- Right Column -->
+		</td>
+<%-- Right Column --%>
 		<td class=homeRightCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr>
-				<td class=homeBigPromo><A href="/"><img src="/i/promos/tco04Finals.gif" border=0 /></A></td>
-			</tr>
-			<tr>
-				<td class=homeSmallPromo><A href="/"><img src="/i/clear.gif" width=270 height=105 border=0 /></A></td>
-			</tr>
+			<tr><td class=homeBigPromo><A href="/"><img src="/i/promos/tco04Finals.gif" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/"><img src="/i/clear.gif" width=270 height=105 border=0 /></A></td></tr>
 		</table>
-
-		<table width="100%" border=0 cellpadding=0 cellspacing=0 class=homeTextTable>
+		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
 				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Upcoming Events:</A></td>
@@ -163,11 +139,9 @@
 				</td>
 			</tr>
 		</table>
-	</td>
+		</td>
 	</tr>
-
-
-<!-- Footer -->
+<%-- Footer --%>
     <tr><td class="homeFooter" colspan=7>
             <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
@@ -178,7 +152,6 @@
 			<br/>
             <A href="/" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/" class="footerLinks">Corporate Services</A>
-
     <tr><td width="100%" class="copyright" colspan=7>Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
 
