@@ -100,7 +100,7 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=PMD_Service">Project Management Dashboard Service</a>
+                                        <a href="?t=development&amp;c=PMD_Service_Dev">Project Management Dashboard Service</a>
                                     </td>
                                     <td class="projectCells" align="right">$2,500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$935 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
@@ -108,7 +108,7 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=PMD_Service">Project Management Dashboard Reports - Formatting</a>
+                                        <a href="?t=development&amp;c=PMD_Reports_Formatting_Dev">Project Management Dashboard Reports - Formatting</a>
                                     </td>
                                     <td class="projectCells" align="right">$2,350 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$875 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
@@ -116,7 +116,7 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=PMD_Service">Project Management Dashboard Reports - Execution</a>
+                                        <a href="?t=development&amp;c=PMD_Reports_Executions_Dev">Project Management Dashboard Reports - Execution</a>
                                     </td>
                                     <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$750 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
