@@ -96,6 +96,10 @@ public class ContractingInfo implements Serializable, Cloneable {
         preferences.clear();
     }
     
+    public int getSkillCount() {
+        return skills.keySet().size();
+    }
+    
     public Iterator getPreferenceNames() {
         return preferences.keySet().iterator();
     }
