@@ -97,7 +97,7 @@ public class ProjectConverter {
         }
         PrintStream log = new PrintStream(logFile);
         PrintStream remove = new PrintStream(removeFile);
-        
+
         TCSubject requestor = new TCSubject(287998); // TCSMicah
 
         // SQL Query to retrieve projects that have
@@ -191,10 +191,11 @@ public class ProjectConverter {
             // Use ProjectTracker.createProject()
             // to create project and insert tables:
             // project, phase_instance, payment_info, r_user_role
-            long projectId;
+            long projectId = 0;
             try {
-                projectId = pt.convertProject(projectName, version, versionId,
-                        componentId, compVersId, phaseId, projectTypeId, overview, dates, requestor, levelId);
+                //doesn't exist anymore
+                //projectId = pt.convertProject(projectName, version, versionId,
+                        //componentId, compVersId, phaseId, projectTypeId, overview, dates, requestor, levelId);
             } catch (RemoteException e2) {
                 log.println(e2.toString());
                 throw new RuntimeException();
@@ -230,7 +231,7 @@ public class ProjectConverter {
                     "WHERE description LIKE '" + projectVersionType + " %');");
             remove.println("DELETE FROM security_roles\n " +
                     "WHERE description LIKE '" + projectVersionType + " %';");
-            
+
         } // end of while get open projects
         Common.close(rs);
         Common.close(ps);
