@@ -393,8 +393,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>SRM 136</strong></a><br />
-                            Tuesday, February 25, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>TCCC '03 Regional Quart.</strong></a><br />
+                            Wednesday, February 26, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -476,22 +476,26 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;lbackstrom<br /><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;brett1479<br /><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="tahoma, verdana"><strong>SRM 136</strong></font></td>
+                        <font size="2" color="#000000" face="tahoma, verdana"><strong>TCCC '03 Regional Quart.</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm136_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_reg_quart_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>Yarin remained red hot, as only one of two coders (radeye was the other) to solve all three problems
-    successfully.  His hot streak over the last few contests has propelled him up to 2nd place overall,
-    58 points behind John Dethridge.  SnapDragon, on the other hand had an unusual off night, and dropped 124
-    points.</p>
+                        <p>Tension builds as we get closer and closer to the finals.  This round, the Regional Quarterfinals, proved to be
+    one of the most interesting to date.  After 15 minutes only a few competitors submitted the easy problem, a
+    departure from the normal frantic pace.  John Dethridge, the top ranked competitor, was seemingly unphased by
+    the problem set.  He sped through all 3 problems winning the round by a margin.  Quite amazingly he finished
+    both the easy and the hard before second highest ranked coder Yarin submitted his first problem.  As time passed
+    many coders finished the treacherous easy and were able to complete the rest of the problems.  Although slightly
+    troubled by the easy problem, Reid finished off the rest of the set with ease propelling him to second place.
+    Previous tournament champions jonmac and dmwright are both returning to top form winning their respective rooms.</p>
                     </td>
                 </tr>
             </table>
