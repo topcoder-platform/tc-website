@@ -99,12 +99,13 @@
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="8">Open Components</td>
+                    <td class="projectTitles" colspan="9">Open Design Components</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" align="center">Catalog</td>
-                    <td class="projectHeaders">Component Name</td>
-                    <td class="projectHeaders" align="center">Phase</td>
+                    <td class="projectHeaders" width="100%">Component Name</td>
+                    <td class="projectHeaders" align="center">Primary<br/>Reviewer<br/>Payment</td>
+                    <td class="projectHeaders" align="center">Reviewer<br/>Payment</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Review<br/>Start</td>
                     <td class="projectHeaders" align="center">Review<br/>End</td>
@@ -126,7 +127,8 @@
                         <% } %>
 
                         <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
+                        <td class="projectCells" align="right">$123.45&#160;</td>
+                        <td class="projectCells" align="right">$123.45&#160;</td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
@@ -137,7 +139,55 @@
                 </rsc:iterator>
                     
                     <tr>
-                        <td class="projectHeaders" align="left" nowrap="nowrap" colspan="8"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
+                        <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
+                    </tr>
+           </table>
+           
+           <br/><br/>
+
+            <table border="0" cellspacing="0" width="100%" class="formFrame">
+                <tr>
+                    <td class="projectTitles" colspan="9">Open Development Components</td>
+                </tr>
+                <tr>
+                    <td class="projectHeaders" align="center">Catalog</td>
+                    <td class="projectHeaders" width="100%">Component Name</td>
+                    <td class="projectHeaders" align="center">Primary<br/>Reviewer<br/>Payment</td>
+                    <td class="projectHeaders" align="center">Reviewer<br/>Payment</td>
+                    <td class="projectHeaders" align="center">Submissions</td>
+                    <td class="projectHeaders" align="center">Review<br/>Start</td>
+                    <td class="projectHeaders" align="center">Review<br/>End</td>
+                    <td class="projectHeaders" align="center">Positions<br/>Available</td>
+                    <td class="projectHeaders" align="left">Details</td>
+                </tr>
+
+                <rsc:iterator list="<%=projectList%>" id="resultRow">
+                    <tr>
+                        <%-- <a> should link to project description page like the Open Projects page does --%>
+                        <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
+                            <td class="projectCells" align="center"><img src="/i/development/netSm.gif" border="0"/></td>
+                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
+                            <td class="projectCells" align="center"><img src="/i/development/smJava.gif" border="0"/></td>
+                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
+                            <td class="projectCells" align="center"><img src="/i/development/flashSm.gif" border="0"/></td>
+                        <% } else { %>
+                            <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
+                        <% } %>
+
+                        <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
+                        <td class="projectCells" align="right">$123.45&#160;</td>
+                        <td class="projectCells" align="right">$123.45&#160;</td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
+                        <td class="projectCells" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a>
+                        <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
+                    </tr>
+                </rsc:iterator>
+                    
+                    <tr>
+                        <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
                     </tr>
            </table>
 
