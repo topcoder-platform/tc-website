@@ -264,7 +264,7 @@ log.debug(memStatLvlRow.getItem("submission_accuracy").toString() );
 log.debug(decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) ));
 
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                       decFmt.format( Double.parseDouble(memStatLvlRow.getItem("submission_accuracy").toString())+"%" ) );
+                       decFmt.format( Double.parseDouble(memStatLvlRow.getItem("submission_accuracy").toString()) ) +"%");
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
                        decFmt.format( Double.parseDouble(memStatLvlRow.getItem("overall_accuracy").toString()) )+"%" );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
