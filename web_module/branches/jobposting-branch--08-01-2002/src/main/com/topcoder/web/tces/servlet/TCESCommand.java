@@ -11,7 +11,7 @@ import com.topcoder.web.tces.ejb.TCESServices.TCESServices;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServicesHome;
 
 import javax.naming.InitialContext;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.*;
@@ -24,7 +24,8 @@ import java.util.*;
 
 public interface TCESCommand {
 
-	void processCommand(HttpServletRequest request, HttpServletResponse response)
+	void processCommand(HttpServletRequest request, HttpServletResponse response,
+						InitialContext ctx, ServletContext servCtx)
 		throws Exception;
 
 }

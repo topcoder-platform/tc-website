@@ -14,6 +14,22 @@
   <servlet-class>com.topcoder.web.tces.servlet.Controller</servlet-class>
 
   <init-param>
+    <param-name>jsp_root</param-name>
+    <param-value>/es/</param-value>
+    <description>
+      The directory holding JSP pages for TCES module.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>login_page</param-name>
+    <param-value>login.jsp</param-value>
+    <description>
+      The TCES login page.
+    </description>
+  </init-param>
+
+  <init-param>
     <param-name>error_page</param-name>
     <param-value>/errorPage.jsp</param-value>
     <description>
@@ -21,8 +37,19 @@
     </description>
   </init-param>
 
+
+
+
   <init-param>
-    <param-name>job_id</param-name>
+    <param-name>step_param</param-name>
+    <param-value>st</param-value>
+    <description>
+      The key for the step parameter of a request.
+    </description>
+  </init-param>
+  
+  <init-param>
+    <param-name>job_id_param</param-name>
     <param-value>job_id</param-value>
     <description>
       The key for the job_id parameter of a request.
@@ -30,7 +57,7 @@
   </init-param>
 
   <init-param>
-    <param-name>user_id</param-name>
+    <param-name>user_id_param</param-name>
     <param-value>user_id</param-value>
     <description>
       The key for the user_id parameter of a request.
@@ -38,23 +65,7 @@
   </init-param>
 
   <init-param>
-    <param-name>click_thru</param-name>
-    <param-value>1</param-value>
-    <description>
-      The id from the database of a click_thru (hit_type_lu).
-    </description>
-  </init-param>
-
-  <init-param>
-    <param-name>job_posting</param-name>
-    <param-value>2</param-value>
-    <description>
-      The id from the database of a job_posting (hit_type_lu).
-    </description>
-  </init-param>
-  
-  <init-param>
-    <param-name>handle</param-name>
+    <param-name>handle_param</param-name>
     <param-value>handle</param-value>
     <description>
       The key for the handle parameter of a request.
@@ -62,15 +73,36 @@
   </init-param>
 
   <init-param>
-    <param-name>password</param-name>
+    <param-name>password_param</param-name>
     <param-value>password</param-value>
     <description>
       The key for the password parameter of a request.
     </description>
   </init-param>
 
+
+
+
   <init-param>
-    <param-name>msg_attr</param-name>
+    <param-name>click_thru_id</param-name>
+    <param-value>1</param-value>
+    <description>
+      The id from the database of a click_thru (hit_type_lu).
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_posting_id</param-name>
+    <param-value>2</param-value>
+    <description>
+      The id from the database of a job_posting (hit_type_lu).
+    </description>
+  </init-param>
+  
+
+
+  <init-param>
+    <param-name>msg_attr_key</param-name>
     <param-value>message</param-value>
     <description>
       The key for the message attribute of a request.

@@ -66,6 +66,7 @@ public class LoginCommand implements TCESCommand, Serializable {
 					 	  	   InitialContext ctx,
 					 	  	   ServletContext servCtx)  throws Exception
 	{
+/*
         String handle = request.getParameter(TCESConstants.HANDLE_PARAM);
         String password = request.getParameter(TCESConstants.PASSWORD_PARAM);
 
@@ -109,7 +110,7 @@ public class LoginCommand implements TCESCommand, Serializable {
 			return;
 		}
 
-/*            HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(true);
 		Navigation nav = setupSession(request, response, session);
 
 		UserServicesHome userServicesHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
