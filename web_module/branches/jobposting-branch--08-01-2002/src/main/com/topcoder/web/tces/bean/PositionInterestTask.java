@@ -172,12 +172,12 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
                 hit.put("rating",
                         ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
 log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
-                hit.put("rating_int",((Integer)hitListRow.getItem("rating").getResultData()));
+                hit.put("ra",((Integer)hitListRow.getItem("rating").getResultData()));
             }
             else {
                 // member is unrated.
                 hit.put("rating", "Not rated");
-                hit.put("rating_int",new Integer(0));
+                hit.put("ra",new Integer(0));
             }
             hit.put("state",
                     hitListRow.getItem("state_code").toString().trim() );
