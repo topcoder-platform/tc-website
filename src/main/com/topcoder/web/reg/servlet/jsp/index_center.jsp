@@ -268,14 +268,14 @@ Founder and Chairman, TopCoder, Inc.
   </tr>
   <tr>
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statText" align="left" valign="top">Minimum&nbsp;of&nbsp;<%=Registration.PASSWORD_MIN_LENGTH%>&nbsp;characters<br></td>
+    <td colspan="2" class="statText" align="left" valign="top">Minimum&nbsp;of&nbsp;<%=Registration.PASSWORD_MIN_LENGTH%>&nbsp;characters, maximum of <%=Registration.PASSWORD_MAX_LENGTH%><br></td>
   </tr>  
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="ConfirmPasswordError" /></td>
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Re-type Password</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="password" name="<%=Registration.CONFIRM_PASSWORD%>" value ="<jsp:getProperty name="Registration" property="ConfirmPassword" />" size="30" maxlength="15"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="password" name="<%=Registration.CONFIRM_PASSWORD%>" value ="<jsp:getProperty name="Registration" property="ConfirmPassword" />" size="30" maxlength="<%=Registration.PASSWORD_MAX_LENGTH%>"></td>
   </tr>
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="EmailError" /></td>
