@@ -90,7 +90,7 @@ public class Controller extends HttpServlet {
 
                 log.debug("next page is " + task.getNextPage());
 
-                getServletContext().getRequestDispatcher(response.encodeURL(task.getNextPage())).forward(request, response);
+                getServletContext().getRequestDispatcher(response.encodeURL("/"+task.getNextPage())).forward(request, response);
 
             }
             else {
