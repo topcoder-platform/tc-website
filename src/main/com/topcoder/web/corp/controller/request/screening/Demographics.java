@@ -75,6 +75,7 @@ public class Demographics extends BaseScreeningProcessor {
                 rsc = (ResultSetContainer) resultMap.get("campaign_demographic_responses");
                 ResultSetContainer.ResultSetRow demoInfoRow = null;
                 TreeMap demoOtherMap = new TreeMap();
+                ArrayList orderList = new ArrayList();
 
                 for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
                     demoInfoRow = rsc.getRow(rowI);
@@ -82,6 +83,7 @@ public class Demographics extends BaseScreeningProcessor {
                     if (demoOtherMap.get(demoInfoRow.getItem("demographic_question_text").toString()) == null) {
                         demoOtherMap.put(demoInfoRow.getItem("demographic_question_text").toString(),
                                 new ArrayList());
+                        orderList.add(demoInfoRow.getItem("demographic_question_text").toString());
                     }
                     ArrayList respList = (ArrayList) demoOtherMap.get(demoInfoRow.getItem("demographic_question_text").toString());
 
@@ -101,9 +103,9 @@ public class Demographics extends BaseScreeningProcessor {
                 }
 
                 if (types[typeI] == Constants.STUDENT)
-                    m.setStudentDemoInfo(demoOtherMap);
+                    m.setStudentDemoInfo(demoOtherMap, orderList);
                 else if (types[typeI] == Constants.PROFESSIONAL)
-                    m.setProDemoInfo(demoOtherMap);
+                    m.setProDemoInfo(demoOtherMap, orderList);
             }
 
             rsc = (ResultSetContainer) resultMap.get("verify_campaign_access");

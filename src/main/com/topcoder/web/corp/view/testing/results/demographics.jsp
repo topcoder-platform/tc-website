@@ -15,10 +15,10 @@
 <body>
 <% 
     Map StudentQuestionMap = demographicInfo.getStudentDemoInfo();
-    Iterator StudentQuestionIterator = StudentQuestionMap.keySet().iterator();
+    Iterator StudentQuestionIterator = demographicInfo.getStudentDemoList().iterator();
     
     Map ProQuestionMap = demographicInfo.getProDemoInfo();
-    Iterator ProQuestionIterator = ProQuestionMap.keySet().iterator();
+    Iterator ProQuestionIterator = demographicInfo.getProDemoList().iterator();
 %>
 <!-- Header begins -->
 <jsp:include page="../includes/top.jsp" />
