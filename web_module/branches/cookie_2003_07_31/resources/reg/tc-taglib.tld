@@ -12,8 +12,8 @@
 
   <tag>
     <name>getProperty</name>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.GetProperty</tagclass>
-    <teiclass>com.topcoder.web.reg.servlet.jsp.tag.GetPropertyTEI</teiclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.GetProperty</tagclass>
+    <teiclass>com.topcoder.web.tc.view.reg.tag.GetPropertyTEI</teiclass>
     <bodycontent>empty</bodycontent>
     <info>Similar to jsp:getProperty</info>
     <attribute>
@@ -48,7 +48,7 @@
     <info>
         Generates an html select box with countries
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.CountrySelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.CountrySelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -92,7 +92,7 @@
     <info>
         Generates an html select box with degrees 
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.DegreeSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.DegreeSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -135,8 +135,8 @@
     <name>demographic</name>
     <info>
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.Demographic</tagclass>
-    <teiclass>com.topcoder.web.reg.servlet.jsp.tag.DemographicTEI</teiclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.Demographic</tagclass>
+    <teiclass>com.topcoder.web.tc.view.reg.tag.DemographicTEI</teiclass>
     <bodycontent>JSP</bodycontent>
     <attribute>
       <name>class</name>
@@ -174,8 +174,8 @@
     <name>notification</name>
     <info>
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.Notification</tagclass>
-    <teiclass>com.topcoder.web.reg.servlet.jsp.tag.NotificationTEI</teiclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.Notification</tagclass>
+    <teiclass>com.topcoder.web.tc.view.reg.tag.NotificationTEI</teiclass>
     <bodycontent>JSP</bodycontent>
     <attribute>
       <name>class</name>
@@ -199,7 +199,7 @@
     <info>
         Generates an html select box with editor
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.EditorSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.EditorSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -243,7 +243,7 @@
     <info>
         Generates an html select box with jobs
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.JobSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.JobSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -287,7 +287,7 @@
     <info>
         Generates an html select box with languages
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.LanguageSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.LanguageSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -331,7 +331,7 @@
     <info>
         Generates an html select box with organizations
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.OrganizationSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.OrganizationSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -375,7 +375,7 @@
     <info>
         Generates an html select box with majors
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.MajorSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.MajorSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -419,7 +419,7 @@
     <info>
         Generates an html select box with referral sources 
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.ReferralSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.ReferralSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -468,7 +468,7 @@
     <info>
         Generates an html select box with schools (optionally filtered by U.S. state)
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.SchoolSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.SchoolSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -517,7 +517,7 @@
     <info>
         Generates an html select box with U.S. states
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.StateSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.StateSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -561,7 +561,7 @@
     <info>
         Generates an html select box with years
     </info>
-    <tagclass>com.topcoder.web.reg.servlet.jsp.tag.YearSelect</tagclass>
+    <tagclass>com.topcoder.web.tc.view.reg.tag.YearSelect</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>

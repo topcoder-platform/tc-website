@@ -209,6 +209,12 @@
       <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <display-name>Registration</display-name>
+        <description>The registration controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.reg.servlet.Controller</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -224,6 +230,11 @@
     <servlet-mapping>
         <servlet-name>tc</servlet-name>
         <url-pattern>/tc</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/Registration</url-pattern>
     </servlet-mapping>
 
 </web-app>
