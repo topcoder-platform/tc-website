@@ -25,7 +25,7 @@
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Account Administration</B></FONT><BR/>
 <P>
-<A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=usr_list" CLASS="bodyText">User List</A> | <A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Create/Modify User</A>
+<A HREF="<%=appContext%>/?module=user-list" CLASS="bodyText">User List</A> | <A HREF="<%=appContext%>/?module=create-edit" CLASS="bodyText">Create/Modify User</A>
 </P>
 
 <P>
