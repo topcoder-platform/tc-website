@@ -9,9 +9,9 @@
     <enterprise-beans>
         <session>
             <ejb-name>JavaDocServices</ejb-name>
-            <home>com.topcoder.server.ejb.JavaDocServices.JavaDocServicesHome</home>
-            <remote>com.topcoder.server.ejb.JavaDocServices.JavaDocServices</remote>
-            <ejb-class>com.topcoder.server.ejb.JavaDocServices.JavaDocServicesBean</ejb-class>
+            <home>com.topcoder.ejb.JavaDocServices.JavaDocServicesHome</home>
+            <remote>com.topcoder.ejb.JavaDocServices.JavaDocServices</remote>
+            <ejb-class>com.topcoder.ejb.JavaDocServices.JavaDocServicesBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Bean</transaction-type>
             <env-entry>
