@@ -61,7 +61,9 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr> 
                             
-                            <tr><td class="newsText"><A href="http://www.digitaljournal.com/news/?articleID=3913" target="_blank">World's Top Coder Takes Home $50,000 in Computing Contest</A> [January 9 - Digital Journal.com]</td></tr>            
+                            <tr><td class="newsText"><A href="http://www.digitaljournal.com/news/?articleID=3913" target="_blank">World's Top Coder Takes Home $50,000 in Computing Contest</A> [January 9 - Digital Journal.com]</td></tr> 
+                            
+                            <tr><td class="newsText"><A href="http://gazette.gmu.edu/articles/index.php?id=5180" target="_blank">George Mason Student Wins Third Place in International Coding Competition</A> [January 9 - Mason Gazette]</td></tr>           
                             
                             <tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
                             
