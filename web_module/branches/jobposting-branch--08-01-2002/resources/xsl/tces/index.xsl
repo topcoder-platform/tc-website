@@ -52,33 +52,113 @@
         <TR>
           <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
+<P>
+<B>Program Description </B>
+</P>
 
-<DIV ALIGN="center">
+<P>
+TopCoder Employment Services [TCES] is pleased to announce its Candidate Recruiting Program.  
+Through this program, [TCES] is actively soliciting top companies who are looking to hire software 
+engineers and developers. The targeted companies value programming talent and are interested in 
+hiring TopCoder members. TopCoder members will be notified via email of new job postings to the site, 
+and all members will have the ability to express interest in open positions at these top companies 
+through the job postings and employment advertisements on TopCoder's website. Members will also have 
+an opportunity to showcase their competition achievements and be able to upload resumes as part of the process.
+</P>
+
+<P>
+While the program is open to all members, regardless of rating status, rated members will have a 
+distinct advantage over non-rated members since potential employers will be able to view their competition 
+statistics and code samples, in addition to any uploaded resume information. In line with TopCoder's 
+overall philosophy, this will allow companies to differentiate coders who would otherwise look the same 
+on paper. Non-rated members wishing to obtain a rating should review the <A HREF="/?&amp;t=schedule&amp;c=index" CLASS="bodyText">competition calendar</A> for the 
+next Single Round Match date.
+</P>
+<BR/>
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+	<TR>
+		<TD COLSPAN="3" VALIGN="middle" HEIGHT="17" BGCOLOR="#43515E" CLASS="statText">&#160;<B>Client Employers</B></TD>
+	</TR>
+	<TR>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A></TD>
+		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+		<TD WIDTH="100%" VALIGN="middle" CLASS="bodyText">Google is looking for exceptional people who like to develop innovative new products, especially software 
+engineers and tech-savvy product managers. Are you exceptional at what you do? 
+<A HREF="/?&amp;t=tces&amp;c=google" CLASS="bodyText">Click here</A> to view current 
+positions available at Google.<BR/><BR/></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+	</TR>	
+	<TR>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="http://www.topcoder.com/?&amp;t=tces&amp;c=ge"><IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/></A></TD>
+		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+		<TD VALIGN="middle" CLASS="bodyText">
+<A HREF="/?&amp;t=tces&amp;c=ge" CLASS="bodyText">Click here</A> for information about GE's premier entry-level Information Management Leadership Program (IMLP).  
+IMLP puts information management careers on the fast track. Program graduates are in tremendous demand throughout GE.<BR/><BR/>		
+       </TD>
+	</TR>	
+	<TR>
+		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+	</TR>
+	<TR>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=apex"><IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/></A></TD>
+		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+		<TD VALIGN="middle" CLASS="bodyText">Apex is a company built upon a set of core values that guide their every action - excellence, human 
+dignity and integrity.  They consider themselves "the best place to work for the best people to work."  
+<A HREF="/?&amp;t=tces&amp;c=apex" CLASS="bodyText">Click here</A> to view current job opportunities available at Apex.<BR/><BR/>		
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+	</TR>		
+</TABLE>
+
+<!-- <DIV ALIGN="center">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#FFFFFF" WIDTH="100%">
 	<TR>
+		<TD COLSPAN="3" VALIGN="middle" HEIGHT="17" BGCOLOR="#43515E" CLASS="statText">&#160;<B>Client Employers</B></TD>
+	</TR>
+	<TR>
 		<TD WIDTH="50%" VALIGN="top" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>
-Vel illum dolore eu feugiat nulla facilisis 
-at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue 
-duis dolore te feugait nulla facilisi.  Lorem ipsum dolor sit amet.<BR/>		
-		<A HREF="/?&amp;t=tces&amp;c=google" CLASS="bodyText">Google Jobs</A><BR/></TD>
+Google is looking for exceptional people who like to develop innovative new products, especially software 
+engineers and tech-savvy product managers. Are you exceptional at what you do? 
+<A HREF="/?&amp;t=tces&amp;c=google" CLASS="bodyText">Click here</A> to view current 
+positions available at Google.<BR/>		
+		</TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="50%" VALIGN="top" CLASS="bodyText"><A HREF="http://www.topcoder.com/?&amp;t=tces&amp;c=ge"><IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/></A><BR/>
-Feugiat nulla facilisis 
-at vero eros et accumsan et iusto odio 
-duis dolore te feugait nulla facilisi.<BR/>		
-		<A HREF="/?&amp;t=tces&amp;c=ge" CLASS="bodyText">GE Jobs</A><BR/></TD>
+<A HREF="/?&amp;t=tces&amp;c=ge" CLASS="bodyText">Click here</A> for information about GE's premier entry-level Information Management Leadership Program (IMLP).  
+IMLP puts information management careers on the fast track. Program graduates are in tremendous demand throughout GE.<BR/>		
+       </TD>
 	</TR>
 	<TR>
 		<TD VALIGN="top" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=apex"><IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/></A><BR/>
-Dolore eu feugiat nulla facilisis 
-at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue 
-duis dolore te feugait nulla.<BR/>		
-		<A HREF="/?&amp;t=tces&amp;c=apex" CLASS="bodyText">Apex Jobs</A><BR/></TD>
+Apex is a company built upon a set of core values that guide their every action - excellence, human 
+dignity and integrity.  They consider themselves "the best place to work for the best people to work."  
+<A HREF="/?&amp;t=tces&amp;c=apex" CLASS="bodyText">Click here</A> to view current job opportunities available at Apex.<BR/>		
+		</TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
 	</TR>	
 </TABLE>          
-</DIV>
+</DIV> -->
+
+<P><BR/></P>
+<P CLASS="smallText">
+<B>Members:</B> Please note our Disclaimer<BR/>
+By indicating interest in a job, you authorize TopCoder to release your member profile information, 
+competition statistics, code samples, resume, rating and ranking to the potential employer.  You will 
+have the ability to update and change your profile information at any time and we encourage you to keep 
+it updated.  Only TopCoder sponsors and subscribing employers will have access to view your profile 
+information, competition statistics, code samples, resume, rating and ranking.  The personal information 
+you provide must be accurate and complete and all registration details (where applicable) must contain 
+your real name, address and other requested details. You are solely responsible for your personal 
+information and we may take any action with respect to your personal information we deem necessary or 
+appropriate if we believe it may cause us to suffer any loss, liability or commercial damage.
+</P>
+
           <P><BR/></P>
           </TD>
           <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
