@@ -269,6 +269,18 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
+                            <TR>
+                                <TD CLASS="statText" >Rating:</TD>
+                                <TD CLASS="statText" ALIGN="right"><%= coderrank.toString() %></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ design history ]</A></TD>
+                            </TR>
+                            <TR>
+                                <TD CLASS="statText" >Rating:</TD>
+                                <TD CLASS="statText" ALIGN="right"><%= coderrank.toString() %></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ development history ]</A></TD>
+                            </TR>
                             
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
