@@ -165,6 +165,13 @@
             <param name="unit-jar-name" value="ResumeServices"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/resume"/>
         </antcall>
+        <jar jarfile="${ejb_jars}/ResumeServices.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/resume/bean/Resume.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+        </jar>
     </target>
 
     <target name="package-EJB-ReportingBean" depends="compile">
@@ -489,17 +496,13 @@
             <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
         </antcall>
 
-        <!-- Resume ejb -->
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="DataCache"/>
             <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
         </antcall>
 
         <!-- Resume ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ResumeServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/ResumeServices"/>
-        </antcall>
+        <antcall target="package-EJB-ResumeServicesBean"/>
 
         <!-- Address ejb -->
         <antcall target="build-ejb-unit">
