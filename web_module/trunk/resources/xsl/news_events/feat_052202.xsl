@@ -56,9 +56,8 @@
 <!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
 
 <P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Obfu-what?</B></FONT><BR/>
-<I>Case studies and the TopCoder view point</I><BR/><BR/>
-Wednesday, May 22, 2002<BR/>
-By&#160;<A HREF="/stat?c=member_profile&amp;cr=264761" CLASS="bodyGeneric">KaiEl</A>,<I>Contributing Member</I><BR/></P>
+<I>Case studies and the TopCoder view point</I><BR/>Wednesday, May 22, 2002<BR/>
+</P>
 
 <P>
 It's the challenge phase.  At first glance the code you're looking at 
@@ -205,8 +204,13 @@ every coding book you read is probably full of readable code.  In a professional
 there is no reason to write unreadable code."  Or, as <B>fbplayr78</B> puts it, just "be very, very careful."
 </P>
 
-<P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P>
 
+<IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+
+         
+<P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P>
+<P><BR/></P>
 						</TD></TR>                                                                 
 					</TABLE>
 		<P><BR/></P>

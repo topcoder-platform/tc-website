@@ -125,16 +125,16 @@
 						<TD ALIGN="center" WIDTH="6%" VALIGN="top" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 						<TD ALIGN="left" WIDTH="47%" VALIGN="top" CLASS="statText">
 						<B>School Penetration</B><BR/>
-						TopCoder's student membership represents 633 schools with an average of 9 members at each school.<BR/><BR/>
+						TopCoder's student membership represents 698 schools with an average of 9 members at each school.<BR/><BR/>
 						<B>Top Five Schools</B><BR/>(by member count)<UL>
-						<LI>U. of Mich. Ann Arbor - 182</LI>
-						<LI>MIT - 176</LI>
-						<LI>Virginia Tech - 127</LI>
-						<LI>U. of Texas Austin - 126</LI>
-						<LI>Georgia Tech - 125</LI></UL>						
+						<LI>U. of Mich. Ann Arbor - 183</LI>
+						<LI>MIT - 179</LI>
+						<LI>Virginia Tech - 128</LI>
+						<LI>U. of Texas Austin - 128</LI>
+						<LI>Georgia Tech - 127</LI></UL>						
 						
 						<B>Education to Workforce</B><UL>
-						<LI>31&#37;&#32;&#32;planned 2002 graduates</LI>
+						<LI>30&#37;&#32;&#32;planned 2002 graduates</LI>
 						<LI>27&#37;&#32;&#32;planned 2003 graduates</LI>
 						<LI>21&#37;&#32;&#32;planned 2004 graduates</LI></UL>
 						<B>Degree Concentration</B><UL>
