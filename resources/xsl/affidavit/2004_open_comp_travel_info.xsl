@@ -143,7 +143,7 @@
         </TR>
 
         <TR>
-          <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="Zip"/>Country:</TD>
+          <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="Country"/>Country:</TD>
           <TD align="left"><INPUT TYPE="text" NAME="a8" size="15"/></TD>
         </TR>
 
@@ -154,14 +154,14 @@
         </TR>
 
         <TR>
-          <TD align="right"><INPUT TYPE="hidden" NAME="q10" VALUE="Phone"/>Email Address:</TD>
+          <TD align="right"><INPUT TYPE="hidden" NAME="q10" VALUE="Email"/>Email Address:</TD>
           <TD align="left"><INPUT TYPE="text" NAME="a10" size="15"/></TD>
         </TR>
 
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q11" VALUE="Social Security #"/>Social Security #: </TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a12" size="10"/></TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a11" size="10"/></TD>
                 <td></td>
             </TR>
 
@@ -228,7 +228,7 @@
             </TR>
 
         <TR>
-          <TD colspan="2">*Departure time will be based on arrival by 4:00 PM, November 10, 2004 in San Jose, CA</TD>
+          <TD align="center" colspan="2">*Departure time will be based on arrival by 4:00 PM, November 10, 2004 in San Jose, CA</TD>
         </TR>
 
             <TR>
