@@ -14,7 +14,7 @@
 
 <%-- TABS --%>
       <jsp:include page="tabs.jsp" >
-      <jsp:param name="tabLev1" value="login"/>
+      <jsp:param name="tabLev1" value="error"/>
       </jsp:include>
 
 <%-- TITLE/CLOCK --%>
