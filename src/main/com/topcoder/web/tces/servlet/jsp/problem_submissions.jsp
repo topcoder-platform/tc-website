@@ -61,7 +61,7 @@
               <A HREF="mailto:<%=ProblemSubmissionsTask.getMemberInfo().getItem(0, "email").toString() %>" class="bodyText"><%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "email").toString() %></A> | <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "home_phone").toString()%> <BR/>
               <B>Interested in:</B> <jsp:getProperty name="ProblemSubmissionsTask" property="JobName"/><BR/>
               <% if (ProblemSubmissionsTask.hasResume()) { %>
-                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
+                <a href="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
               <% } %>
               </TD>
               </TR>
