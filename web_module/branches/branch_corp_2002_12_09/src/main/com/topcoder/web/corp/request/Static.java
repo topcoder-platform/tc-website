@@ -56,7 +56,7 @@ public class Static extends BaseProcessor {
         StringBuffer ret = new StringBuffer("/");
         for (int i=1; i<levelsDeep; i++) {
             String cur = request.getParameter(STATIC_PREFIX+i);
-            if (cur.equals("") || cur == null) {
+            if (cur == null || cur.equals("")) {
                 throw new Exception (
                     "parameter \"" + STATIC_PREFIX + i + 
                     "\" was not found in request.");
