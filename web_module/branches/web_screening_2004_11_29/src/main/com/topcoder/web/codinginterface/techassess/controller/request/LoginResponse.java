@@ -13,7 +13,7 @@ public class LoginResponse extends Base {
 
     protected void businessProcessing() throws Exception {
         setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(false);
 
         if (hasParameter(Constants.MESSAGE_ID)) {
             String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
