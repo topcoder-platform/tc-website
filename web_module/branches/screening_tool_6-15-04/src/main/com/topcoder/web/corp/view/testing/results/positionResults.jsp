@@ -170,7 +170,7 @@ if ( plugin ) {
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                     String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
 
-                    for (int i = startIndex; i < startIndex + Constants.PAGE_SIZE&& i < info.size(); i++) {
+                    for (int i = startIndex; i < startIndex + Constants.PAGE_SIZE && i < info.size(); i++) {
                         row = (ResultSetContainer.ResultSetRow) info.get(i);
                 %>
 
@@ -184,7 +184,7 @@ if ( plugin ) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <%=row.getStringItem("state_code").trim().length() == 0 ? row.getStringItem("province") : row.getStringItem("state_code")%>
+                        <%=row.getStringItem("state_province")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
@@ -206,7 +206,7 @@ if ( plugin ) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <A href='?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.PROBLEM_ID%>="<%=row.getStringItem("problem_id")%>'>
+                        <A href='?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.PROBLEM_ID%>=<%=row.getStringItem("problem_id")%>'>
                             view
                         </A>
                     </td>
