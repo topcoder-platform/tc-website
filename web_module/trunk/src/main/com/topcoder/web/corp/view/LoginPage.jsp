@@ -54,6 +54,8 @@
 
 
                         <p><%= message %></p>
+                        <p>New to TopCoder? Click <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration">here</a> to register now.</p>
+
                     </td>
                 </tr>
             </table>
