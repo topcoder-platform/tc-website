@@ -393,8 +393,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>TCCC '03 Regional Quarterfinals</strong></a><br />
-                            Wednesday, February 26, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>TCCC '03 Regional Semifinals</strong></a><br />
+                            Wednesday, March 5, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -476,26 +476,24 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;brett1479<br /><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;Yarin<br /><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>TCCC '03 Regional Quarterfinals</strong></font></td>
+                        <font size="2" color="#000000" face="arial, verdana"><strong>TCCC '03 Regional Semifinals</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_reg_quart_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_reg_semi_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>Tension builds as we get closer and closer to the finals.  This round, the Regional Quarterfinals, proved to be
-    one of the most interesting to date.  After 15 minutes only a few competitors submitted the easy problem, a
-    departure from the normal frantic pace.  John Dethridge, the top ranked competitor, was seemingly unfazed by
-    the problem set.  He sped through all 3 problems winning the round by a margin.  Quite amazingly he finished
-    both the easy and the hard before second highest ranked coder Yarin submitted his first problem.  As time passed
-    many coders finished the treacherous easy and were able to complete the rest of the problems.  Although slightly
-    troubled by the easy problem, Reid finished off the rest of the set with ease propelling him to second place.
-    Previous tournament champions jonmac and dmwright are both returning to top form winning their respective rooms.</p>
+                        <p>                                            The regional semifinals caused some huge upsets when top seeded <b>John Dethridge</b> was knocked out,
+                                            together with other high ranked coders such as <b>reid</b> and <b>malpt</b> (<b>reid</b> did not show
+                                            up at all). The cutoffs for the different regions differed quite a lot; <b>John Dethridge</b> would
+                                            for instance have qualified had he competed in any other region. Top scorers were <b>bigg_nate</b>
+                                            and <b>Yarin</b>. The problem set was arguably one of the better in this CC, with a mix of math,
+                                            dynamic programming and geometry.</p>
                     </td>
                 </tr>
             </table>
@@ -521,7 +519,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
             <map name="srmanimation_home">
                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?t=tces&amp;c=index" />
 <!--                 <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> -->
-                <area shape="poly" alt="SRM Match 136" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4470&amp;t=schedule&amp;c=srm" />
+                <area shape="poly" alt="SRM Match 137" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4475&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
 

@@ -55,6 +55,10 @@
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Match Editorial Archive - 2003</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
 
+        <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">&#160;<B>March</B></TD></TR>
+        <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;03.05.03</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2003 TCCC Regional Semi. - <A HREF="/index?t=statistics&amp;c=tccc03_reg_semi_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>
+
+        <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
         <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">&#160;<B>February</B></TD></TR>
         <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;02.26.03</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2003 TCCC Regional Quart. - <A HREF="/index?t=statistics&amp;c=tccc03_reg_quart_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>
         <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;02.25.03</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;SRM 136 - <A HREF="/index?t=statistics&amp;c=srm136_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>
