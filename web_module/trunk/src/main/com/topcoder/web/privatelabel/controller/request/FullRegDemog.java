@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author gpaul 07.02.2003
  */
-abstract class FullRegDemog extends FullRegBase {
+public abstract class FullRegDemog extends FullRegBase {
     protected static Logger log = Logger.getLogger(FullRegDemog.class);
 
     protected void registrationProcessing() throws TCWebException {
