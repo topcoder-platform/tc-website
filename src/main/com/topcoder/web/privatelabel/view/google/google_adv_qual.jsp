@@ -340,262 +340,262 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >unclejed</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">150.30</td></tr>
 <tr><td class="sidebarText" align="left" >byteCoder</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">149.73</td></tr>
 <tr><td class="sidebarText" align="left" >AndrewSmith</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">149.46</td></tr>
-<tr><td class="sidebarText" align="left" >AlexandraRU</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >1107.69</td></tr>
-<tr><td class="sidebarText" align="left" >bladerunner</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >1064.27</td></tr>
-<tr><td class="sidebarText" align="left" >jcd1</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >1037.90</td></tr>
-<tr><td class="sidebarText" align="left" >Slamin</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >1032.64</td></tr>
-<tr><td class="sidebarText" align="left" >mascot</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >961.06</td></tr>
-<tr><td class="sidebarText" align="left" >Rustyoldman</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >951.30</td></tr>
-<tr><td class="sidebarText" align="left" >ntrhieu</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >944.28</td></tr>
-<tr><td class="sidebarText" align="left" >dvickrey</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >844.84</td></tr>
-<tr><td class="sidebarText" align="left" >topodisc</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >841.45</td></tr>
-<tr><td class="sidebarText" align="left" >smloh</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >841.34</td></tr>
-<tr><td class="sidebarText" align="left" >kikuni</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >810.77</td></tr>
-<tr><td class="sidebarText" align="left" >Maris</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >788.14</td></tr>
-<tr><td class="sidebarText" align="left" >amitc</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >787.75</td></tr>
-<tr><td class="sidebarText" align="left" >mics</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >786.33</td></tr>
-<tr><td class="sidebarText" align="left" >Wasyuu</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >771.78</td></tr>
-<tr><td class="sidebarText" align="left" >gladius</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >761.41</td></tr>
-<tr><td class="sidebarText" align="left" >wisdompoet</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >744.85</td></tr>
-<tr><td class="sidebarText" align="left" >Yi_Zhang</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >733.14</td></tr>
-<tr><td class="sidebarText" align="left" >inrm2</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >691.58</td></tr>
-<tr><td class="sidebarText" align="left" >vivek_vedagiri</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >683.94</td></tr>
-<tr><td class="sidebarText" align="left" >lkesteloot</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >680.22</td></tr>
-<tr><td class="sidebarText" align="left" >Andrew_Lazarev</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >674.35</td></tr>
-<tr><td class="sidebarText" align="left" >yaniv</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >670.22</td></tr>
-<tr><td class="sidebarText" align="left" >gevak</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >621.62</td></tr>
-<tr><td class="sidebarText" align="left" >csernak</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >596.09</td></tr>
-<tr><td class="sidebarText" align="left" >Vladko</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >559.48</td></tr>
-<tr><td class="sidebarText" align="left" >ckirmse</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >417.53</td></tr>
-<tr><td class="sidebarText" align="left" >MPhk</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >239.32</td></tr>
-<tr><td class="sidebarText" align="left" >igorsk</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >234.96</td></tr>
-<tr><td class="sidebarText" align="left" >Koroibos</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >234.19</td></tr>
-<tr><td class="sidebarText" align="left" >WingedCat</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >233.63</td></tr>
-<tr><td class="sidebarText" align="left" >gustn</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >233.07</td></tr>
-<tr><td class="sidebarText" align="left" >HardCoder</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >232.74</td></tr>
-<tr><td class="sidebarText" align="left" >btspider</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >232.25</td></tr>
-<tr><td class="sidebarText" align="left" >Karshikinpa</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >230.97</td></tr>
-<tr><td class="sidebarText" align="left" >rodif</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >225.26</td></tr>
-<tr><td class="sidebarText" align="left" >rasactive</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >224.98</td></tr>
-<tr><td class="sidebarText" align="left" >achurch</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >224.25</td></tr>
-<tr><td class="sidebarText" align="left" >donniet</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >223.64</td></tr>
-<tr><td class="sidebarText" align="left" >Gandi</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >223.59</td></tr>
-<tr><td class="sidebarText" align="left" >slake</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >221.63</td></tr>
-<tr><td class="sidebarText" align="left" >MadMoose</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >219.41</td></tr>
-<tr><td class="sidebarText" align="left" >lemming</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >217.88</td></tr>
-<tr><td class="sidebarText" align="left" >roshweb</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >217.57</td></tr>
-<tr><td class="sidebarText" align="left" >BlackCloud</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >215.83</td></tr>
-<tr><td class="sidebarText" align="left" >GabeJones</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >215.54</td></tr>
-<tr><td class="sidebarText" align="left" >Assurnasir</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >214.54</td></tr>
-<tr><td class="sidebarText" align="left" >Wecksell</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >212.77</td></tr>
-<tr><td class="sidebarText" align="left" >CaptainJester</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >212.26</td></tr>
-<tr><td class="sidebarText" align="left" >mlch</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >211.05</td></tr>
-<tr><td class="sidebarText" align="left" >ded_guy</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >209.75</td></tr>
-<tr><td class="sidebarText" align="left" >dlord111</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >209.03</td></tr>
-<tr><td class="sidebarText" align="left" >axlrosen</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >205.08</td></tr>
-<tr><td class="sidebarText" align="left" >Corrinado</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="left" >205.04</td></tr>
-<tr><td class="sidebarText" align="left" >asundqui</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >1048.92</td></tr>
-<tr><td class="sidebarText" align="left" >KenVogel</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >1043.53</td></tr>
-<tr><td class="sidebarText" align="left" >jms137</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >998.00</td></tr>
-<tr><td class="sidebarText" align="left" >WishingBone</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >957.26</td></tr>
-<tr><td class="sidebarText" align="left" >Mike Mirzayanov</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >936.46</td></tr>
-<tr><td class="sidebarText" align="left" >evd</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >931.62</td></tr>
-<tr><td class="sidebarText" align="left" >Ukraine</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >892.24</td></tr>
-<tr><td class="sidebarText" align="left" >targo</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >794.03</td></tr>
-<tr><td class="sidebarText" align="left" >saat</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >738.51</td></tr>
-<tr><td class="sidebarText" align="left" >eug</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >733.02</td></tr>
-<tr><td class="sidebarText" align="left" >eldering</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >724.01</td></tr>
-<tr><td class="sidebarText" align="left" >oldbig</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >695.74</td></tr>
-<tr><td class="sidebarText" align="left" >emovla</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >674.34</td></tr>
-<tr><td class="sidebarText" align="left" >db</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >627.06</td></tr>
-<tr><td class="sidebarText" align="left" >Mosher</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >607.25</td></tr>
-<tr><td class="sidebarText" align="left" >johnmoe</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >605.12</td></tr>
-<tr><td class="sidebarText" align="left" >ColinMacLeod</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >244.73</td></tr>
-<tr><td class="sidebarText" align="left" >batty</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >240.28</td></tr>
-<tr><td class="sidebarText" align="left" >jfreyss</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >236.20</td></tr>
-<tr><td class="sidebarText" align="left" >Olorin</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >234.49</td></tr>
-<tr><td class="sidebarText" align="left" >amirshim</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >234.29</td></tr>
-<tr><td class="sidebarText" align="left" >port6000</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >231.81</td></tr>
-<tr><td class="sidebarText" align="left" >JayTea</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >230.90</td></tr>
-<tr><td class="sidebarText" align="left" >coderlemming</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >228.99</td></tr>
-<tr><td class="sidebarText" align="left" >nick_19</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >228.30</td></tr>
-<tr><td class="sidebarText" align="left" >sliu</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >228.14</td></tr>
-<tr><td class="sidebarText" align="left" >chungfat</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >227.61</td></tr>
-<tr><td class="sidebarText" align="left" >Walbert</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >227.22</td></tr>
-<tr><td class="sidebarText" align="left" >sargentm</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >226.96</td></tr>
-<tr><td class="sidebarText" align="left" >groovymother</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >225.97</td></tr>
-<tr><td class="sidebarText" align="left" >phark4evr</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >225.95</td></tr>
-<tr><td class="sidebarText" align="left" >dimer0</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >224.18</td></tr>
-<tr><td class="sidebarText" align="left" >frenetic</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >222.26</td></tr>
-<tr><td class="sidebarText" align="left" >dpecora</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >222.05</td></tr>
-<tr><td class="sidebarText" align="left" >hgliebe</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >217.20</td></tr>
-<tr><td class="sidebarText" align="left" >skeeve</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >216.37</td></tr>
-<tr><td class="sidebarText" align="left" >zsacul</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >215.12</td></tr>
-<tr><td class="sidebarText" align="left" >joely</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >214.19</td></tr>
-<tr><td class="sidebarText" align="left" >abheek</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >213.80</td></tr>
-<tr><td class="sidebarText" align="left" >netspade</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >213.16</td></tr>
-<tr><td class="sidebarText" align="left" >davemssavage</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >211.77</td></tr>
-<tr><td class="sidebarText" align="left" >cyanide</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >210.21</td></tr>
-<tr><td class="sidebarText" align="left" >Scorpion1976</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >209.35</td></tr>
-<tr><td class="sidebarText" align="left" >Holgrave</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >206.99</td></tr>
-<tr><td class="sidebarText" align="left" >bquinlan</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >206.66</td></tr>
-<tr><td class="sidebarText" align="left" >nicksim</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >206.57</td></tr>
-<tr><td class="sidebarText" align="left" >gizzywump</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >206.54</td></tr>
-<tr><td class="sidebarText" align="left" >vitaly.kiruta</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >206.28</td></tr>
-<tr><td class="sidebarText" align="left" >vlado</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >205.56</td></tr>
-<tr><td class="sidebarText" align="left" >mcbevin</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >204.22</td></tr>
-<tr><td class="sidebarText" align="left" >cbthiess</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="left" >201.75</td></tr>
-<tr><td class="sidebarText" align="left" >bmerry</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >1014.26</td></tr>
-<tr><td class="sidebarText" align="left" >po</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >971.71</td></tr>
-<tr><td class="sidebarText" align="left" >doeth</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >949.65</td></tr>
-<tr><td class="sidebarText" align="left" >gunnark</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >880.69</td></tr>
-<tr><td class="sidebarText" align="left" >centipede80</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >806.75</td></tr>
-<tr><td class="sidebarText" align="left" >Modulator</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >798.72</td></tr>
-<tr><td class="sidebarText" align="left" >ealf</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >791.70</td></tr>
-<tr><td class="sidebarText" align="left" >kaiser84</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >790.06</td></tr>
-<tr><td class="sidebarText" align="left" >jshute</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >774.54</td></tr>
-<tr><td class="sidebarText" align="left" >mvkazit</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >771.94</td></tr>
-<tr><td class="sidebarText" align="left" >redman</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >719.50</td></tr>
-<tr><td class="sidebarText" align="left" >abanik</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >685.41</td></tr>
-<tr><td class="sidebarText" align="left" >indigo9</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >666.96</td></tr>
-<tr><td class="sidebarText" align="left" >O_O</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >644.80</td></tr>
-<tr><td class="sidebarText" align="left" >TheOneSmiley</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >642.07</td></tr>
-<tr><td class="sidebarText" align="left" >mugwumpj</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >637.94</td></tr>
-<tr><td class="sidebarText" align="left" >PeskyGnat</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >625.47</td></tr>
-<tr><td class="sidebarText" align="left" >Qythyx</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >618.11</td></tr>
-<tr><td class="sidebarText" align="left" >agl</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >613.33</td></tr>
-<tr><td class="sidebarText" align="left" >alena</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >602.83</td></tr>
-<tr><td class="sidebarText" align="left" >ahoenig</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >594.90</td></tr>
-<tr><td class="sidebarText" align="left" >GamePimp</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >584.24</td></tr>
-<tr><td class="sidebarText" align="left" >guru_cyp</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >495.81</td></tr>
-<tr><td class="sidebarText" align="left" >assembler</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >477.37</td></tr>
-<tr><td class="sidebarText" align="left" >rvcoder</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >447.33</td></tr>
-<tr><td class="sidebarText" align="left" >pohl12</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >410.14</td></tr>
-<tr><td class="sidebarText" align="left" >minkov</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >401.97</td></tr>
-<tr><td class="sidebarText" align="left" >willamowius</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >386.48</td></tr>
-<tr><td class="sidebarText" align="left" >jacklai</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >222.47</td></tr>
-<tr><td class="sidebarText" align="left" >kats</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >222.39</td></tr>
-<tr><td class="sidebarText" align="left" >srowen</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >220.42</td></tr>
-<tr><td class="sidebarText" align="left" >mindloss</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >212.93</td></tr>
-<tr><td class="sidebarText" align="left" >acki2003</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >212.22</td></tr>
-<tr><td class="sidebarText" align="left" >Eeyore</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >205.33</td></tr>
-<tr><td class="sidebarText" align="left" >AmosYang</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >202.24</td></tr>
-<tr><td class="sidebarText" align="left" >Dumitru</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >199.74</td></tr>
-<tr><td class="sidebarText" align="left" >Revenger</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >198.60</td></tr>
-<tr><td class="sidebarText" align="left" >thesack</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >197.53</td></tr>
-<tr><td class="sidebarText" align="left" >Composure1</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >196.28</td></tr>
-<tr><td class="sidebarText" align="left" >colder</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >194.78</td></tr>
-<tr><td class="sidebarText" align="left" >k_m</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >194.76</td></tr>
-<tr><td class="sidebarText" align="left" >s_senthil_kumar</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >194.17</td></tr>
-<tr><td class="sidebarText" align="left" >chandraka</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >193.27</td></tr>
-<tr><td class="sidebarText" align="left" >jackh</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >184.62</td></tr>
-<tr><td class="sidebarText" align="left" >john7331</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >184.33</td></tr>
-<tr><td class="sidebarText" align="left" >ironcamel</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >181.09</td></tr>
-<tr><td class="sidebarText" align="left" >RandySaint</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >179.83</td></tr>
-<tr><td class="sidebarText" align="left" >dr_burrito</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >178.87</td></tr>
-<tr><td class="sidebarText" align="left" >vv</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="left" >177.22</td></tr>
-<tr><td class="sidebarText" align="left" >TekGoNos</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >1163.16</td></tr>
-<tr><td class="sidebarText" align="left" >LunaticFringe</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >1112.20</td></tr>
-<tr><td class="sidebarText" align="left" >RunningWild</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >1035.87</td></tr>
-<tr><td class="sidebarText" align="left" >thooot</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >976.99</td></tr>
-<tr><td class="sidebarText" align="left" >ardiankp</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >970.42</td></tr>
-<tr><td class="sidebarText" align="left" >firefox</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >914.42</td></tr>
-<tr><td class="sidebarText" align="left" >ploh</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >912.76</td></tr>
-<tr><td class="sidebarText" align="left" >venco</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >911.88</td></tr>
-<tr><td class="sidebarText" align="left" >benetin</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >863.81</td></tr>
-<tr><td class="sidebarText" align="left" >IElt</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >859.76</td></tr>
-<tr><td class="sidebarText" align="left" >dark_lord</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >857.17</td></tr>
-<tr><td class="sidebarText" align="left" >dmj</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >846.33</td></tr>
-<tr><td class="sidebarText" align="left" >sabu</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >831.10</td></tr>
-<tr><td class="sidebarText" align="left" >mickle</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >809.70</td></tr>
-<tr><td class="sidebarText" align="left" >alexcchan</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >787.27</td></tr>
-<tr><td class="sidebarText" align="left" >Jumping-John</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >783.71</td></tr>
-<tr><td class="sidebarText" align="left" >wleite</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >770.94</td></tr>
-<tr><td class="sidebarText" align="left" >jochang</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >746.95</td></tr>
-<tr><td class="sidebarText" align="left" >Spike</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >688.76</td></tr>
-<tr><td class="sidebarText" align="left" >dukeola</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >664.40</td></tr>
-<tr><td class="sidebarText" align="left" >PaulJefferys</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >644.66</td></tr>
-<tr><td class="sidebarText" align="left" >sandeepgupta</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >485.18</td></tr>
-<tr><td class="sidebarText" align="left" >dmap</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >483.83</td></tr>
-<tr><td class="sidebarText" align="left" >tungwaiyip</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >465.91</td></tr>
-<tr><td class="sidebarText" align="left" >rgrig</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >405.13</td></tr>
-<tr><td class="sidebarText" align="left" >incandenza</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >235.42</td></tr>
-<tr><td class="sidebarText" align="left" >aussie</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >234.72</td></tr>
-<tr><td class="sidebarText" align="left" >BradAustin</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >225.84</td></tr>
-<tr><td class="sidebarText" align="left" >Abednego</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >219.56</td></tr>
-<tr><td class="sidebarText" align="left" >arosca</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >219.54</td></tr>
-<tr><td class="sidebarText" align="left" >[UoM]Icenine</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >214.66</td></tr>
-<tr><td class="sidebarText" align="left" >mossop</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >210.39</td></tr>
-<tr><td class="sidebarText" align="left" >gaborka2</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >208.59</td></tr>
-<tr><td class="sidebarText" align="left" >bokbok</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >208.26</td></tr>
-<tr><td class="sidebarText" align="left" >FrodoB</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >205.97</td></tr>
-<tr><td class="sidebarText" align="left" >adams</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >204.19</td></tr>
-<tr><td class="sidebarText" align="left" >D0SBoots</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >201.51</td></tr>
-<tr><td class="sidebarText" align="left" >jeff_wegher</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >201.26</td></tr>
-<tr><td class="sidebarText" align="left" >maa_t</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >198.70</td></tr>
-<tr><td class="sidebarText" align="left" >tyrithe</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >195.01</td></tr>
-<tr><td class="sidebarText" align="left" >alosix</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >190.15</td></tr>
-<tr><td class="sidebarText" align="left" >FD</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >189.02</td></tr>
-<tr><td class="sidebarText" align="left" >kresho</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >188.49</td></tr>
-<tr><td class="sidebarText" align="left" >apokrif</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >186.28</td></tr>
-<tr><td class="sidebarText" align="left" >harryliu</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >185.14</td></tr>
-<tr><td class="sidebarText" align="left" >Blytzstryke</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >182.19</td></tr>
-<tr><td class="sidebarText" align="left" >Sparrow-</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >179.08</td></tr>
-<tr><td class="sidebarText" align="left" >biaconho</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >176.98</td></tr>
-<tr><td class="sidebarText" align="left" >wcai</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >168.60</td></tr>
-<tr><td class="sidebarText" align="left" >dotosu</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >167.77</td></tr>
-<tr><td class="sidebarText" align="left" >sasulzer</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="left" >164.32</td></tr>
-<tr><td class="sidebarText" align="left" >antimatter</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >1133.51</td></tr>
-<tr><td class="sidebarText" align="left" >tjq</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >1110.06</td></tr>
-<tr><td class="sidebarText" align="left" >Jan Kuipers</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >1032.36</td></tr>
-<tr><td class="sidebarText" align="left" >AdrianKuegel</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >917.06</td></tr>
-<tr><td class="sidebarText" align="left" >ZorbaTHut</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >866.93</td></tr>
-<tr><td class="sidebarText" align="left" >Larry</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >841.74</td></tr>
-<tr><td class="sidebarText" align="left" >seaniswise</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >841.64</td></tr>
-<tr><td class="sidebarText" align="left" >Wasteland</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >839.31</td></tr>
-<tr><td class="sidebarText" align="left" >puzzlehacker</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >767.16</td></tr>
-<tr><td class="sidebarText" align="left" >drsammyb</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >732.27</td></tr>
-<tr><td class="sidebarText" align="left" >ccooper</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >713.32</td></tr>
-<tr><td class="sidebarText" align="left" >coshx</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >701.67</td></tr>
-<tr><td class="sidebarText" align="left" >neal_googl</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >698.23</td></tr>
-<tr><td class="sidebarText" align="left" >RobertNix</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >689.59</td></tr>
-<tr><td class="sidebarText" align="left" >leibniz</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >672.63</td></tr>
-<tr><td class="sidebarText" align="left" >jimmy</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >669.11</td></tr>
-<tr><td class="sidebarText" align="left" >axiom</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >661.22</td></tr>
-<tr><td class="sidebarText" align="left" >aaaaaaa14</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >660.01</td></tr>
-<tr><td class="sidebarText" align="left" >guidox</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >649.05</td></tr>
-<tr><td class="sidebarText" align="left" >_u0043_u0042</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >648.19</td></tr>
-<tr><td class="sidebarText" align="left" >(OO)</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >623.42</td></tr>
-<tr><td class="sidebarText" align="left" >ceturc</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >623.19</td></tr>
-<tr><td class="sidebarText" align="left" >Razafishaha</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >622.14</td></tr>
-<tr><td class="sidebarText" align="left" >hw_Tim</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >618.98</td></tr>
-<tr><td class="sidebarText" align="left" >harisuthan</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >618.77</td></tr>
-<tr><td class="sidebarText" align="left" >flozell</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >616.42</td></tr>
-<tr><td class="sidebarText" align="left" >dirk28</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >611.72</td></tr>
-<tr><td class="sidebarText" align="left" >paltherr</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >601.10</td></tr>
-<tr><td class="sidebarText" align="left" >ssancho2</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >594.37</td></tr>
-<tr><td class="sidebarText" align="left" >omasoud</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >593.50</td></tr>
-<tr><td class="sidebarText" align="left" >Chang1</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >520.22</td></tr>
-<tr><td class="sidebarText" align="left" >Nexius</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >478.17</td></tr>
-<tr><td class="sidebarText" align="left" >joeli</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >455.54</td></tr>
-<tr><td class="sidebarText" align="left" >ragerules</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >382.34</td></tr>
-<tr><td class="sidebarText" align="left" >FuzzyOmar</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >363.93</td></tr>
-<tr><td class="sidebarText" align="left" >xianguangli</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >211.70</td></tr>
-<tr><td class="sidebarText" align="left" >b0b0b0b</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >204.37</td></tr>
-<tr><td class="sidebarText" align="left" >wuzika</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >202.62</td></tr>
-<tr><td class="sidebarText" align="left" >gupta35895</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >183.13</td></tr>
-<tr><td class="sidebarText" align="left" >rashok</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >178.82</td></tr>
-<tr><td class="sidebarText" align="left" >Symme7ry</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >177.36</td></tr>
-<tr><td class="sidebarText" align="left" >petch</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >176.30</td></tr>
-<tr><td class="sidebarText" align="left" >Rud0lf</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >170.41</td></tr>
-<tr><td class="sidebarText" align="left" >akibare</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >169.79</td></tr>
-<tr><td class="sidebarText" align="left" >project</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >166.06</td></tr>
-<tr><td class="sidebarText" align="left" >vrajeshkannan</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >164.17</td></tr>
-<tr><td class="sidebarText" align="left" >patsup</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >160.94</td></tr>
-<tr><td class="sidebarText" align="left" >HappyMutant</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >159.88</td></tr>
-<tr><td class="sidebarText" align="left" >lindril</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >154.11</td></tr>
-<tr><td class="sidebarText" align="left" >otseng</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >153.69</td></tr>
-<tr><td class="sidebarText" align="left" >scorbett</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="left" >153.39</td></tr>
+<tr><td class="sidebarText" align="left" >AlexandraRU</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">1107.69</td></tr>
+<tr><td class="sidebarText" align="left" >bladerunner</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">1064.27</td></tr>
+<tr><td class="sidebarText" align="left" >jcd1</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">1037.90</td></tr>
+<tr><td class="sidebarText" align="left" >Slamin</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">1032.64</td></tr>
+<tr><td class="sidebarText" align="left" >mascot</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">961.06</td></tr>
+<tr><td class="sidebarText" align="left" >Rustyoldman</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">951.30</td></tr>
+<tr><td class="sidebarText" align="left" >ntrhieu</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">944.28</td></tr>
+<tr><td class="sidebarText" align="left" >dvickrey</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">844.84</td></tr>
+<tr><td class="sidebarText" align="left" >topodisc</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">841.45</td></tr>
+<tr><td class="sidebarText" align="left" >smloh</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">841.34</td></tr>
+<tr><td class="sidebarText" align="left" >kikuni</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">810.77</td></tr>
+<tr><td class="sidebarText" align="left" >Maris</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">788.14</td></tr>
+<tr><td class="sidebarText" align="left" >amitc</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">787.75</td></tr>
+<tr><td class="sidebarText" align="left" >mics</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">786.33</td></tr>
+<tr><td class="sidebarText" align="left" >Wasyuu</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">771.78</td></tr>
+<tr><td class="sidebarText" align="left" >gladius</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">761.41</td></tr>
+<tr><td class="sidebarText" align="left" >wisdompoet</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">744.85</td></tr>
+<tr><td class="sidebarText" align="left" >Yi_Zhang</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">733.14</td></tr>
+<tr><td class="sidebarText" align="left" >inrm2</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">691.58</td></tr>
+<tr><td class="sidebarText" align="left" >vivek_vedagiri</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">683.94</td></tr>
+<tr><td class="sidebarText" align="left" >lkesteloot</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">680.22</td></tr>
+<tr><td class="sidebarText" align="left" >Andrew_Lazarev</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">674.35</td></tr>
+<tr><td class="sidebarText" align="left" >yaniv</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">670.22</td></tr>
+<tr><td class="sidebarText" align="left" >gevak</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">621.62</td></tr>
+<tr><td class="sidebarText" align="left" >csernak</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">596.09</td></tr>
+<tr><td class="sidebarText" align="left" >Vladko</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">559.48</td></tr>
+<tr><td class="sidebarText" align="left" >ckirmse</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">417.53</td></tr>
+<tr><td class="sidebarText" align="left" >MPhk</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">239.32</td></tr>
+<tr><td class="sidebarText" align="left" >igorsk</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">234.96</td></tr>
+<tr><td class="sidebarText" align="left" >Koroibos</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">234.19</td></tr>
+<tr><td class="sidebarText" align="left" >WingedCat</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">233.63</td></tr>
+<tr><td class="sidebarText" align="left" >gustn</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">233.07</td></tr>
+<tr><td class="sidebarText" align="left" >HardCoder</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">232.74</td></tr>
+<tr><td class="sidebarText" align="left" >btspider</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">232.25</td></tr>
+<tr><td class="sidebarText" align="left" >Karshikinpa</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">230.97</td></tr>
+<tr><td class="sidebarText" align="left" >rodif</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">225.26</td></tr>
+<tr><td class="sidebarText" align="left" >rasactive</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">224.98</td></tr>
+<tr><td class="sidebarText" align="left" >achurch</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">224.25</td></tr>
+<tr><td class="sidebarText" align="left" >donniet</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">223.64</td></tr>
+<tr><td class="sidebarText" align="left" >Gandi</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">223.59</td></tr>
+<tr><td class="sidebarText" align="left" >slake</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">221.63</td></tr>
+<tr><td class="sidebarText" align="left" >MadMoose</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">219.41</td></tr>
+<tr><td class="sidebarText" align="left" >lemming</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">217.88</td></tr>
+<tr><td class="sidebarText" align="left" >roshweb</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">217.57</td></tr>
+<tr><td class="sidebarText" align="left" >BlackCloud</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">215.83</td></tr>
+<tr><td class="sidebarText" align="left" >GabeJones</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">215.54</td></tr>
+<tr><td class="sidebarText" align="left" >Assurnasir</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">214.54</td></tr>
+<tr><td class="sidebarText" align="left" >Wecksell</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">212.77</td></tr>
+<tr><td class="sidebarText" align="left" >CaptainJester</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">212.26</td></tr>
+<tr><td class="sidebarText" align="left" >mlch</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">211.05</td></tr>
+<tr><td class="sidebarText" align="left" >ded_guy</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">209.75</td></tr>
+<tr><td class="sidebarText" align="left" >dlord111</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">209.03</td></tr>
+<tr><td class="sidebarText" align="left" >axlrosen</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">205.08</td></tr>
+<tr><td class="sidebarText" align="left" >Corrinado</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">205.04</td></tr>
+<tr><td class="sidebarText" align="left" >asundqui</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">1048.92</td></tr>
+<tr><td class="sidebarText" align="left" >KenVogel</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">1043.53</td></tr>
+<tr><td class="sidebarText" align="left" >jms137</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">998.00</td></tr>
+<tr><td class="sidebarText" align="left" >WishingBone</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">957.26</td></tr>
+<tr><td class="sidebarText" align="left" >Mike Mirzayanov</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">936.46</td></tr>
+<tr><td class="sidebarText" align="left" >evd</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">931.62</td></tr>
+<tr><td class="sidebarText" align="left" >Ukraine</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">892.24</td></tr>
+<tr><td class="sidebarText" align="left" >targo</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">794.03</td></tr>
+<tr><td class="sidebarText" align="left" >saat</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">738.51</td></tr>
+<tr><td class="sidebarText" align="left" >eug</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">733.02</td></tr>
+<tr><td class="sidebarText" align="left" >eldering</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">724.01</td></tr>
+<tr><td class="sidebarText" align="left" >oldbig</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">695.74</td></tr>
+<tr><td class="sidebarText" align="left" >emovla</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">674.34</td></tr>
+<tr><td class="sidebarText" align="left" >db</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">627.06</td></tr>
+<tr><td class="sidebarText" align="left" >Mosher</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">607.25</td></tr>
+<tr><td class="sidebarText" align="left" >johnmoe</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">605.12</td></tr>
+<tr><td class="sidebarText" align="left" >ColinMacLeod</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">244.73</td></tr>
+<tr><td class="sidebarText" align="left" >batty</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">240.28</td></tr>
+<tr><td class="sidebarText" align="left" >jfreyss</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">236.20</td></tr>
+<tr><td class="sidebarText" align="left" >Olorin</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">234.49</td></tr>
+<tr><td class="sidebarText" align="left" >amirshim</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">234.29</td></tr>
+<tr><td class="sidebarText" align="left" >port6000</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">231.81</td></tr>
+<tr><td class="sidebarText" align="left" >JayTea</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">230.90</td></tr>
+<tr><td class="sidebarText" align="left" >coderlemming</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">228.99</td></tr>
+<tr><td class="sidebarText" align="left" >nick_19</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">228.30</td></tr>
+<tr><td class="sidebarText" align="left" >sliu</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">228.14</td></tr>
+<tr><td class="sidebarText" align="left" >chungfat</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">227.61</td></tr>
+<tr><td class="sidebarText" align="left" >Walbert</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">227.22</td></tr>
+<tr><td class="sidebarText" align="left" >sargentm</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">226.96</td></tr>
+<tr><td class="sidebarText" align="left" >groovymother</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">225.97</td></tr>
+<tr><td class="sidebarText" align="left" >phark4evr</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">225.95</td></tr>
+<tr><td class="sidebarText" align="left" >dimer0</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">224.18</td></tr>
+<tr><td class="sidebarText" align="left" >frenetic</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">222.26</td></tr>
+<tr><td class="sidebarText" align="left" >dpecora</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">222.05</td></tr>
+<tr><td class="sidebarText" align="left" >hgliebe</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">217.20</td></tr>
+<tr><td class="sidebarText" align="left" >skeeve</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">216.37</td></tr>
+<tr><td class="sidebarText" align="left" >zsacul</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">215.12</td></tr>
+<tr><td class="sidebarText" align="left" >joely</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">214.19</td></tr>
+<tr><td class="sidebarText" align="left" >abheek</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">213.80</td></tr>
+<tr><td class="sidebarText" align="left" >netspade</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">213.16</td></tr>
+<tr><td class="sidebarText" align="left" >davemssavage</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">211.77</td></tr>
+<tr><td class="sidebarText" align="left" >cyanide</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">210.21</td></tr>
+<tr><td class="sidebarText" align="left" >Scorpion1976</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">209.35</td></tr>
+<tr><td class="sidebarText" align="left" >Holgrave</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">206.99</td></tr>
+<tr><td class="sidebarText" align="left" >bquinlan</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">206.66</td></tr>
+<tr><td class="sidebarText" align="left" >nicksim</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">206.57</td></tr>
+<tr><td class="sidebarText" align="left" >gizzywump</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">206.54</td></tr>
+<tr><td class="sidebarText" align="left" >vitaly.kiruta</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">206.28</td></tr>
+<tr><td class="sidebarText" align="left" >vlado</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">205.56</td></tr>
+<tr><td class="sidebarText" align="left" >mcbevin</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">204.22</td></tr>
+<tr><td class="sidebarText" align="left" >cbthiess</td><td class="sidebarText" align="left" >Qualification Set 7</td><td class="sidebarText" align="right">201.75</td></tr>
+<tr><td class="sidebarText" align="left" >bmerry</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">1014.26</td></tr>
+<tr><td class="sidebarText" align="left" >po</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">971.71</td></tr>
+<tr><td class="sidebarText" align="left" >doeth</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">949.65</td></tr>
+<tr><td class="sidebarText" align="left" >gunnark</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">880.69</td></tr>
+<tr><td class="sidebarText" align="left" >centipede80</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">806.75</td></tr>
+<tr><td class="sidebarText" align="left" >Modulator</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">798.72</td></tr>
+<tr><td class="sidebarText" align="left" >ealf</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">791.70</td></tr>
+<tr><td class="sidebarText" align="left" >kaiser84</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">790.06</td></tr>
+<tr><td class="sidebarText" align="left" >jshute</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">774.54</td></tr>
+<tr><td class="sidebarText" align="left" >mvkazit</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">771.94</td></tr>
+<tr><td class="sidebarText" align="left" >redman</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">719.50</td></tr>
+<tr><td class="sidebarText" align="left" >abanik</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">685.41</td></tr>
+<tr><td class="sidebarText" align="left" >indigo9</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">666.96</td></tr>
+<tr><td class="sidebarText" align="left" >O_O</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">644.80</td></tr>
+<tr><td class="sidebarText" align="left" >TheOneSmiley</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">642.07</td></tr>
+<tr><td class="sidebarText" align="left" >mugwumpj</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">637.94</td></tr>
+<tr><td class="sidebarText" align="left" >PeskyGnat</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">625.47</td></tr>
+<tr><td class="sidebarText" align="left" >Qythyx</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">618.11</td></tr>
+<tr><td class="sidebarText" align="left" >agl</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">613.33</td></tr>
+<tr><td class="sidebarText" align="left" >alena</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">602.83</td></tr>
+<tr><td class="sidebarText" align="left" >ahoenig</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">594.90</td></tr>
+<tr><td class="sidebarText" align="left" >GamePimp</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">584.24</td></tr>
+<tr><td class="sidebarText" align="left" >guru_cyp</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">495.81</td></tr>
+<tr><td class="sidebarText" align="left" >assembler</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">477.37</td></tr>
+<tr><td class="sidebarText" align="left" >rvcoder</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">447.33</td></tr>
+<tr><td class="sidebarText" align="left" >pohl12</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">410.14</td></tr>
+<tr><td class="sidebarText" align="left" >minkov</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">401.97</td></tr>
+<tr><td class="sidebarText" align="left" >willamowius</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">386.48</td></tr>
+<tr><td class="sidebarText" align="left" >jacklai</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">222.47</td></tr>
+<tr><td class="sidebarText" align="left" >kats</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">222.39</td></tr>
+<tr><td class="sidebarText" align="left" >srowen</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">220.42</td></tr>
+<tr><td class="sidebarText" align="left" >mindloss</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">212.93</td></tr>
+<tr><td class="sidebarText" align="left" >acki2003</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">212.22</td></tr>
+<tr><td class="sidebarText" align="left" >Eeyore</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">205.33</td></tr>
+<tr><td class="sidebarText" align="left" >AmosYang</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">202.24</td></tr>
+<tr><td class="sidebarText" align="left" >Dumitru</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">199.74</td></tr>
+<tr><td class="sidebarText" align="left" >Revenger</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">198.60</td></tr>
+<tr><td class="sidebarText" align="left" >thesack</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">197.53</td></tr>
+<tr><td class="sidebarText" align="left" >Composure1</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">196.28</td></tr>
+<tr><td class="sidebarText" align="left" >colder</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">194.78</td></tr>
+<tr><td class="sidebarText" align="left" >k_m</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">194.76</td></tr>
+<tr><td class="sidebarText" align="left" >s_senthil_kumar</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">194.17</td></tr>
+<tr><td class="sidebarText" align="left" >chandraka</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">193.27</td></tr>
+<tr><td class="sidebarText" align="left" >jackh</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">184.62</td></tr>
+<tr><td class="sidebarText" align="left" >john7331</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">184.33</td></tr>
+<tr><td class="sidebarText" align="left" >ironcamel</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">181.09</td></tr>
+<tr><td class="sidebarText" align="left" >RandySaint</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">179.83</td></tr>
+<tr><td class="sidebarText" align="left" >dr_burrito</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">178.87</td></tr>
+<tr><td class="sidebarText" align="left" >vv</td><td class="sidebarText" align="left" >Qualification Set 8</td><td class="sidebarText" align="right">177.22</td></tr>
+<tr><td class="sidebarText" align="left" >TekGoNos</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">1163.16</td></tr>
+<tr><td class="sidebarText" align="left" >LunaticFringe</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">1112.20</td></tr>
+<tr><td class="sidebarText" align="left" >RunningWild</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">1035.87</td></tr>
+<tr><td class="sidebarText" align="left" >thooot</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">976.99</td></tr>
+<tr><td class="sidebarText" align="left" >ardiankp</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">970.42</td></tr>
+<tr><td class="sidebarText" align="left" >firefox</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">914.42</td></tr>
+<tr><td class="sidebarText" align="left" >ploh</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">912.76</td></tr>
+<tr><td class="sidebarText" align="left" >venco</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">911.88</td></tr>
+<tr><td class="sidebarText" align="left" >benetin</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">863.81</td></tr>
+<tr><td class="sidebarText" align="left" >IElt</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">859.76</td></tr>
+<tr><td class="sidebarText" align="left" >dark_lord</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">857.17</td></tr>
+<tr><td class="sidebarText" align="left" >dmj</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">846.33</td></tr>
+<tr><td class="sidebarText" align="left" >sabu</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">831.10</td></tr>
+<tr><td class="sidebarText" align="left" >mickle</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">809.70</td></tr>
+<tr><td class="sidebarText" align="left" >alexcchan</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">787.27</td></tr>
+<tr><td class="sidebarText" align="left" >Jumping-John</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">783.71</td></tr>
+<tr><td class="sidebarText" align="left" >wleite</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">770.94</td></tr>
+<tr><td class="sidebarText" align="left" >jochang</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">746.95</td></tr>
+<tr><td class="sidebarText" align="left" >Spike</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">688.76</td></tr>
+<tr><td class="sidebarText" align="left" >dukeola</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">664.40</td></tr>
+<tr><td class="sidebarText" align="left" >PaulJefferys</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">644.66</td></tr>
+<tr><td class="sidebarText" align="left" >sandeepgupta</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">485.18</td></tr>
+<tr><td class="sidebarText" align="left" >dmap</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">483.83</td></tr>
+<tr><td class="sidebarText" align="left" >tungwaiyip</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">465.91</td></tr>
+<tr><td class="sidebarText" align="left" >rgrig</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">405.13</td></tr>
+<tr><td class="sidebarText" align="left" >incandenza</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">235.42</td></tr>
+<tr><td class="sidebarText" align="left" >aussie</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">234.72</td></tr>
+<tr><td class="sidebarText" align="left" >BradAustin</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">225.84</td></tr>
+<tr><td class="sidebarText" align="left" >Abednego</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">219.56</td></tr>
+<tr><td class="sidebarText" align="left" >arosca</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">219.54</td></tr>
+<tr><td class="sidebarText" align="left" >[UoM]Icenine</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">214.66</td></tr>
+<tr><td class="sidebarText" align="left" >mossop</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">210.39</td></tr>
+<tr><td class="sidebarText" align="left" >gaborka2</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">208.59</td></tr>
+<tr><td class="sidebarText" align="left" >bokbok</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">208.26</td></tr>
+<tr><td class="sidebarText" align="left" >FrodoB</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">205.97</td></tr>
+<tr><td class="sidebarText" align="left" >adams</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">204.19</td></tr>
+<tr><td class="sidebarText" align="left" >D0SBoots</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">201.51</td></tr>
+<tr><td class="sidebarText" align="left" >jeff_wegher</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">201.26</td></tr>
+<tr><td class="sidebarText" align="left" >maa_t</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">198.70</td></tr>
+<tr><td class="sidebarText" align="left" >tyrithe</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">195.01</td></tr>
+<tr><td class="sidebarText" align="left" >alosix</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">190.15</td></tr>
+<tr><td class="sidebarText" align="left" >FD</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">189.02</td></tr>
+<tr><td class="sidebarText" align="left" >kresho</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">188.49</td></tr>
+<tr><td class="sidebarText" align="left" >apokrif</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">186.28</td></tr>
+<tr><td class="sidebarText" align="left" >harryliu</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">185.14</td></tr>
+<tr><td class="sidebarText" align="left" >Blytzstryke</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">182.19</td></tr>
+<tr><td class="sidebarText" align="left" >Sparrow-</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">179.08</td></tr>
+<tr><td class="sidebarText" align="left" >biaconho</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">176.98</td></tr>
+<tr><td class="sidebarText" align="left" >wcai</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">168.60</td></tr>
+<tr><td class="sidebarText" align="left" >dotosu</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">167.77</td></tr>
+<tr><td class="sidebarText" align="left" >sasulzer</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">164.32</td></tr>
+<tr><td class="sidebarText" align="left" >antimatter</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">1133.51</td></tr>
+<tr><td class="sidebarText" align="left" >tjq</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">1110.06</td></tr>
+<tr><td class="sidebarText" align="left" >Jan Kuipers</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">1032.36</td></tr>
+<tr><td class="sidebarText" align="left" >AdrianKuegel</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">917.06</td></tr>
+<tr><td class="sidebarText" align="left" >ZorbaTHut</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">866.93</td></tr>
+<tr><td class="sidebarText" align="left" >Larry</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">841.74</td></tr>
+<tr><td class="sidebarText" align="left" >seaniswise</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">841.64</td></tr>
+<tr><td class="sidebarText" align="left" >Wasteland</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">839.31</td></tr>
+<tr><td class="sidebarText" align="left" >puzzlehacker</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">767.16</td></tr>
+<tr><td class="sidebarText" align="left" >drsammyb</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">732.27</td></tr>
+<tr><td class="sidebarText" align="left" >ccooper</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">713.32</td></tr>
+<tr><td class="sidebarText" align="left" >coshx</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">701.67</td></tr>
+<tr><td class="sidebarText" align="left" >neal_googl</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">698.23</td></tr>
+<tr><td class="sidebarText" align="left" >RobertNix</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">689.59</td></tr>
+<tr><td class="sidebarText" align="left" >leibniz</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">672.63</td></tr>
+<tr><td class="sidebarText" align="left" >jimmy</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">669.11</td></tr>
+<tr><td class="sidebarText" align="left" >axiom</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">661.22</td></tr>
+<tr><td class="sidebarText" align="left" >aaaaaaa14</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">660.01</td></tr>
+<tr><td class="sidebarText" align="left" >guidox</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">649.05</td></tr>
+<tr><td class="sidebarText" align="left" >_u0043_u0042</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">648.19</td></tr>
+<tr><td class="sidebarText" align="left" >(OO)</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">623.42</td></tr>
+<tr><td class="sidebarText" align="left" >ceturc</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">623.19</td></tr>
+<tr><td class="sidebarText" align="left" >Razafishaha</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">622.14</td></tr>
+<tr><td class="sidebarText" align="left" >hw_Tim</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">618.98</td></tr>
+<tr><td class="sidebarText" align="left" >harisuthan</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">618.77</td></tr>
+<tr><td class="sidebarText" align="left" >flozell</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">616.42</td></tr>
+<tr><td class="sidebarText" align="left" >dirk28</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">611.72</td></tr>
+<tr><td class="sidebarText" align="left" >paltherr</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">601.10</td></tr>
+<tr><td class="sidebarText" align="left" >ssancho2</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">594.37</td></tr>
+<tr><td class="sidebarText" align="left" >omasoud</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">593.50</td></tr>
+<tr><td class="sidebarText" align="left" >Chang1</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">520.22</td></tr>
+<tr><td class="sidebarText" align="left" >Nexius</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">478.17</td></tr>
+<tr><td class="sidebarText" align="left" >joeli</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">455.54</td></tr>
+<tr><td class="sidebarText" align="left" >ragerules</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">382.34</td></tr>
+<tr><td class="sidebarText" align="left" >FuzzyOmar</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">363.93</td></tr>
+<tr><td class="sidebarText" align="left" >xianguangli</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">211.70</td></tr>
+<tr><td class="sidebarText" align="left" >b0b0b0b</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">204.37</td></tr>
+<tr><td class="sidebarText" align="left" >wuzika</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">202.62</td></tr>
+<tr><td class="sidebarText" align="left" >gupta35895</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">183.13</td></tr>
+<tr><td class="sidebarText" align="left" >rashok</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">178.82</td></tr>
+<tr><td class="sidebarText" align="left" >Symme7ry</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">177.36</td></tr>
+<tr><td class="sidebarText" align="left" >petch</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">176.30</td></tr>
+<tr><td class="sidebarText" align="left" >Rud0lf</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">170.41</td></tr>
+<tr><td class="sidebarText" align="left" >akibare</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">169.79</td></tr>
+<tr><td class="sidebarText" align="left" >project</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">166.06</td></tr>
+<tr><td class="sidebarText" align="left" >vrajeshkannan</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">164.17</td></tr>
+<tr><td class="sidebarText" align="left" >patsup</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">160.94</td></tr>
+<tr><td class="sidebarText" align="left" >HappyMutant</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">159.88</td></tr>
+<tr><td class="sidebarText" align="left" >lindril</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">154.11</td></tr>
+<tr><td class="sidebarText" align="left" >otseng</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">153.69</td></tr>
+<tr><td class="sidebarText" align="left" >scorbett</td><td class="sidebarText" align="left" >Qualification Set 10</td><td class="sidebarText" align="right">153.39</td></tr>
 
 
                      </table>
