@@ -89,17 +89,18 @@ if ( MM_FlashCanPlay ) {
 	document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">');
 	document.write(' </EMBED>');
 	document.write(' </OBJECT>');
+	document.write(' <p>Note: The onsite competitors may change due to travel restrictions.</p>');                  
 }
 // -->
 </SCRIPT>
 <SCRIPT language="JavaScript">
 <!--
        if (!MM_FlashCanPlay){
-       document.write('<img src="/i/tournament/tco03/comp_bracket.gif" width="510" height="227" border="0">');
+        document.write('<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
+        document.write('<img src="/i/noFlash.gif" width="340" height="258" border="0"></A> ');
        }
 // -->
 </SCRIPT>
-                  <p>Note: The onsite competitors may change due to travel restrictions.</p>
 
                         </td>
                    </tr>
