@@ -58,14 +58,14 @@
             <strong>Most Recent Hit:</strong> <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit" /></p>
         
             <p align="center"><a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID" />" class="bodyText">View Overall Campaign Interest</a></p>
-        
+
             <img src="/i/clear.gif" alt="" width="1" height="6" border="0"><br>
                 <table border="0" cellspacing="0" cellpadding="0" width="100%">
                     <tr valign="top">
                         <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                         <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0">
                             <p><font size="5" color="#FFFFFF" face="Arial, Verdana, Tahoma">Employment Campaign Positions</font></p>
-                            <table id="datatable" width="100%" cellspacing="0" cellpadding="0" border="0">               
+                            <table id="datatable" width="100%" cellspacing="0" cellpadding="0" border="0">
                                 <tr>
                                     <TD WIDTH="10" class="testTableTitle"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                                     <td width="49%" class="testTableTitle" HEIGHT="18"><strong>Position Name</strong></TD>
@@ -76,18 +76,18 @@
                                     <TD WIDTH="10" class="testTableTitle"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                                 </TR>
 
+                                <% int i=0; %>
                                 <tces:mapIterator id="position" mapList="<%=(List)CampaignDetailTask.getPositionList()%>">
-                                
+                                <% i++; %>
                                 <tr>
-                                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                                    <td class="bodyText" HEIGHT="18">&#160;<a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="bodyText"><%= (String)position.get("job_desc") %></a></td>
-                                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                                    <td class="bodyText"><%= (String)position.get("hit_count") %></td>
-                                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                                    <td class="bodyText"><%= (String)position.get("most_recent") %></td>
-                                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
+                                    <td width="10" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
+                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">&#160;<a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="bodyText"><%= (String)position.get("job_desc") %></a></td>
+                                    <td width="10" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
+                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)position.get("hit_count") %></td>
+                                    <td width="10" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
+                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)position.get("most_recent") %></td>
+                                    <td width="10" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                                 </tr>
-                                
                                 </tces:mapIterator>
 
                                 <% if(CampaignDetailTask.getPositionList().isEmpty()){ %>
