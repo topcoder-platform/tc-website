@@ -26,8 +26,11 @@ package com.topcoder.utilities.dwload;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
+import com.topcoder.shared.distCache.*;
+
 import java.sql.*;
 import java.util.Hashtable;
+import java.util.ArrayList;
 
 public class TCLoadTCS extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadCoders.class);
@@ -116,6 +119,8 @@ public class TCLoadTCS extends TCLoad {
             ps.execute();
             ps.close();
             ps = null;
+            
+            doClearCache();
   
             log.info("SUCCESS: TCS load ran successfully.");
             return true;
@@ -127,6 +132,26 @@ public class TCLoadTCS extends TCLoad {
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
             return false;
+        }
+    }
+    
+    public void doClearCache() throws Exception
+    {
+        CacheClient cc = CacheClientFactory.createCacheClient();
+        
+        String tempKey = null;
+        
+        String[] keys = new String[] {"usdc_", "component_history", "TCS_Ratings_History", "member_profile", "public_home_data", "top_designers", "top_developers" };
+
+        ArrayList list = cc.getKeys(); 
+        for (int i=0; i<list.size(); i++) {
+            tempKey = (String)list.get(i);
+            for(int j = 0; j < keys.length; j++) {
+                if (tempKey.indexOf(keys[j]) > -1) {
+                    cc.remove(tempKey);
+                    break;
+                }
+            }
         }
     }
     
@@ -332,14 +357,25 @@ public class TCLoadTCS extends TCLoad {
                             "(select category_name from categories where category_id = cc.root_category_id) as category_desc, " +
                             "(select start_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as posting_date, " +
                             "(select end_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as submitby_date, " +
-                            "p.complete_date  " +
+                            "p.complete_date, " +
+                            "rp.review_phase_id, " +
+                            "rp.review_phase_name," +
+                            "ps.project_stat_id," +
+                            "ps.project_stat_name " +
                             "from project p, " +
                             "comp_versions cv, " +
-                            "comp_catalog cc " +
+                            "comp_catalog cc," +
+                            "phase_instance pi, " +
+                            "review_phase rp," +
+                            "project_status ps " +
                             "where p.project_id = ? " +
                             "and p.cur_version = 1  " +
                             "and cv.comp_vers_id = p.comp_vers_id " +
-                            "and cc.component_id = cv.component_id";
+                            "and cc.component_id = cv.component_id " +
+                            "and pi.cur_version = 1 " +
+                            "and pi.phase_instance_id = p.phase_instance_id " +
+                            "and rp.review_phase_id = pi.phase_id " +
+                            "and ps.project_stat_id = p.project_stat_id";
 
             ps = prepareStatement(sSQL, SOURCE_DB);
             ps.setLong(1, project_id);
@@ -349,7 +385,7 @@ public class TCLoadTCS extends TCLoad {
             {
                 //update record, if 0 rows affected, insert record
                 sSQL = "update project set component_name = ?,  num_registrations = ?, num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, phase_id = ?, " +
-                        "phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date = ?, complete_date = ?, component_id = ? where project_id = ? ";
+                        "phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date = ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, status_id = ?, status_desc = ? where project_id = ? ";
 
                 ps2 = prepareStatement(sSQL, TARGET_DB);
                 ps2.setString(1, rs.getString("component_name"));
@@ -366,7 +402,11 @@ public class TCLoadTCS extends TCLoad {
                 ps2.setDate(12, rs.getDate("submitby_date"));
                 ps2.setDate(13, rs.getDate("complete_date"));
                 ps2.setLong(14, rs.getLong("component_id"));
-                ps2.setLong(15, rs.getLong("project_id"));
+                ps2.setLong(15, rs.getLong("review_phase_id"));
+                ps2.setString(16, rs.getString("review_phase_name"));
+                ps2.setLong(17, rs.getLong("project_stat_id"));
+                ps2.setString(18, rs.getString("project_stat_name"));
+                ps2.setLong(19, rs.getLong("project_id"));
 
                 int retVal = ps2.executeUpdate();
 
@@ -377,7 +417,7 @@ public class TCLoadTCS extends TCLoad {
                 {
                     //need to insert
                     sSQL = "insert into project (project_id, component_name, num_registrations, num_submissions, num_valid_submissions, avg_raw_score, avg_final_score, phase_id, phase_desc, " +
-                           "category_id, category_desc, posting_date, submitby_date, complete_date, component_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                           "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, review_phase_id, review_phase_name, status_id, status_desc) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("project_id"));
@@ -395,6 +435,10 @@ public class TCLoadTCS extends TCLoad {
                     ps2.setDate(13, rs.getDate("submitby_date"));
                     ps2.setDate(14, rs.getDate("complete_date"));
                     ps2.setLong(15, rs.getLong("component_id"));
+                    ps2.setLong(16, rs.getLong("review_phase_id"));
+                    ps2.setString(17, rs.getString("review_phase_name"));
+                    ps2.setLong(18, rs.getLong("project_stat_id"));
+                    ps2.setString(19, rs.getString("project_stat_name"));
 
                     ps2.execute();
 
@@ -459,9 +503,9 @@ public class TCLoadTCS extends TCLoad {
                     "where pr.project_id = ? " +
                     "and p.project_id = pr.project_id " +
                     "and p.cur_version = 1  " +
-                    "and p.project_stat_id in (2,  4, 5, 6) " +
                     "and cv.comp_vers_id = p.comp_vers_id " +
-                    "and cc.component_id = cv.component_id";
+                    "and cc.component_id = cv.component_id";          
+//                    "and p.project_stat_id in (2,  4, 5, 6) " +
 
             ps = prepareStatement(sSQL, SOURCE_DB);
             ps.setLong(1, project_id);
