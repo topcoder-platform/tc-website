@@ -22,8 +22,7 @@
 <script language="javascript">
 <!--
     function sort(i){
-        document.revise['module'].value = 'LegacyReport';
-        document.revise['t'].value = 'profile_search';
+        document.revise['module'].value = 'ProfileSearch';
         document.revise['order'].value = i;
         document.revise.submit();
     }
@@ -58,8 +57,8 @@
     </rsc:iterator>
     </table>
     <form name="revise" action="tc" method="get">
-        <input type="hidden" name="module">
-        <input type="hidden" name="t">
+        <input type="hidden" name="t" value="">
+        <input type="hidden" name="order" value="">
         <logic:iterate collection="<%=e%>" id="key">
             <logic:iterate collection="<%=Arrays.asList(request.getParameterValues(key.toString()))%>" id="val">
                 <input type="hidden" name="<%=key%>" value="<%=val%>">
