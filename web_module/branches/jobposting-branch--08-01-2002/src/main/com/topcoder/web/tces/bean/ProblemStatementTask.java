@@ -103,7 +103,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
     
     private void viewProblemStatement() throws Exception {
         Request dataRequest = new Request();
-        dataRequest.setContentHandle("tces_problem_statistics");
+        dataRequest.setContentHandle("tces_problem_statement");
 
         dataRequest.setProperty("uid", Integer.toString(uid) );
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
