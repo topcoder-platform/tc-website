@@ -11,7 +11,7 @@ import com.topcoder.shared.util.DBMS;
  *
  * @author  rfairfax
  */
-public class TCO04ContestProjects {
+public class TCO04ContestProjects extends StatBase {
     
      String getCommandName() {
         return "tco04_contest_projects";
