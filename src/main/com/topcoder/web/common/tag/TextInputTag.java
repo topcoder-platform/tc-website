@@ -29,7 +29,7 @@ public class TextInputTag extends BaseTag {
             }
 
             if (value == null) {
-                value = (String) getDefaultValue();
+                value = getDefaultValue().toString();
             }
             if (value != null) {
                 ret.append("value=\"").append(value).append("\" ");
@@ -37,7 +37,7 @@ public class TextInputTag extends BaseTag {
             ret.append("/>");
         } else {
             if (value == null) {
-                value = (String) getDefaultValue();
+                value = getDefaultValue().toString();
             }
             if (value != null) {
                 ret.append(value);

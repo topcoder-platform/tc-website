@@ -37,7 +37,7 @@ public class TextAreaTag extends BaseTag {
         }
         ret.append(">");
         if (text == null) {
-            text = (String) getDefaultValue();
+            text = getDefaultValue().toString();
         }
         if (text != null) {
             ret.append(text);
