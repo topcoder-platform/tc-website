@@ -1,6 +1,6 @@
 <%@  page 
   language="java"
-  errorPage="/errorPage.jsp"
+  errorPage="errorPage.jsp"
   import="java.util.*,
           com.topcoder.web.query.common.*,
           com.topcoder.web.query.bean.*" %>
