@@ -49,6 +49,7 @@ public class CommandList extends BaseProcessor {
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
+        log.debug("set attrbutes called " + paramName + " " + paramValues[0]);
         String value = paramValues[0];
         value = (value == null?"":value.trim());
 
