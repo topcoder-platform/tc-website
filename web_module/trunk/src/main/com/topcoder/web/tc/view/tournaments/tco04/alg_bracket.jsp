@@ -35,8 +35,8 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="algorithm"/>
-<jsp:param name="tabLev2" value="details"/>
-<jsp:param name="tabLev3" value="description"/>
+<jsp:param name="tabLev2" value="advancers"/>
+<jsp:param name="tabLev3" value="bracket"/>
 </jsp:include>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
