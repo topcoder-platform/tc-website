@@ -221,7 +221,7 @@ function getProblemDetail(id) {
                             document.write(' <param name="quality" value="high" />');
                             document.write(' <param name="bgcolor" value="#ffffff" />');
                             document.write(' <embed ');
-                            document.write(' src="<%=swfFiles[counter % 2]%>" ');
+                            document.write(' src="<%=swfFiles[counter % 2]%>&?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>" ');
                             document.write(' menu="false" ');
                             document.write(' quality="high" ');
                             document.write(' bgcolor="#ffffff" ');
