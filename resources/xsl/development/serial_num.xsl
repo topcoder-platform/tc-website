@@ -85,7 +85,7 @@
 							Royalty Percentage - 25%</p>
 							
 							<p>Total Payment - $168.00<br/>
-							First Deliverable - $126.00><br/>
+							First Deliverable - $126.00<br/>
 							Project Completion - $42.00</p>
 
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
