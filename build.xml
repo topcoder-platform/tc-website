@@ -753,6 +753,7 @@
                 <include name="com/topcoder/shared/**"/>
                 <include name="com/topcoder/shared/**/*.class"/>
                 <include name="com/topcoder/security/**/*.class" />
+                <include name="com/topcoder/common/web/util/Data.class"/>
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
             </classes>
