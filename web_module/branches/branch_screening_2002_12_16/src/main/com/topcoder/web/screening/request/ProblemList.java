@@ -25,7 +25,7 @@ public class ProblemList extends BaseProcessor {
         
         Request dr = new Request();
         dr.setContentHandle("problemList");
-        dr.setProperty("uid", String.valueOf(getAuthentication().getUser().getId()));
+        dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
         
         Map map = dAccess.getData(dr);
 

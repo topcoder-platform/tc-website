@@ -15,7 +15,7 @@ public class Logout extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
-        log.debug("Logging out user " + getAuthentication().getUser().getId());
+        log.debug("Logging out user " + getAuthentication().getActiveUser().getId());
         getAuthentication().logout();
         
         setNextPage(Constants.CONTROLLER_URL);

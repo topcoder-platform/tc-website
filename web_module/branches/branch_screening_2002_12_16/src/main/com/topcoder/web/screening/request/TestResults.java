@@ -26,7 +26,7 @@ public class TestResults extends BaseProcessor {
         Request dr = new Request();
         dr.setProperties(getParameterMap());
         dr.setContentHandle("testResults");
-        dr.setProperty("uid", String.valueOf(getAuthentication().getUser().getId()));
+        dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
         Map map = dAccess.getData(dr);
         if(map == null)
             throw new ScreeningException("getData failed!");
