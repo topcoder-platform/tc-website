@@ -199,7 +199,7 @@ public class UserEdit extends BaseProcessor {
 
     private boolean hasRole(TCSubject user, RolePrincipal role) {
         RolePrincipal[] roles = (RolePrincipal[])user.getPrincipals().toArray(new RolePrincipal[0]);
-        for (int i=0; i<roles.length && !isAccountAdmin; i++) {
+        for (int i=0; i<roles.length; i++) {
             if (roles[i].equals(role)) return true;
         }
         return false;
