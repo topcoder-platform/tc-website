@@ -58,7 +58,7 @@ public class ViewProblemSet extends Base {
                     //ok, we found the set, now we need to get the actual problems
                     ScreeningProblemLabel[] labels = problemSets[i].getProblemLabels();
                     ProblemInfo info = null;
-                    for (int j=0; i<labels.length; j++) {
+                    for (int j=0; j<labels.length; j++) {
                         info = new ProblemInfo();
                         info.setComponentId(labels[j].getComponentID().longValue());
                         info.setStatusDesc(labels[j].getStatusDesc());
