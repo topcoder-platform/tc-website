@@ -17,6 +17,7 @@
       <jsp:param name="tabLev1" value="login"/>
       </jsp:include>
 
+<%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
       <jsp:param name="probTimer" value="off"/>
       </jsp:include>
@@ -29,19 +30,37 @@
          </tr>
          <tr>
             <td class=bodyL>&#160;</td>
+
 <%-- CONTENT --%>
             <td class=bodyContent>
             <p class=pL>
             <span class=bodyBigTitle>Example Directions</span>
-            <br/><br/>
+            <br /><br />
             <span class=bodySmallTitle>Example Problem</span><br />
             In the table below there is an example problem. The example problem is designed to acclimate you with the system. Your solution to the example problem will not count toward your final results. You should open the problem statement and code, compile and test your solution. The purpose of this problem is to familiarize yourself with the Testing Application and its different options. Please be sure to submit your solution when it is complete.  
-            <br/><br/>
+            <br /><br />
             Clicking the Open button will display a window containing the problem description and an editor.  
-            <br/><br/>
+            <br /><br />
             Once you've opened a problem, if a specific language is not mandated, choose the language that you will use to code your solution. Once you choose the language, read through the problem statement and begin coding your solution.  
-            <br/><br/>
+            <br /><br />
             When you are finished with this problem, either click the Main button at the top of this window to return to the Main room or click the Continue button at the bottom of the window to proceed to the next assigned Test Set. For more help, click the Help Manual button at the top of this window.                      
+            <br /><br />
+
+            <table width="100%" cellspacing=0 cellpadding=0 class=tableFrame>
+               <tr>
+                  <td class=tableHeader>&#160;</td>
+                  <td class=tableHeader50>Problem</td>
+                  <td class=tableHeader50>Coding Status</td>
+                  <td class=tableHeader align=center>Coding Time</td>
+               </tr>
+               <tr>
+                  <td class=tableTextOdd><A href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonOpen.gif" alt="" /></A></td>
+                  <td class=tableTextOdd>Average</td>
+                  <td class=tableTextOdd>Un-Opened</td>
+                  <td class=tableTextOdd align=center><span class=bigRed>00:00</span></td>
+               </tr>      
+            </table>
+
             </td>
             <td class=bodyR>&#160;</td>
          </tr>
