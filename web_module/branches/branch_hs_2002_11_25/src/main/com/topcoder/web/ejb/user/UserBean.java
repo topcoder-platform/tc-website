@@ -11,7 +11,7 @@ import javax.sql.*;
 
 public class UserBean implements SessionBean {
 
-  private final static String HS_APPLICATION_DS="java:comp/env/jdbc/hsAppDS";
+  private final static String HS_APPLICATION_DS="DBMS.OLTP_DATASOURCE_NAME";
 
   private transient InitialContext init_ctx=null;
 
