@@ -56,7 +56,7 @@ function openWin(url, name, w, h) {
 <!-- Logo ends -->
 
 <table cellspacing="0" cellpadding="0" width="100%" border="0">
-    <tr><td height="4" bgcolor="#7B89C5" width="100%"><img src="/images/clear.gif" alt="" height="4" border="0" /></td></tr>
+    <tr><td height="4" bgcolor="#7B89C5" width="100%"><img src="/i/clear.gif" alt="" height="4" border="0" /></td></tr>
 </table>
 
 <!-- Main Links begins -->
@@ -86,7 +86,7 @@ function openWin(url, name, w, h) {
 <!-- Main Links ends -->
 
 <table cellspacing="0" cellpadding="0" width="100%" border="0">
-    <tr><td height="2" bgcolor="#000000" width="100%"><img src="/images/clear.gif" alt="" height="2" border="0" /></td></tr>
+    <tr><td height="2" bgcolor="#000000" width="100%"><img src="/i/clear.gif" alt="" height="2" border="0" /></td></tr>
 </table>
 
 <!-- Top Include Ends -->
