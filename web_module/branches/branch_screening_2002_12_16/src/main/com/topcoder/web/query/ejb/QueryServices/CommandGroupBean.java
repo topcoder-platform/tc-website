@@ -4,6 +4,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.idgenerator.IdGenerator;
+import com.topcoder.util.idgenerator.sql.SimpleDB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -46,7 +48,7 @@ public class CommandGroupBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ret = getNextValue();
+            ret = (int)getNextValue();
             ps.setInt(1, ret);
             ps.setString(2, commandGroupName);
             int rows = ps.executeUpdate();
@@ -55,7 +57,7 @@ public class CommandGroupBean extends BaseEJB {
             return ret;
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating command group: " + commandGroupName);
+            throw new EJBException("SQLException creating command group: " + commandGroupName + " id: " + ret);
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
@@ -182,42 +184,32 @@ public class CommandGroupBean extends BaseEJB {
         return ret;
     }
 
-    private int getNextValue() {
+    private long getNextValue() {
         log.debug("getNextValue called...");
 
-        ResultSet rs = null;
-        PreparedStatement ps = null;
-        Connection conn = null;
         Context ctx = null;
-        DataSource ds = null;
-        int ret = 0;
+        long ret = 0;
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("  EXECUTE PROCEDURE nextval(?)");
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-            conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, DBMS.COMMAND_GROUP_SEQ);
-            rs = ps.executeQuery();
-            if (rs.next())
-                ret = rs.getInt(1);
-            else throw new SQLException("nextval() did not return a value");
+            if (!IdGenerator.isInitialized()) {
+                IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
+                        "sequence_object", "name", "current_value", 9999999, 1, true);
+            }
+            ret = IdGenerator.nextId("COMMAND_GROUP_SEQ");
+
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting sequence");
+            throw new EJBException("SQLException getting sequence\n" + sqe.getMessage());
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
         return ret;
     }
+
 
     public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
         if (dataSourceName.trim().length()>0)
