@@ -79,7 +79,7 @@
                         <b><%= info.size()%></b>
                     </td>
                     <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
-                        + 1 + Math.min(info.size() -  startIndex,Constants.PAGE_SIZE)%>:&#160;&#160;&#160;
+                        + Math.min(info.size() -  startIndex,Constants.PAGE_SIZE)%>:&#160;&#160;&#160;
                     <%
                         if (startIndex > 0) {
                     %>
@@ -89,7 +89,7 @@
                     <%  } %>
 
                     <%
-                        if (startIndex + Constants.PAGE_SIZE > info.size()) {
+                        if (startIndex + Constants.PAGE_SIZE < info.size()) {
                     %>
                     | <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a>
                     <%  } %>
@@ -237,7 +237,7 @@
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
                     <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
-                        + 1 + Math.min(info.size() -  startIndex,Constants.PAGE_SIZE)%>:&#160;&#160;&#160;
+                        + Math.min(info.size() -  startIndex,Constants.PAGE_SIZE)%>:&#160;&#160;&#160;
                     <%
                         if (startIndex > 0) {
                     %>
@@ -247,7 +247,7 @@
                     <%  } %>
 
                     <%
-                        if (startIndex + Constants.PAGE_SIZE > info.size()) {
+                        if (startIndex + Constants.PAGE_SIZE < info.size()) {
                     %>
                     | <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a>
                     <%  } %>
