@@ -219,6 +219,7 @@ function getProblemDetail(id) {
                    </screen:resultSetRowIterator>
                 <% } %>
 	        </table>
+	        <p></p>
             <% } %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
