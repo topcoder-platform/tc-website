@@ -25,7 +25,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </SCRIPT>
 
 <script type="text/javascript">
-function arena() 
+function arena()
 {
   w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,status=1");
   return;
@@ -44,5 +44,15 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
 {
   w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=no,toolbar=no,location=no,scrollbars=no,menubar=no,status=no");
   return;
+}
+function infoWindow(url) {
+  var width = 200
+  var height = 150
+  var left = (screen.availWidth - width) / 2;
+  var top = 0;
+  OpenWin=this.open(url,"Info",
+            "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes"
+            + ",width=" + width + ",height=" + height
+            + ",left=" + left + ",top=" + top);
 }
 </script>
