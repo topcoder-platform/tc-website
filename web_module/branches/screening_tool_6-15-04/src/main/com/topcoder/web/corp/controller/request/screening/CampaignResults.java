@@ -79,6 +79,13 @@ public class CampaignResults extends BaseScreeningProcessor {
 
             // Get the company details and save them to request for further rendering by the campaign results JSP
             ResultSetContainer result = (ResultSetContainer) map.get(Constants.COMPANY_INFO);
+
+            // Notify the user if there is more than 1 company
+            if (result.size() != 1) {
+                log.error("Got the exception while getting company details for user : " + getUser().getId());
+                throw new ScreeningException("The user should be associated only with 1 company at once.");
+            }
+
             request.setAttribute(Constants.COMPANY_INFO, result);
 
             // Get the company ID for further use
