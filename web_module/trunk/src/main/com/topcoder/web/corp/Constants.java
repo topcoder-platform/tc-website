@@ -70,7 +70,7 @@ public class Constants {
         USEREDIT_PAGE_SUCCESS = cfg.getInitParameter("page-UserEdit-success");
         USEREDIT_PAGE_RETRY = JSP_ROOT+cfg.getInitParameter("page-UserEdit-retry");
         USERLIST_PAGE = JSP_ROOT+cfg.getInitParameter("page-UserList");
-        LOGIN_PAGE = JSP_ROOT+cfg.getInitParameter("page-login");
+        LOGIN_PAGE = cfg.getInitParameter("page-login");
         WELCOME_PAGE  = JSP_ROOT+cfg.getInitParameter("page-welcome");
 
     }
