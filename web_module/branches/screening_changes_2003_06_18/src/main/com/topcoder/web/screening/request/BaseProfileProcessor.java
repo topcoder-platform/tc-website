@@ -13,6 +13,7 @@ import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileProblem;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
 
 import javax.servlet.ServletRequest;
 import javax.rmi.PortableRemoteObject;
@@ -35,8 +36,8 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
             info.setProfileName(name);
         }
 
-        String testSetA = request.getParameter(Constants.TEST_SET_A);
-        if (testSetA != null) {
+        String testSetA = StringUtils.checkNull(request.getParameter(Constants.TEST_SET_A));
+        if (!testSetA.equals("")) {
             info.setTestSetA(testSetA);
         }
 
