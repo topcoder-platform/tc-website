@@ -25,7 +25,6 @@ public class PreviewEmail extends BaseSessionProcessor {
             updateSessionInfo();
             info = new EmailInfo();
             info.setSessionInfo(getSessionInfo());
-            info.setUser(getAuthentication().getActiveUser());
         }
 
         request.setAttribute(Constants.EMAIL_INFO, info);
