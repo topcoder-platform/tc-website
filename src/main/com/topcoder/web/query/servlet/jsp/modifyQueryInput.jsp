@@ -31,7 +31,7 @@
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top" ALIGN="left">
-        <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+        <TABLE WIDTH="80%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="ModifyQueryInputTask" property="ServletPath"/>" method="post" name="ModQueryInputForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_QUERY_INPUT_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.QUERY_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInputTask" property="QueryId"/>">
@@ -75,7 +75,7 @@
                     </TR>
                   </query:queryInputIterator>
                   <TR>
-                    <TD CLASS="statTextBig" COLSPAN="7">
+                    <TD CLASS="statTextBig" COLSPAN="7" ALIGN="center">
                         <A HREF="javascript: void document.ModQueryInputForm.submit()" class="statText">
                           [save]
                         </A>
