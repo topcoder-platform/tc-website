@@ -6,6 +6,35 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
 
+<script language="javascript">
+
+
+function erase(f, n)
+{
+    v = null;
+    s = 'forcedPhaseStart[' + n + ']';
+    for (i=0; i < f.elements.length; i++)
+        if (f.elements[i].name == s) v = f.elements[i];
+
+    if (v != null)
+        v.value="";
+}
+
+function checkFalse(f, n)
+{
+    v = null;
+    s = 'adjustStartDate[' + n + ']';
+    for (i=0; i < f.elements.length; i++)
+        if (f.elements[i].name == s && f.elements[i].value == "f") v = f.elements[i];
+
+    if (v != null)
+        v.checked=true;
+
+}
+
+</script>
+
+
 <!-- Start Title -->            
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
 <logic:equal name="projectForm" property="valid" value="false">
@@ -105,12 +134,12 @@
 				    <tr>
 					<td width="50%" align="left">
 				<logic:notEqual name="pIdx" value="0">
-		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true"  />
+		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' onclick='<%= "erase(projectForm," + pIdx + ")" %>' value="true"  />
 						When previous phase ends
 				</logic:notEqual>						
 					</td>
 					<td width="50%">
-			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="false" />
+			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' onkeydown='<%= "checkFalse(projectForm," + pIdx + ")" %>' value="false" />
 			                        <html:text property='<%="forcedPhaseStart["+pIdx+"]"%>' size="20" />
 					</td>
 				    </tr>

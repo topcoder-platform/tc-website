@@ -1283,9 +1283,12 @@ log (Level.INFO, "adjustStartDates [" + i+"]: " +adjustStartDates[i]);
                 // If the date for the phase is earlier than the date for a previous phase, it is not taken into account.
                 if (newStartDate.after(startDate)) {
                     startDate = newStartDate;
+                } else {
+                    adjustStartDates[i] = true;
+                    forcedStartDates[i] = "";
                 }
             }
-log (Level.INFO, "StartDate [" + i+"]=" +startDate);
+log (Level.INFO, "StartDate [" + i + "]=" + startDate);
             phase.setStartDate(startDate);
             phase.setLength(phaseMinutes[i]);
 
