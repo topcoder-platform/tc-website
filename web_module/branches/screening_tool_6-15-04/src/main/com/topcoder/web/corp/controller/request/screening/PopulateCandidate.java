@@ -14,6 +14,7 @@ import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpUtils;
 import java.util.Map;
@@ -40,6 +41,11 @@ import java.util.Map;
  * @version 1.1 07/14/2004
  */
 public class PopulateCandidate extends BaseScreeningProcessor {
+
+    /**
+     * A <code>Logger</code> to log the <code>PopulateCandidate</code> processor activities.
+     */
+    private final static Logger log = Logger.getLogger(PopulateCandidate.class);
 
     /**
      * A main method of <code>PopulateCandidate</code> processor. Depending on the <code>Screening Tool</code>
@@ -160,6 +166,9 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                 dr.setProperty("uid", String.valueOf(getUser().getId()));
                 dr.setProperty("cid", cid);
 
+                log.info("Got the request to load profile details for candidate:" + cid + ", user : "
+                        + getUser().getId());
+
                 Map map = Util.getDataAccess().getData(dr);
 
                 if (map != null) {
@@ -202,6 +211,7 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     // Save the candidate's problem solving data to the request
                     result = (ResultSetContainer) map.get(Constants.CANDIDATE_PROBLEMS_INFO);
                     request.setAttribute(Constants.CANDIDATE_PROBLEMS_INFO, result);
+                    log.info("The problems info list contains : " + result.size() + " records");
 
                 } else {
                     // if Query Tool returned null (in fact this should never happen) - notify the user that something
