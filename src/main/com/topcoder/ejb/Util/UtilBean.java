@@ -22,7 +22,8 @@ public class UtilBean extends BaseEJB {
      * @param userId the user who is to be registered
      * @throws RemoteException if the insert fails
      */
-    public void registerForTourny(int userId, int roundId, int contestId) throws RemoteException {
+    public void registerForTourny(int userId, int contestId) throws RemoteException {
+//    public void registerForTourny(int userId, int roundId, int contestId) throws RemoteException {
         log.debug("registerForTourny called");
         StringBuffer query = null;
         java.sql.Connection conn = null;
@@ -34,7 +35,7 @@ public class UtilBean extends BaseEJB {
         query.append(" SELECT 'foo'");
         query.append(  " FROM invite_list");
         query.append( " WHERE coder_id = ?");
-        query.append(   " AND round_id = ?");
+//        query.append(   " AND round_id = ?");
         query.append(   " AND contest_id = ?");
 
         try {
@@ -43,23 +44,26 @@ public class UtilBean extends BaseEJB {
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, userId);
-            ps.setInt(2, roundId);
-            ps.setInt(3, contestId);
+//            ps.setInt(2, roundId);
+            ps.setInt(2, contestId);
             rs = ps.executeQuery();
             /*
                check if this user has already registered
              */
             if (rs.next()) {
-                log.info("user_id: " + userId + " already registered for contest: " + contestId + " round: " + roundId);
+                log.info("user_id: " + userId + " already registered for contest: " + contestId);
+//                log.info("user_id: " + userId + " already registered for contest: " + contestId + " round: " + roundId);
             } else {
                 query = new StringBuffer();
                 query.append(" INSERT");
-                query.append(  " INTO invite_list (coder_id, contest_id, round_id)");
-                query.append(" VALUES (?, ?, ?)");
+//                query.append(  " INTO invite_list (coder_id, contest_id, round_id)");
+                query.append(  " INTO invite_list (coder_id, contest_id)");
+//                query.append(" VALUES (?, ?, ?)");
+                query.append(" VALUES (?, ?)");
                 ps = conn.prepareStatement(query.toString());
                 ps.setInt(1, userId);
                 ps.setInt(2, contestId);
-                ps.setInt(3, roundId);
+//                ps.setInt(3, roundId);
                 int rowCount = ps.executeUpdate();
                 if (rowCount != 1) {
                     throw new Exception("Wrong number of rows inserted into response: " + rowCount);
