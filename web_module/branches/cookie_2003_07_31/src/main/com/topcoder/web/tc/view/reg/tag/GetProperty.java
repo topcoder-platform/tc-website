@@ -29,12 +29,9 @@ public class GetProperty
     private String property = null;
 
 
-    public void setType(String type) {
-        try {
-            Class.forName(type);
-            this.type = type;
-        } catch (ClassNotFoundException cnfe) {
-        }
+    public void setType(String type) throws ClassNotFoundException {
+        Class.forName(type);
+        this.type = type;
     }
 
     public void setScope(String scope) {
