@@ -202,6 +202,13 @@
       <td><rsc:item name="school_name" row="<%=p%>"/></td>
     </tr>
 <% } %>
+<% if (p.getItem("company")!=null) { %>
+    <tr>
+      <td>Company</td>
+      <td>&#160;&#160;&#160;</td>
+      <td><rsc:item name="company" row="<%=p%>"/></td>
+    </tr>
+<% } %>
   </table>
 
 <%
