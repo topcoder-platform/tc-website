@@ -199,11 +199,29 @@ public class UpdateCandidate extends BaseProcessor
             info.setEmailAddress(email);
         }
 
-        if(!success) {
-            request.setAttribute(Constants.ERRORS, errorMap);
+        if(success) {
+            //now check to see if user already exists in this company
+            DataAccess da = getDataAccess();
+            Request dr = new Request();
+            dr.setProperty(DataAccessConstants.COMMAND,
+                           Constants.CHECK_COMPANY_USER_QUERY_KEY);
+            dr.setProperty("uid", 
+                    String.valueOf(getAuthentication().getUser().getId()));
+            dr.setProperty("handle", email);
+            Map map = da.getData(dr);
+            ResultSetContainer rsc = (ResultSetContainer)
+                map.get(Constants.CHECK_COMPANY_USER_QUERY_KEY);
+            if(rsc.size() > 0) {
+                errorMap.put(Constants.EMAIL_ADDRESS, 
+                    "Email Address already in use as handle for your company.");
+                success = false;
+            }
+            else {
+                info.setPassword(generatePassword());
+            }
         }
         else {
-            info.setPassword(generatePassword());
+            request.setAttribute(Constants.ERRORS, errorMap);
         }
         return success;
     }

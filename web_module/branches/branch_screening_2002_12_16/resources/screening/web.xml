@@ -321,6 +321,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>check_company_user_query_key</param-name>
+    <param-value>checkCompanyUser</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Profile constants -->
   <init-param>
     <param-name>profile_info_attribute</param-name>

@@ -65,6 +65,7 @@ public class Constants
     public static String CANDIDATE_LIST_QUERY_KEY;
     public static String CREATE_CANDIDATE_PROCESSOR;
     public static String POPULATE_CANDIDATE_PROCESSOR;
+    public static String CHECK_COMPANY_USER_QUERY_KEY;
 
     //Profile constants
     public static String PROFILE_INFO;
@@ -204,6 +205,8 @@ public class Constants
             config.getInitParameter("create_candidate_processor");
         POPULATE_CANDIDATE_PROCESSOR = 
             config.getInitParameter("populate_candidate_processor");
+        CHECK_COMPANY_USER_QUERY_KEY = 
+            config.getInitParameter("check_company_user_query_key");
 
         //Profile constants
         PROFILE_INFO = config.getInitParameter("profile_info_attribute");
