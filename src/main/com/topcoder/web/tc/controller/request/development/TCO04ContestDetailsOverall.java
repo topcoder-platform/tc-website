@@ -34,7 +34,7 @@ public class TCO04ContestDetailsOverall extends StatBase {
         return "/tournaments/tco04/contest_det_overall.jsp";
     }
     
-    void statProcessing()  {
+    void statProcessing() throws TCWebException  {
         Map result2 =  (Map)getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer)result2.get("tco04_contest_results_overall");
