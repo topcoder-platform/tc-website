@@ -33,15 +33,17 @@ public class PolicyBean extends BaseEJB {
 
         InitialContext ctx = null;
         Policy p = null;
+        boolean ret = false;
         try {
             ctx = new InitialContext();
             p = new Policy(ctx, DATA_SOURCE);
+            ret = p.checkPermission(subject, permission);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
         } finally {
             close(ctx);
         }
-        return p.checkPermission(subject, permission);
+        return ret;
     }
 
     /**
@@ -58,15 +60,17 @@ public class PolicyBean extends BaseEJB {
 
         InitialContext ctx = null;
         Policy p = null;
+        boolean ret = false;
         try {
             ctx = new InitialContext();
             p = new Policy(ctx, DATA_SOURCE);
+            ret = p.checkPermissions(subject, permissions);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
         } finally {
             close(ctx);
         }
-        return p.checkPermissions(subject, permissions);
+        return ret;
     }
 
 }
