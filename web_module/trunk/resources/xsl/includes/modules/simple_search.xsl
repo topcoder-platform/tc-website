@@ -28,14 +28,13 @@
                                   } else return true;
                                 }
                                 function submitSearch() {
-                                  if (checkInput()) {
-                                    search.submit();
-                                  }
+                                  search.submit();
                                 }
                               ]]></SCRIPT>
 
                           <INPUT TYPE="text" NAME="Handle" SIZE="15" MAXLENGTH="20" onKeyPress="submitEnter(event)"/>
                           <A HREF="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>&#160;[ submit ]</A>
+                          </FORM>
                         </TD>
                         <TD CLASS="data" BGCOLOR="#990000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
                       </TR>
