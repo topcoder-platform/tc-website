@@ -5,18 +5,6 @@
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
-<jsp:useBean id="<%=Constants.CANDIDATE_PERSONAL_INFO%>"
-             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-<jsp:useBean id="<%=Constants.CANDIDATE_ADDRESS_INFO%>"
-             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-<jsp:useBean id="<%=Constants.CANDIDATE_EMAIL%>"
-             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-<jsp:useBean id="<%=Constants.CANDIDATE_DEMOGRAPHIC_INFO%>"
-             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-<jsp:useBean id="<%=Constants.CANDIDATE_NOTES%>"
-             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-<jsp:useBean id="<%=Constants.CANDIDATE_PROBLEMS_INFO%>"
-             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 
 <%@ taglib uri="screening.tld" prefix="screen" %>
 
@@ -70,6 +58,19 @@ function getProblemDetail(id) {
 <%--<jsp:include page="../includes/top.jsp" />--%>
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
+
+<jsp:useBean id="<%=Constants.CANDIDATE_PERSONAL_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_ADDRESS_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_EMAIL%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_DEMOGRAPHIC_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_NOTES%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_PROBLEMS_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">

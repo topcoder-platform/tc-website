@@ -4,11 +4,6 @@
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
-<jsp:useBean id="<%=Constants.COMPANY_INFO%>"
-             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-<jsp:useBean id="<%=Constants.COMPANY_CAMPAIGNS_LIST%>"
-             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-
 <%@ taglib uri="screening.tld" prefix="screen" %>
 
 </HEAD>
@@ -18,6 +13,11 @@
 <%--<jsp:include page="../includes/top.jsp" />--%>
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
+
+<jsp:useBean id="<%=Constants.COMPANY_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.COMPANY_CAMPAIGNS_LIST%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
