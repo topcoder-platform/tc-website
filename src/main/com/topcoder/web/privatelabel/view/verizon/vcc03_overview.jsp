@@ -24,14 +24,8 @@
         <td width="147" bgcolor="#000000" rowspan="2" valign="top"><img src="/i/events/verizon2003/logo_black_147.gif" width="147" height="140" border="0"/></td>
 
 <!-- Top Nav-->
-        <td valign="top" class="black" width="588">
-            <table width="588" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td width="1" class="red"><img src="/i/clear.gif" alt="" width="1" height="1"></td>
-                </tr>
-            </table>
-        </td>
-        <td class="black"><img alt="" src="/images/spacer.gif" width="1" height="1"><br/></td>
+        <td class="black" width="588">
+        <td class="black"><img alt="" src="/images/spacer.gif" width="1" height="41"></td>
     </tr>
 
 <!-- Top Ad -->
@@ -39,9 +33,9 @@
       <td bgcolor="#CC0001" width="589" height="99" colspan="2" valign="top">
         <table border="0" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="440" height="99" colspan=2 valign="top" align="right" background="/i/home_banner_set1.jpg">
-		<img src="/i/events/verizon2003/vcc03_logo.gif" alt="Verizon Coding Contest" width="440" height="99"></td>
-                <td width="109" height="99" valign="middle"><img src="/i/events/verizon2003/pbtc.gif" alt="Powered by TopCoder" height="99" width="109" border="0"></td>
+                <td width="440" height="99" colspan=2 valign="top" align="right" background="/i/events/verizon2003/vcc03_logo.jpg">
+		<img src="/i/events/verizon2003/banner_angle.gif" alt="" width="30" height="99"></td>
+                <td width="146" height="99" valign="middle"><img src="/i/events/verizon2003/pbtc.gif" alt="Powered by TopCoder" height="34" width="146" border="0"></td>
             </tr>
         </table>
       </td>
@@ -54,7 +48,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="600">
                 <tr>
 		<td width="15"><img src="/i/clear.gif" alt="" width="15" height="20"></td>
-		<td width="221" style="padding-left:1px;"><img src="/i/clear.gif" height="2" width="178" border="0" alt=""><br/><a href="/progress/" onclick="logWtl('http://www22.verizon.com/progress/HPHH','http://www22.verizon.com/','Make Progress Every Day');" onMouseOut="restore();" onMouseOver="swap(document.makeprogress,'/i/make_progress_hmov.gif');"><img src="/i/make_progress_hm.gif" border="0" width="178" height="17" alt="Make progress every day" name="makeprogress" id="makeprogress"></a></td>
+		<td width="221" style="padding-left:1px;"><img src="/i/clear.gif" height="2" width="178" border="0" alt=""><br/><a href="http://www22.verizon.com/progress/" onclick="logWtl('http://www22.verizon.com/progress/HPHH','http://www22.verizon.com/','Make Progress Every Day');" onMouseOut="restore();" onMouseOver="swap(document.makeprogress,'/i/events/verizon2003/make_progress_hmov.gif');"><img src="/i/events/verizon2003/make_progress_hm.gif" border="0" width="178" height="17" alt="Make progress every day" name="makeprogress" id="makeprogress"></a></td>
 		<td width="221" class="tableHead">&nbsp;</td>
 		<td width="143"><img src="/i/clear.gif" alt="" width="143" height="20"></td>
                 </tr>
@@ -67,20 +61,13 @@
     <tr>
 
 <!-- Left Column Begins -->
-        <td valign="top" class="dkGrey" width="147">
-            <table width="147" border="0" cellpadding="10" cellspacing="0">
+        <td valign="top" class="dkGrey" width="146">
+            <table width="146" border="0" cellpadding="0" cellspacing="11" class="dkGrey">
                 <tr>
-                    <td width="127" class="white"><img src="/i/clear.gif" width="127" height="1" border="0"/>
-                        <table width="127" border="0" cellpadding="0" cellspacing="5">
-                            <tr>
-                                <td width="127" class="leftnav" valign="top">
-                                    <jsp:include page="verizonLinks.jsp" >
-                                        <jsp:param name="selectedTab" value="overview"/>
-                                        <jsp:param name="selectedSubtab" value=""/>
-                                    </jsp:include>
-                                </td>
-                            </tr>
-                        </table>
+                    <td width="124" class="white" align="center"><img src="/i/events/verizon2003/contestlinks.gif" width="124" height="19" border="0" alt="Contest Links">
+
+                        <jsp:include page="verizonLinks.jsp" />
+
                     </td>
                 </tr>
             </table>
@@ -92,8 +79,10 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column -->
-        <td valign="top" class="bodyCopy" width="579">
-            <img src="/i/clear.gif" width="574" height="10" border="0"/><br />
+        <td valign="top" width="579"><img src="/i/clear.gif" width="574" height="10" border="0"/><br />
+            <table width="427" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="427" class="bodyCopy">
 
             <h2 class="pgTitle">The Best of the Best</h2>
 
@@ -112,26 +101,26 @@
             The tournament is a timed contest allowing all participants to compete online to solve the same problems under the same time constraints. The contests are challenging and exciting for participants and
             spectators. The format is simple:</p>
 
-            <blockquote>
-            <p><span class="bodySubtitle">Download the Arena</span><br />
+            <ul>
+            <li><strong>Download the Arena</strong><br />
             TopCoder's Competition Arena (a Java Applet) provides the interface to the competition. Here contestants will read the problem statements, code
-            solutions, compile and test those solutions and submit their code for points. Prior to the match, you can practice on many sample problems by downloading the arena ahead of time.</p>
+            solutions, compile and test those solutions and submit their code for points. Prior to the match, you can practice on many sample problems by downloading the arena ahead of time.</li>
 
-            <p><span class="bodySubtitle">Coding Phase</span><br />
+            <li><strong>Coding Phase</strong><br />
             At the designated date and time, competitors will enter the Arena just prior to "kick off". Competitors are placed in virtual rooms of 10 developers
             per room. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution
-            in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tells the tale as competitors vie for the highest point total.</p>
+            in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tells the tale as competitors vie for the highest point total.</li>
 
-            <p><span class="bodySubtitle">Challenge Phase</span><br />
+            <li><strong>Challenge Phase</strong><br />
             During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through submitted code, with the hope that the results are not satisfied by the
             software written. Breaking another developer's code is the most direct form of engaging competition for a programmer. In this phase, precious points
-            are awarded or taken away based on successful challenges. A penalty exists for an unsuccessful challenge.</p>
+            are awarded or taken away based on successful challenges. A penalty exists for an unsuccessful challenge.</li>
 
-            <p><span class="bodySubtitle">System Tests</span><br />
+            <li><strong>System Tests</strong><br />
             Within minutes of the end of the Challenge Phase, TopCoder will determine the accuracy of all submissions and award final points to all competitors. It
             is the instant gratification of knowing winners, losers, statistics and one's own performance versus the field that makes TopCoder events unique and
-            captivating.</p>
-            </blockquote>
+            captivating.</li>
+            </ul>
 
             <p><span class="bodySubtitle">Can Your Skills Carry You to August 29th?</span><br />
             Registration for the Verizon Coding Challenge opens on August 4th and closes on August 15th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
@@ -141,11 +130,11 @@
             compete for the large cash prizes onsite at VDSI Chennai on August 29th.</p>
 
             <a name="sched"></a>
-            <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+            <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
                 <tr>
-                    <td class="sidebarTitle" width="25%">Date</td>
-                    <td class="sidebarTitle" width="20%">Time</td>
-                    <td class="sidebarTitle" width="40%">Status</td>
+                    <td class="sidebarTitle">Date</td>
+                    <td class="sidebarTitle">Time</td>
+                    <td class="sidebarTitle">Status</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Monday, August 4</td>
@@ -192,69 +181,21 @@
             <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
             the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules_conditions">Terms and Conditions</a>.</p>
 
-            <p><br/></p>
-      </td>
-
+                        <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
+            
+                    </td>
+                    
 <!-- Gutter Begins -->
-        <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
+                    <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td valign="top" width="138">
-            <table border="0" cellspacing="0" cellpadding="6" bgcolor="#DD0000">
-                <tr>
-                    <td class="tableHead" width="138" height="21">Important Dates</td>
-                </tr>
-            </table>
-
-            <img alt="" src="/images/spacer.gif" height="3" width="138"><br/>
-
-            <table border="0" cellspacing="5" cellpadding="0" width="138" class="testFrame">
-                <tr><td width="138"><img src="/i/clear.gif" alt="" width="138" height="1"></td></tr>
-
-                <tr><td class="subBodyCopy">Registraton Starts<br/><strong>August 4th</strong></td></tr>
-
-                <tr><td class="subBodyCopy">Round 1 - Online<br/><strong>August 20th</strong></td></tr>
-
-                <tr><td class="subBodyCopy">Championship Round<br/>Live at the Verizon Chennai Facility<br/><strong>August 29th</strong></td></tr>
-
-                <tr><td width="138"><img src="/i/clear.gif" alt="" width="138" height="1"></td></tr>
-            </table>
-
-            <table border="0" cellspacing="0" cellpadding="6" bgcolor="#DD0000">
-                <tr>
-                    <td class="tableHead" width="138" height="21">Cash Prizes</td>
-                </tr>
-            </table>
-
-            <table border="0" cellspacing="5" cellpadding="0" width="138" class="testFrame">
-                <tr><td width="138" colspan="2"><img src="/i/clear.gif" alt="" width="138" height="1"></td></tr>
-
-                <tr>
-                    <td class="subBodyCopy">1st Place</td>
-                    <td class="subBodyCopy"><strong>$1,000 USD</strong></td>
-                </tr>
-
-                <tr>
-                    <td class="subBodyCopy">2nd Place</td>
-                    <td class="subBodyCopy"><strong>$500 USD</strong></td>
-                </tr>
-
-                <tr>
-                    <td class="subBodyCopy">3rd Place</td>
-                    <td class="subBodyCopy"><strong>$300 USD</strong></td>
-                </tr>
-
-                <tr>
-                    <td class="subBodyCopy">4th Place</td>
-                    <td class="subBodyCopy"><strong>$100 USD</strong></td>
-                </tr>
-
-                <tr><td width="138" colspan="2"><img src="/i/clear.gif" alt="" width="138" height="1"></td></tr>
-            </table>
-        </td>
+<jsp:include page="verizon_right.jsp" />
 <!-- Right Column Ends -->
 
+                </tr>
+            </table>
+        </td>
    </tr>
 </table>
 
