@@ -4,7 +4,7 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="2" valign="top" bgcolor="#001935">
 <!-- Division I Begins -->
                 <tr valign="middle">
-                    <td colspan="2" class="statTextBig" bgcolor="#093158" height="18">&#160;Top <xsl:value-of select="count(/TC/HOME/TopDiv1RankedCoders/Coder)"/> Coders</td>
+                    <td colspan="2" class="statTextBig" bgcolor="#093158" height="18">&#160;Top <xsl:value-of select="count(/TC/HOME/TopDiv1RankedCoders/Coder)"/> Coders&#160;<a href="/tc/?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=top10Coders">info</a></td>
                     <td class="statTextBig" align="right" bgcolor="#093158" height="18"><a href="/stat?c=coder_ratings" class="statTextBig">View all coders</a>&#160;</td>              
                 </tr>                        
                 
