@@ -31,7 +31,7 @@
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
-<FORM action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" method="POST">
+<FORM action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" method="POST" name="frmPrimReg">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 
 <!-- FIRST NAME -->
@@ -265,7 +265,7 @@
         <INPUT type="hidden" name="module" value="Registration"/>
     </TR>  
   <TR ALIGN="right" VALIGN="middle">
-     <TD COLSPAN="3" ALIGN="center" VALIGN="middle" CLASS="statText"><input type="reset" onClick="" name="clear" value=" Clear "/>&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
+     <TD COLSPAN="3" ALIGN="center" VALIGN="middle" CLASS="statText"><input type="button" onClick="Javascript:clearForm(document.frmPrimReg)" name="clear" value=" Clear "/>&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
   </TR>
 </TABLE>
 </FORM>

@@ -102,7 +102,7 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
   }
   function clearForm(form){
     for(i=0;i<form.elements.length; ++i) {
-      if( form.elements[i].type=='text' ) {
+      if( form.elements[i].type=='text' || form.elements[i].type=='password' ) {
         form.elements[i].value='';
       }
     }
