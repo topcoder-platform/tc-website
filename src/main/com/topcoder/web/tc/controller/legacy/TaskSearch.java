@@ -12,12 +12,10 @@ import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.Search.Search;
-import com.topcoder.ejb.Search.SearchHome;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.TagRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -27,11 +25,9 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.PathResource;
-import com.topcoder.web.tc.controller.legacy.ProcessAuthentication;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -57,8 +53,7 @@ public final class TaskSearch {
                 url.append(query);
             }
             RecordTag listTag = new RecordTag("MEMBER_SEARCH");
-            listTag.addTag(new ValueTag("User", nav.getUser().getHandle()));
-            listTag.addTag(new ValueTag("Email", nav.getUser().getEmail()));
+            listTag.addTag(new ValueTag("User", nav.getSessionInfo().getHandle()));
             MemberSearch search = getMemberSearch(nav);
             String command = Conversion.checkNull(request.getParameter("c"));
 
@@ -325,7 +320,7 @@ public final class TaskSearch {
             } else {
                 ctx = TCContext.getInitial();
                 Search s = (Search) BaseProcessor.createEJB(ctx, Search.class);
-                referrals = s.getReferrals(nav.getUser().getUserId());
+                referrals = s.getReferrals(nav.getUserId());
                 if (referrals != null) {
 
                     dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
