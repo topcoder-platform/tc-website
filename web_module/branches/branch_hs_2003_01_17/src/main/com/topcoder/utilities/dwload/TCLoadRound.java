@@ -1567,7 +1567,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.division_seed ");                       // 29
             query.append("       ,NVL(school_rank.division_placed, 0) ");    // 30
             query.append("       ,school_rank.count(*) ");
-            query.append("  FROM room_result rr, ");
+            query.append("  FROM room_result rr ");
             query.append(" OUTER TABLE(MULTISET(SELECT FIRST 3 ");
             query.append("                  coder_id ");
             query.append("                 ,round_id ");
