@@ -56,6 +56,9 @@ Also, note that if A affirms an affidavit online on behalf of B and enters in a 
 coder table, so B might later on be surprised to find an incorrect birth date in his personal information if A got the
 date wrong.
 
+6/12/2002 01:19 edt jason n. evans
+Need an "edit affidavit template" internal pacts jsp.
+
 
 
 ****************** BEING WORKED ON  ***********************

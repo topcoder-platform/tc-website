@@ -6,7 +6,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder :: P.A.C.T.s</TITLE>
+   <TITLE>TopCoder :: PACTs</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <%@ include file="/script.jsp" %>
@@ -70,14 +70,14 @@ function goTo(selection){
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" CLASS="statText">
 
-TopCoder would like to introduce the Payment Affidavit Contract Tracking System (P.A.C.T.s).  P.A.C.T.s was developed by TopCoder members depecora, milo and veredox.  
+TopCoder would like to introduce the Payment Affidavit Contract Tracking System (PACTs).  PACTs was developed by TopCoder members dpecora, milo and veredox.
 The system is for:
 <ul>
 <li><b>Member online affidavit affirmation.</b></li>
 <li><b>Affidavit, contract, payment and tax form tracking.</b></li>
 </ul>
 
-The P.A.C.T.s navigation bar, located on the left side of this screen, navigates to the <b>Payments</b>, <b>Affidavits</b>, <b>Contracts</b> or <b>Tax Forms</b> information screens.
+The PACTs navigation bar, located on the left side of this screen, navigates to the <b>Payments</b>, <b>Affidavits</b>, <b>Contracts</b> or <b>Tax Forms</b> information screens.
 <br/>
 <br/>
 Payment Information
@@ -139,10 +139,10 @@ The payment for the affidavit is then marked with a status of "owed" and payment
 <i>Why are some of my past affidavits and past payments marked as "See FAQ"?</i>
 <br/>
 <br/>
-The P.A.C.T.s system went online on Wednesday, May 15, 2002.  Affidavits, payments and other pertinent member information generated prior to May 15 was migrated into the P.A.C.T.s system to give members the ability to view historical data.  Members do not have the ability to affirm affidavits online that were created prior to May 15, 2002 (all affidavits prior to SRM 88).  Members are still responsible for mailing in affidavits for competitions that took place prior to SRM 88.
+The PACTs system went online on Wednesday, May 15, 2002.  Affidavits, payments and other pertinent member information generated prior to May 15 was migrated into PACTs to give members the ability to view historical data.  Members do not have the ability to affirm affidavits online that were created prior to May 15, 2002 (all affidavits prior to SRM 88).  Members are still responsible for mailing in affidavits for competitions that took place prior to SRM 88.
 <br/>
 <br/>
-<i>How to I print old affidavits?</i>
+<i>How do I print old affidavits?</i>
 <br/>
 <br/>
 - Click the "Affidavits" navigation link in the upper left hand corner of this screen
@@ -162,7 +162,7 @@ When you do affirm an affidavit online, you do not have to send in a paper copy.
 <br/>
 
 
-If you have any questions, comments or concerns about the P.A.C.T.s system, please email <A CLASS="statText" HREF="mailto:service@topcoder.com">service@topcoder.com</A>.
+If you have any questions, comments or concerns about the PACTs system, please email <A CLASS="statText" HREF="mailto:service@topcoder.com">service@topcoder.com</A>.
 
 
 

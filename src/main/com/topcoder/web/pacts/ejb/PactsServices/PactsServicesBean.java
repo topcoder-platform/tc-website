@@ -3921,11 +3921,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
 
             StringBuffer getWinners = new StringBuffer(300);
-            getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rr.paid, c.country_code ");
-            getWinners.append("FROM room_result rr, coder c ");
+            getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, c.country_code ");
+            getWinners.append("FROM room_result rr, coder c, round_payment rp ");
             getWinners.append("WHERE rr.round_id = " + roundId + " ");
-            getWinners.append("AND rr.paid > 0 ");
+            getWinners.append("AND rp.paid > 0 ");
             getWinners.append("AND rr.coder_id = c.coder_id ");
+            getWinners.append("AND rr.coder_id = rp.coder_id ");
+            getWinners.append("AND rr.round_id = rp.round_id ");
+            getWinners.append("AND rp.payment_type_id = " + CONTEST_PAYMENT )
             getWinners.append("ORDER BY rr.room_id, rr.room_placed");
             ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
             int numWinners = winners.getRowCount();
