@@ -134,7 +134,7 @@ public class DataRetriever implements DataRetrieverInt {
      * Constructor that takes a connection object.
      * @param conn
      */
-    public DataRetriever(Connection conn) {
+    protected DataRetriever(Connection conn) {
         this.conn = conn;
     }
 
