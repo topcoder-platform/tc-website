@@ -188,121 +188,7 @@
                                             <b>ViscoverExpress</b>
                                         </font>
                                         <BR></BR>
-                                        <blockquote>Used as: Division 2 - Level 3:
-                                            <blockquote>
-                                                <table cellspacing="2">
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Value</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">1000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Submission Rate</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">26 / 227  (11.45%) </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Success Rate</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">10 / 26 (38.46%)</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>High Score</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>omasoud</b> for 543.91 points
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </blockquote>
-                                            <p>
-
-                                            </p>
-                                        </blockquote>Used as: Division 1 - Level 2:
-                                        <blockquote>
-                                            <table cellspacing="2">
-                                                <tr>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>Value</b>
-                                                    </td>
-                                                    <td style="background: #eee;" class="bodyText">450</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>Submission Rate</b>
-                                                    </td>
-                                                    <td style="background: #eee;" class="bodyText">114 / 132  (86.36%) </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>Success Rate</b>
-                                                    </td>
-                                                    <td style="background: #eee;" class="bodyText">76 / 114 (66.67%)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>High Score</b>
-                                                    </td>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>Yarin</b> for 424.08 points
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </blockquote>
-                                        <p>
-
-                                            An intuitive way to solve this problem is to first write a "numberCheck" method.  This function takes a string of 16 digits and return true or false depending on whether the value checked out.  Such a method loops through the string, summing up the digits (multiplying by 2 where necessary).  If the resulting sum is 0 mod 10 return true.  Once this helper method is written, the main function can try to generate all possible errors, detecting which ones produce valid numbers.  The "at most 1 incorrect digit" error can be produced by replacing each number with any possible digit.  The transposition errors can be produced by trying every swap.
-
-                                        </p>
-                                        <font size="+2">
-                                            <b>Rendezvous</b>
-                                        </font>
-                                        <BR></BR>
-                                        Used as: Division 1 - Level 1:
-                                        <blockquote>
-                                            <table cellspacing="2">
-                                                <tr>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>Value</b>
-                                                    </td>
-                                                    <td style="background: #eee;" class="bodyText">300</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>Submission Rate</b>
-                                                    </td>
-                                                    <td style="background: #eee;" class="bodyText">120 / 132  (90.91%) </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>Success Rate</b>
-                                                    </td>
-                                                    <td style="background: #eee;" class="bodyText">81 / 120 (67.50%)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>High Score</b>
-                                                    </td>
-                                                    <td style="background: #eee;" class="bodyText">
-                                                        <b>antimatter</b> for 295.07 points
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </blockquote>
-                                        <p>
-
-                                            Solving this problem basically comes down to solving a system of equations.  The two pieces start at (0,0) and (x,y).  They change position by &lt;DX,DY&gt; and &lt;dx,dy&gt; respectively each turn.  To find the first place they could meet we must solve the equations: t*DX = x+t*dx  and t*DY = y+t*dy  where t is the turn number.  Solving for DX and DY in these equations we get: DX = x/t + dx and DY = y/t + dy  where t!=0.  A hint was given that we only need check a finite range of positions to rule out all possibilities.  Looping through all t values will quickly find the result.  Alternate methods which loop over DX and DY values can work as well.
-
-                                        </p>
-                                        <font size="+2">
-                                            <b>TextileDetective</b>
-                                        </font>
-                                        <BR></BR>
-                                        Used as: Division 1 - Level 3:
+                                        Used as: Division 2 - Level 3:
                                         <blockquote>
                                             <table cellspacing="2">
                                                 <tr>
@@ -315,116 +201,230 @@
                                                     <td style="background: #eee;" class="bodyText">
                                                         <b>Submission Rate</b>
                                                     </td>
-                                                    <td style="background: #eee;" class="bodyText">21 / 132  (15.91%) </td>
+                                                    <td style="background: #eee;" class="bodyText">26 / 227  (11.45%) </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="background: #eee;" class="bodyText">
                                                         <b>Success Rate</b>
                                                     </td>
-                                                    <td style="background: #eee;" class="bodyText">2 / 21 (9.52%)</td>
+                                                    <td style="background: #eee;" class="bodyText">10 / 26 (38.46%)</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="background: #eee;" class="bodyText">
                                                         <b>High Score</b>
                                                     </td>
                                                     <td style="background: #eee;" class="bodyText">
-                                                        <b>schveiguy</b> for 629.15 points
+                                                        <b>omasoud</b> for 543.91 points
                                                     </td>
                                                 </tr>
                                             </table>
                                         </blockquote>
-                                        <p>
+                                    <p>
 
-                                            This problem, although relatively easy in nature, had many tricks and cases increasing its difficulty tremendously.  When a problem breaks into numerous cases, it no longer becomes easy to envision an entire solution.  Handling each case in seclusion simplifies matters, but how does one define these cases, and are they separable?  Both are questions not so easily answered.</p>
-                                        <p>
-                                            The first issue to be dealt with in this problem is the color of the weft thread.  Once chosen, other pieces fall into place.  Many methods exist, but the simplest is probably looping through all possible colors.  If one turns out infeasible, just continue, and try the next.  Given the color of the weft thread, we can determine the color of each warp thread.  One square at a time, we loop through the fabric determining which columns should be raised, and which lowered in each row.  During this process, we verify that each row and column has at least one raised and one lowered color as the problem states.  If everything checks out we are nearly done.  One case remains: warp threads that share the same color as the weft thread.  We will call columns with this condition weft columns.  If all columns are weft columns (a fabric of a single color) we will still need 2 harnesses to drive the machine.  If only some are weft columns but every row has been accounted for (every row contains at least 1 raised or lowered harness at some point) all of these weft columns can be attached to preexistant harnesses.  Finally, if there are rows that still require a raised or lowered harness at some point, the extra weft columns can fill this gap adding 1 to the total number of required harnesses.  Having considered all cases (there are alot) the result produced is the correct number of harnesses.  </p>
-                                        <p>
-                                            In summary, we first choose a weft thread color, then we determined the weft and non-weft columns.  Using this information we can determined the lowered and raised status of each square in the weft columns.  If certain rows still do not meet the 1 lowered 1 raised criteria, the weft columns can fill that gap, otherwise we are done.  The only other hitch, is that certain invalid setups must be checked.  For example, a column with 3 different colors must produce a return value of -1.
-                                        </p>
+                                    </p>
+                                    Used as: Division 1 - Level 2:
+                                    <blockquote>
+                                        <table cellspacing="2">
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Value</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">450</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Submission Rate</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">114 / 132  (86.36%) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Success Rate</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">76 / 114 (66.67%)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>High Score</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Yarin</b> for 424.08 points
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </blockquote>
+                                    <p>
+
+                                        An intuitive way to solve this problem is to first write a "numberCheck" method.  This function takes a string of 16 digits and return true or false depending on whether the value checked out.  Such a method loops through the string, summing up the digits (multiplying by 2 where necessary).  If the resulting sum is 0 mod 10 return true.  Once this helper method is written, the main function can try to generate all possible errors, detecting which ones produce valid numbers.  The "at most 1 incorrect digit" error can be produced by replacing each number with any possible digit.  The transposition errors can be produced by trying every swap.
+
+                                    </p>
+                                    <font size="+2">
+                                        <b>Rendezvous</b>
+                                    </font>
+                                    <BR></BR>
+                                    Used as: Division 1 - Level 1:
+                                    <blockquote>
+                                        <table cellspacing="2">
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Value</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">300</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Submission Rate</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">120 / 132  (90.91%) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Success Rate</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">81 / 120 (67.50%)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>High Score</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>antimatter</b> for 295.07 points
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </blockquote>
+                                    <p>
+
+                                        Solving this problem basically comes down to solving a system of equations.  The two pieces start at (0,0) and (x,y).  They change position by &lt;DX,DY&gt; and &lt;dx,dy&gt; respectively each turn.  To find the first place they could meet we must solve the equations: t*DX = x+t*dx  and t*DY = y+t*dy  where t is the turn number.  Solving for DX and DY in these equations we get: DX = x/t + dx and DY = y/t + dy  where t!=0.  A hint was given that we only need check a finite range of positions to rule out all possibilities.  Looping through all t values will quickly find the result.  Alternate methods which loop over DX and DY values can work as well.
+
+                                    </p>
+                                    <font size="+2">
+                                        <b>TextileDetective</b>
+                                    </font>
+                                    <BR></BR>
+                                    Used as: Division 1 - Level 3:
+                                    <blockquote>
+                                        <table cellspacing="2">
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Value</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">1000</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Submission Rate</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">21 / 132  (15.91%) </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>Success Rate</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">2 / 21 (9.52%)</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>High Score</b>
+                                                </td>
+                                                <td style="background: #eee;" class="bodyText">
+                                                    <b>schveiguy</b> for 629.15 points
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </blockquote>
+                                    <p>
+
+                                        This problem, although relatively easy in nature, had many tricks and cases increasing its difficulty tremendously.  When a problem breaks into numerous cases, it no longer becomes easy to envision an entire solution.  Handling each case in seclusion simplifies matters, but how does one define these cases, and are they separable?  Both are questions not so easily answered.</p>
+                                    <p>
+                                        The first issue to be dealt with in this problem is the color of the weft thread.  Once chosen, other pieces fall into place.  Many methods exist, but the simplest is probably looping through all possible colors.  If one turns out infeasible, just continue, and try the next.  Given the color of the weft thread, we can determine the color of each warp thread.  One square at a time, we loop through the fabric determining which columns should be raised, and which lowered in each row.  During this process, we verify that each row and column has at least one raised and one lowered color as the problem states.  If everything checks out we are nearly done.  One case remains: warp threads that share the same color as the weft thread.  We will call columns with this condition weft columns.  If all columns are weft columns (a fabric of a single color) we will still need 2 harnesses to drive the machine.  If only some are weft columns but every row has been accounted for (every row contains at least 1 raised or lowered harness at some point) all of these weft columns can be attached to preexistant harnesses.  Finally, if there are rows that still require a raised or lowered harness at some point, the extra weft columns can fill this gap adding 1 to the total number of required harnesses.  Having considered all cases (there are alot) the result produced is the correct number of harnesses.  </p>
+                                    <p>
+                                        In summary, we first choose a weft thread color, then we determined the weft and non-weft columns.  Using this information we can determined the lowered and raised status of each square in the weft columns.  If certain rows still do not meet the 1 lowered 1 raised criteria, the weft columns can fill that gap, otherwise we are done.  The only other hitch, is that certain invalid setups must be checked.  For example, a column with 3 different colors must produce a return value of -1.
+                                    </p>
 
 
-                                        <IMG SRC="/i/m/brett1479_mug.jpg" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-                                        By&#160;brett1479
+                                    <IMG SRC="/i/m/brett1479_mug.jpg" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+                                    By&#160;brett1479
+                                    <BR/>
+                                    <DIV CLASS="smallText">
+                                        <I>TopCoder Member</I>
                                         <BR/>
-                                        <DIV CLASS="smallText">
-                                            <I>TopCoder Member</I>
-                                            <BR/>
-                                            <A HREF="/stat?c=member_profile&amp;cr=251317" CLASS="smallText">Author Profile</A>
-                                        </DIV>
-                                        <BR CLEAR="all"/>
-                                        <P>
-                                            <BR/>
-                                        </P>
-                                    </TD>
-                                    <TD VALIGN="top" WIDTH="10">
-                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/>
-                                    </TD>
-                                </TR>
-                                <TR>
-                                    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
-                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/>
-                                    </TD>
-                                </TR>
-                                <TR>
-                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right">
-                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/>
-                                    </TD>
-                                    <TD VALIGN="top" WIDTH="75">
-                                        <IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/>
-                                    </TD>
-                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
-                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
-                                    </TD>
-                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10">
-                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
-                                    </TD>
-                                </TR>
-                                <TR>
-                                    <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF">
-                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/>
-                                    </TD>
-                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14">
-                                        <IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/>
-                                    </TD>
-                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
-                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
-                                    </TD>
-                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10">
-                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
-                                    </TD>
-                                </TR>
-                            </TABLE>
+                                        <A HREF="/stat?c=member_profile&amp;cr=251317" CLASS="smallText">Author Profile</A>
+                                    </DIV>
+                                    <BR CLEAR="all"/>
+                                    <P>
+                                        <BR/>
+                                    </P>
                         </TD>
-                        <!-- Center Column Ends -->
-                        <!-- Body Area Ends -->
-
-                        <!-- Gutter -->
-                        <TD WIDTH="4" BGCOLOR="#FFFFFF">
-                            <IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/>
+                        <TD VALIGN="top" WIDTH="10">
+                            <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/>
                         </TD>
-                        <!-- Gutter Ends -->
-                        <!-- Right Column Begins -->
-                        <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top">
-                            <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/>
-                            <BR/>
-                            <!-- <A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm98"><IMG SRC="/i/motorola_sidebar1.gif" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A>
-                            <A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm91_room1','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A><BR/>
-                            <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
-                            <!-- Right Column Include Begins -->
-                            <xsl:call-template name="public_right_col"/>
-                            <!-- Right Column Include Ends -->
+                    </TR>
+                    <TR>
+                        <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
+                            <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/>
                         </TD>
-                        <!-- Right Column Ends -->
-                        <!-- Gutter -->
-                        <TD WIDTH="10" BGCOLOR="#FFFFFF">
-                            <IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/>
+                    </TR>
+                    <TR>
+                        <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right">
+                            <IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/>
                         </TD>
-                        <!-- Gutter Ends -->
+                        <TD VALIGN="top" WIDTH="75">
+                            <IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/>
+                        </TD>
+                        <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
+                            <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
+                        </TD>
+                        <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10">
+                            <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF">
+                            <IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/>
+                        </TD>
+                        <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14">
+                            <IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/>
+                        </TD>
+                        <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
+                            <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
+                        </TD>
+                        <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10">
+                            <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
+                        </TD>
                     </TR>
                 </TABLE>
-                <!-- Body Ends -->
-                <xsl:call-template name="Foot"/>
-            </BODY>
-        </HTML>
-    </xsl:template>
+            </TD>
+            <!-- Center Column Ends -->
+            <!-- Body Area Ends -->
+
+            <!-- Gutter -->
+            <TD WIDTH="4" BGCOLOR="#FFFFFF">
+                <IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/>
+            </TD>
+            <!-- Gutter Ends -->
+            <!-- Right Column Begins -->
+            <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top">
+                <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/>
+                <BR/>
+                <!-- <A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm98"><IMG SRC="/i/motorola_sidebar1.gif" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A>
+                <A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm91_room1','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A><BR/>
+                <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
+                <!-- Right Column Include Begins -->
+                <xsl:call-template name="public_right_col"/>
+                <!-- Right Column Include Ends -->
+            </TD>
+            <!-- Right Column Ends -->
+            <!-- Gutter -->
+            <TD WIDTH="10" BGCOLOR="#FFFFFF">
+                <IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/>
+            </TD>
+            <!-- Gutter Ends -->
+        </TR>
+    </TABLE>
+    <!-- Body Ends -->
+    <xsl:call-template name="Foot"/>
+</BODY>
+</HTML>
+</xsl:template>
 </xsl:stylesheet>
