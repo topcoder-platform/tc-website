@@ -59,7 +59,7 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>List Manipulation: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=List Manipulation: Design&amp;comp=5502227&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=List Manipulation: Design&amp;comp=5501597&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -81,7 +81,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5502227">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5501597">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -131,7 +131,7 @@
 <!-- Register at TCS -->
 						
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=List Manipulation: Design&amp;comp=5502227&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=List Manipulation: Design&amp;comp=5501597&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
