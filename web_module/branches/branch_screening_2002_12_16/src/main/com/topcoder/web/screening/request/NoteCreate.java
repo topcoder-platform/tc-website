@@ -78,7 +78,9 @@ public class NoteCreate extends BaseProcessor {
         
         unote.createUserNote(Long.parseLong(candId), noteId);
 
-        setNextPage(Constants.NOTE_LIST_PAGE);
+        setNextPage(Constants.CONTROLLER_URL + '?' +
+                    Constants.REQUEST_PROCESSOR + '=' + "NoteList" + '&' +
+                    Constants.CANDIDATE_ID + '=' + candId);
         setNextPageInContext(false);
     }
     

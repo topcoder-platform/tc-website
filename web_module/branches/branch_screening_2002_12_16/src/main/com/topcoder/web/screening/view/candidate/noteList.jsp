@@ -49,9 +49,9 @@
            <% { boolean even = true; %>
               <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
                  <TR>
-                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<B>10.12.02</B>&#160;&#160;</TD>
-                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;John Doe&#160;&#160;</TD>
-                    <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>Lore, sed diar m ipsum dolodipiscing elit sit amet, consectetuer am ipsum dolodipm dolodtipiscing eli</TD>
+                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<B><screen:resultSetItem row="<%=row%>" name="create_date" /></B>&#160;&#160;</TD>
+                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<screen:resultSetItem row="<%=row%>" name="created_by" />&#160;&#160;</TD>
+                    <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="text" /></TD>
                  </TR>
                  <% even = !even; %>
               </screen:resultSetRowIterator>
