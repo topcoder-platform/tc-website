@@ -4,6 +4,7 @@
             <select name="quickstat" size="1" class="dropdown" onchange="window.location='/index?t=schedule&amp;c='+this.options[this.selectedIndex].value">
               <option value="" selected="selected">Choose Monthly View</option>
               <option value="jan_05">--- 2005 ---</option>
+              <option value="apr_05">April</option> 
               <option value="mar_05">March</option>              
               <option value="feb_05">February</option>              
               <option value="jan_05">January</option>
@@ -16,7 +17,6 @@
               <option value="jul_04">July</option>
               <option value="jun_04">June</option> 
               <option value="may_04">May</option> 
-              <option value="apr_04">April</option> 
               <option value=""></option>                           
             </select>
   </xsl:template>
