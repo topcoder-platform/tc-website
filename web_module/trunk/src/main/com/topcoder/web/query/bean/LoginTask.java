@@ -54,7 +54,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
             customRedir=true;
             Authentication.resetRequestedURL(session);
         } else {
-            setNextPage(Constants.DB_SELECTION_PAGE );
+            setNextPage(getServletPath()+"?"+Constants.TASK_PARAM+"="+Constants.DB_SELECTION_TASK);
         }
         try {
             Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "");
