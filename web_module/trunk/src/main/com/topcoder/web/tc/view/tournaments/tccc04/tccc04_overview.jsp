@@ -35,15 +35,15 @@
 <jsp:include page="tccc04Head.jsp" />
 
 <!-- Tab bar links-->
-<jsp:include page="tccc04Links.jsp" >
+<jsp:include page="tccc04links.jsp" >
    <jsp:param name="selectedTab" value="overview"/>
 </jsp:include>
 
-<!-- Tab bar sublinks-->
+<!-- Tab bar sublinks
 <jsp:include page="tccc04Sublinks.jsp" >
    <jsp:param name="selectedList" value=""/>
    <jsp:param name="selectedTab" value=""/>
-</jsp:include>
+</jsp:include>-->
 
             <h2>Overview of the Coding Tournament</h2>
 

@@ -9,7 +9,7 @@
     <tr>
         <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 
-<!-- Summary tab -->
+<!-- Overview tab -->
             <% if (selectedTab.equals("overview")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview" class="statTextBig"><img src="/i/tournament/tccc04/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
             <% } else { %>
@@ -30,21 +30,21 @@
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview" class="statTextBig"><img src="/i/tournament/tccc04/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
             <% } %>
 
-<!-- Top Fundraisers tab -->
+<!-- Advancers tab -->
             <% if (selectedTab.equals("advancers")) {%>
                  <td class="statTextBig" width="128"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview" class="statTextBig"><img src="/i/tournament/tccc04/tab_advancers_on.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
             <% } else { %>
                  <td class="statTextBig" width="128"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview" class="statTextBig"><img src="/i/tournament/tccc04/tab_advancers_off.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
             <% } %>
 
-<!-- Donate tab -->
+<!-- Summary tab -->
             <% if (selectedTab.equals("summary")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview" class="statTextBig"><img src="/i/tournament/tccc04/tab_summary_on.gif" alt="Summary" width="88" height="22" border="0" /></A></td>
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview" class="statTextBig"><img src="/i/tournament/tccc04/tab_summary_off.gif" alt="Summary" width="88" height="22" border="0" /></A></td>
             <% } %>
 
-<!-- Advancers tab -->
+<!-- Photos tab -->
             <% if (selectedTab.equals("photos")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview" class="statTextBig"><img src="/i/tournament/tccc04/tab_photos_on.gif" alt="Photos" width="88" height="22" border="0" /></A></td>
             <% } else { %>
