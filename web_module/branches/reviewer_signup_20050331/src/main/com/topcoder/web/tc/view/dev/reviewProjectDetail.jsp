@@ -3,6 +3,7 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
+                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.ejb.rboard.RBoardApplication,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  com.topcoder.web.tc.Constants,
@@ -13,7 +14,7 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
-<% RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class); %>
+<% RBoardApplication rba = (RBoardApplication) BaseProcessor.createEJB(getInitialContext(), RBoardApplication.class); %>
 <head>
 <title>Open Component Projects Available for Review</title>
 
