@@ -33,7 +33,7 @@
                     <td class="bodyText" align="left" width="100%">
                        <p>At NVIDIA we set unprecedented standards of excellence.   We do so in our vision, our values, and our 
                        work.  We believe that you become the best by hiring the best, and know that as long as we have a superior 
-                       engineering team, we’ll continue to lead the graphics industry into a new era of multimedia innovation.  
+                       engineering team, we'll continue to lead the graphics industry into a new era of multimedia innovation.  
                        We are excited to partner with Topcoder for the third year, as we know that the most brilliant minds in 
                        the coding world come together in these competitions.  We are looking forward to meeting the finalists 
                        at the 2004 Topcoder Open, and to discussing the possibilities about your future career path here at 
