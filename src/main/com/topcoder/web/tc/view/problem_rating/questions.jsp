@@ -20,7 +20,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
+<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="500" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="problem_rating"/>
            <jsp:param name="image1" value="white"/>
