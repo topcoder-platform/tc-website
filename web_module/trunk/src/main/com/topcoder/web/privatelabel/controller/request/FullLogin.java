@@ -9,7 +9,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import java.util.Arrays;
 
-abstract class FullLogin extends FullReg {
+public abstract class FullLogin extends FullReg {
 
     protected static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
     protected static final char[] UNACTIVE_STATI = {'U', '2'};
