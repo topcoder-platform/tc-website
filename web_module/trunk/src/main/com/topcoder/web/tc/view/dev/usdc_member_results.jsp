@@ -80,7 +80,7 @@
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="submit_timestamp" format="MM.dd.yyyy hh:mma" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><rsc:item name="final_score" format="0.00" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=right>$<rsc:item name="payment" format="#,##0" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center>$<rsc:item name="placed" format="0" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center><rsc:item name="placed" format="0" row="<%=resultRow%>"/></td>
                             </tr>
                             </rsc:iterator>
                         </table>
