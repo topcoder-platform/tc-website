@@ -96,7 +96,7 @@
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">01.05.2004</td>
+                                <td class="bodyText">03.10.2004</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Member_Guide.pdf" class="bodyText">TopCoder Software Member Guide.pdf</a></td>
                             </tr>
