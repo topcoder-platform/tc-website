@@ -96,7 +96,7 @@ the challenge phase, giving him the victory in this early skirmish.
 </p>
 
 <p>
-the leader board was thronged with coders from the red and yellow 
+Although the leader board was thronged with coders from the red and yellow 
 portions of the rating spectrum, blue coders <b>port6000</b>,
 <b>fiveEasyPieces</b>, and <b>TheFaxman</b> were room winners, along with Division 2 veteran 
 <b>irulet</b>. With so many agile minds solving the Level One and Level Two problems, rapid submission times
