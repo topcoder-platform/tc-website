@@ -34,7 +34,6 @@
                 </td>
             </tr>
 
-            <%-- todo figure out something for this error stuff --%>
             <pl:questionIterator id="question" list="<%=questionList%>">
                 <tr>
                     <td colspan="2">
