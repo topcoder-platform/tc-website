@@ -61,17 +61,48 @@ function submitEnter(e) {
                 <form method="post" name="frmPass" action="/tc">
                     <tr>
                         <td>
-                             <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30"/>
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                             <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30"/>
+                            First Name
+                        </td>
+                        <td>
+                             <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%></tc-webtag:errorIterator>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                             <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="30"/>
+                            Last Name
+                        </td>
+                        <td>
+                             <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%></tc-webtag:errorIterator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email Address
+                        </td>
+                        <td>
+                             <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="javascript void document.frmPass.submit()">Submit</a>
                         </td>
                     </tr>
                 </form>
