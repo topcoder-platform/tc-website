@@ -947,16 +947,21 @@
 
     <target name="moveQueries" depends="compile">
         <java classname="com.topcoder.utilities.querymover.QueryMover" fork="no">
-            <arg value="11024"/>
-            <arg value="11023"/>
-            <arg value="11029"/>
-            <arg value="13"/>
-            <arg value="262"/>
-            <arg value="280"/>
-            <arg value="11021"/>
-            <arg value="11014"/>
-            <arg value="12157"/>
-            <arg value="12158"/>
+            <arg value="24603"/>
+            <arg value="24604"/>
+            <arg value="24605"/>
+            <arg value="24606"/>
+            <arg value="24607"/>
+            <arg value="24608"/>
+            <arg value="24612"/>
+            <arg value="24613"/>
+            <arg value="24615"/>
+            <arg value="24616"/>
+            <arg value="24617"/>
+            <arg value="24618"/>
+            <arg value="24619"/>
+            <arg value="24620"/>
+            <arg value="24621"/>
             <classpath>
                 <pathelement location="${classes}"/>
                 <pathelement location="${resources}"/>
