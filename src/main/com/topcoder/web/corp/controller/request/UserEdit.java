@@ -668,6 +668,7 @@ public class UserEdit extends BaseProcessor {
         if (emailID <= 0) {
             emailID = emailTable.createEmail(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME, DBMS.CORP_OLTP_DATASOURCE_NAME);
             emailTable.setPrimaryEmailId(targetUserID, emailID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+            emailTable.setStatusId(emailID, 1, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
         emailTable.setAddress(emailID, email, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         if (createNew) {

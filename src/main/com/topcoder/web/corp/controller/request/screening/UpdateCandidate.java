@@ -129,6 +129,7 @@ public class UpdateCandidate extends BaseScreeningProcessor {
                         long emailId = email.createEmail(userId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME, DBMS.SCREENING_OLTP_DATASOURCE_NAME);
                         email.setAddress(emailId, info.getUserName(), DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);
                         email.setPrimaryEmailId(userId, emailId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);
+                        email.setStatusId(emailId, 1, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);
                     }
 
                     DataAccessInt access = Util.getDataAccess();
