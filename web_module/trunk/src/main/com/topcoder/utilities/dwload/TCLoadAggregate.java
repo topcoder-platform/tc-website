@@ -184,6 +184,8 @@ public class TCLoadAggregate extends TCLoad {
 
             loadRoundProblem();
 
+            loadProblemLanguage();
+
             log.info("SUCCESS: Aggregate load ran successfully.");
             return true;
         } catch (Exception ex) {
@@ -1707,5 +1709,236 @@ public class TCLoadAggregate extends TCLoad {
             close(psUpd);
         }
     }
+
+
+    /**
+     * This populates the 'problem_language' table
+     */
+    private void loadProblemLanguage() throws Exception {
+        int retVal = 0;
+        int count = 0;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        PreparedStatement psDel = null;
+        PreparedStatement psUpd = null;
+        ResultSet rs = null;
+        StringBuffer query = null;
+
+        try {
+            query = new StringBuffer(100);
+            query.append("SELECT cp.round_id ");    // 1
+            query.append(    " , cp.problem_id ");  // 2
+            query.append(    " , cp.division_id "); // 3
+            query.append(    " , cp.language_id "); // 4
+            // 5: problems_submitted
+            query.append(" ,SUM(CASE WHEN cp.end_status_id >= " + STATUS_SUBMITTED +
+                    " THEN 1 ELSE 0 END)");
+            // 6: problems_correct
+            query.append(" ,SUM(CASE WHEN cp.end_status_id = " +
+                    STATUS_PASSED_SYS_TEST + " THEN 1 ELSE 0 END)  ");
+            // 7: problems_failed_by_challenge
+            query.append(" ,SUM(CASE WHEN cp.end_status_id = " +
+                    STATUS_CHLNG_SUCCEEDED + " THEN 1 ELSE 0 END)  ");
+            // 8: problems_failed_by_system_test
+            query.append(" ,SUM(CASE WHEN cp.end_status_id = " +
+                    STATUS_FAILED_SYS_TEST + " THEN 1 ELSE 0 END)  ");
+            query.append("  ,SUM(cp.submission_points) ");// 9: submission_points
+            query.append(" ,SUM(cp.challenge_points)"); // 10: challenge_points
+            query.append(" ,SUM(cp.system_test_points)"); // 11: system_test_points
+            query.append(" ,SUM(cp.defense_points)"); // 12: defense_points
+            query.append(" ,AVG(cp.final_points)"); // 13: average_points
+            query.append(" ,STDEV(final_points) "); // 14: point_standard_deviation
+            query.append(" ,SUM(final_points) "); // 15: final_points
+            query.append(" ,AVG(time_elapsed) ");     //16
+            query.append("  FROM coder_problem cp ");
+            query.append(" WHERE cp.end_status_id >= " + STATUS_SUBMITTED);
+            if (!FULL_LOAD) {   //if it's not a full load, just load up the problems from this round
+                query.append(" AND cp.round_id =" + fRoundId);
+            }
+            query.append(" GROUP BY 1,2,3,4 ");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+
+            query = new StringBuffer(100);
+            query.append("INSERT INTO problem_language ");
+            query.append("      (round_id ");                         // 1
+            query.append("       ,problem_id ");                      // 2
+            query.append("       ,division_id ");                     // 3
+            query.append("       ,language_id ");                     // 4
+            query.append("       ,problems_submitted ");              // 5
+            query.append("       ,problems_correct ");                // 6
+            query.append("       ,problems_failed_by_challenge ");    // 7
+            query.append("       ,problems_failed_by_system_test ");  // 8
+            query.append("       ,submission_points ");               // 9
+            query.append("       ,challenge_points ");                // 10
+            query.append("       ,system_test_points ");              // 11
+            query.append("       ,defense_points ");                  // 12
+            query.append("       ,average_points ");                  // 13
+            query.append("       ,point_standard_deviation ");        // 14
+            query.append("       ,final_points ");                    // 15
+            query.append("       ,avg_time_elapsed) ");               // 16
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("?,?,?,?,?,?)");        // 16 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append("DELETE FROM problem_language ");
+            query.append(" WHERE round_id = ? ");
+            query.append("   AND problem_id = ? ");
+            query.append("   AND division_id = ? ");
+            query.append("   AND language_id = ?");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append(" UPDATE round_problem ");
+            query.append(" SET challenge_attempts_made = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" ,coder_problem cp");
+            query.append(" WHERE c.challenger_id = rr.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = round_problem.division_id");
+            query.append(" AND rr.round_id = cp.round_id");
+            query.append(" AND rr.coder_id = cp.coder_id");
+            query.append(" AND p.problem_id = cp.problem_id");
+            query.append(" AND cp.language_id = round_problem.language_id");
+            query.append(" AND p.level_id = round_problem.level_id)");
+            query.append(" ,challenges_made_successful = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" ,coder_problem cp ");
+            query.append(" WHERE c.challenger_id = rr.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = round_problem.division_id");
+            query.append(" AND rr.round_id = cp.round_id");
+            query.append(" AND rr.coder_id = cp.coder_id");
+            query.append(" AND p.problem_id = cp.problem_id");
+            query.append(" AND cp.language_id = round_problem.language_id");
+            query.append(" AND p.level_id = round_problem.level_id");
+            query.append(" AND c.succeeded = " + STATUS_SUCCEEDED + ")");
+            query.append(" ,challenges_made_failed = ");
+            query.append(" (SELECT count(*) ");
+            query.append(" FROM challenge c ");
+            query.append(" ,problem p ");
+            query.append(" ,room_result rr ");
+            query.append(" ,coder_problem cp ");
+            query.append(" WHERE c.challenger_id = rr.coder_id");
+            query.append(" AND c.round_id = rr.round_id");
+            query.append(" AND rr.round_id = p.round_id");
+            query.append(" AND rr.division_id = p.division_id");
+            query.append(" AND p.problem_id = c.problem_id");
+            query.append(" AND p.division_id = round_problem.division_id");
+            query.append(" AND rr.round_id = cp.round_id");
+            query.append(" AND rr.coder_id = cp.coder_id");
+            query.append(" AND p.problem_id = cp.problem_id");
+            query.append(" AND cp.language_id = round_problem.language_id");
+            query.append(" AND p.level_id = round_problem.level_id");
+            query.append(" AND c.succeeded = " + STATUS_FAILED + ")");
+            query.append(" ,open_order = ");
+            query.append(" (SELECT distinct open_order ");
+            query.append(" FROM coder_problem cp ");
+            query.append(" WHERE cp.problem_id = round_problem.problem_id ");
+            query.append("   AND cp.round_id = round_problem.round_id ");
+            query.append("   AND cp.language_id = round_problem.language_id");
+            query.append("   AND cp.division_id = round_problem.division_id) ");
+            query.append(" ,level_id = ");
+            query.append(" (SELECT distinct level_id ");
+            query.append(" FROM coder_problem cp ");
+            query.append(" WHERE cp.problem_id = round_problem.problem_id ");
+            query.append("   AND cp.round_id = round_problem.round_id ");
+            query.append("   AND cp.language_id = round_problem.language_id");
+            query.append("   AND cp.division_id = round_problem.division_id) ");
+            query.append(" ,level_desc = ");
+            query.append(" (SELECT distinct level_desc ");
+            query.append(" FROM coder_problem cp ");
+            query.append(" WHERE cp.problem_id = round_problem.problem_id ");
+            query.append("   AND cp.round_id = round_problem.round_id ");
+            query.append("   AND cp.language_id = round_problem.language_id");
+            query.append("   AND cp.division_id = round_problem.division_id) ");
+            query.append(" WHERE problem_id = ? ");
+            query.append("   AND round_id = ? ");
+            query.append("   AND division_id = ?");
+            query.append("   AND language_id = ?");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
+
+            // On to the load
+            rs = psSel.executeQuery();
+
+            while (rs.next()) {
+                int round_id = rs.getInt(1);
+                int problem_id = rs.getInt(2);
+                int division_id = rs.getInt(3);
+                int language_id = rs.getInt(4);
+
+                psDel.clearParameters();
+                psDel.setInt(1, round_id);
+                psDel.setInt(2, problem_id);
+                psDel.setInt(3, division_id);
+                psDel.setInt(4, language_id);
+                psDel.executeUpdate();
+
+                psIns.clearParameters();
+                psIns.setInt(1, round_id);  // round_id
+                psIns.setInt(2, problem_id);  // problem_id
+                psIns.setInt(3, division_id);  // division_id
+                psIns.setInt(4, rs.getInt(4));  // problems_opened
+                psIns.setInt(5, rs.getInt(5));  // problems_submitted
+                psIns.setInt(6, rs.getInt(6));  // problems_correct
+                psIns.setInt(7, rs.getInt(7));  // prb_failed_by_challenge
+                psIns.setInt(8, rs.getInt(8));  // prb_failed_by_systemtest
+                psIns.setInt(9, rs.getInt(9));  // problems_left_open
+                psIns.setFloat(10, rs.getFloat(10));  // submission_points
+                psIns.setFloat(11, rs.getFloat(11));  // challenge_points
+                psIns.setFloat(12, rs.getFloat(12));  // system_test_points
+                psIns.setFloat(13, rs.getFloat(13));  // defense_points
+                psIns.setFloat(14, rs.getFloat(14));  // average_points
+                psIns.setFloat(15, rs.getFloat(15));  // point_standard_dev
+                psIns.setFloat(16, rs.getFloat(16));  // final_points
+                psIns.setFloat(17, rs.getFloat(17));  // avg_time_elapsed
+
+                retVal = psIns.executeUpdate();
+                count += retVal;
+                if (retVal != 1) {
+                    throw new SQLException("TCLoadRound: Insert for round_id " +
+                            round_id +
+                            ", problem_id " + problem_id +
+                            ", division_id " + division_id +
+                            " modified " + retVal + " rows, not one.");
+                }
+
+                psUpd.clearParameters();
+                psUpd.setInt(1, problem_id);      // problem_id
+                psUpd.setInt(2, round_id);        // round_id
+                psUpd.setInt(3, division_id);     // division_id
+                psUpd.setInt(4, language_id);
+                psUpd.executeUpdate();
+
+                printLoadProgress(count, "problem_language");
+            }
+
+            log.info("problem_language records copied = " + count);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'problem_language' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psIns);
+            close(psDel);
+            close(psUpd);
+        }
+    }
+
 
 }
