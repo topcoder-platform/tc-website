@@ -146,7 +146,7 @@
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
-                                    <xsl:if test="number('./version') &gt; 1">
+                                    <xsl:if test="number(./version) &gt;  number('1')">
                                         v<xsl:value-of select="./version"/>
                                     </xsl:if>
                                 </a>
@@ -221,7 +221,7 @@
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
-                                    <xsl:if test="number('./version') &gt; 1">
+                                    <xsl:if test="number(./version) &gt;  number('1')">
                                         v<xsl:value-of select="./version"/>
                                     </xsl:if>
                                 </a>
