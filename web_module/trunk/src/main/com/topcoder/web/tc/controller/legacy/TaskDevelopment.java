@@ -570,6 +570,8 @@ public final class TaskDevelopment {
                                                 "TopCoder Software Team");
                                     }
                                     EmailEngine.send(mail);
+                                } else {
+                                    xsldocURLString = XSL_DIR + "already_registered.xsl";
                                 }
 
                             } else {
