@@ -2,11 +2,14 @@
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<HTML>
-<HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
-<jsp:include page="/script.jsp"/>
-<SCRIPT TYPE="text/javascript">
+<html>
+<head>
+<title>Topcoder | Testing Application Management Tool</title>
+
+<jsp:include page="/script.jsp" />
+
+<script type="text/javascript" language="Javascript">
+<!--
 function getProblemDetail(id) {
     var width = screen.availWidth * 2 / 3;
     var height = screen.availHeight / 2;
@@ -18,90 +21,103 @@ function getProblemDetail(id) {
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
-</SCRIPT>
-</HEAD>
+// -->
+</script>
+
+</head>
 
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 <jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
 <jsp:useBean id="testResultsInfo" class="com.topcoder.web.screening.model.TestResultsInfo" />
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="/includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-        <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-            <h1 class="testHead">Test Results</h1>
-            <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-                <TR>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyText">
-<% String params = Constants.CANDIDATE_ID + '=' + candidateInfo.getUserId() + "&referrer=TestResults";%>
-                           <B>Candidate:</B> <screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink>
-                       </TD>
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyText">
-                           <B>Test Profile:</B> <jsp:getProperty name='profileInfo' property='profileName'/>
-                       </TD>
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyText">
-                           <B>Problem Set:</B> <jsp:getProperty name='profileInfo' property='testSetAName'/>
-                       </TD>
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>
-<% if(testResultsInfo.isSessionComplete()) { %>
-	        <TR>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyTextBold"><B>Test Set A Results:</B></TD>
-	        </TR>
-	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1"></TD>
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Problem</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Language</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Status</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Test Passed</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Test Failed</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>% Test Passed</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Time</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#666666">&#160;</TD>
-	        </TR>
+<body>
+
+<!-- Header begins -->
+<jsp:include page="/includes/top.jsp" />
+<!-- Header ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
+<!-- gutter begins -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- gutter ends -->
+
+<!-- Middle column begins -->
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td class="bodyText">
+                        <h1 class="testHead">Test Results</h1>
+                    </td>
+                </tr>
+            </table>
+
+            <table cellspacing="1" cellpadding="0" width="100%" border="0">
+                <tr>
+                    <td class="bodyText">
+                        <% String params = Constants.CANDIDATE_ID + '=' + candidateInfo.getUserId() + "&referrer=TestResults";%>
+                        <strong>Candidate:</strong> <screen:servletLink processor="PopulateCandidate" param="<%=params%>"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink>
+                       </td>
+	        </tr>
+	        
+	        <tr>
+                    <td class="bodyText">
+                        <strong>Test Profile:</strong> <jsp:getProperty name='profileInfo' property='profileName'/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText">
+                        <strong>Problem Set:</strong> <jsp:getProperty name='profileInfo' property='testSetAName'/>
+                    </td>
+	        </tr>
+	    </table>
+
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+                <% if(testResultsInfo.isSessionComplete()) { %>
+	        <tr>
+		       <td colspan="8" class="testHeadSmall">Test Set A Results:</td>
+	        </tr>
+	        
+	        <tr>
+		       <td width="15%" class="testFormHeader">Problem</td>
+		       <td width="15%" align="center" class="testFormHeader">Language</td>
+		       <td width="15%" align="center" class="testFormHeader">Status</td>
+		       <td width="15%" align="center" class="testFormHeader">Test Passed</td>
+		       <td width="15%" align="center" class="testFormHeader">Test Failed</td>
+		       <td width="15%" align="center" class="testFormHeader">% Test Passed</td>
+		       <td width="15%" align="center" class="testFormHeader">Time</td>
+		       <td width="15%" align="center" class="testFormHeader">&#160;</td>
+                </tr>
+	        
                 <% boolean even = true; %>
-                   <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
-                     <%
-                        String color = even ? "BGCOLOR='#CCCCCC'" : "";
-                        String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
-                                         Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
-                                         Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
-                                         Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
+                <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
+                    <%
+                     String color = even ? "bgcolor='#EEEEEE'" : "";
+                     String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
+                     Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
+                     Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
+                     Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                      %>
-	             <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
-	             </TR>
-                     <% even = !even; %>
-                   </screen:resultSetRowIterator>
+                     
+                <tr>
+		       <td class="bodyText" <%= color %>>&#160;<a href="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" class="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></a></td>
+		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
+		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="status_desc" /></td>
+		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></td>
+		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_failed" /></td>
+		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</td>
+		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
+		       <td align="center" class="bodyText" <%= color %>><screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink></td>
+                </tr>
+                <% even = !even; %>
+                </screen:resultSetRowIterator>
+            </table>
+
+            <p><br></p>
+
+            <table cellspacing="1" cellpadding="3" width="100%">
 	        <TR>
 		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
 	        </TR>
