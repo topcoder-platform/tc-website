@@ -126,7 +126,7 @@ public class MainServlet extends HttpServlet {
         
         if( moduleName != null ) {
             while( initNames.hasMoreElements() ) {
-                initParam = initNames.nextElement().toString();
+                initParam = (String)initNames.nextElement();
                 if( initParam == null ) continue;
                 initValue = srvCfg.getInitParameter( initParam );
                 if( initValue == null ) continue;
@@ -162,14 +162,6 @@ public class MainServlet extends HttpServlet {
         
         if( !found ) {
             log.debug( "doGet: module not found" );
-            String entireUri = request.getRequestURI();
-            if( null != request.getQueryString() ) {
-                    entireUri += "?"+request.getQueryString();
-            }
-            //possible situations when dispatcher for the given URI is absent,
-            // and then dispatcher will be null  
-            getServletContext().getRequestDispatcher(entireUri).forward(request, response);
-            
             //sendToErrorPage( request, response, new Exception("404?") );
         }
         /*
