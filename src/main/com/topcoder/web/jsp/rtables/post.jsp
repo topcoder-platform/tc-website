@@ -23,7 +23,7 @@
     String url ="";
     String responseURL = "";
     String responsePostURL = responseURL.equals("") ? "" :  responseURL.substring(1);
-    String timeoutURL = "http://" + request.getServerName() + "?Command=session_timeout";
+    String timeoutURL = "http://" + request.getServerName() + "?&t=error&c=session_timeout";
     n = (Navigation) session.getAttribute("navigation"); 
     if (n==null) {
       session = request.getSession(true);
