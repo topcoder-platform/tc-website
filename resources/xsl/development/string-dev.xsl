@@ -120,7 +120,7 @@
 						<p>Component Posting: 1.23.2003<br/>
 						Initial Submission Due Date: 2.6.2003 - <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
 						Winner Announced: 2.19.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DevWinner"/><br/>
-						Final Submission Due Date: 2.24.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/></p>
+						Final Submission Due Date: 2.24.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DevFinal"/></p>
 <!-- Register at TCS -->
 						
 
