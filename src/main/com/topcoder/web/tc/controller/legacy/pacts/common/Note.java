@@ -68,7 +68,6 @@ public class Note implements PactsConstants, java.io.Serializable {
         _header = new NoteHeader();
         _header._user._id = user;
         _header._typeId = type;
-        _header._userId = user_id;
         _text = text;
 
     }

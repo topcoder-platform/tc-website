@@ -38,7 +38,6 @@ public class NoteHeader implements PactsConstants, java.io.Serializable {
 *  _submittedBy - handle of the user who submitted the note
 */
     public long _id;
-    public long _userId;
     public String _creationDate;
     public String _type;
     public int _typeId;
@@ -60,7 +59,6 @@ public class NoteHeader implements PactsConstants, java.io.Serializable {
 
     public void setDefaults() {
         _id = 0;
-        _userId = 0;
         _creationDate = "00/00/00";
         _type = "Default Note Type";
         _typeId = 0;
@@ -108,7 +106,6 @@ public class NoteHeader implements PactsConstants, java.io.Serializable {
         _user = new UserProfileHeader();
         _user._handle = TCData.getTCString(rsr, "handle", "submitting staff member", true);
         _user._id = TCData.getTCLong(rsr, "submitted_by", 0, false);
-        _userId = TCData.getTCLong(rsr, "user_id");
     }
 
     public NoteHeader(Map results) {

@@ -2530,14 +2530,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Add the note, then add to the appropriate xref table
             StringBuffer insertNote = new StringBuffer(300);
             insertNote.append("INSERT INTO note ");
-            insertNote.append(" (text, note_type_id, note_id, submitted_by, user_id) ");
+            insertNote.append(" (text, note_type_id, note_id, submitted_by) ");
             insertNote.append(" VALUES(?,?,?,?,?,?)");
             ps = c.prepareStatement(insertNote.toString());
             ps.setBytes(1, DBMS.serializeTextString(n._text));
             ps.setInt(2, n._header._typeId);
             ps.setLong(3, noteId);
             ps.setLong(4, n._header._user._id);
-            ps.setLong(5, n._header._userId);
             ps.executeUpdate();
             ps.close();
             ps = null;
