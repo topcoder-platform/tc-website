@@ -30,21 +30,12 @@
             <A class="topLink" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=index</xsl:attribute>Development</A>
         </td>
 
-        <td nowrap="0">
-            <xsl:attribute name="class">
-            <xsl:choose>
-                <xsl:when test="/TC/Task='tces'">topNavOn</xsl:when>
-                <xsl:otherwise>topNav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="topLink" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>Job Listing</A>
-        </td>
 
         <td class="topNav" nowrap="0"><A class="topLink"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/></xsl:attribute>Software</A></td>
 
         <td class="topNav" nowrap="0"><A  class="topLink"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=tces_home</xsl:attribute>Employment Services</A></td>
 
-        <td class="topNav" nowrap="0"><A  class="topLink"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index</xsl:attribute>Sponsorship</A></td>
+        <td class="topNav" nowrap="0"><A  class="topLink"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index</xsl:attribute>Marketing Services</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>
