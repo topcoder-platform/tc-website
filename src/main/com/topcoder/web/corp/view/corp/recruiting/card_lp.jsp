@@ -15,8 +15,8 @@
 <!--
 var MM_contentVersion = 6;
 var MM_FlashCanPlay = false;
-var plugin = (navigator.mimeTypes 
-              && navigator.mimeTypes["application/x-shockwave-flash"]) 
+var plugin = (navigator.mimeTypes
+              && navigator.mimeTypes["application/x-shockwave-flash"])
             ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
 if ( plugin ) {
   var words = navigator.plugins["Shockwave Flash"].description.split(" ");
@@ -75,7 +75,7 @@ if ( plugin ) {
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h3><strong>Candidate Identification</strong></h3>
+                        <h2>TopCoder Cards</h2>
 
 <div align="center">
 <SCRIPT language="JavaScript">
@@ -86,12 +86,11 @@ document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
 document.write(' codebase="http://fpdownload.macromedia.com" ');
 document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 document.write(' width="400" ');
-document.write(' height="400" ');
+document.write(' height="410" ');
 document.write(' id="tc_card" ');
 document.write(' align="middle">');
 document.write(' <param name="allowScriptAccess" value="sameDomain" />');
-document.write(' <param name="movie" ');
-document.write(' value="/i/card/tc_card.swf?memberID=144400"/>');
+document.write(' <param name="movie" value="/i/card/tc_card.swf?memberID=144400"');
 document.write(' <param name="menu" value="false" />');
 document.write(' <param name="quality" value="high" />');
 document.write(' <param name="bgcolor" value="#ffffff" />');
@@ -101,13 +100,14 @@ document.write(' menu="false" ');
 document.write(' quality="high" ');
 document.write(' bgcolor="#ffffff" ');
 document.write(' width="400" ');
-document.write(' height="400" ');
+document.write(' height="410" ');
 document.write(' name="tc_card" ');
 document.write(' align="middle" ');
 document.write(' allowScriptAccess="sameDomain" ');
 document.write(' type="application/x-shockwave-flash" ');
 document.write(' pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
 document.write(' </object> ');
+
 }
 // -->
 </SCRIPT>
@@ -116,11 +116,12 @@ document.write(' </object> ');
 <!--
 if (!MM_FlashCanPlay){
 document.write('<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
-document.write('<img src="/i/card/noFlash.gif" width="400" height="400" border="0"></A> ');
+document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="0"></A> ');
 }
 // -->
 </SCRIPT>
-                        
+</div>
+
                         <p><br></p>
                     </td>
 

@@ -820,7 +820,7 @@ it impossible for both a player and his mirror image to block the puck.
 
 </p>
 
-<div align="right"><img src="/i/srm/srm186.png" /></div>
+<div align="center"><img src="/i/srm/srm186.png" /></div>
 
 <p>
 In the Java code below, we use a single loop to iterate over the players
