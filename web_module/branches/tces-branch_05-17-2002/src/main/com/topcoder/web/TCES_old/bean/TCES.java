@@ -44,6 +44,7 @@ public class TCES extends Task implements Serializable {
 			navs.add(new TCESNav("job", PATH, "job.jsp", "Job Builder"));
 			navs.add(new TCESNav("done", PATH, "done.jsp", "Finish", false));			
 			navs.add(new TCESNav("norating", PATH, "norating.jsp", "Unrated", false));
+			navs.setDefaultNav("contact");
 		}
 	   
     public TCES() {

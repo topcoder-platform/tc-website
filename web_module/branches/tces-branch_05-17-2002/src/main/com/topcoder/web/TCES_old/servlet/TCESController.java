@@ -38,8 +38,12 @@ public class TCESController extends HttpServlet {
         {
             String taskName = request.getParameter(TASK);
             if (taskName == null || !TCES.navs.getHash().containsKey(taskName)) {
-                Log.msg(TASK+" not found in request.");
-								response.sendRedirect("/index");
+                Log.msg(TASK+" not found in request. Going to default nav.");
+								if (TCES.navs.getDefaultNav() != null) {
+									forward(request,response, tces.getDefaultNav().getFullPageName());
+								} else {
+									response.sendRedirect("/index");
+								}
                 //forwardToError(request,response,new TaskException(TASK+" not found in request."));
                 //return;
             }
@@ -63,7 +67,7 @@ public class TCESController extends HttpServlet {
 							} catch (TaskException te) {
                 forwardToError(request,response,new TaskException(TASK+": " + te.getMessage()));
 							}
-							
+							session.setAttribute("tces", tces);
             	forward(request,response, tces.getNextNav().getFullPageName());
 						}
          } 
