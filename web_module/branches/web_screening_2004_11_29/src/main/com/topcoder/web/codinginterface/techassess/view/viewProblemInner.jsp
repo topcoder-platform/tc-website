@@ -81,8 +81,8 @@
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonResize.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonFind.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonGoTo.gif" alt="" /></a></td>
-                          <td><a href="JavaScript:submit(<%=Constants.RP_SAVE%>)" target="_top"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
-                          <td><a href="JavaScript:submit(<%=Constants.RP_COMPILE%>)" target="_top"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
+                          <td><a href="JavaScript:submit('<%=Constants.RP_SAVE%>')" target="_top"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
+                          <td><a href="JavaScript:submit('<%=Constants.RP_COMPILE%>')" target="_top"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
                           <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>
