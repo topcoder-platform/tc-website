@@ -22,7 +22,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>TCO04 Qualification 1 Statistics at TopCoder</title>
+<title>TCO04 Qualification 5 Statistics at TopCoder</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
-                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Qualification Problem Set 1</font></td>
+                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Qualification Problem Set 5</font></td>
                                 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
@@ -85,10 +85,9 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2> 
 
 <p> 
-This set was the only one not dominated by reds.  In fact, only
-one red, <b>Jan_Kuipers</b> cracked the top five, finishing second.  Yellow 
-<b>lujo</b> took top honors, with a green and two blues rounding out
-the top five, all three rising to yellow in the process.
+Jongman was one of two yellow coders to win his problem set, and he did so by
+over 70 points, beating second place ZorbaTHut, and third place kalinov, not to
+mention every one's favorite problem writer, Yarin.
 </p> 
  
 <p>
@@ -98,9 +97,9 @@ The Problems
 </p> 
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement&amp;pm=2941&amp;rd=5873" name="2941">NinePatch</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=2969&amp;rd=5877" name="2969">TheThe</a></b> 
 </font> 
-<A href="Javascript:openProblemRating(2941)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(2969)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -115,7 +114,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Submission Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      188 / 200 (94.00%) 
+      197 / 211 (93.36%) 
     </td> 
   </tr> 
   <tr> 
@@ -123,7 +122,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      176 / 188 (93.62%) 
+      168 / 197 (85.28%) 
     </td> 
   </tr> 
   <tr> 
@@ -131,7 +130,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <b>omkarashish</b> for 247.71 points (2 mins 11 secs) 
+      <b>gepa</b> for 248.02 points (2 mins 2 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -139,27 +138,22 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      207.64 (for 176 correct submissions) 
+      218.90 (for 168 correct submissions) 
     </td> 
   </tr> 
 </table></blockquote> 
 
 <p>
-A W-by-L scrap has enough fabric for (W/2)*(L/2) squares, with
-both divisions rounding down if necessary.  Add up the squares for
-all the scraps, and divide by 9 to get the number of blocks.
+A good string tokenizer was all you needed in this problem.  Simply loop through
+all of the lines, tokenizing each one into words.  Then, look at all pairs of
+adjacent lines, and see if the first token of one line matches the last token of
+the preceding line.
 </p>
-<pre>
-    int squares = 0;
-    for (int i = 0; i &lt; length.length; i++)
-      squares += (width[i]/2)*(length[i]/2);
-    return squares/9;
-</pre>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement&amp;pm=2008&amp;rd=5873" name="2008">LogCabin</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=2979&amp;rd=5877" name="2979">FewestTurns</a></b> 
 </font> 
-<A href="Javascript:openProblemRating(2008)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(2979)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -174,7 +168,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      69 / 200 (34.50%) 
+      81 / 211 (38.39%) 
     </td> 
   </tr> 
   <tr> 
@@ -182,7 +176,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      36 / 69 (52.17%) 
+      37 / 81 (45.68%) 
     </td> 
   </tr> 
   <tr> 
@@ -190,7 +184,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <b>lujo</b> for 711.70 points (15 mins 53 secs) 
+      <b>JongMan</b> for 796.40 points (12 mins 9 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -198,87 +192,68 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      478.96 (for 36 correct submissions) 
+      481.02 (for 37 correct submissions) 
     </td> 
   </tr> 
 </table></blockquote> 
 
 <p>
-In general, when you first add strip K, it is adjacent to strips K-1, K-3,
-and K-4.  For example, consider strip 7 in the following diagram.
-<pre>
-    7666
-    7325
-    7315
-    7445
-</pre>
-Strip 7 is adjacent to strips 6, 4, and 3.  Strip K is not adjacent to strip
-K-2, except for the special case of strip 3, which is adjacent to strips
-2 and 1.
-<pre>
-     32
-     31
-</pre>
+This is a pretty standard search problem.  The most efficient way to do it is
+with a breadth first search, but a simpler depth first search can be made to
+work as long as you are careful about not blowing the stack.  Most coders went
+for a breadth first approach, so I'll discuss that one.  The basic idea here is
+like any other breadth first search problem, you have a first in, first out
+queue.  Each element in the queue represents a location and direction in the
+map.  You also have a table which tells how many turns it has taken to get to a
+particular location in a particular direction.  After you take a location and
+direction off the queue, you look at all the positions and directions that can
+be reached from there.  For each one, you also look up how many turns it has
+taken in the table.  If the value in the table doesn't exist, or is greater than
+the number of turns required to get there from the location we took off the
+queue, we insert the location and direction into the queue, and update the
+table.  At the end, we return the minimum value in the table for the final
+position and some direction.
 </p>
-
-<p>
-With those constraints in mind, a recursive depth-first search that tries
-all possibilities runs in plenty of time.  There was no need to do anything
-fancy like remembering the states that you've visited before.  In each
-recursive call, simply try all four fabrics as the next strip, backtracking
-when a fabric would be adjacent to itself or when the fabric is shorter
-than the desired strip.  During the search, keep track of the most strips 
-that are ever used.
 <pre>
-    int most = 0;
-    void dfs(int n) {
-       int desiredLength = (n+1)/2;
-       for (int f = 0; f &lt; 4; f++) {
-          if (fabricLength[f] &lt; desiredLength) continue;
-          if (f == strip[n-1] || f == strip[n-3] || f == strip[n-4) continue;
-          if (n == 3 &amp;&amp; f == strip[1]) continue; // special case for strip 3
-
-          fabricLength[i] -= desiredLength;
-          strip[n] = f;
-          most = max(most, n);
-          dfs(n+1);
-          fabricLength[i] += desiredLength;
-       }
+    queue q;
+    table t;
+    initialize t[a][b][c] = INF, for all a,b,c;
+<font color="blue">//insert starting location and all four directions</font>
+    q.insert(startx,starty,0);
+    q.insert(startx,starty,1);
+    q.insert(startx,starty,2);
+    q.insert(startx,starty,3);
+    t[startx][starty][0] = 0;
+    t[startx][starty][1] = 0;
+    t[startx][starty][2] = 0;
+    t[startx][starty][3] = 0;
+    while(!q.isEmpty()){
+        x = q.first().x;
+        y = q.first().y;
+        dir = q.first().dir;
+        q.removeFirst();
+        turns = table[x][y][dir];
+        if(roadFrom(x,y,x+dx[dir],y+dy[dir])){
+            if(t[x+dx[dir]][y+dy[dir]][dir] &gt; turns){
+                t[x+dx[dir]][y+dy[dir]][dir] = turns;
+                q.insert(x+dx[dir],y+dy[dir],dir);
+            }
+        }
+        if(t[x][y][(dir+1)%4] &gt; turns+1){
+            t[x][y][(dir+1)%4] = turns+1;
+            q.insert(x,y,(dir+1)%4);
+        }
+        if(t[x][y][(dir+3)%4] &gt; turns+1){
+            t[x][y][(dir+3)%4] = turns+1;
+            q.insert(x,y,(dir+3)%4);
+        }
     }
+    return min(t[finalx][finaly][0],t[finalx][finaly][1],
+        t[finalx][finaly][2],t[finalx][finaly][3]);
 </pre>
-Then the main function initializes the <tt>strip</tt> array, calls
-<tt>dfs(1)</tt>, and returns <tt>most</tt>.
-</p>
-
-<p>
-In this code, <tt>strip</tt> is an array that keeps track of which
-fabric was used in each strip, where <tt>strip[<i>n</i>]</tt> contains
-the fabric number (0-3) of the <i>n</i>-th strip.  Notice that the
-line 
-<pre>
-    if (f == strip[n-1] || f == strip[n-3] || f == strip[n-4) continue;
-</pre>
-refers to strips that do not exist when <i>n</i> &lt;= 4.  
-To avoid special cases for these values of <i>n</i>, 
-it is useful to insert phantom strips, known as 
-<a href="http://www.topcoder.com/?&amp;t=features&amp;c=feat_090104">sentinels</a>,
-in positions 0, -1, -2, and -3, initialized to some non-existent
-fabric number like 99.  Then we are guaranteed that the current
-fabric will not equal the fabric in, say, strip <i>n</i>-4 when
-strip <i>n</i>-4 does not exist.
-</p>
-
-<p>
-Of course, you are probably working in a language that does not support
-negative array indices.  In that case, shift all the strips a few
-positions forward, so that the <i>n</i>-th strip is stored in, say, 
-<tt>strip[n+4]</tt>.
-</p>
-
-
                         <p>
-                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br />
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>

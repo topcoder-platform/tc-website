@@ -22,7 +22,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>TCO04 Qualification 1 Statistics at TopCoder</title>
+<title>TCO04 Qualification 2 Statistics at TopCoder</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
-                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Qualification Problem Set 1</font></td>
+                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Qualification Problem Set 2</font></td>
                                 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
@@ -85,10 +85,10 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2> 
 
 <p> 
-This set was the only one not dominated by reds.  In fact, only
-one red, <b>Jan_Kuipers</b> cracked the top five, finishing second.  Yellow 
-<b>lujo</b> took top honors, with a green and two blues rounding out
-the top five, all three rising to yellow in the process.
+This set contained a rather straightforward, but long hard problem.  Antimatter,
+known for his impressive speed, won this set handily, though perhaps because he got to
+warm up on set 1.  He beat out two yellow coders oldbig, and Olexiy, who took
+second and third, each over 100 points behind.
 </p> 
  
 <p>
@@ -98,9 +98,9 @@ The Problems
 </p> 
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement&amp;pm=2941&amp;rd=5873" name="2941">NinePatch</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=2975&amp;rd=5874" name="2975">FileFilter</a></b> 
 </font> 
-<A href="Javascript:openProblemRating(2941)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(2975)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -115,7 +115,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Submission Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      188 / 200 (94.00%) 
+      204 / 216 (94.44%) 
     </td> 
   </tr> 
   <tr> 
@@ -123,7 +123,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      176 / 188 (93.62%) 
+      152 / 204 (74.51%) 
     </td> 
   </tr> 
   <tr> 
@@ -131,7 +131,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <b>omkarashish</b> for 247.71 points (2 mins 11 secs) 
+      <b>Im2Good</b> for 248.02 points (2 mins 2 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -139,27 +139,23 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      207.64 (for 176 correct submissions) 
+      204.98 (for 152 correct submissions) 
     </td> 
   </tr> 
 </table></blockquote> 
 
 <p>
-A W-by-L scrap has enough fabric for (W/2)*(L/2) squares, with
-both divisions rounding down if necessary.  Add up the squares for
-all the scraps, and divide by 9 to get the number of blocks.
+As always, knowledge of the libraries in your language of choice makes solving
+problems much easier.  In this problem, all you needed was the .endsWith() (or
+its equivalent) method, and you were pretty much set.  Even if you didn't know
+about that one, it only takes a single loop to check of one string ends with
+another.
 </p>
-<pre>
-    int squares = 0;
-    for (int i = 0; i &lt; length.length; i++)
-      squares += (width[i]/2)*(length[i]/2);
-    return squares/9;
-</pre>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement&amp;pm=2008&amp;rd=5873" name="2008">LogCabin</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=2978&amp;rd=5874" name="2978">ResultsTable</a></b> 
 </font> 
-<A href="Javascript:openProblemRating(2008)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(2978)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -174,7 +170,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      69 / 200 (34.50%) 
+      52 / 216 (24.07%) 
     </td> 
   </tr> 
   <tr> 
@@ -182,7 +178,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      36 / 69 (52.17%) 
+      28 / 52 (53.85%) 
     </td> 
   </tr> 
   <tr> 
@@ -190,7 +186,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <b>lujo</b> for 711.70 points (15 mins 53 secs) 
+      <b>antimatter</b> for 657.55 points (18 mins 34 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -198,87 +194,103 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      478.96 (for 36 correct submissions) 
+      427.99 (for 28 correct submissions) 
     </td> 
   </tr> 
 </table></blockquote> 
 
 <p>
-In general, when you first add strip K, it is adjacent to strips K-1, K-3,
-and K-4.  For example, consider strip 7 in the following diagram.
-<pre>
-    7666
-    7325
-    7315
-    7445
-</pre>
-Strip 7 is adjacent to strips 6, 4, and 3.  Strip K is not adjacent to strip
-K-2, except for the special case of strip 3, which is adjacent to strips
-2 and 1.
-<pre>
-     32
-     31
-</pre>
+In this problem, I think that its best to make some sort of a class or struct
+for each competitor.  If you do this, you can write a method to compare two
+instances of the class or struct, and I think it makes your code more elegant,
+and hence less error prone.  Also, if you have a class for competitors, you only
+need to write a comparator, and the built in sorting functions will do the
+rest.<br/><br/>
+Whatever approach you took, however, there weren't really any subtleties that
+you needed to think much about.  When you parse the data, you should throw out
+all the irrelevant entries with lower COUNT's.  Next, assuming you have a
+class for your competitors, you should write a comparator.  The comparator
+should simply loop through the elements of sort, and make the necessary
+comparisons.  There is a decent amount of logic here, as you need to consider a
+number of different cases, but none of them are that tricky.  If you get the
+comparator right, you're home free, as you just need to call Arrays.sort() in
+Java or whatever the equivalent is in your favorite language, and then convert
+each competitor to a single string.<br/><br/>
+All told, there wasn't anything tricky, but it required a pretty good sized
+chunk of code, and ended up having the second fewest submissions of all the
+hards.
 </p>
 
-<p>
-With those constraints in mind, a recursive depth-first search that tries
-all possibilities runs in plenty of time.  There was no need to do anything
-fancy like remembering the states that you've visited before.  In each
-recursive call, simply try all four fabrics as the next strip, backtracking
-when a fabric would be adjacent to itself or when the fabric is shorter
-than the desired strip.  During the search, keep track of the most strips 
-that are ever used.
 <pre>
-    int most = 0;
-    void dfs(int n) {
-       int desiredLength = (n+1)/2;
-       for (int f = 0; f &lt; 4; f++) {
-          if (fabricLength[f] &lt; desiredLength) continue;
-          if (f == strip[n-1] || f == strip[n-3] || f == strip[n-4) continue;
-          if (n == 3 &amp;&amp; f == strip[1]) continue; // special case for strip 3
+import java.util.*;
+public class ResultsTable{
+   int[] sort;
+   String order;
+   class Rec implements Comparable{
+      int[] score;
+      int[] cnt;
+      String t;
+      public Rec(int n){
+         score = new int[n];
+         cnt = new int[n];
+         Arrays.fill(cnt,-1);
+      }
+      public String toString(){
+         String ret = t;
+         for(int i = 0; i&lt;cnt.length ;i++){
+            if(cnt[i] == -1)ret += " -";
+            else ret += " "+score[i];
+         }
+         return ret;
+      }
+      public int compareTo(Object o){
+         Rec r = (Rec)o;
+         for(int i = 0; i&lt;sort.length; i++){
+            if(Math.abs(sort[i]) == 1){
+               return t.compareTo(r.t)*sort[i];
+            }
+            int idx = Math.abs(sort[i])-2;
+            if(cnt[idx] == -1 &amp;&amp; r.cnt[idx] == -1)continue;
+            else if (cnt[idx] == -1) return sort[i];
+            else if (r.cnt[idx] == -1) return -sort[i];
+            else if(r.score[idx] != score[idx])return (r.score[idx] - score[idx])*(order.charAt(idx)=='H'?1:-1)*sort[i];
+         }
+         return 0;
+      }
+   }
+   public String[] generateTable(String[] results, int[] sort, String order){
+      this.sort = sort;
+      this.order = order;
+      HashMap hm = new HashMap();
+      for(int i = 0; i&lt;results.length; i++){
+         String[] sp = results[i].split(" ");
+         int met = Integer.parseInt(sp[1])-1;
+         int cnt = Integer.parseInt(sp[2]);
+         int score = Integer.parseInt(sp[3]);
+         Rec r = (Rec)hm.get(sp[0]);
+         if(r == null)r = new Rec(order.length());
+         if(cnt &gt; r.cnt[met]){
+            r.cnt[met] = cnt;
+            r.score[met] = score;
+         }
+         r.t = sp[0];
+         hm.put(sp[0],r);
+      }
+      Rec[] recs = (Rec[])hm.values().toArray(new Rec[0]);
+      Arrays.sort(recs);
+      String[] ret = new String[recs.length];
+      for(int i = 0; i&lt;ret.length; i++)ret[i] = recs[i].toString();
+      return ret;
+   }
+}
 
-          fabricLength[i] -= desiredLength;
-          strip[n] = f;
-          most = max(most, n);
-          dfs(n+1);
-          fabricLength[i] += desiredLength;
-       }
-    }
 </pre>
-Then the main function initializes the <tt>strip</tt> array, calls
-<tt>dfs(1)</tt>, and returns <tt>most</tt>.
-</p>
 
-<p>
-In this code, <tt>strip</tt> is an array that keeps track of which
-fabric was used in each strip, where <tt>strip[<i>n</i>]</tt> contains
-the fabric number (0-3) of the <i>n</i>-th strip.  Notice that the
-line 
-<pre>
-    if (f == strip[n-1] || f == strip[n-3] || f == strip[n-4) continue;
-</pre>
-refers to strips that do not exist when <i>n</i> &lt;= 4.  
-To avoid special cases for these values of <i>n</i>, 
-it is useful to insert phantom strips, known as 
-<a href="http://www.topcoder.com/?&amp;t=features&amp;c=feat_090104">sentinels</a>,
-in positions 0, -1, -2, and -3, initialized to some non-existent
-fabric number like 99.  Then we are guaranteed that the current
-fabric will not equal the fabric in, say, strip <i>n</i>-4 when
-strip <i>n</i>-4 does not exist.
-</p>
-
-<p>
-Of course, you are probably working in a language that does not support
-negative array indices.  In that case, shift all the strips a few
-positions forward, so that the <i>n</i>-th strip is stored in, say, 
-<tt>strip[n+4]</tt>.
-</p>
 
 
                         <p>
-                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br />
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>
