@@ -90,12 +90,6 @@
                                 </p>
                                 </li>
                                 <li>
-                                <p>
-                                    <strong>2003 TOPCODER OPEN QUESTIONNAIRE</strong> - Form must be completed and submitted by Midnight, Eastern Time, Wednesday, November 12th:
-                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=201">2003 TopCoder Open Questionnaire</a>.  Complete ALL questions.
-                                </p>
-                                </li>
-                                <li>
                                 <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before Midnight, Eastern Time, Wednesday, November 12th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
