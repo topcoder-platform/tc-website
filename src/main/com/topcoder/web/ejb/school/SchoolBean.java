@@ -311,11 +311,11 @@ public class SchoolBean extends BaseEJB {
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT school_id ");
             query.append("FROM school ");
-            query.append("WHERE name=?");
+            query.append("WHERE lower(name) = ?");
 
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, name);
+            ps.setString(1, name.toLowerCase());
 
             rs = ps.executeQuery();
             if (rs.next()) {
