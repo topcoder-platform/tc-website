@@ -59,7 +59,7 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>String Class: Development</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String Class: Development&amp;comp=3501906" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String Class: Development&amp;comp=3501906&amp;date=2&#47;6" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -125,7 +125,7 @@
 <!-- Register at TCS -->
 						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String Class: Development&amp;comp=3501906" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String Class: Development&amp;comp=3501906&amp;date=2&#47;6" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
