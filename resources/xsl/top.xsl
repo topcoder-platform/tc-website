@@ -3,7 +3,7 @@
   <xsl:import href="menu.xsl"/>
   <xsl:import href="includes/modules/rating.xsl"/>
   <xsl:import href="script.xsl"/>
-  <!-- <xsl:import href="../includes/modules/rating.xsl"/> -->  
+  <!-- <xsl:import href="../includes/modules/rating.xsl"/> -->
   <xsl:output indent="no" method="html"/>
   <xsl:template match="/">
     <xsl:call-template name="Top"/>
@@ -11,7 +11,7 @@
   <xsl:template name="Top">
   <xsl:param name="sectionName"></xsl:param>
 
-<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
+<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
     <tr valign="middle">
         <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
         <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - <span class="time"><xsl:call-template name="DateTime"/></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></td>
@@ -32,19 +32,19 @@
                     &#160;&#160;|&#160;&#160;<A class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>Register</A>
                 </xsl:otherwise>
             </xsl:choose>
-            
+
             &#160;&#160;|&#160;&#160;<A target="_parent" class="loginLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>Home</A>
         </td>
         <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
     </tr>
-</table> 
+</table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">    
-    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
-</table> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>
+</table>
 
-<!-- Logo Bar Include Begins -->       
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+<!-- Logo Bar Include Begins -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr valign="middle">
         <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
         <td width="206">
@@ -57,11 +57,14 @@
 
 <xsl:choose>
     <xsl:when test="/TC/LoggedIn='true'">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">
                 <tr valign="middle"><form name="selectform">
                     <td width="99%" align="left">
                         <xsl:choose>
                             <xsl:when test="number(/TC/Rating)&lt;1200">
+                                <IMG src="/i/top_div2_badge.jpg" width="390" height="75" border="0" alt="DIVISION II" />
+                            </xsl:when>
+                            <xsl:when test="number(/TC/Rating)&lt;1">
                                 <IMG src="/i/top_div2_badge.jpg" width="390" height="75" border="0" alt="DIVISION II" />
                             </xsl:when>
                             <xsl:otherwise>
@@ -80,30 +83,30 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </td>
-                    
+
                     <td align="right">
-                        <select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">      
+                        <select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">
                             <option value="SELECTED"> Select a Feature: </option>
                             <option><xsl:attribute name="value">/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Profile</option>
                             <option><xsl:attribute name="value">/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Rating History</option>
                             <option><xsl:attribute name="value">/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</option>
-                            <option><xsl:attribute name="value">/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Room Statistics</option> 
+                            <option><xsl:attribute name="value">/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Room Statistics</option>
                             <option><xsl:attribute name="value">/stat?c=round_stats</xsl:attribute>Round Statistics</option>
-                            <option><xsl:attribute name="value">/index?t=search</xsl:attribute>Advanced Member Search</option> 
-                            <option><xsl:attribute name="value">/PactsMemberServlet</xsl:attribute>Affidavits</option> 
+                            <option><xsl:attribute name="value">/index?t=search</xsl:attribute>Advanced Member Search</option>
+                            <option><xsl:attribute name="value">/PactsMemberServlet</xsl:attribute>Affidavits</option>
                             <option><xsl:attribute name="value">/index?t=search&amp;c=refer</xsl:attribute>My Referrals</option>
                             <option><xsl:attribute name="value">/index?t=development&amp;c=index</xsl:attribute>Development</option>
-                            <option><xsl:attribute name="value">/index?t=tces&amp;c=index</xsl:attribute>TCES (jobs)</option> 
+                            <option><xsl:attribute name="value">/index?t=tces&amp;c=index</xsl:attribute>TCES (jobs)</option>
                         </select>
                     </td>
 
                     <td width="10"><img src="/i/clear.gif" width="10" height="75" border="0"/></td></form>
-                </tr>                                 
+                </tr>
             </table>
-    </xsl:when>             
-            
+    </xsl:when>
+
     <xsl:otherwise>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td align="right" width="99%">
                         <xsl:choose>
@@ -116,12 +119,12 @@
                         </xsl:choose>
                     </td>
                     <td width="1"><img src="/i/clear.gif" width="1" height="75" border="0"/></td>
-                </tr>           
-            </table>                    
+                </tr>
+            </table>
     </xsl:otherwise>
-</xsl:choose>                
-        </td>        
-    </tr>             
+</xsl:choose>
+        </td>
+    </tr>
 </table>
 
     <xsl:call-template name="TopMenu"/>
