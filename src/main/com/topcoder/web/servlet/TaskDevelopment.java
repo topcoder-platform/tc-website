@@ -212,8 +212,8 @@ public final class TaskDevelopment {
                     Collection colVersions = componentManager.getAllVersionInfo();
                     ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
 
-                    long versionId = 0L;
-                    long phaseId = 0L;
+                    long versionId = -1L;
+                    long phaseId = -1L;
                     for(int i=0;i<versions.length;i++)
                     {
                         if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) || 
@@ -223,10 +223,12 @@ public final class TaskDevelopment {
                             phaseId = versions[i].getPhase();
                         }
                     }
-                    componentManager = getComponentManager(lngComponent, versionId);
+
+                    
                     
                     if(phaseId == ComponentVersionInfo.SPECIFICATION)
                     {
+                        componentManager = getComponentManager(lngComponent, versionId);
                         ComponentInfo compInfo = componentManager.getComponentInfo();
                         RecordTag designProject = new RecordTag("designproject");         
                         ValueTag projectTag = new ValueTag("payment", "343");
