@@ -11,13 +11,14 @@
    DataCache dcHome = com.topcoder.common.web.util.Cache.get();
    Navigation nav = (Navigation) session.getAttribute ( "navigation" );
    if ( nav == null ) nav = new Navigation();
+   int rating = 0;
    if ( nav.getLoggedIn() )
    {
      HashMap h = null;
      if (nav.getUser() != null) h = nav.getUser().getUserTypeDetails();
      if ( h!=null && h.containsKey("Coder") )
      {
-       int rating = ((CoderRegistration)h.get("Coder")).getRating().getRating();
+       rating = ((CoderRegistration)h.get("Coder")).getRating().getRating();
        if ( rating > 2199 ) {
          color = "#ff0000";
        } else if ( rating > 1499 && rating < 2200 ) {
