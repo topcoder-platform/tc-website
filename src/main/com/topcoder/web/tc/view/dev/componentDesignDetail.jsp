@@ -88,8 +88,10 @@
 
 <%-- Payment --%>
                         <p><strong>Payment</strong><br />
-                        TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
-                        First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
+                        TopCoder will compensate members with first and second place submissions that have scored a
+                        minimum of 70. First place compensation will consist of both initial payments and royalties on
+                        the sale of the component. The initial payment will be distributed in two installments.
+                        First Milestone: When the winning solution is submitted and review board suggestions are integrated.
                         Second Milestone: Is marked by the completion of the development project*.</p>
 
                         <p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
