@@ -47,7 +47,7 @@
 
             <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br/>
             
-                <form name="frmSend" method="POST" action="/?&amp;t=development">
+                <form name="frmSend" method="POST" action="/?t=development">
                 <input type="hidden" name="t" value="development"/>
                 <input type="hidden" name="c" value="tcs_send"/>
               

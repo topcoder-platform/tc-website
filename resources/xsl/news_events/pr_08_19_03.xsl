@@ -75,7 +75,7 @@
 
                         <p><span class="bodySubTitle">Software Component Design and Development Contest</span><br />
                         The development competition of the Software Component Design and Development Contest begins on September 2.  
-                        TopCoder will post software designs <A href="/?&amp;t=development&amp;c=comp_projects">here</A>.  
+                        TopCoder will post software designs <A href="/?t=development&amp;c=comp_projects">here</A>.
                         Eligible TopCoder members view the project designs and submit source code by September 15.  On September 4, the 
                         design competition begins and TopCoder will post software design specifications.  Architects are invited to submit 
                         designs by September 17.  All submissions will be judged in a peer review process and given a score.  Ten competitors 

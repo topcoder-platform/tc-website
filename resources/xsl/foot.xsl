@@ -22,7 +22,7 @@
 <!-- Member Sites Begins -->
     <tr><td width="100%" class="footer">
             <A class="footerLinks"><xsl:attribute name="HREF">>/</xsl:attribute>Competition</A>&#160;&#160;|&#160;&#160;
-            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</A>&#160;&#160;|&#160;&#160;
+            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=index</xsl:attribute>Development</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tces&amp;c=index</xsl:attribute>Job Listings</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/></xsl:attribute>Software</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=tces_home</xsl:attribute>Employment Services</A>&#160;&#160;|&#160;&#160;

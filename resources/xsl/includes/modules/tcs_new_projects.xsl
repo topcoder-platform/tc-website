@@ -185,7 +185,7 @@
         -->
                 <tr valign="top">
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
+                    <td class="statText"><a class="statText" href="?t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
                     <td class="statText" align="center">closed</td>
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
@@ -196,7 +196,7 @@
                 </TR>
                 <!--tr valign="top">
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Front End</a></td>
+                    <td class="statText"><a class="statText" href="?t=development&amp;c=online_review_dev-fe">Online Review Front End</a></td>
                     <td class="statText" align="center">05.27.2003</td>
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
@@ -208,7 +208,7 @@
 
                 <tr valign="top">
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
+                    <td class="statText"><a class="statText" href="?t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
                     <td class="statText" align="center">05.27.2003</td>
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
@@ -220,7 +220,7 @@
 
                 <tr valign="top">
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-pl">Online Review Persistence Layer</a></td>
+                    <td class="statText"><a class="statText" href="?t=development&amp;c=online_review_dev-pl">Online Review Persistence Layer</a></td>
                     <td class="statText" align="center">05.27.2003</td>
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>

@@ -72,7 +72,7 @@
 
 <!-- Project Type -->
                         <p><strong>Project Type</strong><br />
-                        Application Design Project: Provide a complete design for the Online Review application.   Please review the TopCoder Software <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution. 
+                        Application Design Project: Provide a complete design for the Online Review application.   Please review the TopCoder Software <a href="/?t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                         </p>
                             
 <!-- Technologies -->
@@ -140,7 +140,7 @@
                         
 
                            <p>
-                                <strong><a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review">Register for the Application Project</a> to get information necessary to submit a solution &gt;&gt;</strong>
+                                <strong><a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review">Register for the Application Project</a> to get information necessary to submit a solution &gt;&gt;</strong>
                             </p>
                             <p>
                                  To submit a solution, email your submissions to <a href="mailto:submissions@topcodersoftware.com" class="bodyText">submissions@topcodersoftware.com</a>.

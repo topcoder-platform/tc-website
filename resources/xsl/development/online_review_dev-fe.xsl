@@ -79,7 +79,7 @@ All developers are encouraged to use as many completed TopCoder Software compone
 <!-- Project Type -->
                         <p><strong>Project Type</strong><br />
 Application Front-End Development Project: Provide a complete front-end solution for the Online Review Application.
-Please review the TopCoder Software <a href="/?&amp;t=development&amp;c=app_meth" target="NEW">Application Development Methodology</a> and the <a href="/i/development/downloads/Developer_Application_Deliverables.pdf" target="NEW">Development Deliverables Document</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
+Please review the TopCoder Software <a href="/?t=development&amp;c=app_meth" target="NEW">Application Development Methodology</a> and the <a href="/i/development/downloads/Developer_Application_Deliverables.pdf" target="NEW">Development Deliverables Document</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
                         </p>
                             
 <!-- Technologies -->
@@ -149,7 +149,7 @@ Please review the TopCoder Software <a href="/?&amp;t=development&amp;c=app_meth
 
 <!-- Register at TCS -->
                            <p>
-                                <strong><a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Front%20End">Inquire for the project</a></strong> to be selected as one of the two (2) developers that will be contacted.  Each development submission receiving a review score of fifty (50) points or greater will receive the minimum development payment.  
+                                <strong><a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Front%20End">Inquire for the project</a></strong> to be selected as one of the two (2) developers that will be contacted.  Each development submission receiving a review score of fifty (50) points or greater will receive the minimum development payment.
                         </p>
                         
                             <p>

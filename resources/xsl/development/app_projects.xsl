@@ -72,21 +72,21 @@
                 -->
                 
 		<tr valign="top">
-                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=ossj_tck_test_proxy_v10_des">Sun OSSJ TCK Test Proxy</a></td>
+                    <td class="formTextOdd"><a href="?t=development&amp;c=ossj_tck_test_proxy_v10_des">Sun OSSJ TCK Test Proxy</a></td>
                     <td class="formTextOdd" align="center">$1,260</td>
                     <td class="formTextOdd" align="center">$360</td>
                     <td class="formTextOdd" align="center">closed</td>
                 </tr>                
                 
 		<tr valign="top">
-                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
+                    <td class="formTextOdd"><a href="?t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
                     <td class="formTextOdd" align="center">$810</td>
                     <td class="formTextOdd" align="center">$225</td>
                     <td class="formTextOdd" align="center">closed</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO)</a></td>
+                    <td class="formTextOdd" colspan="4"><a href="?t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO)</a></td>
                  </tr>
                 <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server</td>
@@ -103,7 +103,7 @@
                 </tr>
                 <!--
                 <tr valign="top">
-                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
+                    <td class="formTextOdd"><a href="?t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$1,290</td>
                     <td class="formTextOdd" align="center">$420</td>
                     <td class="formTextOdd" align="center">closed</td>
@@ -130,7 +130,7 @@
                </tr>
                -->
                <tr valign="top">
-                    <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=single_sign_on_v10_dev">Single Sign-On (SSO)</a></td>
+                    <td class="formTextOdd" colspan="4"><a href="?t=development&amp;c=single_sign_on_v10_dev">Single Sign-On (SSO)</a></td>
                </tr>
                <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server EJB Interface</td>
@@ -163,7 +163,7 @@
                     <td class="formTextOdd" align="center">closed</td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=online_gift_card_v10_dev">Online Gift Card Sales</a></td>
+                    <td class="formTextOdd" colspan="4"><a href="?t=development&amp;c=online_gift_card_v10_dev">Online Gift Card Sales</a></td>
                </tr>
                <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Site Development</td>
@@ -179,7 +179,7 @@
                </tr>
                <!--
                <tr valign="top">
-                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
+                    <td class="formTextOdd"><a href="?t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$2,200</td>
                     <td class="formTextOdd" align="center">$665</td>
                     <td class="formTextOdd" align="center">closed</td>
@@ -187,14 +187,14 @@
 
 
                 <tr valign="top">
-                    <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
+                    <td class="bodyText"><a href="?t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
                     <td class="bodyText" align="center">$2,400</td>
                     <td class="bodyText" align="center">$900</td>
                     <td class="bodyText" align="center">5.27.2003</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-pl">Online Review Persistence Layer</a></td>
+                    <td class="bodyText"><a href="?t=development&amp;c=online_review_dev-pl">Online Review Persistence Layer</a></td>
                     <td class="bodyText" align="center">$2,400</td>
                     <td class="bodyText" align="center">$900</td>
                     <td class="bodyText" align="center">5.27.2003</td>
