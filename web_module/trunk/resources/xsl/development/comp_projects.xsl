@@ -154,7 +154,7 @@
                                        <xsl:value-of select="./total_inquiries"/>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:value-of select="/TC/DEVELOPMENT/MaxInquiries"/>
+                              N/A
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
@@ -245,7 +245,7 @@
                                         <xsl:value-of select="./total_inquiries"/>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:value-of select="/TC/DEVELOPMENT/MaxInquiries"/>
+                              N/A
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
