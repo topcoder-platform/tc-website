@@ -7,6 +7,7 @@
                  com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail= (ResultSetContainer)request.getAttribute("projectDetail");%>
 <% List reviewerList= (List)request.getAttribute("reviewerList");%>
 <head>

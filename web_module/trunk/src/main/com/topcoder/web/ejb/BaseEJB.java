@@ -54,7 +54,7 @@ public abstract class BaseEJB implements SessionBean {
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
         else {
             StringBuffer query = new StringBuffer(200);
-            query.append("insert into ").append(tableName);
+            query.append("insert into ").append(tableName).append(" (");
             for (int i=0; i<colNames.length; i++) {
                 query.append(colNames[i]);
                 if (colNames.length>1 && i!=colNames.length-1)
