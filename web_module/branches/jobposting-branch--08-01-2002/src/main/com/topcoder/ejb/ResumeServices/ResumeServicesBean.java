@@ -49,7 +49,7 @@ public class ResumeServicesBean extends BaseEJB {
         try{
             conn = DBMS.getTransConnection();
             ps = conn.prepareStatement(GET_RESUME_QUERY);
-            ps.setInt(userID);
+            ps.setInt(1,userID);
             rs = ps.executeQuery();
             if(!rs.next())throw new SQLException(userID+" does not hava a submitted resume.");
             byte[] file = rs.getBytes("file");
