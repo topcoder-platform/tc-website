@@ -1,9 +1,12 @@
 package com.topcoder.web.ejb.jobposting;
 
-import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+import javax.rmi.PortableRemoteObject;
 import java.rmi.RemoteException;
 import java.sql.*;
 
@@ -27,15 +30,20 @@ public class JobPostingServicesBean extends BaseEJB {
      * @throws RemoteException if the wrong number of rows were inserted (most likely 0).
      * or if there was an issue with query execution.
      */
-    public void addJobHit(long userId, long jobId, int hitTypeId) throws RemoteException {
+    public void addJobHit(long userId, long jobId, int hitTypeId, String dataSource) throws RemoteException {
         log.debug("addJobHit called...");
         StringBuffer query = null;
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        try {
-            conn = DBMS.getConnection();
+        InitialContext ctx = null;
+        try{
+            ctx = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(ctx.lookup(dataSource),
+                        DataSource.class);
+            conn = ds.getConnection();
             /*
                check if this user has already "hit" this job
              */
@@ -76,24 +84,10 @@ public class JobPostingServicesBean extends BaseEJB {
         } catch (Exception e) {
             throw new RemoteException(e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
     }
@@ -104,7 +98,7 @@ public class JobPostingServicesBean extends BaseEJB {
      * @return
      * @throws RemoteException
      */
-    public String getLink(long jobId) throws RemoteException {
+    public String getLink(long jobId, String dataSource) throws RemoteException {
         log.debug("getLink called...");
         StringBuffer query = null;
         Connection conn = null;
@@ -117,8 +111,13 @@ public class JobPostingServicesBean extends BaseEJB {
         query.append(" FROM job");
         query.append(" WHERE job_id = ?");
 
-        try {
-            conn = DBMS.getConnection();
+        InitialContext ctx = null;
+        try{
+            ctx = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(ctx.lookup(dataSource),
+                        DataSource.class);
+            conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, jobId);
             rs = ps.executeQuery();
@@ -134,24 +133,10 @@ public class JobPostingServicesBean extends BaseEJB {
         } catch (Exception e) {
             throw new RemoteException(e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return ret;
     }
@@ -164,15 +149,20 @@ public class JobPostingServicesBean extends BaseEJB {
      * @param jobId the particular job
      * @throws RemoteException if there was a problem with the database
      */
-    public boolean jobExists(long jobId) throws RemoteException {
+    public boolean jobExists(long jobId, String dataSource) throws RemoteException {
         log.debug("addJobHit called...");
         StringBuffer query = null;
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        try {
-            conn = DBMS.getConnection();
+        InitialContext ctx = null;
+        try{
+            ctx = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(ctx.lookup(dataSource),
+                        DataSource.class);
+            conn = ds.getConnection();
             query = new StringBuffer();
             query.append(" SELECT 'dok'");
             query.append(  " FROM job");
@@ -190,24 +180,10 @@ public class JobPostingServicesBean extends BaseEJB {
         } catch (Exception e) {
             throw new RemoteException(e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
     }
