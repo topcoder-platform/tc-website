@@ -31,7 +31,7 @@
             <table cellspacing="0" cellpadding="10" border="0">
                 <tr>
                     <td class="statText">
-                        <h3><font color=white>Your request could not be processed. Please <a href="mailto:service@topcoder.com?subject=Error on TopCoder High School site">contact</a> TopCoder.</font></h3>
+                        <p><font size="3" color="#FFFFFF">Your request could not be processed. Please <a href="mailto:service@topcoder.com?subject=Error on TopCoder High School site" class="statText"><font size="3">contact</font></a> TopCoder.</font></p>
                     </td>
                 </tr>
             </table>
