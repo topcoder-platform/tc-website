@@ -65,7 +65,7 @@
                         <h2 class="pgTitle">Schedule</h2>
             
 <!-- Qualification Description begins -->
-                        <p>Registration is unlimited, however only the first 500 eligible individuals to register will be invited to compete.</p>
+                        <p>Registration is unlimited, however only the first 500 eligible individuals to register and activate their registration will be invited to compete.</p>
 <!-- Qualification Description Ends -->
 
                         <a name="sched"></a>
