@@ -2486,9 +2486,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
         }
-
-        throw new NavigationException(message);
-
+        forward(INTERNAL_ERROR_JSP, request, response);
     }
 
     private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
