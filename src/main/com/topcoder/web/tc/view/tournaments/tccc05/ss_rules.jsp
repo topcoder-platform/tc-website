@@ -69,7 +69,7 @@
                     <td width="50%" class="sidebarText">Grand Prize (2)</td>
                     <td width="50%" class="sidebarText">
 One (1) Yahoo!&#174; Gift Pack<br>
-One (1) Motorola&#174; Cell Phone<br>
+One (1) Motorola&#174; Moto Razr V3 phone<br>
 One (1) NVIDIA&#174; Gift Pack<br>
 One (1) TopCoder&#174; Gift Pack
 					</td>
