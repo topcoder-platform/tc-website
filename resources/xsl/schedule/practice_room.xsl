@@ -48,10 +48,10 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P>
-<SPAN CLASS="bodyTextBold">Note:</SPAN> Guests are permitted to log in to the applet, but will not have the option of coding. Instead, they will be taken to the spectator
-room, just as they would be in a real competition. To actually practice you must be a TopCoder member.
-</P>
+<P>The Practice Rooms in the TopCoder Arena Applet are open to both members and guests. As a guest you can access the problems for either division, code a solution, and submit the 
+solution to see the possible point value. In addition, you can view the submissions of participating members from previous match dates.
+<BR/><BR/>
+<SPAN CLASS="bodyTextBold">Note:</SPAN> Any use of the TopCoder Arena, including the Practice Room, is limited to personal, non-commercial or educational purposes only.</P>
 
       		<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="200" ALIGN="right">
  	<TR>
@@ -106,10 +106,12 @@ a live contest.<BR/><BR/>
 This applet will provide the same interface as an actual contest, and
 give you a chance to code some practice problems.</LI><BR/>
 
-	<LI>Code solutions and challenge the solutions of others.
+	<LI>Code solutions, view other coders' solutions and challenge the solutions of other coders.
 Normally, these are two separate phases of a competition, and of
 course, we would not allow you to view a competitor's code while the
-coding phase is active.</LI>
+coding phase is active.</LI><BR/>
+
+	<LI>System Test your solutions just as they would be in a Single Round Match.</LI>
 </UL>
 </P>
 <P CLASS="bodyText">
