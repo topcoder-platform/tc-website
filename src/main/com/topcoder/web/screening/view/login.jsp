@@ -20,16 +20,21 @@
 </script>
 
 <link rel="Stylesheet" href="/css/style.css" type="text/css">
+<link rel="Stylesheet" href="/css/coders.css" type="text/css">
 </head>
 
 <body>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+    <tr><td colspan="3" class="globalNavSmall"><img src="/i/ev/clear.gif" width="1" height="15" border="0"/></td></tr>             
+
     <tr>
         <td width="15"><a name="top"></a><img src="/i/ev/clear.gif" width="15" height="1" alt="" border="0"></td>
         <td width="206"><screen:servletLink target="_parent"><img src="/i/ev/logo.gif" width="206" height="49" border="0" alt="TopCoder Testing Application" vspace="13"></screen:servletLink></TD>
         <td width="100%"><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>        
     </tr>             
+
+    <tr valign="top"><td colspan="3" class="testTop">&#160;</td></tr>
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -50,7 +55,7 @@
         <td width="100%" align="center"><img src="/i/ev/clear.gif" width="400" height="11" alt="" border="0"><br>
             <p><br></p>
             <p><br></p>
-            <table width="250" border="0" cellpadding="0" cellspacing="0">
+            <table width="250" border="0" cellpadding="0" cellspacing="0" class="loginForm">
                 <tr><td class="testTableTitle">Testing Application</td></tr>
                 <tr valign="middle">
                     <td class="statText" align="center">&#160;
