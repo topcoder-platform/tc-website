@@ -9,16 +9,6 @@ public class ApplicationServer {
   public static final int DEV      = 3;
 
 
-  /** DEV **/
-/*
-  public static int                   ENVIRONMENT                  = DEV;
-  public static int                   WEBLOGIC_PORT                = 7001;
-  public static String                SERVER_NAME                  = "172.16.1.153";
-  public static String                HOST_URL                     = "t3://172.16.1.152:7001";
-  public static String                CONTEST_HOST_URL             = "t3://172.16.1.152:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.1.152" };
-  public final static String          BASE_DIR                     = "/export/home/weblog5/classes";
-*/
 
 
   //** BETA DEV GLASTONBURY **//
@@ -26,47 +16,13 @@ public class ApplicationServer {
   public static int                   ENVIRONMENT                  = DEV;
   public static int                   WEBLOGIC_PORT                = 7030;
   public static String                SERVER_NAME                  = "beta.dev.topcoder.com";
-  public static String                HOST_URL                     = "t3://172.16.1.152:7030";
-  public static String                CONTEST_HOST_URL             = "t3://172.16.1.152:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.1.152" };
+  public static String                HOST_URL                     = "t3://172.16.20.40:8030";
+  public static String                CONTEST_HOST_URL             = "t3://172.16.20.40:8030";
+  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.20.40" };
   public final static String          BASE_DIR                     = "/export/home/beta/classes";
-  public static String                MPSQAS_HOST_URL              = "t3://172.16.1.152:7020";
+  public static String                MPSQAS_HOST_URL              = "t3://172.16.20.40:8030";
 
 
-  //** QA (GLASTONBURY **//
-/*
-  public static int                   ENVIRONMENT                  = QA;
-  public static int                   WEBLOGIC_PORT                = 7030;
-  public static String                SERVER_NAME                  = "beta.topcoder.com";
-  public static String                HOST_URL                     = "t3://172.16.212.51:7030";
-  public static String                CONTEST_HOST_URL             = "t3://172.16.212.52:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.212.51", "172.16.212.52" };
-  public final static String          BASE_DIR                     = "/export/home/weblog5/classes";
-*/  
-
-
-  //** QA (EXODUS)**/
-/*
-  public static int                   ENVIRONMENT                  = QA;
-  public static int                   WEBLOGIC_PORT                = 7001;
-  public static String                SERVER_NAME                  = "www.topcoder.com";
-  public static String                HOST_URL                     = "t3://jma-cluster.topcoder.com:7001";
-  public static String                CONTEST_HOST_URL             = "t3://192.168.12.52:7013";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "192.168.12.51", "192.168.12.52" };
-  public final static String          BASE_DIR                     = "/export/home/weblog5/jma_QA";
-*/
-
-
-  //** EXODUS **/
-/*
-  public static int                   ENVIRONMENT                  = PROD;
-  public static int                   WEBLOGIC_PORT                = 7001;
-  public static String                SERVER_NAME                  = "www.topcoder.com";
-  public static String                HOST_URL                     = "t3://jma-cluster.topcoder.com:7001";
-  public static String                CONTEST_HOST_URL             = "t3://192.168.12.52:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "192.168.12.51", "192.168.12.52" };
-  public final static String          BASE_DIR                     = "/export/home/weblog5/jma";
-*/
 
   public       static String IAGREE = BASE_DIR + "/com/topcoder/common/terms.txt";
   public final static String JNDI_FACTORY="weblogic.jndi.WLInitialContextFactory";
