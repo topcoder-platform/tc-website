@@ -126,12 +126,12 @@
                                                         <br/>
                                                         Compensation for the winning solution is distributed in two installments.
                                                         <br/>
-                                                        &#160;&#160;&#160;&#160;&#160;<strong>First Payment:</strong>
+                                                        &#160;&#160;&#160;&#160;&#160;First Payment -
                                                         <br/>
                                                         &#160;&#160;&#160;&#160;&#160;When the winning solution is submitted and review board suggestions are integrated.
                                                         <br/>
                                                         <br/>
-                                                        &#160;&#160;&#160;&#160;&#160;<strong>Second Payment:</strong>
+                                                        &#160;&#160;&#160;&#160;&#160;Second Payment -
                                                         <br/>
                                                         &#160;&#160;&#160;&#160;&#160;At the completion of the development project*.
                                                         <br/>
