@@ -26,7 +26,7 @@ public class Registration
 
     public static final String PROTOCOL = "http";
     public static final String HOST = ApplicationServer.SERVER_NAME;
-    public static final String PATH = "/tces/";
+    public static final String PATH = "/tcesctx/";
     
     // steps 
     public static final String STEP_0 = "0";
