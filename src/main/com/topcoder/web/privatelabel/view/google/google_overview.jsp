@@ -79,7 +79,16 @@ function openWin(url, name, w, h) {
                         
                         <p><font size="-1">Do you have exceptional programming skills? Can you make computers perform like silicon puppets with just a few well-expressed commands? Are you at ease when faced with a  hard stop and a group of peers evaluating every line of your code? Here’s your opportunity to display the grace of the true professional in a reward-rich environment.
                         <br><br>
-                        Google is looking for engineers with the programming skill to rewrite the world’s information infrastructure. The Google Code Jam 2003 is one way we hope to find them. Your participation in this contest gives us a chance to observe how you operate in conditions similar to the all-out environment within the Googleplex. Think of it as a job interview with a large potential cash bonus just for showing up. 
+                        Google is looking for engineers with the programming skill to 
+                        rewrite the world's information infrastructure. The Google 
+                        Code Jam 2003 is one way we hope to find them. While we don't 
+                        impose arbitrary deadlines on our engineers, we do put a 
+                        premium on well-implemented code. And we appreciate the 
+                        thought process required to create it. In fact, we appreciate 
+                        clear thinking in all its forms, from 
+                        <a href="http://www.google.com/puzzles/">puzzle solving</a> 
+                        to chess mastery (one of our interns was an International 
+                        Grand Master). 
                         <br><br>
                         <font color="006633" size="3"><b>Say it your way</b></font><br><br>
                         Use Java, C++, C# or VB.NET. Pick any of these programming languages to code your solutions. All are acceptable and none is given an advantage.
