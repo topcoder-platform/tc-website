@@ -54,7 +54,7 @@ public class Controller extends HttpServlet {
         try {
             ctx = (InitialContext) TCContext.getInitial();
 
-            if (taskName.trim().length() > 0) {
+            if (taskName != null && taskName.trim().length() > 0) {
                 // process a task
                 Task task = null;
                 Class taskClass = null;
@@ -65,7 +65,7 @@ public class Controller extends HttpServlet {
                 getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
 
             }
-            else if (command.trim().length() > 0) {
+            else if (command != null && command.trim().length() > 0) {
                 // process command (old code)
                 processCommand(command,request,response);
             }
