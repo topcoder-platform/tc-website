@@ -5,7 +5,7 @@
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
    <property name="email.war.name"      value="email.war"/>
-   <property name="jobPosting.war.name" value="jobPosting.war"/>
+   <property name="tces.war.name" value="tces.war"/>
    <property name="stat.war.name" value="stat.war"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
    <property name="classes"       value="${build}/classes" />
@@ -267,15 +267,15 @@
         <antcall target="package-EJB-ReportingBean"/>
         <antcall target="package-EJB-ProjectServicesBean"/>
         <antcall target="package-EJB-MPSQASServicesBean"/>
-        <antcall target="package-EJB-JobPostingServicesBean"/>
+        <antcall target="package-EJB-TCESServicesBean"/>
    </target>
 
-<target name="package-EJB-JobPostingServicesBean" depends="compile,init-JobPostingServicesBean-properties,package-EJB-GenericBean"/>
+<target name="package-EJB-TCESServicesBean" depends="compile,init-TCESServicesBean-properties,package-EJB-GenericBean"/>
 
-<target name="init-JobPostingServicesBean-properties" >
-       <property name="bean.dir"          value="JobPostingServices" />
-        <property name="bean.jar.name"     value="JobPostingServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/jobPosting/ejb/${bean.dir}" />
+<target name="init-TCESServicesBean-properties" >
+       <property name="bean.dir"          value="TCESServices" />
+        <property name="bean.jar.name"     value="TCESServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/tces/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
@@ -476,7 +476,7 @@
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
-        <antcall target="war_jobPosting"/>
+        <antcall target="war_tces"/>
 <!--        <antcall target="war_stat"/> -->
     </target>
     
@@ -524,11 +524,11 @@
             </zipfileset>
         </war>
     </target>
-    <target name="war_jobPosting" depends="compile">
-        <war warfile="${war.dir}/${jobPosting.war.name}" webxml="${resources}/jobPosting/web.xml">
+    <target name="war_tces" depends="compile">
+        <war warfile="${war.dir}/${tces.war.name}" webxml="${resources}/tces/web.xml">
             <classes dir="${classes}">
-                <include name="com/topcoder/web/jobPosting/common/*"/>
-                <include name="com/topcoder/web/jobPosting/servlet/*"/>
+                <include name="com/topcoder/web/tces/common/*"/>
+                <include name="com/topcoder/web/tces/servlet/*"/>
             </classes>
         </war>
     </target>
