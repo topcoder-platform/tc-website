@@ -224,6 +224,7 @@
             <param name="unit-class-path" value="com/topcoder/ejb/AuthenticationServices"/>
         </antcall>
         <jar jarfile="${ejb_jars}/AuthenticationServices.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
         </jar>
     </target>
