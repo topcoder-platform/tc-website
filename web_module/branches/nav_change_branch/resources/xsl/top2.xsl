@@ -97,18 +97,18 @@
                                    <TD class="time" HEIGHT="18" VALIGN="middle" ALIGN="center">                                                                         
     <form name="selectform">
       <!-- <select name="myfeatures" size="1" class="dropdown" onchange="goTo(this)"> -->
-<select name="quickstat" size="1" class="dropdown" onchange="window.location='/stat?c='+this.options[this.selectedIndex].value">      
+<select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">      
         <OPTION value="SELECTED"> Select a Feature: </OPTION>
-        <OPTION value="member_profile">&#160;Profile</OPTION>
-        <OPTION value="ratings_history">&#160;Ratings History</OPTION>
-        <OPTION value="earnings_history">&#160;Earnings History</OPTION>
-        <OPTION value="coder_room_stats">&#160;Room Statistics</OPTION>
-        <OPTION value="round_stats">&#160;Round Statistics</OPTION>	
-        <OPTION value="consecwins">&#160;Advanced Member Search</OPTION>
-        <OPTION value="submissionaccuracy">&#160;Affidavits</OPTION>
-        <OPTION value="challengesuccess">&#160;My Referrals</OPTION>
-        <OPTION value="challengesuccess">&#160;Development</OPTION>
-        <OPTION value="challengesuccess">&#160;TCES (jobs)</OPTION>
+        <OPTION><xsl:attribute name="value">/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Profile</OPTION>
+        <OPTION><xsl:attribute name="value">/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Rating History</OPTION>
+        <OPTION><xsl:attribute name="value">/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</OPTION>
+        <OPTION><xsl:attribute name="value">/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Room Statistics</OPTION> 
+        <OPTION><xsl:attribute name="value">/stat?c=round_stats</xsl:attribute>Round Statistics</OPTION>
+        <OPTION><xsl:attribute name="value">/index?t=search</xsl:attribute>Advanced Member Search</OPTION> 
+        <OPTION><xsl:attribute name="value">/PactsMemberServlet</xsl:attribute>Affidavits</OPTION> 
+        <OPTION><xsl:attribute name="value">/index?t=search&amp;c=refer</xsl:attribute>My Referrals</OPTION>
+        <OPTION><xsl:attribute name="value">/index?t=development&amp;c=index</xsl:attribute>Development</OPTION>
+        <OPTION><xsl:attribute name="value">/index?t=tces&amp;c=index</xsl:attribute>TCES (jobs)</OPTION> 
       </select>
     </form>
                                    </TD>                                   
