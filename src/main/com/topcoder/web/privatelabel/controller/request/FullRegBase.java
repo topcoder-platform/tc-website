@@ -1,10 +1,8 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicAnswer;
+import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.view.tag.DemographicInput;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -32,9 +30,36 @@ abstract class FullRegBase extends SimpleRegBase {
     }
 
 
-    protected void setDefaults(FullRegInfo info) {
+    protected void setDefaults(FullRegInfo info) throws Exception {
         super.setDefaults(info);
         setDefault(Constants.CODER_TYPE, String.valueOf(info.getCoderType()));
+        List responses = info.getResponses();
+        DemographicResponse response = null;
+        DemographicQuestion question = null;
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            response = (DemographicResponse) it.next();
+            question = findQuestion(getQuestions(), response.getQuestionId());
+            if (question.getAnswerType()==DemographicQuestion.SINGLE_SELECT) {
+                setDefault(DemographicInput.PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
+            } else if (question.getAnswerType()==DemographicQuestion.FREE_FORM) {
+                setDefault(DemographicInput.PREFIX + response.getQuestionId(), response.getText());
+            } else if (question.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT) {
+                //todo handle multiple select
+            } else {
+                //todo something is wrong, we don't recognize that kind of question
+            }
+        }
+
+    }
+
+    protected DemographicQuestion findQuestion(List questions, long questionId) {
+        DemographicQuestion q = null;
+        boolean found = false;
+        for (Iterator it = questions.iterator(); it.hasNext() && !found;) {
+            q = (DemographicQuestion) it.next();
+            found = (q.getId() == questionId);
+        }
+        return found ? q : null;
     }
 
     protected void checkFullRegInfo(FullRegInfo info) throws TCWebException {

@@ -131,26 +131,6 @@ public class FullRegConfirm extends FullRegBase {
 
     }
 
-    private DemographicQuestion findQuestion(List questions, long questionId) {
-        DemographicQuestion q = null;
-        boolean found = false;
-        for (Iterator it = questions.iterator(); it.hasNext() && !found;) {
-            q = (DemographicQuestion) it.next();
-            found = (q.getId() == questionId);
-        }
-        return found ? q : null;
-    }
-
-    protected void setDefaults(FullRegInfo info) {
-        //todo set default for coder type
-        List responses = info.getResponses();
-        DemographicResponse response = null;
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            response = (DemographicResponse) it.next();
-            setDefault(DemographicInput.PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
-        }
-    }
-
     private boolean validResponse(DemographicResponse response) throws Exception {
         DataAccessInt dataAccess = getDataAccess(true);
         Request r = new Request();
