@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
+                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,14 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=tco04_online_rd_4">TCO Round 4 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, September 29, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm214_prob">SRM 214 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, October 6, 2004</p>
 
                         <p>
 
-<b>reid</b> rode the fastest Easy and the fastest Medium to victory on a night
-where no one solved all three problems.
-Kudos to <b>gepa</b> for the lone successful solution to the Hard, but
-resubmissions on both his Easy and Hard dropped him to fifth. At the conclusion of coding, only 22 coders had submitted more than one problem.
-
-                        <a href="/index?t=statistics&c=tco04_online_rd_4" class="bodyText"><strong>full&#160;story</strong></a>
+						It is safe to say that few TopCoder members suffer from fear of math, but the results of the latest Single Round Match suggest that fear of text is epidemic. Both divisions were caught off guard by a set of problems in which parsing did not act as an obstacle to performing a task, as it usually does, but constituted the task itself.
+                        
+						<a href="/index?t=statistics&c=srm214_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
