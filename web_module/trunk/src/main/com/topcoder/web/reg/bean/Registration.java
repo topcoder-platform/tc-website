@@ -66,9 +66,7 @@ public class Registration
     public static final String LANGUAGE = "language";
     public static final String QUOTE = "quote";
     public static final String CODER_TYPE = "coderType";
-/*
     public static final String SUN_CONFIRMATION = "sunConfirm";
-*/
     public static final String TERMS = "terms";
 
     // step 2 attributes
@@ -156,9 +154,7 @@ public class Registration
     protected String editor;
     protected String language;
     protected String coderType;
-/*
     protected String sunConfirm;
-*/
     protected String terms;
     protected String referral;
     protected boolean referralChanged;
@@ -204,9 +200,7 @@ public class Registration
             editor = "";
             language = "";
             coderType = "";
-/*
             sunConfirm = "";
-*/
             terms = "";
             referral = "";
             referralChanged = false;
@@ -285,9 +279,7 @@ public class Registration
         editor = Integer.toString(coder.getEditor().getEditorId());
         language = Integer.toString(coder.getLanguage().getLanguageId());
         coderType = Integer.toString(coder.getCoderType().getCoderTypeId());
-/*
         sunConfirm = checkNull(getSunConfirmation(coder.getCoderConfirmations()));
-*/
         terms = (checkNull(user.getTerms()).equals("Y")?CHECKBOX_YES:"");
         // referral data only used in Registration
         referral = Integer.toString(coder.getCoderReferral().getReferral().getReferralId());
@@ -619,10 +611,8 @@ public class Registration
                 setLanguage(value);
             else if (name.equalsIgnoreCase(CODER_TYPE))
                 setCoderType(value);
-/*
             else if (name.equalsIgnoreCase(SUN_CONFIRMATION))
                 setSunConfirm(value);
-*/
             else if (name.equalsIgnoreCase(TERMS))
                 setTerms(value);
             else if (name.startsWith(NOTIFY_PREFIX)) {
@@ -730,11 +720,9 @@ public class Registration
         this.coderType = checkNull(value);
     }
 
-/*
     public void setSunConfirm(String value) {
         this.sunConfirm = checkNull(value);
     }
-*/
 
     public void setTerms(String value) {
         this.terms = checkNull(value);
@@ -1010,11 +998,9 @@ public class Registration
         return this.coderType;
     }
 
-/*
     public String getSunConfirm() {
         return this.sunConfirm;
     }
-*/
 
     public String getCoderTypeError() {
         return getError(CODER_TYPE);
@@ -1574,7 +1560,6 @@ public class Registration
             currentSchool.setName(getSchoolName(schoolId));
         }
 
-/*
         ArrayList a = coder.getCoderConfirmations();
         boolean found = false;
         for (int i = 0; i < a.size(); i++) {
@@ -1597,7 +1582,6 @@ public class Registration
             }
             a.add(c);
         }
-*/
 
 
         Context context = null;
@@ -1778,7 +1762,6 @@ public class Registration
         return true;
     }
 
-/*
     private static String getSunConfirmation(ArrayList confirmList) {
         CoderConfirmation temp = null;
         boolean found = false;
@@ -1793,5 +1776,4 @@ public class Registration
         else
             return null;
     }
-*/
 }

@@ -99,16 +99,16 @@ public class ResumeServicesBean extends BaseEJB {
             ps = conn.prepareStatement(GET_RESUME_ID);
             ps.setInt(1,userID);
             rs = ps.executeQuery();
-            ps.close();
-            ps = null;
 
             if (rs.next()) {
+                ps.close();
                 ps = conn.prepareStatement(UPDATE_RESUME_QUERY);
                 ps.setString(1, fileName);
                 ps.setInt(2, fileType);
                 ps.setBytes(3, file);
                 ps.setInt(4, rs.getInt("resume_id"));
             } else {
+                ps.close();
                 ps = conn.prepareStatement(INSERT_RESUME_QUERY);
                 ps.setInt(1, DBMS.getSeqId(conn,DBMS.RESUME_SEQ));
                 ps.setInt(2, userID);
@@ -147,6 +147,7 @@ public class ResumeServicesBean extends BaseEJB {
                 log.error("conn close problem");
             }
             ps = null;
+            rs = null;
             conn = null;
         }
     }

@@ -34,23 +34,31 @@ public class Controller
         try {
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 String taskName = request.getParameter(TASK);
-                if (taskName == null || !isWord(taskName)) {
+                if (taskName == null) {
+                    taskName= "Registration";  // handle null task gracefully
+                } else if (!isWord(taskName)) {
                     log.debug(TASK + " not found in request.");
                     forwardToError(request, response, new TaskException(TASK + " not found in request."));
                     return;
                 }
-                session = request.getSession(true); // for now create a new session, later this'll be done in the front page
+//                session = request.getSession(true); // for now create a new session, later this'll be done in the front page
+                session = request.getSession(false); // for now create a new session, later this'll be done in the front page
+                if (session == null) {
+                    log.debug("XXX session was null");
+                    session = request.getSession(true);
+                }
                 Object taskObject = session.getAttribute(taskName);
                 Task task = null;
                 Class taskClass = null;
-                try {
-                    taskClass = Class.forName(TASK_PACKAGE + "." + taskName);
-                } catch (ClassNotFoundException e) {
-                    log.error(e.getMessage());
-                    forwardToError(request, response, e);
-                    return;
-                }
                 if (taskObject == null) {
+                    log.debug("taskObject was null");
+                    try {
+                        taskClass = Class.forName(TASK_PACKAGE + "." + taskName);
+                    } catch (ClassNotFoundException e) {
+                        log.error(e.getMessage());
+                        forwardToError(request, response, e);
+                        return;
+                    }
                     try {
                         task = (Task) taskClass.newInstance();
                     } catch (Exception e) {
@@ -69,7 +77,19 @@ public class Controller
                     }
                 }
                 task.setUser(getUser(session));
+/*
                 task.setStep(request.getParameter(STEP));
+*/
+                log.debug("**************session test****************");
+                log.debug("get attr: " + session.getAttribute("butt"));
+                session.setAttribute("butt", "big ass butt");                
+                log.debug("set attr");
+                log.debug("**************session test****************");
+
+
+                log.debug("bean step: " + task.getStep());
+                log.debug("step: " + request.getParameter(STEP));
+                log.debug("firstname: " + ((com.topcoder.web.reg.bean.Registration)task).getFirstName());
                 Enumeration parameterNames = request.getParameterNames();
                 while (parameterNames.hasMoreElements()) {
                     String parameterName = parameterNames.nextElement().toString();
@@ -119,15 +139,21 @@ public class Controller
 
     void forward(HttpServletRequest request, HttpServletResponse response, String url)
             throws ServletException {
+        log.debug("forwarding to " + url);
+/*
         response.setHeader("Cache-Control", "no-store");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
+*/
         try {
+            getServletContext().getRequestDispatcher(response.encodeURL(url)).forward(request, response);
+/*
             if (url != null) {
                 response.sendRedirect(response.encodeURL(url));
             } else {
                 response.sendRedirect(response.encodeURL(CONTROLLER_ERROR_URL));
             }
+*/
         } catch (IOException e) {
             log.error(e.getMessage());
             throw new ServletException(e);
@@ -147,10 +173,17 @@ public class Controller
         forwardToError(request, response);
     }
 
-    User getUser(HttpSession session) {
+    User getUser(HttpSession session) throws Exception {
         if (session != null) {
             Object navigation = session.getAttribute(NAVIGATION);
+            if (navigation == null) { 
+                log.debug("navigation object was null");
+                navigation = new Navigation();
+                session.setAttribute(NAVIGATION, (Navigation)navigation);
+            }
+            log.debug("navigation isserializable: " + ((Navigation)navigation).userIsSerializable());
             if (navigation instanceof Navigation) {
+                ((Navigation) navigation).makeUserSerializable();
                 User user = ((Navigation) navigation).getUser();
                 if (user.getUserId() == 0) {
                     return null;

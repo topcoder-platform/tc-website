@@ -5,9 +5,10 @@ package com.topcoder.web.reg.bean;
 import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.shared.util.logging.Logger;
 
+import java.io.Serializable;
 import java.util.Hashtable;
 
-public class Task {
+public class Task implements Serializable {
     private static Logger log = Logger.getLogger(Task.class);
     protected Hashtable errors;
     protected boolean userChanged;
