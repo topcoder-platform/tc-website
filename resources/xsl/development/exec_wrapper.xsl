@@ -56,16 +56,15 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong><<<COMPONENT_NAME>>>: <<<COMPONENT_TYPE>>></strong></h1>
+							<h1 class="devSubhead"><strong>Executable Wrapper: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: <<<COMPONENT_TYPE>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Executable Wrapper: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							<<<OVERVIEW>>>
-							</p>
+                            The Executable Wrapper component provides the ability to execute programs and scripts outside the scope of the JVM. This functionality is available in Java but is often implemented incorrectly. This component masks the implementation details of executing external code while giving developers an increased level of control and details about those programs during execution.							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component <<<COMPONENT_TYPE>>> Project: Provide a complete <<<COMPONENT_TYPE_LOWER>>> for the <<<COMPONENT_NAME>>> component.<br />
+							Component Design Project: Provide a complete design for the Executable Wrapper component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> for further details regarding this project type.</p>
 
 							<p><strong>Technologies</strong></p>
@@ -84,9 +83,10 @@
 							<p><strong>Designer</strong><br />
 							Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - $<<<TOTAL_PAYMENT>>><br/>
-							First Deliverable - $<<<FIRST_PAYMENT>>><br/>
-							Project Completion - $<<FINAL_PAYMENT>>></p>
+							<p>Total Payment - $210.00<br/>
+							First Deliverable - $157.50<br/>
+							Project Completion - $52.50</p>
+
 
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
@@ -109,14 +109,14 @@
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
-							<p>Component Posting: <<<POSTING_DATE>>><br/>
-							Initial Submission Due Date: <<<INITIAL_SUBMISSION_DATE>>><br/>
-							Final Submission Due Date: <<<FINAL_SUBMISSION_DATE>>><br/>
-							Estimated Development End Date: <<<ESTIMATED_END_DATE>>></p>
+							<p>Component Posting: 12/5/2002<br/>
+							Initial Submission Due Date: 12/18/2002<br/>
+							Final Submission Due Date: 12/30/2002<br/>
+							Estimated Development End Date: 1/29/2003</p>
 
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: <<<COMPONENT_TYPE>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Executable Wrapper: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
