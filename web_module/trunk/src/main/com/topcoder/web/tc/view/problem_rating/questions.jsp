@@ -46,7 +46,7 @@
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="1" CELLPADDING="5" WIDTH="100%">
-        <tr><td></td>
+        <tr><td class="bodyTextBig">Question</td>
             <% for(int i = 1; i<=10; i++){ %>
                 <td class="bodyTextBig" align="center">
                     <%=i%>
@@ -74,6 +74,7 @@
         </td></tr>
     </table>
 </form>
+      </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
