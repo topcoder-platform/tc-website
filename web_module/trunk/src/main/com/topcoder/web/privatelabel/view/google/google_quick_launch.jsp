@@ -45,7 +45,7 @@
         <PARAM value="false" name="scriptable">
         <PARAM name="host" value="www.topcoder.com">
         <PARAM name="port" value="7001">
-        <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=7001">
+        <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001">
         <PARAM name="companyName" value="Google">
         <PARAM name="poweredbyview" value="true">
         <PARAM name="com.topcoder.client.contestApplet.editors.NoPluginManager" value="true">
@@ -57,7 +57,7 @@
             archive="GoogleIndiaContestApplet.jar"
             host="www.topcoder.com"
             port="7001"
-            tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=7001"
+            tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001"
             companyName="Google"
             poweredbyview="true"
             com.topcoder.client.contestApplet.editors.NoPluginManager="true"
