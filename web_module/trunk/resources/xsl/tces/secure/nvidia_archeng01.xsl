@@ -58,15 +58,14 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank" CLASS="bodyText">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
-      </TD>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Full Time Positions</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">Intern/Co-op Positions</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A></TD>
   </TR>
 </TABLE>
 <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>    
 
 
 
-<P><B>ARCHITECTURE ENGINEER</B></P>
+<P><B>ARCHITECTURE</B></P>
 <P><B>Role/Responsibilities:</B>
 This is an opportunity to work with the hottest team in the history of semiconductor architecture!  The current team members possess over 100 patents and average over 15 years of experience apiece.  Areas of specialization include 3D Graphics, Video, Audio, PC Systems and Networking.  The architect will be expected to become familiar with NVIDIA's current architecture, algorithms, products, and development methodologies, and perform research supporting the development of new algorithms and ideas.  In pursuit of this development, the architect will be expected to document the mathematical equations involved in the algorithms, generate test programs to validate the ideas, and generate C-model code to assist in hardware design and verification. </P>
 <P><B>Qualifications:  GPA 3.5</B></P>
