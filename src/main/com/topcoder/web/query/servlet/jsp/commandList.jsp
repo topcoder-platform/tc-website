@@ -28,16 +28,18 @@
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.COMMAND_LIST_NAME%></TD></TR>
+          <TR><TD CLASS="statTextBig" COLSPAN="4"><%=Constants.COMMAND_LIST_NAME%></TD></TR>
           <TR>
-            <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
-            <TD CLASS="statText" ALIGN="left">
+            <TD CLASS="statText" ALIGN="right" COLSPAN="2">DB:&#160;</TD>
+            <TD CLASS="statText" ALIGN="left" COLSPAN="2">
               <jsp:getProperty name="CommandListTask" property="Db"/>
             </TD>
           </TR>
-          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+          <TR><TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
           <TR BGCOLOR="#333333">
+            <TD></TD>
             <TD CLASS="statTextBig">Group Name</TD>
+            <TD></TD>
             <TD CLASS="statTextBig">Command Name</TD>
           </TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
@@ -48,13 +50,17 @@
                   [edit]
                 </A>
                 &#160;&#160;
+              </TD>
+              <TD CLASS="statText">
                 <query:resultSetItem row="<%=command%>" name="command_group_name"/>
               </TD>
               <TD CLASS="statText">
                 <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" CLASS="statText">
                   [edit]
                 </A>
+              </TD>
                 &#160;&#160;
+              <TD CLASS="statText">
                 <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" CLASS="statText">
                   <query:resultSetItem row="<%=command%>" name="command_desc"/>
                 </A>
