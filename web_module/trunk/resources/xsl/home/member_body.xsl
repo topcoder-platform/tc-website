@@ -477,7 +477,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 
                 <tr>
                     <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;brett1479_mug<br /><i>[TC]&#160;Member</i><br /></td>
+                        By&#160;brett1479<br /><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
                         <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 137</strong></font></td>
