@@ -80,7 +80,7 @@
                                             <a href="#payment">Payment</a> |
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
-                                            <a target="_new" href="/i/development/downloads/SSODevelopmentRFI1.pdf">Requirement Specification</a> |
+                                            <a target="_new" href="/i/development/downloads/SSODevelopmentRFI1.pdf">Requirement Specification</a> 
                                             
                                         </p>
 
