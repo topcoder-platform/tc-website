@@ -551,6 +551,27 @@ public class RegistrationHelper {
     _crb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
   }
 
+  public static boolean isValidCoach(Map _errors,
+                                     CoachRegistrationBean _crb)
+                                                              throws Exception {
+    boolean valid=true;
+    valid&=checkValidFirstName(_errors,_crb.getFirstName());
+    valid&=checkValidLastName(_errors,_crb.getLastName());
+    valid&=(checkValidState(_errors,_crb.getStateCode(),_crb.getStateList())&&
+            checkValidSchool(_errors,_crb.getSchoolId(),_crb.getSchoolList()));
+    valid&=(_crb.getUserId()!=null||checkValidHandle(_errors,_crb.getHandle()));
+    valid&=(!_crb.getChangePassword()||
+      checkValidPassword(_errors,_crb.getPassword(),_crb.getConfirmPassword()));
+    valid&=checkValidEmail(_errors,_crb.getEmail(),_crb.getConfirmEmail());
+    valid&=checkValidEditor(_errors,_crb.getEditorId(),
+                            _crb.getEditorList());
+    valid&=checkValidLanguage(_errors,_crb.getLanguageId(),
+                              _crb.getLanguageList());
+    valid&=(_crb.getUserId()!=null||
+            checkAgreeTerms(_errors,_crb.getAgreeTerms()));
+    return(valid);
+  }
+
   public static void createCoach(CoachRegistrationBean _crb)
                                                               throws Exception {
     /* !!This is a hack!! Because the persisting is done in a web container, or
