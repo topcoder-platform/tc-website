@@ -94,6 +94,7 @@ public class Controller
                 } catch (TaskException e) {
                     log.error(e.getMessage());
                     forwardToError(request, response, e);
+                    return;
                 }
 
                 forward(request, response, task.getNextPage());
