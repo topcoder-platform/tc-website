@@ -5,7 +5,6 @@
           com.topcoder.web.query.common.*,
           com.topcoder.web.query.bean.*" %>
 <jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.query.bean.LoginTask" />
-<jsp:useBean id="Authentication" scope="request" class="com.topcoder.web.query.common.Authentication" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
     if (session.isNew()) System.out.println("XXX new session");
@@ -34,11 +33,12 @@
             <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD CLASS="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               <p CLASS="statText">
-                <jsp:getProperty name="Authentication" property="ErrorMessage" />
+                <jsp:getProperty name="LoginTask" property="ErrorMessage" />
               </p>
               <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="LoginTask" property="ServletPath"/>">
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%=Constants.LOGIN_TASK %>"/>
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.REDIRECT_PAGE_PARAM%>" VALUE="<%=Authentication.getRequestedURL()%>"/>
+                <INPUT TYPE="HIDDEN" NAME="<%= Constants.STEP_PARAM%>" VALUE="<%=Constants.NEW_STEP%>"/>
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">Handle:</TD>
