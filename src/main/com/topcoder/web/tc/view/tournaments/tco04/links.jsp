@@ -9,7 +9,8 @@
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
 	<tr>
-		<td valign=top class=logoBox rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="113" border="0"/></A></td>
+		<td valign=top rowspan=2><img src="/i/clear.gif" width="10" height="9" border="0"/><br/>
+		<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="152" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/on_tournament.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
@@ -19,7 +20,8 @@
 	</tr>
 <% } else if (tabLev1.equals("algorithm")) { %>
 	<tr>
-		<td valign=top class=logoBox rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="113" border="0"/></A></td>
+		<td valign=top rowspan=2><img src="/i/clear.gif" width="10" height="9" border="0"/><br/>
+		<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="152" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/off_tournament.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description"><img src="/i/tournament/tco04/on_algorithm.gif" width="179" height="24" border="0"></a><br/>
@@ -29,7 +31,8 @@
 	</tr>
 <% } else if (tabLev1.equals("component")) { %>
 	<tr>
-		<td valign=top class=logoBox rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="113" border="0"/></A></td>
+		<td valign=top rowspan=2><img src="/i/clear.gif" width="10" height="9" border="0"/><br/>
+		<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="152" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/off_tournament.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>

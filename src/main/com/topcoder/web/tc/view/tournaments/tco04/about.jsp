@@ -21,26 +21,51 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>Algorithm Overview Page</p>
+        <p class=pageTitle>2004 TopCoder Open - Overview</p>
 
-        <p>Tonight, TopCoder kicked off what promises to be its biggest and best event ever. 30 TopCoders, 
-        representing 16 different countries, spent the evening getting to know one another at the opening 
-        reception in the stylish Park Plaza hotel.  These coders are the best of the best, having survived 
-        an extremely competitive month of online rounds, in which over 95% of coders were eliminated.</p>
-            
-        <p>Newcomers to the prestiguous onsite round used the time to their advantage, grilling competitors 
-        who have been here before about the format and strategies of the onsite event.  But, for the most part, 
-        the competitors relaxed and tried to forget about the extreme 75 minutes of furious coding that they 
-        must undertake tomorrow.  Popular topics of discussion included the recent ACM competition and the 
-        ImagineCup, two other competitions in which TopCoders did well.  Competitors also recounted humorous 
-        anecdotes from prior competitions, the crowd favorite of which was related to Floyd's algorithm.  
-        And of course, it wouldn't be a coding competition if there wasn't talk about algorithms.  
-        In addition, representatives from sponsors Yahoo! and NVIDIA were present, chatting with members 
-        and handing out goodies.</p>
-            
-        <p>The next two days promise to be exciting -- the top designer and developer will be decided and 
-        the final four algorithm coders will advance and vie for the $25,000 grand prize.  Congratulations 
-        to all the coders who have made it so far, and good luck to everyone in the upcoming events.</p>
+        <p>If you're looking for information on the premier international programming tournament, you've come to the right place!  
+        The 2004 TopCoder Open, Sponsored by Microsoft&#174; will set as rivals some of the IT industry's top professionals and 
+        international collegiate coders.  Software will be designed and developed.  Seemingly unsolvable algorithmic problems 
+        will be solved. $150,000 will be awarded over the course of 14 weeks.</p>
+        
+        <h3>ARE YOU READY?</h3>
+        
+        
+		<blockquote>
+  		<h3>Who</h3>
+  		<ul>
+       		<li>All registered TopCoder members over the age of 18</li>
+       	</ul>
+       	
+       	<h3>What</h3>
+       	<ul>
+       		<li>Algorithm Competition</li>
+       		<li>Component Design Competition</li>
+       		<li>Component Development Competition</li>
+       	</ul>
+
+       	
+       	<h3>Where</h3>
+       	<ul>
+       		<li>Santa Clara Marriott in Santa Clara, CA</li>
+       	</ul>
+
+		<h3>When</h3>
+		<ul>
+       		<li>Component Development Competition starts August 10th</li>
+       		<li>Component Design Competition starts August 12th</li>
+       		<li>Algorithm Competition registration opens August 16th; competition starts September 7th</li>
+       	</ul>
+
+       	
+       <h3>How Much</h3>
+       <ul>
+       		<li>$100,000 will be awared to Component Design & Development competitors</li>
+       		<li>$50,000 will be awared to Algorithm competitors</li>
+       	</ul>
+       	
+       	<p>See the official rules and regulations for full details.</p>
+       	</blockquote>
             
         </div>
 		</td>
