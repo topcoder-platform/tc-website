@@ -1,4 +1,4 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
@@ -6,14 +6,15 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Coder Rankings</TITLE>
-<jsp:include page="baseHRef.jsp" />     
+<jsp:include page="baseHRef.jsp" />
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="../script.jsp" />
-   
+
 <script language="JavaScript">
    function submitForm(goToPg){
  	var frm = document.coderRankForm;
@@ -62,7 +63,7 @@
          <!-- BEGIN BODY -->
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
-%>		 
+%>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
            <TR>
              <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
@@ -80,7 +81,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
-<% 
+<%
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Coder_Ratings");
 pageContext.setAttribute("resultSet", rsc);
 
@@ -92,7 +93,7 @@ int iFirst = 1;
 try{
   iCurrentPage = Integer.parseInt(srb.getProperty("pg","1"));
   iLast = Integer.parseInt(srb.getProperty("Last","150"));
-  iFirst = Integer.parseInt(srb.getProperty("First","1"));  
+  iFirst = Integer.parseInt(srb.getProperty("First","1"));
   iEndRow = Integer.parseInt(srb.getProperty("er","50"));
 }catch(Exception e){
 //ignore
@@ -118,12 +119,12 @@ try{
 				   <% } else {%>
 				     &lt;&lt; previous
 				   <% } %>
-                     |   
+                     |
 				 <% if (iEndRow < iLast) {%>
                      <A HREF="javascript:submitForm(<%= iCurrentPage + 1 %>);" CLASS="statText">next &gt;&gt;</A>
 				   <% } else {%>
 				     next &gt;&gt;
-				   <% } %>					 
+				   <% } %>
                    </TD>
                  </TR>
                  <TR>
@@ -149,7 +150,7 @@ try{
                    <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 5 /* order */ + "]" %>'/></TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="left">
-					<A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 1 /* handle */ + "]" %>'/></A>
+					<tc-webtag:handle coderId='<%=resultRow.getIntItem("coder_id")%>' context="algorithm"/>
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="right"><%= coderrank.toString() %></TD>
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -165,12 +166,12 @@ try{
 				   <% } else {%>
 				     &lt;&lt; previous
 				   <% } %>
-                     |   
+                     |
 				 <% if (iEndRow < iLast) {%>
                      <A HREF="javascript:submitForm(<%= iCurrentPage + 1 %>);" CLASS="statText">next &gt;&gt;</A>
 				   <% } else {%>
 				     next &gt;&gt;
-				   <% } %>			
+				   <% } %>
                    </TD>
                  </TR>
                  <TR>
@@ -203,9 +204,9 @@ try{
            </TR>
            <TR>
              <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
          <!-- END BODY -->
        </TD>
@@ -215,7 +216,7 @@ try{
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />
