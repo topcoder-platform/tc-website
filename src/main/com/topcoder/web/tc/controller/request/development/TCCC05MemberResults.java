@@ -104,7 +104,7 @@ public class TCCC05MemberResults extends StatBase {
 
                     arr.add( new TCCC05MemberResult(rsc.getStringItem(i, "component_name"), pts ,    
                         place, score,
-                        rsc.getIntItem(i, "component_id"), prz, sub) );
+                        rsc.getIntItem(i, "component_id"), prz, sub, bComplete) );
                     }
              }
         }
