@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
+                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,18 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=tco04_online_rd_1">TCO04 Online Round 1 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, September 11, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=tco04_online_rd_2">TCO04 Online Round 2 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, September 14, 2004</p>
 
                         <p>
 
-What is it called when you gather the best coders in the world at a single event?  If you didn't
-already know the answer, it's called the TopCoder Open, and we are already in the thick of it.
-Online Round 1 further prunes the entry list, funneling 500 competitors into 200 slots.  For some,
-Round 1 is a chance to surprise the crowds, gain a few ratings points, and be inducted into
-TopCoder's elite.
+Round two seemed very tricky for most coders, dispite the low
+point values for the easy and hard problems.  In fact, 9 red
+coders were eliminated, 6 of them scoring 0 points or less.  Most
+people believed that the low scored easy and hard were undervalued.
 
-                        <a href="/index?t=statistics&c=tco04_online_rd_1" class="bodyText"><strong>full&#160;story</strong></a>
+                        <a href="/index?t=statistics&c=tco04_online_rd_2" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
