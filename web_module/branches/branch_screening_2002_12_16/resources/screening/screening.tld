@@ -338,7 +338,7 @@
   <tag>
     <name>problemInfoIterator</name>
     <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.common.tag.ProblemInfoIteratorTagInfo</teiclass>
+    <teiclass>com.topcoder.web.screening.view.tag.ProblemInfoIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to iterate through a List of ProblemInfo beans
