@@ -374,6 +374,23 @@
          </jar>
      </target>
 
+     <target name="package-EJB-ImageBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Image"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/image"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Image.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/idgeneratorclient/IdGeneratorClient.class"/>
+         </jar>
+     </target>
+
+
      <target name="package-EJB-DemographicBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Demographic"/>
