@@ -93,6 +93,7 @@ public class ModifyCommandQuery extends BaseProcessor {
         setOtherQueryList(q.getAllQueries(false, getDb()));
 
         setNextPage(Constants.MODIFY_COMMAND_QUERY_PAGE);
+        setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

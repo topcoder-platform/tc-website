@@ -80,6 +80,7 @@ public class ModifyCommand extends BaseProcessor {
         }
 
         setNextPage(Constants.MODIFY_COMMAND_PAGE);
+        setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

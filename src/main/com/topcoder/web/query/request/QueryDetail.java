@@ -61,6 +61,7 @@ public class QueryDetail extends BaseProcessor {
         setInputList(qi.getInputsForQuery(getQueryId(), getDb()));
 
         setNextPage(Constants.QUERY_DETAIL_PAGE);
+        setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

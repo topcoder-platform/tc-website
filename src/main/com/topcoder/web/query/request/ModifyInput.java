@@ -76,6 +76,7 @@ public class ModifyInput extends BaseProcessor {
         }
 
         setNextPage(Constants.MODIFY_INPUT_PAGE);
+        setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

@@ -64,6 +64,7 @@ public class ModifyGroup extends BaseProcessor {
             }
         }
         setNextPage(Constants.MODIFY_GROUP_PAGE);
+        setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
