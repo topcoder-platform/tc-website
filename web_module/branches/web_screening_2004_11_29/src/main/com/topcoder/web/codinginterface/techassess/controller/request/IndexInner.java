@@ -1,8 +1,6 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.codinginterface.techassess.Constants;
 
 /**
