@@ -65,12 +65,10 @@
         <td width="206"><a href="/" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
         <td width="99%" nowrap>
 
-
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td><img src="/i/clear.gif" width="1" height="75" border="0"/></td></tr>
             </table>
 
-<% }%>
         </td>
     </tr>
 </table>

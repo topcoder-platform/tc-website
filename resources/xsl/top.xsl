@@ -55,57 +55,6 @@
         </td>
         <td width="99%">
 
-<xsl:choose>
-    <xsl:when test="/TC/LoggedIn='true'">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">
-                <tr valign="middle"><form name="selectform">
-                    <td width="99%" align="left">
-                        <xsl:choose>
-                            <xsl:when test="number(/TC/Rating)>1199">
-                                <IMG src="/i/top_div1_badge.jpg" width="370" height="75" border="0" alt="DIVISION I" />
-                            </xsl:when>
-                            <xsl:when test="number(/TC/Rating)&lt;1">
-                                <IMG src="/i/top_nonrated_badge.jpg" width="390" height="75" border="0" alt="NON-RATED" />
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <IMG src="/i/top_div2_badge.jpg" width="390" height="75" border="0" alt="DIVISION II" />
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </td>
-
-                    <td align="right">
-                        <xsl:choose>
-                            <xsl:when test="$sectionName='home'">
-                                <A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/components/free_components.jsp</xsl:attribute><IMG src="/i/promos/free_comps_promo_head.gif" width="178" height="61" border="0" alt="FREE COMPONENTS" vspace="7"  hspace="10" /></A>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <img src="/i/clear.gif" alt="" width="10" height="75" border="0" /><br />
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </td>
-
-                    <td align="right">
-                        <select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">
-                            <option value="SELECTED"> Select a Feature: </option>
-                            <option><xsl:attribute name="value">/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Profile</option>
-                            <option><xsl:attribute name="value">/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Rating History</option>
-                            <option><xsl:attribute name="value">/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</option>
-                            <option><xsl:attribute name="value">/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Room Statistics</option>
-                            <option><xsl:attribute name="value">/stat?c=round_stats</xsl:attribute>Round Statistics</option>
-                            <option><xsl:attribute name="value">/index?t=search</xsl:attribute>Advanced Member Search</option>
-                            <option><xsl:attribute name="value">/PactsMemberServlet</xsl:attribute>Affidavits</option>
-                            <option><xsl:attribute name="value">/index?t=search&amp;c=refer</xsl:attribute>My Referrals</option>
-                            <option><xsl:attribute name="value">/index?t=development&amp;c=index</xsl:attribute>Development</option>
-                            <option><xsl:attribute name="value">/index?t=tces&amp;c=index</xsl:attribute>TCES (jobs)</option>
-                        </select>
-                    </td>
-
-                    <td width="10"><img src="/i/clear.gif" width="10" height="75" border="0"/></td></form>
-                </tr>
-            </table>
-    </xsl:when>
-
-    <xsl:otherwise>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td align="right" width="99%">
@@ -121,8 +70,6 @@
                     <td width="1"><img src="/i/clear.gif" width="1" height="75" border="0"/></td>
                 </tr>
             </table>
-    </xsl:otherwise>
-</xsl:choose>
         </td>
     </tr>
 </table>
