@@ -110,8 +110,10 @@ public abstract class BaseProcessor implements RequestProcessor {
         }
     }
     
-    /**
-     * @return  */    
+    /** Builds a URL that can be used to redirect back to the
+     * current processor.
+     * @return A context-relative URL
+     */    
     protected String getSelfRedirect(){
         return getSelfRedirect(null);
     }
@@ -119,12 +121,12 @@ public abstract class BaseProcessor implements RequestProcessor {
     /** Builds a URL that can be used to redirect back to the
      * current processor.
      * @param parameters Additional parameters to be added to the URL
-     * @return A fully formed URL
+     * @return A context-relative URL
      */    
     protected String getSelfRedirect(String parameters){
         HttpServletRequest rq = (HttpServletRequest)getRequest();
         
-        String servletUrl = rq.getContextPath() + Constants.CONTROLLER_URL;
+        String servletUrl = /*rq.getContextPath() + */ Constants.CONTROLLER_URL;
         String className = this.getClass().getName();
         className = className.substring(className.lastIndexOf('.')+1);
         String basicUrl = servletUrl + "?" +

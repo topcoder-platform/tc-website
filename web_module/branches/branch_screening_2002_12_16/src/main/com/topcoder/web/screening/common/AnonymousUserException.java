@@ -6,9 +6,6 @@ package com.topcoder.web.screening.common;
  */
 public class AnonymousUserException extends ScreeningException {
     
-    /** Holds value of property redirect. */
-    private String redirect;
-    
     /**
      * Creates a new instance of <code>AnonymousUserException</code> without detail message.
      */
@@ -25,26 +22,28 @@ public class AnonymousUserException extends ScreeningException {
     }
     
     /**
-     * Constructs an instance of <code>AnonymousUserException</code> with the specified detail message.
-     * @param msg the detail message.
+     * <p>
+     * Constructor taking a nested exception
+     * </p>
+     *
+     * @param nestedException the nested exception
      */
-    public AnonymousUserException(String msg, String redirect) {
-        super(msg);
-        setRedirect(redirect);
+    public AnonymousUserException(Throwable nestedException)
+    {
+        super(nestedException);
     }
-    
-    /** Getter for property redirect.
-     * @return Value of property redirect.
+
+    /**
+     * <p>
+     * Constructor taking a nested exception and a string
+     * </p>
+     *
+     * @param message the message of this exception
+     * @param nestedException the nested exception
      */
-    public String getRedirect() {
-        return this.redirect;
-    }
-    
-    /** Setter for property redirect.
-     * @param redirect New value of property redirect.
-     */
-    public void setRedirect(String redirect) {
-        this.redirect = redirect;
+    public AnonymousUserException(String message, Throwable nestedException)
+    {
+        super(message, nestedException);
     }
     
 }
