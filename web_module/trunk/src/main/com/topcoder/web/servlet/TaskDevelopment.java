@@ -39,7 +39,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javax.naming.Context;
-
+import java.text.NumberFormat;
 public final class TaskDevelopment {
 
 
@@ -109,7 +109,7 @@ public final class TaskDevelopment {
                 NumberFormat format = NumberFormat.getCurrencyInstance();
                 
                 devTag.addTag(new ValueTag("date", date));
-                Double paymentAmt = Double.parse(payment);
+                double paymentAmt = Double.parseDouble(payment);
                 devTag.addTag(new ValueTag("payment", format.parse(paymentAmt)));
                 
                 devTag.addTag(new ValueTag("first_payment", format.parse(paymentAmt*.75)));
