@@ -147,6 +147,7 @@
         						        <xsl:attribute name="href">
         						            <xsl:value-of select="concat('http://www.topcodersoftware.com/catalog/document?id=', $docId)"/>
         						        </xsl:attribute>
+        						        Requirement Specification
         						    </a> for this component project &gt;&gt;</strong>
                             </p>
 						
