@@ -40,12 +40,7 @@
                 </TABLE>
             </TD>
             <TD HEIGHT="100%"><BR><BR>
-                        <P CLASS="bodyText">Forgot your password?
-If you cannot remember your password <A HREF="?module=Static&d1=login&d2=pass_help">click here</A> and we can send it to you via email. 
-
-New to TopCoder?
-Click here to register now. After you complete the registration process, we will send your account activation code via email. 
-</P><BR>
+                        <P CLASS="bodyText">New to TopCoder?  Click <A HREF="?module=Static&d1=registration&d2=registration">here</A> to register now.</P><BR>
 
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <%

@@ -11,7 +11,7 @@ function openWin(url, name, w, h) {
 <TR><TD>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#6C6D71" WIDTH="100%">
     <TR VALIGN="top" >
-		<TD WIDTH="100%" BGCOLOR="#6C6D71" ALIGN="right" BACKGROUND="/i/hs/top_gray_1pix_bg">
+		<TD WIDTH="100%" BGCOLOR="#6C6D71" ALIGN="right" BACKGROUND="/i/hs/top_gray_1pix_bg.gif">
 <SPAN CLASS="smallFoot">        
 
 <jsp:useBean id="CoderRatingStyle" class="com.topcoder.web.hs.model.CoderRatingStyleBean" scope="application" />

@@ -5,9 +5,9 @@
 /**** THIS CODE DOES NOT CURRENTLY HANDLE RENDERING THREE LEVELS OF MENUS ****/
 
 // highlight the selected menu item by using this property for its table cell
-String selbg = "BACKGROUND=\"/i/graybv_lite_bg.gif\"";
+String selbg = "BACKGROUND=\"/i/hs/graybv_lite_bg.gif\"";
 // highlight other items in the open submenu by using this property for its table cell
-String sibbg = "BACKGROUND=\"/i/steel_gray_bg.gif\"";  // sib for sibling
+String sibbg = "BACKGROUND=\"/i/hs/steel_gray_bg.gif\"";  // sib for sibling
 // default property for unhighlighted items
 String defbg = "";
 
