@@ -176,17 +176,14 @@
 			</div>
 			<br/>
 			Those finalists not finishing as one of the top four scorers in the Championship Round will each receive $250.
+
 			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the Terms and Conditions. 
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>
 	<tr>
 </table>
-
-<p>
 <jsp:include page="foot.jsp" />
-</p>
-
 </body>
 </html>
