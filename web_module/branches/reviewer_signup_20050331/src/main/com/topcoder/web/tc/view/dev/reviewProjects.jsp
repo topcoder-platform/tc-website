@@ -162,7 +162,7 @@
  <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
  <% } else { %>
- Open
+ <td class="projectCells" align="center">Open</td>
  <% } %>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
@@ -234,7 +234,7 @@
  <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
   <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
  <% } else { %>
-  Open
+   <td class="projectCells" align="center">Open</td>
  <% } %>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
