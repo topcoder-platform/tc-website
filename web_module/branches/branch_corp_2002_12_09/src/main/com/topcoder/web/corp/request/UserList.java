@@ -28,6 +28,8 @@ import javax.naming.InitialContext;
 public class UserList extends BaseProcessor {
     private static Logger log = Logger.getLogger(UserList.class);
 
+    private static final String USER_LIST_PAGE = "UserListView"; 
+
    /**  <p>BusinessProcessing for this processor will retrieve a list of user
      *  information from the database related to current company of the
      *  user who is logged in.  
@@ -44,22 +46,14 @@ public class UserList extends BaseProcessor {
         long userId;
         WebAuthentication authToken = getAuthenticityToken();
         if( authToken.getUser().isAnonymous() ){
-
-
-            /* For testing purposes set company ID to 12345 until
-               Authenticaiton is working.  Normally throw exception if a user
-               is not logged in. */
-            userId = 132456; 
-
-            //throw new AuthenticationException("You must be logged in to perform this action");
+            throw new AuthenticationException("You must be logged in to perform this action");
         }
-        else { // else will not necessary when authentication is complete... 
 
-            /* Find the current logged in users ID number.  */
-            User currentUser = authToken.getUser();
-            userId = currentUser.getId();
-            /* get the company associated with that logged in users ID number */
-        }
+        /* Find the current logged in users ID number.  */
+        User currentUser = authToken.getUser();
+        userId = currentUser.getId();
+
+        /* get the company associated with that logged in users ID number */
         long companyId = new 
             com.topcoder.web.ejb.user.ContactBean().getCompanyId(userId);
         log.debug("--- UserList getting users for companyId: "+companyId);
@@ -78,6 +72,6 @@ public class UserList extends BaseProcessor {
             throw new Exception("User list invalid");
         }
         request.setAttribute("companyUsers",rsc);
-        nextPage = ("/acc_admin/user_list.jsp");
+        nextPage = ("/acc_admin/UserListView.jsp");
     }
 }
