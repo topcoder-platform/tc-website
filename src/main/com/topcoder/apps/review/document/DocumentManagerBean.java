@@ -1589,7 +1589,9 @@ public class DocumentManagerBean implements SessionBean {
                                                         vals[1]++;
                                             }
                                     }
-                                    return vals[0] - vals[1];
+                                    System.out.println(((InitialSubmission)obj1).getSubmitter().getHandle() + "=" + vals[0]);
+                                    System.out.println(((InitialSubmission)obj2).getSubmitter().getHandle() + "=" + vals[1]);
+                                    return vals[1] - vals[0];
                                 }
                                 return Double.compare(((InitialSubmission) obj2).getFinalScore(),
                                         ((InitialSubmission) obj1).getFinalScore());
