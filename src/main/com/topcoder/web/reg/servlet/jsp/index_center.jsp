@@ -173,14 +173,14 @@ Founder and Chairman, TopCoder, Inc.
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Address&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.ADDRESS1%>" value ="<jsp:getProperty name="Registration" property="Address1" />" size="30" maxlength="30"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.ADDRESS1%>" value ="<jsp:getProperty name="Registration" property="Address1" />" size="30" maxlength="50"></td>
   </tr>
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="Address2Error" /></td>
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.ADDRESS2%>" value ="<jsp:getProperty name="Registration" property="Address2" />" size="30" maxlength="30"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.ADDRESS2%>" value ="<jsp:getProperty name="Registration" property="Address2" />" size="30" maxlength="50"></td>
   </tr>
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="CityError" /></td>
@@ -206,7 +206,7 @@ Founder and Chairman, TopCoder, Inc.
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Zip&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.ZIP%>" value ="<jsp:getProperty name="Registration" property="Zip" />" size="10" maxlength="12"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.ZIP%>" value ="<jsp:getProperty name="Registration" property="Zip" />" size="10" maxlength="10"></td>
   </tr>
 
 
@@ -240,7 +240,7 @@ Founder and Chairman, TopCoder, Inc.
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Phone</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.PHONE%>" value ="<jsp:getProperty name="Registration" property="Phone" />" size="30" maxlength="30"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.PHONE%>" value ="<jsp:getProperty name="Registration" property="Phone" />" size="30" maxlength="20"></td>
   </tr>
   <tr valign="middle">
     <td colspan="4" class="statText" valign="middle">&nbsp;</td>
@@ -256,14 +256,14 @@ Founder and Chairman, TopCoder, Inc.
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Handle</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="30"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="15"></td>
   </tr>
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="PasswordError" /></td>
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Password</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td class="statTextBig" align="left" valign="middle"><input type="password" name="<%=Registration.PASSWORD%>" value ="<jsp:getProperty name="Registration" property="Password" />" size="30" maxlength="30"></td>
+    <td class="statTextBig" align="left" valign="middle"><input type="password" name="<%=Registration.PASSWORD%>" value ="<jsp:getProperty name="Registration" property="Password" />" size="30" maxlength="15"></td>
     <td class="statText" align="left" valign="top">&nbsp;</td>
   </tr>
   <tr>
@@ -275,7 +275,7 @@ Founder and Chairman, TopCoder, Inc.
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Re-type Password</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="password" name="<%=Registration.CONFIRM_PASSWORD%>" value ="<jsp:getProperty name="Registration" property="ConfirmPassword" />" size="30" maxlength="30"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="password" name="<%=Registration.CONFIRM_PASSWORD%>" value ="<jsp:getProperty name="Registration" property="ConfirmPassword" />" size="30" maxlength="15"></td>
   </tr>
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="EmailError" /></td>
