@@ -411,7 +411,9 @@ World Cup final...
   <!-- Quick Stat Pulldown Ends -->
   </TD>
   </TR>               
-</TABLE>    
+</TABLE><BR/>
+<A HREF="/stat?c=member_profile&amp;cr=286951" CLASS="coderTextRed">
+<IMG SRC="/i/codermonth_june.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>   
 </TD>
 <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 <!-- Body Area Ends -->

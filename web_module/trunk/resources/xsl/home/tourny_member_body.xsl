@@ -544,7 +544,7 @@ World Cup final...
 
     </TD>
   <!-- Center Column Ends -->    
-    <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/><BR/>
+    <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244">
 <!-- <A>
     <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4220&amp;t=schedule&amp;c=srm</xsl:attribute>
     <IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/>
@@ -632,7 +632,9 @@ World Cup final...
   <!-- Quick Stat Pulldown Ends -->
                 </TD>
               </TR>               
-            </TABLE>    
+            </TABLE><BR/>
+<A HREF="/stat?c=member_profile&amp;cr=286951" CLASS="coderTextRed">
+<IMG SRC="/i/codermonth_june.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>    
     </TD>
     <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 <!-- Body Area Ends -->
