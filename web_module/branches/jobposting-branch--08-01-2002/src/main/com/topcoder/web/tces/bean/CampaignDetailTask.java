@@ -108,8 +108,8 @@ log.debug("setting most recent hit = "+mostRecentHit);
 
         Integer userId = (Integer)session.getAttribute("user_id");
         if (userId == null || (userId.intValue()<0) ) {
-            log.debug("User not authenticated for access to ES main page.");
-            throw new Exception("User not authenticated for access to ES main page.");
+            log.debug("User not authenticated for access to ES campaign detail task page.");
+            throw new Exception("User not authenticated for access to ES campaign detail task page.");
         }
 
         uid = userId.intValue();
@@ -169,7 +169,7 @@ log.debug("setting most recent hit = "+mostRecentHit);
             position.put("hit_count",
                          ((Long)posListRow.getItem("hit_count").getResultData()).toString() );
             position.put("most_recent",
-                         dateToString((TCTimestampResult) posListRow.getItem("timestamp").getResultData()) );
+                         dateToString((TCTimestampResult) posListRow.getItem("most_recent").getResultData()) );
             position.put("job_id",
                          ((Long)posListRow.getItem("job_id").getResultData()).toString() );
 

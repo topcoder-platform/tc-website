@@ -169,104 +169,105 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             setPositionName( posNameRow.getItem("job_desc").toString() );
         }
 
-        if (getPositionID()>0) {
-            // Position Demographics
+        int types[] = { TCESConstants.PRO_CODER_TYPE,
+                        TCESConstants.STUDENT_CODER_TYPE };
 
-//            dataRequest.setProperty("pid", Integer.toString(getPositionID()) );
-
-
-        }
-        else {
-            // Campaign Demographics
-
-            int types[] = { TCESConstants.PRO_CODER_TYPE,
-                            TCESConstants.STUDENT_CODER_TYPE };
-
-            for (int typeI=0;typeI<types.length;typeI++) {
-                dataRequest.setProperty("uid", Integer.toString(uid) );
-                dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-                dataRequest.setProperty("ct", Integer.toString(types[typeI]) );
-                dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-                resultMap = dai.getData(dataRequest);
-
-                rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Coders_By_Type");
-                ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
-                if (types[typeI]==TCESConstants.STUDENT_CODER_TYPE)
-                    setStudentCoderCount( ((Integer)coderCountRow.getItem("coder_type_count").getResultData()).intValue() );
-                else if (types[typeI]==TCESConstants.PRO_CODER_TYPE)
-                    setProCoderCount( ((Integer)coderCountRow.getItem("coder_type_count").getResultData()).intValue() );
-
-                HashMap demoInfoMap = new HashMap();
-
-                rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Referral_Responses");
-                ResultSetContainer.ResultSetRow refRspRow = null;
-                ArrayList referralMapList = new ArrayList();
-                for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-                    refRspRow = rsc.getRow(rowI);
-                    Map referralItem = new HashMap();
-
-                    double pct = ((double)((Integer)refRspRow.getItem("resp_count").getResultData()).intValue()) /
-                            ((double) getStudentCoderCount());
-
-                    referralItem.put("title", refRspRow.getItem("referral_desc").toString() );
-                    referralItem.put("count", refRspRow.getItem("resp_count").toString() );
-                    referralItem.put("percent", Double.toString(pct)+"%");
-
-                    referralMapList.add(referralItem);
-                }
-                demoInfoMap.put( TCESConstants.DEMOGRAPHIC_REFERRAL_KEY , referralMapList );
-
-                rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Notify_Responses");
-                ResultSetContainer.ResultSetRow notifyRow = null;
-                ArrayList notifyMapList = new ArrayList();
-                for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-                    notifyRow = rsc.getRow(rowI);
-                    Map notifyItem = new HashMap();
-
-                    double pct =
-                        ((double)((Integer)notifyRow.getItem("resp_count").getResultData()).intValue())
-                        / ((double) getStudentCoderCount());
-
-                    notifyItem.put("response", notifyRow.getItem("response").toString() );
-                    notifyItem.put("percent", Double.toString(pct)+"%");
-
-                    notifyMapList.add(notifyItem);
-                }
-                demoInfoMap.put( TCESConstants.DEMOGRAPHIC_NOTIFY_KEY , notifyMapList );
-
-
-                rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Demographic_Responses");
-                ResultSetContainer.ResultSetRow demoInfoRow = null;
-
-                for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-                    demoInfoRow = rsc.getRow(rowI);
-
-                    if (demoInfoMap.get( demoInfoRow.getItem("demographic_question_text").toString()) == null) {
-                        demoInfoMap.put( demoInfoRow.getItem("demographic_question_text").toString(),
-                                         new ArrayList() );
-                    }
-                    ArrayList respList = (ArrayList)demoInfoMap.get(demoInfoRow.getItem("demographic_question_text").toString());
-
-                    double pct =
-                        ((double)((Integer)demoInfoRow.getItem("resp_count").getResultData()).intValue())
-                        / ((double) getStudentCoderCount());
-
-                    HashMap respItem = new HashMap();
-
-                    respItem.put("response", demoInfoRow.getItem("response").toString() );
-                    respItem.put("resp_count", demoInfoRow.getItem("resp_count").toString() );
-                    respItem.put("percent", Double.toString(pct)+"%");
-
-                    respList.add(respItem);
-                }
-                demoInfoMap.put( TCESConstants.DEMOGRAPHIC_INFO_KEY , referralMapList );
-
-                if (types[typeI]==TCESConstants.STUDENT_CODER_TYPE)
-                    setStudentDemoInfo(demoInfoMap);
-                else if (types[typeI]==TCESConstants.PRO_CODER_TYPE)
-                    setProDemoInfo(demoInfoMap);
+        for (int typeI=0;typeI<types.length;typeI++) {
+            if (getPositionID()>0) {
+                // Position Demographics
+                dataRequest.setProperty("pid", Integer.toString(getPositionID()) );
             }
 
+            dataRequest.setProperty("uid", Integer.toString(uid) );
+            dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
+            dataRequest.setProperty("ct", Integer.toString(types[typeI]) );
+            dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            resultMap = dai.getData(dataRequest);
+
+            rsc = (getPositionID()>0)?
+                       (ResultSetContainer) resultMap.get("TCES_Position_Coders_By_Type")
+                      : (ResultSetContainer) resultMap.get("TCES_Campaign_Coders_By_Type");
+            ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
+            if (types[typeI]==TCESConstants.STUDENT_CODER_TYPE)
+                setStudentCoderCount( ((Integer)coderCountRow.getItem("coder_type_count").getResultData()).intValue() );
+            else if (types[typeI]==TCESConstants.PRO_CODER_TYPE)
+                setProCoderCount( ((Integer)coderCountRow.getItem("coder_type_count").getResultData()).intValue() );
+
+            HashMap demoInfoMap = new HashMap();
+
+            rsc = (getPositionID()>0)?
+                        (ResultSetContainer) resultMap.get("TCES_Position_Referral_Responses")
+                       : (ResultSetContainer) resultMap.get("TCES_Campaign_Referral_Responses");
+            ResultSetContainer.ResultSetRow refRspRow = null;
+            ArrayList referralMapList = new ArrayList();
+            for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
+                refRspRow = rsc.getRow(rowI);
+                Map referralItem = new HashMap();
+
+                double pct = ((double)((Integer)refRspRow.getItem("resp_count").getResultData()).intValue()) /
+                        ((double) getStudentCoderCount());
+
+                referralItem.put("title", refRspRow.getItem("referral_desc").toString() );
+                referralItem.put("count", refRspRow.getItem("resp_count").toString() );
+                referralItem.put("percent", Double.toString(pct)+"%");
+
+                referralMapList.add(referralItem);
+            }
+            demoInfoMap.put( TCESConstants.DEMOGRAPHIC_REFERRAL_KEY , referralMapList );
+
+            rsc = (getPositionID()>0) ?
+                        (ResultSetContainer) resultMap.get("TCES_Position_Notify_Responses")
+                      :  (ResultSetContainer) resultMap.get("TCES_Campaign_Notify_Responses");
+            ResultSetContainer.ResultSetRow notifyRow = null;
+            ArrayList notifyMapList = new ArrayList();
+            for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
+                notifyRow = rsc.getRow(rowI);
+                Map notifyItem = new HashMap();
+
+                double pct =
+                    ((double)((Integer)notifyRow.getItem("resp_count").getResultData()).intValue())
+                    / ((double) getStudentCoderCount());
+
+                notifyItem.put("response", notifyRow.getItem("response").toString() );
+                notifyItem.put("percent", Double.toString(pct)+"%");
+
+                notifyMapList.add(notifyItem);
+            }
+            demoInfoMap.put( TCESConstants.DEMOGRAPHIC_NOTIFY_KEY , notifyMapList );
+
+            rsc = (getPositionID()>0) ?
+                        (ResultSetContainer) resultMap.get("TCES_Position_Demographic_Responses")
+                      :  (ResultSetContainer) resultMap.get("TCES_Campaign_Demographic_Responses");
+            ResultSetContainer.ResultSetRow demoInfoRow = null;
+            HashMap demoOtherMap = new HashMap();
+
+            for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
+                demoInfoRow = rsc.getRow(rowI);
+
+                if (demoOtherMap.get( demoInfoRow.getItem("demographic_question_text").toString()) == null) {
+                    demoOtherMap.put( demoInfoRow.getItem("demographic_question_text").toString(),
+                                     new ArrayList() );
+                }
+                ArrayList respList = (ArrayList)demoOtherMap.get(demoInfoRow.getItem("demographic_question_text").toString());
+
+                double pct =
+                    ((double)((Integer)demoInfoRow.getItem("resp_count").getResultData()).intValue())
+                    / ((double) getStudentCoderCount());
+
+                HashMap respItem = new HashMap();
+
+                respItem.put("response", demoInfoRow.getItem("response").toString() );
+                respItem.put("resp_count", demoInfoRow.getItem("resp_count").toString() );
+                respItem.put("percent", Double.toString(pct)+"%");
+
+                respList.add(respItem);
+            }
+            demoInfoMap.put( TCESConstants.DEMOGRAPHIC_INFO_KEY , demoOtherMap );
+
+            if (types[typeI]==TCESConstants.STUDENT_CODER_TYPE)
+                setStudentDemoInfo(demoInfoMap);
+            else if (types[typeI]==TCESConstants.PRO_CODER_TYPE)
+                setProDemoInfo(demoInfoMap);
         }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
