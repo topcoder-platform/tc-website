@@ -95,7 +95,7 @@
         <session>
             <description>User Preference EJB</description>
             <display-name>User Preference EJB</display-name>
-            <ejb-name>User</ejb-name>
+            <ejb-name>UserPreference</ejb-name>
             <home>com.topcoder.web.ejb.user.UserPreferenceHome</home>
             <remote>com.topcoder.web.ejb.user.UserPreference</remote>
             <!--
