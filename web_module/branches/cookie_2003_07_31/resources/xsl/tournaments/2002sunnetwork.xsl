@@ -119,7 +119,7 @@ Challenge powered by TopCoder. This is <B>NOT</B> a rated event. </P>
 Please <A HREF="/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">update</FONT></A> your member profile to sign-up.
   </xsl:when>
   <xsl:otherwise>  
-Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">login</FONT></A> to update your member profile to sign-up.
+Please <A HREF="/tc?&amp;module=Login&amp;message=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;nextpage=/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">login</FONT></A> to update your member profile to sign-up.
   </xsl:otherwise>
 </xsl:choose>
 </P>

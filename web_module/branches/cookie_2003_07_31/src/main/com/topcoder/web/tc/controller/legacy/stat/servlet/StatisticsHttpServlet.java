@@ -150,8 +150,8 @@ public class StatisticsHttpServlet extends HttpServlet {
 
                 if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.isIdentified())) {
                     response.sendRedirect("http://" + request.getServerName() +
-                            "/?t=authentication&c=login&errorMsg=" +
-                            "You must log in to view this portion of the site.&errorURL=http://" +
+                            "/tc?&module=Login&message=" +
+                            "You must log in to view this portion of the site.&nextpage=http://" +
                             request.getServerName() + "/stat?" + replace(sQueryString));
                 }
                 request.setAttribute("REQUEST_BEAN", dataRequest);

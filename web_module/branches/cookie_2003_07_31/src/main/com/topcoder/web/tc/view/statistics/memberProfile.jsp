@@ -92,7 +92,7 @@ if (!rsc.isEmpty()) {
 <% } else if (nav.isIdentified()) { %>
                      <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
 <% } else { %>
-                     <A HREF="<%="?t=authentication&c=login&errorMsg=You must log in to submit your photo.&errorURL=https://"+request.getServerName()+"/reg/index.jsp"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+                     <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/reg/index.jsp"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
 <% } %>
                      <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
                    </TD>

@@ -70,7 +70,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
                 }
                 errorURL = buf.toString();
 
-                response.sendRedirect("http://" + request.getServerName() + "/?t=authentication&c=login&errorMsg=" + "You must log in to view this portion of the site.&errorURL=" + errorURL);
+                response.sendRedirect("http://" + request.getServerName() + "/tc?&module=Login&c=login&message=" + "You must log in to view this portion of the site.&nextpage=" + errorURL);
                 return;
 
             } else {

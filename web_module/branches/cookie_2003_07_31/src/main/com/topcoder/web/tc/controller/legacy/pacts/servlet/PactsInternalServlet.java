@@ -662,8 +662,8 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                     String query = request.getQueryString();
 
                     response.sendRedirect("http://" + request.getServerName() +
-                            "/?t=authentication&c=login&errorMsg=" +
-                            "You must log in as a TC Staff Member to view this portion of the site.&errorURL=" + INTERNAL_SERVLET_URL +
+                            "/tc?&module=Login&c=login&message=" +
+                            "You must log in as a TC Staff Member to view this portion of the site.&message=" + INTERNAL_SERVLET_URL +
                             ((query == null) ? "" : ("?" + safeParam2(query))));
                     return false;
                 } else
@@ -672,8 +672,8 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                 String query = request.getQueryString();
 
                 response.sendRedirect("http://" + request.getServerName() +
-                        "/?t=authentication&c=login&errorMsg=" +
-                        "You must log in as a TC Staff Member to view this portion of the site.&errorURL=" + INTERNAL_SERVLET_URL +
+                        "/tc?&module=Login&message=" +
+                        "You must log in as a TC Staff Member to view this portion of the site.&nextpage=" + INTERNAL_SERVLET_URL +
                         ((query == null) ? "" : ("?" + safeParam2(query))));
                 return false;
             }

@@ -116,8 +116,8 @@ public class DataServlet extends HttpServlet {
             nav = (Navigation) request.getSession().getAttribute("navigation");
             if (nav == null || !nav.isIdentified())
                 response.sendRedirect("http://" + request.getServerName() +
-                        "/?t=authentication&c=login&errorMsg=" +
-                        "You must log in to view this portion of the site.&errorURL=" +
+                        "/tc?&module=Login&message=" +
+                        "You must log in to view this portion of the site.&nextpage=" +
                         request.getRequestURI());
 
 

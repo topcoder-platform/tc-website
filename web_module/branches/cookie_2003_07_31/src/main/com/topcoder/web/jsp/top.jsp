@@ -45,7 +45,7 @@
             &#160;&#160;|&#160;&#160;<a href="/tc?&amp;module=Logout" class="loginLinks" target="_parent">Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/reg/index.jsp" class="loginLinks" target="_parent">Update Profile</a>
 <% } else { %>
-            <a href="/?t=authentication&amp;c=login" class="loginLinks" target="_parent">Login</a>
+            <a href="/tc?&module=Login" class="loginLinks" target="_parent">Login</a>
             &#160;&#160;|&#160;&#160;<a href="/reg/index.jsp" class="loginLinks" target="_parent">Register</a>
 <%}%>
             

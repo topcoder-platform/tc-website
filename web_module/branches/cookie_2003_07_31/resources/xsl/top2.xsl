@@ -28,7 +28,7 @@
                     &#160;&#160;|&#160;&#160;<a class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Update Profile</a>
                 </xsl:when>
                 <xsl:otherwise>
-                    <a class="loginLinks" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</a>
+                    <a class="loginLinks" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?&amp;module=Login</xsl:attribute>Login</a>
                     &#160;&#160;|&#160;&#160;<a class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</a>
                 </xsl:otherwise>
             </xsl:choose>
