@@ -59,17 +59,22 @@ function getProblemDetail(id) {
                   <td class="screeningHeader" valign="middle" align=center>Results</td>
               </tr>
               <rsc:iterator list="<%=results%>" id="resultRow">
+              <%
+                    int counter = 0;
+                    String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
+                    String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
+                %>
               <tr>
-                  <td class="screeningCellOdd" nowrap=nowrap><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"><rsc:item row="<%=resultRow%>" name="name"/></A></td>
-                  <td class="screeningCellOdd"><A href="mailto:<rsc:item row="<%=resultRow%>" name="email_address"/>"><rsc:item row="<%=resultRow%>" name="email_address"/></A></td>
-                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="state"/></td>
-                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="country_name"/></td>
-                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="coder_type"/></td>
-                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="job"/></td>
-                  <td class="screeningCellOdd" align=center><A href="javascript:getProblemDetail('<rsc:item row="<%=resultRow%>" name="session_round_id"/>,<rsc:item row="<%=resultRow%>" name="problem_id"/>');"><rsc:item row="<%=resultRow%>" name="problem_name"/></A></td>
-                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" format="MM/dd/yyyy" name="start_date"/></td>
-                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="problem_time"/></td>
-                  <td class="screeningCellOdd" align=center>
+                  <td class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"><rsc:item row="<%=resultRow%>" name="name"/></A></td>
+                  <td class="<%=cssClasses[counter % 2]%>"><A href="mailto:<rsc:item row="<%=resultRow%>" name="email_address"/>"><rsc:item row="<%=resultRow%>" name="email_address"/></A></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" name="state"/></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" name="country_name"/></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" name="coder_type"/></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" name="job"/></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><A href="javascript:getProblemDetail('<rsc:item row="<%=resultRow%>" name="session_round_id"/>,<rsc:item row="<%=resultRow%>" name="problem_id"/>');"><rsc:item row="<%=resultRow%>" name="problem_name"/></A></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" format="MM/dd/yyyy" name="start_date"/></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" name="problem_time"/></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center>
                     <object
                     classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
                     codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
@@ -79,12 +84,12 @@ function getProblemDetail(id) {
                     align="middle">
                     <param name="allowScriptAccess" value="sameDomain" />
                     <param name="movie"
-                    value="/i/corp/screeningRatingOdd.swf?preference=<rsc:item row="<%=resultRow%>" name="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"/>
+                    value="<%=swfFiles[counter % 2]%>?preference=<rsc:item row="<%=resultRow%>" name="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"/>
                     <param name="menu" value="false" />
                     <param name="quality" value="high" />
                     <param name="bgcolor" value="#ffffff" />
                     <embed
-                    src="/i/corp/screeningRatingOdd.swf?preference=<rsc:item row="<%=resultRow%>" name="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"
+                    src="<%=swfFiles[counter % 2]%>?preference=<rsc:item row="<%=resultRow%>" name="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"
                     menu="false"
                     quality="high"
                     bgcolor="#ffffff"
@@ -97,8 +102,8 @@ function getProblemDetail(id) {
                     pluginspage="http://www.macromedia.com/go/getflashplayer" />
                     </object>
                   </td>
-                  <td class="screeningCellOdd" align=center><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>">view</A></td>
-                  <td class="screeningCellOdd" align=center><A href="/corp/testing/?module=TestResults&referrer=SearchResults&sid=<rsc:item row="<%=resultRow%>" name="session_id"/>">view</A></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>">view</A></td>
+                  <td class="<%=cssClasses[counter++ % 2]%>" align=center><A href="/corp/testing/?module=TestResults&referrer=SearchResults&sid=<rsc:item row="<%=resultRow%>" name="session_id"/>">view</A></td>
               </tr>
               </rsc:iterator>
         </table>
