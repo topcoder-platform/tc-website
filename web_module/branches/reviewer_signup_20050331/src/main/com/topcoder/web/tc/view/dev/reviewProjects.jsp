@@ -116,7 +116,7 @@
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="9">Design Components</td>
+                    <td class="projectTitles" colspan="10">Design Components</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" align="center">Catalog</td>
@@ -191,7 +191,7 @@
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="9">Development Components</td>
+                    <td class="projectTitles" colspan="10">Development Components</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" align="center">Catalog</td>
