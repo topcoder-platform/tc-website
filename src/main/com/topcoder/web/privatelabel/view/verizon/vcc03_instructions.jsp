@@ -292,6 +292,12 @@
                     An administrator will respond to your question in the chat area.<br/><br/>
                     If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <a href="mailto: service@topcoder.com">service@topcoder.com.</a>Please include a detailed 
                     description of the problem that you are having.</p>
+                    
+                    <code>import &#60;necessary classes&#62;<br/><br/>
+                        public class &#60;class-name&#62; {<br/>
+                        public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
+                        //your source here<br/>
+                        return &#60;results&#62;;</code>
 
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
