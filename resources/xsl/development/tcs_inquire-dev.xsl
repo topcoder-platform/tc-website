@@ -62,7 +62,7 @@
           
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
+                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
                             
 <!-- Title -->
                         <h2 class="devSubhead"><strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/>: Development</strong></h2>
@@ -75,8 +75,8 @@
 <!-- Project Type -->
                         <p><strong>Project Type</strong><br />
                         Component Development Project: Provide a complete development solution for the <strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/></strong> component.<br />
-                        Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
-                        If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
+                        Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution. 
+                        If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.
                             </p>
 
 <!-- Technologies -->
@@ -90,7 +90,7 @@
 <!-- Documentation -->
                         <p><strong>Documentation</strong><br />
                                 All
-                        <a class="statText" target="_new">
+                        <a target="_new">
                                 <xsl:attribute  name="href">
                                     <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', $componentId)"/>
                                 </xsl:attribute>documentation
@@ -153,7 +153,7 @@
                         
                            <p>
                                 <strong>View the 
-                                    <a class="statText" target="_new">
+                                    <a target="_new">
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="concat('http://software.topcoder.com/catalog/document?id=', $docId)"/>
                                         </xsl:attribute>
@@ -163,7 +163,7 @@
 
                            <p>
                                 <strong>
-                                <a class="statText">
+                                <a>
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/?&amp;t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Development&amp;date=', /TC/DEVELOPMENT/date)"/>
                                     </xsl:attribute>
@@ -176,10 +176,10 @@
                            <p>
                                 <strong>
 <!--
-                                Please email your submission to <a class="statText" href="mailto:submissions@topcodersof
+                                Please email your submission to <a href="mailto:submissions@topcodersof
 tware.com">submissions@topcodersoftware.com</a>
 -->
-                                <a class="statText" target="_new">
+                                <a target="_new">
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/s_upload_submission.jsp?version=', $version, '&amp;phase=' , $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
                                     </xsl:attribute>

@@ -55,7 +55,7 @@
                 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td class="statText"><div align="center"><h1 class="devSubhead"><strong>TopCoder Software Application Development Methodology</strong></h1></div></td>
+                    <td class="bodyText"><div align="center"><h1 class="devSubhead"><strong>TopCoder Software Application Development Methodology</strong></h1></div></td>
                 </tr>
 
                 <tr valign="top">
@@ -63,9 +63,9 @@
                         <div align="center">
                         <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
-                            <td><a class="statText" href="#qa"><img src="/i/development/development_methodology_03.gif" width="189" height="69" border="0" alt="quality_assurance" /></a></td>
+                            <td><a href="#qa"><img src="/i/development/development_methodology_03.gif" width="189" height="69" border="0" alt="quality_assurance" /></a></td>
                             <td><img src="/i/development/development_methodology_04.gif" width="116" height="69" alt="" /></td>
-                            <td><a class="statText" href="#spec"><img src="/i/development/development_methodology_05.gif" width="189" height="69" alt="specification" border="0" /></a></td>
+                            <td><a href="#spec"><img src="/i/development/development_methodology_05.gif" width="189" height="69" alt="specification" border="0" /></a></td>
                         </tr>
                         <tr>
                             <td><img src="/i/development/development_methodology_07.gif" width="189" height="50" alt="" /></td>
@@ -73,16 +73,16 @@
                             <td><img src="/i/development/development_methodology_09.gif" width="189" height="50" alt="" /></td>
                         </tr>
                         <tr>
-                            <td><a class="statText" href="#development"><img src="/i/development/development_methodology_10.gif" width="189" height="87" alt="development" border="0" /></a></td>
+                            <td><a href="#development"><img src="/i/development/development_methodology_10.gif" width="189" height="87" alt="development" border="0" /></a></td>
                             <td><img src="/i/development/development_methodology_11.gif" width="116" height="87" alt="" /></td>
-                            <td><a class="statText" href="#design"><img src="/i/development/development_methodology_12.gif" width="189" height="87" alt="design" border="0" /></a></td>
+                            <td><a href="#design"><img src="/i/development/development_methodology_12.gif" width="189" height="87" alt="design" border="0" /></a></td>
                         </tr>
                         </table>        
                         </div></td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <p>The TopCoder Software Application Development Methodology utilizes the TopCoder Software Component Catalog and 
                         distributed member base to create robust, high quality applications.  It combines our Component Development 
                         Methodology with our peer review, components customization, and application integration processes.</p></td>
@@ -93,15 +93,15 @@
                     <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="spec"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
-                                <td class="methNav" width="98%"><span class="statText"><strong>Specification</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap"><div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="98%"><span class="bodyText"><strong>Specification</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="bodyText" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                     <p><b>Specification Phase:</b> The Specification phase defines the scope of the project and the functional requirements.
                     </p>
                     <p>
@@ -127,15 +127,15 @@
                     <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="design"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
-                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap"><div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="bodyText" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <p><b>Architecture and Design Phase:</b>  TopCoder Software Designers create and submit application
                             designs for review by a TopCoder Software Architecture Review Board. </p>
 
@@ -158,12 +158,12 @@
                             <li>TopCoder members selected for the design are phase are required to submit incremental deliverables defined by the TopCoder Product Manager.</li>
                             <li>An Architecture Review Board reviews each incremental deliverable and provides feedback to the designers after each phase of the design.</li>
                             <li>The Design Specification Document is expected to specify both generic components that can be mapped
-                                to the <a class="statText" href="http://software.topcoder.com/catalog/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>,
+                                to the <a href="http://software.topcoder.com/catalog/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>,
                                 new components and component extensions necessary to implement functionality specific to the application.</li>
                             <li>The Architecture Review Board reviews and scores each final design submission.</li>
                             <li>Submissions passing the minimum requirements or a review score greater than 50, will be compensated for their submissions.</li>
                             <li>If the new components are required for the application, they will be developed separately using the
-                            <a class="statText" href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
+                            <a href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
                             <li>The winning designer incorporate Review Board suggestions into their final design.</li>
                             <li>The Architecture Review Board performs a final review and accepts the application design.</li>
                             <li>The winning design is posted as an Application Development Project.</li>
@@ -177,15 +177,15 @@
                     <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="development"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
-                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap"><div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="bodyText" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                     <p><b>Development and Testing Phase:</b> All new components identified in the Design and Architecture Phase are posted and 
                     developed according to the TopCoder Software Component Development Methodology.  Application Development team members 
                     are strongly encouraged to submit designs for all components.</p> 
@@ -221,15 +221,15 @@
                     <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="qa"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
-                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>QA</strong></span>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap"><div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>QA</strong></span>&#160;&#160;&#160;&#160;</td>
+                                <td class="bodyText" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                   
                     <ol>
                     <li>The Development Review Board and Designer team up with the TopCoder Software Application Manager 

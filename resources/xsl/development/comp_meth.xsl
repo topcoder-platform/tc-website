@@ -116,7 +116,7 @@ A.methNav:active {
                 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td class="statText"><div align="center"><h2 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h2></div></td>
+                    <td class="bodyText"><div align="center"><h2 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h2></div></td>
                 </tr>
 
                 <tr valign="top">
@@ -124,9 +124,9 @@ A.methNav:active {
                         <div align="center">
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td><a class="statText" href="#certification"><img src="/i/development/methodology_02.gif" width="161" height="67" alt="Certification" border="0" /></a></td>
+                                <td><a href="#certification"><img src="/i/development/methodology_02.gif" width="161" height="67" alt="Certification" border="0" /></a></td>
                                 <td><img src="/i/development/methodology_03.gif" width="118" height="67" alt="" /></td>
-                                <td><a class="statText" href="#collaboration"><img src="/i/development/methodology_04.gif" width="177" height="67" alt="Collaboration" border="0" /></a></td>
+                                <td><a href="#collaboration"><img src="/i/development/methodology_04.gif" width="177" height="67" alt="Collaboration" border="0" /></a></td>
                             </tr>
                         
                             <tr>
@@ -136,16 +136,16 @@ A.methNav:active {
                             </tr>
 
                             <tr>
-                                <td><a class="statText" href="#development"><img src="/i/development/methodology_09.gif" width="161" height="81" alt="Development" border="0" /></a></td>
+                                <td><a href="#development"><img src="/i/development/methodology_09.gif" width="161" height="81" alt="Development" border="0" /></a></td>
                                 <td><img src="/i/development/methodology_10.gif" width="118" height="81" alt="" /></td>
-                                <td><a class="statText" href="#design"><img src="/i/development/methodology_11.gif" width="177" height="81" alt="Design" border="0" /></a></td>
+                                <td><a href="#design"><img src="/i/development/methodology_11.gif" width="177" height="81" alt="Design" border="0" /></a></td>
                             </tr>
                         </table></div>
                     </td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <p>The Component Development Methodology combines the best of traditional software development methodologies with the power 
                         of community-based development.  The four stages of the methodology make up one release of a component.  If any one of the 
                         phases does not pass required acceptance that phase of the project is restarted.</p></td>
@@ -157,17 +157,17 @@ A.methNav:active {
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
                                 <td class="methNav" width="98%">
-                                    <span class="statText"><strong>Collaboration</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                    <span class="bodyText"><strong>Collaboration</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="bodyText" width="2%" nowrap="nowrap">
+                                    <div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <p>Gather component scope by collaborating with customers and TopCoder members through online 
-                        <a class="statText" href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums.</a>  For new components this 
+                        <a href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums.</a>  For new components this 
                         is a new request for a component. For existing components it is a request for additional functionality.</p>
                                     
                         <p><strong>Participants</strong><br />
@@ -177,7 +177,7 @@ A.methNav:active {
                                     
                         <p><strong>Details</strong><br />
                         <ol>
-                            <li>PM moderates <a class="statText" href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums</a> on 
+                            <li>PM moderates <a href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums</a> on 
                             topcodersoftware.com to gather component requirements.</li>
                             
                             <li>The Customer Forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post messages 
@@ -185,7 +185,7 @@ A.methNav:active {
                             
                             <li>Once the project scope has been determined, the PM creates a Requirements Specification for the Design Phase of that component.</li>
                             
-                            <li>The project is <a class="statText" href="index?t=development&amp;c=comp_projects">posted</a> on the Development Section of 
+                            <li>The project is <a href="index?t=development&amp;c=comp_projects">posted</a> on the Development Section of 
                             topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment details and 
                             submission deadline for all design submissions.</li>
                             
@@ -201,15 +201,15 @@ A.methNav:active {
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
                                 <td class="methNav" width="98%">
-                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="bodyText" width="2%" nowrap="nowrap">
+                                    <div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <p>Eligible rated TopCoder Members submit design proposals, which are scored by an Architecture Review Board in a peer review process to 
                         determine the best design. If an acceptable design is not found the phase is restarted.</p>
                                     
@@ -276,15 +276,15 @@ A.methNav:active {
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
                                 <td class="methNav" width="98%">
-                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="bodyText" width="2%" nowrap="nowrap">
+                                    <div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <p><strong>Please note: Members who submit the winning design for a project are not eligible to submit development solutions for that project.</strong></p>
                         
                         <p>Eligible rated TopCoder Members submit development solutions, which are reviewed by the Development Review Board in a peer review process to determine 
@@ -357,15 +357,15 @@ A.methNav:active {
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
                                 <td class="methNav" width="98%">
-                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Certification</strong></span>&#160;&#160;&#160;&#160;</td>
-                                <td class="statText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Certification</strong></span>&#160;&#160;&#160;&#160;</td>
+                                <td class="bodyText" width="2%" nowrap="nowrap">
+                                    <div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <p>Additional environment certifications.</p>
                                     
                         <p><strong>Participants</strong><br />

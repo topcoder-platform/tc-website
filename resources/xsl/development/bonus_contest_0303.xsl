@@ -57,7 +57,7 @@
                 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <div align="center"><img src="/i/development/bonusContestGraphic.gif" alt="TopCoder Software Development Bonus Contest" width="470" height="59" border="0" /></div>
                         
                         <p><strong>With an average score of 93.09 on 5 submissions, Pops beat out 40 other TopCoder members to take the top spot... and the $2000 bonus.</strong></p>
@@ -73,51 +73,51 @@
                     <td align="center">
                         <table border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
-                                <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td background="/i/steel_bluebv_bg.gif" width="150" class="statText">Project</td>
-                                <td background="/i/steel_bluebv_bg.gif" width="80" class="statText" align="center">Submissions</td>
-                                <td background="/i/steel_bluebv_bg.gif" width="80" class="statText" align="center">Score</td>
-                                <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td background="/i/steel_bluebv_bg.gif" width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td background="/i/steel_bluebv_bg.gif" width="150" class="bodyText">Project</td>
+                                <td background="/i/steel_bluebv_bg.gif" width="80" class="bodyText" align="center">Submissions</td>
+                                <td background="/i/steel_bluebv_bg.gif" width="80" class="bodyText" align="center">Score</td>
+                                <td background="/i/steel_bluebv_bg.gif" width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
                 
                             <tr valign="top">
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=6508770" target="_blank">Bag Collection</a></td>
-                                <td class="statText" align="center">3</td>
-                                <td class="statText" align="center">95.14</td>
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="bodyText"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6508770" target="_blank">Bag Collection</a></td>
+                                <td class="bodyText" align="center">3</td>
+                                <td class="bodyText" align="center">95.14</td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                             <tr valign="top">
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=3304122" target="_blank">Chat Server</a></td>
-                                <td class="statText" align="center">1</td>
-                                <td class="statText" align="center">95.00</td>
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="bodyText"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=3304122" target="_blank">Chat Server</a></td>
+                                <td class="bodyText" align="center">1</td>
+                                <td class="bodyText" align="center">95.00</td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                             <tr valign="top">
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=6402357" target="_blank">Class Discovery</a></td>
-                                <td class="statText" align="center">1</td>
-                                <td class="statText" align="center">93.77</td>
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="bodyText"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6402357" target="_blank">Class Discovery</a></td>
+                                <td class="bodyText" align="center">1</td>
+                                <td class="bodyText" align="center">93.77</td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                             <tr valign="top">
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=4201389" target="_blank">Heartbeat</a></td>
-                                <td class="statText" align="center">1</td>
-                                <td class="statText" align="center">85.39</td>
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="bodyText"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=4201389" target="_blank">Heartbeat</a></td>
+                                <td class="bodyText" align="center">1</td>
+                                <td class="bodyText" align="center">85.39</td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                             <tr valign="top">
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=3300871" target="_blank">URL Loader</a></td>
-                                <td class="statText" align="center">2</td>
-                                <td class="statText" align="center">96.13</td>
-                                <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
+                                <td class="bodyText"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=3300871" target="_blank">URL Loader</a></td>
+                                <td class="bodyText" align="center">2</td>
+                                <td class="bodyText" align="center">96.13</td>
+                                <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                         </table>
@@ -127,7 +127,7 @@
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <p>Thank you to everyone who submitted entries for our February/March Component Design Contest. Stay tuned for our next Bonus Contest coming up soon!</p>
                     </td>
                 </tr>
@@ -139,345 +139,345 @@
                         <table border="0" cellspacing="0" cellpadding="3">
 
                 <tr>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Qualifying Contest Entries</h1></td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText" colspan="3"><a name="design"></a><h1 class="devSubhead">Qualifying Contest Entries</h1></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="middle">
-                    <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" border="0" /></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="150" class="statText">Handle</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="80" class="statText" align="center">Submissions</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="80" class="statText" align="center">Average Score</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" border="0" /></td>
+                    <td background="/i/steel_bluebv_bg.gif" width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" border="0" /></td>
+                    <td background="/i/steel_bluebv_bg.gif" width="150" class="bodyText">Handle</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="80" class="bodyText" align="center">Submissions</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="80" class="bodyText" align="center">Average Score</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="4" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">96.86</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">96.86</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">96.57</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+                    <td class="bodyText" align="center">2</td>
+                    <td class="bodyText" align="center">96.57</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278595">seaniswise</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">95.42</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278595">seaniswise</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">95.42</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
-                    <td class="statText" align="center">5</td>
-                    <td class="statText" align="center">93.09</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
+                    <td class="bodyText" align="center">5</td>
+                    <td class="bodyText" align="center">93.09</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-                    <td class="statText" align="center">5</td>
-                    <td class="statText" align="center">89.91</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+                    <td class="bodyText" align="center">5</td>
+                    <td class="bodyText" align="center">89.91</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299706">cruizza</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">89.82</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299706">cruizza</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">89.82</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271978">rusi</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">88.97</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271978">rusi</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">88.97</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">88.46</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">88.46</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754">Ken Vogel</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="center">88.04</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754">Ken Vogel</a></td>
+                    <td class="bodyText" align="center">4</td>
+                    <td class="bodyText" align="center">88.04</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498">ThinMan</a></td>
-                    <td class="statText" align="center">5</td>
-                    <td class="statText" align="center">87.90</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498">ThinMan</a></td>
+                    <td class="bodyText" align="center">5</td>
+                    <td class="bodyText" align="center">87.90</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304697">ozzie</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="center">87.87</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304697">ozzie</a></td>
+                    <td class="bodyText" align="center">3</td>
+                    <td class="bodyText" align="center">87.87</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822">bodrius</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="center">87.77</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822">bodrius</a></td>
+                    <td class="bodyText" align="center">4</td>
+                    <td class="bodyText" align="center">87.77</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
-                    <td class="statText" align="center">5</td>
-                    <td class="statText" align="center">85.77</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="bodyText" align="center">5</td>
+                    <td class="bodyText" align="center">85.77</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=153434">bokbok</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">85.63</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=153434">bokbok</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">85.63</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=294463">theMADscientist</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">85.05</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=294463">theMADscientist</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">85.05</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=273100">wf</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">84.87</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=273100">wf</a></td>
+                    <td class="bodyText" align="center">2</td>
+                    <td class="bodyText" align="center">84.87</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="center">83.78</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
+                    <td class="bodyText" align="center">4</td>
+                    <td class="bodyText" align="center">83.78</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=155381">djFD</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="center">83.78</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=155381">djFD</a></td>
+                    <td class="bodyText" align="center">3</td>
+                    <td class="bodyText" align="center">83.78</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=281975">keithnigh</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">82.55</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=281975">keithnigh</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">82.55</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=280167">ttsuchi</a></td>
-                    <td class="statText" align="center">7</td>
-                    <td class="statText" align="center">82.04</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=280167">ttsuchi</a></td>
+                    <td class="bodyText" align="center">7</td>
+                    <td class="bodyText" align="center">82.04</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=265522">veredox</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">81.90</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=265522">veredox</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">81.90</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=297731">TheCois</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">81.33</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=297731">TheCois</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">81.33</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=287614">argolite</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="center">81.07</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=287614">argolite</a></td>
+                    <td class="bodyText" align="center">3</td>
+                    <td class="bodyText" align="center">81.07</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                  <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=156618">mckavity</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">79.35</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=156618">mckavity</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">79.35</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976">giginim</a></td>
-                    <td class="statText" align="center">5</td>
-                    <td class="statText" align="center">78.58</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976">giginim</a></td>
+                    <td class="bodyText" align="center">5</td>
+                    <td class="bodyText" align="center">78.58</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=155357">alexaukf</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">77.57</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=155357">alexaukf</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">77.57</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=157174">preetham</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="center">76.86</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=157174">preetham</a></td>
+                    <td class="bodyText" align="center">3</td>
+                    <td class="bodyText" align="center">76.86</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570">Saxophonist</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="center">74.97</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570">Saxophonist</a></td>
+                    <td class="bodyText" align="center">3</td>
+                    <td class="bodyText" align="center">74.97</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=136305">HuskerFan</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">73.51</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=136305">HuskerFan</a></td>
+                    <td class="bodyText" align="center">2</td>
+                    <td class="bodyText" align="center">73.51</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=252022">AleaActaEst</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">72.75</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=252022">AleaActaEst</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">72.75</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271917">slowjoe</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">72.72</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271917">slowjoe</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">72.72</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=280393">lAZer</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">72.46</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=280393">lAZer</a></td>
+                    <td class="bodyText" align="center">2</td>
+                    <td class="bodyText" align="center">72.46</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=272311">yellow_gecko</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">72.44</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=272311">yellow_gecko</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">72.44</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=289864">FTolToaster</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">70.18</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=289864">FTolToaster</a></td>
+                    <td class="bodyText" align="center">2</td>
+                    <td class="bodyText" align="center">70.18</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=300664">ahoenig</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">69.35</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=300664">ahoenig</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">69.35</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=295413">alienisty</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">67.29</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=295413">alienisty</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">67.29</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=263386">TemporarilyBlue</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">67.21</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=263386">TemporarilyBlue</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">67.21</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=260172">ddwsdl</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">66.90</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=260172">ddwsdl</a></td>
+                    <td class="bodyText" align="center">2</td>
+                    <td class="bodyText" align="center">66.90</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=343287">kameshjayaram</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">65.70</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=343287">kameshjayaram</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">65.70</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                  <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=296226">CDummy</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">63.26</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=296226">CDummy</a></td>
+                    <td class="bodyText" align="center">1</td>
+                    <td class="bodyText" align="center">63.26</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="top">
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=261909">RedSpectra</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">60.71</td>
-                    <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=261909">RedSpectra</a></td>
+                    <td class="bodyText" align="center">2</td>
+                    <td class="bodyText" align="center">60.71</td>
+                    <td width="4" class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                         </table>
@@ -487,7 +487,7 @@
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         
                         <hr width="100%" noshade="noshade" color="#666666" />
                         
@@ -497,11 +497,11 @@
                         screening scorecard.  All submissions that pass screening will be entered into the contest. The design submission with the highest review board score 
                         greater than or equal to 75 will be declared the component design winner for that project.</p>
 
- <!--                        <p>Get started today... There are plenty of <a class="statText" href="index?t=development&amp;c=comp_projects">available projects</a> for you to choose from.</p> -->
+ <!--                        <p>Get started today... There are plenty of <a href="index?t=development&amp;c=comp_projects">available projects</a> for you to choose from.</p> -->
 
-                        <p>Not sure what to submit? See our <a class="statText" href="index?t=development&amp;c=tcs_sample_docs">sample design solution</a> for ideas.</p>
+                        <p>Not sure what to submit? See our <a href="index?t=development&amp;c=tcs_sample_docs">sample design solution</a> for ideas.</p>
                         
-                        <p>What is the screening process? Read our <a class="statText" href="index?t=development&amp;c=comp_meth">methodology</a> to find out.</p>
+                        <p>What is the screening process? Read our <a href="index?t=development&amp;c=comp_meth">methodology</a> to find out.</p>
                         
                         <hr width="100%" noshade="noshade" color="#666666" />
                         
@@ -516,7 +516,7 @@
                             country of residence.</li>
                         </ol>
                         
-                        <p>Read the full <a class="statText" href="/?t=&amp;c=terms">Terms and Conditions</a></p>
+                        <p>Read the full <a href="/?t=&amp;c=terms">Terms and Conditions</a></p>
                         
                         <hr width="100%" noshade="noshade" color="#666666" />
                         

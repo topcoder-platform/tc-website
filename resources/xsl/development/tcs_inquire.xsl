@@ -75,7 +75,7 @@
               </input>
             
                 <tr valign="top">
-                    <td class="statText">
+                    <td class="bodyText">
                         <h2><xsl:value-of select="/TC/DEVELOPMENT/ProjectName"/></h2>
                         <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
                         <textarea name="TermDesc" rows="10" cols="65" readonly="true" class="bodyText" wrap="VIRTUAL">
@@ -92,9 +92,9 @@ If you have any questions regarding these Terms, contact us at service@topcoder.
                     </td>
                 </tr>
 
-                <tr valign="top"><td class="statText">Agree to Terms <input type="checkbox" name="terms"/></td></tr>
+                <tr valign="top"><td class="bodyText">Agree to Terms <input type="checkbox" name="terms"/></td></tr>
                 
-                <tr valign="top"><td class="statText">Comments<br />
+                <tr valign="top"><td class="bodyText">Comments<br />
                         <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
                         <textarea name="Comment" rows="5" cols="40"/></td></tr>
 

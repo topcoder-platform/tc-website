@@ -49,7 +49,7 @@
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td width="100%" class="statText"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /><br />
+                    <td width="100%" class="bodyText"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /><br />
                         <h2>TopCoder Development Project Payment Requirements</h2>
                                     
                         <p>You must meet the following requirements in order for TopCoder to pay you:
@@ -58,13 +58,13 @@
                             <li><strong>Valid member profile information.</strong><br/>
                             We will mail checks to the address in your TopCoder profile, so please make sure that this information is current.<br/><br/></li>
                             <li><strong>One completed tax form on file with TopCoder.</strong><br/>
-                            <a class="statText" href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></a><br/><br/>
+                            <a href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></a><br/><br/>
                             The <strong>W-9 form</strong> should be filled out by all U.S. Citizens, including U.S resident aliens.<br/>
-                            <a class="statText" href="/contest/iw9.pdf">Click here for W-9 form instructions >></a><br/>
-                            <a class="statText" href="/contest/fw9.pdf">Click here for the W-9 form >></a><br/><br/>
+                            <a href="/contest/iw9.pdf">Click here for W-9 form instructions >></a><br/>
+                            <a href="/contest/fw9.pdf">Click here for the W-9 form >></a><br/><br/>
                             The <strong>W-8BEN form</strong> should be filled out by all non-U.S. Citizens.<br/>
-                            <a class="statText" href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></a><br/>
-                            <a class="statText" href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></a></li>
+                            <a href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></a><br/>
+                            <a href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></a></li>
                         </ul>
                         
                         Mailing address for forms and affidavits:&#160;&#160;TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033</p>

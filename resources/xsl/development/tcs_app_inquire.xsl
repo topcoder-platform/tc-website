@@ -47,7 +47,7 @@
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
-                    <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
+                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
 
             <form name="frmSend" method="POST" action="/">
               <input type="hidden" name="t" value="development"/>
@@ -78,14 +78,14 @@
               <table width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                 <tr>
-                  <td align="right" valign="top" class="statText">Project:&#160;&#160;</td>
-                  <td align="left" valign="top" class="statText">
+                  <td align="right" valign="top" class="bodyText">Project:&#160;&#160;</td>
+                  <td align="left" valign="top" class="bodyText">
                       <b><xsl:value-of select="/TC/DEVELOPMENT/ProjectName"/></b><br/><br/>
                   </td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td align="left" valign="top" class="statText">
+                  <td align="left" valign="top" class="bodyText">
                     <textarea name="TermDesc" rows="10" cols="80" readonly="true" class="bodyText" wrap="VIRTUAL">
 ACCEPTANCE OF TERMS OF WORK
 
@@ -95,12 +95,12 @@ We may revise these Terms at any time without prior notice and such revisions wi
 
 DESIGN AND DEVELOPMENT TERMS
 By indicating your interest in designing or developing an application for TopCoder, you represent to TopCoder the following:
-1.	You are a rated TopCoder member
-2.	You are at least 18 years of age
-3.	You are either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment, or (iv) a non-U.S. citizen working in your country of residence.
-4.	You will abide by the Terms of Use of both TopCoder's and TopCoder Software's websites at www.topcoder.com and www.topcodersoftware.com, respectively.
-5.	You acknowledge that you have read and agree to the TopCoder Software Application Development Methodology posted at www.topcoder.com/?&amp;t=development&amp;c=app_meth
-6.	No impediment exists to you participating in design and/or development projects posted on the TopCoder website, and your participation in such projects will not interfere with your performance of any other agreement or obligation which has been or will be made with any third party.
+1.    You are a rated TopCoder member
+2.    You are at least 18 years of age
+3.    You are either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment, or (iv) a non-U.S. citizen working in your country of residence.
+4.    You will abide by the Terms of Use of both TopCoder's and TopCoder Software's websites at www.topcoder.com and www.topcodersoftware.com, respectively.
+5.    You acknowledge that you have read and agree to the TopCoder Software Application Development Methodology posted at www.topcoder.com/?&amp;t=development&amp;c=app_meth
+6.    No impediment exists to you participating in design and/or development projects posted on the TopCoder website, and your participation in such projects will not interfere with your performance of any other agreement or obligation which has been or will be made with any third party.
 7.      You agree to use your own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions, without TopCoder Software's prior written consent.
 
 OWNERSHIP AND RIGHTS
@@ -143,7 +143,7 @@ If you have any questions regarding these Terms, contact us at service@topcoders
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                 <tr>
-                  <td align="right" valign="top" class="statText">
+                  <td align="right" valign="top" class="bodyText">
                     Agree to Terms:&#160;&#160;
                   </td>
                   <td align="left" valign="top">
@@ -152,7 +152,7 @@ If you have any questions regarding these Terms, contact us at service@topcoders
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                 <tr>
-                  <td align="right" valign="top" class="statText">
+                  <td align="right" valign="top" class="bodyText">
                     Comment: &#160;&#160;
                   </td>
                   <td align="left" valign="top">

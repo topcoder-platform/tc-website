@@ -14,11 +14,11 @@
 
 <head>
 
-	<xsl:call-template name="Preload" />      
+    <xsl:call-template name="Preload" />      
  
 <title>TopCoder | Development</title>
  
- 	<xsl:call-template name="CSS" />      
+     <xsl:call-template name="CSS" />      
  
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
@@ -73,14 +73,14 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="30" border="0" /><br />
+                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="30" border="0" /><br />
                         <p><strong>Your inquiry has been sent. Thank You!</strong></p>
         
                         <p>
                         Thank you for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> Development project.  You will be contacted on July 18th by a TopCoder Application Manager.  At that time you will be notified if you were selected as a designer for this project.
                         </p>
                             
-                        <p>If you have any questions please contact <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
+                        <p>If you have any questions please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 
                         <p><br /></p>
                         
