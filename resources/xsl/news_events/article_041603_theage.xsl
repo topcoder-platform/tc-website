@@ -51,6 +51,9 @@
                 <TR>
                     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
                     <TD CLASS="bodyText" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/><br />
+
+                        <div align="center"><img src="/i/pressroom/the_age_logo.gif" alt="The Age (Melbourne, Australia)" width="302" height="56" border="0" /></div>
+
                         <h2>John Dethridge Receives Award</h2>
                         <p>2002 TopCoder Invitational Winner Honored by Governor John Landy</p>
                         
