@@ -117,13 +117,13 @@
                         <p><strong>Winning Developer</strong><br />
                         Royalty Percentage - 25%</p>
 
-            <xsl:variable name="numericPayment" select="/TC/DEVELOPMENT/payment" />  
-            <xsl:variable name="numericFirstPayment" select="/TC/DEVELOPMENT/first_payment" />  
-            <xsl:variable name="numericSecondPayment" select="/TC/DEVELOPMENT/second_payment" />  
+            <xsl:variable name="numericPayment" select="translate(/TC/DEVELOPMENT/payment,'$','')" />  
+            <xsl:variable name="numericFirstPayment" select="translate(/TC/DEVELOPMENT/first_payment,'$','')" />  
+            <xsl:variable name="numericSecondPayment" select="translate(/TC/DEVELOPMENT/second_payment,'$,'')" />  
 
                         <xsl:variable name="dollarFormat" select="'$###,###.00'" />
                             
-                        <p>Total Payment - <xsl:value-of select="$numericPayment"/></p>
+                        <p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/></p>
                         
                         <p><strong>Second Place Developer</strong><br />
                            Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.5, $dollarFormat)"/><br/>
