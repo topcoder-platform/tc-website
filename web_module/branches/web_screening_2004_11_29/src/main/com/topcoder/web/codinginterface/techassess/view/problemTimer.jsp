@@ -21,8 +21,8 @@
         var ids = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
-                    %> times(<%=i%>) = new Date(<%=((ProblemSetInfo)problems.get(i)).getTimeRemaining().getTime()%>); <%
-                    %> ids(<%=i%>) = 'problemTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
+                    %> times[<%=i%>] = new Date(<%=((ProblemSetInfo)problems.get(i)).getTimeRemaining().getTime()%>); <%
+                    %> ids[<%=i%>] = 'problemTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
                 }
             }
 
