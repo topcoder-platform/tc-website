@@ -31,7 +31,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
     private List campaignInfoList;
 
     /* Holds the ID currently logged-in user */
-    private long uid;
+    //private long uid;  //moved to BaseTask
 
     /* Holds whether or not there are multiple different companies in the campaign list */
     private boolean hasManyCompanies;

@@ -34,6 +34,8 @@ public abstract class BaseTask implements Task {
     private List trail;
     private String servletPath;
 
+    /* Holds the ID of the currently logged-in user */
+    protected long uid;
 
     /* Authentication for getting current user or logging in/out a user */
     private WebAuthentication authToken = null;
@@ -92,7 +94,7 @@ public abstract class BaseTask implements Task {
         if (testUser != null) {
             uid = Long.parseLong(testUser);
         }
-        log.debug(getClass().className()+": User id set: "+uid);
+        log.debug(this.getClass().getName() + ": User id set: " + uid);
 
     }
 
