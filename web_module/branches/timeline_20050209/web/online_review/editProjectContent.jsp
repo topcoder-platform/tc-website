@@ -5,6 +5,17 @@
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
+<script language="javascript">
+function editTimeline()
+{
+	document.projectForm.action='<html:rewrite page="editTimeline.do?action=load_timeline">';
+	document.projectForm.action.value='load_timeline';
+	document.projectForm.submit.click();
+}
+
+</script>
+
+
 <!-- Start Title -->            
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
 <logic:equal name="projectForm" property="submitterRemoval" value="true">
@@ -79,7 +90,7 @@
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
                     <td colspan="<%=theProject.getTimeline().length+1%>" class="timelineSubtitle"><strong><bean:message key="prompt.timeline" /></strong>                   
-<a href="javascript:document.forms[0].action='/editTimeline'; javascript:document.forms[0].action.value='load_timeline'; document.forms[0].submit()" >Edit Timeline</a>
+		<a href="javascript:editTimeline()" >Edit Timeline</a>
                     
                     </td>
                 </tr>
