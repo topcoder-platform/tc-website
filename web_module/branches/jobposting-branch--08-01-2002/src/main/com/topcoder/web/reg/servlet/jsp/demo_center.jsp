@@ -204,8 +204,8 @@ function lookupText(qId){
     </tr>
   <tr>
   <tr>
-    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">Gpa&nbsp;</td>
-    <td colspan="2" class="statText" align="left" valign="middle">Gpa</td>
+    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">GPA&nbsp;</td>
+    <td colspan="2" class="statText" align="left" valign="middle"><input type="text" name="<%=Registration.GPA%>" value ="<jsp:getProperty name="Registration" property="Gpa" />" size="5" maxlength="5"></td>
   </tr>
 
   </tr>
@@ -215,12 +215,13 @@ function lookupText(qId){
   <tr>
 
   <tr>
-    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">GpaScale&nbsp;</td>
-    <td colspan="2" class="statText" align="left" valign="middle">GpaScale</td>
+    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">GPA Scale&nbsp;</td>
+    <td colspan="2" class="statText" align="left" valign="middle"><input type="text" name="<%=Registration.GPA_SCALE%>" value ="<jsp:getProperty name="Registration" property="GpaScale" />" size="5" maxlength="5"></td>
   </tr>
 
-
-
+  <tr valign="middle">
+    <td colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+  </tr>
 <%}%>
 
 
