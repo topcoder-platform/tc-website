@@ -25,7 +25,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/> 
+                <jsp:param name="level2" value="design"/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -39,7 +39,7 @@
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="review_boards"/>  
            <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Competition"/>  
+           <jsp:param name="title" value="Design"/>  
         </jsp:include>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
@@ -61,16 +61,171 @@
       </tr>
 
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
-<tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>Competition Review Board</strong></font></td></tr>
+<tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>Design Review Board</strong></font></td></tr>
 </table>
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=260578"><img src="/i/m/danno_mug.gif" alt="danno" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=260578"><strong>danno</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158333"><img src="/i/m/dvickrey_mug.gif" alt="dvickrey" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158333"><strong>dvickrey</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=299180"><img src="/i/m/isv_mug.gif" alt="isv" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=299180"><strong>isv</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=291974"><img src="/i/m/kanliang_mug.gif" alt="kanliang" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=291974"><strong>kanliang</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=265736"><img src="/i/m/Ken_Alverson_mug.gif" alt="Ken Alverson" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=265736"><strong>Ken Alverson</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=154754"><img src="/i/m/Ken_Vogel_mug.gif" alt="Ken Vogel" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=152342"><img src="/i/m/kyky_mug.gif" alt="kyky" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=292451"><img src="/i/m/Mr._Sketch_mug.gif" alt="Mr. Sketch" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=292451"><strong>Mr. Sketch</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=150940"><img src="/i/m/orb_mug.gif" alt="orb" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=150940"><strong>orb</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=290395"><img src="/i/m/pmadden_mug.gif" alt="pmadden" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=290395"><strong>pmadden</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=138663"><img src="/i/m/Sord_mug.gif" alt="Sord" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=138663"><strong>Sord</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=296145"><img src="/i/m/srowen_mug.gif" alt="srowen" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top"><br>
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=273217"><img src="/i/m/schveiguy_mug.gif" alt="schveiguy" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=277356"><img src="/i/clear.gif" alt="aksonov" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>                        
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><span class="smallText"></span>
-                        graduated with a Bachelors degree in Computer Science from Worcester Polytechnic Institute 
-                        and currently works as a Senior Software Developer at Network Engines in Canton, Massachusetts.
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a><span class="smallText"></span>
+                        </p>
                      </td>
                 </tr>
             </table>
@@ -79,12 +234,10 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=268546"><img src="/i/m/tangentz_mug.gif" alt="tangentz" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=273206"><img src="/i/clear.gif" alt="b0b0b0b" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=268546"><strong>TangentZ</strong></a><span class="smallText"></span>
-                        received a Master of Computer Science degree from Dalhousie University.  While in 
-                        school, he spent time researching artificial intelligence with a focus on neural networks.
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=273206"><strong>b0b0b0b</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
@@ -94,37 +247,140 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158447"><img src="/i/m/vald_mug.gif" alt="vald" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=153434"><img src="/i/clear.gif" alt="bokbok" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158447"><strong>ValD</strong></a><span class="smallText"></span>
-                        currently studies at the University of Albany and plans to graduate with honors.  In his 
-                        spare time, he studies optimization problems and evolution strategies.  In fact, ValD believes 
-                        he may be making progress towards a new evolution model.</p>                       
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=153434"><strong>bokbok</strong></a><span class="smallText"></span>
+                        </p>                       
                      </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
-
+            
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=272072"><img src="/i/m/snapdragon_mug.gif" alt="snapdragon" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=156859"><img src="/i/clear.gif" alt="ivern" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=272072"><strong>SnapDragon</strong></a><span class="smallText"></span>
-                        has participated in over 50 TopCoder rated events.  He is currently TopCoder's 
-                        highest rated member, and is one of only two members who have broken the 3300 rating 
-                        mark.  SnapDragon is a graduate of the University of Waterloo and currently works for 
-                        Bioinformatics Solutions Inc. in Ontario, Canada.</p>                       
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=156859"><strong>ivern</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158258"><img src="/i/clear.gif" alt="jerm" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158258"><strong>jerm</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+            
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158201"><img src="/i/clear.gif" alt="mecraw" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158201"><strong>mecraw</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=304697"><img src="/i/clear.gif" alt="ozzie" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=304697"><strong>ozzie</strong></a><span class="smallText"></span>
+                        </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
 
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=119676"><img src="/i/clear.gif" alt="Pops" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=293470"><img src="/i/clear.gif" alt="sapro" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=293470"><strong>sapro</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=278595"><img src="/i/clear.gif" alt="seaniswise" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=278595"><strong>seaniswise</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=272069"><img src="/i/clear.gif" alt="sunyuan" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=272069"><strong>sunyuan</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=269515"><img src="/i/clear.gif" alt="valeriy" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=269515"><strong>valeriy</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
+            
+
+            
+
 <p align="middle" >
-<A href="mailto:service@topcoder.com" class="bodyText">Have a question about the TopCoder Competition Review Board?</strong></a>
+<A href="mailto:service@topcoder.com" class="bodyText">Have a question about the TopCoder Design Review Board?</strong></a>
 </p>
 <p><br></p>
 
