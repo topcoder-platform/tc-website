@@ -136,7 +136,7 @@ public class UserNoteBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,e);
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in removeUserNote. ");
             exceptionBuf.append(varBuf.toString());
