@@ -691,17 +691,29 @@
 
      <target name="move">
          <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/tc.war/META-INF"/>
+-->
          <unwar src="${war.dir}/admin.war" dest="${jboss_deploy}/admin.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/admin.war/META-INF"/>
+-->
          <unwar src="${war.dir}/query.war" dest="${jboss_deploy}/query.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/query.war/META-INF"/>
+-->
          <unwar src="${war.dir}/email.war" dest="${jboss_deploy}/email.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/email.war/META-INF"/>
+-->
          <unwar src="${war.dir}/corp.war" dest="${jboss_deploy}/corp.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/corp.war/META-INF"/>
+-->
          <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
+-->
      </target>
 
 
@@ -722,7 +734,9 @@
              </webinf>
          </war>
          <unwar src="${war.dir}/query.war" dest="${jboss_deploy}/query.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/query.war/META-INF"/>
+-->
      </target>
 
      <target name="deploy-query" depends="compile">
@@ -752,7 +766,9 @@
              </zipfileset>
          </war>
          <unwar src="${war.dir}/email.war" dest="${jboss_deploy}/email.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/email.war/META-INF"/>
+-->
      </target>
 
      <target name="deploy-email" depends="compile">
@@ -806,7 +822,9 @@
 
          </war>
          <unwar src="${war.dir}/corp.war" dest="${jboss_deploy}/corp.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/corp.war/META-INF"/>
+-->
      </target>
 
      <target name="deploy-corp" depends="war-corp">
@@ -894,7 +912,9 @@
          <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
          <delete file="${jboss_home}/server/default/deploy/techassess.war"/>
          <unwar src="${war.dir}/techassess.war" dest="${jboss_home}/server/default/deploy/techassess.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_home}/server/default/deploy/techassess.war/META-INF"/>
+-->
      </target>
 
 
@@ -952,7 +972,9 @@
 
          </war>
          <unwar src="${war.dir}/admin.war" dest="${jboss_deploy}/admin.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/admin.war/META-INF"/>
+-->
 
          <copy todir="${jboss_deploy}">
              <fileset dir="${ejb_jars}">
@@ -1081,7 +1103,9 @@
              </webinf>
          </war>
          <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
+-->
      </target>
 
 
@@ -1132,7 +1156,9 @@
              </lib>
          </war>
          <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
+<!--
          <delete dir="${jboss_deploy}/tc.war/META-INF"/>
+-->
      </target>
 
 
