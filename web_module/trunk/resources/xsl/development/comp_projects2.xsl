@@ -18,7 +18,7 @@
         <!--MM&#47;DD&#47;YYYY-->
 		<xsl:param name="DATE"/>
 		<xsl:if test='boolean($DATE)'>
-			<xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/>
+			<xsl:value-of select="substring($DATE, 6,2)"/>%2e<xsl:value-of select="substring($DATE, 9,2)"/>%2e<xsl:value-of select="substring($DATE, 1,4)"/>
 		</xsl:if>
     </xsl:template>
 
@@ -197,16 +197,16 @@
                     <xsl:if test="./phase_id=$dev-phase">
                         <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                         <xsl:variable name="initial_submission">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission"/></xsl:call-template>
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
                         </xsl:variable>
                         <xsl:variable name="posting_date">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting"/></xsl:call-template>
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting_date"/></xsl:call-template>
                         </xsl:variable>
                         <xsl:variable name="winner_announced">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced"/></xsl:call-template>
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced_date"/></xsl:call-template>
                         </xsl:variable>
                         <xsl:variable name="final_submission">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission"/></xsl:call-template>
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
                         </xsl:variable>
 
                         <tr valign="top">
