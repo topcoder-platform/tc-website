@@ -95,7 +95,7 @@
                             The member with the first submission for each component will be given the multiplier.  
                         </li>
                         <li>
-                            This multiplier will be used to double the component prize <strong>IF</strong> the member places in 1st or 2nd place for that component.  <br />
+                            The multiplier will be used to double the component prize <strong>IF</strong> the member places in 1st or 2nd place for that component.  <br />
                             There will be no 3rd place prizes. 
                         </li>
                         <li>
