@@ -1,3 +1,5 @@
+        
+        <A HREF="/hs/about/about_sponsor.jsp"><IMG SRC="/i/hs/tchs_sidebar.gif" WIDTH="200" HEIGHT="95" ALT="" BORDER="0"></A>
         <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="200">
             <TR>
                 <TD NOWRAP><IMG SRC="/i/hs/rl_heading.gif" WIDTH="200" HEIGHT="36" ALT="" BORDER="0"></TD>
