@@ -6,6 +6,7 @@
       <classname>com.topcoder.utilities.dwload.TCLoadRound</classname>
       <parameterList>
         <parameter name="roundid" value="4165"/>
+        <parameter name="loadfull" value="false"/>
       </parameterList>
     </load>
   </loadDefinition>
