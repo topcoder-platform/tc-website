@@ -47,6 +47,12 @@
 				<xsl:with-param name="image">development</xsl:with-param>
 				<xsl:with-param name="title">&#160;Overview</xsl:with-param>
 			</xsl:call-template>
+              <INPUT TYPE="hidden" NAME="date">
+                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
+              </INPUT>
+              <INPUT TYPE="hidden" NAME="Project">
+                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
+              </INPUT>
 
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
