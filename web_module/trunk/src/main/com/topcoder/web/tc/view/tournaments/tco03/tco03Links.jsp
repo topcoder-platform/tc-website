@@ -55,11 +55,7 @@
             <% } %>
 
 <!-- Onsite tab -->
-            <% if (selectedTab.equals("coding_onsite")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="statTextBig"><img src="/i/tournament/tco03/tab_onsite_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
-            <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="statTextBig"><img src="/i/tournament/tco03/tab_onsite_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
-            <% } %>
 
 <!-- Rules tab -->
             <% if (selectedTab.equals("coding_rules")) {%>
@@ -144,7 +140,11 @@
             <% } %>
 
 <!-- Onsite tab -->
+            <% if (selectedTab.equals("onsite")) {%>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="statTextBig"><img src="/i/tournament/tco03/tab_onsite_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+            <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="statTextBig"><img src="/i/tournament/tco03/tab_onsite_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+            <% } %>
 
 <!-- Rules tab -->
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
