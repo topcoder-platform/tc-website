@@ -26,7 +26,7 @@
 <table width=100% border=0 cellspacing=0 cellpadding=0 align=right valign=top class=bodyText>
 	<tr>
 	<% if (phase.equals("preferences")) {%><td class=vbcON>Preferences 1</td>
-	<% } else { %><td class=vbcOFF><%if(showLink("preferences") {%><A href="javascript:goToPage('ContractingPreferences');" class=vbcLINK><%}%>Preferences 1<%if(showLink("preferences") {%></A><%}%></td><% } %>
+	<% } else { %><td class=vbcOFF><%if(showLink("preferences")) {%><A href="javascript:goToPage('ContractingPreferences');" class=vbcLINK><%}%>Preferences 1<%if(showLink("preferences")) {%></A><%}%></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("languages")) {%><td class=vbcON>Languages 2</td>
@@ -42,7 +42,7 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("databases")) {%><td class=vbcON>Databases 5</td>
-	<% } else { %><td class=vbcOFF><%if(showLink("databases") {%><A href="javascript:goToPage('ContractingDatabases');" class=vbcLINK><%}%>Databases 5<%if(showLink("databases") {%></A><%}%></td><% } %>
+	<% } else { %><td class=vbcOFF><%if(showLink("databases")) {%><A href="javascript:goToPage('ContractingDatabases');" class=vbcLINK><%}%>Databases 5<%if(showLink("databases")) {%></A><%}%></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("industries")) {%><td class=vbcON>Industries 6</td>
