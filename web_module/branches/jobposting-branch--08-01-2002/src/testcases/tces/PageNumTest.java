@@ -29,6 +29,7 @@ import java.io.*;
  *		page 13 - competitionStatisticsTask
  *		page 14 - problemStatisticsTask
  *		page 15 - problemStatementTask
+ *		page 16 - memberInterestTask
  *
  * @author Lai Kwan Wong <laikwanwong@hotmail.com> 
  * @version 1.0 - 8/28/2002
@@ -392,6 +393,23 @@ public class PageNumTest implements TestConst{
 		}		 
 	}
 
+	// page 16 - memberInterestTask
+	public WebResponse memberInterestTask() throws IOException, org.xml.sax.SAXException{
+		try{
+			WebResponse resp	= memberProfileTask();
+			TestMessage.addDetailMessage( "memberInterestTask: " );
+			if(resp!=null){
+				WebLink viewLink = resp.getLinkWith(MEMBER_INTEREST_LINK_TEXT);
+				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
+				if(resp!=null) { TestMessage.addDetailMessage( " - " + resp.getURL() ); }
+				return resp;
+			}
+			return null;
+		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
+			return null;
+		}		 
+	}
+	
 	//===================================================
 	// Private methods 
 	//===================================================

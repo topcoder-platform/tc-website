@@ -102,6 +102,9 @@ public class PageNumTestView{
 
 			TestMessage.addSubTitleMessage("TESTING NODES: 15");
 			PageNumTest.checkResponse((new PageNumTest()).problemStatementTask());	
+
+			TestMessage.addSubTitleMessage("TESTING NODES: 16");
+			PageNumTest.checkResponse((new PageNumTest()).memberInterestTask());	
 */
 		}catch(org.xml.sax.SAXException se){
 		}catch(IOException ioe){

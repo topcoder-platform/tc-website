@@ -108,7 +108,7 @@ public class PageNumTestCase extends TestCase  {
 		}catch(IOException ioe){
 		}
 	}
-
+/*
 	public void testNode8(){
 		try{
 			TestMessage.clearMessage(true,false);
@@ -212,6 +212,18 @@ public class PageNumTestCase extends TestCase  {
 		}
 	}
 
+	public void testNode16(){
+		try{
+			TestMessage.clearMessage(true,false);
+			WebResponse resp = (new PageNumTest()).memberInterestTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	*/
 }
 
 

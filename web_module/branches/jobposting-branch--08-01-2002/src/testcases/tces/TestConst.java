@@ -31,6 +31,7 @@ public interface TestConst{
 	public static final String CODER_DEMO_LINK_TEXT			= "Coder Demographic info";
 	public static final String CODER_COMP_HIST_LINK_TEXT	= "Coder Competition History";
 	public static final String CODER_PROB_SUBM_LINK_TEXT	= "Coder Problem Submissions";
+	public static final String MEMBER_INTEREST_LINK_TEXT	= "View Member Interest";
 
 	public static final String RATING_HIST_GRAPH_LINK_TEXT			= "Rating History Graph";
 	public static final String OVERALL_RATING_DIST_GRAPH_LINK_TEXT	= "Overall Rating Distribution Graph";
