@@ -63,42 +63,27 @@
   </TR>
 </TABLE>
 <!-- Client Message Begins -->
-<IMG SRC="/i/es/solipsys/solipsys_logo.gif" WIDTH="135" HEIGHT="60" ALT="" BORDER="0" VSPACE="10"/><BR/>    
-<P>All positions are located in Laurel, MD unless otherwise noted.</P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_seniorcjprog&amp;a=secure" CLASS="bodyText">Senior C++/Java Programmer - Kauai, Hawaii</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_prodsupport&amp;a=secure" CLASS="bodyText">Product Support Software Engineer (00101)</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_defsyseng&amp;a=secure" CLASS="bodyText">Defense Systems Engineer (00072)</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_progman&amp;a=secure" CLASS="bodyText">Program Manager (00082)</A></B><BR/></P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P> 
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_softeng1&amp;a=secure" CLASS="bodyText">Software Engineer (00084)</A></B><BR/><BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_assoana&amp;a=secure" CLASS="bodyText">Associate Analyst (00085)</A></B><BR/><BR/>             
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_seniorsofteng1&amp;a=secure" CLASS="bodyText">Senior Software Engineer - Seattle, Washington (00088)</A></B><BR/><BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_softeng2&amp;a=secure" CLASS="bodyText">Software Engineer - Seattle, Washington (00090)</A></B><BR/></P> 
-    </TD>
-  </TR>
-</TABLE> 
+<IMG SRC="/i/es/solipsys/solipsys_logo.gif" WIDTH="135" HEIGHT="60" ALT="" BORDER="0" VSPACE="10"/><BR/>   
+
+
+<P><B>Product Support Software Engineer (00101)</B></P>
 <P>
-<B>Benefits:</B>
-<UL>
-<LI>Immediately vested 401(k) with up to 200% matching contributions </LI>
-<LI>Performance-based bonuses and stock options</LI>
-<LI>Tuition assistance</LI>
-<LI>Minimum of four weeks Personal Leave</LI>
-<LI>Flexible work schedule</LI>
-<LI>Eleven paid holidays</LI>
-<LI>Company-paid life and short/long term disability insurance</LI>
-<LI>Ample free parking</LI>
-<LI>Casual work environment</LI>
-<LI>Comprehensive health and dental insurance</LI>
-</UL>
+Solipsys Corporation, a high tech firm focusing on the development of products designed 
+to address the multi-faceted problem of Joint and Coalition Forces information networking, 
+is searching for a Product Support Software Engineer on a high-energy team. The Product 
+Support Software Engineer will be responsible for the technical support of Solipsys 
+Corporation software products, including project coordination, customer support, 
+and quality assurance activities connected to the delivery of company products. 
+Additionally, this person will provide remote and on-site technical support utilizing 
+knowledge of general computer capabilities to analyze and correct systems problems in 
+relation to the company product.
 </P>
-<!-- Client Job List Ends -->
+<P>Solipsys is an Equal Opportunity Employer.</P>
+<BR />
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=115&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=solipsys_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
+<!-- Job Description Ends -->
           
           <P><BR/></P>
 					</TD>
