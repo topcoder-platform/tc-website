@@ -105,7 +105,6 @@
 <!-- Definition of Completion -->
 						<p /><sup>*</sup>Completion of the project is defined as follows:
 						<ul>
-							<li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
 							<li>The Submission has been selected by the board as the winning submission.</li>
 							<li>Final payment is conditional on acceptance of the fully functional application by the Development Review Board.</li>
 						</ul>
@@ -123,11 +122,10 @@
 
 <!-- Time Line -->
 						<p><strong>Time Line</strong><br/>
-						The Specification Submission and Design Submission must be submitted on time. All questions submitted prior to 6PM EDT on the Submission Due Dates will be answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.</p>
+						The Design Submission must be submitted on time. All questions submitted prior to 6PM EDT on the Submission Due Dates will be answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.</p>
 
 						<p><br/>
 						Component Posting: 2.27.2003<br/>
-						Specification Submission Due Date: 3.5.2003<br/>
 						Design Submission Due Date: 3.17.2003<br/>
 						Winner Announced: 3.26.2003<br/>
 						Updated Submission Due Date: 4.27.2003<br/>
