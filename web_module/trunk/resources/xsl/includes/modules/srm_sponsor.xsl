@@ -5,7 +5,7 @@
             <map name="srmanimation_home">
             <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?t=tces&amp;c=index" />
             <!-- <area shape="rect" alt="AlphaSimplex" coords="1,1,243,85" href="/?t=sponsor&amp;c=intel_ids" /> -->
-            <area shape="rect" alt="SRM Match 154" coords="0,93,243,141" href="/?RoundId=4570&amp;t=schedule&amp;c=srm" />
+            <area shape="rect" alt="SRM Match 154" coords="0,93,243,141" href="/?RoundId=4575&amp;t=schedule&amp;c=srm" />
             </map>
   </xsl:template>
 </xsl:stylesheet>
