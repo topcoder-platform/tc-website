@@ -68,4 +68,8 @@ public class SimpleRequest implements TCRequest {
     public Cookie[] getCookies() {
         return request.getCookies();
     }
+
+    public String getProtocol() {
+        return request.getProtocol();
+    }
 }
