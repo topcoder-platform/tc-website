@@ -57,7 +57,7 @@
 	      <LI>Ratings will be adjusted post-match</LI>
 	      <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
 	      <LI>Members will be emailed the match results (opt-in)</LI></UL>
-	      The match will feature a mixed programming language format. For each individual problem, the coder will have the option of using either Java, C++, Microsoft® Visual C#® .NET or Microsoft® Visual Basic® .NET to code the solution. Syntactical knowledge of each language will be helpful during the challenge phase of each round of competition.<BR/><BR/>
+	      The match will feature a mixed programming language format. For each individual problem, the coder will have the option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174; .NET to code the solution. Syntactical knowledge of each language will be helpful during the challenge phase of each round of competition.<BR/><BR/>
 	      <B>Divisions and Ironman Room Assignments:</B><UL>
 	      <LI>Members rated 1200 or better compete in Division I</LI>
 	      <LI>Members rated 1199 or lower compete in Division II</LI>
