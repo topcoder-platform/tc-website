@@ -512,7 +512,7 @@
 
         <init-param>
             <param-name>example_problem_id</param-name>
-            <param-value>13,900</param-value>
+            <param-value>4,818</param-value>
             <description></description>
         </init-param>
 
