@@ -41,6 +41,8 @@
          <tr>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/room3.mov"><img src="/i/tournament/tccc05/onsite_movies/room3.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tccc05/onsite_movies/room3.mov">Room 3 (2.8 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/wildcard.mov"><img src="/i/tournament/tccc05/onsite_movies/wildcard.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tccc05/onsite_movies/wildcard.mov">WildCard Room (2.0 MB)</A><br/></td>
             </tr>
       </table>
 
