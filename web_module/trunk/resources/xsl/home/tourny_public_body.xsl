@@ -17,6 +17,7 @@
   <xsl:import href="../includes/modules/arena2.xsl"/>  
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/editorials.xsl"/>    
+  <xsl:import href="../includes/modules/simple_search.xsl"/>    
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="PublicBody">
 
@@ -64,6 +65,7 @@
 
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
 <xsl:call-template name="module_login"/>
+<!--<xsl:call-template name="simple_search"/>-->
 <xsl:call-template name="intro"/>
 <xsl:call-template name="srm_dates"/>
 <!-- <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/> -->
