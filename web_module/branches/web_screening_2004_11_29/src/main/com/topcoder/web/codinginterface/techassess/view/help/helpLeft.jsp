@@ -1,13 +1,13 @@
 <%@  page language="java"%>
 <% String selected = request.getParameter("selected")==null?"":request.getParameter("selected"); %>
 
-                        <table border=0 cellpadding=0 cellspacing=0 width="100%">
+                        <table border=0 cellpadding=5 cellspacing=0 width="100%">
                             <tr><td class=bodyBigTitle>Help Manual: Contents</td></tr>
 
  <!-- Getting Started begins -->
                             <tr>
                             <% if (selected.equals("steps")) { %>
-                                <td><strong>Perform the Following Steps</strong></td>
+                                <td class=helpTitleOn>Perform the Following Steps</td>
                             <% } else { %>
                                 <td><a href="steps.jsp">Perform the Following Steps</a></td>
                             <% } %>
@@ -31,9 +31,9 @@
 <!-- Load Testing Application begins -->
                             <tr>
                             <% if (selected.equals("testingApp")) { %>
-                                <td><strong>Loading the Technical<br />Assessment Applicaton</strong><br><br></td>
+                                <td class=helpTitleOn>Loading the Technical<br />Assessment Applicaton</td>
                             <% } else { %>
-                                <td><a href="testingApp.jsp">Loading the Technical<br />Assessment  Applicaton</a><br><br></td>
+                                <td><a href="testingApp.jsp">Loading the Technical<br />Assessment  Applicaton</a></td>
                             <% } %>
                             </tr>
 <!-- Load Testing Application ends -->
@@ -41,7 +41,7 @@
 <!-- The Coding Window begins -->
                             <tr>
                             <% if (selected.equals("codingWindow")) { %>
-                                <td><strong>The Coding Window</strong></td>
+                                <td class=helpTitleOn>The Coding Window</td>
                             <% } else { %>
                                 <td><a href="codingWindow.jsp">The Coding Window</a></td>
                             <% } %>
@@ -68,9 +68,9 @@
 <!-- Saving begins -->
                             <tr>
                             <% if (selected.equals("saving")) { %>
-                                <td><strong>Saving</strong><br><br></td>
+                                <td class=helpTitleOn>Saving</td>
                             <% } else { %>
-                                <td><a href="saving.jsp">Saving</a><br><br></td>
+                                <td><a href="saving.jsp">Saving</a></td>
                             <% } %>
                             </tr>
 <!-- Saving ends -->
@@ -78,9 +78,9 @@
 <!-- Clearing the Code begins -->
                             <tr>
                             <% if (selected.equals("clearingCode")) { %>
-                                 <td><strong>Clearing the Code</strong><br><br></td>
+                                 <td class=helpTitleOn>Clearing the Code</td>
                            <% } else { %>
-                                <td><a href="clearingCode.jsp">Clearing the Code</a><br><br></td>
+                                <td><a href="clearingCode.jsp">Clearing the Code</a></td>
                             <% } %>
                             </tr>
 <!-- Clearing the Code ends -->
@@ -88,7 +88,7 @@
 <!-- The Timer begins -->
                             <tr>
                             <% if (selected.equals("timer")) { %>
-                                <td><strong>The Timer</strong></td>
+                                <td class=helpTitleOn>The Timer</td>
                             <% } else { %>
                                 <td><a href="timer.jsp">The Timer</a></td>
                             <% } %>
