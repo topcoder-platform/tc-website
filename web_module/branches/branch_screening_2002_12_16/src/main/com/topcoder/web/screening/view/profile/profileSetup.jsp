@@ -82,7 +82,7 @@ function submitConfirm() {
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="profileName" value ="<jsp:getProperty name="profile" property="profileName" />" size="30" maxlength="30"></TD>
            </TR>
            <TR>
-              <TD></TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+              <TD></TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD colspan="2" class="errorText" align="left" valign="middle"><screen:errors name="profileName" /></TD>
            </TR>
            <TR align="right" valign="middle">
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Problem Set</b>&#160;</TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
@@ -166,6 +166,9 @@ function submitConfirm() {
             </TR>
             </screen:listIterator>
            <TR>
+              <TD colspan="6" class="errorText" align="center" valign="middle"><screen:errors name="testSetB" /></TD>
+           </TR>
+           <TR>
               <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="30" border="0" /></TD>
            </TR>
            <TR>
@@ -178,7 +181,7 @@ function submitConfirm() {
               </TD>
            </TR>
            <TR>
-              <TD COLSPAN="5" ALIGN="center"><A HREF="JavaScript:submitAdd()" CLASS="bodyText">Add</A></TD>
+              <TD COLSPAN="6" ALIGN="center"><A HREF="JavaScript:submitAdd()" CLASS="bodyText">Add</A></TD>
            </TR>
          </TABLE>
 
@@ -200,6 +203,9 @@ function submitConfirm() {
                </TD>
             </TR>
 </screen:resultSetRowIterator>
+           <TR>
+              <TD colspan="2" class="errorText" align="left" valign="middle"><screen:errors name="language" /></TD>
+           </TR>
            <TR>
               <TD><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
