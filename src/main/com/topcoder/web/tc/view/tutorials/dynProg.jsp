@@ -74,7 +74,7 @@ First of all we need to find a state for which an optimal solution is found and 
 <br/><br/>
 <em><b>What does a "state" stand for?</b></em>
 <br/><br/>
-It's a way to describe a situation, a sub-solution for the problem. For example a state would be the solution for sum <b>i</b>, where <b>i&#8804;S</b>. A smaller state than state <b>i</b> would be the solution for any sum <b>j</b>, where <b>j<i</b>. For finding a <b>state i</b>, we need to first find all smaller states <b>j (j&lt;i) </b>. Having found the minimum number of coins which sum up to <b>i</b>, we can easily find the next state - the solution for <b>i+1</b>.
+It's a way to describe a situation, a sub-solution for the problem. For example a state would be the solution for sum <b>i</b>, where <b>i&#8804;S</b>. A smaller state than state <b>i</b> would be the solution for any sum <b>j</b>, where <b>j&lt;i</b>. For finding a <b>state i</b>, we need to first find all smaller states <b>j (j&lt;i) </b>. Having found the minimum number of coins which sum up to <b>i</b>, we can easily find the next state - the solution for <b>i+1</b>.
 <br/><br/>
 <em><b>How can we find it?</b></em>
 <br/><br/>
