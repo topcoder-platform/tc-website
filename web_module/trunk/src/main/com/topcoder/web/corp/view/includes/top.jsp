@@ -11,24 +11,19 @@
 %>
 <a name="top"/>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">    
-    <tr>
-        <td colspan="2"><img src="/i/clear.gif" width="1" height="2" border="0"/></td>
-    </tr>                
-
     <tr valign="middle">
         <td width="100%" align="right" class="globalNav" nowrap="0"> 
-            <a href="http://www.topcodersoftware.com" target="_parent" class="globalNav">topcodersoftware.com</a>
-<% if (isHomePage) { %>
-            &#160;
-<% } else { %>
-
+            <a href="http://www.topcodersoftware.com" target="_blank" class="globalNav">topcodersoftware.com</a>
     <% if( activeUser.isAnonymous() ) {  // no logged user %>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=LoginPage" class="globalNav" target="_parent">Login</a>
     <% } else { %>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="globalNav" target="_parent">Logout</a>
     <% } %>
 
+<% if (isHomePage) { %>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="globalNav">Home</a>
+<% } else { %>
+            &#160;
 <%  } %>
         </td>
         <td width="15" bgcolor="#333333"><img src="/i/clear.gif" width="30" height="1" border="0" /></td>
@@ -41,9 +36,9 @@
         <td width="206">
 
 <% if (isHomePage) { %>
-        <img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" />
-<% } else { %>
         <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" /></a>
+<% } else { %>
+        <img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" />
 <%  } %>
 
         </td>
