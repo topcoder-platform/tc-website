@@ -30,12 +30,12 @@
     <TR>
 
 
-<logic:notEqual name="NavZone" property="Folder[0]" value="stats">
+<logic:notEqual name="NavZone" property="Folder" value="stats">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
 
 </logic:notEqual>
-<logic:equal name="NavZone" property="Folder[0]" value="stats">
+<logic:equal name="NavZone" property="Folder" value="stats">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
      </TR>
@@ -70,12 +70,12 @@
     <TR>
 
 
-<logic:notEqual name="NavZone" property="Folder[0]" value="faq">
+<logic:notEqual name="NavZone" property="Folder" value="faq">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
 
 </logic:notEqual>
-<logic:equal name="NavZone" property="Folder[0]" value="faq">
+<logic:equal name="NavZone" property="Folder" value="faq">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
      </TR>
@@ -115,12 +115,12 @@
     <TR>
 
 
-<logic:notEqual name="NavZone" property="Folder[0]" value="about">
+<logic:notEqual name="NavZone" property="Folder" value="about">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
 
 </logic:notEqual>
-<logic:equal name="NavZone" property="Folder[0]" value="about">
+<logic:equal name="NavZone" property="Folder" value="about">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
      </TR>
