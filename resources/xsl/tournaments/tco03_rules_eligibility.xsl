@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Overview</title>
+<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Eligibility</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -64,31 +64,53 @@
 
 <!-- Tab bar links-->
             <xsl:call-template name="tco03_links">
-                <xsl:with-param name="selectedTab">overview</xsl:with-param>
+                <xsl:with-param name="selectedTab">rules</xsl:with-param>
             </xsl:call-template>
 
 <!-- Tab bar sub links-->
             <xsl:call-template name="tco03_sublinks">
-                <xsl:with-param name="selectedTab"></xsl:with-param>
+                <xsl:with-param name="selectedList">rules</xsl:with-param>
+                <xsl:with-param name="selectedTab">eligibility</xsl:with-param>
             </xsl:call-template>
     
             <blockquote>
-            <h2>Overview of the Tournament</h2>
+            <h2>Eligibility</h2>
+            
+            <p>TopCoder members meeting the following eligibility criteria are eligible to compete in the TCO:</p>
+
+            <ul>
+                <li>Must be at least 18 years of age (as of October 7, 2003); AND</li>
+                <li>Must be one of the 100 highest rated TopCoder members as of October 7th AND have participated in at least three 
+                (3) TopCoder rated events (i.e., Single Round Matches and previous tournaments) prior to October 7th; OR</li>
+                <li>Must be one of the top 200 scorers in one of the two Qualification Rounds being held on October 7th and October 9th.</li>
+            </ul>
+
+            <p>All citizens and lawful permanent residents of the following countries (and all non-immigrants currently residing in 
+            the United States with a valid Visa) are eligible to win cash prizes after completing the appropriate affidavit and tax form:</p>
             
             <ul>
-                <li><strong>Dates: </strong><br />
-                    October 7th through December 5th, 2003</li>
-                <li><strong>Rounds: </strong><br />
-                    Two qualification rounds - online<br />
-                    Four elimination rounds - online<br />
-                    The Semifinal and Championship rounds will be held at the Mohegan Sun Casino and Resort in Uncasville, CT on December 4th and 5th</li>
-                <li><strong>Prizes: </strong><br />
-                    Total Prize Purse: $100,000 in cash<br />
-                    Up to 500 competitors will receive a prize just for competing in Online Round #1<br />
-                    Up to 200 eligible competitors will receive cash prizes</li>
-                <li><strong>Finalists: </strong><br />
-                    The top 16 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
+                <li>Australia</li>
+                <li>Canada (excluding Qu&#233;b&#232;c)</li>
+                <li>China</li>
+                <li>India</li>
+                <li>Ireland</li>
+                <li>New Zealand</li>
+                <li>Sweden</li>
+                <li>United Kingdom</li>
+                <li>United States (including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands)</li>
             </ul>
+
+            <p>TopCoder members who do not meet the citizenship requirements to win prize money are eligible to compete, 
+            however will be required to donate any cash prizes to charity.  Members will choose a charity to receive their 
+            winnings from the TopCoder approved list of charities.  A prize-winning member may request a new charity for 
+            the list, however it shall remain in TopCoder's sole discretion to add that charity after reviewing the proposed 
+            charity's credentials.</p>
+
+            <p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation 
+            and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, 
+            agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament 
+            and members of the immediate families and/or persons living in the same household as such persons, are ineligible 
+            to enter the tournament.</p>
             </blockquote>
 
             <p><br/></p>
