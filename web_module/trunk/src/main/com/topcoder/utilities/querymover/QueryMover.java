@@ -144,38 +144,43 @@ public class QueryMover {
      * @param sourceCommandId
      */
     private void moveCommand(long sourceCommandId) throws RemoteException {
-        CommandBean sourceCommand = new CommandBean(sourceCommandId,
-                sourceC.getCommandDesc(sourceCommandId), sourceC.getCommandGroupId(sourceCommandId));
-        CommandGroupBean sourceCommandGroup = new CommandGroupBean(sourceCommand.getCommandGroupId(),
-                sourceCG.getCommandGroupName(sourceCommand.getCommandGroupId()));
-        CommandGroupBean targetCommandGroup = findCommandGroup(targetCG,
-                sourceCommandGroup.getCommandGroupDesc());
-        CommandBean targetCommand = findCommand(targetC, sourceCommand.getCommandDesc());
+        try {
+            CommandBean sourceCommand = new CommandBean(sourceCommandId,
+                    sourceC.getCommandDesc(sourceCommandId), sourceC.getCommandGroupId(sourceCommandId));
+            CommandGroupBean sourceCommandGroup = new CommandGroupBean(sourceCommand.getCommandGroupId(),
+                    sourceCG.getCommandGroupName(sourceCommand.getCommandGroupId()));
+            CommandGroupBean targetCommandGroup = findCommandGroup(targetCG,
+                    sourceCommandGroup.getCommandGroupDesc());
+            CommandBean targetCommand = findCommand(targetC, sourceCommand.getCommandDesc());
 
-        int newCommandGroupId = 0;
+            int newCommandGroupId = 0;
 
-        /* it's a new command. */
-        if (targetCommand == null) {
-            log.info("command " + sourceCommand.getCommandDesc() + " not found, creating...");
-            long newCommandId = targetC.createCommand(sourceCommand.getCommandDesc(),
-                    (int) sourceCommand.getCommandId());
+            /* it's a new command. */
+            if (targetCommand == null) {
+                log.info("command " + sourceCommand.getCommandDesc() + " not found, creating...");
+                long newCommandId = targetC.createCommand(sourceCommand.getCommandDesc(),
+                        (int) sourceCommand.getCommandId());
 
-            /* it's a new command group */
-            if (targetCommandGroup == null) {
-                log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " not found, creating...");
-                newCommandGroupId = targetCG.createCommandGroup(sourceCommandGroup.getCommandGroupDesc());
-                targetC.setCommandGroupId(newCommandId, newCommandGroupId);
+                /* it's a new command group */
+                if (targetCommandGroup == null) {
+                    log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " not found, creating...");
+                    newCommandGroupId = targetCG.createCommandGroup(sourceCommandGroup.getCommandGroupDesc());
+                    targetC.setCommandGroupId(newCommandId, newCommandGroupId);
+                } else {
+                    log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " found, updating command...");
+                    targetC.setCommandGroupId(newCommandId, targetCommandGroup.getCommandGroupId());
+                }
+                commandMap.put(new Long(newCommandId), new Long(sourceCommandId));
+                moveQueries(sourceCommandId);
+                moveCommandQueries(newCommandId);
             } else {
-                log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " found, updating command...");
-                targetC.setCommandGroupId(newCommandId, targetCommandGroup.getCommandGroupId());
+                commandMap.put(new Long(targetCommand.getCommandId()), new Long(sourceCommandId));
+                moveQueries(sourceCommandId);
+                moveCommandQueries(targetCommand.getCommandId());
             }
-            commandMap.put(new Long(newCommandId), new Long(sourceCommandId));
-            moveQueries(sourceCommandId);
-            moveCommandQueries(newCommandId);
-        } else {
-            commandMap.put(new Long(targetCommand.getCommandId()), new Long(sourceCommandId));
-            moveQueries(sourceCommandId);
-            moveCommandQueries(targetCommand.getCommandId());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            throw e;
         }
     }
 
