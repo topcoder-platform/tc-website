@@ -3,65 +3,28 @@
 <jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 
 
-                            <SCRIPT LANGUAGE="JavaScript">
-                            <!--
-                            var flashinstalled = 0;
-                            var flashversion = 0;
-                            MSDetect = "false";
-                            if (navigator.plugins && navigator.plugins.length)
-                            {
-                                x = navigator.plugins["Shockwave Flash"];
-                                if (x)
-                                {
-                                    flashinstalled = 2;
-                                    if (x.description)
-                                    {
-                                        y = x.description;
-                                        flashversion = y.charAt(y.indexOf('.')-1);
-                                    }
-                                }
-                                else
-                                    flashinstalled = 1;
-                                if (navigator.plugins["Shockwave Flash 2.0"])
-                                {
-                                    flashinstalled = 2;
-                                    flashversion = 2;
-                                }
-                            }
-                            else if (navigator.mimeTypes && navigator.mimeTypes.length)
-                            {
-                                x = navigator.mimeTypes['application/x-shockwave-flash'];
-                                if (x && x.enabledPlugin)
-                                    flashinstalled = 2;
-                                else
-                                    flashinstalled = 1;
-                            }
-                            else
-                                MSDetect = "true";
+<SCRIPT LANGUAGE="JavaScript"><!--
+var MM_contentVersion = 6;
+var plugin = (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"]) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+if ( plugin ) {
+		var words = navigator.plugins["Shockwave Flash"].description.split(" ");
+	    for (var i = 0; i < words.length; ++i)
+	    {
+		if (isNaN(parseInt(words[i])))
+		continue;
+		var MM_PluginVersion = words[i];
+	    }
+	var MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
+}
+else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
+   && (navigator.appVersion.indexOf("Win") != -1)) {
+	document.write('<SCR' + 'IPT LANGUAGE=VBScript\> \n'); //FS hide this from IE4.5 Mac by splitting the tag
+	document.write('on error resume next \n');
+	document.write('MM_FlashCanPlay = ( IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
+	document.write('</SCR' + 'IPT\> \n');
+}
+// --></SCRIPT>
 
-                            // -->
-                            </SCRIPT>
-
-                            <SCRIPT LANGUAGE="VBScript">
-
-                            on error resume next
-
-                            If MSDetect = "true" Then
-                                For i = 2 to 6
-                                    If Not(IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & i))) Then
-
-                                    Else
-                                        flashinstalled = 2
-                                        flashversion = i
-                                    End If
-                                Next
-                            End If
-
-                            If flashinstalled = 0 Then
-                                flashinstalled = 1
-                            End If
-
-                            </SCRIPT>
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
@@ -77,7 +40,7 @@
             <rsc:iterator list="<%=donationTotal%>" id="info">
                 <SCRIPT language="JavaScript">
                 <!--
-                     if (flashinstalled>1){
+                     if (MM_FlashCanPlay){
                              document.write('<object type="application/x-shockwave-flash" data="/i/tournament/crpf03/crpf_meter.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="170" height=300 border="0" salign="Top" id="myFlash" >');
                              document.write('<PARAM NAME=movie VALUE="/i/tournament/crpf03/crpf_meter.swf?currentTotal=<rsc:item row="<%=info%>" name="amount" format="0.00"/>">');
                              document.write('<PARAM NAME=quality VALUE="high">');
@@ -91,7 +54,7 @@
 
                             <SCRIPT LANGUAGE="JavaScript">
                             <!--
-                            if (flashinstalled<2){
+                            if (!MM_FlashCanPlay){
                                document.write('<a href="/tc?&module=CRPFReport"><img src="/i/tournament/crpf03/fundraisers.gif" width="180" height="100" border="0" hspace="0"></a>');
                             }
                             // -->
