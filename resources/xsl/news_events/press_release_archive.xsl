@@ -58,6 +58,33 @@
             
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 
+<!-- 2003 -->
+                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
+                            
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_13_03">TopCoder Charity Challenge</A> [August 13]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_11_03">High quality software applications at a low cost</A> [August 11]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_23_03">TopCoder has a Revelation</A> [July 23]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_22_03">I want my VB.NET</A> [July 21]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_06_17_03">Sweden Added to TopCoder Developer Community</A> [June 16]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_06_16_03">Come In, We're Open</A> [June 16]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_javaone">JavaOne Coding Challenge is Powered by TopCoder</A> [May 21]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_hs">Amity clinches High School Challenge</A> [May 21]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_14_03">TopCoder Challenges High School Students</A> [May 14]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_07_03">David Arthur takes home the Collegiate Challenge crown</A> [April 7]</td></tr>
+                        
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_03_13_03">2003 Sun Microsystems TopCoder Collegiate Challenge</A> [March 13]</td></tr>
+                        
+                            <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+                        
 <!-- 2002 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2002</font></td></tr>
                             
