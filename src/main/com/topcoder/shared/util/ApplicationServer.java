@@ -36,6 +36,7 @@ public class ApplicationServer {
   public static String CONTEST_ADMIN_SERVICES  = bundle.getProperty("CONTEST_ADMIN_SERVICES", "jma.ContestAdminServicesHome");
   public static String PACTS_SERVICES          = bundle.getProperty("PACTS_SERVICES", "com.topcoder.web.pacts.ejb.PactsServicesHome");
   public static String PROJECT_SERVICES        = bundle.getProperty("PROJECT_SERVICES", "tc.ProjectServicesHome");
+  public static String JOB_POSTING_SERVICES    = bundle.getProperty("JOB_POSTING_SERVICES", "com.topcoder.web.jobPosting.ejb.JobPostingServicesHome");
 
   private static String[] getClusterArray(String s) {
     StringTokenizer st = new StringTokenizer(s, ",");
