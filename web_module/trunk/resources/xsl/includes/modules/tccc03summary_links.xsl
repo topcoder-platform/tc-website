@@ -6,13 +6,13 @@
                 <tr valign="top">
                     <td class="tourney_subnav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 
-                    <td valign="top" class="tourney_subnav" nowrap="0">&#160;&#160;<b>Room 1:</b><br/>
+<!--                    <td valign="top" class="tourney_subnav" nowrap="0">&#160;&#160;<b>Room 1:</b><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom1" class="statTextBig">Summary</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom1#photo" class="statTextBig">Photos</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiprob1" class="statTextBig">Problems</a><br/>            
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiprob1#log" class="statTextBig">Play-by-play</a><br/>
                     </td>        
-<!--                    <td valign="top" class="tourney_subnav" nowrap="0">&#160;&#160;<b>Room 2:</b><br/>
+                    <td valign="top" class="tourney_subnav" nowrap="0">&#160;&#160;<b>Room 2:</b><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom2" class="statTextBig">Summary</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom2#photo" class="statTextBig">Photos</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiprob2" class="statTextBig">Problems</a><br/>            
