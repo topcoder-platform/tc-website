@@ -76,8 +76,8 @@
 						these software development tasks. Object-oriented language was a major step forward for design, 
 						as was the Unified Modeling Language (UML) for describing software systems. Wide interest in 
 						standard "design patterns" has added to designers' common vocabulary of design solutions. Finally, 
-						standard open-source unit testing packages like JUnit have helped developers benefit from early and f
-						requent testing.
+						standard open-source unit testing packages like JUnit have helped developers benefit from early and 
+						frequent testing.
 						</p>
 						<p>Despite all this, it's still an art, not a science, and software development skill grows with real 
 						experience. Lucky for us then that TopCoder Software has done for software development what TopCoder did 
@@ -138,7 +138,9 @@
 						This is the "map" for your component design, so strive for clarity - the point of the diagram is 
 						communication of ideas to another person like yourself. Make the diagram neat; the arrangement of 
 						diagram elements should visually communicate groupings. Don't model anything beyond the basics unless you 
-						really feel it's important; too much detail can obscure the basic structure.
+						really feel it's important; too much detail can obscure the basic structure.</p>
+						<p>Fill in javadoc as well according to TopCoder guidelines to the Poseidon diagram; this is the place to 
+						detail exactly what each public method and class does.
 						</p>
 						<p><b>6. Write sequence diagrams</b><br />
 						Sequence diagrams describe the flow of control and information in the component for its various actions. 
@@ -161,9 +163,6 @@
 						design, you should include a concise summary of the component's functionality and major design points. 
 						The rest of the document should be straightforward to complete, with your completed Poseidon model. 
 						In particular I think it is useful to include illustrative code snippets in section 4.
-						</p>
-						<p>You'll find that there is no special place in the document for describing your classes and methods 
-						in detail; this should be in the javadoc:
 						</p>
 						<p><b>8. Export skeleton code and add javadoc</b><br />
 						With a completed class diagram, you should be able to export skeleton Java code from Poseidon. You will 
