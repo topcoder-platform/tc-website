@@ -159,7 +159,7 @@
             <table cellspacing="0" cellpadding="0" width="530" class="bodyText">
                 <tr>
                     <td class="bodyText">
-                    <p align="left">**By applying to review the component you are committing to the presented timeline.Ê Failure to meet the provided timeline may result in a suspension from the TopCoder Review Board.</p>
+                    <p align="left">**By applying to review the component you are committing to the presented timeline.  Failure to meet the provided timeline may result in a suspension from the TopCoder Review Board.</p>
                     <p align="left"><a href="/tc?module=ViewReviewProjects">View all projects</a></p>
                     </td>
                 </tr>

@@ -47,8 +47,8 @@
 
             <p><h2 align="left">Review opportunities currently available!</h2></p>
 
-            <p align="left">In the table below you will be able to see what projects are available, the type of project, current number of submissions, the review timeline, and the number of positions available.   If you click on a component name you will be able to see all of the details associated with that component review.</p>
-            <p align="left">If you are not currently on the TopCoder Architect or Development Review Board you may send an email to <A href="mailto:tcsservice@topcoder.com">tcsservice@topcoder.com</A> requesting permission to perform reviews.  Please keep in mind only members that have completed component projects all eligible to join the TopCoder Review boards.</p>
+            <p align="left">In the table below you will be able to see what projects are available, the type of project, current number of submissions, the review timeline, and the number of positions available.   If you click on a component name you will be able to see all of the details associated with that component review.</p>
+            <p align="left">If you are not currently on the TopCoder Architect or Development Review Board you may send an email to <A href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</A> requesting permission to perform reviews.  Please keep in mind only members that have completed component projects all eligible to join the TopCoder Review boards.</p>
 
             <br/>
             
