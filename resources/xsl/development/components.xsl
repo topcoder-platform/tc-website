@@ -117,13 +117,14 @@
 			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="middle">
 					<td class="statText" background="/i/steel_darkblue_bg.gif">
-						<p><strong>String Class:&#160;Design</strong><br />
-						This is a fine design and those functions added above and beyond the minimum requirements seem to be useful and well thought out." - b0b0b0b
-						For more details, check out <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3501906" class="statText">String Class</a> on the TopCoder Software web site.</p>
+						<p><strong>Spell Check:&#160;Design</strong><br />
+						The String Component is designed to extend the functionality of the string manipulation methods available in Java.  For more details, check out <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3501906" class="statText">String Class</a> on the TopCoder Software web site.</p>
 						
-                    </td>
+						<p><strong>Review Board Comments</strong><br />
+						"This is a fine design and those functions added above and beyond the minimum requirements seem to be useful and well thought out."<a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=273206">&#160;&#151;b0b0b0b</a></p></td>
 				</tr>
 			</table>
+
 	<!-- Featured Winner Ends -->
 
 	<!-- Design Winners Begins -->
