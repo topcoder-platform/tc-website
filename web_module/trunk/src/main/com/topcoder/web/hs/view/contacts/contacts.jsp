@@ -40,7 +40,7 @@
                 </TABLE>
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
-                        <P CLASS="bodyText">TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what TopCoder is about. Please contact the 
+                        <P CLASS="bodyText">TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what TopCoder is about. Please contact the
 					appropriate individuals below for more information or assistance.</P><DIV ALIGN="center"><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%"><TR><TD CLASS="bodyText" ALIGN="left" COLSPAN="2"><B>Please direct general questions or concerns to</B></TD></TR><TR><TD CLASS="bodyText" ALIGN="left" COLSPAN="2">TopCoder, Inc.<BR>703 Hebron Avenue<BR>Glastonbury, CT 06033 U.S.A.<BR>Phone: 860.633.5540<BR>Fax: 860.657.4276<BR>Email:<A CLASS="bodyText" HREF="mailto:service@topcoder.com">TopCoder General Inbox</A><BR></TD></TR><TR><TD CLASS="bodyText" ALIGN="left" COLSPAN="2"><BR><B><A CLASS="bodyText" HREF="mailto:service@topcoder.com">NEED TECH SUPPORT?</A></B><BR></TD></TR><TR><TD CLASS="bodyText" ALIGN="left" COLSPAN="2"><BR><B>Questions regarding sponsorships, membership and technology</B></TD></TR><TR><TD CLASS="bodyText" ALIGN="left" WIDTH="40%"><BR><A CLASS="bodyText" HREF="mailto:dvaughn@topcoder.com">Sponsorship Sales</A><BR>
 					Drew Vaughn, VP of Sales<BR>
 					TopCoder, Inc.<BR>
@@ -61,7 +61,7 @@
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -72,10 +72,10 @@
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

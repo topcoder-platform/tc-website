@@ -1,4 +1,3 @@
-<%@ page errorPage="../home/error.jsp" %>
 <%@ taglib uri="/registration-taglib.tld" prefix="reg" %>
 <jsp:useBean id="student" type="com.topcoder.web.hs.model.StudentRegistrationBean" scope="request"/>
 <%@ include file="head.inc" %>

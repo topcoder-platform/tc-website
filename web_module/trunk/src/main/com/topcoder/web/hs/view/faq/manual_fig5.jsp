@@ -43,7 +43,7 @@
             <!--Body starts here-->
 <BR><P><ul CLASS="bodyText"><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig1"><b>Figure 1.</b> Login</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig2"><b>Figure 2.</b> Lobby</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig3"><b>Figure 3.</b> Problem Selection</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig4"><b>Figure 4.</b> Coding Window - Coding Phase</A></li><li><b>Figure 5.</b> Status Window - Challenge Phase
                                         </li></ul></P><P CLASS="bodyText"><b>Figure 5: Status Window - Challenge Phase</b></P><IMG BORDER="0" HEIGHT="434" WIDTH="619" ALT="Status Window" SRC="/i/hs/status_window.gif"><P CLASS="bodyText">
-Once the Challenge Phase begins, the timer will reset itself for that phase and the Status window will open. To access another user's code, right-click on the user's point total. "Source" and "Challenge will be the two choices. Here, a user is able to view any other user's code and submit a challenge. A user's code may only be challenged once. 
+Once the Challenge Phase begins, the timer will reset itself for that phase and the Status window will open. To access another user's code, right-click on the user's point total. "Source" and "Challenge will be the two choices. Here, a user is able to view any other user's code and submit a challenge. A user's code may only be challenged once.
 </P><P><BR></P>
               <!--Body Ends Here-->
             </TD>
@@ -52,7 +52,7 @@ Once the Challenge Phase begins, the timer will reset itself for that phase and 
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -63,10 +63,10 @@ Once the Challenge Phase begins, the timer will reset itself for that phase and 
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

@@ -2,13 +2,13 @@
 
 <%@ include file="body.inc" %>
 
-<% 
+<%
 String sCoderId = srb.getProperty("cr","");
 String sRoomId = srb.getProperty("rm","");
 String sRoundId = srb.getProperty("rd","");
 pageContext.setAttribute("pm", srb.getProperty("pm",""));
 
-//get the Header info 
+//get the Header info
 
 ResultSetContainer rscHdr = (ResultSetContainer) queryEntries.get("Room_Header_Information");
 
@@ -33,7 +33,7 @@ String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").
 int i=-1;
 while((i = sSolutionText.indexOf("\n\n"))>=0){
   sSolutionText = sSolutionText.substring(0,i+1) + "&nbsp;" + sSolutionText.substring(i+1);
-   
+
 }
 java.util.StringTokenizer strtok = new java.util.StringTokenizer(sSolutionText,"\n");
 StringBuffer stBuffer = new StringBuffer(sSolutionText.length());
@@ -42,15 +42,15 @@ while (strtok.hasMoreTokens()){
   sTemp = strtok.nextToken();
   for (i=0; i<sTemp.length(); i++){
     if (sTemp.charAt(i)==' ')
-      stBuffer.append("&#160;");
+      stBuffer.append("&nbsp;");
     else if (sTemp.charAt(i)=='\t')
-      stBuffer.append("&#160;&#160;&#160;");
+      stBuffer.append("&nbsp;&nbsp;&nbsp;");
     else
       stBuffer.append(JSPUtils.htmlEncode(sTemp.substring(i, i+1)));
   }
   stBuffer.append("<BR>");
 }
-%>       
+%>
 
          <!-- BEGIN BODY -->
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
@@ -60,10 +60,10 @@ while (strtok.hasMoreTokens()){
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
                    <TD COLSPAN="4"  CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>  
+                 </TR>
                  <TR>
                    <TD COLSPAN="4"  CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                 </TR>      
+                 </TR>
                </TABLE>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
@@ -73,7 +73,7 @@ while (strtok.hasMoreTokens()){
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7" HEIGHT="18">&#160;Problem Statistics for
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;Problem Statistics for
           <%= sHeader %>
                    </TD>
                  </TR>
@@ -94,13 +94,13 @@ while (strtok.hasMoreTokens()){
                  </TR>
 <% ResultSetContainer rscSubmissions = (ResultSetContainer) queryEntries.get("Coder_Problems");
 pageContext.setAttribute("resultSetSubmissions", rscSubmissions);
-if (rscSubmissions.size() > 0) {  %>                 
-   <logic:iterate name="resultSetSubmissions" id="resultRow" type="ResultSetContainer.ResultSetRow">         
+if (rscSubmissions.size() > 0) {  %>
+   <logic:iterate name="resultSetSubmissions" id="resultRow" type="ResultSetContainer.ResultSetRow">
                    <TR>
                      <TD  VALIGN="middle" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
        <% if (pageContext.getAttribute("pm").toString().equals(resultRow.getItem(2).toString())) { %>
                      <TD  CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
-                      <SPAN CLASS="coderBrackets">[&#160;</SPAN><SPAN CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 0 /* class name */ + "]" %>'/></SPAN><SPAN CLASS="coderBrackets">&#160;]</SPAN>
+                      <SPAN CLASS="coderBrackets">[&nbsp;</SPAN><SPAN CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 0 /* class name */ + "]" %>'/></SPAN><SPAN CLASS="coderBrackets">&nbsp;]</SPAN>
                      </TD>
        <% } else { %>
          <TD  CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
@@ -113,11 +113,11 @@ if (rscSubmissions.size() > 0) {  %>
                      <TD  CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* problem points*/ + "].resultData" %>'/></TD>
                      <TD  VALIGN="top" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>
-  </logic:iterate>           
+  </logic:iterate>
                    <TR>
                      <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
                    </TR>
-<% } %>           
+<% } %>
                  <TR>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
@@ -140,15 +140,15 @@ if (rscSubmissions.size() > 0) {  %>
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                </TABLE>
-<!-- Defenses -->    
+<!-- Defenses -->
 <% ResultSetContainer rscDefense = (ResultSetContainer) queryEntries.get("Problem_Defenses");
 pageContext.setAttribute("resultSetDefense", rscDefense);
-if (rscDefense.size() > 0) { 
+if (rscDefense.size() > 0) {
   int row = 0;
-%>           
+%>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="10" HEIGHT="18">&#160;Defense Results</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="10" HEIGHT="18">&nbsp;Defense Results</TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -165,8 +165,8 @@ if (rscDefense.size() > 0) {
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Succeeded</TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-  <logic:iterate name="resultSetDefense" id="resultRow" type="ResultSetContainer.ResultSetRow">         
-    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"challenger Rating"*/ + "]" %>'/>         
+  <logic:iterate name="resultSetDefense" id="resultRow" type="ResultSetContainer.ResultSetRow">
+    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"challenger Rating"*/ + "]" %>'/>
                  <TR>
                    <TD  COLSPAN="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
@@ -207,31 +207,31 @@ if (rscDefense.size() > 0) {
                  <TR>
                    <TD BGCOLOR="#1B2E5D" COLSPAN="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-<% } 
+<% }
    row++;
 %>
- </logic:iterate>         
+ </logic:iterate>
                  <TR>
                    <TD  COLSPAN="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
 
                </TABLE>
-<% } //end if there are > 0 defenses %>          
+<% } //end if there are > 0 defenses %>
 
 
-<!-- End Defense -->         
-<!-- System Testing -->    
+<!-- End Defense -->
+<!-- System Testing -->
 <% ResultSetContainer rscSysTest = (ResultSetContainer) queryEntries.get("System_Tests");
 pageContext.setAttribute("resultSetSysTest", rscSysTest);
 if (rscSysTest.size() > 0) {
   int row = 0;
-  %>       
+  %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7" HEIGHT="18">&#160;System Test Results</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;System Test Results</TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -275,7 +275,7 @@ if (rscSysTest.size() > 0) {
                  <TR>
                    <TD BGCOLOR="#1B2E5D" COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-<% } 
+<% }
    row++;
  %>
    </logic:iterate>
@@ -283,8 +283,8 @@ if (rscSysTest.size() > 0) {
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                </TABLE>
-<% } %>   
-<!-- End System Testing -->         
+<% } %>
+<!-- End System Testing -->
              </TD>
              <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
            </TR>

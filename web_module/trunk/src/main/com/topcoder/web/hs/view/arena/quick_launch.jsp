@@ -29,7 +29,7 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
               This page should present you with a button to start the competition arena applet.<br>
 <br>
               NOTE: If a red button to "Load Competition Arena" does <b>not</b> appear below,
-              you may not have the appropriate Plug-in software installed.  
+              you may not have the appropriate Plug-in software installed.
               <SCRIPT type="text/javascript">
                 function getReq(){u='?module=Static&d1=faq&d2=soft_req';window.open(u);close();}
               </SCRIPT>
@@ -43,13 +43,13 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
 </tr>
 <tr>
 <td class="bodyText" align="center">
-<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" 
-        width="239" 
-        height="26" 
-        name="LaunchApplet" 
-        align="middle" 
-        vspace="0" 
-        hspace="0" 
+<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+        width="239"
+        height="26"
+        name="LaunchApplet"
+        align="middle"
+        vspace="0"
+        hspace="0"
         codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
 <PARAM value="LaunchApplet" name="name">
 <PARAM value="com.topcoder.client.contestApplet.LaunchApplet.class" name="code">
@@ -62,21 +62,21 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
 <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001">
 <PARAM name="companyName" value="TopCoderHS">
 
-<EMBED type="application/x-java-applet;version=1.3" 
-       code="com.topcoder.client.contestApplet.LaunchApplet.class" 
-       codebase="http://www.topcoder.com/contest/classes" 
-       name="LaunchApplet" 
-       archive="ContestApplet.jar" 
-       host="www.topcoder.com" 
-       port="7001" 
-       tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001" 
-       companyName="TopCoderHS" 
-       width="239" 
-       height="26" 
-       align="middle" 
-       vspace="0" 
-       hspace="0" 
-       scriptable="false" 
+<EMBED type="application/x-java-applet;version=1.3"
+       code="com.topcoder.client.contestApplet.LaunchApplet.class"
+       codebase="http://www.topcoder.com/contest/classes"
+       name="LaunchApplet"
+       archive="ContestApplet.jar"
+       host="www.topcoder.com"
+       port="7001"
+       tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001"
+       companyName="TopCoderHS"
+       width="239"
+       height="26"
+       align="middle"
+       vspace="0"
+       hspace="0"
+       scriptable="false"
        pluginspage="http://java.sun.com/j2se/1.3/jre/index.html">
 <NOEMBED>
 </NOEMBED>

@@ -41,10 +41,10 @@
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body starts here-->
-					<P><BR/></P>
-                    
+					<P><BR></P>
+
                     <BR><B>1. STANDARD</B><BR>
-The "Standard" editor was created as the default editor. It contains some basic 
+The "Standard" editor was created as the default editor. It contains some basic
 "windows" style editing features. The "ctrl" refers to the "Control" key.
                                 <BR><BR><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"><TR><TD COLSPAN="5" CLASS="bodyText"><B>Key Commands</B></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="5" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="15" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="100" HEIGHT="5" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="15" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="100" HEIGHT="5" ALT=""></TD></TR><TR><TD CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="5" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" ALIGN="center" CLASS="bodyText"><B>&middot;</B></TD><TD VALIGN="top" CLASS="bodyText"><B>Ctrl-c</B></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="15" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" CLASS="bodyText">
                                             Copy selected text to windows clipboard.
@@ -53,25 +53,25 @@ The "Standard" editor was created as the default editor. It contains some basic
                                         </TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="5" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" ALIGN="center" CLASS="bodyText"><B>&middot;</B></TD><TD VALIGN="top" CLASS="bodyText"><B>Ctrl-v</B></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="15" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" CLASS="bodyText">
                                             Paste text from the windows clipboard into the editing buffer.
                                         </TD></TR><TR><TD VALIGN="top" COLSPAN="5" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="15" ALT=""></TD></TR><TR><TD VALIGN="top" COLSPAN="5" CLASS="bodyText"><B>Mouse Commands</B></TD></TR><TR><TD VALIGN="top" COLSPAN="5" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="5" ALT=""></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="5" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" ALIGN="center" CLASS="bodyText"><B>&middot;</B></TD><TD VALIGN="top" CLASS="bodyText"><B>Text selection</B></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="15" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" CLASS="bodyText">
-                                            Click and hold the the left mouse button at the beginning of your text 
+                                            Click and hold the the left mouse button at the beginning of your text
     block, and drag mouse to the right and down to the end of your text block.
                                         </TD></TR></TABLE><BR><BR><BR><B>2. JVI</B><BR>
-The "JVI" editor, is a java implementation of the well known VI editor on the unix platform. 
-This editor is purely implemented in Java and contains a subset of the commands and 
+The "JVI" editor, is a java implementation of the well known VI editor on the unix platform.
+This editor is purely implemented in Java and contains a subset of the commands and
 functionality of the original VI editor.
                                 <BR><BR><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"><TR><TD COLSPAN="3" CLASS="bodyText"><B>Unimplemented features</B></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="5" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="15" SRC="/i/hs/clear.gif"></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="100" HEIGHT="5" ALT=""></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="5" ALT=""></TD><TD VALIGN="top" ALIGN="center" CLASS="bodyText"><B>&middot;</B></TD><TD VALIGN="top" CLASS="bodyText">
-                                            Anything involving named registers, such as buffers and setting marks 
+                                            Anything involving named registers, such as buffers and setting marks
     in the document.
                                         </TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="5" ALT=""></TD><TD VALIGN="top" ALIGN="center" CLASS="bodyText"><B>&middot;</B></TD><TD VALIGN="top" CLASS="bodyText">
                                             All ":" commands.
                                         </TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="5" ALT=""></TD><TD VALIGN="top" ALIGN="center" CLASS="bodyText"><B>&middot;</B></TD><TD VALIGN="top" CLASS="bodyText">
-                                            Regex engine for searches ( '/' '?' ) - all searches are 
+                                            Regex engine for searches ( '/' '?' ) - all searches are
     executed exactly as typed.
                                         </TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="5" ALT=""></TD><TD VALIGN="top" ALIGN="center" CLASS="bodyText"><B>&middot;</B></TD><TD VALIGN="top" CLASS="bodyText">
                                             Anything related to macros.
                                         </TD></TR></TABLE><BR>
-                                The rest of JVI has been implemented as closely to the original VI as possible including all 
-the required undo buffers, repeat command features, and complex command combinations such as 
+                                The rest of JVI has been implemented as closely to the original VI as possible including all
+the required undo buffers, repeat command features, and complex command combinations such as
 "repeat/command/motion command" i.e. "7dw", etc.
                                 <BR><BR><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"><TR><TD COLSPAN="2" CLASS="bodyText"><B>Implemented features</B></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="12" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="100" HEIGHT="12" ALT=""></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="10" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><B>Motion commands</B></TD></TR></TABLE><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="8" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="15" HEIGHT="8" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="80" HEIGHT="8" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="15" HEIGHT="8" ALT=""></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="100" HEIGHT="8" ALT=""></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="10" HEIGHT="5" ALT=""></TD><TD VALIGN="top" ALIGN="center" CLASS="bodyText"><B>&middot;</B></TD><TD VALIGN="top" CLASS="bodyText"><B>j</B></TD><TD VALIGN="top" CLASS="bodyText"><IMG BORDER="0" SRC="/i/hs/clear.gif" WIDTH="15" HEIGHT="1" ALT=""></TD><TD VALIGN="top" CLASS="bodyText">
                                             Down
@@ -247,7 +247,7 @@ the required undo buffers, repeat command features, and complex command combinat
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -258,10 +258,10 @@ the required undo buffers, repeat command features, and complex command combinat
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

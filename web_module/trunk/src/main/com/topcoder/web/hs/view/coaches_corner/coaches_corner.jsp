@@ -40,26 +40,26 @@
                 </TABLE>
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
-            
+
             <P CLASS="bodyText">
 The Coach's Corner is an area for high school team coaches to profile a student and his or her accomplishments, or a local technology company based in the same town as the high school, or any other editorial content the coach would like to contribute.  The Coach's Corner will typically consist of the following content:</P>
 <UL>
 <LI>Coder Profile:  a coach will profile one of his or her students, highlighting the student's academic achievements, including grades and recent course work, personality, and college plans (if applicable).</LI>
-The profile would be published with the consent of the student and would be publicized by the student's handle only. 
+The profile would be published with the consent of the student and would be publicized by the student's handle only.
 <LI>Local Technology Companies:  a coach may choose to profile a local technology company based in the same town as the high school.  This may include interviews with representatives from the profiled company and other general information about the company. </LI>
 </UL>
 <P>Do you have other ideas for the Coach's Corner?  Email them to us at <A HREF="mailto:service@topcoder.com">service@topcoder.com</A>.</P>
 
- 
 
-<P><BR/><P/>
+
+<P><BR><P/>
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -70,10 +70,10 @@ The profile would be published with the consent of the student and would be publ
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

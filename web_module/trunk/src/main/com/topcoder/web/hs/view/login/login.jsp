@@ -46,7 +46,8 @@
 <%
 String nextpage = (String)request.getAttribute("nextpage");
 if(nextpage==null) nextpage = request.getParameter("nextpage");
-if(nextpage==null) nextpage = "";
+if(nextpage==null) nextpage = request.getHeader("Referer");
+if(nextpage==null) nextpage = "http://"+request.getServerName()+request.getAttribute("canonpath");
 String message = (String)request.getAttribute("message");
 if(message==null) message = "";
 String username = request.getParameter("username");
@@ -66,7 +67,7 @@ if(username==null) username = "";
     } else return true;
   }
 </script>
-<form name="loginform" action="?" method="POST">
+<form name="loginform" action="<%= "https://"+request.getServerName()+request.getAttribute("canonpath") %>" method="POST">
 <input type="hidden" name="module" value="Login">
 <input type="hidden" name="nextpage" value="<%= nextpage %>">
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
@@ -76,10 +77,10 @@ if(username==null) username = "";
 </TABLE>
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
-    <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event)"></TD>
+    <TD CLASS="bodyText"><B>Handle</B><BR><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event)"></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="password" NAME="password" SIZE="25" onKeyPress="submitEnter(event)"><BR/><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
+    <TD CLASS="bodyText"><B>Password</B><BR><INPUT TYPE="password" NAME="password" SIZE="25" onKeyPress="submitEnter(event)"><BR><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
 </TR>
 </TABLE>
 </form>
@@ -93,7 +94,7 @@ if(username==null) username = "";
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -104,10 +105,10 @@ if(username==null) username = "";
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

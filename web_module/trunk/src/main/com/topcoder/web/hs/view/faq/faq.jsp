@@ -50,7 +50,7 @@
                         <TR><TD><A HREF="#25" CLASS="bodyText">What's in it for TopCoder?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#30" CLASS="bodyText">Who can participate in TopCoder High School?</A></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#40" CLASS="bodyText">Who are the creators of the "TopCoder" site?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#65" CLASS="bodyText">Do you really think this is a good way to measure the relative merit of programmers?</A></TD></TR>
@@ -66,35 +66,35 @@
                         <TR><TD><A HREF="#130" CLASS="bodyText">What do I need to do in order to participate in a TopCoder match?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#140" CLASS="bodyText">If I miss the match registration period, can TopCoder just place me in a room, allowing me to compete?</A></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#150" CLASS="bodyText">After I register for a TopCoder competition, do I need to stay logged into the applet until the competition starts?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#160" CLASS="bodyText">How long do TopCoder competitions last?</A></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                      
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#180" CLASS="bodyText">I'm having a problem with font properties on Linux platforms.</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>Java</B></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>Java</B></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#java1" CLASS="bodyText">How is my submission judged?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#java2" CLASS="bodyText">What hardware does TopCoder use?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#java3" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>                        
+                        <TR><TD><A HREF="#java3" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#java4" CLASS="bodyText">What options are set when starting up the VM?</A></TD></TR>                                                
-                        
+                        <TR><TD><A HREF="#java4" CLASS="bodyText">What options are set when starting up the VM?</A></TD></TR>
+
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C#</B></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C#</B></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#c1" CLASS="bodyText">How is my submission judged?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#c2" CLASS="bodyText">What hardware does TopCoder use?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#c3" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>                       
-                        
-                                                
+                        <TR><TD><A HREF="#c3" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>
+
+
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C++</B></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C++</B></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#181" CLASS="bodyText">How is my submission judged?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
@@ -103,27 +103,27 @@
                         <TR><TD><A HREF="#183" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#184" CLASS="bodyText">What compiler options are used?</A></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR> 
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#188" CLASS="bodyText">Why doesn't my code compile anymore under gcc 3.1?</A></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                                                                       
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#185" CLASS="bodyText">What libraries are available?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#186" CLASS="bodyText">How do i get 64-bit integers?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#187" CLASS="bodyText">What STL types are available?</A></TD></TR>                        
-                        
-                        
+                        <TR><TD><A HREF="#187" CLASS="bodyText">What STL types are available?</A></TD></TR>
+
+
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>MAC OSX</B></TD></TR>                                                                    
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>MAC OSX</B></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#mac1" CLASS="bodyText">The small HTML window that holds the contest applet does not load up the applet in MAC OSX</A></TD></TR>                        
+                        <TR><TD><A HREF="#mac1" CLASS="bodyText">The small HTML window that holds the contest applet does not load up the applet in MAC OSX</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#mac2" CLASS="bodyText">Once I log into the Arena the menu's are transparent in MAC OSX </A></TD></TR>                         
+                        <TR><TD><A HREF="#mac2" CLASS="bodyText">Once I log into the Arena the menu's are transparent in MAC OSX </A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#mac3" CLASS="bodyText">I tried loading the Arena through the JWS link and I'm getting an error when JWS is running that the applet cannot be loaded.</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#mac4" CLASS="bodyText">How do I copy and paste in the Arena when using Mac OSX?</A></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                       
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR>
                             <TD CLASS="bodyText">
                                     <B>More Questions? <A HREF="?module=Static&d1=contacts&d2=contacts" CLASS="bodyText">Contact Us</A></B>
@@ -173,52 +173,52 @@
                         <TR><TD CLASS="bodyText"><A NAME="110"><B>How do I find out when the next tournament is being held?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Just click on this link to <A HREF="?module=Static&d1=tournaments&d2=tournaments" class="bodyText">"Tournaments"</A> to bring up a list of up-coming tournaments and registration details.  The up-coming tournaments are also listed on the member home page.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                   
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="130"><B>What do I need to do in order to participate in a TopCoder match?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">If you have not already registered as a TopCoder member, you will need to do so first.  Prior to each match, TopCoder has a match registration period during which you will need to log into the TopCoder applet (using the your TopCoder handle and password), and choose Main / Event Registration from the menu.  You may need to answer a brief survey question and accept the terms of the match.  If you do not go through this process prior to a match, you will not be assigned to a competition room come match time. </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                        
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="140"><B>If I miss the match registration period, can TopCoder just place me in a room, allowing me to compete?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Unfortunately, we cannot allow anyone to compete in a match that they did not register for.  This is due to the formula that is used to calculate the room assignments.  Once the room assignments have been determined, adding any coder to a room will throw off the balance of all of the room distributions for that division.  This simply would not be fair.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                        
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="150"><B>After I register for a TopCoder competition, do I need to stay logged into the applet until the competition starts?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">No.  TopCoder's system will remember that you have registered for the event even if you log out after you've registered. </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                        
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="160"><B>How long do TopCoder competitions last?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">The majority of the time, each coder is given 75 minutes to code, a five minute intermission, and 15 minutes to challenge.  After the challenge portion of the competition has ended, the system testing phase will begin.  The system testing phase is non-interactive, so you do not need to stay logged in during this phase.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="180"><B>I'm having a problem with font properties on Linux platforms.</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Apparently, Sun has a problem with their font.properties file on the Linux platform that is causing errors with some fonts (Arial is one of them).  The fix is to replace the font.properties file with the following: <A HREF="http://java.sun.com/j2se/1.3/font.properties" TARGET="_blank" CLASS="bodyText">http://java.sun.com/j2se/1.3/font.properties</A></TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                       
-                       
+
+
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>Java</B></TD></TR>
-                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                                                                                
+                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="java1"><B>How is my submission judged?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText"><P>TopCoder submissions typically consist of a single class definition. For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments. Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc.</P>
 <P>Each Java test is performed in a separate thread. The process is forcibly terminated after consuming 8 seconds of System time. At most 64 megabytes of memory may be mapped.</P>
 <P>If your method does return a value, that is the only basis for judging correctness.</P></TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="java2"><B>What hardware does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">We use 3 4-way 700 Mhz Pentium III Xeon systems. Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                        
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="java3"><B>What software does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Linux 2.4, Java 1.4 (build 1.4.0_01-b03).</TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                       
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="java4"><B>What options are set when starting up the VM?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">java -client -Xmx64m &lt;main class&gt;</TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
-                        
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C#</B></TD></TR>
-                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="c1"><B>How is my submission judged?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>TopCoder submissions typically consist of a single class definition. For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments. Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc. </P>
@@ -226,61 +226,61 @@
 <P>If your method does return a value, that is the only basis for judging correctness.</P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="c2"><B>What hardware does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>We use 2 4-way 700 Mhz Pentium III Xeon systems. Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</P>
                         </TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>                        
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="c3"><B>What software does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>Microsoft Windows 2000 5.00.2195 SP2, .NET Framework version 1.0.3705</P>
                         </TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
-                        
-                                                                                               
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+
+
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C++</B></TD></TR>
-                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="181"><B>How is my submission judged?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>TopCoder submissions typically consist of a single class definition.  For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments.  Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc.</P>
 <P>C++ submissions may also define other classes and global variables or functions.  However, defining main() will prevent your submission from linking, and referring to library globals (stdout or cout for example) before your method is called is not guaranteed to work as expected.</P>
 <P>Each C++ test is performed in a separate process.  The instance of your class used by the tester is not guaranteed to be destroyed.  The process is forcibly terminated after consuming 8 seconds of CPU time.  At most 64 megabytes of memory may be mapped.  Stack space is limited to 8 megabytes (the Linux default).  Most system calls are emulated or ignored.  Note especially that fork() or use of threads (library or kernel) will fail, and use of temporary files is not permitted.</P>
 <P>If your method does not return before the process exits (due to exceeding the time limit, an uncaught exception, segmentation fault, divide by zero, etc), it has failed the test.</P>
-<P>If your method does return a value, that is the only basis for judging correctness.  Anything printed to stdout or stderr is ignored, although you will see it when testing your own code.  Output may even return an IO error, and takes extra time during testing; you are advised not to leave unnecessary IO in your final submission. </P>                       
+<P>If your method does return a value, that is the only basis for judging correctness.  Anything printed to stdout or stderr is ignored, although you will see it when testing your own code.  Output may even return an IO error, and takes extra time during testing; you are advised not to leave unnecessary IO in your final submission. </P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="182"><B>What hardware does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">We use 4-way 700 Mhz Pentium III Xeon systems.  Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="183"><B>What software does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>Linux 2.4, gcc 3.1 (Redhat 7.1 default), glibc-2.2.2, and libstdc++-3.</P>
 <P>
-pointers to appropriate docs for each<BR/>
-<A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR/>
-<A HREF="http://www.gnu.org/software/libc/" TARGET="_blank" CLASS="bodyText">http://www.gnu.org/software/libc/</A><BR/>
-<A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/documentation.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/documentation.html</A><BR/>
+pointers to appropriate docs for each<BR>
+<A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR>
+<A HREF="http://www.gnu.org/software/libc/" TARGET="_blank" CLASS="bodyText">http://www.gnu.org/software/libc/</A><BR>
+<A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/documentation.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/documentation.html</A><BR>
 </P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="184"><B>What compiler options are used?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
-<P>The compiler is invoked as:<BR/>
+<P>The compiler is invoked as:<BR>
 g++ -Wall -W -s -pipe</P>
 <P>
-Additional info on gcc 3.1<BR/> 
+Additional info on gcc 3.1<BR>
 <A HREF="http://gcc.gnu.org/bugs.html#updating" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/bugs.html#updating</A>
-</P>          
+</P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR> 
-                        
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
+
                         <TR><TD CLASS="bodyText"><A NAME="188"><B>Why doesn't my code compile anymore under gcc 3.1?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 The upgrade to GCC 3.1 may require some changes to C++ submissions to
@@ -312,81 +312,81 @@ somewhat tidier about such things.</LI>
 <P>
 	<LI>Non-standard library extensions present with the old GCC may no
 longer be available; for details see the library documentation at
-<A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/libstdc%2B%2B-html-USERS-3.1" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-3.1</A>                        
- </LI> 
+<A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/libstdc%2B%2B-html-USERS-3.1" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-3.1</A>
+ </LI>
 </P>
 
-    
+
 </UL>
-                   
-                        
+
+
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR> 
-                        
-                                                                       
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
+
+
                         <TR><TD CLASS="bodyText"><A NAME="185"><B>What libraries are available?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Only default libraries will be linked with your code.  Math functions requiring libm on some platforms, eg cos(), are automatically linked if needed.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="186"><B>How do I get 64-bit integers?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>
-Integer types on our platform:<BR/>
-  char - 8 bits (signed)<BR/>
-  short - 16 bits<BR/>
-  int - 32 bits<BR/>
-  long - 32 bits<BR/>
-  long long - 64 bits<BR/>
+Integer types on our platform:<BR>
+  char - 8 bits (signed)<BR>
+  short - 16 bits<BR>
+  int - 32 bits<BR>
+  long - 32 bits<BR>
+  long long - 64 bits<BR>
 </P>
 <P>long long is not merely a gcc extension, but part of ISO C99.</P>
 <P>If you test locally with a compiler other than gcc, the preprocessor may be useful for hiding the differences.  For example:</P>
 <P>
-#ifdef __GNUC__<BR/>
-#define int64 long long<BR/>
-#else /* MSVC, say */<BR/>
-#define int64 __int64<BR/>
-#endif<BR/>
+#ifdef __GNUC__<BR>
+#define int64 long long<BR>
+#else /* MSVC, say */<BR>
+#define int64 __int64<BR>
+#endif<BR>
 </P>
 <P>In this way, you can test the same code using 64 bit integers in our environment and on your system.</P>
 <P>The C++ standard libraries do not include support for arbitrary precision arithmetic.</P>
 
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="187"><B>What STL types are available?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">All of the standard value types and container types should be present.
 Some extensions are also present, including most of those from SGI's STL, such as rope, hash_set, hash_map, tree, slist, etc.
                             </TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>                                                                                                                                                
-                                               
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
-                        
+
+
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>MAC OSX</B></TD></TR> 
-                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                               
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>MAC OSX</B></TD></TR>
+                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="mac1"><B>The small HTML window that holds the contest applet does not load up the applet in MAC OSX</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">A workaround is to load the arena through Java Web Start (JWS).  A link that allows you to load the arena through JWS and more info on JWS is available on TopCoder home page.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="mac2"><B>Once I log into the Arena the menu's are transparent in MAC OSX </B></A></TD></TR>
                         <TR><TD CLASS="bodyText">This bug is currently under investigation.</TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="mac3"><B>I tried loading the Arena through the JWS link and I'm getting an error when JWS is running that the applet cannot be loaded.</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">JWS on OSX has a tendency to cache past loading of the applet. If you did try to load the applet with a previous version of JWS or continue to have problems, open JWS and select "Preferences". You will see a field for "Application Folder Options". In this you will see a reference to /Users/you/.javaws/cache. Click on "Clear Folder" to remove the cache. Return to TopCoder.com and click on the JWS link. The applet should now load (assuming you are running OSX 10.1).</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
                         <TR><TD CLASS="bodyText"><A NAME="mac4"><B>How do I copy and paste in the Arena when using Mac OSX?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Although many Mac users commonly use command-C and command-V to copy and paste, you must use ctrl-C and ctrl-V to copy and paste from within the Arena.</TD></TR>
-                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>                                   
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><B>More Questions? <A HREF="mailto:service@topcoder.com" CLASS="bodyText">Contact Us</A></B></TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        
+
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                     </TABLE>
-					<P><BR/></P>
+					<P><BR></P>
               <!--Body Ends Here-->
             </TD>
              <TD>
@@ -394,7 +394,7 @@ Some extensions are also present, including most of those from SGI's STL, such a
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -405,10 +405,10 @@ Some extensions are also present, including most of those from SGI's STL, such a
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

@@ -41,40 +41,40 @@
             </TD>
             <TD VALIGN="top" CLASS="bodyText">
             <!--Body starts Here-->
-<P><B>TopCoder Competitions Expand to High Schools</B><BR/>
+<P><B>TopCoder Competitions Expand to High Schools</B><BR>
 Host of Computer Programming Contests Offer Team Competitions at Connecticut High Schools; Connecticut Association of Schools (CAS) is the Premier Supporter of Academic Competitions </P>
 
 <P>GLASTONBURY, CT., Oct. 30, 2002 - TopCoder, Inc., the leader in on-line programming competition and skills assessment, today announced it has partnered with the Connecticut Association of Schools (CAS) to expand its competitions to the high school level. These competitions will be a means for academically inclined students to showcase their skills alongside classmates during statewide team competition, and are a natural expansion of TopCoder's competitions given the success of its model at the collegiate and professional levels. </P>
 
 <P>"We are excited about our collaboration with the CAS," said Drew Vaughn, vice president for TopCoder, Inc. "The executive group of the Connecticut Association of Schools has proven that they are at the forefront of promoting academic excellence alongside athletics in team competitions." </P>
 
-<P><B>Coding as a High School Sport</B><BR/>
+<P><B>Coding as a High School Sport</B><BR>
 "TopCoder's competition platform will allow students to compete in an academic arena, a direction in which we have been looking to expand. Being able to provide a means for students to represent their respective high schools and compete for school pride in a manner that has not previously been available is very exciting for us," said Mike Savage, Executive Director of CAS. "Expanding into the high school arena allows TopCoder to deepen its member base and continue to rate the computer scientists of tomorrow. The Connecticut Association of Schools is proud to promote excellence in mathematics and computer science through this academic team sport." </P>
 
 <P>At www.topcoder.com, students will compete online in real-time against students from other schools. Using Java, C++ or C#, the most widely used programming languages in the technology workplace today, contestants will write solutions to algorithmic problems under tight time constraints. Scores will be calculated using TopCoder's objective assessment model and unique rating system, designed to fairly and accurately gauge a contestant's performance. Winning teams will be comprised of individuals who were the fastest to solve the problems with code that withstood the scrutiny of other contestants and TopCoder's system test. </P>
 
 <P>Competing students will receive a rating based upon their performance in the competitions. This rating is a true indicator of programming talent and problem solving skills. This competitive experience offers students a way to differentiate themselves in the college admission process, and enables colleges to determine the most proficient programmers at a high school level for admission to their computer science and/or engineering programs. </P>
 
-<P>There is no sign-up fee for schools or students. The program will be funded through corporate sponsorship. Interested companies should contact Drew Vaughn at (860) 633-5540 or <A HREF="mailto:dvaughn@topcoder.com">dvaughn@topcoder.com.</A></P> 
+<P>There is no sign-up fee for schools or students. The program will be funded through corporate sponsorship. Interested companies should contact Drew Vaughn at (860) 633-5540 or <A HREF="mailto:dvaughn@topcoder.com">dvaughn@topcoder.com.</A></P>
 
 
 
 
-<P><B>About TopCoder, Inc.</B><BR/>
+<P><B>About TopCoder, Inc.</B><BR>
 TopCoder, Inc. organizes and hosts online and onsite programming competitions for its members. With a global membership database, TopCoder members extend across all professional and collegiate levels. The attraction of competition and the associated rewards create a powerful community of programmers. Access to this community is granted to corporate partners who both promote and profit from the relationship. For more information, visit www.topcoder.com.</P>
 
-<P><B>About the Connecticut Association of Schools</B><BR/>
+<P><B>About the Connecticut Association of Schools</B><BR>
 The Connecticut Association of Schools (CAS) is chartered by the State of Connecticut as a non-profit, tax-exempt educational organization serving schools, their students and staff, in all areas of operation. CAS has emerged as an informed leader within Connecticut's education system, providing services to well over 1,100 member schools in areas ranging from academics to athletics. CAS's mission is to serve as advocates for children while striving to strengthen the professional skills and talents of the school leaders of Connecticut. </P>
 
-<P><BR/></P>                        
-            <!-- Body Ends Here-->            
+<P><BR></P>
+            <!-- Body Ends Here-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -85,10 +85,10 @@ The Connecticut Association of Schools (CAS) is chartered by the State of Connec
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

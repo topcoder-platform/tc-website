@@ -52,19 +52,19 @@
 <LI>to create a stronger voice on legislative and public policy issues; </LI>
 <LI>to promote K-12 understanding; </LI>
 <LI>to broaden its network and reach out to more members; </LI>
-<LI>to improve and expand services using the combined resources of two organizations;</LI> 
+<LI>to improve and expand services using the combined resources of two organizations;</LI>
 <LI>to develop new services for administrators.</LI>
  </UL>
 <P>CAS has emerged as an informed leader in Connecticut's education system, providing services to Connecticut's K-12 schools in areas ranging from academics to athletics.  Today, the Association has grown to represent well over 1,100 of Connecticut's public and parochial schools. <A HREF="http://www.casciac.org" TARGET="_blank">Click Here</A>  to visit their web site.</P>
-           <P><BR/></P>         
-            <!-- End Body-->            
+           <P><BR></P>
+            <!-- End Body-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -75,10 +75,10 @@
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>
