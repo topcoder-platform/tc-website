@@ -1,6 +1,7 @@
 package com.topcoder.shared.distCache;
 
 import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.rmi.registry.Registry;
 
@@ -9,6 +10,7 @@ import java.rmi.registry.Registry;
  * @version  $Revision$
  */
 public class CacheConfiguration {
+    private static Logger log = Logger.getLogger(CacheConfiguration.class);
     static final String BUNDLE_NAME = "cache";
     static final String PROP_PRIMARY = "cache.primary";
     static final String PROP_SECONDARY = "cache.secondary";
@@ -51,6 +53,7 @@ public class CacheConfiguration {
      * @return
      */
     public static String[] getURLS() {
+        log.debug("primary: " + getPrimaryClientURL() + " secondary: " + getSecondaryClientURL());
         return new String[]{
             getPrimaryClientURL(),
             getSecondaryClientURL()
