@@ -123,6 +123,7 @@ public class QueryRunner implements DataRetrieverInt {
                 rs = ps.executeQuery();
                 rsc = new ResultSetContainer(rs, startRank, endRank, false);
                 log.debug("size: " + rsc.size());
+                log.debug(queryText);
                 rs.close();
                 rs = null;
                 ps.close();
