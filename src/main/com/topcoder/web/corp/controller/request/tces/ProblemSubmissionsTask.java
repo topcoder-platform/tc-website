@@ -45,6 +45,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
     private ResultSetContainer memberInfo;
     private String jobName;
     private boolean hasResume;
+    private boolean restricted;
 
     /** Creates new ProblemSubmissionsTask */
     public ProblemSubmissionsTask() {
@@ -112,6 +113,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
     }
 
     private void viewProblemSubmissions() throws Exception {
+        restricted = isRestrictedCampaign(getCampaignID());
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_problem_submissions");
 
@@ -266,6 +268,10 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
 
     public void setCompanyId(long companyId) {
         this.companyId = companyId;
+    }
+
+    public boolean isRestrictedCampaign() {
+        return restricted;
     }
 
 }

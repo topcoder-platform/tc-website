@@ -46,6 +46,7 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
     private ResultSetContainer memberInfo;
     private String jobName;
     private boolean hasResume;
+    private boolean restricted;
 
     /** Creates new CompetitionHistoryTask */
     public CompetitionHistoryTask() {
@@ -114,6 +115,8 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
     }
 
     private void viewCompetitionHistory() throws Exception {
+        restricted = isRestrictedCampaign(getCampaignID());
+
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_competition_history");
 
@@ -145,7 +148,7 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
 
 
         Request dwRequest = new Request();
-        if (isRestrictedCampaign(getCampaignID())) {
+        if (restricted) {
             dwRequest.setContentHandle("restricted_tces_competition_history");
             dwRequest.setProperty("mid", Integer.toString(getMemberID()));
             dwRequest.setProperty("rds", getRoundList(getCampaignID()));
@@ -308,5 +311,8 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
         this.companyId = companyId;
     }
 
+    public boolean isRestrictedCampaign() {
+        return restricted;
+    }
 
 }
