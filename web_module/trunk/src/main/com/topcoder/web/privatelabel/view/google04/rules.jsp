@@ -21,7 +21,7 @@
 			<table border=0 width=100% cellpadding=0 cellspacing=0>
 				<tr>
 					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo"></td>
+					<td valign=bottom align=center><img border=0 src="/i/events/google2004/codejamLogo.gif" alt="Google Code Jam logo"></td>
 					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
 				</tr>
 			</table>
@@ -36,7 +36,7 @@
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="arena"/>
+			<jsp:param name="selectedTab" value="rules"/>
 			</jsp:include>
 			</div>
 
