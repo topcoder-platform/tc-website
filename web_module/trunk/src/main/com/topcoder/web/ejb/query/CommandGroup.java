@@ -1,4 +1,4 @@
-package com.topcoder.web.query.ejb.QueryServices;
+package com.topcoder.web.ejb.query;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 

@@ -1,11 +1,9 @@
-package com.topcoder.web.query.ejb.QueryServices;
+package com.topcoder.web.ejb.query;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -23,59 +21,53 @@ import java.sql.SQLException;
  * @author   Greg Paul
  * @version  $Revision$
  */
-public class InputBean extends BaseEJB {
+public class QueryInputBean extends BaseEJB {
 
-    private static Logger log = Logger.getLogger(InputBean.class);
+    private static Logger log = Logger.getLogger(QueryInputBean.class);
 
-    public long createInput(String inputCode, int dataTypeId, String inputDesc, String dataSourceName)
+    public void createQueryInput(long queryId, long inputId, String dataSourceName)
             throws RemoteException, EJBException {
-        log.debug("createInput called...input code: " + inputCode + " data type: " +
-                dataTypeId + " desc: " + inputDesc);
+        log.debug("createQueryInput called...query: " + queryId + " input: " + inputId);
 
         PreparedStatement ps = null;
         Connection conn = null;
         Context ctx = null;
         DataSource ds = null;
-        long ret = 0;
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append(" INSERT INTO input_lu");
-            query.append(" (input_id, input_code, data_type_id, input_desc)");
-            query.append(" VALUES (?, ?, ?, ?)");
+            query.append(" INSERT INTO query_input_xref");
+            query.append(" (query_id, input_id)");
+            query.append(" VALUES (?, ?)");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ret = getNextValue();
-            ps.setLong(1, ret);
-            ps.setString(2, inputCode);
-            ps.setInt(3, dataTypeId);
-            ps.setString(4, inputDesc);
+            ps.setLong(1, queryId);
+            ps.setLong(2, inputId);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
-                    " code: " + inputCode + " data type: " + dataTypeId +
-                    " desc: " + inputDesc);
-            return ret;
+                    " query: " + queryId + " input: " + inputId);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating input, code: " + inputCode +
-                    " data type: " + dataTypeId + " desc: " + inputDesc);
+            throw new EJBException("SQLException creating query input, query: " + queryId + " input: " +
+                    inputId);
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
-            throw new EJBException("Exception creating input, code: " + inputCode +
-                    " data type: " + dataTypeId + " desc: " + inputDesc + "\n " + e.getMessage());
+            throw new EJBException("Exception creating query input, query: " + queryId + " input: " + inputId
+                    + "\n " + e.getMessage());
         } finally {
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
+
     }
 
-    public void setInputCode(long inputId, String inputCode, String dataSourceName) throws RemoteException, EJBException {
-        log.debug("setInputCode called...input: " + inputId + " code: " + inputCode);
+    public void setOptional(long queryId, long inputId, char optional, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("setOptional called...query: " + queryId + " input: " + inputId + " optional: " + optional);
 
         PreparedStatement ps = null;
         Connection conn = null;
@@ -83,98 +75,30 @@ public class InputBean extends BaseEJB {
         DataSource ds = null;
         try {
             StringBuffer query = new StringBuffer();
-            query.append(" UPDATE input_lu");
-            query.append(   " SET input_code = ?");
-            query.append( " WHERE input_id = ?");
+            query.append(" UPDATE query_input_xref");
+            query.append(   " SET optional = ?");
+            query.append( " WHERE query_id = ?");
+            query.append(   " AND input_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, inputCode);
-            ps.setLong(2, inputId);
+            ps.setString(1, ""+optional);
+            ps.setLong(2, queryId);
+            ps.setLong(3, inputId);
             int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for input: " +
-                    inputId + " code: " + inputCode);
+            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for query: " +
+                    queryId + " input: " + inputId + " optional: " + optional);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating input: " + inputId + " code: " + inputCode);
+            throw new EJBException("SQLException updating query: " +
+                    queryId + " input: " + inputId + " optional: " + optional);
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
-            throw new EJBException("Exception updating input: " + inputId + " code: " + inputCode +
-                    "\n " + e.getMessage());
-        } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
-        }
-    }
-    public void setDataTypeId(long inputId, int dataTypeId, String dataSourceName) throws RemoteException, EJBException {
-        log.debug("setDataTypeId called...input: " + inputId + " data type: " + dataTypeId);
-
-        PreparedStatement ps = null;
-        Connection conn = null;
-        Context ctx = null;
-        DataSource ds = null;
-        try {
-            StringBuffer query = new StringBuffer();
-            query.append(" UPDATE input_lu");
-            query.append(   " SET data_type_id = ?");
-            query.append( " WHERE input_id = ?");
-            ctx = new InitialContext();
-            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, dataTypeId);
-            ps.setLong(2, inputId);
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for input: " +
-                    inputId + " data type: " + dataTypeId);
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating input: " + inputId + " data type: " + dataTypeId);
-        } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
-        } catch (Exception e) {
-            throw new EJBException("Exception updating input: " + inputId + " data type: " + dataTypeId +
-                    "\n " + e.getMessage());
-        } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
-        }
-    }
-    public void setInputDesc(long inputId, String inputDesc, String dataSourceName) throws RemoteException, EJBException {
-        log.debug("setInputDesc called...input: " + inputId + " code: " + inputDesc);
-
-        PreparedStatement ps = null;
-        Connection conn = null;
-        Context ctx = null;
-        DataSource ds = null;
-        try {
-            StringBuffer query = new StringBuffer();
-            query.append(" UPDATE input_lu");
-            query.append(   " SET input_desc = ?");
-            query.append( " WHERE input_id = ?");
-            ctx = new InitialContext();
-            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            ps.setString(1, inputDesc);
-            ps.setLong(2, inputId);
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for input: " +
-                    inputId + " desc: " + inputDesc);
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating input: " + inputId + " desc: " + inputDesc);
-        } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
-        } catch (Exception e) {
-            throw new EJBException("Exception updating input: " + inputId + " desc: " + inputDesc +
+            throw new EJBException("Exception updating query: " +
+                    queryId + " input: " + inputId + " optional: " + optional +
                     "\n " + e.getMessage());
         } finally {
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -184,8 +108,130 @@ public class InputBean extends BaseEJB {
 
     }
 
-    public String getInputCode(long inputId, String dataSourceName) throws RemoteException, EJBException {
-        log.debug("getInputCode called...input: " + inputId);
+    public void setDefaultValue(long queryId, long inputId, String defaultValue, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("setDefaultValue called...query: " + queryId + " input: " + inputId + " default value: " + defaultValue);
+
+        PreparedStatement ps = null;
+        Connection conn = null;
+        Context ctx = null;
+        DataSource ds = null;
+        try {
+            StringBuffer query = new StringBuffer();
+            query.append(" UPDATE query_input_xref");
+            query.append(   " SET default_value = ?");
+            query.append( " WHERE query_id = ?");
+            query.append(   " AND input_id = ?");
+            ctx = new InitialContext();
+            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            ds = (DataSource)ctx.lookup(dataSourceName);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, defaultValue);
+            ps.setLong(2, queryId);
+            ps.setLong(3, inputId);
+            int rows = ps.executeUpdate();
+            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for query: " +
+                    queryId + " input: " + inputId + " default value: " + defaultValue);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException updating query: " + queryId + " input: " + inputId +
+                    " default value: " + defaultValue);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+        } catch (Exception e) {
+            throw new EJBException("Exception updating query: " + queryId + " input: " + inputId +
+                    " default value: " + defaultValue + "\n " + e.getMessage());
+        } finally {
+            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+        }
+    }
+
+    public void setSortOrder(long queryId, long inputId, int sortOrder, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("setSortOrder called...query: " + queryId + " input: " + inputId + " sort order: " + sortOrder);
+
+        PreparedStatement ps = null;
+        Connection conn = null;
+        Context ctx = null;
+        DataSource ds = null;
+        try {
+            StringBuffer query = new StringBuffer();
+            query.append(" UPDATE query_input_xref");
+            query.append(   " SET sort_order = ?");
+            query.append( " WHERE query_id = ?");
+            query.append(   " AND input_id = ?");
+            ctx = new InitialContext();
+            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            ds = (DataSource)ctx.lookup(dataSourceName);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, sortOrder);
+            ps.setLong(2, queryId);
+            ps.setLong(3, inputId);
+            int rows = ps.executeUpdate();
+            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for query: " +
+                    queryId + " input: " + inputId + " sort order: " + sortOrder);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException updating query: " + queryId + " input: " + inputId +
+                    " sort order: " + sortOrder);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+        } catch (Exception e) {
+            throw new EJBException("Exception updating query: " + queryId + " input: " + inputId +
+                    " sort order: " + sortOrder + "\n " + e.getMessage());
+        } finally {
+            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+        }
+    }
+
+    public char getOptional(long queryId, long inputId, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("getOptional called...query: " + queryId + " input: " + inputId);
+
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        Context ctx = null;
+        DataSource ds = null;
+        char ret = 0;
+        try {
+            StringBuffer query = new StringBuffer();
+            query.append(" SELECT optional");
+            query.append(  " FROM query_input_xref");
+            query.append( " WHERE query_id = ?");
+            query.append(   " AND input_id = ?");
+            ctx = new InitialContext();
+            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            ds = (DataSource)ctx.lookup(dataSourceName);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, queryId);
+            ps.setLong(2, inputId);
+            rs = ps.executeQuery();
+            if (rs.next())
+                ret = rs.getString("optional").charAt(0);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting optional for query: " + queryId + " input: " + inputId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+        } catch (Exception e) {
+            throw new EJBException("Exception getting optional for query: " + queryId + " input: " +
+                    inputId + "\n " + e.getMessage());
+        } finally {
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
+            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+        }
+        return ret;
+    }
+
+    public String getDefaultValue(long queryId, long inputId, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("getDefaultValue called...query: " + queryId + " input: " + inputId);
 
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -195,25 +241,28 @@ public class InputBean extends BaseEJB {
         String ret = null;
         try {
             StringBuffer query = new StringBuffer();
-            query.append(" SELECT input_code");
-            query.append(  " FROM input_lu");
-            query.append( " WHERE input_id = ?");
+            query.append(" SELECT default_value");
+            query.append(  " FROM query_input_xref");
+            query.append( " WHERE query_id = ?");
+            query.append(   " AND input_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, inputId);
+            ps.setLong(1, queryId);
+            ps.setLong(2, inputId);
             rs = ps.executeQuery();
             if (rs.next())
-                ret = rs.getString("input_code");
+                ret = rs.getString("default_value");
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting input code for input: " + inputId);
+            throw new EJBException("SQLException getting default value for query: " + queryId + " input: " + inputId);
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
-            throw new EJBException("Exception getting input code for input: " + inputId + "\n " + e.getMessage());
+            throw new EJBException("Exception getting default value for query: " + queryId + " input: " + inputId +
+                    "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -221,11 +270,10 @@ public class InputBean extends BaseEJB {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
         return ret;
-
     }
 
-    public int getDataTypeId(long inputId, String dataSourceName) throws RemoteException, EJBException {
-        log.debug("getDataTypeId called...input: " + inputId);
+    public int getSortOrder(long queryId, long inputId, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("getSortOrder called...query: " + queryId + " input: " + inputId);
 
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -235,65 +283,28 @@ public class InputBean extends BaseEJB {
         int ret = 0;
         try {
             StringBuffer query = new StringBuffer();
-            query.append(" SELECT data_type_id");
-            query.append(  " FROM input_lu");
-            query.append( " WHERE input_id = ?");
+            query.append(" SELECT sort_order");
+            query.append(  " FROM query_input_xref");
+            query.append( " WHERE query_id = ?");
+            query.append(   " AND input_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, inputId);
+            ps.setLong(1, queryId);
+            ps.setLong(2, inputId);
             rs = ps.executeQuery();
             if (rs.next())
-                ret = rs.getInt("data_type_id");
+                ret = rs.getInt("sort_order");
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting data type for input: " + inputId);
+            throw new EJBException("SQLException getting sort order for query: " + queryId + " input: " + inputId);
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
-            throw new EJBException("Exception getting data type for input: " + inputId + "\n " + e.getMessage());
-        } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
-        }
-        return ret;
-
-    }
-
-    public String getInputDesc(long inputId, String dataSourceName) throws RemoteException, EJBException {
-        log.debug("getInputDesc called...input: " + inputId);
-
-        ResultSet rs = null;
-        PreparedStatement ps = null;
-        Connection conn = null;
-        Context ctx = null;
-        DataSource ds = null;
-        String ret = null;
-        try {
-            StringBuffer query = new StringBuffer();
-            query.append(" SELECT input_desc");
-            query.append(  " FROM input_lu");
-            query.append( " WHERE input_id = ?");
-            ctx = new InitialContext();
-            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, inputId);
-            rs = ps.executeQuery();
-            if (rs.next())
-                ret = rs.getString("input_desc");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting input desc for input: " + inputId);
-        } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
-        } catch (Exception e) {
-            throw new EJBException("Exception getting input desc for input: " + inputId + "\n " + e.getMessage());
+            throw new EJBException("Exception getting sort order for query: " + queryId + " input: " + inputId +
+                    "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -303,8 +314,47 @@ public class InputBean extends BaseEJB {
         return ret;
     }
 
-    public ResultSetContainer getAllInputs(String dataSourceName) throws RemoteException, EJBException {
-        log.debug("getAllInputs called...");
+    public void removeQueryInput(long queryId, long inputId, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("removeQueryInput called...query: " + queryId + " input: " + inputId);
+
+         PreparedStatement ps = null;
+         Connection conn = null;
+         Context ctx = null;
+         DataSource ds = null;
+         try {
+             StringBuffer query = new StringBuffer();
+             query.append(" DELETE");
+             query.append(  " FROM query_input_xref");
+             query.append( " WHERE query_id = ?");
+             query.append(   " AND input_id = ?");
+             ctx = new InitialContext();
+             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+             ds = (DataSource)ctx.lookup(dataSourceName);
+             conn = ds.getConnection();
+             ps = conn.prepareStatement(query.toString());
+             ps.setLong(1, queryId);
+             ps.setLong(2, inputId);
+             int rows = ps.executeUpdate();
+             if (rows!=1) throw new EJBException("Wrong number of rows in delete: " + rows + " for query: " +
+                     queryId + " input: " + inputId);
+         } catch (SQLException sqe) {
+             DBMS.printSqlException(true, sqe);
+             throw new EJBException("SQLException deleting query input, query: " +
+                     queryId + " input: " + inputId);
+         } catch (NamingException e) {
+             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+         } catch (Exception e) {
+             throw new EJBException("Exception deleting query input, query: " +
+                     queryId + " input: " + inputId + "\n " + e.getMessage());
+         } finally {
+             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
+             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
+             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+         }
+     }
+
+    public ResultSetContainer getInputsForCommand(long commandId, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("getInputsForCommand called...command: " + commandId);
 
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -318,23 +368,29 @@ public class InputBean extends BaseEJB {
             query.append(     " , i.input_code");
             query.append(     " , i.input_desc");
             query.append(     " , i.data_type_id");
-            query.append(     " , LOWER(input_code)");
-            query.append(  " FROM input_lu i");
-            query.append( " ORDER BY 5 ASC");
+            query.append(     " , qix.query_id");
+            query.append(  " FROM query_input_xref qix");
+            query.append(     " , input_lu i");
+            query.append(     " , command_query_xref cqx");
+            query.append( " WHERE cqx.command_id = ?");
+            query.append(   " AND cqx.query_id = qix.query_id");
+            query.append(   " AND qix.input_id = i.input_id");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, commandId);
             rs = ps.executeQuery();
             ret = new ResultSetContainer(rs);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting all inputs");
+            throw new EJBException("SQLException getting inputs for command: " +commandId);
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
-            throw new EJBException("Exception getting all inputs \n " + e.getMessage());
+            throw new EJBException("Exception getting inputs for command: " +
+                    commandId + "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -344,67 +400,49 @@ public class InputBean extends BaseEJB {
         return ret;
     }
 
+    public ResultSetContainer getInputsForQuery(long queryId, String dataSourceName) throws RemoteException, EJBException {
+        log.debug("getInputsForquery called...query: " + queryId);
 
-    public boolean inputCodeExists(String inputCode, String dataSourceName) throws RemoteException, EJBException {
-        log.debug("getInputId called...input code: " + inputCode);
-
-         ResultSet rs = null;
-         PreparedStatement ps = null;
-         Connection conn = null;
-         Context ctx = null;
-         DataSource ds = null;
-         boolean ret = false;
-         try {
-             StringBuffer query = new StringBuffer();
-             query.append(" SELECT input_id");
-             query.append(  " FROM input_lu");
-             query.append( " WHERE input_code = ?");
-             ctx = new InitialContext();
-             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-             ds = (DataSource)ctx.lookup(dataSourceName);
-             conn = ds.getConnection();
-             ps = conn.prepareStatement(query.toString());
-             ps.setString(1, inputCode);
-             rs = ps.executeQuery();
-             if (rs.next())
-                 ret = true;
-         } catch (SQLException sqe) {
-             DBMS.printSqlException(true, sqe);
-             throw new EJBException("SQLException checking if input code exists: " + inputCode);
-         } catch (NamingException e) {
-             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
-         } catch (Exception e) {
-             throw new EJBException("Exception checking if input code exists: " + inputCode + "\n " + e.getMessage());
-         } finally {
-             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
-             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
-         }
-         return ret;
-     }
-
-    private long getNextValue() {
-        log.debug("getNextValue called...");
-
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
         Context ctx = null;
-        long ret = 0;
+        DataSource ds = null;
+        ResultSetContainer ret = null;
         try {
+            StringBuffer query = new StringBuffer();
+            query.append(" SELECT i.input_id");
+            query.append(     " , i.input_code");
+            query.append(     " , i.input_desc");
+            query.append(     " , i.data_type_id");
+            query.append(     " , qix.query_id");
+            query.append(     " , qix.optional");
+            query.append(     " , qix.default_value");
+            query.append(     " , qix.sort_order");
+            query.append(  " FROM query_input_xref qix");
+            query.append(     " , input_lu i");
+            query.append( " WHERE qix.query_id = ?");
+            query.append(   " AND qix.input_id = i.input_id");
             ctx = new InitialContext();
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
-                        "sequence_object", "name", "current_value", 9999999999L, 1, false);
-            }
-            ret = IdGenerator.nextId("INPUT_SEQ");
-
+            if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            ds = (DataSource)ctx.lookup(dataSourceName);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, queryId);
+            rs = ps.executeQuery();
+            ret = new ResultSetContainer(rs);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting sequence\n" + sqe.getMessage());
+            throw new EJBException("SQLException getting inputs for query: " +queryId);
         } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + DBMS.OLTP_DATASOURCE_NAME);
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
-            throw new EJBException("Exception getting sequence\n " + e.getMessage());
+            throw new EJBException("Exception getting inputs for query: " +
+                    queryId + "\n " + e.getMessage());
         } finally {
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
+            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
         return ret;
