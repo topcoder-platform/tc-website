@@ -63,7 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<!-- Fortune  -->
+<!-- Po  -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://biz.yahoo.com/prnews/040422/dcth080_1.html" target="_blank"><img src="/i/pressroom/po.jpg" alt="Po" width="135" height="136" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://biz.yahoo.com/prnews/040422/dcth080_1.html" target="_blank">ASA Honors Po-Shen Loh</A></strong></font><br />
+                        Po-Shen Loh, son of ASA member Wei-Yin Loh and Theresa Loh is the recipient of multiple honors that will enable him to pursue his graduate study and research. A student a California Institute of Technology, Po-Shen grew up in Madison, Wisconsin, where his parents still reside. This academic year, Loh has been offered the National Science Foundation (NSF) award, a Churchill Scholarship, a Hertz fellowship, and a National Defense Science and Engineering Graduate Fellowship.<span class="prHead"> [April 22]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+ 
+<!-- JavaOne  -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.tmcnet.com/usubmit/2004/Apr/1033792.htm" target="_blank"><img src="/i/pressroom/tmcnet.gif" alt="TMCNET" width="135" height="60" border="0" /></A></td>

@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="newsText"><A href="http://biz.yahoo.com/prnews/040422/dcth080_1.html" target="_blank">ASA Honors Po-Shen Loh</A> [April 22 - Yahoo!]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.tmcnet.com/usubmit/2004/Apr/1033792.htm" target="_blank">Java Technology Spreads Like Wildfire at JavaOne</A> [April 21 - TMCNET]</td></tr>
 
                             <tr><td class="newsText"><A href="http://www.businessweek.com/technology/content/apr2004/tc20040413_3592_tc146.htm" target="_blank">Hiring Techies Is as Tricky as Ever</A> [April 13 - BusinessWeek]</td></tr>
