@@ -15,6 +15,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.tces.bean.Task;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
@@ -209,13 +210,13 @@ public class Controller extends HttpServlet {
                                     boolean authorizeError) throws ServletException, IOException {
 
         exception.printStackTrace();
-        request.setAttribute("caught-exception", exception);
-        String forwardPage = authorizeError ? TCESConstants.AUTH_FAILED_PAGE
-                : TCESConstants.ERROR_PAGE;
-        log.error("Controller error - going to error page " + forwardPage, exception);
+        request.setAttribute("exception", exception);
+
+        if (authorizeError)
+            request.setAttribute(BaseServlet.MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
 
         getServletContext().getRequestDispatcher(
-                response.encodeURL(forwardPage)).forward(request, response);
+                response.encodeURL(TCESConstants.ERROR_PAGE)).forward(request, response);
     }
 
     /**
