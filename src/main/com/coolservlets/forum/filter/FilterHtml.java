@@ -250,8 +250,9 @@ public class FilterHtml extends ForumMessageFilter implements Serializable {
                 }
             }
             else if( ch == '>' ) {
-                if (!input.substring(i-(OPEN_PRE.length()-1), i+1).toLowerCase().equals(OPEN_PRE) &&
-                    !input.substring(i-(CLOSE_PRE.length()-1), i+1).toLowerCase().equals(CLOSE_PRE)) {
+                if ((i>=OPEN_PRE.length()-1 && !input.substring(i-(OPEN_PRE.length()-1), i+1).toLowerCase().equals(OPEN_PRE))
+                        ||
+                    (i>=CLOSE_PRE.length()-1 && !input.substring(i-(CLOSE_PRE.length()-1), i+1).toLowerCase().equals(CLOSE_PRE))) {
                     buf.append( "&gt;" );
                 }
             }
