@@ -82,28 +82,49 @@
 <!-- Body Area -->
 
   <!-- Center Column Begins -->  
-    <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> 
+    <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/><BR/> 
 
-<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#999999">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+  <TR>
+    <TD VALIGN="top" WIDTH="8" BGCOLOR="#666666"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="middle" COLSPAN="2" WIDTH="100%" BGCOLOR="#666666" CLASS="bodyText" ALIGN="center" HEIGHT="21"><FONT SIZE="3" COLOR="#FFFFFF" FACE="arial, verdana, tahoma"><B>Currently Underway...</B></FONT>
+    </TD>  
+    <TD VALIGN="top" WIDTH="8" BGCOLOR="#666666"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
+  </TR>
+</TABLE> 
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+  <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="50%" NOWRAP="0" HEIGHT="15">
+<A HREF="http://sunnetwork.sun.com/" TARGET="_blank" CLASS="bodyGeneric">Learn more</A>
+    </TD>
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="50%" NOWRAP="0">
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sun_sched</xsl:attribute>
+Round Updates/Schedule
+      </A>
+    </TD>    
+    <!-- <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Ideas?</A></TD> -->   
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR>  
+</TABLE> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" CLASS="bodyText">TopCoder expands match community to include...
-      <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_05_28_02</xsl:attribute>
-        full story
-      </A><BR/>
-      <DIV ALIGN="center">
-         <A CLASS="bodyGeneric">
-           <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_05_28_02</xsl:attribute>
-           <IMG SRC="/i/flag_china.gif" ALT="China" WIDTH="150" HEIGHT="40" HSPACE="5" BORDER="0"/>
-           <IMG SRC="/i/flag_new_zealand.gif" ALT="New Zealand" WIDTH="150" HEIGHT="40" HSPACE="5" BORDER="0"/>
-         </A>
-      </DIV>
-    </TD>  
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
-  </TR>
+    <TD VALIGN="middle" WIDTH="50%" CLASS="bodyText" ALIGN="center" HEIGHT="21"><IMG SRC="/i/2002sn_sm.gif" ALT="" WIDTH="200" HEIGHT="41" BORDER="0"/></TD>
+    <TD VALIGN="middle" WIDTH="50%" CLASS="bodyText" ALIGN="center" HEIGHT="21"><IMG SRC="/i/2002sn_chall.gif" ALT="" WIDTH="154" HEIGHT="56" BORDER="0"/></TD>      
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
+  </TR> 
+  
+  <TR><TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" COLSPAN="2" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+  <TR><TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
 </TABLE>
-<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> --> 
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 
     <!-- Last SRM Begins -->    
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
@@ -367,7 +388,7 @@ You probably haven't put much thought into the problem creation process before, 
  <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/>
 
-<A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/2002sunnetwork_button.gif" alt="" width="244" height="79" border="0"/></A><BR/>
+<!-- <A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/2002sunnetwork_button.gif" alt="" width="244" height="79" border="0"/></A><BR/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
   <TR> 
     <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
@@ -390,20 +411,10 @@ You probably haven't put much thought into the problem creation process before, 
 </TABLE>
 <A HREF="http://sunnetwork.sun.com/sf2002/reg/general/index.en.jsp" TARGET="_blank" CLASS="statText"><IMG SRC="/i/tournament/2002sunnetwork_chall.gif" alt="" width="244" height="56" border="0"/></A><BR/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
-  <!-- <TR> 
-    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
-    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>      
-    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>                
-    <TD class="statText" WIDTH="100%" ALIGN="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sunnetwork</xsl:attribute><B>Register to compete</B> &gt;</A></TD> 
-    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD> 
-    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>                 
-  </TR> -->
   <TR> 
     <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
     <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>      
     <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>                
-<!--    <TD class="statText" WIDTH="100%" ALIGN="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sunnetwork_rules</xsl:attribute>Get Official Rules &amp; Regulations &gt;</A></TD> -->
     <TD class="statText" WIDTH="100%" ALIGN="right"><A class="statText"><xsl:attribute name="HREF">http://sunnetwork.sun.com/sf2002/topcoder/index.jsp</xsl:attribute>For more information and official rules and regulations&gt;</A></TD>
     <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD> 
     <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
@@ -422,7 +433,7 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
     <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>                 
   </TR>                               
 </TABLE>
-<IMG SRC="/i/tournament/2002sunnetwork_btm.gif" alt="" width="244" height="34" border="0"/><BR/>
+<IMG SRC="/i/tournament/2002sunnetwork_btm.gif" alt="" width="244" height="34" border="0"/><BR/> -->
 
  <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002invit_rules</xsl:attribute>
 <IMG SRC="/i/2002invit_button.gif" alt="" width="244" height="77" border="0"/></A><BR/><BR/> 
