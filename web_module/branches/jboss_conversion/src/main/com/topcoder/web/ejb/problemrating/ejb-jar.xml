@@ -1,28 +1,37 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE ejb-jar PUBLIC 
-  '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 
-  'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>Problem Rating Services Jar</description>
+    <display-name>Problem Rating Services Jar</display-name>
     <enterprise-beans>
-      <session>
-        <ejb-name>ProblemRatingServices</ejb-name>
-        <home>com.topcoder.web.ejb.problemrating.ProblemRatingServicesHome</home>
-        <remote>com.topcoder.web.ejb.problemrating.ProblemRatingServices</remote>
-        <ejb-class>com.topcoder.web.ejb.problemrating.ProblemRatingServicesBean</ejb-class>
-        <session-type>Stateless</session-type>
-        <transaction-type>Container</transaction-type>
-      </session>
+        <session>
+            <description>Problem Rating Services EJB</description>
+            <display-name>Problem Rating Services EJB</display-name>
+            <ejb-name>ProblemRatingServices</ejb-name>
+            <home>com.topcoder.web.ejb.problemrating.ProblemRatingServicesHome</home>
+            <remote>com.topcoder.web.ejb.problemrating.ProblemRatingServices</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.problemrating.ProblemRatingServicesBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
     </enterprise-beans>
     <assembly-descriptor>
-      <container-transaction>
-        <method>
-          <ejb-name>ProblemRatingServices</ejb-name>
-          <method-intf>Remote</method-intf>
-          <method-name>*</method-name>
-        </method>
-        <trans-attribute>NotSupported</trans-attribute>
-      </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>ProblemRatingServices</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+
+
