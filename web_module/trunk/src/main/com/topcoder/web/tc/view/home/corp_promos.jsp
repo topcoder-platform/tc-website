@@ -13,8 +13,7 @@
                     <td height="42" align="center"><A href="/?t=tces&amp;c=index" target="_top"><IMG src="/i/header_employment_services.gif" alt="Employment Services" width="170" height="20" border="0" /></A><br/>
                         <table border="0" cellspacing="3" cellpadding="0" width="170">
                             <tr valign="top">
-                                <td class="promoCorp">Are you a <strong>software engineer </strong><A href="/?t=tces&amp;c=index" target="_top">looking</A> for a job?
-                                    Are you a <strong>company</strong> interested in <A href="/corp/?module=Static&amp;d1=corp&amp;d2=tces_home" target="_top">hiring</A> the best talent? Let TopCoder bring you together.</td>
+                                <td class="promoCorp">Are you a <strong>company</strong> interested in <A href="/corp/?module=Static&amp;d1=corp&amp;d2=tces_home" target="_top">hiring</A> the best talent? Let TopCoder bring you together with software engineers looking for jobs.</td>
                             </tr>
                         </table>
                     </td>
