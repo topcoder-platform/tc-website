@@ -808,7 +808,7 @@
     <target name="build-security" depends="compile">
         <jar jarfile="${ejb_jars}/security.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/security/**"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/**"/>
             <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
         </jar>
 
