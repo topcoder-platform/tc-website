@@ -8,6 +8,19 @@
 
 <jsp:include page="../includes/script.jsp" />
 
+<SCRIPT TYPE="text/javascript">
+function getProblemDetail(id) {
+    var width = screen.availWidth * 2 / 3;
+    var height = screen.availHeight / 2;
+    var left = (screen.availWidth - width) / 2;
+    var top = 0;
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var name="problemDetail";
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
+    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
+    return;
+  }
+</SCRIPT>
 </head>
 
 <body>
