@@ -1254,7 +1254,6 @@ public class TCLoadCoders extends TCLoad {
             query.append(      " ,s.city ");
             query.append(      " ,s.state_code ");
             query.append(      " ,s.country_code ");
-            query.append(      " ,s.user_id ");
             query.append(      " ,s.name ");
             query.append(      " ,s.short_name ");
             query.append( " FROM school s ");
@@ -1270,15 +1269,14 @@ public class TCLoadCoders extends TCLoad {
             query.append(" ,city ");
             query.append(" ,state_code ");
             query.append(" ,country_code ");
-            query.append(" ,user_id ");
             query.append(" ,name ");
             query.append(" ,short_name) ");
             query.append("VALUES (");
-            query.append("?,?,?,?,?,?,?,?)"); 
+            query.append("?,?,?,?,?,?,?)"); 
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append(" UPDATE school SET sort_letter = ?, city = ?, state_code = ?, country_code = ?, user_id = ?, name = ?, short_name = ? WHERE school_id = ?");
+            query.append(" UPDATE school SET sort_letter = ?, city = ?, state_code = ?, country_code = ?, name = ?, short_name = ? WHERE school_id = ?");
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadSchool");
@@ -1293,9 +1291,8 @@ public class TCLoadCoders extends TCLoad {
                     psIns.setString(3, rs.getString("city"));
                     psIns.setString(4, rs.getString("state_code"));
                     psIns.setString(5, rs.getString("country_code"));
-                    psIns.setInt(6, rs.getInt("user_id"));
-                    psIns.setString(7, rs.getString("name"));
-                    psIns.setString(8, rs.getString("short_name"));
+                    psIns.setString(6, rs.getString("name"));
+                    psIns.setString(7, rs.getString("short_name"));
                     retVal = psIns.executeUpdate();
                 } catch (Exception e) {
                     // the insert failed, so try an update
@@ -1303,10 +1300,9 @@ public class TCLoadCoders extends TCLoad {
                     psUpd.setString(2, rs.getString("city"));
                     psUpd.setString(3, rs.getString("state_code"));
                     psUpd.setString(4, rs.getString("country_code"));
-                    psUpd.setInt(5, rs.getInt("user_id"));
-                    psUpd.setString(6, rs.getString("name"));
-                    psUpd.setString(7, rs.getString("short_name"));
-                    psUpd.setInt(8, school_id);
+                    psUpd.setString(5, rs.getString("name"));
+                    psUpd.setString(6, rs.getString("short_name"));
+                    psUpd.setInt(7, school_id);
                     retVal = psUpd.executeUpdate();
                 }
 
