@@ -153,29 +153,34 @@ public class DDEForumBean implements SessionBean {
 
 
     public List getActiveForums(long forumType) throws ForumException {
-        final String sql = "select c.component_id," +
-                                 " c.component_name," +
-                                 " c.short_desc," +
-                                 " c.root_category_id," +
-                                 " v.comp_vers_id," +
-                                 " v.version_text," +
-                                 " v.phase_id," +
-                                 " f.forum_id," +
-                                 " f.total_topics," +
-                                 " f.total_threads," +
-                                 " f.total_posts," +
-                                 " p.post_time," +
-                                 " u.user_id" +
-                            " from comp_catalog c" +
-                                 " inner join comp_versions v on (c.component_id = v.component_id)" +
-                                 " inner join comp_forum_xref x on (v.comp_vers_id = x.comp_vers_id)" +
-                                 " inner join forum_master f on (x.forum_id = f.forum_id)" +
-                                 " left outer join forum_posts p on (f.last_post_id = p.post_id)" +
-                                 " left outer join security_user u on (p.login_id = u.login_id)" +
-                           " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
-                             " and f.status_id = " + com.topcoder.forum.ForumStatus.ACTIVE +
-                             " and x.forum_type = ?" +
-                           " order by p.post_time desc, c.component_name";
+        final String sql =
+                       " select c.component_id, " +
+                               " c.component_name, " +
+                               " c.short_desc, " +
+                               " c.root_category_id, " +
+                               " v.comp_vers_id, " +
+                               " v.version_text, " +
+                               " v.phase_id, " +
+                               " f.forum_id, " +
+                               " f.total_topics, " +
+                               " f.total_threads, " +
+                               " f.total_posts, " +
+                               " p.post_time, " +
+                               " u.user_id " +
+                          " from comp_catalog c " +
+                              " ,comp_versions v " +
+                              " ,comp_forum_xref x " +
+                              " ,forum_master f " +
+                              " ,outer (forum_posts p, security_user u) " +
+                         " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
+                           " and f.status_id = " + com.topcoder.forum.ForumStatus.ACTIVE +
+                           " and c.component_id = v.component_id " +
+                           " and x.forum_type = ? " +
+                           " and x.forum_id = f.forum_id " +
+                           " and f.last_post_id = p.post_id " +
+                           " and p.login_id = u.login_id " +
+                           " and v.comp_vers_id = x.comp_vers_id " +
+                         " order by p.post_time desc, c.component_name ";
 
         Connection conn = null;
         PreparedStatement ps = null;
