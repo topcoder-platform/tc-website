@@ -1091,7 +1091,8 @@ java com.topcoder.utilities.QueryLoader "OLTP" 84 "Invitational_Eligibility" 0 0
 SELECT CASE WHEN r.num_ratings > 2 THEN 'true' ELSE 'false' END AS has_enough_ratings
      , CASE WHEN r.last_rated_event > '2002-03-30 00:00:00.000' THEN 'true' ELSE 'false' END AS has_recent_competition
      , CASE WHEN c.country_code in ('036','124','372','356','826','840','156','554') THEN 'true' ELSE 'false' END AS in_eligible_country
-     , CASE WHEN r.num_ratings > 2 AND r.last_rated_event > '2002-03-30 00:00:00.000' AND c.country_code in ('036','124','372','356','826','840','156','554') THEN 'true' ELSE 'false' END AS is_eligible
+//     , CASE WHEN r.num_ratings > 2 AND r.last_rated_event > '2002-03-30 00:00:00.000' AND c.country_code in ('036','124','372','356','826','840','156','554') THEN 'true' ELSE 'false' END AS is_eligible
+     , 'false' AS is_eligible
   FROM coder c
      , rating r
  WHERE c.coder_id = @cr@
