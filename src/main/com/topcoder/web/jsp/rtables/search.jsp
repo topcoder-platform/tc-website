@@ -27,13 +27,13 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <jsp:include page="../script.jsp" />
   </HEAD>
-  <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+  <BODY>
     <jsp:include page="../top.jsp" />
     <!--------main content table------------>
-    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
       <TR>
         <!-- Left Column Begins -->
-        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+        <TD WIDTH="180" VALIGN="top">
           <!-- Left Column Include Begins -->
           <!-- Global Seconday Nav Begins -->
          <jsp:include page="../includes/global_left.jsp" />
@@ -395,7 +395,7 @@ function submitEnter(e) {
         <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
         <!-- Gutter Ends -->
         <!-- Right Column Begins -->
-        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"><BR>
+        <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"><BR>
           <!-- Right Column Include Begins -->
           <!-- Right Column Include Ends -->
         </TD>
