@@ -53,16 +53,10 @@
   <tag>
     <name>resultSetItem</name>
     <tagclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTag</tagclass>
-    <teiclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTagInfo</teiclass>
     <bodycontent>empty</bodycontent>
     <info>
       Tag to get the value of a TCResultItem
     </info>
-    <attribute>
-      <name>id</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
     <attribute>
       <name>row</name>
       <required>true</required>
