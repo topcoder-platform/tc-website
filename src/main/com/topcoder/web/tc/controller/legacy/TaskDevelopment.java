@@ -77,7 +77,6 @@ public final class TaskDevelopment {
             log.debug("Initial command is: " + command);
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String date = Conversion.checkNull(request.getParameter("date"));
-            int version = Integer.parseInt(request.getParameter("version"));
             long projectId = Long.parseLong(request.getParameter("projectId"));
             long componentId = 0;
             boolean appProject = false;
@@ -93,7 +92,6 @@ public final class TaskDevelopment {
 
 
             devTag.addTag(new ValueTag("date", date));
-            devTag.addTag(new ValueTag("version", version));
             devTag.addTag(new ValueTag("tccc", request.getParameter("tccc")));
             devTag.addTag(new ValueTag("tco", request.getParameter("tco")));
             devTag.addTag(new ValueTag("posting_date", request.getParameter("posting_date")));
@@ -263,7 +261,9 @@ public final class TaskDevelopment {
                 devTag.addTag(rsc.getTag("projects", "project"));
 
                 int phase = Integer.parseInt(request.getParameter("phase"));
+                int version = Integer.parseInt(request.getParameter("version"));
                 devTag.addTag(new ValueTag("phase", phase));
+                devTag.addTag(new ValueTag("version", version));
 
 
 
@@ -314,6 +314,7 @@ public final class TaskDevelopment {
                                                 devTag.addTag(new ValueTag("max_reg", cregBean.getMaxRatedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
                                                 xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
                                             } else {
+
                                                 register(nav.getSessionInfo().getUserId(), componentId, projectId, rating, comment, agreedToTerms, phase, version);
                                                 String activeForumId = String.valueOf(getActiveForumId(componentId));
                                                 devTag.addTag(new ValueTag("forumId", activeForumId));
