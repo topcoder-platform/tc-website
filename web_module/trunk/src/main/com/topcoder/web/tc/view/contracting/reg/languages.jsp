@@ -106,8 +106,8 @@ return false;
                           int i = 0;%>
                 <tc:skillIterator id="skill" list="<%=skillList%>">
                 <tr>
-	            <td class=<%=cssClasses[i % 2]%> valign=top><%=skill.getText()%></td>
-	            <tc:skillInput cssclass="<%=cssClasses[i++ % 2]%>" skill="<%=skill%>" />
+	            <td class=<%=cssClasses[++i % 2]%> valign=top><%=skill.getText()%></td>
+	            <tc:skillInput cssclass="<%=cssClasses[i % 2]%>" skill="<%=skill%>" />
                 </tr>
                 </tc:skillIterator>
 			<tr>
