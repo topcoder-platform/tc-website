@@ -47,6 +47,7 @@ long lang_tot_succ = 0;
 <jsp:include page="../script.jsp" />
 <%! 
 private String getPercentage (ResultSetContainer total, int total_row, String total_col, int valu_row, String valu_col){
+//System.out.println(total.toString());
    long tot = Long.parseLong(total.getItem(total_row,total_col).toString());
    long valu = Long.parseLong(total.getItem(valu_row,valu_col).toString());
    double ret = 0;
@@ -62,6 +63,7 @@ private String getPercentage (ResultSetContainer total, int total_row, String to
    	df.setMinimumFractionDigits(2);
    	df.setMaximumFractionDigits(2);
    	return df.format(ret);
+//	return ret;
 	
 }
 
