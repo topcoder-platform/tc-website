@@ -11,7 +11,6 @@
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
-    System.out.println("XXX level1: " + level1 + " level2: " + level2);
 %>
 
 <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
