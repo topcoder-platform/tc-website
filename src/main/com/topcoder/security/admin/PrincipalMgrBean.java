@@ -6,10 +6,8 @@ import com.topcoder.util.idgenerator.bean.LocalIdGenHome;
 import org.apache.log4j.Logger;
 
 import javax.ejb.CreateException;
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,14 +26,13 @@ public class PrincipalMgrBean extends BaseEJB {
         logger.debug("PrincipalMgrBean - getUsers");
         Set pl = new HashSet();
         String query = "SELECT login_id, user_id FROM security_user";
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             UserPrincipal up;
             for (rs = ps.executeQuery(); rs.next(); pl.add(up))
@@ -57,14 +54,13 @@ public class PrincipalMgrBean extends BaseEJB {
         checkLength(username, 50);
         logger.debug("getting user: " + username);
         String query = "SELECT login_id FROM security_user WHERE user_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setString(1, username);
             rs = ps.executeQuery();
@@ -90,14 +86,13 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException, NoSuchUserException {
         logger.debug("getting user: " + id);
         String query = "SELECT user_id FROM security_user WHERE login_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setLong(1, id);
             rs = ps.executeQuery();
@@ -123,14 +118,13 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException, NoSuchUserException {
         logger.debug("PrincipalMgrBean.getUserSubject: " + userId);
         Set pl = new HashSet();
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             getUser(userId);
             StringBuffer query = new StringBuffer(200);
             query.append("SELECT security_roles.role_id, description ");
@@ -171,14 +165,13 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException, NoSuchUserException {
         logger.debug("getting user's password: " + id);
         String query = "SELECT password FROM security_user WHERE login_id = ? ";
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setEscapeProcessing(true);
             ps.setLong(1, id);
@@ -210,18 +203,17 @@ public class PrincipalMgrBean extends BaseEJB {
         checkLength(password, 31);
         String encPassword = Util.encodePassword(password, "users");
         logger.debug("*********password into db: " + encPassword);
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
             LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
             long userId = idGenHome.create().nextId();
             logger.debug("new login_id = " + userId);
             String query = "INSERT INTO security_user (login_id, user_id, password) VALUES (?, ?, ?)";
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setEscapeProcessing(true);
             ps.setLong(1, userId);
@@ -253,15 +245,14 @@ public class PrincipalMgrBean extends BaseEJB {
         String query1 = "DELETE from security_user WHERE login_id = ?";
         String query2 = "DELETE from user_group_xref WHERE login_id = ?";
         String query3 = "DELETE from user_role_xref WHERE login_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps1 = conn.prepareStatement(query1);
             ps2 = conn.prepareStatement(query2);
             ps3 = conn.prepareStatement(query3);
@@ -289,13 +280,12 @@ public class PrincipalMgrBean extends BaseEJB {
         String encPassword = Util.encodePassword(password, "users");
         long userId = user.getId();
         String query = "UPDATE security_user SET password = ? WHERE login_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setString(1, encPassword);
             ps.setLong(2, userId);
@@ -314,14 +304,13 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         Set pl = new HashSet();
         String query = "SELECT group_id, description FROM security_groups";
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             GroupPrincipal gp;
             for (rs = ps.executeQuery(); rs.next(); pl.add(gp))
@@ -341,14 +330,13 @@ public class PrincipalMgrBean extends BaseEJB {
     public GroupPrincipal getGroup(long id)
             throws GeneralSecurityException, NoSuchGroupException {
         String query = "SELECT description FROM security_groups WHERE group_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setLong(1, id);
             rs = ps.executeQuery();
@@ -371,17 +359,16 @@ public class PrincipalMgrBean extends BaseEJB {
     public GroupPrincipal createGroup(String groupname, TCSubject requestor)
             throws GeneralSecurityException {
         checkLength(groupname, 254);
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
             LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
             long groupId = idGenHome.create().nextId();
             logger.debug("createGroup: " + groupId);
             String query = "INSERT INTO security_groups (group_id, description) VALUES ( ?, ? )";
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setLong(1, groupId);
             ps.setString(2, groupname);
@@ -409,15 +396,14 @@ public class PrincipalMgrBean extends BaseEJB {
         String query1 = "DELETE FROM user_group_xref WHERE group_id = ?";
         String query2 = "DELETE FROM group_role_xref WHERE group_id = ?";
         String query3 = "DELETE FROM security_groups WHERE group_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps1 = conn.prepareStatement(query1);
             ps2 = conn.prepareStatement(query2);
             ps3 = conn.prepareStatement(query3);
@@ -440,18 +426,17 @@ public class PrincipalMgrBean extends BaseEJB {
 
     public void addUserToGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor)
             throws GeneralSecurityException {
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
             LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
             long user_group_xrefid = idGenHome.create().nextId();
             long userId = user.getId();
             long groupId = group.getId();
             String query = "INSERT INTO user_group_xref (user_group_id, login_id, group_id) VALUES ( ?, ?, ? )";
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setLong(1, user_group_xrefid);
             ps.setLong(2, userId);
@@ -477,13 +462,12 @@ public class PrincipalMgrBean extends BaseEJB {
         long userId = user.getId();
         long groupId = group.getId();
         String query = "DELETE FROM user_group_xref WHERE login_id = ? AND group_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setLong(1, userId);
             ps.setLong(2, groupId);
@@ -501,14 +485,13 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         Set pl = new HashSet();
         String query = "SELECT role_id, description FROM security_roles";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             RolePrincipal rp;
             for (rs = ps.executeQuery(); rs.next(); pl.add(rp))
@@ -528,14 +511,13 @@ public class PrincipalMgrBean extends BaseEJB {
     public RolePrincipal getRole(long id)
             throws GeneralSecurityException, NoSuchRoleException {
         String query = "SELECT description FROM security_roles WHERE role_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setLong(1, id);
             rs = ps.executeQuery();
@@ -558,18 +540,15 @@ public class PrincipalMgrBean extends BaseEJB {
     public RolePrincipal createRole(String name, TCSubject requestor)
             throws GeneralSecurityException {
         checkLength(name, 254);
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
-
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
             long roleId = idGenHome.create().nextId();
             String query = "INSERT INTO security_roles (role_id, description) VALUES ( ?, ? )";
-            conn = dataSource.getConnection();
             ps = conn.prepareStatement(query);
             ps.setLong(1, roleId);
             ps.setString(2, name);
@@ -598,7 +577,7 @@ public class PrincipalMgrBean extends BaseEJB {
         String query2 = "DELETE FROM user_role_xref WHERE role_id = ?";
         String query3 = "DELETE FROM security_perms WHERE role_id = ?";
         String query4 = "DELETE FROM security_roles WHERE role_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
@@ -606,8 +585,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps1 = conn.prepareStatement(query1);
             ps2 = conn.prepareStatement(query2);
             ps3 = conn.prepareStatement(query3);
@@ -637,17 +615,15 @@ public class PrincipalMgrBean extends BaseEJB {
         long userId = user.getId();
         long roleId = role.getId();
         String query = "INSERT INTO user_role_xref (user_role_id, login_id, role_id) VALUES ( ?, ?, ?)";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
 
             LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
             long user_role_xrefid = idGenHome.create().nextId();
-            conn = dataSource.getConnection();
             ps = conn.prepareStatement(query);
             ps.setLong(1, user_role_xrefid);
             ps.setLong(2, userId);
@@ -673,13 +649,12 @@ public class PrincipalMgrBean extends BaseEJB {
         long userId = user.getId();
         long roleId = role.getId();
         String query = "DELETE FROM user_role_xref WHERE login_id = ? AND role_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setLong(1, userId);
             ps.setLong(2, roleId);
@@ -698,17 +673,15 @@ public class PrincipalMgrBean extends BaseEJB {
         long groupId = group.getId();
         long roleId = role.getId();
         String query = "INSERT INTO group_role_xref (group_role_id, group_id, role_id) VALUES ( ?, ?, ? )";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
 
             LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
             long group_role_xrefid = idGenHome.create().nextId();
-            conn = dataSource.getConnection();
             ps = conn.prepareStatement(query);
             ps.setLong(1, group_role_xrefid);
             ps.setLong(2, groupId);
@@ -734,13 +707,12 @@ public class PrincipalMgrBean extends BaseEJB {
         long groupId = group.getId();
         long roleId = role.getId();
         String query = "DELETE FROM group_role_xref WHERE group_id = ? AND role_id = ?";
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             ps.setLong(1, groupId);
             ps.setLong(2, roleId);

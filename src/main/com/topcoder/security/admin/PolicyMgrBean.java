@@ -1,17 +1,12 @@
 package com.topcoder.security.admin;
 
-import com.topcoder.security.BaseEJB;
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.RolePrincipal;
-import com.topcoder.security.TCSubject;
+import com.topcoder.security.*;
 import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.TCPermission;
 import org.apache.log4j.Logger;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,14 +42,13 @@ public class PolicyMgrBean extends BaseEJB {
         PermissionCollection pc = new PermissionCollection();
         String query = "SELECT permission FROM security_perms WHERE role_id = ?";
 
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
 
             ps = conn.prepareStatement(query);
             ps.setLong(1, roleId);
@@ -95,14 +89,13 @@ public class PolicyMgrBean extends BaseEJB {
                 " VALUES ( ?, ? )";
         Iterator it = c.iterator();
 
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
 
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
             while (it.hasNext()) {
                 TCPermission p = (TCPermission) it.next();
@@ -138,13 +131,12 @@ public class PolicyMgrBean extends BaseEJB {
         Iterator i = c.iterator();
         String query = "DELETE FROM security_perms WHERE permission = ?";
 
-        Context ctx = null;
+        InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
 
             ps = conn.prepareStatement(query);
             while (i.hasNext()) {

@@ -8,6 +8,10 @@ import org.apache.log4j.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import javax.rmi.PortableRemoteObject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,6 +21,9 @@ import java.security.Security;
 import java.security.cert.Certificate;
 import java.util.Enumeration;
 import java.util.Vector;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  * A bunch of static methods used in various com.topcoder.security (and subpackage)
@@ -372,4 +379,20 @@ public class Util implements ConfigManagerInterface {
         }
         return sb.toString();
     }
+
+    public static final java.sql.Connection getConnection(InitialContext context, String dataSourceName) throws SQLException {
+        DataSource ds = null;
+        try {
+            ds = (DataSource) PortableRemoteObject.narrow(
+                    context.lookup(dataSourceName),DataSource.class);
+        } catch (NamingException e) {
+            e.printStackTrace();
+            throw new SQLException(e.getMessage());
+        }
+        Connection conn = ds.getConnection();
+        PreparedStatement ps = conn.prepareStatement("set lock mode to wait 5");
+        ps.execute();
+        return conn;
+    }
+
 }

@@ -4,10 +4,8 @@ import com.topcoder.security.BaseEJB;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 
 /**
  * The Session EJB is a proxy to the Policy object. This should be used by EJB clients.
@@ -33,12 +31,11 @@ public class PolicyBean extends BaseEJB {
                                    TCPermission permission)
             throws GeneralSecurityException {
 
-        Context ctx = null;
+        InitialContext ctx = null;
         Policy p = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            p = new Policy(dataSource);
+            p = new Policy(ctx, DATA_SOURCE);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
         } finally {
@@ -59,12 +56,11 @@ public class PolicyBean extends BaseEJB {
                                     PermissionCollection permissions)
             throws GeneralSecurityException {
 
-        Context ctx = null;
+        InitialContext ctx = null;
         Policy p = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            p = new Policy(dataSource);
+            p = new Policy(ctx, DATA_SOURCE);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
         } finally {
