@@ -73,8 +73,8 @@
 
                 <tr>
                     <td class="bodyText" colspan="5">
-                        <p>This page will be updated when a project date changes.  If you have specific questions about any projects, 
-                        email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p> 
+                        <p>This page will be updated when a project date changes.  If you have specific questions about any projects,
+                        email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p>
                         <p>Note that project winners will not be announced until after the Review Complete date.</p>
                     </td>
                 </tr>
@@ -96,7 +96,7 @@
                 </tr>
 
 
-                <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
+                <xsl:for-each select="/TC/DEVELOPMENT/reviews/status">
                     <xsl:if test="./phase_id=$design-phase">
                         <tr>
                             <td class="projectCells" align="center">
@@ -104,14 +104,17 @@
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/smFlash.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td class="projectCells" >                            
+                            <td class="projectCells" >
                                 <a target="_new">
-                                    <xsl:attribute name="href"> 
+                                    <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -123,9 +126,9 @@
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
-                        </tr>                 
+                        </tr>
                     </xsl:if>
-                </xsl:for-each> 
+                </xsl:for-each>
             </table>
 
 <!-- Component Design Projects ends -->
@@ -143,8 +146,8 @@
                     <td class="projectHeaders" align="center">Final<br />Submit</td>
                     <td class="projectHeaders" align="center">Development<br />Complete</td>
                 </tr>
-                
-                <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
+
+                <xsl:for-each select="/TC/DEVELOPMENT/reviews/status">
                     <xsl:if test="./phase_id=$dev-phase">
                         <tr>
                             <td class="projectCells" align="center">
@@ -152,14 +155,17 @@
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/smFlash.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td class="projectCells" >                            
+                            <td class="projectCells" >
                                 <a target="_new">
-                                    <xsl:attribute name="href"> 
+                                    <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -171,9 +177,9 @@
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
-                        </tr>                 
+                        </tr>
                     </xsl:if>
-                </xsl:for-each> 
+                </xsl:for-each>
             </table>
 <!-- Component Dev Projects ends -->
 

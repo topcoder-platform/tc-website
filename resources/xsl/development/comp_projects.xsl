@@ -123,6 +123,9 @@
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/smFlash.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
@@ -217,6 +220,9 @@
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/smFlash.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
@@ -314,6 +320,9 @@
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/smFlash.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
@@ -402,6 +411,9 @@
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/smFlash.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>

@@ -106,6 +106,9 @@
                                <xsl:when test="./root_category_id = 5801776">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/smFlash.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
@@ -176,6 +179,9 @@
                                <xsl:when test="./root_category_id = 5801776">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/smFlash.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
@@ -253,7 +259,7 @@
                     </td>
                 </tr>
             </table>
-                
+
 
             <p><br /></p>
         </td>
