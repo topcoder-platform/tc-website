@@ -35,7 +35,7 @@ public class DownloadTask extends ResumeTask{
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         response.setHeader("content-disposition","attachment; filename="+resume.getFileName());
-        response.setContentType(resume.getFileType());
+        response.setContentType(resume.getMimeType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
         response.setStatus(HttpServletResponse.SC_OK);
@@ -44,8 +44,6 @@ public class DownloadTask extends ResumeTask{
          */
         sos.flush();
         sos.close();
-        super.setNextPageInternal(false);
-        super.setNextPage(Constants.SUCCESS_PAGE);
     }
 
     public void processStep(String step) throws Exception {
