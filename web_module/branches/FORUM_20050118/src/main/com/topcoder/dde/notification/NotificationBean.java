@@ -158,7 +158,8 @@ public class NotificationBean implements SessionBean {
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
 // qq ver            throw new InvalidEditException("SQL Exception: " + e.getMessage());
-
+        } catch (Exception e) {
+            info("error in createEvent: " + e.toString());
         } finally {
             Common.close(conn);
             Common.close(ps);
@@ -223,7 +224,8 @@ public class NotificationBean implements SessionBean {
 
                 ps.executeUpdate();
             }
-
+        } catch (Exception e) {
+            info("error in createEvent: " + e.toString());
         } finally {
             Common.close(conn, ps, rs);
         }
