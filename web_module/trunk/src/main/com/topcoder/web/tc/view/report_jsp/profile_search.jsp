@@ -65,12 +65,12 @@
         </rsc:iterator>
         </select>
       </td></tr>
-      <tr><td><INPUT type="checkbox" name="pro" value="Professional" checked/>
-      <INPUT type="checkbox" name="stud" value="Student" checked/></td></tr>
-      <tr><td><INPUT type="checkbox" name="placement" value="Placement Indicator"/></td></tr>
+      <tr><td>Professional: <INPUT type="checkbox" name="pro" checked/>
+      Student: <INPUT type="checkbox" name="stud" checked/></td></tr>
+      <tr><td>Placement Indicator: <INPUT type="checkbox" name="placement"/></td></tr>
       <tr><td>Languages: 
         <rsc:iterator list="<%=languages%>" id="resultRow">
-          <input type="checkbox" name="<rsc:item name="language_id" row="<%=resultRow%>"/>" value="<rsc:item name="language_name" row="<%=resultRow%>"/>" checked>
+          <rsc:item name="language_name" row="<%=resultRow%>"/>: <input type="checkbox" name="<rsc:item name="language_id" row="<%=resultRow%>"/>" checked>
         </rsc:iterator>
         </select>
       </td></tr>
