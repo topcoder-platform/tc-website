@@ -65,7 +65,7 @@
 				<table border="0" cellpadding="5" cellspacing="0"width="270">
 				
 				<tr>
-                    <td colspan="2" valign="bottom"><strong><font color="#FFFFFF" size="4">Completed Components<img src="/i/email/iconStatusCompleteSm.gif" width="25" height="17"/></font></strong></td>
+                    <td colspan="2" valign="bottom"><p><strong><font color="#FFFFFF" size="4"><img src="/i/email/iconStatusCompleteSm.gif" width="25" height="17" align="right"/>Completed Components</font></strong></p></td>
                 </tr>
 
                 
@@ -124,20 +124,29 @@
 <!-- Compnents in Progress Begins-->   	
       	<td valign="top">
       		<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="270">
+      		
+      		<tr>
+				<td>
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
+						<tr valign="bottom">
+                			<td colspan="2"><p><strong><font color="#FFFFFF" size="4"><img src="/i/clear.gif" width="25" height="17" align="right"/>Components in Progress</font></strong></p></td>
+                		</tr>
+                	</table>
+                </td>
+           	</tr>
+      		<tr>
+				<td>
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
+                		<tr>
+                			<td colspan="2" bgcolor="#CCCCCC"><p><img src="/i/email/iconStatusSpecSm.gif" width="25" height="17" align="right"/><strong><font color="#333333">Design</font></strong></p></td>
+                	    </tr>
+                	</table>
+                </td>
+           	</tr>
 
-                <tr>
-					<td>
-					
-				<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
-				
-				<tr>
-                    <td colspan="2"><strong><font color="#FFFFFF" size="4">Components in Progress<img src="/i/clear.gif" width="25" height="17"/></font></strong></td>
-                </tr>
-                
-                <tr>
-                	<td colspan="2" bgcolor="#CCCCCC"><strong><font color="#333333">Design</font></strong><img src="/i/email/iconStatusSpecSm.gif" width="25" height="17"/></td>
-                	
-                </tr>
+            <tr>
+				<td>
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
 
                 <tr>
                     <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
@@ -180,13 +189,23 @@
                     <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
                     <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5710129&ver=1" target="blank">LDAP Client</A></td>
                 </tr>
+				</table>
+				</td>
+				</tr>
 
-                
-                <tr>
-                	<td colspan="2" bgcolor="#CCCCCC"><strong><font color="#333333">Development</font></strong><img src="/i/email/iconStatusDevSm.gif" width="25" height="17"/></td>
-                	
-                </tr>
-                
+      		<tr>
+				<td>
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
+                		<tr>
+                			<td colspan="2" bgcolor="#CCCCCC"><p><img src="/i/email/iconStatusDevSm.gif" width="25" height="17" align="right"/><strong><font color="#333333">Development</font></strong></p></td>
+                		</tr>
+                	</table>
+                </td>
+           	</tr>			
+				
+            <tr>
+				<td>
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
                 <tr>
                     <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
                     <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7381375&ver=1" target="blank">File Delta</A></td>
@@ -327,8 +346,9 @@
 							 Congress could make it work.). [January 26]
 							</td></tr>
 <!-- TopCoder News Ends-->					
+                		<tr><td bgcolor="#FFFFFF"><hr noshade size="1" width="100%"></hr></td></tr>
                 		
-                		<tr><td bgcolor="#FFFFFF"><img src="/i/clear.gif" width="1" height="10" border="0"/></td></tr>
+                		
 						<tr>
                 		<td class="smallText" bgcolor="#FFFFFF">You have received this email because you have registered on our site and asked to 
                 		receive our email newsletter. If you prefer not to receive emails from TopCoder, please unsubscribe. Mailings to you may 
