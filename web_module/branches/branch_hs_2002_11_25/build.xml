@@ -739,6 +739,7 @@
       <copy todir="${tc_cluster}/${hs.war.name}">
         <fileset dir="${java}/com/topcoder/web/hs/view">
           <include name="**/*.jsp"/>
+          <include name="**/*.inc"/>
         </fileset>
       </copy>
       <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF">
@@ -842,6 +843,7 @@
         <war warfile="${war.dir}/${hs.war.name}.war" webxml="${resources}/hs/web.xml">
             <fileset dir="${java}/com/topcoder/web/hs/view">
                 <include name="**/*.jsp"/>
+                <include name="**/*.inc"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/hs/**"/>
