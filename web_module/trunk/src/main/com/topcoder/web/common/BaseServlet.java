@@ -98,8 +98,11 @@ public abstract class BaseServlet extends HttpServlet {
             //set up security objects and session info
             log.debug("start");
             authentication = createAuthentication(request, response);
+            log.debug("got auth");
             TCSubject user = getUser(authentication.getActiveUser().getId());
+            log.debug("got user");
             info = createSessionInfo(request, authentication, user.getPrincipals());
+            log.debug("got info");
             request.setAttribute(SESSION_INFO_KEY, info);
             log.debug("end");
 

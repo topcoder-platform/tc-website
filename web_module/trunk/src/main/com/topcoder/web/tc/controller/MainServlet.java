@@ -33,16 +33,27 @@ public class MainServlet extends BaseServlet {
                                             WebAuthentication auth, Set groups) throws Exception {
         //todo get rid of this junk, we end up doing all the same stuff anyway, when the navigation object
         //goes, so does this crap
+        log.debug("1");
         Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+        log.debug("2");
         CoderSessionInfo ret = null;
+        log.debug("3");
         ret = new CoderSessionInfo(request, auth, groups);
+        log.debug("4");
         if (nav == null) {
+            log.debug("5a1");
             nav = new Navigation(request, ret);
+            log.debug("5a2");
             nav.setCoderSessionInfo(ret);
+            log.debug("5a3");
             request.getSession(true).setAttribute("navigation", nav);
+            log.debug("5a4");
         } else {
+            log.debug("5b1");
             nav.setCoderSessionInfo(ret);
+            log.debug("5b2");
             request.setAttribute("navigation", nav);
+            log.debug("5b3");
         }
         return ret;
     }
