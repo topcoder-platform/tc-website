@@ -441,10 +441,12 @@ Here are the rules:
 <ul>
 <li>You can submit the same problem as many times as you like.</li>
 <li>For every submission past the first one you will incur a 10% penalty of the problem point total potential.<br/>
-Example:  Coder A's 1st submission of the 500pt problem results in 400pts because they took approximately 15 minutes to solve it.<br/>
+Example:<br/>
+Coder A's 1st submission of the 500pt problem results in 400pts because they took approximately 15 minutes to solve it.<br/>
 Coder A's 2nd submission of the 500pt problem results in 280pts because they took an additional 8 minutes to solve (a total of 23) and we penalized 50pts (50 = 500*.10)</li>
 <li>You can never go below 3/10 of the problems point total potential.<br/>
-Example:  Coder B's 29th submission of the 500pt problem will result in 150pts<br/>
+Example:<br/>
+Coder B's 29th submission of the 500pt problem will result in 150pts<br/>
 Coder B's 55th submission of the 500pt problem will result in 150pts</li>
 </ul>
 **Some of the numbers in the examples above are rounded.
