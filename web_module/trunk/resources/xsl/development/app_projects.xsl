@@ -84,7 +84,7 @@
 
                                 <tr valign="middle">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Seat_Service_Scheduling_Design">Seat Service Scheduling Design</a>
+                                        <a href="?t=development&amp;c=Seat_Service_Inventory_Design">Seat Service Inventory Design</a>
                                     </td>
                                     <td class="projectCells" align="right">$1,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$470 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
