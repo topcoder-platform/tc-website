@@ -5,10 +5,14 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+
+import java.rmi.RemoteException;
 
 
 /**
@@ -22,6 +26,7 @@ public class Preview extends Base {
         if (userIdentified()) {
             try {
                 if (isRated()) {
+                    getRequest().setAttribute("cardUnlocked", new Boolean(isUnlocked()));
                     setNextPage(Constants.CARD_PREVIEW);
                     setIsNextPageInContext(true);
                 } else {
@@ -42,16 +47,31 @@ public class Preview extends Base {
         r.setContentHandle("member_profile");
         r.setProperty("cr", String.valueOf(getUser().getId()));
         ResultSetContainer coderInfo =
-                (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r).get("Coder_Data");
+                (ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r).get("Coder_Data");
         //if they've been rated in one of the competitions
         boolean rated = false;
-        if (!coderInfo.isEmpty() && (coderInfo.getIntItem(0, "rating")>0 ||
-                (coderInfo.getItem(0, "design_rating").getResultData()!=null&&coderInfo.getIntItem(0, "design_rating")>0) ||
-                (coderInfo.getItem(0, "development_rating").getResultData()!=null&&coderInfo.getIntItem(0, "development_rating")>0))) {
+        if (!coderInfo.isEmpty() && (coderInfo.getIntItem(0, "rating") > 0 ||
+                (coderInfo.getItem(0, "design_rating").getResultData() != null && coderInfo.getIntItem(0, "design_rating") > 0) ||
+                (coderInfo.getItem(0, "development_rating").getResultData() != null && coderInfo.getIntItem(0, "development_rating") > 0))) {
             rated = true;
         }
         return rated;
 
     }
+
+    protected boolean isUnlocked() throws Exception {
+        UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
+        boolean cardUnlocked = false;
+        try {
+            up.getValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            cardUnlocked = true;
+        } catch (RemoteException e) {
+            if (!(e.detail instanceof RowNotFoundException))
+                throw e;
+        }
+        return cardUnlocked;
+
+    }
+
 
 }

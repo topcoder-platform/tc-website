@@ -6,6 +6,7 @@
 
 <jsp:include page="../../script.jsp" />
 
+<% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <SCRIPT LANGUAGE="JavaScript">
@@ -96,7 +97,9 @@ document.write(' allowScriptAccess="sameDomain" ');
 document.write(' type="application/x-shockwave-flash" ');
 document.write(' pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
 document.write(' </object> ');
+<% if (cardUnlocked) { %>
 document.write(' <p align="center"><a href="/card?module=Unlock"><img src="/i/card/unlock.gif" border="0"/></a></p> ');
+<% } %>
 
 }
 // -->
