@@ -133,7 +133,7 @@ public class UserEdit extends BaseProcessor {
             throw(new TCWebException(e));
         }
 
-        setIsNextPageInContext(false);
+        setIsNextPageInContext(true);
         setNextPage(successPage);
     }
 
