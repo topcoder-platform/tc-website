@@ -214,7 +214,7 @@ public class UserAddressBean implements SessionBean {
                     "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("SELECT * FROM user_address_xref " +
+            ps = conn.prepareStatement("SELECT address_id FROM user_address_xref " +
                     "WHERE user_id = ?");
             ps.setLong(1, userId);
 
