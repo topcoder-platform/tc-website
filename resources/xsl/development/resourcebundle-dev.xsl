@@ -56,16 +56,16 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>Resource Bundle: Development</strong></h1>
+							<h1 class="devSubhead"><strong>ResourceBundle: Development</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Resource Bundle: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=ResourceBundle: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The Resource Bundle component enhances the existing java.util.ResourceBundle to provide dynamic reloading of resources. The existing ResourceBundle requires the JVM be restarted for resources to be reloaded.
+							The ResourceBundle component enhances the existing java.util.ResourceBundle to provide dynamic reloading of resources. The existing ResourceBundle requires the JVM be restarted for resources to be reloaded.
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Development Project: Provide a complete development for the Resource Bundle component.<br />
+							Component Development Project: Provide a complete development for the ResourceBundle component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> for further details regarding this project type.</p>
 
 							<p><strong>Technologies</strong></p>
@@ -114,7 +114,7 @@
 
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Resource Bundle: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=ResourceBundle: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
