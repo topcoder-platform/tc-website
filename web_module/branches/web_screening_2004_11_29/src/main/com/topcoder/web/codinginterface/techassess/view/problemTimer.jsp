@@ -17,7 +17,7 @@ if (o!=null) {
         <%
                 for (int i=0; i<problems.size(); i++) {
                     %> ids[<%=i%>] = 'problemTimer<%=((ScreeningProblemLabel)problems.get(i)).getComponentID()%>'; <%
-                    %> startTimes[<%=i%>] = <%=((ScreeningProblemLabel)problems.get(i)).getStartTime()%>; <%
+                    %> startTimes[<%=i%>] = <%=((ScreeningProblemLabel)problems.get(i)).getOpenTime().longValue()%>; <%
                 }
         %>
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
