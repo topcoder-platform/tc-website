@@ -193,34 +193,6 @@
                 <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="my_home_row"/>
 
-<!-- How to Get Paid -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="$level1='dev_payment'">leftNavSelect</xsl:when>
-                            <xsl:otherwise>leftNav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn">
-                        <xsl:attribute name="class">
-                        <xsl:choose>
-                            <xsl:when test="$level1='dev_payment'">leftOn</xsl:when>
-                            <xsl:otherwise>left</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=dev_payment</xsl:attribute>
-                        <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_right.gif">
-                            <xsl:attribute name="src">
-                                <xsl:choose>
-                                    <xsl:when test="$level1='dev_payment'">/i/clear.gif</xsl:when>
-                                    <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:attribute>
-                        </img>How to Get Paid</A>
-                    </td>
-                </tr>
-
 <!-- Development Round Tables -->
                 <tr>
                     <td id="leftNav">
@@ -249,6 +221,12 @@
 
 <!-- Contests -->
                 <xsl:call-template name="contests">
+                    <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
+                    <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
+                </xsl:call-template>
+
+<!-- FAQ -->
+                <xsl:call-template name="support">
                     <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
                     <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
                 </xsl:call-template>
@@ -393,19 +371,6 @@
                         </xsl:choose>
                         </xsl:attribute>
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=comp_preview</xsl:attribute>Competition Preview</A>
-                    </td>
-                </tr>
-
-<!-- Getting Started -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                        <xsl:when test="/TC/Command='getting_started'">leftSubnavOn</xsl:when>
-                        <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=getting_started</xsl:attribute>Getting Started</A>
                     </td>
                 </tr>
 
@@ -1164,6 +1129,81 @@
             <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=bonus_contest_0303</xsl:attribute>Design Bonus Contest 1</A>
         </td>
     </tr>
+        </xsl:if>
+  </xsl:template>
+
+<!-- FAQ -->
+    <xsl:template name="support">
+        <xsl:param name="level2"></xsl:param>
+        <xsl:param name="level3"></xsl:param>
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+                <xsl:choose>
+                    <xsl:when test="$level2='support'">leftNavOn</xsl:when>
+                    <xsl:otherwise>leftNav</xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn">
+                <xsl:attribute name="class">
+                    <xsl:choose>
+                        <xsl:when test="$level2='support'">leftOn</xsl:when>
+                        <xsl:otherwise>left</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=getting_started</xsl:attribute>
+            <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
+                 <xsl:attribute name="src">
+                    <xsl:choose>
+                        <xsl:when test="$level2='support'">/i/nav_arrow_bottom.gif</xsl:when>
+                        <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            </img>Support / FAQs</A>
+        </td>
+    </tr>
+
+    <xsl:if test="$level2='support'">
+
+<!-- Getting Started -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='getStarted'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=getting_started</xsl:attribute>Getting Started</A>
+       </td>
+    </tr>
+
+<!-- dev faq -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='faq'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=devFaq</xsl:attribute>Development FAQ</A>
+        </td>
+    </tr>
+
+<!-- How to Get Paid -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='getPaid'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=dev_payment</xsl:attribute>How to Get Paid</A>
+        </td>
+    </tr>
+
         </xsl:if>
   </xsl:template>
 

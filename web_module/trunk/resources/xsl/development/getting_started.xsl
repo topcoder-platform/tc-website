@@ -36,7 +36,7 @@
         <td width="180">
             <xsl:call-template name="global_left">
                 <xsl:with-param name="level1">development</xsl:with-param>
-                <xsl:with-param name="level2">components</xsl:with-param>
+                <xsl:with-param name="level2">support</xsl:with-param>
                 <xsl:with-param name="level3">getStarted</xsl:with-param>
             </xsl:call-template>
           </td>
