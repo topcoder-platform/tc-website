@@ -17,7 +17,10 @@ public class FullRegDemog extends FullRegBase {
         checkRegInfo(regInfo);
 
         if (hasErrors()) {
+            getRequest().setAttribute("countryList", getCountryList());
+            getRequest().setAttribute("stateList", getStateList());
             setNextPage(Constants.VERIZON_REG_PAGE);
+            setDefaults(regInfo);
         } else {
             try {
                 getRequest().setAttribute("fileTypeList", getFileTypes());

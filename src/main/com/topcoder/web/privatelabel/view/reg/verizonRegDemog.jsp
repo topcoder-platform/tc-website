@@ -13,7 +13,9 @@
 
 <body>
     <table cellpadding="1" cellspacing="3">
-        <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" enctype="multipart/form-data" method="POST" name="regForm">
+<!--        <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" enctype="multipart/form-data" method="POST" name="regForm">-->
+        <form action="/ps/?module=FullRegConfirm" enctype="multipart/form-data" method="POST" name="regForm">
+<!--
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.FULL_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <tr>
@@ -30,7 +32,7 @@
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
             </tr>
-
+-->
             <tr>
                 <td colspan="2">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.RESUME%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -44,7 +46,7 @@
                     <input type="file" name="<%=Constants.RESUME%>">
                 </td>
             </tr>
-
+<!--
             <tr>
                 <td colspan="2">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.FILE_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -58,7 +60,7 @@
                     <tc-webtag:rscSelect name="<%=Constants.FILE_TYPE%>" list="<%=fileTypeList%>" fieldText="file_type_desc" fieldValue="file_type_id"/>
                 </td>
             </tr>
-
+-->
             <tr>
                 <td colspan="2">
                     <a href="javascript: document.regForm.submit();">submit</a>
