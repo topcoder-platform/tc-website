@@ -153,7 +153,7 @@ public class SearchResults extends BaseScreeningProcessor {
 	query.append("and sppx.problem_id in (select problem_id from session_round_component sr, component cp ");
 	query.append("	where sr.component_id = cp.component_id and sr.session_round_id in ( select session_round_id from company_session_schedule where company_id = sp.company_id ) ) ");
 	query.append("and p.problem_id = sppx.problem_id ");
-        query.append("and cm.problem_id = p.problem_id");
+        query.append("and cm.problem_id = p.problem_id ");
 	query.append("and cs.component_id = cm.component_id ");
 	query.append("and cs.coder_id = c.coder_id ");
 	query.append("and cs.session_id = s.session_id ");
