@@ -109,7 +109,7 @@
                 </TR>                
                 <TR>
                   <TD class="statText" HEIGHT="18" align="center" colspan="20">
-                    You have no active job campaigns.  Contact  <A HREF="mailto:pmoriarty@topcoder.com" CLASS="statText">pmoriarty@topcoder.com</A> to set one up.
+                    Your job campaigns have expired.  Contact <A HREF="mailto:tces@topcoder.com" CLASS="statText">tces@topcoder.com</A> to renew your contract.
                   </TD>
                 </TR>
                 <% } %>
