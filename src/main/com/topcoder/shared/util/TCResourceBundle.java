@@ -55,6 +55,30 @@ public final class TCResourceBundle {
         return Integer.parseInt(str.trim());
     }
 
+
+
+    /**
+     *
+     * @param key
+     * @return
+     * @throws MissingResourceException
+     */
+    public String getProperty(String key) throws MissingResourceException {
+        return bundle.getString(key);
+    }
+
+
+    /**
+     * '
+     * @param key
+     * @return
+     * @throws MissingResourceException
+     */
+    public int getIntProperty(String key)throws MissingResourceException {
+        String str = getProperty(key);
+        return Integer.parseInt(str.trim());
+    }
+
     /**
      *
      * @param message
