@@ -6,6 +6,7 @@
             <table width="530" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999"><font size="3">Member Surveys</font></td>
+                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?&module=SurveyList" class="bodyText"><strong>View All</strong></a></td>
                 </tr>
             </table>
             
