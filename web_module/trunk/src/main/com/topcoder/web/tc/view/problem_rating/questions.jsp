@@ -32,7 +32,7 @@
             <td>
                         <input type="radio" name="<jsp:getProperty name="quest" property="ID"/>" value="<%= counter %>">
             </td>
-            </tc:problemRatingInput>
+            </tc:counter>
         </tr>
         </tc:problemRatingIterator>
     </table>
