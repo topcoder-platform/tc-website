@@ -8,6 +8,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.codinginterface.techassess.controller.request.Base;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.screening.common.ScreeningContext;
@@ -49,7 +50,7 @@ public class MainServlet extends BaseServlet {
 
         log.debug("create queue message sender");
         sender = new QueueMessageSender(ScreeningApplicationServer.JMS_FACTORY,
-                ScreeningApplicationServer.REQUEST_QUEUE, context);
+                DBMS.REQUEST_QUEUE, context);
         sender.setPersistent(true);
         sender.setDBPersistent(false);
         sender.setFaultTolerant(false);
@@ -57,7 +58,7 @@ public class MainServlet extends BaseServlet {
 
         log.debug("create queue response manager");
         receiver = new QueueResponseManager(ScreeningApplicationServer.JMS_FACTORY,
-                ScreeningApplicationServer.RESPONSE_QUEUE, context,
+                DBMS.RESPONSE_QUEUE, context,
                 "server: " + com.topcoder.web.codinginterface.techassess.Constants.SERVER_ID);
         log.info("created queue response manager");
 
