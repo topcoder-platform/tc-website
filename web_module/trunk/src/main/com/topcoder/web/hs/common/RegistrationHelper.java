@@ -1001,17 +1001,9 @@ public class RegistrationHelper {
             }
             boolean technical_problems = false;
             try {
-                Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
-                        ApplicationServer.SECURITY_PROVIDER_URL);
-                PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)
-                        ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                PrincipalMgrRemote pmr = pmrh.create();
-                try {
-                    pmr.getUser(handle);
+                if (userExists(handle)) {
                     addErrorMessage(errors, "Handle", HANDLE_TAKEN);
                     return (false);
-                } catch (NoSuchUserException _nsue) {
-                    /* do nothing */
                 }
             } catch (RemoteException _re) {
                 _re.printStackTrace();
@@ -1031,6 +1023,20 @@ public class RegistrationHelper {
             }
         }
         return (true);
+    }
+
+    protected static boolean userExists(String handle) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("user exists");
+        r.setProperty("hn", handle);
+
+        Context ctx = TCContext.getInitial();
+        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
+        DataAccessInt dai = new DataAccess(ds);
+
+        ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("user exists");
+        return !rsc.isEmpty();
+
     }
 
     /**
