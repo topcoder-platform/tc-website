@@ -27,7 +27,7 @@ public class TCO05LogoSubmit extends Base {
                 log.debug("got file " + files[i].getFile().toString());
                 FileOutputStream fos = new FileOutputStream(IMAGE_PATH + files[i].getFile().getName());
                 log.debug("write that file to " + IMAGE_PATH + files[i].getFile().getName());
-                byte[] bytes = new byte[files[i].getSize()];
+                byte[] bytes = new byte[(int)files[i].getSize()];
                 files[i].getInputStream().read(bytes);
                 fos.write(bytes);
                 //create record in image table
