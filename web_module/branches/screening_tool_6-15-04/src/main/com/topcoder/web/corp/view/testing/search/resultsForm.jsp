@@ -80,14 +80,12 @@ function getProblemDetail(id) {
                     align="middle">');
                     <param name="allowScriptAccess" value="sameDomain" />
                     <param name="movie"
-                    value="/i/corp/screeningRatingOdd.swf"/>
+                    value="/i/corp/screeningRatingOdd.swf?preference=<rsc:item row="<%=resultRow%>" name="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"/>
                     <param name="menu" value="false" />
                     <param name="quality" value="high" />
                     <param name="bgcolor" value="#ffffff" />
-                    <param name="preference" value="<rsc:item row="<%=resultRow%>" name="preference"/>" />
-                    <param name="sendurl" value="/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>" />
                     <embed
-                    src="/i/corp/screeningRatingOdd.swf"
+                    src="/i/corp/screeningRatingOdd.swf?preference=<rsc:item row="<%=resultRow%>" name="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"
                     menu="false"
                     quality="high"
                     bgcolor="#ffffff"
@@ -95,8 +93,6 @@ function getProblemDetail(id) {
                     height="12"
                     name="tc_card"
                     align="middle"
-                    preference="<rsc:item row="<%=resultRow%>" name="preference"/>"
-                    sendurl="/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>" 
                     allowScriptAccess="sameDomain"
                     type="application/x-shockwave-flash"
                     pluginspage="http://www.macromedia.com/go/getflashplayer" />
