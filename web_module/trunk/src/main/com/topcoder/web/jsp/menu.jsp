@@ -1,5 +1,10 @@
 <%@  page
-contentType="text/html"
+ language="java"
+ errorPage="/errorPage.jsp"
+%>
+<%
+   Navigation nav = (Navigation) session.getAttribute ( "navigation" );
+   if ( nav == null ) nav = new Navigation();
 %>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR>
