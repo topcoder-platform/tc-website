@@ -104,7 +104,6 @@
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.08.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_stargazette" CLASS="bodyText">Erin native wins $100,000 in contest</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.29.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_pcmag" CLASS="bodyText">You Are the Fastest Coder</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.24.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_courant" CLASS="bodyText">A Game Of Their Own</A></TD></TR>
-		<TR><TD COLSPAN="2" ALIGN="left" CLASS="bodyText"><BR/><BR/>Please direct media related questions to:<BR/><A HREF="mailto:gherchen@topcoder.com" CLASS="bodyText">George Herchenroether, VP of Marketing</A><BR/><BR/></TD></TR>
             </TABLE>
 <P><BR/></P>
 					</TD>
