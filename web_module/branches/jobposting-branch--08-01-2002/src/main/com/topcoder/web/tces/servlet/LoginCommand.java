@@ -99,6 +99,8 @@ public class LoginCommand implements TCESCommand, Serializable {
 	private void viewAuth(HttpServletRequest request, HttpServletResponse response,
 					 	  	   InitialContext ctx, ServletContext servCtx)  throws Exception
 	{
+		HttpSession session = request.getSession(true);
+
         String handle = request.getParameter(TCESConstants.HANDLE_PARAM);
         String password = request.getParameter(TCESConstants.PASSWORD_PARAM);
 
@@ -142,8 +144,6 @@ public class LoginCommand implements TCESCommand, Serializable {
 
 			return;
 		}
-
-		HttpSession session = request.getSession(true);
 
 		// record in this session that we have authenticated a user.
 		session.setAttribute( "user_id", new Integer(TCData.getTCInt(rRow,"user_id")) );
