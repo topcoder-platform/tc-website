@@ -49,8 +49,8 @@
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD COLSPAN="2">
-                <TABLE WIDTH="100%" BGCOLOR="#333333" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-                  <TR>
+                <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                  <TR BGCOLOR="#333333">
                     <TD CLASS="statTextBig"></TD>
                     <TD CLASS="statTextBig">Input Code</TD>
                     <TD CLASS="statTextBig">Input Desc</TD>

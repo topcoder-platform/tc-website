@@ -40,6 +40,7 @@
             <TD CLASS="statTextBig">Group Name</TD>
             <TD CLASS="statTextBig">Command Name</TD>
           </TR>
+          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
           <query:resultSetRowIterator id="command" list="<%=CommandListTask.getCommandList()%>">
             <TR>
               <TD CLASS="statText">
@@ -49,6 +50,7 @@
                 <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" CLASS="statText">
                   [edit]
                 </A>
+                &#160;&#160;
                 <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" CLASS="statText">
                   <query:resultSetItem row="<%=command%>" name="command_desc"/>
                 </A>

@@ -39,7 +39,7 @@
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
             Query: <jsp:getProperty name="QueryDetailTask" property="QueryName"/>
           </TD></TR>
-          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
             <A HREF="<jsp:getProperty name="QueryDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="QueryId"/>" class="statText">
               [edit query]
@@ -48,6 +48,10 @@
               [edit query input]
             </A>
           </TD></TR>
+          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+          <TR BGCOLOR="#333333" COLSPAN="2">
+            <TD CLASS="statText">Query Text</TD>
+          </TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
             <TD VALIGN="top" WIDTH="100%" CLASS="statText">
