@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="problemRatingQuestions" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<jsp:useBean id="" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <html>
 <head>
 <title>TopCoder Problem Rating Questions - <%= request.getAttribute("problemName") %></title>
@@ -21,9 +22,9 @@
                 </td>
             <% } %>
         </tr>
-        <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="question">
+        <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <tc:problemRatingInput id="problemRatingInput" question="<%=question%>">
+            <tc:problemRatingInput id="problemRatingInput" question="<%=quest%>">
             <td class="statText">
                 <%= question %>
             </td>
