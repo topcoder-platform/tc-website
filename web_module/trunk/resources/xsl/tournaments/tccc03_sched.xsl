@@ -133,7 +133,7 @@
                     </tr>
                     
                     <tr valign="middle">
-                      <td align="right" class="statText"><a class="statText" href="/index/?t=tournaments&amp;c=tccc03_competitors&amp;rds=4472"></a><strong>Competitors</strong></td>
+                      <td align="right" class="statText"><a class="statText" href="/index/?t=tournaments&amp;c=tccc03_competitors&amp;rds=4472"></a>Competitors</td>
                       <td align="center" class="statText">100</td>
                       <td align="center" class="statText">100</td>
                       <td align="center" class="statText">100</td>
@@ -233,11 +233,11 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Advancers<br />(Each Regional Champion wins $600)</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=N">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=STH">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=W">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=MW">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=INT">View</a></td>
                     </tr>
                     
                     <tr valign="middle">
