@@ -8,7 +8,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>03.16.05<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/NBC.wmv">The TCCC05 on NBC</A></span><br><br>
-      NBC Channel 11's Technology Reporter Scott Budman in Santa Clara recently did this small segment on the TCCC05.
+      NBC Channel 11's Technology Reporter Scott Budman in Santa Clara recently did this segment on the TCCC05.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
