@@ -48,7 +48,7 @@
 
             <h2>About Mohegan Sun</h2>
             
-            <p><img src="/i/tournament/tco03/pic_about_entry.jpg" width="160" height="478" border="0" alt="" align="right">
+            <p><img src="/i/tournament/tco03/pic_about_entry.jpg" width="160" height="478" border="0" alt="" align="right" hspace="10">
             Created by the Mohegan Tribe of Connecticut in 1996, Mohegan Sun is a legendary gaming and entertainment destination. 
             Renowned for exceptional service, hospitality and excitement, Mohegan Sun offers some of the region's finest dining, hotel 
             accommodations, live entertainment and retail shopping. It also hosts the fabulous Kids Quest/Cyber Quest family 
