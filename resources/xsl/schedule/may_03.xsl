@@ -92,7 +92,7 @@
                                     <strong>Match 145</strong><br/>
                                     Register: 7:00&#160;PM<br/>
                                     Compete: 10:00&#160;PM<br/>
-                                    <!-- Sponsored by:<br/> -->
+                                    Sponsored by: Sun<br/> 
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4530&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">7</td>
