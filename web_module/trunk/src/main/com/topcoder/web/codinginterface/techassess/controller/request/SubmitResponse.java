@@ -18,12 +18,17 @@ public class SubmitResponse extends Base {
                     new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
-            loadSessionErrorsIntoRequest(getRequest().getParameter(Constants.MESSAGE_ID));
-            log.debug("defaults: " + defaults);
-            loadSessionDefaultsIntoRequest(getRequest().getParameter(Constants.MESSAGE_ID));
-            log.debug("defaults: " + defaults);
-            setNextPage(Constants.PAGE_SUBMIT_CONFIRM);
-            setIsNextPageInContext(true);
+            setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
+            setIsNextPageInContext(false);
+
+            if (hasParameter(Constants.MESSAGE_ID)) {
+                String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
+                loadSessionDefaultsIntoRequest(messageId);
+                loadSessionErrorsIntoRequest(messageId);
+                loadUserMessageIntoRequest(messageId);
+                setNextPage(Constants.PAGE_SUBMIT_CONFIRM);
+                setIsNextPageInContext(true);
+            }
         }
     }
 

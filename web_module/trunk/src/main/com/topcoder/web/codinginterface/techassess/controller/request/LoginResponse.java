@@ -18,6 +18,7 @@ public class LoginResponse extends Base {
         if (hasParameter(Constants.MESSAGE_ID)) {
             String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
             loadSessionErrorsIntoRequest(messageId);
+            loadUserMessageIntoRequest(messageId);
             loadSessionDefaultsIntoRequest(messageId);
             if (hasErrors()) {
                 setNextPage(Constants.PAGE_LOGIN);

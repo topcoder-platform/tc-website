@@ -5,6 +5,7 @@ import com.topcoder.shared.netCommon.screening.response.ScreeningOpenComponentRe
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 
@@ -43,7 +44,16 @@ public class TestWindow extends Base {
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
-            send(request);
+            try {
+                send(request);
+            } catch (ServerBusyException e) {
+                setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
+                        new String[]{Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
+                        new String[]{getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
+                                     getRequest().getParameter(Constants.COMPONENT_ID)}));
+                setIsNextPageInContext(false);
+                return;
+            }
 
             showProcessingPage(Constants.SHORT_CONTENT);
 

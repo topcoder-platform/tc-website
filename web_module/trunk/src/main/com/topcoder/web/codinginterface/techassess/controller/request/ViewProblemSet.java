@@ -8,6 +8,7 @@ import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 
 import java.util.ArrayList;
@@ -42,7 +43,13 @@ public class ViewProblemSet extends Base {
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
-            send(request);
+            try {
+                send(request);
+            } catch (ServerBusyException e) {
+                setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
+                setIsNextPageInContext(false);
+                return;
+            }
 
             //need the problem type id in there so that one can hit refresh and have it work on the response.
             showProcessingPage();
@@ -89,7 +96,7 @@ public class ViewProblemSet extends Base {
                     }
                 }
             }
-            log.debug("there are " + problemList.size() + " problems");
+            //log.debug("there are " + problemList.size() + " problems");
 
             setDefault(Constants.PROBLEMS, problemList);
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));

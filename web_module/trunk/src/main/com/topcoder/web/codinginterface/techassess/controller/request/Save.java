@@ -7,6 +7,7 @@ import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 
 /**
@@ -57,7 +58,16 @@ public class Save extends Base {
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
-            send(request);
+            try {
+                send(request);
+            } catch (ServerBusyException e) {
+                setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
+                        new String[]{Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
+                        new String[]{getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
+                                     getRequest().getParameter(Constants.COMPONENT_ID)}));
+                setIsNextPageInContext(false);
+                return;
+            }
 
             //log.debug("problemtype : " + problemTypeId);
 
@@ -65,7 +75,7 @@ public class Save extends Base {
 
             ScreeningSaveResponse response = (ScreeningSaveResponse) receive(5000);
 
-            addError(Constants.CODE, response.getMessage());
+            setUserMessage(response.getMessage());
 
             Problem p = new Problem();
             p.setProblemComponents(new ProblemComponent[]{response.getProblemComponent()});

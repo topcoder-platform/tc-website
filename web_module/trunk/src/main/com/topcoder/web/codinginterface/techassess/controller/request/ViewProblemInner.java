@@ -25,6 +25,7 @@ public class ViewProblemInner extends Base {
                  */
                 loadSessionDefaultsIntoRequest(messageId, false);
                 loadSessionErrorsIntoRequest(messageId);
+                loadUserMessageIntoRequest(messageId);
                 if (hasDefault(Constants.PROBLEM)) {
                     getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
                     ProblemInfo problem = (ProblemInfo) getDefault(Constants.PROBLEM);

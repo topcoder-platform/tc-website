@@ -19,13 +19,14 @@ public class ProblemStatement extends Base {
             setIsNextPageInContext(false);
 
             if (hasParameter(Constants.MESSAGE_ID)) {
-                log.debug("has message id");
+                //log.debug("has message id");
                 String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
                 loadSessionErrorsIntoRequest(messageId);
                 loadSessionDefaultsIntoRequest(messageId);
-                log.debug("defaults: " + defaults);
+                loadUserMessageIntoRequest(messageId);
+                //log.debug("defaults: " + defaults);
                 if (hasDefault(Constants.PROBLEM)) {
-                    log.debug("has defaults");
+                    //log.debug("has defaults");
                     getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));
                     setNextPage(Constants.PAGE_PROBLEM_STATEMENT);
                     setIsNextPageInContext(true);

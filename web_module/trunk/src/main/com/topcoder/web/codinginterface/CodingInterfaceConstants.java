@@ -25,6 +25,5 @@ public interface CodingInterfaceConstants {
     public static final String SPONSOR_IMAGE = "sponsor_image";
     //public static final String SUCCESS_FLAG = "suc";
     public static final String SERVER_BUSY = "busy";
-    public static final String USER_MESSAGE = "umess";
 }
 
