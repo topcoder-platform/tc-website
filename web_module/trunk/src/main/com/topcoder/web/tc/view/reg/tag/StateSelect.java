@@ -11,7 +11,12 @@ import java.util.ArrayList;
 
 public class StateSelect
         extends Select {
-    public State NOT_IN_US;
+    public static final State NOT_IN_US;;
+    static {
+        NOT_IN_US = new State();
+        NOT_IN_US.setStateCode("");
+        NOT_IN_US.setStateName("Not In US");
+    }
     //public State SEPARATOR;
 
     public StateSelect() {
@@ -20,8 +25,6 @@ public class StateSelect
     }
 
     void init() {
-        NOT_IN_US = getState("", "Not In US");
-        //SEPARATOR = getState("", "-----------------------");
     }
 
     State getState(String code, String name) {
