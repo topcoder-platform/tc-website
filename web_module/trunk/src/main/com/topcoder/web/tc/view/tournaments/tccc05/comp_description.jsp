@@ -23,13 +23,18 @@
             
         <p class=bigTitle>Description of the Component Design and Development Competition</p>
 
-        <p>Eight Component finalists will be invited to attend the onsite finals in Santa Clara, CA, USA.</p>
+        <p>Eight Component finalists will be invited to compete live at the onsite finals in Santa Clara, CA, USA.</p>
             <ul>
                 <li><strong>Registration</strong><br />
-                    STARTS: Monday, December 20 at 9:00 AM ET<br/>
-                    ENDS: Monday, January 3 at 6:00 PM ET</li>
-                <li><strong>Free Competition</strong><br />
-                <li><strong>Open to all registered TopCoder college students over the age of 18.</strong></li>
+                    STARTS: Monday, December 20, 2004 at 9:00 AM ET<br/>
+                    ENDS: Monday, January 3, 2005 at 6:00 PM ET</li>
+                <li><strong>Online Rounds</strong><br />
+                    January 4 - February 3, 2004</li>
+                <li><strong>Onsite Finals</strong><br />
+                    March 10 & 11<br />
+					at the Santa Clara Marriott in Santa Clara, CA, USA</li>
+                <li><strong>Free Competition</strong><br /></li>
+                <li><strong>Open to all eligible college students over the age of 18.</strong></li>
             </ul>
             
             <p>See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_rules">rules and regulations</A> for more details.</p>

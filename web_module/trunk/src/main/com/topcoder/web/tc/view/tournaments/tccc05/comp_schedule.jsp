@@ -27,8 +27,8 @@
                 <tr valign="top">
                     <td class="sidebarText" width="25%">Registration</td>
                     <td class="sidebarText" width="75%">
-                        OPENS: Monday, December 20 at 9:00 AM ET<br /><br/>
-                        CLOSES: Monday, January 3 at 6:00 PM ET
+                        OPENS: Monday, December 20, 2004 at 9:00 AM ET<br /><br/>
+                        CLOSES: Monday, January 3, 2005 at 6:00 PM ET
                     </td>
                 </tr>
             </table>
@@ -68,7 +68,7 @@
 				</tr>
 				<tr>
                     <td class="sidebarText" nowrap=nowrap>Championship round</td>
-                    <td class="sidebarText" nowrap=nowrap>N/A</td>
+                    <td class="sidebarText" nowrap=nowrap>03.10.2005</td>
                     <td class="sidebarText" nowrap=nowrap>N/A</td>
                     <td class="sidebarText" nowrap=nowrap>03.10.2005</td>
 				</tr>
@@ -109,7 +109,7 @@
 				</tr>
 				<tr>
                     <td class="sidebarText" nowrap=nowrap>Championship round
-                    <td class="sidebarText" nowrap=nowrap>N/A
+                    <td class="sidebarText" nowrap=nowrap>03.10.2005</td>
                     <td class="sidebarText" nowrap=nowrap>N/A
                     <td class="sidebarText" nowrap=nowrap>03.10.2005
 				</tr>
