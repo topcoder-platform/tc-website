@@ -50,7 +50,9 @@
 	<xsl:with-param name="image">development</xsl:with-param>
 	<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
 </xsl:call-template>
-				
+				<xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
+		        <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
+		        <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>				
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr>
 					<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
@@ -59,7 +61,15 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong><<<component_name>>>: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>:%20Design&amp;comp=<<<COMPONENT_ID>>>&amp;date=<<<MONTH>>>&#47;<<<DAY>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						   <p>
+        						<a class="statText">
+        						    <xsl:attribute name="href">
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;comp=<<<COMPONENT_ID>>>&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+                                    </xsl:attribute>
+                                    <strong>Inquire about this project &gt;&gt;</strong>
+        						</a>
+                            </p>
+
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -94,9 +104,9 @@
 						<p><strong>Designer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - $<<<total_payment>>><br/>
-						First Deliverable - $<<<first_deliverable>>><br/>
-						Project Completion - $<<<final_payment>>></p>
+						<p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
+						First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
+					    Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -122,16 +132,25 @@
 						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-						<p>Component Posting: <<<posting_date>>><br/>
-						Initial Submission Due Date: <<<MONTH>>>.<<<DAY>>>.<<<YEAR>>><br/>
-						Winner Announced: <<<winner_date>>><br/>
-						Final Submission Due Date: <<<final_submission_date>>><br/>
-						Estimated Development End Date: <<<est_dev_end_date>>></p>
+						<p><br/>
+						Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
+						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/><br/>
+						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/><br/>
+						Estimated Development End Date: <xsl:value-of select="/TC/DEVELOPMENT/DesDevFinal"/></p>
+
 
 <!-- Register at TCS -->
 						
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>:%20Design&amp;comp=<<<COMPONENT_ID>>>&amp;date=<<<MONTH>>>&#47;<<<DAY>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						   <p>
+        						<a class="statText">
+        						    <xsl:attribute name="href">
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;comp=<<<COMPONENT_ID>>>&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+                                    </xsl:attribute>
+                                    <strong>Inquire about this project &gt;&gt;</strong>
+        						</a>
+                            </p>
+
 						<p><br /></p>
 					</td>
 
