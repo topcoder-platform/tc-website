@@ -2,10 +2,7 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.view.tag.DemographicInput;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -82,7 +79,7 @@ public class FullRegConfirm extends FullRegBase {
                 try {
                     r.setAnswerId(Long.parseLong(value));
                 } catch (NumberFormatException e) {
-                    r.setAnswerId(-1);//can just set fake answer now, will get checked later
+                    r.setAnswerId(DemographicAnswer.DELINE.getAnswerId());
                 }
             } else if (q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                 log.debug("don't know what to do with multiselect yet");
