@@ -52,13 +52,10 @@
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
-                        <p>TopCoder Employment Services [TCES] is pleased to announce its Candidate Recruiting Program. We are actively 
-                        soliciting top companies who are looking to hire software engineers and developers. These companies value programming 
-                        talent and are interested in hiring TopCoder members. All TopCoder members can choose to be notified via email of new 
-                        job postings, and rated members may express interest in open positions at these top companies through the job postings 
-                        and employment advertisements on TopCoder's web site. Rated members can showcase their competition achievements and 
-                        upload their resume as part of the process.</p>
+                    <td class="bodyText" width="100%"><img src="/i/es/header_looking_for.gif" alt="" width="510" height="84" border="0"/>
+                    
+                        <p>Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
+                        employees. And, like us, they understand the value of making hiring decisions based on an objective measure of coding skill.</p>
 
                         <p>Only rated members can apply for jobs posted by TCES. This allows companies to differentiate coders 
                         who otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the competition calendar 
