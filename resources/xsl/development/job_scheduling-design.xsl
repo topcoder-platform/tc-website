@@ -75,6 +75,9 @@
 							<ul>
 								<li>Java 1.4</li>
 							</ul>
+<!-- Documentation -->
+						<p><strong>Documentation</strong><br />
+						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3300911">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 							<p><strong>Payment</strong><br />
 							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
