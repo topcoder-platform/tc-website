@@ -22,7 +22,7 @@
             <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
             <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0"><br>
 
-<% if ((level1.equals("about")) || (level1.equals("review_board"))) { %>
+<% if ((level1.equals("about")) || (level1.equals("review_board")) || (level1.equals("management"))) { %>
 
 <%-- TopCoder Info begins *************************** --%>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
@@ -52,6 +52,10 @@
 <%-- Press Room begins --%>
                 <tr><td id="<%=level1.equals("press_room")?"leftNavOn":"leftNav"%>"><a href="/?&t=news_events&c=index" class="<%=level1.equals("press_room")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("press_room")?"bottom":"right"%>.gif" border="0"/>Press Room</a></td></tr>
 <%-- Press Room ends --%>
+
+<%-- Management begins --%>
+                <tr><td id="<%=level1.equals("management")?"leftNavSelect":"leftNav"%>"><a href="/tc?module=Static&d1=about&d2=management" class="<%=level1.equals("management")?"leftOn":"left"%>"><img alt="" src="/images/<%=level1.equals("management")?"clear":"nav_arrow_right"%>.gif" border="0"/>Management Team</a></td></tr>
+<%-- Management ends --%>
 
 <%-- Contacts begins --%>
                 <tr><td id="<%=level1.equals("contacts")?"leftNavOn":"leftNav"%>"><a href="/?&t=contacts&c=index" class="<%=level1.equals("contacts")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("contacts")?"bottom":"right"%>.gif" border="0"/>Contact Us</a></td></tr>
