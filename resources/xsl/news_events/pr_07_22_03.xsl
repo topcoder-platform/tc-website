@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>TopCoder Adds Sweden To Its Developer Community</title>
+<title>TopCoder Adds VB.NET Competitions</title>
 
 <xsl:call-template name="CSS"/>      
 
