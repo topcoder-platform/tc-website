@@ -208,7 +208,7 @@ function getProblemDetail(id) {
                         <script language="javascript">
                             document.write(' <object ');
                             document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
-                            document.write(' codebase="http://fpdownload.macromedia.com" ');
+                            document.write(' codebase="http://fpdownload.macromedia.com');
                             document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
                             document.write(' width="80" ');
                             document.write(' height="12" ');
