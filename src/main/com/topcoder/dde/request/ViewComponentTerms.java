@@ -4,9 +4,8 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.dde.util.Constants;
-import com.topcoder.dde.user.UserManagerLocalHome;
-import com.topcoder.dde.user.UserManagerLocal;
 import com.topcoder.dde.user.UserManagerRemoteHome;
+import com.topcoder.dde.user.UserManagerRemote;
 
 import javax.rmi.PortableRemoteObject;
 import javax.naming.NamingEnumeration;
@@ -24,9 +23,9 @@ public class ViewComponentTerms extends BaseProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-            UserManagerLocalHome userManagerHome = (UserManagerLocalHome)
-                    getInitialContext().lookup(UserManagerLocalHome.EJB_REF_NAME);
-            UserManagerLocal userManager = userManagerHome.create();
+            UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)
+                    getInitialContext().lookup("dde/UserManagerEJB");
+            UserManagerRemote userManager = userManagerHome.create();
 
             getRequest().setAttribute(Constants.TERMS, userManager.getComponentTerms());
             setNextPage("/terms/componentTerms.jsp");
