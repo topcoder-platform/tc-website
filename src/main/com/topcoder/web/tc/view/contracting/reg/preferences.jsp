@@ -106,120 +106,6 @@ return false;
 
 		</tc:preferenceGroupIterator>
 		
-		<span class=bodySubtitle>Contract Work</span>
-		<br/>
-
-		
-		<input type="checkbox" name="contract" value="" checked>I am interested in being hired for temporary contract work.
-        <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-			<tr>
-				<td width="100%" class=formTextEven>Minimum hourly rate:</td>
-				<td class=formTextEven>
-					<SELECT NAME="minHrRate">
-					<OPTION VALUE="">&#160;-
-					<OPTION VALUE="">$5.00/hr
-					<OPTION VALUE="">$10.00/hr
-					<OPTION VALUE="">$20.00/hr
-					<OPTION VALUE="">$50.00/hr
-					<OPTION VALUE="">$100.00/hr
-					</SELECT>
-				</td>
-			</tr>
-			<tr>
-				<td class=formTextOdd>Maximum length of engagement:</td>
-				<td class=formTextOdd>
-					<SELECT NAME="maxEngage">
-					<OPTION VALUE="">&#160;-
-					<OPTION VALUE="">3 months
-					<OPTION VALUE="">6 months
-					<OPTION VALUE="">9 months
-					<OPTION VALUE="">Indefinite
-					</SELECT>
-				</td>
-			</tr>
-			<tr>
-				<td class=formTextEven>Minimum length of engagement</td>
-				<td class=formTextEven>
-					<SELECT NAME="maxEngage">
-					<OPTION VALUE="">&#160;-
-					<OPTION VALUE="">No minimum
-					<OPTION VALUE="">3 months
-					<OPTION VALUE="">6 months
-					<OPTION VALUE="">9 months
-					</SELECT>
-				</td>
-			</tr>
-			<tr>
-				<td class=formTextOdd>Willing to travel:</td>
-				<td class=formTextOdd>
-					<SELECT NAME="travel">
-					<OPTION VALUE="">&#160;-
-					<OPTION VALUE="">Yes
-					<OPTION VALUE="">No
-					</SELECT>
-				</td>
-			</tr>
-		</table>
-		
-		<br/><br/>
-
-		<span class=bodySubtitle>Permanent Position</span>		
-		<br/>		
-
-		<input type="checkbox" name="contract" value="" checked>I am interested in being hired for permanent positions.<br/>
-        <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-			<tr>
-				<td width="100%" class=formTextEven>Minimum salary:</td>
-				<td class=formTextEven>
-					<SELECT NAME="minHrRate">
-					<OPTION VALUE="">&#160;-
-					<OPTION VALUE="">$25,000
-					<OPTION VALUE="">$50,000
-					<OPTION VALUE="">$75,000
-					<OPTION VALUE="">$100,000
-					<OPTION VALUE="">$1,000,000
-					</SELECT>
-				</td>
-			</tr>
-			<tr>
-				<td class=formTextOdd>Willing to relocate:</td>
-				<td class=formTextOdd>
-					<SELECT NAME="travel">
-					<OPTION VALUE="">&#160;-
-					<OPTION VALUE="">Yes
-					<OPTION VALUE="">No
-					</SELECT>
-				</td>
-			</tr>
-		</table>
-
-		<br/><br/>
-
-        <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-			<tr>
-				<td width="100%" class=formTextEven>Are you authorized to work in the US?</td>
-				<td class=formTextEven>
-					<SELECT NAME="minHrRate">
-					<OPTION VALUE="">&#160;-
-					<OPTION VALUE="">Yes
-					<OPTION VALUE="">No
-					</SELECT>
-				</td>
-			</tr>
-			<tr>
-				<td width="100%" class=formTextOdd>Preferred method for contact</td>
-				<td class=formTextOdd>
-					<SELECT NAME="minHrRate">
-					<OPTION VALUE="">&#160;-
-					<OPTION VALUE="">phone
-					<OPTION VALUE="">email
-					</SELECT>
-				</td>
-			</tr>
-		</table>
-
-		<br/><br/>
-
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=bodyText>Attach your <b>resume</b> here and we'll include it in your profile</td>
@@ -229,7 +115,7 @@ return false;
 			</tr>
 		</table>
 
-		<div width="100%" align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=languages"><img src="/i/submit.jpg" border=0/></a></div>
+		<div width="100%" align=center><br/><br/><a href="/tc?module=ContactingLanguages"><img src="/i/submit.jpg" border=0/></a></div>
 
 		</FORM>
 
