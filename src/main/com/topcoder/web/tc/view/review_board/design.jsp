@@ -84,7 +84,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=158333"><img src="/i/m/dvickrey_mug.gif" alt="dvickrey" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158333"><strong>dvickrey</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158333"><strong>dvickrey</strong></a><span class="smallText"> has reviewed over 15 components and has earned over a $1,000 as a review board member.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -136,7 +136,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=154754"><img src="/i/m/Ken_Vogel_mug.gif" alt="Ken Vogel" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a><span class="smallText"> has reviewed over 20 components including .NET and Java submissions.  Ken Vogel has also earned over $2,700 from TopCoder software by reviewing components and winning more than 5 designs.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -149,7 +149,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=152342"><img src="/i/m/kyky_mug.gif" alt="kyky" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a><span class="smallText"> graduated from the Moscow Institute of Electronic Technology with a BS in Computer Engineering and also earned an MS in Computer Science from the New Jersey Institute of Technology.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a><span class="smallText"> graduated from the Moscow Institute of Electronic Technology with a BS in Computer Engineering and also earned an MS in Computer Science from the New Jersey Institute of Technology.  kyky enjoys being part of the review board because he feels looking at other people's designs gives him the chance to learn from the thinking that went into the design and that's in addition to the aesthetic pleasure of looking at good designs. </span>
                         </p>                       
                      </td>
                 </tr>
@@ -201,7 +201,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=138663"><img src="/i/m/Sord_mug.gif" alt="Sord" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=138663"><strong>Sord</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=138663"><strong>Sord</strong></a><span class="smallText"> has been a valued member of the review board since the beginning of 2003.  He has reviewed many components including the Thesaurus and Chart Data Structure components.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -266,7 +266,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=156859"><img src="/i/clear.gif" alt="ivern" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=156859"><strong>ivern</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=156859"><strong>ivern</strong></a><span class="smallText"> has reviewed the DNS Query, Magic Numbers, Integer Utility and more then 10 other components.  Ivern has earned over $900 dollars reviewing components.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -279,7 +279,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=158258"><img src="/i/clear.gif" alt="jerm" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158258"><strong>jerm</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158258"><strong>jerm</strong></a><span class="smallText"> has reviewed numerous components including the Lightweight Model View Controller component.  Jerm has served on this board since February.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -292,7 +292,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=158201"><img src="/i/clear.gif" alt="mecraw" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158201"><strong>mecraw</strong></a><span class="smallText"> graduated from UMass Amherst.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158201"><strong>mecraw</strong></a><span class="smallText"> is a well respected and valued review board member.  Mecraw graduated from UMass Amherst and has over 6 years of experience designing systems.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -318,7 +318,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=119676"><img src="/i/clear.gif" alt="Pops" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><span class="smallText"> graduated from Indiana University and has received many corporate awards.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><span class="smallText"> graduated from Indiana University and has received many corporate awards.  Pops was also our first design contest winner!</span>
                         </p>                       
                      </td>
                 </tr>
@@ -331,7 +331,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=293470"><img src="/i/clear.gif" alt="sapro" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=293470"><strong>sapro</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=293470"><strong>sapro</strong></a><span class="smallText"> has earned over $900 dollars and reviewed more than 15 components as a member of the Review Board</span>
                         </p>                       
                      </td>
                 </tr>
@@ -344,7 +344,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=278595"><img src="/i/clear.gif" alt="seaniswise" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=278595"><strong>seaniswise</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=278595"><strong>seaniswise</strong></a><span class="smallText"> has reviewed over 20 components for TopCoder Software.  seaniswise has also won several design contests.</span>
                         </p>                       
                      </td>
                 </tr>
