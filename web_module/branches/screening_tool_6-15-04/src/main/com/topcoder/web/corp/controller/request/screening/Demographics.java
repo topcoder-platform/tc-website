@@ -25,6 +25,8 @@ import java.util.*;
  */
 public class Demographics extends BaseScreeningProcessor {
     
+    private static Logger log = Logger.getLogger(Demographics.class);
+    
     protected void screeningProcessing() throws com.topcoder.web.common.TCWebException {
         try {
             String campaignId = getRequest().getParameter(Constants.CAMPAIGN_ID);
@@ -105,6 +107,8 @@ public class Demographics extends BaseScreeningProcessor {
                         "does not belong to uid=" + getUser().getId());
             }
             
+            log.info("PRO COUNT:" + m.getProCount());
+            log.info("STUDENT COUNT:" + m.getStudentCount());
             getRequest().setAttribute("demographicInfo", m);
 
             setNextPage(Constants.DEMOGRAPHICS_PAGE);

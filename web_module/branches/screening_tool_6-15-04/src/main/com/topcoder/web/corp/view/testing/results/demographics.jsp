@@ -14,8 +14,8 @@
 </HEAD>
 <body>
 <% 
-//    Map StudentQuestionMap = demographicInfo.getStudentDemoInfo();
-//    Iterator StudentQuestionIterator = StudentQuestionMap.keySet().iterator();
+    Map StudentQuestionMap = demographicInfo.getStudentDemoInfo();
+    Iterator StudentQuestionIterator = StudentQuestionMap.keySet().iterator();
     
 //    Map ProQuestionMap = demographicInfo.getProDemoInfo();
 //    Iterator ProQuestionIterator = ProQuestionMap.keySet().iterator();
