@@ -113,44 +113,49 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         try {
             log.debug("user rating: " + getRating());
             if (getRating() > 0) {
-                jpHome = (JobPostingServicesHome) getInitialContext().lookup(ApplicationServer.JOB_POSTING_SERVICES);
-                jpServices = jpHome.create();
-                if (jobHits.size() > 0) {
-                    for (int i = 0; i < jobHits.size(); i++) {
-                        long currJob = ((Long) jobHits.get(i)).intValue();
+                if (hasResume) {
+                    jpHome = (JobPostingServicesHome) getInitialContext().lookup(ApplicationServer.JOB_POSTING_SERVICES);
+                    jpServices = jpHome.create();
+                    if (jobHits.size() > 0) {
+                        for (int i = 0; i < jobHits.size(); i++) {
+                            long currJob = ((Long) jobHits.get(i)).intValue();
+                            try {
+                                if (jpServices.jobExists(currJob)) {
+                                    jpServices.addJobHit(userId, currJob, Constants.JOB_POSTING_ID);
+                                } else {
+                                    throw new Exception("job: " + currJob + " either doesn't exist or isn't active");
+                                }
+                            } catch (Exception e) {
+                                throw new Exception("failed to add job hit for user: " + userId +
+                                        " job: " + jobHits.get(i) +
+                                        " hit type: " + Constants.JOB_POSTING_ID);
+                            }
+                        }
+                        setNextPage(Constants.PROFILE_PAGE);
+                        setNextPageInternal(true);
+                    } else {
                         try {
-                            if (jpServices.jobExists(currJob)) {
-                                jpServices.addJobHit(userId, currJob, Constants.JOB_POSTING_ID);
+                            if (jpServices.jobExists(jobId)) {
+                                jpServices.addJobHit(userId, jobId, hitType);
+                                if (hitType==Constants.CLICK_THRU_ID) {
+                                    setNextPage(jpServices.getLink(jobId));
+                                    setNextPageInternal(false);
+                                } else {
+                                    setNextPage(Constants.PROFILE_PAGE);
+                                    setNextPageInternal(true);
+                                }
                             } else {
-                                throw new Exception("job: " + currJob + " either doesn't exist or isn't active");
+                                throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
                             }
                         } catch (Exception e) {
                             throw new Exception("failed to add job hit for user: " + userId +
-                                    " job: " + jobHits.get(i) +
-                                    " hit type: " + Constants.JOB_POSTING_ID);
+                                    " job: " + jobId +
+                                    " hit type: " + Constants.JOB_POSTING_ID + "\n" + e.getMessage());
                         }
                     }
-                    setNextPage(Constants.PROFILE_PAGE);
-                    setNextPageInternal(true);
                 } else {
-                    try {
-                        if (jpServices.jobExists(jobId)) {
-                            jpServices.addJobHit(userId, jobId, hitType);
-                            if (hitType==Constants.CLICK_THRU_ID) {
-                                setNextPage(jpServices.getLink(jobId));
-                                setNextPageInternal(false);
-                            } else {
-                                setNextPage(Constants.PROFILE_PAGE);
-                                setNextPageInternal(true);
-                            }
-                        } else {
-                            throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
-                        }
-                    } catch (Exception e) {
-                        throw new Exception("failed to add job hit for user: " + userId +
-                                " job: " + jobId +
-                                " hit type: " + Constants.JOB_POSTING_ID + "\n" + e.getMessage());
-                    }
+                    setNextPage(Constants.NO_RESUME_PAGE);
+                    setNextPageInternal(true);
                 }
             } else {
                 setNextPage(Constants.UNRATED_PAGE);
@@ -250,7 +255,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         try {
             rHome = (ResumeServicesHome) getInitialContext().lookup(ApplicationServer.RESUME_SERVICES);
             rServices = rHome.create();
-            hasResume = rServices.hasResume(getUserId());
+            setHasResume(rServices.hasResume(getUserId()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
             throw e;
