@@ -104,6 +104,13 @@ public interface Purchase extends EJBObject {
      */
     double getPaid(long purchaseId) throws RemoteException, EJBException;
 
+
+    /**
+     * @see com.topcoder.web.ejb.product.PurchaseBean#getCreateDate
+     */
+    Date getCreateDate(long productId) throws RemoteException, EJBException;
+
+
     /**
      *
      *

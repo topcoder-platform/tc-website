@@ -12,10 +12,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 /**
@@ -398,7 +395,7 @@ public class ProductBean implements SessionBean {
      *
      * @param productId product ID of the entry
      *
-     * @return the entry's number of units
+     * @return the entry's unit type id
      */
     public long getUnitTypeId(long productId) {
         log.debug("getUnitTypeId called...product_id: " + productId);
@@ -476,7 +473,7 @@ public class ProductBean implements SessionBean {
      *
      * @param productId product ID of the entry
      *
-     * @return the entry's number of units
+     * @return the unit type description
      */
     public String getUnitTypeDesc(long productId) {
         log.debug("getUnitTypeDesc called...product_id: " + productId);
@@ -547,7 +544,6 @@ public class ProductBean implements SessionBean {
 
         return (ret);
     }
-
 
 
 
@@ -826,6 +822,7 @@ public class ProductBean implements SessionBean {
             }
         }
     }
+
 
 
 
