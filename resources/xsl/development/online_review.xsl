@@ -137,7 +137,7 @@
 
 <!-- Register at TCS -->
 						   <p>
-        						<strong>View the <a class="statText" href="/index?&amp;t=development&amp;c=online_review_req">Requirement Specification</a> for this application project &gt;&gt;</strong>
+        						<strong>View the <a target="_new" class="statText" href="/i/development/downloads/Online-Review-Spec.html">Requirement Specification</a> for this application project &gt;&gt;</strong>
                             </p>
 						
 
