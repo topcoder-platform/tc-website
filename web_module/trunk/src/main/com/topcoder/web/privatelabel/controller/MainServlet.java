@@ -43,7 +43,7 @@ public class MainServlet extends BaseServlet {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.PRIVATE_LABEL_SITE);
     }
 
-        protected SessionInfo createSessionInfo(TCRequest request,
+    protected SessionInfo createSessionInfo(TCRequest request,
                                             WebAuthentication auth, Set groups) throws Exception {
         CoderSessionInfo ret = new CoderSessionInfo(request, auth, groups);
         return ret;

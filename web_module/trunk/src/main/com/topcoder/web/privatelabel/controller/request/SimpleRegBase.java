@@ -130,7 +130,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
                     Constants.MAX_EMAIL_LENGTH + " characters.");
         }
         StringTokenizer st = new StringTokenizer(info.getEmail(), "@.");
-        if (st.countTokens()<3
+        if (st.countTokens() < 3
                 || !StringUtils.contains(info.getEmail(), '@')
                 || !StringUtils.contains(info.getEmail(), '.')) {
             addError(Constants.EMAIL, "Please enter a valid email address.");
@@ -140,19 +140,19 @@ public abstract class SimpleRegBase extends RegistrationBase {
         }
 
         //check first name
-        if (info.getFirstName().length()<1) {
+        if (info.getFirstName().length() < 1) {
             addError(Constants.FIRST_NAME, "Please enter your first name.");
         }
 
         //nothing for middle name
 
         //check last name
-        if (info.getLastName().length()<1) {
+        if (info.getLastName().length() < 1) {
             addError(Constants.LAST_NAME, "Please enter your last name.");
         }
 
         //check address1
-        if (info.getAddress1().length()<1) {
+        if (info.getAddress1().length() < 1) {
             addError(Constants.ADDRESS1, "Please enter your address.");
         }
 
@@ -161,13 +161,13 @@ public abstract class SimpleRegBase extends RegistrationBase {
         //nothing to check for address3
 
         //check country code
-        if (info.getCountryCode().trim().length()==0 || findCountry(info.getCountryCode())==null) {
+        if (info.getCountryCode().trim().length() == 0 || findCountry(info.getCountryCode()) == null) {
             addError(Constants.COUNTRY_CODE, "Please chooose a country from the list.");
         }
 
         //state code
         if (info.getCountryCode().equals("840")) {
-            if (info.getStateCode().trim().length()==0 || findState(info.getStateCode())==null) {
+            if (info.getStateCode().trim().length() == 0 || findState(info.getStateCode()) == null) {
                 addError(Constants.STATE_CODE, "Please chooose a state from the list.");
             }
         }
@@ -175,7 +175,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         //nothing to check for province
 
         //city
-        if (info.getCity().length()<1) {
+        if (info.getCity().length() < 1) {
             addError(Constants.CITY, "Please enter your city.");
         }
         //zip
@@ -190,7 +190,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         r.setContentHandle("user exists");
         r.setProperty("hn", handle);
 
-        ResultSetContainer rsc = (ResultSetContainer)getDataAccess(db).getData(r).get("user exists");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess(db).getData(r).get("user exists");
         return !rsc.isEmpty();
 
     }
@@ -201,7 +201,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         r.setProperty("em", email);
         r.setProperty("cm", getRequestParameter(Constants.COMPANY_ID));
 
-        ResultSetContainer rsc = (ResultSetContainer)getDataAccess(db).getData(r).get("email exists");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess(db).getData(r).get("email exists");
         return !rsc.isEmpty();
 
     }

@@ -29,7 +29,7 @@ public abstract class FullLogin extends FullReg {
 
         boolean ret = false;
         long userId = getUserId(handle);
-        if (userId>0) {
+        if (userId > 0) {
             char status = getStatus(userId);
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
                 try {
@@ -55,7 +55,7 @@ public abstract class FullLogin extends FullReg {
      */
     private char getStatus(long userId) throws Exception {
         char result;
-        com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User)createEJB(getInitialContext(), com.topcoder.web.ejb.user.User.class);
+        com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User) createEJB(getInitialContext(), com.topcoder.web.ejb.user.User.class);
         result = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
         return result;
 
@@ -65,10 +65,11 @@ public abstract class FullLogin extends FullReg {
         Request r = new Request();
         r.setContentHandle("user_id_using_handle");
         r.setProperty("ha", handle);
-        ResultSetContainer rsc = (ResultSetContainer)getDataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("user_id");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("user_id");
         if (rsc.isEmpty())
             return -1;
-        else return rsc.getLongItem(0, "user_id");
+        else
+            return rsc.getLongItem(0, "user_id");
     }
 
 

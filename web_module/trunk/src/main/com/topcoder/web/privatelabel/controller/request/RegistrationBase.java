@@ -78,8 +78,8 @@ public abstract class RegistrationBase extends BaseProcessor {
         r.setProperty("dstid", String.valueOf(type));
         //not sure if this db is ok...we'll see
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
-        ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");
-        if (rsc==null || rsc.isEmpty()) {
+        ResultSetContainer rsc = (ResultSetContainer) m.get("company_datasource");
+        if (rsc == null || rsc.isEmpty()) {
             throw new Exception("Could not find datasource for company: " + companyId);
         } else {
             return rsc.getStringItem(0, "datasource_name");
@@ -171,21 +171,21 @@ public abstract class RegistrationBase extends BaseProcessor {
     }
 */
 
-     protected String getRequestParameter(String name) throws Exception {
+    protected String getRequestParameter(String name) throws Exception {
         String ret = null;
         ret = getRequest().getParameter(name);
         return ret;
     }
 
     protected boolean hasRequestParameter(String name) throws Exception {
-       return getRequest().getParameter(name)!=null;
-   }
+        return getRequest().getParameter(name) != null;
+    }
 
     protected SimpleRegInfo getRegInfoFromPersistor() {
         //TODO return a clone
         SimpleRegInfo info = null;
         Persistor p = new SessionPersistor(getRequest().getSession(true));
-        info = (SimpleRegInfo)p.getObject(Constants.REGISTRATION_INFO);
+        info = (SimpleRegInfo) p.getObject(Constants.REGISTRATION_INFO);
         return info;
     }
 

@@ -19,10 +19,10 @@ public class VerizonReg extends FullReg {
         if (!(ret instanceof VerizonRegInfo)) {
             ret = new VerizonRegInfo(ret);
         }
-        ((VerizonRegInfo)ret).setRegFull(getActiveCount(db)>=Constants.MAX_VERIZON_REGISTRATIONS);
+        ((VerizonRegInfo) ret).setRegFull(getActiveCount(db) >= Constants.MAX_VERIZON_REGISTRATIONS);
         //set a couple of additional defaults for this verizon deal
-        if (ret.getCity()==null || ret.getCity().length()==0) ret.setCity("Chennai");
-        if (ret.getCountryCode()==null || ret.getCountryCode().length()==0) ret.setCountryCode("356");
+        if (ret.getCity() == null || ret.getCity().length() == 0) ret.setCity("Chennai");
+        if (ret.getCountryCode() == null || ret.getCountryCode().length() == 0) ret.setCountryCode("356");
         return ret;
     }
 
@@ -30,7 +30,7 @@ public class VerizonReg extends FullReg {
         DataAccessInt dai = getDataAccess(db);
         Request r = new Request();
         r.setContentHandle("active count");
-        ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("active count");
+        ResultSetContainer rsc = (ResultSetContainer) dai.getData(r).get("active count");
         return rsc.getIntItem(0, "count");
     }
 }

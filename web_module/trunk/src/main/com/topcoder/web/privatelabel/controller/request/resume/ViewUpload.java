@@ -8,7 +8,7 @@ public class ViewUpload extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            ResumeServices resumeServices = (ResumeServices)createEJB(getInitialContext(), ResumeServices.class);
+            ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
             getRequest().setAttribute("fileTypes", resumeServices.getFileTypes(getDb()));
         } catch (Exception e) {
             throw new TCWebException(e);
