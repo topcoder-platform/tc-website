@@ -32,6 +32,12 @@
   </init-param>
 
   <init-param>
+    <param-name>error_page</param-name>
+    <param-value>/home/error.jsp</param-value>
+    <description>path to page which handles errors</description>
+  </init-param>
+
+  <init-param>
     <param-name>security_component_remote_address</param-name>
     <param-value>172.16.20.40:1099</param-value>
     <description>Context.PROVIDER_URL for locating the security component EJBs</description>

@@ -3,6 +3,7 @@
 package com.topcoder.web.hs.controller.requests;
 
 import java.io.*;
+import com.topcoder.web.hs.common.*;
 
 /**
  * A RequestProcessor which handles an exception which occured during a previous attempt at dispatching a request.
@@ -32,7 +33,7 @@ public class Error extends Base {
         request.setAttribute("error_name", en);
         request.setAttribute("error_cause", et);
 
-        setNextPage("/home/error.jsp");  //@@@ name this
+        setNextPage(Constants.error_page);
         setIsNextPageInContext(true);
     }
 }

@@ -15,6 +15,7 @@ public class Constants {
    public static String public_home;
    public static String member_home;
    public static String login_form;
+   public static String error_page;
 
   /**
    * Initializes all public static Strings in this class which also appear as
