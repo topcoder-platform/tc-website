@@ -70,7 +70,7 @@
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                 <rsc:iterator list="<%=resultSet%>" id="resultRow">
+                 <rsc:iterator list="<%=rsc%>" id="resultRow">
                    <TR>
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
