@@ -77,10 +77,10 @@
                             <tr><td colspan="4" class="statText"><strong>Schools Represented</strong><br /><br /></td></tr>
 
                         <tr>
-                            <td width="25%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_ne" class="statTextBig"></a>Northeast</td>
-                            <td width="25%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_se" class="statTextBig"></a>Southeast</td>
-                            <td width="25%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_w" class="statTextBig"></a>West</td>
-                            <td width="25%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_mw" class="statTextBig"></a>Midwest</td>
+                            <td width="25%" align="center" class="tourney_subhead1">Northeast</td>
+                            <td width="25%" align="center" class="tourney_subhead1">Southeast</td>
+                            <td width="25%" align="center" class="tourney_subhead1">West</td>
+                            <td width="25%" align="center" class="tourney_subhead1">Midwest</td>
                         </tr>
 
                         <tr valign="top">
@@ -264,7 +264,7 @@
 
                             <tr><td colspan="4"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 
-                            <tr><td colspan="4" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_ne" class="statTextBig"></a>International</td></tr>
+                            <tr><td colspan="4" align="center" class="tourney_subhead1">International</td></tr>
 
                             <tr valign="top">
                                 <td colspan="2" class="statText">
