@@ -96,8 +96,8 @@
             </p>
 
             <p><span class="bodySubtitle">Eligibility</span><br />
-            TopCoder members who are 18 years of age or older are eligible to win cash prizes.  The TopCoder Open is 
-            void in the Quebec province of Canada, and elsewhere where prohibited.  Cash prizes will not be paid to residents 
+            TopCoder members who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited.  The TopCoder Open is 
+            void in the Quebec province of Canada, and elsewhere where prohibited by applicable law.  Cash prizes will not be paid to residents 
             of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.</p>
 
             <p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation
