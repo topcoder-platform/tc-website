@@ -31,7 +31,7 @@
     <TR>
       <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
       <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
-        <A HREF="/tcesctx?task=<%= navs[i].getTaskKey() %>" CLASS="subNav"><%= navs[i].getPageTitle() %></A>
+        <A HREF="<%= TCESController.ALIAS %>?task=<%= navs[i].getTaskKey() %>" CLASS="subNav"><%= navs[i].getPageTitle() %></A>
       </TD>
       <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     </TR>
