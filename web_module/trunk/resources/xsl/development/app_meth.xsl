@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-  <xsl:import href="../includes/dev/public_dev_left.xsl"/>  
+  <xsl:import href="../includes/global_left.xsl"/>  
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -24,14 +24,14 @@
 
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 	<xsl:call-template name="Top" />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
 	<tr valign="top">
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC">
-			<xsl:call-template name="public_dev_left"/>
+			<xsl:call-template name="global_left"/>
 	  	</td>
 <!-- Left Column Ends -->
 

@@ -5,7 +5,7 @@
   <xsl:import href="../includes/body_top.xsl"/>  
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/stats_intro.xsl"/>  
-  <xsl:import href="../includes/dev/public_dev_left.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
   <xsl:import href="../includes/dev/public_dev_right.xsl"/>    
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -19,7 +19,7 @@
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+      <body bgcolor="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <xsl:call-template name="Top"/>
 
 <!-- Body Begins -->
@@ -29,7 +29,7 @@
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->        
-        <xsl:call-template name="public_dev_left"/>
+        <xsl:call-template name="global_left"/>
   <!-- Global Seconday Nav Ends -->      
 <!-- Left Column Include Ends -->              
       </TD>
