@@ -58,7 +58,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="Handle" TYPE="TEXT" VALUE="">
+                      <INPUT MAXLENGTH="25" SIZE="20" NAME="handle" TYPE="TEXT" VALUE="">
                     </TD>
                   </TR>
                   <TR>
@@ -66,7 +66,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="Password" TYPE="Password" VALUE="">
+                      <INPUT MAXLENGTH="25" SIZE="20" NAME="password" TYPE="Password" VALUE="">
                     </TD>
                   </TR>
                   <TR>
