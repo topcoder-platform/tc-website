@@ -3,7 +3,22 @@
   <xsl:template name="tccc03_links">
   <BR/>
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
-	  <TR><TD COLSPAN="3"><DIV ALIGN="center"><A HREF="/index?t=tournaments&amp;c=tccc03_sched" CLASS="statTextBig"><IMG SRC="/i/tournament/tccc03/tccc03_logo_bnr.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></DIV></TD></TR>
+	  <TR><TD COLSPAN="3"><DIV ALIGN="center"><IMG SRC="/i/tournament/tccc03/tccc03_logo_bnr.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></DIV></TD></TR>
+
+
+
+	  <TR><TD COLSPAN="3" CLASS="statText"><DIV ALIGN="center">
+                <xsl:choose>
+                  <xsl:when test="/TC/LoggedIn='true'">
+In order to sign-up for the TopCoder Collegiate Challenge, go to your <A HREF="/?&amp;t=home&amp;c=home" CLASS="statText">member home page</A> and click on the sign-up link at the top.  
+                  </xsl:when>
+                  <xsl:otherwise>
+In order to sign-up for the TopCoder Collegiate Challenge, <A HREF="/?&amp;t=authentication&amp;c=login" CLASS="statText">login</A> to the web site and click on the sign-up link at the top of your member home page.  
+                  </xsl:otherwise>
+                </xsl:choose>
+                <BR/>
+                <BR/>
+          </DIV></TD></TR>
       <TR>
         <TD COLSPAN="3" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;TOURNAMENT FEATURES</TD>
       </TR>                    						
