@@ -61,7 +61,7 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
-                            <tr><td class="newsText"><A href="">Outsourcing trend touches independents, too</A> [September 15 - Search CIO]</td></tr>
+                            <tr><td class="newsText"><A href="http://searchcio.techtarget.com/originalContent/0,289142,sid19_gci1006375,00.html" target="_blank">Outsourcing trend touches independents, too</A> [September 15 - Search CIO]</td></tr>
 
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_08_10_04">Better than You: King of code</A> [August 10 - Red Herring]</td></tr>
 
