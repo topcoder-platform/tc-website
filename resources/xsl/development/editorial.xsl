@@ -125,7 +125,7 @@ Technologies
                                     <b>Payment</b>
                                     <BR/>
                                     <BR/>
-                                    Architect will get paid a total of $2,275.33:
+                                    Architect will get paid a total of $2,275.00:
                                     <ul>
                                         <li>$227.00 at the start of the project.</li>
                                         <li>$455.00 at the first milestone.</li>
