@@ -58,20 +58,37 @@
                
 
                <blockquote>
+               <table>
+               <tr>
+               <td>
                <p>Donations can be made by:<br />
-               <ul>
-               <li>Credit card online at <A href="https://www.virtualsprockets.com/Transactions/secure1.cfm?clientID=72&return=http://www.christopherreeve.org/&ContributeType=c&ContributeURL=https://www.virtualsprockets.com/Transactions/secure1.cfm&case=DEFAULT&category=2&origin=TopCoderWebsite2003&mx=0&H=0&source=C&email=$X$&O18=0&CTZ=0&mid=0&FN=2&FormType=C&ExecNum=x5s6&FA=0&ACT=0" target="_blank">www.christopherreeve.org/topcoder</A>.  
+               </td>
+               </tr>
+               <tr>
+               <td width="150" align="right"><img src="/i/tournament/crpf03/creditcard.gif" width="89" height="63" border="0">
+               </td>
+               <td>
+               <p>Credit card online at <A href="https://www.virtualsprockets.com/Transactions/secure1.cfm?clientID=72&return=http://www.christopherreeve.org/&ContributeType=c&ContributeURL=https://www.virtualsprockets.com/Transactions/secure1.cfm&case=DEFAULT&category=2&origin=TopCoderWebsite2003&mx=0&H=0&source=C&email=$X$&O18=0&CTZ=0&mid=0&FN=2&FormType=C&ExecNum=x5s6&FA=0&ACT=0" target="_blank">www.christopherreeve.org/topcoder</A>.  
                Donators will enter in the TopCoder member's name and/or handle so the donation can be matched with a TopCoder member.  
-               This is important as eligibility and prizes are determined based on how much money each member raises.</li>
-               <li>Check.  Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A> and submit the form and a check to:<br />
+               This is important as eligibility and prizes are determined based on how much money each member raises.
+               </td>
+               </tr>
+               <tr>
+               <td width="150" align="right"><img src="/i/tournament/crpf03/check.gif" width="150" height="63" border="0">
+               </td>
+               <td>
+               <p>
+               Check.  Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A> and submit the form and a check to:<br />
                      <ul>
                      <li>VirtualSprockets<br />
                      17610 West Willard Road<br />
                      Poolsville, MD  20837<br />
                      ATTN:  CRPF DONATIONS</li>
                      </ul></li>
-               </ul>
                </p>
+               </td>
+               </tr>
+               </table>
                </blockquote>
             
             <p><br /></p>
