@@ -387,6 +387,17 @@
         </jar>
     </target>
 
+    <target name="package-EJB-RBoardApplication" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="RBoardApplication"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/rboardapplication"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/RBoardApplication.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+        </jar>
+    </target>
+
     <target name="package-EJB-PhoneBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Phone"/>
@@ -943,6 +954,7 @@
         <antcall target="package-EJB-CoderBean"/>
         <antcall target="package-EJB-ProblemRatingBean"/>
         <antcall target="package-EJB-SurveyBean"/>
+        <antcall target="package-EJB-RBoardApplication"/>
         <antcall target="war-tc"/>
     </target>
 
@@ -1071,6 +1083,20 @@
             </classpath>
         </java>
     </target>
+
+    <target name="RatingHistory" depends="compile">
+        <java classname="com.topcoder.utilities.RatingHistory" fork="false">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
 
 </project>
 

@@ -50,7 +50,7 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    public long getReviewRespId(String dataSource, long userId, long projectId, int phaseId) {
+    public int getReviewRespId(String dataSource, long userId, long projectId, int phaseId) {
         return selectInt("rboard_application",
                 "review_resp_id",
                 new String[] {"user_id", "project_id", "phase_id"},

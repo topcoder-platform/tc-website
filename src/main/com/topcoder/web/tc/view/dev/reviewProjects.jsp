@@ -1,8 +1,10 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
@@ -50,7 +52,7 @@
 
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
                     <tr>
-                        <td class="bodyText"><a href="/tc?module=ReviewProjectDetail&pj=<rsc:item row="<%=resultRow%>" name="project_id"/>&ph=<rsc:item row="<%=resultRow%>" name="phase_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
+                        <td class="bodyText"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
