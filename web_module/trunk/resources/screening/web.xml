@@ -717,6 +717,13 @@
     <description></description>
   </init-param>
 
+    <init-param>
+      <param-name>date_time_format</param-name>
+      <param-value>MM/dd/yyyy hh:mm a</param-value>
+      <description></description>
+    </init-param>
+
+
   <load-on-startup>2</load-on-startup>
 
 </servlet>

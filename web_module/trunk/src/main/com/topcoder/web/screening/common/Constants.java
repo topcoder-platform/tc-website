@@ -143,6 +143,8 @@ public class Constants
     public static String ERRORS;
     public static String DEBUG;
 
+    public static String DATE_TIME_FORMAT;
+
     public static void initialize(ServletConfig config) {
         //Controller Servlet Constants
         LOGIN_PAGE = config.getInitParameter("login_page");
@@ -333,6 +335,8 @@ public class Constants
             config.getInitParameter("contact_info_query_key");
         ERRORS = config.getInitParameter("errors_attribute");
         DEBUG = config.getInitParameter("debug_flag");
+
+        DATE_TIME_FORMAT = config.getInitParameter("date_time_format");
 
         isInitialized = true;
     }
