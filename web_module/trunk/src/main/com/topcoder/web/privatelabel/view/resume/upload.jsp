@@ -6,9 +6,11 @@
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="fileTypes" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 <HTML>
-<HEAD><TITLE>Resume Upload</TITLE></HEAD>
+<HEAD><TITLE>Resume Upload</TITLE>
+<jsp:include page="../script.jsp" />
+</HEAD>
   <BODY BGCOLOR="#FFFFFF">
-    <TABLE WIDTH="100%" CLASS="bodyText" border="1">
+    <TABLE WIDTH="100%" CLASS="bodyText" border="0">
       <TR>
         <TD class="bodyText" nowrap>
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">

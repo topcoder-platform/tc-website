@@ -42,19 +42,19 @@
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
     <table BORDER="0" CELLSPACING="1" CELLPADDING="5" WIDTH="100%">
-        <tr><td class="bodyTextBig">Question</td><td class="bodyTextBig">Average Rating</td></tr>
+        <tr><td class="bodyTextBig">Question</td><td class="bodyTextBig" align="right">Average Rating</td></tr>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
         <% count = result.getIntItem("count"); %>
         <tr>
             <td class="bodyText">
                 <rsc:item row="<%=result%>" name="question"/> :
             </td>
-            <td class="bodyText">
+            <td class="bodyText" align="right">
                 <rsc:item row="<%=result%>" name="average" format="#.##"/>
             </td>
         </tr>
         </rsc:iterator>
-        <tr><td class="bodyText" colspan="2" align="center"> <span class="bodyTextBig"><%=count%> Total votes</span></td></tr>
+        <tr><td class="bodyTextBig" colspan="2" align="center"><%=count%> Total votes</td></tr>
     </table>
       </td>
 <!-- Center Column Ends -->
