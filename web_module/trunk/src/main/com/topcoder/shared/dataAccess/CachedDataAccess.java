@@ -1,6 +1,7 @@
 package com.topcoder.shared.dataAccess;
 
 import com.topcoder.shared.distCache.CacheClientPool;
+import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
@@ -80,7 +81,10 @@ public class CachedDataAccess implements DataAccessInt {
             Map map = null;
             DataRetriever dr = null;
             try {
-                map = (Map) (CacheClientPool.getPool().getClient().get(key));
+                log.debug("before");
+                CacheClient c =CacheClientPool.getPool().getClient();
+                log.debug("after");
+                map = (Map) (c.get(key));
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 hasCacheConnection = false;

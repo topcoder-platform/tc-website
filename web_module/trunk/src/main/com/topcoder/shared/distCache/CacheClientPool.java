@@ -36,9 +36,7 @@ public class CacheClientPool {
         log.info("building cache client pool with " + POOL_SIZE + " clients");
         for (int i=0; i<POOL_SIZE; i++) {
             if (cacheClients[i]==null) {
-                log.debug("before create cache client");
                 cacheClients[i] = CacheClientFactory.createCacheClient();
-                log.debug("after create cache client");
             }
         }
     }
