@@ -72,16 +72,18 @@
 
                         <table border="0" cellspacing="5" cellpadding="0" width="100%">
 
-<!-- Vertex begins  ### Vertex's contract has expired 3/31/03 ###
-    <tr>
-    <td valign="middle" class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" vspace="10"/></a></td>
-        <td><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-        <td width="100%" valign="middle" class="bodyText">Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX) is a global biotechnology company. Vertex seeks to discover, develop, and commercialize major pharmaceutical products independently and with partners.  Vertex has more than 12 drug candidates in clinical and preclinical development to treat viral diseases, inflammation, cancer, autoimmune diseases, neurological disorders and genetic disorders.  They have two open Associate Scientific Software Analyst positions. <a href="/?&amp;t=tces&amp;c=vertex" class="bodyText">Click here for details.</a><br/><br/></td>
-    </tr>
-    <tr>
-        <td colspan="3" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-    </tr>
-Vertex ends -->
+<!-- Vertex begins -->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" vspace="10"/></a></td>
+                                <td width="99%" class="bodyText"><strong>Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX)</strong> is a global biotechnology 
+                                company. Vertex seeks to discover, develop, and commercialize major pharmaceutical products independently and with 
+                                partners. Vertex has more than 12 drug candidates in clinical and preclinical development to treat viral diseases, 
+                                inflammation, cancer, autoimmune diseases, neurological disorders and genetic disorders. They have an 
+                                <A href="/?&amp;t=tces&amp;c=vertex" class="bodyText" target="_top">open contract position.</A><br/><br/></td>
+                            </tr>
+                            
+                            <tr><td colspan="3" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+<!-- Vertex ends -->
 
 <!-- Microsoft begins
                             <tr valign="top">
@@ -95,7 +97,12 @@ Microsoft ends -->
 <!-- Solipsys begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=solipsys"><img src="/i/es/solipsys/solipsys_logo.gif" width="135" height="60" border="0"/></a></td>
-                                <td width="99%" class="bodyText">Solipsys Corporation is a small, high technology business specializing in products for defense application.  Our primary corporate focus is the development of products designed to address the multi-faceted problem of Joint and Coalition Forces information networking.  We are constantly scanning the horizon for motivated, team-oriented management, technology, and engineering professionals to lead our company into the 21st century.  <a href="/?&amp;t=tces&amp;c=solipsys" class="bodyText">Check out</a> our open Software Developer and Systems Engineer positions.<br /><br /></td>
+                                <td width="99%" class="bodyText"><strong>Solipsys Corporation</strong> is a small, high technology business specializing in products 
+                                    for defense application.  Our primary corporate focus is the development of products designed to address the 
+                                    multi-faceted problem of Joint and Coalition Forces information networking.  We are constantly scanning the horizon 
+                                    for motivated, team-oriented management, technology, and engineering professionals to lead our company into the 
+                                    21st century.  <a href="/?&amp;t=tces&amp;c=solipsys" class="bodyText">Check out</a> our open Software 
+                                    Developer and Systems Engineer positions.<br /><br /></td>
                             </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
@@ -104,8 +111,10 @@ Microsoft ends -->
 <!-- Nvidia begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/nvidia/nvidia_logo.gif" width="120" height="83" border="0"/></a></td>
-                                <td width="99%" class="bodyText"><b>NVIDIA&#174; Corporation (Nasdaq: NVDA)</b> is the worldwide leader in graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We define the cutting-edge. We deliver to the nth degree.
-                                    <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> to check out our open Software Engineering positions.<br /><br /></td>
+                                <td width="99%" class="bodyText"><strong>NVIDIA&#174; Corporation (Nasdaq: NVDA)</strong> is the worldwide leader in 
+                                    graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We 
+                                    define the cutting-edge. We deliver to the nth degree. <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> 
+                                    to check out our open Software Engineering positions.<br /><br /></td>
                             </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
@@ -126,7 +135,7 @@ Microsoft ends -->
 <!-- FBI begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=fbi"><img src="/i/es/fbi/fbi_logo.gif" width="100" height="103" border="0"/></a></td>
-                                <td width="99%" class="bodyText">The FBI. It is like no other career choice you've explored. It's 
+                                <td width="99%" class="bodyText"><strong>The FBI.</strong> It is like no other career choice you've explored. It's 
                                     challenging. Compelling. Important. Whatever your background or expertise, you will find an FBI future exceptionally
                                     rewarding. Because the work you perform will have a daily impact on the nation's security and the quality-of-life 
                                     for all U.S. citizens.  <a href="/?&amp;t=tces&amp;c=fbi" class="bodyText">Are you ready?</a><br /><br /></td>
@@ -164,7 +173,7 @@ IMLP puts information management careers on the fast track. Program graduates ar
 <!-- Apex begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=apex"><img src="/i/es/apex/apexlogo.gif" width="82" height="71" alt="Apex" border="0"/></a></td>
-                                <td class="bodyText" width="99%">Apex is a company built upon a set of core values that guide their every action - excellence, human 
+                                <td class="bodyText" width="99%"><strong>Apex</strong> is a company built upon a set of core values that guide their every action - excellence, human 
                                     dignity and integrity.  They consider themselves "the best place for the best people to work."  
                                     <a href="/?&amp;t=tces&amp;c=apex" class="bodyText">Click here</a> to view current job opportunities available at Apex.<br /><br /></td>
                             </tr>
