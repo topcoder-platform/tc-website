@@ -76,8 +76,6 @@ public class Submit extends FullRegSubmit {
             Transaction.begin(tx);
 
             PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-            mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
-
             newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
 
             //i don't like this cuz we're mondifing the input, but i don't have a smart solution yet
