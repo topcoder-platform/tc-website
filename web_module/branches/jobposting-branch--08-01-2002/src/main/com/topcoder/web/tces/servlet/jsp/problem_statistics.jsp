@@ -55,7 +55,9 @@
 
         <p>
         <b>General Statistics</b>
-        <br>
+        </p>
+
+        <p>
         Problem Name: <b><%= ProblemStatisticsTask.getStatistic("class_name") %></b>
         <br>
         Division: <b><%= ProblemStatisticsTask.getStatistic("division_desc") %></b>
@@ -190,7 +192,9 @@
 
               <p>
               <b>Coder Statistics [ <%= ProblemStatisticsTask.getHandle() %> ]</b>
-              <br>
+              </p>
+
+              <p>
               Status: <b><%= ProblemStatisticsTask.getStatistic("end_status_text") %></b>
               <br>
               Time to Submit: <b><%= ProblemStatisticsTask.timeFormat(ProblemStatisticsTask.getProblemStats().getItem("time_elapsed")) %></b>
