@@ -127,7 +127,9 @@ function checkInputs(){
 
                 <tr valign="middle">
                     <td class="registerLabel" width="200">Member Photo</td>
-                    <td class="statText" width="99%">Let other TopCoder Members know what you look like. Send us a head shot that is at least 200 pixels (3 inches) across.</td>
+                    <td class="statText" width="99%">Let other TopCoder Members know what you look like. Send us a head shot that is at least 200 pixels (3 inches) across.
+                        <a href="JavaScript:void window.open('/tc/?d1=member_photos&d2=index','Photo_Info','top=2,left=2,width=800,height=600,status=0');" class="statTextBig">Click here</a> 
+                        for more info about member photos.</td>
                 </tr>
 
                 <tr valign="middle">
