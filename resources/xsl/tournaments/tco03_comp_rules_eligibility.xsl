@@ -83,53 +83,36 @@
             <h2>Eligibility</h2>
 
             <p>
-            All TopCoder members who are 18 years of age or older may attempt to
-            qualify for the TCO.  500 members will qualify either through
-            Qualification Rounds or by receiving an automatic berth.
+           All rated TopCoder members who are 18 years of age or older (as of September 2nd) and who have not been permanently suspended 
+           from participating in TopCoder Component Development projects are eligible to compete in the TCO.
             </p>
             
-            <p><span class="bodySubtitle">Qualification Rounds</span><br />
-            All members who have not already qualified for the TCO can compete in
-            the Qualifying Rounds.  The top 200 scorers from each of the two
-            Qualification Rounds will be eligible to compete in Online Round #1 of
-            the TCO.  The Qualification Rounds will be held on Tuesday, October 7th
-            and Thursday, October 9th. </p>
-            
-            <p><span class="bodySubtitle">Automatic Berths</span><br />
-            The 100 highest rated TopCoder members as of October 7th who have
-            participated in at least three (3) TopCoder rated events (i.e., Single
-            Round Matches and previous tournaments) prior to October 7th, with at
-            least one (1) of those events being between July 7th and October 7th,
-            will receive an automatic berth into Online Round #1 of the TCO.  
+            <p>
+            Those members who are eligible to compete in both the Coding Competition of the 2003 TopCoder Open and in the CDDC will be 
+            permitted to participate in both.  In addition, members will be allowed to compete in both the design and development elements 
+            of the CDDC.  However, if one member participates in Online Round #1 of both the design and development contest AND qualifies 
+            as one of the advancers in each, then the member will only be permitted to advance in one of the contests.  The following criteria 
+            will be used to determine which contest the member will advance to:
             </p>
-
-
-            <p>All citizens and lawful permanent residents of the following countries (and all non-immigrants currently residing in 
-            the United States with a valid Visa) are eligible to win cash prizes after completing the appropriate affidavit and tax form:</p>
-            
             <ul>
-                <li>Australia</li>
-                <li>Canada (excluding Qu&#233;b&#232;c)</li>
-                <li>China</li>
-                <li>India</li>
-                <li>Ireland</li>
-                <li>New Zealand</li>
-                <li>Sweden</li>
-                <li>United Kingdom</li>
-                <li>United States (including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands)</li>
+            <li>The member will advance to the contest in which he/she was seeded higher (i.e. lower seed #)</li>
+            <li>If the member's seed is the same in each competition, then the member will advance to the contest in which he/she achieved a higher average score</li>
+            <li>If the member's average score is the same in both contests, then the member will advance to the contest in which he/she achieved a higher score for his/her level 2 component</li>
+            <li>If the member's level 2 component score is the same for both contests, then TopCoder will assign the member of one of the contests</li>
             </ul>
-
-            <p>TopCoder members who do not meet the citizenship requirements to win prize money are eligible to compete, 
-            however will be required to donate any cash prizes to charity.  Members will choose a charity to receive their 
-            winnings from the TopCoder approved list of charities.  A prize-winning member may request a new charity for 
-            the list, however it shall remain in TopCoder's sole discretion to add that charity after reviewing the proposed 
-            charity's credentials.</p>
-
-            <p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation 
-            and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, 
-            agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament 
-            and members of the immediate families and/or persons living in the same household as such persons, are ineligible 
-            to enter the tournament.</p>
+            
+            <p>
+            Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation and distribution 
+            of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries 
+            or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or 
+            persons living in the same household as such persons, are ineligible to enter the tournament.
+            </p>
+            
+            <p><span class="bodySubtitle">About the tournament schedule</span><br />
+           Each contestant in an online round must submit his or her design and/or development submissions for components as scheduled (Click 
+           <a href="/?&amp;t=tournaments&amp;c=tco03_sched#sched">here</a> for competition dates and times.).  If a coder does not participate, 
+           for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
+            
             </blockquote>
 
             <p><br/></p>
