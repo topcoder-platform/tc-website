@@ -384,7 +384,7 @@ public class Registration
                 gpa = "" + coder.getCurrentSchool().getGpa();
                 gpaScale = "" + coder.getCurrentSchool().getGpaScale();
             }
-            schoolViewable =coder.getCurrentSchool().isViewable();
+            schoolViewable = coder.getCurrentSchool().isViewable();
         } else {
             schoolState = "";
             schoolStateChanged = false;
@@ -536,7 +536,7 @@ public class Registration
                     log.debug("process school is " + school);
                     if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES)) {
                         employed = true;
-                    } else if (!isNumber(school)&&strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
+                    } else if (!isNumber(school) && strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
                         this.schoolName = strAnswerId;
                         this.school = "-1";
                     }
@@ -934,8 +934,9 @@ public class Registration
         log.debug("setGpaScale(" + value + ") called");
         this.gpaScale = checkNull(value);
     }
+
     public void setSchoolViewable(String value) {
-        this.schoolViewable="on".equalsIgnoreCase(value);
+        this.schoolViewable = "on".equalsIgnoreCase(value);
     }
 
     public void setNotification(String notifyId, String value) {
@@ -1701,7 +1702,56 @@ public class Registration
                 log.debug("No answer for questionId=" + questionId);
             }
         }
+        try {
+            if (this.coderType.equals(CODER_TYPE_STUDENT)) {
+                School currentSchool = coder.getCurrentSchool();
+                // SB -- added country.equals(USA) to fix problem with foreign student changing their school
+                //if (currentSchool.getName().equals("") && this.country.equals(USA))  //&& isRegister() )
+                if (isRegister()) {
+                    currentSchool.setModified("A");
+                } else {
+                    currentSchool.setModified("U");
+                }
+                long schoolId = 0;
+                log.debug(" school is " + school);
+                if (isNumber(school) && Integer.parseInt(school) != 0) {
+                    log.debug("it's a known school " + school);
+                    schoolId = Integer.parseInt(school);
+                    this.schoolName = getSchoolName(schoolId);
+                } else {
+                    log.debug("dunno this school, look it up " + this.schoolName);
+                    //lookup school by name
+                    InitialContext ctxSchool = TCContext.getInitial();
+                    com.topcoder.web.ejb.school.School s =
+                            (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool,
+                                    com.topcoder.web.ejb.school.School.class);
 
+                    schoolId = s.getSchoolId(this.schoolName, DBMS.OLTP_DATASOURCE_NAME);
+                    if (schoolId == 0) {
+                        log.debug("make this school " + this.schoolName);
+                        //create school
+                        schoolId = s.createSchool(DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME,
+                                schoolName.substring(0, 1).toUpperCase(), "NA", this.country, coder.getCoderId(), schoolName);
+                    }
+                }
+
+                currentSchool.setUserId(coder.getCoderId());
+                currentSchool.setSchoolId((int) schoolId);
+                currentSchool.setName(schoolName);
+                log.debug("school id is still " + currentSchool.getSchoolId());
+
+                if (!this.gpa.equals("")) {
+                    currentSchool.setGpa(Float.parseFloat(this.gpa));
+                }
+                if (!this.gpaScale.equals("")) {
+                    currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
+                }
+                currentSchool.setViewable(this.schoolViewable);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new TaskException(e);
+        }
 
         Context context = null;
         String activationCode = "";
@@ -1720,52 +1770,6 @@ public class Registration
                     activationCode = StringUtils.getActivationCode(coder.getCoderId());
                     coder.setActivationCode(activationCode);
                     coder.setModified("U");
-                }
-
-                if (this.coderType.equals(CODER_TYPE_STUDENT)) {
-                    School currentSchool = coder.getCurrentSchool();
-                    // SB -- added country.equals(USA) to fix problem with foreign student changing their school
-                    //if (currentSchool.getName().equals("") && this.country.equals(USA))  //&& isRegister() )
-                    if (isRegister()) {
-                        currentSchool.setModified("A");
-                    } else {
-                        currentSchool.setModified("U");
-                    }
-                    long schoolId = 0;
-                    log.debug(" school is " + school);
-                    if (isNumber(school) && Integer.parseInt(school) != 0) {
-                        log.debug("it's a known school " + school);
-                        schoolId = Integer.parseInt(school);
-                        this.schoolName = getSchoolName(schoolId);
-                    } else {
-                        log.debug("dunno this school, look it up " + this.schoolName);
-                        //lookup school by name
-                        InitialContext ctxSchool = TCContext.getInitial();
-                        com.topcoder.web.ejb.school.School s =
-                                (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool,
-                                        com.topcoder.web.ejb.school.School.class);
-
-                        schoolId = s.getSchoolId(this.schoolName, DBMS.OLTP_DATASOURCE_NAME);
-                        if (schoolId == 0) {
-                            log.debug("make this school " + this.schoolName);
-                            //create school
-                            schoolId = s.createSchool(DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME,
-                                    schoolName.substring(0, 1).toUpperCase(), "NA", this.country, coder.getCoderId(), schoolName);
-                        }
-                    }
-
-                    currentSchool.setUserId(coder.getCoderId());
-                    currentSchool.setSchoolId((int) schoolId);
-                    currentSchool.setName(schoolName);
-                    log.debug("school id is still " + currentSchool.getSchoolId());
-
-                    if (!this.gpa.equals("")) {
-                        currentSchool.setGpa(Float.parseFloat(this.gpa));
-                    }
-                    if (!this.gpaScale.equals("")) {
-                        currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
-                    }
-                    currentSchool.setViewable(this.schoolViewable);
                 }
 
                 userServices.setUser(user);
