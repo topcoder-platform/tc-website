@@ -101,9 +101,6 @@
                                                         Additionally, the architect designing the data classes is also responsible for the design of
                                                         the database schema for the application.
                                                     </p>
-
-
-                                                        <br/>
                                                         <br/>
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
