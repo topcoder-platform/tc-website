@@ -167,7 +167,7 @@ public class TCLoadRound extends TCLoad {
 
             getLastUpdateTime();
 
-            clearRound();
+           clearRound();
 
             loadContest();
 
@@ -1757,7 +1757,7 @@ public class TCLoadRound extends TCLoad {
             query.append("          WHERE c.round_id = cs.round_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.challenger_id = cs.coder_id ");
-            query.append("            AND c.problem_id = cs.problem_id) ");
+            query.append("            AND c.component_id = cs.component_id) ");
             // 14: system_test_points
             query.append("       ,(SELECT sum(deduction_amount) ");              // 14
             query.append("           FROM system_test_result str ");
@@ -1789,8 +1789,8 @@ public class TCLoadRound extends TCLoad {
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = ps.coder_id ");
-            query.append("           AND gu.group_id = IN (13,14))");
+            query.append("         WHERE gu.user_id = cs.coder_id ");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
