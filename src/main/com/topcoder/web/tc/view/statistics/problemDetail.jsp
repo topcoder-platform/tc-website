@@ -115,7 +115,7 @@
            </tr>
            <tr>
              <td class="statText">
-               Submission Percentage
+               Percent Submitted
              </td>
              <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
                <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
