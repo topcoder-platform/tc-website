@@ -385,7 +385,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
 
     public ResultSetContainer(ResultSetContainer rs, ResultFilter[] f) {
         this();
-        log.debug("ResultSetContainer(ResultSetContainer, ResultFilter) called...");
+        log.debug("ResultSetContainer(ResultSetContainer, ResultFilter[]) called...");
         initializeMetaData(rs);
 
         ResultSetRow rsr = null;
