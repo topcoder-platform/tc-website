@@ -73,12 +73,12 @@ function openWin(url, name, w, h) {
                         TopCoder Single-Round Matches, you'll be eligible for a chance to win one the following (each SRM will have a unique drawing):</p>
                         
                         <table> 
-                            <tr>
-                             <td><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /></td>
-                             <td><p>Intel&#174; Centrino&#153; mobile technology-based notebook!  View Specs.  </p>
+                            <tr  class="bodyText">
+                           
+                             <td valign="top" width="255"><p><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" align="left"/>Intel&#174; Centrino&#153; mobile technology-based notebook!  View Specs.  </p>
                                     <p>Register Now!  Use  promottiion  code  TCO2003.</p></td>
-                             <td><img src="/i/sponsor/intel_ids/IDL-Logo-Square.gif" width="216" height="144" /></td>
-                             <td><p>One-year subscription to the Intel&#174; Developer Library.  A year's worth of  free access to the most relevant technical books available. Read More.</p>
+                      
+                             <td valign="top" width="255"><p><img src="/i/sponsor/intel_ids/IDL-logo-square.gif" width="150" height="100" align="left"/>One-year subscription to the Intel&#174; Developer Library.  A year's worth of  free access to the most relevant technical books available. Read More.</p>
                              <p>Register Now! Use promotion code TCO2003.</p></td>
                          </tr>
                      </table>
