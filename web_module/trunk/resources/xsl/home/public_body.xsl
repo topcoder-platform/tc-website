@@ -336,12 +336,12 @@ a person's code that invalidate their entire solution and make their 75 minutes 
 <AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/stat?&amp;c=last_match"/>
 </MAP> -->
 
-<IMG USEMAP="#srmanimation_home" SRC="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/>  
+<IMG USEMAP="#microsoft_home" SRC="/i/es/ms/microsoft_home.gif" alt="" width="244" height="160" border="0"/>  
       <BR/>
-    <MAP NAME="srmanimation_home">
-    <AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=index"/>
-     <!-- <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4405&amp;t=schedule&amp;c=srm"/> --> 
-    <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> 
+    <MAP NAME="microsoft_home">
+    <AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=ms"/>
+     <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4415&amp;t=schedule&amp;c=srm"/> 
+    <!-- <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> --> 
     </MAP>
 <!--SRM Sponsor Ends-->
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
