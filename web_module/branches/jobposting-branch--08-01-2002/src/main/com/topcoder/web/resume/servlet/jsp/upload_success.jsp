@@ -11,7 +11,8 @@
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
         <TD class="statTextBig">
-         Upload successful!<br/><a href="/Resume?&<%=Constants.TASK_KEY%>=DownloadTask" class="statTextBig">Click here to download your resume</a>
+         Upload successful!<br/>
+         <a href="javascript:window.close();" class="statTextBig">close window</a>
         </TD>
       </TR>
     </TABLE>
