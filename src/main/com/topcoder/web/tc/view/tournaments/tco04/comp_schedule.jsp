@@ -25,7 +25,10 @@
 
        <p>	Both the design and development competitions will have three (3) online rounds and one (1) online 
             Championship Round.  Each contestant participating in an online round must submit his/her design and/or 
-            development submissions for components as scheduled. (See Competition Schedule.)  </p>
+            development submissions for components as scheduled.<strong>TopCoder members from around the world may 
+            be participating in the online rounds, but all start times will be communicated as Eastern Time, so 
+            contestants in different time zones must adjust accordingly.</strong> </p>
+            
 <!-- design schedule -->            
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>

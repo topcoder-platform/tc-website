@@ -21,9 +21,7 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>Hotels</p>
-        
-        <h3>Now that I know how to get to the TCO, where can I sleep?</h3>
+        <p class=pageTitle>Now that I know how to get to the TCO, where can I sleep?</p>
 
         <p><span class="bodySubtitle"><a href="http://marriott.com/property/propertyPage/SJCGA" target="_blank">Santa Clara Marriott</a></span><br/>
 		Just like its high-tech neighbors in California's Silicon Valley, the Santa Clara Marriott embraces innovation. 

@@ -23,13 +23,12 @@
             
         <p class=pageTitle>Description of the Component Design and Development Competition</p>
 
-        <p>
-            The 2004 TopCoder Open is bigger and better than ever! 8 Component finalists will be invited to compete live at the onsite finals in Santa Clara, CA.</p>
+        <p>Eight Component finalists will be invited to attend the onsite finals in Santa Clara, CA, USA.</p>
             <ul>
                 <li><strong>Competition Starts</strong><br />
                     August 10, 2004<br />
-                <li><strong>Onsite Finals</strong><br />
-                    November 11 & 12, 2004 at the Santa Clara Marriott in Santa Clara, CA USA</li>
+                <li><strong>Onsite Review of Competition</strong><br />
+                    November 12, 2004 at the Santa Clara Marriott in Santa Clara, CA, USA</li>
                 <li><strong>Free Competition</strong><br />
                 <a href="/?t=development&c=comp_projects">View eligible components</a></li>
                 <li><strong>Open to all registered TopCoder members over the age of 18.</strong></li>
