@@ -112,7 +112,7 @@ public class ProfileSearch extends Base {
         }
         String[] notify = request.getParameterValues("notifications");
         if(notify!=null && notify.length>0){
-            query.append("    coder_notify cn\n");
+            query.append("    coder_notify cn,\n");
         }
 
         for(int i = 0; i<tables.size(); i++){
@@ -144,7 +144,7 @@ public class ProfileSearch extends Base {
             query.append(notify[0]);
             for(int i = 1; i<notify.length; i++){
                 query.append(',');
-                query.append(notify[0]);
+                query.append(notify[i]);
             }
             query.append(")\n");
         }
@@ -249,15 +249,15 @@ public class ProfileSearch extends Base {
         boolean like = false;;
         if(val.indexOf('%') != -1 || val.indexOf('_') != -1){
             if(cs){
-                return "    AND lower("+col+") LIKE lower('"+val+"')\n";
-            }else{
                 return "    AND "+col+" LIKE '"+val+"'\n";
+            }else{
+                return "    AND lower("+col+") LIKE lower('"+val+"')\n";
             }
         } else {
             if(cs){
-                return "    AND lower("+col+") = lower('"+val+"')\n";
-            }else{
                 return "    AND "+col+" = '"+val+"'\n";
+            }else{
+                return "    AND lower("+col+") = lower('"+val+"')\n";
             }
         }
     }
