@@ -56,10 +56,6 @@
 
 package com.coolservlets.forum;
 
-import com.coolservlets.util.SerializableObject;
-
-import java.util.*;
-
 /**
  * The User interface provides information about and services for users
  * of the forum system. Users can be identified by a unique id or username.
@@ -77,7 +73,7 @@ import java.util.*;
  *
  * @see Group
  */
-public interface User extends SerializableObject {
+public interface User {
    
     /**
      * Returns the user's rating.

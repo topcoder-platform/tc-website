@@ -58,7 +58,6 @@ package com.coolservlets.util;
 
 import com.topcoder.shared.distCache.CacheClientPool;
 
-import java.util.*;
 import java.io.*;
 import java.rmi.RemoteException;
 
@@ -107,7 +106,7 @@ public class Cache {
         return ret;
     }
 
-	public void add(int uniqueID, SerializableObject object) {
+	public void add(int uniqueID, Object object) {
         try {
             cache.set(String.valueOf(uniqueID), object, timeOut);
         } catch (RemoteException e) {
