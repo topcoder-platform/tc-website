@@ -43,7 +43,12 @@ public class Controller extends HttpServlet {
      *
      * @throws ServletException
      */
-    public void service(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String debugMsg = "service called.";
         String command = request.getParameter(DataAccessConstants.COMMAND);
@@ -77,7 +82,7 @@ log.debug("<<<");
 
                 task.servletAction(this, request, response);
 
-                request.getSession(true).setAttribute( taskName, task );
+                request.setAttribute( taskName, task );
 
                 RequestDispatcher disp = getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) );
 if (disp==null) log.debug("disp NULL!");
