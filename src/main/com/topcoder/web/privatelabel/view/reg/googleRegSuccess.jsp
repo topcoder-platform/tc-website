@@ -93,7 +93,7 @@ Registration Successful!<br/><br/>
 
 Thank you for registering for the Google Extreme Coding Challenge.<br/><br/>
 
-If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>/resume?&t=UploadResume&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a><br/><br/>
+If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&t=UploadResume&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a><br/><br/>
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Practice Arena tab above.<br/><br/>
 
