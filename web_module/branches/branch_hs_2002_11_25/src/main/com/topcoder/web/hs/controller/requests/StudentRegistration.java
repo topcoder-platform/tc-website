@@ -520,7 +520,7 @@ public class StudentRegistration extends Base {
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
       User user=uh.create();
-      user.createUser(user_id,_srb.getHandle(),'1');
+      user.createUser(user_id,_srb.getHandle(),'A');
       user.setFirstName(user_id,_srb.getFirstName());
       user.setLastName(user_id,_srb.getLastName());
 

@@ -520,7 +520,7 @@ public class CoachRegistration extends Base {
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
       User user=uh.create();
-      user.createUser(user_id,_crb.getHandle(),'1');
+      user.createUser(user_id,_crb.getHandle(),'A');
       user.setFirstName(user_id,_crb.getFirstName());
       user.setLastName(user_id,_crb.getLastName());
 
