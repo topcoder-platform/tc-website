@@ -22,8 +22,9 @@
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="700">
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
                         <p><span class=testHead>Position List</span><br/>
@@ -42,7 +43,7 @@
 
             <br/>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="33%">Position Name</td>
                     <td class="screeningHeader" width="33%" align=center>Most Recent Activity</td>
@@ -73,6 +74,7 @@
 
             <p><br></p>
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends -->
 
 <!-- Gutter -->

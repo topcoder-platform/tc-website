@@ -67,8 +67,9 @@ function getProblemDetail(id) {
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="700">
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
                         <p class=testHead>Candidate Info</p>
@@ -76,7 +77,7 @@ function getProblemDetail(id) {
                 </tr>
             </table>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr>
                     <td valign=top class=screeningCellBG>
 
@@ -252,7 +253,7 @@ if ( MM_FlashCanPlay ) {
             </table>
 
             <!-- Notes -->
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                     <td width="70%" class="screeningHeader">Notes</td>
                     <td width="15%" align="center" class="screeningHeader">Author</td>
@@ -290,7 +291,7 @@ if ( MM_FlashCanPlay ) {
                 </tr>
             </table>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                     <td width="30%" class="screeningHeader">Problem Name</td>
                     <td width="14%" align="center" class="screeningHeader">Language</td>
@@ -338,6 +339,7 @@ if ( MM_FlashCanPlay ) {
 
             <p><br></p>
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends --> 
 
 <!-- Gutter -->

@@ -72,8 +72,9 @@ if ( plugin ) {
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
                         <p class="testHead"><%=testResultsInfo.isSessionComplete()?"Test Results":"Test Details"%></p>
@@ -81,7 +82,7 @@ if ( plugin ) {
                 </tr>
             </table>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr>
                     <td class="bodyText">
                         <% String params = Constants.CANDIDATE_ID + '=' + candidateInfo.getUserId() + "&referrer=TestResults";%>
@@ -153,7 +154,7 @@ if ( plugin ) {
 	    </table>
    <% if(testResultsInfo.isSessionComplete()) { %>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
               <tr>
                     <td class="bodyText">
                         <% String trparams = Constants.SESSION_ID + "=" + testResultsInfo.getSessionId(); %>
@@ -164,7 +165,7 @@ if ( plugin ) {
 
         <% boolean even = false; %>
         <% if (profileInfo.hasTestSetA()) { %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <tr>
 		       <td colspan="9" class="screeningTitle">Test Set A Results:</td>
 	        </tr>
@@ -213,7 +214,7 @@ if ( plugin ) {
 
             <p></p>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
 		       <TD COLSPAN="10" VALIGN="top" CLASS="screeningTitle">TopCoder Stats</TD>
 	        </TR>
@@ -255,7 +256,7 @@ if ( plugin ) {
     <% } //has test set a %>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
                        <TD COLSPAN="7" VALIGN="top" CLASS="screeningTitle">Problem Statistics:</TD>
 	        </TR>
@@ -285,7 +286,7 @@ if ( plugin ) {
 	        </table>
 	        <p></p>
             <% } %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
 	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <TD COLSPAN="6" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
@@ -343,7 +344,7 @@ if ( plugin ) {
     <% } // getProblemSetBCount() > 0 %>
 <% } else { //isSessionComplete %>
   <% if (profileInfo.hasTestSetA()) { %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
            <TR>
               <TD COLSPAN="4" CLASS="screeningTitle">Test Set A</TD>
            </TR>
@@ -365,7 +366,7 @@ if ( plugin ) {
          <p></p>
    <% } %>
 <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
            <TR>
               <TD COLSPAN="4" CLASS="screeningTitle"><B>Test Set B</B></TD>
            </TR>
@@ -389,6 +390,7 @@ if ( plugin ) {
 
             <p><br></p>
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends -->
 
 <!-- Gutter -->

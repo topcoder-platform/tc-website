@@ -32,11 +32,12 @@
 <!-- gutter ends -->
 
 <!-- Center Column Begins -->
- <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
             <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%" align="center">
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
 					<P class=testHead>Campaign: <jsp:getProperty name="demographicInfo" property="CampaignName"/></B></P>
@@ -44,7 +45,7 @@
                 </tr>
             </table>
 
-              <TABLE WIDTH="700" CELLSPACING="0" CELLPADDING="0" border="0">
+              <TABLE width="100%" CELLSPACING="0" CELLPADDING="0" border="0">
                 <TR valign='top'>
                 <TD width="50%">
                 
@@ -166,10 +167,10 @@
                 </TR>
               </TABLE>
               
-<P><BR/></P>
-</td> 
-
-
+				<P><BR/></P>
+		</td>
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->

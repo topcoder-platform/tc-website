@@ -25,8 +25,9 @@
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/corp/clear.gif" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="700">
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Candidate Status</h1>
@@ -42,7 +43,7 @@
             </table>
             <% }%>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                  <tr>
                    <td align="left" class="screeningHeader">Candidate</td>
                    <td align="center" class="screeningHeader">Profile</td>               
@@ -126,6 +127,7 @@
             <% } %>
             <p><br></p>
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends -->
 
 <!-- Gutter -->

@@ -74,8 +74,9 @@ if ( plugin ) {
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
                         <p class="testHead"><%=testResultsInfo.isSessionComplete()?"Test Results":"Test Details"%></p>
@@ -83,7 +84,7 @@ if ( plugin ) {
                 </tr>
             </table>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr>
                     <td class="bodyText">
                         <strong>Candidate:</strong> <jsp:getProperty name="candidateInfo" property="userName"/>
@@ -159,7 +160,7 @@ if ( plugin ) {
    <% if(testResultsInfo.isSessionComplete()) { %>
 
      <% if (profileInfo.hasTestSetA()) { %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <tr>
 		       <td colspan="8" class="screeningTitle">Test Set A Results:</td>
 	        </tr>
@@ -191,7 +192,7 @@ if ( plugin ) {
             </table>
 
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
 		       <TD COLSPAN="10" VALIGN="top" CLASS="screeningTitle">TopCoder Stats</TD>
 	        </TR>
@@ -233,7 +234,7 @@ if ( plugin ) {
               <% } //has test set a %>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
                        <TD COLSPAN="7" VALIGN="top" CLASS="screeningTitle">Problem Statistics:</TD>
 	        </TR>
@@ -263,7 +264,7 @@ if ( plugin ) {
 	        </table>
 
 	        <% } %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
        	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <TD COLSPAN="5" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
@@ -311,7 +312,7 @@ if ( plugin ) {
             <% ResultSetContainer notes = (ResultSetContainer)request.getAttribute("noteList"); %>
 
             <% if (!notes.isEmpty()) { %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <TR>
                    <TD COLSPAN="3" VALIGN="top" CLASS="screeningTitle">Notes:</TD>
                 </TR>
@@ -397,6 +398,7 @@ if ( plugin ) {
 <% } //isSessionComplete %>
 
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends -->
 
 <!-- Gutter -->

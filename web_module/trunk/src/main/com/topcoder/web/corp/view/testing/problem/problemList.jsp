@@ -37,8 +37,9 @@ function getProblemDetail(id) {
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
                <h1 class="testHead">Problem Sets</h1>
@@ -49,7 +50,7 @@ function getProblemDetail(id) {
             </table>
 
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
 		       <TD ALIGN="left" CLASS="screeningHeader">Name</TD>
 		       <TD ALIGN="center" CLASS="screeningHeader">Division</TD>
@@ -85,6 +86,7 @@ function getProblemDetail(id) {
 </FORM>         
             <p><br></p>
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends -->
 
 <!-- Gutter -->
