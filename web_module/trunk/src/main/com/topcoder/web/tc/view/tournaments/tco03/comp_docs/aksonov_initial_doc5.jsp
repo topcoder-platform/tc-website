@@ -31,7 +31,7 @@
                 </tr>
 
                 <tr>
-                    <td width="99%"><img src="/i/tournament/tco03/comp_docs/aksonov/SequenceDiagram3.gif" alt="" width="1392" height="634" border="0" class="compDocs"></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/aksonov/SequenceDiagram3.gif" alt="" width="1392" height="634" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 
