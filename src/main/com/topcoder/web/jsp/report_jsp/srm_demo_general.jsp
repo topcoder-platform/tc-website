@@ -30,12 +30,33 @@
   <table>
   
   <tr valign="top">
-  <td width="10%"><jsp:include page="srm_nav.jsp" /></td><td colspan="3"><jsp:include page="srm_survey.jsp" /></td>
+  <td width="10%"><jsp:include page="srm_nav.jsp" /></td><td colspan="3"></td>
   </tr>
   <tr>
 
-  <td>&nbsp;</td><td colspan="3"><jsp:include page="srm_chooser.jsp" /></td>
+  <td>&nbsp;</td><td colspan="3"><jsp:include page="srm_chooser.jsp" ><jsp:param name="link" value="srm_demo_general"/></jsp:include></td>
+  </tr>
+  <tr valign="top">
+    <tr valign="top">
+      <td>&nbsp;</td>
+      <td><jsp:include page="srm_demographic_participation_by_country.jsp" /></td>
+      <td rowspan="3">&nbsp;</td>
+      <td rowspan="3"><jsp:include page="srm_demo_total_part.jsp" /></td>
+    </tr>
+    <tr valign="top">
+      <td>&nbsp;</td>
+      <td><jsp:include page="srm_demographic_logged_in.jsp" /></td>
+	</tr>
+	<tr valign="top">
+      <td>&nbsp;</td>
+      <td><jsp:include page="srm_demo_time_online.jsp" /></td>
+	</tr>
   </tr>
   </table>
+
+ 
+
+
+
   </body>
 </html>
