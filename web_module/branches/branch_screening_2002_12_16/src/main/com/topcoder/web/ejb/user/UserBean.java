@@ -26,7 +26,7 @@ public class UserBean implements SessionBean {
     public void ejbCreate() throws CreateException {
         try {
             init_ctx = new InitialContext();
-            ds = (DataSource) init_ctx.lookup((String) init_ctx.lookup("java:comp/env/datasource_name"));
+            ds = (DataSource) init_ctx.lookup("java:comp/env/datasource");
         } catch (NamingException _ne) {
             _ne.printStackTrace();
         }
