@@ -11,12 +11,12 @@
                       <TR> 
                         <TD CLASS="data" BGCOLOR="#660000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="statTextBig"  BGCOLOR="#660000" VALIGN="top">
-                          <FORM NAME="searchForm" METHOD="get" > 
+                          <FORM NAME="simpleSearchForm" METHOD="get" > 
                             <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
                             <INPUT TYPE="hidden" NAME="t" VALUE="search"/>
                             <INPUT TYPE="hidden" NAME="c" VALUE="simple_search"/>
                           Handle:&#160;&#160;<INPUT CLASS="dropdown" TYPE="text" NAME="SearchHandle" SIZE="12" MAXLENGTH="15" /><BR/>
-                          <A HREF="javascript:void document.searchForm.submit();"><xsl:attribute name="CLASS">statTextBig</xsl:attribute>&#160;Search &gt;&gt;</A><BR/>
+                          <A HREF="javascript:void document.simpleSearchForm.submit();"><xsl:attribute name="CLASS">statTextBig</xsl:attribute>&#160;Search &gt;&gt;</A><BR/>
                           <A HREF="/?t=search" CLASS="statText">- Advanced Search</A>                         
                           </FORM>
                         </TD>
