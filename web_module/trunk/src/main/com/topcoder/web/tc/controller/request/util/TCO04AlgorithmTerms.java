@@ -14,9 +14,6 @@ import java.util.Calendar;
  */
 public class TCO04AlgorithmTerms extends TermsBase {
 
-    protected void TermsProcessing() throws TCWebException {
-    }
-
     protected Calendar getEnd() {
         Calendar end = Calendar.getInstance();
         end.set(2004, Calendar.SEPTEMBER, 7, 9, 0);
