@@ -42,24 +42,6 @@
           <env-entry-value>DS</env-entry-value>
         </env-entry>
     </session>
-    <session>
-        <ejb-name>Unit</ejb-name>
-        <home>com.topcoder.web.ejb.product.UnitHome</home>
-        <remote>com.topcoder.web.ejb.product.Unit</remote>
-        <ejb-class>com.topcoder.web.ejb.product.UnitBean</ejb-class>
-        <session-type>Stateless</session-type>
-        <transaction-type>Container</transaction-type>
-        <env-entry>
-          <env-entry-name>datasource_name</env-entry-name>
-          <env-entry-type>java.lang.String</env-entry-type>
-          <env-entry-value>JTS_DS</env-entry-value>
-        </env-entry>
-        <env-entry>
-          <env-entry-name>idgen_datasource_name</env-entry-name>
-          <env-entry-type>java.lang.String</env-entry-type>
-          <env-entry-value>DS</env-entry-value>
-        </env-entry>
-    </session>
   </enterprise-beans>
   <assembly-descriptor>
     <container-transaction>

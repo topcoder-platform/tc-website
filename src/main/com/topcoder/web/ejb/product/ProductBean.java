@@ -65,10 +65,12 @@ public class ProductBean implements SessionBean {
      *
      *
      * @param cost the cost to assign to a product
+     * @param unitTypeId
+     * @param numUnits
      *
      * @return a long with the unique product ID created
      */
-    public long createProduct(float cost) {
+    public long createProduct(long unitTypeId, int numUnits, float cost) {
         log.debug("createProduct called...");
 
         Context ctx = null;
@@ -102,9 +104,11 @@ public class ProductBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO product (product_id, " +
-                    "cost) VALUES (?,?)");
+                    "cost, unit_type_id, num_units) VALUES (?,?,?,?)");
             ps.setLong(1, ret);
             ps.setFloat(2, cost);
+            ps.setLong(3, unitTypeId);
+            ps.setInt(4, numUnits);
 
             int rows = ps.executeUpdate();
 
@@ -311,6 +315,246 @@ public class ProductBean implements SessionBean {
     /**
      *
      *
+     * @param productId product ID of the entry
+     *
+     * @return the entry's number of units
+     */
+    public int getNumUnits(long productId) {
+        log.debug("getNumUnits called...product_id: " + productId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        int ret = 0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT num_units FROM product WHERE " +
+                    "product_id = ?");
+            ps.setLong(1, productId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getInt("num_units");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                    true,
+                    sqe);
+            throw new EJBException("SQLException getting num_units");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting num_units");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting num_units\n" +
+                    e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getNumUnits");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                            "getNumUnits");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getNumUnits");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getNumUnits");
+                }
+            }
+        }
+
+        return (ret);
+    }
+
+
+
+    /**
+     *
+     *
+     * @param productId product ID of the entry
+     *
+     * @return the entry's number of units
+     */
+    public long getUnitTypeId(long productId) {
+        log.debug("getUnitTypeId called...product_id: " + productId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        long ret = 0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT unit_type_id FROM product WHERE " +
+                    "product_id = ?");
+            ps.setLong(1, productId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getLong("unit_type_id");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException getting unit_type_id");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting unit_type_id");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting unit_type_id\n" +
+                    e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getUnitTypeId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                            "getUnitTypeId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getUnitTypeId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getUnitTypeId");
+                }
+            }
+        }
+
+        return (ret);
+    }
+
+
+    /**
+     *
+     *
+     * @param productId product ID of the entry
+     *
+     * @return the entry's number of units
+     */
+    public String getUnitTypeDesc(long productId) {
+        log.debug("getUnitTypeDesc called...product_id: " + productId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = "";
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT u.unit_type_desc FROM product p, unit_type_lu u WHERE " +
+                    "p.unit_type_id = u.unit_type_id and product_id = ?");
+            ps.setLong(1, productId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("unit_type_desc");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException getting unit_type_desc");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting unit_type_desc");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting unit_type_desc\n" +
+                    e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getUnitTypeDesc");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                            "getUnitTypeDesc");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getUnitTypeDesc");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getUnitTypeDesc");
+                }
+            }
+        }
+
+        return (ret);
+    }
+
+
+
+
+
+    /**
+     *
+     *
      * @param productId product ID of entry to set
      * @param productDesc the product description to set to
      */
@@ -444,4 +688,152 @@ public class ProductBean implements SessionBean {
             }
         }
     }
+
+
+
+
+    /**
+     *
+     *
+     * @param productId product ID of entry to set
+     * @param numUnits the number of units to set to
+     */
+    public void setNumUnits(long productId, int numUnits) {
+        log.debug("setNumUnits called...productId: " + productId +
+                 " numUnits: " + numUnits);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE product SET num_units = ? " +
+                    "WHERE product_id = ?");
+            ps.setInt(1, numUnits);
+            ps.setLong(2, productId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                        rows);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException updating num_units");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating num_units");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating num_units\n" +
+                    e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                            "setNumUnits");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setNumUnits");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setNumUnits");
+                }
+            }
+        }
+    }
+
+
+    /**
+     *
+     *
+     * @param productId product ID of entry to set
+     * @param unitTypeId the number of units to set to
+     */
+    public void setUnitTypeId(long productId, int unitTypeId) {
+        log.debug("setUnitTypeId called...productId: " + productId +
+                 " unitTypeId: " + unitTypeId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE product SET unit_type_id = ? " +
+                    "WHERE product_id = ?");
+            ps.setLong(1, unitTypeId);
+            ps.setLong(2, productId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                        rows);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException updating unit_type_id");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating unit_type_id");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating unit_type_id\n" +
+                    e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                            "setNumUnits");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setNumUnits");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setNumUnits");
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 }
