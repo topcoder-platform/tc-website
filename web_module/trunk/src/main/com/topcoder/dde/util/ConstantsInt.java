@@ -8,4 +8,5 @@ package com.topcoder.dde.util;
 public interface ConstantsInt {
 
     public static final String STATIC_PREFIX = "d";
+    public static final String TERMS = "terms";
 }
