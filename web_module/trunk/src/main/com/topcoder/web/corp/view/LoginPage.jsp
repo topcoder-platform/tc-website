@@ -37,45 +37,53 @@
 
 <!-- Center Column begins -->
         <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td class="bodyText" width="100%">
+
+                        <%
+                            String nextpage = (String)request.getAttribute(Login.KEY_DESTINATION_PAGE);
+                            if(nextpage==null) nextpage = request.getParameter(Login.KEY_DESTINATION_PAGE);
+                            if(nextpage==null) nextpage = request.getHeader("Referer");
+                            if(nextpage==null) nextpage = "http://"+request.getServerName();
+                            String message = (String)request.getAttribute("message");
+                            if(message==null) message = "";
+                            String username = request.getParameter(Login.KEY_USER_HANDLE);
+                            if(username==null) username = "";
+                        %>
+
+                        <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
+                    
+                        <p><%= message %></p>
+                    </td>
+                </tr>
+            </table>
+
             <div align="center">
+
             <p><br></p>
-            <p><br></p>
+
             <table width="350" border="0" cellpadding="3" cellspacing="0" class="loginForm">
                 <tr><td class="testTableTitle">Login</td></tr>
                 <tr valign="middle"><form method="post" name="frmLogin" action="/?module=Login">
                     <td class="statText" align="center">
+                        <table border="0" cellpadding="3" cellspacing="0">
+                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
-<%
-    String nextpage = (String)request.getAttribute(Login.KEY_DESTINATION_PAGE);
-    if(nextpage==null) nextpage = request.getParameter(Login.KEY_DESTINATION_PAGE);
-    if(nextpage==null) nextpage = request.getHeader("Referer");
-    if(nextpage==null) nextpage = "http://"+request.getServerName();
-    String message = (String)request.getAttribute("message");
-    if(message==null) message = "";
-    String username = request.getParameter(Login.KEY_USER_HANDLE);
-    if(username==null) username = "";
-%>
-
-                        <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
-                    
-                        <table border="0" cellpadding="3" cellspacing="0" align="center">
-                            <tr><td class="errorForm"><%= message %></td></tr>
-                        </table>
-
-                        <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="middle">
-                                <td nowrap class="loginText" align="right">User Name:&#160;&#160;</td>
+                                <td nowrap class="loginText" align="right">User Name:</td>
                                 <td colspan="2" align="left"><input type="text" name="<%=Login.KEY_USER_HANDLE%>" value="<%= username %>" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)"></td>
                             </tr>
 
                             <tr valign="middle">
-                                <td nowrap class="loginText" align="right">Password:&#160;&#160;</td>
+                                <td nowrap class="loginText" align="right">Password:</td>
                                 <td align="left"><input type="password" name="<%=Login.KEY_USER_PASS%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)"></td>
                                 <td nowrap class="loginText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a></td>
                             </tr>
 
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="10" alt="" border="0"></td></tr>
+                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                         </table>
+                        
                     <script>
                       document.frmLogin.<%=username.equals("")?Login.KEY_USER_HANDLE:Login.KEY_USER_PASS%>.focus();
                     </script>
@@ -83,9 +91,10 @@
                     </td></form>
                 </tr>
             </table>
+
             <p><br></p>
             <p><br></p>
-            <p><br></p>
+
             </div>
         </td>
 <!-- Center Column ends -->
