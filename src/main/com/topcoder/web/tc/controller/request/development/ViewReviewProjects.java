@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 
 /**
@@ -20,7 +21,7 @@ public class ViewReviewProjects extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        setNextPage("/dev/reviewProjects.jsp");
+        setNextPage(Constants.REVIEW_PROJECTS);
         setIsNextPageInContext(true);
     }
 
