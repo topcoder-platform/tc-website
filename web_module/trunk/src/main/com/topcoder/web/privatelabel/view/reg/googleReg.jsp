@@ -88,8 +88,6 @@ function openWin(url, name, w, h) {
             <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
 
       <h2>Registration</h2><br />
-      <p class="bodyText">In order to be eligible to compete in the Verizon Coding Challenge, you must be 18 years of age or older,
-      have completed an undergraduate degree, and be a current resident of Chennai, India.<br /></p>
         <table cellpadding="0" cellspacing="3" class="bodyText" align="center">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_REG_DEMOG%>"/>
