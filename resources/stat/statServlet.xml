@@ -23,7 +23,8 @@
 ]>
 <StatServlet>
     <RankList>
-        <RankItem minVal="0" maxVal="899">coderTextGray</RankItem>
+        <RankItem minVal="0" maxVal="0">coderTextGray</RankItem>
+        <RankItem minVal="1" maxVal="899">coderTextGray</RankItem>
         <RankItem minVal="900" maxVal="1199">coderTextGreen</RankItem>
         <RankItem minVal="1200" maxVal="1499">coderTextBlue</RankItem>
         <RankItem minVal="1500" maxVal="2199">coderTextYellow</RankItem>
