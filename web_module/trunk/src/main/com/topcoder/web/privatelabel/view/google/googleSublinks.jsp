@@ -20,7 +20,7 @@
                 </tr>
             </table>
     <% } else { %>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="google_subnav_blue_blue">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="google_subnav_blue">
             <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
         </table>
     <% } %>
