@@ -32,7 +32,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="FirstName"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">First Name&nbsp;</TD>
@@ -42,7 +44,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="LastName"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Last Name&nbsp;</TD>
@@ -52,7 +56,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="StateCode"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">State&nbsp;</TD>
@@ -64,7 +70,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="SchoolId"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">School&nbsp;</TD>
@@ -85,7 +93,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="Handle"><%error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD class="bodyText" ALIGN="right" VALIGN="middle">Handle&nbsp;</TD>
@@ -95,7 +105,14 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"><BR></TD>
+   <TD COLSPAN="2"><BR></TD>
+  </TR>
+  <TR>
+   <TD></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="Password"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Password&nbsp;</TD>
@@ -106,12 +123,14 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="ConfirmPassword"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Re-type Password&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="confirm_password" VALUE="<jsp:getProperty name="student" property="Password"/>" SIZE="30" MAXLENGTH="15"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="confirm_password" VALUE="<jsp:getProperty name="student" property="ConfirmPassword"/>" SIZE="30" MAXLENGTH="15"></TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&nbsp;</TD>
@@ -120,8 +139,15 @@
   </TR>
   <TR>
    <TD></TD>
+   <TD><IMG SRc="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD COLSPAN="2"><BR></TD>
+  </TR>
+  <TR>
+   <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"><BR></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="Email"><%=error%><BR>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Email&nbsp;</TD>
@@ -131,7 +157,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="ConfirmEmail"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Re-type Email&nbsp;</TD>
@@ -155,7 +183,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <reg:errorIterator id="error" name="EditorId"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Editor&nbsp;</TD>
@@ -172,7 +202,9 @@
   <TR>
    <TD></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+   <reg:errorIterator id="error" name="LanguageId"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Language&nbsp;</TD>
