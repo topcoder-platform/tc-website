@@ -16,6 +16,12 @@
 <jsp:param name="tabLev3" value="qualification"/>
 </jsp:include>
 
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc05_alg_qual"); %>
+
+
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
 	<tr valign=top>
@@ -55,41 +61,18 @@
                        </a>
                    </td>
                 </tr>
-               <tr class="advanceLt">
-                  <td align="center">1</td>
-                  <td align="left"><A HREF="/" CLASS="coderTextRed">handle</A></td>
-                  <td align="center" nowrap="nowrap">1</td>
-                  <td align="right">1000</td>
-                  <td align="right">1000</td>
-               </tr>
-               <tr class="advanceDk">
-                  <td align="center">1</td>
-                  <td align="left"><A HREF="/" CLASS="coderTextYellow">handle</A></td>
-                  <td align="center" nowrap="nowrap">1</td>
-                  <td align="right">1000</td>
-                  <td align="right">1000</td>
-               </tr>
-               <tr class="advanceLt">
-                  <td align="center">1</td>
-                  <td align="left"><A HREF="/" CLASS="coderTextBlue">handle</A></td>
-                  <td align="center" nowrap="nowrap">1</td>
-                  <td align="right">1000</td>
-                  <td align="right">1000</td>
-               </tr>
-               <tr class="advanceDk">
-                  <td align="center">1</td>
-                  <td align="left"><A HREF="/" CLASS="coderTextGreen">handle</A></td>
-                  <td align="center" nowrap="nowrap">1</td>
-                  <td align="right">1000</td>
-                  <td align="right">1000</td>
-               </tr>
-               <tr class="advanceLt">
-                  <td align="center">1</td>
-                  <td align="left"><A HREF="/" CLASS="coderTextGray">handle</A></td>
-                  <td align="center" nowrap="nowrap">1</td>
-                  <td align="right">1000</td>
-                  <td align="right">1000</td>
-               </tr>
+                
+                                <%boolean even = false;%>
+                <rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="formHandleOdd">
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="center" nowrap="0"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
+                </tr>
+                   <%even=!even;%>
+                </rsc:iterator>
+             
             </table>
 
         </div>
