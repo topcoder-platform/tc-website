@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>Intel is a proud sponsor of TopCoder Coding Competitions</title>
+<title>Intel is the title sponsor of the 2003 TopCoder Open</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -47,39 +47,33 @@
                 <tr valign="top">
                     <td align="left" width="100%">
                         <table border="0" cellpadding="0" cellspacing="0">
-                            
                             <tr>
-                                <td><embed src="/i/sponsor/intel_ids/ids_movie.swf" quality="high" wmode="opaque" bgcolor="#8D9AC1" width="289" height="130" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></td>
-                                <td valign="top" rowspan="2"><img src="/i/sponsor/intel_ids/intel_dev_services_2.gif" alt="Intel Developer Services--Maximize You Code" width="275" height="55" /></td>
-                            </tr>
-                            
+                               <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC_header.gif" width="510" height="115" /></td>
+                              </tr>
                             <tr>
-                                <td valign="bottom"><img src="/i/sponsor/intel_ids/yellow.gif" width="289" height="12" /></td>
-                               <td></td>
-                          </tr>
-                          
-                            <tr>
-                            	<td valign="bottom"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><img src="/i/sponsor/intel_ids/intel_centrino_vertical.gif" width="268" height="235" /> </A> </td>
-                                 	 <td align="left" class="bodyText">
+                            <td class="bodyText" >
+                            	<p>With technology complexity increasing at a blistering pace, Intel&#174; Developer Services offers the resources and opportunities you need to keep stride with industry innovations,
+                             	take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p></td>
                              
-                        			<p class="promoText"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel&#174; Developer Services </strong></A>offers the resources and 
-                        			opportunities you need to keep stride with industry innovations, take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
-                        
-                        			<p class="promoText">With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
-                        			<A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel Developer Services</strong></A> gives you <strong>FREE</strong> access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p>
-                        
-                        </td>
-                        
-                            	
-                            </tr>
-                            <tr>
-                            	<td align="left" colspan="2">
-                            	<br />
-                        			<p class="promoCallout">Register at <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">www.intel.com/IDS</A> today and get FREE 
-                        			technical resources designed to help you capitalize on today's technology trends&#58;</p>
-                            	</td>
-                            </tr>
+                            <td><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="206" height="200" /></td>
+                      </tr>
+                      <tr>
+                            <td>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
+                            Intel&#174; Developer Services gives you FREE access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</td>
+                            <td>
                             
+                            <table>
+                            <tr>
+                            <td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
+                            <td rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino mobile-technology-based notebook! View Specs.
+                            <br/>Register Now! Use promotion code TCO2003. </p></td>
+                            </tr>
+                            <tr><td></td></tr>
+                            </table>
+                            
+                            
+                            </td>
+                     </tr>
                         </table>
                     </td>
                 </tr>
