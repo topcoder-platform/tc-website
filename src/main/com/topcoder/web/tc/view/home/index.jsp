@@ -134,8 +134,14 @@
 <%-- Right Column --%>
 		<td class=homeRightCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
+
+<%-- TCO homepage --%>
+			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/home/promos/tco04_onsite.gif" border=0 /></A></td></tr>
+
+<%-- Regular homepage
 			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/home/promos/tco04Finals.gif" border=0 /></A></td></tr>
 			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown"><img src="/i/home/promos/tco04SS_sm.gif" border=0 /></A></td></tr>
+--%>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
