@@ -40,6 +40,7 @@ public class Coder implements Serializable, TagRenderer {
   private ArrayList demographicResponses;
   private ArrayList notifications;
   private boolean hasImage;
+  private ArrayList coderConfirmations;
 
 
   public Coder() {
@@ -76,6 +77,7 @@ public class Coder implements Serializable, TagRenderer {
     demographicResponses = new ArrayList();
     notifications = new ArrayList();
     hasImage = false;
+    coderConfirmations = new ArrayList();
   }
 
 /*
@@ -139,6 +141,7 @@ public class Coder implements Serializable, TagRenderer {
       Data.stabilizeModifiableList(experiences);
       Data.stabilizeModifiableList(inquiries);
       Data.stabilizeModifiableList(demographicResponses);
+      Data.stabilizeModifiableList(coderConfirmations);
     } catch (Exception e) {
       e.printStackTrace();
       throw new Exception("common.web.data.Coder:setAllModifiedStable:ERROR:"+e+"\n");
@@ -281,6 +284,10 @@ public class Coder implements Serializable, TagRenderer {
     this.hasImage = hasImage;
   }
 
+  public void setCoderConfirmations(ArrayList coderConfirmations) {
+    this.coderConfirmations = coderConfirmations;
+  }
+
   // Get
   public int getCoderId() {
     return coderId;
@@ -413,7 +420,10 @@ public class Coder implements Serializable, TagRenderer {
   public boolean getHasImage() {
     return hasImage;
   }
-   
+  
+  public ArrayList getCoderConfirmations() {
+    return coderConfirmations;
+  } 
  
 
   public RecordTag getXML() throws Exception {
@@ -463,6 +473,7 @@ public class Coder implements Serializable, TagRenderer {
       result.addTag( type.getXML() );
       result.addTag( RecordTag.getListXML("JobPrefs",jobPreferences) );
       result.addTag( new ValueTag("HasImage", hasImage) );
+      result.addTag( RecordTag.getListXML("CoderConfirmations", coderConfirmations));
     } catch (Exception e)  {
       throw new Exception("common.web.data.Coder getXML ERROR: " + e);
     }
