@@ -56,6 +56,7 @@ public class FixPasswords {
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         ResultSet rs = null;
+        long userId = 0;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(t);
@@ -64,16 +65,20 @@ public class FixPasswords {
             int count = 0;
             rs = ps1.executeQuery();
             while (rs.next()) {
-                String pass = pmr.getPassword(rs.getLong("user_id"));
+                userId = rs.getLong("user_id");
+                String pass = pmr.getPassword(userId);
                 ps.setString(1, pass);
-                ps.setLong(2, rs.getLong("user_id"));
+                ps.setLong(2, userId);
 
-                ps2.setString(1, StringUtils.getActivationCode(rs.getLong("user_id")));
-                ps2.setLong(2, rs.getLong("user_id"));
+                ps2.setString(1, StringUtils.getActivationCode(userId));
+                ps2.setLong(2, userId);
                 count += ps.executeUpdate();
                 ps2.executeUpdate();
                 if (count%25==0) System.out.println(""+count + " records updated");
             }
+        } catch (Exception e) {
+            System.out.println("user " + userId);
+            e.printStackTrace();
         } finally {
             try {rs.close();} catch (Exception e) {};
             try {ps.close();} catch (Exception e) {};
