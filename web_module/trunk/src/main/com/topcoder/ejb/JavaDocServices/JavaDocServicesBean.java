@@ -19,6 +19,8 @@ public class JavaDocServicesBean extends BaseEJB {
           Logger.getLogger(JavaDocServicesBean.class);
 
     private final static int CODING_SEGMENT_ID = 2;
+    private final static int LEVEL_ONE_ADMIN_GROUP_ID = 13;
+    private final static int LEVEL_TWO_ADMIN_GROUP_ID = 14;
 
     public void ejbCreate () { }
 
@@ -48,7 +50,21 @@ public class JavaDocServicesBean extends BaseEJB {
             if(!rs.next()) {
                 return "Invalid handle / password information.";
             }
+            int userId = rs.getInt(1);
             close(ps, rs);
+
+            //Next, is it an admin?
+            sql = new StringBuffer();
+            sql.append("SELECT * FROM group_user WHERE user_id = ? AND group_id IN (?, ?) ");
+            ps = conn.prepareStatement(sql.toString());
+            ps.setInt(1, userId);
+            ps.setInt(2, LEVEL_ONE_ADMIN_GROUP_ID);
+            ps.setInt(3, LEVEL_TWO_ADMIN_GROUP_ID);
+            rs = ps.executeQuery();
+            if(rs.next()) {  
+                //we have an admin, let them have it
+                return "";
+            }
 
             //Next, get all the rounds this web service is used in
             sql = new StringBuffer();
@@ -121,10 +137,11 @@ public class JavaDocServicesBean extends BaseEJB {
             sql.append(    ",web_service ws ");
             sql.append("WHERE ws.web_service_id = wsjd.web_service_id ");
             sql.append(  "AND ws.web_service_name = ? ");
-            sql.append(  "AND wsjd.path = ? ");
+            sql.append(  "AND wsjd.path IN (?, ?) ");
             ps = conn.prepareStatement(sql.toString());
             ps.setString(1, webServiceName);
             ps.setString(2, path);
+            ps.setString(3, "/" + path);  //be forgiving, don't know if we should prepend the / or not, so try both
             rs = ps.executeQuery();
             if(rs.next()) {
                 file = DBMS.getTextString(rs, 1);
