@@ -85,7 +85,7 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2>
 
 <p>
-In Division 2, <b>Marto</b> and <b>valo_bg</b> took second and third, with <b>Dan [Popovici]</b> in a very close fourth. 
+In Division 2, <b>Marto</b> and <b>valo_bg</b> took first and second, with <b>Dan [Popovici]</b> in a very close third. 
 Partway through the match, three newbies held the top three spots, but that changed before too long.
 <br /><br />
 Nobody was terribly surprised in Division 1, when <b>tomek</b> took top honors. <b>marian</b> and <b>misof</b> were 
