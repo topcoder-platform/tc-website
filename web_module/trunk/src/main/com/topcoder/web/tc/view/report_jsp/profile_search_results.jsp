@@ -22,13 +22,14 @@
 <script language="javascript">
 <!--
     function sort(i){
+        i++;
         document.revise['module'].value = 'ProfileSearch';
-        if(parseInt(i)+1 == parseInt(document.revise['order'].value)){
-            document.revise['sort'].sort = ""+(-parseInt(document.revise['order'].sort));
+        if(i == parseInt(document.revise['order'].value)){
+            document.revise['sort'].sort = ''+(-parseInt(document.revise['sort'].sort));
         }else{
-            document.revise['sort'].sort = "1";
+            document.revise['sort'].sort = '1';
         }
-        document.revise['order'].value = (parseInt(i)+1)+"";
+        document.revise['order'].value = i+'';
         document.revise.submit();
     }
     function revise(){
@@ -45,7 +46,7 @@
     <tr>
     <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
         <td>
-            <a href="JavaScript:sort('<%=i%>')">
+            <a href="JavaScript:sort(<%=i%>)">
                 <%=headers.get(Integer.parseInt(i))%>
             </a>
         </td>
