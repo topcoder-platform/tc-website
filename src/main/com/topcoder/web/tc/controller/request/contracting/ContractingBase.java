@@ -153,6 +153,12 @@ abstract public class ContractingBase extends BaseProcessor {
             setDefault(Constants.PREFERENCE_PREFIX + s, info.getPreference(s)); 
         }
         
+        //load skill defaults
+        i = info.getSkillNames();     
+        while(i.hasNext()) {
+            String s = (String)i.next();
+            setDefault(Constants.SKILL_PREFIX + s, info.getSkill(s)); 
+        }
     };
     
     protected abstract void setNextPage();
@@ -196,6 +202,27 @@ abstract public class ContractingBase extends BaseProcessor {
                 if (file != null && file.getContentType() != null) {
                     log.debug("FOUND RESUME");
                     info.setResume(file); 
+                }
+            }
+        } else if(getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("languages")) {
+            //load skills
+            log.debug("LOADING DATA FROM REQUEST");
+            info.clearSkills();
+            
+            //get list of preferences 
+            Enumeration en = getRequest().getParameterNames();
+            while(en.hasMoreElements()) {
+                String param = (String)en.nextElement();
+                if(param.startsWith(Constants.SKILL_PREFIX)) {
+                    //get id from end of string
+                    String skillId = param.substring(Constants.SKILL_PREFIX.length());
+                        
+                    String val = getRequestParameter(param);
+                    
+                    if(!val.equals("")) {
+                        info.setSkill(skillId, val);
+                        log.debug("SET SKILL " + skillId + " TO " + val);
+                    }
                 }
             }
         } else {
