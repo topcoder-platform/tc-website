@@ -80,6 +80,7 @@ public final class Navigation
         user = new User();
         userSerializable = new User();
         sessionObjects = new HashMap(3);
+        info = new CoderSessionInfo();
     }
 
 
