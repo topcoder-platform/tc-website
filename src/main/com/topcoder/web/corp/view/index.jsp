@@ -25,9 +25,9 @@
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr>
+   <tr valign="top">
 <!-- Left Column Begins -->
-        <td width="170" valign="top" bgcolor="#CCCCCC">
+        <td width="170">
         <jsp:include page="includes/left.jsp" >
             <jsp:param name="level1" value="index"/>
         </jsp:include>
@@ -35,12 +35,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Body Area -->
-        <td width="100%" valign="top"><img src="/i/clear.gif" height="11"  alt="" border="0"><br>
-
+        <td width="100%"><img src="/i/clear.gif" height="11"  alt="" border="0"><br>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
