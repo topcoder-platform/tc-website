@@ -417,7 +417,7 @@ public class DataRetriever implements DataRetrieverInt {
             // Put these in a result set container to avoid requiring the
             // connection to have two open prepared statements at the same
             // time.
-            ResultSetContainer rsc = new ResultSetContainer(rs, false);
+            ResultSetContainer rsc = new ResultSetContainer(rs);
 
             rs.close();
             rs = null;
@@ -548,9 +548,9 @@ public class DataRetriever implements DataRetrieverInt {
                 // generate a ranklist column or not.
                 ResultSetContainer rsc;
                 if (ranklistCol == null)
-                    rsc = new ResultSetContainer(rs, startRow, endRow);
+                    rsc = new ResultSetContainer(rs, startRow, endRow, false);
                 else
-                    rsc = new ResultSetContainer(rs, startRow, endRow, ranklistCol.intValue());
+                    rsc = new ResultSetContainer(rs, startRow, endRow, ranklistCol.intValue(), false);
                 rs.close();
                 rs = null;
                 ps.close();
