@@ -28,6 +28,7 @@ public abstract class Base implements RequestProcessor {
     protected User user;
     protected Authorization hsa;
     protected static Logger log = Logger.getLogger(Base.class);
+    private HashMap errors;
 
     /* return values */
     private String nextPage = "";
@@ -35,6 +36,7 @@ public abstract class Base implements RequestProcessor {
 
     public Base() {
         log.debug("constructing "+this.getClass().getName());
+        errors = new HashMap();
     }
 
     public void setRequest(ServletRequest request) {
@@ -126,5 +128,46 @@ public abstract class Base implements RequestProcessor {
     /** False if a redirect is necessary, ie you need the URL in the browser to change.  True otherwise. */
     protected void setIsNextPageInContext(boolean flag) {
         nextPageInContext = flag;
+    }
+
+    protected void addError(String key, Object error) {
+        if (!hasError(key)) {
+            errors.put(key, error);
+        }
+    }
+
+    public String getError(String key) {
+        if (errors.containsKey(key) && errors.get(key) != null) {
+            return errors.get(key).toString();
+        }
+        return "";
+    }
+
+    public boolean hasError(String key) {
+        return errors.containsKey(key);
+    }
+
+    protected void removeError(String key) {
+        if (hasError(key)) {
+            errors.remove(key);
+        }
+    }
+
+    protected void clearErrors() {
+        errors.clear();
+    }
+
+    protected boolean hasErrors() {
+        return !errors.isEmpty();
+    }
+
+    /* some utility methods */
+
+    protected boolean isEmpty(String s) {
+        return !(s != null && s.trim().length() > 0);
+    }
+
+    protected String checkNull(String s) {
+        return s == null ? "" : s;
     }
 }
