@@ -8,9 +8,14 @@ import com.topcoder.shared.dataAccess.Request;
 public class SurveyList extends Base {
     protected void businessProcessing() throws TCWebException {
         Request r = new Request();
-        r.setContentHandle("survey_list");
         try {
-            getRequest().setAttribute("surveyList", getDataAccess().getData(r).get("survey_list"));
+            if (getAuthentication().getActiveUser().isAnonymous()) {
+                r.setContentHandle("survey_list");
+                getRequest().setAttribute("surveyList", getDataAccess().getData(r).get("survey_list"));
+            } else {
+                r.setContentHandle("user_survey_list");
+                getRequest().setAttribute("surveyList", getDataAccess().getData(r).get("user_survey_list"));
+            }
         } catch (Exception e) {
             throw new TCWebException(e);
         }
