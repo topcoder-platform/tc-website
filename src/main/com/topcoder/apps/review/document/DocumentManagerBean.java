@@ -64,6 +64,9 @@ public class DocumentManagerBean implements SessionBean {
     private DataSource dataSource;
     private ProjectTrackerLocal projectTracker;
     private IdGen idGen;
+    
+    private static final double EPS = 1e-10;
+
 
     private HashMap userMap;
 
@@ -1521,7 +1524,7 @@ public class DocumentManagerBean implements SessionBean {
 
                         //InitialSubmission[] submissions = getInitialSubmissions(project, false, fakeSubject);
                         InitialSubmission[] submissions = (InitialSubmission[]) getSubmissions(project, fakeSubject, InitialSubmission.SUBMISSION_TYPE, -1, false, false);
-                        ReviewScorecard[] scorecards = getReviewScorecard(project, fakeSubject);
+                        final ReviewScorecard[] scorecards = getReviewScorecard(project, fakeSubject);
                         //Item[] items = new Item[submissions.length];
                         for (int i = 0; i < submissions.length; i++) {
                             if (!submissions[i].isRemoved()) {
