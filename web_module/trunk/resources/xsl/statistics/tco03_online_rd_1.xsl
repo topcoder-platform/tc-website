@@ -89,17 +89,17 @@ for position in the first elimination round of the 2003 Open. Nine out of
 ten contestants made Level One and Level Two submissions, but only one out
 of four went on to complete a Level Three problem that asked for a
 simulation of orbiting planets. It was evident that Newtonian physics
-posed no obstacle to <b>reid</b>, <b>WishingBone</b>, and <b>bmerry</b>,
+posed no obstacle for <b>reid</b>, <b>WishingBone</b>, and <b>bmerry</b>,
 who led their respective rooms with scores over 1400 when the coding
 phase drew to a close. <b>WishingBone</b> reaped 100 more points during
 the challenge phase, giving him the victory in this early skirmish.
 </p>
 
 <p>
-Although the leader board was dominated by coders in the red and
-yellow portions of the rating spectrum, blue coders <b>port6000</b>,
-<b>fiveEasyPieces</b>, and <b>TheFaxman</b> were room winners, along
-with veteran Division 2 coder <b>irulet</b>. With so many agile minds solving the Level One and Level Two problems, rapid submission times
+the leader board was thronged with coders from the red and yellow 
+portions of the rating spectrum, blue coders <b>port6000</b>,
+<b>fiveEasyPieces</b>, and <b>TheFaxman</b> were room winners, along with Division 2 veteran 
+<b>irulet</b>. With so many agile minds solving the Level One and Level Two problems, rapid submission times
 made all the difference. The quick thinkers who made the cut can look
 forward to increasingly profound challenges in coming weeks. The rest
 will watch with keen interest from the sidelines and plot a
