@@ -256,7 +256,7 @@ public final class Registration extends UserEdit {
     protected void verifyAllowed()
             throws PermissionException, Exception {
         com.topcoder.shared.security.User loggedInUser = getAuthentication().getUser();
-        com.topcoder.shared.security.User knownUser = getAuthentication().getActiveUser();
+        com.topcoder.shared.security.User knownUser = getUser();
 
 
         if (secTok.createNew) {

@@ -46,7 +46,7 @@ public class UserList extends BaseProcessor {
 //        WebAuthentication authToken = getAuthenticityToken();
 
         /* Find the current logged in users ID number.  */
-        User currentUser = getAuthentication().getActiveUser();
+        User currentUser = getUser();
         userId = currentUser.getId();
 
         Request dataRequest = new Request();

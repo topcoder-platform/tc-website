@@ -25,7 +25,7 @@ public class ProfileList extends BaseProcessor {
         
         Request dr = new Request();
         dr.setContentHandle("profileList");
-        dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
+        dr.setProperty("uid", String.valueOf(getUser()));
         
         Map map = dAccess.getData(dr);
 

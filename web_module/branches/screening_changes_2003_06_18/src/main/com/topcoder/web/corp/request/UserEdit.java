@@ -171,7 +171,7 @@ public class UserEdit extends BaseProcessor {
             contactTable.createContact(secTok.primaryUserCompanyID, targetUserID);
         }
 
-        if (targetUserID != getAuthentication().getActiveUser().getId()) {
+        if (targetUserID != getUser().getId()) {
             // set up additional permissions for non primary users
             Enumeration e = getRequest().getParameterNames();
             while (e.hasMoreElements()) {
@@ -241,7 +241,7 @@ public class UserEdit extends BaseProcessor {
         if (secTok.createNew) { // only primary persons are allowed to do it
             // so all others get switched into editor mode
             if (getAuthentication().getUser().isAnonymous()) { // not logged in
-                throw new PermissionException(getAuthentication().getActiveUser(),
+                throw new PermissionException(getUser(),
                         new ClassResource(this.getClass()), new Exception("You must be logged in to create a user."));
             }
 
@@ -261,12 +261,12 @@ public class UserEdit extends BaseProcessor {
             if (secTok.isAccountAdmin) {
                 // check if user belongs same company
                 if (secTok.targetUserCompanyID != secTok.loggedUserCompanyID) {
-                    throw new PermissionException(getAuthentication().getActiveUser(),
+                    throw new PermissionException(getUser(),
                             new ClassResource(this.getClass()), new Exception("You may only edit the accounts of employees at your company."));
                 }
             } else { // regular member tries to edit user
                 if (targetUserID != getAuthentication().getUser().getId()) {
-                    throw new PermissionException(getAuthentication().getActiveUser(),
+                    throw new PermissionException(getUser(),
                             new ClassResource(this.getClass()), new Exception("You are not allowed to modify other users."));
                 }
             }
@@ -684,7 +684,7 @@ public class UserEdit extends BaseProcessor {
             man = Util.getPrincipalManager();
 
             InitialContext icEJB = null;
-            if (getAuthentication().getActiveUser().isAnonymous()) {
+            if (getUser().isAnonymous()) {
                 try {
                     requestor = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
                 } catch (Exception cause) {

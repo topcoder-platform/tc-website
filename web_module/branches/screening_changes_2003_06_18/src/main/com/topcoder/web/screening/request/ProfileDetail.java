@@ -32,8 +32,8 @@ public class ProfileDetail extends BaseProfileProcessor {
 
         log.debug("ProfileDetail for profile: " + info.getProfileId());
         info.setTestSetAList(getTestSetAList(profile.getSessionRoundId(info.getProfileId().longValue()),
-                getAuthentication().getActiveUser()));
-        info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getAuthentication().getActiveUser()));
+                getUser()));
+        info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getUser()));
 
         info.setProfileName(profile.getSessionProfileDesc(info.getProfileId().longValue()));
 
@@ -51,7 +51,7 @@ public class ProfileDetail extends BaseProfileProcessor {
 
         info.setLanguageList(getLanguageList());
 
-        info.setSessionList(getSessionList(info.getProfileId().longValue(), getAuthentication().getActiveUser().getId()));
+        info.setSessionList(getSessionList(info.getProfileId().longValue(), getUser().getId()));
 
         getRequest().setAttribute(Constants.PROFILE_INFO, info);
         setNextPage(Constants.PROFILE_DETAIL_PAGE);

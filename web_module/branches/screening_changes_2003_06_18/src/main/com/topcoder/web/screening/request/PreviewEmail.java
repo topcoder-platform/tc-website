@@ -19,7 +19,7 @@ public class PreviewEmail extends BaseSessionProcessor {
                     request.getParameter(Constants.CANDIDATE_EMAIL));
             sInfo.setRepEmail(request.getParameter(Constants.REP_EMAIL));
             info = 
-                EmailInfo.createEmailInfo(sInfo, getAuthentication().getActiveUser());
+                EmailInfo.createEmailInfo(sInfo, getUser());
         }
         catch(Exception e) {
             updateSessionInfo();

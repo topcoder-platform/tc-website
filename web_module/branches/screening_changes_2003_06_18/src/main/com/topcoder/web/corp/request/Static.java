@@ -45,10 +45,10 @@ public class Static extends BaseProcessor {
 
         log.debug("next page: " + path.toString());
 
-        Authorization authorization = new TCSAuthorization(Util.retrieveTCSubject(getAuthentication().getActiveUser().getId()));
+        Authorization authorization = new TCSAuthorization(Util.retrieveTCSubject(getUser().getId()));
         /* check whether the path is allowed for this type of user */
         if(!authorization.hasPermission(new PathResource(path.toString())))
-        throw new PermissionException(getAuthentication().getActiveUser(),
+        throw new PermissionException(getUser(),
                 new PathResource(path.toString()), new Exception("access to page denied"));
 
         setNextPage(path.toString());

@@ -18,7 +18,7 @@ public class ProblemResult extends BaseProcessor {
      */
     protected void businessProcessing() throws Exception {
 
-        SubmissionInfo sinfo = new SubmissionInfo(getAuthentication().getActiveUser(),
+        SubmissionInfo sinfo = new SubmissionInfo(getUser(),
                 Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)),
                 Long.parseLong(getRequest().getParameter(Constants.ROUND_ID)),
                 Long.parseLong(getRequest().getParameter(Constants.PROBLEM_ID)),
@@ -37,7 +37,7 @@ public class ProblemResult extends BaseProcessor {
         getRequest().setAttribute("profileInfo",pinfo);
 
         getRequest().setAttribute("problemInfo",
-            ProblemInfo.createProblemInfo(getAuthentication().getActiveUser(),
+            ProblemInfo.createProblemInfo(getUser(),
                 Long.parseLong(getRequest().getParameter(Constants.ROUND_ID)),
                 Long.parseLong(getRequest().getParameter(Constants.PROBLEM_ID))));
 

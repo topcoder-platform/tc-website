@@ -24,7 +24,7 @@ public class BuildCandidateList extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 
-        User user = getAuthentication().getActiveUser();
+        User user = getUser();
 
         DataAccessInt dAccess = Util.getDataAccess();
         dataRequest.setProperty("uid", String.valueOf(user.getId()));

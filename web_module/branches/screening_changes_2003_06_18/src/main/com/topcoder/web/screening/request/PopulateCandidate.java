@@ -59,7 +59,7 @@ public class PopulateCandidate extends BaseProcessor {
                 Request dr = new Request();
                 dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
                 dr.setContentHandle("noteList");
-                dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
+                dr.setProperty("uid", String.valueOf(getUser()));
 
                 Map map = dAccess.getData(dr);
 

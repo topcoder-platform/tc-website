@@ -27,9 +27,7 @@ public class PopulateProblemDetail extends BaseProcessor {
         long problemId = Long.parseLong(roundProblemId.substring(index+1));
 
         ProblemInfo info = 
-            ProblemInfo.createProblemInfo(getAuthentication().getActiveUser(), 
-                                          roundId, 
-                                          problemId);
+            ProblemInfo.createProblemInfo(getUser(),roundId,problemId);
 
         request.setAttribute(Constants.PROBLEM_INFO, info);
         setNextPage(Constants.PROBLEM_DETAIL_PAGE);

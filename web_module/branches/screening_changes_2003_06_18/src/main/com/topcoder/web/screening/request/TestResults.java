@@ -37,7 +37,7 @@ public class TestResults extends BaseProcessor {
         Request dr = new Request();
         dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
         dr.setContentHandle("testResults");
-        dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
+        dr.setProperty("uid", String.valueOf(getUser().getId()));
         Map map = dAccess.getData(dr);
         if(map == null)
             throw new ScreeningException("getData failed!");
@@ -89,7 +89,7 @@ public class TestResults extends BaseProcessor {
         for(int i=0; i < result.size(); i++){
             problemSetAList.add(
                 ProblemInfo.createProblemInfo(
-                    getAuthentication().getActiveUser(),
+                    getUser(),
                     Long.parseLong(result.getItem(i,"session_round_id").toString()),
                     Long.parseLong(result.getItem(i,"problem_id").toString())));
         }
@@ -100,7 +100,7 @@ public class TestResults extends BaseProcessor {
         for(int i=0; i < result.size(); i++){
             problemSetBList.add(
                 ProblemInfo.createProblemInfo(
-                    getAuthentication().getActiveUser(),
+                    getUser(),
                     Long.parseLong(result.getItem(i,"session_round_id").toString()),
                     Long.parseLong(result.getItem(i,"problem_id").toString())));
         }

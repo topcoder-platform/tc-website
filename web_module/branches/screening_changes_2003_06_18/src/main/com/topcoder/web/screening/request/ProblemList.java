@@ -22,7 +22,7 @@ public class ProblemList extends BaseProcessor {
      * @throws Exception
      */
     protected void businessProcessing() throws Exception {
-        User user = getAuthentication().getActiveUser();
+        User user = getUser();
 
         Request dr = new Request();
         dr.setContentHandle("problemList");

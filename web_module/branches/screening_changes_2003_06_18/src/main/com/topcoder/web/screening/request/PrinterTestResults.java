@@ -33,7 +33,7 @@ public class PrinterTestResults extends TestResults {
         Request dr = new Request();
         dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
         dr.setContentHandle("noteList");
-        dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
+        dr.setProperty("uid", String.valueOf(getUser()));
         dr.setProperty("cid", String.valueOf(cinfo.getUserId()));
 
 
@@ -42,7 +42,7 @@ public class PrinterTestResults extends TestResults {
         if (map != null) {
             ResultSetContainer result = (ResultSetContainer) map.get("candidateInfo");
             if (result.getRowCount() == 0) {
-                throw new PermissionDeniedException(getAuthentication().getActiveUser(),
+                throw new PermissionDeniedException(getUser(),
                         "User not authorized to view information about candidate: " +
                         dr.getProperty("cid") == null ? "?" : dr.getProperty("cid"));
             }
@@ -60,7 +60,7 @@ public class PrinterTestResults extends TestResults {
         ProblemInfo problem = null;
         for (int i=0; i<problemList.size(); i++) {
             problem = (ProblemInfo)problemList.get(i);
-            temp = new SubmissionInfo(getAuthentication().getActiveUser(),
+            temp = new SubmissionInfo(getUser(),
                     sessionId,
                     problem.getRoundId().longValue(),
                     problem.getProblemId().longValue(),
