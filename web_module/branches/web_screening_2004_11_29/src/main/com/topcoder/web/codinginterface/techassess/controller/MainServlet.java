@@ -4,6 +4,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.GeneralSecurityException;
@@ -36,6 +37,7 @@ public class MainServlet extends BaseServlet {
         try {
             InitialContext ctx = new InitialContext();
             log.debug(ctx.getEnvironment().toString());
+            log.debug(TCContext.getInitial().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
