@@ -23,6 +23,7 @@ public class ResumeLoader {
             System.out.println("3	Adobe Acrobat PDF");
             System.out.println("4	Postscript");
             System.out.println("5	HTML");
+            System.exit(0);
         } else {
             dataSource = args[0];
             coderId = Long.parseLong(args[1]);
