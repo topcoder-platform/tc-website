@@ -192,6 +192,7 @@ public class TCCC05Payments {
             ArrayList coders = null;
             HashSet rooms = new HashSet();
             for (int i=0; i<data.length; i++) {
+                //bucket everyone into room/placed buckets
                 coders = (ArrayList)placeMap.get(data[i].getRoomId()+" " + data[i].getPlaced());
                 rooms.add(new Long(data[i].getRoomId()));
                 if (coders==null) {
