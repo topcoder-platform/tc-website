@@ -69,16 +69,6 @@
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="7" HEIGHT="18">&#160;Problem Statement for <%=sClassName%>
-                   </TD>
-                 </TR>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                 <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" VALIGN="middle" ALIGN="left">
               		<%= ProblemStatementTask.getProblemText() %>
                    </TD>
