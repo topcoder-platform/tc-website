@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!--  Javaone -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://java.sun.com/javaone/top_coder.html" target="_blank"><img src="/i/pressroom/javaone_event.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://java.sun.com/javaone/top_coder.html" target="_blank">JavaOne Coding Challenge: Meet the Best</A></strong></font><br />
+                        The JavaOne Coding Competition is finished, which means three Grand Prize winners and a host of Runners Up have been crowned as this year's top coders. This year, the number of competitors rose to almost double that of last year. There were 188 competitors on day two of the three-day competition.<span class="prHead"> [July 1]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Mass High Tech article -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
