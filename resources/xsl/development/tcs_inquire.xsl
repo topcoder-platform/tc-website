@@ -84,6 +84,15 @@
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                 <tr>
                   <td align="right" valign="top" class="statText">
+                    Agree to Terms:&#160;&#160;
+                  </td>
+                  <td align="left" valign="top">
+                    <INPUT TYPE="checkbox" NAME="terms"/>
+                  </td>
+                </tr>
+                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
+                <tr>
+                  <td align="right" valign="top" class="statText">
                     Comment: &#160;&#160;
                   </td>
                   <td align="left" valign="top">

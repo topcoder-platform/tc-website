@@ -83,6 +83,7 @@ public final class TaskDevelopment {
                 }
                 /********************** tcs_send *******************/
                 else if (command.equals("tcs_send")) {
+                    log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
                     String project = Conversion.checkNull(request.getParameter("Project"));
@@ -98,6 +99,11 @@ public final class TaskDevelopment {
                     msgText.append("\n\n");
                     msgText.append("\n\nTCS Handle:\n");
                     msgText.append(tcsHandle);
+                    if (request.getParameter("terms")==null) {
+                      msgText.append("\n\nDid not agree to terms.\n");
+                    } else { 
+                      msgText.append("\n\nAgreed to terms.\n");
+                    }
                     msgText.append("\n\nComment:\n");
                     msgText.append(comment);
                     mail.setBody(msgText.toString());
