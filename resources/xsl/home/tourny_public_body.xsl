@@ -95,10 +95,9 @@
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">   
   <TR>
-    <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/jonmac_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="5"/></TD>
-    <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2"><BR/>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>      
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/jonmac_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="5"/></TD>
+    <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText"><BR/>
     Handle: <B>jonmac</B><BR/>
     Member Since: <B>03.04.01</B><BR/>
       <A CLASS="bodyGeneric">
@@ -106,10 +105,20 @@
 View Profile
       </A><BR/>
     </TD>
-  </TR> 
+    <TD VALIGN="middle" WIDTH="50%" CLASS="bodyText" ALIGN="center" HEIGHT="21"><IMG SRC="/i/2002sn_chall.gif" ALT="" WIDTH="154" HEIGHT="56" BORDER="0"/><BR/>      <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sun_sched</xsl:attribute>
+Round Updates/Schedule
+      </A><BR/><BR/></TD> 
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>         
+  </TR>
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" COLSPAN="3" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR>    
 </TABLE>
  
-<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+<!-- <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="50%" NOWRAP="0" HEIGHT="15">
@@ -120,8 +129,7 @@ View Profile
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sun_sched</xsl:attribute>
 Round Updates/Schedule
       </A>
-    </TD>    
-    <!-- <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Ideas?</A></TD> -->   
+    </TD> 
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR>  
 </TABLE> 
@@ -140,7 +148,7 @@ Round Updates/Schedule
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR> 
   <TR><TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
-</TABLE>
+</TABLE> -->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 
     <!-- Last SRM Begins -->    
@@ -402,8 +410,15 @@ You probably haven't put much thought into the problem creation process before, 
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/>
+<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=google</xsl:attribute></A>  
+<IMG USEMAP="#emp_google" SRC="/i/es/google/emp_google.gif" alt="" width="244" height="160" border="0"/>  
+  <BR/>
+<map name="emp_google">
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?&amp;ContestId=4285&amp;t=schedule&amp;c=srm"/>
+<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=google"/>
+</map>    
+ <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/> -->
 
 <!-- <A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/2002sunnetwork_button.gif" alt="" width="244" height="79" border="0"/></A><BR/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">

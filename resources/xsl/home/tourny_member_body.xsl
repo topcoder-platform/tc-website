@@ -710,8 +710,16 @@ World Cup final...
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/>
+<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=google</xsl:attribute></A>  
+<IMG USEMAP="#emp_google" SRC="/i/es/google/emp_google.gif" alt="" width="244" height="160" border="0"/>  
+  <BR/>
+<map name="emp_google">
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?&amp;ContestId=4285&amp;t=schedule&amp;c=srm"/>
+<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=google"/>
+</map>  
+ 
+ <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/> -->
 
 <!-- <A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/2002sunnetwork_button.gif" alt="" width="244" height="79" border="0"/></A><BR/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
@@ -760,7 +768,7 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
 </TABLE>
 <IMG SRC="/i/tournament/2002sunnetwork_btm.gif" alt="" width="244" height="34" border="0"/><BR/> -->
 
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002invit_rules</xsl:attribute>
+<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>
 <IMG SRC="/i/2002invit_button.gif" alt="" width="244" height="77" border="0"/></A><BR/><BR/>
 <!-- <A>
     <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4220&amp;t=schedule&amp;c=srm</xsl:attribute>
