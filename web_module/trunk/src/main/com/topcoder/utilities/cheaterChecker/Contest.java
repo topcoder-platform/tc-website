@@ -111,6 +111,7 @@ public class Contest {
                 StringBuffer worstBuf = new StringBuffer(1000);
                 int i=0;
                 Map.Entry me = null;
+                worstBuf.append("\n");
                 for (Iterator it = worst.iterator(); it.hasNext()&&i<Fraud.MAX_REPORT; i++) {
                     me = (Map.Entry)it.next();
                     worstBuf.append(((User)me.getKey()).getHandle());
