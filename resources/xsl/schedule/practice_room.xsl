@@ -112,21 +112,6 @@ course, we would not allow you to view a competitor's code while the
 coding phase is active.</LI>
 </UL>
 </P>
-                                        <SCRIPT type="text/javascript"><![CDATA[
-function arena() {
-  w=window.open("","Launch","top=2,left=2,width=300,height=225,status=1");
-  d = w.document;
-  d.write ( "<HTML><HEAD><TITLE>Loading</TITLE>" );
-  d.write ( "</HEAD><BODY bgcolor=\"#CCCCCC\">" );
-  d.write ( "<font color=\"#000000\" size=\"2\" face=\"arial,verdana,helvetica,sans-serif\">" );
-  d.write ( "<b>Loading...</b>" );
-  d.write ( "</font>" );
-  d.write ( "<SCRIPT type=\"text/javascript\">" );
-  d.write ( "window.location='/?t=arena&amp;c=arena'" );
-  d.write ( "\<\/SCRIPT\>" );
-  d.write ( "</BODY></HTML>" );
-}
-                                        ]]></SCRIPT>
 <P CLASS="bodyText">
 <A HREF="#" CLASS="bodyText">Ready to practice?</A><BR/>
 Click the button below to launch the Competition Arena. To enter the practice
