@@ -39,6 +39,7 @@ public class MainServlet extends BaseServlet {
         try {
             Data.initializeDataTypes();
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ServletException(e.getMessage());
         }
     }
