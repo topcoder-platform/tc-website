@@ -23,7 +23,7 @@
 
     <tr>
         <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="rating"/></td>
+        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/></td>
     </tr>
     <tr>
         <td class="myStatsEarningsName">Earnings</td>
