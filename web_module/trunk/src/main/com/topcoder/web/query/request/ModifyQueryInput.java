@@ -99,6 +99,7 @@ public class ModifyQueryInput extends BaseProcessor {
         setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
         setOtherInputList(i.getAllInputs(getDb()));
 
+        request.setAttribute(this.getClass().getName(), this);
         setNextPage(Constants.MODIFY_QUERY_INPUT_PAGE);
         setIsNextPageInContext(true);
     }
