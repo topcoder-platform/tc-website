@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!--  RedHerring -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=art_08_10_04"><img src="/i/pressroom/redherring_logo.gif" alt="" width="135" height="21" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_08_10_04">Better than You: King of code</A></strong></font><br />
+                         Known in his competitive coding circles by first name only, Tomek Czajka is one of the world's best programmers. He's earned over $75,000 in algorithm-writing contests over the last few years on TopCoder, the Top Gun of programming competition sites. In addition to fortune and fame in the developer community, TopCoder winners are often recruited by event sponsors like Microsoft, Yahoo, and Google.<span class="prHead"> [August 10 - Red Herring]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- TCS -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

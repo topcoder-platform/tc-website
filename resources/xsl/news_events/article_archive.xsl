@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_08_10_04">Better than You: King of code</A> [August 10 - Red Herring]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.devx.com/Java/Article/21602" target="_blank">The Smart Choice for Smart Clients: J2EE or .NET?</A> [July 27 - devX]</td></tr>
 
                             <tr><td class="newsText"><A href="http://www.computerworld.com/managementtopics/outsourcing/story/0,10801,94452,00.html" target="_blank">BearingPoint Move Raises China's Profile</A> [July 12 - ComputerWorld]</td></tr>
