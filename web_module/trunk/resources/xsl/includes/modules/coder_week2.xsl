@@ -40,7 +40,7 @@
         		<TR> 
           			<TD COLSPAN="2" CLASS="bodyText" VALIGN="top">
 					<A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Click here</A> to read about the 
-					Impressive Rating Point Debut and top-Division-II point total of <A HREF="/stat?c=member_profile&amp;cr=283338" CLASS="bodyGeneric">Minsk</A>, in Single Round Match 88.
+					Impressive Rating Point Debut and top-Division-II point total of <A HREF="/stat?c=member_profile&amp;cr=283388" CLASS="bodyGeneric">Minsk</A>, in Single Round Match 88.
          			</TD>
         		</TR>              				              				
             			</TABLE>
