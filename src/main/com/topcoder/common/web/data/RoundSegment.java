@@ -109,7 +109,7 @@ public final class RoundSegment implements Serializable, Base {
     Calendar cal = Calendar.getInstance();
     cal.setTime ( start );
     this.startYear = cal.get(Calendar.YEAR);
-    this.startMonthNum = cal.get(Calendar.MONTH);
+    this.startMonthNum = cal.get(Calendar.MONTH)+1;  //month is zero indexed
     this.startDay = cal.get(Calendar.DAY_OF_MONTH);
     this.startHour = cal.get(Calendar.HOUR);
     if ( this.startHour == 0 ) this.startHour = 12;
@@ -164,7 +164,7 @@ public final class RoundSegment implements Serializable, Base {
     Calendar cal = Calendar.getInstance();
     cal.setTime ( end );
     this.endYear = cal.get(Calendar.YEAR);
-    this.endMonthNum = cal.get(Calendar.MONTH);
+    this.endMonthNum = cal.get(Calendar.MONTH)+1;  //month is zero indexed
     this.endDay = cal.get(Calendar.DAY_OF_MONTH);
     this.endHour = cal.get(Calendar.HOUR);
     if ( this.endHour == 0 ) this.endHour = 12;
