@@ -7,12 +7,10 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.common.tag.ListSelectTag;
 
 import javax.servlet.http.HttpUtils;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * User: dok
@@ -224,12 +222,96 @@ public class Legacy extends Base {
         resultMap = dai.getData(dataRequest);
         request.setAttribute(Constants.REPORT_PROFILE_DETAIL_KEY, resultMap);
     }
+    private String isOn(String s, boolean def){
+        return (def || "on".equals(s))?"true":"false";
+    }
     private void getProfileSearch(TCRequest request) throws Exception {
         Request r = new Request();
         r.setContentHandle("profile_search");
         DataAccessInt dataAccess = getDataAccess(true);
-        Map qMap = dataAccess.getData(r);
-        request.setAttribute(Constants.REPORT_PROFILE_SEARCH_KEY, qMap);
+        Map m = dataAccess.getData(r);
+        request.setAttribute(Constants.REPORT_PROFILE_SEARCH_KEY, m);
+        ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographics_questions");
+        ResultSetContainer demographic_answers = (ResultSetContainer)m.get("demographics_answers");
+        ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
+        ResultSetContainer skills = (ResultSetContainer)m.get("skills");
+        Enumeration e = request.getParameterNames();
+        Map sel = new HashMap();
+        Map skillMap = new HashMap();
+        Map skillSetMap = new HashMap();
+        Map demo = new HashMap();
+        String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating"};
+        String[] checkBoxes = {"count","pro","stud"};
+        boolean[] def = {false,true,true};
+        boolean revise = "on".equals(request.getParameter("revise"));
+        for(int i = 0; i<textFields.length; i++){
+            setDefault(textFields[i],request.getParameter(textFields[i]));
+        }
+        for(int i = 0; i<checkBoxes.length; i++){
+            setDefault(checkBoxes[i],isOn(request.getParameter(checkBoxes[i]),!revise&&def[i]));
+        }
+        while(e.hasMoreElements()){
+            String p = e.nextElement().toString();
+            String[] v = request.getParameterValues(p);
+            if(p.startsWith("skillset")){//set all previously selected skills
+                List l = new ArrayList();
+                for(int i = 0; i<v.length; i++){
+                    int idx = v[i].indexOf("_");
+                    int idx2 = v[i].indexOf("_",idx+1);
+                    int skillId = Integer.parseInt(v[i].substring(0,idx));
+                    int skillLevel = Integer.parseInt(v[i].substring(idx+1,idx2));
+                    String name = v[i].substring(idx2+1);
+                    l.add(new ListSelectTag.Option(v[i], name +" >= " + skillLevel));
+                }
+                skillSetMap.put(p,l);
+            }else if(p.equals("states") || p.equals("country") || p.equals("countryoforigin")){//set a few more selections
+                Set s = new HashSet();
+                s.addAll(Arrays.asList(v));
+                sel.put(p,s);
+            }else if(p.startsWith("lang_")){//language checkboxes
+                setDefault(p,isOn(request.getParameter(p),!revise));
+            }
+        }
+        //build all the demo tables
+        ResultSetContainer.ResultSetRow answer = demographic_answers.getRow(0);
+        for(int i = 0, j = 0; i<demographic_questions.getRowCount(); i++){
+            ResultSetContainer.ResultSetRow question = demographic_questions.getRow(i);
+            List l = new ArrayList();
+            int questionId = question.getIntItem("demographic_question_id");
+            while(answer.getIntItem("demographic_question_id") == questionId){
+                String text = answer.getStringItem("demographic_answer_text");
+                l.add(new ListSelectTag.Option(answer.getStringItem("demographic_answer_id"), text, ((Set)sel.get("demo_"+questionId)).contains(text)));
+                if(++j == demographic_answers.getRowCount()){
+                    break;
+                }else{
+                    answer = demographic_answers.getRow(j);
+                }
+            }
+            demo.put(new Integer(questionId),l);
+        }
+
+        //build all the skill tables
+        ResultSetContainer.ResultSetRow skill = skills.getRow(0);
+        for(int i = 0, j = 0; i<skill_types.getRowCount(); i++){
+            ResultSetContainer.ResultSetRow type = skill_types.getRow(i);
+            List l = new ArrayList();
+            int skillType = type.getIntItem("skill_type_id");
+            while(skill.getIntItem("skill_type_id") == skillType){
+                String text = skill.getStringItem("skill_desc");
+                l.add(new ListSelectTag.Option(skill.getStringItem("skill_id"), text, ((Set)sel.get("skillset"+skillType)).contains(text)));
+                if(++j == skills.getRowCount()){
+                    break;
+                }else{
+                    skill = skills.getRow(j);
+                }
+            }
+            skillMap.put(new Integer(type.getIntItem("skill_type_id")),l);
+        }
+
+        request.setAttribute("selected",sel);
+        request.setAttribute("demoMap",demo);
+        request.setAttribute("skillMap",skillMap);
+        request.setAttribute("skillSetMap",skillSetMap);
     }
 
     private void getProfileList(TCRequest request) throws Exception {
