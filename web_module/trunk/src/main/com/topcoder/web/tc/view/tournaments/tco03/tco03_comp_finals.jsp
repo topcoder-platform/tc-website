@@ -92,7 +92,7 @@ the Arena applet.
                 <tr>
                   <td class="formTextEven" align="left">Total earnings:</td>
                   <td class="formTextEven" align="right">$15,966.62&#160;&#160;</td>
-                  <td class="formTextEven" align="right">$4670.75&#160;&#160;</td>
+                  <td class="formTextEven" align="right">$4,670.75&#160;&#160;</td>
                 </tr>
                 <tr>
                   <td class="formTextOdd" align="left">TC rating:</td>
