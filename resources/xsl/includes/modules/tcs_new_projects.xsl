@@ -26,7 +26,7 @@
                 
                 <tr valign="top">
                     <td bgcolor="#000000"> 
-                        <table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
+                        <table width="244" cellspacing="0" cellpadding="0" border="0" background="/i/steel_gray_bg2.gif" bgcolor="#000000">                
                             <tr valign="middle">
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Design Projects</td>
@@ -113,6 +113,7 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
                         </xsl:variable>
 
+                            <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
                         <tr valign="top">
                             <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                             <td background="" class="statText">

@@ -215,6 +215,7 @@
                         </xsl:variable>
 
                         <tr valign="top">
+                            <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
                             <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                             <td background="" class="statText">
                                 <a class="statText">
