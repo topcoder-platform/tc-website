@@ -62,13 +62,14 @@
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B></P>
-<p>Role/Responsibilities:</p>
-<UL><li>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine workflow automation, complex user interfaces, database design, and reporting.</li></UL>
-
-<p>Minimum GPA: GPA 3.5 </p>
-
-<p>Candidates should have solid programming background with an emphasis on current web technologies.  Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.</p>
+<P><B>WEB SOFTWARE ENGINEER</B><br/><br/>
+Role/Responsibilities:
+<br/><br/>
+Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine workflow automation, complex user interfaces, database design, and reporting.
+<br/><br/>
+Minimum GPA: GPA 3.5
+<br/><br/>
+Candidates should have solid programming background with an emphasis on current web technologies.  Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.</P>
 
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=201&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
