@@ -14,7 +14,7 @@
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
     <tr valign="middle">
         <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
-        <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - <span class="time"><xsl:call-template name="DateTime"/></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></td>
+        <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - <span class="time"><xsl:call-template name="DateTime"/></span> <a href="Javascript:tcTime()" class="statText">[Get Time]</a></td>
         <td width="99%" align="right" class="login" nowrap="0">
 
             <xsl:choose>
