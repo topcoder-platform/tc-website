@@ -19,7 +19,6 @@ import com.topcoder.web.common.security.*;
 import com.topcoder.web.screening.common.*;
 import com.topcoder.web.screening.model.RequestInfo;
 import com.topcoder.web.corp.request.Login;
-import com.topcoder.web.corp.Constants;
 
 /**
  * This class handles all incoming requests.
@@ -145,7 +144,7 @@ public class MainServlet extends HttpServlet {
                         "and password, even if you’ve logged in already.");
                 request.setAttribute(Login.KEY_DESTINATION_PAGE,
                         HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
-                request.setAttribute(Constants.KEY_MODULE, "Login");
+                request.setAttribute(com.topcoder.web.corp.Constants.KEY_MODULE, "Login");
                 boolean forward = true;
                 sendToPage(request, response, "/", forward);
                 return;
