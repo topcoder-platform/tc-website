@@ -92,37 +92,8 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         resultMap = dai.getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Submissions");
-/*        ArrayList probList = new ArrayList();
-        ResultSetContainer.ResultSetRow probListRow = null;
-        for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-            probListRow = rsc.getRow(rowI);
-            HashMap problem = new HashMap();
-
-            problem.put("round_id",
-                    ((Long)probListRow.getItem("round_id").getResultData()).toString() );
-            problem.put("problem_id",
-                    ((Long)probListRow.getItem("problem_id").getResultData()).toString() );
-            problem.put("date",
-                    getDate(probListRow, "date"));
-            problem.put("contest_name",
-                    probListRow.getItem("name").toString() );
-            problem.put("division_name",
-                    probListRow.getItem("division_desc").toString() );
-            problem.put("level_desc",
-                    probListRow.getItem("level_desc").toString() );
-            problem.put("final_points",
-                    probListRow.getItem("final_points").toString() );
-            problem.put("language_name",
-                    probListRow.getItem("language_name").toString() );
-            problem.put("end_status_desc",
-                    probListRow.getItem("end_status_text").toString() );
-
-            probList.add(problem);
-        }
-
-        setSubmissionList( probList );
-*/
         setSubmissionList( (List)rsc );
+        
         setNextPage( TCESConstants.PROBLEM_SUBMISSIONS_PAGE );
     }
     
