@@ -526,6 +526,10 @@
     </target>
     <target name="war_tces" depends="compile">
         <war warfile="${war.dir}/${tces.war.name}" webxml="${resources}/tces/web.xml">
+            <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
+              <include name="**/*.jsp"/>
+            </fileset>
+        
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tces/common/*"/>
                 <include name="com/topcoder/web/tces/servlet/*"/>
