@@ -1,6 +1,6 @@
 package com.topcoder.web.hs.view.tag;
 
-import com.topcoder.web.hs.model.ListPairBean;
+import com.topcoder.web.hs.model.*;
 
 import java.util.*;
 
