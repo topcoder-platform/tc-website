@@ -690,7 +690,7 @@ public final class TaskDevelopment {
                     respBody.append("assume that you are looking for TopCoder to assign a teammate for you.  If this is ");
                     respBody.append("not correct, you may reply to this email with the TopCoder handle of your teammate.\n\n");
                     respBody.append("In addition, if you are not familiar with the TopCoder Team Application process, ");
-                    respBody.append("please read this information:");
+                    respBody.append("please read this information:  ");
                     respBody.append("http://");
                     respBody.append(ApplicationServer.SERVER_NAME);
                     respBody.append("/?t=development&c=app_team_meth");

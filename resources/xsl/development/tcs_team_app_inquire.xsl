@@ -168,10 +168,11 @@ If you have any questions regarding these Terms, contact us at service@topcoders
                   </tr>
                   <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                   <tr>
-                    <td align="right" valign="top" class="bodyText" colspan="2">
+                    <td align="left" valign="top" class="bodyText" colspan="2">
                       If you do not provide a the TopCoder handle of your teammate, TopCoder will attempt to provide one for you.
                     </td>
                   </tr>
+                  <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
 
                 <tr>
                   <td align="right" valign="top" class="bodyText">
