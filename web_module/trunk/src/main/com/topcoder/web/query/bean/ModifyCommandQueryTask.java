@@ -4,17 +4,17 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.*;
-import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
-import com.topcoder.web.query.ejb.QueryServices.CommandQueryHome;
-import com.topcoder.web.query.ejb.QueryServices.Query;
-import com.topcoder.web.query.ejb.QueryServices.QueryHome;
+import com.topcoder.web.query.common.CommandQueryBean;
+import com.topcoder.web.query.common.QueryBean;
+import com.topcoder.web.query.ejb.QueryServices.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Greg Paul
@@ -31,6 +31,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
     private long commandId;
     private long queryId;
     private String commandDesc;
+    private HashMap attributeQueue;
 
     /* Creates a new LoginTask */
     public ModifyCommandQueryTask() {
@@ -57,8 +58,16 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         CommandQueryHome cqHome = (CommandQueryHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_QUERY);
         CommandQuery cq = cqHome.create();
 
+        CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
+        Command c = cHome.create();
+
         q.setDataSource(getDb());
         cq.setDataSource(getDb());
+        c.setDataSource(getDb());
+
+        setCommandDesc(c.getCommandDesc(getCommandId()));
+
+        processAttributeQueue();
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             CommandQueryBean cqb = null;
@@ -74,7 +83,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         setCurrentQueryList(cq.getQueriesForCommand(getCommandId()));
         setOtherQueryList(q.getAllQueries(false));
 
-        super.setNextPage(Constants.MODIFY_COMMAND_PAGE);
+        super.setNextPage(Constants.MODIFY_COMMAND_QUERY_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -95,16 +104,39 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             } catch (NumberFormatException e) {
                 super.addError(Constants.QUERY_ID_PARAM, e);
             }
-        } else if (paramName.startsWith(Constants.OPTIONAL_PARAM)) {
-            try {
-                long queryId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
-                getCommandQuery(getCurrentQueryList(), queryId).setSortOrder(Integer.parseInt(value));
-            } catch (NumberFormatException e) {
-                super.addError(Constants.SORT_ORDER_PARAM, e);
-            }
+        } else {
+            /*
+             * queue the rest up, we need these fields populated
+             * before we can figure out what to do with the rest
+             */
+            attributeQueue.put(paramName, value);
         }
 
     }
+
+    private void processAttributeQueue() {
+        Iterator it = attributeQueue.entrySet().iterator();
+
+        String paramName = null;
+        String value = null;
+        Map.Entry me = null;
+
+        for ( ; it.hasNext(); ) {
+            me = (Map.Entry)it.next();
+            paramName = me.getKey().toString();
+            value = me.getValue().toString();
+            if (paramName.startsWith(Constants.SORT_ORDER_PARAM)) {
+                try {
+                    long queryId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
+                    getCommandQuery(getCurrentQueryList(), queryId).setSortOrder(Integer.parseInt(value));
+                } catch (NumberFormatException e) {
+                    super.addError(Constants.SORT_ORDER_PARAM, e);
+                }
+            }
+        }
+    }
+
+
 
     /**
      * Looks through the given list of CommandQueryBean objects
