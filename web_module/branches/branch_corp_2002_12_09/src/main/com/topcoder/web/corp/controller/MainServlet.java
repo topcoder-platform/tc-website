@@ -117,15 +117,18 @@ public class MainServlet extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String moduleName = request.getParameter("module");
-        Enumeration initNames = getServletConfig().getInitParameterNames();
-        String initValue;
+        ServletConfig srvCfg = getServletConfig();
+        Enumeration initNames = srvCfg.getInitParameterNames();
+        String initParam, initValue;
         Class opClass;
         RequestProcessor req;
         boolean found = false;
         
         while( initNames.hasMoreElements() ) {
-            initValue = getServletConfig().getInitParameter( initNames.nextElement().toString() );
-            if( initValue.equals( moduleName ) ) {
+            initParam = initNames.nextElement().toString();
+            initValue = srvCfg.getInitParameter( initParam );
+            log.debug( "doGet: initParam = " + initParam + ", initValue = " + initValue );
+            if( initParam.equals( moduleName ) ) {
                 try {
                     /* 12/19/2002 - NeoTuri
                      * I'm considering using the prefix Constants.QUERY_PACKAGE for all
@@ -140,7 +143,7 @@ public class MainServlet extends HttpServlet {
                     found = true;
                 }
                 catch( Exception e ) {
-                    /* Could not process module */
+                    /* Could not  module */
                     sendToErrorPage( request, response, e );
                 }
                 break;
@@ -148,13 +151,7 @@ public class MainServlet extends HttpServlet {
         }
         
         if( !found ) {
-            try {
-                /* throw 404 here */
-                throw new Exception( "404?" );
-            }
-            catch( Exception e ) {
-                sendToErrorPage( request, response, e );
-            }
+            sendToErrorPage( request, response, new Exception("404?") );
         }
         /*
     	// I suppose for testing purposes that 'pr' request parameter defines
