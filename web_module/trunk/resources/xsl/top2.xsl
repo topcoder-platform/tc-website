@@ -85,15 +85,13 @@
                                 <TR>
                                    <TD class="time" HEIGHT="18" VALIGN="middle" ALIGN="center" BGCOLOR="#000000">                                                                           
                     <!-- Welcome <SPAN CLASS="smallBrackets">[ </SPAN> --> 
-                    <A CLASS="statText">
+                    <A>
                       <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
-                      <FONT>
-                        <xsl:attribute name="color">
-                          <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="/TC/Rating"/></xsl:with-param></xsl:call-template>
-                        </xsl:attribute>
-                        <B><xsl:value-of select="/TC/Handle"/></B>
-                      </FONT>
-                    </A>  
+                      <xsl:attribute name="class">
+                        <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="/TC/Rating"/></xsl:with-param></xsl:call-template>
+                      </xsl:attribute>
+                      <B><xsl:value-of select="/TC/Handle"/></B>
+                    </A>
                     <!-- <SPAN CLASS="smallBrackets">]</SPAN> -->
                                    </TD>
                                  </TR>
