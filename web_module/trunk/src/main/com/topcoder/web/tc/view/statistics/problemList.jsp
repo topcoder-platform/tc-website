@@ -27,6 +27,19 @@
     document.problemListForm.submit();
   }
 //--></script>
+<script language="JavaScript"><!--
+                        function submitEnter(e) {
+                            var keycode;
+                            if (window.event) keycode = window.event.keyCode;
+                            else if (e) keycode = e.which;
+                            else return true;
+                            if (keycode == 13) {
+                                document.problemListForm.submit();
+                                return false;
+                            } else return true;
+                        }
+//--></script>
+
 
 <HTML>
  <HEAD>
@@ -76,8 +89,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="stateText">Class Name</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15"/><td>
+                    <td align="center" class="statText">Class Name</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -85,8 +98,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="stateText">Minimum Division I Success Rate</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15"/><td>
+                    <td align="center" class="statText">Minimum Division I Success Rate</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -94,8 +107,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="stateText">Maximum Division I Success Rate</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15"/><td>
+                    <td align="center" class="statText">Maximum Division I Success Rate</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -103,8 +116,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="stateText">Minimum Division II Success Rate</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15"/><td>
+                    <td align="center" class="statText">Minimum Division II Success Rate</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -112,8 +125,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="stateText">Maximum Division II Success Rate</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15"/><td>
+                    <td align="center" class="statText">Maximum Division II Success Rate</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -121,7 +134,7 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="stateText">Division I Level</td>
+                    <td align="center" class="statText">Division I Level</td>
                     <tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/>
                  </tr>
                 <tr>
@@ -130,9 +143,14 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="stateText">Division II Level</td>
+                    <td align="center" class="statText">Division II Level</td>
                     <tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/>
                  </tr>
+                <tr>
+                    <td colspan="2" class="statText" align="center">
+                         <a href="javascript: document.problemListForm.submit();">Submit</a>
+                    </td>
+                </tr>
                <table>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
