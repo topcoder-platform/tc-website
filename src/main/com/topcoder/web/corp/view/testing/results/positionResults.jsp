@@ -219,7 +219,7 @@ function getProblemDetail(id) {
                         </A>
                     </td>
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <%=row.getStringItem("compnent_status")%>
+                        <%=row.getStringItem("component_status")%>
                     </td>
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
                         <%=row.getStringItem("problem_time")%>
