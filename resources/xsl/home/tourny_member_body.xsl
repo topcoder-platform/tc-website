@@ -422,9 +422,11 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="50%"><xsl:call-template name="last_srm"/></TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="middle" WIDTH="100%">
+    <!-- <TD VALIGN="top" WIDTH="50%"><xsl:call-template name="last_srm"/></TD>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
+    <TD VALIGN="middle" CLASS="bodyText" WIDTH="100%">
+    <BR/><SPAN CLASS="bodyTextBold">Single Round Match 101</SPAN><BR/>
+Wednesday, June 26, 2002<BR/><BR/>    
        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFF99">  
           <TR>
              <TD VALIGN="middle" HEIGHT="17" ALIGN="center" COLSPAN="5" CLASS="bodyText"><B>Best/Worst Rating Change</B></TD> 
@@ -433,84 +435,87 @@
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B>Div-I</B></TD>
              <TD VALIGN="middle" HEIGHT="16" WIDTH="10%" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;DrewHudson</TD>
-             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">192</TD>
-             <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 16</TD>
+             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;RobertLu</TD>
+             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">248</TD>
+             <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 4</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;jdewey</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-280</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 15&#160;</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;Special-Ed</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-282</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 23&#160;</TD>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;mushina</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">280</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 49</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;BanjoBill</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">229</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 32</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;aycock</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-339</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 33</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;MojoJojo</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-326</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 44</TD>
           </TR>
           <TR><TD VALIGN="middle" HEIGHT="15" COLSPAN="5" BGCOLOR="#FFFFFF" CLASS="smallText">&#160;<!-- Login is required to view room details. --></TD></TR>                                  
        </TABLE>   
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
-  <TR><TD COLSPAN="5" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR> 
+  <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR> 
 </TABLE>
 <!-- Editorials -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR><TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
-      <!-- <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+      <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_lessons.gif" ALT="Lessons Learned the Hard Way" WIDTH="205" HEIGHT="26" BORDER="0"/></TD>    
-      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> --> 
+      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">    
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
+    <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">    
       <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-        <B>SRM 100</B>
+        <B>SRM 101</B>
       </FONT><BR/>
-      By&#160;ZorbaTHut,<I>[TC] Member</I><BR/>
+      By&#160;Logan,<I>[TC] Member</I><BR/>
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm100_room1</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm101_room1</xsl:attribute>
         Room One Review
       </A><BR/>
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm100_rookie</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm101_rookie</xsl:attribute>
         Rookie Review
       </A><BR/>
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm100_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm101_prob</xsl:attribute>
         Problem Set Analysis &amp; Opinion
       </A>
     </TD>
     <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
-    <!-- <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="60%" ALIGN="left" CLASS="bodyText">
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>June 14, 2002</B><BR/>    
+    <B>SRM 101</B><BR/>    
   By&#160;slowjoe,<I>[TC] Member</I></FONT><BR/>
-Srm 97 was a wednesday night match. "En Topcoder", it was the night that
-<B>Reid</B> blew through the 3000 point barrier...
+
+Srm 101 was the last paying Single Round Match, and as such, marked
+the end of an era.  In the real world, it was in the day of the
+WorldCom accounting scandal, and that Brazil won through to the Soccer
+World Cup final...
     <A CLASS="bodyGeneric">
-      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm97_lessons</xsl:attribute>
+      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm101_lessons</xsl:attribute>
       full&#160;story
     </A>
   </TD>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> -->   
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>   
   </TR>
   <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
   <TR>  
