@@ -55,6 +55,9 @@
 						<TR><TD VALIGN="middle" CLASS="smallText" COLSPAN="2" HEIGHT="18">&#160;<!--<A HREF="/index?t=news_events&amp;c=index" CLASS="smallText">&#160;Press Release 2002</A>--></TD></TR>
 						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BGCOLOR="#333333" HEIGHT="18">&#160;LATEST NEWS</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;10.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_10_28_02" CLASS="bodyText">TopCoder Announces Field for the 2002 TopCoder Invitational Programming Tournament</A></TD></TR>
+        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;10.22.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_10_22_02" CLASS="bodyText">TopCoder Expands to Include Employment Services</A></TD></TR> 
+        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;09.20.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://sunnetwork.sun.com/sf2002/info/features/winners.jsp" TARGET="_blank" CLASS="bodyText">And the Winner Is...Results of the 2002 SunNetwork(SM) Conference Coding Challenge</A></TD></TR>               
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;08.13.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_08_13_02" CLASS="bodyText">Sun Microsystems and TopCoder Host SunNetwork(SM) Coding Challenge</A></TD></TR>
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;07.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_07_01_02" CLASS="bodyText">TopCoder Expands Development Projects and Other Services to Citizens of all Countries to Work as Independent Contractors</A></TD></TR>
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;07.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_07_01_02b" CLASS="bodyText">TopCoder Reduces Single Round Matches to Once Per Week and Removes Prize Money</A></TD></TR>
@@ -62,7 +65,7 @@
 						
 						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Press Releases <!--Archive--> - 2002</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.globe.com/dailyglobe2/126/business/Tournaments_become_latest_high_tech_recruiting_tool+.shtml" TARGET="_blank" CLASS="bodyText">Tournaments Become Latest High-tech Recruiting Tool</A></TD></TR>				
+		<!-- <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.globe.com/dailyglobe2/126/business/Tournaments_become_latest_high_tech_recruiting_tool+.shtml" TARGET="_blank" CLASS="bodyText">Tournaments Become Latest High-tech Recruiting Tool</A></TD></TR> -->
         
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_28_02" CLASS="bodyText">TopCoder Adds China, New Zealand and Ireland To Its Developer Community</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_drdobbs2" CLASS="bodyText">And the winner is...</A></TD></TR>
