@@ -44,7 +44,7 @@ public class CommandList extends BaseProcessor {
         CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
         Command c = cHome.create();
         setCommandList(c.getCommandList(getDb()));
-        super.setNextPage(Constants.COMMAND_LIST_PAGE);
+        setNextPage(Constants.COMMAND_LIST_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

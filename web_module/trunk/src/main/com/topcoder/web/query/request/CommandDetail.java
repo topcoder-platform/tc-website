@@ -62,7 +62,7 @@ public class CommandDetail extends BaseProcessor {
         setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
         setInputList(qi.getInputsForCommand(getCommandId(), getDb()));
 
-        super.setNextPage(Constants.COMMAND_DETAIL_PAGE);
+        setNextPage(Constants.COMMAND_DETAIL_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

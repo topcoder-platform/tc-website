@@ -75,7 +75,7 @@ public class ModifyQueryInput extends BaseProcessor {
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkSortOrder(getCurrentInputList());
             checkDefaultValue(getCurrentInputList());
-            if (!super.hasErrors()) {
+            if (!hasErrors()) {
                 QueryInputBean qib = null;
                 for (int j=0; j<getCurrentInputList().size(); j++) {
                     qib = (QueryInputBean)getCurrentInputList().get(j);
@@ -99,7 +99,7 @@ public class ModifyQueryInput extends BaseProcessor {
         setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
         setOtherInputList(i.getAllInputs(getDb()));
 
-        super.setNextPage(Constants.MODIFY_QUERY_INPUT_PAGE);
+        setNextPage(Constants.MODIFY_QUERY_INPUT_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -113,13 +113,13 @@ public class ModifyQueryInput extends BaseProcessor {
             try {
                 setQueryId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.INPUT_ID_PARAM)) {
             try {
                 setInputId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         } else {
             /*
@@ -146,27 +146,27 @@ public class ModifyQueryInput extends BaseProcessor {
                     long inputId = Long.parseLong(paramName.substring(Constants.OPTIONAL_PARAM.length()));
                     getQueryInput(getCurrentInputList(), inputId).setOptional(value.equalsIgnoreCase("true"));
                 } catch (NumberFormatException e) {
-                    super.addError(paramName, e);
+                    addError(paramName, e);
                 } catch (Exception e) {
-                    super.addError(paramName, e);
+                    addError(paramName, e);
                 }
             } else if (paramName.startsWith(Constants.DEFAULT_VALUE_PARAM)) {
                 try {
                     long inputId = Long.parseLong(paramName.substring(Constants.DEFAULT_VALUE_PARAM.length()));
                     getQueryInput(getCurrentInputList(), inputId).setDefaultValue(value);
                 } catch (NumberFormatException e) {
-                    super.addError(paramName, e);
+                    addError(paramName, e);
                 } catch (Exception e) {
-                    super.addError(paramName, e);
+                    addError(paramName, e);
                 }
             } else if (paramName.startsWith(Constants.SORT_ORDER_PARAM)) {
                 try {
                     long inputId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
                     getQueryInput(getCurrentInputList(), inputId).setSortOrder(Integer.parseInt(value));
                 } catch (NumberFormatException e) {
-                    super.addError(paramName, e);
+                    addError(paramName, e);
                 } catch (Exception e) {
-                    super.addError(paramName, e);
+                    addError(paramName, e);
                 }
             }
         }
@@ -174,13 +174,13 @@ public class ModifyQueryInput extends BaseProcessor {
 
     private void checkQueryId(long queryId, Query q) throws Exception {
         if (q.getName(queryId, getDb())==null) {
-            super.addError(Constants.QUERY_ID_PARAM, "Invalid query id");
+            addError(Constants.QUERY_ID_PARAM, "Invalid query id");
         }
     }
 
     private void checkInputId(long inputId, Input i) throws Exception {
         if (i.getInputCode(inputId, getDb())==null) {
-            super.addError(Constants.INPUT_ID_PARAM, "Invalid input id");
+            addError(Constants.INPUT_ID_PARAM, "Invalid input id");
         }
     }
 
@@ -205,20 +205,20 @@ public class ModifyQueryInput extends BaseProcessor {
             next = (QueryInputBean) list.get(i + 1);
             found = curr.getSortOrder() == next.getSortOrder();
             if (found) {
-                super.addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "No two sort order entries may be the same");
+                addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "No two sort order entries may be the same");
             } else {
                 if (curr.getSortOrder() == 0) {
                     found = true;
-                    super.addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "You must fill in a sort order");
+                    addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "You must fill in a sort order");
                 } else if (next.getSortOrder() == 0) {
                     found = true;
-                    super.addError(Constants.SORT_ORDER_PARAM + next.getInputId(), "You must fill in a sort order");
+                    addError(Constants.SORT_ORDER_PARAM + next.getInputId(), "You must fill in a sort order");
                 } else if (curr.getSortOrder() > 999) {
                     found = true;
-                    super.addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "Invalid sortorder specified");
+                    addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "Invalid sortorder specified");
                 } else if (next.getSortOrder() > 999) {
                     found = true;
-                    super.addError(Constants.SORT_ORDER_PARAM + next.getInputId(), "Invalid sortorder specified");
+                    addError(Constants.SORT_ORDER_PARAM + next.getInputId(), "Invalid sortorder specified");
                 }
             }
         }
@@ -231,9 +231,9 @@ public class ModifyQueryInput extends BaseProcessor {
             curr = (QueryInputBean) list.get(i);
             if (curr.isOptional()) {
                 if (curr.getDefaultValue().length()==0) {
-                    super.addError(Constants.DEFAULT_VALUE_PARAM+ curr.getInputId(), "Missing default value");
+                    addError(Constants.DEFAULT_VALUE_PARAM+ curr.getInputId(), "Missing default value");
                 } else if (curr.getDefaultValue().length() > 100) {
-                    super.addError(Constants.DEFAULT_VALUE_PARAM+ curr.getInputId(), "Default value too long");
+                    addError(Constants.DEFAULT_VALUE_PARAM+ curr.getInputId(), "Default value too long");
                 }
             }
         }

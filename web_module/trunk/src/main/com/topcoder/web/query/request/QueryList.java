@@ -44,7 +44,7 @@ public class QueryList extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
         setQueryList(q.getAllQueries(false, getDb()));
-        super.setNextPage(Constants.QUERY_LIST_PAGE);
+        setNextPage(Constants.QUERY_LIST_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
