@@ -93,6 +93,14 @@
 <% } else { %>
                         <p><strong>Documentation</strong><br />
                         Documentation / Specification available in component forums.
+                        </p>
+                        <p>
+                        View this component on the <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">TopCoder Software web site</a>
+                        </p>
+
+                        <p><strong>Requirement Specification</strong><br />
+                           View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project
+                            </p>
 <% } %>
 <%-- Payment --%>
             <table cellspacing="0" class="formFrame" align="center" width="530">
