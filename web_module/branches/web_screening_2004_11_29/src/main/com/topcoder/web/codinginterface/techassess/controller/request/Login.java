@@ -67,19 +67,27 @@ public class Login extends Base {
         }
 
 
-        QueueMessageSender sender = new QueueMessageSender(ScreeningApplicationServer.JMS_FACTORY,
-                DBMS.REQUEST_QUEUE, context);
-        sender.setPersistent(true);
-        sender.setDBPersistent(false);
-        sender.setFaultTolerant(false);
-        String messageId = sender.sendMessageGetID(new HashMap(), request);
 
-        QueueMessageReceiver receiver = new QueueMessageReceiver(ScreeningApplicationServer.JMS_FACTORY,
-                DBMS.RESPONSE_QUEUE, context, "server="+Constants.SERVER_ID);
-        ObjectMessage resp = receiver.getMessage(100);
-        receiver.setFaultTolerant(false);
-        receiver.setPersistent(true);
-        log.debug("got " + resp);
+
+
+
+
+
+
+        QueueMessageSender qms = new QueueMessageSender(ScreeningApplicationServer.JMS_FACTORY, DBMS.REQUEST_QUEUE, context);
+        qms.setPersistent(false);
+        qms.setDBPersistent(false);
+        qms.setFaultTolerant(false);
+        log.debug("send message");
+        String messId = qms.sendMessageGetID(new HashMap(), request);
+        log.debug("sent message " + messId);
+
+        QueueMessageReceiver qmr = new QueueMessageReceiver(ScreeningApplicationServer.JMS_FACTORY, DBMS.RESPONSE_QUEUE,
+                context, messId);
+        ObjectMessage resp = qmr.getMessage(2000);
+        log.debug("response " + resp);
+
+
 
 
 
