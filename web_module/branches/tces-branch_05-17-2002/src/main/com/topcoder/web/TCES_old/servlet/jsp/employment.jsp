@@ -154,7 +154,7 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Company&nbsp;</td>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Company&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><input type="text" name="company" value="<%= company %>" size="30" maxlength="30"></td>
 </tr>
@@ -174,7 +174,7 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">City&nbsp;</td>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">City&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><%= cities.getSelectBox("", "", "", "") %></td>
 </tr>
@@ -193,7 +193,7 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">State&nbsp;</td>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">State&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><%= states.getSelectBox("", "", "", "") %></td>
 </tr>
@@ -212,7 +212,7 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Country&nbsp;</td>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Country&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><%= countries.getSelectBox("", "", "", "") %></td>
 </tr>
@@ -232,7 +232,7 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Industry&nbsp;</td>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Industry&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><%= industries.getSelectBox("", "", "", "") %></td>
 </tr>
@@ -252,7 +252,7 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">URL&nbsp;</td>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">URL&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><input type="text" name="url" value="<%= url %>" size="30" maxlength="30"></td>
 </tr>
