@@ -33,9 +33,10 @@ public class NoteCreate extends BaseProcessor {
         DataAccessInt dAccess = new DataAccess(
             (DataSource)context.lookup(Constants.DATA_SOURCE));
         
-        Request dr = new Request(getParameterMap());
+        Request dr = new Request();
         dr.setContentHandle("candidateInfo");
         dr.setProperty("uid", String.valueOf(getAuthentication().getUser().getId()));
+        dr.setProperty("cid", candId);
         
         Map map = dAccess.getData(dr);
         if(map == null){
