@@ -80,7 +80,7 @@ function getProblemDetail(id) {
                      <% 
                         String color = even ? "BGCOLOR='#CCCCCC'" : "";
                         String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' + 
-                                         Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '& +
+                                         Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
                                          Constants.PROBLEM_ID + '=' + row.getItem("problem_id");
                      %>
 	             <TR>
@@ -165,7 +165,7 @@ function getProblemDetail(id) {
                      <% 
                         String color = even ? "BGCOLOR='#CCCCCC'" : "";
                         String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' + 
-                                         Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '& +
+                                         Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
                                          Constants.PROBLEM_ID + '=' + row.getItem("problem_id");
                      %>
 	             <TR>
