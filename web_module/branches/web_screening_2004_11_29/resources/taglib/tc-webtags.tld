@@ -320,6 +320,33 @@
     </tag>
 
 
-
+    <tag>
+        <name>problemStatement</name>
+        <tagclass>com.topcoder.web.common.tag.ProblemStatementTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag for generating html output of a given problem statement xml string
+        </info>
+        <attribute>
+            <name>text</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>problem</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>language</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>class</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>
