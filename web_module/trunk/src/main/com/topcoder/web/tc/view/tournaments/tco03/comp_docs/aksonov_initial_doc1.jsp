@@ -12,34 +12,41 @@
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tr valign="top">
-        <td width="190" rowspan="3">
+        <td width="190">
             <jsp:include page="aksonov_names.jsp">
                 <jsp:param name="time" value="initial" />
                 <jsp:param name="doc" value="doc1" />
             </jsp:include>
         </td>
 
-        <td colspan="2">
-            <jsp:include page="times.jsp">
-                <jsp:param name="member" value="aksonov" />
-                <jsp:param name="time" value="initial" />
-            </jsp:include>
+        <td width="99%">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td colspan="2">
+                        <jsp:include page="times.jsp">
+                            <jsp:param name="member" value="aksonov" />
+                            <jsp:param name="time" value="initial" />
+                        </jsp:include>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="99%"><img src="/i/tournament/tco03/comp_docs/aksonov/ClassDiagram1.gif" alt="" width="1236" height="1163" border="0" class="compDocs"></td>
+                    <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2">
+                        <jsp:include page="times.jsp">
+                            <jsp:param name="member" value="aksonov" />
+                            <jsp:param name="time" value="initial" />
+                        </jsp:include>
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
     
-    <tr>
-        <td width="99%"><img src="/i/tournament/tco03/comp_docs/aksonov/ClassDiagram1.gif" alt="" width="1236" height="1163" border="0" class="compDocs"></td>
-        <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
-    </tr>
-
-    <tr valign="top">
-        <td colspan="2">
-            <jsp:include page="times.jsp">
-                <jsp:param name="member" value="aksonov" />
-                <jsp:param name="time" value="initial" />
-            </jsp:include>
-        </td>
-    </tr>
 </table>
 
 <p class="compCopyright">Copyright © 2001-2003, TopCoder, Inc. All rights reserved.</p>
