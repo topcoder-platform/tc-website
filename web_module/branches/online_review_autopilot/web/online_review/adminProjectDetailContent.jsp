@@ -159,6 +159,7 @@
                 <tr>
                     <td class="forumTitleCenter"><bean:message key="prompt.submission" /></td>
                     <td class="forumTitleCenter"><bean:message key="prompt.screening" /></td>
+                    <td class="forumTitleCenter"><bean:message key="prompt.advancedToReview" /></td>
                     <td class="forumTitleCenter"><bean:message key="prompt.pmReview" /></td>
                 </tr>
     <logic:iterate id="adminBean" indexId="aIdx" name="screenings">
@@ -188,6 +189,15 @@
             </logic:equal>
                         </review:linkScorecard>
         </logic:equal>                
+                    </td>
+                    <td class="<%=rowClass2%>">
+        <logic:equal name="adminBean" property="scorecardExists" value="true">
+                   <bean:define id="completed" value="<%=adminBean.getAdvancedToReview()%>" />
+                   <bean:write name="completed" /> 
+        </logic:equal>
+		<logic:equal name="adminBean" property="scorecardExists" value="false">
+                        <bean:message key="prompt.nonAvailable" />
+        </logic:equal>                    
                     </td>
                     <td class="<%=rowClass2%>">
         <logic:equal name="adminBean" property="scorecardExists" value="true">
