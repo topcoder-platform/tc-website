@@ -46,8 +46,8 @@
 <h2>Get me to the TCCC!</h2>
             
             <p><strong>By Car</strong><br/>
-            The Boston Park Plaza Hotel & Towers is conveniently located only minutes off Interstates 93, and 90 in downtown Boston, MA. View  
-            <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_directions">driving directions</a></p>
+            The Boston Park Plaza Hotel & Towers is conveniently located only minutes off Interstates 93 and 90 in downtown Boston, MA. View  
+            <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_directions">driving directions</a>.</p>
             
             <p><strong>By Plane</strong><br/>
             The Boston Park Plaza Hotel & Towers is just a short drive from Logan International Airport. Logan

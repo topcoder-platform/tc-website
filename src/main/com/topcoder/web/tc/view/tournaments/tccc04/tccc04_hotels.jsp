@@ -43,11 +43,11 @@
    <jsp:param name="tabLev3" value="hotels"/>
 </jsp:include>
 
-            <h2>Nearby Hotels</h2>
+            <h2>Hotel Accommodations</h2>
             
             <p><strong><A href="http://www.bostonparkplaza.com/default.asp?sID=home" target="_blank">The Boston Park Plaza Hotel & Towers</a> </strong><br/>
             Surrounded by Boston's Back Bay neighborhood, this 950-room historic hotel is just one block from the Theater District and the swan boats in the 
-            Public Garden and two blocks from upscale Newbury Street shopping. Two nights accomodations at the Boston Park Plaza Hotel & Towers are included in the <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=spectator_package">TCCC Spectator Package.</A><br/>
+            Public Garden and two blocks from upscale Newbury Street shopping. Two nights accomodations at the Boston Park Plaza Hotel & Towers are included in the <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=spectator_package">TCCC Spectator Package.</A><br/><br/>
             64 Arlington Street - Boston<br/>
             617.426.2000</p>
             
@@ -66,7 +66,7 @@
             617.287.9100<br/></p>
 
             <p><strong><a href="http://www.starwood.com/sheraton/search/hotel_detail.html?propertyID=430" target="_blank">Sheraton Boston Hotel</a></strong><br/>
-            39 Dalton Street<br/>
+            39 Dalton Street - Boston<br/>
             617.236.2000<br/></p>
             
             <p>Browse other <a href="http://boston.hotelguide.net/" target="_blank">hotels in Boston.</A></p>
