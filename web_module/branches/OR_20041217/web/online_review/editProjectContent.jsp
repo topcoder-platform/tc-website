@@ -81,7 +81,7 @@
                 
                 <tr valign=top>
 <logic:iterate id="phaseInstance" indexId="pIdx" name="projectForm" property="timeline">
-<%if(pIdx.intValue() % 3 == 0) {%>
+<%if(pIdx.intValue() % 4 == 0) {%>
 
                     <td>
                         <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd"  width="100%">
@@ -105,7 +105,7 @@
                     <td class="forumTextCenterOdd">
                         <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" /></td>
                 </tr>
-<%if(pIdx.intValue() % 3 == 2) {%>
+<%if((pIdx.intValue() % 4 == 3) ||(pIdx.intValue() == (theProject.getTimeline().length-1))) {%>
 
                         </table>
                     </td>
