@@ -44,16 +44,29 @@ return false;
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="cardCell" width="100%" align="center">
-
+        <td width="100%" align="center">
         <div class="myTCBody">
+
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="contract"/>
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
-		This is a description paragraph with some instructions and some details about the questions asked.
-		<br/><br/>
+<!-- Breadcrumb-->
+        <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
+			<tr>
+				<td class=oppDesc width="100%" valign=top>
+				<span class=bodySubtitle>Preferences</span>
+				<br/><br/>
+				This is a description paragraph with some instructions and some details about the questions asked.
+				</td>
+				<td valign=top>
+				<jsp:include page="breadcrumb.jsp" >
+				<jsp:param name="phase" value="preferences"/>
+				</jsp:include>
+				</td>
+			</tr>
+		</table>
 
 		<FORM ACTION="" METHOD=POST onSubmit="">
 		<input type="checkbox" name="contract" value="" checked>I am interested in being hired for temporary contract work.
@@ -170,6 +183,8 @@ return false;
 				<td width=100%><input type=file name="Resume"></td>
 			</tr>
 		</table>
+
+		<div width="100%" align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=languages"><img src="/i/submit.jpg" border=0/></a></div>
 
 		</FORM>
 

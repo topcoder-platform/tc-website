@@ -44,16 +44,29 @@ return false;
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="cardCell" width="100%" align="center">
-
+        <td width="100%" align="center">
         <div class="myTCBody">
+
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="contract"/>
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
-		This is a description paragraph with some instructions and some details about the questions asked.
-		<br/><br/>
+<!-- Breadcrumb-->
+        <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
+			<tr>
+				<td class=oppDesc width="100%" valign=top>
+				<span class=bodySubtitle>Preferences</span>
+				<br/><br/>
+				This is a description paragraph with some instructions and some details about the questions asked.
+				</td>
+				<td valign=top>
+				<jsp:include page="breadcrumb.jsp" >
+				<jsp:param name="phase" value="os"/>
+				</jsp:include>
+				</td>
+			</tr>
+		</table>
 
 		<FORM ACTION="" METHOD=POST onSubmit="">
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
