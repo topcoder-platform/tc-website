@@ -23,7 +23,7 @@ function goTo(selection){
  </HEAD>
  <BODY>
    <jsp:include page="../../top.jsp" />
-   <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
          <jsp:include page="../../includes/global_left.jsp" />
