@@ -83,6 +83,8 @@ public class JSPUtils {
                 return TCESConstants.NUMBER_FORMAT.format(((Float)result.getResultData()).floatValue());
             case TCResultItem.BIGDECIMAL:
                 return TCESConstants.NUMBER_FORMAT.format(((BigDecimal)result.getResultData()).doubleValue());
+            case TCResultItem.DATETIME:
+                return TCESConstants.DATE_FORMAT.format((Date)result.getResultData());
             default:
                 return result.toString();
         }

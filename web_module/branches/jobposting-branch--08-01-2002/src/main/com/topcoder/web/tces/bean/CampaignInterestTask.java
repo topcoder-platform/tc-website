@@ -111,7 +111,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
             throw new Exception ("No company name!");
         }
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-        setCompanyName( cmpyNameRow.toString("company_name").toString() );
+        setCompanyName( cmpyNameRow.getItem("company_name").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {

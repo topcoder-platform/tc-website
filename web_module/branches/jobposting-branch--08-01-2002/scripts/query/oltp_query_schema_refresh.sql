@@ -129,9 +129,11 @@ INSERT INTO command_query_xref VALUES(1014, 1097, 2);
 INSERT INTO command_query_xref VALUES(1015, 1050, 1);
 INSERT INTO command_query_xref VALUES(1015, 1097, 2);
 INSERT INTO command_query_xref VALUES(1016, 1097, 1);
-INSERT INTO command_query_xref VALUES(1017, 1050, 1);
-INSERT INTO command_query_xref VALUES(1017, 1053, 2);
-INSERT INTO command_query_xref VALUES(1017, 1097, 3);
+INSERT INTO command_query_xref VALUES(1017, 1000, 1);
+INSERT INTO command_query_xref VALUES(1017, 1002, 2);
+INSERT INTO command_query_xref VALUES(1017, 1050, 3);
+INSERT INTO command_query_xref VALUES(1017, 1053, 4);
+INSERT INTO command_query_xref VALUES(1017, 1097, 5);
 INSERT INTO command_query_xref VALUES(1100, 1100, 1);
 
 
