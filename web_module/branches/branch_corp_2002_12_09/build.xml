@@ -197,7 +197,7 @@
         <property name="resume.src" value="${web}/resume/servlet/jsp"/>
         <property name="jobposting.trgt" value="${public_html}/jobposting_jsp"/>
         <property name="jobposting.src" value="${web}/jobposting/servlet/jsp"/>
-        <property name="tces.trgt" value="${public_html}/tces_jsp"/>
+        <property name="tces.trgt" value="${public_html}/tces/tces_jsp"/>
         <property name="tces.src" value="${web}/tces/servlet/jsp"/>
         <mkdir dir="${stat.trgt}"/>
         <mkdir dir="${root.trgt}"/>
