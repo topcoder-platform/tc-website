@@ -404,3 +404,11 @@ WHERE u.status = 'A'
 AND handle not like '%guest%'
 ORDER BY 1
 "
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1100 "TCES_User_And_Password" 0 0 "
+SELECT u.user_id, u.password
+  FROM user u
+       ,contact c
+ WHERE c.contact_id = u.user_id
+   AND u.handle = @hn@
+"
