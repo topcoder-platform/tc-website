@@ -88,14 +88,14 @@
             <a name="registration"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Registration</h3>
-			Registration for the 2005 TopCoder Collegiate Challenge Component Competition will open at 9:00AM ET on Monday, December 20, 2005, and will close at 6:00PM ET on Monday, January 3, 2004.
+			Registration for the 2005 TopCoder Collegiate Challenge Component Competition will open at 9:00AM EST on Monday, December 20, 2005, and will close at 6:00PM EST on Monday, January 3, 2004.
 
 			<br /><br />
             <a name="schedule"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Schedule</h3>
 			Both the design and development competitions will have four (4) weeks of online competition and one (1) onsite Championship round.  Each contestant participating in an online round must submit his/her design and/or development submission for components by the submission deadline as scheduled.
-			<b>TopCoder members from around the world may be participating in the online rounds, but all start times, registration deadlines and submission deadlines will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly.</b>
+			<b>TopCoder members from around the world may be participating in the online rounds, but all start times, registration deadlines and submission deadlines will be communicated as Eastern Standard Time, so contestants in different time zones must adjust accordingly.</b>
 
 			<br /><br />
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -220,7 +220,7 @@
 			<br /><br />
 
 			<span class=bodySubtitle>Onsite Championship round</span><br />
-			The four (4) advancers in each competition from the four (4) weeks of online competition will travel to the Santa Clara Marriott on Tuesday, March 8 or Wednesday, March 9, 2005 to compete in a final competitive stage of the tournament being held on Thursday, March 10, 2005.  All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM on Wednesday, March 9, 2005.  If a contestant is unable to attend the onsite round, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the competitor with the next highest cumulative placement score from the online competition.  <b>All CDDC finalists must confirm that they can travel to the onsite finals by February 21, 2005.</b>
+			The four (4) advancers in each competition from the four (4) weeks of online competition will travel to the Santa Clara Marriott on Tuesday, March 8 or Wednesday, March 9, 2005 to compete in a final competitive stage of the tournament being held on Thursday, March 10, 2005.  All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM PST on Wednesday, March 9, 2005.  If a contestant is unable to attend the onsite round, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the competitor with the next highest cumulative placement score from the online competition.  <b>All CDDC finalists must confirm that they can travel to the onsite finals by February 21, 2005.</b>
 			<br /><br />
 			TopCoder will provide travel arrangements for each competitor up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  TopCoder will provide ground transportation to and from the airport, as well as accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2005 TCCC.
 			<br /><br />
