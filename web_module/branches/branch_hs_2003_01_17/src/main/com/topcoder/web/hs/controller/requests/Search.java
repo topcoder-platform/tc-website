@@ -260,7 +260,9 @@ public class Search extends Base {
     }
     catch (NumberFormatException _nfe) {
       addErrorMessage(_errors,"MinRating",INVALID_MIN_RATING);
+      return(false);
     }
+    return(true);
   }
 
   private boolean checkValidMaxRating(Map _errors,String _max_rating) {
@@ -273,7 +275,9 @@ public class Search extends Base {
     }
     catch (NumberFormatException _nfe) {
       addErrorMessage(_errors,"MaxRating",INVALID_MAX_RATING);
+      return(false);
     }
+    return(true);
   }
 
   private boolean checkValidMinMax(Map _errors,String _min_rating,
