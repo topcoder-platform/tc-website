@@ -400,8 +400,8 @@ public class RegistrationHelper {
 
   private static String getParameter(ServletRequest _request,String _param,
                                      String _default) {
-    String value=_request.getParameter(_param).trim();
-    return(value==null||value.length()==0?_default:value);
+    String value=_request.getParameter(_param);
+    return(value==null||value.trim().length()==0?_default:value.trim());
   }
 
   private static Long getParameterLong(ServletRequest _request,String _param,
