@@ -99,7 +99,7 @@ public class UpdateCandidate extends BaseProcessor
         UserPrincipal userPrincipal = null;
         try {
             //check to see if user already exists
-            userPrincipal = principalMgr.getUser(info.getEmailAddress());
+            userPrincipal = principalMgr.getUser(info.getUserName());
         }
         catch(PrincipalMgrException e) {
             Throwable nested = e.getNestedException();
@@ -110,7 +110,7 @@ public class UpdateCandidate extends BaseProcessor
 
             //do nothing, we want to get here
             //create new user
-            userPrincipal = principalMgr.createUser(info.getEmailAddress(), 
+            userPrincipal = principalMgr.createUser(info.getUserName(),
                                     info.getPassword(),
                                     requestor);
         }
@@ -123,7 +123,7 @@ public class UpdateCandidate extends BaseProcessor
         User user = uHome.create();
 
         if(!user.userExists(userId)) {
-            user.createUser(userId, info.getEmailAddress(), 'A');
+            user.createUser(userId, info.getUserName(), 'A');
 
             CoderHome cHome = (CoderHome)
                 PortableRemoteObject.narrow(
@@ -132,7 +132,7 @@ public class UpdateCandidate extends BaseProcessor
             coder.createCoder(userId, createCoderStatusId);
 
             long emailId = email.createEmail(userId);
-            email.setAddress(emailId, info.getEmailAddress());
+            email.setAddress(emailId, info.getUserName());
             email.setPrimaryEmailId(userId, emailId);
         }
 
@@ -199,7 +199,7 @@ public class UpdateCandidate extends BaseProcessor
         }
         else {
             success = validateEmail(errorMap, email);
-            info.setEmailAddress(email);
+            info.setUserName(email);
         }
 
         if(success) {

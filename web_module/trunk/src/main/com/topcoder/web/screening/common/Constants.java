@@ -12,6 +12,7 @@ public class Constants
     //Controller Servlet Constants
     public static String LOGIN_PAGE;
     public static String ERROR_PAGE;
+    public static String PERM_ERROR_PAGE;
     public static String PROCESSORS_PACKAGE;
     public static String VALID_CHAR_LIST;    
     public static String CONTROLLER_URL;    
@@ -149,6 +150,7 @@ public class Constants
         //Controller Servlet Constants
         LOGIN_PAGE = config.getInitParameter("login_page");
         ERROR_PAGE = config.getInitParameter("error_page");
+        PERM_ERROR_PAGE = config.getInitParameter("perm_error_page");
         PROCESSORS_PACKAGE = config.getInitParameter("processors_package");
         VALID_CHAR_LIST = config.getInitParameter("valid_char_list");
         CONTROLLER_URL = config.getInitParameter("controller_url");

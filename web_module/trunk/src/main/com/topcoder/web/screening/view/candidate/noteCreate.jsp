@@ -36,7 +36,7 @@
          <INPUT type="hidden" name='<%=Constants.CANDIDATE_ID%>' value='<%=candidateInfo.getUserId()%>'/>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">           
            <TR>
-              <TD ALIGN="center" CLASS="bodyText"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="emailAddress"/></screen:servletLink></TD>
+              <TD ALIGN="center" CLASS="bodyText"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></TD>
            </TR>           
            <TR>
               <TD class="errorText" align="left" valign="middle">

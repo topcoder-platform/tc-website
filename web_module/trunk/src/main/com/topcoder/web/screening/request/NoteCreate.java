@@ -51,12 +51,12 @@ public class NoteCreate extends BaseProcessor {
         ResultSetContainer result =
             (ResultSetContainer)map.get("candidateInfo");
         if(result.getRowCount() == 0){
-            throw new PermissionDeniedException(
-                "You are not authorized to view information about that candidate.");
+            throw new PermissionDeniedException(getAuthentication().getUser(),
+                "User not authorized to view information about candidate: " + String.valueOf(candId));
         }
       
         cinfo.setUserId(Long.valueOf(candId));
-        cinfo.setEmailAddress(result.getRow(0).getItem("email").toString());
+        cinfo.setUserName(result.getRow(0).getItem("email").toString());
         getRequest().setAttribute("candidateInfo",cinfo);
 
         String noteText = getRequest().getParameter(Constants.NOTE_TEXT);
