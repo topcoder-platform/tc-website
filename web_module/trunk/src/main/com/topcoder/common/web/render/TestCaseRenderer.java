@@ -74,7 +74,13 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
         buf.append(">");
         if (testCase.getAnnotation() != null) {
             buf.append("<table>");
-            buf.append("<tr><td colspan=\"2\">");
+            buf.append("<tr><td colspan=\"2\"");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
             buf.append(super.getRenderer(testCase.getAnnotation()).toHTML(language));
             buf.append("</td></tr>");
             buf.append("</table>");
