@@ -54,7 +54,7 @@ public class Controller extends HttpServlet {
             return;
 		} else if (command.equals("login")) {
             request.setAttribute("message",new String("foo"));
-            getServletContext().getRequestDispatcher(
+            getServletContext().getContext("/").getRequestDispatcher(
                 response.encodeURL("/es/login.jsp")).forward(request, response);
 
             //handleLogin(request, response);
