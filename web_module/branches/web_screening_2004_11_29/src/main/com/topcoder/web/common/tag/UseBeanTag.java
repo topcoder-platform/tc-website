@@ -103,6 +103,7 @@ public class UseBeanTag extends BodyTagSupport {
 
         this.type= DEFAULT_TYPE;
         this.toScope = DEFAULT_SCOPE;
+        this.fromScope = -1;
         this.name = null;
         this.id = null;
         this.property = null;
