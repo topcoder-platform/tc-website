@@ -1,7 +1,11 @@
 package com.topcoder.web.common.tag;
 
+import java.util.Collection;
 import java.util.HashMap;
-import javax.servlet.jsp.tagext.TagSupport;
+import java.util.Iterator;
+
+import javax.servlet.jsp.tagext.BodyTagSupport;
+
 
 /**
  * 
@@ -12,7 +16,7 @@ import javax.servlet.jsp.tagext.TagSupport;
  * @version 1.02
  *
  */
-public abstract class BaseTag extends TagSupport {
+public abstract class BaseTag extends BodyTagSupport {
 	public static final String CONTAINER_NAME_FOR_ERRORS = "form-errors";
     public static final String CONTAINER_NAME_FOR_DEFAULTS = "form-defaults";
 	
@@ -36,10 +40,10 @@ public abstract class BaseTag extends TagSupport {
         }
 	}
 
-    protected Object getErrorMessage() {
+    protected Iterator getErrIterator() {
         try {
             HashMap errors = (HashMap)pageContext.getRequest().getAttribute(CONTAINER_NAME_FOR_ERRORS);
-            return errors.get(name);
+            return ((Collection)errors.get(name)).iterator();
         }
         catch(Exception e) {
             return null;

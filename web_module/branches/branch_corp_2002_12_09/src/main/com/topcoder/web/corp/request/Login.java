@@ -76,7 +76,7 @@ public class Login extends BaseProcessor {
         String passw = request.getParameter(KEY_USER_PASS);
         setFormFieldDefault(KEY_USER_PASS, "");
         if( handle == null || handle.trim().length() == 0 ) {
-            markFormFieldAsInvalid(KEY_USER_HANDLE);
+            markFormFieldAsInvalid(KEY_USER_HANDLE, "Handle must not be empty");
         }
         log.debug("login attempt[login/passw]: "+handle+"/"+passw);
 
@@ -87,7 +87,10 @@ public class Login extends BaseProcessor {
             log.debug("user "+possibleUser.getUserName()+" has logged in");
         }
         catch(AuthenticationException ae) {
-            markFormFieldAsInvalid(KEY_USER_PASS);
+            markFormFieldAsInvalid(
+                KEY_USER_PASS,
+                "Combination of handle/password entered is invalid"
+            );
             throw ae;
         }
         

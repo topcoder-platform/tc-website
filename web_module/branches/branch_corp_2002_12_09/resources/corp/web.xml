@@ -61,6 +61,7 @@
             <description>all of the controller exceptions will return this to user</description>
         </init-param>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/</url-pattern>

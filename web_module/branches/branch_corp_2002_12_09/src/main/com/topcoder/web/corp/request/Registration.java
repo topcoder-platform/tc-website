@@ -1,12 +1,27 @@
 package com.topcoder.web.corp.request;
 
+import java.rmi.RemoteException;
+import java.util.Map;
+
+import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.sql.DataSource;
 import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 //import com.topcoder.web.ejb.company.Company;
 //import com.topcoder.web.ejb.company.CompanyHome;
@@ -117,49 +132,70 @@ public class Registration extends BaseProcessor {
         
         ret &=	// first name validity check 
         checkItemValidity(KEY_FIRSTNAME, firstName, 
-            StringUtils.ALPHABET_ALPHA_EN, true, 1
+            StringUtils.ALPHABET_ALPHA_EN, true, 1,
+            "Ensure first name is not empty, consists of letters and has not spaces inside"
         );
 
         ret &= // last name validity check 
         checkItemValidity(KEY_LASTNAME, lastName, 
-            StringUtils.ALPHABET_ALPHA_EN, true, 1
+            StringUtils.ALPHABET_ALPHA_EN, true, 1,
+            "Ensure last name is not empty, consists of letters and has not spaces inside"
         );
 
         ret &= // title name validity 
         checkItemValidity(KEY_TITLE, title, 
-            StringUtils.ALPHABET_ALPHA_PUNCT_EN, true, 5
+            StringUtils.ALPHABET_ALPHA_PUNCT_EN, true, 5,
+            "Ensure title is not empty, consists of letters and punctuation signs only"
         );
 
         ret &= // addr line 1 validity (optional)
         checkItemValidity(KEY_ADDRLINE1, compAddress1, 
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7,
+            "Ensure address line 1 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)"
         );
 
         ret &= // addr line 2 validity (optional)
     	checkItemValidity(KEY_ADDRLINE2, compAddress2, 
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7,
+            "Ensure address line 2 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)"
         );
 
         ret &= // city validity (optional) 
     	checkItemValidity(KEY_CITY, city, 
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 3
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 3,
+            "Ensure city is not empty, consists of letters, digits and punctuation signs only (no more than 3 words)"
         );
     	
-        ret &= // state validity (optional) 
-    	checkItemValidity(KEY_STATE, state, 
-            StringUtils.ALPHABET_ALPHA_EN, false, 2
+//        ret &= // state validity (optional) 
+//    	checkItemValidity(KEY_STATE, state, 
+//            StringUtils.ALPHABET_ALPHA_EN, false, 2,
+//            "Please choose state from the list carefully"
+//        );
+        ret &= // state validity (optional)
+        checkAgainstDB(
+            KEY_STATE, 
+            state, 
+            "Please choose state from the list carefully"
+        );
+
+        ret &= // country validity (optional)
+        checkAgainstDB(
+            KEY_COUNTRY,
+            country,
+            "Please choose country from the list carefully"
         );
 
     	ret &= // zip validity (optional)
     	checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, 
-            false, 1
+            false, 1, "Ensure ZIP code is not empty and, consists of digits only"
         );
         
         // insert country validity check here
         
         ret &= // phone validity
         checkItemValidity(KEY_PHONE, phone, StringUtils.ALPHABET_NUM_PUNCT_EN, 
-            true, 1
+            true, 1, 
+            "Ensure phone is not empty and, consists of digits only (minus sign is allowed too)"
         );
 
         ret &= // username validity
@@ -167,27 +203,35 @@ public class Registration extends BaseProcessor {
 
         ret &= // password validity
         checkItemValidity(KEY_PASSWORD1, password, 
-            StringUtils.ALPHABET_ALPHA_NUM_EN, true, 1
+            StringUtils.ALPHABET_ALPHA_NUM_EN, true, 1,
+            "Ensure password is not empty and, consists of letters and digits only"
         );
 
         // password2 validity
         if( password2 == null ) password2 = "";
         setFormFieldDefault(KEY_PASSWORD2, password2);
         if( ! password2.equals(password) ) {
-            markFormFieldAsInvalid(KEY_PASSWORD2);
+            markFormFieldAsInvalid(
+                KEY_PASSWORD2, 
+                "Passwords entered must be same in the both fields"
+            );
             ret = false;
         }
     	
         ret &= // email validity
         checkItemValidity(KEY_EMAIL1, email, 
-            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1
+            StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1,
+            "Ensure email address is not empty and, has written correct"
         );
 
     	// email2 validity
     	if( email2 == null ) email2 = "";
         setFormFieldDefault(KEY_EMAIL2, email2);
     	if( ! email2.equals(email) ) {
-            markFormFieldAsInvalid(KEY_EMAIL2);
+            markFormFieldAsInvalid(
+                KEY_EMAIL2,
+                "e-mail addresses entered must be same in the both fields"
+            );
             ret = false;
 	    }
         return ret;
@@ -199,7 +243,8 @@ public class Registration extends BaseProcessor {
         String itemValue, 
         String alphabet, 
         boolean required,
-        int maxWords
+        int maxWords,
+        String errMsg
     )
     {
     	boolean ret = true;
@@ -217,20 +262,20 @@ public class Registration extends BaseProcessor {
     	// either this field is required or (optional and not empty)
     	if( itemValue == null || itemValue.length() == 0 ) {
     		ret = false;
-            markFormFieldAsInvalid(itemKey);
+            markFormFieldAsInvalid(itemKey, errMsg);
     	}
     	else {
 	    	//  alphabet check
 			if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
 				ret = false;
-                markFormFieldAsInvalid(itemKey);
+                markFormFieldAsInvalid(itemKey, errMsg);
 			}
 			else {
 				if( maxWords <= 1 ) maxWords = 1;
 				
 				if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
 					ret = false;
-                    markFormFieldAsInvalid(itemKey);
+                    markFormFieldAsInvalid(itemKey, errMsg);
 				}
 			}
     	}
@@ -288,14 +333,124 @@ public class Registration extends BaseProcessor {
      * @return boolean true if allowed
      */
     private boolean checkUsernameValidity() {
-        boolean ret = true;
+        boolean success;
         //as usually check against char set 
-        ret &= checkItemValidity(KEY_LOGIN, userName, 
-            StringUtils.ALPHABET_ALPHA_EN, true, 1
+        success = checkItemValidity(KEY_LOGIN, userName, 
+            StringUtils.ALPHABET_ALPHA_EN, true, 1,
+            "Handle entered must consist of alpha numeric symbols"
         );
+        if( !success ) {
+            return false;
+        }
+        // and additionally check against DB - not implemented for now
+        InitialContext ic = null;
+        boolean techProblems = false;
+        try {
+            ic = new InitialContext(Constants.SECURITY_CONTEXT_ENVIRONMENT);
+            PrincipalMgrRemoteHome rh = (PrincipalMgrRemoteHome)
+                ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote mgr = rh.create();
+            try {
+                success = false;
+                UserPrincipal user = mgr.getUser(userName);
+                markFormFieldAsInvalid(
+                    KEY_LOGIN,
+                    "There is the user with given handle at the database"
+                );
+            }
+            catch(NoSuchUserException nsue) {
+                // it is fine - handle seem to be free yet
+                success = true;
+            }
+        }
+        catch(RemoteException re) {
+            techProblems = true;
+            log.error("RemoteException - primary registration process");
+            re.printStackTrace();
+        }
+        catch(CreateException ce) {
+            techProblems = true;
+            log.error("CreateException - primary registration process");
+            ce.printStackTrace();
+        }
+        catch(NamingException ne) {
+            techProblems = true;
+            log.error("NamingException - primary registration process");
+            ne.printStackTrace();
+        }
+        catch(GeneralSecurityException gse) {
+            techProblems = true;
+            log.error("GeneralSecurityException - primary registration process");
+            gse.printStackTrace();
+        }
+        finally {
+            Util.closeIC(ic);
+            if( techProblems ) {
+                markFormFieldAsInvalid(
+                    KEY_LOGIN,
+                    "Some technical problems prevent further processing. Try again later"
+                );
+                return false;
+            }
+        }
+        return true;
+    }
 
-        // and additionally against DB - not implemented for now
-        // ret &= chkAgainstDB();       
-        return ret;
+    /**
+     * 
+     * @param key
+     * @param value
+     * @param message
+     * @return boolean
+     */    
+    private boolean checkAgainstDB(String key, String value, String message) {
+        InitialContext ic = null;
+        boolean techProblems = false;
+        boolean success = false;
+        try {
+            ic = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+            Request stateRequest = new Request();
+            if( KEY_STATE.equals(key) ) {
+                stateRequest.setContentHandle("cmd-state-name-from-id");
+                stateRequest.setProperty("stateID", value );
+            }
+            else {
+                stateRequest.setContentHandle("cmd-country-name-from-id");
+                stateRequest.setProperty("countryID", value );
+            }
+            DataAccessInt dai = new DataAccess(
+                (DataSource) ic.lookup(Constants.JTA_DATA_SOURCE)
+            );
+            Map state = dai.getData(stateRequest);
+            ResultSetContainer rsc;
+            if( KEY_STATE.equals(key) ) {
+                rsc = (ResultSetContainer) state.get("qry-state-name-from-id");
+            }
+            else {
+                rsc = (ResultSetContainer) state.get("qry-country-name-from-id");
+            }
+            success = rsc.getRowCount() == 1;
+        }
+        catch(NamingException ne) {
+            techProblems = true;
+            log.error("NamingException - primary registration process ["+key+"]");
+            ne.printStackTrace();
+        }
+        catch(Exception e) {
+            techProblems = true;
+            log.error("Exception - primary registration process ["+key+"]");
+            e.printStackTrace();
+        }
+        finally {
+            Util.closeIC(ic);
+            if( techProblems ) {
+                markFormFieldAsInvalid(
+                    key,
+                    "Some technical problems prevent further processing. Try again later"
+                );
+                return false;
+            }
+        }
+        return success;
     }
 }

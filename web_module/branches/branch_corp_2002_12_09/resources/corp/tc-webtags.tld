@@ -67,8 +67,9 @@
 
 
   <tag>
-    <name>error</name>
-    <tagclass>com.topcoder.web.common.tag.ErrorTag</tagclass>
+    <name>errorIterator</name>
+    <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
 
     <attribute>
       <name>refname</name>
@@ -76,7 +77,7 @@
     </attribute>
 
     <attribute>
-      <name>text</name>
+      <name>id</name>
       <required>true</required>
     </attribute>
   </tag>

@@ -27,8 +27,8 @@
       <TD CLASS="bodyText" WIDTH="100%" valign="top"><IMG SRC="/i/p/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Registration</B></FONT><BR/>
 <P>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
 <FORM action="" method="POST">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
@@ -41,11 +41,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-first-name"
-            text="Ensure first name is not empty, consists of letters and has not spaces inside">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-first-name"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- LAST NAME -->
@@ -56,11 +53,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-last-name"
-            text="Ensure last name is not empty, consists of letters and has not spaces inside">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-last-name"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- TITLE -->
@@ -71,11 +65,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-title"
-            text="Ensure title is not empty, consists of letters and punctuation signs only">
-            <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-title"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>    
 
 <!-- ADDR LINE1 -->
@@ -86,11 +77,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-company-address-1"
-            text="Ensure address line 1 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-company-address-1"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- ADDR LINE2 -->
@@ -101,11 +89,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-company-address-2"
-            text="Ensure address line 2 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-company-address-2"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- CITY -->
@@ -116,11 +101,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-company-city"
-            text="Ensure city is not empty, consists of letters, digits and punctuation signs only (no more than 3 words)">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-company-city"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- STATE/PROVINCE -->
@@ -131,11 +113,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-company-state"
-            text="Ensure state is not empty, consists of letters only (no more than 2 words)">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-company-state"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- ZIP CODE -->
@@ -146,20 +125,26 @@
    <TR>
      <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
      <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-company-zip"
-            text="Ensure ZIP code is not empty and, consists of digits only">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+         <tc-webtag:errorIterator id="err" refname="prim-company-zip"><%=err%><br></tc-webtag:errorIterator>
+     </TD>
   </TR>
 
 <!-- COUNTRY -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Country&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText"></TD>
+    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
+        <select name="prim-company-country">
+            <tc-webtag:queryIterator command="cmd-countries-list" id="resultRow">
+              <option value="<%=resultRow.getItem("country_code")%>"><%=resultRow.getItem("country_name")%></option>
+            </tc-webtag:queryIterator>
+        </select>
+    </TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+             <tc-webtag:errorIterator id="err" refname="prim-company-country"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- PHONE -->
@@ -170,11 +155,8 @@
    <TR>
      <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
      <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-phone"
-            text="Ensure phone is not empty and, consists of digits only (minus sign is allowed too)">
-          <img width="16" height="16" src="err-mark.gif" alt="$e"/>
-        </tc-webtag:error></TD>
+        <tc-webtag:errorIterator id="err" refname="prim-phone"><%=err%><br></tc-webtag:errorIterator>
+     </TD>
   </TR>
   <TR valign="middle">
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>User Name &amp; Password</B></FONT></TD>
@@ -194,11 +176,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-username"
-            text="Ensure username is not empty and, consists of letters and digits only. Also it is possible, user with given name already exists">
-          <img width="16" height="16" src="err-mark.gif" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-username"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- PASSWORD -->
@@ -214,11 +193,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-password"
-            text="Ensure password is not empty and, consists of letters and digits only">
-          <img width="16" height="16" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-password"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- PASSWORD VERIFICATION -->
@@ -229,11 +205,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-password-once-more"
-            text="Both of passwords must match">
-          <img width="16" height="16" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-password-once-more"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- EMAIL -->
@@ -244,11 +217,8 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-email"
-            text="Ensure email address is not empty and, has written correct">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-email"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
     </TR>
 
 <!-- EMAIL VERIFICATION -->
@@ -261,11 +231,8 @@
     <TD COLSPAN="2">
         <TABLE BORDER="0"><TR>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error
-            refname="prim-email-once-more"
-            text="Ensure both of email addresses match">
-          <img width="20" height="20" src="" alt="$e"/>
-        </tc-webtag:error></TD>
+           <tc-webtag:errorIterator id="err" refname="prim-email-once-more"><%=err%><br></tc-webtag:errorIterator>
+        </TD>
         <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="top">An email will be sent to authorize your account activation.<BR></TD>
         </TR></TABLE>
     </TD>

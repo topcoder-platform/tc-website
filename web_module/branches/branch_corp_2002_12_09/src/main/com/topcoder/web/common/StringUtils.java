@@ -76,7 +76,7 @@ public final class StringUtils {
      * maxWords and false otherwise.
      */
     public static boolean hasNotMoreWords(String string, int maxWords) {
-        int wordCnt = 0;
+        int wordCnt = 1;
         String chkString = string.trim(); 
         int n = string.length();
         boolean skippingWs = false;
@@ -115,8 +115,8 @@ public final class StringUtils {
     }
     
     public static void main(String[] args) {
-        String blabla = "bla-bla";
-        byte [] b = blabla.getBytes();
-        System.out.println(getHexRepresentation(b));
+        String blabla = "bla bla";
+        System.out.println(consistsOf(blabla, ALPHABET_ALPHA_EN, true));
+        System.out.println(hasNotMoreWords(blabla, 1));
     }
 }

@@ -2,6 +2,7 @@ package com.topcoder.web.corp.request;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.Vector;
 
 import javax.servlet.ServletRequest;
 
@@ -124,11 +125,16 @@ public abstract class BaseProcessor implements RequestProcessor {
      * Marks form field as invalid.
      * @param fieldKey name of field to be marked as invalid
      */
-    protected void markFormFieldAsInvalid(String fieldKey) {
+    protected void markFormFieldAsInvalid(String fieldKey, String errMsg) {
         if(formErrors == null) {
             formErrors = new HashMap();
         }
-        formErrors.put(fieldKey, new Object());
+        Vector errs = (Vector)formErrors.get(fieldKey);
+        if( errs == null ) {
+            errs = new Vector();
+            formErrors.put(fieldKey, errs);
+        }
+        errs.add(errMsg);
     }
     
     /**
