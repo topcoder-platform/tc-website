@@ -84,7 +84,7 @@ public class NodeElement extends BaseElement implements Element {
               buf.append(' ');
               buf.append(key);
               buf.append("=\"");
-              buf.append(ProblemComponent.encodeHTML((String)attributes.get(key)));
+              buf.append(BaseRenderer.encodeHTML((String)attributes.get(key)));
               buf.append('"');
           }
           buf.append('>');
