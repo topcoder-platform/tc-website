@@ -144,6 +144,14 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void loadSessionErrorsIntoRequest(String messageId) {
+        loadSessionErrorsIntoRequest(messageId, true);
+    }
+
+    protected void loadSessionDefaultsIntoRequest(String messageId) {
+        loadSessionDefaultsIntoRequest(messageId, true);
+    }
+
+    protected void loadSessionErrorsIntoRequest(String messageId, boolean clear) {
         HashMap m = (HashMap) getRequest().getSession().getAttribute(ERRORS_KEY + messageId);
         Map.Entry me = null;
         //log.debug("loading session errors into request " + m);
@@ -156,7 +164,7 @@ public abstract class Base extends BaseProcessor {
         clearSessionErrors(messageId);
     }
 
-    protected void loadSessionDefaultsIntoRequest(String messageId) {
+    protected void loadSessionDefaultsIntoRequest(String messageId, boolean clear) {
         HashMap m = (HashMap) getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId);
         Map.Entry me = null;
         //log.debug("loading session defaults into request " + m);
