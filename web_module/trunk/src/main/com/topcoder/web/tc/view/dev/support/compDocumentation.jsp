@@ -172,9 +172,16 @@
                 <tr>
 					<td class="projectCells" valign="top">
 					<strong>TopCoder Software Member Guide</strong><br/>
-					The TopCoder Software Member Guide provides details required to design and develop TopCoder Software components. This document includes supported versions of software tools, coding standards and submission deliverables					</td>
+					The TopCoder Software Member Guide provides details required to design and develop TopCoder Software components. This document includes supported versions of software tools, coding standards and submission deliverables</td>
 					<td class="projectCells" valign="top" align="center">06.16.2004</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/TopCoder_Software_Member_Guide.pdf">TopCoder Software Member Guide.pdf</A></td>
+				</tr>
+                <tr>
+					<td class="projectCells" valign="top">
+					<strong>Reviewer Guidelines</strong><br/>
+					These guidelines are a must-read for all reviewers, and can provide designers and developers with valuable insight into how the review process works.</td>
+					<td class="projectCells" valign="top" align="center">09.14.2004</td>
+					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=reviewerGuide">Reviewer Guidelines</A></td>
 				</tr>
 			</table>
 				
