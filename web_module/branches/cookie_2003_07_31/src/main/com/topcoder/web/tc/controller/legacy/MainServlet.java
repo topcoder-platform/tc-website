@@ -11,11 +11,8 @@ import com.topcoder.common.web.xml.ExcludeRange;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.common.web.data.User;
 import com.topcoder.ejb.DataCache.DataCache;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
@@ -23,7 +20,6 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 
-import javax.naming.Context;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -144,8 +140,8 @@ public final class MainServlet extends HttpServlet {
             if (requestCommand==null)
                 requestCommand = Conversion.checkNull((String) request.getAttribute("c"));
             String handle = "";
-            if (nav.getUser() != null) {
-                handle = Conversion.checkNull(nav.getUser().getHandle());
+            if (nav.isIdentified()) {
+                handle = Conversion.checkNull(nav.getSessionInfo().getHandle());
             }
             StringBuffer trail = new StringBuffer(1000);
             trail.append("[**** ");
@@ -166,42 +162,8 @@ public final class MainServlet extends HttpServlet {
                 user = nav.getUser();
             }
             if (nav.isLoggedIn()) {
-                // CHECK TO SEE IF THE SERIALIZED NAV OBJECT
-                // IN SESSION HAS LOGGED IN ATTRIB = TRUE.
-                // IF THE USER'S SESSION INDICATES LOGGED IN,
-                // BUT THE NON-SERIALIZABLE USER OBJECT INFO
-                // IS MISSING, THE OTHER SERVER IN THE
-                // CLUSTER MUST HAVE CRAPPED OUT.
-                // IN THAT CASE RELOAD THE USER FROM
-                // THE USER ENTITY BEAN (DATABASE).
-                //todo perhaps we don't need to do this.  does anything other than reg need the user bean in the session?
-                if (user.getUserId() == 0) {
-                    Context ctx = null;
-                    try {
-                        StringBuffer msg = new StringBuffer(250);
-                        msg.append("MainServlet: logged in user found with no user attributes:\n");
-                        msg.append("MainServlet: user id = ");
-                        msg.append(nav.getUserId());
-                        msg.append("\n");
-                        msg.append("MainServlet: Loading user attributes from user entity bean...");
-                        log.debug(msg.toString());
-                        ctx = TCContext.getInitial();
-                        UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-                        UserServices userEJB = userHome.findByPrimaryKey(new Integer(nav.getUserId()));
-                        user = userEJB.getUser();
-                        nav.setUser(user);
-                        log.debug("MainServlet: user loaded from entity bean");
-                    } catch (Exception e) {
-                        throw new NavigationException("MainServlet:processCommands:ERROR READING DATABASE\n" + e, TCServlet.INTERNAL_ERROR_PAGE);
-                    } finally {
-                        if (ctx != null) {
-                            try {
-                                ctx.close();
-                            } catch (Exception ignore) {
-                            }
-                        }
-                    }
-                }
+                //probably don't need to load them up, code can do it on demand
+//                Data.loadUser(nav);
                 user.setLoggedIn("Y");
             } else {
                 if (loggedIn.equals("true")) {
