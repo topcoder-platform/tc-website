@@ -124,13 +124,13 @@
                     <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=online_gift_card_v10_dev">Online Gift Card Sales</a></td>
                </tr>    
                <tr valign="top">
-                    <td class="formTextOdd">Group 1</td>
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Group 1</td>
                     <td class="formTextOdd" align="center">$833</td>
                     <td class="formTextOdd" align="center">$313</td>
                     <td class="formTextOdd" align="center">12.19.2003</td>
                </tr>
                <tr valign="top">
-                    <td class="formTextOdd">Group 2</td>
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Group 2</td>
                     <td class="formTextOdd" align="center">$333</td>
                     <td class="formTextOdd" align="center">$125</td>
                     <td class="formTextOdd" align="center">12.19.2003</td>   
