@@ -6,9 +6,9 @@ public class SearchBean {
 
   private final static int MAX_RESULTS_PER_PAGE=15;
 
-  private int prev=0;
+  private Integer prev=0;
 
-  private int next=MAX_RESULTS_PER_PAGE;
+  private Integer next=new Integer(MAX_RESULTS_PER_PAGE);
 
   private String handle=null;
 
@@ -28,19 +28,19 @@ public class SearchBean {
     return(MAX_RESULTS_PER_PAGE);
   }
 
-  public int getPrev() {
+  public Integer getPrev() {
     return(prev);
   }
 
-  public void setPrev(int _prev) {
+  public void setPrev(Integer _prev) {
     prev=_prev;
   }
 
-  public int getNext() {
+  public Integer getNext() {
     return(next);
   }
 
-  public void setNext(int _next) {
+  public void setNext(Integer _next) {
     next=_next;
   }
 
