@@ -74,17 +74,18 @@
                 <tr><td class="tourney_subnav"><strong>Semifinal Room 2 Problem Analysis &amp; Opinion</strong></td></tr>
                 <tr valign="top">
                     <td width="10%" class="bodyText">
-                        <p>Friday, April 4, 2002</p>
-                        <p><b>Problem Summary</b><br /><br />
+            <p>Friday, April 4, 2002</p>
+            <p><b>Problem Summary</b></p>
+            <p>
             These were easy problems, by semifinal standards.  The easy problem, a 
             Reverse-Polish-Notation calculator, is really just a measure of typing speed.  The medium, a sort of Tic-Tac-Toe 
             &quot;AI&quot;, was relatively easy for a medium problem as well.  The hard problem was nice and hard, however,
             with a brief and elegant solution that is only apparent after some thinking.
        		</p>
-			<h3>RPN</h3>
+			<font size="+2"><b>RPN</b></font><br />
    			 Used as: Level 1:
    			<blockquote>
-   			<table cellspacing="2">
+   			<table cellspacing="2" cellpadding="2">
 			<tr>
 			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
 			<td style="background: #eee;" class="bodyText">200</td>
@@ -103,7 +104,6 @@
 			</tr>
 			</table>
 			</blockquote>
-			<b>Implementation</b><br />
 			<p>
            	This is a very easy problem for a semifinal round. All one needs is a working implementation of a stack, which any 
           	language would come with. Or one could go without an explicit stack altogether, solving the problem recursively.
@@ -125,11 +125,10 @@
 			The whole evaluation process could simply be surrounded by an exception handler, or one can just be careful about 
 			performing error checking at each point in the code where values from the stack are popped.
             </p>
-			<p></p>
-			<h3>TicSolver</h3>
+			<font size="+2"><b>TicSolver</b></font><br />
 			Used as: Level 2:
 			<blockquote>
-			<table cellspacing="2">
+			<table cellspacing="2" cellpadding="2">
 			<tr>
 			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
 			<td style="background: #eee;" class="bodyText">500</td>
@@ -148,7 +147,6 @@
 			</tr>
 			</table>
 			</blockquote>
-			<b>Implementation</b><br />
 			<p>
 			This simplest form of Tic-Tac-Toe is generally liked by programmers, because it is such a small	game.  
 			There are only 3<sup>9</sup> = 19683 possible ways to draw a Tic-Tac-Toe board, and only a subset of those 
@@ -198,11 +196,10 @@
                 for our public method can then just involve a lookup of the input state in that table, after a check
                 for validity first.
             </p>
-			<p></p>
-			<h3>TelephoneGame</h3>
+			<font size="+2"><b>TelephoneGame</b></font><br />
 			Used as: Level 3:
 			<blockquote>
-			<table cellspacing="2">
+			<table cellspacing="2" callpadding="2">
 			<tr>
 			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
 			<td style="background: #eee;" class="bodyText">1050</td>
@@ -217,8 +214,6 @@
 			</tr>
 			</table>
 			</blockquote>
-			
-			<b>Implementation</b><br />
 			<p>
                 This is the sort of problem where the solution is difficult to derive, but once it is discovered, it
                 is very easy to implement.  What makes this problem tractable is the fact that a circle of irremovable
@@ -257,17 +252,14 @@
                 consisting of any given subset of edges and finds all the minimum-length cycles.  If none exist that are of
                 odd length, we have a bipartite graph.
             </p>
-<p></p>
 
-                        
-                        
 
-                        <img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left"/>
-                        By <a href="/stat?c=member_profile&amp;cr=112902" class="bodyText"><strong>Logan</strong></a><br/>
-                        <div class="smallText"><em>TopCoder Member</em></div><br />
-                        <br clear="all" />
+			<IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+			By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
                         
-                        <p><br/></p>
+                        
+                        
+           	<p><br/></p>
           
                     </td>
                 </tr>                  
