@@ -105,6 +105,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
             setHasResume(rServices.hasResume(mid, DBMS.OLTP_DATASOURCE_NAME));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
+            e.printStackTrace();
         }
     }
 
