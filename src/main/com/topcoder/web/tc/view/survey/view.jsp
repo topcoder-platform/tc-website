@@ -53,15 +53,17 @@
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
-                     <table width="510" border="0" cellpadding="3" cellspacing="0" class="formFrame">
+                  <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                         <tr>
-                           <td class="bodySubtitle">
+                           <td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">
+                           <tc:sponsorImage src="<%=question.getImagePath()%>" href="<%=question.getLink()%>" alt="survey logo" width="160" height="95" align="center" border="0"/>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="2" class="bodySubtitle" valign="top" width="100%">
                               <jsp:getProperty name="question" property="text"/><br/><br/>
                               <hr width="100%" size="1" noshade/>
                            </td>
-                        <td class="bodySubtitle" valign="top">
-                        <tc:sponsorImage src="<%=question.getImagePath()%>" href="<%=question.getLink()%>" alt="survey logo" width="100" height="70" align="left" border="0"/>
-                        </td>
 
                            </tr>
                            <tr>
