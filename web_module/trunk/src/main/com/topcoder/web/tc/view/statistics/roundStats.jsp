@@ -311,7 +311,14 @@ pageContext.setAttribute("resultSetDates", rsc);
                    <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 14 /* new rating */ + "].resultData" %>'/></TD>
                    <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="center" VALIGN="middle"><IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/></TD>
+                   <TD CLASS="statText" ALIGN="center" VALIGN="middle">
+                     <% if (resultRow.getIntItem("rating_change")<0) { %>
+                      <IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>
+                     <% } %>
+                     <% if (resultRow.getIntItem("rating_change")>0) { %>
+                      <IMG src="/i/arrow_green_up.gif" width="10" height="10" border="0"/>
+                     <% } %>
+                   </TD>
                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                <TR>
