@@ -298,11 +298,11 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.getStatistic("overall_submission_points_per_problem") %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_points_per_submission") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.getStatistic("overall_final_points_per_problem") %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_points_per_problem") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
