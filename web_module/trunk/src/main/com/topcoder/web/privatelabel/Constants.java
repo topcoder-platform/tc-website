@@ -93,6 +93,7 @@ public class Constants {
     public static String GOOGLE_REG_CONFIRM;
     public static String GOOGLE_REG_SUBMIT;
     public static String GOOGLE_ACTIVATION;
+    public static String GOOGLE_LOGIN;
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
