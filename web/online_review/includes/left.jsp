@@ -47,7 +47,7 @@
         <% if ((level2.equals("applications"))) { %>
                 <tr><td id="<%=level3.equals("app_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_projects" class="leftOn">Projects</a></td></tr>
                 <tr><td id="<%=level3.equals("app_meth")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_meth" class="leftOn">Development Methodology</a></td></tr>
-                <tr><td id="<%=level3.equals("app_sample_docs")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_sample_docs" class="leftOn">Documentation</a></td></tr>
+                <tr><td id="<%=level3.equals("app_sample_docs")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=appDocumentation" class="leftOn">Documentation</a></td></tr>
         <% } %>
 
 <!-- Contests begins -->

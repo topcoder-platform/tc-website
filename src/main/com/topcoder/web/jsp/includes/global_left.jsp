@@ -90,7 +90,7 @@
                 <% if (level2.equals("applications")) { %>
                     <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_projects">Projects</A></td></tr>
                     <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_meth">Development Methodology</A></td></tr>
-                    <tr><td id="<%=level3.equals("documentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_sample_docs">Documentation</A></td></tr>
+                    <tr><td id="<%=level3.equals("documentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=appDocumentation">Documentation</A></td></tr>
                 <% } %>
                 <tr><td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=des_bonus_contest_2" class="<%=level2.equals("contests")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" alt="" border="0"/>Contests</a></td></tr>
                 <% if (level2.equals("contests")) { %>
