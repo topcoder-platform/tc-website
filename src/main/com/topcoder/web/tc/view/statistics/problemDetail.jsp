@@ -9,9 +9,9 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer div1Lang = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_by_language"); %>
-<% ResultSetContainer div2Lang = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_by_language"); %>
+<% ResultSetContainer div2Lang = (ResultSetContainer) ((Map)request.getAttribute("div2Reslts")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div1Overall = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_overall"); %>
-<% ResultSetContainer div2Overall = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_overall"); %>
+<% ResultSetContainer div2Overall = (ResultSetContainer) ((Map)request.getAttribute("div2Reslts")).get("problem_detail_overall"); %>
 <% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S"); %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
