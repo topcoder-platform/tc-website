@@ -260,4 +260,11 @@ public class ProfileInfo extends BaseModel {
     public String getTestSetAName() {
         return this.testSetAName;
     }
+
+    /** Setter for property testSetAName.
+     * @param testSetAName New value of property testSetAName.
+     */
+    public void setTestSetAName(String testSetAName) {
+        this.testSetAName = testSetAName;
+    }
 }
