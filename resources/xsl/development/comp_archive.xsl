@@ -162,7 +162,18 @@
                     <xsl:if test="./phase_id=$dev-phase">
         				<tr>
         					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-        					<td background="" class="statText"><xsl:value-of select="./component_name"/></td>
+        					<td background="" class="statText" target="_new">                            
+                                <a class="statText">
+                                    <xsl:attribute name="href"> 
+                                        <xsl:value-of select="concat('http://software.topcoder.com/pages/c_component.jsp?comp=', ./component_id)"/>
+                                    </xsl:attribute><xsl:value-of select="./component_name"/>
+                                    <xsl:if test="number(./version) &gt;  number('1')">
+                                        version <xsl:value-of select="./version"/>
+                                    </xsl:if>
+                                </a>
+                            </td>
+
+        					
         					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
         					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
         					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
