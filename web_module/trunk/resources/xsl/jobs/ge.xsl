@@ -168,6 +168,7 @@
 <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">
 &#160;&#160;<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge">Jobs</A>&#160;|&#160;
 <A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge_faq">GE IMLP FAQ</A>&#160;|&#160;
+<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge_criteria">IMLP Criteria</A>&#160;|&#160;
 </TD>
 </TR>
 
@@ -189,30 +190,7 @@
 <AREA ALT="Download IMLP movie in Windows Media Player format (2.88 MB)" COORDS="150,0,172,24" HREF="http://www.gecareers.com/movies/IMLP_126k.asf" SHAPE="RECT"/>
 </MAP>
 
-<P><B>Program Summary and Candidate Criteria</B></P>
-
-<BLOCKQUOTE>
-<P><B>Program Summary</B></P>
-<UL>
-<LI>A 2-year program consisting of four 6-month rotational assignments through different areas of a GE business.</LI>
-<LI>On-the-job training in business dynamics, career strategies, communication skills, problem solving, decision making and project leadership</LI>
-<LI>Formal coursework in advanced information technology and systems, and their strategic application within GE</LI>
-<LI>Develops strong technical foundation, project management skills and process knowledge that cuts across functions to support GE's boundaryless culture</LI>
-</UL>
-
-<P><B>Candidate Criteria</B></P>
-<UL>
-<LI>Strong interest in information technology applications</LI>
-<LI>Solid analytical abilities and sharp business acumen</LI>
-<LI>BA in Computer Science, Information Systems or Engineering preferred; Business and Liberal Arts degrees or other related experience may be applicable</LI>
-</UL>
-</BLOCKQUOTE>
-
-<P><A HREF="/?t=jobs&amp;c=ge_faq">Read our Frequently Asked Questions</A></P>
-
-<P>If you are interested in IMLP or an IMLP internship apply below"</P>
-
-<P><B><A HREF="http://www.gecareers.com/campus/filled.cfm?FilledDate=September%202">Apply</A></B></P>
+<P><B><A HREF="/?t=jobs&amp;c=ge_criteria">Program Summary and Candidate Criteria</A></B></P>
 
 
 <!--end contextual links-->
