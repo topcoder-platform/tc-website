@@ -168,7 +168,7 @@
                    
                 </TD>
                     
-                <TD WIDTH="10%"><BR></TD>
+                <TD WIDTH="10%" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18"><BR></TD>
                 
                     
                 <TD width="40%">
