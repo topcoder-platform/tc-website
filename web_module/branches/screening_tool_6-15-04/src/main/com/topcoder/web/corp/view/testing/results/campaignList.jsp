@@ -14,9 +14,6 @@
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
-<jsp:useBean id="<%=Constants.COMPANY_INFO%>" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-<jsp:useBean id="<%=Constants.COMPANY_CAMPAIGNS_LIST%>" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
@@ -31,7 +28,7 @@
                     <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
                         <scre>
-                        <screen:resultSetRowIterator id="row" list="<%=Constants.COMPANY_INFO%>">
+                        <screen:resultSetRowIterator id="row" list="<%=request.getAttribute(Constants.COMPANY_INFO)%>">
                         Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
                         </screen:resultSetRowIterator>
                         </p>
@@ -53,8 +50,7 @@
                     int counter = 0;
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                 %>
-                <screen:resultSetRowIterator id="row"
-                                             list="<%=Constants.COMPANY_CAMPAIGNS_LIST%>">
+                <screen:resultSetRowIterator id="row" list="<%=request.getAttribute(Constants.COMPANY_CAMPAIGNS_LIST)%>">
                 <tr>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="nowrap">
                         <a href="/corp/testing/results/campaignResults.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />">
