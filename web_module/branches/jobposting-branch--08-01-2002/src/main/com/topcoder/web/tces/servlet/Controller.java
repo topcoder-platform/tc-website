@@ -47,20 +47,15 @@ public class Controller extends HttpServlet {
         String command = request.getParameter(DataAccessConstants.COMMAND);
         InitialContext ctx = null;
 
-
-        /*
-          just kinda jamming this in for now, when it's written as a real
-          project, this should be done a bit more elegantly.
-         */
         if (command == null) {
             forwardToErrorPage(request, response,
                     new Exception("missing " + DataAccessConstants.COMMAND + " parameter " +
                     " in request"));
             return;
-		} else if (command.equals("tces_login")) {
-            log.debug("Login request");
-            forwardToErrorPage(request, response,
-                    new Exception("login not implemented") );
+		} else if (command.equals("login")) {
+            getServletContext().getRequestDispatcher(
+                response.encodeURL("/campaign_interest.jsp")).forward(request, response);
+//            handleLogin(request, response);
         } else if (command.equals("job_posting") || command.equals("click_thru")) {
             String tempJobId = request.getParameter(TCESConstants.JOB_ID_KEY);
             String tempUserId = request.getParameter(TCESConstants.USER_ID_KEY);
@@ -113,6 +108,24 @@ public class Controller extends HttpServlet {
             return;
         }
     }
+
+
+    /**
+     * Handles a login request
+     *
+     * @param HttpServletRequest    the servlet request object
+     * @param HttpServletResponse    the servlet response object
+     *
+     * @throws ServletException
+     */
+
+    private void handleLogin(HttpServletRequest request,
+                             HttpServletResponse response) throws ServletException, IOException {
+
+
+
+    }
+
 
 
     /**
