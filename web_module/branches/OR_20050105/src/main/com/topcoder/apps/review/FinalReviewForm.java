@@ -48,6 +48,8 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     private boolean approvedValid = true;
 
+    private boolean isApproved = false;
+
     // ----------------------------------------------------------- Properties
 
     /**
@@ -106,10 +108,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * @return true if the final review is approved
      */
     public boolean getApproved() {
-        if (finalReview == null) {
-            return false;
-        }
-        return finalReview.isApproved();
+        return isApproved;
     }
 
     /**
@@ -119,11 +118,8 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      *
      * @param isApproved Whether this review is approved.
      */
-    public void setApproved(boolean approved) {
-        if (finalReview == null) {
-            return;
-        }
-        finalReview.setApproved(approved);
+    public void setApproved(boolean isApproved) {
+        this.isApproved = isApproved;
     }
 
     /**
@@ -255,7 +251,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                             responses);
 
         statuses = businessDelegate.getFinalFixStatuses();
-        setApproved(false);
+        isApproved= finalReview.getApproved();
     }
 
     /**
@@ -267,6 +263,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     protected FinalReviewData toReviewData(OnlineReviewProjectData orpd) {
         finalReview.setCompleted(true);
+        finalReview.setApproved(isApproved);
         return new FinalReviewData(orpd, finalReview);
     }
 
@@ -275,7 +272,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     public void reset(ActionMapping mapping, HttpServletRequest request) {
         super.reset(mapping, request);
-        setApproved(false);
+        isApproved = false;
     }
 
 }
