@@ -195,7 +195,7 @@ Check back April 19th for room assignments/schedule<BR/><BR/>
     <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
     </TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Match 79</B></FONT><BR/>
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Single Round Match 79</B></FONT><BR/>
 Wednesday, April 10, 2002<BR/>
 By&#160;ZorbaTHut,<I>TopCoder Member</I><BR/>
 <A HREF="/?t=statistics&amp;c=srm79_room1" CLASS="bodyGeneric">Room One Review</A> | 
