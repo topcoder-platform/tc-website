@@ -74,7 +74,6 @@
                     <tr><td id="<%=level3.equals("winners")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=components">This Week's Project Winners</A></td></tr>
                     <tr><td id="<%=level3.equals("submit")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit & Review</A></td></tr>
                     <tr><td id="<%=level3.equals("status")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_archive">Project Status</A></td></tr>
-                    <tr><td id="<%=level3.equals("submission")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=multiplier_status">Project Submission</A></td></tr>
                     <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_meth">Development Methodology</A></td></tr>
                     <tr><td id="<%=level3.equals("samples")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=tcs_sample_docs">Documentation and Sample Submissions</A></td></tr>
                     <tr><td id="<%=level3.equals("gettingStarted")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=getting_started">Getting Started</A></td></tr>
