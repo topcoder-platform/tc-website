@@ -35,7 +35,7 @@
             <tr>
                 <td width="440" height="99" colspan=2 valign="top" align="right" background="/i/events/verizon2003/vcc03_logo.jpg">
 		<img src="/i/events/verizon2003/banner_angle.gif" alt="" width="30" height="99"></td>
-                <td width="146" height="99" valign="middle"><img src="/i/events/verizon2003/pbtc.gif" alt="Contest Powered by TopCoder" height="34" width="146" border="0"></td>
+                <td width="146" height="99" valign="middle"><A href="http://www.topcoder.com"><img src="/i/events/verizon2003/pbtc2.gif" alt="Contest Powered by TopCoder" height="45" width="146" border="0"></A></td>
             </tr>
         </table>
       </td>
