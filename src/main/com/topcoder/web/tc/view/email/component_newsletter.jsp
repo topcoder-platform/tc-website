@@ -65,50 +65,50 @@
 				<table border="0" cellpadding="5" cellspacing="0"width="270">
 				
 				<tr>
-                    <td colspan="2"><strong><font color="#FFFFFF" size="4">Completed Components</font></strong></td>
+                    <td colspan="2" valign="bottom"><strong><font color="#FFFFFF" size="4">Completed Components<img src="/i/email/iconStatusCompleteSm.gif" width="25" height="17"/></font></strong></td>
                 </tr>
 
                 
                 <tr>
                     <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="sidebarText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904558&ver=1" target="blank">Generic Service</A> - Windows 2000 service used to instantiate user defined classes at user defined intervals.</td>
+                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904558&ver=1" target="blank">Generic Service</A> - Windows 2000 service used to instantiate user defined classes at user defined intervals.</td>
                 </tr>
 
                 <tr>
                     <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="sidebarText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6401040&ver=1" target="blank">Compression Utility</A> - Provides a mechanism for defining and executing compression/decompression algorithms.</td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6401040&ver=1" target="blank">Compression Utility</A> - Provides a mechanism for defining and executing compression/decompression algorithms.</td>
                 </tr>
                 
                 <tr>
                     <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="sidebarText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904571&ver=1" target="blank">Configuration Manager</A> - Centralizes the management of and access to application level configuration files strategy.</td>
+                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904571&ver=1" target="blank">Configuration Manager</A> - Centralizes the management of and access to application level configuration files strategy.</td>
                 </tr>
                 
                 
                 <tr>
                     <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="sidebarText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7351856&ver=1" target="blank">Simple Cache</A> - Provides the ability to quickly and effectively implement a caching strategy.</td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7351856&ver=1" target="blank">Simple Cache</A> - Provides the ability to quickly and effectively implement a caching strategy.</td>
                 </tr>
 
                 
                 <tr>
                     <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="sidebarText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8352111&ver=1" target="blank">Distributed Simple Cache</A> - Provides a mechanism for the replication of frequently accessed, cached data across a cluster of servers.</td>
+                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8352111&ver=1" target="blank">Distributed Simple Cache</A> - Provides a mechanism for the replication of frequently accessed, cached data across a cluster of servers.</td>
                 </tr>
                 
                 <tr>
                     <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="sidebarText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601809&ver=1" target="blank">Trie Collection</A> - Provides trie data structure implementations including the Set and Map interfaces.</td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601809&ver=1" target="blank">Trie Collection</A> - Provides trie data structure implementations including the Set and Map interfaces.</td>
                 </tr>
 
                 <tr>
                     <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="sidebarText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263800&ver=1" target="blank">Thread Pool</A> - Facilitates the management and usage of threads for asynchronous processing.</td>
+                    <td class="smallText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263800&ver=1" target="blank">Thread Pool</A> - Facilitates the management and usage of threads for asynchronous processing.</td>
                 </tr>
                 
                 <tr>
                     <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="sidebarText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263827&ver=1" target="blank">DNS Query</A> - Query DNS servers for DNS records and available servers.</td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263827&ver=1" target="blank">DNS Query</A> - Query DNS servers for DNS records and available servers.</td>
                 </tr>
                 
                 </table>
@@ -131,11 +131,11 @@
 				<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
 				
 				<tr>
-                    <td colspan="2"><strong><font color="#FFFFFF" size="4">Components in Progress</font></strong></td>
+                    <td colspan="2"><strong><font color="#FFFFFF" size="4">Components in Progress<img src="/i/clear.gif" width="25" height="17"/></font></strong></td>
                 </tr>
                 
                 <tr>
-                	<td colspan="2" bgcolor="#999999"><strong><font color="#FFFFFF">Design</font></strong></td>
+                	<td colspan="2" bgcolor="#CCCCCC"><strong><font color="#333333">Design</font></strong><img src="/i/email/iconStatusSpecSm.gif" width="25" height="17"/></td>
                 	
                 </tr>
 
@@ -183,7 +183,7 @@
 
                 
                 <tr>
-                	<td colspan="2" bgcolor="#999999"><strong><font color="#FFFFFF">Development</font></strong></td>
+                	<td colspan="2" bgcolor="#CCCCCC"><strong><font color="#333333">Development</font></strong><img src="/i/email/iconStatusDevSm.gif" width="25" height="17"/></td>
                 	
                 </tr>
                 
@@ -330,13 +330,13 @@
                 		
                 		<tr><td bgcolor="#FFFFFF"><img src="/i/clear.gif" width="1" height="10" border="0"/></td></tr>
 						<tr>
-                		<td class="bodyText" bgcolor="#FFFFFF"><font size="2">You have received this email because you have registered on our site and asked to 
+                		<td class="smallText" bgcolor="#FFFFFF">You have received this email because you have registered on our site and asked to 
                 		receive our email newsletter. If you prefer not to receive emails from TopCoder, please unsubscribe. Mailings to you may 
                 		currently be in progress, so please allow 48 hours for your updated preferences to take full effect. If you have any 
                 		questions or comments about this email, please contact <A href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</A> or call us.<br/><br/>
                 		
                 		Tel: 866.TOP.CODE<br/>
-						Headquarters: TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033, USA</font></td>
+						Headquarters: TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033, USA</td>
             			</tr>
                 		
 					</table>
