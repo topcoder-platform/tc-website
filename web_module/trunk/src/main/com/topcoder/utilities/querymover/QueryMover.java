@@ -250,7 +250,7 @@ public class QueryMover {
             if (targetInput == null) {
                 log.info("input " + sourceInput.getInputCode() + " not found, creating");
                 long newInputId = targetI.createInput(sourceInput.getInputCode(),
-                        sourceInput.getDataTypeId(), sourceInput.getInputDesc());
+                        sourceInput.getDataTypeId(), sourceInput.getInputDesc(), targetDSN);
                 inputMap.put(new Long(sourceInput.getInputId()), new Long(newInputId));
             } else {
                 log.info("input " + sourceInput.getInputCode() + " found, updating");
