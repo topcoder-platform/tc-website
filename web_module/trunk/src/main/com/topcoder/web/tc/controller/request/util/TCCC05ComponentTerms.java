@@ -17,14 +17,6 @@ public class TCCC05ComponentTerms extends TCCC05AlgorithmTerms {
         return end;
     }
 
-    public Calendar getBeginning() {
-        Calendar beginning = Calendar.getInstance();
-        //beginning.set(2004, Calendar.DECEMBER, 20, 9, 0);
-        beginning.set(2004, Calendar.JULY, 9, 9, 0);
-        return beginning;
-    }
-
-
     public String getEventName() {
         return "TCCC Component Competition";
     }
