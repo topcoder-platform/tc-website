@@ -84,7 +84,7 @@ next Single Round Match date.
 		<TD COLSPAN="3" BGCOLOR="#ffffff" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
 	</TR>
     <TR>
-	<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=ms"><IMG SRC="/i/es/vertex/vertex_logo.gif" WIDTH="76" HEIGHT="52" ALT="" BORDER="0" VSPACE="10"/></A></TD>
+	<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=vertex"><IMG SRC="/i/es/vertex/vertex_logo.gif" WIDTH="76" HEIGHT="52" ALT="" BORDER="0" VSPACE="10"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="100%" VALIGN="middle" CLASS="bodyText">Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX) is a global biotechnology company. Vertex seeks to discover, develop, and commercialize major pharmaceutical products independently and with partners.  Vertex has more than 12 drug candidates in clinical and preclinical development to treat viral diseases, inflammation, cancer, autoimmune diseases, neurological disorders and genetic disorders.  They have two open Associate Scientific Software Analyst positions. <A HREF="/?&amp;t=tces&amp;c=vertex" CLASS="bodyText">Click here for details.</A><BR/><BR/></TD>
 	</TR>
