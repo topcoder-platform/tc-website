@@ -193,9 +193,6 @@ public abstract class BaseServlet extends HttpServlet {
         RequestProcessor rp = null;
 
         rp = (RequestProcessor) Class.forName(processorName).newInstance();
-        /* TODO perhaps the processors should take a request wrapper instead
-           that can handle multipart requests.
-        */
         rp.setRequest(request);
         rp.setAuthentication(authentication);
         rp.process();
