@@ -133,7 +133,7 @@ We don't want to interfere with your recruiting process, but we do want to suppl
 Certifications have long been a means of differentiating between the skills of individuals.  However, TopCoder 
 demonstrates how competitions offer a different view on skills and abilities.  By utilizing the Candidate 
 Recruiting Program, you will be able to differentiate programmers through the use of detailed statistics and 
-code samples.  Read our view on <A HREF="/index?t=about_tc&c=empl_difference" class="bodyText">Certification vs. Competition</A>. 
+code samples.  Read our view on <A HREF="/index?t=about_tc&amp;c=empl_difference" class="bodyText">Certification vs. Competition</A>. 
 </P>
 
 <P>

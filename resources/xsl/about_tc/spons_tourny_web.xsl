@@ -94,10 +94,10 @@
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
 							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="mailto:sponsorships@topcoder.com" CLASS="bodyText">Contact sponsor sales</A></TD>
 						</TR>
-						<TR>
+						<!-- <TR>
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
 							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="/i/about/srm_3pgr.pdf" CLASS="bodyText">Package overview (PDF)</A></TD>
-						</TR>
+						</TR> -->
 						<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
 					</TABLE>
 		          	</TD>
