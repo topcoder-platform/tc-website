@@ -14,11 +14,11 @@
     <TITLE>TopCoder | Recruiting Reports</TITLE>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/corpStyle.css">
     <jsp:include page="script.jsp" />
-    
+
   </HEAD>
   <body>
-  <jsp:include page="top.jsp" />             
-  
+  <jsp:include page="top.jsp" />
+
 
 
 <jsp:useBean id="MemberProfileTask" scope="request" class="com.topcoder.web.tces.bean.MemberProfileTask" />
@@ -48,7 +48,7 @@
                   <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
                 </tces:trailIterator>
               </P>
-            
+
             <TABLE WIDTH="100%" BORDER="0">
             <TR>
             <TD class="bodyText" ALIGN="right">
@@ -56,10 +56,10 @@
             </TD>
             <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
             <TD class="bodyText" ALIGN="left">
-            
+
               <B>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </B>
               <BR>
-              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%> 
+              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%>
               <BR>
               <%= MemberInfo.getItem(0, "address1").toString()%>
               <%= MemberInfo.getItem(0, "address1").toString().equals("")?"":"<BR>"+MemberInfo.getItem(0, "address2").toString()+"<BR>"%>
@@ -67,7 +67,7 @@
               <%= MemberInfo.getItem(0, "state_code").toString()%>
               <%= MemberInfo.getItem(0, "zip").toString()%>
               <BR>
-              <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" class="bodyText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%> 
+              <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" class="bodyText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%>
               <BR>
               <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
               <BR>
@@ -77,12 +77,12 @@
               </TD>
               </TR>
               </TABLE>
-              
-              
+
+
               <P align="center">
               <A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
-              </P>                            
-              
+              </P>
+
               <P>
               <B>Member Type:</B> <%=MemberInfo.getItem(0, "coder_type_desc").toString()%> <BR>
               <B>TopCoder Member Since:</B> <%=MemberInfo.getItem(0, "member_since_date").toString()%><BR>
@@ -93,16 +93,16 @@
                 <% if (MemberInfo.getItem(0, "gpa").toString().trim().length()>0) {%>
                   <B>GPA:</B> <%=MemberInfo.getItem(0, "gpa").toString()%> <BR>
                 <% } %>
-                <B>Graduation Date:</B> <%=MemberInfo.getItem(0, "grad_month").toString()%> 
+                <B>Graduation Date:</B> <%=MemberInfo.getItem(0, "grad_month").toString()%>
                 <%=MemberInfo.getItem(0, "grad_month").toString().trim().length()==0?"":", "%>
                 <%=MemberInfo.getItem(0, "grad_year").toString()%><BR>
               <% } %>
 
 
               </P>
-              
+
 <% if (MemberProfileTask.getIsRanked()) { %>
-              
+
                   <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                     <TR>
                         <TD class="bodyText" ALIGN="center" WIDTH="33%">
@@ -131,10 +131,10 @@
                   <B>Highest Rating:</B> <%=MemberStats.getItem(0, "highest_rating").toString()%><BR>
                   <B>Lowest Rating:</B> <%=MemberStats.getItem(0, "lowest_rating").toString()%><BR>
                   <B>Most Recent Rated Event:</B> <%=MemberStats.getItem(0, "last_rated_event").toString()%><BR>
-                  </P>    
+                  </P>
 
     <% if (MemberProfileTask.hasDivisionI()) { %>
-                  <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+                  <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                     <TR><TD BGCOLOR="#43515E" COLSPAN="19" class="bodyText"><B>Division-I Performance</B></TD</TR>
                     <TR><TD COLSPAN="19" class="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD></TR>
                     <TR><TD COLSPAN="19" class="bodyText"><B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIStatistic("avg_contest_points") %></TD></TR>
@@ -163,48 +163,47 @@
                       <TD class="testTableTitle"><b>Avg Time to Submit</b></TD>
                     </TR>
 
-                
-                    <% int i=0; %>
+
+
                   <tces:rowIterator id="level" rowList="<%=(List)MemberProfileTask.getDivIStatsByLevel()%>">
-                  <% i++; %>
                     <TR>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
+                      <TD class="bodyText" HEIGHT="18">
                         <nobr>&#160;<b><%= level.getItem("level_desc").toString() %></b></nobr>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= level.getItem("presented").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= level.getItem("submitted").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("submit_percent")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= level.getItem("correct").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("submission_accuracy")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("overall_accuracy")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("avg_submission_points")) %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("avg_final_points")) %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.timeFormat(level.getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
@@ -275,35 +274,33 @@
 
 
 
-                  <% i=0; %>
                   <tces:rowIterator id="language" rowList="<%=(List)MemberProfileTask.getDivIStatsByLang()%>">
-                  <% i++; %>
                     <TR>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
+                      <TD class="bodyText" HEIGHT="18">
                         <nobr>&#160;<b><%= language.getItem("language_name").toString() %></b></nobr>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= language.getItem("submitted").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(language.getItem("submit_percent")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= language.getItem("num_correct").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(language.getItem("submission_accuracy")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(language.getItem("avg_submission_points")) %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.timeFormat(language.getItem("avg_submit_time")) %>
                       </TD>
                     </TR>
@@ -344,7 +341,7 @@
     <% } %>
 
     <% if (MemberProfileTask.hasDivisionII()) { %>
-                  <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+                  <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                     <TR><TD BGCOLOR="#43515E" COLSPAN="19" class="bodyText"><B>Division-II Performance</B></TD</TR>
                     <TR><TD COLSPAN="19" class="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD></TR>
                     <TR><TD COLSPAN="19" class="bodyText"><B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIIStatistic("avg_contest_points") %></TD></TR>
@@ -375,47 +372,45 @@
 
 
 
-                    <% int i=0; %>
                   <tces:rowIterator id="level" rowList="<%=(List)MemberProfileTask.getDivIIStatsByLevel()%>">
-                  <% i++; %>
                     <TR>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
+                      <TD class="bodyText" HEIGHT="18">
                         <nobr>&#160;<b><%= level.getItem("level_desc").toString() %></b></nobr>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= level.getItem("presented").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= level.getItem("submitted").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("submit_percent")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= level.getItem("correct").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("submission_accuracy")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("overall_accuracy")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("avg_submission_points")) %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("avg_final_points")) %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.timeFormat(level.getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
@@ -485,35 +480,34 @@
                     </TR>
 
 
-                  <% i=0; %>
+
                   <tces:rowIterator id="language" rowList="<%=(List)MemberProfileTask.getDivIIStatsByLang()%>">
-                  <% i++; %>
                     <TR>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
+                      <TD class="bodyText" HEIGHT="18">
                         <nobr>&#160;<b><%= language.getItem("language_name").toString() %></b></nobr>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= language.getItem("submitted").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(language.getItem("submit_percent")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= language.getItem("num_correct").toString() %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(language.getItem("submission_accuracy")) %>%
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.autoFormat(language.getItem("avg_submission_points")) %>
                       </TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                      <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="bodyText">
                         <%= JSPUtils.timeFormat(language.getItem("avg_submit_time")) %>
                       </TD>
                     </TR>
@@ -551,11 +545,11 @@
                     </TR>
                   <% } %>
                   </TABLE>
-                  </P>    
+                  </P>
     <% } %>
 
 <% } else { %>
-            
+
                 <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                   <TR>
                     <TD class="bodyText" ALIGN="left" WIDTH="100%">
@@ -570,11 +564,11 @@
                     </TD>
                   </TR>
                 </TABLE>
-            
+
 <% } %>
-              
+
                   <P><BR></P>
-              
+
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
@@ -614,7 +608,7 @@
 </TABLE>
 
 <!-- Footer begins -->
-<jsp:include page="foot.jsp" />             
+<jsp:include page="foot.jsp" />
 <!-- Footer ends -->
 
 </BODY>
