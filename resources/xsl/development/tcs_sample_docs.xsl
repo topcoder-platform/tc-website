@@ -34,9 +34,13 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
-        <TD WIDTH="180" valign="top">
-            <xsl:call-template name="global_left"/>
-        </TD>
+        <td width="180">
+            <xsl:call-template name="global_left">
+                <xsl:with-param name="level1">development</xsl:with-param>
+                <xsl:with-param name="level2">components</xsl:with-param>
+                <xsl:with-param name="level3">tcs_sample_docs</xsl:with-param>
+            </xsl:call-template>
+          </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->

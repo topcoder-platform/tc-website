@@ -31,7 +31,9 @@
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="180">
-            <xsl:call-template name="global_left"/>
+            <xsl:call-template name="global_left">
+                <xsl:with-param name="level1">dev_payment</xsl:with-param>
+            </xsl:call-template>
           </td>
 <!-- Left Column Ends -->
 
