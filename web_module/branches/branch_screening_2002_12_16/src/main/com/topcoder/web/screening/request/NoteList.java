@@ -42,6 +42,7 @@ public class NoteList extends BaseProcessor {
                     "You are not authorized to view information about that candidate.");
             }
             cinfo.setEmailAddress(result.getRow(0).getItem("email").toString());
+            cinfo.setUserId(Long.valueOf(getRequest().getParameter(Constants.CANDIDATE_ID)));
             
             result = (ResultSetContainer)map.get("noteList");
             cinfo.setNoteList(result);

@@ -36,6 +36,7 @@
 <screen:form name='note' method='POST' action='<%=Constants.CONTROLLER_URL%>'>
          <INPUT type="hidden" name='<%=Constants.REQUEST_PROCESSOR%>' value='NoteCreate'/>
          <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
+         <INPUT type="hidden" name='<%=Constants.CANDIDATE_ID%>' value='<%=candidateInfo.getUserId()%>'/>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">           
            <TR>
               <TD ALIGN="center" CLASS="bodyText"><A HREF="/eval/cand_setup.jsp" CLASS="bodyText"><jsp:getProperty name="candidateInfo" property="emailAddress"/></A></TD>
