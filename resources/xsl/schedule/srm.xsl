@@ -110,8 +110,31 @@
                                 <b>For information on how to win an Intel&#174; Centrino&#153; mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                            </xsl:when>
                                 <xsl:when test="$roundId=5856">
-                                    <b>For Official Contest Rules on how to win an Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules">here</a></b><br/><br/>
-                                    <b>To view the specs for the Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_specs">here</a></b><br/><br/>
+                                 <table width="510" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                                    <tr valign="top">
+                                        <td class="sidebarTitle">Configuration Details:</td>
+                                        <td class="sidebarText">1 Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M PROCESSOR 1.0GHz, Intel<sup>&#174;</sup>
+                                        855GM CHIPSET, OEM BASEBOARD, DDR266 512MB (1x512MB) MEMORY, INTEGRATED GRAPHICS, TABLET FORM FACTOR CHASSIS, WINDOWS
+                                        XP TABLET PC OS, CALEXICO 802.11b (Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection)</td>
+                                    </tr>
+
+                                    <tr valign="top">
+                                        <td class="sidebarTitle">Description:</td>
+                                        <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M based Centrino&#153; Tablet Platform</td>
+                                    </tr>
+
+                                    <tr valign="top">
+                                        <td class="sidebarTitle">Functionality:</td>
+                                        <td class="sidebarText">Production-level</td>
+                                    </tr>
+
+                                    <tr valign="top">
+                                        <td class="sidebarTitle">New Technologies:</td>
+                                        <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M processor, Intel<sup>&#174;</sup> 855
+                                        Chipset family, Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection (Centrino&#153; Mobile Technology)</td>
+                                    </tr>
+                                </table>
+                                    <b>For Official Contest Rules on how to win an Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC click <a href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules','comp',545,655)">here</a></b><br/><br/>
                                </xsl:when>
                                 </xsl:choose>
 
