@@ -476,7 +476,7 @@
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
 			<xsl:when test="/TC/Command='software_req'">graybv_lite_bg</xsl:when>
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=software_reg</xsl:attribute>&#160;&#160;Software Requirements</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=software_req</xsl:attribute>&#160;&#160;Software Requirements</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
             <xsl:call-template name="div_line_row"/>            
             <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
