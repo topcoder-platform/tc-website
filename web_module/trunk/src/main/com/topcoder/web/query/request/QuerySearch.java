@@ -105,11 +105,11 @@ public class QuerySearch extends BaseProcessor {
          * we would have the search terms:  "search" , "for", "this word"
         */
         for (int i=0; i<temp.length(); i++) {
-            if ((temp.charAt(i)=='\"' && inQuote) || (temp.charAt(i)==' ' && word.length()>0)) {
+            if ((temp.charAt(i)=='"' && inQuote) || (temp.charAt(i)==' ' && word.length()>0)) {
                 searchList.add(word.toString());
                 word = new StringBuffer(10);
             }
-            if (temp.charAt(i)=='\"') {
+            if (temp.charAt(i)=='"') {
                 inQuote = !inQuote;
             } else {
                 if (inQuote || temp.charAt(i)!=' ')
