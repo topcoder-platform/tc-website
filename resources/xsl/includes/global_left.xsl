@@ -338,7 +338,7 @@
 <!-- TCS Developer Forums -->
                 <tr>
                     <td id="leftSubnav">
-                        <A class="leftOn"><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/pages/c_active_collab.jsp?ft=2</xsl:attribute>TCS Developer Forums</A>
+                        <A class="leftOn"><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/forum/c_active_collab.jsp?ft=2</xsl:attribute>TCS Developer Forums</A>
                     </td>
                 </tr>
 
