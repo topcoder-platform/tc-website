@@ -1150,6 +1150,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return  The specified item
      */
     public TCResultItem getItem(int iRow, String sCol) {
+        if (!isValidColumn(sCol))
+            throw new IllegalArgumentException("Column name " + sCol + " is not valid");
         int iCol = getColumnIndex(sCol);
         return this.getItem(iRow, iCol);
     }
