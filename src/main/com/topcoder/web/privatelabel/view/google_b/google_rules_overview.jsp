@@ -35,7 +35,7 @@
             <param name="salign" value="t">
             </object><br/>
       </td>
-        <td width="176" valign="top" colspan="2" bgcolor="#B8B8B8"><img src="/i/clear.gif" width="176" height="77" border="0"/></td>
+        <td width="176" valign="top" colspan="2" bgcolor="#B8B8B8"><img src="/i/events/google2003/pbtc_gray.gif" width="176" height="77" border="0"/></td>
    </tr>
    
    <tr>
