@@ -18,6 +18,19 @@ public interface PactsConstants {
     public static final int NOTE_OBJ = 6;
     public static final int USER_TAX_FORM_OBJ = 7;
 
+    // Message Properties
+    public static final String STATUS_PROPERTY = "status_id";
+	public static final String USER_PROPERTY = "user_id";
+	public static final String UPDATE_TYPE_PROPERTY = "update_type";
+
+	// Types of updates that are queued
+	public static final int REVIEW_UPDATE_TYPE = 1;
+	public static final int STATUS_UPDATE_TYPE = 2;
+	public static final int PAID_UPDATE_TYPE = 3;
+
+	// Default email address to which update results should be mailed
+	public static final String DEFAULT_STAFF_EMAIL = "grunt@topcoder.com";
+
     // Group ID codes
     public static final int TC_MEMBER = 10;
     public static final int TC_STAFF = 13;
@@ -184,6 +197,7 @@ public interface PactsConstants {
     public static final int CONTRACT_ACTIVE_STATUS = 1;
     public static final int CONTRACT_INACTIVE_STATUS = 2;
     public static final int AFFIDAVIT_PENDING_STATUS = 8;
+    public static final int AFFIDAVIT_AFFIRMED_STATUS = 9;
     public static final int AFFIDAVIT_EXPIRED_STATUS = 11;
     public static final int PAYMENT_ON_HOLD_STATUS = 6;
     public static final int PAYMENT_OWED_STATUS = 7;
@@ -259,10 +273,12 @@ public interface PactsConstants {
     public static final String IN_DEPTH_HANDLE = "in_depth_handle";
 
     // servlet and jsps
+    public static final String INTERNAL_JSP_DIR = "/pacts/internal";
+    public static final String MEMBER_JSP_DIR = "/pacts/member";
     public static final String MEMBER_SERVLET_URL = "PactsMemberServlet";
     public static final String INTERNAL_SERVLET_URL = "/PactsInternalServlet";
 	//public static final String LOGIN_URL = "/?t=authentication&c=login";
-    public static final String LOGIN_URL = "/login.jsp";
+    public static final String LOGIN_URL = MEMBER_JSP_DIR + "/login.jsp";
     public static final String TASK_STRING = "t";
     public static final String CMD_STRING = "c";
     public static final String NAV_OBJECT_ATTR = "Navigation";
@@ -314,6 +330,7 @@ public interface PactsConstants {
     public static final String RECONCILE_TASK = "reconcile";
     public static final String LOGOUT_TASK = "logout";
     public static final String SEARCH_TASK = "search";
+    public static final String AFFIRM_TASK = "affirm";
 
     // internal commands
     public static final String SEARCH_CMD = "search";
@@ -343,59 +360,60 @@ public interface PactsConstants {
     public static final String PACTS_MEMBER_RESULT = "pacts_member_result";
 
     // member jsp page names
-    public static final String AFFIDAVIT_HISTORY_JSP = "AffidavitHistory.jsp";
-    public static final String AFFIDAVIT_DETAILS_JSP = "AffidavitDetails.jsp";
-    public static final String AFFIDAVIT_PAYMENT_DETAILS_JSP = "AffidavitPaymentDetails.jsp";
-    public static final String CONTRACT_HISTORY_JSP = "ContractHistory.jsp";
-    public static final String CONTRACT_PAYMENT_DETAILS_JSP = "ContractPaymentDetails.jsp";
-    public static final String CONTRACT_PAYMENT_SUMMARY_JSP = "ContractPaymentSummary.jsp";
-    public static final String CONTRACT_DETAILS_JSP = "ContractDetails.jsp";
-    public static final String PAYMENT_HISTORY_JSP = "PaymentHistory.jsp";
-    public static final String PAYMENT_DETAILS_JSP = "PaymentDetails.jsp";
-    public static final String TAX_FORM_HISTORY_JSP = "TaxFormHistory.jsp";
-    public static final String TAX_FORM_DETAILS_JSP = "TaxFormDetails.jsp";
+    public static final String AFFIDAVIT_HISTORY_JSP = MEMBER_JSP_DIR + "AffidavitHistory.jsp";
+    public static final String AFFIDAVIT_DETAILS_JSP = MEMBER_JSP_DIR + "AffidavitDetails.jsp";
+    public static final String AFFIDAVIT_PAYMENT_DETAILS_JSP = MEMBER_JSP_DIR + "AffidavitPaymentDetails.jsp";
+    public static final String CONTRACT_HISTORY_JSP = MEMBER_JSP_DIR + "ContractHistory.jsp";
+    public static final String CONTRACT_PAYMENT_DETAILS_JSP = MEMBER_JSP_DIR + "ContractPaymentDetails.jsp";
+    public static final String CONTRACT_PAYMENT_SUMMARY_JSP = MEMBER_JSP_DIR + "ContractPaymentSummary.jsp";
+    public static final String CONTRACT_DETAILS_JSP = MEMBER_JSP_DIR + "ContractDetails.jsp";
+    public static final String PAYMENT_HISTORY_JSP = MEMBER_JSP_DIR + "PaymentHistory.jsp";
+    public static final String PAYMENT_DETAILS_JSP = MEMBER_JSP_DIR + "PaymentDetails.jsp";
+    public static final String TAX_FORM_HISTORY_JSP = MEMBER_JSP_DIR + "TaxFormHistory.jsp";
+    public static final String TAX_FORM_DETAILS_JSP = MEMBER_JSP_DIR + "TaxFormDetails.jsp";
 
 
     // internal jsp page names (and loccations)
-    public static final String INTERNAL_SEARCH_JSP = "/search.jsp";
-    public static final String INTERNAL_SEARCH_USERS_JSP = "/searchUsers.jsp";
-    public static final String INTERNAL_SEARCH_PAYMENTS_JSP = "/searchPayments.jsp";
-    public static final String INTERNAL_SEARCH_AFFIDAVITS_JSP = "/searchAffidavits.jsp";
-    public static final String INTERNAL_SEARCH_CONTRACTS_JSP = "/searchContracts.jsp";
-    public static final String INTERNAL_SEARCH_TAX_FORMS_JSP = "/searchTaxForms.jsp";
-    public static final String INTERNAL_SEARCH_USER_TAX_FORMS_JSP = "/searchUserTaxForms.jsp";
-    public static final String INTERNAL_SEARCH_NOTES_JSP = "/searchNotes.jsp";
-    public static final String INTERNAL_AFFIDAVIT_LIST_JSP = "/affidavitList.jsp";
-    public static final String INTERNAL_PAYMENT_LIST_JSP = "/paymentList.jsp";
-    public static final String INTERNAL_CONTRACT_LIST_JSP = "/contractList.jsp";
-    public static final String INTERNAL_TAX_FORM_LIST_JSP = "/taxFormList.jsp";
-    public static final String INTERNAL_USER_LIST_JSP = "/userList.jsp";
-    public static final String INTERNAL_USER_TAX_FORM_LIST_JSP = "/userTaxFormList.jsp";
-    public static final String INTERNAL_NOTE_LIST_JSP = "/noteList.jsp";
-    public static final String INTERNAL_COMBO_LIST_JSP = "/comboList.jsp";
-    public static final String INTERNAL_NOTE_JSP = "/viewNote.jsp";
-    public static final String INTERNAL_USER_JSP = "/viewUser.jsp";
-    public static final String INTERNAL_TEXT_JSP = "/viewText.jsp";
-    public static final String INTERNAL_FOOTER_JSP = "/InternalFooter.jsp";
-    public static final String INTERNAL_AFFIDAVIT_JSP = "/viewAffidavit.jsp";
-    public static final String INTERNAL_PAYMENT_JSP = "/viewPayment.jsp";
-    public static final String INTERNAL_PAYMENT_AUDIT_TRAIL_JSP = "/viewPaymentAuditTrail.jsp";
-    public static final String INTERNAL_CONTRACT_JSP = "/viewContract.jsp";
-    public static final String INTERNAL_TAX_FORM_JSP = "/viewTaxForm.jsp";
-    public static final String INTERNAL_USER_TAX_FORM_JSP = "/viewUserTaxForm.jsp";
-    public static final String INTERNAL_ADD_AFFIDAVIT_JSP = "/addAffidavit.jsp";
-    public static final String INTERNAL_ADD_CONTRACT_JSP = "/addContract.jsp";
-    public static final String INTERNAL_ADD_TAX_FORM_JSP = "/addTaxForm.jsp";
-    public static final String INTERNAL_ADD_NOTE_JSP = "/addNote.jsp";
-    public static final String INTERNAL_ADD_USER_TAX_FORM_JSP = "/addUserTaxForm.jsp";
-    public static final String INTERNAL_ADD_PAYMENT_JSP = "/addPayment.jsp";
-    public static final String INTERNAL_ADD_NOTE_LINK_JSP = "/addNoteLink.jsp";
-    public static final String INTERNAL_UPDATE_AFFIDAVIT_JSP = "/updateAffidavit.jsp";
-    public static final String INTERNAL_UPDATE_CONTRACT_JSP = "/updateContract.jsp";
-    public static final String INTERNAL_UPDATE_TAX_FORM_JSP = "/updateTaxForm.jsp";
-    public static final String INTERNAL_UPDATE_USER_TAX_FORM_JSP = "/updateUserTaxForm.jsp";
-    public static final String INTERNAL_UPDATE_PAYMENT_JSP = "/updatePayment.jsp";
-    public static final String INTERNAL_ERROR_JSP = "/error.jsp";
+    public static final String INTERNAL_SEARCH_JSP = INTERNAL_JSP_DIR + "/search.jsp";
+    public static final String INTERNAL_SEARCH_USERS_JSP = INTERNAL_JSP_DIR + "/searchUsers.jsp";
+    public static final String INTERNAL_SEARCH_PAYMENTS_JSP = INTERNAL_JSP_DIR + "/searchPayments.jsp";
+    public static final String INTERNAL_SEARCH_AFFIDAVITS_JSP = INTERNAL_JSP_DIR + "/searchAffidavits.jsp";
+    public static final String INTERNAL_SEARCH_CONTRACTS_JSP = INTERNAL_JSP_DIR + "/searchContracts.jsp";
+    public static final String INTERNAL_SEARCH_TAX_FORMS_JSP = INTERNAL_JSP_DIR + "/searchTaxForms.jsp";
+    public static final String INTERNAL_SEARCH_USER_TAX_FORMS_JSP = INTERNAL_JSP_DIR + "/searchUserTaxForms.jsp";
+    public static final String INTERNAL_SEARCH_NOTES_JSP = INTERNAL_JSP_DIR + "/searchNotes.jsp";
+    public static final String INTERNAL_AFFIDAVIT_LIST_JSP = INTERNAL_JSP_DIR + "/affidavitList.jsp";
+    public static final String INTERNAL_PAYMENT_LIST_JSP = INTERNAL_JSP_DIR + "/paymentList.jsp";
+    public static final String INTERNAL_CONTRACT_LIST_JSP = INTERNAL_JSP_DIR + "/contractList.jsp";
+    public static final String INTERNAL_TAX_FORM_LIST_JSP = INTERNAL_JSP_DIR + "/taxFormList.jsp";
+    public static final String INTERNAL_USER_LIST_JSP = INTERNAL_JSP_DIR + "/userList.jsp";
+    public static final String INTERNAL_USER_TAX_FORM_LIST_JSP = INTERNAL_JSP_DIR + "/userTaxFormList.jsp";
+    public static final String INTERNAL_NOTE_LIST_JSP = INTERNAL_JSP_DIR + "/noteList.jsp";
+    public static final String INTERNAL_COMBO_LIST_JSP = INTERNAL_JSP_DIR + "/comboList.jsp";
+    public static final String INTERNAL_NOTE_JSP = INTERNAL_JSP_DIR + "/viewNote.jsp";
+    public static final String INTERNAL_USER_JSP = INTERNAL_JSP_DIR + "/viewUser.jsp";
+    public static final String INTERNAL_TEXT_JSP = INTERNAL_JSP_DIR + "/viewText.jsp";
+    public static final String INTERNAL_FOOTER_JSP = INTERNAL_JSP_DIR + "/InternalFooter.jsp";
+    public static final String INTERNAL_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/viewAffidavit.jsp";
+    public static final String INTERNAL_PAYMENT_JSP = INTERNAL_JSP_DIR + "/viewPayment.jsp";
+    public static final String INTERNAL_PAYMENT_AUDIT_TRAIL_JSP = INTERNAL_JSP_DIR + "/viewPaymentAuditTrail.jsp";
+    public static final String INTERNAL_CONTRACT_JSP = INTERNAL_JSP_DIR + "/viewContract.jsp";
+    public static final String INTERNAL_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewTaxForm.jsp";
+    public static final String INTERNAL_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewUserTaxForm.jsp";
+    public static final String INTERNAL_ADD_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/addAffidavit.jsp";
+    public static final String INTERNAL_ADD_CONTRACT_JSP = INTERNAL_JSP_DIR + "/addContract.jsp";
+    public static final String INTERNAL_ADD_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/addTaxForm.jsp";
+    public static final String INTERNAL_ADD_NOTE_JSP = INTERNAL_JSP_DIR + "/addNote.jsp";
+    public static final String INTERNAL_ADD_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/addUserTaxForm.jsp";
+    public static final String INTERNAL_ADD_PAYMENT_JSP = INTERNAL_JSP_DIR + "/addPayment.jsp";
+    public static final String INTERNAL_ADD_NOTE_LINK_JSP = INTERNAL_JSP_DIR + "/addNoteLink.jsp";
+    public static final String INTERNAL_UPDATE_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/updateAffidavit.jsp";
+    public static final String INTERNAL_UPDATE_CONTRACT_JSP = INTERNAL_JSP_DIR + "/updateContract.jsp";
+    public static final String INTERNAL_UPDATE_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/updateTaxForm.jsp";
+    public static final String INTERNAL_UPDATE_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/updateUserTaxForm.jsp";
+    public static final String INTERNAL_UPDATE_PAYMENT_JSP = INTERNAL_JSP_DIR + "/updatePayment.jsp";
+    public static final String INTERNAL_AFFIRM_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/affirmAffidavit.jsp";
+    public static final String INTERNAL_ERROR_JSP = INTERNAL_JSP_DIR + "/error.jsp";
 
     /*
       veredox - Don't get your panties in a knot.

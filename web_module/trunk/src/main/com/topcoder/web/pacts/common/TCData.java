@@ -133,6 +133,8 @@ public class TCData {
 
     public static String dateForm(String userDate, String defaultVal, boolean printError) {
 
+		if (userDate == null) return "00/00/0000";
+
         StringTokenizer token = new StringTokenizer(userDate,"/");
 
         String piece;

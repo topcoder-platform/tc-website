@@ -127,8 +127,8 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
 		_header = new AffidavitHeader(results);
 		_description = TCData.getTCString(rsr,"affidavit_desc","default description",true);
 		_affirmationDate = TCData.getTCDate(rsr,"date_affirmed","Not Affirmed",false);
-		_round = TCData.getTCString(rsr,"name","default round",true);
-		_roundID = new Long(TCData.getTCLong(rsr,"round_id",0,true));
+		_round = TCData.getTCString(rsr,"name","No Round",false);
+		_roundID = new Long(TCData.getTCLong(rsr,"round_id",0,false));
 		_birthday = TCData.getTCDate(rsr,"date_of_birth","",false);
 		SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
 		try {

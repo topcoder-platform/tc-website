@@ -3,6 +3,7 @@ package com.topcoder.web.pacts.bean;
 import java.sql.*;
 import javax.ejb.*;
 import javax.naming.*;
+import javax.jms.*;
 import java.util.*;
 import java.math.*;
 import java.text.*;
@@ -1160,27 +1161,43 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
-     * Updates the status on all the given payments to the given status.
-     * Because this is a payment modification, this process creates a new
-     * detail record for each payment involved.  This function should be
-     * called with the "Ready to Print" status to ready payments for printing.
-     * If called with this status, this function will create a payment address
-     * record as well.  It will throw an IllegalUpdateException if the statusId 
-     * is "Printed" or "Paid" - these status updates are done automatically by 
-     * the system.
+     * Updates the specified payments to the specified status. This function
+     * should only be called by the Pacts message handler upon receipt of a message
+     * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
      *
      * @param   paymentId[] The payments to update
      * @param   statusId The new status
-     * @throws  NoObjectFoundException If any payment does not exist
      * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user tried to make an update that is not allowed
-     * @throws  PaymentPaidException If some of the payments have already been paid
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void batchUpdatePaymentStatus(long paymentId[], int statusId) 
-    throws NoObjectFoundException, RemoteException, IllegalUpdateException, PaymentPaidException, SQLException {
+    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId) 
+    throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
-        ps.batchUpdatePaymentStatus(paymentId, statusId);
+        return ps.doBatchUpdatePaymentStatus(paymentId, statusId);
+    }
+
+    /**
+     * Updates the status on all the given payments to the given status.
+     * Because this is a payment modification, this process creates a new
+     * detail record for each payment involved, and a new address record if
+     * called with &quot;Ready to Print&quot; status.  This function should be called
+     * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
+     *
+     * This function actually just puts a message on the JMS queue.  The message handler,
+     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt> 
+     * which performs the modifications.
+     *
+     * @param   paymentId[] The payments to update
+     * @param   statusId The new status
+     * @param   userId The ID of the user submitting the request
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  IllegalUpdateException If the user is attempting to update the status to Printed or Paid
+     * @throws  JMSException If there is some problem putting the message on the queue
+     */
+    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId) 
+    throws RemoteException, IllegalUpdateException, JMSException {
+        PactsServices ps = getEjbHandle();
+        ps.batchUpdatePaymentStatus(paymentId, statusId, userId);
     }
 
     /**
@@ -1191,10 +1208,12 @@ public class DataInterfaceBean implements PactsConstants {
      *
      * @param   paymentId[] The payments to mark as reviewed.
      * @throws  NoObjectFoundException If any payment does not exist
+     * @throws  IllegalUpdateException If any payment has not been printed
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void reviewPayments(long paymentId[]) throws RemoteException, NoObjectFoundException, SQLException {
+    public void reviewPayments(long paymentId[]) 
+    throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
         ps.reviewPayments(paymentId);
     }
