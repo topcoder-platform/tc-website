@@ -45,22 +45,13 @@ public class Controller extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-log.debug("in doPost");
 
         String taskName = request.getParameter(TCESConstants.TASK_PARAM);
         String taskStepName = request.getParameter(TCESConstants.STEP_PARAM);
 
-try {
-log.debug("INCONTROLLER - "+((Integer)request.getSession(true).getAttribute("user_id")).toString() );
-} catch (Exception ignore) {
-}
-
         InitialContext ctx = null;
         try {
             ctx = (InitialContext) TCContext.getInitial();
-
-log.debug("ctx "+ctx.toString() );
-log.debug("task = "+taskName);
 
             if (taskName != null && taskName.trim().length() > 0) {
                 // process a task
@@ -87,8 +78,6 @@ log.debug("task = "+taskName);
 
                 request.setAttribute( taskName, task );
 
-log.debug(task.getNextPage());
-
                 getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
 
             }
@@ -96,6 +85,10 @@ log.debug(task.getNextPage());
                 forwardToErrorPage(request, response,
                         new Exception("missing " + TCESConstants.TASK_PARAM + " parameter in request"));
             }
+        } catch (TCESAuthenticationException authex) {
+            log.debug("User not authenticated to access TCES resource.");
+            forwardToLoginPage(request, response, authex);
+            return;
         } catch (ClassNotFoundException cnfex) {
             log.debug("Unable to dispatch task! "+cnfex.getMessage());
             forwardToErrorPage(request, response, cnfex);
@@ -104,6 +97,12 @@ log.debug(task.getNextPage());
             forwardToErrorPage(request, response, ex);
             return;
         }
+    }
+
+    private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
+                                    Throwable exception) throws ServletException, IOException {
+        getServletContext().getContext("/").getRequestDispatcher(
+                response.encodeURL(TCESConstants.LOGIN_PAGE)).forward(request, response);
     }
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,

@@ -1,10 +1,11 @@
-bpackage com.topcoder.web.tces.bean;
+package com.topcoder.web.tces.bean;
 
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tces.common.*;
+import com.topcoder.web.tces.common.TCESConstants;
+import com.topcoder.web.tces.common.TCESAuthenticationException;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -126,7 +127,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         Integer userId = (Integer)session.getAttribute("user_id");
         if (userId == null || (userId.intValue()<0) ) {
             log.debug("User not authenticated for TCES access.");
-            throw new Exception("User not authenticated for TCES access.");
+            throw new TCESAuthenticationException();
         }
 
         uid = userId.intValue();
