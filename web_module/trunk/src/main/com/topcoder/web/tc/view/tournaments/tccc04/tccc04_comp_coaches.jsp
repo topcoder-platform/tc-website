@@ -48,7 +48,7 @@
 <p>TopCoder is introducing coaches to the 2004 TopCoder Collegiate Challenge Component 
 Design Competition.  Coaches will provide design competitors with technical guidance and 
 support during the contest.  The details below explain the coaching position in more 
-detail.  If you are interested in becoming a coach, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a>
+detail.  If you are interested in becoming a coach, please send an email to <a href="mailto:service@topcoder.com?subject=TCCC04 Coaches">service@topcoder.com</a>
 with "Coach" in the subject line.
 
 <p><span class="bodySubtitle">Eligibility to be a Coach</span><br/>
