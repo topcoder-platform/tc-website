@@ -1,13 +1,12 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -68,13 +67,16 @@ public class DataServlet extends HttpServlet {
         RecordTag rootTag = null;
 
         try {
-            if (isAuthenticated(request, response)) {
+//            if (isAuthenticated(request, response)) {
+            if (request.getParameter(DataAccessConstants.COMMAND).equals("member_profile")) {
+/*
                 dai = new DataAccess(DBMS.DW_DATASOURCE_NAME);
                 dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
                 resultMap = dai.getData(dataRequest);
                 // if the request is for an xml file, then go through all the result sets in the map
                 // get their associated xml and return that after setting the content type to be xml
-                if (dataRequest.getProperty("display") != null && dataRequest.getProperty("display").equals("xmlfile")) {
+                if (dataRequest.getProperty("display") != null &&
+                        dataRequest.getProperty("display").equals("xmlfile")) {
                     response.setContentType("text/xml");
                     o = response.getOutputStream();
                     rootTag = new RecordTag("RootElement");
@@ -88,19 +90,131 @@ public class DataServlet extends HttpServlet {
                         rootTag.addTag(rsc.getTag(key, "ResultRow"));
                     }
                     buf.append(rootTag.getXML(2));
+*/
+
+                buf = new StringBuffer(1000);
+                buf.append(getXML());
+                    response.setContentType("text/xml");
+                    o = response.getOutputStream();
+
+
+
+
+
                     o.write(asciiGetBytes(buf.toString()));
+/*
                 } else {
                     request.setAttribute("DATA_DUMP", resultMap);
                     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dataDump.jsp");
                     dispatcher.forward(request, response);
                 }
+*/
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    private String getXML() {
+        String ret ="<?xml version=\"1.0\"?>" +
+"" +
+"<memberStats>" +
+   "<name memberColor=\"red\">schveiguy</name>" +
+   "<primaryStats>" +
+      "<rating>2344</rating>" +
+      "<volatilityFactor>281</volatilityFactor>" +
+      "<memberSince>03.25.02</memberSince>" +
+      "<totalEarnings>$1168.00</totalEarnings>" +
+      "<competitions>46</competitions>" +
+      "<avgPPC>496.01</avgPPC>" +
+      "<maxRating>2369</maxRating>" +
+      "<minRating>1173</minRating>" +
+   "</primaryStats>" +
+"" +
+   "<competitionStats>" +
+      "<div1SubInfo>" +
+         "<problem name=\"Level One\">" +
+            "<failedChallenge>4</failedChallenge>" +
+            "<failedSysTest>3</failedSysTest>" +
+            "<submitted>44</submitted>" +
+            "<success>84.09%</success>" +
+         "</problem>" +
+         "<problem name=\"Level Two\">" +
+            "<failedChallenge>2</failedChallenge>" +
+            "<failedSysTest>10</failedSysTest>" +
+            "<submitted>40</submitted>" +
+            "<success>70.00%</success>" +
+         "</problem>" +
+         "<problem name=\"Level Three\">" +
+            "<failedChallenge>3</failedChallenge>" +
+            "<failedSysTest>4</failedSysTest>" +
+            "<submitted>14</submitted>" +
+            "<success>50.00%</success>" +
+         "</problem>" +
+         "<problem name=\"Total\">" +
+            "<failedChallenge>9</failedChallenge>" +
+            "<failedSysTest>17</failedSysTest>" +
+            "<submitted>98</submitted>" +
+            "<success>73.47%</success>" +
+         "</problem>" +
+      "</div1SubInfo>" +
+"" +
+      "<div2SubInfo>" +
+         "<problem name=\"Level One\">" +
+            "<failedChallenge>0</failedChallenge>" +
+            "<failedSysTest>1</failedSysTest>" +
+            "<submitted>2</submitted>" +
+            "<success>50.00%</success>" +
+         "</problem>" +
+         "<problem name=\"Level Two\">" +
+            "<failedChallenge>0</failedChallenge>" +
+            "<failedSysTest>0</failedSysTest>" +
+            "<submitted>2</submitted>" +
+            "<success>100.00%</success>" +
+         "</problem>" +
+         "<problem name=\"Level Three\">" +
+            "<failedChallenge>0</failedChallenge>" +
+            "<failedSysTest>0</failedSysTest>" +
+            "<submitted>1</submitted>" +
+            "<success>100.00%</success>" +
+         "</problem>" +
+         "<problem name=\"Total\">" +
+            "<failedChallenge>0</failedChallenge>" +
+            "<failedSysTest>1</failedSysTest>" +
+            "<submitted>5</submitted>" +
+            "<success>80.00%</success>" +
+         "</problem>" +
+      "</div2SubInfo>" +
+"" +
+      "<challengeInfo>" +
+         "<problem name=\"Level One\">" +
+            "<failedChallenge>3</failedChallenge>" +
+            "<failedSysTest>10</failedSysTest>" +
+            "<success>70.00%</success>" +
+         "</problem>" +
+         "<problem name=\"Level Two\">" +
+            "<failedChallenge>0</failedChallenge>" +
+            "<failedSysTest>0</failedSysTest>" +
+            "<success>40.00%</success>" +
+         "</problem>" +
+         "<problem name=\"Level Three\">" +
+            "<failedChallenge>0</failedChallenge>" +
+            "<failedSysTest>0</failedSysTest>" +
+            "<success>100.00%</success>" +
+         "</problem>" +
+         "<problem name=\"Total\">" +
+            "<failedChallenge>0</failedChallenge>" +
+            "<failedSysTest>1</failedSysTest>" +
+            "<success>57.14%</success>" +
+         "</problem>" +
+      "</div2SubInfo>" +
+   "<competitionStats>" +
+"</memberStats>";
+        return ret;
+    }
 
+
+/*
     private boolean isAuthenticated(HttpServletRequest request, HttpServletResponse response) {
         Navigation nav = null;
         String command = null;
@@ -139,11 +253,12 @@ public class DataServlet extends HttpServlet {
         }
         return false;
     }
+*/
 
 
     //Some utility type methods
 
-    private String replace(String s) {
+/*    private String replace(String s) {
 
         if (s == null) {
             return "";
@@ -157,7 +272,7 @@ public class DataServlet extends HttpServlet {
             }
             return buffer.toString();
         }
-    }
+    }*/
 
     private byte[] asciiGetBytes(String s) {
         int size = s.length();
