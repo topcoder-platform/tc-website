@@ -73,7 +73,7 @@
             <input type="hidden" name="module" value="LegacyReport"/>
             <INPUT type="hidden" name="<%=Constants.TASK_NAME_KEY%>" value="<%=Constants.REPORT_PROFILE_LIST_KEY%>"/>
             <INPUT type="hidden" name="<%=Constants.REPORT_RELOCATE_KEY%>" value=""/>
-            <TABLE WIDTH="60%" HEIGHT="100%" BORDER="1" CELLPADDING="0" CELLSPACING="0">
+            <TABLE WIDTH="60%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
               <TR>
                 <TD>
                   <b>Handle: </b>
