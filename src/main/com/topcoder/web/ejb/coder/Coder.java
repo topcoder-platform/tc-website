@@ -57,6 +57,16 @@ public interface Coder extends EJBObject {
     /**
      *
      * @param coderId
+     * @param coderTypeId
+     * @param dataSource
+     * @throws EJBException
+     * @throws RemoteException
+     */
+    public void setCoderTypeId(long coderId, int coderTypeId, String dataSource) throws EJBException, RemoteException;
+
+    /**
+     *
+     * @param coderId
      * @return
      * @throws EJBException
      * @throws RemoteException
@@ -89,5 +99,15 @@ public interface Coder extends EJBObject {
      * @throws RemoteException
      */
     public int getLanguageId(long coderId, String dataSource) throws EJBException, RemoteException;
+
+    /**
+     *
+     * @param coderId
+     * @param dataSource
+     * @return
+     * @throws EJBException
+     * @throws RemoteException
+     */
+    public int getCoderTypeId(long coderId, String dataSource) throws EJBException, RemoteException;
 
 }
