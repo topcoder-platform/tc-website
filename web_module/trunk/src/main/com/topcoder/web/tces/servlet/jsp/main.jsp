@@ -31,8 +31,7 @@
     <TR valign="top">
 
 <!-- Left Column Begins -->
-      <TD WIDTH="170">
-      </TD>
+      <TD WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" BORDER="0"></TD>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -54,15 +53,15 @@
                     <TD class="statText" WIDTH="100%">
                         <IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/>
                         <P><B>Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></B></P>
-                        <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+                        <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="1">
                             <TR>
-                                <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b>Campaign Name</b></TD>
-                                <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Start Date</b></TD>
-                                <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>End Date</b></TD>
-                                <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD WIDTH="49%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18"><b>Campaign Name</b></TD>
+                                <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Start Date</b></TD>
+                                <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>End Date</b></TD>
+                                <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                             </TR>
     
                 <%
@@ -83,14 +82,14 @@
                 <% i++;
                    currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
                    if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %> 
-                  <TR><TD colspan="5" class="statTextBig"><BR/><BR/></TD></TR>
-                  <TR><TD colspan="5" class="statTextBig"><%= campaignInfo.getItem("company_name").toString() %></TD></TR><BR/><BR/>
+                            <TR><TD colspan="7" class="statTextBig"><BR/><BR/></TD></TR>
+                            <TR><TD colspan="7" class="statTextBig"><%= campaignInfo.getItem("company_name").toString() %></TD></TR><BR/><BR/>
                 <% lastCompany = currCompany;
                    } %>
 
                             <TR>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText" HEIGHT="18"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="statText"><%=campaignInfo.getItem("campaign_name").toString()%></A></TD>
+                                <TD class="statText"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="statText"><%=campaignInfo.getItem("campaign_name").toString()%></A></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD class="statText"><%=campaignInfo.getItem("start_date").toString()%></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -102,8 +101,8 @@
 
                             <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
                 
-                            <TR><TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD></TR>                
-                            <TR><TD class="statText" HEIGHT="18" align="center" colspan="5">Your job campaigns have expired.  Contact <A HREF="mailto:tces@topcoder.com" CLASS="statText">tces@topcoder.com</A> to renew your contract.</TD></TR>
+                            <TR><TD class="statText" COLSPAN="7"><BR></TD></TR>                
+                            <TR><TD class="statText" align="center" colspan="7">Your job campaigns have expired.  Contact <A HREF="mailto:tces@topcoder.com" CLASS="statText">tces@topcoder.com</A> to renew your contract.</TD></TR>
 
                             <% } %>
 
@@ -124,13 +123,8 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
-      </TD>
+      <TD WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" BORDER="0"></TD>
 <!-- Right Column Ends -->
-
-<!-- Gutter -->
-      <TD WIDTH="25"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
-<!-- Gutter Ends -->
 
     </TR>
   </TABLE>
