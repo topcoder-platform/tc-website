@@ -151,7 +151,7 @@ public final class Registration extends UserEdit {
             getRequest().setAttribute("rsc-countries-list", rsc);
 
             TermsOfUse terms = ((TermsOfUseHome)ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
-            setDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
+            setDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME));
 
             UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
             if (userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME)) {
@@ -391,20 +391,20 @@ public final class Registration extends UserEdit {
         }
         if (addressID < 0) {
             // either create mode or editing mode but there was not an address yet
-            addressID = addrTable.createAddress(DBMS.COMMON_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addressID = addrTable.createAddress(DBMS.CORP_JTS_OLTP_DATASOURCE_NAME, DBMS.CORP_OLTP_DATASOURCE_NAME);
             xrefUserAddr.createUserAddress(targetUserID, addressID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
-            addrTable.setAddressTypeId(addressID, 1, DBMS.COMMON_OLTP_DATASOURCE_NAME); // *HARDCODED*
+            addrTable.setAddressTypeId(addressID, 1, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME); // *HARDCODED*
         }
-        addrTable.setAddress1(addressID, compAddress, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        addrTable.setAddress2(addressID, compAddress2, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        addrTable.setCity(addressID, city, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        addrTable.setCountryCode(addressID, country, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        addrTable.setAddress1(addressID, compAddress, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        addrTable.setAddress2(addressID, compAddress2, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        addrTable.setCity(addressID, city, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        addrTable.setCountryCode(addressID, country, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         if (COUNTRY_USA.equals(country)) {
-            addrTable.setStateCode(addressID, state, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addrTable.setStateCode(addressID, state, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         } else {
-            addrTable.setStateCode(addressID, null, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addrTable.setStateCode(addressID, null, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
-        addrTable.setZip(addressID, zip, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        addrTable.setZip(addressID, zip, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
         UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (!userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME)) {
@@ -448,13 +448,13 @@ public final class Registration extends UserEdit {
             country = "";
         } else {
             Address addrTable = ((AddressHome) ic.lookup(AddressHome.EJB_REF_NAME)).create();
-            compAddress = addrTable.getAddress1(addrID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-            compAddress2 = addrTable.getAddress2(addrID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-            city = addrTable.getCity(addrID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-            country = addrTable.getCountryCode(addrID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-            zip = addrTable.getZip(addrID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            compAddress = addrTable.getAddress1(addrID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+            compAddress2 = addrTable.getAddress2(addrID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+            city = addrTable.getCity(addrID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+            country = addrTable.getCountryCode(addrID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+            zip = addrTable.getZip(addrID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
             if (COUNTRY_USA.equals(country)) {
-                state = addrTable.getStateCode(addrID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                state = addrTable.getStateCode(addrID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
             } else {
                 state = "";
             }
