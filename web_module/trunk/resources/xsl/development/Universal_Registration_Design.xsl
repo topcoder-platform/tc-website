@@ -86,9 +86,9 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        Universal Registration is a critical initiative to grow the number of members for our client’s websites.   
+                                                        Universal Registration is a critical initiative to grow the number of members for the websites.   
                                                         Universal Registration will create a simplified and streamlined process for implementing registration for 
-                                                        all of the company’s websites.  This environment will evolve to incorporate all of users in the future. 
+                                                        all of the websites.  This environment will evolve to incorporate all of users in the future. 
                                                         This project will continue to pursue that goal in subsequent releases.  This system will consist of developing 
                                                         a scalable architecture to handle all future website registration and user data.  The architecture will consist
                                                         of JSP pages and java code.
@@ -96,7 +96,8 @@
                                                         <br/>
                                                     </p>
                                                     <p class="noSpListTitle">
-                                                        <strong>Objectives</strong>The Universal Registration system is to provide a centralized repository to facilitate registration of members.
+                                                        <strong>Objectives</strong>
+<br/>The Universal Registration system is to provide a centralized repository to facilitate registration of members.
                                                     </p>
                                                     <ul class="noSpList">
                                                         <li>Seamless login for registered members.</li>
@@ -168,11 +169,11 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$3200.00</td>
+                                                            <td class="bodyText" align="right">$2900.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$2200.00</td>
+                                                            <td class="bodyText" align="right">$1900.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
@@ -186,7 +187,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$1100.00</td>
+                                                            <td class="bodyText" align="right">$900.00</td>
                                                         </tr>
                                                     </table>
 
