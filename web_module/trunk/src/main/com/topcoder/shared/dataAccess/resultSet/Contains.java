@@ -1,11 +1,14 @@
 package com.topcoder.shared.dataAccess.resultSet;
 
+import com.topcoder.shared.util.logging.Logger;
+
 /**
  * User: dok
  * Date: Sep 8, 2004
  * Time: 2:48:13 AM
  */
 public class Contains implements ResultFilter {
+    private static Logger log = Logger.getLogger(Contains.class);
 
     private String s = null;
     private int col = -1;
@@ -35,6 +38,7 @@ public class Contains implements ResultFilter {
             item = rsr.getItem(colName);
         }
         String other = item.getResultData().toString();
+        log.debug(" other: " + other + " s: " + s);
 
         return other.toLowerCase().indexOf(s.toLowerCase())>-1;
 
