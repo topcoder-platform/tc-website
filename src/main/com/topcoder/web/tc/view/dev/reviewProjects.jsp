@@ -6,6 +6,7 @@
                  com.topcoder.web.tc.model.SoftwareComponent,
                  com.topcoder.web.tc.model.ReviewBoardApplication"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <jsp:useBean id="prices" scope="request" class="java.util.List"/>
 <jsp:useBean id="projectList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"/>
@@ -129,13 +130,15 @@
                             <td class="projectCells" align="center"><img src="/i/development/smJava.gif" border="0"/></td>
                         <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
                             <td class="projectCells" align="center"><img src="/i/development/flashSm.gif" border="0"/></td>
+                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
+                            <td class="projectCells" align="center"><img src="/i/development/smApp.gif" border="0"/></td>
                         <% } else { %>
                             <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <% } %>
 
                         <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
-                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/>*</td>
-                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/>*</td>
+                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
+                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
@@ -181,13 +184,15 @@
                             <td class="projectCells" align="center"><img src="/i/development/smJava.gif" border="0"/></td>
                         <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
                             <td class="projectCells" align="center"><img src="/i/development/flashSm.gif" border="0"/></td>
+                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
+                            <td class="projectCells" align="center"><img src="/i/development/smApp.gif" border="0"/></td>
                         <% } else { %>
                             <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <% } %>
 
                         <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
-                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/>*</td>
-                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/>*</td>
+                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
+                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
