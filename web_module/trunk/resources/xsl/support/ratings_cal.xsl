@@ -100,7 +100,7 @@
                                     <BR/>
                                     <IMG ALT="expected performance" HEIGHT="34" WIDTH="170" SRC="/i/rating/ep.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where <IMG ALT="inverse standard normal" HEIGHT="11" WIDTH="11" SRC="/i/rating/phi.gif" BORDER="0"/>  
+                Where <SPAN STYLE="font-family:Symbol;">f</SPAN>
                 is the inverse of the standard normal function.
                 <BR/>
                                     <BR/>
