@@ -1982,7 +1982,9 @@ public class Registration
         com.topcoder.common.web.data.User user = null;
         try {
             ctx = TCContext.getInitial();
-            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
+            UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
             UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");
@@ -2037,7 +2039,9 @@ public class Registration
             Authentication authentication = authenticationServices.getActivation(coderId);
             if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code)) {
                 if (authentication.getStatus().equals("U")) {
-                    UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
+                    UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                                    UserServicesHome.class.getName()),
+                                    UserServicesHome.class);
                     UserServices userServices = userServicesHome.findByPrimaryKey(authentication.getUserId());
                     User user = userServices.getUser();
                     user.setStatus("A");
