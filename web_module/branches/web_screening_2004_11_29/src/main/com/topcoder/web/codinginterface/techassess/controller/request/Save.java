@@ -58,7 +58,7 @@ public class Save extends Base {
 
             send(request);
 
-            log.debug("problemtype : " + problemTypeId);
+            //log.debug("problemtype : " + problemTypeId);
 
             showProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
                     new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
