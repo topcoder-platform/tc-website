@@ -72,9 +72,9 @@
             <table width="99%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
                 <tr valign="middle"><form name="selectform">
                 <% if (rating > 1199) { %>
-                    <td width="99%"><img src="/i/top_div1_badge.jpg.gif" width="370" height="75" border="0"/></td>
+                    <td width="99%" align="left"><img src="/i/top_div1_badge.jpg.gif" width="370" height="75" border="0"/></td>
                 <% } else { %>
-                    <td width="99%"><img src="/i/top_div2_badge.jpg" width="390" height="75" border="0"/></td>
+                    <td width="99%" align="left"><img src="/i/top_div2_badge.jpg" width="390" height="75" border="0"/></td>
                 <% } %>
                     <td align="right">
                         <select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">      
