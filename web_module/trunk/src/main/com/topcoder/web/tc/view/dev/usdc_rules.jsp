@@ -39,11 +39,6 @@
    <jsp:param name="selectedTab" value="rules"/>
 </jsp:include>
 
-<!-- Tab bar sublinks-->
-<jsp:include page="usdc_sublinks.jsp" >
-   <jsp:param name="selectedList" value=""/>
-   <jsp:param name="selectedTab" value=""/>
-</jsp:include>
 
 <h2>Rules</h2>
 
