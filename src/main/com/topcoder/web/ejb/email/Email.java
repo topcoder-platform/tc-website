@@ -6,25 +6,23 @@ import java.rmi.RemoteException;
 
 public interface Email extends EJBObject {
 
-    public long createEmail(long userId) throws EJBException, RemoteException;
+    long createEmail(long userId, String dataSource, String idDataSource) throws EJBException, RemoteException;
 
-    public void setPrimaryEmailId(long userId, long _email_id)
+    void setPrimaryEmailId(long userId, long emailId, String dataSource)
             throws EJBException, RemoteException;
 
-    public long getPrimaryEmailId(long userId)
+    long getPrimaryEmailId(long userId, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setEmailTypeId(long _email_id, long _email_type_id)
+    void setEmailTypeId(long emailId, long emailTypeId, String dataSource)
             throws EJBException, RemoteException;
 
-    public long getEmailTypeId(long _email_id)
+    long getEmailTypeId(long emailId, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setAddress(long _email_id, String _address)
+    void setAddress(long emailId, String address, String dataSource)
             throws EJBException, RemoteException;
 
-    public String getAddress(long _email_id) throws EJBException, RemoteException;
+    String getAddress(long emailId, String dataSource) throws EJBException, RemoteException;
 
 }
-
-;

@@ -148,21 +148,21 @@ final class UserDbCoder {
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
             UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
 
-            long addressId = addressEJB.createAddress();
-            addressEJB.setAddress1(addressId, coder.getHomeAddress1());
-            addressEJB.setAddress2(addressId, coder.getHomeAddress2());
-            addressEJB.setCity(addressId, coder.getHomeCity());
-            addressEJB.setStateCode(addressId, coder.getHomeState().getStateCode());
-            addressEJB.setCountryCode(addressId, coder.getHomeCountry().getCountryCode());
-            addressEJB.setZip(addressId, coder.getHomeZip());
-            addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID);
+            long addressId = addressEJB.createAddress(DBMS.COMMON_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addressEJB.setAddress1(addressId, coder.getHomeAddress1(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addressEJB.setAddress2(addressId, coder.getHomeAddress2(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addressEJB.setCity(addressId, coder.getHomeCity(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addressEJB.setStateCode(addressId, coder.getHomeState().getStateCode(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addressEJB.setCountryCode(addressId, coder.getHomeCountry().getCountryCode(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addressEJB.setZip(addressId, coder.getHomeZip(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             userAddressEJB.createUserAddress(coder.getCoderId(), addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
-            long phoneId = phoneEJB.createPhone(coder.getCoderId());
-            phoneEJB.setNumber(phoneId, coder.getHomePhone());
-            phoneEJB.setPrimaryPhoneId(coder.getCoderId(), phoneId);
-            phoneEJB.setPhoneTypeId(phoneId, DEFAULT_PHONE_TYPE_ID);
+            long phoneId = phoneEJB.createPhone(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            phoneEJB.setNumber(phoneId, coder.getHomePhone(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            phoneEJB.setPrimaryPhoneId(coder.getCoderId(), phoneId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            phoneEJB.setPhoneTypeId(phoneId, DEFAULT_PHONE_TYPE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             //if ( inserted != qIdsForCoderType.size() ) throw new TCException ( "INCORRECT NUMBER OF DEMOG INFO INSERTED!!!" );
         } catch (SQLException sqe) {
@@ -585,13 +585,13 @@ final class UserDbCoder {
                             " does not have one address, they have " + addresses.size());
                 } else {
                     long addressId = ((Long)addresses.getItem(0, "address_id").getResultData()).longValue();
-                    addressEJB.setAddress1(addressId, coder.getHomeAddress1());
-                    addressEJB.setAddress2(addressId, coder.getHomeAddress2());
-                    addressEJB.setCity(addressId, coder.getHomeCity());
-                    addressEJB.setStateCode(addressId, coder.getHomeState().getStateCode());
-                    addressEJB.setCountryCode(addressId, coder.getHomeCountry().getCountryCode());
-                    addressEJB.setZip(addressId, coder.getHomeZip());
-                    addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID);
+                    addressEJB.setAddress1(addressId, coder.getHomeAddress1(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    addressEJB.setAddress2(addressId, coder.getHomeAddress2(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    addressEJB.setCity(addressId, coder.getHomeCity(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    addressEJB.setStateCode(addressId, coder.getHomeState().getStateCode(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    addressEJB.setCountryCode(addressId, coder.getHomeCountry().getCountryCode(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    addressEJB.setZip(addressId, coder.getHomeZip(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 }
 
                 long phoneId = phoneEJB.getPrimaryPhoneId(coder.getCoderId());

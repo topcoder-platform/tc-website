@@ -25,15 +25,13 @@ import java.sql.SQLException;
  */
 public class AddressBean extends BaseEJB {
     private static Logger log = Logger.getLogger(AddressBean.class);
-    private static final String DATA_SOURCE = "java:comp/env/datasource_name";
-    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     /**
      *
      *
      * @return a long with the unique address ID created
      */
-    public long createAddress() {
+    public long createAddress(String dataSource, String idDataSource) {
         log.debug("createAddress called...");
 
         Context ctx = null;
@@ -48,7 +46,7 @@ public class AddressBean extends BaseEJB {
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
                         new SimpleDB(),
-                        (DataSource) ctx.lookup(DATA_SOURCE),
+                        (DataSource) ctx.lookup(idDataSource),
                         "sequence_object",
                         "name",
                         "current_value",
@@ -60,7 +58,7 @@ public class AddressBean extends BaseEJB {
 
             ret = IdGenerator.nextId("ADDRESS_SEQ");
 
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO address (address_id) " +
@@ -97,7 +95,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public long getAddressTypeId(long addressId) {
+    public long getAddressTypeId(long addressId, String dataSource) {
         log.debug("getAddressTypeId called...address_id: " + addressId);
 
         Context ctx = null;
@@ -109,7 +107,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address_type_id FROM address " +
@@ -147,7 +145,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getAddress1(long addressId) {
+    public String getAddress1(long addressId, String dataSource) {
         log.debug("getAddress1 called...address_id: " + addressId);
 
         Context ctx = null;
@@ -159,7 +157,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address1 FROM address WHERE " +
@@ -197,7 +195,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getAddress2(long addressId) {
+    public String getAddress2(long addressId, String dataSource) {
         log.debug("getAddress2 called...address_id: " + addressId);
 
         Context ctx = null;
@@ -209,7 +207,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address2 FROM address " +
@@ -248,7 +246,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getAddress3(long addressId) {
+    public String getAddress3(long addressId, String dataSource) {
         log.debug("getAddress3 called...address_id: " + addressId);
 
         Context ctx = null;
@@ -260,7 +258,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address3 FROM address " +
@@ -300,7 +298,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getCity(long addressId) {
+    public String getCity(long addressId, String dataSource) {
         log.debug("getCity called...address_id: " + addressId);
 
         Context ctx = null;
@@ -312,7 +310,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT city FROM address " +
@@ -350,7 +348,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getStateCode(long addressId) {
+    public String getStateCode(long addressId, String dataSource) {
         log.debug("getStateCode called...address_id: " + addressId);
 
         Context ctx = null;
@@ -362,7 +360,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT state_code FROM address " +
@@ -401,7 +399,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getProvince(long addressId) {
+    public String getProvince(long addressId, String dataSource) {
         log.debug("getProvince called...address_id: " + addressId);
 
         Context ctx = null;
@@ -413,7 +411,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT province FROM address " +
@@ -454,7 +452,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getZip(long addressId) {
+    public String getZip(long addressId, String dataSource) {
         log.debug("getZip called...address_id: " + addressId);
 
         Context ctx = null;
@@ -466,7 +464,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT zip FROM address " +
@@ -503,7 +501,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getCountryCode(long addressId) {
+    public String getCountryCode(long addressId, String dataSource) {
         log.debug("getCountryCode called...address_id: " + addressId);
 
         Context ctx = null;
@@ -515,7 +513,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT country_code FROM address " +
@@ -552,7 +550,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setAddressTypeId(long addressId, long addressTypeId) {
+    public void setAddressTypeId(long addressId, long addressTypeId, String dataSource) {
         log.debug("setAddressTypeId called...addressId: " + addressId +
                 " addressTypeId: " + addressTypeId);
 
@@ -563,7 +561,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET address_type_id =" +
@@ -603,7 +601,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setAddress1(long addressId, String address1) {
+    public void setAddress1(long addressId, String address1, String dataSource) {
         log.debug("setAddress1 called...addressId: " + addressId +
                 " address1: " + address1);
 
@@ -614,7 +612,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET address1 = ? " +
@@ -653,7 +651,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setAddress2(long addressId, String address2) {
+    public void setAddress2(long addressId, String address2, String dataSource) {
         log.debug("setAddress2 called...addressId: " + addressId +
                 " address2: " + address2);
 
@@ -664,7 +662,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET address2 = ? " +
@@ -703,7 +701,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setAddress3(long addressId, String address3) {
+    public void setAddress3(long addressId, String address3, String dataSource) {
         log.debug("setAddress3 called...addressId: " + addressId +
                 " address3: " + address3);
 
@@ -714,7 +712,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET address3 = ? " +
@@ -754,7 +752,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setCity(long addressId, String city) {
+    public void setCity(long addressId, String city, String dataSource) {
         log.debug("setCity called...addressId: " + addressId + " city: " +
                 city);
 
@@ -765,7 +763,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET city = ? " +
@@ -804,7 +802,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setStateCode(long addressId, String stateCode) {
+    public void setStateCode(long addressId, String stateCode, String dataSource) {
         log.debug("setStateCode called...addressId: " + addressId +
                 " stateCode: " + stateCode);
 
@@ -815,7 +813,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET state_code = ? " +
@@ -855,7 +853,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setProvince(long addressId, String province) {
+    public void setProvince(long addressId, String province, String dataSource) {
         log.debug("setProvince called...addressId: " + addressId +
                 " province: " + province);
 
@@ -866,7 +864,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET province = ? " +
@@ -907,7 +905,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setZip(long addressId, String zip) {
+    public void setZip(long addressId, String zip, String dataSource) {
         log.debug("setZip called...addressId: " + addressId + " zip: " + zip);
 
         Context ctx = null;
@@ -917,7 +915,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET zip = ? " +
@@ -956,7 +954,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public void setCountryCode(long addressId, String countryCode) {
+    public void setCountryCode(long addressId, String countryCode, String dataSource) {
         log.debug("setCountryCode called...addressId: " + addressId +
                 " countryCode: " + countryCode);
 
@@ -967,7 +965,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE address SET country_code = ? " +
@@ -1008,7 +1006,7 @@ public class AddressBean extends BaseEJB {
      *
      * @throws EJBException
      */
-    public String getAddressTypeDesc(long addressId) {
+    public String getAddressTypeDesc(long addressId, String dataSource) {
         log.debug("getAddressTypeDesc called...address_id: " + addressId);
 
         Context ctx = null;
@@ -1021,7 +1019,7 @@ public class AddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address_type_id " +

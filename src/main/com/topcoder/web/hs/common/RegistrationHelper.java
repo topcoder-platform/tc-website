@@ -282,9 +282,9 @@ public class RegistrationHelper {
         }
         srb.setSchoolList(school_list);
 
-        TermsOfUseHome touh = (TermsOfUseHome) ctx.lookup("hs:" + TermsOfUseHome.EJB_REF_NAME);
+        TermsOfUseHome touh = (TermsOfUseHome) ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
         TermsOfUse tou = touh.create();
-        srb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
+        srb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
     }
 
     public static void populateSchoolCoachCount(StudentRegistrationBean srb)
@@ -382,7 +382,7 @@ public class RegistrationHelper {
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
 
-            UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
+            UserHome uh = (UserHome) ctx.lookup(UserHome.EJB_REF_NAME);
             User user = uh.create();
             user.createUser(user_id, srb.getHandle(), NEW_USER_TYPE, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             user.setFirstName(user_id, srb.getFirstName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -395,12 +395,12 @@ public class RegistrationHelper {
             user_school.setCurrentUserSchoolId(user_id,
                     srb.getSchoolId().longValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
-            EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
+            EmailHome eh = (EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME);
             Email email = eh.create();
-            long email_id = email.createEmail(user_id);
-            email.setPrimaryEmailId(user_id, email_id);
-            email.setAddress(email_id, srb.getEmail());
-            email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT);
+            long email_id = email.createEmail(user_id, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            email.setPrimaryEmailId(user_id, email_id, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setAddress(email_id, srb.getEmail(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
 
             Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -466,7 +466,7 @@ public class RegistrationHelper {
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
 
-            UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
+            UserHome uh = (UserHome) ctx.lookup(UserHome.EJB_REF_NAME);
             User user = uh.create();
             long userId = srb.getUserId().longValue();
             user.setFirstName(userId, srb.getFirstName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -483,11 +483,11 @@ public class RegistrationHelper {
                 user_school.setCurrentUserSchoolId(userId, schoolId, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             }
 
-            EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
+            EmailHome eh = (EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME);
             Email email = eh.create();
-            long emailId = email.getPrimaryEmailId(userId);
-            email.setAddress(emailId, srb.getEmail());
-            email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT);
+            long emailId = email.getPrimaryEmailId(userId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setAddress(emailId, srb.getEmail(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
 
             Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.setEditorId(userId, srb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -664,9 +664,9 @@ public class RegistrationHelper {
         }
         crb.setSchoolList(school_list);
 
-        TermsOfUseHome touh = (TermsOfUseHome) ctx.lookup("hs:" + TermsOfUseHome.EJB_REF_NAME);
+        TermsOfUseHome touh = (TermsOfUseHome) ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
         TermsOfUse tou = touh.create();
-        crb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
+        crb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
     }
 
     public static boolean isValidCoach(Map errors,
@@ -742,7 +742,7 @@ public class RegistrationHelper {
             utx_tchs = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx_tchs.begin();
 
-            UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
+            UserHome uh = (UserHome) ctx.lookup(UserHome.EJB_REF_NAME);
             User user = uh.create();
             user.createUser(user_id, crb.getHandle(), NEW_USER_TYPE, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             user.setFirstName(user_id, crb.getFirstName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -755,12 +755,12 @@ public class RegistrationHelper {
             user_school.setCurrentUserSchoolId(user_id,
                     crb.getSchoolId().longValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
-            EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
+            EmailHome eh = (EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME);
             Email email = eh.create();
-            long email_id = email.createEmail(user_id);
-            email.setPrimaryEmailId(user_id, email_id);
-            email.setAddress(email_id, crb.getEmail());
-            email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT);
+            long email_id = email.createEmail(user_id, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            email.setPrimaryEmailId(user_id, email_id, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setAddress(email_id, crb.getEmail(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
 
             Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -830,7 +830,7 @@ public class RegistrationHelper {
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
 
-            UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
+            UserHome uh = (UserHome) ctx.lookup(UserHome.EJB_REF_NAME);
             User user = uh.create();
             long userId = crb.getUserId().longValue();
             user.setFirstName(userId, crb.getFirstName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
@@ -847,12 +847,12 @@ public class RegistrationHelper {
                 user_school.setCurrentUserSchoolId(userId, school_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             }
 
-            EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
+            EmailHome eh = (EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME);
             Email email = eh.create();
-            long emailId = email.getPrimaryEmailId(userId);
-            email.setPrimaryEmailId(userId, emailId);
-            email.setAddress(emailId, crb.getEmail());
-            email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT);
+            long emailId = email.getPrimaryEmailId(userId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setPrimaryEmailId(userId, emailId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setAddress(emailId, crb.getEmail(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            email.setEmailTypeId(emailId, EMAIL_TYPE_ID_DEFAULT, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
 
             Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.setEditorId(userId, crb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);

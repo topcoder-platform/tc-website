@@ -18,11 +18,8 @@ import java.sql.SQLException;
 public class TermsOfUseBean extends BaseEJB {
     private static Logger log = Logger.getLogger(TermsOfUseBean.class);
 
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
-
-    public long createTermsOfUse() throws EJBException {
+    public long createTermsOfUse(String dataSource, String idDataSource) throws EJBException {
 
         long terms_of_use_id = 0;
 
@@ -33,10 +30,10 @@ public class TermsOfUseBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(DATA_SOURCE), "sequence_object", "name",
+                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
                         "current_value", 9999999999L, 1, false);
             }
 
@@ -71,10 +68,10 @@ public class TermsOfUseBean extends BaseEJB {
         return (terms_of_use_id);
     }
 
-    public long getTermsOfUseTypeId(long _terms_of_use_id)
+    public long getTermsOfUseTypeId(long termsOfUseId, String dataSource)
             throws EJBException {
 
-        long terms_of_use_type_id = 0;
+        long termsOfuseTypeId = 0;
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -85,7 +82,7 @@ public class TermsOfUseBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT terms_of_use_type_id ");
@@ -94,15 +91,15 @@ public class TermsOfUseBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, _terms_of_use_id);
+            ps.setLong(1, termsOfUseId);
 
             rs = ps.executeQuery();
             if (rs.next()) {
-                terms_of_use_type_id = rs.getLong(1);
+                termsOfuseTypeId = rs.getLong(1);
             } else {
                 throw(new EJBException("No rows found when selecting from " +
                         "'terms_of_use' with terms_of_use_id=" +
-                        _terms_of_use_id + "."));
+                        termsOfUseId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
@@ -116,11 +113,11 @@ public class TermsOfUseBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
-        return (terms_of_use_type_id);
+        return (termsOfuseTypeId);
     }
 
-    public void setTermsOfUseTypeId(long _terms_of_use_id,
-                                    long _terms_of_use_type_id)
+    public void setTermsOfUseTypeId(long termsOfUseId,
+                                    long termsOfUseTypeId, String dataSource)
             throws EJBException {
 
         Connection conn = null;
@@ -130,7 +127,7 @@ public class TermsOfUseBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE terms_of_use ");
@@ -139,8 +136,8 @@ public class TermsOfUseBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, _terms_of_use_type_id);
-            ps.setLong(2, _terms_of_use_id);
+            ps.setLong(1, termsOfUseTypeId);
+            ps.setLong(2, termsOfUseId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -161,7 +158,7 @@ public class TermsOfUseBean extends BaseEJB {
         }
     }
 
-    public String getText(long _terms_of_use_id)
+    public String getText(long termsOfUseId, String dataSource)
             throws EJBException {
 
         String text = null;
@@ -174,7 +171,7 @@ public class TermsOfUseBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT terms_text ");
@@ -183,7 +180,7 @@ public class TermsOfUseBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, _terms_of_use_id);
+            ps.setLong(1, termsOfUseId);
 
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -191,7 +188,7 @@ public class TermsOfUseBean extends BaseEJB {
             } else {
                 throw(new EJBException("No rows found when selecting from " +
                         "'terms_of_use' with terms_of_use_id=" +
-                        _terms_of_use_id + "."));
+                        termsOfUseId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
@@ -211,7 +208,7 @@ public class TermsOfUseBean extends BaseEJB {
         return (text);
     }
 
-    public void setText(long _terms_of_use_id, String _text)
+    public void setText(long termsOfUseId, String _text, String dataSource)
             throws EJBException {
 
         Connection conn = null;
@@ -222,7 +219,7 @@ public class TermsOfUseBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE terms_of_use ");
@@ -232,7 +229,7 @@ public class TermsOfUseBean extends BaseEJB {
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setBytes(1, DBMS.serializeTextString(_text));
-            ps.setLong(2, _terms_of_use_id);
+            ps.setLong(2, termsOfUseId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {

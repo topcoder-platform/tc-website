@@ -25,15 +25,13 @@ import java.sql.SQLException;
  */
 public class PhoneBean extends BaseEJB {
     private static Logger log = Logger.getLogger(PhoneBean.class);
-    private static final String DATA_SOURCE = "java:comp/env/datasource_name";
-    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     /**
      *
      *
      * @return a long with the unique phone ID created
      */
-    public long createPhone(long userId) {
+    public long createPhone(long userId, String dataSource, String idDataSource) {
         log.debug("createPhone called...");
 
         Context ctx = null;
@@ -48,7 +46,7 @@ public class PhoneBean extends BaseEJB {
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
                         new SimpleDB(),
-                        (DataSource) ctx.lookup(DATA_SOURCE),
+                        (DataSource) ctx.lookup(idDataSource),
                         "sequence_object",
                         "name",
                         "current_value",
@@ -60,7 +58,7 @@ public class PhoneBean extends BaseEJB {
 
             ret = IdGenerator.nextId("PHONE_SEQ");
 
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO phone (user_id, " +
@@ -97,7 +95,7 @@ public class PhoneBean extends BaseEJB {
      *
      * @return a long with the entry's phone type ID
      */
-    public long getPhoneTypeId(long phoneId) {
+    public long getPhoneTypeId(long phoneId, String dataSource) {
         log.debug("getPhoneTypeId called...phone_id: " + phoneId);
 
         Context ctx = null;
@@ -109,7 +107,7 @@ public class PhoneBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT phone_type_id FROM phone " +
@@ -145,7 +143,7 @@ public class PhoneBean extends BaseEJB {
      *
      * @return a long with the entry's phone number
      */
-    public String getNumber(long phoneId) {
+    public String getNumber(long phoneId, String dataSource) {
         log.debug("getNumber called...phone_id: " + phoneId);
 
         Context ctx = null;
@@ -157,7 +155,7 @@ public class PhoneBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT phone_number FROM phone " +
@@ -192,7 +190,7 @@ public class PhoneBean extends BaseEJB {
      * @param phoneId phone ID of entry to set
      * @param phoneTypeId the phone type ID to set to
      */
-    public void setPhoneTypeId(long phoneId, long phoneTypeId) {
+    public void setPhoneTypeId(long phoneId, long phoneTypeId, String dataSource) {
         log.debug("setPhoneTypeId called...phoneId: " +
                 phoneId + " phoneTypeId: " + phoneTypeId);
 
@@ -203,7 +201,7 @@ public class PhoneBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE phone SET phone_type_id = ? " +
@@ -237,7 +235,7 @@ public class PhoneBean extends BaseEJB {
      * @param phoneId phone ID of entry to set
      * @param number
      */
-    public void setNumber(long phoneId, String number) {
+    public void setNumber(long phoneId, String number, String dataSource) {
         log.debug("setNumber called...phoneId: " +
                 phoneId + " number: " + number);
 
@@ -248,7 +246,7 @@ public class PhoneBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE phone SET phone_number = ? " +
@@ -282,7 +280,7 @@ public class PhoneBean extends BaseEJB {
      * @param userId user ID to look up
      * @return a long with the user's primary phone ID
      */
-    public long getPrimaryPhoneId(long userId) {
+    public long getPrimaryPhoneId(long userId, String dataSource) {
         log.debug("getPrimaryPhoneId called...user_id: " + userId);
 
         Context ctx = null;
@@ -294,7 +292,7 @@ public class PhoneBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT phone_id FROM phone " +
@@ -327,7 +325,7 @@ public class PhoneBean extends BaseEJB {
      * @param userId the user ID to set
      * @param phoneId the user's phone ID to set to primary
      */
-    public void setPrimaryPhoneId(long userId, long phoneId) {
+    public void setPrimaryPhoneId(long userId, long phoneId, String dataSource) {
         log.debug("setPrimaryEmailId called...userId: " + userId +
                 " phoneId: " + phoneId);
 
@@ -338,7 +336,7 @@ public class PhoneBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE phone SET primary = 0 " +
@@ -381,7 +379,7 @@ public class PhoneBean extends BaseEJB {
      * @param phoneId the phone ID to check
      * @return a boolean with whether the phone ID is the user's primary
      */
-    public boolean isPrimaryPhoneId(long userId, long phoneId) {
+    public boolean isPrimaryPhoneId(long userId, long phoneId, String dataSource) {
         log.debug("isPrimaryPhoneId called...user_id: " + userId +
                 " phone_id: " + phoneId);
 
@@ -394,7 +392,7 @@ public class PhoneBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT primary FROM phone " +

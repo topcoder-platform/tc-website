@@ -8,6 +8,7 @@ import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 
 import java.util.List;
 import java.util.Iterator;
@@ -62,7 +63,7 @@ public class VerizonRegSubmit extends FullRegSubmit {
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
         UserPrincipal ret = super.store(regInfo, newUser);
         Address address = (Address) createEJB(getInitialContext(), Address.class);
-        UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class, "main:");
+        UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
         ResultSetContainer addresses = userAddress.getUserAddresses(ret.getId(), db);
         if (addresses.size()!=1) {
@@ -70,7 +71,7 @@ public class VerizonRegSubmit extends FullRegSubmit {
         }
 
         long addressId = addresses.getLongItem(0, "address_id");
-        address.setProvince(addressId, regInfo.getProvince());
+        address.setProvince(addressId, regInfo.getProvince(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
         return newUser;
 
     }

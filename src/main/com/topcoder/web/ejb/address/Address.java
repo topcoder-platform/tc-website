@@ -17,77 +17,77 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#createAddress
      */
-    long createAddress() throws RemoteException, EJBException;
+    long createAddress(String dataSource, String idDataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getAddressTypeId
      */
-    long getAddressTypeId(long addressId) throws RemoteException, EJBException;
+    long getAddressTypeId(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getAddress1
      */
-    String getAddress1(long addressId) throws RemoteException, EJBException;
+    String getAddress1(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getAddress2
      */
-    String getAddress2(long addressId) throws RemoteException, EJBException;
+    String getAddress2(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getAddress3
      */
-    String getAddress3(long addressId) throws RemoteException, EJBException;
+    String getAddress3(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getCity
      */
-    String getCity(long addressId) throws RemoteException, EJBException;
+    String getCity(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getStateCode
      */
-    String getStateCode(long addressId) throws RemoteException, EJBException;
+    String getStateCode(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getProvince
      */
-    String getProvince(long addressId) throws RemoteException, EJBException;
+    String getProvince(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getZip
      */
-    String getZip(long addressId) throws RemoteException, EJBException;
+    String getZip(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getCountryCode
      */
-    String getCountryCode(long addressId) throws RemoteException, EJBException;
+    String getCountryCode(long addressId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setAddressTypeId
      */
-    void setAddressTypeId(long addressId, long addressTypeId)
+    void setAddressTypeId(long addressId, long addressTypeId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -95,7 +95,7 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setAddress1
      */
-    void setAddress1(long addressId, String address1)
+    void setAddress1(long addressId, String address1, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -103,7 +103,7 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setAddress2
      */
-    void setAddress2(long addressId, String address2)
+    void setAddress2(long addressId, String address2, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -111,7 +111,7 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setAddress3
      */
-    void setAddress3(long addressId, String address3)
+    void setAddress3(long addressId, String address3, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -119,7 +119,7 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setCity
      */
-    void setCity(long addressId, String city)
+    void setCity(long addressId, String city, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -127,7 +127,7 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setStateCode
      */
-    void setStateCode(long addressId, String stateCode)
+    void setStateCode(long addressId, String stateCode, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -135,7 +135,7 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setProvince
      */
-    void setProvince(long addressId, String province)
+    void setProvince(long addressId, String province, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -143,7 +143,7 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setZip
      */
-    void setZip(long addressId, String zip)
+    void setZip(long addressId, String zip, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -151,7 +151,7 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#setCountryCode
      */
-    void setCountryCode(long addressId, String countryCode)
+    void setCountryCode(long addressId, String countryCode, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -159,6 +159,6 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getAddressTypeDesc
      */
-    String getAddressTypeDesc(long addressId)
+    String getAddressTypeDesc(long addressId, String dataSource)
             throws RemoteException, EJBException;
 }

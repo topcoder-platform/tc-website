@@ -11,7 +11,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
-import com.topcoder.web.corp.request.Login;
 import com.topcoder.web.corp.model.TransactionInfo;
 import com.topcoder.web.ejb.product.*;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
@@ -491,8 +490,8 @@ public class TransactionServlet extends HttpServlet {
             throws Exception {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
         InitialContext ic = (InitialContext) TCContext.getInitial();
-        TermsOfUse terms = ((TermsOfUseHome) ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
-        txInfo.setTerms(terms.getText(txInfo.getTermsId()));
+        TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
+        txInfo.setTerms(terms.getText(txInfo.getTermsId(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
         return txInfo;
     }
 
@@ -544,7 +543,7 @@ public class TransactionServlet extends HttpServlet {
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next();
             long addressId = ((Long)row.getItem("address_id").getResultData()).longValue();
-            dr.setProperty("countryID", address.getCountryCode(addressId));
+            dr.setProperty("countryID", address.getCountryCode(addressId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
             result = dataAccess.getData(dr);
             /* the query returns a row only if the country is ineligible to purchase the product */
             eligible &= ((ResultSetContainer) result.get("country_not_eligible_for_product")).isEmpty();
