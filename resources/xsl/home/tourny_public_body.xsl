@@ -150,7 +150,7 @@ The assignments for the first round of the tournament are now available.  Each p
 </P>
 
 <P>
-<B>Next Round #3</B>: Oct. 23rd, at 9:30PM (<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+<B>Next Round #3</B>: Oct. 23rd, at 9:30PM (<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
 </P>
 
     </TD>    
