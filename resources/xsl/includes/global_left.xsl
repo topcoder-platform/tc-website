@@ -165,12 +165,6 @@
                     <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
                 </xsl:call-template>
 
-<!-- Applications -->
-                <xsl:call-template name="applications">
-                    <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
-                    <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
-                </xsl:call-template>
-
 <!-- Contests -->
                 <xsl:call-template name="contests">
                     <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
@@ -676,10 +670,6 @@
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=components</xsl:attribute>Components</A></td></tr>
 </xsl:template>
 
-<xsl:template name="applications_row">
-                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_projects</xsl:attribute>Applications</A></td></tr>
-</xsl:template>
-
 <xsl:template name="events_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Events</A></td></tr>
 </xsl:template>
@@ -837,80 +827,6 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="applications">
-        <xsl:param name="level2"></xsl:param>
-        <xsl:param name="level3"></xsl:param>
-        <!-- Applications: -->
-    <tr>
-        <td id="leftSubnav">
-            <xsl:attribute name="id">
-                <xsl:choose>
-                    <xsl:when test="$level2='applications'">leftNavOn</xsl:when>
-                    <xsl:otherwise>leftNav</xsl:otherwise>
-              </xsl:choose>
-            </xsl:attribute>
-            <A class="leftOn">
-                <xsl:attribute name="class">
-                    <xsl:choose>
-                        <xsl:when test="$level2='applications'">leftOn</xsl:when>
-                        <xsl:otherwise>left</xsl:otherwise>
-                    </xsl:choose>
-                </xsl:attribute>
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_projects</xsl:attribute>
-            <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
-                 <xsl:attribute name="src">
-                    <xsl:choose>
-                        <xsl:when test="$level2='applications'">/i/nav_arrow_bottom.gif</xsl:when>
-                        <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
-                    </xsl:choose>
-                </xsl:attribute>
-            </img>Applications</A>
-        </td>
-    </tr>
-    <xsl:if test="$level2='applications'">
-
-<!-- Open Projects -->
-    <tr>
-        <td id="leftSubnav">
-            <xsl:attribute name="id">
-            <xsl:choose>
-                <xsl:when test="$level3='app_projects'">leftSubnavOn</xsl:when>
-                <xsl:otherwise>leftSubnav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_projects</xsl:attribute>Projects</A>
-        </td>
-    </tr>
-
-<!-- App Team Methodology -->
-    <tr>
-        <td id="leftSubnav">
-            <xsl:attribute name="id">
-            <xsl:choose>
-                <xsl:when test="$level3='app_team_meth'">leftSubnavOn</xsl:when>
-                <xsl:otherwise>leftSubnav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_team_meth</xsl:attribute>Team Development Methodology</A>
-        </td>
-    </tr>
-
-<!-- Development Methodology -->
-    <tr>
-        <td id="leftSubnav">
-            <xsl:attribute name="id">
-            <xsl:choose>
-                <xsl:when test="$level3='app_meth'">leftSubnavOn</xsl:when>
-                <xsl:otherwise>leftSubnav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_meth</xsl:attribute>Development Methodology</A>
-        </td>
-    </tr>
-
-    </xsl:if>
-  </xsl:template>
-
 <!-- Contests -->
     <xsl:template name="contests">
         <xsl:param name="level2"></xsl:param>
@@ -1054,19 +970,6 @@
             </xsl:choose>
             </xsl:attribute>
             <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=compDocumentation</xsl:attribute>Component Documentation</A>
-        </td>
-    </tr>
-
-<!-- Application Documentation -->
-    <tr>
-        <td id="leftSubnav">
-            <xsl:attribute name="id">
-            <xsl:choose>
-                <xsl:when test="$level3='appDocumentation'">leftSubnavOn</xsl:when>
-                <xsl:otherwise>leftSubnav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=appDocumentation</xsl:attribute>Application Documentation</A>
         </td>
     </tr>
 

@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/legakis_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=287269"><strong>legakis</strong></a><br/>
+                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,16 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm223_prob">SRM 223 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, December 18, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm224_prob">SRM 224 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, December 22, 2004</p>
 
                         <p>
 
-Coder <b>marian</b> finished in first place in Division One, with the fastest time on the 1000-point problem.
-In the final seconds of the challenge round, <b>Yarin</b> was within 50 points of the top spot.
-But a successful defense by <b>Jan_Kuipers</b> knocked <b>Yarin</b> down to third, and <b>Jan_Kuipers</b> finished second.
+In Division 1, only four people solved the Medium and a mostly different four 
+solved the Hard.  <b>ploh</b> dominated as the only coder to
+submit all three problems.  When all three of his programs passed 
+system tests, <b>ploh</b> led second-place <b>pparys</b> by almost 500 points.
 
-						<a href="/index?t=statistics&c=srm223_prob" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=srm224_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
