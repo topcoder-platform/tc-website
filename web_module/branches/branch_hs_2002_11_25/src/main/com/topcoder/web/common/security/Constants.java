@@ -23,7 +23,7 @@ public class Constants {
      * Get a remote instance of the named EJB from the default context defined above.
      * Has package scope on purpose.
      */
-    static Object createEJB(String cn) {
+    static Object createEJB(String cn) throws Exception {
         Class c = Class.forName(cn);
         Field f = c.getField("EJB_REF_NAME");
         String ern = (String)f.get(null);
