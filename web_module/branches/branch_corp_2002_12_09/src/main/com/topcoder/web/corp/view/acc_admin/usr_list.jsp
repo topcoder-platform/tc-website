@@ -40,22 +40,22 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">&#160;Roller</TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">Turner</TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">Tina</TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Edit</A></TD>		
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=create-edit&id=1" CLASS="bodyText">Edit</A></TD>		
 	</TR>
 	<TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15">&#160;Jammer</TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15">Bobbie</TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15">Marley</TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Edit</A></TD>		
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><A HREF="<%=appContext%>/?module=create-edit&id=2" CLASS="bodyText">Edit</A></TD>		
 	</TR>
 	<TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">&#160;Roller</TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">Turner</TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">Tina</TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Edit</A></TD>		
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=create-edit&id=3" CLASS="bodyText">Edit</A></TD>		
 	</TR>
 	<TR>
-		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Add</A></TD>		
+		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=create-edit" CLASS="bodyText">Add</A></TD>		
 	</TR>				
 </TABLE>
 <P><BR/></P>    

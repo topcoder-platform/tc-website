@@ -4,9 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import javax.servlet.ServletRequest;
 
+import com.topcoder.shared.security.User;
 import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.corp.stub.UserStub;
 
 /**
  * Base abstract class for RequestProcessor implementors.
@@ -132,10 +135,35 @@ public abstract class BaseProcessor implements RequestProcessor {
      * users (Guests) are authentic always forever by definition however
      * there is not the way to get them logged in neither via cookies nor via
      * login page.
-     * 
-     * @return WebAuthentication
+     *
+     * @return BasicAuthentication
      */
-    protected WebAuthentication getAuthenticityToken() {
-    	return null;
+    protected BasicAuthentication getAuthenticityToken() throws Exception {
+        SessionPersistor store = SessionPersistor.getInstance(request);
+        return new BasicAuthentication(store, request.getCookies());
+    }
+    
+    /**
+     * Lookup user by ID given. DB related - implemented as stub
+     *
+     * @param userID id of user to be found
+     * @return User User matching gived ID or null if user with ID given was not
+     * found
+     * @throws Exception some errors occured when working with DB
+     */
+    protected User lookupUserByID(long userID) throws Exception {
+        return UserStub.getInstance(userID);
+    }
+    
+    /**
+     * Lookup user by handle given. DB related - implemented as stub
+     *
+     * @param userHandle id of user to be found
+     * @return User User matching gived handle or null if user with ID given was
+     * not found
+     * @throws Exception some errors occured when working with DB
+     */
+    protected User lookupUserByHandle(String userHandle) throws Exception {
+        return UserStub.getInstance(userHandle);
     }
 }

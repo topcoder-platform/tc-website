@@ -16,7 +16,7 @@ public interface Authentication {
      * @param u
      * @throws AuthenticationException
      */
-    void login(User u) throws AuthenticationException;
+    void login(User u) throws AuthenticationException, Exception;
     
     /**
      * 

@@ -12,23 +12,32 @@ package com.topcoder.shared.security;
  * @version 1.02
  */
 public interface User {
+    public static final int USER_ANONYMOUS_ID = -1;
     
     /**
      * Returns ID of the user.
      * 
      * @return long user ID
      */
-    long getId();
+    public long getId();
     
     /**
      * Returns username (ie login or handle) of the user. 
      * @return String login name  of the user
      */
-    String getUserName();
+    public String getUserName();
     
     /**
      * Returns password of the user (!)violates sequrity(!). 
      * @return String password of the user.
      */
-    String getPassword();
+    public String getPassword();
+    
+    
+    /**
+     * Returns 
+     * @return String
+     */
+    public String getGroup();
+        
 }

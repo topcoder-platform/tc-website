@@ -38,8 +38,26 @@
   </init-param>
 
   <init-param>
+    <param-name>processor-create-edit</param-name>
+    <param-value>com.topcoder.web.corp.request.UserEdit</param-value>
+    <description>creates/edit user/permissions</description>
+  </init-param>
+
+  <init-param>
     <param-name>processor-try</param-name>
     <param-value>com.topcoder.web.corp.request.TrySecurity</param-value>
+    <description>handles user list page</description>
+  </init-param>
+
+  <init-param>
+    <param-name>processor-login</param-name>
+    <param-value>com.topcoder.web.corp.request.Login</param-value>
+    <description>handles user list page</description>
+  </init-param>
+
+  <init-param>
+    <param-name>processor-logout</param-name>
+    <param-value>com.topcoder.web.corp.request.Logout</param-value>
     <description>handles user list page</description>
   </init-param>
 
@@ -60,8 +78,8 @@
          from application root, servlet context path is not allowed. First slash
          is required
     -->
-    <param-name>page-generic-error</param-name>
-    <param-value>/error.jsp</param-value>
+    <param-name>page-main</param-name>
+    <param-value>/index.jsp</param-value>
     <description>All of the controller exceptions will return this to user</description>
   </init-param>
 

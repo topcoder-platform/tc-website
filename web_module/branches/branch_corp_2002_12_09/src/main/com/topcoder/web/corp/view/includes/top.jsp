@@ -33,7 +33,7 @@
                         <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="190" BGCOLOR="#000000">&#160;
-                           <FORM NAME="" METHOD="" onSubmit="">
+                           <FORM NAME="login" METHOD="POST" onSubmit="/<%=appContext%>/?module=login">
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">User Name:&#160;&#160;</TD>
@@ -44,7 +44,7 @@
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
                                     <TD HEIGHT="20" VALIGN="TOP">
                                     <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="Password" TYPE="Password" VALUE="" onKeyPress="submitEnter(event)"/></TD>
-                                    <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="Javascript:login.submit()" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login &gt;</FONT></A></TD>                    
+                                    <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="Javascript:login.submit()" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login </FONT></A></TD>                    
                                  </TR>
                               </TABLE>
                            </FORM>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.AppContext;
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.security.SessionPersistor;
 
 /**
  * Only two methods are supported GET & POST (identical behaviour in
@@ -37,7 +38,7 @@ public class MainServlet extends HttpServlet {
     private static final String ERR_TRACE       = "TRACE method invocation";
     
     private static final String KEY_MODULE      = "module";
-    private static final String KEY_ERRPAGE     = "generic-error";
+    private static final String KEY_MAINPAGE    = "main";
 	private static final String KEY_CFG_CONTEXT = "config-context";
     private static final String KEY_EXCEPTION   = "caught-exception";
 
@@ -93,7 +94,7 @@ public class MainServlet extends HttpServlet {
 
         }
         catch(Exception e) {
-            log.error("processing module instantiation exception", e);
+            log.error("processing module instantiation exception ", e);
             fetchErrorPage(request, response, e);
             return;
         }
@@ -112,6 +113,16 @@ public class MainServlet extends HttpServlet {
             else {
                 response.sendRedirect(destination);
             }
+            // well done. every successful page we will place into persistor which in
+            // turn stored in http session. thus we will be able return to original
+            // page after error recovering or after login
+            SessionPersistor store = SessionPersistor.getInstance(request);
+            String currentPage = request.getRequestURI();
+            if( request.getQueryString() != null ) {
+                currentPage += "?"+request.getQueryString();
+            }
+            store.setLastPage( currentPage );
+            log.debug("last page set as "+currentPage);
         }
         catch(Exception e) {
             log.error("exception during request processing ["+processorName+"]", e);
@@ -134,7 +145,7 @@ public class MainServlet extends HttpServlet {
      * @throws IOException
      */
     private void fetchErrorPage(HttpServletRequest req, HttpServletResponse resp, Throwable exc) throws ServletException, IOException {
-        String errorPage = servletConfig.getInitParameter(PFX_PAGE+KEY_ERRPAGE);
+        String errorPage = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
         req.setAttribute(KEY_EXCEPTION, exc);
         log.debug("forwarding to "+errorPage);
 //        resp.sendError(HttpServletResponse.SC_FORBIDDEN);
