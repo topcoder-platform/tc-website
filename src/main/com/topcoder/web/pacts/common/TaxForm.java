@@ -24,7 +24,7 @@ import com.topcoder.web.common.*;
 
 public class TaxForm implements PactsConstants, java.io.Serializable {
 	private static Category log =
-		PactsLog.getInstance(TaxForm.class.getName());
+		Category.getInstance(TaxForm.class.getName());
 
 /*  Explanation of Members
 *

@@ -16,7 +16,7 @@ import org.apache.log4j.*;
    
 public class PaymentHeaderList implements PactsConstants {
     private static Category log = 
-	PactsLog.getInstance(PaymentHeaderList.class.getName()); 
+	Category.getInstance(PaymentHeaderList.class.getName()); 
     
     public PaymentHeader[] headerList=null;
     

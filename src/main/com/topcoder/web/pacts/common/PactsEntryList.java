@@ -22,7 +22,7 @@ import java.util.*;
 public class PactsEntryList implements PactsConstants {
 
 	private static Category log =
-		PactsLog.getInstance(PactsEntryList.class.getName());
+		Category.getInstance(PactsEntryList.class.getName());
 
     public PactsEntry[] headerList;
 

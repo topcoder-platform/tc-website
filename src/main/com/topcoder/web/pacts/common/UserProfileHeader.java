@@ -25,7 +25,7 @@ import java.util.*;
 
 public class UserProfileHeader implements PactsConstants, java.io.Serializable {
     private static Category log =
-	PactsLog.getInstance(UserProfileHeader.class.getName());
+	Category.getInstance(UserProfileHeader.class.getName());
 
 /*  Explanation of Members
 *

@@ -9,7 +9,7 @@ import org.apache.log4j.*;
    
 public class UserDemographics implements PactsConstants, java.io.Serializable {
     private static Category log = 
-	PactsLog.getInstance(UserDemographics.class.getName()); 
+	Category.getInstance(UserDemographics.class.getName()); 
 
     public String[] answers;
     public String[] questions;

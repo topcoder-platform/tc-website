@@ -130,6 +130,8 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
 		_round = TCData.getTCString(rsr,"name","No Round",false);
 		_roundID = new Long(TCData.getTCLong(rsr,"round_id",0,false));
 		_birthday = TCData.getTCDate(rsr,"date_of_birth","",false);
+		log.debug("the birthday for the affidavit from the db is " + _birthday);
+		log.debug("here is ths rsr " + rsr);
 		SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
 		try {
 		    Date d = dfmt.parse(_header._creationDate);

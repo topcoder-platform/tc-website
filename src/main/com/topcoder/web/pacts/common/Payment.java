@@ -23,7 +23,7 @@ import org.apache.log4j.*;
 
 public class Payment implements PactsConstants, java.io.Serializable {
        private static Category log =
-	   	PactsLog.getInstance(Payment.class.getName());
+	   	Category.getInstance(Payment.class.getName());
 
 
     public long _id;

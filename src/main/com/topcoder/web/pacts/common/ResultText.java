@@ -6,7 +6,7 @@ import org.apache.log4j.*;
    
 public class ResultText implements PactsConstants {
     private static Category log = 
-	PactsLog.getInstance(ResultText.class.getName());
+	Category.getInstance(ResultText.class.getName());
 
     public String text;
 
