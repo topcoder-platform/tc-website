@@ -4,9 +4,10 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 
 /**
  * User: dok
- * Date: Dec 23, 2004
+ * Date: Dec 29, 2004
+ * Time: 3:07:24 PM
  */
-public class ViewProblemInner extends Base {
+public class ProblemStatement extends Base {
 
     protected void businessProcessing() throws Exception {
         if (getUser().isAnonymous()) {
@@ -14,22 +15,22 @@ public class ViewProblemInner extends Base {
                     new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
-            setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
-            setIsNextPageInContext(false);
-
             if (hasParameter(Constants.MESSAGE_ID)) {
+                log.debug("has message id");
                 String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
-                loadSessionDefaultsIntoRequest(messageId, false);
-                if (hasParameter(Constants.PROBLEM_TYPE_ID) &&
-                        hasParameter(Constants.COMPONENT_ID) &&
-                        hasDefault(Constants.PROBLEM)) {
-                    getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
+                loadSessionErrorsIntoRequest(messageId);
+                loadSessionDefaultsIntoRequest(messageId);
+                log.debug("defaults: " + defaults);
+                if (hasDefault(Constants.PROBLEM)) {
+                    log.debug("has defaults");
                     getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));
-                    setNextPage(Constants.PAGE_VIEW_PROBLEM_INNER);
+                    setNextPage(Constants.PAGE_PROBLEM_STATEMENT);
                     setIsNextPageInContext(true);
                 }
             }
         }
     }
+
+
 
 }
