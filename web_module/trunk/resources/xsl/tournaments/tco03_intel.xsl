@@ -45,7 +45,7 @@
             <table border="0" cellspacing="10" cellpadding="0" width="510">
                
                 <tr valign="top">
-                    <td align="left" width="510">
+                    <td align="center" width="510">
                         <table border="0" cellpadding="0" cellspacing="0">
                             
                             <tr>
@@ -92,7 +92,7 @@
                             								<tr>
                             									<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
                             									<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
-                            									mobile-technology-based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
+                            									mobile-technology- based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
                             										<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
                             								</tr>
                             								
