@@ -44,19 +44,19 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->	
-        <td class="promoText" width="100%">
-            <table width="100%" border="0" cellpadding="15" cellspacing="0">
+        <td class="promoText" width="100%" align="center">
+            <table width="510" border="0" cellpadding="15" cellspacing="0">
                 <tr>
-                    <td colspan="2" align="center"><A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
+                    <td  colspan="2" align="center" width="480"><A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_visualize.gif" alt="NVIDA" width="357" height="18" border="0" />
+                    <td colspan="2" align="center" width="480"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_visualize.gif" alt="NVIDA" width="510" height="18" border="0" />
                     </td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="bodyText" align="left" width="255">
+                    <td class="bodyText" align="left" width="232.5">
                         
                         <p>At NVIDIA we're continually looking for the elite few who will shape the future of the software 
                         industry&#133;  those who play hard, work smart, and always strive to win.  The visual computing industry is ultra-competitive and the stakes are high&#133;
@@ -68,23 +68,22 @@
                         and we are shaping the world of tomorrow&#133;today.  </p>
                      </td>
                      
-                      <td class="promoText" align="left" width="255">
+                      <td class="promoText" align="left" width="232.5">
                         <p>We invite you to explore the opportunities available at NVIDIA. Click on the link to see what your future may hold.</p>
-                        <p><ul>
-                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings&#38;a=secure">Experienced professionals </A></li>
-                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_intern&#38;a=secure">New &#38; Recent College Graduates </A></li>
-                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_intern&#38;a=secure">Interns &#38; Co-ops</A></li></ul></p>
+                        <ul>
+                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_soft_intern&#38;a=secure">Software and Graphics Positions</A></li>
+                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_hard_intern&#38;a=secure">Hardware and Systems Engeneering Positions</A></li></ul>
                        <p><strong>We love what we do because we do what we love. Join us.</strong></p>
                       </td>
                   </tr>
         
         
         <tr>
-            <td colspan="2" align="center"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_partnering.gif" alt="NVIDA" width="357" height="18" border="0" />
+            <td colspan="2" align="center" ><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_partnering.gif" alt="NVIDA" width="510" height="18" border="0" />
             </td>
         </tr>
         <tr>
-            <td colspan="2" align="left" class="bodyText">
+            <td colspan="2" align="left" width="480" class="bodyText">
                 <p><A href="http://www.nvidia.edu" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia_geforcefx.gif" alt="geforce" width="160" height="160" border="0" align="right" /></A>
                          As a world leader in visual computing technology NVIDIA's objective remains solid: to be the most important 3D company in the world. We are committed 
                          to developing innovative technologies that deliver stunning multimedia experiences on mass computing platforms. We invest in our people and our 
