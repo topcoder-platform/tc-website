@@ -52,7 +52,7 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
 
         String taskName = request.getParameter(Constants.TASK_PARAM);
-        if (!isLegal(taskName)) {
+        if (taskName==null || !isLegal(taskName)) {
             throw new ServletException("Illegal task: " + taskName);
         }
 
