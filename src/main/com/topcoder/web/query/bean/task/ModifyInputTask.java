@@ -57,7 +57,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             checkInputId(getInputId(), i);
             if (!super.hasErrors()) {
                 if (isNewInput()) {
-                    setInputId(i.createInput(getInputCode(), getDataTypeId(), getInputDesc()));
+                    setInputId(i.createInput(getInputCode(), getDataTypeId(), getInputDesc(), getDb()));
                 } else {
                     i.setInputCode(getInputId(), getInputCode(), getDb());
                     i.setInputDesc(getInputId(), getInputDesc(), getDb());
