@@ -5,7 +5,18 @@
 <HTML>
 <HEAD>
 <title>TopCoder Admin Login</title>
-
+<SCRIPT language="JavaScript"><!--
+  function submitEnter(e, loginForm) {
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     loginForm.submit();
+     return false;
+    } else return true;
+  }
+  //--></SCRIPT>
 </HEAD>
 
 <BODY BGCOLOR="#999999" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -24,7 +35,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="50" BORDER="0"><BR>
-                <FORM METHOD="post" NAME="frmLogin" action="/">
+                <FORM METHOD="post" NAME="frmLogin" action="/admin">
                     <INPUT NAME="Task" TYPE="hidden" VALUE="Login"/>
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="60%" ALIGN="center">
                   <TR>

@@ -17,7 +17,6 @@ public class Login {
     public static final String KEY_USER_PASS = "pass";
     public static final String KEY_DESTINATION_PAGE = "dest";
     private static final String LOGIN_PAGE = "/login.jsp";
-    private static final String MAIN_PAGE = "/";
 
     private String nextPage = "";
     private boolean pageInContext = true;
@@ -35,7 +34,7 @@ public class Login {
                 WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
                 authToken.login(possibleUser);
                 log.debug("user " + possibleUser.getUserName() + " has logged in");
-                nextPage = MAIN_PAGE;
+                nextPage = request.getContextPath();
                 pageInContext = false;
                 return;
             } catch (Exception ae) {
