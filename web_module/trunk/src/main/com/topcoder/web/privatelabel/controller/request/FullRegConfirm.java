@@ -76,7 +76,7 @@ public class FullRegConfirm extends FullRegBase {
             //loop through all the responses in the request
             if (q.isRequired() && (values == null || values.length == 0)) {
                 //this is cheating, cuz really it should be done in the data checking method.
-                addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a valid answer, this question is required.");
+                addError(key, "Please enter a valid answer, this question is required.");
             } else if (values != null) {
                 String value = null;
                 for (int i = 0; i < values.length; i++) {
@@ -98,6 +98,8 @@ public class FullRegConfirm extends FullRegBase {
                         } else {
                             throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
                         }
+                    } else if (q.isRequired()) {
+                        addError(key, "Please enter a valid answer, this question is required.");
                     }
                 }
             }

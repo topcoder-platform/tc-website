@@ -63,6 +63,12 @@ public class DemographicQuestion extends Base implements Comparable {
         this.desc = desc;
     }
 
+    /**
+     * get the list of potential answers associated with this question.
+     * they will be returned in ascending order based on their sort
+     * order from the database
+     * @return
+     */
     public List getAnswers() {
         List list = null;
         if (answers!=null) {
