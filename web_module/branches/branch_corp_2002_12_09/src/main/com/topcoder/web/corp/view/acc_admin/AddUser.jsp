@@ -46,7 +46,7 @@ function getPermissions(url,wd,ht) {
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>                    
-<FORM method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>">
+<FORM method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" name="frmUserEdit">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
     <input type="hidden" name="module" value="UserEdit"/>
     <% String id = (String)request.getAttribute("id");
@@ -177,7 +177,7 @@ function getPermissions(url,wd,ht) {
     </TR>   
     
   <TR>
-     <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="bodyText"><input type="reset" onClick="" name="clear" value=" Clear ">&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
+     <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="bodyText"><input type="button" onClick="Javascript:clearForm(document.frmUserEdit)" name="clear" value=" Clear ">&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
   </TR>
 </TABLE>
 </FORM>

@@ -89,7 +89,6 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
   return;
 }
 </SCRIPT>
-
 <SCRIPT type="text/javascript">
   function submitEnter(e, loginForm) {
     var keycode;
@@ -100,5 +99,12 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
      loginForm.submit();
      return false;
     } else return true;
+  }
+  function clearForm(form){
+    for(i=0;i<form.elements.length; ++i) {
+      if( form.elements[i].type=='text' ) {
+        form.elements[i].value='';
+      }
+    }
   }
 </SCRIPT>
