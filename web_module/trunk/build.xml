@@ -345,10 +345,10 @@
         </jar>
     </target>
 
-    <target name="package-EJB-ProblemRatingServicesBean" depends="compile">
+    <target name="package-EJB-ProblemRatingBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="ProblemRatingServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/ProblemRatingServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/problemrating"/>
         </antcall>
         <jar jarfile="${ejb_jars}/ProblemRatingServices.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -939,7 +939,7 @@
         <antcall target="package-EJB-AddressBean"/>
         <antcall target="package-EJB-PhoneBean"/>
         <antcall target="package-EJB-CoderBean"/>
-        <antcall target="package-EJB-ProblemRatingServicesBean"/>
+        <antcall target="package-EJB-ProblemRatingBean"/>
         <antcall target="package-EJB-SurveyBean"/>
         <antcall target="war-tc"/>
     </target>
