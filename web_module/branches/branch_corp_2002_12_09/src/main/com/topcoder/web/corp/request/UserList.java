@@ -51,9 +51,9 @@ public class UserList extends BaseProcessor {
         }
 
         /* Find the current logged in users ID number.  */
-        User currentUser = authToken.getUser();
+        User currentUser = authToken.getActiveUser();
         userId = currentUser.getId();
-
+        log.debug("--- UserList getting companyId for userId: "+userId);
         /* get the company associated with that logged in users ID number */
         long companyId = new 
             com.topcoder.web.ejb.user.ContactBean().getCompanyId(userId);
