@@ -29,14 +29,22 @@
 <% } else if (tabLev1.equals("algorithm")) { %>
 	<tr>
 		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
-		<td valign=middle align=center rowspan=2><a href="/tc?module=TCCC05AlgorithmTerms"><img src="/i/tournament/tccc05/tccc05_headline.gif" border=0/></a></td>
+		<td valign=middle align=center rowspan=2>
+<%--
+      <a href="/tc?module=TCCC05AlgorithmTerms"><img src="/i/tournament/tccc05/tccc05_headline.gif" border=0/></a>
+--%>
+      </td>
 		<td valign=top align=right rowspan=2 width="50%"><a href="/"><img src="/i/tournament/tccc05/tc_logo.gif" border=0/></a></td>
 	</tr>
 	<tr><td class=topNavBox><img src="/i/tournament/tccc05/tabs/L1_algOnL.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("component")) { %>
 	<tr>
 		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
-		<td valign=middle align=center rowspan=2><a href="/tc?module=TCCC05ComponentTerms"><img src="/i/tournament/tccc05/tccc05_headline.gif" border=0/></a></td>
+		<td valign=middle align=center rowspan=2>
+<%--
+      <a href="/tc?module=TCCC05ComponentTerms"><img src="/i/tournament/tccc05/tccc05_headline.gif" border=0/></a>
+--%>
+      </td>
 		<td valign=top align=right rowspan=2 width="50%"><a href="/"><img src="/i/tournament/tccc05/tc_logo.gif" border=0/></a></td>
 	</tr>
 	<tr><td class=topNavBox><img src="/i/tournament/tccc05/tabs/L1_compOnL.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
