@@ -537,7 +537,7 @@
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="HSTermsOfUse"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse/hs"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/termsofuse/hs"/>
         </antcall>
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="HSEmail"/>
@@ -550,11 +550,11 @@
         </antcall>
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Rating"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/rating"/>
+            <param name="unit-class-path" value="com/topcoder/web/hs/ejb/rating"/>
         </antcall>
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Coder"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/coder"/>
+            <param name="unit-jar-name" value="HSCoder"/>
+            <param name="unit-class-path" value="com/topcoder/web/hs/ejb/coder"/>
         </antcall>
     </target>
 
@@ -699,7 +699,7 @@
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="CorpTermsOfUse"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse/corp"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/termsofuse/corp"/>
         </antcall>
 
         <!-- User ejb -->
@@ -781,7 +781,7 @@
         <antcall target="deploy-screening"/>
 
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Coder"/>
+            <param name="unit-jar-name" value="ScreeningCoder"/>
             <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
         </antcall>
 
@@ -853,6 +853,21 @@
         <delete dir="${public_html}/screening/META-INF"/>
     </target>
     <!-- end of screening application specific targets -->
+
+
+    <target name="moveQueries" depends="compile">
+        <java classname="com.topcoder.utilities.querymover.QueryMover" fork="true">
+            <arg value="12195"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
 
 </project>
 
