@@ -35,7 +35,7 @@ function submitEnter(e) {
 			<table border=0 width=100% cellpadding=0 cellspacing=0>
 				<tr>
 					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo"></td>
+					<td valign=bottom align=center><img border=0 src="/i/events/google2004/codejamLogo.gif" alt="Google Code Jam logo"></td>
 					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
 				</tr>
 			</table>
@@ -53,11 +53,11 @@ function submitEnter(e) {
 			<jsp:param name="selectedTab" value="registration"/>
 			</jsp:include>
 			</div>
-                          
-<b><font size="+1">Registration Successful!</font></b><br>
 
-<p><font size="-1">
-<br/>
+
+			<br/><br/>
+			<span class=bigTitle>Registration Successful!</span>
+			<br/><br/>
 
 <b>If you converted your TopCoder / Code Jam 2003 account:</b><br/>
 Your account is active.<br/><br/>
@@ -70,7 +70,7 @@ do not activate your account.
 
 <br/><br/>
 
-Spend time in the Practice Rooms prior to the Qualification Round by clicking the Practice Arena tab above.<br/><br/>
+Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.<br/><br/>
 
 Good luck to you in the Arena!
 </font></p>

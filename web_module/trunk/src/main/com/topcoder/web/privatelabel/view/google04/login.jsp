@@ -58,7 +58,7 @@ function submitEnter(e) {
 			<br/><br/>
 			<span class=bigTitle>Registration</span>
 			<br/><br/>
-                        Registration will close on Tuesday, September 14 at 6:00PM EDT.<br/><br/>
+                        Registration will close on Tuesday, September 14 at 6:00PM ET.<br/><br/>
                         If you are currently a TopCoder member or registered for the Google Code Jam 2003, you may enter your handle and password below to use your account for the Google Code Jam 2004.<br/><br/>
                         Note: Your browser must have cookies enabled in order for this to work.<br/><br/>
 
