@@ -10,6 +10,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.screening.common.AnonymousUserException;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.corp.request.Login;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -144,9 +145,9 @@ public abstract class BaseProcessor implements RequestProcessor {
             if(request.getMethod().equals("GET") && request.getQueryString() != null){
                 redirect = redirect + '?' + request.getQueryString();
             }
-            request.setAttribute(Constants.REDIRECT,redirect);
-            request.setAttribute(Constants.MESSAGE_PARAMETER,
-                "You must be logged in to access that resource.");
+            request.setAttribute(Login.KEY_DESTINATION_PAGE,redirect);
+            request.setAttribute(Constants.MESSAGE_PARAMETER,"In order to continue, you must provide your user name " +
+                            "and password, even if you’ve logged in already.");
             throw new AnonymousUserException(
                 "Login required for " + this.getClass().getName());
         }

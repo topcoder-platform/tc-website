@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 
 import com.topcoder.common.web.util.Data;
 import com.topcoder.security.TCSubject;
@@ -17,6 +18,7 @@ import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.screening.common.*;
 import com.topcoder.web.screening.model.RequestInfo;
+import com.topcoder.web.corp.request.Login;
 
 /**
  * This class handles all incoming requests.
@@ -84,9 +86,10 @@ public class MainServlet extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        WebAuthentication authen = null;
         try {
             Persistor p = new SessionPersistor(request.getSession());
-            WebAuthentication authen = new BasicAuthentication(p, request, response);
+            authen = new BasicAuthentication(p, request, response);
             long userId = authen.getActiveUser().getId();
             PrincipalMgr pm = new PrincipalMgr();
             TCSubject sub = pm.getUserSubject(userId);
@@ -122,18 +125,19 @@ public class MainServlet extends HttpServlet {
             Resource r = new ClassResource(procClass);
 
             if (!author.hasPermission(r)) {
-                String redirect;
-                if (request.getMethod().equals("POST")) {
-                    redirect = request.getServletPath();
-                } else {
-                    redirect = request.getServletPath() + '?' + request.getQueryString();
-                }
                 if (authen.getActiveUser().isAnonymous()) {
-                    request.setAttribute(Constants.REDIRECT, redirect);
-                    request.setAttribute(Constants.MESSAGE_PARAMETER,
-                            "In order to continue, you must provide your user name and password, "+
-                            "even if you’ve logged in already.");
-                    throw new AnonymousUserException("Login required for " + r.getName());
+                    request.setAttribute("message", "In order to continue, you must provide your user name " +
+                            "and password, even if you’ve logged in already.");
+                    log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+                    request.setAttribute(Login.KEY_DESTINATION_PAGE, HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+                    Login l = new Login();
+                    l.setRequest(request);
+                    l.setAuthentication(authen);
+                    l.process();
+                    boolean forward = l.isNextPageInContext();
+                    String destination = l.getNextPage();
+                    sendToPage(request, response, destination, forward);
+                    return;
                 } else {
                     throw new PermissionDeniedException(authen.getActiveUser(), r);
                 }
@@ -148,8 +152,6 @@ public class MainServlet extends HttpServlet {
             boolean forward = rp.isNextPageInContext();
 
             sendToPage(request, response, wherenow, forward);
-        } catch (AnonymousUserException e) {
-            sendToPage(request, response, Constants.LOGIN_PAGE, true);
         } catch (PermissionDeniedException e) {
             sendToPermErrorPage(request, response, e);
         } catch (ScreeningException e) {
