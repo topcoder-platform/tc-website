@@ -16,7 +16,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="../includes/top.jsp"/>
 <jsp:include page="../includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -44,22 +44,12 @@
                     <td align="left" colspan="3">
                         <textarea name="terms" rows="20" cols="80" readonly ><%=request.getAttribute(Constants.TERMS)%></textarea>
                         <br />
-                        <a href="<%=sessionInfo.getServletPath()%>?module=ComponentTermsAgree">I agree</a> to these terms.
+                        <br />
+                        <center><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ComponentTermsAgree">I agree</a> to these terms.</center>
                     </td>
                 </tr>
 
-<!-- Small promos begins -->
-            <jsp:include page="../includes/small_promos.jsp" flush="true" />
-<!-- Small promos ends -->
-
             </table>
-
-<!-- Customers begins -->
-<!-- Customers ends -->
-
-<!-- Press Highlights begins -->
-            <jsp:include page="../includes/press_highlights.jsp" flush="true" />
-<!-- Press Highlights ends -->
 
             <p><br></p>
 

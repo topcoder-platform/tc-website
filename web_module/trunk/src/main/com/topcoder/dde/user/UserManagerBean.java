@@ -1105,6 +1105,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
 
     public void agreeToComponentTerms(long userId) throws EJBException {
+        logger.debug("agreeToComponentTerms("+userId+") called");
         Context ctx = null;
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1125,9 +1126,9 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             if (retVal!=1) throw new EJBException("Failed to insert into user_terms_of_use_xref");
 
         } catch (NamingException e) {
-            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+            throw new EJBException(e);
         } catch (SQLException e) {
-            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+            throw new EJBException(e);
         } finally {
             close(ps);
             close(conn);
