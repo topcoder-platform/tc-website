@@ -11,22 +11,16 @@
           com.topcoder.common.*" %>
 <%
   Authorization authToken = null;
-  com.topcoder.common.web.data.User user = null;
   String rtUser = "";
   String rtPassword = "";
   String Redirect_URL = "http://" + request.getServerName();
-  String responseURL = response.encodeURL(""); 
   SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' hh:mm a z");
   Navigation n = null;
   try {
     n = (Navigation) session.getAttribute("navigation");
     if (n==null) n = new Navigation();
-    user = n.getUser();
-    HashMap userTypeDetails = user.getUserTypeDetails();
-    HashMap sessionObjects = n.getSessionObjects();
     if ( n.isIdentified() ) {
-      rtUser =user.getHandle();
-      rtPassword =user.getPassword();
+      rtUser =n.getSessionInfo().getHandle();
     }
   }
   catch( Exception e ) {
@@ -97,28 +91,7 @@
                 </TR>
                 <TR><TD COLSPAN="7" ALIGN="center" class="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"></TD></TR>
 <%
-
-  int userID = 0;
-  try {
-    userID = authToken.getUserID();
-  } catch (Exception e){
-    e.printStackTrace();
-  }
   ForumFactory forumFactory = ForumFactory.getInstance(authToken);
-  ProfileManager manager = forumFactory.getProfileManager();
-  String name = null;
-  String username = null;
-  com.coolservlets.forum.User newUser = null;
-  try {
-    newUser = manager.getUser( userID );
-    name = newUser.getName();
-    username = newUser.getUsername();
-  }
-  catch( Exception e ) {
-    e.printStackTrace();
-  }
-
-
   Iterator forumIterator = forumFactory.forums();
   if( !forumIterator.hasNext() ) {
 %>
@@ -136,8 +109,6 @@
     String forumDescription = forum.getDescription();
     int threadCount = forum.getThreadCount();
     int messageCount = forum.getMessageCount();
-    Date creationDate = forum.getCreationDate();
-    Date modifiedDate = forum.getModifiedDate();
     String handle = forum.getUser().getUsername();
 %>
                       <TR>
