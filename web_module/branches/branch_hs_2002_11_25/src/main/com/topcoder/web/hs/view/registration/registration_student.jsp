@@ -33,7 +33,7 @@
   <% }
     } %>
  function changeState() {
-  var idx=document.regForm.state.selectedIndex
+  idx=document.regForm.state.selectedIndex
   alert(idx);
   if (idx==-1) {
    document.regForm.school.disabled=true
