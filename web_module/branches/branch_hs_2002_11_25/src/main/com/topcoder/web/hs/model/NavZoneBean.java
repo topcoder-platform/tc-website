@@ -1,5 +1,6 @@
 package com.topcoder.web.hs.model;
 
+import java.io.*;
 import java.util.*;
 
 /**
