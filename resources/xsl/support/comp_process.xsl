@@ -91,7 +91,7 @@
 	When a problem has been selected, a window containing the following will be presented to the contestant:
 	<UL>
                                                 <LI>Problem information, problem statement, and coding area</LI>
-                                                <LI>A choice of either the <A HREF="/index?t=support&amp;c=editor_info" CLASS="bodyText">standard or VI editors</A>
+                                                <LI>Editor: <A HREF="/index?t=support&amp;c=editor_info" CLASS="bodyText">standard</A>
                                                 </LI>
                                                 <LI>Buttons for saving, compiling, testing, clearing and submitting the coded problem</LI>
                                             </UL>
