@@ -8,9 +8,12 @@
 
   <xsl:import href="../includes/modules/tc_updates.xsl"/>
 
+<!--
   <xsl:import href="../includes/modules/top_10_wins_div1.xsl"/> 
 
   <xsl:import href="../includes/modules/top_10_wins_div2.xsl"/>   
+-->
+  <xsl:import href="../includes/modules/top_room_wins.xsl"/>   
 
   <xsl:import href="../includes/modules/last_srm.xsl"/>
 
@@ -708,6 +711,7 @@
 
     
 
+<!--
 <xsl:choose>
 
   <xsl:when test="number(/TC/Rating)&lt;1200">
@@ -723,8 +727,17 @@
   </xsl:otherwise>
 
 </xsl:choose>     
+-->
 
-        
+       
+     <xsl:choose>
+     <xsl:when test="number(/TC/Rating)&lt;1200"> 
+       <xsl:call-template name="top_room_wins"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
+     </xsl:when>
+     <xsl:otherwise>
+       <xsl:call-template name="top_room_wins"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
+     </xsl:otherwise>
+     </xsl:choose> 
 
     <!-- SRM Results Ends --> 
 
