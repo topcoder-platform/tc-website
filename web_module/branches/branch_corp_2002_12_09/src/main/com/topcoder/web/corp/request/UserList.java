@@ -72,6 +72,7 @@ public class UserList extends BaseProcessor {
 //        if (rsc.getRowCount() == 0) {
 //            throw new Exception("User list invalid. userId="+userId);
 //        }
+System.err.println("--------"+rsc.getRowCount()+"---");
         request.setAttribute("companyUsers",rsc);
         nextPage = USER_LIST_PAGE;
     }
