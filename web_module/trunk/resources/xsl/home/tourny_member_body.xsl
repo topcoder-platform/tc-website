@@ -632,7 +632,7 @@ problems, as two of the problems were shared across divisions...<A CLASS="bodyGe
 <IMG SRC="/i/srm_home.gif" WIDTH="244" HEIGHT="250" ALT="" BORDER="0" USEMAP="#srm_home"/><MAP NAME="srm_home">
 <AREA ALT="" COORDS="124,28,228,90" HREF="/?&amp;t=tces&amp;c=fbi"/>
 <AREA ALT="" COORDS="141,160,224,187" HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>
-<AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/?RoundId=4400&amp;t=schedule&amp;c=srm"/>
+<AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/stat?&amp;c=last_match"/>
 </MAP>
 
 <!--<IMG USEMAP="#cryptic_home" SRC="/i/es/cryptic/cryptic_home.gif" alt="" width="244" height="160" border="0"/>  
