@@ -101,7 +101,7 @@
                                     <span id="calendarTCCC04Date">3</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 2<br/>
-                                    Compete: 9:00&#160;PM<br/>
+                                    Compete: 9:30&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
@@ -120,7 +120,7 @@
                                     <span id="calendarTCCC04Date">10</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 3<br/>
-                                    Compete: 9:00&#160;PM<br/>
+                                    Compete: 9:30&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
@@ -153,7 +153,7 @@
                                     <span id="calendarTCCC04Date">17</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 4<br/>
-                                    Compete: 9:00&#160;PM<br/>
+                                    Compete: 9:30&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
