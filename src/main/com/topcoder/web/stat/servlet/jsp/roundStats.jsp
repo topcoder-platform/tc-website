@@ -254,9 +254,11 @@ pageContext.setAttribute("resultSetDates", rsc);
          
 <% if (!bSorted) 
 //this nugget puts in the room-spacer-line on unsorted stats for the 1st room
-{ %>
+{
+  pageContext.setAttribute("roomDivision",resultRow_0.getItem(15)); 
+ %>
                  <TR>    
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %></A></TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
                  </TR>   
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>    
@@ -270,12 +272,13 @@ pageContext.setAttribute("resultSetDates", rsc);
         <% if ((!bSorted) && !(pageContext.getAttribute("roomName").toString().equals(resultRow.getItem(5).toString()))){ 
              pageContext.setAttribute("roomName",resultRow.getItem(5));
               pageContext.setAttribute("roomId",resultRow.getItem(4));
+              pageContext.setAttribute("roomDivision",resultRow.getItem(15));
         %> 
                  <TR>    
                    <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>   
                  <TR>    
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %></A></TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
                  </TR>   
                  <TR>
                    <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>    
