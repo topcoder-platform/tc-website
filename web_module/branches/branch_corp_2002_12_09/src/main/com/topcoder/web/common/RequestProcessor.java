@@ -25,18 +25,18 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface RequestProcessor {
 	
-	/**
-	 * Used as prefix to form the request parameter names by concatenation with
-	 * parameter number.
-	 */
-	public static final String PARAM_NAME_PREFIX = "d_";
+//	/**
+//	 * Used as prefix to form the request parameter names by concatenation with
+//	 * parameter number.
+//	 */
+//	public static final String PARAM_NAME_PREFIX = "d_";
 	
 	/**
 	 * This method just stores request given for later processing.
 	 * 
 	 * @param req request issued by user  
 	 */
-	public void prepare(HttpServletRequest req);
+	public void setRequest(HttpServletRequest req);
 	
 	/**
 	 * Based on the request (received via setRequest(..)) performs some actions
@@ -88,5 +88,5 @@ public interface RequestProcessor {
 	 * 
 	 * @return boolean before 
 	 */
-	public boolean hasNextPageSameContext();
+	public boolean isNextPageInContext();
 }

@@ -122,7 +122,7 @@ public class MainServlet extends HttpServlet {
                 break;
         }
 
-        currentProc.prepare(request);
+        currentProc.setRequest(request);
         try {
             currentProc.process();
         }
