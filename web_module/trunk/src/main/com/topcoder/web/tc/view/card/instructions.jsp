@@ -32,7 +32,7 @@
             
             <div class="bodyText">
 
-            <p>Great!  You've unlocked your TopCoder Member Card.  In addition to being able to view your card here, you can also place it right into your own site! The card is built on Macromedia Flash technology.  This makes it a little more complicated than inserting a .jpg or .gif into your website, but it is still a simple process.  This page presents 2 methods for posting the TopCoder Member Card on your personal site, one with Flash "detection" and one without it.  Even though <A href="http://www.macromedia.com/software/player_census/flashplayer/?promoid=pu1_homepage_flashubiquity_012804" target="_blank">98% of internet viewers</A> have Flash-enabled browsers, you still might want your site to be able to detect the presence of Flash and react accordingly.  Here's how:</p>
+            <p>Great!  You've unlocked your TopCoder Member Card.  In addition to being able to view your card here, you can also place it right into your own site! The card is built on Macromedia&#174; Flash&#153; technology.  This makes it a little more complicated than inserting a .jpg or .gif into your website, but it is still a simple process.  This page presents 2 methods for posting the TopCoder Member Card on your personal site, one with Flash "detection" and one without it.  Even though <A href="http://www.macromedia.com/software/player_census/flashplayer/?promoid=pu1_homepage_flashubiquity_012804" target="_blank">98% of internet viewers</A> have Flash-enabled browsers, you still might want your site to be able to detect the presence of Flash and react accordingly.  Here's how:</p>
             
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -52,23 +52,23 @@
 var MM_contentVersion = 6;
 var MM_FlashCanPlay = false;
 var plugin = (navigator.mimeTypes 
-&& navigator.mimeTypes["application/x-shockwave-flash"]) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+              && navigator.mimeTypes["application/x-shockwave-flash"]) 
+            ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
 if ( plugin ) {
-        var words = navigator.plugins["Shockwave Flash"].description.split(" ");
-        for (var i = 0; i &lt; words.length; ++i)
-        {
-        if (isNaN(parseInt(words[i])))
-        continue;
-        var MM_PluginVersion = words[i];
-        }
-    MM_FlashCanPlay = MM_PluginVersion &gt;= MM_contentVersion;
-}
-else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")&gt;=0
-   && (navigator.appVersion.indexOf("Win") != -1)) {
-    document.write('&lt;SCR' + 'IPT LANGUAGE=VBScript\&gt; \n'); //FS hide this from IE4.5 Mac by splitting the tag
-    document.write('on error resume next \n');
-    document.write('MM_FlashCanPlay = ( IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
-    document.write('&lt;/SCR' + 'IPT\&gt; \n');
+  var words = navigator.plugins["Shockwave Flash"].description.split(" ");
+  for (var i = 0; i &lt; words.length; ++i) {
+    if (isNaN(parseInt(words[i])))
+      continue;
+    var MM_PluginVersion = words[i];
+  }
+  MM_FlashCanPlay = MM_PluginVersion &gt;= MM_contentVersion;
+} else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")&gt;=0
+           && (navigator.appVersion.indexOf("Win") != -1)) {
+  document.write('&lt;SCR' + 'IPT LANGUAGE=VBScript\&gt; \n');
+  document.write('on error resume next \n');
+  document.write('MM_FlashCanPlay = ( IsObject(CreateObject');
+  document.write('("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
+  document.write('&lt;/SCR' + 'IPT\&gt; \n');
 }
 //--&gt;
 &lt;/SCRIPT&gt;
@@ -110,7 +110,8 @@ document.write(' &lt;/object&gt; ');
 &lt;SCRIPT language="JavaScript"&gt;
 &lt;!--
 if (!MM_FlashCanPlay){
-document.write('&lt;img src="/i/clear.gif" width="400" height="400" border="0"&gt;');
+document.write('&lt;A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"&gt; ');
+document.write('&lt;img src="http://www.topcoder.com/i/card/noFlash.gif" width="400" height="400" border="0"&gt;&lt;/A&gt; ');
 }
 // --&gt;
 &lt;/SCRIPT&gt;

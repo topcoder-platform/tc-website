@@ -12,23 +12,24 @@
 <!--
 var MM_contentVersion = 6;
 var MM_FlashCanPlay = false;
-var plugin = (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"]) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+var plugin = (navigator.mimeTypes 
+              && navigator.mimeTypes["application/x-shockwave-flash"]) 
+            ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
 if ( plugin ) {
-		var words = navigator.plugins["Shockwave Flash"].description.split(" ");
-	    for (var i = 0; i < words.length; ++i)
-	    {
-		if (isNaN(parseInt(words[i])))
-		continue;
-		var MM_PluginVersion = words[i];
-	    }
-	MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
-}
-else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
-   && (navigator.appVersion.indexOf("Win") != -1)) {
-	document.write('<SCR' + 'IPT LANGUAGE=VBScript\> \n'); //FS hide this from IE4.5 Mac by splitting the tag
-	document.write('on error resume next \n');
-	document.write('MM_FlashCanPlay = ( IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
-	document.write('</SCR' + 'IPT\> \n');
+  var words = navigator.plugins["Shockwave Flash"].description.split(" ");
+  for (var i = 0; i < words.length; ++i) {
+    if (isNaN(parseInt(words[i])))
+      continue;
+    var MM_PluginVersion = words[i];
+  }
+  MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
+} else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
+           && (navigator.appVersion.indexOf("Win") != -1)) {
+  document.write('<SCR' + 'IPT LANGUAGE=VBScript\> \n');
+  document.write('on error resume next \n');
+  document.write('MM_FlashCanPlay = ( IsObject(CreateObject');
+  document.write('("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
+  document.write('</SCR' + 'IPT\> \n');
 }
 //-->
 </SCRIPT>
@@ -96,7 +97,7 @@ document.write(' </object> ');
 <SCRIPT language="JavaScript">
 <!--
        if (!MM_FlashCanPlay){
-       document.write('<img src="/i/clear.gif" width="400" height="400" border="0">');
+       document.write('<img src="http://www.topcoder.com/i/card/noFlash.gif" width="400" height="400" border="0">');
        }
 // -->
 </SCRIPT>
