@@ -22,6 +22,9 @@ public class TestResults extends BaseProcessor {
         pinfo.setTestSetAName("Sample Problem Set");
         getRequest().setAttribute("profileInfo",cinfo);
         
+        TestResultsInfo tinfo = new TestResultsInfo();
+        getRequest().setAttribute("testResultsInfo",tinfo);
+        
         setNextPage(Constants.TEST_RESULTS_PAGE);
         setNextPageInContext(true);
     }
