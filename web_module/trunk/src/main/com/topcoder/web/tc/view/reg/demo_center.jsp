@@ -56,7 +56,7 @@ function lookupText(qId){
 }
 </SCRIPT>
     <SCRIPT type="text/javascript">reg=window.document.frmReg;</SCRIPT>
-    <input type="hidden" name="<%=Controller.TASK%>" value="Registration">  
+    <input type="hidden" name="<%=Controller.TASK%>" value="Registration">
 
 <% if (Registration.isRegister()) { %>
 
@@ -69,16 +69,16 @@ function lookupText(qId){
     </script>
 
                 <tr><td colspan="2" class="statTextBig" background="/i/steel_bluebv_bg.gif">Referral</td></tr>
-                
+
                 <tr valign="middle">
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="ReferralError" /></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="registerLabel">How did you learn about TopCoder?</td>
                     <td class="statText">
-                   
+
                         <tc:getProperty id="referral" name="Registration" property="Referral" />
                         <%
                         String referralSelectOnChange;
@@ -103,7 +103,7 @@ function lookupText(qId){
                     <td class="registerLabel">Job Fair School State&nbsp;</td>
                     <td class="statText" align="left" valign="middle">
         <%
-        //String currentReferralSchoolState = request.getParameter(Registration.REFERRAL_SCHOOL_STATE)==null?(referralSchoolState.length()==0?Registration.getStateName(Registration.getState()):referralSchoolState):request.getParameter(Registration.REFERRAL_SCHOOL_STATE);    
+        //String currentReferralSchoolState = request.getParameter(Registration.REFERRAL_SCHOOL_STATE)==null?(referralSchoolState.length()==0?Registration.getStateName(Registration.getState()):referralSchoolState):request.getParameter(Registration.REFERRAL_SCHOOL_STATE);
         String currentReferralSchoolState = null;
         String currentReferralSchoolStateName = null;
         if ( request.getParameter(Registration.REFERRAL_SCHOOL_STATE)==null ) {
@@ -121,12 +121,12 @@ function lookupText(qId){
         %>
                 <tc:stateSelect name="<%=Registration.REFERRAL_SCHOOL_STATE%>" class="dropdown" onChange="this.form.submit();" selectedValue="<%=currentReferralSchoolState%>" /></td>
                 </tr>
-    
+
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="ReferralOtherError" /></td>
                 </tr>
-  
+
                 <tr>
                 <tc:getProperty id="referralSchool" name="Registration" property="ReferralOther" />
                     <td class="registerLabel">Job Fair School</td>
@@ -140,7 +140,7 @@ function lookupText(qId){
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="ReferralOtherError" /></td>
                 </tr>
-  
+
                 <tr>
                     <td class="registerLabel">Details</td>
                     <td class="statText">&nbsp;<input type="text" name="<%=Registration.REFERRAL_OTHER%>" value ="<jsp:getProperty name="Registration" property="ReferralOther" />" size="30" maxlength="30" onFocus="if (this.value==<%=Registration.REFERRAL_OTHER%>Prompt['prompt'+this.form.<%=Registration.REFERRAL%>.options[this.form.<%=Registration.REFERRAL%>.selectedIndex].value]) this.value='';"><br></td>
@@ -151,10 +151,10 @@ function lookupText(qId){
                 <tr valign="middle">
                     <td colspan="2" class="statText">&nbsp;</td>
                 </tr>
-  
+
                 <tr valign="middle">
                     <td colspan="2" class="statTextBig" background="/i/steel_bluebv_bg.gif">Demographics</td>
-                </tr>  
+                </tr>
 
 <% } // if (Registration.isRegister()) %>
 
@@ -162,60 +162,9 @@ function lookupText(qId){
 
                 <tr>
                     <td></td>
-                    <td class="errorText"></td>
-                </tr>
-  
-                <tr valign="middle">
-                    <td class="registerLabel">&nbsp;</td>
-                    <td class="statText">Please provide the following school information<br>Page will refresh with schools based upon the state you select.</td>
-                </tr>
-    
-                <tr>
-                    <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="SchoolStateError" /></td>
-                </tr>
-  
-                <tr>
-                    <tc:getProperty id="schoolState" name="Registration" property="SchoolState" />
-                    <td class="registerLabel">School State</td>
-                    <td class="statText">
-        <%
-        //String currentSchoolState = request.getParameter(Registration.SCHOOL_STATE)==null?(schoolState.length()==0?Registration.getStateName(Registration.getState()):schoolState):request.getParameter(Registration.SCHOOL_STATE);    
-        String currentSchoolState = "";
-        String currentSchoolStateName = "";
-        if ( request.getParameter(Registration.SCHOOL_STATE)==null ) {
-          if ( schoolState.length()==0 ) {
-            currentSchoolState = Registration.getState(); 
-            currentSchoolStateName = Registration.getStateName(currentSchoolState);
-          } else {
-            currentSchoolState = schoolState;
-            currentSchoolStateName = Registration.getStateName(currentSchoolState);
-          }
-        } else {
-          currentSchoolState = request.getParameter(Registration.SCHOOL_STATE);    
-          currentSchoolStateName = Registration.getStateName(currentSchoolState); 
-        }
-        %>
-                        <tc:stateSelect name="<%=Registration.SCHOOL_STATE%>" class="dropdown" onChange="this.form.submit();" selectedValue="<%=currentSchoolState%>" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="SchoolError" /></td>
-                </tr>
-  
-                <tr>
-                    <tc:getProperty id="school" name="Registration" property="School" />
-                    <td class="registerLabel">School</td>
-                    <td class="statText"><tc:schoolSelect name="<%=Registration.SCHOOL%>" class="dropdown" state="<%=currentSchoolStateName%>" selectedValue="<%=school%>" /></td>
-                </tr>
-  
-                <tr>
-                    <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="GpaError" /></td>
                 </tr>
-                
+
                 <tr>
                     <td class="registerLabel">GPA&nbsp;</td>
                     <td class="statText"><input type="text" name="<%=Registration.GPA%>" value ="<jsp:getProperty name="Registration" property="Gpa" />" size="5" maxlength="5"></td>
@@ -237,10 +186,61 @@ function lookupText(qId){
                     </td>
                 </tr>
 
+                <tr>
+                    <td></td>
+                    <td class="errorText"></td>
+                </tr>
+
+                <tr valign="middle">
+                    <td class="registerLabel">&nbsp;</td>
+                    <td class="statText">Please provide the following school information<br>Page will refresh with schools based upon the state you select.</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="SchoolStateError" /></td>
+                </tr>
+
+                <tr>
+                    <tc:getProperty id="schoolState" name="Registration" property="SchoolState" />
+                    <td class="registerLabel">School State</td>
+                    <td class="statText">
+        <%
+        //String currentSchoolState = request.getParameter(Registration.SCHOOL_STATE)==null?(schoolState.length()==0?Registration.getStateName(Registration.getState()):schoolState):request.getParameter(Registration.SCHOOL_STATE);
+        String currentSchoolState = "";
+        String currentSchoolStateName = "";
+        if ( request.getParameter(Registration.SCHOOL_STATE)==null ) {
+          if ( schoolState.length()==0 ) {
+            currentSchoolState = Registration.getState();
+            currentSchoolStateName = Registration.getStateName(currentSchoolState);
+          } else {
+            currentSchoolState = schoolState;
+            currentSchoolStateName = Registration.getStateName(currentSchoolState);
+          }
+        } else {
+          currentSchoolState = request.getParameter(Registration.SCHOOL_STATE);
+          currentSchoolStateName = Registration.getStateName(currentSchoolState);
+        }
+        %>
+                        <tc:stateSelect name="<%=Registration.SCHOOL_STATE%>" class="dropdown" onChange="this.form.submit();" selectedValue="<%=currentSchoolState%>" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="SchoolError" /></td>
+                </tr>
+
+                <tr>
+                    <tc:getProperty id="school" name="Registration" property="School" />
+                    <td class="registerLabel">School</td>
+                    <td class="statText"><tc:schoolSelect name="<%=Registration.SCHOOL%>" class="dropdown" state="<%=currentSchoolStateName%>" selectedValue="<%=school%>" /></td>
+                </tr>
+
 <%}%>
 
                 <tc:demographic coderType="<%=coderType%>" optional="<%=new Boolean(Registration.getDemographicDecline()).toString()%>" selectedValues="<%=Registration.getDemographics()%>" class="dropdown">
-  
+
                 <tr>
                     <td></td>
                     <td class="errorText"><%=Registration.getDemographicError(demographicQuestionId)%></td>
@@ -250,18 +250,18 @@ function lookupText(qId){
                     <td class="registerLabel" nowrap=""><%=demographicQuestion%>&nbsp;</td>
                     <td class="statText"><%=demographicAnswer%>&#160;<%=demographicDescription%></td>
                 </tr>
-  
+
                 </tc:demographic>
 
                 <tr valign="middle"><td colspan="2"><br/></td></tr>
-            
+
                 <tr valign="middle">
                     <td align="center" class="statText" colspan="2">
                         <input type="button" name="backButton" value="back" onclick="location='<%=response.encodeURL("index.jsp")%>';">&nbsp;&nbsp;
                         <input type="button" name="continueButton" onClick="if(checkInputs())reg.submit();" value="continue">
                     </td>
-                </tr>   
+                </tr>
             </table>
-            
+
             </form>
 
