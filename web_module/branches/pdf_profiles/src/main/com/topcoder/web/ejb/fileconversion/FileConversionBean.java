@@ -70,7 +70,8 @@ public class FileConversionBean implements SessionBean {
     public byte[] convertDoc(byte[] file) throws RemoteException
     {
         // get an instance of the converter
-        ConversionClient client = Conversion.getNewClient();
+        ConversionClient client = Conversion.getInstance().getNewClient();
+        System.out.println(client.getInputFormats().length);
         for(int i = 0; i < client.getInputFormats().length; i++)
         {
             System.out.println(client.getInputFormats()[i].getExtension());
