@@ -35,13 +35,7 @@ public abstract class FullRegDemog extends FullRegBase {
         setNextPage();
     }
 
-    protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
-        super.checkRegInfo(info);
-        //in case the person chose the US, the basic registration
-        //requires them to choose a state, but we don't have
-        //state input for the verizon reg process.
-        removeError(Constants.STATE_CODE);
-    }
+
 
 }
 
