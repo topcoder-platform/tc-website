@@ -55,6 +55,11 @@ public class QueryDetailTask extends BaseTask implements Task, Serializable {
         super.getNavLinks().add(new Link(buf.toString(), Constants.DB_SELECTION_NAME));
         buf.setLength(0);
         buf.append(begin);
+        buf.append(Constants.COMMAND_LIST_TASK);
+        super.getNavLinks().add(new Link(buf.toString(), Constants.COMMAND_LIST_NAME));
+        super.getNavLinks().add(new Link("","")); //spacer
+        buf.setLength(0);
+        buf.append(begin);
         buf.append(Constants.MODIFY_COMMAND_TASK);
         super.getNavLinks().add(new Link(buf.toString(), "New Command"));
         buf.setLength(0);
@@ -65,11 +70,6 @@ public class QueryDetailTask extends BaseTask implements Task, Serializable {
         buf.append(begin);
         buf.append(Constants.MODIFY_INPUT_TASK);
         super.getNavLinks().add(new Link(buf.toString(), "New Input"));
-        super.getNavLinks().add(new Link("","")); //spacer
-        buf.setLength(0);
-        buf.append(begin);
-        buf.append(Constants.COMMAND_LIST_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), Constants.COMMAND_LIST_NAME));
     }
 
     public void process(String step) throws Exception {
