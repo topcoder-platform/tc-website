@@ -89,12 +89,12 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
               Registration is from
 
 
-              <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
+              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
               to
-<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>
+<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>
               &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/>.<br/>
               Competition at
-              <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
+              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
               &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneShort"/> on
 
               <xsl:variable name="startMonth">
@@ -124,7 +124,7 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
               division are placed in a room and the average competitor 
               rating for each room is similar.  
               The Online Round will begin at 
-              <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
+              <xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
               &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneShort"/>.
             <br />
           </li>
@@ -244,7 +244,7 @@ However, prizes will only be paid to members who are at least 18 years of age, m
                 <xsl:when test="$startMonth='10'">October</xsl:when>
                 <xsl:when test="$startMonth='11'">November</xsl:when>
                 <xsl:when test="$startMonth='12'">December</xsl:when>
-              </xsl:choose>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndDay,'##')"/>, <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndYear"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/> registration deadline.<br/><br/>
+              </xsl:choose>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndDay,'##')"/>, <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndYear"/>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour,'##')"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/> registration deadline.<br/><br/>
 
 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br /><br />
