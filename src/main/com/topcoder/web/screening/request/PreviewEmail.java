@@ -1,10 +1,10 @@
 package com.topcoder.web.screening.request;
 
-import javax.servlet.ServletRequest;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.EmailInfo;
 import com.topcoder.web.screening.model.SessionInfo;
+
+import javax.servlet.ServletRequest;
 
 public class PreviewEmail extends BaseSessionProcessor {
     public void process() throws Exception {

@@ -1,21 +1,18 @@
 package com.topcoder.web.screening.request;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.servlet.ServletRequest;
-
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.screening.model.ProfileInfo;
+
+import javax.servlet.ServletRequest;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 public class PopulateProfileSetup extends BaseProfileProcessor {
     private ServletRequest request;

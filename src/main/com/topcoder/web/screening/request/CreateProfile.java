@@ -1,21 +1,15 @@
 package com.topcoder.web.screening.request;
 
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.servlet.ServletRequest;
-import javax.sql.DataSource;
-
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProfileInfo;
+
+import javax.servlet.ServletRequest;
+import java.util.Iterator;
+import java.util.Map;
 
 public class CreateProfile extends BaseSessionProcessor {
     public void process() throws Exception {

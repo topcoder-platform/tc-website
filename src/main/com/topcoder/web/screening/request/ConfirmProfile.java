@@ -1,8 +1,6 @@
 package com.topcoder.web.screening.request;
 
 
-import javax.servlet.ServletRequest;
-
 import com.topcoder.web.screening.common.Constants;
 
 public class ConfirmProfile extends PopulateProfileSetup {

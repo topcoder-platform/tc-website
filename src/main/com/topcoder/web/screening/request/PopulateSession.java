@@ -1,15 +1,13 @@
 package com.topcoder.web.screening.request;
 
-import java.util.Map;
-
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.SessionInfo;
+
+import java.util.Map;
 
 public class PopulateSession extends BaseSessionProcessor {
     public void process() throws Exception {

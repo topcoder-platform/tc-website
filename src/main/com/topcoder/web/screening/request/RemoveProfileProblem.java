@@ -1,9 +1,9 @@
 package com.topcoder.web.screening.request;
 
-import javax.servlet.ServletRequest;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProfileInfo;
+
+import javax.servlet.ServletRequest;
 
 public class RemoveProfileProblem extends BaseProfileProcessor {
     public void process() throws Exception {

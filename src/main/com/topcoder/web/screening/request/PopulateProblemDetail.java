@@ -1,10 +1,10 @@
 package com.topcoder.web.screening.request;
 
-import javax.servlet.ServletRequest;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.model.ProblemInfo;
+
+import javax.servlet.ServletRequest;
 
 public class PopulateProblemDetail extends BaseProcessor {
 

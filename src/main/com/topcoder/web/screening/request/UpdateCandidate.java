@@ -1,31 +1,19 @@
 package com.topcoder.web.screening.request;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.transaction.UserTransaction;
-
+import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.NoSuchUserException;
-
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.Transaction;
-
+import com.topcoder.web.common.security.PrincipalMgr;
+import com.topcoder.web.common.security.PrincipalMgrException;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserHome;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.ejb.coder.Coder;
@@ -34,8 +22,15 @@ import com.topcoder.web.screening.ejb.coder.CompanyCandidate;
 import com.topcoder.web.screening.ejb.coder.CompanyCandidateHome;
 import com.topcoder.web.screening.model.CandidateInfo;
 import com.topcoder.web.screening.model.SessionInfo;
-import com.topcoder.web.common.security.PrincipalMgr;
-import com.topcoder.web.common.security.PrincipalMgrException;
+
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.transaction.UserTransaction;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p>

@@ -1,20 +1,14 @@
 package com.topcoder.web.screening.request;
 
-import java.util.Map;
-import java.util.HashMap;
-
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.servlet.ServletRequest;
-import javax.sql.DataSource;
-
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
-
 import com.topcoder.web.screening.common.Constants;
+
+import javax.servlet.ServletRequest;
+import java.util.Map;
 
 public class BuildCandidateList extends BaseProcessor {
     private Request dataRequest;
@@ -30,11 +24,7 @@ public class BuildCandidateList extends BaseProcessor {
 
         User user = getAuthentication().getActiveUser();
 
-        InitialContext context = new InitialContext();
-        DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup(Constants.DATA_SOURCE),
-                                        DataSource.class);
-        DataAccess dAccess = new DataAccess(ds);
+        DataAccessInt dAccess = getDataAccess();
         dataRequest.setProperty("uid", String.valueOf(user.getId()));
         Map map = dAccess.getData(dataRequest);
 

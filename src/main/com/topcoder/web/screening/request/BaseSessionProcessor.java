@@ -1,22 +1,19 @@
 package com.topcoder.web.screening.request;
 
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Map;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.model.SessionInfo;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-
-import com.topcoder.web.screening.common.Constants;
-import com.topcoder.web.screening.model.SessionInfo;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class BaseSessionProcessor extends BaseProcessor {
     private static int BEGIN = 0;

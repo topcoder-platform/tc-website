@@ -1,12 +1,12 @@
 package com.topcoder.web.screening.request;
 
-import com.topcoder.web.screening.common.*;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.model.CandidateInfo;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import java.util.Map;
 
 /**
@@ -19,9 +19,7 @@ public class NoteList extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
-        InitialContext context = new InitialContext();
-        DataAccessInt dAccess = new DataAccess(
-            (DataSource)context.lookup(Constants.DATA_SOURCE));
+        DataAccessInt dAccess = getDataAccess();
         
         Request dr = new Request();
         dr.setProperties(getParameterMap());
