@@ -438,6 +438,7 @@ public class TCLoadRequests extends TCLoad {
         pageNameMap.put("last_match_sorted", "Last Match Results");
         pageNameMap.put("round_overview", "Round Overview");
         pageNameMap.put("LegacyReport", "TopCoder Reporting");
+        pageNameMap.put("srm", "SRM Details");
 
     }
 
