@@ -44,179 +44,92 @@
 			<xsl:call-template name="BodyTop">
 			<xsl:with-param name="image1">steelblue</xsl:with-param>
 			<xsl:with-param name="image">development</xsl:with-param>
-			<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+			<xsl:with-param name="title">&#160;Overview</xsl:with-param>
 			</xsl:call-template>
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" colspan="4"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" colspan="3" height="15"><img src="/i/clear.gif" alt="" width="240" height="15" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
 				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText" width="100%" colspan="4"><strong><img src="/i/development/title_weekly_comp_winners.gif" alt="This Week's Component Project Winners" width="346" height="26" border="0" /></strong><br />
-						<span class="statTextSmall">Week Ending November 15, 2002</span></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_gray_bg3.gif" class="registerNav" height="18" colspan="4">&#160;&#160;Featured Winner</td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText"colspan="3"><strong><img src="/i/title_get_with_program.gif" alt="Get With The Program" width="440" height="30" border="0" /></strong></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
 				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" colspan="4">
-						<table border="0" cellspacing="0" cellpadding="0" width="100%">
-							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
-
-							<tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: </strong><span class="coderTextGreen"><a href="/stat?c=member_profile&amp;cr=280167" class="coderTextGreen"><strong>ttsuchi</strong></a></span></td></tr>
-
-							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
-
-							<tr valign="top">
-								<td class="statText" rowspan="5" width="55"><img src="/i/m/ttsuchi_small.jpg" alt="" width="55" height="61" border="0" hspace="5" /></td>
-								<td class="statText" width="60%">Developer Level:</td>
-								<td class="statText" align="right" width="20%">II</td>
-								<td class="statText" width="20%"></td>
-							</tr>
-
-							<tr valign="top">
-								<td class="statText">Board Score for This Project:</td>
-								<td class="statText" align="right">xxx</td>
-								<td class="statText"></td>
-							</tr>
-
-							<tr valign="top">
-								<td class="statText">Rating:</td>
-								<td class="statText" align="right">1100</td>
-								<td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=280167" class="statText">[ ratings history ]</a></td>
-							</tr>
-
-							<tr valign="top">
-								<td class="statText">Earnings for This Project (before royalties):</td>
-								<td class="statText" align="right">$150.00</td>
-								<td class="statText"></td>
-							</tr>
-
-							<tr valign="top">
-								<td class="statText">Total Earnings for All Component Projects:</td>
-								<td class="statText" align="right">$150.00</td>
-								<td class="statText"></td>
-							</tr>
-
-							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr></table></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" colspan="3" height="15"><img src="/i/clear.gif" alt="" width="240" height="15" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
-				<tr valign="middle">
+				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" height="18" colspan="4">&#160;&#160;Component Description</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" colspan="4">
-						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statTextSmall"><span class="statText"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText"><strong>Logging Interface Component</strong></a></span><br />
-									The Logging Interface component provides a standard logging API with a pluggable back-end logging implementation.<br />
-									For more details, check out the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText">Logging Interface Component</a> at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</td></tr>
-						</table></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText"><img src="/i/diagram_coding.gif" alt="Coding Competitions" width="147" height="111" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText"><img src="/i/diagram_comp.gif" alt="Component Development" width="147" height="111" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText"><img src="/i/diagram_app.gif" alt="Application Development" width="147" height="111" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
-
-				<tr valign="middle">
+				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" height="18" colspan="4">&#160;&#160;Architecture Board Comments</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" colspan="4">
-						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statTextSmall">"This is a good design attempt that does not introduce unnecessarily complex overhead to a simple project." <strong>&#151;ilya</strong></td></tr>
-						</table></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText"><img src="/i/caption_coding.gif" alt="Coding Competitions" width="147" height="18" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText"><img src="/i/caption_comp.gif" alt="Component Development" width="147" height="18" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText"><img src="/i/caption_app.gif" alt="Application Development" width="147" height="18" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
-
-				<tr valign="middle">
+				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_gray_bg3.gif" class="registerNav" height="18" colspan="4">&#160;&#160;Congratulations to All of This Week's Winners</td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" colspan="3" height="20"><img src="/i/clear.gif" alt="" width="240" height="20" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18">&#160;&#160;Coder</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="45%" height="18">Project Name</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="20%" height="18" align="center">Board Score</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="20%" height="18" align="center">Earnings*</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextGreen" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=280167" class="coderTextGreen">ttsuchi</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText">Logging Interface Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">xxx</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$150.00</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextBlue" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=280167" class="coderTextBlue">seaniswise</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056" class="statText">Email Engine Enhancement Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">xxx</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$120.00</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="4">&#160;&#160;* Earnings for this Project (before royalties)</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 			</table>
 				
-			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
+			<table border="0" cellspacing="0" cellpadding="10" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
-					<td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-					<td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>	
-	
-				<tr valign="top">
-					<td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-					<td background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-					<td background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-					<td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
+						<table border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+							<tr valign="top"><td class="sectionTitle">3 great opportunities to earn money and recognition</td></tr>
+
+							<tr valign="top">
+								<td class="statTextSmall">
+									<p><strong>Coding Competitions</strong><br />
+									TopCoder Coding Competitions attract the best programmers in the US and soon, the world. At each Single Round Match, 
+									members compete against the clock, and each other. The winner of each match adds points to their rating. The more a 
+									member competes, the better their rating can become. Ratings determine the initial elimination field for either the 
+									yearly TopCoder Invitational Tournament or Collegiate Challenge. The purse for these tournaments ranges anywhere 
+									from $100,000 to $250,000. <a class="statTextSmall" href="/?&t=about_tc&#38;c=membr_whyjoin"><strong>::&#160;&#160;Read more</strong></a></p>
+
+									<p><strong>Component Development</strong><br />
+									Rated TopCoder members are eligible to participate in TopCoder Component Development. Members submit design and 
+									development solutions for these challenging and potentially lucrative projects. Winning solutions are rewarded with 
+									cash payouts and royalties. For every commercial sale, TopCoder will pay the members who designed and developed the 
+									component a percentage of the sale. <a class="statTextSmall" href="/?t=development&#38;c=components"><strong>::&#160;&#160;Read more</strong></a></p>
+
+									<p><strong>Application Development</strong><br />
+									Rated members with a winning track record of solutions attain Level II TopCoder Developer status. Level II developers 
+									are eligible for TopCoder Application Development teams. Team members customize and integrate components for 
+									specific applications, both internal to TopCoder and for commercial sale. These projects pay out higher cash amounts 
+									than Commercial Component Development, and royalties are paid to team members for every commercial sale of the 
+									application.<a class="statTextSmall" href="/?t=development&#38;c=app_meth"><strong>::&#160;&#160;Read more</strong></a></p>
+								</td>
+							</tr>
+						</table>
+					</td>
 				</tr>
 			</table>
 		</td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-		<td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+		<td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-		<td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="244" height="1" border="0" /><br />
+		<td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br />
 			<xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
