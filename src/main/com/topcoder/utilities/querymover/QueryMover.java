@@ -28,7 +28,7 @@ public class QueryMover {
 
     private static final String sourceContextFactory = "weblogic.jndi.WLInitialContextFactory";
     private static final String targetContextFactory = "weblogic.jndi.WLInitialContextFactory";
-    private static final String sourceContextURL = "t3://172.16.20.41:7030";
+    private static final String sourceContextURL = "t3://172.16.20.41:8030";
     //prod
     //private static final String targetContextURL = "t3://jma-cluster.topcoder.com:7030";
     //qa
