@@ -79,7 +79,10 @@
 
 
 <P CLASS="bodyText">
-Once the Challenge Phase begins, the timer will reset itself for that phase and the Status window will open. To access another user's code, right-click on the user's point total. "Source" and "Challenge will be the two choices. Here, a user is able to view any other user's code and submit a challenge. A user's code may only be challenged once. 
+Once the Challenge Phase begins, the timer will reset itself for that phase and the Status window will open.
+    To access another user's code, right-click on the user's point total. "Source" will be your only choice.
+    Here, a user is able to view any other user's code, once viewed the user may make a challenge.
+    A user's code may only be challenged once.
 </P>
                                
                                 

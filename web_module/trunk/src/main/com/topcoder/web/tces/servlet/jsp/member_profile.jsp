@@ -342,7 +342,7 @@
 
     <% if (MemberProfileTask.hasDivisionII()) { %>
                   <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
-                    <TR><TD BGCOLOR="#43515E" COLSPAN="19" class="bodyText"><B>Division-II Performance</B></TD</TR>
+                    <TR><TD BGCOLOR="#43515E" COLSPAN="19" class="statText"><B>Division-II Performance</B></TD</TR>
                     <TR><TD COLSPAN="19" class="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD></TR>
                     <TR><TD COLSPAN="19" class="bodyText"><B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIIStatistic("avg_contest_points") %></TD></TR>
                     <TR><TD COLSPAN="19" class="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD></TR>
