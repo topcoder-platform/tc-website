@@ -48,17 +48,15 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
+            <xsl:with-param name="title">&#160;Applications</xsl:with-param>
             </xsl:call-template>
 
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
                 
             <p>There are also <A href="/index?t=development&amp;c=comp_projects">Component Projects</A> available.</p>
 
-            <table border="0" cellspacing="0" cellpadding="5" width="100%" class="formFrame">
-                <tr valign="top">
-                    <td class="bodyText" colspan="4"><font size="3"><strong>Open Application Design Projects</strong></font></td>
-                </tr>
+            <table border="0" cellspacing="0" cellpadding="5" width="100%">
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="4"><font size="3"><strong>Open Application Design Projects</strong></font></td></tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" nowrap="nowrap">Project</td>
@@ -81,10 +79,8 @@
             
             <br/>
 
-            <table border="0" cellspacing="0" cellpadding="5" width="100%" class="formFrame">
-                <tr valign="top">
-                    <td class="bodyText" colspan="4"><font size="3"><strong>Open Application Development Projects</strong></font></td>
-                </tr>
+            <table border="0" cellspacing="0" cellpadding="5" width="100%">
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="4"><font size="3"><strong>Open Application Development Projects</strong></font></td></tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" nowrap="nowrap">Project</td>
