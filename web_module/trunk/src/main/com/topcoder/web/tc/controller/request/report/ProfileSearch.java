@@ -45,7 +45,7 @@ public class ProfileSearch extends Base {
     }
     
     private String buildQuery(TCRequest request, List headers){
-        headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country", "Algorithm Rating", "Design Rating", "Development Rating"}));
+        headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country", "Algorithm Rating", "Design Rating", "Development Rating","More Info"}));
         List[] skills = buildSkillsQuery(request, headers);
         boolean skill = skills[0].size() > 0;
         List[] demo = buildDemoQuery(request);
@@ -54,19 +54,28 @@ public class ProfileSearch extends Base {
         (constraints = demo[1]).addAll(skills[1]);
         
         StringBuffer query = new StringBuffer(5000);
-        query.append("SELECT u.handle as Handle\n");
-        query.append("  , c.first_name as First_Name\n");
-        query.append("  , c.last_name as Last_Name\n");
-        query.append("  , c.city as City\n");
-        query.append("  , st.state_name as State\n");
-        query.append("  , cry.country_name as Country\n");
-        query.append("  , r.rating as Algorithm_Rating\n");
-        query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
-        query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
-        for(int i = 0; i<skills[2].size(); i++){
-            query.append("  , ");
-            query.append((String)skills[2].get(i));
-            query.append('\n');
+        if("on".equals(request.getParameter("count"))){
+            query.append("SELECT COUNT(*)\n");
+        }else{
+            query.append("SELECT u.handle as Handle\n");
+            query.append("  , c.first_name as First_Name\n");
+            query.append("  , c.last_name as Last_Name\n");
+            query.append("  , c.city as City\n");
+            query.append("  , st.state_name as State\n");
+            query.append("  , cry.country_name as Country\n");
+            query.append("  , r.rating as Algorithm_Rating\n");
+            query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
+            query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
+            query.append("  , nvl((select '<a href=\"/tc?module=DownloadResume&uid=' || res2.coder_id || '\">Resume</a><br/>' from resume res2 where res2.coder_id = c.coder_id),'')\n");
+            query.append("  || nvl((select unique '<a href=\"/tc?module=ViewNotes&uid=' | unx.coder_id | '\">Notes</a><br/>' from user_note_xref unx where unx.coder_id = c.coder_id),'')\n");
+            query.append("  || nvl((select unique '<a href=\"/tc?module=PlacementInfoDetail&uid=' | upi.coder_id | '\">Placement Info</a><br/>' from user_preference upi where upi.coder_id = c.coder_id AND upi.preference_id in (2,7)),'')\n");
+            query.append("  || '<a href=\"/tc?module=LegacyReport&t=profile&ha=' | u.handle | '\">General Info</a><br/>'\n");
+            query.append("  || '<a href=\"/stat?c=member_profile&cr=' | c.coder_id | '\">Public Profile</a><br/>'\n");
+            for(int i = 0; i<skills[2].size(); i++){
+                query.append("  , ");
+                query.append((String)skills[2].get(i));
+                query.append('\n');
+            }
         }
         query.append("  FROM coder c,\n");
         query.append("    rating r,\n");
@@ -112,10 +121,11 @@ public class ProfileSearch extends Base {
             query.append('\n');
         }
         query.append(buildCoderConstraints(request, skill));
-        query.append("  ORDER BY ");
-        query.append(request.getParameter("order"));
+        int sc = Integer.parseInt(request.getParameter("order"));
         int so = Integer.parseInt(request.getParameter("sort"));
-        if(so == 1)query.append(" ASC\n");
+        query.append("  ORDER BY ");
+        query.append(sc);
+        if(so == 1 && sc < 7 || so == -1 && sc >= 7)query.append(" ASC\n");
         else query.append(" DESC\n");
         return query.toString();
     }

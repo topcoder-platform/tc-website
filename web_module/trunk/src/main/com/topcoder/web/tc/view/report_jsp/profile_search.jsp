@@ -111,6 +111,7 @@
 
     <table cellpadding="0" cellspacing="0" border="0">
       <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A></TD></TR>
+      <tr><td>Show count only: <INPUT type="checkbox" name="count" <%= "on".equals(request.getParameter("count")) ? " checked" : "" %>/></td></tr>
       <tr><td>Handle: <input type="text" name="handle" size="15" value="<%=request.getParameter("handle")%>"></td></tr>
       <tr><td>E-Mail: <input type="text" name="email" size="15" value="<%=request.getParameter("email")%>"></td></tr>
       <tr><td>First Name: <input type="text" name="firstname" size="15" value="<%=request.getParameter("firstname")%>"></td></tr>
@@ -250,6 +251,7 @@
     </table>
   </FORM>
   <a href="JavaScript:submitForm()">Submit</a>
+  <a href="/tc?module=LegacyReport&t=profile_search"/>')">Clear</a>
   </body>
 </html>
 
