@@ -43,6 +43,7 @@
     authToken = authFactory.getAuthorization(rtUser,rtPassword);
     session.setAttribute("jiveAuthorization",authToken);
   }
+
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -62,17 +63,17 @@
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
          <jsp:include page="../includes/global_left.jsp" />
-        <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
       <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
         <!-- Gutter Ends -->
+
         <!-- Body Area -->
         <!-- Center Column Begins -->
       <TD class="statText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <jsp:include page="../body_top.jsp" >  
+        <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="round_tables"/>  
            <jsp:param name="image1" value="steelblue"/>  
            <jsp:param name="title" value="Topics"/>  
@@ -99,6 +100,7 @@
                 </TR>
                 <TR><TD COLSPAN="7" ALIGN="center" class="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"></TD></TR>
 <%
+
   int userID = 0;
   try {
     userID = authToken.getUserID();
@@ -118,6 +120,7 @@
   catch( Exception e ) {
     e.printStackTrace();
   }
+
 
   Iterator forumIterator = forumFactory.forums();
   if( !forumIterator.hasNext() ) {
@@ -209,3 +212,5 @@
 
   </BODY>
 </HTML>
+
+
