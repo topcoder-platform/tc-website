@@ -1,4 +1,3 @@
-<SCRIPT Language="javascript"> <!--
   function submitEnter(e, loginForm) {
     var keycode;
     if (window.event) keycode = window.event.keyCode;
@@ -23,4 +22,3 @@
       }
     }
   }
-//--> </SCRIPT>
