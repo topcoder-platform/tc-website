@@ -113,7 +113,12 @@ public class GoogleRegSubmit extends FullRegSubmit {
             String code = user.getActivationCode(newUser.getId(), db);
 
             TCSEmailMessage mail = new TCSEmailMessage();
-            mail.setSubject("IMPORTANT - Google Code Jam 2003 Activation Email");
+            if (info.isNew()) {
+                mail.setSubject("IMPORTANT - Google Code Jam 2003 Activation Email");
+            } else {
+                mail.setSubject("Google Code Jam 2003 Information");
+
+            }
 
             buf.append("You're invited to take part in the Google Code Jam 2003, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
             if (info.isNew()) {
