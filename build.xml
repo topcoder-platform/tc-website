@@ -23,7 +23,7 @@
     <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
     <property environment="env"/>
 
-    <property name="deprecation" value="false"/>
+    <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
     <property name="junitsummary" value="on"/>
 
@@ -343,12 +343,30 @@
         <antcall target="package-EJB-ContestAdminServicesBean"/>
         <antcall target="package-EJB-SearchBean"/>
         <antcall target="package-EJB-ReportingBean"/>
-        <!--
-                <antcall target="package-EJB-ProjectServicesBean"/>
-        -->
         <antcall target="package-EJB-JobPostingServicesBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
         <antcall target="package-EJB-QueryServicesBean"/>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="MainEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="MainUser"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Address"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/address/main"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Phone"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/phone/main"/>
+        </antcall>
     </target>
 
     <target name="package-EJB-QueryServicesBean" depends="compile">
@@ -672,6 +690,7 @@
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Address"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/address/corp"/>
         </antcall>
 
         <!-- Company ejb -->
@@ -691,6 +710,7 @@
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Phone"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/phone/corp"/>
         </antcall>
 
         <!-- Product ejb -->
