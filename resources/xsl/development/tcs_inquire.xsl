@@ -68,6 +68,9 @@
               <INPUT TYPE="hidden" NAME="Project">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
               </INPUT>
+              <INPUT TYPE="hidden" NAME="handle">
+                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/handle"/></xsl:attribute>
+              </INPUT>
               <INPUT TYPE="hidden" NAME="To">
                 <xsl:attribute name="VALUE">development@topcoder.com</xsl:attribute>
               </INPUT>
