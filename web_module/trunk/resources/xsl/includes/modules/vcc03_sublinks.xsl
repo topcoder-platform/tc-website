@@ -34,11 +34,11 @@
                 </xsl:choose>
 
                 <xsl:choose>
-                <xsl:when test="$selectedTab='eligibility'">
-                    <td class="tourney_subnav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=vcc03_rules_eligibility" class="topLink">Eligibility</a></td>
+                <xsl:when test="$selectedTab='registration'">
+                    <td class="tourney_subnav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=vcc03_rules_registration" class="topLink">Registration</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=vcc03_rules_eligibility" class="topLink">Eligibility</a></td>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=vcc03_rules_registration" class="topLink">Registration</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
