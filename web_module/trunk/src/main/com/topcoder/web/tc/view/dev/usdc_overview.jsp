@@ -47,8 +47,12 @@ numerous prizes while designing and developing software components.  Long gone a
 are available, rushing to register for the newest components, or anxiously awaiting the next major TopCoder tournament.  
 Now, consistent competitive software development is at your finger-tips, with more prizes than ever!</p>
 
-
-
+<ul>
+<li><strong>Dates:</strong><br/>
+June 1, 2004 through September 2, 2004</li>
+<li><strong>Prizes:</strong><br/>
+$1,200 each week, $3,500 each month, and $9,000 each quarter in addition to current component project payments.* </li>
+<p>*See official rules for details</p>
         </td>
 <!-- Center Column Ends -->
 

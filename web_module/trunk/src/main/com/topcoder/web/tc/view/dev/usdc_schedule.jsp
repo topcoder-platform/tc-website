@@ -42,105 +42,105 @@
 
 <h2>Schedule</h2>
 		<div align="center">
-			<table>
-				<tr>
-					<td valign="top">
-						<table width="270" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+
+						<table width="400" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 			<tr>
-                    			<td width="40%" class="sidebarTitle" valign="top"><strong>Design Contest</strong></td>
-                    			<td width="30%" class="sidebarTitle">Start Date</td>
-                    			<td width="30%" class="sidebarTitle">End Date</td>
+                    			<td width="50%" class="sidebarTitle" valign="top"><strong>Design Contest</strong></td>
+                    			<td width="25%" class="sidebarTitle">Start Date</td>
+                    			<td width="25%" class="sidebarTitle">End Date</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Quarter 1</td>
-                    			<td width="30%" class="sidebarText">6/3/2004</td>
-                    			<td width="30%" class="sidebarText">9/2/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top">Quarter 1</td>
+                    			<td width="25%" class="sidebarText">06.03.2004</td>
+                    			<td width="25%" class="sidebarText">09.02.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Month 1</td>
-                    			<td width="30%" class="sidebarText">6/3/2004</td>
-                    			<td width="30%" class="sidebarText">7/1/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="40" height="1" border="0">Month 1</td>
+                    			<td width="25%" class="sidebarText">06.03.2004</td>
+                    			<td width="25%" class="sidebarText">07.01.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Month 2</td>
-                    			<td width="30%" class="sidebarText">7/1/2004</td>
-                    			<td width="30%" class="sidebarText">8/5/2004</td>
-                			</tr>
-                			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Month 3</td>
-                    			<td width="30%" class="sidebarText">8/5/2004</td>
-                    			<td width="30%" class="sidebarText">9/2/2004</td>
-                			</tr>                			
-                			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 1</td>
-                    			<td width="30%" class="sidebarText">6/3/2004</td>
-                    			<td width="30%" class="sidebarText">6/10/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 1</td>
+                    			<td width="25%" class="sidebarText">06.03.2004</td>
+                    			<td width="25%" class="sidebarText">06.10.2004</td>
                 			</tr>             			
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 2</td>
-                    			<td width="30%" class="sidebarText">6/10/2004</td>
-                    			<td width="30%" class="sidebarText">6/17/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 2</td>
+                    			<td width="25%" class="sidebarText">06.10.2004</td>
+                    			<td width="25%" class="sidebarText">06.17.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 3</td>
-                    			<td width="30%" class="sidebarText">6/17/2004</td>
-                    			<td width="30%" class="sidebarText">6/24/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 3</td>
+                    			<td width="25%" class="sidebarText">06.17.2004</td>
+                    			<td width="25%" class="sidebarText">06.24.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 4</td>
-                    			<td width="30%" class="sidebarText">6/24/2004</td>
-                    			<td width="30%" class="sidebarText">7/1/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 4</td>
+                    			<td width="25%" class="sidebarText">06.24.2004</td>
+                    			<td width="25%" class="sidebarText">07.01.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 5</td>
-                    			<td width="30%" class="sidebarText">7/1/2004</td>
-                    			<td width="30%" class="sidebarText">7/8/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="40" height="1" border="0">Month 2</td>
+                    			<td width="25%" class="sidebarText">07.01.2004</td>
+                    			<td width="25%" class="sidebarText">08.05.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 6</td>
-                    			<td width="30%" class="sidebarText">7/8/2004</td>
-                    			<td width="30%" class="sidebarText">7/15/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 5</td>
+                    			<td width="25%" class="sidebarText">07.01.2004</td>
+                    			<td width="25%" class="sidebarText">07.08.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 7</td>
-                    			<td width="30%" class="sidebarText">7/15/2004</td>
-                    			<td width="30%" class="sidebarText">7/22/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 6</td>
+                    			<td width="25%" class="sidebarText">07.08.2004</td>
+                    			<td width="25%" class="sidebarText">07.15.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 8</td>
-                    			<td width="30%" class="sidebarText">7/22/2004</td>
-                    			<td width="30%" class="sidebarText">7/29/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 7</td>
+                    			<td width="25%" class="sidebarText">07.15.2004</td>
+                    			<td width="25%" class="sidebarText">07.22.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 9</td>
-                    			<td width="30%" class="sidebarText">7/29/2004</td>
-                    			<td width="30%" class="sidebarText">8/5/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 8</td>
+                    			<td width="25%" class="sidebarText">07.22.2004</td>
+                    			<td width="25%" class="sidebarText">07.29.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 10</td>
-                    			<td width="30%" class="sidebarText">8/5/2004</td>
-                    			<td width="30%" class="sidebarText">8/12/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 9</td>
+                    			<td width="25%" class="sidebarText">07.29.2004</td>
+                    			<td width="25%" class="sidebarText">08.05.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 11</td>
-                    			<td width="30%" class="sidebarText">8/12/2004</td>
-                    			<td width="30%" class="sidebarText">8/19/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="40" height="1" border="0">Month 3</td>
+                    			<td width="25%" class="sidebarText">08.05.2004</td>
+                    			<td width="25%" class="sidebarText">09.02.2004</td>
+                			</tr>                			
+
+
+                			<tr>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 10</td>
+                    			<td width="25%" class="sidebarText">08.05.2004</td>
+                    			<td width="25%" class="sidebarText">08.12.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 12</td>
-                    			<td width="30%" class="sidebarText">8/19/2004</td>
-                    			<td width="30%" class="sidebarText">8/26/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 11</td>
+                    			<td width="25%" class="sidebarText">08.12.2004</td>
+                    			<td width="25%" class="sidebarText">08.19.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="40%" class="sidebarText" valign="top">Week 13</td>
-                    			<td width="30%" class="sidebarText">8/26/2004</td>
-                    			<td width="30%" class="sidebarText">9/2/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 12</td>
+                    			<td width="25%" class="sidebarText">08.19.2004</td>
+                    			<td width="25%" class="sidebarText">08.26.2004</td>
+                			</tr>
+                			<tr>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 13</td>
+                    			<td width="25%" class="sidebarText">08.26.2004</td>
+                    			<td width="25%" class="sidebarText">09.02.2004</td>
                 			</tr>
 						</table>
-					</td>
-					<td><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-					<td valign="top">
-						<table width="270" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+						
+						<p><br/></p>
+						
+						<table width="400" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 			<tr>
                     			<td width="50%" class="sidebarTitle" valign="top"><strong>Development Contest</strong></td>
                     			<td width="25%" class="sidebarTitle">Start Date</td>
@@ -148,94 +148,92 @@
                 			</tr>
                 			<tr>
                     			<td width="50%" class="sidebarText" valign="top">Quarter 1</td>
-                    			<td width="25%" class="sidebarText">6/1/2004</td>
-                    			<td width="25%" class="sidebarText">8/31/2004</td>
+                    			<td width="25%" class="sidebarText">06.01.2004</td>
+                    			<td width="25%" class="sidebarText">08.31.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Month 1</td>
-                    			<td width="25%" class="sidebarText">6/1/2004</td>
-                    			<td width="25%" class="sidebarText">6/29/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="40" height="1" border="0">Month 1</td>
+                    			<td width="25%" class="sidebarText">06.01.2004</td>
+                    			<td width="25%" class="sidebarText">06.29.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Month 2</td>
-                    			<td width="25%" class="sidebarText">6/29/2004</td>
-                    			<td width="25%" class="sidebarText">7/27/2004</td>
-                			</tr>
-                			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Month 3</td>
-                    			<td width="25%" class="sidebarText">7/27/2004</td>
-                    			<td width="25%" class="sidebarText">8/31/2004</td>
-                			</tr>                			
-                			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 1</td>
-                    			<td width="25%" class="sidebarText">6/1/2004</td>
-                    			<td width="25%" class="sidebarText">6/8/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 1</td>
+                    			<td width="25%" class="sidebarText">06.01.2004</td>
+                    			<td width="25%" class="sidebarText">06.08.2004</td>
                 			</tr>             			
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 2</td>
-                    			<td width="25%" class="sidebarText">6/8/2004</td>
-                    			<td width="25%" class="sidebarText">6/15/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 2</td>
+                    			<td width="25%" class="sidebarText">06.08.2004</td>
+                    			<td width="25%" class="sidebarText">06.15.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 3</td>
-                    			<td width="25%" class="sidebarText">6/15/2004</td>
-                    			<td width="25%" class="sidebarText">6/22/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 3</td>
+                    			<td width="25%" class="sidebarText">06.15.2004</td>
+                    			<td width="25%" class="sidebarText">06.22.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 4</td>
-                    			<td width="25%" class="sidebarText">6/22/2004</td>
-                    			<td width="25%" class="sidebarText">6/29/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 4</td>
+                    			<td width="25%" class="sidebarText">06.22.2004</td>
+                    			<td width="25%" class="sidebarText">06.29.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 5</td>
-                    			<td width="25%" class="sidebarText">6/29/2004</td>
-                    			<td width="25%" class="sidebarText">7/6/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="40" height="1" border="0">Month 2</td>
+                    			<td width="25%" class="sidebarText">06.29.2004</td>
+                    			<td width="25%" class="sidebarText">07.27.2004</td>
+                			<tr>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 5</td>
+                    			<td width="25%" class="sidebarText">06.29.2004</td>
+                    			<td width="25%" class="sidebarText">07.06.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 6</td>
-                    			<td width="25%" class="sidebarText">7/6/2004</td>
-                    			<td width="25%" class="sidebarText">7/13/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 6</td>
+                    			<td width="25%" class="sidebarText">07.06.2004</td>
+                    			<td width="25%" class="sidebarText">07.13.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 7</td>
-                    			<td width="25%" class="sidebarText">7/13/2004</td>
-                    			<td width="25%" class="sidebarText">7/20/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 7</td>
+                    			<td width="25%" class="sidebarText">07.13.2004</td>
+                    			<td width="25%" class="sidebarText">07.20.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 8</td>
-                    			<td width="25%" class="sidebarText">7/20/2004</td>
-                    			<td width="25%" class="sidebarText">7/27/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 8</td>
+                    			<td width="25%" class="sidebarText">07.20.2004</td>
+                    			<td width="25%" class="sidebarText">07.27.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 9</td>
-                    			<td width="25%" class="sidebarText">7/27/2004</td>
-                    			<td width="25%" class="sidebarText">8/3/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="40" height="1" border="0">Month 3</td>
+                    			<td width="25%" class="sidebarText">07.27.2004</td>
+                    			<td width="25%" class="sidebarText">08.31.2004</td>
+                			</tr>                			
+
+
+                			<tr>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 9</td>
+                    			<td width="25%" class="sidebarText">07.27.2004</td>
+                    			<td width="25%" class="sidebarText">08.03.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 10</td>
-                    			<td width="25%" class="sidebarText">8/3/2004</td>
-                    			<td width="25%" class="sidebarText">8/10/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 10</td>
+                    			<td width="25%" class="sidebarText">08.03.2004</td>
+                    			<td width="25%" class="sidebarText">08.10.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 11</td>
-                    			<td width="25%" class="sidebarText">8/10/2004</td>
-                    			<td width="25%" class="sidebarText">8/17/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 11</td>
+                    			<td width="25%" class="sidebarText">08.10.2004</td>
+                    			<td width="25%" class="sidebarText">08.17.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 12</td>
-                    			<td width="25%" class="sidebarText">8/17/2004</td>
-                    			<td width="25%" class="sidebarText">8/24/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 12</td>
+                    			<td width="25%" class="sidebarText">08.17.2004</td>
+                    			<td width="25%" class="sidebarText">08.24.2004</td>
                 			</tr>
                 			<tr>
-                    			<td width="50%" class="sidebarText" valign="top">Week 13</td>
-                    			<td width="25%" class="sidebarText">8/24/2004</td>
-                    			<td width="25%" class="sidebarText">8/31/2004</td>
+                    			<td width="50%" class="sidebarText" valign="top"><img src="/i/clear.gif" width="80" height="1" border="0">Week 13</td>
+                    			<td width="25%" class="sidebarText">08.24.2004</td>
+                    			<td width="25%" class="sidebarText">08.31.2004</td>
                 			</tr>
 						</table>
-						
-					</td>
-				</tr>
-			</table>
+
 		</div>
 			<p><br/></p>
         </td>

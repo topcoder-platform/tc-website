@@ -82,49 +82,60 @@ member presents a timely submission that achieves the minimum score.  This will 
 
 <p>Members will be eligible to receive a bonus on top of the prize money if their Reliability Ratings are equal to or 
 exceed 80%.  Winning members with Reliability Ratings ranging from 80% to 89% will receive a bonus equal to 10% of the prize.  
-For Reliability Ratings ranging from 90% to 99%, winning members will receive a bonus equal to 15% of the prize.  And 
-winning members with a Reliability Rating of 100% will receive a bonus equal to 20% of the prize.  The following is an 
-example of payouts based on the member’s Reliability Rating:</p>
+For Reliability Ratings ranging from 90% to 94%, winning members will receive a bonus equal to 15% of the prize.  And 
+winning members with a Reliability Rating of 95% to 100% will receive a bonus equal to 20% of the prize.  The following is an 
+example of payouts based on the member's Reliability Rating:</p>
+
 
 			<table width="400" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+
                 <tr>
-                	<td class="sidebarTitle">Reliability Rating</td>
-                    <td colspan="5" class="sidebarTitle">Payment</td>
+                	
+                	<td class="sidebarTitle">0% - 79%</td>
+                    <td class="sidebarTitle">80% - 89%</td>
+                    <td class="sidebarTitle">90% - 94%</td>
+                    <td class="sidebarTitle">95 - 100%</td>
                 </tr>
                 
+                
                 <tr>
-                    <td class="sidebarText" valign="top"><strong>0% - 79%</strong></td>
+                	
                     <td class="sidebarText">$5,000</td>
-                    <td class="sidebarText">$2,000</td>
-                    <td class="sidebarText">$500</td>
-                    <td class="sidebarText">$200</td>
-                    <td class="sidebarText">$100</td>
+                    <td class="sidebarText">$5,500</td>
+                    <td class="sidebarText">$5,750</td>
+                    <td class="sidebarText">$6,000</td>
                 </tr>
                 <tr>
-                    <td class="sidebarText" valign="top"><strong>80% - 89%</strong></td>
-                    <td class="sidebarText">$5,500</td>
+                	
+                    <td class="sidebarText">$2,000</td>
                     <td class="sidebarText">$2,200</td>
-                    <td class="sidebarText">$550</td>
-                    <td class="sidebarText">$220</td>
-                    <td class="sidebarText">$110</td>
+                    <td class="sidebarText">$2,300</td>
+                    <td class="sidebarText">$2,400</td>
                 </tr>                
                 <tr>
-                    <td class="sidebarText" valign="top"><strong>90% - 99%</strong></td>
-                    <td class="sidebarText">$5,750</td>
-                    <td class="sidebarText">$2,300</td>
+                	
+                    <td class="sidebarText">$500</td>
+                    <td class="sidebarText">$550</td>
                     <td class="sidebarText">$575</td>
-                    <td class="sidebarText">$230</td>
-                    <td class="sidebarText">$115</td>
+                    <td class="sidebarText">$600</td>
                 </tr>
                	<tr>
-                    <td class="sidebarText" valign="top"><strong>100%</strong></td>
-                    <td class="sidebarText">$6,000</td>
-                    <td class="sidebarText">$2,400</td>
-                    <td class="sidebarText">$600</td>
+               		
+                    <td class="sidebarText">$200</td>
+                    <td class="sidebarText">$220</td>
+                    <td class="sidebarText">$230</td>
                     <td class="sidebarText">$240</td>
+                </tr>
+               	<tr>
+               		
+                    <td class="sidebarText">$100</td>
+                    <td class="sidebarText">$110</td>
+                    <td class="sidebarText">$115</td>
                     <td class="sidebarText">$120</td>
-                </tr>                
+                </tr> 
+                               
             </table>
+
 
 <h3>Eligibility</h3>
 
