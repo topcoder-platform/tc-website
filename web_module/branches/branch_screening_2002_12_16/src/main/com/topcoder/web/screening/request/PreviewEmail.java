@@ -7,7 +7,7 @@ public class PreviewEmail extends BaseSessionProcessor {
     public void process() throws Exception {
         EmailInfo info = 
             EmailInfo.createEmailInfo(getSessionInfo(), 
-                                      getAuthentication().getUser());
+                                      getAuthentication().getActiveUser());
 
         getRequest().setAttribute(Constants.EMAIL_INFO, info);
 

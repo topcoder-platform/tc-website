@@ -45,7 +45,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         request = getRequest();
         
         //check to see if they are logged in
-        User user = getAuthentication().getUser();
+        User user = getAuthentication().getActiveUser();
 
         DataAccess dAccess = getDataAccess();
 

@@ -28,7 +28,7 @@ public class BuildCandidateList extends BaseProcessor {
 
     public void process() throws Exception {
 
-        User user = getAuthentication().getUser();
+        User user = getAuthentication().getActiveUser();
 
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)

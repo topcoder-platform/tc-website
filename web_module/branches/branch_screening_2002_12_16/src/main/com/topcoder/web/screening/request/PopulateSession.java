@@ -16,7 +16,7 @@ public class PopulateSession extends BaseSessionProcessor {
         sessionInfo.setProperty(DataAccessConstants.COMMAND,
                 Constants.SESSION_LOOKUP_COMMAND);
         sessionInfo.setProperty("uid", 
-                String.valueOf(getAuthentication().getUser().getId()));
+                String.valueOf(getAuthentication().getActiveUser().getId()));
 
         DataAccess access = getDataAccess();
 
