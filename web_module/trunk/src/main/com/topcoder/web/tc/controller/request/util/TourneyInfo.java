@@ -19,9 +19,8 @@ import java.util.Map;
 public class TourneyInfo extends Static {
 
 
-    protected void businessProcessing() throws TCWebException {
+    protected void businessProcessing() throws Exception {
 
-        try {
             if (getUser().isAnonymous()) {
                 throw new PermissionException(getUser(), new SimpleResource("TCCC04Terms"));
             } else {
@@ -33,14 +32,8 @@ public class TourneyInfo extends Static {
                 dataRequest.setProperty("mid", "" + getUser().getId());
                 getRequest().setAttribute("info", dai.getData(dataRequest));
             }
+            super.businessProcessing();
 
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-
-        super.businessProcessing();
     }
 
 
