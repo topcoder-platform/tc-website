@@ -69,7 +69,7 @@
                         
                         <p><strong>Job Description</strong><br>
                         Diversified Data needs to fill 1-2 contract-to-hire positions.  The successful candidates for the
-                        Software Developer position will possess most of the following skills:
+                        Software Developer position will possess the following skills:
                         </br>
                         </p>
                         
@@ -87,6 +87,7 @@
                         
                         
                         <p><A href="/jobposting?&amp;t=JobHitTask&amp;jid=126&amp;jt=2" class="bodyText">Apply now!</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=diversifieddata_openings&amp;a=secure" class="bodyText">Back To Jobs</A></p>
 
 <!-- Client Job List ends -->
 
