@@ -51,7 +51,7 @@ function openWin(url, name, w, h) {
 	
 	<div align="center">
 <%-- Google Header--%>
-<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif">
+<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo">
 
 <table border=0 cellspacing=5 width="740">
    <tr> 
@@ -69,12 +69,15 @@ function openWin(url, name, w, h) {
                      <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
                   </font>
                   </div><br><br>
-                  <b><font size="+1">Official Rules and Regulations</font></b><br>
-                  <font size="-2">&nbsp; &nbsp; &nbsp; &nbsp;<a href="#summary">Summary of the Tournament</a> | <a href="#about">About the Tournament</a> | <a href="#prizes">About the Prizes</a> | <a href="#conditions">Conditions of Participation</a></font>
-                  <br><br>
-                  <img align="right" src="/i/events/google2003/codejam_info.gif" alt="Google Code Jam logo" hspace="10" vspace="5" width="150" height="390" border="0">
-                  <p><font size="-1">
-                  <font color="#ff0000">No purchase necessary to enter or win.</font></font></p>
+                  
+                  <table border=0 cellspacing=0 width="100%">
+                     <tr>
+                        <td valign="top">
+                        <b><font size="+1">Official Rules and Regulations</font></b>
+                        <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
+
+                  <p><font size="-2">&nbsp; &nbsp; &nbsp; &nbsp;<a href="#summary">Summary of the Tournament</a> | <a href="#about">About the Tournament</a> | <a href="#prizes">About the Prizes</a> | <a href="#conditions">Conditions of Participation</a></font></p> 
+                  <p><font size="-1"><font color="#ff0000">No purchase necessary to enter or win.</font></font></p>
 		
                   <a name="summary"></a>
                   <font color="006633"><strong>Summary of the Tournament</strong></font>
@@ -118,7 +121,7 @@ Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers f
 The Rounds will be held on the following dates:
 </font></p>
 
-                          <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr valign="top">
                     <td class="sidebarTitle">Round</strong></td>
                     <td class="sidebarTitle">Date and Time * (all Eastern Time)</strong></td>
@@ -208,7 +211,7 @@ The Championship Round will be a single round of 25 coders. The first, second, t
 <font size="-1"><p>
 All participants who compete in Round 1 will receive a Google Code Jam 2003 t-shirt.  In addition, the 25 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
 <br><br>
-<table border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr valign="top">
                     <td class="sidebarTitle">Competitor(s)</td>
                     <td class="sidebarTitle">Prize</td>
@@ -221,30 +224,30 @@ All participants who compete in Round 1 will receive a Google Code Jam 2003 t-sh
 
                 <tr valign="top">
                     <td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
-                    <td class="sidebarText">$5,000
+                    <td class="sidebarText" nowrap>$5,000
 </td>
                   </tr>
 
                 <tr valign="top">
                     <td class="sidebarText" nowrap>3rd place
                         finisher* in the Championship Round</td>
-                    <td class="sidebarText">$3,500
+                    <td class="sidebarText" nowrap>$3,500
 </td>
                   </tr>                
                 <tr valign="top">
                     <td class="sidebarText" nowrap>4th place
                         finisher* in the Championship Round</td>
-                    <td class="sidebarText">$1,250
+                    <td class="sidebarText" nowrap>$1,250
 </td>
                   </tr>
                 <tr valign="top">
                     <td class="sidebarText" nowrap>21 finalists not finishing with one of the top 4 scores* in the Championship Round</td>
-                    <td class="sidebarText">$250 each
+                    <td class="sidebarText" nowrap>$250 each
 </td>
                   </tr>
                 <tr valign="top">
                     <td class="sidebarText" nowrap>Up to 500 competitors who compete in Round 1 </td>
-                    <td class="sidebarText">Google Code Jam 2003 t-shirt
+                    <td class="sidebarText" nowrap>Google Code Jam 2003 t-shirt
 </td>
                   </tr>
                 
@@ -311,10 +314,17 @@ Google and TopCoder reserve the right, in their sole discretion, to revoke any a
 <br>
 <font color="006633"><strong>Other</strong></font><br><br>
 <font size="-1">The tournament is void in whole or in part where prohibited by law.
-                  <p><br /></p>
-                  <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
-                  <font size="-1">This tournament is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033 and Google Inc. (<a href="http://www.google.com">http://www.google.com</a>) 2400 Bayshore Parkway, Mountain View, CA 94043.
-                  </font></p>
+
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><p><br /></p>
+                              <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
+                              <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
+                              </font></p>
+                        </td>
+                     </tr>
+                  </table>
                   </div>
                </td>
             </tr>
