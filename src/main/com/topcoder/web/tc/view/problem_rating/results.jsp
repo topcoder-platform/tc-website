@@ -124,7 +124,7 @@
             </td>
         </tr>
         </tc:problemRatingResultIterator>
-        <tr><td class="bodyTextBig" colspan="4" align="center"><%=count%> Total votes | <%=div1Count%> Div I Votes | <%=div2Count%> Div II Votes</td></tr>
+        <tr><td class="sidebarTitle" colspan="4" align="center"><%=count%> Total votes | <%=div1Count%> Div I Votes | <%=div2Count%> Div II Votes</td></tr>
     </table><br/>
          <center>
 <SCRIPT language="JavaScript">
