@@ -236,7 +236,75 @@ SELECT r.referral_desc as referral_type
 GROUP BY r.referral_desc
 "
 
-java com.topcoder.utilities.QueryLoader "OLTP" 67 "Top Input Rated" 0 0 "
+java com.topcoder.utilities.QueryLoader "OLTP" 67 "State_List" 0 0 "
+SELECT state_code
+  FROM state
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 68 "Country_List" 0 0 "
+SELECT country_code, country_name
+  FROM country
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 69 "Profile_List" 0 0 "
+SELECT u.user_id
+       ,u.handle
+       ,u.email
+       ,c.first_name
+       ,c.last_name
+       ,c.address1
+       ,c.address2
+       ,c.city
+       ,c.state_code
+       ,c.zip
+       ,c.relocate
+       ,co.country_name
+       ,ct.coder_type_desc
+       ,r.num_ratings
+       ,da1.demographic_answer_text as grad_year
+       ,dr2.demographic_response as company
+       ,rs.start_time as last_rated_event
+       ,da3.demographic_answer_text as looking_for_job
+       ,cs.school_name as known_school_name
+       ,da4.demographic_answer_text as other_school_name
+       ,da5.demographic_answer_text as degree
+  FROM user u
+  JOIN coder c ON u.user_id = c.coder_id
+  JOIN coder_type ct ON c.coder_type_id = ct.coder_type_id
+   AND ct.coder_type_id in (@cts@)
+  JOIN country co ON c.country_code = co.country_code
+  LEFT OUTER JOIN demographic_response dr1 ON dr1.coder_id = c.coder_id
+   AND dr1.demographic_question_id = 18
+  LEFT OUTER JOIN demographic_answer da1 ON dr1.demographic_answer_id = da1.demographic_answer_id
+   AND da1.demographic_answer_text::DECIMAL >= @gn@
+   AND da1.demographic_answer_text::DECIMAL <= @gx@
+  LEFT OUTER JOIN demographic_response dr2 ON dr2.coder_id = c.coder_id 
+   AND dr2.demographic_question_id = 15
+  LEFT OUTER JOIN demographic_response dr3 ON dr3.coder_id = c.coder_id
+   AND dr3.demographic_question_id = 3
+  LEFT OUTER JOIN demographic_answer da3 ON dr3.demographic_answer_id = da3.demographic_answer_id
+  LEFT OUTER JOIN demographic_response dr4 ON dr4.coder_id = c.coder_id
+   AND dr4.demographic_question_id = 20
+   AND dr4.demographic_answer_id <> 0 
+  LEFT OUTER JOIN demographic_answer da4 ON dr4.demographic_answer_id = da4.demographic_answer_id
+  LEFT OUTER JOIN demographic_response dr5 ON dr5.coder_id = c.coder_id
+   AND dr5.demographic_question_id = 16
+  LEFT OUTER JOIN demographic_answer da5 ON dr5.demographic_answer_id = da5.demographic_answer_id
+  JOIN rating r ON r.coder_id = c.coder_id
+  JOIN round_segment rs ON r.round_id = rs.round_id
+   AND rs.segment_id = 2
+  LEFT OUTER JOIN current_school cs ON cs.coder_id = c.coder_id
+ WHERE u.handle like '@ha@'
+   AND c.first_name like '@fn@'
+   AND c.last_name like '@ln@'
+   AND c.state_code in (@scs@)
+   AND r.rating >= @rn@
+   AND r.rating <= @rx@
+   AND r.num_ratings >= @nrn@
+   AND r.num_ratings <= @nrx@
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 70 "Top Input Rated" 0 0 "
 SELECT FIRST @top@ 
   u.email as email_address
   ,u.handle 
