@@ -57,9 +57,9 @@
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-						<h1 class="devSubhead"><strong>Parser Factory: Design</strong></h1>
+						<h1 class="devSubhead"><strong>Generic Parser: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Parser Factory: Design&amp;comp=5501523&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Parser: Design&amp;comp=5501523&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -68,7 +68,7 @@
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Component Design Project: Provide a complete design for the Parser Factory component.<br />
+						Component Design Project: Provide a complete design for the Generic Parser component.<br />
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -131,7 +131,7 @@
 <!-- Register at TCS -->
     						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Parser Factory: Design&amp;comp=5501523&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Parser: Design&amp;comp=5501523&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
