@@ -69,98 +69,107 @@ public class JobHit extends Base {
             getRequest().setAttribute("JobHitData", hit);
 
             log.debug("user rating: " + hit.getRating());
-            if (hit.getRating() > 0) {
-                if (hit.hasResume()) {
-                    jpServices = (JobPostingServices) BaseProcessor.createEJB(getInitialContext(), JobPostingServices.class);
-                    if (jobHits.size() > 0) {
-                        for (int i = 0; i < jobHits.size(); i++) {
-                            long currJob = ((Long) jobHits.get(i)).intValue();
+            if (hitType == Constants.PLACEMENT_CLICK_THRU_ID) {
+                if (jpServices.jobExists(jobId, DBMS.OLTP_DATASOURCE_NAME)) {
+                    SessionInfo sessionInfo = (SessionInfo)
+                            getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+
+                    UserPreference prefBean = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
+                    int flag = 0;
+                    boolean isContractor = false;
+                    boolean isPermanent = false;
+                    try {
+                        isContractor = Constants.PREFERENCE_CONTRACTING_TRUE ==
+                                prefBean.getPreferenceValueID(hit.getUserId(),
+                                        Constants.PREFERENCE_CONTRACTING, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    } catch (RemoteException e) {
+                        if (e.detail instanceof RowNotFoundException) {
+                            flag++;
+                        } else
+                            throw e;
+                    }
+                    try {
+                        isPermanent = Constants.PREFERENCE_PERMANENT_TRUE ==
+                                prefBean.getPreferenceValueID(hit.getUserId(),
+                                        Constants.PREFERENCE_PERMANENT, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    } catch (RemoteException e) {
+                        if (e.detail instanceof RowNotFoundException) {
+                            flag++;
+                        } else
+                            throw e;
+                    }
+
+                    if (flag == 2) {
+                        //they never signed up for placement
+                        setNextPage(sessionInfo.getServletPath() +
+                                "?" + Constants.MODULE_KEY + "=ContractingPreferences&" + Constants.MESSAGE +
+                                "=" + Constants.JOB_HIT_MESSAGE_NOT_REGISTERED);
+
+                    } else if (isContractor || isPermanent) {
+                        //just have them confirm that their info is all set.
+                        setNextPage(sessionInfo.getServletPath() +
+                                "?" + Constants.MODULE_KEY + "=ContractingConfirm");
+                    } else {
+                        //they have choosen not to be available for placement
+                        setNextPage(sessionInfo.getServletPath() +
+                                "?" + Constants.MODULE_KEY + "=ContractingPreferences&" + Constants.MESSAGE +
+                                "=" + Constants.JOB_HIT_MESSAGE_UN_REGISTERED);
+                    }
+                    setIsNextPageInContext(false);
+                } else {
+                    throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
+                }
+            } else {
+                if (hit.getRating() > 0) {
+                    if (hit.hasResume()) {
+                        jpServices = (JobPostingServices) BaseProcessor.createEJB(getInitialContext(), JobPostingServices.class);
+                        if (jobHits.size() > 0) {
+                            for (int i = 0; i < jobHits.size(); i++) {
+                                long currJob = ((Long) jobHits.get(i)).intValue();
+                                try {
+                                    if (jpServices.jobExists(currJob, DBMS.OLTP_DATASOURCE_NAME)) {
+                                        jpServices.addJobHit(hit.getUserId(), currJob, Constants.JOB_POSTING_ID, DBMS.OLTP_DATASOURCE_NAME);
+                                    } else {
+                                        throw new Exception("job: " + currJob + " either doesn't exist or isn't active");
+                                    }
+                                } catch (Exception e) {
+                                    throw new Exception("failed to add job hit for user: " + hit.getUserId() +
+                                            " job: " + jobHits.get(i) +
+                                            " hit type: " + Constants.JOB_POSTING_ID);
+                                }
+                            }
+                            setNextPage(Constants.PROFILE_PAGE);
+                            setIsNextPageInContext(true);
+                        } else {
                             try {
-                                if (jpServices.jobExists(currJob, DBMS.OLTP_DATASOURCE_NAME)) {
-                                    jpServices.addJobHit(hit.getUserId(), currJob, Constants.JOB_POSTING_ID, DBMS.OLTP_DATASOURCE_NAME);
+                                if (jpServices.jobExists(jobId, DBMS.OLTP_DATASOURCE_NAME)) {
+                                    jpServices.addJobHit(hit.getUserId(), jobId, hitType, DBMS.OLTP_DATASOURCE_NAME);
+                                    if (hitType == Constants.CLICK_THRU_ID) {
+                                        setNextPage(jpServices.getLink(jobId, DBMS.OLTP_DATASOURCE_NAME));
+                                        setIsNextPageInContext(false);
+                                    } else {
+                                        setNextPage(Constants.PROFILE_PAGE);
+                                        setIsNextPageInContext(true);
+                                    }
                                 } else {
-                                    throw new Exception("job: " + currJob + " either doesn't exist or isn't active");
+                                    throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
                                 }
                             } catch (Exception e) {
                                 throw new Exception("failed to add job hit for user: " + hit.getUserId() +
-                                        " job: " + jobHits.get(i) +
-                                        " hit type: " + Constants.JOB_POSTING_ID);
+                                        " job: " + jobId +
+                                        " hit type: " + Constants.JOB_POSTING_ID + "\n" + e.getMessage());
                             }
                         }
-                        setNextPage(Constants.PROFILE_PAGE);
-                        setIsNextPageInContext(true);
                     } else {
-                        try {
-                            if (jpServices.jobExists(jobId, DBMS.OLTP_DATASOURCE_NAME)) {
-                                jpServices.addJobHit(hit.getUserId(), jobId, hitType, DBMS.OLTP_DATASOURCE_NAME);
-                                if (hitType == Constants.CLICK_THRU_ID) {
-                                    setNextPage(jpServices.getLink(jobId, DBMS.OLTP_DATASOURCE_NAME));
-                                    setIsNextPageInContext(false);
-                                } else if (hitType == Constants.PLACEMENT_CLICK_THRU_ID) {
-                                    SessionInfo sessionInfo = (SessionInfo)
-                                            getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-
-                                    UserPreference prefBean = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
-                                    int flag = 0;
-                                    boolean isContractor = false;
-                                    boolean isPermanent = false;
-                                    try {
-                                        isContractor = Constants.PREFERENCE_CONTRACTING_TRUE ==
-                                                prefBean.getPreferenceValueID(hit.getUserId(),
-                                                        Constants.PREFERENCE_CONTRACTING, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                                    } catch (RemoteException e) {
-                                        if (e.detail instanceof RowNotFoundException) {
-                                            flag++;
-                                        } else throw e;
-                                    }
-                                    try {
-                                        isPermanent = Constants.PREFERENCE_PERMANENT_TRUE ==
-                                                prefBean.getPreferenceValueID(hit.getUserId(),
-                                                        Constants.PREFERENCE_PERMANENT, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                                    } catch (RemoteException e) {
-                                        if (e.detail instanceof RowNotFoundException) {
-                                            flag++;
-                                        } else throw e;
-                                    }
-
-                                    if (flag==2) {
-                                        //they never signed up for placement
-                                        setNextPage(sessionInfo.getServletPath()+
-                                                "?"+Constants.MODULE_KEY+"=ContractingPreferences&"+Constants.MESSAGE+
-                                                "="+Constants.JOB_HIT_MESSAGE_NOT_REGISTERED);
-
-                                    } else if (isContractor||isPermanent) {
-                                        //just have them confirm that their info is all set.
-                                        setNextPage(sessionInfo.getServletPath()+
-                                                "?"+Constants.MODULE_KEY+"=ContractingConfirm");
-                                    } else {
-                                        //they have choosen not to be available for placement
-                                        setNextPage(sessionInfo.getServletPath()+
-                                                "?"+Constants.MODULE_KEY+"=ContractingPreferences&"+Constants.MESSAGE+
-                                                "="+Constants.JOB_HIT_MESSAGE_UN_REGISTERED);
-                                    }
-                                    setIsNextPageInContext(false);
-                                } else {
-                                    setNextPage(Constants.PROFILE_PAGE);
-                                    setIsNextPageInContext(true);
-                                }
-                            } else {
-                                throw new Exception("job: " + jobId + " either doesn't exist or isn't active");
-                            }
-                        } catch (Exception e) {
-                            throw new Exception("failed to add job hit for user: " + hit.getUserId() +
-                                    " job: " + jobId +
-                                    " hit type: " + Constants.JOB_POSTING_ID + "\n" + e.getMessage());
-                        }
+                        setNextPage(Constants.NO_RESUME_PAGE);
+                        setIsNextPageInContext(true);
                     }
                 } else {
-                    setNextPage(Constants.NO_RESUME_PAGE);
+                    setNextPage(Constants.UNRATED_PAGE);
                     setIsNextPageInContext(true);
                 }
-            } else {
-                setNextPage(Constants.UNRATED_PAGE);
-                setIsNextPageInContext(true);
             }
+
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
