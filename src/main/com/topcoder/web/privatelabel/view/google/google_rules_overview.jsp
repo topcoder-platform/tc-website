@@ -120,34 +120,34 @@ The Rounds will be held on the following dates:
 
                           <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr valign="top">
-                    <td class="sidebarTitle"><strong><font size="-1">Round</font></strong></td>
-                    <td class="sidebarTitle"><strong><font size="-1">Date and Time * (all Eastern Time)</font></strong></td>
+                    <td class="sidebarTitle">Round</strong></td>
+                    <td class="sidebarTitle">Date and Time * (all Eastern Time)</strong></td>
                     </tr>
                 <tr valign="top">
-                    <td class="sidebarText"><font size="-1">	Round 1</font></td>
-                    <td class="sidebarText"><font size="-1">Friday, October 24, 2003<br>
+                    <td class="sidebarText">	Round 1</td>
+                    <td class="sidebarText">Friday, October 24, 2003<br>
 Sign in:  6:00 PM – 8:55 PM<br>
 START:          9:00 PM 
-</font></td>
+</td>
                     </tr>
 
                 <tr valign="top">
-                    <td class="sidebarText" nowrap><font size="-1">Round 2</font></td>
-                    <td class="sidebarText"><font size="-1">Monday, October 27, 2003<br>
+                    <td class="sidebarText" nowrap>Round 2</td>
+                    <td class="sidebarText">Monday, October 27, 2003<br>
 START:          9:00 PM
-</font></td>
+</td>
                     </tr>
                 
                 <tr valign="top">
-                    <td class="sidebarText"><font size="-1">Championship Round</font></td>
+                    <td class="sidebarText">Championship Round</td>
 
-                    <td class="sidebarText"><font size="-1">Friday, November 14, 2003<br>
+                    <td class="sidebarText">Friday, November 14, 2003<br>
 START:          3:00 PM
-</font></td>
+</td>
                     </tr>
                 
                 <tr valign="top">
-                  <td class="sidebarText" colspan="2"><font size="-2">*NOTE:  In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.</font></td>
+                  <td class="sidebarText" colspan="2"><font size="-2">*NOTE:  In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
 
                 </tr>
             </table>
@@ -210,46 +210,46 @@ All participants who compete in Round 1 will receive a Google Code Jam 2003 t-sh
 <br><br>
 <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr valign="top">
-                    <td class="sidebarTitle"><strong><font size="-1">Competitor(s)</font></strong></td>
-                    <td class="sidebarTitle"><strong><font size="-1">Prize</font></strong></td>
+                    <td class="sidebarTitle">Competitor(s)</td>
+                    <td class="sidebarTitle">Prize</td>
                   </tr>
                 <tr valign="top">
-                    <td class="sidebarText"><font size="-1"><b>1st place finisher* – Tournament Champion</b></font></td>
-                    <td class="sidebarText"><font size="-1"><b>$10,000</b>
-</font></td>
-                  </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" nowrap><font size="-1">2nd place finisher* in the Championship Round</font></td>
-                    <td class="sidebarText"><font size="-1">$5,000
-</font></td>
+                    <td class="sidebarText"><b>1st place finisher* – Tournament Champion</b></td>
+                    <td class="sidebarText"><b>$10,000</b>
+</td>
                   </tr>
 
                 <tr valign="top">
-                    <td class="sidebarText" nowrap><font size="-1">3rd place
-                        finisher* in the Championship Round</font></td>
-                    <td class="sidebarText"><font size="-1">$3,500
-</font></td>
+                    <td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
+                    <td class="sidebarText">$5,000
+</td>
+                  </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" nowrap>3rd place
+                        finisher* in the Championship Round</td>
+                    <td class="sidebarText">$3,500
+</td>
                   </tr>                
                 <tr valign="top">
-                    <td class="sidebarText" nowrap><font size="-1">4th place
-                        finisher* in the Championship Round</font></td>
-                    <td class="sidebarText"><font size="-1">$1,250
-</font></td>
+                    <td class="sidebarText" nowrap>4th place
+                        finisher* in the Championship Round</td>
+                    <td class="sidebarText">$1,250
+</td>
                   </tr>
                 <tr valign="top">
-                    <td class="sidebarText" nowrap><font size="-1">21 finalists not finishing with one of the top 4 scores* in the Championship Round</font></td>
-                    <td class="sidebarText"><font size="-1">$250 each
-</font></td>
+                    <td class="sidebarText" nowrap>21 finalists not finishing with one of the top 4 scores* in the Championship Round</td>
+                    <td class="sidebarText">$250 each
+</td>
                   </tr>
                 <tr valign="top">
-                    <td class="sidebarText" nowrap><font size="-1">Up to 500 competitors who compete in Round 1 </font></td>
-                    <td class="sidebarText"><font size="-1">Google Code Jam 2003 t-shirt
-</font></td>
+                    <td class="sidebarText" nowrap>Up to 500 competitors who compete in Round 1 </td>
+                    <td class="sidebarText">Google Code Jam 2003 t-shirt
+</td>
                   </tr>
                 
                 <tr valign="top">
-                  <td class="sidebarText" colspan="2"><font size="-2">*NOTE:  In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.</font></td>
+                  <td class="sidebarText" colspan="2"><font size="-2">*NOTE:  In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
 
                 </tr>
             </table>
