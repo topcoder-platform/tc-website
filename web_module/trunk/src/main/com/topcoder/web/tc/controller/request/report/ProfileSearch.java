@@ -190,7 +190,7 @@ public class ProfileSearch extends Base {
                     int idx2 = values[i].indexOf("_",idx+1);
                     int skillId = Integer.parseInt(values[i].substring(0,idx));
                     int skillLevel = Integer.parseInt(values[i].substring(idx+1,idx2));
-                    String name = values[i].substring(idx+2);
+                    String name = values[i].substring(idx2+1);
                     StringBuffer query = new StringBuffer(100);
                     query.append("cs");
                     query.append(skillId);
@@ -259,8 +259,7 @@ public class ProfileSearch extends Base {
                 query.append('\n');
             }
         }
-        query.append("    AND c.language_id IN (");
-        boolean first = true;
+        query.append("    AND c.language_id IN (-1");
         Enumeration e = request.getParameterNames();
         while (e.hasMoreElements()) {
             String param = (String) e.nextElement();
@@ -268,11 +267,7 @@ public class ProfileSearch extends Base {
                 int id = Integer.parseInt(param.substring(5));
                 String val = request.getParameter(param);
                 if(val.equals("on")){
-                    if(!first){
-                        query.append(", ");
-                    }else{
-                        first = false;
-                    }
+                    query.append(", ");
                     query.append(id);
                 }
             }
