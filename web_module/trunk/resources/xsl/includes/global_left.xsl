@@ -347,7 +347,10 @@
                 </tr>
 
 <!-- Components: -->
-                <xsl:call-template name="components"/>
+                <xsl:call-template name="components">
+                    <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
+                    <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
+                </xsl:call-template>
 <!-- Applications: -->
                 <tr><td id="leftNavSubtitle">Applications:</td></tr>
 
@@ -1003,8 +1006,8 @@
 </xsl:template>
 
 <xsl:template name="components">
-    <!--<xsl:param name="level2"></xsl:param>-->
-    <!--<xsl:param name="level3"></xsl:param>-->
+    <xsl:param name="level2"></xsl:param>
+    <xsl:param name="level3"></xsl:param>
     <!-- Components: -->
     <tr>
       <td id="leftSubnav">
