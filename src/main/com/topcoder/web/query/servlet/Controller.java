@@ -91,11 +91,11 @@ public class Controller extends HttpServlet {
                 sendToPage(request, response, task.getNextPage(), task.isInternalResource());
             }
             else {
-                sendToLoginPage(request, response);
+                sendToLoginPage(request, response, true);
             }
         } catch (AuthenticationException authex) {
             request.setAttribute("Authentication", task.getAuthentication());
-            sendToLoginPage(request, response);
+            sendToLoginPage(request, response, false);
         } catch (ClassNotFoundException cnfex) {
             sendToErrorPage(request, response, cnfex);
         } catch (NamingException ex) {
@@ -109,13 +109,17 @@ public class Controller extends HttpServlet {
         }
     }
 
-    private void sendToLoginPage(HttpServletRequest request, HttpServletResponse response)
+    private void sendToLoginPage(HttpServletRequest request, HttpServletResponse response, boolean forward)
             throws ServletException, IOException {
-        sendToPage(request,
-                response,
-                request.getContextPath() + request.getServletPath() + "?" +
-                Constants.TASK_PARAM + "=" + Constants.LOGIN_TASK,
-                false);
+        if (forward) {
+            sendToPage(request, response, Constants.LOGIN_PAGE, forward);
+        } else {
+            sendToPage(request,
+                    response,
+                    request.getContextPath() + request.getServletPath() + "?" +
+                    Constants.TASK_PARAM + "=" + Constants.LOGIN_TASK,
+                    false);
+        }
     }
 
     private void sendToPage(HttpServletRequest request, HttpServletResponse response, String page, boolean forward)
