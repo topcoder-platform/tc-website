@@ -12,6 +12,7 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
 
 import javax.naming.Context;
 import java.util.Iterator;
@@ -44,7 +45,7 @@ public class FixPasswords {
             ApplicationServer.SECURITY_PROVIDER_URL);
     try {
         String s = "select su.password, u.user_id from user u, security_user su where u.user_id =su.login_id";
-        String t = "update user set password = ?  where user_id = ?";
+        String t = "update user set password = ?, activation_code = ?  where user_id = ?";
 
         PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
         PrincipalMgrRemote pmr = pmrh.create();
@@ -62,6 +63,7 @@ public class FixPasswords {
             while (rs.next()) {
                 String pass = pmr.getPassword(rs.getLong("user_id"));
                 ps.setString(1, pass);
+                ps.setString(2, StringUtils.getActivationCode(rs.getLong("user_id")));
                 ps.setLong(2, rs.getLong("user_id"));
                 count += ps.executeUpdate();
                 if (count%25==0) System.out.println(""+count + " records updated");
