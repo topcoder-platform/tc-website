@@ -35,7 +35,7 @@
     ResultSetContainer.ResultSetRow skill;
     int idx = 0;
 %>
-  <FORM ACTION="/tc?module=ProfileSearch" METHOD="POST">
+  <FORM name="search" ACTION="/tc?module=ProfileSearch" METHOD="POST">
     <table cellpadding="0" cellspacing="0" border="0">
       <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A></TD></TR>
       <tr><td>Handle: <input type="text" name="handle" size="15"></td></tr>
@@ -105,13 +105,41 @@
         </select>
         </td></tr>
       </rsc:iterator>
-      <?idx=0;?>
+      <%idx=0;%>
       <tr><td><hr/><center><h2>Placement Information</h2></center></td></tr>
       <tr><td>Placement Indicator: <INPUT type="checkbox" name="placement"/></td></tr>
       <tr><td>Resume: <INPUT type="checkbox" name="resume"/></td></tr>
       <tr><td>Willing to travel/relocate: <INPUT type="checkbox" name="travel"/></td></tr>
       <tr><td>US Authorization: <INPUT type="checkbox" name="travel"/></td></tr>
       <tr><td><hr/><center><h2>Skills</h2></center></td></tr>
+
+<script language="javascript">
+    function itemAdd( a, b, c)
+    {
+        var i = document.search[a].selectedIndex;
+        var j = document.search[b].selectedIndex;
+        var len = document.search[c].length;
+        var text1 = document.search[a].options[i].text;
+        var text2 = document.search[b].options[j].text;
+        op = new Option();
+        op.value = i+"_"+j;
+        op.text = text1+" - "+text2;
+        document.search[c].options[len] = op;
+    }
+    function submitForm(){
+        var list;
+        <rsc:iterator list="<%=skill_types%>" id="resultRow">
+        list = document.search.skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>;
+        for (i=0; i<list.options.length; i++){
+            list.options[i].selected=true;
+        }
+        </rsc:iterator>
+        document.search.submit();
+    }
+</script>
+
+
+      
       <rsc:iterator list="<%=skill_types%>" id="resultRow">
         <tr><td>
         <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
@@ -130,7 +158,7 @@
         }
         %>
         </select>
-        <select size=5 name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
+        <select size=10 name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -139,6 +167,7 @@
         </select>
         <select multiple size=10 name="skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         </select>
+        <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a>
         </td></tr>
       </rsc:iterator>
       <tr><td></td></tr>
