@@ -55,7 +55,8 @@
                     January 27, 2004<br />
                 <li><strong>Onsite Finals</strong><br />
                     April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
-                <li><strong>Free Competition</strong></li>
+                <li><strong>Free Competition</strong><br />
+                <a href="/?t=development&c=comp_projects">View eligible components</a></li>
                 <li><strong>Open to all eligible college students</strong></li>
             </ul>
             

@@ -64,7 +64,7 @@
                         Projects posted
                      </td>
                      <td class="sidebarText">
-                        01.27.04 12:00AM
+                        <a href="/?t=development&c=comp_projects">01.27.04 12:00AM</a>
                      </td>
                      <td class="sidebarText">
                         02.17.04 12:00AM
