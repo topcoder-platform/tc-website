@@ -154,7 +154,7 @@
         <jar jarfile="${ejb_jars}/QueryServices.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shraed/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
