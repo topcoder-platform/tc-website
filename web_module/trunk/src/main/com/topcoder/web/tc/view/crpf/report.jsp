@@ -6,6 +6,7 @@
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="/tc.tld" prefix="tc" %>
 <jsp:useBean id="donationInfo" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
@@ -29,15 +30,26 @@
                 </td>
             </tr>
             <rsc:iterator list="<%=donationInfo%>" id="info">
+                <tr>
+                    <td>
+                        <rsc:item row="<%=info%>" name="rank"/>
+                    </td>
+                    <td>
+                        <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
+                    </td>
+                    <td>
+                        <rsc:item row="<%=info%>" name="rating"/>
+                    </td>
+                    <td>
+                        $<rsc:item row="<%=info%>" name="amount" format="#.##"/>
+                    </td>
+                </tr>
+            </rsc:iterator>
+
+            <rsc:iterator list="<%=donationTotal%>" id="info">
             <tr>
-                <td>
-                    <rsc:item row="<%=info%>" name="rank"/>
-                </td>
-                <td>
-                    <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
-                </td>
-                <td>
-                    <rsc:item row="<%=info%>" name="rating"/>
+                <td colspan="3">
+                  Total:
                 </td>
                 <td>
                     $<rsc:item row="<%=info%>" name="amount" format="#.##"/>
