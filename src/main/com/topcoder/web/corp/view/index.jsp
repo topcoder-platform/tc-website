@@ -8,19 +8,24 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+
 <title>TopCoder Corporate Services</title>
+
 <script language="JavaScript" src="/js/script.js"></script>
+
 </head>
+
 <body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+
+<!-- Header begins -->
 <jsp:include page="includes/top.jsp"/>
+<!-- Header ends -->
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
    <tr>
-
 <!-- Left Column Begins -->
         <td width="170" valign="top">
-
         <jsp:include page="includes/left.jsp"/>
-
         </td>
 <!-- Left Column Ends -->
 
@@ -29,7 +34,7 @@
 <!-- Gutter Ends -->
 
 <!-- Body Area -->
-        <td width="100%" valign="top"><img src="/i/clear.gif" height="1" vspace="5" border="0"><br />
+        <td width="100%" valign="top"><img src="/i/clear.gif" height="11" border="0"><br />
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td width="50%" class="corpText">
@@ -46,9 +51,11 @@
                         collegiate candidates and experienced professionals for full time employment consideration.  With a <strong>member base in excess of 24,000</strong>&#151;including more than 12,000 students from over 
                         750 schools&#151;employers obtain objective measurement detail about candidates, including code samples and statistics, that is not found elsewhere.</p>
                        </td>
+                       
                        <td><img src="/i/clear.gif" width="8" height="1"></td>
                        <td bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1"></td>
                        <td><img src="/i/clear.gif" width="8" height="1"></td>
+                       
                        <td width="50%" class="corpText">
                        <p><font size="3" color="#666666"><strong>Sponsorship</strong></font><br />
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 

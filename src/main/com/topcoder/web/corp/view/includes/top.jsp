@@ -40,7 +40,7 @@
 <% if (isHomePage) { %>
         <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="13" /></a>
 <% } else { %>
-        <img src="/i/logo.gif" width="206" height="49" border="0" vspace="13" />
+        <img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="13" />
 <%  } %>
         </td>
         <td width="20" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
