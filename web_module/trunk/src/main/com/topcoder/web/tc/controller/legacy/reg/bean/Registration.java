@@ -154,7 +154,7 @@ public class Registration
     public static final String USA = "840";
 
     // id for the sun contest
-    public static final int SUN_CONTEST_ID = 4295;
+    //public static final int SUN_CONTEST_ID = 4295;
 
     public static final int[] REFERRAL_ID = {DECLINE_TO_ANSWER,
                                              CAMPUS_JOB_FAIR_REFERRAL,
@@ -290,6 +290,8 @@ public class Registration
         if (step != null && step.equalsIgnoreCase(STEP_1)) {
             notifications.clear();
             log.debug("notifications cleared...");
+        } else if (step !=null && step.equalsIgnoreCase(STEP_2)) {
+            setSchoolViewable("no");
         }
         super.setStep(step);
         log.debug("super.setStep(" + step + ") called...");
@@ -1746,7 +1748,7 @@ public class Registration
                 if (!this.gpaScale.equals("")) {
                     currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
                 }
-                currentSchool.setViewable(this.schoolViewable);
+                currentSchool.setViewable(isSchoolViewable());
             }
         } catch (Exception e) {
             e.printStackTrace();
