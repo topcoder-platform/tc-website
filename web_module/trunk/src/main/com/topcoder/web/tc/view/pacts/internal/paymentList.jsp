@@ -59,7 +59,6 @@
                 <a href="Javascript:checkAll(true)">checked</a>
             </td>
             <td colspan="6">
-                <a href="Javascript:checkAll(true)">check</a>
             </td>
         </tr>
 		<tr>
