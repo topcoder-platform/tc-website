@@ -56,6 +56,9 @@ public class UploadTask extends ResumeTask{
                 } else {
                     fileBytes = new byte[(int)uf.getSize()];
                     uf.getInputStream().read(fileBytes);
+                    log.debug("upload file:\n");
+                    log.debug("************************************************************\n"+new String(fileBytes));
+                    log.debug("************************************************************");
                     fileType = Integer.parseInt(super.getFileUpload().getParameter("fileType"));
                     fileName = uf.getRemoteFileName();
                     file = fileBytes;

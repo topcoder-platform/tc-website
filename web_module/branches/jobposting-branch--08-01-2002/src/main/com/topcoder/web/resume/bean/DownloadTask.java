@@ -37,6 +37,9 @@ public class DownloadTask extends ResumeTask{
         response.setContentType(resume.getFileType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
+        log.debug("update file:\n");
+        log.debug("************************************************************\n"+new String(resume.getFile()));
+        log.debug("************************************************************");
         response.setStatus(HttpServletResponse.SC_OK);
     }
 
