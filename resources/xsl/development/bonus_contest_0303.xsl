@@ -225,7 +225,7 @@ A.methNav:active {
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=157174">Preetham</a></td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=157174">preetham</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">79.62</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -287,7 +287,7 @@ A.methNav:active {
                         <hr width="100%" noshade="noshade" color="#666666" />
                         
                         <p><strong>It's easy to enter</strong><br />
-                        Just submit designs for a minimum of four Component Projects whose initial submission dates are 
+                        Just submit designs that pass screening for a minimum of four Component Projects whose initial submission dates are 
                         between February 1, 2003 and March 31, 2003. You will be entered automatically. No need to fill out any 
                         forms or notify us.</p>
 

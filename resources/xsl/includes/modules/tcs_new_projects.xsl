@@ -24,8 +24,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=barcode_generation-design&amp;payment=210&amp;date=2&#47;12&#47;2003">Barcode Generation</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&c=base_exception-design&payment=70&date=2&#47;19&#47;2003">Base Exception</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -33,8 +33,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=financial_calc-design">Financial Calculator</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=command_line_utility-design&payment=175&date=2&#47;19&#47;2003">Command Line Utility</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -44,8 +44,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=compression_utility-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Compression Utility</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=data_grouping-design&amp;payment=175&amp;date=2&#47;19&#47;2003">Data Grouping</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -53,8 +53,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=credit_card_processor-design&amp;payment=245&amp;date=2&#47;12&#47;2003">Credit Card Processor</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=encryption-design&amp;payment=280&amp;date=2&#47;19&#47;2003">Encryption</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -62,8 +62,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_delta-design&amp;payment=245&amp;date=2&#47;12&#47;2003">File Delta</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=job_scheduling-design&amp;payment=210&amp;date=2&#47;19&#47;2003">Job Scheduling</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -71,8 +71,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=lazy_instantiation-design&amp;payment=175&amp;date=2&#47;12&#47;2003">Lazy Instantiation</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=ldap_client-design&amp;payment=175&amp;date=2&#47;19&#47;2003">LDAP Client</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 							
@@ -80,8 +80,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=lexical_analyzer-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Lexical Analyzer</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=nntp_client-design&amp;payment=175&amp;date=2&#47;19&#47;2003">NNTP Client</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -89,8 +89,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_decompiler-design">Java Decompiler</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=standard_class-design&amp;payment=105&amp;date=2&#47;19&#47;2003">Standard Class</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -100,7 +100,7 @@
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=security_enhancement-design&amp;payment=280&amp;date=2&#47;19&#47;2003">Security Enhancement</a></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=sql_parser-design&amp;payment=210&amp;date=2&#47;19&#47;2003">SQL Parser</a></td>
 								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
@@ -111,7 +111,7 @@
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=list_manipulation-design">List Manipulation</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -119,8 +119,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_factory-design">Object Factory</a></td>
-								<td background="" class="statText" align="center">2.12.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=svg2dgenerator-design&amp;payment=280&amp;date=2&#47;19&#47;2003">SVG 2D Graphics Generator</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
