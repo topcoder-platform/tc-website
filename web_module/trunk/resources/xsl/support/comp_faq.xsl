@@ -500,11 +500,14 @@ where your result must be correct only to a certain degree of precision.  To det
             }
         }else if(Double.isNaN(result) || Double.isInfinite(result)){
             return false;
-        }else if(Math.abs(result - expected) &lt; MAX_DOUBLE_ERROR){//always allow it to be off a little, regardless of scale
+        }else if(Math.abs(result - expected) &lt; MAX_DOUBLE_ERROR){
+            //always allow it to be off a little, regardless of scale
             return true;
         }else{
-            double min = Math.min(expected * (1.0 - MAX_DOUBLE_ERROR), expected * (1.0 + MAX_DOUBLE_ERROR));
-            double max = Math.max(expected * (1.0 - MAX_DOUBLE_ERROR), expected * (1.0 + MAX_DOUBLE_ERROR));
+            double min = Math.min(expected * (1.0 - MAX_DOUBLE_ERROR),
+                                 expected * (1.0 + MAX_DOUBLE_ERROR));
+            double max = Math.max(expected * (1.0 - MAX_DOUBLE_ERROR),
+                                  expected * (1.0 + MAX_DOUBLE_ERROR));
             return result &gt; min &amp;&amp; result &lt; max;
         }
     }
