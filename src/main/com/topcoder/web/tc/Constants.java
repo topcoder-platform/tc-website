@@ -52,6 +52,10 @@ public class Constants {
     public static String TERMS_AGREE;
     public static String TERMS_OF_USE_ID;
 
+    public static String QUESTION_PREFIX;
+    public static String ANSWER_PREFIX;
+
+
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SURVEY_VIEW;
