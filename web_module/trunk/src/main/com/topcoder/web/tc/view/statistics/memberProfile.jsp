@@ -11,6 +11,7 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
 <HTML>
  <HEAD>
@@ -18,7 +19,7 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 
-<jsp:include page="baseHRef.jsp" />   
+<jsp:include page="baseHRef.jsp" />
 <jsp:include page="../script.jsp" />
 
 </HEAD>
@@ -109,6 +110,8 @@ if (!rsc.isEmpty()) {
                  <TR>
                    <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
+
+
                  <TR>
                    <TD CLASS="statText" ROWSPAN="12" VALIGN="top">
 <% if (vieweeHasImage) { %>
@@ -120,10 +123,19 @@ if (!rsc.isEmpty()) {
 <% } %>
                      <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
                    </TD>
-                   <TD CLASS="statText" WIDTH="50%">Rating:</TD>
-                   <TD CLASS="statText" WIDTH="20%"ALIGN="right"><%= coderrank.toString() %></TD>
+                   <TD CLASS="statText" WIDTH="50%">Country:</TD>
+                   <TD CLASS="statText" WIDTH="20%"ALIGN="right"><rsc:item name="country_name" row="<%=rsr%>"/></TD>
                    <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" WIDTH="30%" ALIGN="left"><A HREF="/stat?c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ ratings history ]</A></TD>
+                   <TD CLASS="statText" WIDTH="30%" ALIGN="left">&#160;</TD>
+                 </TR>
+                <TR>
+                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                </TR>
+                <TR>
+                   <TD CLASS="statText" >Rating:</TD>
+                   <TD CLASS="statText" ALIGN="right"><%= coderrank.toString() %></TD>
+                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ ratings history ]</A></TD>
                  </TR>
                  <TR>
                    <TD CLASS="statText">Volatility Factor:</TD>
