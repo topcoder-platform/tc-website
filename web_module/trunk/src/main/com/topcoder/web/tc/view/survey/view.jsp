@@ -23,12 +23,12 @@
                         <jsp:getProperty name="question" property="text"/>
                     </td>
                 </tr>
-                <tc:answerInput id="answerInput" question="<%=question%>">
                 <tr>
                     <td>
-                        <tc-webtag:errorIterator id="err" name="<%=inputName%>"><%=err%><br/></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
                 </tr>
+                <tc:answerInput id="answerInput" question="<%=question%>">
                 <tr>
                     <td>
                         <%=answerInput%>

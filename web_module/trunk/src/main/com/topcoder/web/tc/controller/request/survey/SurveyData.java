@@ -28,13 +28,13 @@ public abstract class SurveyData extends Base {
         try {
             surveyId = Long.parseLong(getRequest().getParameter(Constants.SURVEY_ID));
         } catch (NullPointerException e) {
-            throw new NavigationException("Request is missing survey parameter");
+            throw new NavigationException("Invalid Request, missing required information.");
         }
 
         try {
             survey = createSurvey(surveyId);
             if (survey==null) {
-                throw new NavigationException("Survey doesn't exist");
+                throw new NavigationException("Invalid Request, Survey does not exist.");
             } else {
                 getRequest().setAttribute("surveyInfo", survey);
                 questionInfo = getQuestionInfo(surveyId);
