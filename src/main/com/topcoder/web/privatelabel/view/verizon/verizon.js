@@ -54,6 +54,5 @@
             else
                 style+="ns4"}
         }
-                alert(style);
         var finalstyle = '<link rel="stylesheet" type="text/css" href="/css/verizon/vcc_' + style + '.css">';
         document.write(finalstyle);
