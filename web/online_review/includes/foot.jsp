@@ -17,7 +17,6 @@
 
             <A href="http://www.topcoder.com" class="smallFoot">Competition</A>&#160;&#160;|&#160;&#160;
             <A href="http://www.topcoder.com/?t=development&c=index" class="smallFoot">Development</A>&#160;&#160;|&#160;&#160;
-            <A href="http://www.topcoder.com/?t=tces&c=index" class="smallFoot">Job Listings</A>&#160;&#160;|&#160;&#160;
             <A href="http://software.topcoder.com" class="smallFoot">Software</A>&#160;&#160;|&#160;&#160;
             <A href="http://corporate.topcoder.com/?module=Static&d1=corpd2=tces_home" class="smallFoot">Employment Services</A>&#160;&#160;|&#160;&#160;
             <A href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=spon_prog&d3=index" class="smallFoot">Sponsorship</A><br /><br />
