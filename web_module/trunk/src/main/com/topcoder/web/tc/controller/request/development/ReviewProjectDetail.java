@@ -70,7 +70,12 @@ public class ReviewProjectDetail extends Base {
                     if (!hasPrimary) {
                         for (Iterator it = reviewerList.iterator(); it.hasNext();) {
                             app = (ReviewBoardApplication)it.next();
-                            if (app.getReviewerType().equals("Failure"))
+                            //set a primary to be the failure test spot, but only do it
+                            //if it's not filled.  perhaps we put someone in there
+                            //who didn't want to be primary, failure is primary is just
+                            //a convention, not a rule.  in this case, someone would have to
+                            //be set primary manually
+                            if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
                                 app.setPrimary(true);
                         }
                     }
@@ -109,7 +114,13 @@ public class ReviewProjectDetail extends Base {
                         hasPrimary|=app.isPrimary();
                     }
                     if (!hasPrimary) {
-                        ((ReviewBoardApplication)reviewerList.get(0)).setPrimary(true);
+                        //set a primary, but only do it to a spot that is not
+                        //already taken as a non-primary
+                        for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                            app = (ReviewBoardApplication)it.next();
+                            if (!app.isSpotFilled())
+                                app.setPrimary(true);
+                        }
                     }
                 }
 
