@@ -10,7 +10,6 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.Util;
 
 import javax.naming.InitialContext;
 import javax.naming.Context;
@@ -83,7 +82,7 @@ final class UserDb {
                through the security component.
              */
             InitialContext context = new InitialContext();
-            DataSource ds = (DataSource) context.lookup("java:comp/env/common_datasource");
+            DataSource ds = (DataSource) context.lookup("java:comp/env/security_datasource");
             query = new StringBuffer(100);
             query.append(" INSERT INTO security_user");
             query.append(       " (login_id, user_id, password)");
@@ -95,7 +94,7 @@ final class UserDb {
             ps.setString(3, "placeholder");
             regVal = ps.executeUpdate();
             if (regVal != 1) {
-                throw new TCException("ejb.User.UserDb:updateUser():did not update security user record:\n");
+                throw new TCException("ejb.User.UserDb:insertUser():did not update security user record:\n");
             }
 
             updateSecurityPassword(user.getUserId(), user.getHandle(), user.getPassword());
@@ -161,7 +160,7 @@ final class UserDb {
 
                 /* update their user name manually, cuz security user doesn't allow it */
                 InitialContext context = new InitialContext();
-                DataSource ds = (DataSource) context.lookup("java:comp/env/common_datasource");
+                DataSource ds = (DataSource) context.lookup("java:comp/env/security_datasource");
                 query = new StringBuffer(100);
                 query.append(" UPDATE user");
                 query.append(   " SET user_id = ?");
