@@ -25,7 +25,7 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("industries")) {%><td class=vbcON>Industries 6</td>
-	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=industries" class=vbcLINK>Industries 6</A></td><% } %>
+	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingIndustries');" class=vbcLINK>Industries 6</A></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("confirm")) {%><td class=vbcON>Confirm 7</td>

@@ -148,6 +148,7 @@ public class Constants {
     public static String CONTRACTING_TECHNOLOGIES_PAGE;
     public static String CONTRACTING_OS_PAGE;
     public static String CONTRACTING_DATABASES_PAGE;
+    public static String CONTRACTING_INDUSTRIES_PAGE;
     
     public static int PREFERENCE_SINGLE_ANSWER;
     public static int PREFERENCE_MULTIPLE_ANSWER;
@@ -164,6 +165,7 @@ public class Constants {
     public static int SKILL_TYPE_TECHNOLOGIES;
     public static int SKILL_TYPE_OS;
     public static int SKILL_TYPE_DATABASES;
+    public static int SKILL_TYPE_INDUSTRIES;
     public static String SKILL_PREFIX;
     
     public static String NOTE_PREFIX;
@@ -171,6 +173,7 @@ public class Constants {
     public static String NOTE_TECHNOLOGIES;
     public static String NOTE_OS;
     public static String NOTE_DATABASES;
+    public static String NOTE_INDUSTRIES;
 
 
     static {
