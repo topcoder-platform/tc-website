@@ -161,7 +161,8 @@ public abstract class Base extends BaseProcessor {
                 errors.put(me.getKey(), me.getValue());
             }
         }
-        clearSessionErrors(messageId);
+        if (clear)
+            clearSessionErrors(messageId);
     }
 
     protected void loadSessionDefaultsIntoRequest(String messageId, boolean clear) {
@@ -174,7 +175,8 @@ public abstract class Base extends BaseProcessor {
                 setDefault((String) me.getKey(), me.getValue());
             }
         }
-        clearSessionDefaults(messageId);
+        if (clear)
+            clearSessionDefaults(messageId);
     }
 
     protected String buildProcessorRequestString(String processor, String[] keys, String[] values) {
