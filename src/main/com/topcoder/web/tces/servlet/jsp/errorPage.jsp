@@ -83,10 +83,7 @@
                   <TD class="errorText" HEIGHT="18" align="left" colspan="20">
 
                       <!-- Error message content pane -->
-                        An error has occured while processing your request<br>
-                        If you think this page was shown by mistake, please contact us<br>
-                        We are sorry for any inconveniences caused by this<br>
-                        site administration<br><br>
+     An error has occurred.  If you would like to report this to TopCoder click <A CLASS="bodyText" HREF="mailto:service@topcoder.com">here</A>.
 
 <%--
 <!-- web-app debug time stack trace  BEGIN -->
