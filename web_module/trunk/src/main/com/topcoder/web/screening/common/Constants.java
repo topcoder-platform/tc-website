@@ -9,6 +9,7 @@ public class Constants
 
     private static boolean isInitialized;
 
+    public static String JSP_ROOT;
     //Controller Servlet Constants
     public static String LOGIN_PAGE;
     public static String ERROR_PAGE;
@@ -150,15 +151,16 @@ public class Constants
     public static String DATE_TIME_FORMAT;
 
     public static void initialize(ServletConfig config) {
+        JSP_ROOT = config.getInitParameter("jsp_root");
         //Controller Servlet Constants
-        LOGIN_PAGE = config.getInitParameter("login_page");
-        ERROR_PAGE = config.getInitParameter("error_page");
-        PERM_ERROR_PAGE = config.getInitParameter("perm_error_page");
+        LOGIN_PAGE = JSP_ROOT+config.getInitParameter("login_page");
+        ERROR_PAGE = JSP_ROOT+config.getInitParameter("error_page");
+        PERM_ERROR_PAGE = JSP_ROOT+config.getInitParameter("perm_error_page");
         PROCESSORS_PACKAGE = config.getInitParameter("processors_package");
         VALID_CHAR_LIST = config.getInitParameter("valid_char_list");
         VALID_PASS_CHAR_LIST = config.getInitParameter("valid_pass_char_list");
         CONTROLLER_URL = config.getInitParameter("controller_url");
-        DEFAULT_PAGE = config.getInitParameter("default_page");
+        DEFAULT_PAGE = JSP_ROOT+config.getInitParameter("default_page");
         REQUEST_INFO = config.getInitParameter("request_info_attribute");
 
         //URL Parameter constants
@@ -202,10 +204,10 @@ public class Constants
 
         //Candidate constants
         CANDIDATE_INFO = config.getInitParameter("candidate_info_attribute");
-        CANDIDATE_SETUP_PAGE = config.getInitParameter("candidate_setup_page");
-        CANDIDATE_LIST_PAGE = config.getInitParameter("candidate_list_page");
-        NOTE_LIST_PAGE = config.getInitParameter("note_list_page");
-        NOTE_CREATE_PAGE = config.getInitParameter("note_create_page");
+        CANDIDATE_SETUP_PAGE = JSP_ROOT+config.getInitParameter("candidate_setup_page");
+        CANDIDATE_LIST_PAGE = JSP_ROOT+config.getInitParameter("candidate_list_page");
+        NOTE_LIST_PAGE = JSP_ROOT+config.getInitParameter("note_list_page");
+        NOTE_CREATE_PAGE = JSP_ROOT+config.getInitParameter("note_create_page");
         UC_DEFAULT_FORWARD_PROCESSOR = 
           config.getInitParameter("update_candidate_default_forward_processor");
         UC_CREATE_CODER_STATUS_ID = 
@@ -242,9 +244,9 @@ public class Constants
             config.getInitParameter("profile_languages_query_key");
         POPULATE_PROFILE_PROCESSOR = 
             config.getInitParameter("populate_profile_processor");
-        PROFILE_SETUP_PAGE = config.getInitParameter("profile_setup_page");
-        PROFILE_CONFIRM_PAGE = config.getInitParameter("profile_confirm_page");
-        PROFILE_LIST_PAGE = config.getInitParameter("profile_list_page");
+        PROFILE_SETUP_PAGE = JSP_ROOT+config.getInitParameter("profile_setup_page");
+        PROFILE_CONFIRM_PAGE = JSP_ROOT+config.getInitParameter("profile_confirm_page");
+        PROFILE_LIST_PAGE = JSP_ROOT+config.getInitParameter("profile_list_page");
         PROFILE_ADD_PROBLEM_PROCESSOR = 
             config.getInitParameter("profile_add_problem_processor");
         PROFILE_REMOVE_PROBLEM_PROCESSOR =
@@ -259,8 +261,8 @@ public class Constants
             config.getInitParameter("profile_check_name_query_key");
         
         //Problem constants
-        PROBLEM_LIST_PAGE = config.getInitParameter("problem_list_page");
-        PROBLEM_DETAIL_PAGE = config.getInitParameter("problem_detail_page");
+        PROBLEM_LIST_PAGE = JSP_ROOT+config.getInitParameter("problem_list_page");
+        PROBLEM_DETAIL_PAGE = JSP_ROOT+config.getInitParameter("problem_detail_page");
         POPULATE_PROBLEM_DETAIL_PROCESSOR =
             config.getInitParameter("populate_problem_detail_processor");
         PROBLEM_INFO = 
@@ -284,10 +286,10 @@ public class Constants
             config.getInitParameter("accuracy_info_query_key");
         
         //Result constants
-        PROBLEM_RESULT_PAGE = config.getInitParameter("problem_result_page");
+        PROBLEM_RESULT_PAGE = JSP_ROOT+config.getInitParameter("problem_result_page");
         TC_PROBLEM_RESULT_PAGE = 
-            config.getInitParameter("tc_problem_result_page");
-        TEST_RESULTS_PAGE = config.getInitParameter("test_results_page");
+            JSP_ROOT+config.getInitParameter("tc_problem_result_page");
+        TEST_RESULTS_PAGE = JSP_ROOT+config.getInitParameter("test_results_page");
 
         //Session constants
         POPULATE_SESSION_PROCESSOR = 
@@ -295,9 +297,9 @@ public class Constants
         UPDATE_SESSION_PROCESSOR = 
             config.getInitParameter("update_session_processor");
         PREVIEW_EMAIL_PAGE = 
-            config.getInitParameter("preview_email_page");
+            JSP_ROOT+config.getInitParameter("preview_email_page");
         SESSION_SETUP_PAGE = 
-            config.getInitParameter("session_setup_page");
+            JSP_ROOT+config.getInitParameter("session_setup_page");
         SESSION_INFO = 
             config.getInitParameter("session_info_attribute");
         SESSION_LOOKUP_COMMAND = 
@@ -307,7 +309,7 @@ public class Constants
         SESSION_PROFILE_INFO_QUERY_KEY = 
             config.getInitParameter("session_profile_info_query_key");
         SESSION_CONFIRM_PAGE =
-            config.getInitParameter("session_confirm_page");
+            JSP_ROOT+config.getInitParameter("session_confirm_page");
         CONFIRM_SESSION_PROCESSOR = 
             config.getInitParameter("confirm_session_processor");
         SESSION_SEGMENT_COMMAND = 
