@@ -111,7 +111,8 @@ public final class TC extends HttpServlet {
             } else {
                 Login processor = new Login();
                 processor.process(request, response);
-                 if(processor.isPageInContext()) {
+                log.debug("forwarding to " + processor.getNextPage());
+                if(processor.isPageInContext()) {
                     getServletContext().getRequestDispatcher(response.encodeURL(processor.getNextPage())).forward(request, response);
                 } else {
                     response.sendRedirect(response.encodeRedirectURL(processor.getNextPage()));
