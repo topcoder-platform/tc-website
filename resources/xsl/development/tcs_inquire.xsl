@@ -6,7 +6,7 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/stats_intro.xsl"/>  
   <xsl:import href="../includes/dev/public_dev_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/public_dev_right.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
@@ -196,7 +196,7 @@ If you have any questions regarding these Terms, contact us at service@topcoder.
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
 <!-- Right Column Include Begins -->        
-        <xsl:call-template name="public_right_col"/>        
+        <xsl:call-template name="public_dev_right"/>        
 <!-- Right Column Include Ends -->        
         </TD>
   <!-- Right Column Ends -->
