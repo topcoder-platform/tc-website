@@ -64,7 +64,6 @@
 <td class="rh1" align="right">Rating</td>
 <td class="rh1" align="right">Volatility</td>
 <td class="rh1" align="right">Earnings</td>
-<td class="rh2" align="right">Online 3</td>
 <td class="rh2" align="right">Online 4</td>
 <td class="rh2" align="right">Semifinals</td>
 <td class="rh2" align="right">Finals</td>
