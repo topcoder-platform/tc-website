@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.screening.common.Constants;
 
 public class ProfileInfo extends BaseModel {
     private Long profileId;
@@ -275,5 +276,10 @@ public class ProfileInfo extends BaseModel {
 
     public void setSessionList(ResultSetContainer sessionList) {
         this.sessionList = sessionList;
+    }
+
+    public boolean hasTestSetA() {
+        return !testSetA.equals(new Long(Constants.NO_TEST_SET_A));
+
     }
 }

@@ -108,7 +108,7 @@ function submitConfirm() {
                 <tr>
                     <td class="testTableSubtitleEven">Problem Set</td>
                     <td class="testTableEven">
-                        <select name="testSetA" onChange="submitReload()">
+                        <select name="<%=Constants.TEST_SET_A%>" onChange="submitReload()">
                             <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
                             if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
                                 %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option><%

@@ -73,7 +73,7 @@ public class UpdateProfile extends BaseProfileProcessor {
                 Map map = access.getData(dataRequest);
                 ResultSetContainer rsc = (ResultSetContainer)
                         map.get(Constants.CONTACT_INFO_QUERY_KEY);
-                if(rsc.size() == 0 || rsc.size() > 1) {
+                if(rsc.size() != 1) {
                     throw new ScreeningException(
                             "Contact result set size wrong(" + rsc.size() + ")");
                 }
@@ -83,7 +83,7 @@ public class UpdateProfile extends BaseProfileProcessor {
                     Long.parseLong(row.getItem("company_id").toString());
     //            create a session somehow
                 long spid = profile.createSessionProfile(info.getProfileName(), companyId);
-                if (info.getTestSetA().longValue()!=Constants.NO_TEST_SET_A) {
+                if (info.hasTestSetA()) {
                     profile.setSessionRoundId(spid, info.getTestSetA().longValue());
                 }
                 info.setProfileId(new Long(spid));
@@ -161,7 +161,7 @@ public class UpdateProfile extends BaseProfileProcessor {
      * @param profileId  THe id of the created candidate
      */
     private void updateSessionProfile(long profileId) {
-        HttpServletRequest request = (HttpServletRequest)getRequest();
+        HttpServletRequest request = getRequest();
         HttpSession session = request.getSession();
         TestSessionInfo info = (TestSessionInfo)
             session.getAttribute(Constants.SESSION_INFO);
