@@ -21,6 +21,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.bean.Registration;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.BaseServlet;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
@@ -144,7 +145,11 @@ public final class TaskAuthentication {
             if (login.getLockout()) {
                 throw new NavigationException("ACCOUNT LOCKOUT", ACCOUNT_LOCKOUT_PAGE);
             }
-            loginURL = Conversion.checkNull(request.getParameter("errorURL"));
+            loginURL = Conversion.checkNull((String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY));
+            if (loginURL.equals("")) {
+                loginURL = Conversion.checkNull(request.getParameter("errorURL"));
+            }
+
             String handle = Conversion.checkNull(request.getParameter("Handle"));
             String password = Conversion.checkNull(request.getParameter("Password"));
             log.debug("logging in " + handle + "/" + password);
