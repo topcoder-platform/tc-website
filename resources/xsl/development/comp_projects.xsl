@@ -194,8 +194,9 @@
                     </td>
                 </tr>
 
-                <tr><td colspan="8"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="8" class="projectCells"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- TCO Design Ends -->
+
 
 <!-- TCO Development Begins -->
                 <tr>
@@ -203,14 +204,14 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Inquiries</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Submissions</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Payment*</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Complexity</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Multiplier</td>
+                    <td width="30%" class="projectHeaders">Development Projects</td>
+                    <td class="projectHeaders" align="center">Catalog</td>
+                    <td class="projectHeaders" align="center"># of Inquiries</td>
+                    <td class="projectHeaders" align="center"># of Submissions</td>
+                    <td class="projectHeaders" align="center">Payment*</td>
+                    <td class="projectHeaders" align="center">Complexity</td>
+                    <td class="projectHeaders" align="center">Submit by</td>
+                    <td class="projectHeaders" align="center">Multiplier</td>
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
@@ -229,7 +230,7 @@
                         </xsl:variable>
 
                         <tr valign="top">
-                            <td class="formTextOdd">
+                            <td class="projectCells">
                                 <a>
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/index?tccc=t&amp;t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
@@ -239,8 +240,8 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="projectCells" align="center">
                              <a>
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
@@ -248,7 +249,7 @@
                                <xsl:value-of select="./total_inquiries"/>
                              </a>
                             </td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center">
                              <a>
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
@@ -256,10 +257,10 @@
                                <xsl:value-of select="./total_submissions"/>
                              </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
-                    <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                    <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>
                                 <xsl:attribute name="href">
@@ -277,7 +278,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="8"><strong>The first round of the 2004 TCCC Component Development Competition begins on 2/17/2004</strong></td>
+                            <td class="projectCells" colspan="8"><strong>The first round of the 2004 TCCC Component Development Competition begins on 2/17/2004</strong></td>
                         </tr>
                 </xsl:if>
 <!--
@@ -286,10 +287,10 @@
                 </tr>
 -->
                 <tr>
-                    <td class="bodyText" colspan="8">*Total Payment (before royalties) </td>
+                    <td class="projectCells" colspan="8">*Total Payment (before royalties) </td>
                 </tr>
 
-                <tr><td colspan="8"><A name="comp_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="8" class="projectCells"><A name="comp_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- TCO Development Ends -->
 
 <!-- Open Component Design Projects begins -->
@@ -297,7 +298,7 @@
 <!--                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr> -->
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="bodyText" colspan="8">
+                    <td class="projectCells" colspan="8">
                         <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(/TC/DEVELOPMENT/Project/Total/total, $priceFormat)"/></span>
                         in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
                     </td>
@@ -346,7 +347,7 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
                         </xsl:variable>
                         <tr valign="top">
-                            <td class="formTextOdd">
+                            <td class="projectCells">
                                 <a>
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
@@ -356,15 +357,15 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="projectCells" align="center">
                              <a>
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
                                 </xsl:attribute>
                                 <xsl:value-of select="./total_inquiries"/>
                             </a></td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center">
                              <a>
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
@@ -372,10 +373,10 @@
                                <xsl:value-of select="./total_submissions"/>
                              </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
-                    <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                    <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>
                                 <xsl:attribute name="href">
@@ -390,10 +391,10 @@
                 </xsl:for-each>
 
                 <tr>
-                    <td class="bodyText" colspan="8">*Total Payment (before royalties) </td>
+                    <td class="projectCells" colspan="8">*Total Payment (before royalties) </td>
                 </tr>
 
-                <tr><td colspan="8"><A name="comp_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="8" class="projectCells"><A name="comp_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- Open Component Design Projects ends -->
 
 <!-- Open Component Development Projects begins -->
@@ -434,7 +435,7 @@
                         </xsl:variable>
 
                         <tr valign="top">
-                            <td class="formTextOdd">
+                            <td class="projectCells">
                                 <a>
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
@@ -444,8 +445,8 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="projectCells" align="center">
                              <a>
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
@@ -453,7 +454,7 @@
                                <xsl:value-of select="./total_inquiries"/>
                              </a>
                             </td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center">
                              <a>
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
@@ -461,10 +462,10 @@
                                <xsl:value-of select="./total_submissions"/>
                              </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
-                    <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                    <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>
                                 <xsl:attribute name="href">
@@ -479,7 +480,7 @@
                 </xsl:for-each>
 
                 <tr>
-                    <td class="bodyText" colspan="8">*Total Payment (before royalties)</td>
+                    <td class="projectCells" colspan="8">*Total Payment (before royalties)</td>
                 </tr>
             </table>
 
