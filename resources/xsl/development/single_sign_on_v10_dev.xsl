@@ -90,25 +90,25 @@
                                                 <a name="overview">Overview</a>
                                             </strong>
                                             <br/>
-                                             TopCoder Software has engaged with a customer to build and integrate a custom Single Sign-On (SSO) application 
+                                             TopCoder Software has engaged with a customer to build and integrate a custom Single Sign-On (SSO) application
                                              using existing components from the TopCoder Component Catalog as well as specific code to interface with the client's environment.
                                              </p>
                                              <p>
-                                             The client environment contains a set of web-enabled applications that each have separate logon procedures.  This causes 
-                                             various difficulties for users, developers and administrators.  For example, given multiple usernames and passwords to remember, 
-                                             users often forget one of their passwords and must get in touch with support staff to reset their profiles.  The client wishes to provide 
-                                             SSO functionality for this group of applications.  This involves allowing a user to have a single identity that allows them to seamlessly 
+                                             The client environment contains a set of web-enabled applications that each have separate logon procedures.  This causes
+                                             various difficulties for users, developers and administrators.  For example, given multiple usernames and passwords to remember,
+                                             users often forget one of their passwords and must get in touch with support staff to reset their profiles.  The client wishes to provide
+                                             SSO functionality for this group of applications.  This involves allowing a user to have a single identity that allows them to seamlessly
                                              access any one of these applications without logging in.
                                              </p>
                                              <p>
-                                             The design of this application was broken into two parts, SSO Security Server and SSO Application Authentication.  Based on these 
+                                             The design of this application was broken into two parts, SSO Security Server and SSO Application Authentication.  Based on these
                                              designs, development has been further broken down in to five development projects.
                                              </p>
 
                                         <p>
                                             <strong>View the
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/SSODevelopmentRFI1.pdf">Business Requirement Specification</a> for this application project.  The following documentation will be available to the developers during the development phase:
-                                                
+
                                             </strong>
                                         <br/>
                                         <ul>
@@ -119,7 +119,7 @@
                                             <li>Database Schema.</li>
                                             <li>Test Plan.</li>
                                         </ul>
-                                        </p>                                    
+                                        </p>
 
                                           <p>
                                           <strong>Functionality to be implemented for each design:</strong>
@@ -154,12 +154,12 @@
                                           <br/>
                                           &#160;&#160;&#160;Parse responses to verify successful login
                                           </p>
-                                          
+
                                           <p>
                                           <strong>WebConnect-based Application Authentication</strong><br/>
                                           Interact with WebConnect terminal emulation software through Java API
                                           </p>
-                                          
+
                                           <p>
                                             <strong>
                                                 <a name="projecttype">Project Type</a>
@@ -203,7 +203,7 @@
                                           <p>
                                           Compensation for the second place developer will be paid in one installment following the completion of the integration project.
                                           </p>
-                                          
+
                                           <p>
                                           <strong>Security Server EJB Interfaces</strong>
                                           </p>
@@ -342,7 +342,7 @@ Development Reviewer - $181.00
 Total - $1,746.50
 </p>
 
-                                          
+
                                           <p>
                                           *Completion of the project is defined as follows:
                                           <ul>
@@ -351,7 +351,7 @@ Total - $1,746.50
                                           <li>Application launch into production environment.</li>
                                           </ul>
                                           </p>
-                                          
+
                                                                                   <!-- Eligibility Requirements -->
                                         <p>
                                             <strong>
@@ -375,8 +375,8 @@ Total - $1,746.50
                                                 <a name="timeline">Timeline</a>
                                             </strong>
                                             <br/>
-                                             The Development Submission must be submitted on time. All questions submitted prior to 6PM EDT on the Submission Due Dates 
-                                             will be answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify 
+                                             The Development Submission must be submitted on time. All questions submitted prior to 6PM EDT on the Submission Due Dates
+                                             will be answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify
                                              their submission.
                                         </p>
 
@@ -387,11 +387,11 @@ Total - $1,746.50
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Inquire By:</td>
-                                                <td class="sidebarText" align="right">12.26.2003 12:00PM</td>
+                                                <td class="sidebarText" align="right">12.29.2003 12:00PM</td>
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Member Selection:</td>
-                                                <td class="sidebarText" align="right">12.26.2003</td>
+                                                <td class="sidebarText" align="right">12.29.2003</td>
                                             </tr>
 
                                             <tr>
@@ -426,13 +426,13 @@ Total - $1,746.50
                                             <tr>
                                                 <td class="sidebarText">Acceptance:</td>
                                                 <td class="sidebarText" align="right">02.04.2004</td>
-                                            </tr>                                            
+                                            </tr>
                                             <tr>
                                                 <td class="sidebarText">Deployment to Client:</td>
                                                 <td class="sidebarText" align="right">03.01.2004</td>
-                                            </tr>                                            
+                                            </tr>
                                         </table>
-                                          
+
                                         <!-- Register at TCS -->
                                         <p>
                                             <a name="requirementspecification"></a>
@@ -440,7 +440,7 @@ Total - $1,746.50
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/SSODevelopmentRFI1.pdf">Requirement Specification</a> for this application project &gt;&gt;
                                             </strong>
                                         </p>
-                                        
+
                                         <p>If you'd like to work on more than one project, please specify that in your inquiry comments.</p>
 
                                         <p>
@@ -468,7 +468,7 @@ Total - $1,746.50
                                                <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=WebConnect%20based%20Application%20Authentication">Inquire for the WebConnect-Based Applications Development Tasks of the Single Sign-on Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
-                                          
+
                                         <p>
                                             <br/>
                                         </p>
