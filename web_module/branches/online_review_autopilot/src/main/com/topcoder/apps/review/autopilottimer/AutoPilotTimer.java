@@ -123,7 +123,50 @@ public class AutoPilotTimer
                                 logger.debug("ERROR " + result.toString() );
                             }
                         }
-                    } 
+                    } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
+                        if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                            logger.debug("SELECTED: " + projs[i].getProjectName());
+                            
+                            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
+                            ProjectForm form = new ProjectForm();
+                            
+                            Project p = projectTracker.getProject(projs[i], user.getTCSubject());
+                            
+                            if(!p.getAutoPilot()) continue;
+                            
+                            //check appeals
+                            boolean good = true;
+                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                            for(int j = 0; j < appeals.length; j++) {
+                                if(!appeals[j].isResolved()) {
+                                    good = false;
+                                    break;
+                                }
+                            }
+                            
+                            if(!good) continue;
+                            
+                            form.fromProject(p);
+                            
+                            form.setScorecardTemplates(docManager.getScorecardTemplates());
+                            
+                            form.setCurrentPhase("Aggregation");
+                            
+                            form.setReason("auto pilot advancing to aggregation");
+                            
+                            //check for screening scorecard template
+                            if(form.getScreeningTemplateId() == -1 ) {
+                                String template = docManager.getDefaultScorecardTemplate(p.getProjectType().getId(), ScreeningScorecard.SCORECARD_TYPE).getName();
+                                form.setScreeningTemplate(template);
+                            }
+                            
+                            ProjectData data = form.toActionData(orpd);
+                            ResultData result = new BusinessDelegate().projectAdmin(data); 
+                            if(!(result instanceof SuccessResult)) {
+                                logger.debug("ERROR " + result.toString() );
+                            }
+                        }
+                    }
                 }
             } catch(Exception e) {
                 logger.error(e.getMessage());
