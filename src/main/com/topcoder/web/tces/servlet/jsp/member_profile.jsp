@@ -138,6 +138,7 @@
                   <B>Highest Rating:</B> <%=MemberStats.getItem(0, "highest_rating").toString()%><BR>
                   <B>Lowest Rating:</B> <%=MemberStats.getItem(0, "lowest_rating").toString()%><BR>
                   <B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%><BR>
+                  <B>Ranking:</B> <%=MemberStats.getItem(0, "rank").toString()%><BR>
                   <B>Number of Ratings:</B> <%=MemberStats.getItem(0, "num_ratings").toString()%><BR>
                   <B>Most Recent Rated Event:</B> <%=MemberStats.getItem(0, "last_rated_event").toString()%><BR>
                   </P>    

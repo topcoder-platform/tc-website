@@ -1154,8 +1154,9 @@ SELECT r.rating
      , r.highest_rating
      , r.lowest_rating
      , cr.percentile
+     , cr.rank
      , r.num_ratings
-     , cal.date AS last_rated_event
+     , TO_CHAR(cal.date, '%m/%d/%iY') as last_rated_event
   FROM calendar cal
      , round rd
      , rating r
@@ -1494,6 +1495,7 @@ SELECT (CASE WHEN r.round_type_id = 2
      , dlu.division_desc
      , p.class_name
      , p.problem_text
+     , cp.language_id
   FROM problem p
      , round r
      , contest c
