@@ -90,8 +90,8 @@ return false;
                         <tc:preferenceIterator id="pref" list="<%=prefGroup.getPrefs()%>">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.PREFERENCE_PREFIX + pref.getID()%>">
                             <tr>
-                                <td width="100%" align=center class=<%=cssClasses[i % 2]%>>
-                                    <%=err%>
+                                <td colspan=2 width="100%" align=center class=<%=cssClasses[i % 2]%>>
+                                    <span class="bigRed"><%=err%></span>
                                 </td>
                             </tr>
                         </tc-webtag:errorIterator>
