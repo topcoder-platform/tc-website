@@ -167,7 +167,7 @@ midpoint favors coder i.  If it's a tie, the block is split between both coders.
                 <BR/>
                                     <BR/>
 Here is the psuedo-code function to estimate the probability of coder A beating coder B
-(<IMG ALT="inverse standard normal" HEIGHT="11" WIDTH="11" SRC="/i/rating/phi.gif" BORDER="0"/> is the inverse of the
+(f() is the inverse of the
 standard normal function):
                 <BR/>
                                     <BR/>
