@@ -13,10 +13,19 @@
             <div class="smallFoot">
             <A href="/?t=home&c=public_home" class="smallFoot">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=about_tc&c=index" class="smallFoot">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=news_events&c=index" class="smallFoot">Press Room</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=contacts&c=index" class="smallFoot">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="/?c=privacy" class="smallFoot">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/?c=terms" class="smallFoot">Terms</A><br /><br />
-            Copyright &#169; 2000-2003, TopCoder, Inc. All rights reserved.
+
+            <A href="/?t=home&c=public_home" class="smallFoot">Competition</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=development&c=index" class="smallFoot">Development</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=tces&c=index" class="smallFoot">Job Listings</A>&#160;&#160;|&#160;&#160;
+            <A href="http://software.topcoder.com" class="smallFoot">Software</A>&#160;&#160;|&#160;&#160;
+            <A href="http://corporate.topcoder.com/?module=Static&d1=corpd2=tces_home" class="smallFoot">Employment Services</A>&#160;&#160;|&#160;&#160;
+            <A href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=spon_prog&d3=index" class="smallFoot">Sponsorship</A><br /><br />
+
+            Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved.
             </div>
             <br/><br/>
         </td>
