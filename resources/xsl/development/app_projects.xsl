@@ -81,7 +81,7 @@
                                     <td class="projectCells" align="right">$1,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">10.13.2004</td>
                                 </tr>
-<!--                                <tr valign="middle">
+                                <tr valign="middle">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Seat_Service_Shell_Design">Seat Service Shell Design</a>
                                     </td>
@@ -89,7 +89,7 @@
                                     <td class="projectCells" align="right">$1,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">10.13.2004</td>
                                 </tr>
-    -->
+
 
                             </table>
 
