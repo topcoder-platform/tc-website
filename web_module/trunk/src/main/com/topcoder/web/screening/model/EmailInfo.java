@@ -95,8 +95,7 @@ public class EmailInfo extends BaseModel {
         msgText.append(companyName);
         msgText.append(".  We would like you to participate in the Private Candidate Testing Application powered by ");
         msgText.append("TopCoder.  Through this Testing Application, you will be asked to solve algorithmic problems ");
-        msgText.append("as an objective measure of your programming ability. Your results will then be compared to ");
-        msgText.append("other candidates being evaluated for the same position.");
+        msgText.append("as an objective measure of your programming ability.");
         msgText.append("\n\n");
         msgText.append("Please review the Help Manual before getting started: ");
         msgText.append("http://corporate.topcoder.com/testing/help/index.jsp");
