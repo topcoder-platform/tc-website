@@ -3,10 +3,12 @@ package com.topcoder.web.corp.request;
 import java.rmi.RemoteException;
 import java.util.Enumeration;
 import java.util.Iterator;
+import java.util.Map;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.sql.DataSource;
 import javax.transaction.Transaction;
 
 import com.topcoder.security.GeneralSecurityException;
@@ -17,6 +19,10 @@ import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
@@ -49,6 +55,7 @@ public class UserEdit extends BaseProcessor {
     public static final String KEY_PHONE          = "phone";
     public static final String KEY_EMAIL          = "email";
     public static final String KEY_EMAIL2         = "email-once-more";
+    public static final String KEY_USER_PERMS     = "user-permissions";
     
     protected String firstName;
     protected String lastName;
@@ -331,6 +338,17 @@ public class UserEdit extends BaseProcessor {
         setFormFieldDefault(KEY_LOGIN, userName);
         if( targetUserID >= 0 ) {
             request.setAttribute(KEY_TARGET_USER_ID, ""+targetUserID);
+        }
+        if( targetUserID != secTok.primaryUserID ) {
+            try {
+                embedPermissions();
+            }
+            catch(Exception ignore) {
+                log.error(
+                    "Cant get user permissions. Only default ones will be available"
+                );
+                ignore.printStackTrace();
+            }
         }
     } 
 
@@ -788,5 +806,38 @@ public class UserEdit extends BaseProcessor {
                 targetUser = null;
             }
         }
+    }
+    
+    /**
+     * Embeds ResultSetContainer containing user permissions and their states
+     * inro request
+     * 
+     * @throws NamingException
+     * @throws Exception
+     */
+    private void embedPermissions()
+    throws NamingException, Exception
+    {
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("cmd-TCSubject-permissions");
+        dataRequest.setProperty("uid", ""+targetUserID );
+        dataRequest.setProperty("puid", ""+secTok.primaryUserID );
+
+        InitialContext ic = null;
+        ResultSetContainer rsc = null;
+        try {
+            ic = new InitialContext(Constants.NDS_CONTEXT_ENVIRONMENT);
+            DataAccessInt dai = new DataAccess((DataSource)ic.lookup(
+                Constants.NDS_DATA_SOURCE)
+            );
+            Map resultMap = dai.getData(dataRequest);
+            rsc = (ResultSetContainer) resultMap.get("qry-permissions-for-user");
+            request.setAttribute(KEY_USER_PERMS, rsc);
+
+        }
+        finally {
+            Util.closeIC(ic);
+        }
+        
     }
 }
