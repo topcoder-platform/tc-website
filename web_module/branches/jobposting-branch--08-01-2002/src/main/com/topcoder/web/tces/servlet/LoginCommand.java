@@ -88,6 +88,13 @@ public class LoginCommand implements TCESCommand, Serializable {
 			response.encodeURL("/es/login.jsp")).forward(request, response);
 	}
 
+	private void goMainPage(HttpServletRequest request, HttpServletResponse response,
+					 	  	   ServletContext servCtx) throws Exception
+	{
+		response.sendRedirect(response.encodeURL("http://" + request.getServerName() + "/tces/tces?c=main"));
+	}
+
+
 
 	private void viewAuth(HttpServletRequest request, HttpServletResponse response,
 					 	  	   InitialContext ctx, ServletContext servCtx)  throws Exception
@@ -112,6 +119,8 @@ public class LoginCommand implements TCESCommand, Serializable {
 		if (rsc.getRowCount() == 0) {
 			setMessage("User handle incorrect.  Please retry.");
 
+			session.setAttribute("user_id", null);  // record the user as not being logged-in.
+
 			goLoginPage(request,response,servCtx);
 
 			return;
@@ -127,18 +136,19 @@ public class LoginCommand implements TCESCommand, Serializable {
 		if (!actualPassword.trim().equals(password)) {
 			setMessage("Password incorrect.  Please retry.");
 
+			session.setAttribute("user_id", null);  // record the user as not being logged-in.
+
 			goLoginPage(request,response,servCtx);
 
 			return;
 		}
 
 		HttpSession session = request.getSession(true);
+
+		// record in this session that we have authenticated a user.
 		session.setAttribute( "user_id", new Integer(TCData.getTCInt(rRow,"user_id")) );
-		request.setAttribute("LoginCommand",this);
 
-		setMessage("Login good!");
-
-		goLoginPage(request,response,servCtx);
+		goMainPage(request,response,servCtx);
 	}
 
 
