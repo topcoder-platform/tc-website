@@ -35,8 +35,8 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
           already been done.  we got it all from the session
           so it should be good
         */
-        commit(regInfo);
-        handleActivation(regInfo);
+        UserPrincipal newUser = commit(regInfo);
+        handleActivation(regInfo, newUser);
         setNextPage();
         clearRegInfo();
     }
@@ -106,7 +106,7 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
      * default is do nothing, subclasses can implement something more interesting
      * @throws TCWebException
      */
-    protected void handleActivation(SimpleRegInfo info) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
 
     }
 
