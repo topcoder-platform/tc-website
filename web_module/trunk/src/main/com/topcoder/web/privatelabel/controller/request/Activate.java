@@ -1,9 +1,9 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
 
 import java.util.Arrays;
 
@@ -57,6 +57,17 @@ abstract public class Activate extends RegistrationBase {
     }
 
     abstract protected void setNextPage();
+
+    protected SimpleRegInfo makeRegInfo() throws Exception {
+        //get all reg info from the session, no changes should have been made at this point
+        FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
+        if (info==null) {
+            SessionInfo sessInfo = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            throw new NavigationException("Sorry, your session has expired.", sessInfo.getServletPath());
+        }
+
+        return info;
+    }
 
 }
 
