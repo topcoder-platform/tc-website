@@ -28,7 +28,7 @@
         <td width="170" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="testing"/>
-                <jsp:param name="level2" value="pricing"/>
+                <jsp:param name="level2" value="problemSelection"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,16 +42,29 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%" colspan="3">
-                        <h1 class="testHead">Pricing</h1>
+                        <h1 class="testHead">Problem Selection</h1>
                     </td>
                 <tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <p>Not only does the TopCoder Testing Program provide incredible value by assessing candidates' skills during the interview 
-                        process, it does so cost-effectively – internal engineers spend less time with candidates and better hiring decisions are made 
-                        with objective information.  Companies looking to benefit from the innovation, technology and vision of the TopCoder Testing 
-                        Program should contact TopCoder Employment Services by<a href="mailto:tces@topcoder.com">Email</a> or call toll free at 866.867.2633.</p>
+                        <p>Presenting candidates with the appropriate problem statements is the foundation of the TopCoder Testing Program.  Clients can 
+                        select from TopCoder's database of problem statements that have been presented in past competitions.  These problems are 
+                        algorithmic in nature and are purposely designed to test a developer’s coding speed and problem solving skills in the following areas:</p>
+
+                        <ul>
+                            <li>Optimization</li>
+                            <li>Business</li>
+                            <li>Encryption</li>
+                            <li>Networking</li>
+                            <li>Materials Planning</li>
+                            <li>Concepts (Neural Networks, Circuitry, Event/Notification, XML Parsing, Database/Transactions, Distributed Computing, 
+                            Compilers, Finite State Machines, Internationalization)</li>
+                        </ul>
+ 
+                        <p>TopCoder has hundreds of problems archived for the purpose of our Testing Program. We consult with clients to determine the 
+                        types of problems that a developer may be faced with on the job, and develop a repository of problems that will test candidates 
+                        appropriately.</p>
                     </td>
 
 <!-- Gutter -->

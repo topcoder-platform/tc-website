@@ -28,7 +28,7 @@
         <td width="170" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="testing"/>
-                <jsp:param name="level2" value="overview"/>
+                <jsp:param name="level2" value="security"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->

@@ -17,7 +17,7 @@
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("testing")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=index" target="_parent" class="corpLeft">Candidate Testing</a></td></tr>
 <% if (level1.equals("testing")) { %>
                 <tr><td id="<%=level2.equals("overview")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=index" target="_parent" class="corpLeft">Overview</a></td></tr>
-                <tr><td id="<%=level2.equals("codingEnvironent")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=coding_environment" target="_parent" class="corpLeft">Candidate Testing Environment</a></td></tr>
+                <tr><td id="<%=level2.equals("codingEnvironment")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=coding_environment" target="_parent" class="corpLeft">Candidate Testing Environment</a></td></tr>
                 <tr><td id="<%=level2.equals("problemSelection")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=problem_selection" target="_parent" class="corpLeft">Problem Selection</a></td></tr>
                 <tr><td id="<%=level2.equals("sessionAdmin")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=session_admin" target="_parent" class="corpLeft">Session Administration</a></td></tr>
                 <tr><td id="<%=level2.equals("reporting")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=reporting" target="_parent" class="corpLeft">Reporting</a></td></tr>
@@ -41,10 +41,23 @@
 
 <!-- Sponsorship begins -->
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("sponsorship")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=index" class="corpLeft">Sponsorship</a></td></tr>
+<% if (level1.equals("sponsorship")) { %>
+                <tr><td id="<%=level2.equals("overview")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=index" target="_parent" class="corpLeft">Overview</a></td></tr>
+                <tr><td id="<%=level2.equals("targeted")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=targeted" class="corpLeft">Targeted Sponsorship</a></td></tr>
+                <tr><td id="<%=level2.equals("aboutTime")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=about_time" target="_parent" class="corpLeft">It's About Time</a></td></tr>
+                <tr><td id="<%=level2.equals("dotCom")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=dot_com" target="_parent" class="corpLeft">The TopCoder Site</a></td></tr>
+                <tr><td id="<%=level2.equals("surveys")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=surveys" target="_parent" class="corpLeft">Surveys</a></td></tr>
+                <tr><td id="<%=level2.equals("demographics")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=demographics" target="_parent" class="corpLeft">Demographics</a></td></tr>
+<% } %>
 <!-- Sponsorship ends -->
 
 <!-- Private Label Events begins -->
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("privateLabel")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=index" class="corpLeft">Private Label Events</a></td></tr>
+<% if (level1.equals("privateLabel")) { %>
+                <tr><td id="<%=level2.equals("overview")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=index" target="_parent" class="corpLeft">Overview</a></td></tr>
+                <tr><td id="<%=level2.equals("online")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=online" target="_parent" class="corpLeft">Online Services</a></td></tr>
+                <tr><td id="<%=level2.equals("onsite")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=onsite" target="_parent" class="corpLeft">Onsite Services</a></td></tr>
+<% } %>
 <!-- Private Label Events ends -->
 
 <!-- Account Admin begins -->
