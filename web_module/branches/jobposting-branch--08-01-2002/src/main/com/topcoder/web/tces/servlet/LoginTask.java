@@ -124,7 +124,7 @@ log.debug("getting handleinput "+handleInput);
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
-ResultColumn[] cols = rsc.getColums();
+ResultColumn[] cols = rsc.getColumns();
 for (int rci=0;rci<cols.length;rci++) {
 	log.debug("COL"+Integer.toString(rci)+" = "+cols[rci].getName());
 }
