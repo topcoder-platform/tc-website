@@ -78,13 +78,17 @@
 <!-- Qualification Rounds begins -->
             <p><span class="bodySubtitle">Qualification Rounds</span></p>
 
-            <p><strong>Automatic Berths</strong> - The 100 highest rated TopCoder members as of October 7th will receive an automatic berth into 
+            <p><a name="berths"></a><strong>Automatic Berths</strong> - The 100 highest rated TopCoder members as of October 7th will receive an automatic berth into
             <A href="#online">Online Round #1.</A> The 100 highest rated members must have competed in at least three TopCoder rated events (i.e., 
-            Single Round Matches and/or previous tournaments) prior to October 7th.</p>
+            Single Round Matches and/or previous tournaments) prior to October 7th with at least one (1) of those events being between July 7th
+            and October 7th.</p>
 
-            <p><strong>Qualification Spots</strong> - All members can compete for one of 400 qualification spots in the tournament.  Two Qualification 
-            Rounds will be held, and the top 200 scorers from each Qualification Round will win a spot in Online Round #1 of the TCO.</p>
+            <p><strong>Qualification Spots</strong> - All members can compete for one of 400 qualification spots in the tournament.  Two Qualification
+            Rounds will be held, and the top 200 scorers from each Qualification Round will win a spot in Online Round #1 of the TCO.  Please note
+            that the top 100 rated members with an automatic berth will not be allowed to compete in the Qualification Rounds.  Also, those members
+            who qualify for the tournament during Qualification Round #1 will not be allowed to compete in Qualification Round #2.</p>
 
+            <a name="sched"></a>
             <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
@@ -96,8 +100,8 @@
                     <td class="sidebarText">Qualification Round #1</td>
                     <td class="sidebarText">
                         Tuesday, October 7<br />
-                        Registration:  7:00 PM - 9:55 PM<br />
-                        Compete: 10:00 PM<br />
+                        Registration:  6:00 PM - 8:55 PM<br />
+                        Compete: 9:00 PM<br />
                     </td>
                     <td class="sidebarText" align="center">All members</td>
                     <td class="sidebarText" align="center">200</td>
@@ -140,8 +144,8 @@
                     <td class="sidebarText">Online Round #1</td>
                     <td class="sidebarText">
                         Wednesday, October 15th<br />
-                        Login by:  9:50 PM<br />
-                        Compete: 10:00 PM<br />
+                        Login by:  9:20 PM<br />
+                        Compete: 9:30 PM<br />
                     </td>
                     <td class="sidebarText" align="center">500</td>
                     <td class="sidebarText" align="center">200</td>
@@ -151,8 +155,8 @@
                     <td class="sidebarText">Online Round #2</td>
                     <td class="sidebarText">
                         Wednesday, October 22nd<br />
-                        Login by:  9:50 PM<br />
-                        Compete: 10:00 PM<br />
+                        Login by:  9:20 PM<br />
+                        Compete: 9:30 PM<br />
                     </td>
                     <td class="sidebarText" align="center">200</td>
                     <td class="sidebarText" align="center">100</td>
@@ -162,8 +166,8 @@
                     <td class="sidebarText">Online Round #3</td>
                     <td class="sidebarText">
                         Wednesday, October 29th<br />
-                        Login by:  9:50 PM<br />
-                        Compete: 10:00 PM<br />
+                        Login by:  9:20 PM<br />
+                        Compete: 9:30 PM<br />
                     </td>
                     <td class="sidebarText" align="center">100</td>
                     <td class="sidebarText" align="center">50</td>
@@ -173,8 +177,8 @@
                     <td class="sidebarText">Online Round #4</td>
                     <td class="sidebarText">
                         Wednesday, November 5th<br />
-                        Login by:  9:50 PM<br />
-                        Compete: 10:00 PM<br />
+                        Login by:  9:20 PM<br />
+                        Compete: 9:30 PM<br />
                     </td>
                     <td class="sidebarText" align="center">50</td>
                     <td class="sidebarText" align="center">16</td>

@@ -76,7 +76,7 @@
             <blockquote>
             <h2>About the Prizes</h2>
             
-            <p>The tournament will award prizes to all competitors and $100,000 in cash prizes. Up to 500 competitors will 
+            <p>The tournament will award prizes to all competitors in Online Round #1 and $100,000 in cash prizes. Up to 500 competitors will
             receive a prize for competing in Online Round #1, and up to 200 eligible competitors will receive cash prizes.  
             Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole 
             responsibility of the prizewinner. Prizes will be distributed as follows:</p>
@@ -108,7 +108,7 @@
                 </tr>
 
                 <tr>
-                    <td width="50%" class="sidebarText">12 Semifinalists* who compete in one of four Semifinal rounds</td>
+                    <td width="50%" class="sidebarText">12 Semifinalists* who compete in one of four Semifinal rounds but do not advance to the Championship Round</td>
                     <td width="50%" class="sidebarText" align="right">$1,000 each</td>
                 </tr>
 

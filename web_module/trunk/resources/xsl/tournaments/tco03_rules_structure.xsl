@@ -81,30 +81,27 @@
             A total of 500 TopCoder members will compete in Online Round #1 of the TCO.  The field will be comprised of 100 automatic 
             berths and 400 qualification spots.</p>
 
-            <p><strong>Automatic Berths</strong> - the 100 highest rated TopCoder members as of October 7th will receive an automatic berth into Online 
-            Round #1.  The 100 highest rated members must have competed in at least three (3) TopCoder rated events (i.e., Single Round 
-            Matches and previous tournaments) prior to October 7th.</p>
-
-            <p><strong>Qualification Spots</strong> - all members can compete for one of 400 qualification spots in the tournament.  Two (2) 
-            Qualification Rounds will be held, and the top 200 scorers from each Qualification Round will win a spot in Online Round #1 of the TCO.</p><br />
+            <p>Click <a href="/?&amp;t=tournaments&amp;c=tco03_sched#berths">here</a> for more details regarding the automatic berths
+            and qualification spots.</p><br />
             
 <!-- Online Elimination Rounds -->
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br />
             Everyone who competes in an online round must log on to the TopCoder Competition Arena no later than ten minutes prior to 
-            the start of the online round. (See below for competition dates and times.) TopCoder members from around the world may be 
+            the start of the online round. (Click <a href="/?&amp;t=tournaments&amp;c=tco03_sched#sched">here</a> for competition dates and times.)
+            TopCoder members from around the world may be
             participating in these rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones 
             must adjust accordingly. If a coder does not participate, for any reason, in an online round they have advanced to, it will be 
             treated as an automatic loss in that round of competition.</p>
 
             <p>All competitors who have qualified for an online round will be assigned to a specific room. TopCoder will determine all 
-            room assignments prior to the start of each online round in a manner such that the average competitor rating (as of September 
-            22nd) for each room will be similar.</p><br />
+            room assignments prior to the start of each online round in a manner such that the average competitor rating (as of October
+            7th) for each room will be similar.</p><br />
             
 <!-- Scoring and Advancing During Online Rounds -->
             <p><span class="bodySubtitle">Scoring and Advancing During Online Rounds</span><br />
             After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next 
             online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the 
-            round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a 
+            round (see Round Structure below) for each coder. In order to advance, a coder must finish each round with a
             greater-than-zero point total. The structure of the online rounds is as follows:</p>
 
             <ul>
@@ -123,13 +120,13 @@
                 <li><strong>Online Round #3</strong><br />
                 100 coders will compete and 50 will advance.  The winner of each of the 10 rooms will automatically advance to Online Round 
                 #4.  The remaining 40 spots will be wildcards and will be awarded based on total points across all rooms.  (In the event there 
-                less than 10 room winners in Round #3, the total number of wildcard spots will be equal to 50 minus the actual number of 
+                are less than 10 room winners in Round #3, the total number of wildcard spots will be equal to 50 minus the actual number of
                 room winners.)</li>
     
                 <li><strong>Online Round #4</strong><br />
                 50 coders will compete and 16 will advance.  The winner of each of the 5 rooms will automatically advance to the field of 
                 Semifinalists.  The remaining 11 spots will be wildcards and will be awarded based on total points across all rooms.  (In the 
-                event there less than 5 room winners in Round #4, the total number of wildcard spots will be equal to 16 minus the actual 
+                event there are less than 5 room winners in Round #4, the total number of wildcard spots will be equal to 16 minus the actual
                 number of room winners.)</li>
             </ul>
 
