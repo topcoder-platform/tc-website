@@ -12,16 +12,17 @@
 		<%@ page import="com.topcoder.web.tces.bean.*" %>
 
 		<%@ page import="com.topcoder.web.TCES.ejb.*" %>
+		<%
+			if (session.getAttribute("tces") == null || !session.getAttribute("tces") instanceof TCES) {
+				response.sendRedirect(TCESController.ALIAS);
+			}
+			TCES tces = (TCES)session.getAttribute("tces");
+		%>
+
     <TITLE>TCES</TITLE>
     <%@ include file="../script.jsp" %>
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-	<%
-		if (session.getAttribute("tces") == null || session.getAttribute("tces") instanceof TCES) {
-			response.sendRedirect(TCESController.ALIAS);
-		}
-		TCES tces = (TCES)session.getAttribute("tces");
-	%>
 	<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 
   <%@ include file="../top.jsp" %>
