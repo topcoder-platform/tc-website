@@ -64,11 +64,17 @@ function submitConfirm() {
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Create a New Session - </B></FONT><FONT SIZE="3" COLOR="#990000"><B>Set up a New Test Profile</B></FONT>
-<P>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
-</P><BR>
+            <h1 class="testHead">Create a New Session - <FONT COLOR="#000000">Set up a New Test Profile</FONT></h1>
+            <P>To set up a new Test Profile, follow these steps:</P>
+            <ol>
+                <li>Choose an appropriate name for the Test Set.</li>
+                <li>Assign a Problem Set to Test Set A.  Further information on each Problem Set can be found by clicking "Problem Sets" at the top 
+                of the page.  Once a Problem Set is selected, the Test Set A table will be automatically populated.</li>
+                <li>Assign a Problem or Problems to Test Set B by choosing a Problem from the list and clicking "Add".  Clicking on the Problem 
+                Name once the table has been populated will open a window that displays statistical information about the Problem, as well as the 
+                Problem Statement.</li>
+                <li>Choose the language(s) in which candidates will be able to code their solutions.</li>
+                <li>Click "Confirm" to ensure the correctness of the information.</P>
 <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
 <screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
         <INPUT TYPE="HIDDEN" NAME="rp" VALUE="" >

@@ -38,8 +38,7 @@ document.sessionConfirmForm.submit();
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<h1 class="testHead">Create a New Session</h1>
-<h1 class="testHead"><FONT COLOR="#000000">Session Confirmation</FONT></h1>
+<h1 class="testHead">Create a New Session - <FONT COLOR="#000000">Session Confirmation</FONT></h1>
 
 <P>Review the information below for correctness.  If the information is correct, click "Submit".  If changes need to be made, click "Edit" 
 to return to the previous page.  Click "Cancel" if you do not wish to set up this session.</P><BR>

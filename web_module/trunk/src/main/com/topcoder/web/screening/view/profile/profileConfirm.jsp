@@ -51,11 +51,9 @@ function submitUpdate() {
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Create a New Session - </B></FONT><FONT SIZE="3" COLOR="#990000"><B>New Test Profile Confirmation</B></FONT>
-<P>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
-</P><BR>
+            <h1 class="testHead">Create a New Session - <FONT COLOR="#000000">New Test Profile Confirmation</FONT></h1>
+            <P>Review the information below for correctness.  If the information is correct, click "Submit".  If changes need to be made, click "Edit" 
+            to return to the previous page.</P>
 <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
 <screen:form name="profileConfirmForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
         <INPUT TYPE="HIDDEN" NAME="rp" VALUE="" >

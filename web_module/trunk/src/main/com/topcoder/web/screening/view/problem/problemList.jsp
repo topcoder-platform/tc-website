@@ -40,12 +40,9 @@ function getProblemDetail(id) {
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Problem Sets</B></FONT><BR/>
-<P>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-</P><BR>
-<FORM>
+            <h1 class="testHead">Problem Sets</h1>
+            <P>Below is a list of Problem Sets available for use in the Testing Application.  Clicking on a Problem Name opens a window that 
+            displays statistical information about the Problem, as well as the Problem Statement.</P>
                    
         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">	        
 	        <TR>

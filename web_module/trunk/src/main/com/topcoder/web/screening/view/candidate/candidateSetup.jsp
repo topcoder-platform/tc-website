@@ -33,7 +33,7 @@ function back() {
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" scope="request" />
-<% if("PopulateSession".equals(candidateInfo.getReferrer())) { %><FONT SIZE="3" COLOR="#666666"><strong>Create a New Session - </strong></FONT><%} else if("BuildCandidateList".equals(candidateInfo.getReferrer())) {%><FONT SIZE="3" COLOR="#666666"><strong>Candidate List - </strong></FONT><%}%><FONT SIZE="3" COLOR="#990000"><%if(candidateInfo.isNew()) { %><strong>Set up a Candidate</strong><%} else {%><strong>Candidate Info</strong><%}%></FONT> 
+<% if("PopulateSession".equals(candidateInfo.getReferrer())) { %><h1 class="testHead">Create a New Session - <%} else if("BuildCandidateList".equals(candidateInfo.getReferrer())) {%><h1 class="testHead">Candidate List - <%}%><FONT COLOR="#000000"><%if(candidateInfo.isNew()) { %>Set up a Candidate<%} else {%>Candidate Info<%}%></h1>
 
 <screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="GET">
         <INPUT type="hidden" name="rp" value="UpdateCandidate" />

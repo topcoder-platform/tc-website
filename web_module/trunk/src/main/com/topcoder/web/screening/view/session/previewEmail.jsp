@@ -32,7 +32,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Create a New Session - </B></FONT><FONT SIZE="3" COLOR="#990000"><B>E-mail Preview</B></FONT>
+<h1 class="testHead">Create a New Session - <FONT COLOR="#000000">E-mail Preview</FONT></h1>
 <P>Below is the content of the email that the candidate will receive.</P><BR>
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">

@@ -27,11 +27,8 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Candidate List</B></FONT><BR/>                 
-<P>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-</P><BR>       
+            <h1 class="testHead">Candidate List</h1>               
+            <P>Below is a list of all candidates.  Clicking on a candidate's email address will bring you to the Candidate Info page.</P>  
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">                   
            <TR>
               <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
