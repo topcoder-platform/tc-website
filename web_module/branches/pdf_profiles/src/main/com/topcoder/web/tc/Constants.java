@@ -158,6 +158,9 @@ public class Constants {
     public static String MAX_DIV2_SUCCESS;
     public static String DIV1_LEVEL;
     public static String DIV2_LEVEL;
+    
+    // profile generator constants
+    public static String PROFILE_DOC_CONVERTOR_PAGE;
 
     /* Contract Constants */
     public static String CONTRACTING_INFO;
