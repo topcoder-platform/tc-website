@@ -1,6 +1,7 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 import com.topcoder.shared.netCommon.screening.request.ScreeningOpenComponentForCodingRequest;
@@ -48,7 +49,7 @@ public class ViewProblem extends Base {
 
             ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse)receive(5000);
 
-            ProblemInfo problem = new ProblemInfo(response.getCode(), componentId,
+            ProblemInfo problem = new ProblemInfo(StringUtils.checkNull(response.getCode()), componentId,
                     response.getLanguageID().intValue(), response.getProblem(), problemTypeId);
             problem.setStartTime(response.getOpenTime());
             problem.setTime(response.getLength());
