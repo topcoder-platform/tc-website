@@ -21,8 +21,8 @@ abstract class SimpleRegBase extends RegistrationBase {
 
     protected void setDefaults(SimpleRegInfo info) {
         setDefault(Constants.HANDLE, info.getHandle());
-        setDefault(Constants.PASSWORD, "");
-        setDefault(Constants.PASSWORD_CONFIRM, "");
+        setDefault(Constants.PASSWORD, info.getPassword());
+        setDefault(Constants.PASSWORD_CONFIRM, info.getPasswordConfirm());
         setDefault(Constants.EMAIL, info.getEmail());
         setDefault(Constants.EMAIL_CONFIRM, info.getEmailConfirm());
         setDefault(Constants.FIRST_NAME, info.getFirstName());

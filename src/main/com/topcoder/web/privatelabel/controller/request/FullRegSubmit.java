@@ -7,6 +7,7 @@ import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.school.School;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
@@ -31,9 +32,16 @@ public class FullRegSubmit extends SimpleRegSubmit {
           so it should be good
         */
         commit(regInfo);
-        clearRegInfo();
-        setNextPage(Constants.VERIZON_REG_SUCCESS_PAGE);
+
+        //if there reg info suggests they're not eligible, give them the ineligible page
+        if (isEligible()) {
+            setNextPage(Constants.VERIZON_REG_SUCCESS_PAGE);
+        } else {
+            setNextPage(Constants.VERIZON_INELIGIBLE_PAGE);
+        }
         setIsNextPageInContext(true);
+
+        clearRegInfo();
     }
 
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
@@ -67,11 +75,14 @@ public class FullRegSubmit extends SimpleRegSubmit {
             }
         }
 
-
-        //log them is so that they can upload a resume
-        //this is really sketchy if they we are requiring an activation email to activate their account
-        getAuthentication().login(new SimpleUser(ret.getId(), regInfo.getHandle(), regInfo.getPassword()));
-
+        if (isEligible()) {
+            //log them is so that they can upload a resume
+            //this is really sketchy if they we are requiring an activation email to activate their account
+            getAuthentication().login(new SimpleUser(ret.getId(), regInfo.getHandle(), regInfo.getPassword()));
+        } else {
+            User user = (User)createEJB(getInitialContext(), User.class);
+            user.setStatus(ret.getId(), 'U');  //they're not eligible so override whatever we had set their status to be unactive
+        }
 
         return ret;
     }
@@ -84,6 +95,17 @@ public class FullRegSubmit extends SimpleRegSubmit {
         }
 
         return info;
+    }
+
+    /**
+     *
+     * @return
+     */
+    protected boolean isEligible() {
+        boolean ret = true;
+        ret &= regInfo.getCity().toLowerCase().equals("chennai");
+        ret &= regInfo.getCountryCode().equals("356"); //india
+        return ret;
     }
 
 }

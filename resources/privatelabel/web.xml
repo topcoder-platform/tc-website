@@ -84,6 +84,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>verizon_ineligible_page</param-name>
+            <param-value>/reg/verizonIneligible.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>default_page</param-name>
             <param-value>/index.jsp</param-value>
             <description></description>
