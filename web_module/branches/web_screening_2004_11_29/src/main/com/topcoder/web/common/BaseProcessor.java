@@ -24,8 +24,8 @@ public abstract class BaseProcessor implements RequestProcessor {
     private WebAuthentication auth;
 
     private InitialContext ctx;
-    private HashMap errors;
-    private HashMap defaults;
+    protected HashMap errors;
+    protected HashMap defaults;
 
     protected User user;
 
