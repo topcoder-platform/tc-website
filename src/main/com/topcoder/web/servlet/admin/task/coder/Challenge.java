@@ -22,15 +22,15 @@
 
   public final class Challenge  {
 
-    private static final boolean VERBOSE          = false;
-
-    private static final String DIR                    = XSL.DIR+"challenge/";
-    private static final String CHALLENGE_MENU_PAGE    = DIR+"challengemenu.xsl";
-    private static final String ROOM_MENU_PAGE         = DIR+"roommenu.xsl";
-    private static final String ROUND_MENU_PAGE        = DIR+"challengeroundmenu.xsl";
-    private static final String ROUNDSEGMENT_MENU_PAGE = DIR+"roundsegmentmenu.xsl";
-    private static final String CONTEST_RESULTS_PAGE   = DIR+"contestresults.xsl";
-    private static Category log = Category.getInstance( Challenge.class.getName() );
+    private static final boolean  VERBOSE               = false;
+    private static final String   DIR                    = XSL.DIR+"challenge/";
+    private static final String   CHALLENGE_MENU_PAGE    = DIR+"challengemenu.xsl";
+    private static final String   ROOM_MENU_PAGE         = DIR+"roommenu.xsl";
+    private static final String   PROBLEM_MENU_PAGE      = DIR+"challengeproblemmenu.xsl";
+    private static final String   ROUND_MENU_PAGE        = DIR+"challengeroundmenu.xsl";
+    private static final String   ROUNDSEGMENT_MENU_PAGE = DIR+"roundsegmentmenu.xsl";
+    private static final String   CONTEST_RESULTS_PAGE   = DIR+"contestresults.xsl";
+    private static Category log   = Category.getInstance( Challenge.class.getName() );
 
 
     ///////////////////////////////////////////////////////////////////////////////////
@@ -39,6 +39,7 @@
       throws NavigationException {
     //////////////////////////////////////////////////////////////////////////////////
     
+      log.info("Servlet Challenge: process called .");
       String result = null;
       RecordTag contestTag = new RecordTag( "CHALLENGE" );
       HashMap sessionObjects = nav.getSessionObjects();
@@ -46,20 +47,14 @@
       ArrayList challengeList = null;
       Integer roomId = null;
       Integer roundId = null;
-/*     
-      Authentication login = null;
-      if ( !sessionObjects.containsKey("login") ) {
-        login = new Authentication();
-        sessionObjects.put("login", login);
-      } else {
-        login = (Authentication) sessionObjects.get("login");
-      }
-*/
-
 
       try {
         String command = Conversion.checkNull( request.getParameter("Command") );
         if (command.equals("getRoundMenu")) {
+          result = getRoundMenuScreen (renderer, request, document, nav, contestTag, sessionObjects );
+        } else if ( command.equals("getProblemList") ) {
+          result = getProblemMenuScreen (renderer, request, document, nav, contestTag, sessionObjects );
+        } else if ( command.equals("getCoderList") ) {
           result = getRoundMenuScreen (renderer, request, document, nav, contestTag, sessionObjects );
         } else if ( command.equals("getChallengeList") ) {
           result = getChallengeList (renderer, request, document, nav, contestTag, sessionObjects );
@@ -136,6 +131,7 @@
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
+      log.info("Servlet: Challenge: getChallengeList called ");
       String result = null;
       ContestAdminServices contestEJB = null;
       ArrayList challengeList = null;
@@ -276,6 +272,81 @@
 
       }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    private static String getProblemMenuScreen (RenderHTML HTMLmaker, HttpServletRequest request,
+      XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects
+      ) throws NavigationException {
+    ////////////////////////////////////////////////////////////////////////////////
+      log.info("Servlet Challenge: getProblemMenuScreen called  ");
+      String result = null;
+      ContestAdminServices contestEJB = null;
+      ArrayList problemList = null;
+     
+      try {
+        Context ctx = TCContext.getInitial();
+        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        try {
+          contestEJB = contestHome.create();
+          int roundId = 0;
+          try {
+           roundId = Integer.parseInt(request.getParameter("roundid"));
+           log.debug("roundId set to "+roundId+" from request");
+          } catch (Exception exception1) 
+          { 
+               log.error("Servlet Challenge: getProbelmMenu: error getting roundid request parameter ");
+               log.error("EXCEPTION: " + exception1);
+          }
+          if (roundId == 0) {
+               roundId = ((Integer)sessionObjects.get("RoundId")).intValue();
+               log.warn("Challenge: getChallengeList: roundId set to "+roundId+" from session");
+               log.warn("Challenge: getChallengeList: getting roundId from session here is a whole in the logic ");
+               log.warn("Challenge: getChallengeList: it will throw a null pointer exception if it does not exist in session ");
+          } else {
+              sessionObjects.put("RoundId", new Integer(roundId));
+              log.warn("Challenge: getChallengeList: roundId added to session as "+roundId);
+          }
+          log.debug("Challenge: getChallengeList: roundId set to "+roundId);
+          problemList = contestEJB.getProblemList( roundId );
+          log.debug("problemList.size(): "+problemList.size());
+          contestHome = null;
+        } catch (Exception e) {
+          log.error("Servlet Challenge: getProblemMenuScreen error retrieving probelm list .");
+          log.error("MSG: " + e);
+          throw new NavigationException("", XSL.NAVIGATION_ERROR_URL);
+        }
+        finally {
+          try {
+            if (ctx != null) ctx.close(); ctx = null;
+          } catch (Exception ignore) { }
+          ctx = null;
+        }
+  
+        Object a = null;
+        try {
+           for (int i = 0 ; i < problemList.size(); i++ ) {
+              a = problemList.get(i);
+                  contestTag.addTag(((Problem)problemList.get(i)).getXML());
+           }    
+        } catch (Exception ex) { ex.printStackTrace();  }
+  
+  
+        try {
+            document.addTag(contestTag);
+            log.debug(document.getXML(2) );
+            String xsldocURLString = PROBLEM_MENU_PAGE;
+            nav.setScreen(xsldocURLString);
+            result = HTMLmaker.render(document, xsldocURLString, null);
+        } catch (Exception ei) { ei.printStackTrace();  }
+          } catch (NavigationException ne) {
+                throw ne;
+      } catch (Exception e) {
+              throw new NavigationException("Servlet Challenge: getProblemMenuScreen : ERROR:\n "+e,
+                XSL.NAVIGATION_ERROR_URL);
+    
+      }
+    return result;
+  }
 
     ////////////////////////////////////////////////////////////////////////////////
     private static String getRoundMenuScreen (RenderHTML HTMLmaker, HttpServletRequest request,
