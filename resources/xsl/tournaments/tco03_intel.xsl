@@ -74,7 +74,7 @@
                         <p class="promoCallout">Register at <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">www.intel.com/IDS</A> today and get FREE 
                         technical resources designed to help you capitalize on today's technology trends&#58;</p></td>
                         
-                            <td valign="top"> <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><img src="/i/sponsor/intel_centrino_vertical.gif" width="268" height="235" /> </A> </td>
+                            <td valign="top"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><img src="/i/sponsor/intel_ids/intel_centrino_vertical.gif" width="268" height="235" /> </A> </td>
                             </tr>
                             
                         </table>
