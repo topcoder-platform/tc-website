@@ -32,8 +32,8 @@
 <!-- Left Column Begins -->
         <td width="180">
             <xsl:call-template name="global_left">
-                <xsl:with-param name="level1" value="development"/>
-                <xsl:with-param name="level2" value="index"/>
+                <xsl:with-param name="level1">development</xsl:with-param>
+                <xsl:with-param name="level2">index</xsl:with-param>
             </xsl:call-template>
           </td>
 <!-- Left Column Ends -->
