@@ -73,9 +73,9 @@
         String handle = currentRow.getItem("handle").toString();
         String room_name = currentRow.getItem("room_name").toString();
         String points = currentRow.getItem("final_points").toString();
-        coders[divisionID][ptrs[divisionID]]=handle;
-        scores[divisionID][ptrs[divisionID]]=points;
-        rooms[divisionID][ptrs[divisionID]++]=room_name;
+        coders[divisionID][ptrs[divisionPtr]]=handle;
+        scores[divisionID][ptrs[divisionPtr]]=points;
+        rooms[divisionID][ptrs[divisionPtr]++]=room_name;
     }
 
 %>
