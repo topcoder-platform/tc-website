@@ -90,11 +90,6 @@
       <td><%=p.getItem("num_ratings").toString()%></td>
     </tr>
     <tr>
-      <td>Default Language</td>
-      <td>&#160;&#160;&#160;</td>
-      <td><%=p.getItem("language_name").toString()%></td>
-    </tr>
-    <tr>
       <td>Member Since</td>
       <td>&#160;&#160;&#160;</td>
       <td><%=p.getItem("member_since").toString()%></td>
