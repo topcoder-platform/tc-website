@@ -1,20 +1,20 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.servlet.request.FileUpload;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.util.Map;
 
 public abstract class ResumeTask {
@@ -32,6 +32,14 @@ public abstract class ResumeTask {
         setNextPage(null);
         setFileUpload(null);
         setNextPageInternal(true);
+    }
+
+    protected String getRequestParameter(HttpServletRequest request, String key) {
+        if (fileUpload==null) {
+            return request.getParameter(key);
+        } else {
+            return fileUpload.getParameter(key);
+        }
     }
 
     public abstract void processStep(String step) throws Exception;
