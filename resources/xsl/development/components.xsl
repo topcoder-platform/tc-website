@@ -138,7 +138,7 @@
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="40%" height="18">&#160;&#160;Project Name</td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Total Submissions</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18">Winner</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Winner</td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Board Score</td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Total Earnings*</td>
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -148,7 +148,7 @@
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056" class="statText">Email Engine Enhancement:&#160;Development</a></td>
 					<td class="statText" height="18" align="center">1</td>
-					<td class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=272311" class="coderTextGreen"><strong>yellow_gecko</strong></a></td>
+					<td class="statText" height="18" align="center"><a href="/stat?c=member_profile&amp;cr=272311" class="coderTextGreen"><strong>yellow_gecko</strong></a></td>
 					<td class="statText" height="18" align="center">98.96</td>
 					<td class="statText" height="18" align="center">$330.00</td>
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -158,9 +158,9 @@
 
 				<tr valign="middle">
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2803908" class="statText">Math Expression Evaluator:&#160;Development</a></td>
+					<td class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2803908" class="statText">Math Expression Evaluator:&#160;Design</a></td>
 					<td class="statText" height="18" align="center">1</td>
-					<td class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=272311" class="coderTextGreen"><strong>yellow_gecko</strong></a></td>
+					<td class="statText" height="18" align="center"><a href="/stat?c=member_profile&amp;cr=272311" class="coderTextGreen"><strong>yellow_gecko</strong></a></td>
 					<td class="statText" height="18" align="center">80.08</td>
 					<td class="statText" height="18" align="center">$330.00</td>
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
