@@ -71,7 +71,7 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 139</strong></a><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>TCCC 03 Regional Finals</strong></a><br />
                             Wednesday, March 12, 2003<br /><br />
                         </td>
                     </tr>
@@ -143,13 +143,13 @@
                         By&#160;brett1479<br/><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 139</strong></font></td>
+                        <font size="2" color="#000000" face="arial, verdana"><strong>TCCC 03 Regional Finals</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm139_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_regfinal_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
                         <p>This round of the Collegiate Championship was clearly a notch more difficult than all previous rounds. bstanescu, 
                         the only competitor to sucessfully complete the hard problem, received the highest score for the round. Along with 
