@@ -6,6 +6,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.shared.util.*;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.ejb.UserServices.UserServicesHome;
@@ -23,48 +24,58 @@ public class GoogleRegSubmit extends FullRegSubmit {
     //todo wack this crap when we have fixed the regular site to not use the transactional db for contact info
     //don't need to reimplement commit here at that point
     protected UserPrincipal commit(SimpleRegInfo regInfo) throws TCWebException {
+
         UserPrincipal newUser = super.commit(regInfo);
-
-        UserTransaction uTx = null;
         try {
-            UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-            UserServices userEJB = userHome.findByPrimaryKey(new Integer((int)newUser.getId()));
-            com.topcoder.common.web.data.User u = userEJB.getUser();
 
-            u.setPassword(regInfo.getPassword());
-            CoderRegistration c = (CoderRegistration)u.getUserTypeDetails().get("Coder");
-            c.setFirstName(regInfo.getFirstName());
-            c.setLastName(regInfo.getLastName());
-            c.setMiddleName(regInfo.getMiddleName());
-            u.setEmail(regInfo.getEmail());
-            c.setHomeAddress1(regInfo.getAddress1());
-            c.setHomeAddress2(regInfo.getAddress2());
-            c.setHomeCity(regInfo.getCity());
-            State s = new State();
-            s.setStateCode(regInfo.getStateCode());
-            c.setHomeState(s);
-            c.setHomeZip(regInfo.getZip());
-            Country co = new Country();
-            co.setCountryCode(regInfo.getCountryCode());
-            c.setHomeCountry(co);
-            c.setModified("U");
+            if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(newUser.getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                UserTransaction uTx = null;
+                try {
+                    UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
+                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int) newUser.getId()));
+                    com.topcoder.common.web.data.User u = userEJB.getUser();
 
-            u.getUserTypeDetails().put("Coder", c);
+                    u.setPassword(regInfo.getPassword());
+                    CoderRegistration c = (CoderRegistration) u.getUserTypeDetails().get("Coder");
+                    c.setFirstName(regInfo.getFirstName());
+                    c.setLastName(regInfo.getLastName());
+                    c.setMiddleName(regInfo.getMiddleName());
+                    u.setEmail(regInfo.getEmail());
+                    c.setHomeAddress1(regInfo.getAddress1());
+                    c.setHomeAddress2(regInfo.getAddress2());
+                    c.setHomeCity(regInfo.getCity());
+                    State s = new State();
+                    s.setStateCode(regInfo.getStateCode());
+                    c.setHomeState(s);
+                    c.setHomeZip(regInfo.getZip());
+                    Country co = new Country();
+                    co.setCountryCode(regInfo.getCountryCode());
+                    c.setHomeCountry(co);
+                    c.setModified("U");
 
-            u.setModified("U");
+                    u.getUserTypeDetails().put("Coder", c);
 
-            uTx = Transaction.get();
-            uTx.begin();
-            userEJB.setUser(u);
-            uTx.commit();
-        } catch (Exception e) {
-            try {
-                if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                    uTx.rollback();
+                    u.setModified("U");
+
+                    uTx = Transaction.get();
+                    uTx.begin();
+                    userEJB.setUser(u);
+                    uTx.commit();
+                } catch (Exception e) {
+                    try {
+                        if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
+                            uTx.rollback();
+                        }
+                    } catch (Exception te) {
+                        throw new TCWebException(e);
+                    }
+                    throw new TCWebException(e);
                 }
-            } catch (Exception te) {
-                throw new TCWebException(e);
             }
+
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
             throw new TCWebException(e);
         }
 
