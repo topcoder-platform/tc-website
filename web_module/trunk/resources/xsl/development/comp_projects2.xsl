@@ -103,23 +103,7 @@
                 </tr>
 
                 
-                <xsl:for-each select="/TC/DEVELOPMENT/design_projects/designproject"/>
-                    <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
-                    <xsl:variable name="payment" select="./payment"/>
-                    <tr valign="top">
-                        <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                        <td background="" class="statText">
-                            <a class="statText">
-                                <xsl:variable name="href"> <!--2&#47;19&#47;2003-->
-                                    <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;payment=', $payment, '&amp;date=2&#47;19&#47;2003')"/>
-                                    
-                                </xsl:variable><xsl:value-of select="./componentName"/>
-                            </a></td>
-                        <td background="" class="statText" align="center"><xsl:value-of select="./payment"/></td>
-                        <td background="" class="statText" align="center">2.19.2003</td>
-                        <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    </tr>
-                </xsl:for-each>
+
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
