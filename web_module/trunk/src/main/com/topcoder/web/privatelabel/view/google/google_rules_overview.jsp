@@ -16,23 +16,31 @@
 <body>
 
 <!-- TCO Header -->
+
 <a name="top_page"></a>
-<!--
-            <object 
-            type="application/x-shockwave-flash"
-            data="/i/tournament/vcc03/vcc03_still.swf"
-            width="100%"
-            height="125"
-            border="0">           
-            <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
-            <param name="quality" value="high" />
-            <param name="salign" value="t">
-            </object>
--->
-        <img src="/i/tournament/vcc03/vcc03.jpg" width="750" height="120" border="0"/>
 
+       <img src="/i/events/google2003/Logo_50wht.gif" width="163" height="74" border="0"/>
+       
+<table align="center" border=0 cellspacing=0 cellpadding=0>
+   <tr>
+      <td width=15>&nbsp;</td>
+      <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_sched"><font size=-1>Overview</font></a></td>
+      <td width=15>&nbsp;</td>
+      <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_sched"><font size=-1>Schedule</font></a></td>
+      <td width=15>&nbsp;</td>
+      <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Rules</b></font></td>
+      <td width=15>&nbsp;</td>
+   </tr>
+</table>
 
+<jsp:include page="googleSublinks.jsp" >
+   <jsp:param name="selectedList" value="rules"/>
+   <jsp:param name="selectedTab" value="overview"/>
+</jsp:include>
+
+       
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr><td colspan =9><img src="/i/clear.gif" width="10" height="10"></td></tr>
    <tr valign="top">
 
 <!-- Gutter Begins -->
@@ -54,16 +62,6 @@
 
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
-
-<!-- Tab bar links-->
-<jsp:include page="verizonLinks.jsp" >
-   <jsp:param name="selectedTab" value="rules"/>
-</jsp:include>
-<!-- Tab bar sub links-->
-<jsp:include page="verizonSublinks.jsp" >
-   <jsp:param name="selectedList" value="rules"/>
-   <jsp:param name="selectedTab" value="overview"/>
-</jsp:include>
 
             <blockquote>
             <h2>Official Rules and Regulations</h2>
@@ -98,7 +96,7 @@
 </table>
 
 <!-- Footer Begins -->
-<jsp:include page="verizon_foot.jsp" />
+<jsp:include page="google_foot.jsp" />
 <!-- Footer Ends -->
 
 </body>
