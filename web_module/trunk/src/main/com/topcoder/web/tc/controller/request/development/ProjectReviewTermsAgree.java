@@ -104,8 +104,8 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         
         mail.setBody(sb.toString());
         mail.setFromAddress("review@topcoder.com");
-        mail.setToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
-        //mail.setToAddress(address, TCSEmailMessage.TO);
+        //mail.setToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
+        mail.setToAddress(address, TCSEmailMessage.TO);
         
         EmailEngine.send(mail);
     }
