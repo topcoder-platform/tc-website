@@ -320,33 +320,29 @@ Wednesday, October 23, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
-    By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 117</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>2002 TopCoder Invitational Round #3</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm117_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r3_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
 <P>
-The problems for this match were well done, though a little bit easier than the average and unoriginal. All three Division-I 
-problems were rehashings of problems that have been used before, especially the Level 2 and Level 3 problems. The Division-II 
-Level 3 problem was an exception, and gave the Division-II coders quite a bit of trouble. However, practice makes perfect, and I 
-need a lot of practice. 
-</P>
-
-<P>
-The point values in Division-I made little sense, as two trivial problems were worth 350 and 650 points 
-(extremely high based on historical values for Level 1 and Level 2 problems), while the Level 3 problem was 
-worth only 850 points (extremely low based on the same sort of historical values). The Level 3 problem required 
-some degree of aptitude when it comes to dynamic programming, while the other two problems were just a matter of 
-typing speed and correctness, so it seems that the points in this match were skewed in favor of the latter attributes...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm117_prob</xsl:attribute>get&#160;analysis</A>
+The problem set for this round was a little easy for this Round of Tournament and one would expect to have a little more 
+difficult set of problems at this stage. <B>ZorbaTHut</B> was a round leader with impressive 1472.93 points and 91 rating 
+points gain. Problem one was just a typing skill contest and would not get you into the next round alone. Problem 
+two and three were more difficult but not difficult enough for this stage. The cut off for this round was 588 
+point and only people who have completed at least two problems fairly quickly would advance to the next round. 
+After this round we still have 26 yellow coders who are still in the contest but most of them will be illuminated 
+in the next round or they would become red. 7 red coders and all green and blue coders were illuminated during this 
+round (or became yellow)...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r3_prob</xsl:attribute>get&#160;analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
