@@ -32,6 +32,8 @@ public abstract class BaseTask implements Task {
 
     private List navLinks;
 
+    private boolean internalResource;
+
     /* Makes a new BaseTask */
     public BaseTask() {
         setInitialContext(null);
@@ -39,6 +41,7 @@ public abstract class BaseTask implements Task {
         setServletPath(null);
         errors = new HashMap();
         navLinks = new ArrayList();
+        internalResource = true;
     }
 
     public abstract void process(String step) throws Exception;
@@ -117,5 +120,12 @@ public abstract class BaseTask implements Task {
         return s != null && s.trim().length() > 0;
     }
 
+    public boolean isInternalResource() {
+        return internalResource;
+    }
+
+    public void setInternalResource(boolean internalResource) {
+        this.internalResource = internalResource;
+    }
 }
 
