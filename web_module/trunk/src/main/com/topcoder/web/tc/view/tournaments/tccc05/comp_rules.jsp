@@ -234,7 +234,7 @@
 			<li>If a tie still remains, then the prize money will be distributed equally among the tied members.</li>
 			</ol>
 
-            <a name="advancing"></a>
+            <a name="prizes"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>About the Prizes</h3>
 			All contestants who submit components that pass screening during at least one week of online competition will receive a prize.  The tournament will award $90,000 in cash prizes, with up to $56,900 being awarded for the design competition and up to $33,100 for the development competition.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
@@ -293,6 +293,8 @@
                     <td class="sidebarText" colspan=4>* Prize will be awarded at the conclusion of the Championship Round.  Winner must be present at the onsite round to receive prize.</td>
 				</tr>
 			</table>
+			<br /><br />
+         In order for onsite finalists to receive their onsite cash prize, they must first complete all TCCC-related work for all Online rounds and the Championship round, including final fixes.
 			<br /><br />
 
             <a name="advancing"></a>
