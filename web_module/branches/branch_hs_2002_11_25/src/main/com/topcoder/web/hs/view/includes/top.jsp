@@ -40,7 +40,16 @@ function openWin(url, name, w, h) {
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
     <TR VALIGN="middle">
         <TD WIDTH="100%" HEIGHT="21" BGCOLOR="#000000" BACKGROUND="/i/hs/top_rednav_bg.gif">
+<% if(SessionInfo.isGuest()) { %> {
         &nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=registration&d2=registration" CLASS="rednav">Register</A> 
+<% } else if(SessionInfo.isStudent()) { %>
+        &nbsp;&nbsp;&nbsp;<A HREF="?module=StudentRegistration&fixmenathan=@@@" CLASS="rednav">Update Profile</A> 
+<% } else if(SessionInfo.isCoach()) { %>
+        &nbsp;&nbsp;&nbsp;<A HREF="?module=CoachRegistration&fixmenathan=@@@" CLASS="rednav">Update Profile</A> 
+<% } else { // assuming admin %>
+        &nbsp;&nbsp;&nbsp;Register
+<% } %>
+
         &nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=arena&d2=arena_main" CLASS="rednav">Competition Arena</A> 
 
 <% if(SessionInfo.isLoggedIn()) { %>
