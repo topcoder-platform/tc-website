@@ -83,23 +83,23 @@
             </table>
 
 <!-- Component Design Projects begin -->
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="design"></a><font size="3"><strong>Component Design Project Status</strong></font></td></tr>
+            <table class="formFrame" cellspacing="0" cellpadding="3" width="100%">
+                <tr valign="middle"><td class="projectTitles" colspan="6"><a name="design"></a>Component Design Project Status</td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Initial<br />Submit</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Review<br />Complete</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Final<br />Submit</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Design<br />Complete</td>
+                    <td width="30%" class="projectHeaders">Design Projects</td>
+                    <td class="projectHeaders" align="center">Catalog</td>
+                    <td class="projectHeaders" align="center">Initial<br />Submit</td>
+                    <td class="projectHeaders" align="center">Review<br />Complete</td>
+                    <td class="projectHeaders" align="center">Final<br />Submit</td>
+                    <td class="projectHeaders" align="center">Design<br />Complete</td>
                 </tr>
 
 
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
                     <xsl:if test="./phase_id=$design-phase">
                         <tr>
-                            <td class="formTextOdd" >                            
+                            <td class="projectCells" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
@@ -109,34 +109,36 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
                         </tr>                 
                     </xsl:if>
                 </xsl:for-each> 
+            </table>
 
-                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 <!-- Component Design Projects ends -->
+            <br/><br/>
 
 <!-- Component Dev Projects begin -->
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="development"></a><font size="3"><strong>Component Development Project Status</strong></font></td></tr>
+            <table class="formFrame" cellspacing="0" cellpadding="3" width="100%">
+                <tr valign="middle"><td class="projectTitles" colspan="6"><a name="development"></a>Component Development Project Status</td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Initial<br />Submit</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Review<br />Complete</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Final<br />Submit</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Development<br />Complete</td>
+                    <td width="30%" class="projectHeaders">Development Projects</td>
+                    <td class="projectHeaders" align="center">Catalog</td>
+                    <td class="projectHeaders" align="center">Initial<br />Submit</td>
+                    <td class="projectHeaders" align="center">Review<br />Complete</td>
+                    <td class="projectHeaders" align="center">Final<br />Submit</td>
+                    <td class="projectHeaders" align="center">Development<br />Complete</td>
                 </tr>
                 
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
                     <xsl:if test="./phase_id=$dev-phase">
                         <tr>
-                            <td class="formTextOdd" >                            
+                            <td class="projectCells" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
@@ -146,11 +148,11 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
                         </tr>                 
                     </xsl:if>
                 </xsl:for-each> 
