@@ -51,7 +51,7 @@
             </p>
             
             <div class="leadPhoto">
-            <img src="/i/tournament/tccc03/champ_main.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <img src="/i/clear.gif" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
             </div>
             
