@@ -252,23 +252,29 @@ By&#160;KaiEl<BR/><I>[TC] Member</I><BR/><BR/>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><BR/>
 <A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_120902</xsl:attribute>
-  <B>It's Sink or Swim During the Challenge Phase</B></A><BR/>
-<!-- <I>"If you take it slow you'll move up."</I><BR/> -->
-Monday, December 9, 2002<BR/>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_122002</xsl:attribute>
+  <B>The Big Rerun</B></A><BR/>
+<I>A Complete Breakdown of the 2002 Invitational Controversy</I><BR/>
+Friday, December 20, 2002<BR/>
 
 <P>
-The Challenge Phase throws off a lot of newcomers to the TopCoder competition arena. While 
-the Coding and System Testing phases replicate real world situations that most coders are 
-familiar with, debugging someone else's code in the Challenge Phase is a task that may be unfamiliar to many new coders.
+Anyone who's been with TopCoder for long enough should be used to the troubles that occasionally 
+come up during Single Round Matches. Whether it's due to an error in the problem statement, system 
+testing or some other part of the process, sometimes there is an issue that compromises the fairness 
+or feasibility of counting the results of a contest. Some coder's get mad about having their 75 
+minutes of hard work thrown out, but most of them accept that accidents do happen.</P>
+
+<P>
+When there's a similar problem at a $50,000 tournament, though, then people tend to be less accepting.
 </P>
 
 <P>
-By making you look at other people's code and evaluate the best way to break it, the 
-Challenge Phase forces you to flex your brain in new and different ways from normal coding. 
-Some coders just don't have a knack for challenges, and they rely on quick, accurate coding 
-to get them through the contest. Others, however, are masters of finding those little bugs in 
-a person's code that invalidate their entire solution and make their 75 minutes of hard work meaningless...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_120902</xsl:attribute>full&#160;story</A></P>
+Since the controversial re-running of the final round of the 2002 TopCoder Invitational, an 
+internal debate has flared up within the ranks of the TopCoder competitors and administrators. 
+Hundreds of people who were not directly affected by the results have posted their opinions in 
+the Round Tables and chatted endlessly about the results in the Competition Arena. If TopCoder 
+had its own version of 'Sports Talk' radio, then this one issue would probably have taken up 
+the morning and afternoon drive-time slots for the past month...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_122002</xsl:attribute>full&#160;story</A></P>
 <!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
   </TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
