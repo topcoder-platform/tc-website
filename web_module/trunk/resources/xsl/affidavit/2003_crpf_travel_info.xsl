@@ -68,37 +68,50 @@
         <p>
         <B><U>HOTEL INFORMATION:</U></B><BR/>
         <BR/>
-          Mohegan Sun Casino<BR/>
-          Mohegan Sun Boulevard<BR/>
-          Uncasville, CT<BR/>
-          Phone: (888) 226-7711<BR/>
-          <a href="http://www.mohegansun.com">www.mohegansun.com</a><BR/>
+          The Marriott Marquis<BR/>
+          Broadway &amp; 45th Street<BR/>
+          New York, NY 10036<BR/>
+          Phone: (212) 398-1900<BR/>
         <BR/>
-          A room will be confirmed for your arrival on Thursday, December 4th and departure on December 6th.   The check-in
-            time is 4:00pm and check-out time is 11:00am.  If you have any special requests, please indicate
-            them on the registration form. The cost of your sleeping room and applicable taxes will be charged to
+          A room will be confirmed for your arrival on Monday, November 24th and departure on Tuesday, November 25th.   The check-in
+            time is 3:00pm and check-out time is 11:00am.  If you have any special requests, please indicate
+            them on the travel form. The cost of your sleeping room and applicable taxes will be charged to
             the TopCoder master account.  You will be required to provide a credit card upon check-in for any
             incidentals.  <BR/>
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
           TopCoder will secure airline reservations based upon your registration information and email a travel
-            itinerary to you.  TopCoder will provide travel arrangements for each competitor and a guest, up
+            itinerary to you.  TopCoder will provide travel arrangements for each competitor, up
             to a cost of $1,000 per person.   Any cost in excess of $1,000 per person will be the responsibility
-            of the contestant.  This form must be completed and submitted by <strong>Midnight Wednesday, November 12th</strong>.
+            of the contestant.  This form must be completed and submitted by <strong>12 noon, Monday, November 17th</strong>.
             Please be advised that once airlines tickets are confirmed, any changes are subject to penalty fees
             at your own expense.<BR/>
         <BR/>
         <B><U>AIRPORT TRANSPORTATION:</U></B><BR/>
         <BR/>
-            TopCoder will provide round trip transportation to and from the Mohegan Sun Casino and the airport.
-            More information will be provided prior to the event. <strong><u>Please plan for your arrival  by 4:00pm
-            on December 4th.</u></strong><BR/>
+            Depending upon your arrival time, TopCoder will arrange with the hotel for a van to pick
+            you up in a group.  If your arrival time is considerably earlier or later than the group
+            departure, you can take the “Super Shuttle Service”.  The cost for this service is between
+            $17 and $20 which TopCoder will reimburse.  <strong><u>Please plan for your arrival at the hotel no later than 4:00pm
+            on November 24th.</u></strong><BR/>
         <BR/>
-            <B><U>AWARDS DINNER:</U></B><BR/>
+            <B><U>CRPF "A MAGICAL EVENING" AWARDS DINNER:</U></B><BR/>
             <BR/>
-                All finalists and one(1) guest are invited to attend the awards dinner on Friday December 5th.
-                Please note that attire is business casual.<BR/>
+            Monday, November 24, 2003<BR/>
+            The Marriott Marquis<BR/>
+            Reception:	6:30 PM<BR/>
+            Dinner:		7:30 PM<BR/>
+            <BR/>
+            Please Note:  Black Tie is required for the event.  If you need help with your tuxedo requirement, please contact Tom Longo at 866-867-2633 or tlongo@topcoder.com.<BR/>
+            <BR/>
+            CRPF APPRECIATION BRUNCH<BR/>
+            <BR/>
+            Tuesday, November 25, 2005<BR/>
+            The Marriott Marquis<BR/>
+            Suite 4544<BR/>
+            9:00 AM – 11:30 AM<BR/>
+
             <BR/>
         <BR/>
         <BR/>
@@ -112,7 +125,7 @@
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
         <INPUT TYPE="hidden" NAME="c" VALUE="2003_crpf_submit_info"/>
-            <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
+            <TR><TD COLSPAN="2"><U><B>CONTESTANT INFORMATION:</B></U><BR/></TD></TR>
 
             <TR>
                 <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="First Name"/>First Name: </TD>
@@ -194,89 +207,20 @@
 
             <BR/>
 
-
-            <TR><TD COLSPAN="2"><U><B>Media Information:</B></U></TD></TR>
-
-            <TR>
-              <TD COLSPAN="2">
-                  Please list your local newspapers, radio, and television stations for both hometown and college (if applicable) locations.
-              </TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q16" VALUE="Newspapers"/>Newspapers:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a16" size="50"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q17" VALUE="Radio"/>Radio:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a17" size="50"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q18" VALUE="TV"/>TV:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a18" size="50"/></TD>
-            </TR>
-
-            <BR/>
-            <TR><TD COLSPAN="2"><U><B>GUEST INFORMATION:</B></U></TD></TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q19" VALUE="Guest First Name"/>First Name:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a19" size="20"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q20" VALUE="Guest Last Name"/>Last Name:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a20" size="20"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q21" VALUE="Guest Date of Birth"/>Date of Birth:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a21" size="15"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q22" VALUE="Guest Phone"/>Phone:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a22" size="15"/></TD>
-            </TR>
-            <BR/>
-            <TR><TD COLSPAN="2"><U><B>Emergency contact (for guest):</B></U></TD></TR>
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q23" VALUE="Guest Emergency Contact Name"/>Name:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a23" size="30"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q24" VALUE="Guest Emergency Contact Phone"/>Phone:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a24" size="15"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q25" VALUE="Guest Emergency Contact Relationship"/>Relationship:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a25" size="30"/></TD>
-            </TR>
-
-            <BR/>
             <TR><TD COLSPAN="2"><U><B>TRAVEL INFORMATION:</B></U></TD></TR>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q26" VALUE="Departure City/Airport"/>Departure City/Airport:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a26" size="50"/></TD>
             </TR>
 
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q27" VALUE="Guest Departure City/Airport (if different)"/>Guest Departure City/Airport (if different):</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a27" size="50"/></TD>
-            </TR>
-
             <BR/>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="December 4, 2003 - preferred departure time"/>December 4, 2003 - preferred departure time:</TD>
-              <TD align="left"><SELECT name="a28"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
+              <TD align="right">Arrive November 24, 2003 by 3:00 PM</TD>
+              <TD align="left"></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="December 6, 2003 - preferred departure time"/>December 6, 2003 - preferred departure time:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="Depart November 25, 2003 - preferred departure time"/>Depart November 25, 2003 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
