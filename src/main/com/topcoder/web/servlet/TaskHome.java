@@ -188,7 +188,7 @@ public final class TaskHome {
 
         dataRequest.setContentHandle("collegiate_info");
         dataRequest.setProperty("cr", "" + userId);
-        dataRequest.setProperty("rd", "4462");
+//        dataRequest.setProperty("rd", "4462");
         dataRequest.setProperty("cd", "4462");
         resultMap = dai.getData(dataRequest);
 

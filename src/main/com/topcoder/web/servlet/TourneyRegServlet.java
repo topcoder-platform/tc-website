@@ -56,7 +56,7 @@ public final class TourneyRegServlet extends HttpServlet {
         InitialContext ctx = null;
         String roundId = null;
         String contestId = null;
-        int intRoundId = -1;
+//        int intRoundId = -1;
         int intContestId = -1;
         DataAccessInt transDai = null;
         Request dataRequest = null;
@@ -79,7 +79,7 @@ public final class TourneyRegServlet extends HttpServlet {
                             "Invalid request, your registration failed.");
                 }
                 try {
-                    intRoundId = Integer.parseInt(roundId);
+//                    intRoundId = Integer.parseInt(roundId);
                     intContestId = Integer.parseInt(contestId);
                 } catch (Exception e) {
                     forwardToErrorPage(request, response, new Exception("non-numeric round id or contest id in request"),
@@ -90,7 +90,7 @@ public final class TourneyRegServlet extends HttpServlet {
 //                    dataRequest.setContentHandle("invitational_info");
                     dataRequest.setContentHandle("collegiate_info");
                     dataRequest.setProperty("cr", "" + nav.getUserId());
-                    dataRequest.setProperty("rd", "" + roundId);
+//                    dataRequest.setProperty("rd", "" + roundId);
                     dataRequest.setProperty("cd", "" + contestId);
                     transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                     resultMap = transDai.getData(dataRequest);
@@ -99,7 +99,8 @@ public final class TourneyRegServlet extends HttpServlet {
                     if (rsc.getItem(0, "is_eligible").toString().trim().equals("T")) {
                         UtilHome uHome = (UtilHome) ctx.lookup(ApplicationServer.UTIL);
                         Util util = uHome.create();
-                        util.registerForTourny(nav.getUserId(), intContestId, intRoundId);
+//                        util.registerForTourny(nav.getUserId(), intContestId, intRoundId);
+                        util.registerForTourny(nav.getUserId(), intContestId);
                     } else {
                         forwardToErrorPage(request, response, new Exception(nav.getUserId() + " was not registered because they are not eligible."),
                                 "Your registration failed because you are not eligible.");
