@@ -213,7 +213,7 @@
                 <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Development</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Round Tables</a></td></tr>
+                <tr><td id="leftNavSelect"><a class="leftOn" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Round Tables</a></td></tr>
 <%
   // do a login if all parameters are good
   Authorization aToken = (Authorization) session.getAttribute("jiveAuthorization");
@@ -283,7 +283,7 @@
 
 <!-- TopCoder Info begins -->
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About Us</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About TopCoder</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=news_events&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Press Room</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=contacts&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Contacts</a></td></tr>
                 <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>  

@@ -808,7 +808,7 @@
                         <xsl:otherwise>leftNavOn</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>About Us:</A></td>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>About TopCoder</A></td>
                 </tr>
                 
 
@@ -1141,7 +1141,7 @@
 </xsl:template>
 
 <xsl:template name="about_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About Us</A></td></tr>
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</A></td></tr>
 </xsl:template>
 
 <xsl:template name="press_row">
