@@ -42,6 +42,7 @@ public class Coder implements Serializable, TagRenderer {
     private ArrayList notifications;
     private boolean hasImage;
     private ArrayList coderConfirmations;
+    private Country compCountry;
 
 
     public Coder() {
@@ -79,6 +80,8 @@ public class Coder implements Serializable, TagRenderer {
         notifications = new ArrayList();
         hasImage = false;
         coderConfirmations = new ArrayList();
+        compCountry = new Country();
+
     }
 
 /*
@@ -423,6 +426,14 @@ public class Coder implements Serializable, TagRenderer {
         return coderConfirmations;
     }
 
+    public Country getCompCountry() {
+        return compCountry;
+    }
+
+    public void setCompCountry(Country compCountry) {
+        this.compCountry = compCountry;
+    }
+
 
     public RecordTag getXML() throws Exception {
         RecordTag result = null;
@@ -472,6 +483,7 @@ public class Coder implements Serializable, TagRenderer {
             result.addTag(RecordTag.getListXML("JobPrefs", jobPreferences));
             result.addTag(new ValueTag("HasImage", hasImage));
             result.addTag(RecordTag.getListXML("CoderConfirmations", coderConfirmations));
+            result.addTag(compCountry.getXML());
         } catch (Exception e) {
             throw new Exception("common.web.data.Coder getXML ERROR: " + e);
         }

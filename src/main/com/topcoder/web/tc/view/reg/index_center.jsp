@@ -444,6 +444,7 @@ function checkInputs(){
 
                 <tr valign="middle"><td colspan="2" class="statText">&nbsp;</td></tr>
 
+                <% if (Registration.isEdit()) { %>
                 <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>
 
                 <tr>
@@ -465,6 +466,7 @@ function checkInputs(){
                 </tr>
 
                 <tr valign="middle"><td colspan="2" class="statText">&nbsp;</td></tr>
+                <% } %>
 
 
                 <tr valign="middle"><td colspan="2" class="statTextBig" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Student or Professional (please choose one)</td></tr>
