@@ -105,32 +105,32 @@ the United Kingdom<BR/>
 						</TR>						
 						<TR>
 							<TD WIDTH="25%" ALIGN="left" VALIGN="top" CLASS="statText">
-							MIT&#160;&#40;37&#41;<BR/>
-							Cornell U.&#160;&#40;13&#41;<BR/>
-							Carnegie Mellon&#160;&#40;7&#41;<BR/>
-							VA Tech&#160;&#40;7&#41;<BR/>
-							U. Maryland&#160;&#40;6&#41;<BR/>
+							MIT&#160;&#40;210&#41;<BR/>
+							VA Tech&#160;&#40;140&#41;<BR/>	
+							Carnegie Mellon&#160;&#40;139&#41;<BR/>													
+							Binghamton&#160;&#40;133&#41;<BR/>
+							RIT&#160;&#40;116&#41;<BR/>
 							</TD>
 							<TD WIDTH="25%" ALIGN="left" VALIGN="top" CLASS="statText">
-							GA Tech.&#160;&#40;21&#41;<BR/>
-							U. Central FL&#160;&#40;12&#41;<BR/>
-							FL State U.&#160;&#40;9&#41;<BR/>
-							NC State U.&#160;&#40;8&#41;<BR/>
-							Clemson U.&#160;&#40;7&#41;<BR/>
+							GA Tech.&#160;&#40;188&#41;<BR/>
+							NC State U.&#160;&#40;88&#41;<BR/>
+							Florida&#160;&#40;73&#41;<BR/>
+							Clemson U.&#160;&#40;69&#41;<BR/>																					
+							U. Central FL&#160;&#40;65&#41;<BR/>
 							</TD>
 							<TD WIDTH="25%" ALIGN="left" VALIGN="top" CLASS="statText">
-							Stanford&#160;&#40;20&#41;<BR/>
-							U. Texas Austin&#160;&#40;16&#41;<BR/>
-							CA Inst. of Tech.&#160;&#40;10&#41;<BR/>
-							U. CA of L.A.&#160;&#40;7&#41;<BR/>
-							U. CA Berkeley&#160;&#40;6&#41;<BR/>
+							Texas&#160;&#40;176&#41;<BR/>
+							Stanford&#160;&#40;125&#41;<BR/>
+							UCLA&#160;&#40;112&#41;<BR/>
+							Berkeley&#160;&#40;103&#41;<BR/>
+							UC Irvine&#160;&#40;70&#41;<BR/>
 							</TD>
 							<TD WIDTH="25%" ALIGN="left" VALIGN="top" CLASS="statText">
-							U. Mich. Ann Arbor&#160;&#40;25&#41;<BR/>
-							U. IL Urb.-Champ.&#160;&#40;11&#41;<BR/>
-							Purdue&#160;&#40;8&#41;<BR/>
-							U. Neb. Lincoln&#160;&#40;8&#41;<BR/>
-							Iowa State U.&#160;&#40;7&#41;<BR/>
+							U.&#160;Mich.&#160;Ann&#160;Arbor&#160;&#40;215&#41;<BR/>
+							Purdue&#160;&#40;104&#41;<BR/>							
+							U. IL Urb.-Champ.&#160;&#40;91&#41;<BR/>
+							Wisconsin&#160;&#40;67&#41;<BR/>
+							Iowa State U.&#160;&#40;66&#41;<BR/>
 							</TD>
 						</TR>
 						<TR><TD COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>																		
