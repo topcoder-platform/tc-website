@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.logging.Logger;
@@ -173,6 +174,10 @@ public class MainServlet extends HttpServlet {
                 fetchErrorPage(request, response, errorPageSecurity, nae);
                 //fetchAuthorizationFailedPage(request, response, nae);
             }
+        }
+        catch(AuthenticationException aex) {
+            log.error("probably wrong username/password", aex);
+            fetchErrorPage(request, response, errorPageSecurity, aex);
         }
         catch(Exception e) {
             /* All Non authorization errors are cought here  */

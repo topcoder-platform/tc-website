@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          isErrorPage="true"
          buffer="64kb"
+         import="com.topcoder.security.login.AuthenticationException"
 %>
 <% out.clear(); %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -28,6 +29,9 @@
       <!-- Gutter Ends -->
 
 <!-- Body Area -->
+<% Exception exc = (Exception)request.getAttribute("caught-exception");
+   boolean authencityExc =  (exc instanceof AuthenticationException);
+%>
 
  <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
    <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
@@ -35,10 +39,17 @@
    <tr><td class="errorText">
 
      <!-- Error message content pane -->
+<% if( authencityExc ) { %>
+
+   Username/password combination is wrong<br>
+<% }
+   else { %>
      You have not enough priveleges to perform this action<br>
      If you think this page was shown by mistake, please contact us<br>
    </td></tr>
    <tr><td class="bodyText">&nbsp;
+<% }
+%>
    </td></tr>
    <tr><td class="bodyText"><a href="Javascript:history.back()">&lt; back</a></td></tr>
    </table>

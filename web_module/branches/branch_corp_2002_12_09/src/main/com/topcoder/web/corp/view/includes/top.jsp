@@ -39,6 +39,7 @@
       <TD WIDTH="206" BGCOLOR="#000000"><A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" TARGET="_parent"><IMG SRC="/i/p/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="13"/></A></TD>
       <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="15"/></TD>
       <TD CLASS="time" VALIGN="bottom" NOWRAP="" ALIGN="center" BGCOLOR="#000000">
+<% if( activeUser.isAnonymous() ) { %>
          <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">
             <TR>
                <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
@@ -49,7 +50,6 @@
                           <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">
                             <TR>
                               <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="190" BGCOLOR="#000000">&#160;
-<% if( activeUser.isAnonymous() ) { %>
                                 <FORM NAME="frmMiniLogin" METHOD="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
                                   <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                     <TR>
@@ -66,9 +66,6 @@
                                   </TABLE>
                                   <INPUT NAME="<%=Login.KEY_LOGINMODE%>" TYPE="hidden" VALUE="1"/>
                                 </FORM>
-<%
-  }
-%>
                               </TD>
                             </TR>
                           </TABLE>
@@ -79,6 +76,12 @@
                </TD>
              </TR>
          </TABLE>           
+<%
+   }
+   else {
+%>       &nbsp;
+<% }
+%>
       </TD>        
    </TR>             
 </TABLE>
