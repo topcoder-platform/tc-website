@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- TCO 04 Finalists -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_11_15_04"><img src="/i/pressroom/tco04_logo.gif" alt="TCO04" width="135" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_11_15_04">Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174;</A></strong></font><br />
+						TopCoder announced that Tomasz Czajka of Stalowej, Poland, Adrian Nicolae Carcu of Bistrita, Romania, and Jin GuanZhou of HangZhou City, China have won the Algorithm, Design and Development Competitions of the 2004 TopCoder Open, sponsored by Microsoft.  <span class="prHead">[November 15]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- CNN GCJ04 -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
