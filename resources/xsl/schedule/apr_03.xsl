@@ -70,8 +70,8 @@
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">1</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">2</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">3</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">4</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">5</TD>
+            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>4</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>Semifinals<BR/>Compete: 8:00&#160;AM-6:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched" CLASS="statText">Details</A></TD>
+            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>5</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>Championship<BR/>Compete: 11:00&#160;AM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched" CLASS="statText">Details</A></TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">6</TD>
