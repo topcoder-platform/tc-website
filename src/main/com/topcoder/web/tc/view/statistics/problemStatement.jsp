@@ -60,6 +60,7 @@ if (rsc!=null && !rsc.isEmpty()) {
   StringReader reader = new StringReader(sProblemText);
   ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
   arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
+//  System.out.println(arrProblemComponent[0].getMessages());
   problem = new Problem();
   problem.setProblemComponents(arrProblemComponent);
 }
