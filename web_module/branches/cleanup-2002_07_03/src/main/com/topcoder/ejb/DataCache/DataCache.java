@@ -78,10 +78,6 @@ public interface DataCache extends EJBObject {
 
   public ArrayList getCurrentJobAds() throws TCException, RemoteException;
 
-  public ArrayList getJobLevels() throws TCException, RemoteException;
-
-  public void resetJobLevels() throws TCException, RemoteException;
-
   public ArrayList getJobs() throws TCException, RemoteException;
 
   public void resetJobs() throws TCException, RemoteException;
@@ -89,14 +85,6 @@ public interface DataCache extends EJBObject {
   public ArrayList getEditors() throws TCException, RemoteException;
 
   public void resetEditors() throws TCException, RemoteException;
-
-  public ArrayList getPayPeriods() throws TCException, RemoteException;
-
-  public void resetPayPeriods() throws TCException, RemoteException;
-
-  public ArrayList getTopRankedCoders(int n) throws TCException, RemoteException;
-
-  public void resetTopRankedCoders() throws TCException, RemoteException;
 
   public ArrayList getReferrals() throws TCException, RemoteException;
 

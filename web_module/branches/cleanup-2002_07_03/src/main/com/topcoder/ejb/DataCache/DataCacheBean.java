@@ -32,8 +32,6 @@ public class DataCacheBean extends BaseEJB {
   private static ArrayList experienceTypes;
   private static ArrayList languages;
   private static ArrayList referralTypes;
-  private static ArrayList payPeriods;
-  private static ArrayList jobLevels;
   private static ArrayList jobs;
   private static ArrayList editorTypes;
   private static ArrayList newsItems;
@@ -44,12 +42,9 @@ public class DataCacheBean extends BaseEJB {
   private static ArrayList skillTypes;
   private static ArrayList degreeLevels;
   private static ArrayList contactSubjects;
-  private static ArrayList subscriberStateList;
   private static ArrayList coderRegions;
   private static ArrayList forums;
   private static ArrayList contests;
-  private static ArrayList activeJobAds;
-  private static ArrayList topRankedCoders;
   private static HashMap roomresults;
   private static HashMap contestNavs;
   private static ArrayList roundProblems;
@@ -63,8 +58,6 @@ public class DataCacheBean extends BaseEJB {
   private static boolean experienceTypesCached;
   private static boolean languagesCached;
   private static boolean referralTypesCached;
-  private static boolean payPeriodsCached;
-  private static boolean jobLevelsCached;
   private static boolean jobsCached;
   private static boolean editorTypesCached;
   private static boolean newsItemsCached;
@@ -77,12 +70,9 @@ public class DataCacheBean extends BaseEJB {
   private static boolean skillTypesCached;
   private static boolean degreeLevelsCached;
   private static boolean contactSubjectsCached;
-  private static boolean subscriberStateListCached;
   private static boolean coderRegionsCached;
   private static boolean forumsCached;
-  private static boolean activeJobAdsCached;
   private static boolean roomresultsCached;
-  private static boolean topRankedCodersCached;
   private static int problemCached;
   private static int contestCached;
   private static int memberCount;
@@ -286,8 +276,6 @@ public class DataCacheBean extends BaseEJB {
       this.languagesCached = false;
       this.degreeLevelsCached = false;
       this.referralTypesCached = false;
-      this.payPeriodsCached = false;
-      this.jobLevelsCached = false;
       this.jobsCached = false;
       this.editorTypesCached = false;
       this.contestNavsCached = false;
@@ -301,11 +289,9 @@ public class DataCacheBean extends BaseEJB {
       this.contactSubjectsCached = false;
       this.coderRegionsCached = false;
       this.forumsCached = false;
-      this.activeJobAdsCached = false;
       this.problemCached = 0;
       this.roundProblems = new ArrayList();
       this.contestCached = 0;
-      this.topRankedCodersCached = false;
       this.memberCount = 0;
       this.memberCountLastRefresh = null;
     }
@@ -463,31 +449,11 @@ public class DataCacheBean extends BaseEJB {
 
 
   /////////////////////////////////////////////////////////////////
-  public void resetJobLevels() throws TCException {
-  /////////////////////////////////////////////////////////////////
-    log.debug( "EJB DataCacheBean resetJobLevels called.");
-    synchronized (this) {
-      this.jobLevelsCached = false;
-    }
-  }
-
-
-  /////////////////////////////////////////////////////////////////
   public void resetJobs() throws TCException {
   /////////////////////////////////////////////////////////////////
     log.debug( "EJB DataCacheBean resetJobs called.");
     synchronized (this) {
       this.jobsCached = false;
-    }
-  }
-
-
-  /////////////////////////////////////////////////////////////////
-  public void resetPayPeriods() throws TCException {
-  /////////////////////////////////////////////////////////////////
-    log.debug( "EJB DataCacheBean resetPayPeriods called.");
-    synchronized (this) {
-      this.payPeriodsCached = false;
     }
   }
 
@@ -508,24 +474,6 @@ public class DataCacheBean extends BaseEJB {
     log.debug( "EJB DataCacheBean resetReferrals called.");
     synchronized (this) {
       this.referralTypesCached = false;
-    }
-  }
-
-
-  /**
-  ***************************************************************************************
-  * resetTopRankedCoders()
-  * Resets the topRankedCodersCached variable to false so that we go to the database
-  * the next time we need to get the topRankedCoders
-  * @author Greg Paul
-  ***************************************************************************************
-  */
-  /////////////////////////////////////////////////////////////////
-  public void resetTopRankedCoders() throws TCException {
-  /////////////////////////////////////////////////////////////////
-    log.debug( "EJB DataCacheBean resetTopRankedCoders called.");
-    synchronized (this) {
-      this.topRankedCodersCached = false;
     }
   }
 
@@ -586,16 +534,6 @@ public class DataCacheBean extends BaseEJB {
     log.debug("EJB DataCacheBean resetSchools called.");
     synchronized (this) {
       this.schoolsCached = false;                
-    }
-  }
-
-
-  ////////////////////////////////////////////////////////////////////////////////
-  public void resetActiveJobAds() throws TCException {
-  ////////////////////////////////////////////////////////////////////////////////
-    log.debug("EJB DataCacheBean resetJobAds called.");
-    synchronized (this) {
-      this.activeJobAdsCached = false;
     }
   }
 
@@ -923,202 +861,6 @@ public class DataCacheBean extends BaseEJB {
     } finally {
       if ( rs != null )   { try { rs.close();   } catch ( Exception ignore ) {} }
       if ( ps != null )   { try { ps.close();   } catch ( Exception ignore ) {} }
-      if ( conn != null ) { try { conn.close(); } catch ( Exception ignore ) {} }
-    }
-    return results;
-  }
-
-
-  /**
-   ***************************************************************************************
-   * getCurrentJobAds()
-   * Gets only those job ads that are active and not expired
-   * @author Greg Paul
-   * @return the job ads
-   * @throws TCException
-   ***************************************************************************************
-   */
-  public ArrayList getCurrentJobAds() throws TCException {
-    ArrayList result = null;
-    try {
-      ArrayList activeJobAds = getActiveJobAds();
-      for (int i = 0; i < activeJobAds.size(); i++) {
-        JobPosting jobAd = (JobPosting) activeJobAds.get(i);
-        if (jobAd.getStatus().equals("A")) {
-          java.sql.Timestamp today = getCurrentTimestamp();
-          java.sql.Timestamp adStart = jobAd.getAdStart();
-          if ( adStart!=null && (today.compareTo(adStart)>=0) ) {
-            java.sql.Timestamp adEnd = jobAd.getAdEnd();
-            if ( adEnd!=null && (today.compareTo(adEnd)<=0) ) {
-              if ( result == null ) result = new ArrayList();
-              result.add ( jobAd );
-            }
-          }
-        }
-      }
-    } catch ( Exception e ) {
-      e.printStackTrace();
-      throw new TCException ( "ejb.DataCache:getJobAds:ERROR:\n"+e );
-    }
-    return result;
-  }
-
-  /**
-   ****************************************************************************************
-   * getActiveJobAds()
-   * If JobAds are currently cached, it gets them from the cache, otherwise get them
-   * from the database
-   * @author Greg Paul
-   * @return the active job ads
-   * @throws TCException
-   ****************************************************************************************
-   */
-  private ArrayList getActiveJobAds() throws TCException {
-//  if ( !this.activeJobAdsCached ) {
-      try {
-        log.debug("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        log.debug(" GETTING LATEST JOB ADS FROM DB");
-        log.debug("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        synchronized ( this ) {
-          this.activeJobAds       = popActiveJobAds();
-          this.activeJobAdsCached = true;
-        }
-      } catch ( Exception e ) {
-        e.printStackTrace();
-        throw new TCException ( "ejb.DataCache:getActiveJobAds:ERROR:\n"+e );
-      }
-//  }
-    return this.activeJobAds;
-  }
-
-  /**
-   ******************************************************************************************
-   * popActiveJobAds()
-   * Gets an ArrayList of JobPosting objects containing the active JobAds
-   * @author Greg Paul
-   * @return ArrayList - Active JobAds
-   * @throws TCException
-   ******************************************************************************************
-   */
-  private ArrayList popActiveJobAds() throws TCException {
-    log.debug("ejb.DataCache.DataCacheBean:popActiveJobAds():called." );
-    ArrayList results          = new ArrayList();
-    java.sql.Connection conn   = null;
-    PreparedStatement ps       = null;
-    ResultSet rs               = null;
-    JobPosting jobAd = null;
-    StringBuffer query         = new StringBuffer ();
-    query.append( " SELECT jp.job_posting_id,");                //1
-    query.append(        " jp.subscriber_id,");                 //2
-    query.append(        " jp.title,");                         //3
-    query.append(        " jp.salary_min,");                    //4
-    query.append(        " jp.salary_max,");                    //5
-    query.append(        " jp.pay_period_id,");                 //6
-    query.append(        " pp.pay_period_desc,");               //7
-    query.append(        " jp.job_level_id,");                  //8
-    query.append(        " jl.job_level_desc,");                //9
-    query.append(        " jp.job_type_id,");                   //10
-    query.append(        " jt.job_type_desc,");                 //11
-    query.append(        " jp.description,");                   //12
-    query.append(        " jp.city,");                          //13
-    query.append(        " jp.state_code,");                    //14
-    query.append(        " s1.state_name,");                    //15
-    query.append(        " jp.country_code,");                  //16
-    query.append(        " c1.country_name,");                  //17
-    query.append(        " jp.ad,");                            //18
-    query.append(        " jp.status,");                        //19
-    query.append(        " jp.ad_start,");                      //20
-    query.append(        " jp.ad_end,");                        //21
-    query.append(        " jp.ad_task,");                       //22
-    query.append(        " jp.ad_command,");                    //23
-    query.append(        " jp.billing_contact_id,");            //24
-    query.append(        " jp.ad_first_name,");                 //25
-    query.append(        " jp.ad_middle_name,");                //26
-    query.append(        " jp.ad_last_name,");                  //27
-    query.append(        " jp.ad_address1,");                   //28
-    query.append(        " jp.ad_address2,");                   //29
-    query.append(        " jp.ad_city,");                       //30
-    query.append(        " jp.ad_state_code,");                 //31
-    query.append(        " s2.state_name,");                    //32
-    query.append(        " jp.ad_country_code,");               //33
-    query.append(        " c2.country_name,");                  //34
-    query.append(        " jp.ad_zip,");                        //35
-    query.append(        " jp.ad_phone,");                      //36
-    query.append(        " jp.ad_fax,");                        //37
-    query.append(        " jp.ad_email,");                      //38
-    query.append(        " jp.ad_company_name");                //39
-    query.append( " FROM job_posting jp,");
-    query.append(      " country c1,");
-    query.append(      " OUTER country c2,");
-    query.append(      " pay_period pp,");
-    query.append(      " job_level jl,");
-    query.append(      " job_type jt,");
-    query.append(      " OUTER state s1,");
-    query.append(      " OUTER state s2");
-    query.append( " WHERE jp.ad = 'Y'");
-    query.append(   " AND jp.country_code = c1.country_code");
-    query.append(   " AND jp.state_code = s1.state_code");
-    query.append(   " AND jp.ad_country_code = c2.country_code");
-    query.append(   " AND jp.ad_state_code = s2.state_code");
-    query.append(   " AND jp.pay_period_id = pp.pay_period_id");
-    query.append(   " AND jp.job_level_id = jl.job_level_id");
-    query.append(   " AND jp.job_type_id = jt.job_type_id");
-    try {
-      conn = DBMS.getConnection ();
-      ps = conn.prepareStatement( query.toString() ) ;
-      rs = ps.executeQuery();
-      while ( rs.next() ) {
-        jobAd = new JobPosting();
-        jobAd.setJobPostingId(rs.getInt(1));
-        jobAd.setSubscriberId(rs.getInt(2));
-        jobAd.setTitle(rs.getString(3));
-        jobAd.setSalaryMin(rs.getInt(4));
-        jobAd.setSalaryMax(rs.getInt(5));
-        jobAd.getPayPeriod().setPayPeriodId(rs.getInt(6));
-        jobAd.getPayPeriod().setPayPeriodDesc(rs.getString(7));
-        jobAd.getJobLevel().setJobLevelId(rs.getInt(8));
-        jobAd.getJobLevel().setJobLevelDesc(rs.getString(9));
-        jobAd.getJob().setJobId(rs.getInt(10));
-        jobAd.getJob().setJobDesc(rs.getString(11));
-        jobAd.setDescription(rs.getString(12));
-        jobAd.setCity(rs.getString(13));
-        jobAd.getState().setStateCode(rs.getString(14));
-        jobAd.getState().setStateName(rs.getString(15));
-        jobAd.getCountry().setCountryCode(rs.getString(16));
-        jobAd.getCountry().setCountryName(rs.getString(17));
-        jobAd.setAd(rs.getString(18));
-        jobAd.setStatus(rs.getString(19));
-        jobAd.setAdStart(rs.getTimestamp(20));
-        jobAd.setAdEnd(rs.getTimestamp(21));
-        jobAd.setAdTask(rs.getString(22));
-        jobAd.setAdCommand(rs.getString(23));
-        jobAd.getBillingContact().setContactId(rs.getInt(24));
-        jobAd.setAdFirstName(rs.getString(25));
-        jobAd.setAdMiddleName(rs.getString(26));
-        jobAd.setAdLastName(rs.getString(27));
-        jobAd.setAdAddress1(rs.getString(28));
-        jobAd.setAdAddress2(rs.getString(29));
-        jobAd.setAdCity(rs.getString(30));
-        jobAd.getAdState().setStateCode(rs.getString(31));
-        jobAd.getAdState().setStateName(rs.getString(32));
-        jobAd.getAdCountry().setCountryCode(rs.getString(33)); 
-        jobAd.getAdCountry().setCountryName(rs.getString(34));
-        jobAd.setAdZip(rs.getString(35));
-        jobAd.setAdPhone(rs.getString(36));
-        jobAd.setAdFax(rs.getString(37));
-        jobAd.setAdEmail(rs.getString(38));
-        jobAd.setAdCompanyName(rs.getString(39));
-        jobAd.setModified("S");
-        results.add(jobAd);
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException(true, sqe);
-      throw new TCException( "ejb.DataCache.DataCacheBean:popActiveJobAds: ERROR \n "+sqe.getMessage() );
-    } catch ( Exception e ) {
-      throw new TCException ( "ejb.DataCache.DataCacheBean:popActiveJobAds:ERROR:\n"+e );
-    } finally {
-      if ( rs != null   ) { try { rs.close();   } catch ( Exception ignore ) {} }
-      if ( ps != null   ) { try { ps.close();   } catch ( Exception ignore ) {} }
       if ( conn != null ) { try { conn.close(); } catch ( Exception ignore ) {} }
     }
     return results;
@@ -1939,108 +1681,6 @@ public class DataCacheBean extends BaseEJB {
 
 
   //////////////////////////////////////////////////////////////////
-  public ArrayList getPayPeriods() throws TCException {
-  //////////////////////////////////////////////////////////////////
-    log.debug( "ejb.DataCacheBean:getPayPeriods:called." );
-    if ( !this.payPeriodsCached )  {
-      synchronized (this) {
-        this.payPeriods = popPayPeriods();
-        this.payPeriodsCached = true;
-      }
-    }
-    return this.payPeriods;
-  }
-
- 
-  //////////////////////////////////////////////////////////////////
-  private ArrayList popPayPeriods() throws TCException {
-  //////////////////////////////////////////////////////////////////
-    log.debug("ejb.DataCacheBean:popPayPeriods:called." );
-    Connection conn      = null; 
-    PreparedStatement ps = null;
-    ResultSet rs         = null;
-    ArrayList result     = new ArrayList(5);
-    try {
-      conn = DBMS.getConnection();
-      String query = "SELECT pay_period_id, pay_period_desc FROM pay_period ORDER BY pay_period_desc";
-      ps           = conn.prepareStatement ( query );
-      rs           = ps.executeQuery();
-      while ( rs.next() ) {
-        PayPeriod payPeriod = new PayPeriod();
-        payPeriod.setPayPeriodId   ( rs.getInt(1)    );
-        payPeriod.setPayPeriodDesc ( rs.getString(2) );
-        result.add ( payPeriod );
-      }
-      if ( result != null ) result.trimToSize();
-    } catch (SQLException sqe) {
-      DBMS.printSqlException(true, sqe);
-      throw new TCException( "ejb.DataCache.DataCacheBean:popPayPeriods: ERROR \n "+sqe.getMessage() );
-    } catch ( Exception e )  {
-      e.printStackTrace();
-      throw new TCException (
-        "ejb.DatCacheBean:popPayPeriods:ERROR:"+e.getMessage()
-      );
-    } finally  {
-      if ( rs != null   ) { try { rs.close();   } catch (Exception ignore) {} }
-      if ( ps != null   ) { try { ps.close();   } catch (Exception ignore) {} }
-      if ( conn != null ) { try { conn.close(); } catch (Exception ignore) {} }
-    }
-    return result;
-  }
-
-
-  //////////////////////////////////////////////////////////////////
-  public ArrayList getJobLevels() throws TCException {
-  //////////////////////////////////////////////////////////////////
-    log.debug( "ejb.DataCacheBean:getJobLevels:called." );
-    if ( !this.jobLevelsCached )  {
-      synchronized (this) {
-        this.jobLevels = popJobLevels();
-        this.jobLevelsCached = true;
-      }
-    }
-    return this.jobLevels;
-  }
-
- 
-  //////////////////////////////////////////////////////////////////
-  private ArrayList popJobLevels() throws TCException {
-  //////////////////////////////////////////////////////////////////
-    log.debug("ejb.DataCacheBean:popJobLevels:called." );
-    Connection conn      = null;
-    PreparedStatement ps = null;
-    ResultSet rs         = null;
-    ArrayList result     = new ArrayList(7);
-    try {
-      conn = DBMS.getConnection();
-      String query = "SELECT job_level_id, job_level_desc FROM job_level ORDER BY job_level_desc";
-      ps           = conn.prepareStatement ( query );
-      rs           = ps.executeQuery();
-      while ( rs.next() ) {
-        JobLevel jobLevel = new JobLevel();
-        jobLevel.setJobLevelId   ( rs.getInt(1)    );
-        jobLevel.setJobLevelDesc ( rs.getString(2) );
-        result.add ( jobLevel );
-      }
-      if ( result != null ) result.trimToSize();
-    } catch (SQLException sqe) {
-      DBMS.printSqlException(true, sqe);
-      throw new TCException( "ejb.DataCache.DataCacheBean:popJobLevels: ERROR \n "+sqe.getMessage() );
-    } catch ( Exception e ) {
-      e.printStackTrace();
-      throw new TCException (
-        "ejb.DatCacheBean:popJobLevels:ERROR:"+e.getMessage()
-      );
-    } finally  {
-      if ( rs != null   ) { try { rs.close();   } catch (Exception ignore) {} }
-      if ( ps != null   ) { try { ps.close();   } catch (Exception ignore) {} }
-      if ( conn != null ) { try { conn.close(); } catch (Exception ignore) {} }
-    }
-    return result;
-  }
-
-
-  //////////////////////////////////////////////////////////////////
   public ArrayList getJobs() throws TCException {
   //////////////////////////////////////////////////////////////////
     log.debug( "ejb.DataCacheBean:getJobs:called." );
@@ -2626,88 +2266,6 @@ public class DataCacheBean extends BaseEJB {
     }
     return result;
   }
-
- 
-  /**
-  *********************************************************************************************
-  * getTopRankedCoders
-  * Get the top ranked coders, only go to the database if they are not currently cached.
-  * @author Greg Paul
-  * @param n - the number of coders to return
-  * @throws TCException
-  *********************************************************************************************
-  */
-  public ArrayList getTopRankedCoders(int n) throws TCException {
-    if (!this.topRankedCodersCached || topRankedCoders.size() != n) {
-      try {
-        synchronized (this) {
-          this.topRankedCoders = popTopRankedCoders(new Integer(n));
-          this.topRankedCodersCached = true;
-        }
-      } catch (Exception e) {
-        e.printStackTrace();
-        throw new TCException("ejb.DataCache:getTopRankedCoders:ERROR:\n"+e);
-      }
-    }
-    return this.topRankedCoders;
-  }
-
-  /**
-  *********************************************************************************************
-  * popTopRankedCoders()
-  * Gets an ArrayList of common.attr.stat.coder.Rank containing the 
-  * top n ranked coders at TopCoder.
-  * @author Greg Paul
-  * @param n - the number of coders we want 
-  * @return ArrayList - the top ranked coders. 
-  * @throws TCException
-  *********************************************************************************************
-  */
-  private ArrayList popTopRankedCoders(Integer n) throws TCException {
-    PreparedStatement ps = null; 
-    ArrayList result = new ArrayList ( n.intValue() );
-    Rank coderRank = null; 
-    Rank prevRank = null; 
-    ResultSet rs = null; 
-    Connection conn = null; 
-    try {   
-      StringBuffer query = new StringBuffer(300);
-      query.append(" SELECT c.handle, r.rating, c.coder_id");
-      query.append(  " FROM rating r,");
-      query.append(       " coder c");
-      query.append( " WHERE r.coder_id = c.coder_id");
-      query.append(   " AND r.num_ratings > 0");
-      query.append(   " AND c.status = 'A'");
-      query.append( " ORDER BY r.rating DESC");
-
-      conn = DBMS.getDWConnection();
-      ps = conn.prepareStatement(query.toString());
-      rs = ps.executeQuery();
-      int i=0;
-      prevRank = new Rank();
-      while (rs.next() && n.compareTo(new Integer(i))>0) {
-        i++;
-        coderRank = new Rank();
-        coderRank.setHandle(rs.getString(1));
-        coderRank.setRating(rs.getInt(2));
-        coderRank.setCoderId(rs.getInt(3));
-        result.add(coderRank);
-        if (prevRank.getRating() == coderRank.getRating())
-          coderRank.setRank(prevRank.getRank());
-        else coderRank.setRank(i);
-        prevRank = coderRank;
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException(true, sqe);
-      throw new TCException( "ejb.DataCache.DataCacheBean:popTopRankedCoders: ERROR \n "+sqe.getMessage() );
-    } catch (Exception e) {
-      e.printStackTrace();
-      throw new TCException (e.getMessage());
-    } finally {
-      if (ps != null) { try { ps.close(); } catch (Exception ignore) {} }
-    }
-    return result; 
-  }    
 
  
 }
