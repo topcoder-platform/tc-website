@@ -1,17 +1,10 @@
-<%--
-/**
- *  /skins/vodka/search.jsp
- */
---%>
-
 <%@  page
   language="java"
   import="java.util.*,
           java.text.*,
           com.coolservlets.forum.*,
-          com.coolservlets.forum.util.*,
-          com.topcoder.common.*"
-          errorPage="error.jsp"
+          com.coolservlets.forum.util.*"
+  errorPage="error.jsp"
 %>
 
 <%  ////////////////
