@@ -60,18 +60,18 @@ function openWin(url, name, w, h) {
 <img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif">
 
 <table border=0 cellspacing=5 width="740">
-   <tr> 
+   <tr>
       <td style="background-color: #006633">
          <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
             <tr>
                <td valign="top">
-                  <div class=content> 
+                  <div class=content>
                   <div align="center">
 	            <font size="-1">
-                     <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
-                     <font color="006633">Registration</font> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp;
+                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp;
+                     <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp;
+                     <font color="006633">Registration</font> &nbsp;|&nbsp;
                      <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
                   </font>
                   </div><br><br>
@@ -80,11 +80,13 @@ function openWin(url, name, w, h) {
 <p><font size="-1">
 <br/>
 
+<% if (regInfo.isNew()) {%>
 <b>In order to be eligible to compete in the Google Code Jam 2003,
 you must activate your account by following the directions sent to the email
 address provided during registration. You <u>will not</u> be able to compete if you
 do not activate your account.</b>
 
+<% } %>
 <br/><br/>
 
 If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
