@@ -51,10 +51,25 @@ function find(n) {
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft"><img src="/i/tournament/tco04/microsoft_right.jpg" alt="" width="170" height="90" border="0" /></a><br />
+
+            <p><br/></p>
+
+<!-- 2004 TCO ends -->
+
+<!-- Microsoft begins -->
+<% } else if (level1.equals("microsoft")) { %>
+
+			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+			
+			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo.gif" alt="" width="170" height="40" border="0" /></a><br />
+			
+			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <jsp:include page="../calendar.jsp" />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia"><img src="/i/tournament/tco04/nvidia_right.jpg" alt="" width="170" height="80" border="0" /></a><br />
+            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft_joblisting"><img src="/i/tournament/tco04/microsoft_jobs.jpg" alt="" width="170" height="90" border="0" /></a><br />
 
             <p><br/></p>
 
