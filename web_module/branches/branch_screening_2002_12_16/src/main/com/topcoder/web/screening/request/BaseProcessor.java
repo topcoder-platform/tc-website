@@ -134,30 +134,19 @@ public abstract class BaseProcessor implements RequestProcessor {
         return dAccess;
     }
     
-    protected void doStrongAuthorization() throws Exception{
-        long userId = getAuthentication().getUser().getId();
-        Resource r = new ClassResource(this.getClass());
-        PrincipalMgr pm = new PrincipalMgr();
-        HttpServletRequest request = (HttpServletRequest)getRequest();
-        
-        TCSubject sub = pm.getUserSubject(userId);
-        Authorization auth = new TCSAuthorization(sub);
-        
-        if(!auth.hasPermission(r)){
-            String redirect;
-            if(request.getMethod().equals("POST")){
-                redirect = request.getServletPath();
-            }else{
-                redirect = request.getServletPath() + '?' + request.getQueryString();
+    protected void requireLogin() throws Exception{
+        User user = getAuthentication().getUser();
+        if(user.getId() == user.USER_ANONYMOUS_ID){
+            HttpServletRequest request = (HttpServletRequest)getRequest();
+            String redirect = request.getServletPath();
+            if(request.getMethod().equals("GET") && request.getQueryString() != null){
+                redirect = redirect + '?' + request.getQueryString();
             }
-            if(userId == User.USER_ANONYMOUS_ID){
-                request.setAttribute(Constants.REDIRECT,redirect);
-                request.setAttribute(Constants.MESSAGE_PARAMETER,
-                    "You must be logged in to access that resource.");
-                throw new AnonymousUserException("Login required for "+r.getName());
-            }else{
-                throw new PermissionDeniedException("Access denied for "+r.getName());
-            }
+            request.setAttribute(Constants.REDIRECT,redirect);
+            request.setAttribute(Constants.MESSAGE_PARAMETER,
+                "You must be logged in to access that resource.");
+            throw new AnonymousUserException(
+                "Login required for " + this.getClass().getName());
         }
     }
 }
