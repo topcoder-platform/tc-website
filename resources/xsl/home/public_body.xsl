@@ -206,63 +206,71 @@
 <!-- End of Point of View -->
 
 <!-- Feature -->
-<table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-  <tr>
-    <td valign="top" width="5" rowspan="2"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-    <td valign="middle" width="40%" bgcolor="#FFFFFF" height="26"><img src="/i/label_feat.gif" alt="Weekly Feature" width="184" height="26" border="0" /></td>
-    <td width="60%" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-    <td valign="top" width="7" rowspan="2"><img src="/i/clear.gif" alt="" width="7" height="1" border="0" /></td>
-  </tr>
-  <tr>
-    <td valign="middle" bgcolor="#CCCCCC" align="center" height="15">
-      <a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>
-        Upcoming/Past Features
-      </a>
-    </td>
-    <td valign="middle" bgcolor="#CCCCCC" align="center"> <a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_topics</xsl:attribute>Want to write?</a></td>
-  </tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-  <tr>
-    <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
-    <td valign="top" width="55" align="left" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
-<!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->
-<!-- <img src="/i/m/the_gigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/> --><br />
-By&#160;the_gigi<br /><i>[TC] Member</i><br /><br />
-<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="15"/></a></td>
-    <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
-    <td valign="top" width="100%" align="left" class="bodyText"><br />
-<a class="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_012203</xsl:attribute>
-  <strong>Who needs another UI framework?</strong></a><br />
-<i>Unorthodox UI Framework</i><br />
-Wednesday, January 22, 2003<br />
+            <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+                <tr>
+                    <td valign="top" width="5" rowspan="2"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td valign="middle" width="40%" bgcolor="#FFFFFF" height="26"><img src="/i/label_feat.gif" alt="Weekly Feature" width="184" height="26" border="0" /></td>
+                    <td width="60%" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+                    <td valign="top" width="7" rowspan="2"><img src="/i/clear.gif" alt="" width="7" height="1" border="0" /></td>
+                </tr>
+                
+                <tr>
+                    <td valign="middle" bgcolor="#CCCCCC" align="center" height="15">
+                        <a class="bodyGeneric">
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>
+                        Upcoming/Past Features
+                        </a>
+                    </td>
+                    <td valign="middle" bgcolor="#CCCCCC" align="center"> <a class="bodyGeneric">
+                    <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_topics</xsl:attribute>Want to write?</a></td>
+                </tr>
+            </table>
 
-<p>
-The time is 1999. The internet hype is high and we were out to conquer the
-world. The killer app was a chat-on-page service that allows users who surf
-the web to see who else is on the same page and interact with them. The
-architecture was a classic client-server. The client had to be magnificent
-of course to capture the hearts and souls of the billions of users. A
-strategic decision we made was that  one of our competitive advantages will
-be a user interface that has never been seen before...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_012203</xsl:attribute>full&#160;story</a></p>
-  </td>
-    <td valign="top" width="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-  </tr>
-  <tr><td valign="top" colspan="5"><img src="/i/clear.gif" alt="" width="1" height="12" border="0" /></td></tr>
-  <tr>
-  <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
-  <td valign="top" bgcolor="#43515E" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-  <td valign="top" width="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-  </tr>
-</table>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+                <tr>
+                    <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
+                    <td valign="top" width="55" align="left" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
+                        <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->
+                        <!-- <img src="/i/m/the_gigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/> --><br />
+                        By&#160;David Tanacea<br /><i>President of TopCoder Software</i><br /><br />
+                        <a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="15"/></a></td>
+                    <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
+                    <td valign="top" width="100%" align="left" class="bodyText"><br />
+                        <a class="bodyGeneric">
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_022003</xsl:attribute>
+                        <strong>Component-Based Development</strong></a><br />
+                        <i>Why Hasn't the Vision Met Reality?</i><br />
+                        Wednesday, February 20, 2003<br />
 
- <!-- Coder of the Week Begins -->
+                        <p>For years now, we in the software development industry have been extolling the virtues of component-based development (CBD). The 
+                        benefits of object-oriented design and component-based development seem obvious: </p>
+
+                        <ul>
+                            <li>Reusing software saves money in the development phase of software projects, i.e., the more components you reuse, the less software 
+                            you have to build. </li>
+                            <li>The more applications in which you use a given component, the more valuable that component becomes.</li>
+                            <li>Reusable components enable application developers to customize applications... <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_022003</xsl:attribute>full&#160;story</a></li>
+                        </ul>
+                    </td>
+                    <td valign="top" width="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td valign="top" colspan="5"><img src="/i/clear.gif" alt="" width="1" height="12" border="0" /></td></tr>
+
+                <tr>
+                    <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
+                    <td valign="top" bgcolor="#43515E" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+                    <td valign="top" width="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+            </table>
+<!-- Feature ends -->
+
+<!-- Coder of the Week Begins -->
    <!-- <xsl:call-template name="coder_week"/> -->
 <!-- Coder of the Week Ends -->
+
 <xsl:call-template name="tc_updates"/>
+
 <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
   <tr><td valign="top" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="2" border="0" /></td></tr>
   <tr>
