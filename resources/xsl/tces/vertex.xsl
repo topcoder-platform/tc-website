@@ -65,7 +65,7 @@
 <!-- Client Message Begins -->
                         <p><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" border="0"/></p> 
                         
-<p><b>Overview...</b><br/>
+<p><b>Overview</b><br/>
 Vertex Pharmaceuticals Incorporated is a global biotechnology company focused on the discovery, development 
 and commercialization of breakthrough drugs for a range of serious diseases. Our business strategy is to commercialize 
 major new drugs both independently and with pharmaceutical partners. Vertex co-promotes with GlaxoSmithKline the 
@@ -80,19 +80,19 @@ candidates, and the Company has significant collaborations with a number of phar
 GlaxoSmithKline, Novartis and Serono. Vertex is headquartered in Cambridge, Massachusetts and has major research sites 
 in San Diego, California and Oxford, U.K. The company employs more than 700 people worldwide.</p>
 
-<p><b>Mission...</b><br/>
+<p><b>Mission</b><br/>
 Our vision is to be a major drug company, setting the standard for pharmaceutical research and development productivity 
 in the 21st century. A vision as great as this can only be achieved in an environment where creative and talented people can 
 thrive. Our progress toward that goal reflects the collective efforts of talented employees around the world.</p>
 
-<p><b>Environment...</b><br/>
+<p><b>Environment</b><br/>
 Vertex has developed an integrated team environment where employees set high goals and work together to accomplish them. 
 We provide our employees with tools that enable them to achieve, and we provide opportunities for professional development. 
 We encourage employees' participation in educational seminar series, and our scientists regularly publish their research in 
 peer-reviewed journals. Our extensive collaborations bring our employees together with their colleagues from leading research 
 centers and companies based in Cambridge, MA, San Diego, CA and Oxford, U.K., as well as throughout the world.</p>
 
-<p><b>Employee Development...</b><br/>
+<p><b>Employee Development</b><br/>
 We encourage our employees to further their knowledge and skill base, and we support these efforts through trainings and tuition 
 reimbursement. In addition, Vertex is committed to supporting employee health and wellness. Our employee assistance program 
 provides diverse resources on parenting, elder care as well as financial planning and wellness programs.</p>
