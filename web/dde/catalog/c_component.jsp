@@ -203,13 +203,13 @@
                                 <%
                                     switch (refCatalog) {
                                         case 0:
-                                            %><td><img src="/images/javaSm.gif" alt="" width="33" height="17" border="0" /></td><%
+                                            %><td><img src="/images/javaSm.gif" alt="" border="0" /></td><%
                                             break;
                                         case 1:
-                                            %><td><img src="/images/netSm.gif" alt="" width="33" height="17" border="0" /></td><%
+                                            %><td><img src="/images/dotnetSm.gif" alt="" border="0" /></td><%
                                             break;
                                         case 2:
-                                            %><td><img src="/images/flashSm.gif" alt="" width="33" height="17" border="0" /></td><%
+                                            %><td><img src="/images/flashSm.gif" alt="" border="0" /></td><%
                                             break;
                                         default:
                                             %><td></td><%
