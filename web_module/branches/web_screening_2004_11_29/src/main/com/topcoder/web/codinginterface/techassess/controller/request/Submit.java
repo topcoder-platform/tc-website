@@ -38,7 +38,7 @@ public class Submit extends Base {
                 throw new NavigationException("Invalid Request, missing parameter");
             }
 
-            resubmit = ("true".equalsIgnoreCase(getRequest().getParameter(Constants.SUBMIT_FLAG)));
+            resubmit = (String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.SUBMIT_FLAG)));
 
             ScreeningSubmitRequest request = new ScreeningSubmitRequest(componentId, problemTypeId, resubmit);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
@@ -63,8 +63,10 @@ public class Submit extends Base {
             } else if (response.getStatus()==ScreeningSubmitResponse.RESUBMIT) {
                 addError(Constants.CODE, response.getMessage());
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_SUBMIT_RESPONSE,
-                        new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID, Constants.MESSAGE_ID},
-                        new String[] {String.valueOf(problemTypeId), String.valueOf(componentId), String.valueOf(getMessageId())}));
+                        new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID, Constants.MESSAGE_ID,
+                                      Constants.SUBMIT_FLAG},
+                        new String[] {String.valueOf(problemTypeId), String.valueOf(componentId),
+                                      String.valueOf(getMessageId()), String.valueOf(true)}));
             }
         }
     }

@@ -18,6 +18,7 @@ public class SubmitResponse extends Base {
             loadSessionErrorsIntoRequest(getRequest().getParameter(Constants.MESSAGE_ID));
             setDefault(Constants.PROBLEM_TYPE_ID, getRequest().getParameter(Constants.PROBLEM_TYPE_ID));
             setDefault(Constants.COMPONENT_ID, getRequest().getParameter(Constants.COMPONENT_ID));
+            setDefault(Constants.SUBMIT_FLAG, getRequest().getParameter(Constants.SUBMIT_FLAG));
             setNextPage(Constants.PAGE_SUBMIT_CONFIRM);
             setIsNextPageInContext(true);
         }

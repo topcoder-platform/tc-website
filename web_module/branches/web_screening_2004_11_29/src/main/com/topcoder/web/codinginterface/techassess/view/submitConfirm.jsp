@@ -30,6 +30,7 @@
             <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="<%=Constants.RP_SUBMIT%>"/>
             <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>"/>
             <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>"/>
+            <tc-webtag:hiddenInput name="<%=Constants.SUBMIT_FLAG%>"/>
               <table cellspacing=0 cellpadding=0 class=bodyTable>
                  <tr>
                     <td><img src="/i/corp/screening/bodyTL.gif" alt=""/></td>
