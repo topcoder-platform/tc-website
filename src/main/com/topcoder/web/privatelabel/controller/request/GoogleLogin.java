@@ -89,6 +89,8 @@ public class GoogleLogin extends FullLogin {
         boolean ret = false;
         try {
             getAuthentication().login(new SimpleUser(0, handle, password));
+        } catch (Exception e) {
+            e.printStackTrace();
         } catch (LoginException e) {
             if (!hasError(Constants.HANDLE))
                 addError(Constants.HANDLE, e.getMessage());
