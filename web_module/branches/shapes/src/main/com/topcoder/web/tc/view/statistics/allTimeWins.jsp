@@ -5,6 +5,7 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
@@ -43,7 +44,10 @@ function goTo(selection){
        <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
        
        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"/><BR/>
+
          <!-- BEGIN BODY -->
+
+<% String sLink = "/stat?c=member_profile&cr=";%>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
                     <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" src="/i/steelblue_top_left1.gif"></TD>
@@ -107,7 +111,7 @@ function goTo(selection){
                                         <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 2 /*"coder_score"*/ + "]" %>'/>
                                                 
                                             <td CLASS="smallFoot" align="right" height="13"><bean:write name="resultRow" property='<%= "item[" + 6 /*"rank"*/ + "]" %>'/>&nbsp;</td>
-                                            <td><A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"coder_id"*/ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"> <bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></td>
+                                            <td nowrap=nowrap><tc:ratingImage link='<%=sLink+resultRow.getIntItem(1)%>' bg='B' cid='<%=resultRow.getIntItem(1)%>' /></td>
                                             <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 5 /*"total"*/ + "]" %>'/></TD>
                                             <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 3 /*"div 1"*/ + "]" %>'/></TD>
                                             <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 4 /*"div 2"*/ + "]" %>'/></TD>
