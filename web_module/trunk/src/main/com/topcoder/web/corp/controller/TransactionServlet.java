@@ -538,7 +538,7 @@ public class TransactionServlet extends HttpServlet {
      * @param req request to generate / pick up CC Tx key information from
      * @return String key for the CC transaction
      */
-    private static String transactionKey(HttpServletRequest req) {
+    public static String transactionKey(HttpServletRequest req) {
         String key = req.getParameter(FRMKEY_CCTX_UID);
         if (key == null || key.trim().length() == 0) {
             key = req.getSession(true).getId();
