@@ -93,7 +93,7 @@ function openWin(url, name, w, h) {
 
        
                         <p><strong>Check the TopCoder site for SRM dates and times. Remember to use promotion code <font color="#CC0000"><strong>TCO2003</strong></font> and 
-                        compete in any Intel-sponsored Single-Round Match for a chance to win!</strong></p>
+                        compete in any Intel-sponsored Single Round Match for a chance to win!</strong></p>
                     
                     
                         <p class="smallText">*Intel, Intel Centrino, the Intel Centrino logo and Intel Developer Library are trademarks or registered trademarks of Intel Corporation 
