@@ -105,24 +105,24 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
         //add user to groups
         Collection groups = mgr.getGroups(CREATE_USER);
-        GroupPrincipal anonGroup = null;
-        GroupPrincipal userGroup = null;
         GroupPrincipal group = null;
-        for (Iterator it = groups.iterator(); it.hasNext() && (anonGroup == null || userGroup == null);) {
+        boolean anonFound = false;
+        boolean userFound = false;
+        for (Iterator it = groups.iterator(); it.hasNext() && !(anonFound && userFound);) {
             group = (GroupPrincipal) it.next();
             if (group.getName().equals(ANON_GROUP)) {
-                anonGroup = (GroupPrincipal) it.next();
+                mgr.addUserToGroup(group, newUser, CREATE_USER);
+                anonFound = true;
             } else if (group.getName().equals(SOFTWARE_GROUP)) {
-                userGroup = (GroupPrincipal) it.next();
+                mgr.addUserToGroup(group, newUser, CREATE_USER);
+                userFound = true;
             }
         }
 
-        mgr.addUserToGroup(anonGroup, newUser, CREATE_USER);
-        mgr.addUserToGroup(userGroup, newUser, CREATE_USER);
 
-        if (anonGroup == null) {
+        if (!anonFound) {
             throw new Exception("Can't find anonymous group '" + ANON_GROUP + "'");
-        } else if (userGroup == null) {
+        } else if (!userFound) {
             throw new Exception("Can't find software user group '" + SOFTWARE_GROUP + "'");
         }
 
