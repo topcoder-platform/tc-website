@@ -66,7 +66,7 @@
                                 <td id="calendarMini">31</td>
                             </tr>
 
-                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText" HREF="/?t=schedule&c=index">More 2003 Match Dates&#160;</A></td></tr>
+                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText" HREF="/?t=schedule&c=index">More 2004 Match Dates&#160;</A></td></tr>
                         </table>
                     </td>
                 </tr>
