@@ -32,7 +32,7 @@ if (!bEmpty) {
                  <TR>
                    <TD COLSPAN="5" CLASS="statText">
           <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>           
-                     <B>School:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 3 /* school full_name */ + "]" %>'/></B></SPAN>
+                     <B>School:</B>&#160;<B><bean:write name="resultRow" property='<%= "item[" + 3 /* school full_name */ + "]" %>'/></B>
                    </TD>
                  </TR>
                  <TR>

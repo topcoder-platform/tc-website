@@ -88,7 +88,7 @@ if(bSchool) {
                  </TR>  
                  <TR>
                    <TD COLSPAN="4"  CLASS="statText">
-                     <SPAN CLASS="statText"><B>Select round:</B><BR/></SPAN>
+                     <SPAN CLASS="statText"><B>Select round:</B></SPAN>
                      <FORM name="selectform">
                      <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown">
                        <OPTION value="#">Select a Round:</OPTION>
@@ -107,11 +107,8 @@ if(bSchool) {
 <% if(bSchool) { %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
-                   <TD COLSPAN="4"  CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>  
-                 <TR>
                    <TD COLSPAN="4"  CLASS="statText">
-                     <SPAN CLASS="statText"><B>Select school:</B><BR/></SPAN>
+                     <SPAN CLASS="statText"><B>Select school:</B></SPAN>
                      <FORM name="selectanotherform">
                      <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown">
                        <OPTION value="#">Select a School:</OPTION>
@@ -141,7 +138,7 @@ if(bSchool) {
      pageContext.setAttribute("roomName",resultRow_0.getItem(5));
 %>
                  <TR>
-                   <TD  CLASS="statText" COLSPAN="16"><%@include file="coderLegend.html" %><BR><BR>
+                   <TD  CLASS="statText" COLSPAN="16">[ <SPAN CLASS="coderTextGray">001 - 899</SPAN> | <SPAN CLASS="coderTextGreen">900 - 1199</SPAN> | <SPAN CLASS="coderTextBlue">1200 - 1499</SPAN> | <SPAN CLASS="coderTextYellow">1500 - 2199</SPAN> | <SPAN CLASS="coderTextRed">2200+</SPAN> ]<BR><BR>
                      Click the <IMG SRC="/i/hs/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"/> icon to view problem information or Room # for Room details.
                    </TD>
                  </TR>

@@ -95,7 +95,7 @@ else {
                    <TD  COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>
                  <TR>
-                   <TD  CLASS="statText" COLSPAN="20"><%@include file="coderLegend.html" %><BR><BR>    
+                   <TD  CLASS="statText" COLSPAN="20">[ <SPAN CLASS="coderTextGray">001 - 899</SPAN> | <SPAN CLASS="coderTextGreen">900 - 1199</SPAN> | <SPAN CLASS="coderTextBlue">1200 - 1499</SPAN> | <SPAN CLASS="coderTextYellow">1500 - 2199</SPAN> | <SPAN CLASS="coderTextRed">2200+</SPAN> ]<BR><BR>    
       Click the <IMG SRC="/i/hs/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"> icon to view problem information.</TD>    
                  </TR>    
                  <TR>

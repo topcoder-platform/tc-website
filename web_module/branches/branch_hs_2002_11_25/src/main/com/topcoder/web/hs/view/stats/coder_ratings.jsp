@@ -119,7 +119,7 @@ try{
 					<A HREF="?module=Statistics&c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 0 /* coder_id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 1 /* handle */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="left">
-					<A HREF="?module=Statistics&c=school_round_stats&hs=<bean:write name="resultRow" property='<%= "item[" + 3 /* school_id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 4 /* school full_name */ + "]" %>'/></A>
+					<A HREF="?module=Statistics&c=school_round_stats&hs=<bean:write name="resultRow" property='<%= "item[" + 3 /* school_id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 4 /* school full_name */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="right"><%= coderrank.toString() %></TD>
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
