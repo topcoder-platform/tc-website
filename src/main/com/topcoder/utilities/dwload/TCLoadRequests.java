@@ -77,6 +77,7 @@ public class TCLoadRequests extends TCLoad {
             log.info("SUCCESS: Requests load ran successfully.");
             return true;
         } catch (Exception ex) {
+            ex.printStackTrace();
             setReasonFailed(ex.getMessage());
             return false;
         }
