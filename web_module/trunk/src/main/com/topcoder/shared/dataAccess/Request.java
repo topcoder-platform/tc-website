@@ -1,5 +1,7 @@
 package com.topcoder.shared.dataAccess;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import java.util.*;
 
 /**
@@ -12,8 +14,10 @@ import java.util.*;
  *
  */
 public class Request implements RequestInt {
+    private static Logger log = Logger.getLogger(Request.class);
     //generic container for mappings
     private Properties mProp;
+
 
     //var for the c=someStuff
     private String msContentHandle;
@@ -134,9 +138,11 @@ public class Request implements RequestInt {
      * @param sVal The property value
      */
     public void setProperty(String sKey, String sVal) {
+        log.debug("before: " + getCacheKey());
         mProp.setProperty(sKey, sVal);
         if (sKey.equals(DataAccessConstants.COMMAND))
             msContentHandle = sVal;
+        log.debug("after: " + getCacheKey());
     }
 
     /**
