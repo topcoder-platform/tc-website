@@ -13,6 +13,7 @@ insert into data_type values(1001, "Integer Input");
 insert into data_type values(1002, "Decimal Input");
 insert into data_type values(1003, "Date Input");
 insert into data_type values(1004, "Sort Direction");
+insert into data_type values(1005, "String Input");
 
 insert into command values(1,"round_stats");
 insert into command values(2,"room_stats");
