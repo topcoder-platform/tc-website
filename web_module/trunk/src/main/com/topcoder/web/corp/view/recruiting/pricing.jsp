@@ -61,7 +61,7 @@
                             </tr>
                             
                             <tr valign="top">
-                                <td class="bodyText" width="259"><a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&prod-id=1"%>"><img src="/i/button_select.gif" alt="Select" width="78" height="29" border="0" align="right"></a><span class="testHeadSmall">$5,500</span>&#160;&#160;Initial Price</td>
+                                <td class="bodyText" width="259"><a href="<%=request.getContextPath()+"/Tx/?&"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=1"%>"><img src="/i/button_select.gif" alt="Select" width="78" height="29" border="0" align="right"></a><span class="testHeadSmall">$5,500</span>&#160;&#160;Initial Price</td>
                             </tr>
                             
                             <tr valign="top">

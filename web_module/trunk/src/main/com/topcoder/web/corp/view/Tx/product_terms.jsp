@@ -57,7 +57,7 @@
                 <tr valign="middle"><td align="center">
                         <input type="hidden" name="<%=TransactionServlet.KEY_OPERATION%>" value="<%=TransactionServlet.OP_TX_BEGIN%>"/>
                         <input type="hidden" name="module" value="Registration"/>
-                        <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID" />"/>
+                        <input type="hidden" name="pid" value="<jsp:getProperty name="TransactionInfo" property="productID" />"/>
                         <input type="submit" onClick="" name="submit" value=" Continue"/>
                     </td>
                 </tr>
