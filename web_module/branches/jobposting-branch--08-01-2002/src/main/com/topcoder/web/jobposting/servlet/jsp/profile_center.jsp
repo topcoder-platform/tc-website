@@ -83,7 +83,7 @@
     <tr>
         <td class="statText">School:</td>
         <td class="statText">
-            <tc:getProperty id="school" name="JobHitTask" property="School" />
+            <jsp:getProperty name="JobHitTask" property="School" />
       </td>
     </tr>
 <%}%>
