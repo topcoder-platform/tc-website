@@ -22,7 +22,7 @@
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                <xsl:variable name="status_id" select="'301'" />
+                <xsl:variable name="status_id" select="'303'" />
 <!-- Declaration ends -->
 
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
@@ -33,7 +33,7 @@
             <table width="238" border="0" cellspacing="0" cellpadding="12" bgcolor="#999999">
                 <tr valign="middle">
                     <td background="/i/development/tco_sidebar_background.gif" class="smallText">
-                        <p><strong>Only projects from the list below qualify for the 2003 TCO Component Contest. See the 
+                        <p><strong>Only projects from the list below qualify for the 2003 TCO Component Competition. See the 
                         <A href="/index?t=tournaments&amp;c=tco03_comp_rules_structure">Rules</A> page for for full entry requirements.</strong></p>
                     </td>
                 </tr>
