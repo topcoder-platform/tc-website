@@ -45,7 +45,7 @@ public class Constants {
     public static String GOOGLE_ACTIVATION_PAGE;
     public static String GOOGLE_LOGIN_PAGE;
     public static String GOOGLE_REG_CLOSED_PAGE;
-    
+
     public static String GOOGLE04_REG_PAGE;
     public static String GOOGLE04_REG_DEMOG_PAGE;
     public static String GOOGLE04_REG_CONFIRM_PAGE;
@@ -53,6 +53,14 @@ public class Constants {
     public static String GOOGLE04_ACTIVATION_PAGE;
     public static String GOOGLE04_LOGIN_PAGE;
     public static String GOOGLE04_REG_CLOSED_PAGE;
+
+    public static String GOOGLE_INDIA_05_REG_PAGE;
+    public static String GOOGLE_INDIA_05_REG_DEMOG_PAGE;
+    public static String GOOGLE_INDIA_05_REG_CONFIRM_PAGE;
+    public static String GOOGLE_INDIA_05_REG_SUCCESS_PAGE;
+    public static String GOOGLE_INDIA_05_ACTIVATION_PAGE;
+    public static String GOOGLE_INDIA_05_LOGIN_PAGE;
+    public static String GOOGLE_INDIA_05_REG_CLOSED_PAGE;
 
     public static String DEFAULT_PAGE;
     public static String RESUME_PAGE;
@@ -64,24 +72,24 @@ public class Constants {
     public static String DC_REG_STUDENT_SUCCESS_PAGE;
     public static String DC_REG_PRO_SUCCESS_PAGE;
     public static String DC_ACTIVATION_PAGE;
-    
+
     public static String BROOKS_REG_PAGE;
     public static String BROOKS_REG_DEMOG_PAGE;
     public static String BROOKS_REG_CONFIRM_PAGE;
     public static String BROOKS_REG_SUCCESS_PAGE;
     public static String BROOKS_ACTIVATION_PAGE;
-    
+
     public static String DEMO_REG_PAGE;
     public static String DEMO_REG_DEMOG_PAGE;
     public static String DEMO_REG_CONFIRM_PAGE;
     public static String DEMO_REG_SUCCESS_PAGE;
     public static String DEMO_ACTIVATION_PAGE;
-    
+
     public static String AMAZON_REG_PAGE;
     public static String AMAZON_REG_DEMOG_PAGE;
     public static String AMAZON_REG_CONFIRM_PAGE;
     public static String AMAZON_REG_SUCCESS_PAGE;
-    
+
     public static int QUESTION_AREAS_OF_INTEREST;
 
     //main reg parameters
@@ -106,7 +114,7 @@ public class Constants {
     //secondary reg parameters
     public static String CODER_TYPE;
     public static String DEMOG_PREFIX;
-    
+
     //resume parameters
     public static String RESUME;
 
@@ -144,6 +152,12 @@ public class Constants {
     public static String GOOGLE04_REG_SUBMIT;
     public static String GOOGLE04_ACTIVATION;
     public static String GOOGLE04_LOGIN;
+    public static String GOOGLE0_INDIA_05_REG_MAIN;
+    public static String GOOGLE0_INDIA_05_REG_DEMOG;
+    public static String GOOGLE0_INDIA_05_REG_CONFIRM;
+    public static String GOOGLE0_INDIA_05_REG_SUBMIT;
+    public static String GOOGLE0_INDIA_05_ACTIVATION;
+    public static String GOOGLE0_INDIA_05_LOGIN;
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
@@ -169,8 +183,7 @@ public class Constants {
     public static String AMAZON_REG_DEMOG;
     public static String AMAZON_REG_CONFIRM;
     public static String AMAZON_REG_SUBMIT;
-    
-    public static String BROOKS_REFERRAL_QUESTION_ID;
+
 
     //various constants
     public static int STUDENT;
@@ -178,6 +191,7 @@ public class Constants {
     public static int JTS_TRANSACTIONAL;
     public static int TRANSACTIONAL;
 
+    public static String BROOKS_REFERRAL_QUESTION_ID;
     public static int SCHOOL_QUESTION;
     public static int NO_DEGREE_ANSWER;
     public static int TOO_YOUNG_ANSWER;
@@ -189,7 +203,7 @@ public class Constants {
     static {
         initialize();
     }
-    
+
     private Constants() {
     }
 
