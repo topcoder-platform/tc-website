@@ -111,7 +111,6 @@ public class FullRegConfirm extends FullRegBase {
      * @throws TCWebException
      */
     protected void checkRegInfo(FullRegInfo info) throws TCWebException {
-        //TODO check the demog and other input
         if (info.getCoderType() != Constants.STUDENT || info.getCoderType() != Constants.PROFESSIONAL) {
             addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
         }
