@@ -24,7 +24,7 @@
 
                         <p>
 <p>
- It was a damp, gray morning on the East Coast of the United States as TopCoder's earliest ever single-round match got under way, but the sun broke through over antimatter's head and crowned him with a victorious halo for dispatching the first two Division One problems in a quarter-hour. 
+ It was a damp, gray morning on the East Coast of the United States as TopCoder's earliest ever single-round match got under way, but the sun broke through over <b>antimatter</b>'s head and crowned him with a victorious halo for dispatching the first two Division One problems in a quarter-hour. 
 
                         <a href="/?t=statistics&amp;c=srm203_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
