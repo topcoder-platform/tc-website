@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                  
+<!-- CRPF Announcement -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_12_01_03"><img src="/i/pressroom/crpf_winners.gif" alt="CRPF" width="135" height="40" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_12_01_03">Winners of Charity Programming Tournament Announced</A></strong></font><br />
+                        This programming tournament, the first event of its kind, awarded 10 grand prizes.  Four grand prizes were awarded to the fundraisers who raised the most donations for CRPF.  In addition, four grand prizes were awarded to the highest point scorers in the tournament.<span class="prHead"> [December 1]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- SJ Mercury article -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
