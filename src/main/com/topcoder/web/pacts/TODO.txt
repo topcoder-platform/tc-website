@@ -33,17 +33,25 @@ Add funtionality for user to decide to print all payments or just the payments o
 6/5/2002 8:57 pm edt  jason n. evans
 store payment files based on user and time
 
+6/5/2002 9:58 pm edt  jason n. evans
+have a deleted status for payments
+
+6/5/2002 10:19 pm edt  jason n. evans
+the table strucure for payment, payment_detail, payment_address prohibits deletions due to circular
+foreign key refrences.  Also if detail records are deleted there is no way to find the relevetn payment_address records.
+Also, you cannot delete the payment_detail without deleting the payment_detail_xref, however, you would then loss the
+reference to find the detail records.
 
 
 
 
 ****************** BEING WORKED ON  ***********************
-6/5/2002 8:58 pm edt  jason n. evans
-Put payments on hold if users do not have a tax form on file
 
 **************** TESTING ******************************
 
 
 
 
-*************** COMPLETED
+*************** COMPLETED  ******************************
+6/6/2002 1:53 am edt  jason n. evans
+Put payments on hold if users do not have a tax form on file
