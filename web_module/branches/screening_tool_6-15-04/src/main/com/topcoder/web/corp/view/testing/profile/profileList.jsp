@@ -60,7 +60,7 @@ function getProblemDetail(id) {
                 </tr>
 
                 <tr>
-                   <td align="center" class="screeningHeader">Test Profile</td>
+                   <td align="left" class="screeningHeader">Test Profile</td>
                    <td align="center" class="screeningHeader">Total</td>
                    <td align="center" class="screeningHeader">Complete</td>
                    <td align="center" class="screeningHeader">Create Date</td>
