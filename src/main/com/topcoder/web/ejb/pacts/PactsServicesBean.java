@@ -799,6 +799,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectAffidavitHeaders.append("AND a.status_id = s.status_id ");
         selectAffidavitHeaders.append("AND a.status_id in (57,58,59) ");
         selectAffidavitHeaders.append("AND a.round_id = rs.round_id ");
+        selectAffidavitHeaders.append("AND a.date_created > mdy(1,1,2005) "); //don't bother with old stuff, people just get confused.
         selectAffidavitHeaders.append("AND rs.segment_id = ");
         selectAffidavitHeaders.append("  (SELECT MIN(segment_id) FROM round_segment ");
         selectAffidavitHeaders.append("   WHERE round_id=a.round_id)");
