@@ -97,6 +97,25 @@ public class TestResults extends BaseScreeningProcessor {
             tinfo.setSessionComplete(Math.min(maxEnd.getTime(), end.getTime()) < curr.getTime());
             tinfo.setProblemSetBCount(Integer.parseInt(result.getItem(0, "num_set_b").toString()));
             tinfo.setProblemSetBResults((ResultSetContainer) map.get("testSetBResults"));
+
+            ResultSetContainer rscB = (ResultSetContainer) map.get("testSetBResults");
+            ArrayList percents = new ArrayList();
+            for(int i = 0; i < tinfo.getProblemSetBCount(); i++)
+            {
+                //get percentile info
+                Request dr2 = new Request();
+                dr2.setContentHandle("candidate_percentile");
+                dr2.setProperty("cid", String.valueOf( cinfo.getUserId() ));
+                dr2.setProperty("pid", String.valueOf( rscB.getLongItem(i, "problem_id" )));
+                dr2.setProperty("tm", String.valueOf( rscB.getLongItem(i, "TotalTime" )));
+                Map m2 = dAccess.getData(dr2);
+                
+                percents.add( new Double(((ResultSetContainer)m2.get("candidate_percentile")).getDoubleItem(0, "percentile") ));
+                
+            }
+            
+            tinfo.setProblemSetBPercentiles(percents);
+            
             getRequest().setAttribute("testResultsInfo", tinfo);
 
             pinfo.setProfileName(result.getItem(0, "session_profile_desc").toString());
