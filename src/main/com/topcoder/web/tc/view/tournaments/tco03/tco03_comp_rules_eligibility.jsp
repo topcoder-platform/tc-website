@@ -76,7 +76,7 @@
 
             <p><span class="bodySubtitle">About the component tournament schedule</span><br />
            Each contestant in an online round must submit his or her design and/or development submissions for components as scheduled (Click
-           <a href="/?&amp;t=tournaments&amp;c=tco03_comp_sched#sched">here</a> for competition dates and times.).  If a coder does not participate,
+           <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_schedule#sched">here</a> for competition dates and times.).  If a coder does not participate,
            for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
 
          <p><br/></p>
