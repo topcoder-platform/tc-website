@@ -14,7 +14,7 @@ import com.topcoder.web.corp.Util;
 * any directory (below the root) The request processor gets the list of 
 * parameters out of the request, validates them, and then processes them. 
 *
-* @version   1.1.2.24
+* @version   1.1.2.25
 * @author    Daniel Cohn
 */
 
@@ -58,8 +58,9 @@ public class Static extends BaseProcessor {
      * method to check that user has permissions to access static page 
      * 
      * @return boolean - true if user has permissions to access static page
+     * @throws Exception 
      */ 
-     private boolean havePermission() {
+     private boolean havePermission() throws Exception {
     
         int lastSlashIndex = nextPage.lastIndexOf("/");
         String staticPageDirectory = nextPage.substring(0,lastSlashIndex);
