@@ -74,13 +74,15 @@
                                         <p>
                                             The Admin Tool Enhancement project has completed the Design Phase and will now enter
                                             the Development Phase.  The functional requirements for the Admin Tool project have
-                                            been seperated into 3 groups.  For this project there will be 2 members selected per
-                                            functional group to compete for the winning submission.  The project design documents
-                                            will be given to the members once the selected members have been chosen.  In order to
-                                            inquire for this project please click on the appropriate link at the bottom of this page.
+                                            been seperated into 3 groups.  For the Admin Tool Development project there will be 2
+                                            members selected per functional group in order to compete for the winning submission.
+                                            The TopCoder Project Manager will provide all of the design documents to the selected members
+                                            once the inquiry phase has completed.  In order to inquire for this project please click on
+                                            the appropriate link at the bottom of this page.
 
+                                            <br/>
                                             <strong>View the
-                                                <a target="_new" class="bodyText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Business Requirement Specification</a> for this application project &gt;&gt;
+                                                <a target="_new" class="bodyText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Business Requirement Specification</a> for this application project.
                                             </strong>
 
                                             <br/><br/>Group 1 - Must implement the following functionality according to the design:
@@ -102,7 +104,7 @@
                                         </p>
                                         <p>
                                             Members that are chosen for the Admin Tool Enhancements project will be given full access
-                                            to the current TopCoder code base and access to our development environments.
+                                            to the current TopCoder code base and access to our development database.
                                         </p>
                                         <!-- Project Type -->
                                         <p>
@@ -135,7 +137,7 @@
                                         <br/>
                                         First Payment: When the winning solution is submitted and review board suggestions are integrated.
                                         <br/>
-                                        Final Payment: At the completion of the development project*.
+                                        Final Payment: At the completion of the integration project*.
                                         <br/>
                                         <p>Compensation for the second place developer will be paid in one installment following the completion of the development project.</p>
                                         <p>
@@ -153,10 +155,10 @@
                                         Total Payment - $690.00
                                         <!-- Definition of Completion -->
                                         <p/>
-                                        <sup>*</sup>Completion of the project is defined as follows:
+                                        <sup>*</sup>Completion of the integration project is defined as follows:
                                         <ul>
                                             <li>The Submission has been selected by the board as the winning submission.</li>
-                                            <li>Final payment is conditional on acceptance of the fully functional application by the Development Review Board.</li>
+                                            <li>Final payment is conditional on acceptance of the fully integrated functional application by the Development Review Board.</li>
                                         </ul>
                                         <!-- Eligibility Requirements -->
                                         <p>
