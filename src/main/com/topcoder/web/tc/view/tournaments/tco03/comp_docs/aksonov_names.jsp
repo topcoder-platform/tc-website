@@ -31,6 +31,7 @@
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/Distributed_Cache_Requirements_Addendum.pdf" target="_blank">Distributed Cache Requirements Addendum.pdf</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/Distributed_Simple_Cache_Component_Specification.pdf" target="_blank">Distributed Simple Cache Component Specification.pdf</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/Distributed_Simple_Cache_Requirements_Specification.pdf" target="_blank">Distributed Simple Cache Requirements Specification.pdf</a></td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/AccuracyTests.java" target="_blank">Accuracy Tests.java</a></td></tr>
@@ -79,57 +80,73 @@
 
     <% } else if (time.equals("830")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("900")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("930")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("1000")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("1030")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("1100")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("1130")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
 
     <% } else if (time.equals("final")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Source</td></tr>
 
