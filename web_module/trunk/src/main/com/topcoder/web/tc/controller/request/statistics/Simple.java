@@ -13,6 +13,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.servlet.http.HttpUtils;
 import java.util.Map;
+import java.util.MissingResourceException;
 
 public class Simple extends Static {
 
@@ -40,12 +41,12 @@ public class Simple extends Static {
 
             getRequest().setAttribute("resultMap", result);
 
-            String nextPage = bundle.getProperty(dataRequest.getContentHandle());
-            if (nextPage==null) {
-                super.businessProcessing();
-            } else {
+            try {
+                String nextPage = bundle.getProperty(dataRequest.getContentHandle());
                 setNextPage(nextPage);
                 setIsNextPageInContext(true);
+            } catch (MissingResourceException e) {
+                super.businessProcessing();
             }
 
         } catch (TCWebException e) {
