@@ -467,8 +467,10 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
             log.debug("setDemographic: demographics hash: found QId for: " + questionId);
         } else {
             answers = new ArrayList();
-            this.demographics.put(questionId, answers);
-            log.debug("setDemographic: demographics hash: did not find QId for: " + questionId);
+            if (!questionId.equals("1") && !questionId.equals("2") && !questionId.equals("12")) {
+                this.demographics.put(questionId, answers);
+                log.debug("setDemographic: demographics hash: did not find QId for: " + questionId);
+            }
         }
 
         int pos = answers.indexOf(value);
