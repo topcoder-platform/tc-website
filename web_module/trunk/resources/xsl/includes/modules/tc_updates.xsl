@@ -15,7 +15,7 @@
 							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="2" CLASS="grayLine" ALIGN="center">-----------------</TD></TR>              				
               				<TR> 
                 				<TD CLASS="moduleSubhead" BGCOLOR="#FFFFFF" VALIGN="top">&#160;&#160;</TD>
-								<TD CLASS="smallText"  BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="/index?t=jobs&amp;c=index" CLASS="moduleSubhead"><B>TopCoder Employment Services posts job opportunities to members</B></A> ...<A HREF="/index?t=jobs&amp;c=index" CLASS="smallText">full&#160;story</A></TD>
+								<TD CLASS="smallText"  BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="/index?t=tces&amp;c=index" CLASS="moduleSubhead"><B>TopCoder Employment Services posts job opportunities to members</B></A> ...<A HREF="/index?t=jobs&amp;c=index" CLASS="smallText">full&#160;story</A></TD>
               				</TR>
 							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
             			</TABLE>

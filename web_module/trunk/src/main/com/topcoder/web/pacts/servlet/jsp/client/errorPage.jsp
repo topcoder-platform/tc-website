@@ -26,7 +26,7 @@ isErrorPage="true"
         </TR>
         <TR>
           <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-          <TD WIDTH="250" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/><A TARGET="_parent" HREF="/?t=jobs&amp;c=index" CLASS="globalNavSmall"><IMG SRC="/i/jobs_banner.gif" WIDTH="178" HEIGHT="50" BORDER="0" HSPACE="10"/></A><!-- <IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/> --></TD>
+          <TD WIDTH="250" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/><A TARGET="_parent" HREF="/?t=tces&amp;c=index" CLASS="globalNavSmall"><IMG SRC="/i/jobs_banner.gif" WIDTH="178" HEIGHT="50" BORDER="0" HSPACE="10"/></A><!-- <IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/> --></TD>
           <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><%@ include file="date_time.jsp" %></span><SPAN CLASS="smallBrackets">]</SPAN><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
 
         </TR>

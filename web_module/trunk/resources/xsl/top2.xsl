@@ -63,7 +63,7 @@
               <TD BGCOLOR="#000000" ALIGN="center" NOWRAP="0"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/>
 <!--
 <A TARGET="_parent">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=jobs&amp;c=index</xsl:attribute>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
   <IMG SRC="/i/jobs_banner2.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/>
 </A>
 <A TARGET="_parent">

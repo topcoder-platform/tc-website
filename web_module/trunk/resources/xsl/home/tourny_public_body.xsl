@@ -458,7 +458,7 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
   <IMG SRC="/i/promo_teams.gif" WIDTH="244" HEIGHT="81" BORDER="0"/>
 </A><BR/>
 <A TARGET="_parent">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=jobs&amp;c=index</xsl:attribute>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
   <IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/>
 </A> -->
     <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BGCOLOR="#001935">
