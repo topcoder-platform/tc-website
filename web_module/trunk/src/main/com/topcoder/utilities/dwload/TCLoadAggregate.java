@@ -39,6 +39,8 @@ public class TCLoadAggregate extends TCLoad {
     private int TOURNAMENT_ROUND = 2;
     private int RATING_INCREASE_SRM_ONLY = 3;
     private int RATING_INCREASE = 4;
+    private int RATING_DECREASE_SRM_ONLY = 5;
+    private int RATING_DECREASE = 6;
     private int CONSEC_WINS_DIV1 = 1;    // conswinsdiv1
     private int CONSEC_WINS_DIV2 = 2;    // conswinsdiv2
     private int STATUS_OPENED = 120;  // opened
@@ -157,7 +159,7 @@ public class TCLoadAggregate extends TCLoad {
      */
     public boolean performLoad() {
         try {
-/*
+
             loadRoomResult2();
 
             loadCoderDivision();
@@ -171,12 +173,16 @@ public class TCLoadAggregate extends TCLoad {
             loadCoderLevel();
 
             loadStreak();
-*/
+
             loadRatingIncreaseStreak(true);
 
             loadRatingIncreaseStreak(false);
 
-//            loadRoundProblem();
+            loadRatingDecreaseStreak(true);
+
+            loadRatingDecreaseStreak(false);
+
+            loadRoundProblem();
 
             log.info("SUCCESS: Aggregate load ran successfully.");
             return true;
@@ -1131,6 +1137,159 @@ public class TCLoadAggregate extends TCLoad {
                 }
             }
             log.info("Records loaded for rating increase "+(srmOnly?"(srm only)":"") + " streak: " + count);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'streak' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psSel2);
+            close(psIns);
+        }
+    }
+
+
+    /**
+     * This method loads the 'streak' table
+     */
+    private void loadRatingDecreaseStreak(boolean srmOnly) throws Exception {
+        int retVal = 0;
+        int count = 0;
+        PreparedStatement psSel = null;
+        PreparedStatement psSel2 = null;
+        PreparedStatement psDel = null;
+        PreparedStatement psIns = null;
+        ResultSet rs = null;
+        StringBuffer query = null;
+
+        try {
+            query = new StringBuffer(100);
+            query.append("SELECT rr.coder_id ");      // 1
+            query.append("       ,rr.round_id ");     // 2
+            query.append("       ,rr.old_rating");  // 4
+            query.append("       ,rr.new_rating");  // 5
+            query.append("       ,r.calendar_id");
+            query.append("  FROM room_result rr ");
+            query.append("       ,round r ");
+            if (srmOnly)
+                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH+")");
+            else
+                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH+", "+ TOURNAMENT_ROUND +")");
+            query.append("   AND r.round_id = rr.round_id ");
+            query.append(" ORDER BY rr.coder_id ");
+            query.append("          ,r.calendar_id ");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+
+            query = new StringBuffer(100);
+            query.append("INSERT INTO streak ");
+            query.append("      (coder_id ");         // 1
+            query.append("       ,streak_type_id ");  // 2
+            query.append("       ,start_round_id ");  // 3
+            query.append("       ,end_round_id ");    // 4
+            query.append("       ,length ");          // 5
+            query.append("       ,is_current) ");     // 6
+            query.append("VALUES (?,?,?,?,?,?)");  // 6 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append("SELECT round_id FROM round");
+            query.append(" WHERE calendar_id = (SELECT MAX(calendar_id) FROM round)");
+
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            if (srmOnly)
+                query.append("DELETE FROM streak WHERE streak_type_id in ("+RATING_DECREASE_SRM_ONLY+")");
+            else
+                query.append("DELETE FROM streak WHERE streak_type_id in ("+RATING_DECREASE+")");
+
+            psDel = prepareStatement(query.toString(), TARGET_DB);
+
+            // Get the most recent round_id
+            // information We compare this against the ending round id for a
+            // streak. If they match, the streak is considered current.
+            rs = executeQuery(psSel2, "getMaxIdFromRoomResult");
+            int latest_round_id = -1;
+            if (rs.next()) {
+                latest_round_id = rs.getInt(1);
+            } else {
+                throw new SQLException("Unable to retrieve max(round_id) from " +
+                        "room_result");
+            }
+
+            close(rs);
+
+            // On to the load. First, we want to delete the whole table so
+            // we can reload it.
+            psDel.executeUpdate();
+
+            rs = psSel.executeQuery();
+
+            int cur_coder_id = -1;
+            int start_round_id = -1, end_round_id = -1;
+            int numConsecutive = 0;
+
+            while (rs.next()) {
+                int coder_id = rs.getInt("coder_id");
+                int round_id = rs.getInt("round_id");
+                int oldRating = rs.getInt("old_rating");
+                int newRating = rs.getInt("new_rating");
+
+                // The first thing we do is check to see if we are still with
+                // the same coder and in the same division. Only with those
+                // constraints can a win streak continue. And then, iff room
+                // placed is 1 do we continue the streak.
+                if ((cur_coder_id == -1 || coder_id == cur_coder_id) &&
+                        newRating < oldRating) {
+                    cur_coder_id = coder_id;
+                    numConsecutive++;
+                    if (start_round_id == -1)
+                        start_round_id = round_id;
+                    end_round_id = round_id;
+                } else if (numConsecutive > 1) {  //we have a streak, load it up
+                    int streak_type_id = -1;
+                    streak_type_id = srmOnly?RATING_DECREASE_SRM_ONLY:RATING_DECREASE;
+
+                    psIns.clearParameters();
+                    psIns.setInt(1, cur_coder_id);
+                    psIns.setInt(2, streak_type_id);
+                    psIns.setInt(3, start_round_id);
+                    psIns.setInt(4, end_round_id);
+                    psIns.setInt(5, numConsecutive);
+                    psIns.setInt(6, (end_round_id == latest_round_id ? 1 : 0));
+
+                    retVal = psIns.executeUpdate();
+                    count += retVal;
+                    if (retVal != 1) {
+                        throw new SQLException("TCLoadAggregate: Insert for " +
+                                "coder_id " + coder_id +
+                                ", streak_type_id " + streak_type_id +
+                                " modified " + retVal + " rows, not one.");
+                    }
+
+                    printLoadProgress(count, "rating decrease "+(srmOnly?"(srm only)":"") +" streak");
+
+                    // if this record is an decrease, start a new streak
+                    if (newRating < oldRating) {
+                        cur_coder_id = coder_id;
+                        start_round_id = round_id;
+                        end_round_id = round_id;
+                        numConsecutive = 1;
+                    } else {
+                        cur_coder_id = -1;
+                        start_round_id = -1;
+                        end_round_id = -1;
+                        numConsecutive = 0;
+                    }
+                } else {
+                    cur_coder_id = -1;
+                    start_round_id = -1;
+                    end_round_id = -1;
+                    numConsecutive = 0;
+                }
+            }
+            log.info("Records loaded for rating decrease "+(srmOnly?"(srm only)":"") + " streak: " + count);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'streak' table failed.\n" +
