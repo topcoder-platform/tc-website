@@ -22,7 +22,6 @@ public class FullRegDemog extends FullRegBase {
             getRequest().setAttribute("countryList", getCountryList());
             getRequest().setAttribute("stateList", getStateList());
             setNextPage(Constants.VERIZON_REG_PAGE);
-            setDefaults(regInfo);
         } else {
             try {
                 List l = getQuestionList();
@@ -33,6 +32,7 @@ public class FullRegDemog extends FullRegBase {
             }
             setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
         }
+        setDefaults(regInfo);
         setIsNextPageInContext(true);
     }
 
