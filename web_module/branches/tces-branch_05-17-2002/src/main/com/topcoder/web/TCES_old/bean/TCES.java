@@ -80,6 +80,10 @@ CoderBean beanCoder = new CoderBean();
 coderObject.coder_id = new Long( (long)currentUser.getUserId() );
 coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.SELECT, coderObject);
 
+UserBean beanUser = new UserBean();
+UserObject userObject = new UserObject();
+userObject.user_id = coderObject.coder_id;
+beanUser.request(com.topcoder.web.TCES.ejb.User.SELECT, userObject);
 
 
 boolean doUpdate = false;
@@ -160,11 +164,26 @@ if (this.isValid(parameterValues)) {
     isTaskValidated = false;
 }
 
+parameterValues = (String[])htParams.get("phone");
+if (this.isValid(parameterValues)) {
+    coderObject.home_phone = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    isTaskValidated = false;
+}
 
+parameterValues = (String[])htParams.get("handle");
+if (this.isValid(parameterValues)) {
+    userObject.handle = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    isTaskValidated = false;
+}
 
 
 if (isTaskValidated) {
 
+    /*
         coderObject.work_phone=null;
         coderObject.middle_name=null;
         coderObject.activation_code=null;
@@ -182,7 +201,10 @@ if (isTaskValidated) {
         coderObject.coder_type_id=null;
         coderObject.image=null;
         coderObject.date_of_birth=null;
+     **/
         coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
+        userObject = beanUser.request(com.topcoder.web.TCES.ejb.User.UPDATE, userObject);
+
         isTaskValidated = true;
 }
 		/*
