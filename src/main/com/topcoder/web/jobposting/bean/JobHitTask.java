@@ -7,7 +7,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.jobposting.common.Constants;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServicesHome;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServices;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.common.web.data.*;
 

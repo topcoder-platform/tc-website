@@ -1,4 +1,4 @@
-package com.topcoder.web.resume.ejb.ResumeServices;
+package com.topcoder.web.ejb.resume;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;

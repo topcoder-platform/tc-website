@@ -10,7 +10,7 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.servlet.jsp.tag.Demographic;
 import com.topcoder.web.reg.servlet.jsp.tag.Notification;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;

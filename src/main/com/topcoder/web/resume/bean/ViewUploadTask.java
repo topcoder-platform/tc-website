@@ -1,7 +1,7 @@
 package com.topcoder.web.resume.bean;
 
 import com.topcoder.web.resume.common.Constants;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;

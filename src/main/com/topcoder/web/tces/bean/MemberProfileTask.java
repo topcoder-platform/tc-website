@@ -6,7 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tces.common.JSPUtils;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
