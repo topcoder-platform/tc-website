@@ -22,6 +22,8 @@ public class TestResults extends BaseProcessor {
     private final static Logger log = Logger.getLogger(TestResults.class);
 
     protected CandidateInfo cinfo = new CandidateInfo();
+    protected List problemSetAList = null;
+    protected List problemSetBList = null;
 
     /** Implements the processing step.
      * @throws Exception
@@ -79,31 +81,31 @@ public class TestResults extends BaseProcessor {
         pinfo.setProfileName(result.getItem(0,"session_profile_desc").toString());
         pinfo.setTestSetAName(result.getItem(0,"session_round_name").toString());
 
-        List plist = new ArrayList();
+        problemSetAList = new ArrayList();
         result = (ResultSetContainer)map.get("testSetAResults");
         for(int i=0; i < result.size(); i++){
-            plist.add(
+            problemSetAList.add(
                 ProblemInfo.createProblemInfo(
                     getAuthentication().getActiveUser(),
                     Long.parseLong(result.getItem(i,"session_round_id").toString()),
                     Long.parseLong(result.getItem(i,"problem_id").toString())));
         }
-        pinfo.setTestSetAList(plist);
+        pinfo.setTestSetAList(problemSetAList);
         
-        plist = new ArrayList();
+        problemSetBList = new ArrayList();
         result = (ResultSetContainer)map.get("testSetBResults");
         for(int i=0; i < result.size(); i++){
-            plist.add(
+            problemSetBList.add(
                 ProblemInfo.createProblemInfo(
                     getAuthentication().getActiveUser(),
                     Long.parseLong(result.getItem(i,"session_round_id").toString()),
                     Long.parseLong(result.getItem(i,"problem_id").toString())));
         }
-        pinfo.setTestSetBList(plist);
+        pinfo.setTestSetBList(problemSetBList);
         getRequest().setAttribute("profileInfo",pinfo);
         
         setNextPage(Constants.TEST_RESULTS_PAGE);
         setNextPageInContext(true);
     }
-    
+
 }

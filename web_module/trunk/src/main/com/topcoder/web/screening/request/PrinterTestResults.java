@@ -6,9 +6,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProblemInfo;
+import com.topcoder.web.screening.model.SubmissionInfo;
 
 import java.util.Map;
-import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,30 +21,19 @@ public class PrinterTestResults extends TestResults {
 
         long sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
 
-        //get the problem solution
-        Request dataRequest = new Request();
-        dataRequest.setContentHandle("sessionProblems");
-        dataRequest.setProperty("sid", String.valueOf(sessionId));
-        dataRequest.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
-        Map resultMap = getDataAccess().getData(dataRequest);
-
         //get the problem statements
-        if (resultMap!=null) {
-            //perhaps add an accessor to the parent so we don't get the problem info 2x
-            ResultSetContainer problems = (ResultSetContainer)resultMap.get("sessionProblems");
-            getRequest().setAttribute("problemSolutionList", problems);
-            ResultSetContainer.ResultSetRow row = null;
-            List problemList = new ArrayList(problems.size());
-            for (Iterator it = problems.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow)it.next();
-                long problemId = ((Long)row.getItem("problem_id").getResultData()).longValue();
-                long roundId = ((Long)row.getItem("session_round_id").getResultData()).longValue();
-                problemList.add(ProblemInfo.createProblemInfo(
-                        getAuthentication().getActiveUser(),roundId,problemId));
-            }
-            getRequest().setAttribute("problemStatementList", problemList);
-        }
+        List problemList = new ArrayList();
+        problemList.addAll(problemSetAList);
+        problemList.addAll(problemSetBList);
+        getRequest().setAttribute("problemStatementList", problemList);
 
+        //get the problem solutions
+        List submissionList = new ArrayList();
+        submissionList.addAll(getSubmissions(problemSetAList, sessionId,
+                Constants.PROBLEM_TYPE_TEST_SET_A_ID));
+        submissionList.addAll(getSubmissions(problemSetBList, sessionId,
+                Constants.PROBLEM_TYPE_TEST_SET_B_ID));
+        getRequest().setAttribute("problemSolutionList", submissionList);
 
         //get notes
         Request dr = new Request();
@@ -69,5 +58,23 @@ public class PrinterTestResults extends TestResults {
         setNextPage(Constants.PRINTER_RESULTS_PAGE);
         setNextPageInContext(true);
     }
+
+
+    private List getSubmissions(List problemList, long sessionId, int problemTypeId) throws Exception {
+        List solutionList = new ArrayList(problemList.size());
+        SubmissionInfo temp = null;
+        ProblemInfo problem = null;
+        for (int i=0; i<problemList.size(); i++) {
+            problem = (ProblemInfo)problemList.get(i);
+            temp = new SubmissionInfo(getAuthentication().getActiveUser(),
+                    sessionId,
+                    problem.getRoundId().longValue(),
+                    problem.getProblemId().longValue(),
+                    problemTypeId);
+            solutionList.add(temp);
+        }
+        return solutionList;
+    }
+
 }
 

@@ -109,8 +109,7 @@ public class UpdateProfile extends BaseProfileProcessor {
                                                 1,
                                                 roundId);
             //now do the test set b problems
-            problemTypeId =
-                Integer.parseInt(Constants.PROBLEM_TYPE_TEST_SET_B_ID);
+            problemTypeId = Constants.PROBLEM_TYPE_TEST_SET_B_ID;
             String [] testSetBArr = info.getTestSetB();
             for(int i = 0; i < testSetBArr.length; ++i) {
                 index = testSetBArr[i].indexOf(",");

@@ -977,6 +977,12 @@
         </init-param>
 
         <init-param>
+            <param-name>problem_type_test_set_a_id</param-name>
+            <param-value>5</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>check_access_query_key</param-name>
             <param-value>checkAccess</param-value>
             <description></description>
