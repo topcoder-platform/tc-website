@@ -12,7 +12,7 @@ public class LoginResponse extends Base {
     protected static Logger log = Logger.getLogger(LoginResponse.class);
 
     protected void businessProcessing() throws Exception {
-        setNextPage(Constants.PAGE_INDEX);
+        setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
         setIsNextPageInContext(true);
 
         if (hasParameter(Constants.MESSAGE_ID)) {

@@ -94,7 +94,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected String buildProcessorRequestString(String processor, String[] keys, String[] values) {
-        if (keys.length!=values.length)
+        if (keys!=null&&values!=null&&keys.length!=values.length)
             throw new IllegalArgumentException("the number of parameter keys must be the same as the number of values");
 
         SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -102,8 +102,10 @@ public abstract class Base extends BaseProcessor {
         //doing this to get rid of https in the case of the login request it would be there
         ret.append(info.getAbsoluteServletPath());
         ret.append("?").append(Constants.MODULE).append("=").append(processor);
-        for (int i=0; i<keys.length; i++) {
-            ret.append("&").append(keys[i]).append("=").append(values[i]);
+        if (keys!=null&&values!=null) {
+            for (int i=0; i<keys.length; i++) {
+                ret.append("&").append(keys[i]).append("=").append(values[i]);
+            }
         }
         return ret.toString();
     }
