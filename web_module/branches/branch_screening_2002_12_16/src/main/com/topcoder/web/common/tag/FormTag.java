@@ -102,6 +102,8 @@ public class FormTag extends TagSupport
         {
             buffer.append(" name=\"" + name + "\"");
         }
+        
+        buffer.append(">");
 
         try
         {
