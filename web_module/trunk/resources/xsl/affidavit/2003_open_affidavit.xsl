@@ -69,6 +69,8 @@
           &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(a) a U.S.* citizen;<BR/>
           &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(b) a lawful permanent resident of the U.S.*; or<BR/>
           &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(c) a non-immigrant residing in the U.S.* with a valid visa;<BR/>
+          <br/>
+          <br/>
           (*Including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin Islands.)
           <br/>
           I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 TopCoder Open Coding Tournament(the "Contest").
