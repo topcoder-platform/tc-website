@@ -49,15 +49,13 @@
 
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value=""/>
-   <jsp:param name="selectedTab" value=""/>
+   <jsp:param name="selectedList" value="coding_advancers"/>
+   <jsp:param name="selectedTab" value="overview"/>
 </jsp:include>
 
             <h2>Advancers</h2>
 
-            <p>Click a column name to sort the list of advancers by that column.</p>
-
-            <p><a href="?module=SimpleStats&c=tco03_bracket&trans=true">Reset List</a></p>
+            <p>Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tco03_bracket&trans=true">here</a> to reset the list to its originally sorted format.</p>
 
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="0" class="formFrame">
                <tr>
@@ -75,42 +73,44 @@
 
 
                <%-- formatting this crappy to save space in the download to the client --%>
+                <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr>
-<td align="right" class="advancers_list"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td align="left" class="advancers_list"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
-<td align="right" class="advancers_list"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+<td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+<td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
-<td class="sidebarText"><font color="#CC0000"><rsc:item name="round1" row="<%=resultRow%>"/></font></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><font color="#CC0000"><rsc:item name="round1" row="<%=resultRow%>"/></font></td>
 <% } else { %>
-<td class="sidebarText"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
-<td class="sidebarText"><font color="#CC0000"><rsc:item name="round2" row="<%=resultRow%>"/></font></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><font color="#CC0000"><rsc:item name="round2" row="<%=resultRow%>"/></font></td>
 <% } else { %>
-<td class="sidebarText"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
-<td class="sidebarText"><font color="#CC0000"><rsc:item name="round3" row="<%=resultRow%>"/></font></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><font color="#CC0000"><rsc:item name="round3" row="<%=resultRow%>"/></font></td>
 <% } else { %>
-<td class="sidebarText"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
-<td class="sidebarText"><font color="#CC0000"><rsc:item name="round4" row="<%=resultRow%>"/></font></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><font color="#CC0000"><rsc:item name="round4" row="<%=resultRow%>"/></font></td>
 <% } else { %>
-<td class="sidebarText"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
-<td class="sidebarText"><font color="#CC0000"><rsc:item name="semi" row="<%=resultRow%>"/></font></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><font color="#CC0000"><rsc:item name="semi" row="<%=resultRow%>"/></font></td>
 <% } else { %>
-<td class="sidebarText"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
-<td class="sidebarText"><font color="#CC0000"><rsc:item name="final" row="<%=resultRow%>"/></font></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><font color="#CC0000"><rsc:item name="final" row="<%=resultRow%>"/></font></td>
 <% } else { %>
-<td class="sidebarText"><rsc:item name="final" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"formTextEven":"formTextOdd"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } %>
 </tr>
+                   <%even=!even;%>
                 </rsc:iterator>
             </table>
          <p><br/></p>
