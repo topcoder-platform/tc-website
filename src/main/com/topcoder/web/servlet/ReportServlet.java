@@ -374,6 +374,7 @@ public final class ReportServlet extends HttpServlet {
         query.append(" ,c.city\n");
         query.append(" ,c.state_code\n");
         query.append(" ,c.zip\n");
+        query.append(" ,c.member_since\n");
         query.append(" ,co.country_name\n");
         query.append(" ,ct.coder_type_desc\n");
         query.append(" ,r.rating\n");
