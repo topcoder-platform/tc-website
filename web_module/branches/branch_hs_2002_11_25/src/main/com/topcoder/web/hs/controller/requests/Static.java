@@ -2,6 +2,7 @@ package com.topcoder.web.hs.controller.requests;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
+import com.topcoder.shared.security.*;
 
 /**
  * A RequestProcessor which builds a path to a static page out of a numbered series of parameters.
@@ -25,7 +26,7 @@ public class Static extends Base {
             path = "/home/index";  //@@@ name this, make it different if we are logged in?
 
         /* here we check whether the path is allowed for this type of user */
-        if(!hsa.hasPermission(path))
+        if(!hsa.hasPermission(new SimpleResource(path)))
             throw new RuntimeException("@@@ not authorized to view this page");
 
         path += ".jsp";
