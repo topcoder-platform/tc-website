@@ -248,7 +248,7 @@
             <font color="#ff0000">PLEASE NOTE:</font>
             Guests are invited to attend the TCCC04; however, all costs (hotel, travel, meals, etc.) are at their own
                 expense. TopCoder is offering a spectator package for members and guests to join us at this most exciting
-                tournament yet!  For a cost of $495pp, the spectator package includes 2 nights at the hotel, 2 meals with
+                tournament yet!  For a cost of $495 per person, the spectator package includes 2 nights at the hotel, 2 meals with
                 the competitors, attendance at all onsite events (competitions, technical presentations, etc.) and an
                 assortment of TopCoder Gear.  The package does not include any travel to the event, or attendance at the Awards Dinner.
                 <br/><br/>
