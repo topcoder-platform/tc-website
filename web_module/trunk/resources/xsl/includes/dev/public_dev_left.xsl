@@ -48,7 +48,7 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/i/steel_gray_bg2.gif" bgcolor="#43515E">
 				<tr><td colspan="2" background="" height="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td class="subNav" background="" width="100%"><a href="/tc?module=Static&amp;d1=about_tc&amp;d2=whyjoin" class="subNav">Why Join TopCoder?</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td class="subNav" background="" width="100%"><a href="/tc?module=Static&amp;d1=about&amp;d2=whyjoin" class="subNav">Why Join TopCoder?</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 				<tr><td colspan="2" background="" height="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 			</table>

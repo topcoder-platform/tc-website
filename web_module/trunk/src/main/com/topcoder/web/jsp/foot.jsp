@@ -11,8 +11,8 @@
             <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=news_events&c=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
-            <A href="/tc?module=Static&d1=about_tc&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
-            <A href="/tc?module=Static&d1=about_tc&d2=terms" class="footerLinks">Terms</A></td></tr>
+            <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A></td></tr>
 <!-- TopCoder Links Ends -->
 
 <!-- Member Sites Begins -->
