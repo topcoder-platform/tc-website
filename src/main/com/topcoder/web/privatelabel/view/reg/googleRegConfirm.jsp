@@ -12,6 +12,13 @@
 <title>TopCoder | Private Label Registration</title>
 
 <jsp:include page="../script.jsp" />
+<script>
+function openWin(url, name, w, h) {
+    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+</script>
 
 </head>
 
@@ -31,10 +38,10 @@
          <td width="100%" valign="top" class="bodyText" colspan="3">
        
          <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
-            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="20"></td></tr>
+            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
+            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="10"></td></tr>
+            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
+            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="20"></td></tr>
 
             <tr>
                <td width="50%">&nbsp;</td>
@@ -45,10 +52,12 @@
                <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview" style="text-decoration:none" ><font size="-1"><img src="/i/events/google2003/rules_arrow_blue.gif" width="15" height="10" border="0"/>Rules</font></a></td>
                <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
                <td bgcolor="#3366cc" align="center" width=95 nowrap><font color="#ffffff" size="-1"><b>Register Now</b></font></td>
+               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);" style="text-decoration:none"><font size="-1">Practice Arena</font></a></td>
                <td width="50%">&nbsp;</td>
             </tr>
             <tr>
-               <td colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
+               <td colspan="11" bgcolor=#3366cc><img width=1 height=1 alt=""></td>
             </tr>
          </table>
          </td>
