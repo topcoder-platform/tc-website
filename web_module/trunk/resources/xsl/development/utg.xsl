@@ -62,7 +62,7 @@
 </P>
 <P>The Unit Test Generator component programmatically generates unit test source code under the JUnit test framework. The component increases the productivity of Developers and Quality Assurance Developers by automating the creation of unit test case skeletons.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2100060&amp;cat=14">Unit Test Generator Component</A> at <A HREF="www.topcodersoftware.com">topcodersoftware.com</A>.
+For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2100060&amp;cat=14" CLASS="statText">Unit Test Generator Component</A> at <A HREF="www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P><B>Project Type</B></P>
@@ -85,10 +85,11 @@ TopCoder will compensate the member with the winning solution.  Compensation wil
 
 <P>Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 10% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. </P>
 
-<P><B>DESIGNER</B><BR/>
-Total Payment	$150.00<BR/>
-First Payment	$112.50<BR/>
-Second Payment	$37.50<BR/>
+<P><B>Designer</B><BR/>
+Royalty Percentage - 25%<BR/>
+Total Payment - $150.00<BR/>
+First Deliverable - $112.50<BR/>
+Project Completion - $37.50<BR/>
 </P>
 
 <P>*Completion of the project is defined as follows:
