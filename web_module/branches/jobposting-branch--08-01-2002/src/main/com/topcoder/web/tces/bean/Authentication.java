@@ -13,7 +13,6 @@ public class Authentication implements Serializable {
 
     public static boolean attemptLogin(String handle, String password, HttpSession session) {
         Authentication auth = new Authentication();
-        sessionsession
 
         auth.setUserId(USER_NOT_LOGGED_IN);
 
@@ -25,25 +24,25 @@ public class Authentication implements Serializable {
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
 
         if (rsc.getRowCount() == 0) {
-            setErrorMessage("Incorrect handle.  Please retry.");
+            auth.setErrorMessage("Incorrect handle.  Please retry.");
             return false;
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
         String actualPassword = TCData.getTCString(rRow, "password");
         if (actualPassword == null) {
-            setErrorMessage("Incorrect login.  Please retry.");
+            auth.setErrorMessage("Incorrect login.  Please retry.");
             return false;
         }
 
         if (!actualPassword.trim().equals(getPasswordInput().trim())) {
-            setErrorMessage("Incorrect password.  Please retry.");
+            auth.setErrorMessage("Incorrect password.  Please retry.");
             return false;
         }
 
         // record in this session that we have authenticated a user.
 
-        setUserId( (int)TCData.getTCLong(rRow,"user_id", -2, true) );
+        auth.setUserId( (int)TCData.getTCLong(rRow,"user_id", -2, true) );
         return true;
     }
 
