@@ -77,7 +77,7 @@ public class TestWindow extends Base {
         "<table class=bodyCenter cellspacing=0 cellpadding=0>" +
         "<tr>" +
           " <td align=center>" +
-            " <table cellspacing=0 cellpadding=0 class=bodyTable>" +
+            " <table cellspacing=0 cellpadding=0 class=bodyTable100>" +
               " <tr>" +
                 " <td><img src=\"/i/corp/screening/bodyTL.gif\" alt=\"\"/></td>" +
                 " <td class=bodyT>&#160;</td>" +
