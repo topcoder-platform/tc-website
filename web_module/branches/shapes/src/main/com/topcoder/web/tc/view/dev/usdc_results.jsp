@@ -64,6 +64,7 @@ else
 }
 %>
                         <br/>
+						<% String sLink = "/stat?c=member_profile&cr=";%>
                         <a name="week"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
@@ -79,7 +80,6 @@ else
                                 <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
-							<% String sLink = "/stat?c=member_profile&cr=";%>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
                                 <td class="sidebarText" nowrap=nowrap><A href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
@@ -109,7 +109,6 @@ else
                                 <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
-							<% String sLink = "/stat?c=member_profile&cr=";%>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
                                 <td class="sidebarText" nowrap=nowrap><A href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
