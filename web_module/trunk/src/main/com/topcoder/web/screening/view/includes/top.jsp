@@ -22,15 +22,13 @@
 
 <!-- Menu bar begins here -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" id="testTop">
-    <tr valign="top">
-        <td width="1" nowrap="nowrap" class="statText"><a class="testTopNav" href="#">&nbsp;</a></td>
+    <tr valign="middle">
         <td width="15" nowrap="nowrap"><img src="/i/ev/clear.gif" width="15" height="20" border="0"/></td>
         <td nowrap="nowrap" class="statText"><screen:servletLink processor="PopulateSession" styleclass="testTopNav">Create a New Session</screen:servletLink></td>
         <td nowrap="nowrap" class="statText"><screen:servletLink processor="ProfileList" styleclass="testTopNav">Test Profiles</screen:servletLink></td>
         <td nowrap="nowrap" class="statText"><screen:servletLink processor="ProblemList" styleclass="testTopNav">Problem Sets</screen:servletLink></td>
         <td nowrap="nowrap" class="statText"><screen:servletLink processor="BuildCandidateList" styleclass="testTopNav">Candidates</screen:servletLink></td>          
         <td width="100%" nowrap="nowrap"><img src="/i/ev/clear.gif" width="15" height="20" border="0"/></td>  
-        <td width="1" nowrap="nowrap" class="statText"><a class="testTopNav" href="#">&nbsp;</a></td>
    </tr>
 </table>
 <!-- Menu bar ends here -->
