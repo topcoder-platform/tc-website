@@ -23,6 +23,7 @@
      <property name="web" value="src/main/com/topcoder/web"/>
      <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
      <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
+     <property name="jboss_home" value="../jboss-4.0.1"/>
      <property environment="env"/>
 
      <property name="deprecation" value="true"/>
@@ -897,8 +898,8 @@
      </target>
 
      <target name="deploy-techassess" depends="war-techassess">
-         <copy file="${shared.jar}" todir="../jboss-4.0.0/server/default/lib" overwrite="true"/>
-         <copy todir="../jboss-4.0.0/server/default/deploy" overwrite="true">
+         <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
+         <copy todir="${jboss_home}/server/default/deploy" overwrite="true">
              <fileset dir="${war.dir}">
                  <include name="techassess.war"/>
              </fileset>
@@ -906,10 +907,10 @@
      </target>
 
      <target name="deploy-techassess-expanded" depends="war-techassess">
-         <copy file="${shared.jar}" todir="../jboss-4.0.0/server/default/lib" overwrite="true"/>
-         <delete file="../jboss-4.0.0/server/default/deploy/techassess.war"/>
-         <unwar src="${war.dir}/techassess.war" dest="../jboss-4.0.0/server/default/deploy/techassess.war/" overwrite="yes"/>
-         <delete dir="../jboss-4.0.0/server/default/deploy/techassess.war/META-INF"/>
+         <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
+         <delete file="${jboss_home}/server/default/deploy/techassess.war"/>
+         <unwar src="${war.dir}/techassess.war" dest="${jboss_home}/server/default/deploy/techassess.war/" overwrite="yes"/>
+         <delete dir="${jboss_home}/server/default/deploy/techassess.war/META-INF"/>
      </target>
 
 
