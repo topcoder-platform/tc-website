@@ -88,7 +88,7 @@ function getProblemDetail(id) {
     </tr>
 </table>
 
-  <jsp:include page="../includes/foot.jsp" />
+  <jsp:include page="../../foot.jsp" />
 
 </body>
 </html>

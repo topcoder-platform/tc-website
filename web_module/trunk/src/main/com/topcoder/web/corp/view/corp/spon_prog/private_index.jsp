@@ -73,7 +73,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../includes/right.jsp">
+                    <jsp:include page="../../right.jsp">
                         <jsp:param name="level1" value="private_label"/>
                         <jsp:param name="level2" value="index"/> 
                     </jsp:include>
@@ -87,7 +87,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../includes/foot.jsp"/>
+  <jsp:include page="../../foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

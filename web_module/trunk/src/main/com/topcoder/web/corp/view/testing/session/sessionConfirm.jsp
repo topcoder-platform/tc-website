@@ -132,7 +132,7 @@ document.sessionConfirmForm.submit();
     </tr>
 </table>
 
-  <jsp:include page="../includes/foot.jsp" />
+  <jsp:include page="../../foot.jsp" />
 
 </body>
 </html>

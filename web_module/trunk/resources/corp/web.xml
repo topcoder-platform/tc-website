@@ -32,7 +32,7 @@
         </init-param>
         <init-param>
             <param-name>error_page</param-name>
-            <param-value>/corp/exc/errorPage.jsp</param-value>
+            <param-value>/errorPage.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
         <!-- end  parameters required by BaseServlet -->
@@ -97,21 +97,6 @@
             <param-name>page-login</param-name>
             <param-value>LoginPage.jsp</param-value>
             <description>unauthorized anonymous users will go here</description>
-        </init-param>
-        <init-param>
-            <param-name>page-error-navigation</param-name>
-            <param-value>exc/NavigationError.jsp</param-value>
-            <description>navigation errors like rc404, file not found, etc. will go here</description>
-        </init-param>
-        <init-param>
-            <param-name>page-error-security</param-name>
-            <param-value>exc/SecurityError.jsp</param-value>
-            <description>security exceptions (authentification, authorization) will fetch this page</description>
-        </init-param>
-        <init-param>
-            <param-name>page-error-internal</param-name>
-            <param-value>exc/InternalError.jsp</param-value>
-            <description>unexpected (null pointer and similar) exceptions will fed this page</description>
         </init-param>
 
         <!--
@@ -192,11 +177,6 @@
             <description></description>
         </init-param>
 
-        <init-param>
-            <param-name>page-error-security</param-name>
-            <param-value>/corp/exc/SecurityError.jsp</param-value>
-            <description>security exceptions (authentification, authorization) will fetch this page</description>
-        </init-param>
     </servlet>
 
 
@@ -218,7 +198,7 @@
 
         <init-param>
             <param-name>error_page</param-name>
-            <param-value>errorPage.jsp</param-value>
+            <param-value>/errorPage.jsp</param-value>
         </init-param>
 
         <init-param>
@@ -526,7 +506,7 @@
         </init-param>
         <init-param>
             <param-name>error_page</param-name>
-            <param-value>/testing/errorPage.jsp</param-value>
+            <param-value>/errorPage.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
         <!-- end  parameters required by BaseServlet -->
