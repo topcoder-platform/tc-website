@@ -139,7 +139,7 @@ within your country of residence.
 
 <P>
 Feature articles should range between 500-700 words. The article must depict the writer's own experiences without slander or 
-defamation of character.
+defamation of character. A photo is also required to accompany the feature. If you have not already submitted a photo, please login and follow the instructions on your member home page.
 </P>
 
 <P>
