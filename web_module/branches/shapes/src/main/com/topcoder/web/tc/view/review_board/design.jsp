@@ -3,6 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <jsp:useBean id="memberList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 
 <html>
 
@@ -75,6 +76,7 @@
             <hr width="100%" size="1" noshade="noshade" />
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
+				<% String sLink = "/stat?c=member_profile&cr=";%>
                 <tr valign="top">
                     <% int i=0; %>
                     <rsc:iterator list="<%=memberList%>" id="resultRow">
@@ -87,7 +89,7 @@
                         <div align="center">
                         <a href="/stat?c=member_profile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><img src="<rsc:item row="<%=resultRow%>" name="image_path" ifNull="/i/m/nophoto.jpg"/>" alt="<rsc:item row="<%=resultRow%>" name="handle"/>" width="126" height="140" border="0"  class="myStatsPhoto"/></a>
                         <br/>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><strong><rsc:item row="<%=resultRow%>" name="handle"/></strong></a>
+                        <tc:ratingImage link='<%=sLink + resultRow.getIntItem("user_id")%>' bg='W' cid='<%=resultRow.getIntItem("user_id")%>' /></a>
                         </div>
                      <% if (i<3) { %>
                           </td>
