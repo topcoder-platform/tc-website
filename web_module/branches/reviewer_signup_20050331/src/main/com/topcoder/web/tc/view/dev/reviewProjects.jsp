@@ -64,7 +64,9 @@
 
             <br/>
             
-            <p align="center">You may not apply for a new review until <%=waitingUntil%>.</p>
+            <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
+            
+            <br/>
             
 <%--
 
