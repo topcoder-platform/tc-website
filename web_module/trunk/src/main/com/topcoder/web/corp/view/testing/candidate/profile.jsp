@@ -106,6 +106,18 @@ function getProblemDetail(id) {
                                 <screen:resultSetItem row="<%=row%>" name="last_name" />
                             </td>
                         </tr>
+                        <tr>
+                            <td class="screeningCellEven" align=right nowrap=nowrap>Login:</td>
+                            <td class="screeningCellEven">
+                                <screen:resultSetItem row="<%=row%>" name="handle" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCellOdd" align=right nowrap=nowrap>Password:</td>
+                            <td class="screeningCellOdd">
+                                <screen:resultSetItem row="<%=row%>" name="password" />
+                            </td>
+                        </tr>
                         </screen:resultSetRowIterator>
 
                         <screen:resultSetRowIterator id="row"
