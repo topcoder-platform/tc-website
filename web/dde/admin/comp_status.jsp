@@ -187,17 +187,23 @@
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
 				<tr valign="top">
 					<td width="40%" class="adminTitle">Name</td>
+                    <td width="10%" class="adminTitle">Catalog</td>
 					<td width="10%" class="adminTitle">Version</td>
 					<td width="40%" class="adminTitle">Date</td>
 					<td width="10%" class="adminTitleCenter">Action</td>
 				</tr>
 
-	<%
+	<%  Category[] categories = catalog.getBaseCategories();
+        HashMap map = new HashMap();
+        for (int i=0; i<categories.length; i++) {
+            map.put(new Long(categories[i].getId()), categories[i].getName());
+        }
 		ComponentSummary summaries[] = (ComponentSummary[])colComponents.toArray(new ComponentSummary[0]);
 		for (int i=0; i < summaries.length; i++) {
 	%>
 				<tr valign="top">
-					<td class="forumText"><strong><a href="component_admin.jsp?comp=<%= summaries[i].getComponentId() %>"><%=catalog.getCategory(summaries[i].getRootCategory()).getName()%> <%= summaries[i].getName() %></a></td>
+					<td class="forumText"><strong><a href="component_admin.jsp?comp=<%= summaries[i].getComponentId() %>"><%= summaries[i].getName() %></a></td>
+					<td class="forumText"><%=map.get(new Long(summaries[i].getRootCategory()))%></td>
 					<td class="forumTextCenter"><%= summaries[i].getVersion() %></td>
 					<td class="forumText"><%= summaries[i].getPhaseDate() %></td>
 					<td class="forumTextCenter"><a class="edit" href="component_admin.jsp?comp=<%= summaries[i].getComponentId() %>">EDIT</a></td>
@@ -205,10 +211,10 @@
 
 	<% } %>
 
-				<tr><td class="adminTitle" colspan="4"><img src="/images/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+				<tr><td class="adminTitle" colspan="5"><img src="/images/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 <!-- Status Display ends -->
 
-				<tr><td colspan="4" height="40"><img src="/images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
+				<tr><td colspan="5" height="40"><img src="/images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
 			</table>
 
 <% } %>
