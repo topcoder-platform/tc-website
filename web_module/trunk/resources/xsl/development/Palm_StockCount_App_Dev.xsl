@@ -321,7 +321,7 @@ A TopCoder client has existing infrastructure and software to support certain in
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Stock%20Count%20App%20Dev&amp;phase=113">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                        Closed
                                                     </p>
                                                 </td>
                                             </tr>

@@ -89,6 +89,7 @@
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
 
+                                <!--
                                 <tr valign="middle">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Palm_StockCount_App_Dev">Palm Stock Count Application Development</a>
@@ -97,6 +98,7 @@
                                     <td class="projectCells" align="right">$800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">09.07.2004</td>
                                 </tr>
+                                -->
 
                             </table>
 
@@ -138,6 +140,14 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Winning Developer</td>
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                 </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_StockCount_App_Dev">Palm Stock Count Application Development</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr>
+
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=GeneChip_Data_Interface_Front_End_Dev">GeneChip Data Interface - Front End</a>
