@@ -54,7 +54,6 @@
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
     <SELECT NAME="state" CLASS="dropdown" ONCHANGE="changeState()">
-     <OPTION value=""></OPTION>
      <OPTION value="CT">Connecticut</OPTION>
     </SELECT>
    </TD>
@@ -236,7 +235,7 @@
  </TABLE>
  <SCRIPT type="text/javascript">
   function submitForm() {
-   if (checkName()&&checkEmail()) {
+   if (checkName()&&checkEmail()&&checkPassword()) {
     document.regForm.submit();
    }
   }
@@ -260,12 +259,24 @@
     document.regForm.email.focus();
     return false;
    }
-   if (document.regForm.email.value!=document.regForm.confirmEmail.value) {
+   if (email!=document.regForm.confirmEmail.value) {
     alert("Email addresses do not match.");
-    document.regForm.confirmEmail.focus();
+    document.regForm.email.focus();
     return false;
    }
    return true;
+  }
+  function checkPassword() {
+   var pass=document.regForm.password.value;
+   if (pass.length<7||pass.length>15) {
+    alert("Password must be between 7 and 15 characters.");
+    document.regForm.password.focus();
+    return false;
+   }
+   if (pass!=document.regForm.confirmPassword.value) {
+    alert("Passwords do not match.");
+    document.regForm.password.focus();
+   }
   }
  </SCRIPT>
 </FORM>
