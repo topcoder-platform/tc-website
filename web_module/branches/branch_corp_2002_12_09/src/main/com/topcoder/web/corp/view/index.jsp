@@ -29,7 +29,7 @@
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">
 	        <TR>
 		       <TD VALIGN="top" WIDTH="50%" CLASS="bodyText">
-		       <FONT SIZE="3" COLOR="#666666"><B>Candidate Evaluation Application</B></FONT><BR/><BR/>
+		       <FONT SIZE="3" COLOR="#666666"><B>Candidate Evaluation Application</B></FONT><BR><BR>
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 		      <A HREF="#" CLASS="bodyText">Learn More &gt;</A>
@@ -38,7 +38,7 @@
 		       <TD VALIGN="top" BGCOLOR="#CCCCCC"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1"></TD>
 		       <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="8" HEIGHT="1"></TD>
 		       <TD VALIGN="top" WIDTH="50%" CLASS="bodyText">
-		       <FONT SIZE="3" COLOR="#666666"><B>TCES - TopCoder Employment Services</B></FONT><BR/><BR/>
+		       <FONT SIZE="3" COLOR="#666666"><B>TCES - TopCoder Employment Services</B></FONT><BR><BR>
 		       Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 		       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, q
@@ -56,7 +56,7 @@
 	        </TR>
 	        <TR>
 		       <TD VALIGN="top" WIDTH="50%" CLASS="bodyText">
-		       <FONT SIZE="3" COLOR="#666666"><B>Premium Content</B></FONT><BR/><BR/>
+		       <FONT SIZE="3" COLOR="#666666"><B>Premium Content</B></FONT><BR><BR>
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
@@ -66,7 +66,7 @@
 		       <TD VALIGN="top" WIDTH="1" BGCOLOR="#CCCCCC"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1"></TD>
 		       <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="8" HEIGHT="1"></TD>
 		       <TD VALIGN="top" WIDTH="50%" CLASS="bodyText">
-		       <FONT SIZE="3" COLOR="#666666"><B>Account Administration</B></FONT><BR/><BR/>
+		       <FONT SIZE="3" COLOR="#666666"><B>Account Administration</B></FONT><BR><BR>
 		       Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat volutpased diam nonummy nibh euismod tincidunt 
 		       Nagna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
@@ -87,7 +87,7 @@
 	        </TR>
 	        <TR>
 		       <TD VALIGN="top" WIDTH="50%" CLASS="bodyText">
-		       <FONT SIZE="3" COLOR="#666666"><B>[TC] Sponsor Program</B></FONT><BR/><BR/>
+		       <FONT SIZE="3" COLOR="#666666"><B>[TC] Sponsor Program</B></FONT><BR><BR>
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
@@ -100,7 +100,7 @@
 	        </TR>	        
 	        	        	        
          </TABLE>
-<P><BR/></P>    
+<P><BR></P>    
      </TD>
 
 <!-- Body Area Ends -->

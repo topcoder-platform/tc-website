@@ -18,7 +18,7 @@
    <TR>
         <!-- Body Area -->
       <TD CLASS="bodyText" valign="top"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Account Administration - Permissions List</B></FONT><BR/>
+<FONT SIZE="3" COLOR="#666666"><B>Account Administration - Permissions List</B></FONT><BR>
 <P>
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
@@ -45,7 +45,7 @@
 	</TR>				
 </TABLE>
 </FORM>
-<P><BR/></P>    
+<P><BR></P>    
      </TD>
 <!-- Body Area Ends -->
    </TR>

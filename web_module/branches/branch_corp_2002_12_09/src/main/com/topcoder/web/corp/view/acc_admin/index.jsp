@@ -23,7 +23,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Account Administration</B></FONT><BR/>
+<FONT SIZE="3" COLOR="#666666"><B>Account Administration</B></FONT><BR>
 <P>
 <A HREF="<%=appContext%>/?module=UserList" CLASS="bodyText">User List</A> | <A HREF="<%=appContext%>/?module=CreateEdit" CLASS="bodyText">Create/Modify User</A>
 </P>
@@ -53,7 +53,7 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
                        wisi enim adminim veniam, quis nostrud exerci. 
                        tuer adipiscing elit, sedsed dagna aliquam erat volu adminim veniam, qveniam.
 </P>
-<P><BR/></P>    
+<P><BR></P>    
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->

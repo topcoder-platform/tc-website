@@ -34,7 +34,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Account Administration - User List</B></FONT><BR/>
+<FONT SIZE="3" COLOR="#666666"><B>Account Administration - User List</B></FONT><BR>
 <P>
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
@@ -73,7 +73,7 @@
                 <TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=UserEdit" CLASS="bodyText">Add</A></TD>         
         </TR>                           
 </TABLE>
-<P><BR/></P>    
+<P><BR></P>    
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->

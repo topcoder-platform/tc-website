@@ -64,6 +64,6 @@
       </TR>
       <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#666666"><IMG ALT="" WIDTH="170" HEIGHT="1" SRC="/i/p/clear.gif" BORDER="0"/></TD></TR>      
         </TABLE>
-<IMG SRC="/i/p/left_nav_btm.gif" WIDTH="170" HEIGHT="69" BORDER="0"/><BR/><BR/>
+<IMG SRC="/i/p/left_nav_btm.gif" WIDTH="170" HEIGHT="69" BORDER="0"/><BR><BR>
 <IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="10"/>
 

@@ -25,13 +25,13 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" WIDTH="100%" valign="top"><IMG SRC="/i/p/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Registration</B></FONT><BR/>
+<FONT SIZE="3" COLOR="#666666"><B>Registration</B></FONT><BR>
 <P>
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
 
-<P><BR/></P>    
+<P><BR></P>    
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
