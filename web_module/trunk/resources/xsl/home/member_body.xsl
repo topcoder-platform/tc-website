@@ -393,8 +393,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>2003 TCCC Round 1 Int.</strong></a><br />
-                            Saturday, February 22, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>SRM 136</strong></a><br />
+                            Tuesday, February 25, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -476,22 +476,22 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;Logan<br /><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;lbackstrom<br /><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="tahoma, verdana"><strong>2003 TCCC Round 1 Int.</strong></font></td>
+                        <font size="2" color="#000000" face="tahoma, verdana"><strong>SRM 136</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_int_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm136_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>The most notable aspect of this round was the Level 2 problem, which was solved by only four coders.
-            This lead to a lot of successful challenges by coders such as <b>John Dethridge</b>.  The
-            The Level 1 and Level 3 problems had very high success rates among those that submitted the problems,
-            but only 14 coders managed to submit a possible solution for the Level 3 problem.</p>
+                        <p>Yarin remained red hot, as only one of two coders (radeye was the other) to solve all three problems
+    successfully.  His hot streak over the last few contests has propelled him up to 2nd place overall,
+    58 points behind John Dethridge.  SnapDragon, on the other hand had an unusual off night, and dropped 124
+    points.</p>
                     </td>
                 </tr>
             </table>
