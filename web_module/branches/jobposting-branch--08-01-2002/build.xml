@@ -180,6 +180,14 @@
       </copy>
    </target>
 
+   <target name="moveTCES" depends="check_java_version">
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="resources/tces" >
+                 <include name="**/*.tld" />
+         </fileset>
+      </copy>
+   </target>
+
    <target name="jsp" depends="check_java_version">
       <property name="stat.trgt"     value="${public_html}/stat_jsp" />
       <property name="stat.src"      value="${web}/stat/servlet/jsp" />
