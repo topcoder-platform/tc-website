@@ -241,7 +241,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="top"></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="center"><INPUT TYPE="checkbox" NAME="terms">&nbsp;I Agree to the Terms and Conditions stated above</TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="center"><INPUT TYPE="checkbox" NAME="terms" VALUE="true">&nbsp;I Agree to the Terms and Conditions stated above</TD>
   </TR>
   <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><BR><BR></TD>
