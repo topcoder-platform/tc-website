@@ -5,17 +5,19 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="530">
-                <tr><td><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td></tr>
+            <table border="1" cellspacing="0" cellpadding="0" width="530">
+                <tr><td colspan="5"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td></tr>
 
                 <tr valign="middle"> 
-                    <td class="bodyText" width="170"> 
+                    <td width="50%">&#160;</td>
+
+                    <td class="bodyText" width="170" align="right"> 
                         <jsp:include page="../calendar.jsp" />
                     </td>
 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 
-                    <td width="350"> 
+                    <td align="left"> 
                         <table border="0" cellspacing="0" cellpadding="5" class="surveyFrame">
                             <tr valign="middle">
                                 <td class="bodyText" width="170">
@@ -23,11 +25,13 @@
                                     <jsp:include page="srm_dates.jsp" />
                                 </td>
 
-                                <td class="bodyText" width="170"> 
+                                <td class="bodyText"> 
                                     <jsp:include page="srm_sponsor.jsp" />
                                 </td>
                             </tr>
                         </table>
                     </td>
+
+                    <td width="50%">&#160;</td>
                 </tr>
             </table>
