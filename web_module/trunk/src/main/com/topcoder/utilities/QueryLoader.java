@@ -30,7 +30,10 @@ import com.topcoder.shared.util.*;
  *
  * @author  Greg Paul 
  * @author  Dave Pecora
- * @version 1.00, 02/11/2002
+ * @version $Revision$
+ * @internal Log of Changes:
+ *           $Log$
+ *           Revision 1.1  2002/07/12 17:15:46  gpaul
  */
 
 public class QueryLoader {
