@@ -1,137 +1,127 @@
 package com.topcoder.web.hs.model;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 import java.util.*;
 
 public class SearchBean {
 
-  private final static int MAX_RESULTS_PER_PAGE=15;
+    private final static int MAX_RESULTS_PER_PAGE = 15;
 
-  private Integer start=null;
+    private Integer start = null;
+    private Integer end = null;
+    private String handle = null;
+    private String state_code = null;
+    private Long school_id = null;
+    private String min_rating = null;
+    private String max_rating = null;
+    private List state_list = null;
+    private List school_list = null;
+    private ResultSetContainer member_list = null;
+    private boolean has_prev = false;
+    private boolean has_next = false;
 
-  private Integer end=null;
+    public static int getMaxResultsPerPage() {
+        return (MAX_RESULTS_PER_PAGE);
+    }
 
-  private String handle=null;
+    public Integer getStart() {
+        return (start);
+    }
 
-  private String state_code=null;
+    public void setStart(Integer _start) {
+        start = _start;
+    }
 
-  private Long school_id=null;
+    public Integer getEnd() {
+        return (end);
+    }
 
-  private String min_rating=null;
+    public void setEnd(Integer _end) {
+        end = _end;
+    }
 
-  private String max_rating=null;
+    public String getHandle() {
+        return (handle);
+    }
 
-  private List state_list=null;
+    public void setHandle(String _handle) {
+        handle = _handle;
+    }
 
-  private List school_list=null;
+    public String getStateCode() {
+        return (state_code);
+    }
 
-  private List member_list=null;
+    public void setStateCode(String _state_code) {
+        state_code = _state_code;
+    }
 
-  private boolean has_prev=false;
+    public Long getSchoolId() {
+        return (school_id);
+    }
 
-  private boolean has_next=false;
+    public void setSchoolId(Long _school_id) {
+        school_id = _school_id;
+    }
 
-  public static int getMaxResultsPerPage() {
-    return(MAX_RESULTS_PER_PAGE);
-  }
+    public String getMinRating() {
+        return (min_rating);
+    }
 
-  public Integer getStart() {
-    return(start);
-  }
+    public void setMinRating(String _min_rating) {
+        min_rating = _min_rating;
+    }
 
-  public void setStart(Integer _start) {
-    start=_start;
-  }
+    public String getMaxRating() {
+        return (max_rating);
+    }
 
-  public Integer getEnd() {
-    return(end);
-  }
+    public void setMaxRating(String _max_rating) {
+        max_rating = _max_rating;
+    }
 
-  public void setEnd(Integer _end) {
-    end=_end;
-  }
+    public List getStateList() {
+        return (state_list);
+    }
 
-  public String getHandle() {
-    return(handle);
-  }
+    public void setStateList(List _state_list) {
+        state_list = _state_list;
+    }
 
-  public void setHandle(String _handle) {
-    handle=_handle;
-  }
+    public List getSchoolList() {
+        return (school_list);
+    }
 
-  public String getStateCode() {
-    return(state_code);
-  }
+    public void setSchoolList(List _school_list) {
+        school_list = _school_list;
+    }
 
-  public void setStateCode(String _state_code) {
-    state_code=_state_code;
-  }
+    public List getMemberList() {
+        return (member_list);
+    }
 
-  public Long getSchoolId() {
-    return(school_id);
-  }
+    public void setMemberList(List _member_list) {
+        member_list = _member_list;
+    }
 
-  public void setSchoolId(Long _school_id) {
-    school_id=_school_id;
-  }
+    public boolean getHasPrev() {
+        return (has_prev);
+    }
 
-  public String getMinRating() {
-    return(min_rating);
-  }
+    public void setHasPrev(boolean _has_prev) {
+        has_prev = _has_prev;
+    }
 
-  public void setMinRating(String _min_rating) {
-    min_rating=_min_rating;
-  }
+    public boolean getHasNext() {
+        return (has_next);
+    }
 
-  public String getMaxRating() {
-    return(max_rating);
-  }
+    public void setHasNext(boolean _has_next) {
+        has_next = _has_next;
+    }
 
-  public void setMaxRating(String _max_rating) {
-    max_rating=_max_rating;
-  }
-
-  public List getStateList() {
-    return(state_list);
-  }
-
-  public void setStateList(List _state_list) {
-    state_list=_state_list;
-  }
-
-  public List getSchoolList() {
-    return(school_list);
-  }
-
-  public void setSchoolList(List _school_list) {
-    school_list=_school_list;
-  }
-
-  public List getMemberList() {
-    return(member_list);
-  }
-
-  public void setMemberList(List _member_list) {
-    member_list=_member_list;
-  }
-
-  public boolean getHasPrev() {
-    return(has_prev);
-  }
-
-  public void setHasPrev(boolean _has_prev) {
-    has_prev=_has_prev;
-  }
-
-  public boolean getHasNext() {
-    return(has_next);
-  }
-
-  public void setHasNext(boolean _has_next) {
-    has_next=_has_next;
-  }
-
-  public boolean hasMemberList() {
-    return(member_list!=null);
-  }
-};
-
+    public boolean hasMemberList() {
+        return (member_list != null);
+    }
+}
