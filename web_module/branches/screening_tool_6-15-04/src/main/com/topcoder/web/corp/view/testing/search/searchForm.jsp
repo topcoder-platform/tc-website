@@ -35,7 +35,8 @@
                                 <tr>
                                     <td class="screeningCellEven" width="25%" align=right>First Name:</td>
                                     <td class="screeningCellEven" width="75%">
-<%-- FIRST NAME TEXT BOX--%>
+                                        <%-- FIRST NAME TEXT BOX--%>
+                                        <input type="text" name="firstName" size="30" maxlength="50" value="">
                                     </td>
                                 </tr>
 
