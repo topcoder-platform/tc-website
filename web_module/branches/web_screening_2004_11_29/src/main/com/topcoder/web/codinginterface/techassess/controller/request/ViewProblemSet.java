@@ -5,7 +5,6 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
-import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
 import java.util.Arrays;
