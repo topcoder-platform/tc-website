@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>Intel Centrino Mobile Technology-based Notebook Specs</title>
+<title>Intel&#174; Developer Library</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -45,26 +45,26 @@
                 SAVE YOU VALUABLE TIME. </p>
                 <p>Get the best technical information and get it NOW.  Some examples: 
                 <ul>    
-                <li>Intel Itanium&#174; Processor Reference Manual: For Software Development and 
-                Optimization -publisher: Intel Corporation, 2003 </li>
+                <li><font color="#0033CC">Intel Itanium&#174; Processor Reference Manual: For Software Development and 
+                Optimization</font> -publisher: Intel Corporation, 2003 </li>
                 
-                <li>Wi-Fi Handbook: Building 802.11b Wireless Networks - publisher: McGraw-Hill, 2003</li>
+                <li><font color="#0033CC">Wi-Fi Handbook: Building 802.11b Wireless Networks</font> - publisher: McGraw-Hill, 2003</li>
                 
-                <li>IA-32 Intel&#174; Architecture Software Developer's Manual, Volume 3: System 
-                Programming Guide - publisher: Intel Corporation, 2003</li>
+                <li><font color="#0033CC">IA-32 Intel&#174; Architecture Software Developer's Manual, Volume 3: System 
+                Programming Guide</font> - publisher: Intel Corporation, 2003</li>
                 
-                <li>The Get-Started Guide to M-Commerce and Mobile Technology - publisher: 
+                <li><font color="#0033CC">The Get-Started Guide to M-Commerce and Mobile Technology</font> - publisher: 
                 AMACOM, 2002</li>
                 
-                <li>Designing Embedded Communications Software - publisher: CMP Books, 2003</li>
+                <li><font color="#0033CC">Designing Embedded Communications Software</font> - publisher: CMP Books, 2003</li>
                 
-                <li>Intel&#174; Pentium&#174; 4 Processor in the 478-pin Package/Intel&#174; 850 Chipset Family 
-                Platform: Design Guide -publisher: Intel Corporation, 2003</li>
+                <li><font color="#0033CC">Intel&#174; Pentium&#174; 4 Processor in the 478-pin Package/Intel&#174; 850 Chipset Family 
+                Platform: Design Guide</font> -publisher: Intel Corporation, 2003</li>
                 
-                <li>Intel Desktop Board D875PBZ: Technical Product Specification - publisher: Intel 
+                <li><font color="#0033CC">Intel Desktop Board D875PBZ: Technical Product Specification</font> - publisher: Intel 
                 Corporation, 2003 </li>
                 
-                <li>Introduction to PCI Express: A Hardware and Software Developer's Guide - publisher: Intel Press, 2003</li>
+                <li><font color="#0033CC">Introduction to PCI Express: A Hardware and Software Developer's Guide</font> - publisher: Intel Press, 2003</li>
                 </ul>
                 </p>
                 
