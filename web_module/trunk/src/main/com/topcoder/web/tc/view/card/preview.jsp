@@ -7,7 +7,32 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var MM_contentVersion = 6;
+var MM_FlashCanPlay = false;
+var plugin = (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"]) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+if ( plugin ) {
+		var words = navigator.plugins["Shockwave Flash"].description.split(" ");
+	    for (var i = 0; i < words.length; ++i)
+	    {
+		if (isNaN(parseInt(words[i])))
+		continue;
+		var MM_PluginVersion = words[i];
+	    }
+	MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
+}
+else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
+   && (navigator.appVersion.indexOf("Win") != -1)) {
+	document.write('<SCR' + 'IPT LANGUAGE=VBScript\> \n'); //FS hide this from IE4.5 Mac by splitting the tag
+	document.write('on error resume next \n');
+	document.write('MM_FlashCanPlay = ( IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
+	document.write('</SCR' + 'IPT\> \n');
+}
+//-->
+</SCRIPT>
+
 </head>
 
 <body>
@@ -27,35 +52,62 @@
         </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
-         <td class="bodyText" WIDTH="100%">
+         <td class="cardCell" WIDTH="100%">
 
-         <table width="500" cellpadding="0" cellspacing="0" border="0" align="center" class="bodyText">
-         	<tr>
-         		<td align="center">
-         			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="400" height="400" id="tc_card" align="middle">
-							<param name="allowScriptAccess" value="sameDomain" />
-							<param name="movie" value="/i/card/tc_card.swf" />
-							<param name="menu" value="false" />
-							<param name="quality" value="high" />
-							<param name="bgcolor" value="#ffffff" />
-							<embed src="/i/card/tc_card.swf" menu="false" quality="high" bgcolor="#ffffff" width="400" height="400" name="tc_card" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
-						</object>
-					</td>
-				</tr>
-			</table>
+            <p class="bodyText">This is a preview of what your card will look like:</p>
+
+        <table width="100%" cellpadding="0" cellspacing="0" border="1" align="center">
+            <tr>
+                <td align="center">
+            
+<SCRIPT language="JavaScript">
+                <!--
+if ( MM_FlashCanPlay ) {
+document.write(' <object ');
+document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
+document.write(' codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
+document.write(' width="400" ');
+document.write(' height="400" ');
+document.write(' id="tc_card" ');
+document.write(' align="middle">');
+document.write(' <param name="allowScriptAccess" value="sameDomain" />');
+document.write(' <param name="movie" value="/i/card/tc_card.swf?memberID=144400" />');
+document.write(' <param name="menu" value="false" />');
+document.write(' <param name="quality" value="high" />');
+document.write(' <param name="bgcolor" value="#ffffff" />');
+document.write(' <embed ');
+document.write(' src="/i/card/tc_card.swf?memberID=144400" ');
+document.write(' menu="false" ');
+document.write(' quality="high" ');
+document.write(' bgcolor="#ffffff" ');
+document.write(' width="400" ');
+document.write(' height="400" ');
+document.write(' name="tc_card" ');
+document.write(' align="middle" ');
+document.write(' allowScriptAccess="sameDomain" ');
+document.write(' type="application/x-shockwave-flash" ');
+document.write(' pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
+document.write(' </object> ');
+}
+// -->
+</SCRIPT>
+
+<SCRIPT language="JavaScript">
+<!--
+       if (!MM_FlashCanPlay){
+       document.write('<img src="/i/clear.gif" width="400" height="400" border="0">');
+       }
+// -->
+</SCRIPT>
+
+                </td>
+            </tr>
+        </table>
 
          <p><br/></p>
          </td>
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
          <td width="170">
