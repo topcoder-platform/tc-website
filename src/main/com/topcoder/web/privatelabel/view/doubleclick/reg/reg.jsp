@@ -100,7 +100,7 @@
                 </tr>
                 <tr>
                    <td class="dc_regTableQuestion">Email</td>
-                   <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/> if student then put message here about columbia and nyu edu
+                   <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/> if student then put message here about columbia and nyu edu
                 </tr>
                 <tr>
                     <td class="dc_errorText" colspan="2">
