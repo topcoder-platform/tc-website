@@ -75,7 +75,7 @@ public class ContactBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating contact");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating contact");
@@ -112,7 +112,7 @@ public class ContactBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for contact_id: " + contactId + " company_id: " + companyId);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating contact_id: " + contactId + " company_id: " + companyId);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating company ID");
@@ -149,7 +149,7 @@ public class ContactBean implements SessionBean {
             if (rs.next()) ret = rs.getLong("company_id");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting company_id for contact_id: " + contactId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting contact ID");
@@ -188,7 +188,7 @@ public class ContactBean implements SessionBean {
             if (rs.next()) ret = rs.getString("title");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting title for contact_id: " + contactId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting contact title");
@@ -225,7 +225,7 @@ public class ContactBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for contact_id: " + contactId + " title: " + title);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating contact_id: " + contactId + " title: " + title);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating title");

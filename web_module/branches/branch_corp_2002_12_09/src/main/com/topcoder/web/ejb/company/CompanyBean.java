@@ -85,7 +85,7 @@ public class CompanyBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating company");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating company");
@@ -123,7 +123,7 @@ public class CompanyBean implements SessionBean {
             if (rs.next()) ret = rs.getString("company_name");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting company_name for company_id: " + companyId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting company name");
@@ -162,7 +162,7 @@ public class CompanyBean implements SessionBean {
             if (rs.next()) ret = rs.getLong("primary_contact_id");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting primary_contact_id for company_id: " + companyId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting primary contact id");
@@ -199,7 +199,7 @@ public class CompanyBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for company_id: " + companyId + " company_name: " + name);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating company_id: " + companyId + " company_name: " + name);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating company name");
@@ -234,7 +234,7 @@ public class CompanyBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for company_id: " + companyId + " primary_contact_id: " + primaryContactId);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating company_id: " + companyId + " primary_contact_id: " + primaryContactId);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating company primaryContactId");

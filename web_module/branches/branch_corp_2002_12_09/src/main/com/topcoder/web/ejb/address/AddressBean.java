@@ -85,7 +85,7 @@ public class AddressBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating address");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating address");
@@ -123,7 +123,7 @@ public class AddressBean implements SessionBean {
             if (rs.next()) ret = rs.getLong("address_type_id");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting address_type_id for address_id: " + addressId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address type ID");
@@ -162,7 +162,7 @@ public class AddressBean implements SessionBean {
             if (rs.next()) ret = rs.getString("address1");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting address1 for address_id: " + addressId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address 1");
@@ -201,7 +201,7 @@ public class AddressBean implements SessionBean {
             if (rs.next()) ret = rs.getString("address2");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting address2 for address_id: " + addressId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address 2");
@@ -240,7 +240,7 @@ public class AddressBean implements SessionBean {
              if (rs.next()) ret = rs.getString("city");
 
          } catch (SQLException sqe) {
-             printSqlException(true, sqe);
+             DBMS.printSqlException(true, sqe);
              throw new EJBException("SQLException getting city for address_id: " + addressId);
          } catch (NamingException e) {
              throw new EJBException("NamingException getting city");
@@ -279,7 +279,7 @@ public class AddressBean implements SessionBean {
              if (rs.next()) ret = rs.getString("state_code");
 
          } catch (SQLException sqe) {
-             printSqlException(true, sqe);
+             DBMS.printSqlException(true, sqe);
              throw new EJBException("SQLException getting state_code for address_id: " + addressId);
          } catch (NamingException e) {
              throw new EJBException("NamingException getting state code");
@@ -318,7 +318,7 @@ public class AddressBean implements SessionBean {
              if (rs.next()) ret = rs.getString("zip");
 
          } catch (SQLException sqe) {
-             printSqlException(true, sqe);
+             DBMS.printSqlException(true, sqe);
              throw new EJBException("SQLException getting zip for address_id: " + addressId);
          } catch (NamingException e) {
              throw new EJBException("NamingException getting zip");
@@ -357,7 +357,7 @@ public class AddressBean implements SessionBean {
              if (rs.next()) ret = rs.getString("country_code");
 
          } catch (SQLException sqe) {
-             printSqlException(true, sqe);
+             DBMS.printSqlException(true, sqe);
              throw new EJBException("SQLException getting country_code for address_id: " + addressId);
          } catch (NamingException e) {
              throw new EJBException("NamingException getting country code");
@@ -394,7 +394,7 @@ public class AddressBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " address_type_id: " + addressTypeId);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " + addressId + " address_type_id: " + addressTypeId);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address type ID");
@@ -429,7 +429,7 @@ public class AddressBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " address1: " + address1);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " + addressId + " address1: " + address1);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address 1");
@@ -464,7 +464,7 @@ public class AddressBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " address2: " + address2);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " + addressId + " address2: " + address2);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address 2");
@@ -499,7 +499,7 @@ public class AddressBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " city: " + city);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " + addressId + " city: " + city);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating city");
@@ -534,7 +534,7 @@ public class AddressBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " state_code: " + stateCode);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: '" + addressId + "' state_code: " + stateCode);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating state code");
@@ -569,7 +569,7 @@ public class AddressBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " zip: " + zip);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " + addressId + " zip: " + zip);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating zip");
@@ -604,7 +604,7 @@ public class AddressBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " country_code: " + countryCode);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " + addressId + " country_code: " + countryCode);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating country code");
@@ -617,4 +617,3 @@ public class AddressBean implements SessionBean {
         }
     }
 }
-

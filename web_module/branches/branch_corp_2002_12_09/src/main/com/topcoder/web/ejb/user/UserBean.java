@@ -85,7 +85,7 @@ public class UserBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating user");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating user");
@@ -121,7 +121,7 @@ public class UserBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for user_id: " + userId + " first_name: " + firstName);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating user_id: " + userId + " first_name: " + firstName);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating user first name");
@@ -156,7 +156,7 @@ public class UserBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for user_id: " + userId + " last_name: " + lastName);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating user_id: " + userId + " last_name: " + lastName);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating user last name");
@@ -191,7 +191,7 @@ public class UserBean implements SessionBean {
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for user_id: " + userId + " user_status_id: " + userStatusId);
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating user_id: " + userId + " user_status_id: " + userStatusId);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating user status ID");
@@ -228,7 +228,7 @@ public class UserBean implements SessionBean {
             if (rs.next()) ret = rs.getString("first_name");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting first_name for user_id: " + userId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting user first name");
@@ -267,7 +267,7 @@ public class UserBean implements SessionBean {
             if (rs.next()) ret = rs.getString("last_name");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting last_name for user_id: " + userId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting user last name");
@@ -306,7 +306,7 @@ public class UserBean implements SessionBean {
             if (rs.next()) ret = rs.getLong("user_status_id");
 
         } catch (SQLException sqe) {
-            printSqlException(true, sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting user_status_id for user_id: " + userId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting user status ID");
