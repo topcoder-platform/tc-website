@@ -1,8 +1,6 @@
 package com.topcoder.common.web.util;
 
-import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.data.User;
 import com.topcoder.ejb.UserServices.UserServices;
@@ -56,7 +54,7 @@ public final class Data {
             ctx = TCContext.getInitial();
             UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
             Integer key = new Integer(nav.getUser().getUserId());
-            UserServices userEJB = (UserServices) userHome.findByPrimaryKey(key);
+            UserServices userEJB = userHome.findByPrimaryKey(key);
             uTx = Transaction.get();
             uTx.begin();
             userEJB.setUser(nav.getUser());
@@ -134,7 +132,6 @@ public final class Data {
                     contestTag.addTag(new ValueTag("ShortDaylight", "EST"));
                     contestTag.addTag(new ValueTag("LongDaylight", "Eastern Standard Time"));
                 }
-                java.sql.Date today = DateTime.getCurrentDate();
                 result.addTag(contestTag);
             }
         } catch (Exception e) {
