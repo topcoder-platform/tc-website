@@ -16,8 +16,8 @@
   import com.topcoder.common.web.xml.*; 
   import com.topcoder.common.web.data.*;
   import com.topcoder.common.web.error.*;
-  import com.topcoder.common.Log;
   import com.topcoder.common.TCContext;
+  import org.apache.log4j.*;
   
 
   public final class Challenge  {
@@ -30,6 +30,7 @@
     private static final String ROUND_MENU_PAGE        = DIR+"challengeroundmenu.xsl";
     private static final String ROUNDSEGMENT_MENU_PAGE = DIR+"roundsegmentmenu.xsl";
     private static final String CONTEST_RESULTS_PAGE   = DIR+"contestresults.xsl";
+    private static Category log = Category.getInstance( Challenge.class.getName() );
 
 
     ///////////////////////////////////////////////////////////////////////////////////
@@ -99,8 +100,8 @@
           roomList = contestEJB.getRoomList(roundId );
           contestHome = null;
         } catch (Exception e) {
-          Log.msg("Challenge: getRoomList error retrieving room list .");
-          Log.msg("MSG: " + e);
+          log.error("Challenge: getRoomList error retrieving room list .");
+          log.error("MSG: " + e);
           throw new NavigationException("DB ERROR", XSL.NAVIGATION_ERROR_URL);
         }
         finally {
@@ -115,7 +116,7 @@
         }
 
         document.addTag(contestTag);
-        Log.msg( VERBOSE, document.getXML(2) );
+        log.debug( document.getXML(2) );
         String xsldocURLString = ROOM_MENU_PAGE;
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -149,28 +150,35 @@
           int roomId = 0;
           try {
            roundId = Integer.parseInt(request.getParameter("roundid"));
-          } catch (Exception ex) { ex.printStackTrace(); }
+          } catch (Exception ignore) {}
           try {
            filter = Integer.parseInt(request.getParameter("filter"));
-          } catch (Exception ex) { ex.printStackTrace(); }
+          } catch (Exception ignore) {}
           try {
             roomId = Integer.parseInt(request.getParameter("roomid"));
-          } catch (Exception ex) { ex.printStackTrace(); }
+          } catch (Exception ignore) {}
          if (roomId == 0) {
               roomId = ((Integer)sessionObjects.get("RoomId")).intValue();
+              log.warn("Challenge: getChallengeList: roomId set to "+roomId+" from session");
          } else {
               sessionObjects.put("RoomId", new Integer(roomId));
+              log.warn("Challenge: getChallengeList: roomId added to session as "+roomId);
          }
          if (roundId == 0) {
               roundId = ((Integer)sessionObjects.get("RoundId")).intValue();
+              log.warn("Challenge: getChallengeList: roundId set to "+roundId+" from session");
          } else {
               sessionObjects.put("RoundId", new Integer(roundId));
+              log.warn("Challenge: getChallengeList: roundId added to session as "+roundId);
          }
+          log.debug("Challenge: getChallengeList: filter set to "+filter);
+          log.debug("Challenge: getChallengeList: roundId set to "+roundId);
+          log.debug("Challenge: getChallengeList: roomId set to "+roomId);
           challengeList = contestEJB.getChallengeList(roundId, roomId, filter);
           contestHome = null;
         } catch (Exception e) {
-          Log.msg("Challenge: getChallengeList error retrieving challenge list .");
-          Log.msg("MSG: " + e);
+          log.error("Challenge: getChallengeList error retrieving challenge list .");
+          log.error("MSG: " + e);
           throw new NavigationException("DB ERROR", XSL.NAVIGATION_ERROR_URL);
         }
         finally {
@@ -185,7 +193,7 @@
         }
 
         document.addTag(contestTag);
-        Log.msg( VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = CHALLENGE_MENU_PAGE;
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -214,12 +222,11 @@
         try {
           contestEJB = contestHome.create();
           int challengeId = Integer.parseInt(request.getParameter("remove"));
-          //contestEJB.removeChallenge(challengeId);
-System.out.println ( "  NOTE:  ContestAdminServicesBean.removeChallenge(challengeId) METHOD REMOVED" );
+          contestEJB.nullifyChallenge(challengeId);
           contestHome = null;
         } catch (Exception e) {
-          Log.msg("Challenge: removeChallenge error removing challenge .");
-          Log.msg("MSG: " + e);
+          log.error("Challenge: removeChallenge error removing challenge .");
+          log.error("MSG: " + e);
           throw new NavigationException("DB ERROR", XSL.NAVIGATION_ERROR_URL);
         }
         finally {
@@ -252,8 +259,8 @@ System.out.println ( "  NOTE:  ContestAdminServicesBean.removeChallenge(challeng
           contestEJB.overturnChallenge(challengeId);
           contestHome = null;
         } catch (Exception e) {
-          Log.msg("Challenge: overturnChallenge error overturning challenge .");
-          Log.msg("MSG: " + e);
+          log.error("Challenge: overturnChallenge error overturning challenge .");
+          log.error("MSG: " + e);
           throw new NavigationException("DB ERROR", XSL.NAVIGATION_ERROR_URL);
         }
         finally {
@@ -287,8 +294,8 @@ System.out.println ( "  NOTE:  ContestAdminServicesBean.removeChallenge(challeng
           roundList = contestEJB.getRoundList();
           contestHome = null;
       } catch (Exception e) {
-        Log.msg("Challenge: getRoundMenuScreen error retrieving contest list .");
-        Log.msg("MSG: " + e);
+        log.error("Challenge: getRoundMenuScreen error retrieving contest list .");
+        log.error("MSG: " + e);
         throw new NavigationException("DB ERROR", XSL.NAVIGATION_ERROR_URL);
       }
       finally {
@@ -309,7 +316,7 @@ System.out.println ( "  NOTE:  ContestAdminServicesBean.removeChallenge(challeng
 
   try {
       document.addTag(contestTag);
-      Log.msg(VERBOSE, document.getXML(2) );
+      log.debug(document.getXML(2) );
       String xsldocURLString = ROUND_MENU_PAGE;
       nav.setScreen(xsldocURLString);
       result = HTMLmaker.render(document, xsldocURLString, null);
