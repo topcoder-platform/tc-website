@@ -439,8 +439,6 @@ the morning and afternoon drive-time slots for the past month...<A CLASS="bodyGe
 <!-- Software Leader Board Ends -->
 
 <!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
-<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A> -->
-
 
 <!-- <A HREF="/?&amp;t=schedule&amp;c=oraclesurv_rules">
 <IMG SRC="/i/oraclesurv_promo.gif" ALT="Oracle Code Survivor" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->

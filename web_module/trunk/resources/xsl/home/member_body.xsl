@@ -545,12 +545,96 @@ across the board...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl
     <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
     </MAP>
 <!--SRM Sponsor Ends-->
+
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
-<A HREF="/?&amp;t=development&amp;c=components">
-<IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="1" BORDER="0"/></A>
-<!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
-<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A> -->
+
+<!-- Software Promo Begins -->
+					<A HREF="/?&amp;t=development&amp;c=comp_projects"><IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="128" VSPACE="1" BORDER="0"/></A>
+<!-- Software Promo Ends -->
+
+<!-- Software Leader Board Begins -->
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif">
+				<TR><TD HEIGHT="17" CLASS="moduleTitle" VALIGN="middle"><IMG SRC="/i/module_labels_tcs_coders.gif" ALT="TopCoder Software Leaders" WIDTH="226" HEIGHT="17" BORDER="0"/></TD></TR>
+			</TABLE>
+
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
+				<TR VALIGN="top">
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="3" BORDER="0"/></TD>
+					<TD WIDTH="59%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+					<TD WIDTH="39%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="3" BORDER="0"/></TD>
+				</TR>              
+							
+				<TR VALIGN="middle">
+					<TD WIDTH="10" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="15" BORDER="0"/></TD>
+					<TD CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">Handle</TD>
+					<TD CLASS="statTextBig" ALIGN="right" BACKGROUND="/i/steel_bluebv_bg.gif" NOWRAP="nowrap">Average Score</TD>  
+					<TD WIDTH="10" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="15" BORDER="0"/></TD>
+				</TR>              
+							
+				<TR VALIGN="top">
+					<TD COLSPAN="4" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>                             
+							
+				<TR VALIGN="top">
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+					<TD CLASS="statText"><A CLASS="coderTextYellow" HREF="/stat?c=member_profile&amp;cr=296145">srowen</A></TD>
+					<TD CLASS="statText" ALIGN="right">87.54</TD>
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>             
+							
+				<TR VALIGN="top">
+					<TD COLSPAN="4" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>                             
+							
+				<TR VALIGN="top">
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+					<TD CLASS="statText"><A CLASS="coderTextRed" HREF="/stat?c=member_profile&amp;cr=158067">KurtSteinKraus</A></TD>
+					<TD CLASS="statText" ALIGN="right">83.78</TD>
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>             
+							
+				<TR VALIGN="top">
+					<TD COLSPAN="4" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>                             
+							
+				<TR VALIGN="top">
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+					<TD CLASS="statText"><A CLASS="coderTextGray" HREF="/stat?c=member_profile&amp;cr=302729">kislookhin</A></TD>
+					<TD CLASS="statText" ALIGN="right">82.40</TD>
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>             
+							
+				<TR VALIGN="top">
+					<TD COLSPAN="4" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>                             
+							
+				<TR VALIGN="top">
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+					<TD CLASS="statText"><A CLASS="coderTextGreen" HREF="/stat?c=member_profile&amp;cr=299180">isv</A></TD>
+					<TD CLASS="statText" ALIGN="right">81.52</TD>
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>             
+							
+				<TR VALIGN="top">
+					<TD COLSPAN="4" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>                             
+							
+				<TR VALIGN="top">
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+					<TD CLASS="statText"><A CLASS="coderTextYellow" HREF="/stat?c=member_profile&amp;cr=150940">orb</A></TD>
+					<TD CLASS="statText" ALIGN="right">81.38</TD>
+					<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+				</TR>             
+							
+				<TR>
+					<TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+				</TR>                       
+			</TABLE>
+<!-- Software Leader Board Ends -->
+
+<!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02"> -->
   
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
      <xsl:choose>
