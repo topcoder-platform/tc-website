@@ -1543,6 +1543,10 @@ public class TCLoadRound extends TCLoad {
         ResultSet rs = null;
         ResultSet rs2 = null;
         StringBuffer query = null;
+        int round_id = 0;
+        int room_id = 0;
+        int coder_id = 0;
+
 
         try {
             query = new StringBuffer(100);
@@ -1730,9 +1734,9 @@ public class TCLoadRound extends TCLoad {
             }
 
             while (rs.next()) {
-                int round_id = rs.getInt(1);
-                int room_id = rs.getInt(2);
-                int coder_id = rs.getInt(3);
+                round_id = rs.getInt(1);
+                room_id = rs.getInt(2);
+                coder_id = rs.getInt(3);
 
                 psDel.clearParameters();
                 psDel.setInt(1, round_id);
@@ -1800,7 +1804,9 @@ public class TCLoadRound extends TCLoad {
             log.info("Room_result records copied = " + count);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'room_result' table failed.\n" +
+            throw new Exception("Load of 'room_result' table failed for coder_id " +
+                            coder_id + ", round_id " + round_id +
+                            ", room_id " + room_id + "\n" +
                     sqle.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
