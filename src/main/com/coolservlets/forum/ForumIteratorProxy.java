@@ -78,7 +78,6 @@ class ForumIteratorProxy extends IteratorProxy {
         //Dummy call to super-class. This specialized iterator proxy doesn't
         //use the superclass like the other iterators do.
         super(iterator, authorization, permissions);
-        log.debug("begin ForumIteratorProxy instantiation");
 
         while (iterator.hasNext()) {
             Forum forum = (Forum)iterator.next();
@@ -98,7 +97,6 @@ class ForumIteratorProxy extends IteratorProxy {
             }
         }
 
-        log.debug("end ForumIteratorProxy instantiation");
         this.iterator = forums.listIterator();
     }
 
