@@ -53,12 +53,14 @@ return false;
 		</div>
 
 			<span valign=top>
-         <table border="0" cellpadding="10" cellspacing="0" align="left">
+         <table border="0" cellpadding="10" cellspacing="0" align="right">
             <tr>
                <td align="center" class="bodyText">
                <i>Click one of the<br>companies below for more info<br>on their job openings</i>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=akamai"><img src="/i/contracting/akamai_logo.gif" border=0/></A>
+               <hr noshade="noshade" size="1" />
+               <A href="/tc?module=Static&d1=contracting&d2=goldengate"><img src="/i/contracting/goldengate_logo.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=jumptrading"><img src="/i/contracting/jumptrading_logo.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
