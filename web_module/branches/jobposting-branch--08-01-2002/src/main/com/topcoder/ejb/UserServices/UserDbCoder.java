@@ -270,8 +270,8 @@ final class UserDbCoder {
                 ps.setFloat(4, currentSchool.getGpa());
                 ps.setFloat(5, currentSchool.getGpaScale());
             } else {
-                ps.setFloat(4, Types.NULL);
-                ps.setFloat(5, Types.NULL);
+                ps.setNull(4, Types.FLOAT);
+                ps.setNull(5, Types.FLOAT);
             }
             int RetVal = ps.executeUpdate();
             currentSchool.setModified("S");
@@ -701,8 +701,8 @@ final class UserDbCoder {
                 } else {
                     log.debug("setting gpa null");
                     log.debug("setting gpaScale");
-                    ps.setFloat(4, Types.NULL);
-                    ps.setFloat(5, Types.NULL);
+                    ps.setNull(4, Types.FLOAT);
+                    ps.setNull(5, Types.FLOAT);
                 }
                 ps.executeUpdate();
                 currentSchool.setModified("S");
