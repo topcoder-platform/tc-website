@@ -24,32 +24,27 @@
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include><!-- Header Ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width=700 border=0 cellpadding=0 cellspacing=0 align=center>
     <tr valign="top">
-<!-- Left Column Begins -->
-        <td width="25"><img src="/i/corp/clear.gif" width="25" height="11" alt="" border="0"></td>
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="6"><img src="/i/corp/clear.gif" width="6" height="8" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
-        <td class="bodytext" width="100%" align="center">
-
-            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+        <td class="bodyText" width="100%" align=center>
+			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
-                    <td class="bodytext" width="100%">
-                        <div align="center">
+                    <td class=bodyText colspan=2>
+					<p>
                         <tces:trailIterator id="trailItem" trailList="<%=CoderDemographicsTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
                         </tces:trailIterator>
-                        </div>
-                    </td>
-                </tr>
+					<br/>
+					<span class=testHead>Coder Demographic Info</span>
+					<br/><br/>
+					</td>
+				</tr>
+
             </table>
 
-            <table cellspacing="10" cellpadding="0" border="0">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr>
                     <td class="bodyText" align="left">
                         <strong>Member Profile: <%= CoderDemographicsTask.getMemberInfo().getItem(0, "handle").toString()%></strong><br>
@@ -89,13 +84,10 @@
             </table>             
 <% } %>
              
-            <h2>Coder Demographic Info</h2>
-                        
-            <table id="dataTable" cellspacing="0" cellpadding="5" border="0">               
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
-                    <td class="testTableTitle">Question</td>
-                    <td class="testTableTitle">&#160;&#160;</td>
-                    <td class="testTableTitle">Response</td>
+                    <td class="screeningHeader" width="100%">Question</td>
+                    <td class="screeningHeader" align=right>Response</td>
                 </tr>
                 
                 <% int i=0; %>
@@ -103,9 +95,8 @@
                 <% i++; %>
                             
                 <tr>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)question.get("question") %></td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><strong><%= (String)question.get("response") %></strong></td>
+                    <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= (String)question.get("question") %></td>
+                    <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right nowrap=nowrap><%= (String)question.get("response") %></td>
                 </tr>
                 </tces:mapIterator>
 
@@ -115,19 +106,6 @@
 
         </td>
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-        <td width="6"><img src="/i/corp/clear.gif" width="6" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"><br>
-        </td>
-<!-- Right Column Ends -->
-
-<!-- Gutter -->
-        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
     </tr>
 </table>
 
