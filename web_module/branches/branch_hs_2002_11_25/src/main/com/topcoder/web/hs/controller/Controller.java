@@ -56,22 +56,6 @@ public class Controller extends HttpServlet {
                 /* and finally for PermissionExceptions only */
                 try {
 
-                    /* if im not being called by my right name, correct the client asap! */
-                    if(!canonpath.equals(request.getRequestURI())) {
-
-                        String ref = request.getHeader("Referer");
-                        if(ref!=null) log.warn("mangled servlet path in request linked from page "+ref);
-
-                        /* trying to redirect a post will probably not improve the situation
-                         * if we got this far, though, so only take evasive action on gets.
-                         */
-                        if(request.getMethod().equals("GET")) {
-                            log.info("dispensing with request by redirecting to proper servlet name");
-                            response.sendRedirect(response.encodeRedirectURL(canonpath+qtail));
-                            return;
-                        }
-                    }
-
                     String cmd = Constants.checkNull(request.getParameter("module"));
                     if(cmd.equals("")) cmd = "Home";
                     if(!Constants.isLegal(cmd)) throw new NavigationException("invalid command: "+cmd);
