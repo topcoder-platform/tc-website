@@ -398,6 +398,264 @@ public class RegistrationHelper {
     }
   }
 
+  public static void populateCoachWithDefaults(CoachRegistrationBean _crb) {
+    _crb.setUserId(null);
+    _crb.setFirstName("");
+    _crb.setLastName("");
+    _crb.setStateCode("");
+    _crb.setSchoolId(new Long(-1));
+    _crb.setHandle("");
+    _crb.setChangePassword(false);
+    _crb.setPassword("");
+    _crb.setConfirmPassword("");
+    _crb.setEmail("");
+    _crb.setConfirmEmail("");
+    _crb.setEditorId(new Integer(-1));
+    _crb.setLanguageId(new Integer(-1));
+    _crb.setAgreeTerms(false);
+  }
+
+  public static void populateCoachFromRequest(ServletRequest _request,
+                                              CoachRegistrationBean _crb)
+                                                              throws Exception {
+
+    _crb.setFirstName(getParameter(_request,"first_name",_crb.getFirstName()));
+    _crb.setLastName(getParameter(_request,"last_name",_crb.getLastName()));
+    _crb.setStateCode(getParameter(_request,"state_code",_crb.getStateCode()));
+    _crb.setSchoolId(getParameterLong(_request,"school_id",_crb.getSchoolId()));
+    _crb.setHandle(getParameter(_request,"handle",_crb.getHandle()));
+    _crb.setPassword(getParameter(_request,"password",_crb.getPassword()));
+    _crb.setConfirmPassword(getParameter(_request,"confirm_password",
+                                         _crb.getConfirmPassword()));
+    _crb.setEmail(getParameter(_request,"email",_crb.getEmail()));
+    _crb.setConfirmEmail(getParameter(_request,"confirm_email",
+                                      _crb.getConfirmEmail()));
+    _crb.setEditorId(getParameterInteger(_request,"editor_id",
+                                         _crb.getEditorId()));
+    _crb.setLanguageId(getParameterInteger(_request,"language_id",
+                                           _crb.getLanguageId()));
+    _crb.setAgreeTerms("true".equals(getParameter(_request,"terms","false")));
+
+  }
+
+  public static void populateCoachFromSession(SessionInfoBean _sib,
+                                              CoachRegistrationBean _crb)
+                                                              throws Exception {
+
+    if (!_sib.isCoach()) {
+      throw(new Exception(INCORRECT_GROUP));
+    }
+
+    Context ctx=TCContext.getInitial();
+    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataAccessInt dai=new CachedDataAccess(ds);
+    Map map=new HashMap();
+
+    map.put(DataAccessConstants.COMMAND,"coach_data");
+    map.put(USER_ID_INPUT_CODE,new Long(_sib.getUserId()));
+    Request req=new Request(map);
+    Map data=dai.getData(req);
+
+    ResultSetContainer rsc;
+    ResultSetContainer.ResultSetRow rsr;
+
+    rsc=(ResultSetContainer)data.get("coach_data");
+    Iterator iterator=rsc.iterator();
+    if (!iterator.hasNext()) {
+      throw(new Exception(NO_USER_FOUND));
+    }
+    rsr=(ResultSetContainer.ResultSetRow)iterator.next();
+
+    _crb.setUserId(new Long(_sib.getUserId()));
+
+    _crb.setFirstName((String)rsr.getItem("first_name").getResultData());
+    _crb.setLastName((String)rsr.getItem("last_name").getResultData());
+    _crb.setStateCode((String)rsr.getItem("state_code").getResultData());
+    _crb.setSchoolId((Long)rsr.getItem("school_id").getResultData());
+    _crb.setEmail((String)rsr.getItem("email").getResultData());
+    _crb.setConfirmEmail((String)rsr.getItem("email").getResultData());
+    _crb.setEditorId((Integer)rsr.getItem("editor_id").getResultData());
+    _crb.setLanguageId((Integer)rsr.getItem("language_id").getResultData());
+  }
+
+  public static void getCoachStaticContent(CoachRegistrationBean _crb)
+                                                              throws Exception {
+  
+    Context ctx=TCContext.getInitial();
+    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataAccessInt dai=new CachedDataAccess(ds);
+    Map map=new HashMap();
+
+    map.put(DataAccessConstants.COMMAND,"coach_form");
+    Request req=new Request(map);
+    Map data=dai.getData(req);
+
+    ResultSetContainer rsc;
+    ResultSetContainer.ResultSetRow rsr;
+
+    rsc=(ResultSetContainer)data.get("state_list");
+    List state_list=new ArrayList();
+    state_list.add(new ListPairBean(null,"Pick a state"));
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      String state_code=(String)rsr.getItem("state_code").getResultData();
+      String state_name=(String)rsr.getItem("state_name").getResultData();
+      state_list.add(new ListPairBean(state_code,state_name));
+    }
+
+    _crb.setStateList(state_list);
+
+    rsc=(ResultSetContainer)data.get("editor_list");
+    List editor_list=new ArrayList();
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      Integer editor_id=(Integer)rsr.getItem("editor_id").getResultData();
+      String editor_desc=(String)rsr.getItem("editor_desc").getResultData();
+      editor_list.add(new ListPairBean(editor_id,editor_desc));
+    }
+
+    _crb.setEditorList(editor_list);
+
+    rsc=(ResultSetContainer)data.get("language_list");
+    List language_list=new ArrayList();
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      Integer language_id=(Integer)rsr.getItem("language_id").getResultData();
+      String language_name=(String)rsr.getItem("language_name").getResultData();
+      language_list.add(new ListPairBean(language_id,language_name));
+    }
+
+    _crb.setLanguageList(language_list);
+
+    List school_list=new ArrayList();
+    school_list.add(new ListPairBean(null,"Pick a school"));
+    if (isValidListValue(_crb.getStateCode(),_crb.getStateList())) {
+      map.put(DataAccessConstants.COMMAND,"state_schools");
+      map.put(STATE_INPUT_CODE,_crb.getStateCode());
+      req=new Request(map);
+      Map schools=dai.getData(req);
+
+      rsc=(ResultSetContainer)schools.get("state_schools");
+      for (Iterator i=rsc.iterator();i.hasNext();) {
+        rsr=(ResultSetContainer.ResultSetRow)i.next();
+        Long school_id=(Long)rsr.getItem("school_id").getResultData();
+        String full_name=(String)rsr.getItem("full_name").getResultData();
+        school_list.add(new ListPairBean(school_id,full_name));
+      }
+
+    }
+    _crb.setSchoolList(school_list);
+
+    TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
+    TermsOfUse tou=touh.create();
+    _crb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
+  }
+
+  public static void createCoach(CoachRegistrationBean _crb)
+                                                              throws Exception {
+    /* !!This is a hack!! Because the persisting is done in a web container, or
+    * servlet, its not possible to use EJBContext.getUserTransaction(). Instead
+    * we simply get a UserTransaction object for each database we are accessing.
+    * The problem is that both commits cannot happen atomically. Hence errors in
+    * one database will not force a rollback in another. This should be fixed!
+    */
+    UserTransaction utx_common=null;
+    UserTransaction utx_tchs=null;
+
+    try {
+      /*utx=EJBContext.getUserTransaction();
+      utx.begin();*/
+
+      Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
+                                       ApplicationServer.SECURITY_HOST);
+
+      // this doesn't work because the JBoss context doesn't support
+      // transactions
+      /*utx_common=(UserTransaction)
+                                ctx.lookup("javax.transaction.UserTransaction");
+      utx_common.begin();*/
+
+      PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
+                                ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+      PrincipalMgrRemote pmr=pmrh.create();
+
+      TCSubject tcs=new TCSubject(0);
+      UserPrincipal up=pmr.createUser(_crb.getHandle(),_crb.getPassword(),tcs);
+      long user_id=up.getId();
+
+      Collection groups=pmr.getGroups(tcs);
+      for (Iterator iterator=groups.iterator();iterator.hasNext();) {
+        GroupPrincipal gp=(GroupPrincipal)iterator.next();
+        if (gp.getName().equals(COACH_GROUP_NAME)) {
+          pmr.addUserToGroup(gp,up,tcs);
+        }
+      }
+
+      ctx=TCContext.getInitial();
+
+      utx_tchs=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
+      utx_tchs.begin();
+
+      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
+      User user=uh.create();
+      user.createUser(user_id,_crb.getHandle(),NEW_USER_TYPE);
+      user.setFirstName(user_id,_crb.getFirstName());
+      user.setLastName(user_id,_crb.getLastName());
+
+      UserTermsOfUseHome utouh=(UserTermsOfUseHome)
+                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
+      UserTermsOfUse user_terms_of_use=utouh.create();
+      user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
+
+      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
+      Email email=eh.create();
+      long email_id=email.createEmail(user_id);
+      email.setEmailTypeId(email_id,user_id,EMAIL_TYPE_ID_PRIMARY);
+      email.setAddress(email_id,user_id,_crb.getEmail());
+
+      CoderHome ch=(CoderHome)ctx.lookup(CoderHome.EJB_REF_NAME);
+      Coder coder=ch.create();
+      coder.createCoder(user_id);
+      coder.setMemberSince(user_id,new java.sql.Date(new Date().getTime()));
+      coder.setEditorId(user_id,_crb.getEditorId().intValue());
+      coder.setLanguageId(user_id,_crb.getLanguageId().intValue());
+
+      RatingHome rh=(RatingHome)ctx.lookup(RatingHome.EJB_REF_NAME);
+      Rating rating=rh.create();
+      rating.createRating(user_id);
+
+      /*utx.commit();*/
+
+      /*utx_common.commit();*/
+      utx_tchs.commit();
+    }
+    catch (Exception _e) {
+      _e.printStackTrace();
+      /*if (utx!=null) {
+        try {
+          utx.rollback();
+        }
+        catch (Exception _e1) {
+
+      }*/
+      if (utx_common!=null) {
+        try {
+          utx_common.rollback();
+        }
+        catch (Exception _ex) {
+        }
+      }
+      if (utx_tchs!=null) {
+        try {
+          utx_tchs.rollback();
+        }
+        catch (Exception _ex) {
+        }
+      }
+      throw(_e);
+    }
+  }
+
   private static String getParameter(ServletRequest _request,String _param,
                                      String _default) {
     String value=_request.getParameter(_param);
