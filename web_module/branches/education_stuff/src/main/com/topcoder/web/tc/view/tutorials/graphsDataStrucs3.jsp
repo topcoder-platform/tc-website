@@ -152,7 +152,7 @@ Getting back to the actual algorithm now, the beautiful part is that it applies 
 <br/><br/>
 There are some extremely nice properties as well, since we are picking the node with the least total cost so far to explore first, the first time we visit a node is the best path to that node (unless there are negative weight edges in the graph).  So we only have to visit each node once, and the really nice part is if we ever hit the target node, we know that we are done.
 <br/><br/>
-For the example here we will be using KiloManX, from SRM 181, the Div 1 1000.  This is an excellent example of the application of the Heap Dijkstra problem to what appears to be a Dynamic Programming question initially.  In this problem the edge weight between nodes changes based on what weapons we have picked up.  So in our node we at least need to keep track of what weapons we have picked up, and the current amount of shots we have taken (which will be our cost).  The really nice part is that the weapons that we have picked up corresponds to the bosses that we have defeated as well, so we can use that as a basis for our visited structure.  If we represent each weapon as a bit in an integer, we will have to store a maximum of 32,768 values (2^15, as there is a maximum of 15 weapons).  So we can make our visited array simply be an array of 32,768 booleans.  Defining the ordering for our nodes is very easy in this case, we want to explore nodes that have lower amounts of shots taken first, so given this information we can define our basic structure to be as follows:
+For the example here we will be using <A href="/tc?module=ProblemDetail&rd=4725&pm=2288">KiloManX</A>, from SRM 181, the Div 1 1000.  This is an excellent example of the application of the Heap Dijkstra problem to what appears to be a Dynamic Programming question initially.  In this problem the edge weight between nodes changes based on what weapons we have picked up.  So in our node we at least need to keep track of what weapons we have picked up, and the current amount of shots we have taken (which will be our cost).  The really nice part is that the weapons that we have picked up corresponds to the bosses that we have defeated as well, so we can use that as a basis for our visited structure.  If we represent each weapon as a bit in an integer, we will have to store a maximum of 32,768 values (2^15, as there is a maximum of 15 weapons).  So we can make our visited array simply be an array of 32,768 booleans.  Defining the ordering for our nodes is very easy in this case, we want to explore nodes that have lower amounts of shots taken first, so given this information we can define our basic structure to be as follows:
 <pre>
 boolean visited[32768];
 
@@ -207,10 +207,10 @@ int leastShots(String[] damageChart, int[] bossHealth) {
 </pre>
 There are a huge number of these types of problems on TopCoder; here are some excellent ones to try out:
 <br/><br/>
-SRM 150 - Div 1 1000 - RoboCourier<br/>
-SRM 194 - Div 1 1000 - IslandFerries<br/>
-SRM 198 - Div 1 500 - DungeonEscape<br/>
-TCCC '04 Round 4 - 500 - Bombman
+SRM 150 - Div 1 1000 - <A href="/tc?module=ProblemDetail&rd=4555&pm=1749">RoboCourier</A><br/>
+SRM 194 - Div 1 1000 - <A href="/tc?module=ProblemDetail&rd=5069&pm=2437">IslandFerries</A><br/>
+SRM 198 - Div 1 500 - <A href="/tc?module=ProblemDetail&rd=5073&pm=2449">DungeonEscape</A><br/>
+TCCC '04 Round 4 - 500 - <A href="/tc?module=ProblemDetail&rd=5009&pm=2274">Bombman</A>
 <br/><br/>
 <a name="floydWarshall"></a>
 <span class=bodySubtitle>Floyd-Warshall</span><br/>
@@ -225,7 +225,7 @@ for (k = 1 to n)
 </pre>
 As you can see, this is extremely simple to remember and type.  If the graph is small (less than 100 nodes) then this technique can be used to great effect for a quick submission.
 <br/><br/>
-An excellent problem to test this out on is the Division 2 1000 from SRM 184.
+An excellent problem to test this out on is the Division 2 1000 from SRM 184, <A href="/tc?module=ProblemDetail&rd=4740&pm=2356">TeamBuilder</A>.
 			</p>
             
 

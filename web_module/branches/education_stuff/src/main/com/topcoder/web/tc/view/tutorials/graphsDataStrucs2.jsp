@@ -112,7 +112,7 @@ dfs(node current) {
  mark current as not visited;
 }
 </pre>
-The problem we will be discussing is grafixMask, a Division 1 500 point problem from SRM 211.  This problem essentially asks us to find the number of discrete regions in a grid that has been filled in with some values already.  Dealing with grids as graphs is a very powerful technique, and in this case makes the problem quite easy.
+The problem we will be discussing is <A href="/tc?module=ProblemDetail&rd=5857&pm=2998">grafixMask</A>, a Division 1 500 point problem from SRM 211.  This problem essentially asks us to find the number of discrete regions in a grid that has been filled in with some values already.  Dealing with grids as graphs is a very powerful technique, and in this case makes the problem quite easy.
 <br/><br/>
 We will define a graph where each node has 4 connections, one each to the node above, left, right and below.  However, we can represent these connections implicitly within the grid, we need not build out any new data structures.  The structure we will use to represent the grid in grafixMask is a two dimensional array of booleans, where regions that we have already determined to be filled in will be set to true, and regions that are unfilled are set to false.
 <br/><br/>
@@ -211,8 +211,8 @@ Congratulations, we have solved our first question using a depth first search!  
 <br/><br/>
 If you want to practice some DFS based problems, some good ones to look at are:
 <br/><br/>
-TCCC 03 Quarterfinals - Marketing - Div 1 500<br/>
-TCCC 03 Semifinals Room 4 - Circuits - Div 1 275
+TCCC 03 Quarterfinals - <A href="/tc?module=ProblemDetail&rd=4472&pm=1524">Marketing</A> - Div 1 500<br/>
+TCCC 03 Semifinals Room 4 - <A href="/tc?module=ProblemDetail&rd=4494&pm=1593">Circuits</A> - Div 1 275
 <br/><br/>
 <a name="queue"></a>
 <span class=bodySubtitle>Queue</span><br/>
@@ -357,7 +357,7 @@ int minTurns(String[] board) {
 </pre>
 This ended up being quite a bit more complicated than the basic Breadth First search implementation, but you can still see all of the basic elements in the code.  Now, if you want to practice more problems where Breadth First search is applicable, try these:
 <br/><br/>
-Inviational 02 Semifinal Room 2 - Div 1 500 - Escape
+Inviational 02 Semifinal Room 2 - Div 1 500 - <A href="/tc?module=ProblemDetail&rd=4371&pm=1170">Escape</A>
 			</p>
             
 

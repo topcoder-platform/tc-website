@@ -101,7 +101,7 @@ Finally, a set of examples is provided.  These give sample inputs against which 
 <span class=bodySubtitle>Solving a problem</span><br/>
 Now we'll walk through a simple problem and dissect it, bit by bit. 
 <br/><br/>
-Have a look at BettingMoney, the SRM 191 Division 2 Easy.  First we identify the parts of this problem.  In the statement itself, we first have the situation behind the problem - gambling.  Then we have a little bit of background information about the betting itself.  Then, we have a description of the input - data types, variable names, and what they represent.  After this we have the task: to determine what the net gain is for the day and return the amount in cents. 
+Have a look at <A href="/tc?module=ProblemDetail&rd=4775&pm=2297">BettingMoney</A>, the SRM 191 Division 2 Easy.  First we identify the parts of this problem.  In the statement itself, we first have the situation behind the problem - gambling.  Then we have a little bit of background information about the betting itself.  Then, we have a description of the input - data types, variable names, and what they represent.  After this we have the task: to determine what the net gain is for the day and return the amount in cents. 
 <br/><br/>
 Also note the two explanatory paragraphs at the end; the first provides an example of the input format and types, and the second gives a completely worked example, which should be extremely helpful to your understanding. 
 <br/><br/>
@@ -115,7 +115,7 @@ Finally, there's the examples section.  Often, the problem statement section wil
 <br/><br/>
 
 <span class=bodySubtitle>A More Complicated Example</span><br/>
-Now have a look at Poetry, the SRM 170 Div 2 Hard.  In this case, you may not be able to actually solve this in the time allotted.  That's ok - the emphasis should first be on understanding what the problem says, even if you can't code it in time. 
+Now have a look at <A href="/tc?module=ProblemDetail&rd=4655&pm=1835">Poetry</A>, the SRM 170 Div 2 Hard.  In this case, you may not be able to actually solve this in the time allotted.  That's ok - the emphasis should first be on understanding what the problem says, even if you can't code it in time. 
 <br/><br/>
 The first section tells you immediately what you want to do - you'll be given a poem, and you will have to determine what its rhyme scheme is.  The rest of the section clarifies what this actually means, in bottom-up fashion (from simpler concepts to more complicated ones).  It defines what a legal word is and how to extract words from a poem, and then it defines what it means when two words rhyme - that their ending patterns are equal.  The concept of ending pattern is then defined.  After all this, we find out what it means to have two lines of the poem rhyme: their last words have to rhyme.  Finally, (whew!) we are told how to actually construct the rhyme scheme and in what format to return it. 
 <br/><br/>
