@@ -6,7 +6,7 @@
   <xsl:import href="../includes/modules/intro.xsl"/>
   <xsl:import href="../includes/modules/module_login.xsl"/>
   <xsl:import href="../includes/modules/my_stats.xsl"/>
-  <xsl:import href="../includes/modules/countries.xsl"/>
+  <xsl:import href="../includes/modules/countries2.xsl"/>
   <xsl:import href="../includes/modules/srm_dates.xsl"/>
   <xsl:template name="global_left">
     <xsl:choose>
