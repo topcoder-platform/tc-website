@@ -50,12 +50,9 @@
   <TR>
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-                                    <FORM method="POST" name="frmInquire" ACTION="/">
-                                        <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="tcs_inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
-                                    </FORM>
                                     <B>Simple Cache Component Design</B>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Simple Cache';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
+                                    <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Simple Cache" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
                                     <BR/>
 <P>
 <B>Overview</B>
