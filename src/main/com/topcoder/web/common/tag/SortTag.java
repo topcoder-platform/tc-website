@@ -16,6 +16,7 @@ public class SortTag extends TagSupport {
     private int column;
 
     public void setColumn(int column) {
+        log.debug("setColumn called: " + column);
         this.column = column;
     }
 
