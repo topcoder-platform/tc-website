@@ -7,7 +7,7 @@
     <tr valign="top">
         <td ><img src="/i/clear.gif" width="170" height="1" alt="" border="0" /></td>
         <td width="100%" class="smallText" align="center">
-            <hr width="50%" noshade="noshade" />
+            <hr width="100%" noshade="noshade" />
             <p>Copyright &#169; 2003, TopCoder, Inc. All rights reserved.</p>
             <p>&#160;</p></td>
     </tr>
