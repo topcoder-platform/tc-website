@@ -31,7 +31,7 @@
             </TR>
             <TR>
               <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-              <TD BGCOLOR="#000000" ALIGN="center" NOWRAP=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/><A TARGET="_parent" HREF="/?t=jobs&amp;c=index" CLASS="globalNavSmall"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><!-- <IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/> --></TD>
+              <TD BGCOLOR="#000000" ALIGN="center" NOWRAP=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/><A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" VSPACE="5"/></A><A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><!-- <IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/> --></TD>
               <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right">
                  <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'"><BR/>
