@@ -46,26 +46,7 @@
 
         </td>
         <td width="20"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" hspace="15"></td>
-        <td width="100%" nowrap align="right">
-<% if( SessionInfo.isGuest() ) { %>
-           <table border="0" cellpadding="0" cellspacing="0" align="right">
-                <tr valign="middle">
-                  <form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
-                    <td nowrap class="loginText" align="right">User Name:&#160;&#160;</td>
-                    <td colspan="2" align="left"><input maxlength="15" size="12" name="<%=Login.KEY_USER_HANDLE%>" type="TEXT" onkeypress="submitEnter(event, document.frmMiniLogin)"></td>
-                </tr>
-
-                <tr valign="middle">
-                    <td nowrap class="loginText" align="right">Password:&#160;&#160;</td>
-                    <td align="left"><input maxlength="15" size="12" name="<%=Login.KEY_USER_PASS%>" type="Password" onkeypress="submitEnter(event, document.frmMiniLogin)"></td>
-                    <td nowrap class="loginText">&#160;&#160;<a href="javascript:document.frmMiniLogin.submit();" class="loginText">Login&#160;&gt;</a>
-                        </td></form>
-                </tr>
-            </table>
-<% } else { %>
-            &#160;
-<% } %>
-        </td>
+        <td width="99%" nowrap align="right">&#160;</td>
         <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
     </tr>
     <tr><td height="4" class="headStripe" colspan="5"><img src="/images/clear.gif" alt="" height="4" alt="" border="0"></td></tr>
