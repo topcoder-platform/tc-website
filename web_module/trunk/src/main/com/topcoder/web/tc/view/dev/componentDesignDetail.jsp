@@ -147,8 +147,8 @@
 
                             <p><strong>Registration</strong><br/>
                             <p>
-**Important Note:
-By registering to work on this project you are committing to delivering the specified requirements.  Failure to submit the project requirements by the specified date will result in a one month suspension from TopCoder design and development competitions.</p>
+                            **Important Note:
+                            By registering to work on this project you are committing to delivering the specified requirements.  Failure to submit the project requirements by the specified date will result in a one month suspension from TopCoder design and development competitions.</p>
                            <p>
                            <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
                                Registration is closed.

@@ -81,11 +81,20 @@
 
 <%-- Documentation --%>
                         <p><strong>Documentation</strong><br />
-                                All <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">documentation</a> for this project is available on the TopCoder Software web site.</p>
+                        All <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">documentation</a>
+                        for this project is available on the TopCoder Software web site.</p>
+
+                        <p><strong>Requirement Specification</strong><br />
+                           <p>View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project
+                            </p>
 
 <%-- Payment --%>
                         <p><strong>Payment</strong><br />
-                        TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed at the completion of the project*.</p>
+                        TopCoder will compensate members with first and second place submissions that have scored a
+                        minimum of 70. First place compensation will consist of both initial payments and royalties on
+                        the sale of the component. The initial payment will be distributed in two installments.
+                        First Milestone: When the winning solution is submitted and review board suggestions are integrated.
+                        Second Milestone: Is marked by the completion of the development project*.</p>
 
                         <p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 
@@ -132,13 +141,23 @@
 
 <%-- Register at TCS --%>
 
-                        <p><strong>View the <A target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project</strong>
-                        </p>
+                            <p><strong>Registration</strong><br/>
+                            <p>
+                            **Important Note:
+                            By registering to work on this project you are committing to delivering the specified requirements.  Failure to submit the project requirements by the specified date will result in a one month suspension from TopCoder design and development competitions.</p>
+                           <p>
+                           <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
+                               Registration is closed.
+                           <% } else { %>
+                               <% if (projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_INQUIRIES) { %>
+                               <strong><A href="/?t=development&amp;version=<rsc:item set="<%=projectDetail%>" name="version_id"/>&phase=<rsc:item set="<%=projectDetail%>" name="phase_id"/>&comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>&c=tcs_inquire&Project=<%=response.encodeURL(projectDetail.getStringItem(0, "component_name")+" Development")%>&date=<rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>">
+                                        Register</A> for this Component Project to get information necessary to submit a solution</strong>
+                               <% } else {%>
+                                 Registration is full.
+                               <% } %>
+                           <% } %>
 
-                        <p><strong><A href="/?t=development&amp;version=<rsc:item set="<%=projectDetail%>" name="version_id"/>&phase=<rsc:item set="<%=projectDetail%>" name="phase_id"/>&comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>&c=tcs_inquire&Project=<%=response.encodeURL(projectDetail.getStringItem(0, "component_name")+" Design")%>&date=<rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>">
-                                    Register</A> for this Component Project to get information necessary to submit a solution</strong>
-                        </p>
-
+                           </p>
                             <p><br /></p>
 
                             <p><strong>Upload Your Submission</strong><br/>
