@@ -218,6 +218,8 @@ public class PlacementInfoDetail extends Base {
             }
 
             getRequest().setAttribute("industrySkills", industrySkills);
+            setNextPage(Constants.PLACEMENT_INFO_DETAIL);
+            setIsNextPageInContext(true);
 
         } catch (TCWebException tce) {
             throw tce;
