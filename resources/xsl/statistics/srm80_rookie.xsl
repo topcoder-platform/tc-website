@@ -74,7 +74,7 @@
 		</TR>
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=editorial_archive">Archive</A></TD>
+			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
 		</TABLE>

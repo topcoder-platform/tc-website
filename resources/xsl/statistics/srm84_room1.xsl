@@ -65,15 +65,15 @@
     	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm84_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm84_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm84_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
 			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
@@ -82,37 +82,28 @@
 	</TR>
  	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
-<!--end contextual links <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> -->
+<!--end contextual links <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">NDBronson</A> -->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
-<P><B>Single Round Match 80</B><BR/>
-April 15, 2002</P>
+<P><B>Single Round Match 84</B><BR/>
+April 30, 2002</P>
 <P><B>Room 1 Review</B></P>
-
-<P>
-<A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A> jumped ahead early with 239.67 points on the
-easy problem.  However, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> came roaring back
-with 434.81 points on the 500 and an impressive 748.43
-points on the 1100, giving him a grand total of
-1405.46.  With a successful challenge of  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">doeth's</A> 500
-point problem, top ranked <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> looked good with a
-commanding lead at 1455.46 points.  However, during the
-system tests, a fault in his 500 point problem surfaced
-dropping him to 1020.65.  This dropped <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> into
-3rd and allowed 2nd ranked <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> to take the lead
-with 1168.21 points, and extend his win streak with his
-third consecutive room 1 win.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A> also continued
-to look good, with second place at 1135.06.  His score
-also gave him enough of a boost to take second away
-from long time competitor, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A>, who only solved the
-easy and medium problems and dropped down to 4th
-overall.  On the bottom side of things, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">doeth</A> only was
-only able to come up with a successful easy solution
-and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ambrose</A> seems to have not tried, dropping both of
-them well out of Room 1.
-</P>
-
-  
-    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">doeth</A> submitted first for 243.67 out of 250, followed almost immediately by 
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A>. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A> and 
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> both submitted about a minute later. After fifteen minutes everyone but 
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A>, who started with the 900 point problem, was done with the 250.  After twenty 
+minutes <B>dmwright</B> finished the 900 point and moved back to the 250, which he finished nine minutes later. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">derkuci</A>, 
+who skipped the 600 in favor of the 900 was the first to finish two problems.</P>
+<P>After 32 minutes, <B>NDBronson</B> finished the 600, for 372.67 points. <B>ZorbaTHut</B> was right behind him and finished his 600 a minute later. 
+It was not until 53 minutes into the competition that the last person, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">reid</A>, submitted 
+a second person.  However, this proved not to be a problem for <B>reid</B>, as he coded the 900 point problem in 14 minutes for 752.51 points, second 
+only to <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge</A>.  At intermission <B>John Dethridge</B> stood on top with his 
+division best 769.06 out of 900. <B>NDBronson</B> was 27.55 points behind him, and trailing by 69.5 in third was <B>reid</B>.  Challenging was pretty 
+light, with only one successful challenge by <B>ZorbaTHut</B> of <B>dmwright's</B> 600 point problem.  Additionally <B>NDBronson</B> had an unsuccessful 
+challenge of <B>ZorbaTHut</B> that dropped him from second into third, and moving <B>reid</B> up.   System testing caught more bugs and killed <B>John Dethridge's</B> 
+600 which dropped him out of the running.  It also killed two of <B>derkuci's</B> solutions, which cost him 140 ratings points.  So, at the end of the night, <B>reid</B> 
+had come from behind and beat out <B>NDBronson</B> by 8.05 points, who in turn beat third place <B>ZorbaTHut</B> by only 3.59 points.  As a result <B>reid's</B> 
+rating went up 132 points.  On the other side of things, <B>derkuci</B> dropped 140 points, knocking him out of the top 10.</P>
+<IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>

@@ -65,15 +65,15 @@
     	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
 			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
@@ -84,133 +84,105 @@
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
-<P><B>Single Round Match 80</B><BR/>
-April 15, 2002</P>
+<P><B>Single Round Match 78</B><BR/>
+April 9, 2002</P>
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
+<P>Div 1 - 250 - ChatParser<BR/>
+There was nothing tricky about this problem.  All you had to do was scan the string, and remove the patterns as necessary. There were a few approaches to this. 
+The most common was probably to scan the string from left to right, and if an eye is found, then check the next characters to see they match a face. 
+If they do, then just remove it and check again from the same position.  The highest scoring approach was that of <A HREF="/?stats&amp;c=last_match" CLASS="bodyGeneric">SnapDragon</A>.</P>
 
-<P>
-Division 1 easy - Sketch:<BR/>
-Most of the easy problems are quite easy and SRM 80's
-were no exception.  You just had to keep a 2D array of
-the states of every grid location and move around as
-the input says.  The only thing to watch for is bumping
-into the edge, in which case you do nothing.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">See
-ZorbaTHut's solution</A> of this for an example.
-</P>
+<P>Div 1 - 600 - VirtualMachine<BR/>
+This problem was pretty simple, in that it didn't require knowledge of any particular algorithms. However, it was a bit of code, and there were some opportunities to make mistakes. 
+The basic approach is simple, you just have a loop that increments your PC at each iteration and in the loop you have a bunch of else-if statements to perform all of the various 
+operations.  There were a couple special cases that you have to handle - overflow and memory access out of bounds - but these were simple to check.  All in all it was a pretty 
+easy problem, and all that it took was care and time.  See <A HREF="/?stats&amp;c=last_match" CLASS="bodyGeneric">NDBronson's</A> solution for the fastest submission of this problem.</P>
 
-<P>
-Division 1 medium - Integrate:<BR/>
-This was one of the easier mediums, as far as they go.
-After an easy parse, you simply integrate as
-specified.  After integrating all terms, you have to
-add them up, which is simple addition of fractions that
-we learned in grade school.  If you didn't do this in a
-way such that the sum stayed simplified, you could run
-into overflow problems on ints.  Also, some solutions
-put the negative sign on the denominator instead of the
-numerator, but they were in good company, as <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A>
-made the same mistake.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">See Garzahd's solution</A> in Room
-3 for a quick way to do this without a fraction class.
-</P>
+<P>Div 1 - 900 - FillRate<BR/>
+If the image is valid (the return is not -1) then it is very simple to find the minimum number of pixels required. For each color that is in the picture, you find the smallest 
+rectangle such that all of the pixels of that color are within the rectangle (the bounding rectangle for that color).  The minimum number of pixels is then simply the sum of the 
+areas of all these rectangles.</P>
 
-<P>
-Division 1 hard - Simulate:<BR/>
-This problem was a little bit tricky.  Simulating the
-circuit was pretty straightforward.  You just
-recursively get the outputs of each component for the
-state at time t, and use this to compute the state at
-time t+1.  However, in order to do this efficiently you
-had to do 2 things.  First you had to cache the results
-of each component at a given time step so that you
-didn't end up evaluating it over and over.  If you
-don't cache the results, then your solution will run in
-time O(24^49) or so, worst case.  The other thing that
-you have to notice is that the states loop.  Once you
-get to a state that you have previously reached, you
-know how many time steps it takes for the states to
-loop, and then you can do some clever arithmetic to
-figure out which state it ends up at.  For example, the
-2 bit binary counter looped through the states 00, 01,
-10, 11.  Thus its output at time t was t%4 in binary.
-<A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A>'s solution to this problem was by far the
-fastest, giving him well over a 100 points more than
-the nearest competitor.
-</P>
-<P><BR/><DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
+<P>In order to determine if a rectangle is valid, you need to check two things.  The first is that there are no empty ('.') pixels within any of the bounding rectangles. 
+The second is that there are no sets of colors where A is on top of B is on top of C is É on top of A.  Determining this is exactly analogous to finding loops in a graph. 
+Directed edges in the graph are constructed from every color to every other color that it must be on top of (have at least one pixel within a particular color's bounding rectangle). 
+Once all of the edges are constructed, there are a number of ways to find loops.  The fastest to code is probably the a variant of the Floyd-Warshall algorithm 
+(see <A HREF="/?stats&amp;c=last_match" CLASS="bodyGeneric">John Dethridge's</A> solution for an example).  If a path is found from a pixel to itself, then there is a loop in the 
+graph, and hence the picture is not valid.</P>
+<!--<P><BR/><DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
 <TR>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="left" BGCOLOR="#CCCCCC"><B>&#160;Problem<BR/>&#160;</B></TD>
-	<TD WIDTH="10%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Points<BR/>&#160;</B></TD>
+	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Points<BR/>&#160;</B></TD>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Submission Rate</B></TD>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Submission Succ.</B></TD>
-	<TD WIDTH="15%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Avg. Pts.<BR/>&#160;</B></TD>
-	<TD WIDTH="35%" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>High&#160;Score<BR/>&#160;</B></TD>
+	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Avg. Pts.<BR/>&#160;</B></TD>
+	<TD WIDTH="20%" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>High Score<BR/>&#160;</B></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
 <TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division I</TD></TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 1 - Sketch</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 1<BR/>ChatParser</TD>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
-	<TD CLASS="bodyText" ALIGN="right">95.27897%</TD>
-	<TD CLASS="bodyText" ALIGN="right">80.25751%</TD>
-	<TD CLASS="bodyText" ALIGN="right">185.33156</TD>
-	<TD CLASS="bodyText" ALIGN="center">ZorbaTHut<BR/>239.67</TD> 
+	<TD CLASS="bodyText" ALIGN="right">58.44%</TD>
+	<TD CLASS="bodyText" ALIGN="right">96.28%</TD>
+	<TD CLASS="bodyText" ALIGN="right">221</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson<BR/>244.20</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 2 - Integrate</TD>
-	<TD CLASS="bodyText" ALIGN="right">500</TD>
-	<TD CLASS="bodyText" ALIGN="right">78.11159%</TD>
-	<TD CLASS="bodyText" ALIGN="right">32.188843%</TD>
-	<TD CLASS="bodyText" ALIGN="right">302.54666</TD>
-	<TD CLASS="bodyText" ALIGN="center">Garzahd<BR/>446.88</TD> 
+	<TD CLASS="bodyText" ALIGN="left">Level 2<BR/>Pinball</TD>
+	<TD CLASS="bodyText" ALIGN="right">450</TD>
+	<TD CLASS="bodyText" ALIGN="right">95.81%</TD>
+	<TD CLASS="bodyText" ALIGN="right">51.63%</TD>
+	<TD CLASS="bodyText" ALIGN="right">326</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">Logan<BR/>412.42</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 3 - Simulate</TD>
-	<TD CLASS="bodyText" ALIGN="right">1100</TD>
-	<TD CLASS="bodyText" ALIGN="right">16.738197%%</TD>
-	<TD CLASS="bodyText" ALIGN="right">3.4334764%</TD>
-	<TD CLASS="bodyText" ALIGN="right">540.5</TD>
-	<TD CLASS="bodyText" ALIGN="center">NDBronson<BR/>748.43</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 3<BR/>CleaupCrew</TD>
+	<TD CLASS="bodyText" ALIGN="right">1050</TD>
+	<TD CLASS="bodyText" ALIGN="right">30.23%</TD>
+	<TD CLASS="bodyText" ALIGN="right">11.16%</TD>
+	<TD CLASS="bodyText" ALIGN="right">631</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">thekcc<BR/>981.45</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
 <TR><TD COLSPAN="6" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
-<TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division II (check back for info)</TD></TR>
-<!-- <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+<TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division II</TD></TR>
+<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 1 - Rain</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 1<BR/>Scoreboard</TD>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
 	<TD CLASS="bodyText" ALIGN="right">97.65%</TD>
 	<TD CLASS="bodyText" ALIGN="right">97.07%</TD>
 	<TD CLASS="bodyText" ALIGN="right">240</TD>
-	<TD CLASS="bodyText" ALIGN="center">kokon<BR/>249.16</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">kokon<BR/>249.16</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 2 - StringOps</TD>
-	<TD CLASS="bodyText" ALIGN="right">600</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 2<BR/>PoemCode</TD>
+	<TD CLASS="bodyText" ALIGN="right">500</TD>
 	<TD CLASS="bodyText" ALIGN="right">91.79%</TD>
 	<TD CLASS="bodyText" ALIGN="right">79.47%</TD>
 	<TD CLASS="bodyText" ALIGN="right">372</TD>
-	<TD CLASS="bodyText" ALIGN="center">WhiteShadow<BR/>478.40</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">WhiteShadow<BR/>478.40</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 3 - Sketch</TD>
-	<TD CLASS="bodyText" ALIGN="right">900</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 3<BR/>ToyPatrol</TD>
+	<TD CLASS="bodyText" ALIGN="right">1200</TD>
 	<TD CLASS="bodyText" ALIGN="right">47.80%</TD>
 	<TD CLASS="bodyText" ALIGN="right">3.23%</TD>
 	<TD CLASS="bodyText" ALIGN="right">601</TD>
-	<TD CLASS="bodyText" ALIGN="center">antimatter<BR/>742.48</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">antimatter<BR/>742.48</A></TD>
 </TR>
-<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR> -->
-</TABLE></DIV></P>
+<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+</TABLE></DIV></P>-->
     <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
-          <P><BR/></P>
-					</TD>
+By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>   
+          <P><BR/></P>					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
 				<TR>
