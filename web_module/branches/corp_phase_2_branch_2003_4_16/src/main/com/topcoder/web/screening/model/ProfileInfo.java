@@ -30,7 +30,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>profileId</code>.
      *
-     * @param profileId
+     * @param val
      */
     public void setProfileId( Long val )
     {
@@ -50,7 +50,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>profileName</code>.
      *
-     * @param profileName
+     * @param val
      */
     public void setProfileName( String val )
     {
@@ -70,7 +70,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>testSetA</code>.
      *
-     * @param testSetA
+     * @param val
      */
     public void setTestSetA( String val )
     {
@@ -81,7 +81,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>testSetA</code>.
      *
-     * @param testSetA
+     * @param val
      */
     public void setTestSetA( Long val )
     {
@@ -101,7 +101,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>problemSetList</code>.
      *
-     * @param problemSetList
+     * @param val
      */
     public void setProblemSetList( ResultSetContainer val )
     {
@@ -121,7 +121,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>testSetAList</code>.
      *
-     * @param testSetAList
+     * @param val
      */
     public void setTestSetAList( List val )
     {
@@ -141,7 +141,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>testSetBList</code>.
      *
-     * @param testSetBList
+     * @param val
      */
     public void setTestSetBList( List val )
     {
@@ -161,7 +161,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>companyProblemList</code>.
      *
-     * @param companyProblemList
+     * @param val
      */
     public void setCompanyProblemList( ResultSetContainer val )
     {
@@ -181,7 +181,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>languageList</code>.
      *
-     * @param languageList
+     * @param val
      */
     public void setLanguageList( ResultSetContainer val )
     {
