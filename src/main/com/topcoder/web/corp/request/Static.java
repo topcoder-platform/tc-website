@@ -47,6 +47,7 @@ public class Static extends BaseProcessor {
         if(!authorization.hasPermission(new PathResource(path.toString())))
             throw new NotAuthorizedException("access to page denied");
 
+        log.debug("next page: " + path.toString());
         setNextPage(path.toString());
         setIsNextPageInContext(true);
     }
