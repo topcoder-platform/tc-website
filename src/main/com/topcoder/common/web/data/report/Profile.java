@@ -10,10 +10,10 @@ public class Profile implements Serializable {
 
     private Query generalQuery;
     private Query demographicQuery;
-    private Query jobQuery;
+    private Query notifyQuery;
     private ResultItem[] generalInfo;
     private ArrayList demographicList;
-    private ArrayList jobList;
+    private ArrayList notifyList;
 
     private String handle;
     private String firstName;
@@ -73,17 +73,15 @@ public class Profile implements Serializable {
 
 
 
-    private static final int[] JOB_QUERY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
-    private static final String JOB_QUERY =
-            "SELECT company" +
-            " ,title" +
-            " ,start_month" +
-            " ,start_year" +
-            " ,end_month" +
-            " ,end_year" +
-            " FROM experience e" +
-            " WHERE coder_id = ?" +
-            " ORDER BY start_year, start_month";
+    private static final int[] NOTIFY_QUERY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
+    private static final String NOTIFY_QUERY =
+      " SELECT name" +
+           " , sort" +
+        " FROM coder_notify cn" +
+           " , notify_lu n" +
+       " WHERE n.notify_id = cn.notify_id" +
+         " AND cn.coder_id = ?" +
+       " ORDER BY n.sort";
 
 
     private static final int[] DEMOGRAPHIC_QUERY_TYPES = {ResultItem.STRING, ResultItem.STRING};
@@ -121,7 +119,7 @@ public class Profile implements Serializable {
         generalInfo = null;
         generalQuery = new Query(GENERAL_QUERY, GENERAL_QUERY_TYPES);
         demographicQuery = new Query(DEMOGRAPHIC_QUERY, DEMOGRAPHIC_QUERY_TYPES);
-        jobQuery = new Query(JOB_QUERY, JOB_QUERY_TYPES);
+        notifyQuery = new Query(NOTIFY_QUERY, NOTIFY_QUERY_TYPES);
     }
 
 
@@ -249,8 +247,8 @@ public class Profile implements Serializable {
         return demographicList;
     }
 
-    public ArrayList getJobList() {
-        return jobList;
+    public ArrayList getNotifyList() {
+        return notifyList;
     }
 
     public String toString() {
@@ -270,8 +268,8 @@ public class Profile implements Serializable {
 
         demographicQuery.setValue(getUserId());
         demographicList = demographicQuery.execute();
-        jobQuery.setValue(getUserId());
-        jobList = jobQuery.execute();
+        notifyQuery.setValue(getUserId());
+        notifyList = notifyQuery.execute();
     }
 
 }
