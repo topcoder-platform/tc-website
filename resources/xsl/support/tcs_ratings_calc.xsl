@@ -54,7 +54,7 @@
                 <B>New ratings are calculated as follows:</B>
                 <BR/>
                                     <BR/>
-                After each competition, each coder who submitted a solution to the competition is re-rated according to the following algorithm. Keep in mind that software competitions consist of the last 500 scored components of the same level.  The ranking of each coder is then determined based on the score the coder received compared to the scores of the components of the same level.
+                After each competition, each coder who submitted a solution to the competition is re-rated according to the following algorithm. Keep in mind that software competitions consist of the last 500 scored components of the same level.  The ranking of each coder is then determined based on the score the coder received compared to the scores of the components of the same level.  The rating used for the previous scores is the rating of the coder at the time the coder submitted the solution.
                 The average rating of everyone is then calculated:
                 <BR/>
                                     <BR/>
