@@ -51,7 +51,7 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P><B>TopCoder Adds China, New Zealand and Ireland To Its Developer Community</B></P>
+<P><B>China, New Zealand and Ireland Added to TopCoder Developer Community</B></P>
 <P>Host of Computer Programming Contests Continues To Expand Globally</P>
 
 <P>

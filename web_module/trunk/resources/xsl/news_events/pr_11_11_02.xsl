@@ -51,9 +51,7 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P><B>TopCoder Announces 16 Finalists in 
-2002 TopCoder Invitational Programming Tournament
-</B><BR/>
+<P><B>Sixteen Finalists Announced in 2002 TopCoder Invitational</B><BR/>
 Computer Programming Tournament Will Award $50,000 to Champion</P>
 
 <P>

@@ -51,7 +51,7 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P><B>TopCoder Announces Field for the 2002 TopCoder Invitational Programming Tournament</B><BR/>
+<P><B>Field Announced for 2002 TopCoder Invitational</B><BR/>
               Programmers From Around the World to Vie for a Share of $150,000</P>
 
 <P>

@@ -51,7 +51,7 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P><B>TopCoder Announces Sixteen Finalists for $150,000 Sun Microsystems and TopCoder Collegiate Challenge</B></P>
+<P><B>Sixteen Finalists Announced for $150,000 Sun Microsystems and TopCoder Collegiate Challenge</B></P>
 <P>Computer Programming Tournament Will Award $100,000 To Winner</P>
 
 <P>

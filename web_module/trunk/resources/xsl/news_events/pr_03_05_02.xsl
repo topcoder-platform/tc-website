@@ -51,7 +51,7 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
-<P><B>TopCoder Reaches 10,000 Members Milestone</B></P>
+<P><B>TopCoder Reaches 10,000 Member Milestone</B></P>
 <P>Host of Computer Programming Contests Sees Considerable Growth in the Last Six Months</P>
 <P>GLASTONBURY, CT., March 4, 2002 - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has reached the 10,000-member mark just one year into the company's existence.</P>
 <P>Almost 75 Percent of Membership Gained in Past Six Months</P>
