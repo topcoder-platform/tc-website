@@ -16,7 +16,7 @@ public interface Product extends EJBObject {
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#createProduct
      */
-    long createProduct(long unitTypeId, int numUnits, float cost) throws RemoteException, EJBException;
+    long createProduct(float cost) throws RemoteException, EJBException;
 
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#getProductDesc
@@ -28,41 +28,17 @@ public interface Product extends EJBObject {
      */
     float getCost(long productId) throws RemoteException, EJBException;
 
-    /**
-     * @see com.topcoder.web.ejb.product.ProductBean#getNumUnits
-     */
-    int getNumUnits(long productId) throws RemoteException, EJBException;
-
-    /**
-     * @see com.topcoder.web.ejb.product.ProductBean#getUnitTypeId
-     */
-    long getUnitTypeId(long productId) throws RemoteException, EJBException;
-
-    /**
-     * @see com.topcoder.web.ejb.product.ProductBean#getUnitTypeDesc
-     */
-    String getUnitTypeDesc(long productId) throws RemoteException, EJBException;
-
 
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#setProductDesc
      */
-    void setProductDesc(long userId, String productDesc)
+    void setProductDesc(long productId, String productDesc)
             throws RemoteException, EJBException;
 
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#setCost
      */
-    void setCost(long userId, float cost) throws RemoteException, EJBException;
+    void setCost(long productId, float cost) throws RemoteException, EJBException;
 
-    /**
-     * @see com.topcoder.web.ejb.product.ProductBean#setNumUnits
-     */
-    void setNumUnits(long userId, int numUnits) throws RemoteException, EJBException;
-
-    /**
-     * @see com.topcoder.web.ejb.product.ProductBean#setUnitTypeId
-     */
-    void setUnitTypeId(long userId, long unitTypeId) throws RemoteException, EJBException;
 
 }

@@ -5,13 +5,13 @@ import java.rmi.RemoteException;
 
 
 /**
- * Home interface for Product table EJB
+ * Home interface for Unit table EJB
  *
- * @author George Nassar
+ * @author Greg Paul
  * @version $Revision$
  */
-public interface ProductHome extends javax.ejb.EJBHome {
-    public static final String EJB_REF_NAME = ProductHome.class.getName();
+public interface UnitHome extends javax.ejb.EJBHome {
+    public static final String EJB_REF_NAME = UnitHome.class.getName();
 
     /**
      * Creates the remote Product EJB object
@@ -19,5 +19,5 @@ public interface ProductHome extends javax.ejb.EJBHome {
      * @throws CreateException
      * @throws RemoteException
      */
-    public Product create() throws CreateException, RemoteException;
+    public Unit create() throws CreateException, RemoteException;
 }

@@ -42,6 +42,42 @@
           <env-entry-value>DS</env-entry-value>
         </env-entry>
     </session>
+      <session>
+          <ejb-name>ProductUnit</ejb-name>
+          <home>com.topcoder.web.ejb.product.ProductUnitHome</home>
+          <remote>com.topcoder.web.ejb.product.ProductUnit</remote>
+          <ejb-class>com.topcoder.web.ejb.product.ProductUnitBean</ejb-class>
+          <session-type>Stateless</session-type>
+          <transaction-type>Container</transaction-type>
+          <env-entry>
+            <env-entry-name>datasource_name</env-entry-name>
+            <env-entry-type>java.lang.String</env-entry-type>
+            <env-entry-value>JTS_DS</env-entry-value>
+          </env-entry>
+          <env-entry>
+            <env-entry-name>idgen_datasource_name</env-entry-name>
+            <env-entry-type>java.lang.String</env-entry-type>
+            <env-entry-value>DS</env-entry-value>
+          </env-entry>
+      </session>
+      <session>
+          <ejb-name>Unit</ejb-name>
+          <home>com.topcoder.web.ejb.product.UnitHome</home>
+          <remote>com.topcoder.web.ejb.product.Unit</remote>
+          <ejb-class>com.topcoder.web.ejb.product.UnitBean</ejb-class>
+          <session-type>Stateless</session-type>
+          <transaction-type>Container</transaction-type>
+          <env-entry>
+            <env-entry-name>datasource_name</env-entry-name>
+            <env-entry-type>java.lang.String</env-entry-type>
+            <env-entry-value>JTS_DS</env-entry-value>
+          </env-entry>
+          <env-entry>
+            <env-entry-name>idgen_datasource_name</env-entry-name>
+            <env-entry-type>java.lang.String</env-entry-type>
+            <env-entry-value>DS</env-entry-value>
+          </env-entry>
+      </session>
   </enterprise-beans>
   <assembly-descriptor>
     <container-transaction>
@@ -50,11 +86,21 @@
         <method-intf>Remote</method-intf>
         <method-name>*</method-name>
       </method>
-      <method>
-        <ejb-name>Purchase</ejb-name>
-        <method-intf>Remote</method-intf>
-        <method-name>*</method-name>
-      </method>
+        <method>
+          <ejb-name>Purchase</ejb-name>
+          <method-intf>Remote</method-intf>
+          <method-name>*</method-name>
+        </method>
+        <method>
+          <ejb-name>ProductUnit</ejb-name>
+          <method-intf>Remote</method-intf>
+          <method-name>*</method-name>
+        </method>
+        <method>
+          <ejb-name>Unit</ejb-name>
+          <method-intf>Remote</method-intf>
+          <method-name>*</method-name>
+        </method>
       <trans-attribute>Required</trans-attribute>
     </container-transaction>
   </assembly-descriptor>

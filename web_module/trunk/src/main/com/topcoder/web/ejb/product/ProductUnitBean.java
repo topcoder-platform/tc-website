@@ -1,28 +1,31 @@
 package com.topcoder.web.ejb.product;
 
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.ejb.EJBException;
+import javax.naming.NamingException;
+import java.rmi.RemoteException;
+import java.sql.SQLException;
 
 
 /**
- * Bean which modifies Product table
+ * Bean which modifies ProductUnit table
  *
  * @author George Nassar
  * @version $Revision$
  */
-public class ProductBean implements SessionBean {
-    private static Logger log = Logger.getLogger(ProductBean.class);
+public class ProductUnitBean implements SessionBean {
+    private static Logger log = Logger.getLogger(ProductUnitBean.class);
     private SessionContext ctx;
 
 
@@ -31,47 +34,30 @@ public class ProductBean implements SessionBean {
     /**
      *
      *
-     * @param cost the cost to assign to a product
-     *
-     * @return a long with the unique product ID created
+     * @param productId the product ID to insert
+     * @param unitId the unit type ID to insert
+     * @param numUnits the number of units to insert
      */
-    public long createProduct(float cost) {
-        log.debug("createProduct called...");
+    public void createProductUnit(long productId, long unitId, int numUnits)
+            throws RemoteException, EJBException {
+        log.debug("createProductUnit called...");
 
         Context ctx = null;
         PreparedStatement ps = null; // could just use Statement
         Connection conn = null;
         DataSource ds = null;
-        long ret = 0;
 
         try {
-            ctx = new InitialContext();
-
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(
-                        new SimpleDB(),
-                        (DataSource) ctx.lookup((String)
-                        ctx.lookup(
-                                "java:comp/env/idgen_datasource_name")),
-                        "sequence_object",
-                        "name",
-                        "current_value",
-                        9999999999L,
-                        1,
-                        false
-                );
-            }
-
-            ret = IdGenerator.nextId("PRODUCT_SEQ");
-
             ds = (DataSource) ctx.lookup((String) ctx.lookup(
                     "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("INSERT INTO product (product_id, " +
-                    "cost) VALUES (?,?)");
-            ps.setLong(1, ret);
-            ps.setFloat(2, cost);
+            ps = conn.prepareStatement("INSERT INTO product_unit_xref (product_id, " +
+                    "unit_id, num_units) " +
+                    "VALUES (?,?,?)");
+            ps.setLong(1, productId);
+            ps.setLong(2, unitId);
+            ps.setInt(3, numUnits);
 
             int rows = ps.executeUpdate();
 
@@ -82,11 +68,11 @@ public class ProductBean implements SessionBean {
             DBMS.printSqlException(
                     true,
                     sqe);
-            throw new EJBException("SQLException creating product");
+            throw new EJBException("SQLException creating unit");
         } catch (NamingException e) {
-            throw new EJBException("NamingException creating product");
+            throw new EJBException("NamingException creating unit");
         } catch (Exception e) {
-            throw new EJBException("Exception creating product:\n" +
+            throw new EJBException("Exception creating unit:\n" +
                     e.getMessage());
         } finally {
             if (ps != null) {
@@ -94,7 +80,7 @@ public class ProductBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                            "createProduct");
+                            "createProductUnit");
                 }
             }
 
@@ -102,7 +88,7 @@ public class ProductBean implements SessionBean {
                 try {
                     conn.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in createProduct");
+                    log.error("FAILED to close Connection in createProductUnit");
                 }
             }
 
@@ -110,30 +96,31 @@ public class ProductBean implements SessionBean {
                 try {
                     ctx.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Context in createProduct");
+                    log.error("FAILED to close Context in createProductUnit");
                 }
             }
         }
-
-        return (ret);
     }
 
     /**
      *
      *
      * @param productId product ID of the entry
+     * @param unitId unit type ID of the entry
      *
-     * @return a String with the entry's product description
+     * @return the entry's number of units
      */
-    public String getProductDesc(long productId) {
-        log.debug("getProductDesc called...product_id: " + productId);
+    public int getNumUnits(long productId, long unitId)
+        throws RemoteException, EJBException {
+        log.debug("getNumUnits called...product_id: " + productId +
+                " unitId: " + unitId);
 
         Context ctx = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
-        String ret = null;
+        int ret = 0;
 
         try {
             ctx = new InitialContext();
@@ -141,30 +128,31 @@ public class ProductBean implements SessionBean {
                     "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("SELECT product_desc FROM product " +
-                    "WHERE product_id = ?");
+            ps = conn.prepareStatement("SELECT num_units FROM product_unit_xref WHERE " +
+                    "product_id = ? AND unit_id = ?");
             ps.setLong(1, productId);
+            ps.setLong(2, unitId);
 
             rs = ps.executeQuery();
 
             if (rs.next())
-                ret = rs.getString("product_desc");
+                ret = rs.getInt("num_units");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
                     true,
                     sqe);
-            throw new EJBException("SQLException getting product_desc");
+            throw new EJBException("SQLException getting unit_id");
         } catch (NamingException e) {
-            throw new EJBException("NamingException getting product_desc");
+            throw new EJBException("NamingException getting unit_id");
         } catch (Exception e) {
-            throw new EJBException("Exception getting product_desc\n" +
+            throw new EJBException("Exception getting unit_id\n" +
                     e.getMessage());
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getProductDesc");
+                    log.error("FAILED to close ResultSet in getNumUnits");
                 }
             }
 
@@ -173,7 +161,7 @@ public class ProductBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                            "getProductDesc");
+                            "getNumUnits");
                 }
             }
 
@@ -181,7 +169,7 @@ public class ProductBean implements SessionBean {
                 try {
                     conn.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getProductDesc");
+                    log.error("FAILED to close Connection in getNumUnits");
                 }
             }
 
@@ -189,30 +177,32 @@ public class ProductBean implements SessionBean {
                 try {
                     ctx.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getProductDesc");
+                    log.error("FAILED to close Context in getNumUnits");
                 }
             }
         }
 
         return (ret);
     }
+
 
     /**
      *
      *
      * @param productId product ID of the entry
      *
-     * @return a float with the entry's cost
+     * @return
      */
-    public float getCost(long productId) {
-        log.debug("getCost called...product_id: " + productId);
+    public ResultSetContainer getUnits(long productId)
+        throws RemoteException, EJBException {
+        log.debug("getNumUnits called...product_id: " + productId);
 
         Context ctx = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
-        float ret = (float) 0.0;
+        ResultSetContainer ret = null;
 
         try {
             ctx = new InitialContext();
@@ -220,54 +210,54 @@ public class ProductBean implements SessionBean {
                     "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("SELECT cost FROM product " +
-                    "WHERE product_id = ?");
+            StringBuffer query = new StringBuffer(150);
+            query.append("SELECT u.unit_id");
+            query.append(    " , u.unit_desc");
+            query.append(    " , u.unit_type_id");
+            query.append( " FROM product_unit_xref p");
+            query.append(    " , unit u");
+            query.append(" WHERE p.product_id = ?");
+            query.append(  " AND p.unit_id = u.unit_id");
+
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, productId);
-
             rs = ps.executeQuery();
-
-            if (rs.next())
-                ret = rs.getFloat("cost");
+            ret = new ResultSetContainer(rs);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
-            throw new EJBException("SQLException getting cost");
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException getting unit_id");
         } catch (NamingException e) {
-            throw new EJBException("NamingException getting cost");
+            throw new EJBException("NamingException getting unit_id");
         } catch (Exception e) {
-            throw new EJBException("Exception getting cost\n" +
-                    e.getMessage());
+            throw new EJBException("Exception getting unit_id\n" + e.getMessage());
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getCost");
+                    log.error("FAILED to close ResultSet in getNumUnits");
                 }
             }
-
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in getCost");
+                    log.error("FAILED to close PreparedStatement in " +
+                            "getNumUnits");
                 }
             }
-
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getCost");
+                    log.error("FAILED to close Connection in getNumUnits");
                 }
             }
-
             if (ctx != null) {
                 try {
                     ctx.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getCost");
+                    log.error("FAILED to close Context in getNumUnits");
                 }
             }
         }
@@ -275,15 +265,21 @@ public class ProductBean implements SessionBean {
         return (ret);
     }
 
+
+
+
+
     /**
      *
      *
      * @param productId product ID of entry to set
-     * @param productDesc the product description to set to
+     * @param unitId unit type ID of entry to set
+     * @param numUnits the number of units to set to
      */
-    public void setProductDesc(long productId, String productDesc) {
-        log.debug("setProductDesc called...productId: " + productId +
-                " productDesc: " + productDesc);
+    public void setNumUnits(long productId, long unitId, int numUnits)
+        throws RemoteException, EJBException {
+        log.debug("setNumUnits called...productId: " + productId +
+                " unitId: " + unitId + " numUnits: " + numUnits);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -296,79 +292,12 @@ public class ProductBean implements SessionBean {
                     "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("UPDATE product SET product_desc = ?" +
-                    "WHERE product_id = ?");
-            ps.setString(1, productDesc);
+            ps = conn.prepareStatement("UPDATE product_unit_xref SET num_units = ? " +
+                    "WHERE product_id = ? AND " +
+                    "unit_id = ?");
+            ps.setInt(1, numUnits);
             ps.setLong(2, productId);
-
-            int rows = ps.executeUpdate();
-
-            if (rows != 1)
-                throw new EJBException("Wrong number of rows in update: " +
-                        rows);
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
-            throw new EJBException("SQLException updating productDesc");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating productDesc");
-        } catch (Exception e) {
-            throw new EJBException("Exception updating productDesc\n" +
-                    e.getMessage());
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setProductDesc");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setProductDesc");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setProductDesc");
-                }
-            }
-        }
-    }
-
-    /**
-     *
-     *
-     * @param productId product ID of entry to set
-     * @param cost the cost to set to
-     */
-    public void setCost(long productId, float cost) {
-        log.debug("setCost called...productId: " + productId + "cost: " +
-                cost);
-
-        Context ctx = null;
-        PreparedStatement ps = null;
-        Connection conn = null;
-        DataSource ds = null;
-
-        try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
-            conn = ds.getConnection();
-
-            ps = conn.prepareStatement("UPDATE product SET cost = ? " +
-                    "WHERE product_id = ?");
-            ps.setFloat(1, cost);
-            ps.setLong(2, productId);
+            ps.setLong(3, unitId);
 
             int rows = ps.executeUpdate();
 
@@ -379,18 +308,19 @@ public class ProductBean implements SessionBean {
             DBMS.printSqlException(
                     true,
                     sqe);
-            throw new EJBException("SQLException updating cost");
+            throw new EJBException("SQLException updating num_units");
         } catch (NamingException e) {
-            throw new EJBException("NamingException updating cost");
+            throw new EJBException("NamingException updating num_units");
         } catch (Exception e) {
-            throw new EJBException("Exception updating cost\n" +
+            throw new EJBException("Exception updating num_units\n" +
                     e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in setCost");
+                    log.error("FAILED to close PreparedStatement in " +
+                            "setNumUnits");
                 }
             }
 
@@ -398,7 +328,7 @@ public class ProductBean implements SessionBean {
                 try {
                     conn.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setCost");
+                    log.error("FAILED to close Connection in setNumUnits");
                 }
             }
 
@@ -406,10 +336,94 @@ public class ProductBean implements SessionBean {
                 try {
                     ctx.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setCost");
+                    log.error("FAILED to close Context in setNumUnits");
                 }
             }
         }
+    }
+
+    /**
+     *
+     * @param unitId
+     * @return String
+     * @throws RemoteException
+     * @throws EJBException
+     */
+    public String getUnitDescription(long productId, long unitId)
+            throws RemoteException, EJBException {
+        log.debug("getUnitDescription called... productId: " + productId +
+                "unitId: " + unitId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(
+                    (String) ctx.lookup("java:comp/env/datasource_name")
+            );
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT u.unit_desc FROM product_unit_xref p, unit u WHERE " +
+                    "p.unit_id = u.unit_id and product_id = ? and p.unit_id = ?");
+            ps.setLong(1, productId);
+            ps.setLong(2, unitId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                ret = rs.getString("unit_desc");
+            }
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting unit_desc");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting unit_desc");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting unit_desc\n" +
+                    e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in " +
+                            "getUnitDescription");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error(
+                            "FAILED to close PreparedStatement in " +
+                            "getUnitDescription"
+                    );
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                            "getUnitDescription");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getUnitDescription");
+                }
+            }
+        }
+        return (ret);
     }
 
     //required ejb methods
@@ -438,11 +452,11 @@ public class ProductBean implements SessionBean {
     /**
      *
      *
+     * @param ctx
      */
     public void setSessionContext(SessionContext ctx) {
         this.ctx = ctx;
     }
-
 
 
 }
