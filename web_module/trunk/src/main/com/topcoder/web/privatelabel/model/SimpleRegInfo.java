@@ -6,6 +6,7 @@ package com.topcoder.web.privatelabel.model;
  */
 public class SimpleRegInfo extends Base {
 
+    private long userId;
     private String handle;
     private String password;
     private String passwordConfirm;
@@ -29,6 +30,7 @@ public class SimpleRegInfo extends Base {
     }
 
     public SimpleRegInfo(SimpleRegInfo info) {
+        setUserId(info.getUserId());
         setHandle(info.getHandle());
         setPassword(info.getPassword());
         setPasswordConfirm(info.getPasswordConfirm());
@@ -47,6 +49,14 @@ public class SimpleRegInfo extends Base {
         setCity(info.getCity());
         setZip(info.getZip());
         setCompanyId(info.getCompanyId());
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getHandle() {
