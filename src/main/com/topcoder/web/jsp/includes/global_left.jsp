@@ -15,11 +15,11 @@
 
             <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
             <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0"><br>
-            <table width="180" cellspacing="0" cellpadding="0" border="0">
 
 <% if ((level1.equals("about")) || (level1.equals("review_board"))) { %>
 
 <%-- TopCoder Info begins *************************** --%>
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
 
 <%-- About TopCoder begins --%>
@@ -51,11 +51,14 @@
 <%-- Contacts begins --%>
                 <tr><td id="<%=level1.equals("contacts")?"leftNavOn":"leftNav"%>"><a href="/?&t=contacts&c=index" class="<%=level1.equals("contacts")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("contacts")?"bottom":"right"%>.gif" border="0"/>Contacts</a></td></tr>
 <%-- Contacts ends --%>
+
+            </table>
 <%-- TopCoder Info ends *************************** --%>
 
 <% } else { %>
 
 <%-- Competition begins *************************** --%>
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle" >Competition:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
 
@@ -145,31 +148,32 @@
                     <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?&t=support&c=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support/FAQs</a></td></tr>
     <%-- Support/FAQs ends --%>
 
-            <% if (level1.equals("home")) { %>
-                <tr><td id="leftNavTitle">Next Match:</td></tr>
-            
-                <jsp:include page="../../home/srm_dates.jsp" />
-              
-                <jsp:include page="../../home/srm_sponsor.jsp" />
+            </table>
 
-            <% } %>
+    <% if (level1.equals("home")) { %>
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="leftNavTitle">Next Match:</td></tr>
+                <jsp:include page="../../home/srm_dates.jsp" />
+                <jsp:include page="../../home/srm_sponsor.jsp" />
+            </table>
+
+            <jsp:include page="../calendar.jsp" />
+    <% } %>
     <%-- Competition ends *************************** --%>
 
 <% } %>
 
 <%-- PACTS begins *************************** --%>
 <% if (request.getServletPath().indexOf("pacts")>-1) { %>
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle">P.A.C.T.s:</td>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=payments&amp;c=payment_history">Payments</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=affidavit&amp;c=affidavit_history">Affidavits</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
+            </table>
 <%-- PACTS ends *************************** --%>
 <% } %>
-
-            </table>
-
-            <jsp:include page="../calendar.jsp" />
 
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>
