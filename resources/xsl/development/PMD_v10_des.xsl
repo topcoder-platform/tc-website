@@ -369,12 +369,16 @@
                                                     <p>
                                                         <strong> Service Project Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Project%20Management%20Dashboard%20Service">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
+                                                        <!-- Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Project%20Management%20Dashboard%20Service">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
+                                                        -->
+                                                        Closed
                                                     </p>
                                                     <p>
                                                         <strong> Reports Project Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Project%20Management%20Dashboard%20Reports">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
+                                                        <!-- Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Project%20Management%20Dashboard%20Reports">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
+                                                        -->
+                                                        Closed
                                                     </p>                                                    
                                                 </td>
                                             </tr>

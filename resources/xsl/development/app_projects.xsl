@@ -73,6 +73,15 @@
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
 
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_StockCount_App_Design">Palm Stock Count Application</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">07.15.2004 5 PM ET</td>
+                                </tr>	
+                                
 				                <tr valign="top">
 				                    <td class="projectCells" colspan="4"><a href="?t=development&amp;c=PMD_v10_des">Project Management Dashboard</a></td>
 				                </tr>
@@ -80,16 +89,16 @@
 				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Service</td>
 				                    <td class="projectCells" align="center">$2,730</td>
 				                    <td class="projectCells" align="center">$870</td>
-				                    <td class="projectCells" align="center">07.13.2004 5 PM ET</td>
+				                    <td class="projectCells" align="right">Closed</td>
 				                </tr>
 
 				                <tr valign="top">
 				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Reports</td>
 				                    <td class="projectCells" align="center">$2,634</td>
 				                    <td class="projectCells" align="center">$840</td>
-				                    <td class="projectCells" align="center">07.13.2004 5 PM ET</td>
+				                    <td class="projectCells" align="right">Closed</td>
 				                </tr>
-
+				                
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=GeneChip_Data_Interface">GeneChip Data Interface</a>
@@ -130,14 +139,6 @@
                                     </td>
                                     <td class="projectCells" align="right">$810 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$225 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Palm_Transfers_App_Design2">Palm Transfers and Receiving Application</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">Closed</td>
                                 </tr>
 
@@ -189,7 +190,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">07.09.2004 9:00 AM ET</td>
+                                    <td class="projectCells" align="right">07.15.2004 5 PM ET</td>
                                 </tr>                                
                                 <tr valign="top">
                                     <td class="projectCells">
@@ -197,7 +198,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">07.08.2004 9:00 AM ET</td>
+                                    <td class="projectCells" align="right">Closed</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
