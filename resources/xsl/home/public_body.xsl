@@ -196,7 +196,7 @@ Numerous other coders also sped through the first two, later to be stopped in th
                     <td width="55" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
                         <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a>&#160;<br/>
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span>
                         </td>
 
@@ -312,6 +312,13 @@ Numerous other coders also sped through the first two, later to be stopped in th
                     <td class="statText" align="right">90.83</td>
                 </tr>
                 
+                 <tr valign="top">
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+                    <td class="statText" align="center">2</td>
+                    <td class="statText" align="right">89.26</td>
+                </tr>
+                
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
@@ -322,21 +329,11 @@ Numerous other coders also sped through the first two, later to be stopped in th
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="right">88.11</td>
+                    <td class="statText" align="center">3</td>
+                    <td class="statText" align="right">88.37</td>
                 </tr>
-                
-                 <tr valign="top">
-                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="right">87.31</td>
-                </tr>
-
-                
                 
                
-
 
                 <tr valign="top">
                     <td width="25%" colspan="4"><img src="/i/clear.gif" width="1" height="3" border="0" /></td>
