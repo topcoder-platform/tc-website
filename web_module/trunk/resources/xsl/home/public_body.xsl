@@ -86,11 +86,12 @@
 <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF"> 
   <tr> 
     <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td> 
-    <td VALIGN="top" WIDTH="1" bgcolor="#000000"><IMG SRC="/i/tournament/tccc03/tccc03_home.gif" ALT="" WIDTH="138" HEIGHT="90" BORDER="0"/></td>     
+    <td VALIGN="top" WIDTH="1" bgcolor="#000000"><A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched"><IMG SRC="/i/tournament/tccc03/tccc03_home.gif" ALT="" WIDTH="138" HEIGHT="90" BORDER="0"/></A></td>     
     <td VALIGN="top" bgcolor="#000000" CLASS="statText"><BR/>
     <B>When:</B> Feb. 18th - April 5th, 2003<BR/>
     <B>Where:</B> the University Park Hotel @ MIT in Cambridge, MA<BR/>
     <B>Total Purse:</B> $100,000<BR/><BR/>
+    <FONT COLOR="#CC0000"><B>200 TopCoder Members will win money!</B></FONT><BR/>
 <A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Click here</A>
 for more information.<BR/><BR/>
     </td>    
