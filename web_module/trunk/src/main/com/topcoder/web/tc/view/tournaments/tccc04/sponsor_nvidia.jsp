@@ -45,16 +45,16 @@
                     <td class="bodyText" align="left" width="232.5">
                        <p>At NVIDIA we're continually looking for the elite few who will shape the future of the software 
                         industry&#133;  those who play hard, work smart, and always strive to win.  The visual computing industry is ultra-competitive and the stakes are high&#133;
-                        to remain a market leader we hire only the brightest and most innovative engineering talent.  As a TopCoder member you've distinguished yourself 
-                        as a skilled coder who seeks a challenge, and as a competitor in the TopCoder Collegiate Challenge you've told us that nothing can stop you from competing against 
+                        to remain a market leader we hire only the brightest and most innovative engineering talent.  As a TopCoder member, you've distinguished yourself 
+                        as a skilled coder who seeks a challenge, and as a competitor in the TCCC04 you've told us that nothing can stop you from competing against 
                         the best of the best.</p>
                      </td>
                      
                       <td class="promoText" align="left" width="232.5">
                         <p>We invite you to explore the opportunities available at NVIDIA. Click on the link to see what your future may hold.</p>
                         <ul>
-                        <li><A href="/?&#38;t=tces&#38;c=nvidia_openings_intern_soft&#38;a=secure">Software &#38; Graphics Positions</A></li>
-                        <li><A href="/?&#38;t=tces&#38;c=nvidia_openings_intern_hard&#38;a=secure">Hardware &#38; Systems Engineering Positions</A></li></ul>
+                        <li><A href="/?&amp;t=tces&amp;c=jobs&amp;a=secure">NVIDIA Jobs</A></li>
+                        </ul>
                        <p><strong>We love what we do because we do what we love. Join us.</strong></p>
                       </td>
                   </tr>
@@ -80,13 +80,12 @@
           
                         
                         <p>We constantly evaluate opportunities to partner with organizations that fit our corporate culture and objectives, and we're pleased to again be a part of 
-                        TopCoder's programming competitions, this time as a premier sponsor of the TopCoder Collegiate Challenge.  "TopCoder has built a great community of top notch, competitive talent.  
-                        It's great when you see such a group of supportive folks really driving each other to excel.  We see a lot of synergy between the TopCoder community and our own 
-                        here at NVIDIA.  We're delighted to be participating again, and I'm personally excited to see the college talent go toe to toe with the professionals.  It'll be a great 
-                        match!" said Daniel Rohrer, Manager of Direct X Graphics at NVIDIA.</p>
+                        TopCoder's programming competitions, again as a premier sponsor of the TopCoder Collegiate Challenge.  "NVIDIA truly believes that the TopCoder arena 
+                        fosters an unparalleled competitive spirit among the most brilliant programmers in the world. We are proud to be a part of this initiative again," said Daniel 
+                        Rohrer, Manager of Direct X Graphics at NVIDIA.</p>
                         
                         
-                        <p>We at NVIDIA wish you and your colleagues the best of luck in the TopCoder Collegiate Challenge, and encourage you to explore your potential for innovation in future 
+                        <p>We at NVIDIA wish you the best of luck in the Collegiate Challenge, and encourage you to explore your potential for innovation in future 
                         TopCoder programs and at NVIDIA.  Regardless of points earned or rounds won, NVIDIA is proud of all who support and invest in TopCoder initiatives, and we 
                         look forward to a long and productive relationship with TopCoder and its participants.</p>
                         
