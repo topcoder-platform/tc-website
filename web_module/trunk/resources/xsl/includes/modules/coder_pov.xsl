@@ -35,13 +35,11 @@
                         <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm154_prob">Problem Set Analysis &amp; Opinion: SRM 154</a></font></strong><br />
                         Wednesday, July 9, 2003</p>
 
-                        <P><b>Snapdragon</b> crushed the competition in Division One with an authoritative performance, winning the division by over 200 points.  
+                        <p><b>Snapdragon</b> crushed the competition in Division One with an authoritative performance, winning the division by over 200 points.  
                         <b>tomek</b> remains absolutely perfect, tying <b>Yarin</b> for the longest perfection streak ever (seven matches).  However all seven of 
                         Yarin's matches were in Division One.  tomek has only competed in Division One six times to-date.  <strong>Veloso</strong>, back in Division One after a brief slump in Division 
-                        Two has turned up the heat again with a room win and the seventh highest score overall.  Division Two only saw four correct level three submissions.  
-                        The fastest of those was from <b>P.S</b> who submitted in just under 40 minutes. Although P.S was rewarded with a 274 point rating jump, both <b>fbird</b>'s and <b>ozzie</b>'s performances on the level one and two problems 
-                        were enough to make up for the deficit on the level three and P.S ended up in third place overall.  </P>
-                        <p><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm154_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                        Two has turned up the heat again with a room win and the seventh highest score overall.
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm154_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
