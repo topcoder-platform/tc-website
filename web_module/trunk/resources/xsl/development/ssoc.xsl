@@ -53,14 +53,14 @@
                                     <FORM method="POST" name="frmInquire" ACTION="/">
                                         <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
                                     </FORM>
-                                    <b>Single Sign On Components</b>
+                                    <B>Single Sign On Components</B>
                                     <BR/>
                                     <a href="Javascript:document.frmInquire.Project.value='Single Sign On Components';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
                                     <BR/>
 <P><B>Overview</B></P>
 
 <P>
-TopCoder Software is looking to create a set of single sign on (SSO) components that will enable customers to create an architecture that supports SSO for both new and existing applications.  We want to explore SSO for both web applications and desktop applications, including third party packages such as SAP, Peoplesoft, etc.  These may require two different approaches for SSO given the added requirements to launch an application on a client machine as opposed to launching applications in a web environment.  The SSO design should allow new applications to be 'plugged in' and will need to sit on top of an LDAP server. 
+TopCoder Software is looking to create a set of single sign on (SSO) components that will enable customers to create an architecture that supports SSO for both new and existing applications.  We want to explore SSO for both web applications and desktop applications, including third party packages such as SAP, Peoplesoft, etc.  These may require two different approaches for SSO given the added requirements to launch an application on a client machine as opposed to launching applications in a web environment.  The SSO design should allow new applications to be &rsquo;plugged in&rsquo; and will need to sit on top of an LDAP server. 
 </P>
 
 <P>
@@ -82,16 +82,16 @@ We are looking for a member with specific experience in SSO to act as architect 
 
 <P><B>Deliverables</B></P>
 
-<P>High level design documents - October 4th, 2002<BR/>
+<P>High level design documents - October 4<SUP>th</SUP>, 2002<BR/>
 Component Diagram - Details the software components used in the SSO architecture.<BR/>
 Use Case Diagram - Display the process flow of clients that will use these systems.</P>		
 
-<P>Detailed design documents - October 11th, 2002<BR/>
+<P>Detailed design documents - October 11<SUP>th</SUP>, 2002<BR/>
 	Class Diagram(s) - For each component.<BR/>
 Sequence Diagram(s) - Show the interaction of classes for each component.</P>
 	
 <P><B>Payment</B></P>
-<P>TopCoder will compensate all team members for their work on the project. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in three installments, as follows: (i) upon the successful completion of the Software Architecture and Design Phase, (ii) up the successful completion of the Development Phase and, (iii) upon successful Production Deployment*.</P> 
+<P>TopCoder will compensate all team members for their work on the project. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in three installments, as follows: (i) upon the successful completion of the Software Architecture and Design Phase, (ii) up the successful completion of the Development Phase and, (iii) upon successful Production Deployment<SUP>*</SUP>.</P> 
 <P>Members will also collect royalties on the revenue generated from the sale of the component. This amount is determined using the company royalty pool percentage, currently set as 5% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component. For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component. Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase.</P> 
 
 <P><B>Architect</B></P>
@@ -99,7 +99,7 @@ Sequence Diagram(s) - Show the interaction of classes for each component.</P>
 First Deliverable - $300.00<BR/>
 Project Completion - $600.00</P>
 
-<P>*Successful Production Deployment is defined as follows:</p>
+<P><SUP>*</SUP>Successful Production Deployment is defined as follows:</p>
 
 <UL>
 	<LI>All tasks assigned by the product manager have been completed. </LI>
