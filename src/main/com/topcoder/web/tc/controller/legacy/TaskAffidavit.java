@@ -4,6 +4,7 @@ import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
+import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -71,6 +72,7 @@ public final class TaskAffidavit {
                             answers.put(new Integer(index), parameterValue);
                         }
                     }
+                    Data.loadUser(nav);
                     StringBuffer buf = new StringBuffer(1000);
                     buf.append(nav.getUser().getHandle());
                     buf.append(" has answered your questions thusly\n\n");
