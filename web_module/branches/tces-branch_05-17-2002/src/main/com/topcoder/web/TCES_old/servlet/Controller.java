@@ -24,13 +24,12 @@ public class Controller
 		 
     public void init(Servlet servletConfig) throws ServletException {
 	    /* a previous instance of the servlet may have already created the dispatcherMap */
-	        dispatcherMap = (Map) getServletContext().getAttribute("dispatcherMap");
+			dispatcherMap = (Map) getServletContext().getAttribute("dispatcherMap");
 	    /* if not, then create the map and bind it to the ServletContext */
-	        if (dispatcherMap == null) {
-	            dispatcherMap = new Hashtable();
-	            getServletContext().setAttribute("dispatcherMap", dispatcherMap);
-	        }
-	    }
+			if (dispatcherMap == null) {
+				dispatcherMap = new Hashtable();
+				getServletContext().setAttribute("dispatcherMap", dispatcherMap);
+			}
     }
 
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -107,7 +106,7 @@ public class Controller
                 forwardToError(request,response,e);
             }
 */
-            forward(request,response,Registration.PATH + taskName + ".jsp");
+            forward(request,response,taskName);
          } 
       } catch ( ServletException se ) {
         throw se;
