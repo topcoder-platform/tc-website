@@ -74,6 +74,8 @@ public class PrincipalMgrBean extends BaseEJB {
             } else {
                 throw new NoSuchUserException(username);
             }
+        } catch (NoSuchUserException e) {
+            throw e;
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
@@ -105,6 +107,8 @@ public class PrincipalMgrBean extends BaseEJB {
             } else {
                 throw new NoSuchUserException("" + id);
             }
+        } catch (NoSuchUserException e) {
+            throw e;
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
@@ -187,6 +191,8 @@ public class PrincipalMgrBean extends BaseEJB {
             } else {
                 throw new NoSuchUserException("" + id);
             }
+        } catch (NoSuchUserException e) {
+            throw e;
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
