@@ -5,6 +5,7 @@ import com.topcoder.security.admin.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.*;
+import com.topcoder.web.ejb.user.*;
 import com.topcoder.web.hs.model.*;
 
 import java.rmi.*;
@@ -498,7 +499,7 @@ public class StudentRegistration extends Base {
       UserPrincipal up=pmr.createUser(_srb.getHandle(),_srb.getPassword(),tcs);
       long user_id=up.getId();
 
-      ctx=TCContext.getIntial();
+      ctx=TCContext.getInitial();
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
       User user=uh.create(user_id,_srb.getHandle(),'1');
