@@ -149,8 +149,8 @@
                                             answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.
                                         </p>
                                         <p>
-                                            <table>
-                                                <tr>
+                                            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
+                                                <trtd bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" valign="top" width="11">
                                                     <td>Application Project Posting:</td>
                                                     <td>7.15.2003</td>
                                                 </tr>
