@@ -46,12 +46,12 @@ public class FinalReviewForm extends AggregationWorksheetForm {
     /**
      * Wheter the comments textarea value is valid or not
      */
-    private boolean commentsValid;
+    private boolean commentsValid = true;
 
     /**
      * Wheter the user has selected a valid value for the approved radio button
      */
-    private boolean approvedValid;
+    private boolean approvedValid = true;
 
     // ----------------------------------------------------------- Properties
 
@@ -175,12 +175,12 @@ public class FinalReviewForm extends AggregationWorksheetForm {
 
     /**
      * <p>
-     * Return true if the comments field is valid.
+     * Return true if one of the approved/rejected radio buttons is marked
      * </p>
      *
-     * @return true if the comments field is valid.
+     * @return true if one of the approved/rejected radio buttons is marked
      */
-    private boolean getApprovedValid() {
+    public boolean getApprovedValid() {
         return approvedValid;
     }
 
@@ -232,12 +232,16 @@ public class FinalReviewForm extends AggregationWorksheetForm {
             errors.add("approved", new ActionError("error.status.required"));
             approvedValid = false;
         } else {
-            if (!finalReview.isApproved() && ((getComments() == null) || (getComments().trim().length() == 0))) {
+            // if the project was rejected but all the items were fixed, a comment is needed
+            if (!finalReview.isApproved() && !mustReject && ((getComments() == null) || (getComments().trim().length() == 0))) {
                 setValid(false);
                 errors.add("comments", new ActionError("error.message.required"));
                 commentsValid = false;
             }
+
+            //  if the reviewer approved the project but there are not fixed items, show error
             if (finalReview.isApproved() && mustReject) {
+                setValid(false)
                 errors.add("approved", new ActionError("error.reject.required"));
                 approvedValid = false;
             }
