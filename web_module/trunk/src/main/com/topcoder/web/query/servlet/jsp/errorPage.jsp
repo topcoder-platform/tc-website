@@ -7,7 +7,7 @@ isErrorPage="true"
  %>
 <html>
 <head>
-   <TITLE>TopCoder</TITLE>
+   <TITLE>Query Tool Error</TITLE>
 </HEAD>
 <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 

@@ -1,18 +1,17 @@
 package com.topcoder.web.query.bean;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.*;
-import com.topcoder.web.query.common.InputBean;
-import com.topcoder.web.query.common.QueryInputBean;
-import com.topcoder.web.query.ejb.QueryServices.QueryInputHome;
-import com.topcoder.web.query.ejb.QueryServices.QueryInput;
-import com.topcoder.web.query.ejb.QueryServices.InputHome;
 import com.topcoder.web.query.ejb.QueryServices.Input;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.query.ejb.QueryServices.InputHome;
+import com.topcoder.web.query.ejb.QueryServices.QueryInput;
+import com.topcoder.web.query.ejb.QueryServices.QueryInputHome;
 
-
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -49,6 +48,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
 	}
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        super.setNavLinks(super.buildNavLinks(getServletPath(), getDb()));
     }
 
     public void process(String step) throws Exception {
