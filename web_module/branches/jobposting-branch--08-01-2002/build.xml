@@ -171,7 +171,7 @@
       <property name="reg.src"       value="${web}/reg/servlet/jsp" />
       <property name="render.trgt"   value="${public_html}/cm" />
       <property name="render.src"    value="${web}/render/servlet/jsp" />
-      <property name="tces.trgt"     value="${public_html}/es" />
+      <property name="tces.trgt"     value="${public_html}/tces/tces" />
       <property name="tces.src"      value="${web}/tces/servlet/jsp" />
 
       <mkdir dir="${stat.trgt}" /> 
