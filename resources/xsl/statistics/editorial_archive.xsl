@@ -12,10 +12,9 @@
     <html>
       <head>
         <xsl:call-template name="Preload"/>      
-        <title>TopCoder | Statistics</title>
+        <title>Statistics, Editorials, Match Results and Member Profiles at TopCoder</title>
         <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
+
         <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </head>
@@ -249,7 +248,9 @@
 
 <!-- Right Column Begins -->
         <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
-            <xsl:call-template name="public_right_col"/>       
+            <xsl:call-template name="public_right_col">
+                <xsl:with-param name="sectionName">statistics</xsl:with-param>
+            </xsl:call-template>
         </td>
 <!-- Right Column Ends -->
 
