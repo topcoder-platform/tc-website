@@ -91,6 +91,17 @@ function changeImages() {
 }
 ]]></SCRIPT>
 
+<SCRIPT TYPE="text/javascript">
+  function getGraph(url,wd,ht) {
+    var last=0;
+    var daHt = parseInt(ht) + parseInt('49');
+    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
+    var name="graph";
+    window.open('graphPopup.jsp?'+url+'&amp;width='+wd+'&amp;height='+ht,name,size);
+    return;
+  }
+</SCRIPT>
+
 <SCRIPT type="text/javascript">
 function tcTime()
 {
