@@ -7,7 +7,7 @@
       <td class=timeCellLeft><img src="/i/corp/screening/techAssTitle.gif" alt="" /></td>
       <%if(probTimer.equals("current")){%>
       <td class=timeCellRight>Current Time<br />
-        <span id=currentTimer></span></td>
+        <span id=currentTimer>.</span></td>
       <%}%>
    </tr>
 </table>
