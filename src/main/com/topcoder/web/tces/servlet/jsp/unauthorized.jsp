@@ -13,7 +13,7 @@
     <TITLE>TopCoder Employment Services</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <jsp:include page="../script.jsp" />             
+    <jsp:include page="script.jsp" />
     
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -34,7 +34,7 @@
        <!-- Body Area -->
        <!-- Center Column Begins -->
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <jsp:include page="/body_top.jsp" >
+        <jsp:include page="body_top.jsp" >
            <jsp:param name="image" value="tces"/>
            <jsp:param name="image1" value="steelblue"/>
            <jsp:param name="title" value="Unauthorized"/>
