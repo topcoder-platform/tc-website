@@ -104,19 +104,6 @@
                     </td>
                 </tr>
 
-<!-- Tutor Transcripts -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="/TC/Command='tutor_transcripts'">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tutor_transcripts&amp;d2=index</xsl:attribute>Tutor Transcripts</A>
-                    </td>
-                </tr>
-
 <!-- Quick Stats -->
                 <tr>
                     <td id="leftSubnav">
@@ -258,6 +245,7 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="tc_gear_row"/>
+                <xsl:call-template name="rules_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
