@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page import="com.topcoder.web.corp.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
 <head>
@@ -66,7 +66,7 @@
     </tr>
 </table>
 
-<jsp:include page="includes/foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 </html>
