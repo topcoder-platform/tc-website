@@ -47,31 +47,32 @@ public class TCESController extends HttpServlet {
 								}
                 //forwardToError(request,response,new TaskException(TASK+" not found in request."));
                 //return;
-            }
-            session = request.getSession(true); // for now create a new session, later this'll be done in the front page
-						User currentUser = getUser(session);
-						if (currentUser == null) {
-							response.sendRedirect("/?t=authentication&c=login");
-						} else {
-							TCES tces = new TCES(currentUser, taskName);
-	            Enumeration parameterNames = request.getParameterNames();
-	            while (parameterNames.hasMoreElements())
-	            {
-	                String parameterName = parameterNames.nextElement().toString();
-	                String[] parameterValues = request.getParameterValues(parameterName);
-	                if (parameterValues != null) {
-	                    tces.setAttributes(parameterName,parameterValues);
-	                }
-	            }
-              Log.msg("About to call process()");
-							try {
-              	Log.msg("calling process()");
-								tces.process();
-              	Log.msg("called process()");
-								session.setAttribute("tces", tces);
-	            	forward(request,response, tces.getNextNav().getFullPageName());
-							} catch (TaskException te) {
-                forwardToError(request,response,new TaskException(TASK+": " + te.getMessage()));
+            } else {
+	            session = request.getSession(true); // for now create a new session, later this'll be done in the front page
+							User currentUser = getUser(session);
+							if (currentUser == null) {
+								response.sendRedirect("/?t=authentication&c=login");
+							} else {
+								TCES tces = new TCES(currentUser, taskName);
+		            Enumeration parameterNames = request.getParameterNames();
+		            while (parameterNames.hasMoreElements())
+		            {
+		                String parameterName = parameterNames.nextElement().toString();
+		                String[] parameterValues = request.getParameterValues(parameterName);
+		                if (parameterValues != null) {
+		                    tces.setAttributes(parameterName,parameterValues);
+		                }
+		            }
+	              Log.msg("About to call process()");
+								try {
+	              	Log.msg("calling process()");
+									tces.process();
+	              	Log.msg("called process()");
+									session.setAttribute("tces", tces);
+		            	forward(request,response, tces.getNextNav().getFullPageName());
+								} catch (TaskException te) {
+	                forwardToError(request,response,new TaskException(TASK+": " + te.getMessage()));
+								}
 							}
 						}
          } 
