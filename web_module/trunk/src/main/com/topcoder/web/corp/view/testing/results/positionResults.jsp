@@ -226,7 +226,7 @@ function getProblemDetail(id) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <A href='?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.SESSION_ID%>=<%=row.getStringItem("session_id")%>'>
+                        <A href='?<%=Constants.MODULE_KEY%>=TestResults&<%=Constants.SESSION_ID%>=<%=row.getStringItem("session_id")%>'>
                             <%=row.getStringItem("problem_text")%>
                         </A>
                     </td>
