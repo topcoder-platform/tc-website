@@ -109,7 +109,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="top"></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="center"><INPUT TYPE="checkbox" NAME="change_password" VALUE="true" ONCHANGE="Javascript:togglePassword();" <%=student.getChangePassword()?"CHECKED":""%>>&nbsp;Change password</TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="center"><INPUT TYPE="checkbox" NAME="change_password" VALUE="true" ONCLICK="Javascript:togglePassword();" <%=student.getChangePassword()?"CHECKED":""%>>&nbsp;Change password</TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Password&nbsp;</TD>
