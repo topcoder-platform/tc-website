@@ -45,9 +45,7 @@
                             <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
                         </table>
 
-                        <table cellspacing="0" cellpadding="10" border="0" width="550">
-                            <tr valign="top"><td width="100%" class="statText" align="center"><h3>The following schools qualify for the Championship Match</h3></td></tr>
-                        </table>
+                        <div align="center"><h3>The following schools qualify for the Championship Match</h3></div>
                         
                         <table cellspacing="0" cellpadding="3" border="0" width="300">
                             <tr>
