@@ -1876,10 +1876,10 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
             message = modifyMessage(1, message);
             conn.setAutoCommit(false);
-            updateChallenge(conn, 0, -50.00, 0.00, message, challenge_id);
+            updateChallenge(conn, 0, -25.00, 0.00, message, challenge_id);
             updateRoomResult(conn, round_id, defendant_id, submission_points);
             updateComponentState(conn, submission_points, CHALLENGE_FAILED, round_id, defendant_id, problem_id);
-            updateRoomResult(conn, round_id, challenger_id, -100.00);
+            updateRoomResult(conn, round_id, challenger_id, -25.00);
             conn.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -1920,7 +1920,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             updateChallenge(conn, 1, 50.00, submission_points, message, challenge_id);
             updateRoomResult(conn, round_id, defendant_id, submission_points);
             updateComponentState(conn, 0.00, CHALLENGE_SUCCEEDED, round_id, defendant_id, problem_id);
-            updateRoomResult(conn, round_id, challenger_id, 100.00);
+            updateRoomResult(conn, round_id, challenger_id, 50.00);
             conn.commit();
         } catch (Exception e) {
             e.printStackTrace();
