@@ -36,7 +36,7 @@
 
     <tr>
         <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated"/></td>
+        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></td>
     </tr>
     <tr>
         <td class="myStatsEarningsName">Earnings</td>
@@ -47,7 +47,7 @@
 
     <tr valign="middle">
         <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated"/></td>
+        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></td>
     </tr>
     <tr valign="middle">
         <td class="myStatsEarningsName">Earnings</td>
