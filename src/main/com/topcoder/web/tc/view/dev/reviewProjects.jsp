@@ -25,7 +25,8 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="reviews"/>
+                <jsp:param name="level2" value="components"/>
+                <jsp:param name="level3" value="reviews"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -35,11 +36,21 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" align="center">
-            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
+        <td width="100%" align="center" class="bodyText">
+        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
+        <jsp:include page="../body_top.jsp" >
+           <jsp:param name="image" value="development"/>  
+           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="title" value="Components"/>  
+        </jsp:include>
+        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
 
+            <p><h2 align="left">Review opportunities currently available!</h2></p>
 
-            <table border="0" cellspacing="0" width="530" class="formFrame">
+            <p align="left">In the table below you will be able to see what projects are available, the type of project, current number of submissions, the review timeline, and the number of positions available.   If you click on a component name you will be able to see all of the details associated with that component review.</p>
+            <p align="left">If you are not currently on the TopCoder Architect or Development Review Board you may send an email to tcsservice@topcoder.com requesting permission to perform reviews.  Please keep in mind only members that have completed component projects all eligible to join the TopCoder Review boards.</p>
+
+            <table border="0" cellspacing="0" width="100%" class="bodyText">
                 <tr>
                     <td class="projectHeaders">Component Name</td>
                     <td class="projectHeaders" align="center">Catalog</td>
@@ -61,8 +72,8 @@
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
                     </tr>
                 </rsc:iterator>
-
-            </table>
+                
+           </table>
 
 
 

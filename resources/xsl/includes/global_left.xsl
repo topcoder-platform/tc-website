@@ -900,6 +900,19 @@
                                 </td>
                             </tr>
 
+            <!-- Review Opportunities -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='comp_reviews'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewReviewProjects</xsl:attribute>Review Opportunities</A>
+                                </td>
+                            </tr>
+
               <!-- Project Winners -->
                             <tr>
                                 <td id="leftSubnav">
