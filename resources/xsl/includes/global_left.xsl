@@ -103,9 +103,20 @@
                 </tr>
 
 <!-- Last Match Results -->
+        <xsl:choose>
+            <xsl:when test="number(/TC/Rating)>0 and/TC/LoggedIn='true'">
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=round_stats</xsl:attribute>Last Match Results</a></td></tr>
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>My Last Match</a></td></tr>
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Member Profile</a></td></tr>
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Ratings History</a></td></tr>
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</a></td></tr>
+            </xsl:when>
+            <xsl:otherwise>
                 <tr>
                     <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match</xsl:attribute>Last Match Results</A></td>
                 </tr>
+            </xsl:otherwise>
+        </xsl:choose>
 
 <!-- Coder Rankings -->
                 <tr>
@@ -160,90 +171,6 @@
         </xsl:when>
 <!--  Statistics ends -->
 
-<!-- Advanced Member Search begins -->
-        <xsl:when test="/TC/Task='search'">
-            <xsl:call-template name="left_nav_top_row" />
-            <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="competition_row"/>
-                <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="sched_row"/>
-
-                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Statistics</A></td></tr>
-
-<!-- Round Overview -->
-                <tr>
-                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>Round Overview</A></td>
-                </tr>
-
-<!-- Last Match Results -->
-
-        <xsl:choose>
-            <xsl:when test="number(/TC/Rating)>0 and/TC/LoggedIn='true'">
-                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=round_stats">Last Match Results</xsl:attribute></a></td></tr>
-                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>My Last Match</a></td></tr>
-                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Member Profile</a></td></tr>
-                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Ratings History</a></td></tr>
-                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</a></td></tr>
-            </xsl:when>
-            <xsl:otherwise>
-                <tr>
-                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match</xsl:attribute>Last Match Results</A></td>
-                </tr>
-            </xsl:otherwise>
-        </xsl:choose>
-
-<!-- Coder Rankings -->
-                <tr>
-                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_ratings</xsl:attribute>Coder Rankings</A></td>
-                </tr>
-
-<!-- Overview -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="/TC/Command='editorial_archive'">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=editorial_archive</xsl:attribute>Match Editorials</A>
-                    </td>
-                </tr>
-
-<!-- Overview -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="/TC/Command='quick_stats'">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=quick_stats</xsl:attribute>Quick Stats</A>
-                    </td>
-                </tr>
-
-<!-- Advanced Member Search -->
-                <tr>
-                    <td id="leftSubnavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewAdvanced</xsl:attribute>Advanced Member Search</A></td>
-                </tr>
-                <tr>
-                    <td id="leftSubnav">
-                        <a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?&amp;module=SurveyList</xsl:attribute>Member Surveys</a>
-                    </td>
-                </tr>
-
-
-                <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="events_row"/>
-                <xsl:call-template name="rtables_row"/>
-                <xsl:call-template name="rules_row"/>
-            </table>
-
-            <xsl:call-template name="simple_search"/>
-            <xsl:call-template name="left_nav_btm_row"/>
-        </xsl:when>
-<!--  Advanced Member Search ends -->
 
 <!-- Features begins -->
         <xsl:when test="/TC/Task='features'">
