@@ -620,7 +620,6 @@ Ipsuma dipiscing elit, sed diam nonummy nibh euismod tincidunt sit amet, consect
 <!-- <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><BR/>
 <A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A> -->
 <xsl:call-template name="my_stats"/>
- <xsl:choose>
 
      <xsl:choose>
      <xsl:when test="number(/TC/Rating)&lt;1200"> 

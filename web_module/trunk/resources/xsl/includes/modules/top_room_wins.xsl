@@ -29,8 +29,7 @@
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <xsl:choose>
-          <xsl:when test="number(/TC/Rating)&lt;1200">
-            <xsl:when test="number($division)=2">
+          <xsl:when test="number($division)=2">
             <xsl:for-each select="/TC/HOME/Div2RoomWinners/RoomWinner">
               <TR>
                 <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;<xsl:value-of select="room_name"/></TD>
