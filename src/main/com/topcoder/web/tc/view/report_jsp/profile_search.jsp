@@ -26,7 +26,7 @@
     ResultSetContainer states = (ResultSetContainer)m.get("state_list");
     ResultSetContainer countries = (ResultSetContainer)m.get("country_list");
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
-    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographic_questionss");
+    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographics_questions");
     ResultSetContainer demographic_answers = (ResultSetContainer)m.get("demographics_answers");
     ResultSetContainer.ResultSetRow answer;
     int idx = 0;
@@ -89,6 +89,7 @@
           <input type="textfield" size="20" name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>"/>
         <% } else if(resultRow.getStringItem("selectable").equals("Y")) { %>
           <select name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
+          <option name="-1" value="">
         <% } else if(resultRow.getStringItem("selectable").equals("M")) { %>
           <select size="5" multiple name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
         <% } 
