@@ -263,6 +263,9 @@
   }
   ForumFactory ff = ForumFactory.getInstance(aToken);
   Iterator forums = ff.forums();
+  String temp = request.getParameter("forum");
+  temp = temp==null?"-1":temp;
+  int paramFid = Integer.parseInt(temp);
   while( forums.hasNext() ) {
     Forum f = (Forum)forums.next();
     int fID = f.getID();
@@ -270,7 +273,7 @@
     int messageCount = f.getMessageCount();
 %>
     
-                <tr><td id="leftSubnav"><a href="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="leftOn"><%=(fName!=null)?fName:"&nbsp;"%></a></td></tr>
+                <tr><td id="<%=paramFid>0&&paramFid==fID?"leftSubnavOn":"leftSubNav"%>"><a href="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="leftOn"><%=(fName!=null)?fName:"&nbsp;"%></a></td></tr>
 
 <% } %>
 
