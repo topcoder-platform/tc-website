@@ -132,13 +132,13 @@
                            
                         <dd><strong>Java Code Template</strong><br/>
                         
-                        <code>import &#60;necessary classes&#62;<br/><br/>
+                        <PRE>import &#60;necessary classes&#62;<br/><br/>
                         public class &#60;class-name&#62; {<br/>
                         public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
                         //your source here<br/>
-                        return &#60;results&#62;;</code><br/>
+                        return &#60;results&#62;;<br/>
                         }<br/>
-                        }</dd><br/>
+                        }</PRE></dd><br/>
                           
 
                           <dd><strong>C++ Code Template</strong><br/>
