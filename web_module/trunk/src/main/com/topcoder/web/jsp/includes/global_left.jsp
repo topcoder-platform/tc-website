@@ -43,7 +43,6 @@
 
 <%-- Review Boards begins --%>
                 <tr><td id="<%=level1.equals("review_board")?"leftNavOn":"leftNav"%>"><a href="/tc?module=ReviewBoard&ph=112" class="<%=level1.equals("review_board")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("review_board")?"bottom":"right"%>.gif" border="0"/>Review Boards</a></td></tr>
-
             <% if (level1.equals("review_board")) { %>
                 <tr><td id="<%=level2.equals("design")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=ReviewBoard&ph=112">Design</a></td></tr>
                 <tr><td id="<%=level2.equals("development")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=ReviewBoard&ph=113">Development</a></td></tr>
@@ -152,6 +151,7 @@
                 <tr><td id="<%=level2.equals("problem_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=ProblemArchive">Problem Archive</a></td></tr>
                 <tr><td id="<%=level2.equals("coder_ratings")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>
                 <tr><td id="<%=level2.equals("editorial_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>
+                <tr><td id="<%=level2.equals("tutor_transcripts")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=tutor_transcripts&d2=index">Tutor Transcripts</a></td></tr>
                 <tr><td id="<%=level2.equals("quick_stats")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>
                 <tr><td id="<%=level2.equals("search")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=ViewAdvanced">Advanced Member Search</a></td></tr>
                 <tr><td id="<%=level2.equals("member_surveys")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?&module=SurveyList">Member Surveys</a></td></tr>
