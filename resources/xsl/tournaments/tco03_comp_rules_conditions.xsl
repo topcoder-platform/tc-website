@@ -61,13 +61,24 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center">
+<!--            <div align="center">
             <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
             <map name="tco_links">
             <area shape="rect" coords="30,100,220,155" href="/index?t=tournaments&amp;c=tco03_overview" />
             <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />            
             </map>
             </div>
+-->
+            <table border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                     <td align="center" colspan="3"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
+                </tr>
+                <tr>
+                    <td height="42" align="center"><A href="/index?t=tournaments&amp;c=tco03_overview"  target="_top"><img src="/i/tournament/tco03/tco_promo_coding_small.gif" alt="Swedish TopCoder members can earn cash" width="263" height="86" border="0" vspace="10"/></A></td>
+                    <td width="50"><img src="/i/clear.gif" alt="" width="50" height="1" border="0" /></td>
+                    <td height="64" align="center"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" target="_top"><img src="/i/tournament/tco03/tco_promo_component_small.gif" alt="TopCoder Software Component Catalog available" width="263" height="86" border="0" /></A></td>
+                </tr>
+            </table>
 
 <!-- Tab bar suplinks
             <xsl:call-template name="tco03_suplinks">
@@ -91,8 +102,7 @@
             <p>By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which 
             are final, binding and conclusive in all matters.</p>
 
-            <h3><font color="#CC0000">Contestants must not cheat. All ideas for any code and/or challenge submitted must be 
-            the contestant's alone.</font></h3>
+            <h3><font color="#CC0000">Contestants must not cheat. All designs and/or development submissions must be the work of the contestant alone.</font></h3>
 
 <p>All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the 
 tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
@@ -102,11 +112,11 @@ must be comprehensive, accurate and up-to-date. TopCoder may require you to comp
 to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and 
 all registration forms required by TopCoder.</p>
 
-<p>As a condition of winning and redeeming a cash prize, winners will be required to return by Tuesday, October 28th a 
+<p>As a condition of winning and redeeming a cash prize, winners will be required to return by Tuesday, November 11th a 
 completed (i) notarized Affidavit of Eligibility and Liability and Publicity Release, (ii) competitor questionnaire, (iii) 
 travel form, and (iv) IRS Form W-9 or W-8BEN, as appropriate, if one is not already on file with TopCoder. In completing 
 the Affidavit of Eligibility and Liability and Publicity Release, a winner (i) confirms his/her eligibility, (ii) represents 
-and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (iii) verifies 
+and warrants that he/she has not cheated; that the design and/or development submission is his/hers alone, (iii) verifies 
 the accuracy of the demographic information submitted to, and contained in, the TopCoder member database, (iv) authorizes 
 TopCoder to publicize the tournament's results, (v) agrees to sign any applicable forms required by tax authorities, (vi) assigns 
 to TopCoder all rights to all information submitted during the tournament (including rights to source code and other executables), 

@@ -61,13 +61,24 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center">
+<!--            <div align="center">
             <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
             <map name="tco_links">
             <area shape="rect" coords="30,100,220,155" href="/index?t=tournaments&amp;c=tco03_overview" />
             <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />            
             </map>
             </div>
+-->
+            <table border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                     <td align="center" colspan="3"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
+                </tr>
+                <tr>
+                    <td height="42" align="center"><A href="/index?t=tournaments&amp;c=tco03_overview"  target="_top"><img src="/i/tournament/tco03/tco_promo_coding_small.gif" alt="Swedish TopCoder members can earn cash" width="263" height="86" border="0" vspace="10"/></A></td>
+                    <td width="50"><img src="/i/clear.gif" alt="" width="50" height="1" border="0" /></td>
+                    <td height="64" align="center"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" target="_top"><img src="/i/tournament/tco03/tco_promo_component_small.gif" alt="TopCoder Software Component Catalog available" width="263" height="86" border="0" /></A></td>
+                </tr>
+            </table>
 
 <!-- Tab bar suplinks
             <xsl:call-template name="tco03_suplinks">
@@ -94,14 +105,14 @@
             </p>
             
             <p>
-            Those members who are eligible to compete in both the Coding Competition of the 2003 TopCoder Open and in the CDDC will be 
+            Those members who are eligible to compete in both the Coding Tournament of the 2003 TopCoder Open and in the Component Tournament will be 
             permitted to participate in both.  In addition, members will be allowed to compete in both the design and development elements 
-            of the CDDC.  However, if one member participates in Online Round #1 of both the design and development contest AND qualifies 
-            as one of the advancers in each, then the member will only be permitted to advance in one of the contests.  The following criteria 
+            of the Component Tournament.  However, if one member participates in Online Round #1 of both the design and development contest AND qualifies 
+            as one of the advancers in each, then the member will only be permitted to advance in one of the contests (either design or development).  The following criteria 
             will be used to determine which contest the member will advance to:
             </p>
             <ul>
-            <li>The member will advance to the contest in which he/she was seeded higher (i.e. lower seed #)</li>
+            <li>The member will advance to subsequent rounds of the contest according to their seed</li>
             <li>If the member's seed is the same in each competition, then the member will advance to the contest in which he/she achieved a higher average score</li>
             <li>If the member's average score is the same in both contests, then the member will advance to the contest in which he/she achieved a higher score for his/her level 2 component</li>
             <li>If the member's level 2 component score is the same for both contests, then TopCoder will assign the member to one of the contests</li>
@@ -114,9 +125,9 @@
             persons living in the same household as such persons, are ineligible to enter the tournament.
             </p>
             
-            <p><span class="bodySubtitle">About the tournament schedule</span><br />
+            <p><span class="bodySubtitle">About the component tournament schedule</span><br />
            Each contestant in an online round must submit his or her design and/or development submissions for components as scheduled (Click 
-           <a href="/?&amp;t=tournaments&amp;c=tco03_sched#sched">here</a> for competition dates and times.).  If a coder does not participate, 
+           <a href="/?&amp;t=tournaments&amp;c=tco03_comp_sched#sched">here</a> for competition dates and times.).  If a coder does not participate, 
            for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
             
             </blockquote>

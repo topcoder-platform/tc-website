@@ -61,13 +61,25 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center">
+<!--            <div align="center">
             <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
             <map name="tco_links">
             <area shape="rect" coords="30,100,220,155" href="/index?t=tournaments&amp;c=tco03_overview" />
             <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />            
             </map>
             </div>
+-->
+            <table border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                     <td align="center" colspan="3"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
+                </tr>
+                <tr>
+                    <td height="42" align="center"><A href="/index?t=tournaments&amp;c=tco03_overview"  target="_top"><img src="/i/tournament/tco03/tco_promo_coding_small.gif" alt="Swedish TopCoder members can earn cash" width="263" height="86" border="0" vspace="10"/></A></td>
+                    <td width="50"><img src="/i/clear.gif" alt="" width="50" height="1" border="0" /></td>
+                    <td height="64" align="center"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" target="_top"><img src="/i/tournament/tco03/tco_promo_component_small.gif" alt="TopCoder Software Component Catalog available" width="263" height="86" border="0" /></A></td>
+                </tr>
+            </table>
+
 
 <!-- Tab bar suplinks
             <xsl:call-template name="tco03_suplinks">
@@ -85,18 +97,20 @@
             </xsl:call-template>
     
             <blockquote>
-            <h2>Overview of the Tournament</h2>
+            <h2>Overview of the Component Tournament</h2>
+            
+            <p> The component tournament will consist of 2 competitions, a design competition and a development competition, which will occur during the same timeframe.</p>
             
             <ul>
                 <li><strong>Dates: </strong><br />
                     September 2nd through December 5th, 2003</li>
                 <li><strong>Rounds: </strong><br />
                     Two elimination rounds - online<br />
-                    The Championship round will be held at the Mohegan Sun Casino and Resort in Uncasville, CT on December 5th.</li>
+                    The Championship Round will be held at the Mohegan Sun Casino in Uncasville, CT on December 5th.</li>
                 <li><strong>Prizes: </strong><br />
-                    Total Prize Purse: $20,000 in cash</li>
+                    Total Prize Purse: $30,000 in cash</li>
                 <li><strong>Finalists: </strong><br />
-                    The top 2 finishers in the online rounds will advance to the onsite Championship rounds</li>
+                    The top 2 finishers in the online rounds will advance to the onsite Championship Round</li>
             </ul>
             </blockquote>
 

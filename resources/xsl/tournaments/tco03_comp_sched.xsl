@@ -61,13 +61,24 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center">
+<!--            <div align="center">
             <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
             <map name="tco_links">
             <area shape="rect" coords="30,100,220,155" href="/index?t=tournaments&amp;c=tco03_overview" />
             <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />            
             </map>
             </div>
+-->
+            <table border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                     <td align="center" colspan="3"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
+                </tr>
+                <tr>
+                    <td height="42" align="center"><A href="/index?t=tournaments&amp;c=tco03_overview"  target="_top"><img src="/i/tournament/tco03/tco_promo_coding_small.gif" alt="Swedish TopCoder members can earn cash" width="263" height="86" border="0" vspace="10"/></A></td>
+                    <td width="50"><img src="/i/clear.gif" alt="" width="50" height="1" border="0" /></td>
+                    <td height="64" align="center"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" target="_top"><img src="/i/tournament/tco03/tco_promo_component_small.gif" alt="TopCoder Software Component Catalog available" width="263" height="86" border="0" /></A></td>
+                </tr>
+            </table>
 
 <!-- Tab bar suplinks
             <xsl:call-template name="tco03_suplinks">
@@ -89,7 +100,7 @@
             
 <!-- Qualification Rounds begins -->
            <p><span class="bodySubtitle">Online Elimination Rounds</span></p>
-            <p>All eligible TopCoder members will compete in Online Round 1 of the TCO. For design, the top eight scorers from Round 1 
+            <p>All eligible TopCoder members may compete in Online Round 1 of the Component Tournament. For design, the top eight scorers from Round 1 
             will advance.  The top eight scorers from Round 1 along with the winners of the previous quarterly component design contests 
             will compete in Online Round 2.  For development, the top ten scorers from Round 1 will compete in Online Round 2.  
             The top two scorers from Round 2 will compete in the Championship Round at Mohegan Sun on December 5th.</p>
@@ -98,9 +109,10 @@
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="25%">Development</td>
+                    <td class="sidebarTitle" width="25%" align="center">Development</td>
                     <td class="sidebarTitle" width="25%" align="center">Design</td>
                 </tr>
+                <tr><td colspan="3" align="center" class="sidebarText">ALL TIMES ARE EASTERN TIME</td></tr>
                 <tr valign="top">
                     <td class="sidebarText" colspan="3"><strong>Online Round 1</strong></td>
                  </tr>
@@ -211,7 +223,7 @@
                    </tr>            
                   <tr>
                      <td class="sidebarText">
-                        Scorecards posted
+                        Scorecards posted*
                         </td>
                      <td class="sidebarText">
                         12.05.03 8:00am
@@ -222,7 +234,7 @@
                    </tr>            
                   <tr>
                      <td class="sidebarText">
-                        Final fixes
+                        Final fixes*
                         </td>
                      <td class="sidebarText">
                         12.05.03 8:00am - 12:00pm
@@ -233,7 +245,7 @@
                    </tr>            
                   <tr>
                      <td class="sidebarText">
-                        Final reviews
+                        Final reviews*
                         </td>
                      <td class="sidebarText">
                         12.05.03 12:15pm - 3:30pm
@@ -244,7 +256,7 @@
                    </tr>            
                   <tr>
                      <td class="sidebarText">
-                        Winners announced
+                        Winners announced*
                         </td>
                      <td class="sidebarText">
                         12.05.03 4:20pm
@@ -252,7 +264,9 @@
                      <td class="sidebarText">
                         12.05.03 4:20pm
                         </td>
-                   </tr>            
+                   </tr>
+                <tr><td colspan="3" class="sidebarText">*These times are subject to change</td></tr>
+                   
 
 
             </table><br />

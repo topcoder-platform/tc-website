@@ -61,13 +61,24 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center">
+<!--            <div align="center">
             <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
             <map name="tco_links">
             <area shape="rect" coords="30,100,220,155" href="/index?t=tournaments&amp;c=tco03_overview" />
             <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />            
             </map>
             </div>
+-->
+            <table border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                     <td align="center" colspan="3"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
+                </tr>
+                <tr>
+                    <td height="42" align="center"><A href="/index?t=tournaments&amp;c=tco03_overview"  target="_top"><img src="/i/tournament/tco03/tco_promo_coding_small.gif" alt="Swedish TopCoder members can earn cash" width="263" height="86" border="0" vspace="10"/></A></td>
+                    <td width="50"><img src="/i/clear.gif" alt="" width="50" height="1" border="0" /></td>
+                    <td height="64" align="center"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" target="_top"><img src="/i/tournament/tco03/tco_promo_component_small.gif" alt="TopCoder Software Component Catalog available" width="263" height="86" border="0" /></A></td>
+                </tr>
+            </table>
 
 <!-- Tab bar suplinks
             <xsl:call-template name="tco03_suplinks">
@@ -88,7 +99,7 @@
             <blockquote>
             <h2>Competition Structure</h2>
             
-            <p>ALL SUBMISSIONS MUST BE RECEIVED DURING THE ROUND'S SUBMISSIONS TIMELINE TO BE CONSIDERED A VIABLE ENTRY.  THERE 
+            <p>ALL SUBMISSIONS MUST BE RECEIVED DURING EACH ROUND'S SUBMISSIONS TIMELINE TO BE CONSIDERED A VIABLE ENTRY.  THERE 
             WILL BE NO EXCEPTIONS.  Following the submission deadline, the TopCoder Review Boards will review and score all eligible entries.  
             After the Aggregation Phase, the winners will be identified and announced.  Those winners will advance to the next online round. Coder
              advancement in Online Round 1 and 2 will be determined by averaging each member's two highest Review Board scores.  One score 
@@ -114,40 +125,39 @@
             the following manner (in order): <br/>
             <ol>
             <li>The highest score for the level 2 component submitted during that round</li>
-            <li>If a tie still remains, then by average score of all submissions entered during the rounds of competition in which all tied participants competed</li>
-            <li>If a tie still remains, then by TopCoder rating as of September 4</li>
+            <li>If a tie still remains, then by averaging the tied members' scores from each round in which all tied participants competed</li>
+            <li>If a tie still remains, then by TopCoder rating as of September 2</li>
             <li>If a tie still remains, then all tied members will advance to the next round</li>
             </ol>
             </p>
 
-            <p><span class="bodySubtitle">Round Structure</span><br />
+            <p><span class="bodySubtitle">Scoring</span><br />
             During each online round of competition, eligible competitors will
             submit design and development solutions for at least two eligible
-            components (including one level 2 component) by the submission due date.
+            components (including at least one level 2 component) by the submission due date.
             Submissions will be scored by the TopCoder Review Boards and will be
             subject to final review and appeal in the same manner as standard
-            component design submissions.  The score for the round will be the
-            average of your two highest scores (one score must be a level 2
+            component design submissions.  Each competitor's score for the round will be the
+            average of his/her two highest scores (one score must be a level 2
             component). 
             </p>           
             
             <p><span class="bodySubtitle">Onsite Championship Round 3</span><br />
-            The two advancers from Round 2 will travel to Mohegan Sun on Thursday, December 4th to compete in the final review stage of 
+            The two advancers from Round 2 will travel to Mohegan Sun on Thursday, December 4th to compete in the final review stage (see explanation below) of 
             Round 3 being held on Friday, December 5th.  All contestants must arrive at Mohegan Sun no later than 4:00 PM on Thursday, 
             December 4th.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and 
             his/her spot in the tournament will be given to the next highest overall scorer from Round 2.</p>
             
-            <p>The two finalists will have ten days to complete the final project.
+            <p>The two advancers from Round 2 will have ten days to complete the final project.
             Once the project is completed, the submissions will be submitted to
             TopCoder and reviewed by the TopCoder review board.  The finalists will
-            receive the review scorecards at 8 am on the morning of the on site
-            competition as well as an addendum to the original requirements for
-            design projects and additional section of the design for development
+            receive the review scorecards at 8:00 am on Friday, December 5th,  as well as an addendum to the original requirements for
+            design projects and an additional section of the design for development
             projects.  Each finalist will be scored on the implementation of final
             fixes for the component as well as the additional design or development
-            of the addendum.  This portion of the competition will last 4 hours.  An
+            of the addendum.  This portion of the competition will last 4 hours.  (An
             example addendum for an HTTP Listener component would be to design or
-            develop an SSL module for the component.</p>
+            develop an SSL module for the component)</p>
 
             <p>TopCoder will provide travel arrangements for each competitor and a guest of his/her choice, up to a cost of $1,000 per 
             person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between 
@@ -162,8 +172,8 @@
             <p><strong>Championship Tie-Breaker</strong>:  In the event of a tie in the Championship Round, the tie will be resolved 
             in the following manner (in order):<br/>
             <ol>
-            <li>By average score of all submissions entered during the rounds of competition in which all tied participants competed</li>
-            <li>If a tie still remains, then by TopCoder rating as of September 4</li>
+            <li>By averaging the tied members' scores from each round in which all tied participants competed</li>
+            <li>If a tie still remains, then by TopCoder rating as of September 2</li>
             <li>If a tie still remains, then the prize money will be distributed equally amongst the tied members</li>
             </ol>
             </p>
