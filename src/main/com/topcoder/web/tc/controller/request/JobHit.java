@@ -9,12 +9,10 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.web.tc.model.JobHitData;
@@ -22,6 +20,7 @@ import com.topcoder.web.tc.model.JobHitData;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Map;
+import java.rmi.RemoteException;
 
 /**
  * User: dok
@@ -96,6 +95,53 @@ public class JobHit extends Base {
                                 jpServices.addJobHit(hit.getUserId(), jobId, hitType, DBMS.OLTP_DATASOURCE_NAME);
                                 if (hitType == Constants.CLICK_THRU_ID) {
                                     setNextPage(jpServices.getLink(jobId, DBMS.OLTP_DATASOURCE_NAME));
+                                    setIsNextPageInContext(false);
+                                } else if (hitType == Constants.PLACEMENT_CLICK_THRU_ID) {
+                                    SessionInfo sessionInfo = (SessionInfo)
+                                            getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+
+                                    UserPreference prefBean = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
+                                    int flag = 0;
+                                    boolean isContractor = false;
+                                    boolean isPermanent = false;
+                                    try {
+                                        isContractor = Constants.PREFERENCE_CONTRACTING_TRUE ==
+                                                prefBean.getPreferenceValueID(hit.getUserId(),
+                                                        Constants.PREFERENCE_CONTRACTING, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                                    } catch (RemoteException e) {
+                                        if (e.detail instanceof RowNotFoundException) {
+                                            flag++;
+                                        } else throw e;
+                                    }
+                                    try {
+                                        isPermanent = Constants.PREFERENCE_PERMANENT_TRUE ==
+                                                prefBean.getPreferenceValueID(hit.getUserId(),
+                                                        Constants.PREFERENCE_PERMANENT, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                                    } catch (RemoteException e) {
+                                        if (e.detail instanceof RowNotFoundException) {
+                                            flag++;
+                                        } else throw e;
+                                    }
+
+                                    if (flag==2) {
+                                        //they never signed up for placement
+                                        getRequest().setAttribute(Constants.MESSAGE,
+                                                "Please register for placement to aid us in finding you a job.");
+                                        setNextPage(sessionInfo.getServletPath()+
+                                                "?"+Constants.MODULE_KEY+"=ContractingPreferences");
+
+                                    } else if (isContractor||isPermanent) {
+                                        //just have them confirm that their info is all set.
+                                        setNextPage(sessionInfo.getServletPath()+
+                                                "?"+Constants.MODULE_KEY+"=ContractingConfirm");
+                                    } else {
+                                        //they have choosen not to be available for placement
+                                        getRequest().setAttribute(Constants.MESSAGE,
+                                                "Your placement information indicates that you are not interested" +
+                                                "in either contracting or full-time employment opportunities.");
+                                        setNextPage(sessionInfo.getServletPath()+
+                                                "?"+Constants.MODULE_KEY+"=ContractingPreferences");
+                                    }
                                     setIsNextPageInContext(false);
                                 } else {
                                     setNextPage(Constants.PROFILE_PAGE);

@@ -109,6 +109,9 @@ return false;
                 </tr>
             </table>
         <% } %>
+        <% if (request.getAttribute(Constants.MESSAGE)!=null) { %>
+            <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span>
+        <% } %>
 
 
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
