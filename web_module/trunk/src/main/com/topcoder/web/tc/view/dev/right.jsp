@@ -5,12 +5,13 @@
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <% ResultSetContainer openProjects = (ResultSetContainer)request.getAttribute("OpenProjects");%>
 
-<img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
-
-<img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
-
+<div class="dc_devRightSpacer">
 <%-- Component Design Projects begins --%>
-            <A href="/?t=development&c=comp_projects#comp_des"><img src="/i/development/head_comp_des_projects.gif" alt="Component Design Projects" width="180" height="20" border="0" /></A>
+            <table width="180" border="0" cellspacing="0" cellpadding="0">
+                <tr valign="middle">
+                    <td class="statText"><A href="/?t=development&c=comp_projects#comp_des"><img src="/i/development/head_comp_des_projects.gif" alt="Component Design Projects" width="180" height="20" border="0" /></A></td>
+                </tr>
+            </table>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
                     <td bgcolor="#EEEEEE">
@@ -62,11 +63,15 @@
                 </tr>
             </table>
 <%-- Component Design Projects ends --%>
+</div>
 
-            <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
-
+<div class="dc_devRightSpacer">
 <%-- Component Development Projects begins --%>
-            <A href="/?t=development&c=comp_projects#comp_dev"><img src="/i/development/head_comp_dev_projects.gif" alt="Component Design Projects" width="180" height="20" border="0" /></A>
+            <table width="180" border="0" cellspacing="0" cellpadding="0">
+                <tr valign="middle">
+                    <td class="statText"><A href="/?t=development&c=comp_projects#comp_dev"><img src="/i/development/head_comp_dev_projects.gif" alt="Component Design Projects" width="180" height="20" border="0" /></A></td>
+                </tr>
+            </table>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
                     <td bgcolor="#EEEEEE">
@@ -118,9 +123,9 @@
                 </tr>
             </table>
 <%--  Component Development Projects ends --%>
+</div>
 
-            <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
-
+<div class="dc_devRightSpacer">
 <%-- Read Me's begins --%>
             <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
@@ -131,8 +136,7 @@
                 </tr>
             </table>
 <%-- Read Me's ends --%>
-
-           <p><br/></p>
+</div>
 
     </xsl:template>
 </xsl:stylesheet>
