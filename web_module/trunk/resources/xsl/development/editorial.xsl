@@ -165,10 +165,10 @@ You must be a rated TopCoder member, at least 18 years of age, meeting all of th
                                     <b>Time Line</b>
                                     <BR/>
                                     <BR/>            
-The project will begin on the 22nd of May. There will be a kick-off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The project is scheduled to be complete by July 3rd. 
+The project will begin on the 27th of May. There will be a kick-off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The project is scheduled to be complete by July 8th. 
                                     <ul>
-                                        <li>Project Start Date:    May 22, 2002</li>
-                                        <li>Project End Date:      July 3, 2002</li>
+                                        <li>Project Start Date:    May 27, 2002</li>
+                                        <li>Project End Date:      July 8, 2002</li>
                                     </ul>
                                     <a href="Javascript:document.frmInquire.Project.value='Website Editorial';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
           <P><br/></P>
