@@ -58,7 +58,7 @@
 							
 <!-- Title -->
 						<h1 class="devSubhead"><strong>.NET Logging Wrapper: Design</strong></h1>
-                                    
+                        
 						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=.NET Logging Wrapper: Design&amp;comp=4311341" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
@@ -76,7 +76,7 @@
 <!-- Technologies -->
 						<p><strong>Technologies</strong></p>
 						<ul>
-							<li>Java 1.4</li>
+							<li>C#</li>
 						</ul>
 
 <!-- Documentation -->
