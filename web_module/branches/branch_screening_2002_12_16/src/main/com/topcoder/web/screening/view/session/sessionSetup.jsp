@@ -9,11 +9,15 @@
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript"><!--
 function showEmail() {
-    var size = "top=2,left=2,width=600,height=549,status=0";
-    var name="graph";
+    var width = screen.availWidth * 2 / 3;
+    var height = screen.availHeight / 2;
+    var left = (screen.availWidth - width) / 2;
+    var top = 0;
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var name="previewEmail";
     var id = document.sessionSetupForm.cid.options[sessionSetupForm.cid.selectedIndex].value;
     <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PreviewEmail"; %>
-    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+id,name,size);
+    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+id,name,cmd);
     return;
   }
 

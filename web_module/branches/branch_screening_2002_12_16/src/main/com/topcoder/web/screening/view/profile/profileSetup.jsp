@@ -8,10 +8,14 @@
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
 function getProblemDetail(id) {
-    var size = "top=2,left=2,width=600,height=549,status=0";
-    var name="graph";
+    var width = screen.availWidth * 2 / 3;
+    var height = screen.availHeight / 2;
+    var left = (screen.availWidth - width) / 2;
+    var top = 0;
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var name="problemDetail";
     <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
-    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,size);
+    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
 
@@ -158,10 +162,9 @@ function submitConfirm() {
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="difficultyDesc" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="businessCategoryList" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="algorithmicCategoryList" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="#remove" CLASS="bodyText" onClick="submitRemove(<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>)" >Remove</A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="JavaScript:submitRemove(<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>)" CLASS="bodyText">Remove</A></TD>
 	        </TR>
             </screen:listIterator>
-            <a name="remove" />
            <TR>
               <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="30" border="0" /></TD>
            </TR>
@@ -175,7 +178,7 @@ function submitConfirm() {
               </TD>
            </TR>
            <TR>
-              <TD COLSPAN="5" ALIGN="center"><a name="add" /><A HREF="#add" CLASS="bodyText" onClick="submitAdd()">Add</A></TD>
+              <TD COLSPAN="5" ALIGN="center"><A HREF="JavaScript:submitAdd()" CLASS="bodyText">Add</A></TD>
            </TR>
          </TABLE>
 
@@ -201,7 +204,7 @@ function submitConfirm() {
               <TD><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText"><a name="submit" />Clear | <A HREF="#submit" CLASS="bodyText" onClick="submitConfirm()">Confirm</A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText"><A HREF="JavaScript:submitConfirm()" CLASS="bodyText">Confirm</A></TD>
 	        </TR>
          </TABLE>
 </screen:form>
