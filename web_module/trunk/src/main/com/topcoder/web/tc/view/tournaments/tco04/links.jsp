@@ -40,6 +40,17 @@
 		</td>
 		<td align="right" rowspan=2><img src="/i/tournament/tco04/component_image.jpg" width="302" height="175" border="0"/></td>
 	</tr>
+<% } else if (tabLev1.equals("sponsor")) { %>
+	<tr>
+		<td valign=top rowspan=2><img src="/i/clear.gif" width="10" height="9" border="0"/><br/>
+		<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="152" border="0"/></A></td>
+		<td align="center" valign=top class=topNavBox>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/off_tournament.gif" width="179" height="24" border="0"></a><br/>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_description"><img src="/i/tournament/tco04/off_component.gif" width="179" height="24" border="0"></a><br/>
+		</td>
+		<td align="right" rowspan=2><img src="/i/tournament/tco04/algorithm_image.jpg" width="302" height="175" border="0"/></td>
+	</tr>
 <% } %>
 
 
