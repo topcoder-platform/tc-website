@@ -18,8 +18,9 @@
 
     <table width="100%" border="0" cellpadding="3" cellspacing="0">
 
-        <tr><td>Note for <%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></td></tr>
-        <tr><td><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td>
+        <tr><td align=center><b><font size="+2"><%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></font></b></td></tr>
+        <tr><td align=center><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td>
+
         <tr>
             <td>
                 <form action="/tc" method=post name="noteForm">

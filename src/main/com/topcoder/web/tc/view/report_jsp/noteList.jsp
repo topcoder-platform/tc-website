@@ -19,13 +19,14 @@
 
     <table width="100%" border="0" cellpadding="3" cellspacing="0">
 
-        <tr><td colspan=3>Notes for <%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></td></tr>
-        <tr><td colspan=3><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td>
+        <tr><td colspan=4 align=center><font size="+2"><%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></font></td></tr>
+        <tr><td colspan=4><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td>
 
         <tr>
             <td>Text</td>
             <td>Author</td>
             <td>Date</td>
+            <td></td>
         </tr>
 
         <% boolean even = true;%>
@@ -35,10 +36,12 @@
                 <td <%=even?"bgcolor=\"#ccffcc\"":""%>><%=StringUtils.htmlEncode(resultRow.getStringItem("text"))%></td>
                 <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><rsc:item row="<%=resultRow%>" name="submitted_by"/></td>
                 <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><rsc:item row="<%=resultRow%>" name="date" format="MM.dd.yyyy hh:mma"/></td>
+                <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><A HREF="/tc?module=EditNote&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>&nid=<rsc:item row="<%=resultRow%>" name="note_id"/>">Edit</A>
             </tr>
             <%even=!even;%>
 
         </rsc:iterator>
+        <tr><td colspan=4><A HREF="/tc?module=EditNote&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">Add Note</A></td></tr>
 
     </table><br/><br/>
 
