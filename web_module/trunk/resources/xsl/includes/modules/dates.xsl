@@ -32,13 +32,13 @@
               </xsl:otherwise>
             </xsl:choose>
             <xsl:choose>
-              <xsl:when test="ContestId='4150'">
-                <b>05/08/2002</b><br/>
+              <xsl:when test="ContestId='4155'">
+                <b>05/09/2002</b><br/>
                 Register: 7:30 PM<br/>
                 Compete: 9:00 PM<br/>
               </xsl:when>
-              <xsl:when test="ContestId='4155'">
-                <b>05/09/2002</b><br/>
+              <xsl:when test="ContestId='4160'">
+                <b>05/15/2002</b><br/>
                 Register: 7:30 PM<br/>
                 Compete: 9:00 PM<br/>
               </xsl:when>
@@ -46,6 +46,16 @@
                 <b>05/18/2002</b><br/>
                 Register: 11:30 AM<br/>
                 Compete: 1:00 PM<br/>
+              </xsl:when>
+              <xsl:when test="ContestId='4170'">
+                <b>05/21/2002</b><br/>
+                Register: 7:30 PM<br/>
+                Compete: 9:00 PM<br/>
+              </xsl:when>
+              <xsl:when test="ContestId='4175'">
+                <b>05/22/2002</b><br/>
+                Register: 7:30 PM<br/>
+                Compete: 9:00 PM<br/>
               </xsl:when>
               <xsl:otherwise>
                 <b><xsl:value-of select="substring(ContestStartTimestamp,0,11)"/></b><br/>
