@@ -1539,7 +1539,9 @@ public class Registration
         country.setCountryCode(this.country);
         coder.setHomeCountry(country);
         coder.setHomePhone(phone);
-        user.setHandle(handle);
+        //only set the handle if they're creating an account, we don't allow handle updates
+        if (isRegister())
+            user.setHandle(handle);
         user.setPassword(password);
         user.setEmail(email);
         coder.setQuote(quote);
