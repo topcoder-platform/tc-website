@@ -22,6 +22,12 @@
     List StudentNotifyList = (List)StudentDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_NOTIFY_KEY);
     Map StudentQuestionMap = (Map)StudentDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_INFO_KEY);
     Iterator StudentQuestionIterator = StudentQuestionMap.keySet().iterator();
+    
+    Map ProDemoInfoMap = DemographicTask.getProDemoInfo();
+    List ProResponseList = (List)ProDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY); 
+    List ProNotifyList = (List)ProDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_NOTIFY_KEY);
+    Map ProQuestionMap = (Map)ProDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_INFO_KEY);
+    Iterator ProQuestionIterator = ProQuestionMap.keySet().iterator();
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -75,12 +81,10 @@
                   <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
                       <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
-                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>
 
                     <TR>
                       <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>                
                     
                     <tces:mapIterator id="responseRow" MapList="<%=(List)StudentResponseList%>">                    
@@ -94,18 +98,15 @@
                           <TD class="statText">
                             <%=(String)responseRow.get("count")%>
                           </TD>                  
-                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                         </TR>                     
                     </tces:mapIterator>
 
                     <TR>
                       <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>                
 
                     <TR>
                       <TD class="statText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>                
                     
                     <tces:mapIterator id="notify" MapList="<%=(List)StudentNotifyList%>">                    
@@ -119,7 +120,6 @@
                           <TD class="statText">
                             <%=(String)notify.get("count")%>
                           </TD>                  
-                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                         </TR>                     
                     </tces:mapIterator>
 
@@ -132,12 +132,10 @@
             
                     <TR>
                       <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>                
 
                     <TR>
                       <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>                
 
             
@@ -152,7 +150,6 @@
                           <TD class="statText">
                             <%=(String)resp.get("count")%>
                           </TD>                  
-                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                         </TR>                     
                     </tces:mapIterator>
                         
@@ -163,29 +160,87 @@
                   </TABLE>
                 </TD>
                     
-                <TD>
+                <TD width="50%">
                   <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
-                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Professional ()</b></TD>
-                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
                     </TR>
+
                     <TR>
                       <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>                
+                    
+                    <tces:mapIterator id="responseRow" MapList="<%=(List)ProResponseList%>">                    
+                        <TR>
+                          <TD class="statText" HEIGHT="18">
+                            <%=(String)responseRow.get("title")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)responseRow.get("percent")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)responseRow.get("count")%>
+                          </TD>                  
+                        </TR>                     
+                    </tces:mapIterator>
+
                     <TR>
-                      <TD class="statText" HEIGHT="18">IRC Chat</TD>
-                      <TD class="statText">4.13%</TD>
-                      <TD class="statText">9</TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                    </TR> 
+                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                    </TR>                
+
                     <TR>
-                      <TD class="statText" HEIGHT="18">Another web site</TD>
-                      <TD class="statText">4.13%</TD>
-                      <TD class="statText">9</TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                    </TR>                                            
-                  </TABLE>                
+                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
+                    </TR>                
+                    
+                    <tces:mapIterator id="notify" MapList="<%=(List)ProNotifyList%>">                    
+                        <TR>
+                          <TD class="statText" HEIGHT="18">
+                            <%=(String)notify.get("title")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)notify.get("percent")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)notify.get("count")%>
+                          </TD>                  
+                        </TR>                     
+                    </tces:mapIterator>
+
+
+                    <%
+                      while (StudentQuestionIterator.hasNext()) {
+                        String question = (String)ProQuestionIterator.next();
+                        List ProResponsesList = (List)ProQuestionMap.get(question);
+                    %>
+            
+                    <TR>
+                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                    </TR>                
+
+                    <TR>
+                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
+                    </TR>                
+
+            
+                    <tces:mapIterator id="resp" MapList="<%=(List)ProResponsesList%>">                                
+                        <TR>
+                          <TD class="statText" HEIGHT="18">
+                            <%=(String)resp.get("title")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)resp.get("percent")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)resp.get("count")%>
+                          </TD>                  
+                        </TR>                     
+                    </tces:mapIterator>
+                        
+                    <%            
+                      }
+                    %>
+
+                  </TABLE>                  
                 </TD>
                 </TR>
               </TABLE>
