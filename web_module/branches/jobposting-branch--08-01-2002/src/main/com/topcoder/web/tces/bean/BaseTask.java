@@ -75,7 +75,7 @@ log.debug("next page -> "+nextPage);
 
             return returnString + year;
         } catch (Exception e) {
-            log.debug("getTCDate got excepted with key=" + key);
+            log.debug("getDate got excepted with key=" + key);
             e.printStackTrace();
 
             if (defaultVal != null && defaultVal.equals("00/00/00"))

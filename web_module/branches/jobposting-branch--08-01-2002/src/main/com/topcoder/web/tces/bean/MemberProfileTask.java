@@ -34,6 +34,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     private List statsByLevel;
     private List statsByLang;
     private boolean isStudent;
+    private String imagePath;
 
     private int uid;
 
@@ -45,6 +46,14 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         setJobID(-1);
         setCampaignID(-1);
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public String getCompanyName() {
@@ -196,6 +205,9 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Member_Profile");
         ResultSetContainer.ResultSetRow memProfRow = oltpRSC.getRow(0);
+
+        setImagePath( memProfRow.getItem("image_path").toString() );
+
         memberInfo.put(TCESConstants.MEM_INFO_FULLNAME_KEY ,
                             memProfRow.getItem("first_name").toString() + " " +
                             memProfRow.getItem("last_name").toString() );
