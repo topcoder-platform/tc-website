@@ -46,29 +46,50 @@
                         </jsp:include>
 
                         <h3>2003 TopCoder High School Challenge<br>Official Rules and Regulations</h3>
-                        <p>No purchase necessary to enter or win.</p>
                         
                         </div>
                         
-                        <p><font size="3"><strong>Overview</strong></font><br>
-                        The 2003 TopCoder High School Challenge tournament will consist of one (1) onsite round. The top 8 finishing schools 
-                        from the eight (8) regular season online rounds will advance to the onsite Championship round, being held at the Home 
-                        Babbage Library at the University of Connecticut on May 20, 2003.</p>
+                        <p><font size="3"><strong>Conditions of Participation</strong></font><br>
+                        By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are 
+                        final, binding and conclusive in all matters.</p>
 
-                        <p><font size="3"><strong>Eligibility</strong></font><br>
-                        The tournament is open to members who meet the following criteria: <br>
-                        Are at least 13 years of age (as of February 20th, 2003); <br>
-                        Are matriculated full time at an accredited Connecticut high school; <br>
-                        Have participated in at least two (4) TopCoder regular season online rounds prior to May 20, 2003. </p>
+                        <p>Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</p>
 
-                        <p><font size="3"><strong>Invitations and Registration</strong></font><br>
-                        The top eight (8) rated TopCoder High School teams as of May 8, 2003 who meet the eligibility criteria defined above 
-                        will be invited to compete in the tournament. Invitations will be emailed no later than XXX. </p>
+                        <p>Winners in each round of competition will be those competitors who win the most points in their respective 
+                        rooms. All decisions relating to the viability of submissions, the ranking of submissions and all other matters 
+                        pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and 
+                        binding in all respects.</p>
 
-                        <p>Employees of TopCoder, Inc. and those involved in the development, production, implementation and distribution 
-                        of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, 
-                        subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the 
-                        immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. </p>
+                        <p>As a condition of participation in the tournament, ALL information provided by you in your TopCoder member 
+                        profile must be comprehensive, accurate and up-to-date. TopCoder may require you to complete an additional 
+                        registration form to register for the tournament. In order to be eligible to participate in the tournament, you must 
+                        have completed any and all registration forms required by TopCoder.</p>
+
+                        <p>By participating in a tournament, a winner releases and agrees to hold harmless TopCoder, its affiliates, 
+                        subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, 
+                        officers, employees, representatives and agents, from and against any and all liability for any loss, property damage 
+                        or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, 
+                        from or arising out of participation in this tournament, or participation in any tournament-related activity, or the 
+                        receipt, use or misuse of a prize. TopCoder specifically disclaims all liability associated with, and makes no 
+                        warranties with regard to, any prize given.</p>
+
+                        <p>In addition, all winners agree to cooperate with TopCoder's publicity efforts, without further compensation. This 
+                        includes the agreement to use their name, address (city and state) and likeness for publicity purposes, where legal, 
+                        for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to 
+                        TopCoder and any and all rights to said use, without further compensation.</p>
+
+                        <p>TopCoder reserves the right, in it's sole discretion, to revoke any and all privileges associated with competing in 
+                        this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, 
+                        including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web 
+                        site, or the tournament process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, 
+                        terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection 
+                        by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>
+
+                        <p><font size="3"><strong>Other</strong></font><br>
+                        The tournament is void in whole or in part where prohibited by law.</p>
+
+                        <p>A list of tournament winners by coder handles will be available on the web site at highschool.topcoder.com and 
+                        will be displayed for at least 2 months after the end of the tournament.</p>
                         
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
