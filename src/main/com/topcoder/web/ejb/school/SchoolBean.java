@@ -286,6 +286,7 @@ public class SchoolBean extends BaseEJB {
             query.append("SELECT school_id ");
             query.append("FROM school ");
             query.append("WHERE lower(name) = ?");
+            query.append(" ORDER by school_id asc");
 
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());

@@ -535,7 +535,7 @@ public class Registration
                     String strAnswerId = (String) answerList.get(i);
                     if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES)) {
                         employed = true;
-                    } else if (!isNumber(this.school)&&strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
+                    } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
                         this.schoolName = strAnswerId;
                         this.school = "-1";
                     }
@@ -1732,9 +1732,11 @@ public class Registration
                     }
                     long schoolId = 0;
                     if (isNumber(school) && Integer.parseInt(school) != 0) {
+                        log.debug("it's a known school " + school);
                         schoolId = Integer.parseInt(school);
                         this.schoolName = getSchoolName(schoolId);
                     } else {
+                        log.debug("dunno this school, look it up " + this.schoolName);
                         //lookup school by name
                         InitialContext ctxSchool = TCContext.getInitial();
                         com.topcoder.web.ejb.school.School s =
@@ -1743,6 +1745,7 @@ public class Registration
 
                         schoolId = s.getSchoolId(this.schoolName, DBMS.OLTP_DATASOURCE_NAME);
                         if (schoolId == 0) {
+                            log.debug("make this school " + this.schoolName);
                             //create school
                             schoolId = s.createSchool(DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME,
                                     schoolName.substring(0, 1).toUpperCase(), "NA", this.country, coder.getCoderId(), schoolName);
