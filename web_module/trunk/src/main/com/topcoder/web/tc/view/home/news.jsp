@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>03.22.05<br>11:05 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=csfb">CSFB</A></span><br><br>
+      <A href="/tc?module=Static&d1=contracting&d2=csfb">CSFB</A> is offering positions as Quantitative Software Developer, Core Infrastructure / Internal Systems Developer, and Sr. Design Engineer, available to <strong>ALL</strong> members.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.21.05<br>5:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=supernova">"My TCCC05 Experience" by supernova</A></span><br><br>
       Read supernova's personal account of what it was like at the TCCC05.
@@ -235,21 +247,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.04.05<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm233_prob">SRM 233 - Problem Set & Analysis</A></span><br><br>
-      The submissions came fast and furious in both divisions; more than 85 submissions were recorded in the first five minutes of the match.</td>
-      <td class="newsPhoto"><img src="/i/m/radeye_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=277659">radeye</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm233_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 </table>
 <br><br>
 
