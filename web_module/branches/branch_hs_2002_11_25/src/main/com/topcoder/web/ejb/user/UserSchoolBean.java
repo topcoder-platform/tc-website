@@ -347,7 +347,7 @@ public class UserSchoolBean implements SessionBean {
     return(current);
   }
 
-  public boolean existsCurrentUserSchoolId(long _user_id,long _school_id)
+  public boolean existsUserSchoolId(long _user_id,long _school_id)
                                           throws EJBException, RemoteException {
 
     boolean exists=true;
