@@ -329,7 +329,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5710093" class="statText" target="parent">Base Exception</a></td>
                     <td class="statText" height="15" align="center">3</td>
-                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=266705"><strong>sleeve</strong></a></td>
+                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=266705"><strong>Sleeve</strong></a></td>
                     <td class="statText" height="15" align="center">95.31</td>
                     <td class="statText" height="15" align="right">$46.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -377,7 +377,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5711709" class="statText" target="parent">Integer Utility</a></td>
                     <td class="statText" height="15" align="center">10</td>
-                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>Srowen</strong></a></td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
                     <td class="statText" height="15" align="center">99.00</td>
                     <td class="statText" height="15" align="right">$96.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
