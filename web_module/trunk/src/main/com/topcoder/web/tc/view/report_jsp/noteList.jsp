@@ -32,8 +32,8 @@
 
             <tr>
                 <td <%=even?"bgcolor=\"#ccffcc\"":""%>><%=StringUtils.htmlEncode(resultRow.getStringItem("text"))%></td>
-                <td <%=even?"bgcolor=\"#ccffcc\"":""%>><rsc:item row="<%=resultRow%>" name="submitted_by"/><td>
-                <td <%=even?"bgcolor=\"#ccffcc\"":""%>><rsc:item row="<%=resultRow%>" name="date" format="MM.dd.yyyy hh:mma"/><td>
+                <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><rsc:item row="<%=resultRow%>" name="submitted_by"/><td>
+                <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><rsc:item row="<%=resultRow%>" name="date" format="MM.dd.yyyy hh:mma"/><td>
 
             </tr>
             <%even=!even;%>
