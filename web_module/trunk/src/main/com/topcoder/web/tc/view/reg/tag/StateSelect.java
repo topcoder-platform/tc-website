@@ -3,11 +3,8 @@ package com.topcoder.web.tc.view.reg.tag;
 import com.topcoder.common.web.data.State;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.ejb.DataCache.DataCache;
-import com.topcoder.ejb.DataCache.DataCacheHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.jsp.JspException;
 import java.util.ArrayList;
@@ -15,7 +12,7 @@ import java.util.ArrayList;
 public class StateSelect
         extends Select {
     public State NOT_IN_US;
-    public State SEPARATOR;
+    //public State SEPARATOR;
 
     public StateSelect() {
         super();
@@ -24,7 +21,7 @@ public class StateSelect
 
     void init() {
         NOT_IN_US = getState("ZZ", "Not In US");
-        SEPARATOR = getState("", "-----------------------");
+        //SEPARATOR = getState("", "-----------------------");
     }
 
     State getState(String code, String name) {

@@ -24,6 +24,7 @@ public class CountrySelect
     void init() {
         eligibleCountries = new ArrayList();
         eligibleCountries.add(getCountry("840", "United States"));
+/*
         eligibleCountries.add(getCountry("036", "Australia"));
         eligibleCountries.add(getCountry("124", "Canada"));
         eligibleCountries.add(getCountry("156", "China"));
@@ -31,6 +32,7 @@ public class CountrySelect
         eligibleCountries.add(getCountry("826", "United Kingdom"));
         eligibleCountries.add(getCountry("372", "Ireland"));
         eligibleCountries.add(getCountry(" ", "-----------------------"));
+*/
     }
 
     Country getCountry(String code, String name) {
@@ -58,12 +60,14 @@ public class CountrySelect
             DataCache dataCache = Cache.get(context);
             ArrayList cacheCountries = dataCache.getCountries();
             ArrayList temp = new ArrayList(cacheCountries);
+/*
             for (int i = 0; i < temp.size(); i++) {
                 Country country = (Country) temp.get(i);
                 if (eligibleCountries.contains(country)) {
                     temp.remove(i);
                 }
             }
+*/
             countries.addAll(temp);
         } catch (Exception e) {
             throw new JspException(e.toString());
