@@ -223,7 +223,7 @@ public final class TaskStatic {
 
 
             }
-//            document.addTag(tournamentTag);
+            document.addTag(tournamentTag);
         } catch (Exception e) {
             log.error("failed to get tco03 top 100 from db");
             e.printStackTrace();
@@ -248,7 +248,7 @@ public final class TaskStatic {
             e.printStackTrace();
         }
 
-        log.debug(document.getXML(2));
+//        log.debug(document.getXML(2));
         try {
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
