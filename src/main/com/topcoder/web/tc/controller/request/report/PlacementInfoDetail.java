@@ -8,6 +8,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.UserPreference;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -208,6 +209,8 @@ public class PlacementInfoDetail extends Base {
 
             ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
 
+            User user = (User)createEJB(getInitialContext(), User.class);
+            getRequest().setAttribute("handle", user.getHandle(userId, DBMS.OLTP_DATASOURCE_NAME));
             getRequest().setAttribute("has_resume", String.valueOf(resumeServices.hasResume(userId, DBMS.OLTP_DATASOURCE_NAME)));
             getRequest().setAttribute("contractingInfo", info);
 
