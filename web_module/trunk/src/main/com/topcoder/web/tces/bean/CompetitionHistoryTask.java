@@ -35,6 +35,10 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
     /** Holds value of property handle. */
     private String handle;
 
+    private ResultSetContainer memberInfo;
+    private String jobName;
+    private boolean hasResume;
+
     /** Creates new CompetitionHistoryTask */
     public CompetitionHistoryTask() {
         super();
@@ -122,6 +126,10 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
                                  " does not belong to uid="+Integer.toString(uid) );
         }
 
+        setMemberInfo((ResultSetContainer) resultMap.get("TCES_Member_Profile"));
+        setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
+                getItem(0, "job_desc").toString());
+
         dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         resultMap = dai.getData(dataRequest);
 
@@ -153,6 +161,8 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
         }
 
         setCompetitionList( compList );
+
+
 
         setNextPage( TCESConstants.COMPETITION_HISTORY_PAGE );
     }
@@ -242,5 +252,30 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
     public void setHandle(String handle) {
         this.handle = handle;
     }
+
+    public ResultSetContainer getMemberInfo() {
+        return memberInfo;
+    }
+
+    public void setMemberInfo(ResultSetContainer memberInfo) {
+        this.memberInfo = memberInfo;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
+
+    public boolean hasResume() {
+        return hasResume;
+    }
+
+    public void setHasResume(boolean hasResume) {
+        this.hasResume = hasResume;
+    }
+
 
 }
