@@ -127,7 +127,7 @@
                         <tr><td style="background: #eee;" class="bodyText"><b>Value</b></td><td style="background: #eee;" class="bodyText">500</td></tr>
                         <tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td><td style="background: #eee;" class="bodyText">161 / 213  (75.59%)</td></tr>
                         <tr><td style="background: #eee;" class="bodyText"><b>Success Rate</b></td><td style="background: #eee;" class="bodyText">73 / 161 (45.34%)</td></tr>
-                        <tr><td style="background: #eee;" class="bodyText"><b>High Score</b></td><td style="background: #eee;" class="bodyText"><b>Ceranith</b> for 286.64 points</td></tr>
+                        <tr><td style="background: #eee;" class="bodyText"><b>High Score</b></td><td style="background: #eee;" class="bodyText"><b>Ceranith</b> for 486.64 points</td></tr>
                         </table>
                         </blockquote>
 
