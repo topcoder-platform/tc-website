@@ -111,7 +111,7 @@ public class Submit extends FullRegSubmit {
 
     }
 
-    protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
         try {
             //todo if we ever allow them to update their account
             //todo we'll need to figure out a way to not send
@@ -119,7 +119,7 @@ public class Submit extends FullRegSubmit {
             //todo that are converting tc accounts
             StringBuffer buf = new StringBuffer(1000);
             User user = (User) createEJB(getInitialContext(), User.class);
-            String code = user.getActivationCode(newUser.getId(), db);
+            String code = user.getActivationCode(userId, db);
 
             TCSEmailMessage mail = new TCSEmailMessage();
             if (info.isNew()) {

@@ -44,7 +44,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
                 getRequest().setAttribute("stateList", getStateList());
                 setDefaults(regInfo);
             } else {
-                UserPrincipal newUser = commit(regInfo);
+                long newUser = commit(regInfo);
                 handleActivation(regInfo, newUser);
                 clearRegInfo();
             }
@@ -157,7 +157,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
      * default is do nothing, subclasses can implement something more interesting
      * @throws TCWebException
      */
-    protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
 
     }
 
