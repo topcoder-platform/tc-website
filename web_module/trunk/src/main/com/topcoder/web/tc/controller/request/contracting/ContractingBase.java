@@ -14,6 +14,13 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+
 import com.topcoder.shared.security.ClassResource;
 
 import com.topcoder.web.tc.model.ContractingInfo;
@@ -54,6 +61,12 @@ abstract public class ContractingBase extends BaseProcessor {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+    
+    protected static DataAccessInt getDataAccess() throws Exception {
+       DataAccessInt dAccess = null;
+       dAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+       return dAccess;
     }
     
     protected abstract void setDefaults(ContractingInfo info);

@@ -22,6 +22,7 @@ import java.util.*;
  */
 public class Preferences extends ContractingBase {
     protected void contractingProcessing() throws TCWebException {
+        try {
         //load preference groups
         ArrayList groups = new ArrayList();
         
@@ -45,6 +46,11 @@ public class Preferences extends ContractingBase {
         
         //set attribute with groups
         getRequest().setAttribute("groups", groups);
+        } catch(TCWebException tce) {
+            throw tce;
+        } catch(Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
     protected void setDefaults(ContractingInfo info) {
