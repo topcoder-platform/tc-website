@@ -14,8 +14,8 @@
               <OPTION VALUE="apr_02">&#160;April</OPTION>
               <OPTION VALUE="may_02">&#160;May</OPTION>
               <OPTION VALUE="june_02">&#160;June</OPTION>
-              <!-- <OPTION VALUE="july_02">&#160;July</OPTION>
-              <OPTION VALUE="aug_02">&#160;August</OPTION>
+              <OPTION VALUE="july_02">&#160;July</OPTION>
+              <!-- <OPTION VALUE="aug_02">&#160;August</OPTION>
               <OPTION VALUE="sept_02">&#160;September</OPTION>
               <OPTION VALUE="oct_02">&#160;October</OPTION>
               <OPTION VALUE="nov_02">&#160;November</OPTION>
