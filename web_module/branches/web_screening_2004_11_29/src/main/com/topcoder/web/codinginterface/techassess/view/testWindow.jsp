@@ -22,7 +22,8 @@
           <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>" value="<%=String.valueOf(problemInfo.getComponentId())%>"/>
           <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>" value="<%=String.valueOf(problemInfo.getProblemTypeId())%>"/>
           <ci:argumentIterator problem="prob" language="language">
-            <input type="hidden" name="<%=CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+argumentIndex%>" value="" />
+            <input type="hidden" name="<%=CodingInterfaceConstants.TEST_ARGUMENT+argumentIndex%>" value="" />
+            <input type="hidden" name="<%=CodingInterfaceConstants.TEST_ARGUMENT_DIMENSION+argumentIndex%>" value="<%=argumentDimension%>" />
           </ci:argumentIterator>
           <input type="hidden" name="arrayArg" value=0 />
           <input type="hidden" name="arrayArgType" value="" />
