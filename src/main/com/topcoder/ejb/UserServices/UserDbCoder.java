@@ -1161,8 +1161,9 @@ final class UserDbCoder {
           ps.setInt ( 4, demographicResponse.getDemographicAnswerId() );
           int RetVal = ps.executeUpdate();
           if (RetVal != 1)  {
-            throw new TCException( 
-              "ejb.User.UserDbCoder:updateDemographicResponses():update:failed:\n" 
+            Log.msg (
+              VERBOSE 
+              ,"ejb.User.UserDbCoder:updateDemographicResponses():update:failed" 
             );
           }
         } else if (modifiedFlag.compareToIgnoreCase("D") == 0) {
@@ -1178,9 +1179,10 @@ final class UserDbCoder {
             Log.msg ( VERBOSE, "q="+demographicResponse.getDemographicQuestionId() );
             Log.msg ( VERBOSE, "a="+demographicResponse.getDemographicAnswerId() );
             Log.msg ( VERBOSE, "c="+demographicResponse.getCoderId() );
-            throw new TCException (
-              "ejb.User.UserDbCoder:updateDemographicResponses():ERROR:"+retVal+" records deleted"
-            );
+            Log.msg ( VERBOSE, "ejb.User.UserDbCoder:updateDemographicResponses():ERROR:"+retVal+" records deleted" );
+            //throw new TCException (
+              //"ejb.User.UserDbCoder:updateDemographicResponses():ERROR:"+retVal+" records deleted"
+            //);
           }
         }
       }
