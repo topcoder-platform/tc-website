@@ -76,7 +76,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
 
         }
 
-        super.setNextPage(Constants.MODIFY_COMMAND_PAGE);
+        super.setNextPage(Constants.MODIFY_INPUT_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
