@@ -92,8 +92,7 @@ Inquiry Deadline: May 29, 2002<BR/>
 Project: <A HREF="/index?t=development&amp;c=editorial" CLASS="statTextBig">Website Editorial</A><BR/>
 Start Date: May 28, 2002<BR/>
 End Date: Jul 9, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: May 27, 2002 12:00 PM<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
