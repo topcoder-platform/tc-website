@@ -172,6 +172,9 @@ public abstract class BaseServlet extends HttpServlet {
             if (startsWithContextPath) {
                 dest = dest.substring(contextPrefix.length());
             }
+            if (!dest.startsWith("/")) {
+                dest = "/"+dest;
+            }
             getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
         } else {
             response.sendRedirect(response.encodeRedirectURL(dest));
