@@ -14,11 +14,11 @@ import java.rmi.RemoteException;
  */
 public interface CommandGroup extends EJBObject {
 
-    void createCommandGroup(String commandGroupDesc) throws RemoteException, EJBException;
+    void createCommandGroup(String commandGroupName) throws RemoteException, EJBException;
 
-    void setCommandGroupDesc(int commandGroupId, String commandGroupDesc) throws RemoteException, EJBException;
+    void setCommandGroupName(int commandGroupId, String commandGroupName) throws RemoteException, EJBException;
 
-    String getCommandGroupDesc(int commandGroupId) throws RemoteException, EJBException;
+    String getCommandGroupName(int commandGroupId) throws RemoteException, EJBException;
 
     void setDataSource(String dataSourceName) throws RemoteException, EJBException;
 
