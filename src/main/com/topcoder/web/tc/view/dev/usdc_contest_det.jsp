@@ -100,7 +100,7 @@ else
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="submit_timestamp" format="MM.dd.yyyy hh:mma" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=right><rsc:item name="final_score" format="0.00" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right>$<rsc:item name="payment" format="#,##0" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right><rsc:item name="payment" ifNull="" format="$#,##0" row="<%=resultRow%>"/></td>
                             </tr>
                             </rsc:iterator>
                         </table>
