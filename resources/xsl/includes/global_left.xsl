@@ -369,6 +369,20 @@
 			<xsl:when test="starts-with(/TC/Command,'invit02')">graybv_lite_bg</xsl:when>			
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=invit02_champ</xsl:attribute>&#160;&#160;'02 [TC] Invitational</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
+            <xsl:call-template name="div_line_row"/>   
+            <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">
+            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+			<xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
+			<xsl:when test="starts-with(/TC/Command,'tourny_tccc_01')">graybv_lite_bg</xsl:when>			
+			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_tccc_01</xsl:attribute>&#160;&#160;'01 [TC] Collegiate Challenge</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
+            <xsl:call-template name="div_line_row"/>   
+            <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">
+            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+			<xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
+			<xsl:when test="starts-with(/TC/Command,'tourny_tci_01')">graybv_lite_bg</xsl:when>			
+			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_tci_01</xsl:attribute>&#160;&#160;'01 [TC] Invitational</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
             <xsl:call-template name="div_line_row"/>
             <xsl:call-template name="rtables_row"/> 
             <xsl:call-template name="rules_row"/>
