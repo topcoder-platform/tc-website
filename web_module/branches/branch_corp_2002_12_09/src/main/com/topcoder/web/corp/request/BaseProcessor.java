@@ -55,7 +55,7 @@ public abstract class BaseProcessor implements RequestProcessor {
         return pageInContext;
     }
 
-    public boolean setIsNextPageInContext(boolean flag) {
+    protected void setIsNextPageInContext(boolean flag) {
         pageInContext = flag;
     }
 
