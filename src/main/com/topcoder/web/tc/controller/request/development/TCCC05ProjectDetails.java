@@ -64,9 +64,9 @@ public class TCCC05ProjectDetails extends StatBase {
             
             String sub = "";
             if(rsc.getItem(i, "submit_timestamp").getResultData() != null) {
-                sub = dtfmt.format(rsc.getStringItem(i, "submit_timestamp"));
+                sub = dtfmt.format((Date)rsc.getItem(i, "submit_timestamp").getResultData());
             }
-            
+                       
             String place = "-";
             if(rsc.getItem(i, "placed").getResultData() != null) {
                 if(rsc.getIntItem(i, "placed") != 0) {
