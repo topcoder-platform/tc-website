@@ -13,13 +13,13 @@ if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.
     </table>
     <table cellspacing="0" cellpadding="0" class="messageBoxFrame">
         <tr>
-            <td class="tco04Message" align=center>
-            <img src="/i/tournament/tco04/message.gif" border=0 /><br/><br/>
+            <td class="tccc05Message" align=center>
+            <img src="/i/tournament/tccc05/message.gif" border=0 /><br/><br/>
             <% if (algoTerms.isRegistered()) { %>
                 You are registered for the TCCC Algorithm Competition.<br/>
             <% } else {
                     if (algoTerms.isEligible()) { %>
-                        You are not registered for the TCCC Algorithm Competition, click <a class="tco04MessageLink" href="/tc?module=TCCC05AlgorithmTerms">here</a> to register.<br/>
+                        You are not registered for the TCCC Algorithm Competition, click <a class="tccc05MessageLink" href="/tc?module=TCCC05AlgorithmTerms">here</a> to register.<br/>
 
                  <% }
                } %>
@@ -27,7 +27,7 @@ if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.
                 You are registered for the TCCC Component Competition.
             <% } else {
                      if (compTerms.isEligible()) { %>
-                        You are not registered for the TCCC Component Competition, click <a class="tco04MessageLink" href="/tc?module=TCCC05ComponentTerms">here</a> to register.
+                        You are not registered for the TCCC Component Competition, click <a class="tccc05MessageLink" href="/tc?module=TCCC05ComponentTerms">here</a> to register.
                 <%   } else { %>
                         Sorry, you are not eligible to register for the TCCC.
                 <%   }
