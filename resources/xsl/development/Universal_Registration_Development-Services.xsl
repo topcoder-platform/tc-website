@@ -114,7 +114,7 @@
                                                         <li>Provide an operation report of new users.</li>
                                                     </ul>
                                                     <p>
-                                                        The services layer consists of of numerous …Service interfaces and corresponding implementation classes along with the “model” classes. 
+                                                        The services layer consists of of numerous Service interfaces and corresponding implementation classes along with the “model” classes. 
                                                         Simple delegation and value objects will be developed by this layer.
 
 
