@@ -108,10 +108,15 @@
                         $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
                     </td>
                 </tr>
+                
             </rsc:iterator>
 
         </table>
         <table>
+                  <tr>
+                     <td class="bodyText">* Please note that online donations will take approximately 24 hours to process and appear on the Top Fundraisers list.  Mailed in donations will appear on the Top Fundraisers list as they are processed.</td>
+                  </tr>   
+
             <tr><td><img src="/i/clear.gif" width="500" height="10" border="0"></td></tr>
         </table>
          </blockquote>
