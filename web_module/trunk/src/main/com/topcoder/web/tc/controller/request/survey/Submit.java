@@ -84,64 +84,81 @@ public class Submit extends View {
         Question question = null;
         String[] values = getRequest().getParameterValues(paramName);
         List ret = null;
-        if (values != null) ret = new ArrayList(values.length);
-        for (int i = 0; i < values.length; i++) {
-            log.debug("param: " + paramName + " value: " + values[i]);
+        if (values == null) {
+            ret = new ArrayList(0);
+        } else {
+            ret = new ArrayList(values.length);
             long questionId = -1;
             long answerId = -1;
-            StringTokenizer st = new StringTokenizer(paramName.substring(AnswerInput.PREFIX.length()), ",");
-            if (st.hasMoreTokens()) {
-                questionId = Long.parseLong(st.nextToken());
-            }
-            if (question == null) {
-                question = findQuestion(questionId, questions);
-                if (question == null) {
-                    addError(paramName, "Question doesn't exist");
-                    return null;  //quit now
-                }
-            }
-            if (st.hasMoreTokens()) {
-                //this must be a multiple choice question
-                answerId = Long.parseLong(st.nextToken());
-                if (question.getStyleId() != Question.MULTIPLE_CHOICE) {
-                    log.debug("param has answerid but it's not multiple choice");
-                    addError(paramName, "Invalid answer.");
-                } else if (findAnswer(answerId, question) == null) {
-                    log.debug("can't find multiple choice answer");
-                    addError(paramName, "Invalid answer.");
-                }
-            } else {
-                //only when it's a multiple choice question should there be multiple answers
-                if (values.length > 1) {
-                    log.debug("not multiple choice, but there are multiple answers");
-                    addError(paramName, "Invalid answer.");
-                }
-                if (question.getStyleId() == Question.SINGLE_CHOICE) {
+            for (int i = 0; i < values.length; i++) {
+                log.debug("param: " + paramName + " value: " + values[i]);
+                StringTokenizer st = new StringTokenizer(paramName.substring(AnswerInput.PREFIX.length()), ",");
+                if (st.hasMoreTokens()) {
                     try {
-                        answerId = Long.parseLong(values[i]);
+                        questionId = Long.parseLong(st.nextToken());
                     } catch (NumberFormatException e) {
-                        log.debug("numberformat trying to get answer for single choice");
-                        addError(paramName, "Invalid answer.");
-                    }
-                    if (findAnswer(answerId, question) == null) {
-                        log.debug("can't find single choice answer");
+                        log.debug("numberformat trying to get question id");
                         addError(paramName, "Invalid answer.");
                     }
                 }
-            }
-            if (!hasErrors()) {
-                SurveyResponse response = new SurveyResponse();
-                response.setQuestionId(question.getId());
-                response.setUserId(getUser().getId());
-                if (isFreeForm(question.getStyleId())) {
-                    response.setText(StringUtils.checkNull(values[i]));
-                    response.setFreeForm(true);
+                if (question == null) {
+                    question = findQuestion(questionId, questions);
+                    if (question == null) {
+                        addError(paramName, "Question doesn't exist");
+                        return null;  //quit now
+                    }
+                }
+                if (st.hasMoreTokens()) {
+                    //this must be a multiple choice question
+                    try {
+                        answerId = Long.parseLong(st.nextToken());
+                    } catch (NumberFormatException e) {
+                        log.debug("numberformat trying to get answer for multiple choice");
+                        addError(paramName, "Invalid answer.");
+                    }
+                    if (question.getStyleId() != Question.MULTIPLE_CHOICE) {
+                        log.debug("param has answerid but it's not multiple choice");
+                        addError(paramName, "Invalid answer.");
+                    } else if (findAnswer(answerId, question) == null) {
+                        log.debug("can't find multiple choice answer");
+                        addError(paramName, "Invalid answer.");
+                    }
                 } else {
-                    response.setAnswerId(answerId);
-                    response.setFreeForm(false);
+                    //only when it's a multiple choice question should there be multiple answers
+                    if (values.length > 1) {
+                        log.debug("not multiple choice, but there are multiple answers");
+                        addError(paramName, "Invalid answer.");
+                    }
+                    if (question.getStyleId() == Question.SINGLE_CHOICE) {
+                        try {
+                            answerId = Long.parseLong(values[i]);
+                        } catch (NumberFormatException e) {
+                            log.debug("numberformat trying to get answer for single choice");
+                            addError(paramName, "Invalid answer.");
+                        }
+                        if (findAnswer(answerId, question) == null) {
+                            log.debug("can't find single choice answer");
+                            addError(paramName, "Invalid answer.");
+                        }
+                    }
                 }
-                ret.add(response);
+                if (!hasErrors()) {
+                    SurveyResponse response = new SurveyResponse();
+                    response.setQuestionId(question.getId());
+                    response.setUserId(getUser().getId());
+                    if (isFreeForm(question.getStyleId())) {
+                        response.setText(StringUtils.checkNull(values[i]));
+                        response.setFreeForm(true);
+                    } else {
+                        response.setAnswerId(answerId);
+                        response.setFreeForm(false);
+                    }
+                    ret.add(response);
+                }
             }
+        }
+        if (question.isRequired() && ret.isEmpty()) {
+            addError(paramName, "Please respond to this question.");
         }
         return ret;
     }

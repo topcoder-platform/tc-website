@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.request.survey;
 
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -18,11 +17,10 @@ public class Results extends SurveyData {
         setIsNextPageInContext(true);
     }
 
-    protected List makeAnswerInfo(long surveyId, long questionId) throws Exception {
+    protected List makeAnswerInfo(long questionId) throws Exception {
         Request responseRequest = new Request();
         DataAccessInt dataAccess = getDataAccess();
         responseRequest.setContentHandle("survey_responses");
-        responseRequest.setProperty("sid", String.valueOf(surveyId));
         responseRequest.setProperty("qid", String.valueOf(questionId));
         return (ResultSetContainer)dataAccess.getData(responseRequest).get("response_info");
     }
@@ -36,20 +34,13 @@ public class Results extends SurveyData {
         Map qMap = dataAccess.getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("question_list");
 
-        Question q = null;
         ResultSetContainer.ResultSetRow question = null;
         List questionList = new ArrayList(questions.size());
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
             int temp = question.getIntItem("question_style_id");
             if (!isFreeForm(temp)) {
-                q = new Question();
-                q.setId(question.getLongItem("question_id"));
-                q.setStyleId(temp);
-                q.setTypeId(question.getIntItem("question_type_id"));
-                q.setText(question.getStringItem("question_text"));
-                q.setAnswerInfo(makeAnswerInfo(surveyId, q.getId()));
-                questionList.add(q);
+                questionList.add(makeQuestion(question));
             }
         }
         return questionList;

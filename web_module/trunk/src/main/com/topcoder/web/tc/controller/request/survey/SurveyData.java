@@ -19,7 +19,7 @@ public abstract class SurveyData extends Base {
     protected List questionInfo;
     protected Survey survey;
 
-    protected abstract List makeAnswerInfo(long surveyId, long questionId) throws Exception;
+    protected abstract List makeAnswerInfo(long questionId) throws Exception;
 
     protected abstract void surveyProcessing() throws Exception;
 
@@ -54,18 +54,11 @@ public abstract class SurveyData extends Base {
         Map qMap = dataAccess.getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("question_list");
 
-        Question q = null;
         ResultSetContainer.ResultSetRow question = null;
         List questionList = new ArrayList(questions.size());
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
-            q = new Question();
-            q.setId(question.getLongItem("question_id"));
-            q.setStyleId(question.getIntItem("question_style_id"));
-            q.setTypeId(question.getIntItem("question_type_id"));
-            q.setText(question.getStringItem("question_text"));
-            q.setAnswerInfo(makeAnswerInfo(surveyId, q.getId()));
-            questionList.add(q);
+            questionList.add(makeQuestion(question));
         }
         return questionList;
     }
@@ -87,6 +80,16 @@ public abstract class SurveyData extends Base {
             ret.setText(rsc.getRow(0).getStringItem("text"));
         }
         return ret;
+    }
+
+    protected Question makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
+        Question q = new Question();
+        q.setId(row.getLongItem("question_id"));
+        q.setStyleId(row.getIntItem("question_style_id"));
+        q.setTypeId(row.getIntItem("question_type_id"));
+        q.setText(row.getStringItem("question_text"));
+        q.setAnswerInfo(makeAnswerInfo(q.getId()));
+        return q;
     }
 
 }
