@@ -9,11 +9,13 @@
 		<TD CLASS="bodyText" VALIGN="top">
 <!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 89</SPAN><BR/>
-Saturday, May 18, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 90</SPAN><BR/>
+Tuesday, May 21, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
-The second, fifth and sixth highest rating point gains were earned in both Division-I 
-and Division-II in Single Round Match 89...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
+Three 10-seeds, <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Soli</A>, 
+<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">elchive</A>, 
+and <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">seaniswise</A>, 
+won close battles in Room's 8, 11 and 12...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
 				
 <!-- <P><B>Division-I</B><BR/>

@@ -111,16 +111,16 @@
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
 	<P>
-	<A HREF="/index?t=news_events&amp;c=feat_051502" CLASS="bodyGeneric"><B>First-Time Phenomenal</B></A><BR/>
-	<I>kpsmith Makes TopCoder History In Debut Match</I><BR/><BR/>
-	Wednesday, May 15, 2002<BR/>
-	By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
+	<A HREF="/index?t=news_events&amp;c=feat_052202" CLASS="bodyGeneric"><B>Obfu-what?</B></A><BR/>
+	<I>Case studies and the TopCoder view point</I><BR/><BR/>
+	Wednesday, May 22, 2002<BR/>
+	By&#160;KaiEl,<I>Contributing Member</I><BR/>
 	</P>
 <P>
-Rookies.  Showing up as a rookie can sometimes be tough.  Sure, there are those 
-well-known rookies who come along with a big reputation, and are able to succeed 
-right from the start of their careers.  Most, however, must go through the growing 
-pains of their initial experience...<A HREF="/index?t=news_events&amp;c=feat_051502" CLASS="bodyGeneric">full&#160;story</A></P>
+It's the challenge phase.  At first glance the code you're looking at 
+seems horribly flawed.  A crucial if-statement is missing at the 
+beginning of a loop, making this coder's solution useless.  "How 
+could they have made such an obvious mistake,"...<A HREF="/index?t=news_events&amp;c=feat_052202" CLASS="bodyGeneric">full&#160;story</A></P>
 <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P>	
 	</TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -169,31 +169,30 @@ pains of their initial experience...<A HREF="/index?t=news_events&amp;c=feat_051
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-      <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-      <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_lessons.gif" ALT="Lessons Learned the Hard Way" WIDTH="205" HEIGHT="26" BORDER="0"/></TD>       
+      <!-- <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+      <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_lessons.gif" ALT="Lessons Learned the Hard Way" WIDTH="205" HEIGHT="26" BORDER="0"/></TD> -->      
       <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>    
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
-    <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">    
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">    
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 89</B></FONT><BR/>
-	By&#160;Logan,<I>[TC] Member</I><BR/>
-	<A HREF="/?t=statistics&amp;c=srm89_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
-	<A HREF="/?t=statistics&amp;c=srm89_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
-	<A HREF="/?t=statistics&amp;c=srm89_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
+    <B>SRM 90</B></FONT><BR/>
+	By&#160;ZorbaTHut,<I>[TC] Member</I><BR/>
+	<A HREF="/?t=statistics&amp;c=srm90_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm90_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm90_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
      <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
      <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-     <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+     <!-- <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="60%" ALIGN="left" CLASS="bodyText">
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 89</B></FONT><BR/>
+    <B>SRM 90</B></FONT><BR/>
 	By&#160;slowjoe,<I>[TC] Member</I><BR/>
-SRM89 was a Saturday afternoon contest, starting at 1pm.  The unusually early start time saw a 
-couple of people griping in the lobby....<A HREF="/?t=statistics&amp;c=srm89_lessons" CLASS="bodyGeneric">full story</A>
-	</TD>
+to come...<A HREF="/?t=statistics&amp;c=srm90_lessons" CLASS="bodyGeneric">full story</A>
+	</TD> -->
      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>	  
   </TR>
   <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  

@@ -55,7 +55,7 @@
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">
 <!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
 
-<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>A look at Obfuscation</B></FONT><BR/>
+<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Obfu-what?</B></FONT><BR/>
 <I>Case studies and the TopCoder view point</I><BR/><BR/>
 Wednesday, May 22, 2002<BR/>
 By&#160;<A HREF="/stat?c=member_profile&amp;cr=264761" CLASS="bodyGeneric">KaiEl</A>,<I>Contributing Member</I><BR/></P>
@@ -176,7 +176,7 @@ that the statement was hidden unintentionally.
 
 <P>
 According to <B>dok</B>, the TopCoder administrators "decided that [the code of <B>fbplayr78</B>] could 
-have been a copy/paste issue or a tab issue, etc., basically, that it was absolutely clear."  
+have been a copy/paste issue or a tab issue, etc., basically, that it was not absolutely clear."  
 Because no one challenged the code of <B>fbplayr78</B> and the submission failed system testing, 
 this official ruling didn't affect the results of the match.
 </P>
