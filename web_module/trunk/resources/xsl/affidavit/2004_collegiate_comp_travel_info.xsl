@@ -190,7 +190,7 @@
 
             <TR>
               <TD COLSPAN="2">
-                  Please list your local newspapers, radio, and television stations for both hometown and college (if applicable) locations.
+                  Please list your local newspapers, radio, and television stations for both hometown and college locations.
               </TD>
             </TR>
 
