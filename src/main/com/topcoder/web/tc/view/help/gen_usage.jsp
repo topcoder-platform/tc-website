@@ -35,7 +35,7 @@
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="help"/>  
            <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Algorithm Competitions"/>  
+           <jsp:param name="title" value="Competition Manual"/>  
         </jsp:include>
 
         <h2>General TopCoder Arena Usage</h2>
