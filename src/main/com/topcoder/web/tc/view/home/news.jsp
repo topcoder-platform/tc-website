@@ -7,7 +7,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>03.09.05<br>1:45 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/marybeth.mov">Event Manger MaryBeth Luce</A></span><br><br>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/marybeth.mov">Event Manager MaryBeth Luce</A></span><br><br>
       MaryBeth Luce on finding the best.
       </td>
    </tr>
