@@ -146,6 +146,10 @@ public class UserEdit extends BaseProcessor {
             setFormFieldsDefaults();
             nextPage = formPage;
             if (!secTok.createNew) {
+                PrincipalMgrRemote mgr = Util.getPrincipalManager();
+                password = mgr.getPassword(targetUserID);
+                password2 = password;
+                userName = secTok.targetUser.getName();
                 retrieveUserDataFromDB((InitialContext)TCContext.getInitial());
             }
             return secTok.createNew;
