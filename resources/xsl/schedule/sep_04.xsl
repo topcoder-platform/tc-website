@@ -121,15 +121,15 @@
                             <tr> 
                                 <td id="calendar">12</td>
                                 <td id="calendar">13</td>
-                                <td id="calendar">14</td>
-                                <td id="calendar">15</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">16</span><br />
+                                    <span id="calendarSRMDate">14</span><br />
                                     <strong>Match 211</strong><br />
-                                    Register: 7:00&#160;PM<br />
-                                    Compete: 10:00&#160;PM<br />
+                                    Register: 6:00&#160;AM<br />
+                                    Compete: 9:00&#160;AM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5857&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">15</td>
+                                <td id="calendar">16</td>
                                 <td id="calendar">17</td>
                                 <td id="calendar">18</td>
                             </tr>
