@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.ProblemRatingServices;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.NavigationException;
 
 import javax.ejb.*;
 import java.rmi.RemoteException;
@@ -24,7 +25,7 @@ public class ProblemRatingServicesBean implements SessionBean {
     }
     public void submitAnswers(int[] questions, int[] ratings, long coderID, int problemID) throws Exception{
         StringBuffer insertQuery = new StringBuffer(250);
-        StringBuffer deleteQuery = new StringBuffer(250);
+        StringBuffer countQuery = new StringBuffer(250);
         /***********************Informix*******************************/
         insertQuery.append(" INSERT INTO problem_rating ( question_id, coder_id, problem_id, problem_rating)");
         insertQuery.append(" VALUES (?,");
@@ -33,19 +34,17 @@ public class ProblemRatingServicesBean implements SessionBean {
         insertQuery.append(problemID);
         insertQuery.append(",?)");
 
-        deleteQuery.append(" DELETE FROM problem_rating WHERE");
-        deleteQuery.append(" problem_id = ? AND");
-        deleteQuery.append(" coder_id = ?");
+        countQuery.append("SELECT count(*) from problem_rating_question");
         /**************************************************************/
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             conn = DBMS.getConnection();
-            ps = conn.prepareStatement(deleteQuery.toString());
-            ps.setInt(1,problemID);
-            ps.setLong(2,coderID);
-            ps.executeUpdate();
+            ps = conn.prepareStatement(countQuery.toString());
+            rs = ps.executeQuery();
+            if(questions.length!=rs.getInt(1))
+                throw new Exception("Not enough answers");
             ps = conn.prepareStatement(insertQuery.toString());
             for(int i = 0; i<questions.length; i++){
                 ps.setInt(1,questions[i]);
@@ -54,7 +53,7 @@ public class ProblemRatingServicesBean implements SessionBean {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag() + ":submitAnswers():failed:\n" + ex);
+            throw new NavigationException("You may only rate a problem once,");
         } finally {
             if (rs != null) {
                 try {
