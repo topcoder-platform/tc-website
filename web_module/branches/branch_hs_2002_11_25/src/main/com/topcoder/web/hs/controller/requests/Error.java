@@ -2,8 +2,6 @@
 
 package com.topcoder.web.hs.controller.requests;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
 import java.io.*;
 
 /**

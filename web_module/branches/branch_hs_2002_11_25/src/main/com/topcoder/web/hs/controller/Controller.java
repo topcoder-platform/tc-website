@@ -3,8 +3,8 @@ package com.topcoder.web.hs.controller;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
+import com.topcoder.web.hs.common.*;
 import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.shared.security.*;
 
 /**
  * All requests to the HS website pass through this servlet.
@@ -16,8 +16,14 @@ import com.topcoder.shared.security.*;
  */
 public final class Controller extends HttpServlet {
 
+    /**
+     * Initializes the servlet.
+     * @throws ServletException
+     */
     public synchronized void init(ServletConfig config) throws ServletException {
         super.init(config);
+        Constants.init(getServletConfig());
+        com.topcoder.web.common.security.Constants.init(Constants.security_component_remote_address);
     }
 
     public final void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,9 +42,9 @@ public final class Controller extends HttpServlet {
                 String query = request.getQueryString();
                 System.out.println("query \"" + query + "\" from host " + request.getRemoteHost());
 
-                String cmd = checkNull(request.getParameter("module"));
-                if(cmd.equals("")) cmd = "Static";  /* one way of making empty requests end up at the front page */
-                if(!isLegal(cmd)) throw new IllegalArgumentException("invalid command: "+cmd);
+                String cmd = Constants.checkNull(request.getParameter("module"));
+                if(cmd.equals("")) cmd = "Home";
+                if(!Constants.isLegal(cmd)) throw new IllegalArgumentException("invalid command: "+cmd);
                 cmd = "com.topcoder.web.hs.controller.requests."+cmd;
 
                 rp = (RequestProcessor)Class.forName(cmd).newInstance();
@@ -46,7 +52,7 @@ public final class Controller extends HttpServlet {
                 rp.setResponse(response);
                 rp.process();
 
-            } catch(PermissionException e) {  //@@@ any way i can put this elsewhere?  in Error?
+            } catch(com.topcoder.shared.security.PermissionException e) {  //@@@ any way i can put this elsewhere?  in Error?
 
                 /* forward to the login page, with a message and a way back */
                 request.setAttribute("message", e.getMessage());
@@ -87,19 +93,5 @@ public final class Controller extends HttpServlet {
             e.printStackTrace(out);
             out.println("</pre></body></html>");
         }
-    }
-
-    private static String checkNull(String s) {
-        return s==null?"":s;
-    }
-
-    private static boolean isLegal(String s) {
-        if(s==null) return false;
-        if(s.equals("")) return false;
-        char[] c = s.toCharArray();
-        for(int i=0; i<c.length; i++)
-            if(0 > "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".indexOf(c[i]))
-                return false;
-        return true;
     }
 }

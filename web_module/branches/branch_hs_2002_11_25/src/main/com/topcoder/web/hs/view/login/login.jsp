@@ -53,7 +53,7 @@ String nextpage = (String)request.getAttribute("nextpage");
 if(nextpage==null) nextpage = "";
 String message = (String)request.getAttribute("message");
 if(message==null) message = "";
-String username = (String)request.getAttribute("username");
+String username = request.getParameter("username");
 if(username==null) username = SessionInfo.getHandle();
 if(username==null) username = "";
 %>

@@ -50,7 +50,7 @@ public abstract class Base implements RequestProcessor {
         user = auth.getUser();
 
         hsa = new HSAuthorization(user);
-        if(!hsa.hasPermission(new SimpleResource(this.getClass().getName())))
+        if(!hsa.hasPermission(new ClassResource(this.getClass())))
             throw new PermissionException("You must login to view this page.");
 
         buildSessionInfo();
@@ -74,8 +74,13 @@ public abstract class Base implements RequestProcessor {
         return nextPageInContext;
     }
 
-    /** Call this to let the controller know where to go next. */
+    /**
+     * Call this to let the controller know where to go next.
+     * An empty string is magical, and means the same servlet with an empty query.
+     */
     protected void setNextPage(String page) {
+        if(page.equals(""))
+            page = ((HttpServletRequest)request).getContextPath()+((HttpServletRequest)request).getServletPath();
         nextPage = page;
     }
 

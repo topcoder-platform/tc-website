@@ -10,8 +10,32 @@
 <servlet>
   <servlet-name>hs</servlet-name>
   <display-name>hs</display-name>
-  <description>The hs servlet</description>
+  <description>The TopCoder High School servlet</description>
   <servlet-class>com.topcoder.web.hs.controller.Controller</servlet-class>
+
+  <init-param>
+    <param-name>public_home</param-name>
+    <param-value>/home/index.jsp</param-value>
+    <description>path to public home page</description>
+  </init-param>
+
+  <init-param>
+    <param-name>member_home</param-name>
+    <param-value>/home/index_member.jsp</param-value>
+    <description>path to member home page</description>
+  </init-param>
+
+  <init-param>
+    <param-name>login_form</param-name>
+    <param-value>/login/login.jsp</param-value>
+    <description>path to page which prompts for login</description>
+  </init-param>
+
+  <init-param>
+    <param-name>security_component_remote_address</param-name>
+    <param-value>172.16.20.40:1099</param-value>
+    <description>Context.PROVIDER_URL for locating the security component EJBs</description>
+  </init-param>
 
 </servlet>
 
