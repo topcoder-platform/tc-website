@@ -6,7 +6,14 @@ public class DemographicAnswer extends Base implements Comparable {
     private String demographicAnswerText;
     private int sort;
 
+    public static final DemographicAnswer DELINE = new DemographicAnswer(-1, "Decline to Answer");
+
     public DemographicAnswer() {}
+
+    private DemographicAnswer(long id, String text) {
+        setDemographicAnswerId(id);
+        setDemographicAnswerText(text);
+    }
 
     public Object clone() throws OutOfMemoryError {
         DemographicAnswer ret = new DemographicAnswer();
