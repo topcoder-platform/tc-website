@@ -9,14 +9,14 @@
 
 <body>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr><td colspan="3" class="globalNavSmall"><img src="/i/clear.gif" width="1" height="15" border="0"/></td></tr>
 
     <tr>
         <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" alt="" border="0"></td>
         <td width="206"><img src="/i/logo_testing.gif" width="206" height="49" border="0" alt="TopCoder Testing Application" vspace="13"></TD>
         <td width="100%"><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
-    </tr>             
+    </tr>
 
     <tr><td colspan="3" class="testTop"><img src="/i/clear.gif" width="1" height="18" border="0"/></td></tr>
 </table>
@@ -52,14 +52,14 @@
 	        <TR>
 		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>
 		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;TopCoder Submission %</B></TD>
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>		       
-	        </TR>	        
+		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>
+	        </TR>
             <TR>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Overall Accuracy %</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. Acc. %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. %</B></TD>		       		       		       		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. %</B></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
 <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
             </TR>
@@ -86,7 +86,7 @@
            </TR>
            <TR>
               <TD CLASS="bodyText" VALIGN="top">
-<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="Java" />
+<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="Java" class="bodyText"/>
               </TD>
            </TR>
            <TR>

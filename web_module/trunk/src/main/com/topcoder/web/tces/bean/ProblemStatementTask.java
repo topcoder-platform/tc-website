@@ -112,7 +112,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         Problem problem = new Problem();
         problem.setProblemComponents(arrProblemComponent);
         ProblemRenderer pr = new ProblemRenderer(problem);
-        pr.setForegroundColor(Color.white);
+        pr.setTdClass("statText");
         setProblemText(pr.toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
 
         setNextPage(TCESConstants.PROBLEM_STATEMENT_PAGE);
