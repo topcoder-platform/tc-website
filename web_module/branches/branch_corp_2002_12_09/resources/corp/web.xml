@@ -27,7 +27,7 @@
 
 <servlet-mapping>
   <servlet-name>MainServlet</servlet-name>
-  <url-pattern>/portal/</url-pattern>
+  <url-pattern>/</url-pattern>
 </servlet-mapping>
 
 </web-app>
