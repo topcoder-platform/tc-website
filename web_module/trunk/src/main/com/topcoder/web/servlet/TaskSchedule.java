@@ -83,7 +83,7 @@ public final class TaskSchedule {
 
 
             document.addTag(schedTag);
-log.debug(document.getXML(2));
+//log.debug(document.getXML(2));
 
             result = TaskStatic.displayStatic(HTMLmaker, request, nav, document);
         } catch (NavigationException ne) {
