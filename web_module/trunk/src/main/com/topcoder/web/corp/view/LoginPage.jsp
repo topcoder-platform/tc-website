@@ -4,7 +4,7 @@
          errorPage="exc/InternalError.jsp"
          import="com.topcoder.web.corp.request.Login
                  com.topcoder.web.corp.Constants" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
