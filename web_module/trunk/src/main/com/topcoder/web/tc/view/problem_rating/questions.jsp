@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="/tc/?module=SubmitRatings" method="POST">
-<input type="hidden" name="pid" value="<%= request.getParamter("pid") %>">
+<input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table>
         <rsc:iterator list="<%=problemRatingQuestions%>" id="result">
         <tr>
