@@ -465,7 +465,7 @@ public class TCLoadRequests extends TCLoad {
                     //returning the first found, so if there are more
                     //than one coder_id key in the query, then we'll be
                     //returning the first one
-                    ret = ((Long) paramMap.get(CODER_ID_KEYS[i])).longValue();
+                    ret = Long.parseLong(((String) paramMap.get(CODER_ID_KEYS[i])));
                     found = true;
                 }
             }
@@ -480,7 +480,7 @@ public class TCLoadRequests extends TCLoad {
                     //returning the first found, so if there are more
                     //than one round_id key in the query, then we'll be
                     //returning the first one
-                    ret = ((Long) paramMap.get(ROUND_ID_KEYS[i])).longValue();
+                    ret = Long.parseLong(((String) paramMap.get(ROUND_ID_KEYS[i])));
                     found = true;
                 }
             }
