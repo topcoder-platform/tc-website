@@ -34,6 +34,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
     private int cid;
     private int jid;
     private int mid;
+    private long roundId;
 
     /** Holds value of property problemID. */
     private int problemID;
@@ -80,6 +81,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         dataRequest.setProperty("jid", Integer.toString(getJobID()));
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
         dataRequest.setProperty("pm", Integer.toString(getProblemID()));
+        dataRequest.setProperty("rd", String.valueOf(getRoundId()));
 
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
@@ -89,14 +91,6 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
                     " jid=" + Integer.toString(getJobID()) +
                     " cid=" + Integer.toString(getCampaignID()) +
                     " does not belong to uid=" + Long.toString(uid));
-        }
-
-        if (isRestrictedCampaign(getCampaignID())) {
-            if (!getRoundIds(getCampaignID()).contains(new Long(getRoundId()))) {
-                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
-                        " rd=" + getRoundId() +
-                        " does not belong to uid=" + Long.toString(uid));
-            }
         }
 
         resultMap = getDataAccess(getDw()).getData(dataRequest);
@@ -138,6 +132,8 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
             setMemberID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.PROBLEM_ID_PARAM))
             setProblemID(Integer.parseInt(value));
+        if (paramName.equalsIgnoreCase(TCESConstants.ROUND_ID_PARAM))
+            setRoundId(Integer.parseInt(value));
     }
 
     /** Creates new ProblemStatementTask */
@@ -259,5 +255,14 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
     public void setProblemText(String problemText) {
         this.problemText = problemText;
     }
+
+    public long getRoundId() {
+        return roundId;
+    }
+
+    public void setRoundId(long roundId) {
+        this.roundId = roundId;
+    }
+
 
 }
