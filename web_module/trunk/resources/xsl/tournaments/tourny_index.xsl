@@ -92,8 +92,9 @@
                     <td width="1%" valign="bottom"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=final"><img src="/i/tournament/logo_tco03.gif" alt="" width="113" height="73" border="0" /></A></td>
                 </tr>
             </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-                
+
+                <hr width="100%" size="1" noshade="noshade" />
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/photo_tccc03.jpg" alt="2003 TCCC" width="274" height="134" border="0" /></A></td>
