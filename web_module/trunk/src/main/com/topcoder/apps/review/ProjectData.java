@@ -62,7 +62,7 @@ public class ProjectData extends OnlineReviewData {
      * @param project The project.
      * @param reason The reason of project termination.
      */
-    protected ProjectData(OnlineReviewData ord, Project project, 
+    public ProjectData(OnlineReviewData ord, Project project, 
                           String reason, AbstractSubmission[] submissions) {
         super(ord);
         this.project = project;

@@ -125,6 +125,7 @@
     <property name="review-persistence.jar" value="${onlinereview.jars.dir}/persistence.jar"/>
     <property name="onlinereview.war" value="${onlinereview.jars.dir}/review.war"/>
     <property name="cache_refresher.sar" value="${onlinereview.jars.dir}/cache_refresher.sar"/>
+    <property name="auto_pilot_timer.sar" value="${onlinereview.jars.dir}/auto_pilot_timer.sar"/>
 
     <property name="ejb.jar" value="${tcslibdir}/ejb-2_0.jar"/>
     <property name="jdbc.jar" value="${tcslibdir}/jdbc2_0-stdext.jar"/>
@@ -379,6 +380,7 @@
         <copy file="${review-persistence.jar}" todir="${dist.jars.dir}"/>
         <copy file="${onlinereview.war}" todir="${dist.jars.dir}"/>
         <copy file="${cache_refresher.sar}" todir="${dist.jars.dir}"/>
+        <copy file="${auto_pilot_timer.sar}" todir="${dist.jars.dir}"/>
         <copy file="${base_exception.jar}" todir="${dist.jars.dir}"/>
         <copy file="${logging_wrapper.jar}" todir="${dist.jars.dir}"/>
         <copy file="${refreshable_cache.jar}" todir="${dist.jars.dir}"/>

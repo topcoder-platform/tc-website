@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
@@ -43,7 +43,7 @@ public class OnlineReviewData implements ActionData {
      *
      * @param user The user to be set.
      */
-    protected OnlineReviewData(SecurityEnabledUser user) {
+    public OnlineReviewData(SecurityEnabledUser user) {
         if (user == null) {
             throw new NullPointerException();
         }

@@ -102,7 +102,7 @@ public final class SavePMReviewAction extends ReviewAction {
 
                     request.getSession().removeAttribute(mapping.getAttribute());
                     resetToken(request);
-
+                    
                     // Set the PM Review flag
                     for (int i = 0; i < ((SubmissionForm) form).getScorecards().length; i++) {
                         AbstractScorecard scorecard = ((SubmissionForm) form).getScorecards()[i];
@@ -125,6 +125,7 @@ public final class SavePMReviewAction extends ReviewAction {
                                     
                                     ScreeningData sData = new ScreeningData(orpd, sid, (ScreeningScorecard) scorecard);
                                     result = businessDelegate.screeningScorecard(sData);
+                                    
                                 }
                             } else {
                                 ReviewData rData = new ReviewData(orpd, sid, scorecard.getAuthor().getId(), 
@@ -136,6 +137,26 @@ public final class SavePMReviewAction extends ReviewAction {
                                 break;
                             }
                         }
+                    }
+                    
+                    //save
+                    if (((SubmissionForm) form).getIsScreening()) {
+                        InitialSubmission sub = documentManager.getInitialSubmission(data.getProject(), sid, orpd.getUser().getTCSubject());
+                        sub.setAdvancedToReview(((SubmissionForm) form).getAdvanced());
+
+                        try {
+                            documentManager.saveInitialSubmission(sub, data.getUser().getTCSubject());
+                        } catch(Exception e) {
+                            return null;
+                        }
+                        
+                        ResultData rs = AutoPilot.screeningPMReview(data);
+                        if(!(rs instanceof SuccessResult))
+                            return rs;
+                    } else  {
+                        ResultData rs = AutoPilot.reviewPMReview(data);
+                        if(!(rs instanceof SuccessResult))
+                            return rs;
                     }
                 }
                 

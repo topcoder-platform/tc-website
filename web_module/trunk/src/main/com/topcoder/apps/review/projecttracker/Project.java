@@ -46,6 +46,7 @@ public class Project implements Serializable {
     private long requestorId;
     private long versionId;
     private long levelId;
+    private boolean autopilot;
 
     /**
      * Creates a new Project object.
@@ -57,7 +58,7 @@ public class Project implements Serializable {
      * @param winner DOCUMENT ME!
      * @param timeline DOCUMENT ME!
      * @param currentPhase DOCUMENT ME!
-     * @param userRole DOCUMENT ME!
+     * @param userRole DOCUMENT ME! 
      * @param notes DOCUMENT ME!
      * @param overView DOCUMENT ME!
      * @param projectType DOCUMENT ME!
@@ -69,7 +70,7 @@ public class Project implements Serializable {
             PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole, String notes, String overView,
             ProjectType projectType, ProjectStatus projectStatus, boolean notificationSent,
             long screeningTemplateId, long reviewTemplateId,
-            long requestorId, long versionId, long levelId) {
+            long requestorId, long versionId, long levelId, boolean autopilot) {
         this.id = id;
         this.componentId = componentId;
         this.forumId = forumId;
@@ -91,6 +92,16 @@ public class Project implements Serializable {
         this.requestorId = requestorId;
         this.versionId = versionId;
         this.levelId = levelId;
+        this.autopilot = autopilot;
+    }
+    
+    public boolean getAutoPilot() {
+        return autopilot;
+    }
+    
+    public void setAutoPilot(boolean autopilot) {
+        this.dirtyFlag = true;
+        this.autopilot = autopilot;
     }
     
     protected long getLevelId() {
@@ -98,6 +109,7 @@ public class Project implements Serializable {
     }
     
     protected void setLevelId(long levelId) {
+        this.dirtyFlag = true;
         this.levelId = levelId;
     }
 

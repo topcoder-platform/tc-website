@@ -1,7 +1,7 @@
 /*
  * DocumentManager.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -370,6 +370,9 @@ public interface DocumentManager extends EJBObject {
         throws RemoteException;
     
     public ScorecardTemplate getScorecardTemplate(long reqTemplateId)
+        throws RemoteException;
+    
+    public ScorecardTemplate getDefaultScorecardTemplate(long projectTypeId, long scorecardTypeId)
         throws RemoteException;
 
     public void saveScorecardTemplate(ScorecardTemplate template,

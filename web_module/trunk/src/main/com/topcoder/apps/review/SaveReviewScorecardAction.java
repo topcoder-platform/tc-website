@@ -79,6 +79,8 @@ public final class SaveReviewScorecardAction extends ReviewAction {
             // Call the business layer
             data = rsForm.toReviewData(orpd);
             result = new BusinessDelegate().reviewScorecard(data);
+            
+            AutoPilot.reviewEmail(data);
         
             if (result instanceof SuccessResult) {
                 request.getSession().removeAttribute(mapping.getAttribute());

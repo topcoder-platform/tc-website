@@ -152,6 +152,8 @@ public final class ProjectForm extends ReviewForm {
      */
     private boolean sendMail = false;
     
+    private boolean autopilot = false;
+    
     /**
      * If a submitter role can be removed.
      * Used if admin assigns a submitter a review role.
@@ -891,7 +893,7 @@ public final class ProjectForm extends ReviewForm {
      *
      * @param project The project for creating the form bean.
      */
-    protected void fromProject(Project project) {
+    public void fromProject(Project project) {
         BusinessDelegate businessDelegate = new BusinessDelegate();
         MessageResources messages =
             MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
@@ -961,6 +963,8 @@ public final class ProjectForm extends ReviewForm {
                 break;
             }
         }
+        
+        this.autopilot = project.getAutoPilot();
 
         setId(project.getId());
         // Default sending mail to false
@@ -976,11 +980,19 @@ public final class ProjectForm extends ReviewForm {
      * ProjectData.
      * @return the ProjectData created from this form bean.
      */
-    protected ProjectData toActionData(OnlineReviewProjectData orpd) {
+    public ProjectData toActionData(OnlineReviewProjectData orpd) {
         ProjectData pData = new ProjectData(orpd, project, reason, null);
         pData.setSendMail(sendMail);
         pData.setSubmitterRemoval(submitterRemoval);
         return pData;
+    }
+    
+    public boolean getAutoPilot() {
+        return project.getAutoPilot();
+    }
+    
+    public void setAutoPilot(boolean b) {
+        project.setAutoPilot(b);
     }
 
     /**

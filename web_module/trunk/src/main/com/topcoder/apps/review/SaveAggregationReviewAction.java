@@ -69,6 +69,8 @@ public final class SaveAggregationReviewAction extends ReviewAction {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
             }
+            
+            AutoPilot.aggregationReview(data);
         
             return result;
         }

@@ -352,7 +352,7 @@ public class ProjectAdministration implements Model {
             // the transaction first
             if (!EJBHelper.isTestMode()) {
                 Context initial = new InitialContext();
-                ut = (UserTransaction) initial.lookup("java:comp/UserTransaction");
+                ut = (UserTransaction) initial.lookup("UserTransaction");
                 try {
                     LogHelper.log("before begin, ut.getStatus(): " + ut.getStatus());
                 } catch (SystemException e) {

@@ -74,6 +74,10 @@ public final class SaveSolutionAction extends ReviewAction {
                 result = businessDelegate.submitSolution(data);
             } else {
                 result = businessDelegate.submitFinalFix(data);
+                
+                if(result instanceof SuccessResult) {
+                    AutoPilot.finalFixes(data);
+                }
             }
             return result;
         } catch (Exception e) {

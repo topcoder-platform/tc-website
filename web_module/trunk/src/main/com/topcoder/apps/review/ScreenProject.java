@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -97,6 +97,7 @@ public class ScreenProject implements Model {
                     }
                 }
                 documentManager.saveScreeningScorecard(scorecard, user.getTCSubject());
+                
                 return new SuccessResult();
             }
 
