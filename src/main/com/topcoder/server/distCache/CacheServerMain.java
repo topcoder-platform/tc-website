@@ -7,7 +7,6 @@ public class CacheServerMain
     static Category log = Category.getInstance("com.server.topcoder.distCache");
     
     public static void main(String[] args) {
-        String file = null;
         // log.debug("CACHE STARTING");
         int mode = CacheServer.MODE_PRIMARY;
         for (int i=0; i<args.length; i++) {
@@ -17,19 +16,10 @@ public class CacheServerMain
             } else if (args[i].equals("-secondary")) {
                 mode = CacheServer.MODE_SECONDARY;
 
-            } else if(file==null)
-            {
-                file = args[i];
-            }
-            else {
+            } else {
                 System.out.println("INVALID ARGUMENT: " + args[i]);
                 return;
             }
-        }
-        if(file!=null)
-        {
-            System.err.println(file);
-            CacheConfiguration.setResourceFile(file);
         }
         CacheServer server = new CacheServer();
         server.setMode(mode);
