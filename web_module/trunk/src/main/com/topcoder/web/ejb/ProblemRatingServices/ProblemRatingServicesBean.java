@@ -31,7 +31,7 @@ public class ProblemRatingServicesBean implements SessionBean {
         insertQuery.append(coderID);
         insertQuery.append(',');
         insertQuery.append(problemID);
-        insertQuery.append(",?,)");
+        insertQuery.append(",?)");
 
         deleteQuery.append(" DELETE FROM problem_rating WHERE");
         deleteQuery.append(" problem_id = ? AND");
