@@ -50,11 +50,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+        <td width="50%"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
     <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
- <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
+ <td class="bodyText"><img src="/i/clear.gif" width="510" height="10"border="0"><br>
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="statisticsw"/>  
            <jsp:param name="image1" value="white"/>  
@@ -66,13 +66,14 @@
                           <br/>
                           <jsp:include page="results.jsp"/>
                       </form>
+
         </td> 
 
 
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+        <td width="50%"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
