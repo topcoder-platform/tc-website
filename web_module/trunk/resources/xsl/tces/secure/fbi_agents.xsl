@@ -196,7 +196,18 @@ The FBI welcomes and encourages applications from persons with physical and ment
 <P>
 The Federal Bureau of Investigation is an Equal Opportunity Employer. All qualified applicants will receive consideration for this vacancy. Except where otherwise provided by law, selection will be made without regard to, and there will be no discrimination because of race, religion, color, national origin, sex, political affiliations, marital status, nondisqualifying physical or mental disability, age, sexual orientation, membership or nonmembership in an employee organization, or on the basis of personal favoritism or other non-merit factors.
 </P>
-
+<P>
+<B>IMPORTANT NOTE: </B><BR/>
+By clicking on "APPLY HERE", you authorize TopCoder to release your member
+profile information, competition statistics, code samples, resume, rating
+and ranking to the FBI.
+</P>
+<P>
+Due to the high volume of response being received, the FBI will only accept
+applications for the first seven(7) days of each month. In order for your
+application to be reviewed, it must be submitted by 11:59 pm CST on the 7th
+day of each month.
+</P>
 <A HREF="https://www.fbijobs.com/SpAppl.asp?r=101409586652" TARGET="_blank" CLASS="bodyText">APPLY NOW</A>
 <!--end contextual links-->
           <P><BR/></P>
