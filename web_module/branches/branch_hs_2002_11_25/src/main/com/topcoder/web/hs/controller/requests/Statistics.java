@@ -32,7 +32,7 @@ public class Statistics extends Base {
 
         String cmd = request.getParameter(DataAccessConstants.COMMAND);
 
-        nav.setFolder(0, stats);
+        nav.setFolder(0, "stats");
         nav.setFolder(1, cmd);
 
         setNextPage("/stats/"+cmd+".jsp");

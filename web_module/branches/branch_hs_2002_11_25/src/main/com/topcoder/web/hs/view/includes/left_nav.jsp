@@ -1,11 +1,7 @@
-<!--Left Navigation Include Begins -->
+<!--Left Navigation Include Begins-->
 
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <jsp:useBean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
-
-<jsp:setProperty name="NavZone" property="Zone" param="d1" />
-<% if("Statistics".equals(request.getParameter("module"))) NavZone.setZone("stats"); %>
-  <%-- @@@ so random! --%>
 
 <TABLE WIDTH="170" CELLSPACING="0" CELLPADDING="0" BORDER="0" BGCOLOR="#000000">
     <TR>
@@ -31,11 +27,13 @@
     </TR>
     <TR>
 
-<% if( ! NavZone.inStats()) { %>
+
+<logic:notEqual name="NavZone" property="Folder[0]" value="stats">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
 
-<% } else { %>
+</logic:notEqual>
+<logic:equal name="NavZone" property="Folder[0]" value="stats">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
      </TR>
@@ -48,16 +46,14 @@
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=school_round_rank" CLASS="sidenav">High School Rankings</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=ratings_history&cr=<jsp:getProperty name="SessionInfo" property="UserId" />" CLASS="sidenav">Rating History</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=stats&d2=m_edi" CLASS="sidenav">Match Editorials</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=school_round_stats" CLASS="sidenav">High School Round Stats</A><BR/>
+ 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=school_round_stats&@@@" CLASS="sidenav">High School Round Stats</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=round_overview" CLASS="sidenav">Round Overview</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=round_stats" CLASS="sidenav">Round Stats</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=room_stats" CLASS="sidenav">Room Stats</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=coder_room_stats" CLASS="sidenav">Problem Stats</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=problem_statement" CLASS="sidenav">Problem Statement</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=problem_solution" CLASS="sidenav">Problem Solution</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=member_profile&cr=<jsp:getProperty name="SessionInfo" property="UserId" />" CLASS="sidenav">Member Profile</A><BR/>
 
-<% } %>
+</logic:equal>
+
 
     </TR>
     <TR>
@@ -71,11 +67,13 @@
     </TR>
     <TR>
 
-<% if( ! NavZone.inFaq()) { %>
+
+<logic:notEqual name="NavZone" property="Folder[0]" value="faq">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
 
-<% } else { %>
+</logic:notEqual>
+<logic:notEqual name="NavZone" property="Folder[0]" value="faq">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
      </TR>
@@ -93,7 +91,7 @@
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=rules_quali" CLASS="sidenav">Rules & Qualification </A>
          </TD>
 
-<% } %>
+</logic:equal>
 
 
     </TR>
@@ -115,11 +113,12 @@
     <TR>
 
 
-<% if( ! NavZone.inAbout()) { %>
+<logic:notEqual name="NavZone" property="Folder[0]" value="about">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
 
-<% } else { %>
+</logic:notEqual>
+<logic:equal name="NavZone" property="Folder[0]" value="about">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
      </TR>
@@ -131,7 +130,7 @@
          <IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=about&d2=about_member" CLASS="sidenav">For Members</A> <BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=about&d2=about_sponsor" CLASS="sidenav">For Sponsors</A>
 
-<% } %>
+</logic:equal>
 
     </TR>
     <TR>
