@@ -1,5 +1,7 @@
 package com.topcoder.web.hs.model;
 
+import java.util.*;
+
 public class SearchBean {
 
   private final static int MAX_RESULTS_PER_PAGE=15;
@@ -17,6 +19,8 @@ public class SearchBean {
   private Integer min_rating=null;
 
   private Integer max_rating=null;
+
+  private List state_list=null;
 
   public int getMaxResultsPerPage() {
     return(MAX_RESULTS_PER_PAGE);
@@ -76,6 +80,14 @@ public class SearchBean {
 
   public void setMaxRating(Integer _max_rating) {
     max_rating=_max_rating;
+  }
+
+  public List getStateList() {
+    return(state_list);
+  }
+
+  public void setStateList(List _state_list) {
+    state_list=_state_list;
   }
 
 };
