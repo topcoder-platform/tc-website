@@ -31,7 +31,8 @@
                 
                 <tr valign="top">
                     <td class="bodyText" align="left" width="100%">
-                       <p>At NVIDIA we set unprecedented standards of excellence.   We do so in our vision, our values, and our 
+                       <p><A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco04/nvidia_nalu.jpg" alt="Nalu Swimming" width="228" height="228" border="0" align="right" /></A>
+                       At NVIDIA we set unprecedented standards of excellence.   We do so in our vision, our values, and our 
                        work.  We believe that you become the best by hiring the best, and know that as long as we have a superior 
                        engineering team, we'll continue to lead the graphics industry into a new era of multimedia innovation.  
                        We are excited to partner with Topcoder for the third year, as we know that the most brilliant minds in 
@@ -57,7 +58,7 @@
         </tr>
         <tr>
             <td colspan="2" align="left" width="480" class="bodyText">
-                <p><A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia_geforcefx.gif" alt="geforce" width="160" height="160" border="0" align="right" /></A>
+                <p><A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia_geforcefx.gif" alt="geforce" width="160" height="160" border="0" align="left" /></A>
                          As a world leader in visual computing technology NVIDIA's objective remains solid: to be the most important 3D company in the world. We are committed 
                          to developing innovative technologies that deliver stunning multimedia experiences on mass computing platforms. We invest in our people and our 
                          technologies, support and fund industry research around the world, and consistently deliver a quality, competitively priced product to our customers. </p>
