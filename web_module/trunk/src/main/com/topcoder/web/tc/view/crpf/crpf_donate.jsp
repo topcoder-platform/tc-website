@@ -78,10 +78,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   <tr valign="top">
                      <td width="150" align="center"><img src="/i/tournament/crpf03/creditcard.gif" width="89" height="63" alt="Pay by credit card" border="0"></td>
                      <td class="bodyText">
-                        <strong>To donate by credit card</strong>
+                        <strong>To donate by credit card:</strong>
                         <ol>
                             <li>Go to the <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">TopCoder Donation</A> 
-                            page on www.crpf.org. <strong>Donations will be accepted until 11:59 PM Eastern Time on November 10th</strong>.</li>
+                            page on www.crpf.org. <strong>Donations will be accepted until 11:59 PM Eastern Time on November 10, 2003.</strong></li>
                             <li>Enter your name and contact information. <strong>Your personal information will remain confidential.</strong></li>
                             <li>On the next page enter the handle or first and last name of the TopCoder member that your donation is in honor of.</li>
                             <li>If you have any questions please contact <A href="mailto:service@topcoder.com?Subject=I have a question about the TopCoder Charity Challenge CRPF" class="bodyText">TopCoder Service.</A></li>
@@ -92,15 +92,16 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   <tr valign="top">
                      <td width="150" align="center"><img src="/i/tournament/crpf03/check.gif" width="150" height="63" alt="Pay by check" border="0"></td>
                      <td class="bodyText">
-                        <strong>To donate by check:</strong>
+                        <strong>To donate by check follow these three simple steps:</strong>
                         <ol>
+                            <li>Include the handle or first and last name of the TopCoder member that your donation is in honor of in the memo field.</li>
                             <li>Make your check payable to the <em>Christopher Reeve Paralysis Foundation</em>.</li>
-                            <li>Include the handle or first and last name of the TopCoder member that your donation is in honor of.</li>
                             <li>Mail your check to:<br/>
                             TopCoder<br />
                             703 Hebron Ave<br />
                             Glastonbury,CT 06033<br />
-                            ATTN:  CRPF DONATIONS</li>
+                            ATTN:  CRPF DONATIONS<br/>
+                            <strong>The check must be received no later than November 10, 2003.</strong></li>
                         </ol>
                      </td>
                   </tr>
@@ -108,9 +109,9 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   <tr valign="top">
                      <td width="150" align="center"><A name="downloads"><img src="/i/tournament/crpf03/download_forms.gif" width="80" height="63" border="0" alt="Download forms"></A></td>
                      <td class="bodyText">
-                        <p><strong>Download forms</strong><br/>
-                        Hang this <A href="/i/tournament/crpf03/pledge_collection_form.pdf" target="_blank">pledge collection form</A> around your office, dorm 
-                        or dining hall to help spread the word about your participation in the TopCoder Charity Challenge for CRPF.</p>
+                        <p><strong>Helpful Downloads</strong><br/>
+                        Use this <A href="/i/tournament/crpf03/pledge_collection_form.pdf" target="_blank">form</A> to help collect donations around your office, dorm, 
+                        dining hall, etc.</p>
                         
                         <p>This <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A> provides simple instructions for an individual donor.</p>
                         
