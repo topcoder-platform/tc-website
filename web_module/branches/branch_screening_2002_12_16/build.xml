@@ -691,9 +691,7 @@
         </junitreport>
     </target>
 
-
-  <!-- screening application specific targets go here -->
-
+    <!-- screening application specific targets go here -->
     <target name="deploy_screening" depends="compile">
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
@@ -711,33 +709,33 @@
 
     <target name="init-NoteBean-properties" >
         <property name="bean.dir"          value="note" />
-         <property name="bean.jar.name"     value="note.jar" />
-         <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+        <property name="bean.jar.name"     value="note.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
     </target>
 
     <target name="package-EJB-SessionProfile" depends="compile,init-SessionProfileBean-properties,package-EJB-GenericBean"/>
 
     <target name="init-SessionProfileBean-properties" >
         <property name="bean.dir"          value="sessionprofile" />
-         <property name="bean.jar.name"     value="sessionprofile.jar" />
-         <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+        <property name="bean.jar.name"     value="sessionprofile.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
     </target>
 
     <target name="package-EJB-Session" depends="compile,init-SessionBean-properties,package-EJB-GenericBean"/>
 
     <target name="init-SessionBean-properties" >
         <property name="bean.dir"          value="session" />
-         <property name="bean.jar.name"     value="session.jar" />
-         <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+        <property name="bean.jar.name"     value="session.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
     </target>
 
     <target name="package-EJB-User" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
