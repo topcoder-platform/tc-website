@@ -128,7 +128,7 @@
 
                            <tr valign="top">
                               <td class="sidebarText">Friday, October 15</td>
-                              <td class="sidebarText">4:00 PM</td>
+                              <td class="sidebarText">3:45 PM</td>
                               <td class="sidebarText">Championship Round - 50 participants</td>
                            </tr>
                 
