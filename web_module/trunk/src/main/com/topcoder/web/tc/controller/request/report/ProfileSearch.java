@@ -49,7 +49,7 @@ public class ProfileSearch extends Base {
             String param = (String) e.nextElement();
             String[] values = request.getParameterValues(param);
             if (values != null && values.length > 0) {
-                m.put(param, request.getParameter(param));
+                m.put(param, values);
             }
         }
         return m;
