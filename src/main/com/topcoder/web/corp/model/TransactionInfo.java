@@ -113,6 +113,8 @@ public class TransactionInfo implements Serializable {
             ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
             qtty = productUnit.getNumUnits(productID, getUnitIdByType(TIME_UNIT_TYPE_ID, productID));
 
+            //TODO this is bad.  it should not require a length of time for all products.
+            //TODO this will required changing what is inserted into the purchase table also
             if (qtty <= 0) {
                 throw new Exception("No unit found for product: " + productID +
                         " unit type: " + TIME_UNIT_TYPE_ID);
