@@ -12,42 +12,32 @@
     <tr>
         <td class="statTextBig" bgcolor="#333333">January: <a href="/stat?c=member_profile&cr=8355516" class="coderTextRed">Eryx</a></td>
     </tr>
-
-<%-- No photo available
-    <tr>
-        <td align="center"><a href="/stat?c=member_profile&cr=8355516" class="coderTextRed"><img src="/i/m/eryx_big.gif" alt="" width="126" height="140" border="0" class="myStatsPhoto" /></a></td>
-    </tr>
---%>
-
 </table>
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#333333">
     <tr>
-        <td align="left" background="/i/graybv_lite_bg.gif" class="statText">&#160;Date</td>
         <td align="left" background="/i/graybv_lite_bg.gif" class="statText">Contest</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText">Rating</td>
+        <td align="right" background="/i/graybv_lite_bg.gif" class="statText"></td>
     </tr>
 
     <tr>
-        <td class="formHandleOdd">&#160;12.30.03</td>
-        <td class="formHandleOdd">SRM 177</td>
+        <td class="formHandleOdd" nowrap="nowrap">SRM 177</td>
         <td class="formHandleOdd" align="right">2210</td>
+        <td rowspan="4" align="center" valign="middle"><img src="/i/m/Eryx_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
     </tr>
 
     <tr>
-        <td class="formHandleEven">&#160;12.22.03</td>
         <td class="formHandleEven">SRM 176</td>
         <td class="formHandleEven" align="right">2250</td>
     </tr>
 
     <tr>
-        <td class="formHandleOdd">&#160;12.17.03</td>
         <td class="formHandleOdd">SRM 175</td>
         <td class="formHandleOdd" align="right">2022</td>
     </tr>
 
     <tr>
-        <td class="formHandleEven">&#160;12.13.03</td>
         <td class="formHandleEven">SRM 174</td>
         <td class="formHandleEven" align="right">1594</td>
     </tr>
