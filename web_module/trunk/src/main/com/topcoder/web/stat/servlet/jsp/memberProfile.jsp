@@ -1,8 +1,13 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.common.web.data.Navigation"
+%>
 
+<%
+   DataCache dcHome = com.topcoder.common.web.util.Cache.get();
+   Navigation nav = (Navigation) session.getAttribute ( "navigation" );
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
