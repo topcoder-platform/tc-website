@@ -45,17 +45,267 @@
 
             <h2>Schedule</h2>
 
-            <p>
-            The 2004 Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.</p>
-            <ul>
-                <li><strong>Elimination Starts</strong><br />
-                    January 2004 - Component<br />
-                    February 2004 - Algorithm<br /></li>
-                <li><strong>Onsite Finals</strong><br />
-                    April 2004 in Boston, MA</li>
-                <li><strong>Free Competition</strong></li>
-                <li><strong>Open to all college students</strong></li>
-            </ul>
+            <p>Both the design and development competitions will have two (2) online rounds and one (1) onsite Championship round.</p>
+            
+            <a name="sched"></a>
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="25%" align="center">Design</td>
+                    <td class="sidebarTitle" width="25%" align="center">Development</td>
+                </tr>
+                <tr><td colspan="3" align="center" class="sidebarText">ALL TIMES ARE EASTERN TIME</td></tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3"><strong>Online Round 1</strong></td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarText">
+                        Projects posted
+                     </td>
+                     <td class="sidebarText">
+                        01.27.04 12:00am
+                     </td>
+                     <td class="sidebarText">
+                        02.17.04 12:00am
+                     </td>
+               </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Submission deadline
+                     </td>
+                     <td class="sidebarText">
+                        02.02.04 11:59pm
+                     </td>
+                     <td class="sidebarText">
+                        02.23.04 11:59pm
+                     </td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3">Review Board:</td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Screening due
+                        </td>
+                     <td class="sidebarText">
+                        02.03.04 6:00pm
+                        </td>
+                     <td class="sidebarText">
+                        02.24.04 6:00pm
+                        </td>
+                   </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Reviews due
+                        </td>
+                     <td class="sidebarText">
+                        02.05.04 6:00pm
+                        </td>
+                     <td class="sidebarText">
+                        02.26.04 6:00pm
+                        </td>
+                   </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Appeals due
+                        </td>
+                     <td class="sidebarText">
+                        02.08.04 11:00am
+                        </td>
+                     <td class="sidebarText">
+                        02.29.04 11:00pm
+                        </td>
+                   </tr>
+                 <tr>
+                     <td class="sidebarText">
+                        Winners announced
+                        </td>
+                     <td class="sidebarText">
+                        02.09.04
+                        </td>
+                     <td class="sidebarText">
+                        03.01.04
+                        </td>
+                   </tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3"><strong>Online Round 2</strong></td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarText">
+                        Projects posted
+                     </td>
+                     <td class="sidebarText">
+                        02.17.04 12:00am
+                     </td>
+                     <td class="sidebarText">
+                        03.09.04 12:00am
+                     </td>
+               </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Submission deadline
+                     </td>
+                     <td class="sidebarText">
+                        02.23.04 11:59pm
+                     </td>
+                     <td class="sidebarText">
+                        03.15.04 11:59pm
+                     </td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3">Review Board:</td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Screening due
+                        </td>
+                     <td class="sidebarText">
+                        02.24.04 6:00pm
+                        </td>
+                     <td class="sidebarText">
+                        03.16.04 6:00pm
+                        </td>
+                   </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Reviews due
+                        </td>
+                     <td class="sidebarText">
+                        02.26.04 6:00pm
+                        </td>
+                     <td class="sidebarText">
+                        03.18.04 6:00pm
+                        </td>
+                   </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Appeals due
+                        </td>
+                     <td class="sidebarText">
+                        02.29.04 11:00am
+                        </td>
+                     <td class="sidebarText">
+                        03.21.04 11:00pm
+                        </td>
+                   </tr>
+                  <tr>
+                     <td class="sidebarText">
+                        Winners announced
+                        </td>
+                     <td class="sidebarText">
+                        03.01.04
+                        </td>
+                     <td class="sidebarText">
+                        03.22.04
+                        </td>
+                   </tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3"><strong>Onsite Championship Round 3</strong></td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarText">
+                        Projects posted
+                     </td>
+                     <td class="sidebarText">
+                        03.30.04 12:00am
+                     </td>
+                     <td class="sidebarText">
+                        03.30.04 12:00am
+                     </td>
+               </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Submission deadline
+                     </td>
+                     <td class="sidebarText">
+                        04.05.04 11:59pm
+                     </td>
+                     <td class="sidebarText">
+                        04.05.04 11:59pm
+                     </td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3">Review Board:</td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Screening due
+                        </td>
+                     <td class="sidebarText">
+                        04.06.04 6:00pm
+                        </td>
+                     <td class="sidebarText">
+                        04.06.04 6:00pm
+                        </td>
+                   </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Reviews due
+                        </td>
+                     <td class="sidebarText">
+                        04.09.04 6:00pm
+                        </td>
+                     <td class="sidebarText">
+                        04.09.04 6:00pm
+                        </td>
+                   </tr>
+                 <tr>
+                     <td class="sidebarTextIndent">
+                        Appeals due
+                        </td>
+                     <td class="sidebarText">
+                        n/a
+                        </td>
+                     <td class="sidebarText">
+                        n/a
+                        </td>
+                   </tr>
+                  <tr>
+                     <td class="sidebarText">
+                        Scorecards posted*
+                        </td>
+                     <td class="sidebarText">
+                        04.16.04 8:00am
+                        </td>
+                     <td class="sidebarText">
+                        04.16.04 8:00am
+                        </td>
+                   </tr>
+                  <tr>
+                     <td class="sidebarText">
+                        Final fixes*
+                        </td>
+                     <td class="sidebarText">
+                        04.16.04 8:00am - 12:00pm
+                        </td>
+                     <td class="sidebarText">
+                        04.16.04 8:00am - 12:00pm
+                        </td>
+                   </tr>
+                  <tr>
+                     <td class="sidebarText">
+                        Final reviews*
+                        </td>
+                     <td class="sidebarText">
+                        04.16.04 12:15pm - 3:30pm
+                        </td>
+                     <td class="sidebarText">
+                        04.16.04 12.15pm - 3:30pm
+                        </td>
+                   </tr>
+                  <tr>
+                     <td class="sidebarText">
+                        Winners announced*
+                        </td>
+                     <td class="sidebarText">
+                        04.16.04 4:20pm
+                        </td>
+                     <td class="sidebarText">
+                        04.16.04 4:20pm
+                        </td>
+                   </tr>
+                <tr><td colspan="3" class="sidebarText">*These times are subject to change</td></tr>
+             </table>
 
          <p><br/></p>
          </td>
