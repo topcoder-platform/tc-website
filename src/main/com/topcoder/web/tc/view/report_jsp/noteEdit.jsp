@@ -24,7 +24,7 @@
             <tr><td align=center><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td></tr>
             <tr>
                 <td align=center>
-                    <tc-webtag:textArea name="<%=com.topcoder.web.tc.Constants.NOTE_TEXT%>" rows="3" cols="40"/>
+                    <tc-webtag:textArea name="<%=com.topcoder.web.tc.Constants.NOTE_TEXT%>" rows="12" cols="100"/>
                 </td>
                 <td align=center>
                     <input type="submit" name="submit" value="Update"/>
