@@ -17,7 +17,8 @@ public class ProfileInfo extends BaseModel {
     private ResultSetContainer languageList;
     private HashSet testSetB;
     private ArrayList language;
-    private String testSetAName;    
+    private String testSetAName;
+    private ResultSetContainer sessionList;
 
     public ProfileInfo()
     {
@@ -266,5 +267,13 @@ public class ProfileInfo extends BaseModel {
      */
     public void setTestSetAName(String testSetAName) {
         this.testSetAName = testSetAName;
+    }
+
+    public ResultSetContainer getSessionList() {
+        return sessionList;
+    }
+
+    public void setSessionList(ResultSetContainer sessionList) {
+        this.sessionList = sessionList;
     }
 }
