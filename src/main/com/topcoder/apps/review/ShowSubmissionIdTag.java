@@ -10,7 +10,6 @@ import com.topcoder.apps.review.document.AbstractSubmission;
 import javax.servlet.jsp.JspException;
 import org.apache.struts.util.ResponseUtils;
 import org.apache.struts.util.RequestUtils;
-import org.apache.struts.util.MessageResources;
 
 /**
  * <p>
@@ -84,8 +83,6 @@ public class ShowSubmissionIdTag extends BaseTag {
      */
     public int doStartTag() throws JspException {
         User user = (User) RequestUtils.lookup(pageContext, Constants.USER_KEY, null);
-        UtilityBean utility = (UtilityBean) RequestUtils.lookup(pageContext, Constants.UTILITY_KEY, null);
-        MessageResources messages = MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
         AbstractSubmission submission = (AbstractSubmission) RequestUtils.lookup(pageContext, name, property, null);
 
         if (submission == null || user == null) {
