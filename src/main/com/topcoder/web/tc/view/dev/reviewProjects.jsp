@@ -124,10 +124,14 @@
  <% pageContext.setAttribute("price", prices.get(i)); %>
  <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
   <tr>
- <% if (resultRow.getLongItem("category_id")==Constants.DOT_NET_CATALOG_ID||resultRow.getLongItem("category_id")==5801779) { %>
+ <% if (resultRow.getLongItem("category_id")==Constants.DOT_NET_CATALOG_ID) { %>
   <td class="projectCells" align="center"><img src="/i/development/netSm.gif" border="0"/></td>
- <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID||resultRow.getLongItem("category_id")==5801778) { %>
+ <% } else if (resultRow.getLongItem("category_id")==5801779) {%>
+ <td class="projectCells" align="center"><img src="/i/development/smNetCustom.gif" border="0"/></td>
+ <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
   <td class="projectCells" align="center"><img src="/i/development/smJava.gif" border="0"/></td>
+ <% } else if (resultRow.getLongItem("category_id")==5801778) { %>
+  <td class="projectCells" align="center"><img src="/i/development/smJavaCustom.gif" border="0"/></td>
  <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
   <td class="projectCells" align="center"><img src="/i/development/flashSm.gif" border="0"/></td>
  <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
