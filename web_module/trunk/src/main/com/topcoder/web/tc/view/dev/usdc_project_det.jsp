@@ -45,7 +45,7 @@
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=7><A href="/">Component Name</A></td>
+                                <td class=header colspan=7><A class=header href="/">Component Name</A></td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Competitor</td>
@@ -65,7 +65,7 @@
                         
                         <br/>
                         
-                        <p align=center><A href="/tc?module=Static&d1=dev&d2=usdc_results">back to Contest Details</A></p>
+                        <p align=center><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">back to Contest Details</A></p>
                     
 
         <p><br/></p>
