@@ -60,7 +60,6 @@ public class Controller extends HttpServlet {
 		} else if (command.equals("tces_login")) {
             forwardToErrorPage(request, response,
                     new Exception("TCES Login. " + command));
-		}
         } else if (command.equals("job_posting") || command.equals("click_thru")) {
             String tempJobId = request.getParameter(TCESConstants.JOB_ID_KEY);
             String tempUserId = request.getParameter(TCESConstants.USER_ID_KEY);
