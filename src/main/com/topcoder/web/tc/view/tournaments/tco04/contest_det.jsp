@@ -66,6 +66,8 @@ else
                             <tr>
                                 <td class="sidebarTitle">Handle</td>
                                 <td class="sidebarTitle" align=center>Position Points</td>
+                                <td class="sidebarTitle" align=center>Complete Projects</td>
+                                <td class="sidebarTitle" align=center>Projects In Progess</td>
                                 <td class="sidebarTitle" align=right>Contest Prize</td>
                                 <td class="sidebarTitle" align=center>Results</td>
                             </tr>
@@ -78,6 +80,8 @@ else
                                 <% } %>
                                 </td>
                                 <td class="sidebarText" align=center ><rsc:item name="position_points" format="0" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center ><rsc:item name="complete_count" format="0" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center ><rsc:item name="incomplete_count" format="0" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=right>$<rsc:item name="prize_payment" format="#,##0" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/tc?module=TCO04MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">results</a></td>
                             </tr>
