@@ -58,7 +58,7 @@
 <!-- Title -->
 							<h1 class="devSubhead"><strong>Heartbeat: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat: Design&amp;comp=4201389" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat: Design&amp;comp=4201389&amp;date=1&#47;30" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 							<p><strong>Overview</strong><br />

@@ -62,6 +62,9 @@
               <INPUT TYPE="hidden" NAME="comp">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/comp"/></xsl:attribute>
               </INPUT>
+              <INPUT TYPE="hidden" NAME="date">
+                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
+              </INPUT>
               <INPUT TYPE="hidden" NAME="Project">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
               </INPUT>
