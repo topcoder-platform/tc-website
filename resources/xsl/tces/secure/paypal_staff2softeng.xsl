@@ -65,26 +65,22 @@
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=paypal" class="bodyText"><img src="/i/es/paypal/paypal_logo.gif" width="150" height="50" alt="PayPal" border="0" /></A></p>
 
-                        <p><h3>Software QA Automation Engineer</h3></p>
+                        <p><h3>Staff Software Engineer</h3></p>
                         
                         <p><strong>Primary Job Responsibilities</strong><br> 
-                        Primary responsibilities are the authoring of OO API's and Test Cases with 4Test and/or C++. This Engineer will be writing in a 
-                        challenging multi-developer environment. You'll help build a sophisticated, object-oriented testing system. Other responsibilities 
-                        include verification of data in a SQL database using SilkPerformer or other tools, providing estimates for assigned work, and occasionally 
-                        working with shell/Python scripts.
+                        The Systems Engineering team has an open position for a talented professional who will be working on one of the most technically 
+                        challenging and business critical projects for all of PayPal - the scalability project. This position will be responsible for quickly 
+                        coming up to speed on the PayPal architecture; contributing as a senior engineer in terms of concepts, designs, coding, and testing; and 
+                        providing accurate estimates that are met.
                         </br>
                         </p>
                         
                         <p><strong>Job Requirements</strong></p>
-                        <p>Should have a minimum of 3 years 4Test development and 1 year C++ or Java development. Alternatively, the candidate will have 
-                        3 years+ in C++ or Java development, in industry, and a working knowledge of SilkTest, SilkPerformer or equivalent performance tool. 
-                        Well versed in industry experience in writing Object Oriented code. Strong working knowledge of UNIX, shell scripting and basic SQL 
-                        queries is required. Knowledge of Oracle databases, Windows, and UNIX from a development perspective. First-rate verbal and written 
-                        skills and an attention to detail are required. BS/MS in Computer Science preferred. Must be team-oriented, yet self-motivated and 
-                        capable of identifying problems and engineering solutions on your own. Commercial development tools: CVS, Perforce, etc. Experience 
-                        in some aspect of financial services is desirable.</p>               
+                        <p>Exceptional software engineers with primary strengths in C++, SQL, (Oracle), and dependable software engineering practices. 
+                        The individual must be a strong communicator, both written and oral. They must be willing to take on difficult projects and work 
+                        effective both in a team environment as well as on their own.</p>               
                         
-                        <p><A href="/jobposting?&amp;t=JobHitTask&amp;jid=175&amp;jt=2" class="bodyText">Apply now!</A></p>
+                        <p><A href="/jobposting?&amp;t=JobHitTask&amp;jid=177&amp;jt=2" class="bodyText">Apply now!</A></p>
                         <p><A href="/?&amp;t=tces&amp;c=paypal_openings&amp;a=secure" class="bodyText">Back To Jobs</A></p>
 
 <!-- Client Job List ends -->
