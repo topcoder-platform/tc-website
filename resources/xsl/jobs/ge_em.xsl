@@ -21,7 +21,7 @@ Subject Line: GE will be visiting [IMLP School] and would like an opportunity to
 <P>Dear [TC Member],</P>
 <P>You have been selected to apply for consideration into General Electric's Information Management Leadership Program (IMLP). The IMLP is GE's premiere entry-level training program for high potential individuals seeking an accelerated career in Information Technology. The program consists of four 6-month rotational assignments at a GE Business, combined with training. This program is an outstanding opportunity for top individuals.</P>
 <P>General Electric will be visiting [IMLP School] on [date] at [time] for an information session at [location]. On [date], GE will be interviewing select candidates for consideration into this elite program. </P>
-<P>In order to learn more about General Electric's IMLP Program, please visit www.topcoder.com/ge/IMLP?%%%. </P>
+<P>In order to learn more about General Electric's IMLP Program, please visit www.topcoder.com/?t=jobs&amp;c=ge. </P>
 <P>If you have any questions regarding IMLP or the dates and times that GE will be visiting [IMLP School], please visit your Career Development Center or email Christine Peterson (<A HREF="mailto: Christine.Peterson@corporate.ge.com">Christine.Peterson@corporate.ge.com</A>) at General Electric with any questions.</P>
 
 <P>Thank you and good luck in the arena!<BR/>
