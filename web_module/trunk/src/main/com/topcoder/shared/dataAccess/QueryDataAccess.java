@@ -49,7 +49,7 @@ public class QueryDataAccess implements DataAccessInt {
             Map map = qr.executeCommand(request.getProperties());
             return map;
         } catch (Exception e) {
-            throw new Exception(e.getMessage());
+            throw e;
         } finally {
             if (conn != null && !conn.isClosed()) {
                 try {

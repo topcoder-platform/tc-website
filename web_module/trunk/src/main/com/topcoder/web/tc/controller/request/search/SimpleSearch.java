@@ -144,10 +144,6 @@ public class SimpleSearch extends Base {
         countQuery.append(" SELECT count(*) ");
         countQuery.append(queryBottom.toString());
 
-
-        log.debug("searchQuery is \n"+searchQuery.toString());
-
-
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
         r.addQuery("count", countQuery.toString());
