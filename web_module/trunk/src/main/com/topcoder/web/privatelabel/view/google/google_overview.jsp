@@ -90,7 +90,7 @@ body,td,font,p,a
                         The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.  Here’s the line-by-line documentation:
                         <ul>
                         <strong>Download the Arena</strong><br>
-                        The TopCoder&#153; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to work on sample problems prior to the competition.
+                        The TopCoder&#174; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to work on sample problems prior to the competition.
                         <br><br>
                         <strong>Coding Phase</strong><br>
                         At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition.
