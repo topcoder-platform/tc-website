@@ -89,23 +89,15 @@
 </TABLE>
 <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>
 
-<P>Founded in 1993, NVIDIA has quickly become the worldwide leader in graphics processors and media communications devices. In fact, NVIDIA was the first 3D graphics semiconductor company to deliver a complete top-to-bottom family of 3D solutions.</P>
+<P>NVIDIA Corporation is the worldwide leader in graphics processors and media and communications devices. The unmatched breadth of the NVIDIA product line enriches 3D & 2D graphics, video, audio, communications, broadband connectivity, and high-definition digital video and television for every audience and platform including desktop PCs, game consoles, workstations, Internet-enabled appliances, Macintosh, and mobile PCs.</P>
 
-<P>Our mission is simple: Build a great company and be the most important 3D graphics company in the world.</P>
+<P>As the world leader in 3D graphics technology our objective remains solid:  to be the most important 3D company in the world.  We are committed to developing innovative technologies that deliver stunning multimedia experiences on mass computing platforms.  We invest in our people and our technologies, support and fund industry research around the world, and consistently deliver a quality, competitively priced product to our customers.</P>
 
-<P>Led by our co-founders - Jen-Hsun Huang (President and CEO), Curtis Priem (Chief Technical Officer) and Chris Malachowsky (VP of Hardware Engineering) - our employees are committed to developing innovative technologies that deliver stunning multimedia experiences. And they're doing it around the world, at NVIDIA offices located in the United States (AZ, CA, MA, NC, TX, and WA) as well as in England, France, Germany, Japan, Singapore, and Taiwan.</P>
+<P>What does this commitment to being the best mean? It means that NVIDIA offers a challenging, high-energy and rewarding work experience.  We thrive on innovation, we're passionate about developing cutting edge technology, and we work alongside the most brilliant minds in the industry.  It is these factors that keep us at the top of our game, and NVIDIA at the top of the 3D world. </P>
 
-<P>Wherever the location, NVIDIA makes a significant investment in its people - in addition to its methodologies, technology and brand - to ensure the Company continues to deliver to its customers a unique competitive advantage.</P>
-
-<P>What's this commitment and investment mean in our everyday working lives? Quite simply, it means that NVIDIA offers a challenging, high-energy and rewarding work experience. 
-To support NVIDIA's employees, the HR team is committed to delivering programs and services to the nth degree. That means you can be sure that working at NVIDIA just may be the greatest experience in your professional life.</P>
-
-<P>Our commitment also extends beyond the NVIDIA workplace to the communities in which we work and live. Just as the Company strives to maintain its leadership position in the graphics world, it is also committed to making a lasting and positive impact in the lives of the people in our community.</P>
-
-<P>Through our corporate donations and fundraising program, we currently support such organizations as the American Red Cross, the Second Harvest Food Bank, the Humane Society, and other non-profit organizations.</P>
-
-<P><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Click here</A> to check out the positions available at NVIDIA.
-</P>
+<P>If you are at the top of your game and are passionate about winning, we'd like to hear from you.<BR/>
+Year-round internships and new college graduate positions are available.
+<A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Click here</A> to see what possibilities await you at NVIDIA.</P>
 
 
 
