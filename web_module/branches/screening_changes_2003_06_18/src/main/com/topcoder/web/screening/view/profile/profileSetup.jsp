@@ -116,7 +116,7 @@ function submitConfirm() {
                                 %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option><%
                             } %>
                             </screen:resultSetRowIterator>
-                            <option value="<%=Constants.NO_TEST_SET_A%>" <%=profile.isSelectedTestSetA(String.valueOf(Constants.NO_TEST_SET_A))?"SELECTED":""%> name="round_id">">No Test Set A</option>
+                            <option value="<%=Constants.NO_TEST_SET_A%>" <%=profile.isSelectedTestSetA(String.valueOf(Constants.NO_TEST_SET_A))?"SELECTED":""%> name="round_id">No Test Set A</option>
                         </select>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
