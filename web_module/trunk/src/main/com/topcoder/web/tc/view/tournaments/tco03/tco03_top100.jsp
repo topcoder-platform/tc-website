@@ -67,7 +67,9 @@
 
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
                     <tr>
-                       <td class="advancers_list"><rsc:item name="handle" row="<%=resultRow%>"/></td>
+                       <td class="advancers_list">
+                           <A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A>
+                       </td>
                        <td class="advancers_list" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
                    </tr>
                </rsc:iterator>
