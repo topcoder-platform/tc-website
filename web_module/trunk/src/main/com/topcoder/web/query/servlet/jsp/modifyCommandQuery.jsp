@@ -43,6 +43,7 @@
             <TR>
               <TD CLASS="statText" ALIGN="center" COLSPAN="2">DB: <jsp:getProperty name="ModifyCommandQueryTask" property="Db"/></TD>
             </TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
             <TR>
               <TD COLSPAN="2">
                 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -53,6 +54,7 @@
                     <TD CLASS="statTextBig"></TD>
                   </TR>
                   <query:commandQueryIterator id="commandQuery" list="<%=ModifyCommandQueryTask.getCurrentQueryList()%>">
+                    <TR><TD CLASS="errorText" COLSPAN="4"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"/></TD></TR>
                     <TR>
                       <TD CLASS="statTextBig">
                         <A HREF="<jsp:getProperty name="ModifyCommandQueryTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQueryTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>" class="statText">
@@ -80,6 +82,7 @@
                 </TABLE>
               </TD>
             </TR>
+           <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.QUERY_ID_PARAM%>"/></TD></TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
                <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQueryTask.getOtherQueryList()%>" size="10" multiple="false"/>

@@ -38,7 +38,8 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_NAME%></TD></TR>
-            <TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyQueryTask%>" key="<%=Constants.QUERY_NAME_PARAM%>"/></TD></TR>
+             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
                 <input type="text" name="<%=Constants.QUERY_NAME_PARAM%>" value ="<jsp:getProperty name="ModifyQueryTask" property="Name" />" size="30" maxlength="100"/>
@@ -50,13 +51,14 @@
                 <query:booleanSelect name="<%=Constants.RANKING_PARAM%>" class="bodyText" selectedValue='<%=ModifyQueryTask.isRanking()?"true":"false"%>'/>
               </TD>
             </TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyQueryTask%>" key="<%=Constants.COLUMN_INDEX_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Column Index: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
                 <input type="text" name="<%=Constants.COLUMN_INDEX_PARAM%>" value ="<jsp:getProperty name="ModifyQueryTask" property="ColumnIndex" />" size="3" maxlength="3"/>
               </TD>
             </TR>
-           <TR>
+            <TR>
               <TD CLASS="statText" ALIGN="right">DB: </TD>
               <TD CLASS="statText" ALIGN="left">
                 <% if (ModifyQueryTask.isNewQuery()) { %>
@@ -67,7 +69,8 @@
                 <% } %>
               </TD>
             </TR>
-           <TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyQueryTask%>" key="<%=Constants.QUERY_TEXT_PARAM%>"/></TD></TR>
+            <TR>
               <TD CLASS="statText" ALIGN="left" COLSPAN="2">Query Text:<BR/>
                 <TEXTAREA COLS="80" ROWS="30" WRAP="off" NAME="<%=Constants.QUERY_TEXT_PARAM%>"><jsp:getProperty name="ModifyQueryTask" property="Text"/></TEXTAREA>
               </TD>
