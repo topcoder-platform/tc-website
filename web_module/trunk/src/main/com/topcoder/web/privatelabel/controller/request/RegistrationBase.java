@@ -13,6 +13,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -70,7 +71,8 @@ abstract class RegistrationBase extends BaseProcessor {
         Request r = new Request();
         r.setContentHandle("company_datasource");
         r.setProperty("cm", String.valueOf(companyId));
-        Map m = getDataAccess(true).getData(r);
+        //not sure if this db is ok...we'll see
+        Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
         ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");
         if (rsc==null || rsc.isEmpty()) {
             throw new Exception("Could not find datasource for company: " + companyId);
