@@ -5,7 +5,7 @@
   <xsl:import href="../includes/body_top.xsl"/>  
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/stats_intro.xsl"/>  
-  <xsl:import href="../includes/dev/public_dev_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -19,7 +19,7 @@
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+      <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <xsl:call-template name="Top"/>
 
 <!-- Body Begins -->
@@ -29,7 +29,7 @@
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->        
-        <xsl:call-template name="public_dev_left"/>
+        <xsl:call-template name="global_left"/>
   <!-- Global Seconday Nav Ends -->      
 <!-- Left Column Include Ends -->              
       </TD>
@@ -47,27 +47,16 @@
   <xsl:with-param name="title">&#160;Overview</xsl:with-param>
 </xsl:call-template>
 
-
-
-
-
-
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" HEIGHT="69%">
   <TR>
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
       <p><b>&#160;&#160;Inquiry Sent.  Thank You!</b></p>
+      <p><BR/></p>      
+      
     </TD>
     <TD VALIGN="top" BACKGROUND="" BGCOLOR="#000033" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="30" BORDER="0"/></TD>
   </TR>
 </TABLE>
-
-
-
-
-
-
-
-
 
     </TD>
   <!-- Center Column Ends -->
@@ -84,7 +73,7 @@
         </TD>
   <!-- Right Column Ends -->
   <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+    <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   </TR>
 </TABLE>
@@ -94,4 +83,3 @@
     </HTML>
   </xsl:template>
 </xsl:stylesheet>
-
