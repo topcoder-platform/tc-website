@@ -38,7 +38,7 @@ public class Static extends BaseProcessor {
             if(!isLegal(p)) throw new NavigationException("disallowed path component: "+ p);
             path.append("/").append(p);
         }
-        if(path.equals(""))
+        if(path.length()==0)
             path.append(Constants.WELCOME_PAGE);
         path.append(".jsp");
 
