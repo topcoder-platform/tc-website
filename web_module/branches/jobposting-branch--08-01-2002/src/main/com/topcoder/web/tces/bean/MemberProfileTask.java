@@ -365,7 +365,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             memStatLangRow = dwRSC.getRow(rowI);
 
             ttlSubmitted+=((Long)memStatLangRow.getItem("submitted").getResultData()).intValue();
-            ttlCorrect+=((Long)memStatLangRow.getItem("num_correct").getResultData()).intValue();
+            ttlCorrect+=((BigInteger)memStatLangRow.getItem("num_correct").getResultData()).intValue();
         }
 
 
@@ -376,19 +376,19 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             memStatLangRow = dwRSC.getRow(rowI);
 
             submitPct += Double.parseDouble(memStatLangRow.getItem("submit_percent").toString()) *
-                         ((BigInteger)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
+                         ((Long)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
                          (double)ttlSubmitted;
 
             submitAcc += Double.parseDouble(memStatLangRow.getItem("submission_accuracy").toString()) *
-                         ((BigInteger)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
+                         ((Long)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
                          (double)ttlSubmitted;
 
             avgSubPts += Double.parseDouble(memStatLangRow.getItem("avg_submission_points").toString()) *
-                         ((BigInteger)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
+                         ((Long)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
                          (double)ttlSubmitted;
 
             avgTimeToSubmit += Double.parseDouble(memStatLangRow.getItem("avg_submit_time").toString()) *
-                         ((BigInteger)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
+                         ((Long)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
                          (double)ttlSubmitted;
         }
 
