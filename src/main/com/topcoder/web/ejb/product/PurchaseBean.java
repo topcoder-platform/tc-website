@@ -63,13 +63,11 @@ public class PurchaseBean implements SessionBean {
      *
      *
      * @param productId the product ID to assign to a purchase
-     * @param contactId the contact ID to assign to a purchase
-     * @param companyId
+     * @param userId the contact ID to assign to a purchase
      * @param paid
      * @return a long with the unique purchase ID created
      */
-    public long createPurchase(long companyId, long productId,
-                               long contactId, double paid) {
+    public long createPurchase(long productId, long userId, double paid) {
         log.debug("createPurchase called...");
 
         Context ctx = null;
@@ -103,24 +101,20 @@ public class PurchaseBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement(
-                    "INSERT INTO purchase (purchase_id, company_id, product_id, " +
-                    "contact_id, paid) VALUES (?,?,?,?,?)"
+                    "INSERT INTO purchase (purchase_id, product_id, " +
+                    "user_id, paid) VALUES (?,?,?,?)"
             );
             ps.setLong(1, ret);
-            ps.setLong(2, companyId);
-            ps.setLong(3, productId);
-            ps.setLong(4, contactId);
-            ps.setDouble(5, paid);
+            ps.setLong(2, productId);
+            ps.setLong(3, userId);
+            ps.setDouble(4, paid);
 
             int rows = ps.executeUpdate();
 
             if (rows != 1)
-                throw new EJBException("Wrong number of rows in insert: " +
-                        rows);
+                throw new EJBException("Wrong number of rows in insert: " + rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException creating purchase");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating purchase");
@@ -189,9 +183,7 @@ public class PurchaseBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating company_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating company_id");
