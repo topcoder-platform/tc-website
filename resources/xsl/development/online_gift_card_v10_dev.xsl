@@ -80,7 +80,8 @@
                                             <a href="#payment">Payment</a> |
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
-                                            <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a>
+                                            <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a> |
+                                            <a target="#Inquiry">Inquire</a>
                                         </p>
 
                                         <!-- Overview -->
@@ -95,9 +96,20 @@
 
                                         <p>
                                             <strong>View the
-                                                <a target="_new" class="bodyText" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Business Requirement Specification</a> for this application project.
+                                                <a target="_new" class="bodyText" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Business Requirement Specification</a> for this application project.  The following documentation will be available to the developers during the development phase:
+                                                
                                             </strong>
                                         </p>
+                                        <ol>
+                                            <li>Class Diagram.</li>
+                                            <li>Use-Case Diagram.</li>
+                                            <li>Sequence Diagrams.</li>
+                                            <li>Application Design Specification.</li>
+                                            <li>Database Schema</li>
+                                            <li>Mock-Ups of all site pages.</li>
+                                            <li>Sample code for credit card authorization interface.</li>
+                                            <li>File format and rules for creation of sales audit extract.</li>
+                                        </ol>                                        
                                         <p>
                                             <strong>Site Development</strong> - Must implement the following functionality according to the design:
                                             <br/>
@@ -254,7 +266,7 @@
                                                 <a name="timeline">Timeline</a>
                                             </strong>
                                             <br/>
-                                            The Design Submission must be submitted on time. All questions submitted
+                                            The Development Submission must be submitted on time. All questions submitted
                                             prior to 6PM EDT on the Submission Due Dates will be answered. Following review
                                             from the board the winning member is given until the Updated Submission Due Date
                                             to modify their submission.
@@ -271,7 +283,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Inquire By:</td>
-                                                <td class="sidebarText" align="right">12.19.2003</td>
+                                                <td class="sidebarText" align="right">12.21.2003</td>
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Member Selection:</td>
@@ -289,7 +301,7 @@
 
                                             <tr>
                                                 <td class="sidebarText">Development Due:</td>
-                                                <td class="sidebarText" valign="top" align="right">01.05.2004 6:00 PM ET</td>
+                                                <td class="sidebarText" valign="top" align="right">01.05.2004</td>
                                             </tr>
 
                                             <tr>
@@ -327,7 +339,7 @@
 
                                         <p>
                                             <strong>
-                                               <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Site%20Development">Inquire for the Site Development Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                               <a name="Inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Site%20Development">Inquire for the Site Development Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         <p>
