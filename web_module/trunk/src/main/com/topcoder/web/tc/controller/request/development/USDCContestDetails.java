@@ -62,8 +62,6 @@ public class USDCContestDetails extends StatBase {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-            
-        return "usdc_contest_details";
     }
     
     String getDataSourceName() throws TCWebException {
@@ -94,8 +92,6 @@ public class USDCContestDetails extends StatBase {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-            
-        return DBMS.DW_DATASOURCE_NAME;
         
     }
     
@@ -131,8 +127,6 @@ public class USDCContestDetails extends StatBase {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-            
-        return "/dev/usdc_contest_det.jsp";
 
     }
     
