@@ -1,3 +1,10 @@
+    function doSubmit(module) {
+      document.problemForm.<%=Constants.MODULE%>.value=module;
+      document.problemForm.submit();
+    }
+    function clear(inputItem) {
+      inputItem.value='';
+    }
 
         function convertToTimeString(time) {
             time = (time - (time % 1000)) / 1000;
