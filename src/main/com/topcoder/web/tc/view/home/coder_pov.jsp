@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Rustyoldman_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=282718"><strong>Rustyoldman</strong></a><br/>
+                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,18 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm187_prob">SRM 187 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, March 16, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tccc04_online_rd_4">TCCC04 Round 4 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, March 17, 2004</p>
 
                         <p>
-Well, SRM 187 was somewhat of an upset. Number 2 ranked <b>tomek</b>, number 3 ranked
-<b>John Dethridge</b> and number 4 ranked <b>ZorbaTHut</b> were all competing and expected to
-finish 1, 2, 3, but ended up 
-placing 4<sup>th</sup>, 9<sup>th</sup> and 11<sup>th</sup>. All lost points off their 3000+
-target ratings. Any little mistake or hesitation is very costly to your rating when your are 
-so far up in the standings.
+The last online round of a tournament is usually the hardest of them all. Considering the difficulty
+of online round 3, would this then be a killer round? Luckily this turned out
+not to be the case; it required two problems solved at a decent speed to advance to the
+onsite competition.
 
-                       <a href="/?t=statistics&amp;c=srm187_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                       <a href="/?t=statistics&amp;c=tccc04_online_rd_4" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
