@@ -124,17 +124,19 @@ public class StatisticsHttpServlet extends HttpServlet{
       Navigation nav = (Navigation)request.getSession().getAttribute("navigation");
       if (nav==null) nav = new Navigation();
 
-      if (nav.getUser() == null)
-        Log.msg("[*** stats *** " + srb.getContentHandle() + " ***  ***]");
-      else Log.msg("[*** stats *** " + srb.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
-     
-      if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.getLoggedIn()))
-        response.sendRedirect("http://" + request.getServerName() +
-                              "/?t=authentication&c=login&errorMsg=" +
-                              "You must log in to view this portion of the site.&errorURL=/stat?" +
-                              replace(sQueryString));
-      request.setAttribute("REQUEST_BEAN", srb);
       try {
+        if (nav.getLoggedIn())
+          com.topcoder.common.web.util.Data.loadUser(nav);
+        if (nav.getUser() == null)
+          Log.msg("[*** stats *** " + srb.getContentHandle() + " ***  ***]");
+        else Log.msg("[*** stats *** " + srb.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
+       
+        if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.getLoggedIn()))
+          response.sendRedirect("http://" + request.getServerName() +
+                                "/?t=authentication&c=login&errorMsg=" +
+                                "You must log in to view this portion of the site.&errorURL=/stat?" +
+                                replace(sQueryString));
+        request.setAttribute("REQUEST_BEAN", srb);
         StatDataAccessInt dai = (StatDataAccessInt)ObjFactory.create(dataClass);
         Map dataMap = dai.getData(srb);
         request.setAttribute("QUERY_RESPONSE", dataMap);
