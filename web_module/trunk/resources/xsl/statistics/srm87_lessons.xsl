@@ -51,7 +51,7 @@
     <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <!--body contextual links-->
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="250" ALIGN="right">
+<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="250" ALIGN="right">
  	<TR>
         <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
@@ -81,149 +81,113 @@
 		</TD>
 	</TR>
  	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
-</TABLE>
+</TABLE> -->
 <!--end contextual links <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">NDBronson</A> -->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
-<P><B>Single Round Match 85</B><BR/>
-May 1, 2002</P>
+<P><B>Single Round Match 87</B><BR/>
+May 9, 2002</P>
 <P><B>Lessons Learned the Hard Way</B></P>
-<P>This is the first of what hopefully will develop into a regular review of division 2.  The focus will be on "what went wrong". 
-We hope to provide a statistical breakdown in the future, but this has not been finalised yet.</P>
 
-<P>SRM 85 had 660 entrants. In the end, there were enough coders to create some 43 rooms in Division 2.  As a landmark, it was the first
-match to allow submission in C#.</P>
-
-<P>The first 2 problems on the division 2 problem slate were straightforward: if you could do the problem, there was a very high
-likelihood that it was correct.  My room had only 2 challenges, some others had none.  The top 2 rooms of the division each had only 1
-solution fail.  The third problem was trickier, but the problem complexity seems to have stopped submission of weak solutions.</P>
-
-<P><B>Level One - 250:</B><BR/>
-This problem involved doing a parity check on the bits of an array of ints.  The return value was a String with the character '0' representing 
-odd parity and '1' representing even parity.  Bear in mind that failures  were quite rare.<BR/><BR/>
-
-Issues:<BR/>
-1.  Failure to extract a bit!<BR/>
-2.  Adding the wrong character!  (Mea culpa)<BR/>
-3.  Returning the string in reverse order...<BR/>
-</P>
-
-<P><B>Level Two - 500:</B><BR/>
-This problem was based on error correction, where each character of message was sent 3 times to increase reliability.  The problem was to then extract
-the original message.  A '*' represented a garbled input character. The rules within a block of 3 characters were (a, b and c each represent 
-one of block[i], block[i+!] and block[i+2] at random:<BR/><BR/>
-1. a == b == c: return a;<BR/>
-2. a == b &amp;&amp; a == '*': return c;<BR/>
-3. a == b &amp;&amp; a != '*': return a;<BR/>
-4. a != b &amp;&amp; a != c &amp;&amp; b != c: return '*';<BR/>
-</P>
-
-<P>The solution was simple: search each block of 3 in each position. A variant on this was to keep a "starcount" of the number of '*' characters,
-to help in identifying cases.  A third variant counted the number of pairs of equal characters.</P>
-
-<P>It was noticeable that the solutions which failed were distinctly "uglier" than average.  The counting methods were fairly unreliable.<BR/><BR/>
-Issues:<BR/>
-1. Not checking all combinations of rules 2 &amp; 3 correctly.  This tended to arise from long conditionals.<BR/>
-2. In problems which kept a "starcount", failure to deal with the case where only one star is found.<BR/>
-3. Correct checks, but in the wrong order...</P>
-
-<P><B>Level Two - 100:</B><BR/>
-The 1000 problem doubled as the 450 in division 1.  The problem was to score a multiplayer, roshambo-like game with a bunch of random rules.
-Valid choices were 0-5, with i+1%6 beating i+2%6. Among these were bonuses for choosing the lowest entry.  Another rule said that the cumulative score 
-for each player at the end of each round reset to 0 if it was negative.</P>
-
-<P>It's hard to analyse where a lot of these problems went wrong, because of the complexity of the rules.  Probably, only getting out a debugger.<BR/><BR/>
-Issues:<BR/>Many of the issues involved either failing to deal with the negative reset, or resetting the round score rather than the cumulative score.</P>
-
-<IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
-          <P><BR/></P>
-
-<P><B>Member Comments</B></P>
-
-<P>In the article on Div2 there is a case in the Rules for level two that fails.  '*aa" would drop out of the ifs.  I can't figure out if these 4 rules are meant to be complete, but at the least it is confusing, and probably not the most readable way of doing the problem.</P>
- 
-<P>The two variants I would choose would be</P>
- 
 <P>
-1. a == '*' &amp;&amp; b == '*'; return c;<BR/>
-2. a == '*' &amp;&amp; c == '*'; return b;<BR/>
-3. b == '*' &amp;&amp; c == '*'; return a;<BR/>
-4. a == b; return a;<BR/>
-5. a == c; return a;<BR/>
-6. b == c; return b;<BR/>
-return '*';<BR/>
-</P>
- 
-<P>this separates the two aspects of the problem hence increasing readability or</P>
- 
-<P>
-1. a != '*' &amp;&amp; (a==b || a==c || (b == '*' &amp;&amp; c == '*')); return a;<BR/>
-2. b != '*' &amp;&amp; (b==c || (a == '*' &amp;&amp; c == '*')); return b;<BR/>
-3. b == '*' &amp;&amp; a == '*'; return c;<BR/>
-4. return '*';<BR/>
-</P>
- 
-<P>this gives a fall through on what will produce each result.  As a more instructive way of solving the problem I would make:</P> 
-<P>3. c != '*' &amp;&amp; (b == '*' &amp;&amp; a == '*'); return c;</P>
- 
-<P>as this shows a trend of the equalities decreasing, and improves coder's ability to see patterns and analyse problems.</P>
- 
-<P>Other than that an excellent article that should be continued.</P>
- 
-<P><A HREF="/stat?c=member_profile&amp;cr=280735" CLASS="bodyGeneric">Shammah</A></P>
- 
- <HR/>
- 
-<P>
-He also forgot to mention the approach to sort each triple first (I've
-also put this into practice room 109):
+SRM 87 had 623 registrants, and this resulted in 41 rooms in Division-II, of 
+which 5 rooms were in the non-rated competition. 
 </P>
 
 <P>
-  string handle ( string t ) {<BR/>
-    string r;<BR/>
-    for( int i=0; i&#60;t.size(); i&#43;=3 ){<BR/>
-      sort( &amp;t[i], &amp;t[i]&#43;3 );<BR/>
-      if( t[i&#43;1]=='*' ) r &#43;= t[i&#43;2];<BR/>
-      else if( t[i&#43;1]==t[i] || t[i&#43;1]==t[i&#43;2] ) r &#43;= t[i&#43;1];<BR/>
-      else r &#43;= '*';<BR/>
-    }<BR/>
-    return r;<BR/>
-  }<BR/>
+The problem slate in Division-II formed a good test: the 250 had a sting in 
+its tail which led to an exciting challenge round, the 550 was a reasonable 
+problem which tested knowledge of data structures, and the 1050 was a more 
+complex challenge which involved navigating a graph. 
 </P>
 
 <P>
-Problem Set Analysis &amp; Opinion
-</P>
-
-
-<P>
-Div. 2 - Easy: Evil
-</P>
-
-<P>
-Would be nice to also mention these two variants to count the number of bits:
-</P>
-
-
-<P>
-int bitCount ( int n ) {<BR/>
-  return (n&#62;0) ? 1&#43;bitCount( n&amp;(n-1) ) : 0;<BR/>
-}<BR/>
+For the green section, the result appears to have been an excellent 
+contest.  In the grey rooms, however, no-one in the bottom 10 rooms 
+managed a successful 1050.  In a discussion in the lobby, the idea of 
+deliberately varying the difficulty of the Division-II slate (one 
+relatively easy, one more challenging each week) was put forward. 
+This may be worth trying, either officially or unofficially in the future. 
+Certainly, SRM 87 was more than a "typing contest" in most rooms. 
 </P>
 
 <P>
-int bitCount ( int n ) {<BR/>
-  return (n&#62;0) ? (n&amp;1) &#43; bitCount( n/2 ) : 0;<BR/>
-}<BR/>
+<B>250 (Eenie):</B><BR/> 
+This problem was a simple token counting problem based on childrens' 
+counting games like "Eenie meenie miney mo".  Input was a string representing the rhyme, 
+and the number of children in the circle.  The problem was to return 
+the number of the child selected.  The twist was that the counting was 
+1-based. 
 </P>
 
 <P>
-I got the first variant from the book "The C Programming Language" by
-Brian Kernighan and Dennis Ritchie.
+I got a feeling from many of the failed solutions, that the coder felt it 
+was merely a typing speed test.  In java, the solution is simple, using a 
+StringTokenizer and the countTokens() method.  It is interesting that many Java coders among 
+those whose problems I surveyed did not think of this method in the heat of battle. 
 </P>
 
-<A HREF="/stat?c=member_profile&amp;cr=269889" CLASS="bodyGeneric">Stefan</A>          
+<P>
+<B>Problems identified:</B> 
+<OL>
+	<LI> A surprising number of people failed this by unthinking use of the mod function. This failed because mod returns a value in [0, n-1] rather that [1, n]</LI> 
+	<LI> Counting the children against the words, rather than vice versa.</LI> 
+	<LI> Correctly identifying the problem case of where count = n, but returning 1 or the number of words instead of n.</LI> 
+	<LI> Use of regular instead of modular division.</LI>
+</OL>
+</P>
+ 
+<P>
+This problem led to a very eventful first minute or so of challenge phase in 
+some rooms, as a lucky coder challenged several problems successfully one after another. 
+</P>
+
+<P>
+<B>550 (losers):</B><BR/> 
+This problem involved scoring a mythical game, where points are awarded for 
+the first 3 positions in each round.  Given a list of round results, the goal was to 
+return an alphabetically sorted String[] of the lowest scorer or scorers.  The points awarded were 6 
+for 1st, 3 for 2nd and 2 for 3rd. 
+</P>
+
+<P>
+This problem was simplified by a knowledge of standard data structures such 
+as java.util.HashSet or c++ map, for example. 
+</P>
+
+<P>
+<B>Problems:</B> 
+<OL>
+	<LI> Failure to return more than one name when a tie occured, resulting from using a constant, where a loop index was required. </LI>
+	<LI> Failing to add elements outside the top 3 to the data structure.  This never registered contestants who never placed.</LI> 
+	<LI> Failing to deduce the scoring mechanism correctly from the problem description.  In this category, one finds people giving points beyond third.</LI> 
+	<LI> Code path failure using combined conditions.  One example of this involved checking that this  was a scoring entry and that a HashTable included the key.  In the false part of the condition, the coder didn't check the Hashtable again, and instead reset the accumulated score for that key to zero.</LI> 
+</OL>
+</P>
+
+<P>
+<B>1050 (AuntUncle):</B><BR/> 
+The goal was to take a series of triples, representing 2 parents and a 
+child, and return the set of siblings of the parents of a specified target. 
+Including the parents or the target was forbidden. 
+</P>
+
+<P>
+The problem proved quite tricky, with a large number of submissions failing. 
+Among the errors found were: 
+</P>
+
+<P>
+<OL>
+	<LI> Use of String.endsWith() rather than tokenizing first, resulting in spurious errors</LI> 
+	<LI> Returning parents as uncles or aunts.</LI> 
+	<LI> Segfaulting.</LI> 
+	<LI> Returning the target. </LI>
+	<LI> The case including an incestuous family tree caused some problems. </LI>
+	<LI> Nullpointer Exception traversing HashMaps in java when there were no links between the families specified.</LI>
+</OL>
+</P>
+
+         
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
