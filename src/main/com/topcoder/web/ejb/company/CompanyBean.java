@@ -7,9 +7,6 @@ import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +20,7 @@ import java.sql.SQLException;
  * @version $Revision$
  */
 public class CompanyBean extends BaseEJB {
-    private static Logger log = Logger.getLogger(CompanyBean.class);
+    private static final Logger log = Logger.getLogger(CompanyBean.class);
     private static final String DATA_SOURCE = "java:comp/env/datasource_name";
     private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
@@ -35,14 +32,11 @@ public class CompanyBean extends BaseEJB {
     public long createCompany() {
         log.debug("createCompany called...");
 
-        Context ctx = null;
         PreparedStatement ps = null; // could just use Statement
         Connection conn = null;
-        DataSource ds = null;
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
 
             ret = IdGeneratorClient.getSeqId("COMPANY_SEQ");
 
@@ -60,15 +54,12 @@ public class CompanyBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating company");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating company");
         } catch (Exception e) {
             throw new EJBException("Exception creating company:\n" +
                     e.getMessage());
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
 
         return (ret);
@@ -88,7 +79,6 @@ public class CompanyBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-        DataSource ds = null;
         String ret = null;
 
         try {
@@ -134,7 +124,6 @@ public class CompanyBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-        DataSource ds = null;
         long ret = 0;
 
         try {
@@ -180,7 +169,6 @@ public class CompanyBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-        DataSource ds = null;
         String ret = null;
 
         try {
@@ -227,7 +215,6 @@ public class CompanyBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
             conn = DBMS.getConnection(JTS_DATA_SOURCE);
@@ -271,7 +258,6 @@ public class CompanyBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
             conn = DBMS.getConnection(JTS_DATA_SOURCE);
@@ -318,7 +304,6 @@ public class CompanyBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
             conn = DBMS.getConnection(JTS_DATA_SOURCE);
