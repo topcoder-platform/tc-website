@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.request;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.ServletRequest;
 
 import com.topcoder.web.common.RequestProcessor;
 

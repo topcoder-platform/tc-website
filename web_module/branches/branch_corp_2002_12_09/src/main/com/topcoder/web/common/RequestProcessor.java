@@ -1,6 +1,7 @@
 package com.topcoder.web.common;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.ServletRequest;
 
 /**
  * Depending on user's request type Controller will instantiate corresponding
