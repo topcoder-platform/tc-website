@@ -237,3 +237,4 @@ public class ContactBean implements SessionBean {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setTitle");}}
         }
     }
+}
