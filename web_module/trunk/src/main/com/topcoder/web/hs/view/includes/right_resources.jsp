@@ -23,7 +23,7 @@
                         <a href="http://www.mastercsharp.com/" target="_blank" class="resoursesnav">www.mastercsharp.com</a><br>
                         <a href="http://www.c-sharpcorner.com/" target="_blank" class="resoursesnav">www.c-sharpcorner.com</a></p>
                         
-                        <div align="right"><a href="?module=Static&d1=resources&d2=resources" class="resoursesnav">View more resources</a></div>
+                        <div align="right"><a href="?module=Static&d1=faq&d2=resources" class="resoursesnav">View more resources</a></div>
                     </td>
                 </tr>
             </table>
