@@ -68,7 +68,7 @@
             
             <p>To learn more about Algorithm Competitions, go to the <a href="/?&t=support&c=comp_preview" class="statText">Competition Preview.</a></p>
             
-            <p>To learn more about Design and Development Competitions, go to <a href="/?&t=development&c=comp_meth" class="statText">Component Methodology.</a></p>
+            <p>To learn more about Design and Development Competitions, go to <a href="/?t=development&c=comp_meth" class="statText">Component Methodology.</a></p>
         </td>
     </tr>
 </table>

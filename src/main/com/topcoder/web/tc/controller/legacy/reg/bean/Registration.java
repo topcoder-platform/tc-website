@@ -1677,7 +1677,7 @@ public class Registration
                 msgText.append("events here:\n");
                 msgText.append("<http://www.topcoder.com/?&t=schedule&c=index>\n\n");
                 msgText.append("You may view all current development projects here: ");
-                msgText.append("<http://www.topcoder.com/?&t=development&c=index> (you must login ");
+                msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
                 msgText.append("with your TopCoder handle and password).\n\n\n");
                 msgText.append("PRACTICING TOPCODER\n\n");
                 msgText.append("TopCoder provides a number of practice rooms that will allow ");

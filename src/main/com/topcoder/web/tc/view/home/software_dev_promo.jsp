@@ -45,9 +45,9 @@ if ( MM_FlashCanPlay ) {
 // -->
 </SCRIPT>
 <SCRIPT language="JavaScript">
-<!--<A href="/?&amp;t=development&amp;c=index"  target="_blank"><img src="/i/promos/development_promo_third.gif" width="170" height="150" border="0" alt="Earn cash while using your skills" /></A>
+<!--<A href="/?t=development&amp;c=index"  target="_blank"><img src="/i/promos/development_promo_third.gif" width="170" height="150" border="0" alt="Earn cash while using your skills" /></A>
        if (!MM_FlashCanPlay){
-       document.write('<A href="/?&amp;t=development&amp;c=index"  target="_blank"><img src="/i/promos/development_promo_third.gif" width="170" height="150" border="0"></A>');
+       document.write('<A href="/?t=development&amp;c=index"  target="_blank"><img src="/i/promos/development_promo_third.gif" width="170" height="150" border="0"></A>');
        }
 // -->
 </SCRIPT>
