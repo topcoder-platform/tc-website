@@ -3,7 +3,7 @@
                  java.util.Map,
                  com.topcoder.shared.dataAccess.DataAccessConstants, 
                  com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.web.tc.model.TCCC05ContestDetail,
+                 com.topcoder.web.tc.model.TCCC05MemberResult,
                  java.util.List"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -72,7 +72,7 @@ else
                             </tr>
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
-                                <% TCCC05ContestDetail result = (TCCC05ContestDetail)lst.get(i); %>
+                                <% TCCC05MemberResult result = (TCCC05MemberResult)lst.get(i); %>
                                 <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=result.getCompID()%>>"><%=result.getComponent()%></A>
                                 <% if(!result.isComplete())  { 
                                     isComplete = false;%>
