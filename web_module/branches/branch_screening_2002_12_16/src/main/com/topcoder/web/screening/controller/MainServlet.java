@@ -79,12 +79,21 @@ public class MainServlet extends HttpServlet {
 
             //redirect to some default page
             if (procParam == null || procParam.length() == 0)
-                sendToPage(request, response, Constants.DEFAULT_PAGE, false);
+                sendToPage(request, response, Constants.DEFAULT_PAGE, true);
 
             if (!isLegal(procParam))
                 throw new Exception("Request Processor in illegal format.");
-            Class procClass = 
-                Class.forName(Constants.PROCESSORS_PACKAGE+procParam);
+
+            String className = null;
+            if(Constants.PROCESSORS_PACKAGE.endsWith("."))
+            {
+                className = Constants.PROCESSORS_PACKAGE+procParam;
+            }
+            else
+            {
+                className = Constants.PROCESSORS_PACKAGE + "."  + procParam;
+            }
+            Class procClass = Class.forName(className);
 
             RequestProcessor rp = (RequestProcessor)procClass.newInstance();
 
