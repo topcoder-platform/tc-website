@@ -52,7 +52,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">School&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<jsp:getProperty name="student" property="SchoolId"/>" list="<jsp:getProperty name="student" property="SchoolList"/>"/></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<%=student.getSchoolId()%>" list="<%=student.getSchoolList()%>"/></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -62,7 +62,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">State&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<jsp:getProperty name="student" property="StateCode"/>" list="<jsp:getProperty name="student" property="StateList"/>"/></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<%=student.getStateCode()%>" list="<%=student.getStateList()%>"/></TD>
   </TR>
   <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
@@ -115,7 +115,7 @@
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Editor&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<jsp:getProperty name="student" property="EditorId"/>" list="<jsp:getProperty name="student" property="EditorList"/>"/></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<%=student.getEditorId()%>" list="<%=student.getEditorList()%>"/></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -125,7 +125,7 @@
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Language&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<jsp:getProperty name="student" property="LanguageId"/>" list="<jsp:getProperty name="student" property="LanguageList"/>"/></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<%=student.getLanguageId()%>" list="<%=student.getLanguageList()%>"/></TD>
   </TR>
   <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
