@@ -87,7 +87,7 @@
 <P><B>Single Round Match 79</B><BR/>
 April 10, 2002</P>
 <P><B>Rookie Review</B></P>
-<P>In the rookie rooms, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Frostilicus</A> in room 65 submitted the 
+<P>In the rookie rooms, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Frostilicus</A> in Room 65 submitted the 
 fastest problem set, netting 1138.10 points for all three solutions. Only he and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Niller</A>
 broke 1100, though <A HREF="/stat?c=last_match" CLASS="bodyGeneric">MadMax, Arachnid, JackAttack, weirfreak, KingTark, Silence, fenrir28, 
 and v3risimilitud3</A> all achieved more than 1000 points.</P>
@@ -99,10 +99,10 @@ solution of Arachnid's meant only a net gain of 150 points. <A HREF="/stat?c=las
 score with a successful challenge of <A HREF="/stat?c=last_match" CLASS="bodyGeneric">TaeShadow</A>, bringing it up to 1123.45.</P>
 
 <P>System test was drastic in some rooms and ineffective in others. Room 61 with an amazing 12 successful challenges overall only lost a single
-solution, while room 64 with only a single successful challenge lost a total of nine solutions. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Frostilicus's</A> 
+solution, while Room 64 with only a single successful challenge lost a total of nine solutions. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Frostilicus's</A> 
 450 failed the system test, as did <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Silence's</A> 1000 and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Niller's</A> 
 300. However, in each case their two remaining submissions kept them in first place, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Frostilicus</A> having the 
-only working 1000pt solution in the rookie rooms. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">pearl</A> won room 62 with a successful 300pt and a successful 450pt.</P>
+only working 1000pt solution in the rookie rooms. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">pearl</A> won Room 62 with a successful 300pt and a successful 450pt.</P>
 
 <P>The grand winner of the rookie rooms, however, was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">mmsa</A>, submitting a rapid 
 300 and 450 and then gaining another 150 points during challenge phase, for a grand total of 824.11 and a debut rating of 1485.</P>    
