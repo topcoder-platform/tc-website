@@ -50,7 +50,7 @@
         <td width="99%" nowrap align="right">&#160;</td>
         <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
     </tr>
-    <tr><td height="4" class="headStripe" colspan="5"><img src="/images/clear.gif" alt="" height="4" alt="" border="0"></td></tr>
+    <tr><td height="4" class="headStripe" colspan="5"><img src="/i/clear.gif" alt="" height="4" alt="" border="0"></td></tr>
 </table>
 <!-- Header ends -->
 
@@ -92,6 +92,6 @@
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
+	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/i/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
 </table>
 <!-- Main Navigation bar ends -->
