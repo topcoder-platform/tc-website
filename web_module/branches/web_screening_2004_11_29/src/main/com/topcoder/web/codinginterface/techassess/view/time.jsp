@@ -9,7 +9,7 @@
       <td class=timeCellRight>Current Time<br />
         <span id=currentTime>Initializing</span></td>
       <%} else { %>
-      <td class=timeCellRight>Time<br />
+      <td class=timeCellRight>Time Remaining<br />
         <span id="<%=probTimer%>">Initializing</span></td>
       <% } %>
    </tr>

@@ -3,7 +3,7 @@
                  java.util.ArrayList,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet,
                  com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo,
-                 com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel"%>
+                 com.topcoder.web.codinginterface.techassess.model.ProblemInfo"%>
 <script language="JavaScript" type="text/javascript" src="/js/techassess.js"></script>
 <script language="javascript">
 
@@ -24,8 +24,8 @@ if (o!=null) {
                 var startTimes = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
-                    %> ids[<%=i%>] = 'problemTimer<%=((ScreeningProblemLabel)problems.get(i)).getComponentID()%>'; <%
-                    %> startTimes[<%=i%>] = <%=((ScreeningProblemLabel)problems.get(i)).getOpenTime().longValue()%>; <%
+                    %> ids[<%=i%>] = 'problemTimer<%=((ProblemInfo)problems.get(i)).getComponentId()%>'; <%
+                    %> startTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getOpenTime()%>; <%
                 }
         %>
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;

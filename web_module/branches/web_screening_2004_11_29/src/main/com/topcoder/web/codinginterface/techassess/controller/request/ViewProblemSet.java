@@ -5,9 +5,12 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
+import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 
 import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * User: dok
@@ -47,11 +50,22 @@ public class ViewProblemSet extends Base {
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
             ScreeningProblemSet[] problemSets= response.getProblemSets();
-            ScreeningProblemSet problems = null;
-            for (int i=0; i<problemSets.length; i++) {
+            ArrayList problemList = new ArrayList();
+            boolean found = false;
+            for (int i=0; i<problemSets.length&&!found; i++) {
                 if (problemSets[i].getType().intValue()==problemType) {
+                    found =true;
                     //ok, we found the set, now we need to get the actual problems
-                    problems = problemSets[i];
+                    ScreeningProblemLabel[] labels = problemSets[i].getProblemLabels();
+                    ProblemInfo info = null;
+                    for (int j=0; i<labels.length; j++) {
+                        info = new ProblemInfo();
+                        info.setComponentId(labels[j].getComponentID().longValue());
+                        info.setStatusDesc(labels[j].getStatusDesc());
+                        info.setClassName(labels[j].getClassName());
+                        info.setOpenTime(labels[j].getOpenTime().longValue());
+                        problemList.add(info);
+                    }
 
                     //figure out where to go next if they click continue
                     if (i<problemSets.length-1) {
@@ -68,10 +82,9 @@ public class ViewProblemSet extends Base {
                     }
                 }
             }
-            if (problems!=null)
-                log.debug("there are " + problems.getProblemLabels().length + " problems");
+            log.debug("there are " + problemList.size() + " problems");
 
-            setDefault(Constants.PROBLEMS, Arrays.asList(problems.getProblemLabels()));
+            setDefault(Constants.PROBLEMS, problemList);
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
 
 
