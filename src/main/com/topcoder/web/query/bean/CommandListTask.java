@@ -32,6 +32,11 @@ public class CommandListTask extends BaseTask implements Task, Serializable {
 
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws AuthenticationException, Exception {
+        HttpSession session = request.getSession(true);
+        if (!Authentication.isLoggedIn(session)) {
+            log.debug("User not authenticated for access to TCES resource.");
+            throw new AuthenticationException("User not authenticated for access to TCES resource.");
+        }
  	}
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
