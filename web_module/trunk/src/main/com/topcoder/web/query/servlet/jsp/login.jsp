@@ -3,7 +3,7 @@
   errorPage="errorPage.jsp"
   import="java.util.*,
           com.topcoder.web.query.common.*,
-          com.topcoder.web.query.bean.*" %>
+          com.topcoder.web.query.bean.task.*" %>
 <jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.query.bean.task.LoginTask" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
