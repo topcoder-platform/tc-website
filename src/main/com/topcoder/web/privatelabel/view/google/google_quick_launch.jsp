@@ -59,15 +59,15 @@
             port="5051"
             tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001"
             companyName="Google"
+            poweredby="true"
+            com.topcoder.client.contestApplet.editors.NoPluginManager="true"
             width="239"
             height="26"
             align="middle"
             vspace="0"
             hspace="0"
             scriptable="false"
-            pluginspage="http://java.sun.com/j2se/1.3/jre/index.html"
-            poweredby="true"
-            com.topcoder.client.contestApplet.editors.NoPluginManager="true">
+            pluginspage="http://java.sun.com/j2se/1.3/jre/index.html">
         <NOEMBED>
         </NOEMBED>
         </EMBED>
