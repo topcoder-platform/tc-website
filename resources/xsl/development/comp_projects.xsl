@@ -105,6 +105,7 @@
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                     <td background="/i/steel_bluebv_bg.gif" width="30%" class="statText">Design Projects</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Catalog</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center"># of Inquiries</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Payment*</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Complexity</td>
@@ -146,6 +147,7 @@
                                     </xsl:if>
                                 </a>
                             </td>
+                            <td class="statText" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="statText" align="center"><xsl:value-of select="./description"/></td>
@@ -186,6 +188,7 @@
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
 
                     <td background="/i/steel_bluebv_bg.gif" class="statText">Development Projects</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Catalog</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center"># of Inquiries</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Payment*</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Complexity</td>
@@ -224,6 +227,7 @@
                                     </xsl:if>
                                 </a>
                             </td>
+                            <td class="statText" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                            <td class="statText" align="center"><xsl:value-of select="./description"/></td>
