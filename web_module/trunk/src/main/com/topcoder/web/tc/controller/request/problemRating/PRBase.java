@@ -37,8 +37,12 @@ abstract public class PRBase extends Base {
         //get the info for the distribution graphs
         List overall = getDistributionList(getDataAccess().getData(r), "overall_problem_rating_distribution");
         List competitor = getDistributionList(getDataAccess().getData(r), "compeitor_problem_rating_distribution");
-        overall.add(avg(overall));
-        competitor.add(avg(competitor));
+        ProblemRatingResult overallAvg = avg(overall);
+        ProblemRatingResult competitorAvg = avg(competitor);
+        overallAvg.setName("overall");
+        competitorAvg.setName("overallComp");
+        overall.add(overallAvg);
+        competitor.add(competitorAvg);
         getRequest().setAttribute("overallDistribution", overall);
         getRequest().setAttribute("competitorDistribution", competitor);
 
