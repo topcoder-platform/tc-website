@@ -1900,20 +1900,19 @@ public class TCLoadAggregate extends TCLoad {
                 psIns.setInt(1, round_id);  // round_id
                 psIns.setInt(2, problem_id);  // problem_id
                 psIns.setInt(3, division_id);  // division_id
-                psIns.setInt(4, rs.getInt(4));  // problems_opened
+                psIns.setInt(4, language_id);  // language_id
                 psIns.setInt(5, rs.getInt(5));  // problems_submitted
                 psIns.setInt(6, rs.getInt(6));  // problems_correct
                 psIns.setInt(7, rs.getInt(7));  // prb_failed_by_challenge
                 psIns.setInt(8, rs.getInt(8));  // prb_failed_by_systemtest
-                psIns.setInt(9, rs.getInt(9));  // problems_left_open
-                psIns.setFloat(10, rs.getFloat(10));  // submission_points
-                psIns.setFloat(11, rs.getFloat(11));  // challenge_points
-                psIns.setFloat(12, rs.getFloat(12));  // system_test_points
-                psIns.setFloat(13, rs.getFloat(13));  // defense_points
-                psIns.setFloat(14, rs.getFloat(14));  // average_points
-                psIns.setFloat(15, rs.getFloat(15));  // point_standard_dev
-                psIns.setFloat(16, rs.getFloat(16));  // final_points
-                psIns.setFloat(17, rs.getFloat(17));  // avg_time_elapsed
+                psIns.setFloat(9, rs.getFloat(9));   // submission_points
+                psIns.setFloat(10, rs.getFloat(10)); // challenge_points
+                psIns.setFloat(11, rs.getFloat(11)); // system_test_points
+                psIns.setFloat(12, rs.getFloat(12)); // defense_points
+                psIns.setFloat(13, rs.getFloat(13)); // average_points
+                psIns.setFloat(14, rs.getFloat(14)); // point_standard_dev
+                psIns.setFloat(15, rs.getFloat(15)); // final_points
+                psIns.setFloat(16, rs.getFloat(16)); // avg_time_elapsed
 
                 retVal = psIns.executeUpdate();
                 count += retVal;
