@@ -55,8 +55,8 @@
               <P><B>Position Interest</B></P>
               
               <P>
-              Campaign: <B><jsp:getProperty name="PositionInterestTask" property="CampaignName"/></B><BR>
-              Position: <B><jsp:getProperty name="PositionInterestTask" property="PositionName"/></B><BR>
+              <B>Campaign:</B> <jsp:getProperty name="PositionInterestTask" property="CampaignName"/><BR>
+              <B>Position:</B> <jsp:getProperty name="PositionInterestTask" property="PositionName"/><BR>
               <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>" class="statText">View collective demographic info</A><BR>
               </P>
                             

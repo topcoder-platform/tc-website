@@ -49,34 +49,34 @@
            <jsp:param name="title" value="Member Profile"/>
         </jsp:include>
         
-        <p>
-        <b>Problem Statistics</b>
-        </p>
-
-        <p>
-        <b>General Statistics</b>
-        </p>
-
-        <p>
-        Problem Name: <b><%= ProblemStatisticsTask.getStatistic("class_name") %></b>
-        <br>
-        Division: <b><%= ProblemStatisticsTask.getStatistic("division_desc") %></b>
-        <br>
-        Problem Level: <b><%= ProblemStatisticsTask.getStatistic("level_desc") %></b>
-        <br>
-        # of Competitors: <b><%= ProblemStatisticsTask.getStatistic("problems_presented") %></b>
-        </p>
-
-        <p>
-          <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATEMENT_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%=ProblemStatisticsTask.getProblemID()%>" class="statText">
-            View Problem Statement
-          </A>
-        </P>
-
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+              <p>
+              <b>Problem Statistics</b>
+              </p>
+      
+              <p>
+              <b>General Statistics</b>
+              </p>
+      
+              <p>
+              <B>Problem Name:</B> <%= ProblemStatisticsTask.getStatistic("class_name") %>
+              <br>
+              <B>Division:</B> <%= ProblemStatisticsTask.getStatistic("division_desc") %>
+              <br>
+              <B>Problem Level:</B> <%= ProblemStatisticsTask.getStatistic("level_desc") %>
+              <br>
+              <B># of Competitors:</B> <%= ProblemStatisticsTask.getStatistic("problems_presented") %>
+              </p>
+      
+              <p>
+                <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATEMENT_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%=ProblemStatisticsTask.getProblemID()%>" class="statText">
+                  View Problem Statement
+                </A>
+              </P>
+
               <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                 <TR>
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b>Language</b></TD>

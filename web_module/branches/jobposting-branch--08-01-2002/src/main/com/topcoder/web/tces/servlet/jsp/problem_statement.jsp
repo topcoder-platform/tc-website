@@ -60,12 +60,12 @@
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7" class='statText'>
                      <p>
-                       Problem: <b><%= ProblemStatementTask.getProblemName() %></b>
+                       <B>Problem:</B> <%= ProblemStatementTask.getProblemName() %>
                        <br>
-                       Match: <b><%= ProblemStatementTask.getContestName() %></b>
+                       <B>Match:</B> <%= ProblemStatementTask.getContestName() %>
                        <br>
-                       Division: <b><%= ProblemStatementTask.getDivisionName() %></b>
-                       </p>
+                       <B>Division:</B> <%= ProblemStatementTask.getDivisionName() %>
+                     </p>
                    </TD>
                  </TR>
                  <TR>
@@ -78,12 +78,6 @@
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
                  </TR>
                </TABLE>
              </TD>

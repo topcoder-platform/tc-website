@@ -58,8 +58,8 @@
         </p>
         
         <p align="center">
-        Total Hits: <jsp:getProperty name="CampaignDetailTask" property="TotalHits"/><br>
-        Most Recent Hit: <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit"/>
+        <B>Total Hits:</B> <jsp:getProperty name="CampaignDetailTask" property="TotalHits"/><br>
+        <B>Most Recent Hit:</B> <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit"/>
         </p>
         
         <p align="center">

@@ -95,13 +95,13 @@
               </P>                            
               
               <P>
-              Member Type: <%=MemberInfo.get(TCESConstants.MEM_INFO_MEMTYPE_KEY)%> <BR>
-              TopCoder Member Since: <%=MemberInfo.get(TCESConstants.MEM_INFO_SINCE_KEY)%><BR>
+              <B>Member Type:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_MEMTYPE_KEY)%> <BR>
+              <B>TopCoder Member Since:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_SINCE_KEY)%><BR>
               <% if (MemberProfileTask.getIsStudent()) { %>
-                School: <%=MemberInfo.get(TCESConstants.MEM_INFO_SCHOOLNAME_KEY)%> <BR>
-                Degree: <%=MemberInfo.get(TCESConstants.MEM_INFO_DEGREE_KEY)%> <BR>
-                Major: <%=MemberInfo.get(TCESConstants.MEM_INFO_MAJOR_KEY)%> <BR>
-                Graduation Date: <%=MemberInfo.get(TCESConstants.MEM_INFO_GRADDATE_KEY)%> <BR>
+                <B>School:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_SCHOOLNAME_KEY)%> <BR>
+                <B>Degree:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_DEGREE_KEY)%> <BR>
+                <B>Major:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_MAJOR_KEY)%> <BR>
+                <B>Graduation Date:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_GRADDATE_KEY)%> <BR>
               
               <% } %>
               </P>
@@ -129,16 +129,16 @@
                   </TABLE>
 
                   <P>
-                  Current Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_CURRENT_KEY)%><BR>
-                  Highest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_HIGH_KEY)%><BR>
-                  Lowest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_LOW_KEY)%><BR>
-                  Rating Percentile: <%=MemberInfo.get(TCESConstants.MEM_RATING_PCTILE_KEY)%><BR>
-                  Number of Ratings: <%=MemberInfo.get(TCESConstants.MEM_RATING_NUMEVENTS_KEY)%><BR>
-                  Most Recent Rated Event: <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%><BR>
-                  Average Points per Contest: <%=MemberInfo.get(TCESConstants.MEM_RATING_AVGPOINTS_KEY)%><BR>
+                  <B>Current Rating:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_CURRENT_KEY)%><BR>
+                  <B>Highest Rating:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_HIGH_KEY)%><BR>
+                  <B>Lowest Rating:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_LOW_KEY)%><BR>
+                  <B>Rating Percentile:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_PCTILE_KEY)%><BR>
+                  <B>Number of Ratings:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_NUMEVENTS_KEY)%><BR>
+                  <B>Most Recent Rated Event:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%><BR>
+                  <B>Average Points per Contest:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_AVGPOINTS_KEY)%><BR>
                   </P>    
 
-                  Statistics by Problem Level:<br>         
+                  <B>Statistics by Problem Level:<br></B>
                   <TABLE ID="dataByLevelTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
                     <TR>
                         <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES.length;i++) { %>
@@ -164,7 +164,7 @@
                   </TABLE>
                   <P><BR></P>
 
-                  Statistics by Language:<br>         
+                  <B>Statistics by Language:<br></B>
                   <TABLE ID="dataByLangTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
                     <TR>
                         <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_TITLES.length;i++) { %>
@@ -193,11 +193,18 @@
                else { %>
             
                 <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
-                <TR>
+                  <TR>
+                    <TD class="statText" ALIGN="left" WIDTH="100%">
+                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+                        Coder Demographic Info
+                      </A>
+                    </TD>
+                  </TR>
+                  <TR>
                     <TD class="statText" ALIGN="center" WIDTH="100%">
                       <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> is not ranked in competition.
                     </TD>
-                </TR>
+                  </TR>
                 </TABLE>
             
             <% } %>

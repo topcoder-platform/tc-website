@@ -49,115 +49,115 @@
            <jsp:param name="title" value="Member Profile"/>
         </jsp:include>
         
-        <p>
-        <b>Competition Statistics</b>
-        <br>
-        Competition: <b><%= CompetitionStatisticsTask.getStatistic("contest_name") %></b>
-        <br>
-        Division: <b><%= CompetitionStatisticsTask.getStatistic("division_desc") %></b>
-        </p>
-
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-          <TR valign='top'>
-            <TD width='50%'>
-              <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width='50%'>
-                <TR>
-                  <TD class='statText' colspan='2'>
-                    <b>Overall</b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    # of Competitors
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("num_competitors") %></b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    Average Score
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("overall_avg_points") %></b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    Std. Deviation
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("overall_std_dev") %></b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    # Submissions
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("overall_problems_submitted") %></b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    Percent Correct
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>%</b>
-                  </TD>
-                </TR>
-              </TABLE>
-            </TD>
-            <TD width='50%'>
-              <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width='50%'>
-                <TR>
-                  <TD class='statText' colspan='2'>
-                    <b>Individual [<jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/>]</b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    Score
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("final_points") %></b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    # Std. Deviations
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("point_standard_deviation") %></b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    # Submissions
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("problems_submitted") %></b>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class='statText'>
-                    # Correct
-                  </TD>
-                  <TD class='statText' align='right'>
-                    <b><%= CompetitionStatisticsTask.getStatistic("problems_correct") %></b>
-                  </TD>
-                </TR>
-              </TABLE>
-            </TD>
-          </TR>
-        </TABLE>
-
-        <p><b>Competition Stats by Level</B></P>
-
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+              <p>
+              <b>Competition Statistics</b>
+              <br>
+              <B>Competition:</B> <%= CompetitionStatisticsTask.getStatistic("contest_name") %>
+              <br>
+              <B>Division:</B> <%= CompetitionStatisticsTask.getStatistic("division_desc") %>
+              </p>
+
+              <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+                <TR valign='top'>
+                  <TD width='50%'>
+                    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width='50%'>
+                      <TR>
+                        <TD class='statText' colspan='2'>
+                          <b>Overall</b>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <b># of Competitors</b>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("num_competitors") %>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <b>Average Score</b>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("overall_avg_points") %>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <b>Std. Deviation</b>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("overall_std_dev") %>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <b># Submissions</b>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("overall_problems_submitted") %>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <b>Percent Correct</b>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>%
+                        </TD>
+                      </TR>
+                    </TABLE>
+                  </TD>
+                  <TD width='50%'>
+                    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width='50%'>
+                      <TR>
+                        <TD class='statText' colspan='2'>
+                          <b>Individual [ <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/> ]</b>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <B>Score</B>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("final_points") %>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <B># Std. Deviations</B>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("point_standard_deviation") %>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <B># Submissions</B>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("problems_submitted") %>
+                        </TD>
+                      </TR>
+                      <TR>
+                        <TD class='statText'>
+                          <B># Correct</B>
+                        </TD>
+                        <TD class='statText' align='right'>
+                          <%= CompetitionStatisticsTask.getStatistic("problems_correct") %>
+                        </TD>
+                      </TR>
+                    </TABLE>
+                  </TD>
+                </TR>
+              </TABLE>
+
+              <p><b>Competition Stats by Level</B></P>
+
               <P><B>Coder Stats</B></P>
               <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                 <TR>
@@ -231,8 +231,8 @@
 
                 <tces:rowIterator id="level" rowList="<%=(List)CompetitionStatisticsTask.getOverallStatsByLevel()%>">
                   <TR>
-                    <TD class="statText" HEIGHT="18">&#160;
-                        <nobr><b><%= level.getItem("level_desc").toString() %></b></nobr>
+                    <TD class="statText" HEIGHT="18">
+                        <nobr>&#160;<b><%= level.getItem("level_desc").toString() %></b></nobr>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -274,8 +274,8 @@
                 </tces:rowIterator>
 
                   <TR>
-                    <TD class="statText" HEIGHT="18">&#160;
-                        <b>All</b>
+                    <TD class="statText" HEIGHT="18">
+                        &#160;<b>All</b>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">

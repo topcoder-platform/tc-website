@@ -55,8 +55,8 @@
               <P><B>Member Interest</B></P>
               
               <P>
-              Handle: <B><%=MemberInterestTask.getHandle()%></B><BR>
-              Campaign: <B><%=MemberInterestTask.getCampaignName()%></B><BR>
+              <B>Handle:</B> <%=MemberInterestTask.getHandle()%><BR>
+              <B>Campaign:</B> <%=MemberInterestTask.getCampaignName()%><BR>
               </P>
               <TABLE ID="dataTable" WIDTH="50%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                 <TR>
