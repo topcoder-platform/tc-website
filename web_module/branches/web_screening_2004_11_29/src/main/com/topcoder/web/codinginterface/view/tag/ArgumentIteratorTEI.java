@@ -15,6 +15,7 @@ public class ArgumentIteratorTEI extends TagExtraInfo {
             new VariableInfo(ArgumentIterator.INDEX, String.class.getName(), true, VariableInfo.NESTED),
             new VariableInfo(ArgumentIterator.INPUT, String.class.getName(), true, VariableInfo.NESTED),
             new VariableInfo(ArgumentIterator.ARGUMENT, String.class.getName(), true, VariableInfo.NESTED),
+            new VariableInfo(ArgumentIterator.DESCRIPTION, String.class.getName(), true, VariableInfo.NESTED),
         };
 
         return variableInfo;
