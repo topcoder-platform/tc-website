@@ -81,6 +81,7 @@ public final class Controller extends HttpServlet {
                     try {
                         rp = (RequestProcessor)Class.forName(cmd).newInstance();
                     } catch(Exception e) {
+                        log.debug("calling Class.forName()", e);
                         throw new NavigationException("no such module");
                     }
                     callProcess(rp, request, response);
