@@ -15,7 +15,13 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <%@ include file="/script.jsp" %>
-
+<script language="JavaScript">
+   function submitForm(goToPg){
+ 	var frm = document.coderRankForm;
+      frm.submit();
+	}
+   }
+</script>
  </HEAD>
  <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
    <%@ include file="/top.jsp" %>
