@@ -55,7 +55,7 @@
             <span class="leadPhotoCaption">Yarin breathes a sigh of relief.<br/><br/></span>
             </div>
             
-            <p>by Matt Murphy, <em>TopCoder Staff</em><br />
+            <p>by Matt Murphy, (veredox)<em>TopCoder Staff</em><br />
             
             Thursday, December 4, 2003</p>
 
