@@ -1795,9 +1795,6 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" and p.round_id = problem_language.round_id)");
             query.append(" ,challenges_made_failed = ");
             query.append(" (SELECT count(*) ");
-            query.append(" FROM challenge c ");
-            query.append(" ,problem p ");
-            query.append(" ,coder_problem cp ");
             query.append(" FROM challenge c");
             query.append(" ,problem p");
             query.append(" ,coder_problem cp");
