@@ -20,7 +20,7 @@
 
                     <td width="99%" class="bodyText" valign="top">
                         <p><strong><font size="4"><a href="/index?t=statistics&c=tccc05_online_rd_1">TCCC05 Round 1 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturdya, January 15, 2005</p>
+                        Saturday, January 15, 2005</p>
 
                         <p>
 
