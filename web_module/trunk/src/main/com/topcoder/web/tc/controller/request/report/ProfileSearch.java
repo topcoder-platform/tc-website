@@ -87,9 +87,7 @@ public class ProfileSearch extends Base {
         }
         query.append("  LEFT JOIN tcs_catalog:user_rating ur1 ON ur1.user_id = c.coder_id AND ur1.phase_id = 112\n");
         query.append("  LEFT JOIN tcs_catalog:user_rating ur2 ON ur2.user_id = c.coder_id AND ur2.phase_id = 113\n");
-        query.append("  WHERE ");
-        query.append(constraints.get(0));
-        query.append('\n');
+        query.append("  WHERE 1 = 1\n");
         for(int i = 1; i<constraints.size(); i++){
             query.append("    AND ");
             query.append(constraints.get(i));
