@@ -12,13 +12,11 @@
 <% 
     Map StudentDemoInfoMap = DemographicTask.getStudentDemoInfo();
     List StudentResponseList = (List)StudentDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY); 
-    List StudentNotifyList = (List)StudentDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_NOTIFY_KEY);
     Map StudentQuestionMap = (Map)StudentDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_INFO_KEY);
     Iterator StudentQuestionIterator = StudentQuestionMap.keySet().iterator();
     
     Map ProDemoInfoMap = DemographicTask.getProDemoInfo();
     List ProResponseList = (List)ProDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY); 
-    List ProNotifyList = (List)ProDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_NOTIFY_KEY);
     Map ProQuestionMap = (Map)ProDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_INFO_KEY);
     Iterator ProQuestionIterator = ProQuestionMap.keySet().iterator();
 %>
@@ -73,25 +71,27 @@
                           <TD class="testTableTitle" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
                         </TR>
 
-                        <TR>
-                          <TD class="testFormHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
-                        </TR>
-
-                        <% int i=0; %>
-                        <tces:mapIterator id="responseRow" MapList="<%=StudentResponseList%>">
-                        <% i++; %>
+                        <% if (!StudentResponseList.isEmpty()) { %>
                             <TR>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                                <%=(String)responseRow.get("title")%>
-                              </TD>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                                <%=(String)responseRow.get("percent")%>
-                              </TD>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                                <%=(String)responseRow.get("count")%>
-                              </TD>                  
-                            </TR>                     
-                        </tces:mapIterator>
+                              <TD class="testFormHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
+                            </TR>
+
+                            <% boolean odd = true; %>
+                            <tces:mapIterator id="responseRow" MapList="<%=StudentResponseList%>">
+                                <TR>
+                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                    <%=(String)responseRow.get("title")%>
+                                  </TD>
+                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                    <%=(String)responseRow.get("percent")%>
+                                  </TD>
+                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                    <%=(String)responseRow.get("count")%>
+                                  </TD>
+                                </TR>
+                                <% odd = !odd; %>
+                            </tces:mapIterator>
+                        <% } %>
 
                         <%
                           while (StudentQuestionIterator.hasNext()) {
@@ -159,25 +159,27 @@
                           <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
                         </TR>
 
-                        <TR>
-                          <TD class="testFormHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
-                        </TR>
-
-                        <% int i=0; %>
-                        <tces:mapIterator id="responseRow" MapList="<%=(List)ProResponseList%>">
-                        <% i++; %>
+                        <% if (!ProResponseList.isEmpty()) { %>
                             <TR>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                                <%=(String)responseRow.get("title")%>
-                              </TD>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                                <%=(String)responseRow.get("percent")%>
-                              </TD>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                                <%=(String)responseRow.get("count")%>
-                              </TD>                  
-                            </TR>                     
-                        </tces:mapIterator>
+                              <TD class="testFormHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
+                            </TR>
+
+                            <% boolean odd = true;%>
+                            <tces:mapIterator id="responseRow" MapList="<%=ProResponseList%>">
+                                <TR>
+                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                    <%=(String)responseRow.get("title")%>
+                                  </TD>
+                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                    <%=(String)responseRow.get("percent")%>
+                                  </TD>
+                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                    <%=(String)responseRow.get("count")%>
+                                  </TD>
+                                </TR>
+                            <% odd = !odd;; %>
+                            </tces:mapIterator>
+                        <% } %>
 
                         <%
                           while (ProQuestionIterator.hasNext()) {

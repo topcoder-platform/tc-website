@@ -290,48 +290,24 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                     : (ResultSetContainer) resultMap.get("TCES_Campaign_Referral_Responses");
             ResultSetContainer.ResultSetRow refRspRow = null;
             ArrayList referralMapList = new ArrayList();
-            for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
-                refRspRow = rsc.getRow(rowI);
-                Map referralItem = new HashMap();
+            if (rsc!=null) {
+                for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
+                    refRspRow = rsc.getRow(rowI);
+                    Map referralItem = new HashMap();
 
-                double pct = (((Long) refRspRow.getItem("resp_count").getResultData())).doubleValue() / ((types[typeI] == TCESConstants.STUDENT_CODER_TYPE) ?
-                        ((double) getStudentCoderCount()) : ((double) getProCoderCount()));
+                    double pct = (((Long) refRspRow.getItem("resp_count").getResultData())).doubleValue() / ((types[typeI] == TCESConstants.STUDENT_CODER_TYPE) ?
+                            ((double) getStudentCoderCount()) : ((double) getProCoderCount()));
 
-                pct = (int) (pct * 10000 + 0.5) / 100.0;
+                    pct = (int) (pct * 10000 + 0.5) / 100.0;
 
-                referralItem.put("title", refRspRow.getItem("response").toString());
-                referralItem.put("count", refRspRow.getItem("resp_count").toString());
-                referralItem.put("percent", Double.toString(pct) + "%");
+                    referralItem.put("title", refRspRow.getItem("response").toString());
+                    referralItem.put("count", refRspRow.getItem("resp_count").toString());
+                    referralItem.put("percent", Double.toString(pct) + "%");
 
-                referralMapList.add(referralItem);
+                    referralMapList.add(referralItem);
+                }
             }
             demoInfoMap.put(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY, referralMapList);
-/*
-   grp - 09/08/2002 - skip notify for now, it's a dead column anyway.
-
-            rsc = (getJobID()>=0) ?
-                        (ResultSetContainer) resultMap.get("TCES_Position_Notify_Responses")
-                      :  (ResultSetContainer) resultMap.get("TCES_Campaign_Notify_Responses");
-            ResultSetContainer.ResultSetRow notifyRow = null;
-            ArrayList notifyMapList = new ArrayList();
-            for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-                notifyRow = rsc.getRow(rowI);
-                Map notifyItem = new HashMap();
-
-                double pct =
-                    (((Long)notifyRow.getItem("resp_count").getResultData())).doubleValue()
-                        / ((types[typeI]==TCESConstants.STUDENT_CODER_TYPE) ?
-                        ((double) getStudentCoderCount()):((double) getProCoderCount()) );
-                pct = (int)(pct*10000+0.5)/100.0;
-
-                notifyItem.put("title", notifyRow.getItem("response").toString() );
-                notifyItem.put("count", notifyRow.getItem("resp_count").toString() );
-                notifyItem.put("percent", Double.toString(pct)+"%");
-
-                notifyMapList.add(notifyItem);
-            }
-            demoInfoMap.put( TCESConstants.DEMOGRAPHIC_NOTIFY_KEY , notifyMapList );
-*/
 
             rsc = (getJobID() >= 0) ?
                     (ResultSetContainer) resultMap.get("TCES_Position_Demographic_Responses")
