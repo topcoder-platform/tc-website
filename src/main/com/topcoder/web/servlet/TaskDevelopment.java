@@ -537,15 +537,16 @@ public final class TaskDevelopment {
 
                     TCSEmailMessage mail = new TCSEmailMessage();
                     mail.addToAddress(from, TCSEmailMessage.TO);
-                    mail.setFromAddress(to, TCSEmailMessage.FROM);
+                    mail.setFromAddress(to);
                     mail.setSubject(project);
 
 
-                    if (rating <= 0)
+                    if (rating <= 0){
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
                         mail.setBody("Your inquiry has been sent. Thank You!\r\n" +
                                      "If you have any questions please contact service@topcodersoftware.com");
                         EmailEngine.send(mail);
+                    }
                     else{
 
                         //log.debug("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
