@@ -143,8 +143,12 @@
                           <TD WIDTH="10" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                        </TR>           
                     </TABLE>                    
-<% }%>               
-        </TD>        
-      </TR>             
+<% }%>
+        </TD>
+      </TR>
     </TABLE>
-<jsp:include page="menu.jsp" />
+
+    <% String location = request.getParameter("location"); %>
+<jsp:include page="menu.jsp" >
+  <jsp:param name="isReg" value='<%="registration".equals(location)%>'/>
+</jsp:include>

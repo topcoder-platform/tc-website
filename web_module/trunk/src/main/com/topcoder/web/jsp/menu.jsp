@@ -8,7 +8,7 @@
    if ( nav == null ) nav = new Navigation();
 %>
 <%
-   boolean isRegIndex = "true".equals(request.getParameter("isRegIndex"));
+   boolean isReg = "true".equals(request.getParameter("isReg"));
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CC0000">
@@ -16,7 +16,7 @@
         <td class="topNav" width="49%">&#160;</td>
         <td class="topNav" nowrap><A href="Javascript:arena()" class="topLink">Competition Applet</A></td> 
 
-            <% if (isRegIndex) { %>
+            <% if (isReg) { %>
                 <td class="topNavOn" nowrap>
             <% } else { %>
                 <td class="topNav" nowrap>

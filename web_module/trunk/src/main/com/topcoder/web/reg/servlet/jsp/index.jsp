@@ -8,8 +8,10 @@
     <TITLE>Registration</TITLE>
     <jsp:include page="../script.jsp" />
   </HEAD>
-  <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <jsp:include page="../top.jsp" />
+  <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+  <jsp:include page="../top.jsp" >
+    <jsp:param name="location" value="registration"/>
+  </jsp:include>
   <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
     <TR>
     <!-- Left Column Begins -->
