@@ -9,16 +9,16 @@
 		<TD CLASS="bodyText" VALIGN="top">
 <!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 86</SPAN><BR/>
-Wednesday, May 8, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 87</SPAN><BR/>
+Thursday, May 9, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
-A close battle took place in Room 23, where the top three coders were separated by just 15.14 points.  
-<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">z-man</A>
- won the room with 231.97 final points by submitting the Level One problem in 12:43.  
-<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tenken</A>
- finished second with 226.53 final points by finishing the Level One problem in 13:45, 
-while <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">huntergt</A>
- took 15:36 to complete the Level One problem, and finished with 216.83 final points...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
+In Room 3, <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">wybili</A>, 
+the lowest ranked coder in the room, pulled off a big upset, 
+and won a close battle over <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">KurtSteinkraus</A>,
+ 1325.33 to 1310.91.  <B>wybili</B> earned 
+280.12 on the Level One problem, 354.49 on the Level Two problem, and 690.72 on 
+the Level Three problem, while <B>KurtSteinkraus</B> earned 264.03, 436.17, and 610.71 
+on the three problems, respectively....<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
 				
 <!-- <P><B>Division-I</B><BR/>
