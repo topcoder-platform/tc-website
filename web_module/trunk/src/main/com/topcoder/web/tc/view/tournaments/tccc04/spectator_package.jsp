@@ -58,7 +58,7 @@
                 <li><b>TopCoder Gear!</b> Take home TopCoder collectables. T-shirt, program and other TCCC items.</li> 
                 </ul>
             
-                <div align="left"><img src="/i/tournament/tccc04/495signup.gif" width="240" height="30" border="0"></div>
+                <div align="left"><A href="/corp/Tx/?op=terms&pid=21"><img src="/i/tournament/tccc04/495signup.gif" width="240" height="30" border="0"></A></div>
             
                 <p><span class="bodySubtitle">The details:</span><br/>
 
@@ -68,7 +68,7 @@
                     <li><strong>Offer valid until 9:00 AM March 22, 2004</strong></li>
                     <li><strong>Note: Package excludes transportation to and from the hotel.</strong></li>
                </ul>
-               <p>Sign up for the spectator package. <strong>Buy Now!</strong></p>
+               <p>Sign up for the spectator package. <strong><A href="/corp/Tx/?op=terms&pid=21">Buy Now!</A></strong></p>
                
               <div align="left"><img src="/i/tournament/tccc04/cc_ae.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_cb.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_ds.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_dc.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_mc.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_vs.gif" width="50" height="32" border="0"></div>
             
