@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN" "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd">
+<ejb-jar id="ejb-jar_ID">
+   <enterprise-beans>
+      <session id="Session_1">
+         <ejb-name>QueryAuthentication</ejb-name>
+         <home>com.topcoder.web.query.ejb.QueryServices.QueryAuthenticationHome</home>
+         <remote>com.topcoder.web.query.ejb.QueryServices.QueryAuthentication</remote>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.QueryAuthenticationBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_2">
+         <ejb-name>Query</ejb-name>
+         <home>com.topcoder.web.query.ejb.QueryServices.QueryHome</home>
+         <remote>com.topcoder.web.query.ejb.QueryServices.Query</remote>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.QueryBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_3">
+         <ejb-name>QueryInput</ejb-name>
+         <home>com.topcoder.web.query.ejb.QueryServices.QueryInputHome</home>
+         <remote>com.topcoder.web.query.ejb.QueryServices.QueryInput</remote>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.QueryInputBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_4">
+         <ejb-name>Command</ejb-name>
+         <home>com.topcoder.web.query.ejb.QueryServices.CommandHome</home>
+         <remote>com.topcoder.web.query.ejb.QueryServices.Command</remote>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_5">
+         <ejb-name>CommandGroup</ejb-name>
+         <home>com.topcoder.web.query.ejb.QueryServices.CommandGroupHome</home>
+         <remote>com.topcoder.web.query.ejb.QueryServices.CommandGroup</remote>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandGroupBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_6">
+         <ejb-name>Input</ejb-name>
+         <home>com.topcoder.web.query.ejb.QueryServices.InputHome</home>
+         <remote>com.topcoder.web.query.ejb.QueryServices.Input</remote>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.InputBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+      <session id="Session_7">
+         <ejb-name>CommandQuery</ejb-name>
+         <home>com.topcoder.web.query.ejb.QueryServices.CommandQueryHome</home>
+         <remote>com.topcoder.web.query.ejb.QueryServices.CommandQuery</remote>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandQueryBean</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+         <env-entry>
+            <env-entry-name>MaxCacheSize</env-entry-name>
+            <env-entry-type>java.lang.Integer</env-entry-type>
+            <env-entry-value>25</env-entry-value>
+         </env-entry>
+      </session>
+   </enterprise-beans>
+   <assembly-descriptor>
+   </assembly-descriptor>
+</ejb-jar>
+
