@@ -13,7 +13,8 @@
    <property name="build.javadocs" value="${build}/javadocs" />
    <property name="lib.dir"       value="lib" />
    <property name="jars.dir"      value="${lib.dir}/jars" />
-   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-1.1-b1/lib" />
+<!--   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-1.1-b1/lib" /> -->
+   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-build-20020730/lib" />
    <property name="bin"           value="lib/bin" />
    <property name="src.dir"       value="src"/>
    <property name="java"          value="${src.dir}/main" />
