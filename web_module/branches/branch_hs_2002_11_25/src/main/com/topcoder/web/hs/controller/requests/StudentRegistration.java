@@ -130,7 +130,10 @@ public class StudentRegistration extends Base {
     _srb.setStateCode(getParameterNonNull("state"));
     _srb.setSchoolId(getParameterNonNull("school"));
     _srb.setHandle(getParameterNonNull("handle"));
+    _srb.setPassword(getParameterNonNull("password"));
+    _srb.setConfirmPassword(getParameterNonNull("confirm_password"));
     _srb.setEmail(getParameterNonNull("email"));
+    _srb.setConfirmEmail(getParameterNonNull("confirm_email"));
     _srb.setEditorId(getParameterNonNull("editor"));
     _srb.setLanguageId(getParameterNonNull("language"));
 
