@@ -133,6 +133,7 @@ public class Constants {
     public static int TCO04_EVENT_ID;
 
     public static String CLASS_NAME;
+    public static String CATEGORY;
     public static String MIN_DIV1_SUCCESS;
     public static String MIN_DIV2_SUCCESS;
     public static String MAX_DIV1_SUCCESS;
