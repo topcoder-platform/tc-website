@@ -69,6 +69,12 @@
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">October 4</td>
+                                <td valign="middle" class="bodyText">lbackstrom</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_100404b" class="bodyText">The Importance of Algorithms</A></td>
+                            </tr>
+
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">October 4</td>
                                 <td valign="middle" class="bodyText">AryanI</td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_100404" class="bodyText">Peer 2 Fear: Solutions for developers for designing secure P2P applications</A></td>
                             </tr>
