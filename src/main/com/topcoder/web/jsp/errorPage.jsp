@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet, javax.servlet.http.HttpServletResponse"%>
 <%@ page language="java"
-session="true" 
-isErrorPage="true" 
+session="true"
+isErrorPage="true"
 %>
 <% if (exception == null) exception = (Exception)request.getAttribute("exception");
    if (exception!=null) exception.printStackTrace();
@@ -18,21 +18,21 @@ isErrorPage="true"
 
 <body>
 
-<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
+<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
     <tr>
         <td width="100%" class="login" nowrap="0">&nbsp;</td>
     </tr>
-</table> 
+</table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">    
-    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
-</table> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>
+</table>
 
-<!-- Logo Bar Include Begins -->       
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+<!-- Logo Bar Include Begins -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr valign="middle">
         <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-        <td width="206"><a href="/?&amp;t=home&amp;c=public_home" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
+        <td width="206"><a href="/" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
         <td width="99%"><img src="/i/clear.gif" width="1" height="75" border="0" hspace="15"/></td>
     </tr>
 </table>
