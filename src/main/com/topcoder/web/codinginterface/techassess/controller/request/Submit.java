@@ -8,6 +8,7 @@ import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 
 /**
@@ -55,13 +56,22 @@ public class Submit extends Base {
                 code = getRequest().getParameter(Constants.CODE);
 
             resubmit = (String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.SUBMIT_FLAG)));
-            log.debug("resubmit is " + resubmit);
+            //log.debug("resubmit is " + resubmit);
 
             ScreeningSubmitRequest request = new ScreeningSubmitRequest(componentId, problemTypeId, resubmit);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
-            send(request);
+            try {
+                send(request);
+            } catch (ServerBusyException e) {
+                setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
+                        new String[]{Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
+                        new String[]{getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
+                                     getRequest().getParameter(Constants.COMPONENT_ID)}));
+                setIsNextPageInContext(false);
+                return;
+            }
 
             showProcessingPage();
 
@@ -73,7 +83,7 @@ public class Submit extends Base {
                         new String[]{Constants.PROBLEM_TYPE_ID},
                         new String[]{String.valueOf(problemTypeId)}));
             } else if (response.getStatus() == ScreeningSubmitResponse.ERROR) {
-                addError(Constants.CODE, response.getMessage());
+                setUserMessage(response.getMessage());
                 Problem p = new Problem();
                 p.setProblemComponents(new ProblemComponent[]{response.getProblemComponent()});
                 setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, p, problemTypeId));
@@ -81,13 +91,13 @@ public class Submit extends Base {
                         new String[]{Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
                         new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
             } else if (response.getStatus() == ScreeningSubmitResponse.RESUBMIT) {
-                addError(Constants.CODE, response.getMessage());
+                setUserMessage(response.getMessage());
                 setDefault(Constants.CODE, code);
                 setDefault(Constants.LANGUAGE_ID, String.valueOf(languageId));
                 setDefault(Constants.PROBLEM_TYPE_ID, String.valueOf(problemTypeId));
                 setDefault(Constants.COMPONENT_ID, String.valueOf(componentId));
                 setDefault(Constants.SUBMIT_FLAG, String.valueOf(true));
-                log.debug("defaults: " + defaults);
+                //log.debug("defaults: " + defaults);
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_SUBMIT_RESPONSE,
                         new String[]{Constants.MESSAGE_ID},
                         new String[]{String.valueOf(getMessageId())}));

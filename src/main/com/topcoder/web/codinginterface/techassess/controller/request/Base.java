@@ -9,6 +9,7 @@ import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
+import com.topcoder.shared.netCommon.screening.request.ScreeningBaseRequest;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
@@ -86,18 +87,20 @@ public abstract class Base extends BaseProcessor {
         return user;
     }
 
-    protected void send(Message m) throws TCWebException {
+    protected void send(ScreeningBaseRequest m) throws TCWebException {
         HttpSession session = getRequest().getSession();
-        if (session.getAttribute(Constants.SERVER_BUSY + getSessionId()) == null) {
-            synchronized (session) {
-                /*todo if it becomes a problem, we may want to change
-                 *the behavior so that we don't wait indefinately
-                 */
-                this.messageId = sender.sendMessageGetID(new HashMap(), m);
-                session.setAttribute(Constants.SERVER_BUSY + getSessionId(), "");
+        if (m.isSynchronous()) {
+            if (session.getAttribute(Constants.SERVER_BUSY + getSessionId()) == null) {
+                synchronized (session) {
+                    this.messageId = sender.sendMessageGetID(new HashMap(), m);
+                    session.setAttribute(Constants.SERVER_BUSY + getSessionId(), "");
+                }
+            } else {
+                session.removeAttribute(Constants.SERVER_BUSY + getSessionId());
+                throw new ServerBusyException();
             }
         } else {
-            throw new ServerBusyException();
+            this.messageId = sender.sendMessageGetID(new HashMap(), m);
         }
 
     }
@@ -197,6 +200,14 @@ public abstract class Base extends BaseProcessor {
         else
             log.debug("defaults is " + defaults);
 */
+    }
+
+    protected void loadUserMessageIntoRequest(String messageId) {
+        //we're overwritting the request user message here, so you better hope that
+        //there is nothing of use in it.
+        getRequest().setAttribute(Constants.MESSAGE,
+                getRequest().getSession().getAttribute(Constants.MESSAGE + messageId));
+        getRequest().getSession().removeAttribute(Constants.MESSAGE + messageId);
     }
 
     protected void loadSessionErrorsIntoRequest(String messageId) {
@@ -337,12 +348,16 @@ public abstract class Base extends BaseProcessor {
 
         if (messageId == null) throw new RuntimeException("You must call send before receive.");
 
-        log.debug("setting up session errors");
+        //log.debug("setting up session errors");
         getRequest().getSession().setAttribute(ERRORS_KEY + messageId, errors);
         getRequest().removeAttribute(ERRORS_KEY);
-        log.debug("setting up session defaults");
+        //log.debug("setting up session defaults");
         getRequest().getSession().setAttribute(DEFAULTS_KEY + messageId, defaults);
         getRequest().removeAttribute(DEFAULTS_KEY);
+        getRequest().getSession().setAttribute(Constants.MESSAGE + messageId,
+                getRequest().getAttribute(Constants.MESSAGE));
+        getRequest().removeAttribute(Constants.MESSAGE);
+
 /*
         log.debug("defaults: " + getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId));
         log.debug("errors: " + getRequest().getSession().getAttribute(ERRORS_KEY + messageId));
@@ -361,7 +376,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void setUserMessage(String message) {
-        getRequest().setAttribute(Constants.USER_MESSAGE, message);
+        getRequest().setAttribute(Constants.MESSAGE, message);
     }
 
 
@@ -381,7 +396,7 @@ public abstract class Base extends BaseProcessor {
 
         public void valueUnbound(HttpSessionBindingEvent event) {
             //send a logout request
-            log.debug("session unbound logging out session " + sessionId);
+            //log.debug("session unbound logging out session " + sessionId);
             ScreeningLogoutRequest request = new ScreeningLogoutRequest();
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(sessionId);

@@ -4,6 +4,7 @@ import com.topcoder.shared.netCommon.screening.request.ScreeningTestRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningTestResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.common.NavigationException;
 
@@ -47,7 +48,7 @@ public class Test extends Base {
             String dim = null;
             for (int i = 0; (arg = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT + i)) != null; i++) {
                 dim = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_DIMENSION + i);
-                log.debug("arg " + i + " dimension is " + dim + " content is " + arg);
+                //log.debug("arg " + i + " dimension is " + dim + " content is " + arg);
                 if (dim != null && dim.trim().length() > 0 && Integer.parseInt(dim) > 0) {
                     arguments.add(parseArrayInput(arg));
                 } else {
@@ -55,19 +56,28 @@ public class Test extends Base {
                 }
             }
 
-            log.debug("args" + arguments);
+            //log.debug("args" + arguments);
 
             ScreeningTestRequest request = new ScreeningTestRequest(arguments, componentId, problemTypeId);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
-            send(request);
+            try {
+                send(request);
+            } catch (ServerBusyException e) {
+                setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
+                        new String[]{Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
+                        new String[]{getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
+                                     getRequest().getParameter(Constants.COMPONENT_ID)}));
+                setIsNextPageInContext(false);
+                return;
+            }
 
             showProcessingPage(Constants.SHORT_CONTENT);
 
             ScreeningTestResponse response = (ScreeningTestResponse) receive(5000);
 
-            setDefault(CodingInterfaceConstants.MESSAGE, response.getMessage());
+            setDefault(Constants.MESSAGE, response.getMessage());
             //setDefault(CodingInterfaceConstants.SUCCESS_FLAG, String.valueOf(response.getStatus()));
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TEST_RESPONSE,

@@ -21,9 +21,12 @@ public class IndexResponse extends Base {
             /* we'll just send it right off to the index page.  It has frames that
              * make servlet requests and those processors will take care of business logic
              */
-            log.debug("message id " + getRequest().getParameter(Constants.MESSAGE_ID));
+            //log.debug("message id " + getRequest().getParameter(Constants.MESSAGE_ID));
+            //if we don't have a message id, we're in trouble...perhaps we would throw an
+            //explicit message
             loadSessionDefaultsIntoRequest(getRequest().getParameter(Constants.MESSAGE_ID), false);
-            log.debug("problems " + getDefault(Constants.PROBLEM_SETS));
+            loadUserMessageIntoRequest(getRequest().getParameter(Constants.MESSAGE_ID));
+            //log.debug("problems " + getDefault(Constants.PROBLEM_SETS));
             getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
             setNextPage(Constants.PAGE_INDEX);
             setIsNextPageInContext(true);

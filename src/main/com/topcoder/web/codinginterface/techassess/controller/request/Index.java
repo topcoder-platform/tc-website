@@ -7,6 +7,8 @@ import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo;
+import com.topcoder.web.codinginterface.ServerBusyException;
+import com.topcoder.web.common.NavigationException;
 
 import java.util.ArrayList;
 
@@ -30,7 +32,12 @@ public class Index extends Base {
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
-            send(request);
+            try {
+                send(request);
+            } catch (ServerBusyException e) {
+                throw new NavigationException("Sorry, the server is busy with a previous request.  " +
+                        "When using this tool, please wait for a response before you attempt to proceed.");
+            }
 
             showProcessingPage();
 

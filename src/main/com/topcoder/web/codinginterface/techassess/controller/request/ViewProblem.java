@@ -5,6 +5,7 @@ import com.topcoder.shared.netCommon.screening.response.ScreeningOpenComponentRe
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 
@@ -43,7 +44,13 @@ public class ViewProblem extends Base {
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
-            send(request);
+            try {
+                send(request);
+            } catch (ServerBusyException e) {
+                setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
+                setIsNextPageInContext(false);
+                return;
+            }
 
             showProcessingPage();
 
