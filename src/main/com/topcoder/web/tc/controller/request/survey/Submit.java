@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.survey;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.view.tag.AnswerInput;
 import com.topcoder.web.tc.model.Question;
@@ -23,53 +24,56 @@ public class Submit extends View {
         InitialContext ctx = null;
         UserTransaction tx = null;
         try {
-            String paramName = null;
-            List responses = new ArrayList(10);
-            //we need the full list in this case, include free for questions
-            //todo check if they already answered the survey, if so, don't allow them to do it again
-            for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
-                paramName = (String) params.nextElement();
-                log.debug("param: " + paramName);
-                if (paramName.startsWith(AnswerInput.PREFIX)) {
-                    List l = validateAnswer(paramName, questionInfo);
-                    if (l != null)
-                        responses.addAll(l);
-                }
-            }
-            boolean hasAllFreeForm = true;
-            if (!hasErrors()) {
-                ctx = new InitialContext();
-                Response response = (Response) createEJB(ctx, Response.class);
-
-                tx = Transaction.get();
-                Transaction.begin(tx);
-
-                SurveyResponse resp = null;
-                for (Iterator it = responses.iterator(); it.hasNext();) {
-                    resp = (SurveyResponse) it.next();
-                    hasAllFreeForm &= resp.isFreeForm();
-                    if (resp.isFreeForm()) {
-                        response.createResponse(resp.getUserId(), resp.getQuestionId());
-                        response.setResponseText(resp.getUserId(), resp.getQuestionId(), resp.getText());
-                    } else {
-                        response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
+            Response response = (Response) createEJB(ctx, Response.class);
+            if (alreadyResponded()) {
+                throw new NavigationException("Sorry, you may only respond to a survey once.");
+            } else {
+                String paramName = null;
+                List responses = new ArrayList(10);
+                for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
+                    paramName = (String) params.nextElement();
+                    log.debug("param: " + paramName);
+                    if (paramName.startsWith(AnswerInput.PREFIX)) {
+                        List l = validateAnswer(paramName);
+                        if (l != null)
+                            responses.addAll(l);
                     }
                 }
-                Transaction.commit(tx);
+                boolean hasAllFreeForm = true;
+                if (!hasErrors()) {
+                    ctx = new InitialContext();
+
+                    tx = Transaction.get();
+                    Transaction.begin(tx);
+
+                    SurveyResponse resp = null;
+                    for (Iterator it = responses.iterator(); it.hasNext();) {
+                        resp = (SurveyResponse) it.next();
+                        hasAllFreeForm &= resp.isFreeForm();
+                        if (resp.isFreeForm()) {
+                            response.createResponse(resp.getUserId(), resp.getQuestionId());
+                            response.setResponseText(resp.getUserId(), resp.getQuestionId(), resp.getText());
+                        } else {
+                            response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
+                        }
+                    }
+                    Transaction.commit(tx);
+                }
+                if (hasErrors()) {
+                    setDefaults(responses);
+                    setNextPage(Constants.SURVEY_VIEW);
+                    setIsNextPageInContext(true);
+                } else if (hasAllFreeForm) {
+                    setNextPage(Constants.SURVEY_THANKS);
+                    setIsNextPageInContext(true);
+                } else {
+                    setNextPage("?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
+                    setIsNextPageInContext(false);
+                }
             }
 
-            if (hasErrors()) {
-                //set the defaults
-                setNextPage(Constants.SURVEY_VIEW);
-                setIsNextPageInContext(true);
-            } else if (hasAllFreeForm) {
-                setNextPage(Constants.SURVEY_THANKS);
-                setIsNextPageInContext(true);
-            } else {
-                setNextPage("?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
-                setIsNextPageInContext(false);
-            }
-
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
             if (tx != null) {
                 Transaction.rollback(tx);
@@ -80,11 +84,12 @@ public class Submit extends View {
         }
     }
 
-    private List validateAnswer(String paramName, List questions) {
+    private List validateAnswer(String paramName) {
 
         Question question = null;
         String[] values = getRequest().getParameterValues(paramName);
         List ret = null;
+        String errorKey = null;
         if (values == null) {
             ret = new ArrayList(0);
         } else {
@@ -95,17 +100,13 @@ public class Submit extends View {
                 log.debug("param: " + paramName + " value: " + values[i]);
                 StringTokenizer st = new StringTokenizer(paramName.substring(AnswerInput.PREFIX.length()), ",");
                 if (st.hasMoreTokens()) {
-                    try {
-                        questionId = Long.parseLong(st.nextToken());
-                    } catch (NumberFormatException e) {
-                        log.debug("numberformat trying to get question id");
-                        addError(paramName, "Invalid answer.");
-                    }
+                    questionId = Long.parseLong(st.nextToken());
                 }
+                errorKey = AnswerInput.PREFIX+questionId;
                 if (question == null) {
-                    question = findQuestion(questionId, questions);
+                    question = findQuestion(questionId);
                     if (question == null) {
-                        addError(paramName, "Question doesn't exist");
+                        addError(errorKey, "Question doesn't exist");
                         return null;  //quit now
                     }
                 }
@@ -115,31 +116,31 @@ public class Submit extends View {
                         answerId = Long.parseLong(st.nextToken());
                     } catch (NumberFormatException e) {
                         log.debug("numberformat trying to get answer for multiple choice");
-                        addError(paramName, "Invalid answer.");
+                        addError(errorKey, "Invalid answer.");
                     }
                     if (question.getStyleId() != Question.MULTIPLE_CHOICE) {
                         log.debug("param has answerid but it's not multiple choice");
-                        addError(paramName, "Invalid answer.");
+                        addError(errorKey, "Invalid answer.");
                     } else if (findAnswer(answerId, question) == null) {
                         log.debug("can't find multiple choice answer");
-                        addError(paramName, "Invalid answer.");
+                        addError(errorKey, "Invalid answer.");
                     }
                 } else {
                     //only when it's a multiple choice question should there be multiple answers
                     if (values.length > 1) {
                         log.debug("not multiple choice, but there are multiple answers");
-                        addError(paramName, "Invalid answer.");
+                        addError(errorKey, "Invalid answer.");
                     }
                     if (question.getStyleId() == Question.SINGLE_CHOICE) {
                         try {
                             answerId = Long.parseLong(values[i]);
                         } catch (NumberFormatException e) {
                             log.debug("numberformat trying to get answer for single choice");
-                            addError(paramName, "Invalid answer.");
+                            addError(errorKey, "Invalid answer.");
                         }
                         if (findAnswer(answerId, question) == null) {
                             log.debug("can't find single choice answer");
-                            addError(paramName, "Invalid answer.");
+                            addError(errorKey, "Invalid answer.");
                         }
                     }
                 }
@@ -164,15 +165,15 @@ public class Submit extends View {
         }
         log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + ret.size());
         if (question.isRequired() && ret.isEmpty()) {
-            addError(paramName, "Please respond to this question.");
+            addError(errorKey, "Please respond to this question.");
         }
         return ret;
     }
 
-    private Question findQuestion(long questionId, List questions) {
+    private Question findQuestion(long questionId) {
         Question q = null;
         boolean found = false;
-        for (Iterator it = questions.iterator(); it.hasNext() && !found;) {
+        for (Iterator it = questionInfo.iterator(); it.hasNext() && !found;) {
             q = (Question) it.next();
             found = (q.getId() == questionId);
         }
@@ -187,6 +188,37 @@ public class Submit extends View {
             found = (a.getId() == answerId);
         }
         return found ? a : null;
+    }
+
+    private void setDefaults(List responses) {
+        SurveyResponse r = null;
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            r = (SurveyResponse)it.next();
+            if (findQuestion(r.getQuestionId()).getStyleId()==Question.MULTIPLE_CHOICE) {
+                setDefault(AnswerInput.PREFIX+r.getQuestionId()+","+r.getAnswerId(), "true");
+            } else if (r.isFreeForm()) {
+                setDefault(AnswerInput.PREFIX+r.getQuestionId(), r.getText());
+            } else {
+                setDefault(AnswerInput.PREFIX+r.getQuestionId(), new Long(r.getAnswerId()));
+            }
+        }
+    }
+
+    private boolean alreadyResponded() throws Exception {
+        boolean ret = false;
+        Question q = null;
+        InitialContext ctx = null;
+        try {
+            ctx = new InitialContext();
+            Response response = (Response)createEJB(ctx, Response.class);
+            for (Iterator it = questionInfo.iterator(); it.hasNext();) {
+                q = (Question)it.next();
+                ret |= response.exists(getUser().getId(), q.getId());
+            }
+        } finally {
+            close(ctx);
+        }
+        return ret;
     }
 }
 
