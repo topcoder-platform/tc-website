@@ -7,7 +7,7 @@
 
 <head>
 
-<title>TopCoder Survey Results</title>
+<title>Member Surveys</title>
 
 <jsp:include page="../script.jsp" />
                             <SCRIPT LANGUAGE="JavaScript">

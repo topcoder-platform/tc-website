@@ -6,7 +6,7 @@
 
 <head>
 
-<title>TopCoder Polls</title>
+<title>Member Surveys</title>
 
 <jsp:include page="../script.jsp" />
 
