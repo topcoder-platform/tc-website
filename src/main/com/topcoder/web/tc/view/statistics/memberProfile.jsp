@@ -29,34 +29,33 @@
 <jsp:include page="../top.jsp" />
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR valign="top">
+    <TR valign="top">
 
-       <TD WIDTH="180">
+        <TD WIDTH="180">
 <!-- Left nav begins -->
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
             </jsp:include>
 <!-- Left nav ends -->
-       </TD>
+        </TD>
 
 <!-- Gutter begins -->
        <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"></TD>
 <!-- Gutter ends -->
 
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
+        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="5" BORDER="0"><BR/>
 
 <!-- Center column begins -->
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-           <TR>
-             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Member Profile&#160;&#160;</SPAN>
-             </TD>
-             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
-           </TR>
-         </TABLE>
-     <logic:present name="QUERY_RESPONSE" scope="request">
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+                <TR>
+                    <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
+                    <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
+                    <TD CLASS="bodySubhead" VALIGN="middle" WIDTH="100%">&#160;&#160;&#160;Member Profile&#160;&#160;</TD>
+                    <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+                </TR>
+            </TABLE>
+
+<logic:present name="QUERY_RESPONSE" scope="request">
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <% ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Coder_Data");
@@ -72,174 +71,214 @@ if (!rsc.isEmpty()) {
 }
 %>
 
-      <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
-           <TR>
-             <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="126">
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
+                <TR>
+                    <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="126">
 
          <% if (rsc.isEmpty()) { %>
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <TR>
-                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>
-                <TR>
-                  <TD COLSPAN="5" CLASS="statText">This member has not yet been rated in a competition.</TD>
-                </TR>
-                <TR>
-                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"></TD>
-                </TR>
-              </TABLE>
+         
+                        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+                            <TR>
+                                <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                            </TR>
+                
+                            <TR>
+                                <TD CLASS="statText">This member has not yet been rated in a competition.</TD>
+                            </TR>
+                
+                            <TR>
+                                <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"></TD>
+                            </TR>
+                        </TABLE>
+                        
          <% } else {%>
 
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="126">
-
-                <TR>
-                   <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD CLASS="statTextLarge">
+                        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="126">
+                            <TR>
+                                <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                            </TR>
+                 
+                            <TR>
+                                <TD CLASS="statTextLarge">
           <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>
-                     <B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
-                   </TD>
-                 </TR>
-                <TR>
-                   <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>
+                                    <strong>Coder:</strong>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><strong><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></strong></SPAN>
+                                </TD>
+                            </TR>
+                
+                            <TR>
+                                <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                            </TR>
 
-                 <TR>
-                   <TD CLASS="statText" ROWSPAN="12" VALIGN="top">
+                            <TR>
+                                <TD CLASS="statText" VALIGN="top">
+
 <% if (vieweeHasImage) { %>
-                     <IMG SRC="<bean:write name="resultRow" property='<%= "item[" + 22 /*"image path"*/ + "]" %>'/>" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+                                    <IMG SRC="<bean:write name="resultRow" property='<%= "item[" + 22 /*"image path"*/ + "]" %>'/>" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+
 <% } else if (nav.isIdentified()) { %>
-                     <A HREF="<%="https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+                                    <A HREF="<%="https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+
 <% } else { %>
-                     <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+                                    <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+
 <% } %>
-                     <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
-                   </TD>
-                 </TR>
-               </TABLE>
-             </TD>
-             <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="384">
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <TR>
-                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                 </TR>
+                                    <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+                                </TD>
+                            </TR>
+                        </TABLE>
+                    </TD>
+             
+                    <TD VALIGN="top" WIDTH="99%">
+                        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                            </TR>
+                 
                  <logic:notEqual name="resultRow" property='<%= "item[" + 2 /*"quote"*/ + "]" %>' type="ResultSetContainer.ResultSetRow" value="">
-                   <TR>
-                     <TD COLSPAN="5" CLASS="statText" ALIGN="center" WIDTH="80%">&quot;<bean:write name="resultRow" property='<%= "item[" + 2 /*"quote"*/ + "]" %>'/>&quot;</TD>
-                   </TR>
+                   
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText" ALIGN="center">&quot;<bean:write name="resultRow" property='<%= "item[" + 2 /*"quote"*/ + "]" %>'/>&quot;</TD>
+                            </TR>
+                 
                  </logic:notEqual>
-                 <TR>
-                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>
+                 
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                            </TR>
 
+                            <TR>
+                                <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="4" CLASS="registerNav" HEIGHT="18">&#160;&#160;Algorithm Statistics</TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
+                            </TR>
 
-                 <TR>
-                   <TD CLASS="statText" WIDTH="50%">Country:</TD>
-                   <TD CLASS="statText" WIDTH="20%"ALIGN="right"><rsc:item name="country_name" row="<%=rsr%>"/></TD>
-                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" WIDTH="30%" ALIGN="left">&#160;</TD>
-                 </TR>
+                            <TR>
+                                <TD CLASS="statText" WIDTH="50%">Country:</TD>
+                                <TD CLASS="statText" WIDTH="20%"ALIGN="right"><rsc:item name="country_name" row="<%=rsr%>"/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" WIDTH="30%" ALIGN="left">&#160;</TD>
+                            </TR>
 
-                <TR>
-                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                </TR>
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                            </TR>
 
-                <TR>
-                   <TD CLASS="statText" >Rating:</TD>
-                   <TD CLASS="statText" ALIGN="right"><%= coderrank.toString() %></TD>
-                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ ratings history ]</A></TD>
-                 </TR>
-                 <TR>
-                   <TD CLASS="statText">Volatility Factor:</TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 5 /* volatility*/ + "]" %>'/></TD>
-                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="left">&#160;</TD>
-                 </TR>
-                 <TR>
-                   <TD CLASS="statText">Member Since:</TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 6 /*"start_date"*/ + "].resultData" %>'/></TD>
-                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="left">&#160;</TD>
-                </TR>
-                <TR>
-                  <TD CLASS="statText">Total Earnings:</TD>
-                  <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /*"earnings"*/ + "].resultData" %>'/><%=hasCharity?"*":""%></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">
-          <A HREF="/stat?c=earnings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ earnings history ]</A>
-          </TD>
-                </TR>
-                <TR>
-                  <TD CLASS="statText">Number of Competitions:</TD>
-                  <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 8 /* number of comps */ + "]" %>'/></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
-                </TR>
-                <TR>
-                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                </TR>
-                <TR>
-                  <TD CLASS="statText">Average Points per Contest:</TD>
-                  <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /*"avg final pts"*/ + "].resultData" %>'/></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
-                </TR>
-                <TR>
-                  <TD CLASS="statText">Maximum Rating:</TD>
-                  <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 10 /*"max rating"*/ + "].resultData" %>'/></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
-                </TR>
-                <TR>
-                  <TD CLASS="statText">Minimum Rating:</TD>
-                  <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 26 /*"min rating"*/ + "].resultData" %>'/></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
-                </TR>
-                <TR>
-                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                </TR>
-                <TR>
-                  <TD COLSPAN="4" CLASS="statText">
-                  <% if ( nav.isIdentified() && Integer.parseInt(rsr.getItem(1).toString())==nav.getUserId() ) { %><A HREF="<%="https://"+request.getServerName()+"/Registration"%>" CLASS="statText" TARGET="_parent">Update your profile</A>
-                  <% } else { %>&#160;<%}%>
-                  </TD>
-                </TR>
+                            <TR>
+                                <TD CLASS="statText" >Rating:</TD>
+                                <TD CLASS="statText" ALIGN="right"><%= coderrank.toString() %></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ ratings history ]</A></TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD CLASS="statText">Volatility Factor:</TD>
+                                <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 5 /* volatility*/ + "]" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD CLASS="statText">Member Since:</TD>
+                                <TD CLASS="statText" ALIGN="right"><bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 6 /*"start_date"*/ + "].resultData" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+                
+                            <TR>
+                                <TD CLASS="statText">Algorithm Earnings:</TD>
+                                <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /*"earnings"*/ + "].resultData" %>'/><%=hasCharity?"*":""%></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=earnings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ earnings history ]</A></TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD CLASS="statText">Number of Competitions:</TD>
+                                <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 8 /* number of comps */ + "]" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+                
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                            </TR>
+                
+                            <TR>
+                                <TD CLASS="statText">Average Points per Contest:</TD>
+                                <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /*"avg final pts"*/ + "].resultData" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD CLASS="statText">Maximum Rating:</TD>
+                                <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 10 /*"max rating"*/ + "].resultData" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD CLASS="statText">Minimum Rating:</TD>
+                                <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 26 /*"min rating"*/ + "].resultData" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+                            
+                  <% if ( nav.isIdentified() && Integer.parseInt(rsr.getItem(1).toString())==nav.getUserId() ) { %>
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                            </TR>
+                
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><A HREF="<%="https://"+request.getServerName()+"/Registration"%>" CLASS="statText" TARGET="_parent">Update your profile</A></TD>
+                            </TR>
+                  
+                  <% } else { %><% } %>
+                            
                 <% if (hasCharity) {%>
-                  <TR>
-                    <TD COLSPAN="5" CLASS="statText">* Some or all of these earnings have been donated to charity.</TD>
-                  </TR>
+                  
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText">* Some or all of these earnings have been donated to charity.</TD>
+                            </TR>
+                            
                 <% } %>
-                <TR>
-                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="4" CLASS="registerNav" HEIGHT="18">&#160;&#160;Component Statistics</TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
+                            </TR>
+
+                            <TR>
+                                <TD CLASS="statText">Component Earnings:</TD>
+                                <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 28 /*"component earnings"*/ + "].resultData" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=component_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ component history ]</A></TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD CLASS="statText">Number of Components:</TD>
+                                <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 29 /* number of components */ + "]" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
+                            </TR>
+                        </TABLE>
+                    </TD>
                 </TR>
+                
                 <TR>
-                  <TD CLASS="statText">Component Earnings:</TD>
-                  <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 28 /*"component earnings"*/ + "].resultData" %>'/></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">
-          <A HREF="/stat?c=component_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ component history ]</A>
-          </TD>
-                </TR>
-                <TR>
-                  <TD CLASS="statText">Number of Components:</TD>
-                  <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 29 /* number of components */ + "]" %>'/></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
-                </TR>
-                <TR>
-                  <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
-                </TR>
-              </TABLE>
-            </TD>
-          </TR>
-          <TR>
-            <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%" colspan="2">
+                    <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%" colspan="2">
 <%
 ResultSetContainer rsc4 = (ResultSetContainer) queryEntries.get("Coder_Submission_Summary_Div_1");
 ResultSetContainer rsc6 = (ResultSetContainer) queryEntries.get("Coder_Submission_Totals_Div_1");
