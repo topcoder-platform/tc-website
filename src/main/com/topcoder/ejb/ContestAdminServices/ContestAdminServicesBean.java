@@ -1009,7 +1009,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         StringBuffer txtGetRoundProblems = new StringBuffer();
         txtGetRoundProblems.append(" SELECT problem_id ").
-                append(" FROM   round_problem ").
+                append(" FROM   round_component ").
                 append(" WHERE  round_id = ? ").
                 append(" ORDER  BY round_id ");
 
@@ -1238,7 +1238,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" ,component_status_lu csl");
             query.append(" ,language l");
             query.append(" ,difficulty d");
-            query.append(" ,round_problem rp");
+            query.append(" ,round_component rp");
             query.append(" ,room r");
             query.append(" ,room_result rr");
             query.append(" ,component cp");
@@ -1252,7 +1252,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" AND u.user_id = ?");
             query.append(" AND cs.language_id = l.language_id");
             query.append(" AND cs.round_id = rp.round_id");
-            query.append(" AND rp.problem_id = p.problem_id");
+            query.append(" AND rp.component_id = cp.component_id");
             query.append(" AND rp.difficulty_id = d.difficulty_id");
             query.append(" AND rr.room_id = r.room_id");
             query.append(" AND rr.round_id = rp.round_id");
@@ -1643,8 +1643,8 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         StringBuffer txtGetProblems = new StringBuffer();
         txtGetProblems.append(" SELECT p.problem_id, cp.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc  ")
-                .append(" , cp.method_name from round_problem r, problem p, component cp, difficulty d , division dv where d.difficulty_id = r.difficulty_id ")
-                .append(" and r.round_id = ?  and r.problem_id = p.problem_id and cp.problem_id = p.problem_id and r.division_id = dv.division_id ")
+                .append(" , cp.method_name from round_component r, problem p, component cp, difficulty d , division dv where d.difficulty_id = r.difficulty_id ")
+                .append(" and r.round_id = ?  and r.component_id = p.problem_id and cp.problem_id = p.problem_id and r.division_id = dv.division_id ")
                 .append(" group by p.problem_id, cp.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc, cp.method_name ")
                 .append(" ORDER BY p.problem_id ");
 
