@@ -151,7 +151,7 @@ function getProblemDetail(id) {
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=name&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=name_sort&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
                             Name
                         </A>
                     </td>
