@@ -67,8 +67,8 @@
 
 <!-- Tab bar sub links-->
             <xsl:call-template name="tco03_sublinks">
-                <xsl:with-param name="selectedList">coding_advancers</xsl:with-param>
-                <xsl:with-param name="selectedTab">top100</xsl:with-param>
+                <xsl:with-param name="selectedList"></xsl:with-param>
+                <xsl:with-param name="selectedTab"></xsl:with-param>
             </xsl:call-template>
 
             <blockquote>

@@ -119,45 +119,6 @@
             </table>
     </xsl:when>
 
-    <xsl:when test="$selectedList='coding_advancers'">
-            <table width="100%" border="0" cellpadding="2" cellspacing="0" class="tcoSubNav">
-                <tr valign="middle">
-                    <td class="tcoSubNav" width="49%"></td>
-                <xsl:choose>
-                     <xsl:when test="$selectedTab='highlights'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_highlights" class="topLink">Highlights</a></td>
-                </xsl:when>
-                <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_highlights" class="topLink">Highlights</a></td>
-                </xsl:otherwise>
-                </xsl:choose>
-
-                <xsl:choose>
-                     <xsl:when test="$selectedTab='top100'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Top 100</a></td>
-                </xsl:when>
-                <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Top 100</a></td>
-                </xsl:otherwise> 
-                </xsl:choose>
-
-                <xsl:choose>
-                     <xsl:when test="$selectedTab='qualRound1'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700" class="topLink">Qual Round 1</a></td>
-                </xsl:when>
-                <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700" class="topLink">Qual Round 1</a></td>
-                </xsl:otherwise>
-                </xsl:choose>
-
-                    <td class="statTextBig" width="49%"></td>
-                </tr>
-            </table>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
-               <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
-            </table>
-    </xsl:when>
-
     <xsl:otherwise>
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tcoSubNav">
                 <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
