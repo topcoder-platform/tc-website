@@ -277,7 +277,8 @@
                 </xsl:for-each>
             </table>
 
-            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!</p>
+            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!  Please note
+            that custom components do not get added to the catalog and therefore do not have royalties.</p>
 
             <p><br/></p>
 <!-- Open Component Development Projects ends -->
