@@ -173,8 +173,15 @@
 
                 <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
                 
-                <tr><td class="compDocsSmall">Review Board Scorecards</td></tr>
+                <tr><td class="compDocsSmall">Initial Scorecards</td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/pops_aop_design_review_ken_vogel.htm" target="_blank"><strong>Ken Vogel</strong></a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/pops_aop_design_review_srowen.htm" target="_blank"><strong>srowen</strong></a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/pops_aop_design_review_valeriy.htm" target="_blank"><strong>valeriy</strong></a></td></tr>
+
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
+                
+                <tr><td class="compDocsSmall">Final Scorecards</td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/pops_aop_design_review_ken_vogel_final.htm" target="_blank"><strong>Ken Vogel</strong></a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/pops_aop_design_review_srowen_final.htm" target="_blank"><strong>srowen</strong></a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/pops_aop_design_review_valeriy_final.htm" target="_blank"><strong>valeriy</strong></a></td></tr>
            </table>

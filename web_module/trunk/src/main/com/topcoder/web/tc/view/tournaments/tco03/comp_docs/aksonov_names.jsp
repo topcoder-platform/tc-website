@@ -588,8 +588,15 @@
 
                 <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
-                <tr><td class="compDocsSmall">Review Board Scorecards</td></tr>
+                <tr><td class="compDocsSmall">Initial Scorecards</td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_dsc_dev_review_lkw.htm" target="_blank"><strong>lkw</strong></a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_dsc_dev_review_bryanchen.htm" target="_blank"><strong>BryanChen</strong></a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_dsc_dev_review_mishagam.htm" target="_blank"><strong>mishagam</strong></a></td></tr>
+
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
+
+                <tr><td class="compDocsSmall">Final Scorecards</td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_dsc_dev_review_lkw_final.htm" target="_blank"><strong>lkw</strong></a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_dsc_dev_review_bryanchen_final.htm" target="_blank"><strong>BryanChen</strong></a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/aksonov_dsc_dev_review_mishagam_final.htm" target="_blank"><strong>mishagam</strong></a></td></tr>
            </table>
