@@ -51,7 +51,7 @@
                             <strong>When:</strong> Feb. 18th - April 5th, 2003<br />
                             <strong>Where:</strong> the University Park Hotel @ MIT in Cambridge, MA<br />
                             <strong>Total Purse:</strong> $100,000</p>
-                            
+
                             <p><font color="#CC0000"><strong>200 TopCoder Members will win money!</strong></font><br />
                             <a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Get more information</a><br />
                             <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
@@ -108,13 +108,13 @@
                                         <a>
                                         <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                                         <xsl:attribute name="CLASS">bodyText</xsl:attribute>
-                                        
+
                                         <font>
-                                        
+
                                         <xsl:attribute name="color">
                                             <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                                         </xsl:attribute>
-                                        
+
                                         <xsl:value-of select="handle"/>
 
                                         </font></a>
@@ -137,7 +137,7 @@
 <!-- Coder Point of View Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
-                
+
                 <tr>
                     <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
                         By&#160;Logan<br /><i>[TC]&#160;Member</i><br /></td>
@@ -154,7 +154,7 @@
                         <p>The most notable aspect of this round was the Level 2 problem, which was solved by only four coders.
             This lead to a lot of successful challenges by coders such as <b>John Dethridge</b>.  The
             The Level 1 and Level 3 problems had very high success rates among those that submitted the problems,
-            but each had a rather low submission rate.</p>
+            but only 14 coders managed to submit a possible solution for the Level 3 problem.</p>
                     </td>
                 </tr>
             </table>
@@ -168,7 +168,7 @@
                     <td valign="middle" width="40%" bgcolor="#FFFFFF" height="26"><img src="/i/label_feat.gif" alt="Weekly Feature" width="184" height="26" border="0" /></td>
                     <td width="60%" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
                 </tr>
-                
+
                 <tr>
                     <td valign="middle" bgcolor="#CCCCCC" align="center" height="15">
                         <a class="bodyGeneric">
@@ -193,14 +193,14 @@
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_022003</xsl:attribute>
                         <strong>Component-Based Development: Why Hasn't the Vision Met Reality?</strong></a><br />
                         Wednesday, February 20, 2003<br />
-                        
+
                         <p>By&#160;David Tanacea<br /><i>President of TopCoder Software</i></p>
 
-                        <p>For years now, we in the software development industry have been extolling the virtues of component-based development (CBD). The 
+                        <p>For years now, we in the software development industry have been extolling the virtues of component-based development (CBD). The
                         benefits of object-oriented design and component-based development seem obvious: </p>
 
                         <ul>
-                            <li>Reusing software saves money in the development phase of software projects, i.e., the more components you reuse, the less software 
+                            <li>Reusing software saves money in the development phase of software projects, i.e., the more components you reuse, the less software
                             you have to build. </li>
                             <li>The more applications in which you use a given component, the more valuable that component becomes.</li>
                             <li>Reusable components enable application developers to customize applications... <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_022003</xsl:attribute>full&#160;story</a></li>
@@ -235,7 +235,7 @@
                         <a class="bodyGeneric">
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br /></td>
                 </tr>
-                
+
                 <tr><td colspan="5"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
         </td>
