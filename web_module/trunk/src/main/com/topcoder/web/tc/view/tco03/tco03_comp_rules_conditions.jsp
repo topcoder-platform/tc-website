@@ -123,8 +123,10 @@ for any reason, including infection by computer virus, bugs, tampering, unauthor
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-         <td width="180">
-            <img src="/i/clear.gif" width="170" height="1" border="0"><br/>
+         <td width="170">
+            <jsp:include page="../public_right.jsp">
+               <jsp:param name="level1" value="privatelabel"/>
+            </jsp:include>
          </td>
 <!-- Right Column Ends -->
 
