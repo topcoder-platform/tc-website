@@ -112,11 +112,11 @@
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
-							<p>Component Posting: 12.12.2002<br/>
-							Initial Submission Due Date: 12.27.2002<br/>
-							Winner Announced: 01.07.2003<br/>
-							Final Submission Due Date: 01.10.2003<br/>
-							Estimated Development End Date: 02.17.2003</p>
+							<p>Component Posting: 1.2.2003<br/>
+							Initial Submission Due Date: 1.8.2003<br/>
+							Winner Announced: 1.16.2003<br/>
+							Final Submission Due Date: 1.20.2003<br/>
+							Estimated Development End Date: 2.24.2003</p>
 
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
