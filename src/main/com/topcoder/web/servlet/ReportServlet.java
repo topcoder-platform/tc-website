@@ -158,6 +158,11 @@ public final class ReportServlet extends HttpServlet {
             goTo(Constants.JSP_ADDR + response_addr, request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            try {
+                forwardToErrorPage(request, response, e);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -1212,46 +1217,70 @@ public final class ReportServlet extends HttpServlet {
     private static final int[] INVITATIONAL_INFO_TYPES = {ResultItem.INT, ResultItem.INT};
     private static final String[] INVITATIONAL_INFO_HEADINGS = {"total_registered", "top_1024_registered"};
     private static final String INVITATIONAL_INFO =
-            " select" + 
-              " x.all" + 
+            " select" +
+              " x.all" +
               " ,y.top_1024" +
-            " from" + 
-            " table(multiset(" + 
-            " select" + 
-            "   count(*) as all" + 
-            " from " + 
-            "   user u," + 
-            "   rating r," + 
-            "   coder c," + 
-            "   invite_list l" + 
-            " where " + 
-            "   l.round_id = 4320 and" + 
-            "   l.coder_id = u.user_id and" + 
-            "   u.user_id = c.coder_id and" + 
-            "   r.coder_id = c.coder_id" + 
-            " )) x," + 
-            " table(multiset(" + 
-            " select" + 
-            "   count(*) as top_1024 " + 
-            " from " + 
-            "   user u," + 
-            "   rating r," + 
-            "   coder c," + 
-            "   invite_list l" + 
-            " where " + 
-            "   l.round_id = 4320 and" + 
-            "   l.coder_id = u.user_id and" + 
-            "   u.user_id = c.coder_id and" + 
-            "   r.coder_id = c.coder_id and" + 
-            "   r.rating >= 923 and" + 
-            "   u.status = 'A' and" + 
-            "   r.num_ratings > 2 and" + 
-            "   date(last_rated_event) >= mdy(4,1,2002) and" + 
-            "   lower(email) not like '%topcoder.com' and" + 
-            "   handle not like 'guest%' and" + 
-            "   country_code in ('036','124','372','356','826','840','156','554') and" + 
-            "   u.user_id not in (select user_id from group_user where group_id = 13)" + 
+            " from" +
+            " table(multiset(" +
+            " select" +
+            "   count(*) as all" +
+            " from " +
+            "   user u," +
+            "   rating r," +
+            "   coder c," +
+            "   invite_list l" +
+            " where " +
+            "   l.round_id = 4320 and" +
+            "   l.coder_id = u.user_id and" +
+            "   u.user_id = c.coder_id and" +
+            "   r.coder_id = c.coder_id" +
+            " )) x," +
+            " table(multiset(" +
+            " select" +
+            "   count(*) as top_1024 " +
+            " from " +
+            "   user u," +
+            "   rating r," +
+            "   coder c," +
+            "   invite_list l" +
+            " where " +
+            "   l.round_id = 4320 and" +
+            "   l.coder_id = u.user_id and" +
+            "   u.user_id = c.coder_id and" +
+            "   r.coder_id = c.coder_id and" +
+            "   r.rating >= 923 and" +
+            "   u.status = 'A' and" +
+            "   r.num_ratings > 2 and" +
+            "   date(last_rated_event) >= mdy(4,1,2002) and" +
+            "   lower(email) not like '%topcoder.com' and" +
+            "   handle not like 'guest%' and" +
+            "   country_code in ('036','124','372','356','826','840','156','554') and" +
+            "   u.user_id not in (select user_id from group_user where group_id = 13)" +
             " )) y";
+
+
+    private static final Integer TCS_MEMBER_COUNT_ID = new Integer(18);
+    private static final String TCS_MEMBER_COUNT_TITLE = "Invitational Registration Information";
+    private static final int[] TCS_MEMBER_COUNT_TYPES = {ResultItem.INT, ResultItem.INT};
+    private static final String[] TCS_MEMBER_COUNT_HEADINGS = {"total_registered", "top_1024_registered"};
+    private static final String TCS_MEMBER_COUNT_INFO =
+            "SELECT uc.first_name First, uc.last_name Last, su.user_id Handle, uc.company Company, " +
+            "uc.address Address, uc.city City, uc.postal_code Zip, c.description Country, " +
+            "uc.telephone_area AreaCode, uc.telephone_nbr Telephone, uc.email_address Email" +
+            "FROM user_customer uc, country_codes c, security_user su" +
+            "WHERE su.login_id = uc.login_id" +
+            "AND uc.country_code = c.country_code" +
+            "AND uc.email_address not like '%topcoder.com'" +
+            "AND lower(last_name) not in ('tanacea', 'corsello')";
+
+
+
+
+
+
+
+
+
 
     private static final String STATE_QUERY =
             "SELECT state_code" +
