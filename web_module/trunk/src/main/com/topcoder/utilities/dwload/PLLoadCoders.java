@@ -305,7 +305,6 @@ public class PLLoadCoders extends TCLoad {
             query.append("   AND uax.address_id = a.address_id");
             query.append("   AND a.address_type_id = 2");
             query.append("   AND e.user_id = c.coder_id");
-            query.append("   AND EXISTS (SELECT 'pops' FROM group_user gu WHERE gu.user_id = u.user_id AND gu.group_id = 10)");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
