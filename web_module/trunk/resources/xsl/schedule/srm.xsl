@@ -111,6 +111,11 @@
                            </xsl:when>
                                 <xsl:when test="$roundId=5856">
                                     <table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                                        <tr>
+                                        <td align="left" valign="middle">
+If you're a member of Intel Developer Services AND take part in Single Round Match 210, you'll be eligible for a chance to win one Intel® Centrino(tm) mobile technology-based notebook!
+                                        </td>
+                                    </tr>
                                         <tr valign="top">
                                         <td align="left" valign="middle">
                                             <h2>Intel<sup>&#174;</sup> Centrino&#153; Mobile Technology-based Tablet PC Quick Specs</h2>
