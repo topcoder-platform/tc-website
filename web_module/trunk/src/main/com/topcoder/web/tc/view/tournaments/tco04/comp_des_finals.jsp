@@ -33,7 +33,7 @@
                </tr>
 
                 <tr>
-                  <td class="advCell" align="left" colspan=5>Initial score (by reviewer):</td>
+                  <td class="advCell" align="left" colspan=5>Initial scores (by reviewer):</td>
                 </tr>
                 <tr>  
                   <td class="advCell" align="left">&#160;&#160;&#160;TheCois</td>
@@ -57,8 +57,10 @@
                   <td class="advCell" align="right">71.69&#160;&#160;</td>
                 </tr>
 
+                <tr><td class="advCell" colspan=5>&#160;</td></tr>
+
                 <tr>  
-                  <td class="advCell" align="left" colspan=5><b>Final score (by reviewer):</b></td>
+                  <td class="advCell" align="left" colspan=5><b>Final scores (by reviewer):</b></td>
                 </tr>
                 <tr>
                   <td class="advCell" align="left"><b>&#160;&#160;&#160;TheCois</b></td>
@@ -81,12 +83,25 @@
                   <td class="advCell" align="right"><b><A href="/i/tournament/tco04/comp_submissions/des_SC_wish_kyky.html">73.00</A>&#160;&#160;</b></td>
                   <td class="advCell" align="right"><b><A href="/i/tournament/tco04/comp_submissions/des_SC_wish_mphk.html">73.44</A>&#160;&#160;</b></td>
                 </tr>
+
+                <tr><td class="advCell" colspan=5>&#160;</td></tr>
+
+                <tr>  
+                  <td class="advCell" align="left"><b>Final score:</b></td>
+                  <td class="advCell" align="right"><b>89.00&#160;&#160;</b></td>
+                  <td class="advCell" align="right"><b>85.59&#160;&#160;</b></td>
+                  <td class="advCell" align="right"><b>85.75&#160;&#160;</b></td>
+                  <td class="advCell" align="right"><b>83.04&#160;&#160;</b></td>
+                </tr>
+
+                <tr><td class="advCell" colspan=5>&#160;</td></tr>
+
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>
-                  <td class="advHeader" align="right"><A class="topLink" href=""><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href=""><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href=""><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href=""><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tco04/comp_submissions/des_sub_adic.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tco04/comp_submissions/des_sub_akso.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tco04/comp_submissions/des_sub_kyky.jar"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tco04/comp_submissions/des_sub_mphk.zip"><img src="/i/download.gif" border="0"/></A></td>
                </tr>
             </table>
 
