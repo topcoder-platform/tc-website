@@ -101,7 +101,7 @@ public class PhoneBean implements SessionBean {
 
     public long getPhoneTypeId(long userId, long phoneId) {
 
-        log.debug("getPhoneTypeId called...company_id: " + companyId + " phone_id: " + phoneId);
+        log.debug("getPhoneTypeId called...user_id: " + userId + " phone_id: " + phoneId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -114,7 +114,7 @@ public class PhoneBean implements SessionBean {
             StringBuffer query = new StringBuffer(100);
             query.append("SELECT phone_type_id FROM phone WHERE user_id = ");
             query.append(Long.toString(userId));
-            query.append(" AND phone_id = ")
+            query.append(" AND phone_id = ");
             query.append(Long.toString(phoneId));
 
             ctx = new InitialContext();
@@ -183,7 +183,7 @@ public class PhoneBean implements SessionBean {
 
     public void setPhoneTypeId(long userId, long phoneId, long phoneTypeId) {
 
-        log.debug("setPhoneTypeId called...userId: " + companyId + " phoneId: " + phoneId + " phoneTypeId: " + phoneTypeId);
+        log.debug("setPhoneTypeId called...userId: " + userId + " phoneId: " + phoneId + " phoneTypeId: " + phoneTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -220,7 +220,7 @@ public class PhoneBean implements SessionBean {
 
     public void setNumber(long userId, long phoneId, String number) {
 
-        log.debug("setName called...userId: " + userId + " phoneId: " + phoneId " number: " + number);
+        log.debug("setName called...userId: " + userId + " phoneId: " + phoneId + " number: " + number);
 
         Context ctx = null;
         PreparedStatement ps = null;
