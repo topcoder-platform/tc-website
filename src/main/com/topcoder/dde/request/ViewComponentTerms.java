@@ -6,6 +6,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.dde.util.Constants;
 import com.topcoder.dde.user.UserManagerLocalHome;
 import com.topcoder.dde.user.UserManagerLocal;
+import com.topcoder.dde.user.UserManagerRemoteHome;
 
 import javax.rmi.PortableRemoteObject;
 import javax.naming.NamingEnumeration;
@@ -23,7 +24,6 @@ public class ViewComponentTerms extends BaseProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-            log.debug("name : " + getInitialContext().lookup(UserManagerLocalHome.EJB_REF_NAME).getClass().getName());
             UserManagerLocalHome userManagerHome = (UserManagerLocalHome)
                     getInitialContext().lookup(UserManagerLocalHome.EJB_REF_NAME);
             UserManagerLocal userManager = userManagerHome.create();
