@@ -188,11 +188,11 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Advancers<br />(Each advancer wins $50)</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=N">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=STH">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=W">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=MW">View</a></td>
+                        <td align="center" class="tourney_subhead2">***</td>
                     </tr>
                     
                     <tr valign="middle">
