@@ -1,34 +1,25 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.distCache.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.common.web.data.Navigation;
+import com.topcoder.common.web.constant.TCServlet;
 import com.fx4m.plot13.HistoryPlot;
+
 import org.faceless.graph.*;
 import org.faceless.graph.formatter.NullFormatter;
 import org.faceless.graph.output.PNGOutput;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpUtils;
+import javax.servlet.*;
+import javax.servlet.http.*;
 import java.awt.*;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Date;
+import java.io.*;
+import java.text.*;
+import java.util.*;
 
 /**
  *  A servlet to generate graph images
