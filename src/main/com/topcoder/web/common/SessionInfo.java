@@ -10,8 +10,9 @@ import javax.servlet.http.HttpUtils;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.io.Serializable;
 
-public class SessionInfo {
+public class SessionInfo implements Serializable {
     private static Logger log = Logger.getLogger(SessionInfo.class);
 
     private static final String GROUP_PREFIX = "group_";
