@@ -256,15 +256,11 @@ public class UserEdit extends BaseProcessor {
             if (secTok.isAccountAdmin) {
                 // check if user belongs same company
                 if (secTok.targetUserCompanyID != secTok.loggedUserCompanyID) {
-                    throw new NotAuthorizedException(
-                            "You are allowed only edit of your company persons"
-                    );
+                    throw new NotAuthorizedException("You are allowed only edit of your company persons");
                 }
             } else { // regular member tries to edit user
                 if (targetUserID != getAuthentication().getUser().getId()) {
-                    throw new NotAuthorizedException(
-                            "You are not allowed to modify other users"
-                    );
+                    throw new NotAuthorizedException("You are not allowed to modify other users");
                 }
             }
         }
@@ -699,8 +695,15 @@ public class UserEdit extends BaseProcessor {
                 Company companyTable = ((CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
 
-                if (man.getRoles(Util.retrieveTCSubject(getAuthentication().getUser().getId())).
-                        contains(Constants.CORP_ADMIN_ROLE)) {
+                try {
+                    requestor = Util.retrieveTCSubject(getAuthentication().getUser().getId());
+                } catch (Exception cause) {
+                    throw new MisconfigurationException("Can't retrieve TCSubject for: " +
+                            getAuthentication().getUser().getId() + cause.getMessage());
+                }
+                log.debug(requestor.getPrincipals());
+                log.debug(man.getRoles(requestor));
+                if (man.getRoles(requestor).contains(Constants.CORP_ADMIN_ROLE)) {
                     isAccountAdmin = true;
                     primaryUserCompanyID = loggedUserCompanyID;
                 } else {
@@ -713,12 +716,6 @@ public class UserEdit extends BaseProcessor {
                 throw new Exception("Error accessing DB company tables [" + ex.getMessage() + "]");
             } finally {
                 Util.closeIC(icEJB);
-            }
-            try {
-                requestor = Util.retrieveTCSubject(getAuthentication().getUser().getId());
-            } catch (Exception cause) {
-                throw new MisconfigurationException("Can't retrieve TCSubject for: " +
-                        getAuthentication().getUser().getId() + cause.getMessage());
             }
         }
 
