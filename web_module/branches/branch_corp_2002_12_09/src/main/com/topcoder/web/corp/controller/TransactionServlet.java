@@ -82,10 +82,6 @@ public class TransactionServlet extends HttpServlet {
     
     private static final int    RCINT_APPROVED  = 0;
     
-    private static final String CFGKEY_SUCCESS_PAGE = "page-success";
-    private static final String CFGKEY_FAILURE_PAGE = "page-failure";
-    private static final String CFGKEY_INTFORM_PAGE = "intermediate-form";
-
     private String defaultPageSuccess = null;
     private String defaultPageFailure = null;
     private String defaultPageIntForm = null;
@@ -98,9 +94,9 @@ public class TransactionServlet extends HttpServlet {
      */
     public void init(ServletConfig cfg) throws ServletException {
         super.init(cfg);
-        defaultPageSuccess = cfg.getInitParameter(CFGKEY_SUCCESS_PAGE);
-        defaultPageFailure = cfg.getInitParameter(CFGKEY_FAILURE_PAGE);
-        defaultPageIntForm = cfg.getInitParameter(CFGKEY_INTFORM_PAGE);
+        defaultPageSuccess = cfg.getInitParameter("page-success");
+        defaultPageFailure = cfg.getInitParameter("page-failure");
+        defaultPageIntForm = cfg.getInitParameter("intermediate-form");
     }
 
     /**
