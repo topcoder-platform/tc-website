@@ -30,13 +30,13 @@
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="overview"/>
+			<jsp:param name="selectedTab" value="registration"/>
 			</jsp:include>
 			</div>
 
 			<br/><br/>
 
-			<span class=bigTitle>Tough problems. Intense competition. No pressure.</span>
+			<span class=bigTitle>Registration</span>
 			<span valign=top>
 			<jsp:include page="right_reg.jsp" />
 			</span>
@@ -47,7 +47,7 @@
                 <td colspan="2" class="errorText" align="center">Error Text</td>
             </tr>
             <tr>
-                <td align="right" width="5 0%" nowrap>Handle</td>
+                <td align="right" width="50%" nowrap>Handle</td>
                 <td align="left" width="50%">john doe</td>
             </tr>
             </table>
