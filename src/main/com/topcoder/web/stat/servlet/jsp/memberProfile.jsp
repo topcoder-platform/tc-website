@@ -47,11 +47,10 @@
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <% ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Coder_Data");
-boolean bEmpty = (rsc.size()!=1);
 boolean vieweeHasImage = false;
 boolean hasCharity = false;
 ResultSetContainer.ResultSetRow rsr = null;
-if (!bEmpty) {
+if (!rsc.isEmpty()) {
   rsr = rsc.getRow(0);
   pageContext.setAttribute("resultRow", rsr);
   vieweeHasImage = rsr.getItem(23).toString().equals("1");
@@ -68,7 +67,7 @@ if (!bEmpty) {
                  <TR>
                    <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
-         <% if (!bEmpty) { %>
+         <% if (!rsc.isEmpty()) { %>
                  <TR>
                    <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statTextLarge">
           <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>           
@@ -149,7 +148,7 @@ if (!bEmpty) {
                 <TR>
                   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
                   <% if ( nav.getLoggedIn() && Integer.parseInt(rsr.getItem(1).toString())==nav.getUserId() ) { %><A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="statText" TARGET="_parent">Update your profile</A>
-<% } else { %>&#160;</xsl:otherwise><%}%>
+                  <% } else { %>&#160;<%}%>
                   </TD>
                 </TR>                
                 <% if (hasCharity) {%> 
@@ -162,8 +161,7 @@ if (!bEmpty) {
             DER="0"/></TD>
                 </TR>
                 <TR> -->
-                  <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BO
-            RDER="0"/></TD>
+                  <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
                 </TR>
         <% } else { %>
         <TR>
@@ -174,14 +172,17 @@ if (!bEmpty) {
                   <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"></TD>
                 </TR>
               </TABLE>
-<% if (!bEmpty) {
-ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Coder_Submission_Summary");
-pageContext.setAttribute("resultSet", rsc2);
+<%
+ResultSetContainer rsc4 = (ResultSetContainer) queryEntries.get("Coder_Submission_Summary_Div_1");
+ResultSetContainer rsc6 = (ResultSetContainer) queryEntries.get("Coder_Submission_Totals_Div_1");
+if (rsc4!=null && !rsc4.isEmpty() && rsc6!=null && !rsc6.isEmpty()) {
+    pageContext.setAttribute("resultSet", rsc4);
+    pageContext.setAttribute("totalRow1", rsc6.getRow(0));
 %>
-        
+
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
                 <TR>
-                  <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&#160;&#160;Submission Information</TD>
+                  <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&#160;&#160;Division-I Submission Information</TD>
                 </TR>
                 <TR>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -212,20 +213,72 @@ pageContext.setAttribute("resultSet", rsc2);
                 <TR>
                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" HEIGHT="13">Total:</TD>
-                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 14 /* failed challenge */ + "]" %>'/></TD>
-                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 15 /* failed systest*/ + "]" %>'/></TD>
-                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 13 /* submitted */ + "]" %>'/></TD>
-                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write format="0.00%" name="resultRow" property='<%= "item[" + 17 /* pct accuracy */ + "].resultData" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="totalRow1" property='<%= "item[" + 1 /* failed challenge */ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="totalRow1" property='<%= "item[" + 2 /* failed systest*/ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="totalRow1" property='<%= "item[" + 0 /* submitted */ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write format="0.00%" name="totalRow1" property='<%= "item[" + 4 /* pct accuracy */ + "].resultData" %>'/></TD>
                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
                 <TR>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"></TD>
                 </TR>
               </TABLE>
-<% ResultSetContainer rsc3 = (ResultSetContainer) queryEntries.get("Coder_Challenge_Summary");
+<% }
+    ResultSetContainer rsc5 = (ResultSetContainer) queryEntries.get("Coder_Submission_Summary_Div_2");
+    ResultSetContainer rsc7 = (ResultSetContainer) queryEntries.get("Coder_Submission_Totals_Div_2");
+    if (rsc5!=null && !rsc5.isEmpty() && rsc7!=null && !rsc7.isEmpty()) {
+        pageContext.setAttribute("resultSet", rsc5);
+        pageContext.setAttribute("totalRow2", rsc7.getRow(0));
+%>
+              <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+                <TR>
+                  <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&#160;&#160;Division-II Submission Information</TD>
+                </TR>
+                <TR>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                </TR>
+                <TR>
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Problem</TD>
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center" WIDTH="20%"># Failed Challenge</TD>
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center" WIDTH="20%"># Failed Sys. Test</TD>
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center" WIDTH="20%"># Submitted</TD>
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="20%">Success %</TD>
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                </TR>
+                <TR>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                </TR>
+        <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
+                <TR>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13"><bean:write name="resultRow2" property='<%= "item[" + 0 /* level desc */ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="resultRow2" property='<%= "item[" + 3 /* failed challenge */ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="resultRow2" property='<%= "item[" + 4 /* failed systest */ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="resultRow2" property='<%= "item[" + 2 /* submitted */ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write format="0.00%" name="resultRow2" property='<%= "item[" + 6 /* submitted */ + "].resultData" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                </TR>
+        </logic:iterate>
+                <TR>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" HEIGHT="13">Total:</TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="totalRow2" property='<%= "item[" + 1 /* failed challenge */ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="totalRow2" property='<%= "item[" + 2 /* failed systest*/ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="totalRow2" property='<%= "item[" + 0 /* submitted */ + "]" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write format="0.00%" name="totalRow2" property='<%= "item[" + 4 /* pct accuracy */ + "].resultData" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                </TR>
+                <TR>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"></TD>
+                </TR>
+              </TABLE>
+<%  }
+    ResultSetContainer rsc3 = (ResultSetContainer) queryEntries.get("Coder_Challenge_Summary");
+    if (rsc3!=null && !rsc3.isEmpty()) {
 pageContext.setAttribute("resultSet", rsc3);
 %>
-        
+
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
                 <TR>
                   <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&#160;&#160;Challenge Information</TD>
@@ -263,7 +316,6 @@ pageContext.setAttribute("resultSet", rsc3);
                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
               </TABLE>
-        </logic:present>
             </TD>
             <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
           </TR>
@@ -284,6 +336,7 @@ pageContext.setAttribute("resultSet", rsc3);
           </TR>
         </TABLE>
 <% } %>
+        </logic:present>
         <!-- END BODY -->
 
        </TD>
