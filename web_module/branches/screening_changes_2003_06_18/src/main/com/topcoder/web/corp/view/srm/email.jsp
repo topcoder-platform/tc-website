@@ -57,9 +57,9 @@
                             
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
                                     <strong>Email distribution</strong><br />
                                 </td>
                             </tr>
@@ -72,11 +72,11 @@
                         
                         <h3>Match Announcment</h3>
                         Sponsors are given space within the email for company name, forty words of copy and a desired URL. 
-                        <nobr><a href="<?module=Static&d1=corp&d2=spon_prog&d3=email_annc">View sample</a></nobr></p>
+                        <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=email_annc">View sample</a></nobr></p>
                         
                         <h3>Match Results</h3>
                         Sponsors are given space within the email for company name and a desired URL. 
-                        <nobr><a href="<?module=Static&d1=corp&d2=spon_prog&d3=email_results">View sample</a></nobr></p>
+                        <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=email_results">View sample</a></nobr></p>
                         
                         <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop 
                         the desired copy points.</p>

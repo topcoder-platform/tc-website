@@ -60,7 +60,7 @@
                         thereby reducing the time incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem 
                         solving skills with scenarios that mirror on-the-job issues. </p>
 	
-                        <p><span class="bodySubtitle"><a href="<?module=UserList">Manage Users</a></span><br>
+                        <p><span class="bodySubtitle"><a href="?module=UserList">Manage Users</a></span><br>
                         Use our online application to manage the access your company users get to the TCES Recruiting and Testing Tools. Add new 
                         users, assign different levels of administrative access to existing users, or delete users. Options vary depending on which 
                         TCES packages you purchase.</p>
