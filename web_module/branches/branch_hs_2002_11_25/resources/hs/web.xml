@@ -46,7 +46,7 @@
 
 <servlet-mapping>
   <servlet-name>hs</servlet-name>
-  <url-pattern></url-pattern>
+  <url-pattern>/</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
   <servlet-name>graph</servlet-name>
