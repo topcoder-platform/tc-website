@@ -26,7 +26,7 @@
         <ejb>ddesubmission.jar</ejb>
     </module>
     <module>
-        <java>emailengine.jar</java>
+        <java>email_engine.jar</java>
     </module>
     <module>
         <ejb>forum.jar</ejb>

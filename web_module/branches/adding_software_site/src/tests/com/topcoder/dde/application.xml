@@ -13,7 +13,7 @@
         <ejb>ddePersistenceLayer.jar</ejb>
     </module>
     <module>
-        <java>emailengine.jar</java>
+        <java>email_engine.jar</java>
     </module>
     <module>
         <java>render.jar</java>
