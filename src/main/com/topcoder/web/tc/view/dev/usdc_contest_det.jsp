@@ -52,8 +52,8 @@
                                 <td class="sidebarTitle" align=center nowrap=nowrap>Details</td>
                                 <td class="sidebarTitle" align=center>Start Date</td>
                                 <td class="sidebarTitle" align=center>End Date</td>
-                                <td class="sidebarTitle" align=right>1st Place Prizes</td>
-                                <td class="sidebarTitle" align=right>2nd Place Prizes</td>
+                                <td class="sidebarTitle" align=right>1st Place Prize</td>
+                                <td class="sidebarTitle" align=right>2nd Place Prize</td>
                             </tr>
                             <tr>
                                 <td class="sidebarText"><A href="/">Component 1</A></td>
@@ -67,9 +67,6 @@
                         
                         <br/>
                         
-                        <p align=center><A href="/tc?module=Static&d1=dev&d2=usdc_results">back to Contest Results</A></p>
-                    
-
         <p><br/></p>
 
         </td>

@@ -63,7 +63,7 @@
                                 <td class="sidebarTitle" align=center>Winner</td>
                                 <td class="sidebarTitle" align=center>Winner<br/>Submission Date</td>
                                 <td class="sidebarTitle" align=center>Score</td>
-                                <td class="sidebarTitle" align=right>Contest Earnings</td>
+                                <td class="sidebarTitle" align=right>Contest Prizes</td>
                             </tr>
                             <tr>
                                 <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Week 1</A></td>
@@ -90,7 +90,7 @@
                                 <td class="sidebarTitle" align=center>Winner</td>
                                 <td class="sidebarTitle" align=center>Winner<br/>Submission Date</td>
                                 <td class="sidebarTitle" align=center>Score</td>
-                                <td class="sidebarTitle" align=right>Contest Earnings</td>
+                                <td class="sidebarTitle" align=right>Contest Prizes</td>
                             </tr>
                             <tr>
                                 <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Month 1</A></td>
@@ -117,7 +117,7 @@
                                 <td class="sidebarTitle" align=center>Winner</td>
                                 <td class="sidebarTitle" align=center>Winner<br/>Submission Date</td>
                                 <td class="sidebarTitle" align=center>Score</td>
-                                <td class="sidebarTitle" align=right>Contest Earnings</td>
+                                <td class="sidebarTitle" align=right>Contest Prizes</td>
                             </tr>
                             <tr>
                                 <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Quarter 1</A></td>
