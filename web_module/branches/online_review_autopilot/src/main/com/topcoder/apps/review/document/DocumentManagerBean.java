@@ -1286,7 +1286,7 @@ public class DocumentManagerBean implements SessionBean {
                     // If requestor is submitter, create a new InitialSubmission object
                     User reqUser = Common.getUser(dataSource, requestor.getUserId());
                     InitialSubmission initialSubmission = new InitialSubmission(-1, null, null, null,
-                            reqUser, project, false, -1, -1, false, requestor.getUserId(), -1);
+                            reqUser, project, false, -1, -1, false, false, requestor.getUserId(), -1);
                     submissions = new InitialSubmission[] {initialSubmission};
                 }
             }
@@ -1424,7 +1424,7 @@ public class DocumentManagerBean implements SessionBean {
                         "s.final_score, s.placement, s.passed_screening, " +
                         "s.submission_v_id, " +
                         "su.login_id, su.user_id, " +
-                        "uc.first_name, uc.last_name, e.address email_address, rur.r_user_role_id " +
+                        "uc.first_name, uc.last_name, e.address email_address, rur.r_user_role_id, s.advanced_to_review " +
                         "FROM submission s, security_user su, user uc, r_user_role rur, " +
                         "email e  " +
                         "WHERE s.cur_version = 1 AND " +
@@ -1478,6 +1478,7 @@ public class DocumentManagerBean implements SessionBean {
                 float finalScore = rs.getFloat(7);
                 int placement = rs.getInt(8);
                 boolean passedScreening = rs.getBoolean(9);
+                boolean advancedToReview = rs.getBoolean(17);
 
                 long subVersionId = rs.getLong(10);
 
@@ -1615,11 +1616,11 @@ public class DocumentManagerBean implements SessionBean {
                                     submissionId, false, false)[0];
                         } else {
                             submission = new InitialSubmission(submissionId, submissionURL, pmReviewMsg, pmScreeningMsg,
-                                    submitter, project, isRemoved, finalScore, placement, passedScreening, requestor.getUserId(), subVersionId);
+                                    submitter, project, isRemoved, finalScore, placement, passedScreening, advancedToReview, requestor.getUserId(), subVersionId);
                         }
                     } else {
                         submission = new InitialSubmission(submissionId, submissionURL, pmReviewMsg, pmScreeningMsg,
-                            submitter, project, isRemoved, finalScore, placement, passedScreening, requestor.getUserId(), subVersionId);
+                            submitter, project, isRemoved, finalScore, placement, passedScreening, advancedToReview, requestor.getUserId(), subVersionId);
                     }
                 } else {
                     submission = new FinalFixSubmission(submissionId, submissionURL, pmReviewMsg, pmScreeningMsg,
@@ -1818,10 +1819,10 @@ public class DocumentManagerBean implements SessionBean {
                             "submission_type, submission_url, " +
                             "sub_pm_review_msg, sub_pm_screen_msg, " +
                             "submitter_id, project_id, is_removed, " +
-                            "final_score, placement, passed_screening, " +
+                            "final_score, placement, passed_screening, advanced_to_review, " +
                             "modify_user, " +
                             "submission_date, cur_version) " + "VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
                 } else {
                     ps = conn.prepareStatement(
                             "INSERT INTO submission " +
@@ -1829,9 +1830,9 @@ public class DocumentManagerBean implements SessionBean {
                             "submission_type, submission_url, " +
                             "sub_pm_review_msg, sub_pm_screen_msg, " +
                             "submitter_id, project_id, is_removed, " +
-                            "final_score, placement, passed_screening, " +
+                            "final_score, placement, passed_screening, advanced_to_review, " +
                             "modify_user, cur_version) " + "VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
                 }
 
                 ps.setLong(1, submission.getId());
@@ -1860,15 +1861,17 @@ public class DocumentManagerBean implements SessionBean {
                     ps.setDouble(9, initSub.getFinalScore());
                     ps.setInt(10, initSub.getPlacement());
                     ps.setBoolean(11, initSub.isPassedScreening());
+                    ps.setBoolean(12, initSub.isAdvancedToReview());
                 } else {
                     ps.setNull(9, Types.DOUBLE);
                     ps.setNull(10, Types.DECIMAL);
                     ps.setNull(11, Types.BOOLEAN);
+                    ps.setNull(12, Types.BOOLEAN);
                 }
 
-                ps.setLong(12, submission.getRequestorId());
+                ps.setLong(13, submission.getRequestorId());
                 if (timestamp != null) {
-                    ps.setTimestamp(13, timestamp);
+                    ps.setTimestamp(14, timestamp);
                 }
                 int nr = ps.executeUpdate();
 
@@ -3548,7 +3551,7 @@ public class DocumentManagerBean implements SessionBean {
                     dontCreate = true;
                 }
                 if (scorecardType == ReviewScorecard.SCORECARD_TYPE &&
-                        subArr[i].isPassedScreening() == false) {
+                        (subArr[i].isPassedScreening() == false || subArr[i].isAdvancedToReview() == false)) {
                     dontCreate = true;
                 }
                 if (dontCreate == false) {

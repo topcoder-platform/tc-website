@@ -162,6 +162,30 @@ public class ProjectAdministration implements Model {
                     }
                 }
 
+                //build a set of the top 5 scores, for use in advancing to review
+                ArrayList scores = new ArrayList();
+                
+                for(int i = 0; i < submissions.length; i++) {
+                    if (!submissions[i].isRemoved()) {
+                        for (int j = 0; j < scorecards.length; j++) {
+                            if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
+                                double minscore = ConfigHelper.getMinimumScore();
+                                if (scorecards[j].getPassed() && scorecards[j].getScore() >= minscore) {
+                                    scores.add(new Double(scorecards[j].getScore()));
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                //sort list
+                Collections.sort(scores);
+                Collections.reverse(scores);
+                //remove all but top five scores.  No need to check ties, this will gaurentee they advance
+                while(scores.size() > 5) {                
+                    scores.remove(5);
+                }
+                
                 int count = 0;
                 String message = "";
                 for (int i = 0; i < submissions.length; i++) {
@@ -174,9 +198,10 @@ public class ProjectAdministration implements Model {
                             if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
                                 ok = true;
                                 double minscore = ConfigHelper.getMinimumScore();
-                                if (scorecards[j].getPassed() && scorecards[j].getScore() >= minscore) {
+                                if (scorecards[j].getPassed() && scorecards[j].getScore() >= minscore && scores.contains(new Double(scorecards[j].getScore()))) {
                                     InitialSubmission sub = scorecards[j].getSubmission();
                                     sub.setPassedScreening(true);
+                                    sub.setAdvancedToReview(true);
                                     documentManager.saveInitialSubmission(sub, user.getTCSubject());
                                 }
 //                                ok = true;
@@ -363,7 +388,8 @@ public class ProjectAdministration implements Model {
                 final ReviewScorecard[] scorecards = documentManager.getReviewScorecard(newProject, user.getTCSubject());
 
                 for (int i = 0; i < submissions.length; i++) {
-                    if (!submissions[i].isRemoved() && submissions[i].isPassedScreening()) {
+                    //added advanced to review - rfairfax 10-26
+                    if (!submissions[i].isRemoved() && submissions[i].isPassedScreening() && submissions[i].isAdvancedToReview()) {
                         // compute the average of the scorecards for the current submission
                         double sum = 0.0;
                         int count = 0;

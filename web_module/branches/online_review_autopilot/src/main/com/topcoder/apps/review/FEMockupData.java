@@ -493,11 +493,11 @@ public final class FEMockupData {
             submissions[0] = new InitialSubmission(1,
                                 new URL("http://www.cs.ubc.ca/"),
                                 "good good good", "ok ok ok", users[1],
-                                projects[1], false, -1, -1, false, 1, 1);
+                                projects[1], false, -1, -1, false,false, 1, 1);
             submissions[1] = new InitialSubmission(2,
                                 new URL("http://www.yahoo.com/"),
                                 "good good good", "ok ok ok", users[2],
-                                projects[2], false, -1, -1, false, 2, 1);
+                                projects[2], false, -1, -1, false, false, 2, 1);
 
             // The screening scorecards.
             screeningScorecards = new ScreeningScorecard[2];

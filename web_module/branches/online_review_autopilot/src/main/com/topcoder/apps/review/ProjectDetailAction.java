@@ -199,7 +199,8 @@ public final class ProjectDetailAction extends ReviewAction {
                 if (isAdmin || isPM) {
                     List beansList = new LinkedList();
                     for (int i = 0; i < submissions.length; i++) {
-                        if (((InitialSubmission)submissions[i]).isPassedScreening()) {
+                        //added advanced to review - rfairfax 10-26
+                        if (((InitialSubmission)submissions[i]).isPassedScreening() && ((InitialSubmission)submissions[i]).isAdvancedToReview()) {
                             AdminReviewScorecardBean adminBean =
                                 new AdminReviewScorecardBean(pr.getProject(),
                                                              submissions[i],
