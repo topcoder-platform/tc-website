@@ -5,6 +5,7 @@
 <P><B>Registration for Students Confirmation page</B></P>
 <BR>
 <FORM ACTION="" METHOD="post" NAME="regForm">
+ <INPUT TYPE="hidden" NAME="module" VALUE="StudentRegistration">
  <INPUT TYPE="hidden" NAME="cmd" VALUE="confirm">
  <INPUT TYPE="hidden" NAME="first_name" VALUE="<jsp:getProperty name="student" property="FirstName"/>">
  <INPUT TYPE="hidden" NAME="last_name" VALUE="<jsp:getProperty name="student" property="LastName"/>">
