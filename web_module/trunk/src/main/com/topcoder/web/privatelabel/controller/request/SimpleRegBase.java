@@ -195,4 +195,14 @@ public abstract class SimpleRegBase extends RegistrationBase {
 
     }
 
+    protected boolean emailExists(String email) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("email exists");
+        r.setProperty("em", email);
+        r.setProperty("cm", getRequestParameter(Constants.COMPANY_ID));
+
+        ResultSetContainer rsc = (ResultSetContainer)getDataAccess(db).getData(r).get("email exists");
+        return !rsc.isEmpty();
+
+    }
 }
