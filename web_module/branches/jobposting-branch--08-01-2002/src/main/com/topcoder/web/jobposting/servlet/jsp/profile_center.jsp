@@ -89,7 +89,7 @@
     </tr>
 <%}%>
 
-        <% Map demograhics = JobHitTask.getDemograhics();
+        <% Map demographics = JobHitTask.getDemographics();
             Iterator it = demographics.entrySet().iterator();
             Map.Entry me = null;
             while (it.hasNext()) {
