@@ -853,13 +853,13 @@ public class TCLoadCoders extends TCLoad {
             query.append("SELECT s.school_id ");              // 1
             query.append("      ,s.school_division_code ");   // 2
             query.append("      ,sd.school_division_desc ");  // 3
-            query.append("      ,s.name ");                   // 4
+            query.append("      ,s.full_name ");                   // 4
             query.append("      ,s.short_name ");             // 5
             query.append("      ,s.state_code ");             // 6
             query.append("  FROM school s ");
-            query.append("       school_division_lu ");
+            query.append("      ,school_division_lu sd");
             query.append(" WHERE s.modify_date > ?");
-            query.append("   AND su.school_division_code = s.school_division_code ");
+            query.append("   AND sd.school_division_code = s.school_division_code ");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
 
@@ -868,9 +868,9 @@ public class TCLoadCoders extends TCLoad {
             query.append("      (school_id ");             // 1
             query.append("      ,school_division_code ");  // 2
             query.append("      ,school_division_desc ");  // 3
-            query.append("      ,name ");                  // 4
-            query.append("      ,short_name) ");           // 5
-            query.append("      ,state_code ");            // 6
+            query.append("      ,full_name ");                  // 4
+            query.append("      ,short_name ");           // 5
+            query.append("      ,state_code) ");            // 6
             query.append("VALUES (");
             query.append("?,?,?,?,?,?)"); 
             psIns = prepareStatement(query.toString(), TARGET_DB);
@@ -879,7 +879,7 @@ public class TCLoadCoders extends TCLoad {
             query.append(" UPDATE school ");
             query.append("    SET school_division_code = ? ");  // 2
             query.append("       ,school_division_desc = ? ");  // 3
-            query.append("       ,name = ? ");                  // 4
+            query.append("       ,full_name = ? ");                  // 4
             query.append("       ,short_name = ? ");            // 5
             query.append("       ,state_code = ? ");            // 6
             query.append("  WHERE school_id = ?");              // 1

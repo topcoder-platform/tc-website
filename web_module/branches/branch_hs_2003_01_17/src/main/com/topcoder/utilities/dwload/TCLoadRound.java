@@ -1574,9 +1574,12 @@ public class TCLoadRound extends TCLoad {
             query.append("           FROM room_result rr2 ");
             query.append("          WHERE rr2.school_id = rr.school_id ");
             query.append("            AND rr2.round_id = rr.round_id) ");
+            query.append("       , x.school_id");  //32
             query.append("  FROM room_result rr ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
+            query.append("  JOIN user_school_xref x ON rr.coder_id = x.user_id");
+            query.append("   AND x.current_ind = 1");    
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
             query.append("   AND rr.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
@@ -1619,10 +1622,11 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,overall_rank ");                    // 27
             query.append("       ,division_placed ");                 // 28
             query.append("       ,division_seed ");                   // 29
-            query.append("       ,school_points) ");                  // 30
+            query.append("       ,school_points ");                  // 30
+            query.append("       ,school_id) ");                  // 31
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-            query.append("        ?,?,?,?,?,?,?,?,?,?)");  // 30 total values
+            query.append("        ?,?,?,?,?,?,?,?,?,?,?)");  // 30 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(1024);
@@ -1683,6 +1687,7 @@ public class TCLoadRound extends TCLoad {
                 else {
                     psIns.setInt(30, 0);
                 }
+                psIns.setInt(31, rs.getInt(32));  // school_id
                 retVal = psIns.executeUpdate();
                 count += retVal;
                 if (retVal != 1) {
