@@ -76,7 +76,12 @@ import java.util.*;
  * @see Group
  */
 public interface User {
-    
+   
+    /**
+     * Returns the user's rating.
+     */
+    public int getRating();
+ 
     /**
      * Returns the user's id. All ids must be unique in the system.
      */
