@@ -6,11 +6,18 @@ package com.topcoder.utilities.dwload;
  * TCLoadCoders loads coder information tables from one database to another.
  * The tables that are built by this load procedure are:
  * <ul>     
+ * <li>state</li>
+ * <li>country</li>
  * <li>coder</li>
  * <li>skill</li>
  * <li>skill_type</li>
  * <li>coder_skill</li>
  * <li>rating</li>
+ * <li>path</li>
+ * <li>image</li>
+ * <li>coder_image_xref</li>
+ * <li>school</li>
+ * <li>current_school</li>
  * </ul>
  *
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
@@ -49,6 +56,10 @@ public class TCLoadCoders extends TCLoad {
 
             getLastUpdateTime();
 
+            loadState();
+   
+            loadCountry();
+
             loadCoder();
 
             // Need to load skill_type first due to referential integrity in skill
@@ -60,11 +71,15 @@ public class TCLoadCoders extends TCLoad {
 
             loadRating();
 
-            loadImage();
-
             loadPath();
 
+            loadImage();
+
             loadCoderImageXref();
+
+            loadSchool();
+         
+            loadCurrentSchool();
 
             setLastUpdateTime();
 
@@ -108,6 +123,140 @@ public class TCLoadCoders extends TCLoad {
             close(stmt);
         }
     }
+
+
+
+    private void loadState() throws Exception {
+        int count = 0;
+        int retVal = 0;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        PreparedStatement psUpd = null;
+        ResultSet rs = null;
+        StringBuffer query = null;
+
+        try {
+            query = new StringBuffer(100);
+            query.append("SELECT s.state_code ");
+            query.append(      " ,s.state_name ");    
+            query.append(      " ,s.region_code ");
+            query.append( " FROM state s ");
+            query.append(" WHERE s.modify_date > ?");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setTimestamp(1, fLastLogTime);
+
+            query = new StringBuffer(100);
+            query.append("INSERT INTO state ");
+            query.append(" (state_code ");       
+            query.append(" ,state_name ");      
+            query.append(" ,region_code) ");
+            query.append("VALUES (");
+            query.append("?,?,?)"); 
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append(" UPDATE state SET state_name = ?, region_code = ? WHERE state_code = ?");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
+
+            rs = executeQuery(psSel, "loadState");
+
+            while (rs.next()) {
+                String state_code = rs.getString("state_code");
+
+                try {
+                    psIns.setString(1, rs.getString("state_name"));
+                    psIns.setString(2, rs.getString("region_code"));
+                    retVal = psIns.executeUpdate();
+                } catch (Exception e) {
+                    // the insert failed, so try an update
+                    psUpd.setString(1, rs.getString("state_name"));
+                    psUpd.setString(2, rs.getString("region_code"));
+                    psUpd.setString(4, state_code);
+                }
+
+
+                count = count + retVal;
+                if (retVal != 1) {
+                    throw new SQLException("TCLoadCoder: Load state for state " + state_code +
+                            " modified " + retVal + " rows, not one.");
+                }
+
+                printLoadProgress(count, "state");
+            }
+
+            log.info("state records copied = " + count);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+        }
+    }
+
+
+    private void loadCountry() throws Exception {
+        int count = 0;
+        int retVal = 0;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        PreparedStatement psUpd = null;
+        ResultSet rs = null;
+        StringBuffer query = null;
+
+        try {
+            query = new StringBuffer(100);
+            query.append("SELECT c.country_code ");
+            query.append(      " ,c.country_name ");    
+            query.append(      " ,c.participating ");
+            query.append( " FROM country c ");
+            query.append(" WHERE c.modify_date > ?");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setTimestamp(1, fLastLogTime);
+
+            query = new StringBuffer(100);
+            query.append("INSERT INTO country ");
+            query.append(" (country_code ");       
+            query.append(" ,country_name ");      
+            query.append(" ,participating) ");
+            query.append("VALUES (");
+            query.append("?,?,?)"); 
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append(" UPDATE country SET country_name = ?, participating = ? WHERE country_code = ?");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
+
+            rs = executeQuery(psSel, "loadCountry");
+
+            while (rs.next()) {
+                String country_code = rs.getString("country_code");
+
+                try {
+                    psIns.setString(1, rs.getString("country_name"));
+                    psIns.setInt(2, rs.getInt("participating"));
+                    retVal = psIns.executeUpdate();
+                } catch (Exception e) {
+                    // the insert failed, so try an update
+                    psUpd.setString(1, rs.getString("country_name"));
+                    psUpd.setString(2, rs.getString("participating"));
+                    psUpd.setString(3, country_code);
+                }
+
+
+                count = count + retVal;
+                if (retVal != 1) {
+                    throw new SQLException("TCLoadCoder: Load country for country " + country_code +
+                            " modified " + retVal + " rows, not one.");
+                }
+
+                printLoadProgress(count, "country");
+            }
+
+            log.info("country records copied = " + count);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+        }
+    }
+
+
+
 
     /**
      * This method loads the 'coder' table of the data warehouse. It holds
@@ -877,7 +1026,10 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,i.image_type_id ");     // 3
             query.append("       ,i.path_id ");           // 4
             query.append("  FROM image i ");
+            query.append(" WHERE i.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setTimestamp(1, fLastLogTime);
+
 
             query = new StringBuffer(100);
             query.append("INSERT INTO image ");
@@ -952,7 +1104,9 @@ public class TCLoadCoders extends TCLoad {
             query.append("SELECT p.path_id ");           // 1
             query.append("       ,p.path ");         // 2
             query.append("  FROM path p ");
+            query.append(" WHERE p.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setTimestamp(1, fLastLogTime);
 
             query = new StringBuffer(100);
             query.append("INSERT INTO path ");
@@ -1012,7 +1166,7 @@ public class TCLoadCoders extends TCLoad {
         int retVal = 0;
         PreparedStatement psSel = null;
         PreparedStatement psIns = null;
-        PreparedStatement psDel = null;
+        PreparedStatement psUpd = null;
         ResultSet rs = null;
         StringBuffer query = null;
 
@@ -1022,7 +1176,9 @@ public class TCLoadCoders extends TCLoad {
             query.append(" ,cix.image_id ");         // 2
             query.append(" ,cix.display_flag ");     // 3
             query.append("  FROM coder_image_xref cix ");
+            query.append(" WHERE cix.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setTimestamp(1, fLastLogTime);
 
             query = new StringBuffer(100);
             query.append("INSERT INTO coder_image_xref ");
@@ -1034,30 +1190,32 @@ public class TCLoadCoders extends TCLoad {
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append(" DELETE FROM coder_image_xref WHERE coder_id = ? AND image_id = ?");
-            psDel = prepareStatement(query.toString(), TARGET_DB);
+            query.append(" UPDATE coder_image_xref set display_flag = ? WHERE coder_id = ? AND image_id = ?");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadCoderImageXref");
 
             while (rs.next()) {
-                int coder_id = rs.getInt(1);
-                int image_id = rs.getInt(2);
-                int display_flag = rs.getInt(3);
+                int coder_id = rs.getInt("coder_id");
+                int image_id = rs.getInt("image_id");
+                int display_flag = rs.getInt("display_flag");
 
-                psIns.setInt(1, coder_id);
-                psIns.setInt(2, image_id);
-                psIns.setInt(3, display_flag);
-
-                psDel.setInt(1, coder_id);
-                psDel.setInt(2, image_id);
-
-                psDel.executeUpdate();
-
-                retVal = psIns.executeUpdate();
+                try {
+                    psIns.setInt(1, coder_id);
+                    psIns.setInt(2, image_id);
+                    psIns.setInt(3, display_flag);
+                    retVal = psIns.executeUpdate();
+                } catch (Exception e) {
+                    // the insert failed, so try an update
+                    psUpd.setInt(1, display_flag);
+                    psUpd.setInt(2, coder_id);
+                    psUpd.setInt(3, image_id);
+                    retVal = psUpd.executeUpdate();
+                }
 
                 count = count + retVal;
                 if (retVal != 1) {
-                    throw new SQLException("TCLoadCoder: Insert coder_image_xref for coder_id " +
+                    throw new SQLException("TCLoadCoder: Load coder_imag_xref for coder_id " +
                             coder_id + " image_id " +
                             image_id +
                             " modified " + retVal + " rows, not one.");
@@ -1075,8 +1233,185 @@ public class TCLoadCoders extends TCLoad {
             close(rs);
             close(psSel);
             close(psIns);
+            close(psUpd);
         }
     }
+
+
+    private void loadSchool() throws Exception {
+        int count = 0;
+        int retVal = 0;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        PreparedStatement psUpd = null;
+        ResultSet rs = null;
+        StringBuffer query = null;
+
+        try {
+            query = new StringBuffer(100);
+            query.append("SELECT s.school_id ");
+            query.append(      " ,s.sort_letter ");    
+            query.append(      " ,s.city ");
+            query.append(      " ,s.state_code ");
+            query.append(      " ,s.country_code ");
+            query.append(      " ,s.user_id ");
+            query.append(      " ,s.name ");
+            query.append(      " ,s.short_name ");
+            query.append( " FROM school s ");
+            query.append(" WHERE s.modify_date > ?");
+            query.append(  " AND s.user_id = 0");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setTimestamp(1, fLastLogTime);
+
+            query = new StringBuffer(100);
+            query.append("INSERT INTO school ");
+            query.append(" (school_id ");       
+            query.append(" ,sort_letter ");      
+            query.append(" ,city ");
+            query.append(" ,state_code ");
+            query.append(" ,country_code ");
+            query.append(" ,user_id ");
+            query.append(" ,name ");
+            query.append(" ,short_name) ");
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?)"); 
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append(" UPDATE school SET sort_letter = ?, city = ?, state_code = ?, country_code = ?, user_id = ?, name = ?, short_name = ? WHERE school_id = ?");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
+
+            rs = executeQuery(psSel, "loadSchool");
+
+            while (rs.next()) {
+                int school_id = rs.getInt("school_id");
+
+
+                try {
+                    psIns.setInt(1, school_id);
+                    psIns.setString(2, rs.getString("sort_letter"));
+                    psIns.setString(3, rs.getString("city"));
+                    psIns.setString(4, rs.getString("state_code"));
+                    psIns.setString(5, rs.getString("country_code"));
+                    psIns.setInt(6, rs.getInt("user_id"));
+                    psIns.setString(7, rs.getString("name"));
+                    psIns.setString(8, rs.getString("short_name"));
+                    retVal = psIns.executeUpdate();
+                } catch (Exception e) {
+                    // the insert failed, so try an update
+                    psUpd.setString(1, rs.getString("sort_letter"));
+                    psUpd.setString(2, rs.getString("city"));
+                    psUpd.setString(3, rs.getString("state_code"));
+                    psUpd.setString(4, rs.getString("country_code"));
+                    psUpd.setInt(5, rs.getInt("user_id"));
+                    psUpd.setString(6, rs.getString("name"));
+                    psUpd.setString(7, rs.getString("short_name"));
+                    psUpd.setInt(8, school_id);
+                    retVal = psUpd.executeUpdate();
+                }
+
+
+                count = count + retVal;
+                if (retVal != 1) {
+                    throw new SQLException("TCLoadCoder: Load school for school " + school_id +
+                            " modified " + retVal + " rows, not one.");
+                }
+
+                printLoadProgress(count, "school");
+            }
+
+            log.info("school records copied = " + count);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'school' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psIns);
+            close(psUpd);
+        }
+    }
+
+
+
+    private void loadCurrentSchool() throws Exception {
+        int count = 0;
+        int retVal = 0;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        PreparedStatement psUpd = null;
+        ResultSet rs = null;
+        StringBuffer query = null;
+
+        try {
+            query = new StringBuffer(100);
+            query.append("SELECT cs.coder_id ");
+            query.append(      " ,cs.school_name ");    
+            query.append(      " ,cs.school_id ");
+            query.append(      " ,cs.degree_number ");
+            query.append( " FROM current_school cs ");
+            query.append(" WHERE cs.modify_date > ?");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel.setTimestamp(1, fLastLogTime);
+
+            query = new StringBuffer(100);
+            query.append("INSERT INTO current_school ");
+            query.append(" (coder_id ");
+            query.append(" ,school_name ");       
+            query.append(" ,school_id ");      
+            query.append(" ,degree_number) ");
+            query.append("VALUES (");
+            query.append("?,?,?,?)"); 
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append(" UPDATE current_school SET school_name = ?, school_id = ?, degree_number = ? WHERE coder_id = ?");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
+
+            rs = executeQuery(psSel, "loadCurrentSchool");
+
+            while (rs.next()) {
+                int coder_id = rs.getInt("coder_id");
+
+                try {
+                    psIns.setInt(1, coder_id);
+                    psIns.setString(2, rs.getString("school_name"));
+                    psIns.setString(3, rs.getString("school_id"));
+                    psIns.setString(4, rs.getString("degree_number"));
+                    retVal = psIns.executeUpdate();
+                } catch (Exception e) {
+                    // the insert failed, so try an update
+                    psUpd.setString(1, rs.getString("school_name"));
+                    psUpd.setString(2, rs.getString("school_id"));
+                    psUpd.setString(3, rs.getString("degree_number"));
+                    psUpd.setInt(4, coder_id);
+                }
+
+
+                count = count + retVal;
+                if (retVal != 1) {
+                    throw new SQLException("TCLoadCoder: Load current school for coder " + coder_id +
+                            " modified " + retVal + " rows, not one.");
+                }
+
+                printLoadProgress(count, "current_school");
+            }
+
+            log.info("current_school records copied = " + count);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'current_school' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psIns);
+            close(psUpd);
+        }
+    }
+
+
 
     private void setLastUpdateTime() throws Exception {
         PreparedStatement psUpd = null;

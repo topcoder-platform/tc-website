@@ -18,7 +18,7 @@
               <TR>
                 <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="13" ALIGN="right">Rank&#160;&#160;</TD>  
                 <TD CLASS="statTextBig" VALIGN="middle">&#160;&#160;Name</TD>
-                <TD CLASS="statTextBig" VALIGN="middle" ALIGN="right">Rating&#160;&#160;</TD>                  
+                <TD CLASS="statTextBig" VALIGN="middle" ALIGN="right">Avg. Rating&#160;&#160;</TD>                  
               </TR>              
               <TR>
                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    

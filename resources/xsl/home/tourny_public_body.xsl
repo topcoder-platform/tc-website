@@ -10,6 +10,7 @@
   <xsl:import href="../includes/modules/intro.xsl"/>      
   <xsl:import href="../includes/modules/coder_week2.xsl"/>
   <xsl:import href="../includes/modules/top_10_coders2.xsl"/>
+  <xsl:import href="../includes/modules/top_10_schools.xsl"/>
   <xsl:import href="../includes/modules/round_table.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/module_login.xsl"/>
@@ -184,13 +185,13 @@ Wednesday, August 12, 2002<BR/><BR/>
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0" HEIGHT="15">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=index#leaders</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=index#leaders</xsl:attribute>
         Div. Leaders
       </A>
     </TD>
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP="0">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=index#problem_stats</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=index#problem_stats</xsl:attribute>
         Problem Stats
       </A>
     </TD> 
@@ -460,6 +461,7 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
   <IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/>
 </A> -->
 <xsl:call-template name="top_10_coders"/>
+<xsl:call-template name="top_10_schools"/>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
   <TR><TD COLSPAN="3" BGCOLOR="#001935"><IMG SRC="/i/label_quick_stats_home.gif" ALT="Quick Stats" WIDTH="166" HEIGHT="17" BORDER="0"/></TD></TR>
