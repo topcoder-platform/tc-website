@@ -51,6 +51,8 @@
 					web application, information retrieval, Japanese encoding, modeling, machine learning, computational linguistics, data mining, 
 					web scaling/reliability, statistical expertise, matlab, S-Plus, Unicode, UTF-8, multi-threading, distributed computing, 
 					network programming, performance analysis, GNU, CVS, MySQL.</p>
+					
+					<p><span class="bodySubtitle"><a href="/tc?module=JobHit&jid=224&jt=1">Apply Now!</a></span></p>
 
 
 				   </td>
