@@ -40,7 +40,7 @@ public class Histogram {
     public SortedSet getSortedSet() {
         Comparator histogramComparator = new Comparator() {
             public int compare(Object o1, Object o2) {
-                return ((Integer)((Map.Entry)o1).getValue()).compareTo(((Integer)((Map.Entry)o2).getValue()));
+                return ((Integer)((Map.Entry)o2).getValue()).compareTo(((Integer)((Map.Entry)o1).getValue()));
             }};
         TreeSet s = new TreeSet(histogramComparator);
         for (Iterator it = histogram.entrySet().iterator(); it.hasNext();) {
