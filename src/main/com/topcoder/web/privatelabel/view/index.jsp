@@ -54,7 +54,9 @@
                 <tr valign="top">
                     <td class="bodyText">
                         February 27<br />
-                        <A href="/pl/?&module=Static&d1=doubleclick&d2=col_overview" target="_blank">Summary</A>
+                        DoubleClick Headquarters<br/>
+                        New York<br/>
+                        <A href="/pl/?&module=Static&d1=doubleclick&d2=col_overview" target="_blank">Details</A>
                     </td>
                     <td valign="bottom" width="1%"><img src="/i/clear.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></td>
                 </tr>
