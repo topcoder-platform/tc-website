@@ -3,8 +3,7 @@ package com.topcoder.web.hs.controller;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
-import java.util.*;
-import com.topcoder.web.hs.controller.requests.*;
+import com.topcoder.web.common.RequestProcessor;
 
 /**
  * All requests to the HS website pass through this servlet.

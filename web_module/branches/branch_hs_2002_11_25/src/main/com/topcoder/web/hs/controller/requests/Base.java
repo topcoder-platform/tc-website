@@ -1,8 +1,8 @@
 package com.topcoder.web.hs.controller.requests;
 
 import javax.servlet.*;
-import javax.servlet.http.*;
 import com.topcoder.web.hs.model.*;
+import com.topcoder.web.common.RequestProcessor;
 
 /**
  * Contains some of the basic methods and data for request processors.
