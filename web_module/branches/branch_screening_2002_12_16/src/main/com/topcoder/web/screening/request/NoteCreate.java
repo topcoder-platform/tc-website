@@ -23,6 +23,8 @@ public class NoteCreate extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
+        doStrongAuthorization();
+        
         String candId = getRequest().getParameter(Constants.CANDIDATE_ID);
 
         if( candId == null || candId.equals("") ){
