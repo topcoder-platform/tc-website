@@ -3,6 +3,10 @@
     String tabLev2 = request.getParameter("tabLev2")==null?"":request.getParameter("tabLev2");
 %>
 
+<table width="750" cellpadding="0" cellspacing="7" border="0" align="center">
+   <tr><td align="left" valign="top"><a href="http://www.doubleclick.com/us/"><img src="/i/events/doubleclick/dc_home.gif" width="179" height="38" alt="DoubleClick" border="0"/></a></td></tr>
+</table>
+
 <% if (tabLev1.equals("collegiate")) {%>
 <table width="750" align="center" border="0" cellpadding="2" cellspacing="1" class="dc_subnav_box">
    <tr valign="top">
