@@ -449,8 +449,8 @@ pageContext.setAttribute("resultSet", rscDefense);
                  <TR VALIGN="middle">
                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>  
                    <TD CLASS="statText" ALIGN="left"><%=pageContext.getAttribute("coderHandle").toString() %></TD>
-                   <TD CLASS="statText">
-                     <A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* challenger_name */ + "]" %>'/></A>
+                   <TD CLASS="statText" nowrap=nowrap>
+					<tc:ratingImage link='<%=sLink+resultRow.getIntItem(2)%>' bg='B' cid='<%=resultRow.getIntItem(2)%>' />
                    </TD>
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>    
