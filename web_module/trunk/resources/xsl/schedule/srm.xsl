@@ -107,7 +107,8 @@
 
                             <xsl:choose>
                             <xsl:when test="$roundId=4710">
-                                <b>Win an Intel&#174; Centrino&#153; mobile technology-based notebook computer</b><br/><br/>
+                                <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_intel">
+                                <b>Win an Intel&#174; Centrino&#153; mobile technology-based notebook computer</b></a><br/><br/>
                            </xsl:when>
                                 </xsl:choose>
 
