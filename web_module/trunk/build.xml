@@ -824,6 +824,7 @@
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/common/" />
+                <include name="com/topcoder/web/security/**" />
             </classes>
         </war>
         <unwar src="${war.dir}/security.war" dest="${public_html}/security/" overwrite="yes"/>
