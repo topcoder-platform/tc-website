@@ -39,8 +39,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        super.setAuthentication(Authentication.getAuthentication(request.getSession(true)));
         session = request.getSession(true);
+        super.setAuthentication(Authentication.getAuthentication(session));
     }
 
     public void process(String step) throws Exception {

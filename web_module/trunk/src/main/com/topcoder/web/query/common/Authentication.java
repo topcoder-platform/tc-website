@@ -80,7 +80,10 @@ public class Authentication implements Serializable {
 
     public static Authentication getAuthentication(HttpSession session) {
         Authentication auth = (Authentication)session.getAttribute(AUTHENTICATION_KEY);
-        if (auth==null) auth = new Authentication();
+        if (auth==null) {
+            auth = new Authentication();
+            session.setAttribute(AUTHENTICATION_KEY, auth);
+        }
         return auth;
     }
 
