@@ -28,6 +28,7 @@
                             <tr><td class="sidebarTitle" colspan="2">Problem Set Analyses</td></tr> 
                             <tr><td class="sidebarText">&#160;09.11.04</td><td class="sidebarText" nowrap="0">&#160;TCO04 - Online Round 1 - <a href="/index?t=statistics&amp;c=tco04_online_rd_1">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="sidebarText">&#160;09.14.04</td><td class="sidebarText" nowrap="0">&#160;TCO04 - Online Round 2 - <a href="/index?t=statistics&amp;c=tco04_online_rd_2">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="sidebarText">&#160;09.22.04</td><td class="sidebarText" nowrap="0">&#160;TCO04 - Online Round 3 - <a href="/index?t=statistics&amp;c=tco04_online_rd_3">Problem Set &amp; Analysis</a></td></tr>
                         </table>
          <p><br/></p>
             
