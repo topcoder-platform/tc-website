@@ -21,6 +21,7 @@ public class ProfileInfo extends BaseModel {
     private ArrayList language;
     private String testSetAName;
     private ResultSetContainer sessionList;
+    private boolean hasTestSetA;
 
     private static Logger log = Logger.getLogger(ProfileInfo.class);
 
@@ -256,16 +257,11 @@ public class ProfileInfo extends BaseModel {
     }
 
     public boolean hasTestSetA() {
-        /* basically what we want to do here is figure out if the profile
-         * has a test set a.  if it's a new one, we don't really care if it's
-         * null, because it's new, we can assume that it has a test set a
-         * if it's not new, or if the test set was set to no test set a, then we'll
-         * return as such
-         */
-        log.debug("isnew: " + isNew() + " testseta: " + testSetA);
+        return hasTestSetA;
+    }
 
-        if (testSetA==null&&!isNew()) return false;
-        else return !testSetA.equals(new Long(Constants.NO_TEST_SET_A));
+    public void setHasTestSetA(boolean hasTestSetA) {
+        this.hasTestSetA = hasTestSetA;
     }
 
 

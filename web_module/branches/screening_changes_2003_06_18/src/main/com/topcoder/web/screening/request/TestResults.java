@@ -51,11 +51,7 @@ public class TestResults extends BaseProcessor {
         TestResultsInfo tinfo = new TestResultsInfo();
         ProfileInfo pinfo = new ProfileInfo();
         pinfo.setIsNew(false);
-        if (result.getItem(0,"session_round_id").getResultData()==null) {
-            pinfo.setTestSetA(new Long(Constants.NO_TEST_SET_A));
-        } else {
-            pinfo.setTestSetA(result.getItem(0,"session_round_id").toString());
-        }
+        pinfo.setHasTestSetA(result.getItem(0,"session_round_id").getResultData()!=null);
         if (pinfo.hasTestSetA()) {
             String roundId = result.getItem(0,"contest_round_id").toString();
             String divisionId = result.getItem(0,"contest_division_id").toString();
