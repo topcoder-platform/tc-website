@@ -1038,7 +1038,7 @@ public class Legacy extends Base {
             " date(ch.start_time) > date(today-30) and  " +
             " date(ch.start_time) > mdy(1,24,2002) and " +
             " calc_seconds(start_time, end_time) between 60 and 22000 and" +
-            " lower(handle) not in ('mike', 'chuck', 'grunt', 'td', 'dok', 'tlongo', 'jhughes', 'fenway', 'gt494') and" +
+            " handle_lower not in ('mike', 'chuck', 'grunt', 'td', 'dok', 'tlongo', 'jhughes', 'fenway', 'gt494') and" +
             " user_id not in  " +
             " ( " +
             " select user_id from group_user where group_id = 13 " +
