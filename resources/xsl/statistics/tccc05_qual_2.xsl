@@ -88,8 +88,7 @@ function openWin(url, name, w, h) {
 This set was of the "Think. Think. Think. Type." variety rather than
 the "Think. Type. Type. Type." variety.  Both problems were easy to
 code once you figured out exactly what they were asking for.
-Congratulations to newcomer <b>B_Carvalho</b> and veteran
-<b>MikeMirzayanov</b> for blazing fast solutions to the easy and hard
+Congratulations to newcomer <b>B_Carvalho</b> and <b>kalinov</b> for blazing fast solutions to the easy and hard
 problems, respectively.
 </p>
 
