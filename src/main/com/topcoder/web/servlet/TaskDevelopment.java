@@ -39,7 +39,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javax.naming.Context;
+import java.util.Calendar;
+import java.util.Date;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 public final class TaskDevelopment {
 
 
@@ -99,9 +103,8 @@ public final class TaskDevelopment {
             String comp = Conversion.checkNull(request.getParameter("comp"));
             String date = Conversion.checkNull(request.getParameter("date"));
             String payment = Conversion.checkNull(request.getParameter("payment"));
-            devTag.addTag(new ValueTag("payment", payment));
             devTag.addTag(new ValueTag("comp", comp));
-            devTag.addTag(new ValueTag("date", date));
+            
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
             if(!payment.equals(""))
@@ -116,10 +119,32 @@ public final class TaskDevelopment {
                 devTag.addTag(new ValueTag("second_payment", format.format(paymentAmt*.25)));
                 
             }
+            else{
+                devTag.addTag(new ValueTag("payment", payment));
+            }
             if(!date.equals(""))
             {
                 
+                Calendar cal = Calendar.getInstance();
+                
+                SimpleDateFormat df = SimpleDateFormat.getDateInstance("MM/dd/yyyy");
+                Date initialDate = DateFormat.parse(date);
+                devTag.addTag(new ValueTag("date", df.format(initalDate)));
+                cal.add(Calendar.DATE, 4);
+                Date newDate = new Date(cal.getTime());
+                devTag.addTag(new ValueTag("DesWinner", df.format(newDate)));    
+                devTag.addTag(new ValueTag("DesFinal", df.format(newDate)));    
+                devTag.addTag(new ValueTag("DesDevFinal", df.format(newDate)));    
+
+                devTag.addTag(new ValueTag("DevWinner", df.format(newDate)));    
+                devTag.addTag(new ValueTag("DevFinal", df.format(newDate)));    
+
+
             }
+            else{
+                devTag.addTag(new ValueTag("date", date));
+            }
+        
 
             if (command.equals("inquire")) {
                 if (nav.getLoggedIn()) {
