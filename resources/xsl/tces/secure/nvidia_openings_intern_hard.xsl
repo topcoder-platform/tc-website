@@ -85,7 +85,7 @@
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_formver_intern&amp;a=secure" CLASS="bodyText">FORMAL VERIFICATION ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sig_integrity_intern&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER&#42;</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sigdes_eng_intern&amp;a=secure" CLASS="bodyText">MIXED-SIGNAL DESIGN ENGINEER</A></B><BR/><BR/>
-                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_hard_rf_eng_intern&amp;a=secure" CLASS="bodyText">HARDWARE RF ENGINEER&#42; </A></B><BR/>&#42; Intern&#47; Co-op Position Only<BR/>
+                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_hard_rf_eng_intern&amp;a=secure" CLASS="bodyText">HARDWARE RF ENGINEER&#42; </A></B><BR/><BR/>&#42; Intern&#47; Co-op Position Only<BR/>
          <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
@@ -104,7 +104,7 @@
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_hardeng_chip_intern&amp;a=secure" CLASS="bodyText">HARDWARE ENGINEER - ASIC &#40;CHIPSET&#41;</A></B><BR/> <BR/>  
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_appeng2_intern&amp;a=secure" CLASS="bodyText">APPLICATIONS ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_dfteng_intern&amp;a=secure" CLASS="bodyText">DFT ENGINEER</A></B><BR/><BR/>
-                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_plat_arch_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE INTERN</A></B><BR/><BR/> 
+                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_plat_arch_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE INTERN&#42;</A></B><BR/><BR/> 
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_analog_mix_eng_intern&amp;a=secure" CLASS="bodyText">ANALOG/MIXED-SIGNAL DESIGN ENGINEER - WIRELESS</A></B><BR/><BR/>     
         <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_packdesigner&amp;a=secure" CLASS="bodyText">PACKAGE DESIGNER</A></B><BR/>
