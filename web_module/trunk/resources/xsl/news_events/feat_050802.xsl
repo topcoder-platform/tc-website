@@ -55,13 +55,10 @@
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">
 <!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
 
-<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Headline here</B></FONT><BR/>
-<I>Subhead here</I><BR/><BR/>
+<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Working Their Way Up</B></FONT><BR/>
+<I>A LooK at Division-II Veterans and Their Dedication to Coding</I><BR/><BR/>
 Wednesday, May 8, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/></P>
-
-
-<IMG SRC="/i/clear.gif" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/>
 
 <P>
 Everyone remembers the 1980's don't they?  The big hair, the Members Only jackets, 
@@ -73,7 +70,7 @@ a God-like mystique, some who consistently failed grew frustrated and quit, whil
 trying for the fun of it.
 </P>
 
-<P>
+<P><IMG SRC="/i/f/feat_050802_tn1.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
 That same pattern seems to happen in TopCoder's Single Round Matches.  Coders like 
 <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>, 
 <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> and 
@@ -139,7 +136,7 @@ yet everyone else around me is just as good if not better, so you take your
 The low-rated coders seem to be into TopCoder for all the right reasons, so what's the problem?
 </P>
 
-<P>
+<P><IMG SRC="/i/f/feat_050802_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/>
 Well, first off, some of TopCoder's members are distance runners, where 
 TopCoder competitions are more conducive to sprinters.
 </P>
@@ -161,7 +158,7 @@ That approach tends to work against me in competition."
 </P>
 
 <P>
-"I don't work as well in a quick paced environment," declared edragon.  
+"I don't work as well in a quick paced environment," declared <A HREF="/stat?c=member_profile&amp;cr=156420" CLASS="bodyGeneric">edragon</A>.  
 "I would like to have the entire problem statement analyzed, documented
  and completely understood before I go for it."
 </P>
@@ -201,7 +198,8 @@ competition with many challenges to the problem wording and test cases.
 </P>
 
 <P>
-When asked if he ever thought about quitting, <A HREF="/stat?c=member_profile&amp;cr=156420" CLASS="bodyGeneric">edragon</A>
+When asked if he ever thought about quitting, 
+<B>edragon</B>
  admitted, "A few 
 times, but I generally see what I did wrong and I try the next time to do 
 it better."  He then jokingly added, "Most nights on TopCoder I seem to 
