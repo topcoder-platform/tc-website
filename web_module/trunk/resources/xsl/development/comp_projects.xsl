@@ -144,6 +144,20 @@
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
+                <xsl:variable name="designtco" select="//TC/DEVELOPMENT/projects/project[phase_id=$design-phase
+                                                    and status_id=303]"/>
+                <xsl:if test="not($designtco)">
+                        <tr valign="top">
+                            <td class="formTextOdd">
+                              The Design TCO begins on 9/4/2003
+                            </td>
+                            <td class="formTextOdd" align="center"></td>
+                            <td class="formTextOdd" align="center"></td>
+                            <td class="formTextOdd" align="center"></td>
+                            <td class="formTextOdd" align="center"></td>
+                            <td class="formTextOdd" align="center"></td>
+                        </tr>
+                </xsl:if>
 
                 <tr>
                     <td class="bodyText" colspan="5">*Total Payment (before royalties) </td>
@@ -201,6 +215,20 @@
                     </xsl:if>
                 </xsl:for-each>
 
+                <xsl:variable name="devtco" select="//TC/DEVELOPMENT/projects/project[phase_id=$dev-phase 
+                                                    and status_id=303]"/>
+                <xsl:if test="not($devtco)">
+                        <tr valign="top">
+                            <td class="formTextOdd">
+                              The Development TCO begins on 9/2/2003
+                            </td>
+                            <td class="formTextOdd" align="center"></td>
+                            <td class="formTextOdd" align="center"></td>
+                            <td class="formTextOdd" align="center"></td>
+                            <td class="formTextOdd" align="center"></td>
+                            <td class="formTextOdd" align="center"></td>
+                        </tr>
+                </xsl:if> 
                 <tr>
                     <td class="bodyText" colspan="5">*Total Payment (before royalties) </td>
                 </tr>
