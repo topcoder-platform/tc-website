@@ -23,6 +23,7 @@ public class SearchResults extends BaseScreeningProcessor {
     
     protected void screeningProcessing() throws com.topcoder.web.common.TCWebException {
         
+        try {
         SearchModel sm = getSearchModel();
         
         setDefault(Constants.FIRST_NAME, sm.getFirstName());
@@ -31,6 +32,10 @@ public class SearchResults extends BaseScreeningProcessor {
         
         setNextPage(Constants.SEARCH_RESULTS_PAGE); 
         setIsNextPageInContext(true); 
+        } catch (Exception e)
+        {
+            throw new TCWebException(e);
+        }
     }
     
     private SearchModel getSearchModel() throws Exception {
