@@ -84,10 +84,10 @@ public final class TaskHome {
                 if (nav.getLoggedIn()) {
 
                     dataRequest = new Request();
-                    dataRequest.setContentHandle("coder_earnings");
+                    dataRequest.setContentHandle("member_profile");
                     dataRequest.setProperty("cr", String.valueOf(nav.getUserId()));
                     resultMap = dai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Coder_Earnings");
+                    rsc = (ResultSetContainer) resultMap.get("Coder_Data");
                     homeTag.addTag(rsc.getTag("Coder", "Coder"));
 
                     /*
