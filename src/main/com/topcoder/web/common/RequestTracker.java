@@ -117,6 +117,7 @@ public class RequestTracker {
     private static class UserRequest {
         private long userId;
         private String  url;
+        private String sessionId;
         private long time;
 
         /**
@@ -137,6 +138,7 @@ public class RequestTracker {
             buf.append((query == null) ? ("") : ("?" + query));
             this.url = buf.toString();
             this.time = System.currentTimeMillis();
+            this.sessionId=r.getSession().getId();
         }
     }
 
