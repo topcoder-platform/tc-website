@@ -103,7 +103,6 @@ public final class TaskStatic {
         } else {
             xsldocURLString = TCServlet.XSL_ROOT + requestTask + requestOther + requestCommand + ".xsl";
         }
-log.debug("task: " + requestTask);
         if (requestTask.startsWith("tces")) {
             try {
                 ctx = TCContext.getInitial();
