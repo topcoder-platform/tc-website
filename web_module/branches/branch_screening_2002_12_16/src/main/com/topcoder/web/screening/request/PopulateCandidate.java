@@ -32,26 +32,30 @@ public class PopulateCandidate extends BaseProcessor {
     public void process() throws Exception {
         ServletRequest request = getRequest();
         String uId = request.getParameter(Constants.CANDIDATE_ID);
-        if(request.getAttribute(Constants.CANDIDATE_INFO) == null 
-           && uId != null) {
+        if(request.getAttribute(Constants.CANDIDATE_INFO) == null) { 
             CandidateInfo info = new CandidateInfo();
-            info.setIsNew(false);
-            long userId = Long.parseLong(uId);
+            if(uId != null) {
+                info.setIsNew(false);
+                long userId = Long.parseLong(uId);
 
-            //do some kind of db lookup
-            InitialContext context = new InitialContext();
-            PrincipalMgr principalMgr = new PrincipalMgr();
-            EmailHome eHome = (EmailHome)PortableRemoteObject.narrow(
-                    context.lookup(EmailHome.class.getName()),
-                    EmailHome.class);
-            Email email = eHome.create();
-            
-            //will throw exception or return null?
-            info.setUserId(new Long(userId));
+                //do some kind of db lookup
+                InitialContext context = new InitialContext();
+                PrincipalMgr principalMgr = new PrincipalMgr();
+                EmailHome eHome = (EmailHome)PortableRemoteObject.narrow(
+                        context.lookup(EmailHome.class.getName()),
+                        EmailHome.class);
+                Email email = eHome.create();
+                
+                //will throw exception or return null?
+                info.setUserId(new Long(userId));
 
-            long emailId = email.getPrimaryForUser(userId);
-            info.setEmailAddress(email.getAddress(emailId, userId));
-            info.setPassword(principalMgr.getPassword(userId));
+                long emailId = email.getPrimaryForUser(userId);
+                info.setEmailAddress(email.getAddress(emailId, userId));
+                info.setPassword(principalMgr.getPassword(userId));
+            }
+
+            //set this so we don't lose the value
+            info.setReferrer(request.getParameter(Constants.REFERRER));
 
             request.setAttribute(Constants.CANDIDATE_INFO, info);
         }

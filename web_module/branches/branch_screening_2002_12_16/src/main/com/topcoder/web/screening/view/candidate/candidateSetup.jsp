@@ -32,19 +32,10 @@
 </P><BR>
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" scope="request" />
 
-<%
-    String referrer = request.getParameter("referrer");
-%>
-
 <screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="POST">
         <INPUT type="hidden" name="rp" value="UpdateCandidate" />
-<%
-    if(referrer != null) {
-%>
-        <INPUT type="hidden" name="referrer" value="<%=referrer%>" />
-<%
-    }
-%>
+        <INPUT type="hidden" name="referrer" value="<jsp:getProperty name="candidateInfo" property="referrer" />" />
+
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><strong>Email Address</strong>&#160;&#160;</TD>

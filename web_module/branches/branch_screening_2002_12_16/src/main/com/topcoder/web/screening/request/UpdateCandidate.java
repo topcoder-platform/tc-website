@@ -161,6 +161,7 @@ public class UpdateCandidate extends BaseProcessor
         throws Exception {
         String uId = request.getParameter(Constants.CANDIDATE_ID);
         HashMap errorMap = new HashMap(2);
+        info.setReferrer(request.getParameter(Constants.REFERRER));
         boolean success = true;
         if(uId != null) {
             //we're not doing updates so this is an error
@@ -270,7 +271,7 @@ public class UpdateCandidate extends BaseProcessor
      */
     private void determineNextPage() {
         String referrer = request.getParameter(Constants.REFERRER);
-        if(referrer == null) {
+        if(referrer == null || referrer.trim().equals("")) {
             referrer = Constants.UC_DEFAULT_FORWARD_PROCESSOR;
         }
 
