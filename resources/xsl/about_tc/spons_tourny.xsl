@@ -105,7 +105,7 @@
  	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
 <!--end contextual links-->
-					<P>Currently, TopCoder conducts a Collegiate Challenge and an Invitational. These two events draw both competitors and spectators over a two-month period (avg.) to see who will win the championship and a $100,000 grand prize.</P>
+					<P>Currently, TopCoder conducts a Collegiate Challenge and an Invitational. These two events draw both competitors and spectators over a two-month period (avg.) to see who will win the championship and the grand prize.</P>
 					<P>In addition to all of the Single Round Matches that coders compete in to build their rating in order to get seeded for a tournament, the tournaments themselves are comprised of:<UL>
 					<LI>Regional Quarter-Finals - conducted online</LI>
 					<LI>Regional Finals - conducted online</LI>
