@@ -41,20 +41,28 @@
           Phone: (408) 988-1500<BR/>
           <a target="_blank" href="http://www.santaclaramarriott.com">www.santaclaramarriott.com</a><BR/>
         <BR/>
-         A room will be confirmed for your arrival on November 10th and departure on November 13th.   The check-in time is
+        TopCoder has added the Competitor Game Room to the onsite activities on Wednesday, March 9.
+        The room will be open from 9:00AM through 5:00PM.  Competitors who wish to arrive on Tuesday,
+        March 8 may do so and take advantage of the room on March 9.  TopCoder will run a Poker tournament with
+        prizes for 1st, 2nd, and 3rd place, and will also have various other games available (Backgammon,
+        Cards, Checkers, Chess, Clue, Monopoly, Othello, Risk, Scrabble and Trivial Pursuit).  We hope many
+        of you will take this opportunity to spend some time together outside of the tournament.
+        <br />
+
+         A hotel room will be confirmed for your arrival on either March 8th or 9th and departure on March 12th.   The check-in time is
             3:00 PM and check out time is 11:00 AM .  If you have any special requests, please indicate them on the
             travel form. The cost of your sleeping room and applicable taxes will be charged to the TopCoder master
             account.  You will be required, however, to provide a credit card upon check-in for any incidental expenses.
             <BR/><BR/>
-            <b>At the TCO04, you will be sharing a hotel room with another competitor.</b>  Please fill in the
+            <b>At the TCCC05, you will be sharing a hotel room with another competitor.</b>  Please fill in the
             appropriate space with your roommate preference if you have one.  We will do our best to accommodate your request.<BR/>
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
-          Your travel information must be submitted no later than <strong>9:00 AM ET on Monday, October 18th</strong>.
+          Your travel information must be submitted no later than <strong>5:00 PM EST on Friday, February 18th</strong>.
             TopCoder will secure
             airline reservations based upon your registration information and will email a travel itinerary to you
-            by Friday, November 5th.  Please be advised that once airlines tickets are confirmed, any changes are
+            by Friday, March 4th.  Please be advised that once airlines tickets are confirmed, any changes are
             subject to penalty fees at your own expense.
             <BR/>
         <BR/>
@@ -142,7 +150,7 @@
         </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="Employer/School"/>Employer or School:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="School"/>School:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a15" size="15"/></TD>
             </TR>
 
@@ -192,35 +200,39 @@
               <TD align="left"><INPUT TYPE="text" NAME="a22" size="50"/></TD>
             </TR>
 
-        <TR>
-            <td></td>
-          <TD>*Departure time will be based on arrival by 4:00 PM, November 10, 2004 in San Jose, CA</TD>
-        </TR>
+            <TR>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q23" VALUE="Preferred arrival date"/>Preferred arrival date:</TD>
+              <TD align="left"><SELECT name="a23"><OPTION value="Tuesday, March 8">Tuesday, March 8</OPTION><OPTION value="Wednesday, March 9">Wednesday, March 9</OPTION></SELECT></TD>
+           </TR>
+            <TR>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q24" VALUE="Preferred arrival time"/>Preferred arrival time:</TD>
+              <TD align="left"><SELECT name="a24"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
+           </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q23" VALUE="November 13, 2004 - preferred departure time"/>November 13, 2004 - preferred departure time:</TD>
-              <TD align="left"><SELECT name="a23"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q25" VALUE="March 12, 2005 - preferred departure time"/>March 12, 2005 - preferred departure time:</TD>
+              <TD align="left"><SELECT name="a25"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q24" VALUE="Seating preference"/>Seating preference:</TD>
-              <TD align="left"><SELECT name="a24"><OPTION value="Window">Window</OPTION><OPTION value="Aisle">Aisle</OPTION></SELECT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q26" VALUE="Seating preference"/>Seating preference:</TD>
+              <TD align="left"><SELECT name="a26"><OPTION value="Window">Window</OPTION><OPTION value="Aisle">Aisle</OPTION></SELECT></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q25" VALUE="Preference for your hotel room"/>Preference for your hotel room :</TD>
-              <TD align="left"><SELECT name="a25"><OPTION value="Smoking">Smoking</OPTION><OPTION value="Non Smoking">Non Smoking</OPTION></SELECT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q27" VALUE="Preference for your hotel room"/>Preference for your hotel room :</TD>
+              <TD align="left"><SELECT name="a27"><OPTION value="Smoking">Smoking</OPTION><OPTION value="Non Smoking">Non Smoking</OPTION></SELECT></TD>
            </TR>
 
         <TR>
-          <TD align="right"><INPUT TYPE="hidden" NAME="q26" VALUE="Roommate preference"/>Roommate preference:</TD>
-          <TD align="left"><INPUT TYPE="text" NAME="a26" size="20"/></TD>
+          <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="Roommate preference"/>Roommate preference:</TD>
+          <TD align="left"><INPUT TYPE="text" NAME="a28" size="20"/></TD>
         </TR>
 
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q27" VALUE="Personal Considerations/Special Requests"/>Personal Considerations/Special Requests: (Physical requirements or Medical needs)</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a27" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="Personal Considerations/Special Requests"/>Personal Considerations/Special Requests: (Physical requirements or Medical needs)</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a29" size="50"/></TD>
             </TR>
             <TR><TD COLSPAN="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></TD></TR>
             </FORM>
