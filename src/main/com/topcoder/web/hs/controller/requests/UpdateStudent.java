@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.security.BasicAuthentication;
 
 import java.util.*;
 
@@ -122,7 +123,7 @@ public class UpdateStudent extends Base {
 
                 if (RegistrationHelper.isValidStudent(errors, srb)) {
                     RegistrationHelper.updateStudent(srb);
-                    if (srb.getChangePassword()) reissueCookie();
+                    if (srb.getChangePassword()) reissueCookie(BasicAuthentication.HS_SITE);
                     setNextPage(HOME_PAGE);
                 } else {
                     setNextPage(UPDATE_BASE + UPDATE_PAGE);

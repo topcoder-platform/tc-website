@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.security.BasicAuthentication;
 
 import java.util.*;
 
@@ -124,7 +125,7 @@ public class UpdateCoach extends Base {
 
                 if (RegistrationHelper.isValidCoach(errors, crb)) {
                     RegistrationHelper.updateCoach(crb);
-                    if (crb.getChangePassword()) reissueCookie();
+                    if (crb.getChangePassword()) reissueCookie(BasicAuthentication.HS_SITE);
                     setNextPage(HOME_PAGE);
                 } else {
                     setNextPage(UPDATE_BASE + UPDATE_PAGE);

@@ -221,7 +221,7 @@ public final class TC extends HttpServlet {
 
 
     private boolean isAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
+        WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
         Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
         PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
         PrincipalMgrRemote principalMgr = principalMgrHome.create();
