@@ -485,7 +485,7 @@ where your result must be correct only to a certain degree of precision.  To det
 <li>If your result is within 10<sup>-9</sup> of the expected result, your solution will be evaluated as correct.</li>
 <li>If your result is between (1+10<sup>-9</sup>) * expected and (1-10<sup>-9</sup>) * expected, it will be evaluated as correct.</li>
 <li>If none of the above are true, your result will be evaluated as incorrect.</li></ul>
-<br/>If the return type is a double[] (vector<double> in C++) each of the elements of the array must pass the above tests.
+<br/>If the return type is a double[] (vector&lt;double&gt; in C++) each of the elements of the array must pass the above tests.
 <br/>The exact implementation of this is:
 <pre>
     static final double MAX_DOUBLE_ERROR = 1E-9;
