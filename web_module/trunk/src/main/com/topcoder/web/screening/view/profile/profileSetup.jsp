@@ -68,10 +68,10 @@ function submitConfirm() {
             <P>To set up a new Test Profile, follow these steps:</P>
             <ol>
                 <li>Choose an appropriate name for the Test Profile.</li>
-                <li>Assign a Problem Set to Test Set A.  Further information on each Problem Set can be found by clicking "Problem Sets" at the top 
+                <li>Assign a Problem Set to Test Set A.  Further information on each Problem Set can be found by clicking "Problem Sets" at the top
                 of the page.  Once a Problem Set is selected, the Test Set A table will be automatically populated.</li>
-                <li>Assign a Problem or Problems to Test Set B by choosing a Problem from the list and clicking "Add".  Clicking on the Problem 
-                Name once the table has been populated will open a window that displays statistical information about the Problem, as well as the 
+                <li>Assign a Problem or Problems to Test Set B by choosing a Problem from the list and clicking "Add".  Clicking on the Problem
+                Name once the table has been populated will open a window that displays statistical information about the Problem, as well as the
                 Problem Statement.</li>
                 <li>Choose the language(s) in which candidates will be able to code their solutions.</li>
                 <li>Click "Confirm" to ensure the correctness of the information.</P>
@@ -94,12 +94,12 @@ function submitConfirm() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Problem Set</b>&#160;</TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="testSetA" onChange="submitReload()">
-                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><% 
-                if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { 
-                %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option><% 
-                } 
-                else { 
-                %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option><% 
+                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
+                if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
+                %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option><%
+                }
+                else {
+                %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option><%
                 }
               %></screen:resultSetRowIterator>
               </select>
@@ -112,20 +112,20 @@ function submitConfirm() {
 
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="80%">
            <TR>
-              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="5" CLASS="bodyText"><B>Test Set A</B></TD>
+              <TD COLSPAN="4" CLASS="bodyText"><B>Test Set A</B></TD>
            </TR>
             <TR>
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD>
+<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
             </TR>
            <TR>
-              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>
             <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
             <TR>
@@ -133,31 +133,31 @@ function submitConfirm() {
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="divisionDesc" /></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="difficultyDesc" /></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="algorithmicCategoryList" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="businessCategoryList" /></TD>
+<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="businessCategoryList" /></TD> --%>
             </TR>
             </screen:listIterator>
            <TR>
-              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>
          </TABLE>
 
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="80%">
            <TR>
-              <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="6" CLASS="bodyText"><B>Test Set B</B></TD>
+              <TD COLSPAN="5" CLASS="bodyText"><B>Test Set B</B></TD>
            </TR>
             <TR>
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD>
+<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC">&#160;</TD>
             </TR>
            <TR>
-              <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>
             <INPUT TYPE="HIDDEN" name="testSetBRemove" value="" >
             <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
@@ -167,18 +167,18 @@ function submitConfirm() {
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="divisionDesc" /></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="difficultyDesc" /></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="algorithmicCategoryList" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="businessCategoryList" /></TD>
+<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="businessCategoryList" /></TD> --%>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="JavaScript:submitRemove('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" CLASS="bodyText">Remove</A></TD>
             </TR>
             </screen:listIterator>
            <TR>
-              <TD colspan="6" class="errorText" align="center" valign="middle"><screen:errors name="testSetB" /></TD>
+              <TD colspan="5" class="errorText" align="center" valign="middle"><screen:errors name="testSetB" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="30" border="0" /></TD>
+              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="30" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="6" ALIGN="center">
+              <TD COLSPAN="5" ALIGN="center">
 <select name="testSetBAdd" class="dropdown" size="10" multiple="true">
 <screen:resultSetRowIterator id="row" list="<%=profile.getCompanyProblemList()%>">
 <option value="<screen:resultSetItem row="<%=row%>" name="round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
@@ -187,7 +187,7 @@ function submitConfirm() {
               </TD>
            </TR>
            <TR>
-              <TD COLSPAN="6" ALIGN="center"><A HREF="JavaScript:submitAdd()" CLASS="bodyText">Add</A></TD>
+              <TD COLSPAN="5" ALIGN="center"><A HREF="JavaScript:submitAdd()" CLASS="bodyText">Add</A></TD>
            </TR>
          </TABLE>
 
