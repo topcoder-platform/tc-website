@@ -76,13 +76,12 @@
 					<td align="left" width="5%">
 						
                     
-						<img src="http://software.topcoder.com/images//icon_development.gif" alt="" height="62" width="66">
+						<img src="http://software.topcoder.com/images/icon_development.gif" alt="" height="62" width="66">
 
 					</td>
                     <td width="5%">
 
 
-                        <img src="http://software.topcoder.com/images//netSm.gif" alt="" border="0" height="17" width="33">
 
 					</td>
 					<td class="tableHeader" nowrap="nowrap" width="40%">
@@ -93,7 +92,7 @@
 					<td class="breadcrumb" align="right" valign="bottom" width="50%"></td>
 				</tr>
 				<tr>
-					<td class="whiteBkgnd" colspan="4"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="1" width="1"></td>
+					<td class="whiteBkgnd" colspan="4"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="1" width="1"></td>
 				</tr>
 			</tbody></table>
 			
@@ -198,7 +197,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -353,7 +352,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -459,7 +458,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -606,7 +605,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -669,7 +668,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -775,7 +774,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -837,7 +836,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
@@ -898,7 +897,7 @@ some places, but this should not be a widespread issue.</p></td>
 <!-- spacer  -->										
 		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
 		    	<tbody><tr>
-		    		<td class="normal"><img src="http://software.topcoder.com/images//clear.gif" alt="" border="0" height="5" width="1"></td>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
 		    </tbody></table>
 		
