@@ -3,6 +3,7 @@
   errorPage="/errorPage.jsp"
   import="java.util.*,
           com.topcoder.web.tces.common.*,
+          com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
           com.topcoder.web.tces.bean.*" %>
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
@@ -62,43 +63,51 @@
                 <%
                  int lastCompany = -1;
                  int currCompany = -1;
+                 boolean hasMany = false;
                  if (MainTask.getCampaignInfoList().size() > 0) {
-                     lastCompany = Integer.parseInt(((ResultSetContainer)MainTask.getCampainInfoList()).getItem(0, "company_id").toString());
+                     lastCompany = Integer.parseInt(((ResultSetContainer)MainTask.getCampaignInfoList()).getItem(0, "company_id").toString());
+                     int companyId = -1;
+                     /* figure out if there many companies in this compaign list, if so, we need to display company names */
+                     for (int i=0; i<MainTask.getCampaignInfoList().size()&&!hasMany; i++) {
+                         companyId = Integer.parseInt(((ResultSetContainer)MainTask.getCampaignInfoList()).getItem(i, "company_id").toString());
+                         if (companyId != lastCompany) {
+                             hasMany=true;
+                         }
+                     }
                  }
+                 int i=0;
                  %>
  
-<%--
-                <tces:mapIterator id="campaignInfo" MapList="<%=MainTask.getCampaignInfoList()%>">
---%>
                 <tces:rowIterator id="campaignInfo" rowList="<%=MainTask.getCampaignInfoList()%>">
-                <% currCompany = Integer.parseInt((String)campaignInfo.get("company_id")); %>
-
-                <TR>
-                  <TD class="statText" HEIGHT="18">&#160;
-                    <A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=(String)campaignInfo.get("campaign_id")%>" class="statText"><%=(String)campaignInfo.get("campaign_name")%></A>
-                  </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">
-                    <%=campaignInfo.get("start_date").toString()%>
-                  </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">
-                    <%=campaignInfo.get("end_date").toString()%>
-                  </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">
-                    <%=campaignInfo.get("status_desc").toString()%>
-                  </TD>
-                </TR>
-
-                <% if (currCompany != lastCompany) { %> 
-                  <BR/><BR/><%= campaignInfo.get("company_name") %><BR/><BR/>
+                <%-- this is some logic so that if you're an "admin" user, you'll get the company names
+                     to separate the different campaigns.  if this tool get's big, we should do it better.
+                 --%>
+                <% i++;
+                   currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
+                   if (currCompany != lastCompany || (hasMany && i==1)) { %> 
+                  <TR><TD colspan="5" class="statTextBig"><BR/><BR/></TD></TR>
+                  <TR><TD colspan="5" class="statTextBig"><%= campaignInfo.getItem("company_name").toString() %></TD></TR><BR/><BR/>
                 <% lastCompany = currCompany;
                    } %>
 
-<%--
-                </tces:mapIterator>
---%>
+                <TR>
+                  <TD class="statText" HEIGHT="18">&#160;
+                    <A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="statText"><%=campaignInfo.getItem("campaign_name").toString()%></A>
+                  </TD>
+                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="statText">
+                    <%=campaignInfo.getItem("start_date").toString()%>
+                  </TD>
+                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="statText">
+                    <%=campaignInfo.getItem("end_date").toString()%>
+                  </TD>
+                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="statText">
+                  </TD>
+                </TR>
+
+                </tces:rowIterator>
 
                 <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
                 <TR>
