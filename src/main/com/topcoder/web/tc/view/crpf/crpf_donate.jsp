@@ -80,10 +80,10 @@
                      </td>
                      <td>
                         <ul><li>
-                        Check.  Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A> and submit the form and a check to:<br />
-                        VirtualSprockets<br />
-                        17610 West Willard Road<br />
-                        Poolsville, MD  20837<br />
+                        Check.  Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A> and submit the form. Make checks out to the Christopher Reeve Paralysis Foundation and send them to:<br />
+                        TopCoder<br />
+                        703 Hebron Ave<br />
+                        Glastonbury,CT 06033<br />
                         ATTN:  CRPF DONATIONS</li></ul>
                      </td>
                   </tr>
