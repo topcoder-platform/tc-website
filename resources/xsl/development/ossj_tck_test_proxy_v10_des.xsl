@@ -93,11 +93,11 @@
                                             TopCoder is working with Sun Microsystems to develop software components to be used in the OSS/J (Operational Support Systems through Java) Initiative.  OSS/J is a working group of industry leaders, including Motorola, NEC and Nortel, who have joined resources to define and implement an open, standard set of Java technology-based APIs that help jumpstart the implementation of services for next-generation networks by easing the integration of OSS/BSS (Operational and Business Support System) applications.  The OSS space covers the aspects of managing, configuring and running telecommunication networks.  For more information on OSS/J please visit http://java.sun.com/products/oss/.</p>
 
                                             <p>As each of the OSS/J specifications is implemented, the testing of the implementation will be crucial to ensuring that it properly implements the corresponding specification.  It will be of great value to the entire OSS/J community to have a TCK (Technology Compatibility Kit) and accompanying tools available to automatically generate and execute a robust set of test cases for each implementation of an OSS/J specification.</p>
-                                            
+
                                             <p>At this time, the OSS/J community has already developed a number of static junit test cases to test the different API bundles that have been developed.  This process has been mostly a manual process and each test case has been developed twice in certain cases because of the two main integration profiles whereby calls to the OSS/J API can be made, through JVT (Java Value Type) or through XML over JMS.  The OSS/J API defines different types of implementations called integration profiles.  The interfaces of each API can be implemented using java interfaces (named JVT), and/or XML request/response over JMS (named XML/JMS profile and/or Web services in the near future).</p>
-                                            
+
                                             <p>In order to make the process of developing test cases more efficient, the OSS/J community has asked TopCoder to initially develop an OSS/J Test Proxy that will provide a mechanism for utilizing the same junit test cases as they exist today, but execute the tests through any desired integration profile (i.e. JMS/XML, SOAP).</p>
-                                            
+
                                             <p>IMPORTANT NOTE: This design project requires the designer to take the requirements that are laid out below and come up with a design that identifies additional components that will satisfy these requirements when packaged and used together. The designer must properly document the component requirements and interfaces within the Application Design Specification and Class Diagram. A corresponding component specification will then be posted along with the winning design from this project so that the components can be designed and developed separately.</p>
 
                                         <p>
@@ -140,11 +140,11 @@
                                              <br/><br/>
                                             <strong>First Payment:</strong>
                                             <br/>
-                                             When the winning solution is submitted and review board suggestions are integrated. 
+                                             When the winning solution is submitted and review board suggestions are integrated.
                                              <br/><br/>
                                             <strong>Second Payment:</strong>
                                             <br/>
-                                             At the completion of the development project*. 
+                                             At the completion of the development project*.
                                              <br/><br/>
                                              Compensation for the second place designer will be paid in one installment following the completion of the design project.
                                         </p>
@@ -231,27 +231,27 @@
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Inquire By:</td>
-                                                <td class="sidebarText" align="right">01.13.2004</td>
+                                                <td class="sidebarText" align="right">01.19.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Member Acceptance:</td>
-                                                <td class="sidebarText" align="right">01.14.2004</td>
+                                                <td class="sidebarText" align="right">01.19.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Design Start:</td>
-                                                <td class="sidebarText" align="right">01.15.2004</td>
+                                                <td class="sidebarText" align="right">01.20.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Design Submissions Due:</td>
-                                                <td class="sidebarText" valign="top" align="right">01.21.2004</td>
+                                                <td class="sidebarText" valign="top" align="right">01.27.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Winner Announced:</td>
-                                                <td class="sidebarText" align="right">02.03.2004</td>
+                                                <td class="sidebarText" align="right">02.09.2004</td>
                                             </tr>
 
                                             <tr>
@@ -261,7 +261,7 @@
 
                                             <tr>
                                                 <td class="sidebarText">Design Complete:</td>
-                                                <td class="sidebarText" align="right">02.12.2004</td>
+                                                <td class="sidebarText" align="right">02.18.2004</td>
                                             </tr>
 
                                             <tr>

@@ -75,7 +75,7 @@
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=ossj_tck_test_proxy_v10_des">Sun OSSJ TCK Test Proxy</a></td>
                     <td class="formTextOdd" align="center">$1,050</td>
                     <td class="formTextOdd" align="center">$300</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td class="formTextOdd" align="center">01/19/2004</td>
                 </tr>                
                 
 		<tr valign="top">
@@ -101,13 +101,14 @@
                     <td class="formTextOdd" align="center">$855</td>
                     <td class="formTextOdd" align="center">closed</td>
                 </tr>
-
+                <!--
                 <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$1,290</td>
                     <td class="formTextOdd" align="center">$420</td>
                     <td class="formTextOdd" align="center">closed</td>
                 </tr>
+                -->
 
              </table>
 
@@ -176,6 +177,7 @@
                     <td class="formTextOdd" align="center">$125</td>
                     <td class="formTextOdd" align="center">closed</td>
                </tr>
+               <!--
                <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$2,200</td>
@@ -183,7 +185,7 @@
                     <td class="formTextOdd" align="center">closed</td>
                 </tr>
 
-                <!--
+
                 <tr valign="top">
                     <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
                     <td class="bodyText" align="center">$2,400</td>
