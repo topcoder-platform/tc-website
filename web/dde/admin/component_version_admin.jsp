@@ -295,7 +295,7 @@ if (lngVersion > 0) {
         postingDate = dateFormat.format(verDateInfo.getPostingDate());
         initialSubmissionDate = dateFormat.format(verDateInfo.getInitialSubmissionDate());
         finalSubmissionDate = dateFormat.format(verDateInfo.getFinalSubmissionDate());
-        
+
         postingStatusId =  verDateInfo.getStatusId();
         levelId = verDateInfo.getLevelId();
 
@@ -387,8 +387,8 @@ if (action != null) {
             ver.setPublicForum(true);
         }
   	    initialSubmissionDate = "01/01/2000";
-        finalSubmissionDate =  initialSubmissionDate; 
-        
+        finalSubmissionDate =  initialSubmissionDate;
+
         estimatedDevDate =   initialSubmissionDate;
         screeningCompleteDate = initialSubmissionDate;
 
@@ -418,10 +418,10 @@ if (action != null) {
         phaseCompleteDateComment= null;
         productionDateComment= request.getParameter("txtProductionDateComment");
         reviewCompleteDateComment = null;
-        winnerAnnouncedDateComment= null; 
-        initialSubmissionDateComment= null; 
-        screeningCompleteDateComment    = null; 
-        finalSubmissionDateComment = null; 
+        winnerAnnouncedDateComment= null;
+        initialSubmissionDateComment= null;
+        screeningCompleteDateComment    = null;
+        finalSubmissionDateComment = null;
 
         String phaseDate =   "9/9/2000";
         String phase =   request.getParameter("selPhase");
@@ -465,7 +465,7 @@ if (action != null) {
                 verDateInfo.setPostingDate(dateFormat.parse(postingDate));
                 verDateInfo.setInitialSubmissionDate(dateFormat.parse(initialSubmissionDate));
                 verDateInfo.setFinalSubmissionDate(dateFormat.parse(finalSubmissionDate));
-                
+
                 if(estimatedDevDate != null && !estimatedDevDate.equals("")){
                    verDateInfo.setEstimatedDevDate(dateFormat.parse(estimatedDevDate));
                 }
@@ -1041,7 +1041,7 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 <!--
-<!-- Price 
+<!-- Price
                             <tr valign="middle">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Price</td>
@@ -1063,7 +1063,7 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 
-<!-- Phase Date 
+<!-- Phase Date
                             <tr valign="top">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Phase Date</td>
@@ -1071,7 +1071,7 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 
-<!-- Posting Date 
+<!-- Posting Date
                             <tr valign="top" ID="date_row1">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Posting Date</td>
@@ -1079,7 +1079,7 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 
-<!-- Initial Submission Date 
+<!-- Initial Submission Date
                             <tr valign="top" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Initial Submission Date</td>
@@ -1095,7 +1095,7 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 
-<!-- screening Complete date 
+<!-- screening Complete date
                             <tr valign="top" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Screening Complete Date</td>
@@ -1109,7 +1109,7 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 
-<!-- Review  Complete Phase 
+<!-- Review  Complete Phase
                             <tr valign="top" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Review Complete Date</td>
@@ -1123,7 +1123,7 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 
-<!-- Aggregation Complete Phase 
+<!-- Aggregation Complete Phase
                             <tr valign="top" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Aggregation Complete Date</td>
@@ -1138,7 +1138,7 @@ if (action != null) {
                             </tr>
 
 <!--
-<!-- Winner Announced 
+<!-- Winner Announced
                             <tr valign="top" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Winner Announced</td>
@@ -1152,7 +1152,7 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 
-<!-- Final Submission 
+<!-- Final Submission
                             <tr valign="top" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Final Submission Due Date</td>
@@ -1165,7 +1165,7 @@ if (action != null) {
                                 <td width="1%" class="adminText"><textarea class="compSearchForm" name="txtFinalSubmissionDateComment" rows="4" cols="35"><%=finalSubmissionDateComment  %></textarea></td>
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
-<!-- Estimated Development Phase 
+<!-- Estimated Development Phase
                             <tr valign="top" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Estimated Next Phase Date</td>
@@ -1174,7 +1174,7 @@ if (action != null) {
                             </tr>
 
 
-<!-- Phase Complete Phase 
+<!-- Phase Complete Phase
                             <tr valign="top" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Phase Complete Date</td>
@@ -1320,7 +1320,7 @@ if (action != null) {
                             </tr>
 <%
     // List all completed components
-    ComponentSummary approvedComps[] = (ComponentSummary[])catalog.getComponentsByStatus(ComponentInfo.APPROVED).toArray(new ComponentSummary[0]);
+    ComponentSummary approvedComps[] = (ComponentSummary[])catalog.getComponentsByStatusAndCatalog(ComponentInfo.APPROVED, componentManager.getRootCategory()).toArray(new ComponentSummary[0]);
     //debug.addMsg("component version admin", "got approved summaries");
 
     // List components for this version

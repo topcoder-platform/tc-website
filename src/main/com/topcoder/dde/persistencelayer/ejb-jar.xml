@@ -196,6 +196,16 @@
                 </query-method>
                 <ejb-ql>SELECT OBJECT(c) FROM DDECompCatalog c WHERE c.statusId = ?1</ejb-ql>
             </query>
+            <query>
+                <query-method>
+                    <method-name>findByCatalogAndStatus</method-name>
+                    <method-params>
+                        <method-param>long</method-param>
+                        <method-param>long</method-param>
+                    </method-params>
+                </query-method>
+                <ejb-ql>SELECT OBJECT(c) FROM DDECompCatalog c WHERE c.statusId = ?1 AND c.rootCategoryId = ?2</ejb-ql>
+            </query>
         </entity>
         <entity>
             <ejb-name>DDECompVersionsEJB</ejb-name>
@@ -344,7 +354,7 @@
             </cmp-field>
             <cmp-field>
                 <field-name>aggregationCompleteDateComment</field-name>
-            </cmp-field>            
+            </cmp-field>
             <cmp-field>
                 <field-name>phaseCompleteDateComment</field-name>
             </cmp-field>
@@ -444,7 +454,7 @@
             </cmp-field>
             <cmp-field>
                 <field-name>aggregationCompleteDateComment</field-name>
-            </cmp-field>            
+            </cmp-field>
             <cmp-field>
                 <field-name>phaseCompleteDateComment</field-name>
             </cmp-field>

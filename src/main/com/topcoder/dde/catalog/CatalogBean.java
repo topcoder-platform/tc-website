@@ -1025,6 +1025,35 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return summaries;
     }
 
+
+    public Collection getComponentsByStatusAndCatalog(long status, long catalogId)
+           throws CatalogException {
+        List summaries = new ArrayList();
+        Iterator compIterator;
+        try {
+            compIterator = catalogHome.findByCatalogAndStatus(catalogId, status).iterator();
+        } catch(FinderException exception) {
+            throw new CatalogException(exception.toString());
+        }
+        while (compIterator.hasNext()) {
+            LocalDDECompCatalog comp =
+                (LocalDDECompCatalog) compIterator.next();
+            LocalDDECompVersions ver;
+            try {
+                ver = versionsHome.findByComponentIdAndVersion(
+                    ((Long) comp.getPrimaryKey()).longValue(),
+                    comp.getCurrentVersion());
+            } catch(FinderException exception) {
+                throw new CatalogException(
+                "Failed to retrieve current version information for component "
+                + comp.getPrimaryKey() + ": " + exception.toString());
+            }
+            summaries.add(generateSummary(comp, ver));
+        }
+        Collections.sort(summaries, new Comparators.ComponentSummarySorter());
+        return summaries;
+    }
+
     public ComponentSummary getComponent(long componentId)
            throws CatalogException {
         LocalDDECompCatalog comp;
