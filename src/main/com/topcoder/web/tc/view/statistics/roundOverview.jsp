@@ -151,7 +151,7 @@ function goTo(selection){
                         <TABLE BORDER="1" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
                             <FORM name="coderRankForm" action="javaScript:submitForm();" method="get">
                             <TR>
-                                <TD COLSPAN="16">
+                                <TD COLSPAN="18">
                                     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
                                     <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
                                     <OPTION value="#">Select a Round:</OPTION>
@@ -171,19 +171,19 @@ function goTo(selection){
                             </TR>
                             
                             <TR>
-                                <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A></TD>
+                                <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A></TD>
                             </TR>
                             
                             <TR>
                             
                             <%for(int i = 0; i<divisionNames.size();i++){%>
-                                <TD VALIGN="middle" COLSPAN="2" WIDTH="40%" NOWRAP="0" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
+                                <TD VALIGN="middle" COLSPAN="2" WIDTH="40%" NOWRAP="0" HEIGHT="18" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
                                 <TD VALIGN="middle" ALIGN="center" WIDTH="10%" NOWRAP="0" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></TD>
                             <%}%>
                             
                             </TR>
                             
-                            <TR><TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
+                            <TR><TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
                             
                             <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
