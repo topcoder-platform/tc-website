@@ -131,7 +131,7 @@
      var params = '<tc:problemRatingResultIterator list="<%=overallDistribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingResultIterator><tc:problemRatingResultIterator list="<%=div1Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingResultIterator><tc:problemRatingResultIterator list="<%=div2Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingResultIterator>'
      params = params.substring(0, params.length-1);
      if (flashinstalled>1){
-             document.write('<object type="application/x-shockwave-flash" data="/i/problem_rating.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width=100% height=400 border="0" salign="Top" id="myFlash" >');
+             document.write('<object type="application/x-shockwave-flash" data="/i/problem_rating.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="100%" height=400 border="0" salign="Top" id="myFlash" >');
              document.write('<PARAM NAME=movie VALUE="/i/problem_rating.swf?'+params+'">');
              document.write('<PARAM NAME=quality VALUE="high">');
              document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
