@@ -37,7 +37,7 @@
 <!-- Left Column begins -->
         
 <!-- Center Column begins -->
-        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
+        <td valign="top" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
                 <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_search.gif" width="348" height="44" alt="" border="0"></td></tr>
                 
@@ -46,9 +46,9 @@
             
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                    <td height="100%" class="bodyText">
-                        <p>Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle 
-                        to view information about the Coder.</p>
+                    <td height="100%" class="statText">
+                        <p><font size="3">Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle 
+                        to view information about the Coder.</font></p>
                                     
                         <input type="hidden" name="module" value="Search">
                         <input type="hidden" name="cmd" value="adv">
