@@ -127,9 +127,10 @@ public final class TaskDevelopment {
                 
                 Calendar cal = Calendar.getInstance();
                 
-                SimpleDateFormat df = SimpleDateFormat.getDateInstance("MM/dd/yyyy");
+                SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date initialDate = DateFormat.parse(date);
                 devTag.addTag(new ValueTag("date", df.format(initalDate)));
+                cal.setTime(initialDate);
                 cal.add(Calendar.DATE, 4);
                 Date newDate = new Date(cal.getTime());
                 devTag.addTag(new ValueTag("DesWinner", df.format(newDate)));    
