@@ -12,6 +12,7 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 
@@ -112,6 +113,7 @@ public class PlacementInfoDetail extends Base {
             }
 
             getRequest().setAttribute("techSkills", techSkills);
+            getRequest().setAttribute("techNote", getNote(Constants.TECH_NOTE_TYPE_ID, userId));
 
             //database skill
             ArrayList dbSkills = new ArrayList();
@@ -136,6 +138,7 @@ public class PlacementInfoDetail extends Base {
             }
 
             getRequest().setAttribute("dbSkills", dbSkills);
+            getRequest().setAttribute("dbNote", getNote(Constants.DB_NOTE_TYPE_ID, userId));
 
             //languages skill
             ArrayList langSkills = new ArrayList();
@@ -160,6 +163,7 @@ public class PlacementInfoDetail extends Base {
             }
 
             getRequest().setAttribute("langSkills", langSkills);
+            getRequest().setAttribute("langNote", getNote(Constants.LANGUAGE_NOTE_TYPE_ID, userId));
 
             //os skill
             ArrayList osSkills = new ArrayList();
@@ -184,6 +188,7 @@ public class PlacementInfoDetail extends Base {
             }
 
             getRequest().setAttribute("osSkills", osSkills);
+            getRequest().setAttribute("osNote", getNote(Constants.OS_NOTE_TYPE_ID, userId));
 
             //industries skill
             ArrayList industrySkills = new ArrayList();
@@ -221,6 +226,8 @@ public class PlacementInfoDetail extends Base {
             getRequest().setAttribute("contractingInfo", info);
 
             getRequest().setAttribute("industrySkills", industrySkills);
+            getRequest().setAttribute("industryNote", getNote(Constants.INDUSTRY_NOTE_TYPE_ID, userId));
+
             setNextPage(Constants.PLACEMENT_INFO_DETAIL);
             setIsNextPageInContext(true);
 
@@ -229,6 +236,15 @@ public class PlacementInfoDetail extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    protected String getNote(int noteTypeId, long userId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("skill_note");
+        r.setProperty(Constants.USER_ID, String.valueOf(userId));
+        ResultSetContainer skillNote = (ResultSetContainer)getDataAccess().getData(r).get("skill_note");
+        return skillNote.getStringItem(0, "text")==null?"":skillNote.getStringItem(0, "text");
+
     }
 
     protected ContractingInfo getInfoFromDB(long userId) throws Exception {
