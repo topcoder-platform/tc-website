@@ -64,6 +64,26 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>verizon_reg_page</param-name>
+            <param-value>/reg/verizonReg.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>verizon_reg_demog_page</param-name>
+            <param-value>/reg/verizonRegDemog.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>verizon_reg_confirm_page</param-name>
+            <param-value>/reg/verizonRegConfirm.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>verizon_reg_success_page</param-name>
+            <param-value>/reg/verizonRegSuccess.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>default_page</param-name>
             <param-value>/index.jsp</param-value>
             <description></description>
@@ -153,10 +173,24 @@
         </init-param>
         <init-param>
             <param-name>registration_info</param-name>
-            <param-value>registrationInfo</param-value>
+            <param-value>regInfo</param-value>
             <description></description>
         </init-param>
-
+        <init-param>
+            <param-name>file_type</param-name>
+            <param-value>ft</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>coder_type</param-name>
+            <param-value>ct</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>resume</param-name>
+            <param-value>resume</param-value>
+            <description></description>
+        </init-param>
 
         <!-- reg rules -->
         <init-param>
@@ -211,6 +245,26 @@
         <init-param>
             <param-name>simple_reg_submit</param-name>
             <param-value>SimpleRegSubmit</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>full_reg_main</param-name>
+            <param-value>FullReg</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>full_reg_demog</param-name>
+            <param-value>FullRegDemog</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>full_reg_confirm</param-name>
+            <param-value>FullRegConfirm</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>full_reg_submit</param-name>
+            <param-value>FullRegSubmit</param-value>
             <description></description>
         </init-param>
 
