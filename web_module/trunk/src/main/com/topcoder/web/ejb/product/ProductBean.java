@@ -59,8 +59,7 @@ public class ProductBean extends BaseEJB {
 
             ret = IdGenerator.nextId("PRODUCT_SEQ");
 
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("INSERT INTO product (product_id, " +
                     "cost) VALUES (?,?)");
@@ -107,9 +106,7 @@ public class ProductBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT product_desc FROM product " +
                     "WHERE product_id = ?");
@@ -122,8 +119,6 @@ public class ProductBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting product_desc");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting product_desc");
         } catch (Exception e) {
             throw new EJBException("Exception getting product_desc\n" +
                     e.getMessage());
@@ -155,9 +150,7 @@ public class ProductBean extends BaseEJB {
         float ret = (float) 0.0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT cost FROM product " +
                     "WHERE product_id = ?");
@@ -170,8 +163,6 @@ public class ProductBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting cost");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting cost");
         } catch (Exception e) {
             throw new EJBException("Exception getting cost\n" +
                     e.getMessage());
@@ -204,9 +195,7 @@ public class ProductBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT terms_of_use_id FROM product " +
                     "WHERE product_id = ?");
@@ -219,8 +208,6 @@ public class ProductBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting terms of use id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting terms of use id");
         } catch (Exception e) {
             throw new EJBException("Exception getting terms of use id\n" +
                     e.getMessage());
@@ -251,9 +238,7 @@ public class ProductBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE product SET product_desc = ?" +
                     "WHERE product_id = ?");
@@ -268,8 +253,6 @@ public class ProductBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating productDesc");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating productDesc");
         } catch (Exception e) {
             throw new EJBException("Exception updating productDesc\n" +
                     e.getMessage());
@@ -296,9 +279,7 @@ public class ProductBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE product SET cost = ? " +
                     "WHERE product_id = ?");
@@ -313,8 +294,6 @@ public class ProductBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating cost");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating cost");
         } catch (Exception e) {
             throw new EJBException("Exception updating cost\n" +
                     e.getMessage());
@@ -341,9 +320,7 @@ public class ProductBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE product SET terms_of_use_id = ? " +
                     "WHERE product_id = ?");
@@ -358,8 +335,6 @@ public class ProductBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating termsOfUseIdt");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating termsOfUseId");
         } catch (Exception e) {
             throw new EJBException("Exception updating termsOfUseId\n" +
                     e.getMessage());
@@ -390,9 +365,7 @@ public class ProductBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(
                     "UPDATE product SET redirect_url = ? WHERE product_id = ?"
             );
@@ -409,8 +382,6 @@ public class ProductBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating redirectURL");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating redirectURL");
         } catch (Exception e) {
             throw new EJBException("Exception updating redirectURL\n" + e.getMessage());
         } finally {
@@ -438,9 +409,7 @@ public class ProductBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
             ps = conn.prepareStatement(
                     "SELECT redirect_url FROM product WHERE product_id = ?"
             );
@@ -453,8 +422,6 @@ public class ProductBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting redirect_url");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting redirect_url");
         } catch (Exception e) {
             throw new EJBException("Exception getting redirect_url\n" + e.getMessage());
         } finally {

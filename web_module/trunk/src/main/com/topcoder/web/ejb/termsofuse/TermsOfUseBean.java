@@ -30,7 +30,6 @@ public class TermsOfUseBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
@@ -44,7 +43,7 @@ public class TermsOfUseBean extends BaseEJB {
             query.append("INTO terms_of_use (terms_of_use_id) ");
             query.append("VALUES (?)");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, terms_of_use_id);
 
@@ -81,15 +80,13 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT terms_of_use_type_id ");
             query.append("FROM terms_of_use ");
             query.append("WHERE terms_of_use_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, termsOfUseId);
 
@@ -104,9 +101,6 @@ public class TermsOfUseBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -126,15 +120,12 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE terms_of_use ");
             query.append("SET terms_of_use_type_id=? ");
             query.append("WHERE terms_of_use_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, termsOfUseTypeId);
             ps.setLong(2, termsOfUseId);
@@ -148,9 +139,6 @@ public class TermsOfUseBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -170,15 +158,12 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT terms_text ");
             query.append("FROM terms_of_use ");
             query.append("WHERE terms_of_use_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, termsOfUseId);
 
@@ -218,15 +203,12 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE terms_of_use ");
             query.append("SET terms_text=? ");
             query.append("WHERE terms_of_use_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setBytes(1, DBMS.serializeTextString(_text));
             ps.setLong(2, termsOfUseId);

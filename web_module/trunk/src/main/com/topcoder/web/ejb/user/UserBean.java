@@ -34,9 +34,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
@@ -56,9 +54,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw(new EJBException(sqle.getMessage()));
-        } catch (NamingException ne) {
-            ne.printStackTrace();
-            throw(new EJBException(ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -79,9 +74,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE user ");
@@ -100,9 +93,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -123,9 +113,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE user ");
@@ -144,9 +132,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -168,9 +153,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE user ");
@@ -189,9 +172,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -213,9 +193,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE user ");
@@ -234,9 +212,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -258,9 +233,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE user ");
@@ -279,9 +252,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -304,9 +274,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT first_name ");
@@ -326,9 +294,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -353,9 +318,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT middle_name ");
@@ -375,9 +338,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -404,9 +364,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT last_name ");
@@ -426,9 +384,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -454,9 +409,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT activation_code ");
@@ -476,9 +429,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -503,9 +453,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT status ");
@@ -525,9 +473,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -548,9 +493,7 @@ public class UserBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT 'X' ");
@@ -565,9 +508,6 @@ public class UserBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);

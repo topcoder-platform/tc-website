@@ -39,11 +39,7 @@ public class ResumeServicesBean extends BaseEJB {
         Resume ret = null;
         InitialContext ctx = null;
         try{
-            ctx = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(ctx.lookup(dataSource),
-                        DataSource.class);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(GET_RESUME_QUERY);
             ps.setLong(1,userId);
             rs = ps.executeQuery();
@@ -95,11 +91,7 @@ public class ResumeServicesBean extends BaseEJB {
         InitialContext ctx = null;
         try{
             if (file==null || file.length==0) throw new EJBException("invalid file, it was either null or empty");
-            ctx = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(ctx.lookup(dataSource),
-                        DataSource.class);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             psSel = conn.prepareStatement(GET_RESUME_ID);
             psSel.setLong(1,userId);
             rs = psSel.executeQuery();
@@ -158,11 +150,7 @@ public class ResumeServicesBean extends BaseEJB {
         ResultSetContainer ret = null;
         InitialContext ctx = null;
         try{
-            ctx = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(ctx.lookup(dataSource),
-                        DataSource.class);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(GET_FILE_TYPES_QUERY);
             rs = ps.executeQuery();
             ret = new ResultSetContainer(rs);
@@ -189,11 +177,7 @@ public class ResumeServicesBean extends BaseEJB {
         boolean ret = false;
         InitialContext ctx = null;
         try{
-            ctx = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(ctx.lookup(dataSource),
-                        DataSource.class);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(GET_RESUME_ID);
             ps.setLong(1,userId);
             rs = ps.executeQuery();

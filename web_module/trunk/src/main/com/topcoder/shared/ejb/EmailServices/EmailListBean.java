@@ -2,6 +2,7 @@ package com.topcoder.shared.ejb.EmailServices;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import java.rmi.RemoteException;
 import java.util.*;
@@ -42,9 +43,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("Create list requested (group " + group + ", name " + name + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
@@ -111,9 +110,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("add list member requested (list " + listId + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
@@ -178,9 +175,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("Remove list member requested (list " + listId + ", member " + memberId + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" DELETE FROM");
@@ -240,9 +235,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("getLists requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -295,9 +288,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("getLists for group requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -353,9 +344,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("getMembers for list requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -409,9 +398,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("getListName requested for list " + listId);
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -464,9 +451,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("getListGroupId requested for list " + listId);
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -520,9 +505,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("getData for list member requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -580,9 +563,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("Update group id for list requested (list " + listId + ", group " + groupId + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -642,9 +623,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("Update name for list requested (list " + listId + ", name " + name + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -705,9 +684,7 @@ public class EmailListBean extends BaseEJB {
         log.debug("setData for list member requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");

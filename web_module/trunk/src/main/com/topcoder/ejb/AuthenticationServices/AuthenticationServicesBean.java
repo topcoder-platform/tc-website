@@ -3,6 +3,7 @@ package com.topcoder.ejb.AuthenticationServices;
 
 import com.topcoder.common.web.data.*;
 import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.shared.util.DBMS;
 
 import java.rmi.RemoteException;
 import java.sql.*;
@@ -44,9 +45,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         /*************************************************************************************/
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(getDS());
             ps = conn.prepareStatement(query);
             ps.setString(1, handle);
             rs = ps.executeQuery();
@@ -102,9 +101,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         /*************************************************************************************/
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(getDS());
             ps = conn.prepareStatement(query);
             ps.setInt(1, sectorId);
             ps.setInt(2, userId);
@@ -170,9 +167,7 @@ public class AuthenticationServicesBean extends BaseEJB {
             /*************************************************************************************/
             javax.naming.Context ctx = null;
             try {
-                ctx = new javax.naming.InitialContext();
-                javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-                conn = ds.getConnection();
+                conn = DBMS.getConnection(getDS());
                 ps = conn.prepareStatement(query.toString());
                 rs = ps.executeQuery();
                 while (rs.next()) {
@@ -241,9 +236,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         /*************************************************************************************/
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(getDS());
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, handle);
             ps.setString(2, password);
@@ -313,9 +306,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         /*************************************************************************************/
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(getDS());
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, new Long(coderId).longValue());
             rs = ps.executeQuery();
@@ -381,9 +372,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(getDS());
             StringBuffer query = new StringBuffer(200);
             /*************************************************************************************/
             query.append("SELECT u.user_id");
@@ -466,9 +455,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(getDS());
             StringBuffer query = new StringBuffer(200);
             /*************************************************************************************/
             query.append(" INSERT");
@@ -543,9 +530,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(getDS());
             StringBuffer query = new StringBuffer(200);
             /*************************************************************************************/
             query.append(" INSERT");
@@ -664,9 +649,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         /**************************************************************/
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(getDS());
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, result.getUserId());
             rs = ps.executeQuery();

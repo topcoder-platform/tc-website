@@ -58,8 +58,7 @@ public class AddressBean extends BaseEJB {
 
             ret = IdGenerator.nextId("ADDRESS_SEQ");
 
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("INSERT INTO address (address_id) " +
                     "VALUES (?)");
@@ -106,9 +105,7 @@ public class AddressBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT address_type_id FROM address " +
                     "WHERE address_id = ?");
@@ -121,8 +118,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting address_type_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting address type ID");
         } catch (Exception e) {
             throw new EJBException("Exception getting address_type_id\n" +
                     e.getMessage());
@@ -156,9 +151,7 @@ public class AddressBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT address1 FROM address WHERE " +
                     "address_id = ?");
@@ -171,8 +164,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting address1");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting address 1");
         } catch (Exception e) {
             throw new EJBException("Exception getting address1\n" +
                     e.getMessage());
@@ -206,9 +197,7 @@ public class AddressBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT address2 FROM address " +
                     "WHERE address_id = ?");
@@ -221,8 +210,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting address2");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting address 2");
         } catch (Exception e) {
             throw new EJBException("Exception getting address2\n" +
                     e.getMessage());
@@ -257,9 +244,7 @@ public class AddressBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT address3 FROM address " +
                     "WHERE address_id = ?");
@@ -272,8 +257,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting address3");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting address 3");
         } catch (Exception e) {
             throw new EJBException("Exception getting address2\n" +
                     e.getMessage());
@@ -309,9 +292,7 @@ public class AddressBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT city FROM address " +
                     "WHERE address_id = ?");
@@ -324,8 +305,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting city");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting city");
         } catch (Exception e) {
             throw new EJBException("Exception getting city\n" +
                     e.getMessage());
@@ -359,9 +338,7 @@ public class AddressBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT state_code FROM address " +
                     "WHERE address_id = ?");
@@ -374,8 +351,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting state_code");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting state code");
         } catch (Exception e) {
             throw new EJBException("Exception getting state_code\n" +
                     e.getMessage());
@@ -410,9 +385,7 @@ public class AddressBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT province FROM address " +
                     "WHERE address_id = ?");
@@ -425,8 +398,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting province");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting province");
         } catch (Exception e) {
             throw new EJBException("Exception getting province\n" +
                     e.getMessage());
@@ -463,9 +434,7 @@ public class AddressBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT zip FROM address " +
                     "WHERE address_id = ?");
@@ -478,8 +447,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting zip");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting zip");
         } catch (Exception e) {
             throw new EJBException("Exception getting zip\n" + e.getMessage());
         } finally {
@@ -512,9 +479,7 @@ public class AddressBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT country_code FROM address " +
                     "WHERE address_id = ?");
@@ -527,8 +492,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting country code");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting country code");
         } catch (Exception e) {
             throw new EJBException("Exception getting country_code\n" +
                     e.getMessage());
@@ -560,9 +523,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET address_type_id =" +
                     " ? WHERE address_id = ?");
@@ -580,8 +541,6 @@ public class AddressBean extends BaseEJB {
             throw new EJBException("SQLException updating address_id: " +
                     addressId + " address_type_id: " +
                     addressTypeId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating address type ID");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " address_type_id: " +
@@ -611,9 +570,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET address1 = ? " +
                     "WHERE address_id = ?");
@@ -630,8 +587,6 @@ public class AddressBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " +
                     addressId + " address1: " + address1);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating address 1");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " address1: " + address1 +
@@ -661,9 +616,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET address2 = ? " +
                     "WHERE address_id = ?");
@@ -680,8 +633,6 @@ public class AddressBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " +
                     addressId + " address2: " + address2);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating address 2");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " address2: " + address2 +
@@ -711,9 +662,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET address3 = ? " +
                     "WHERE address_id = ?");
@@ -730,8 +679,6 @@ public class AddressBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " +
                     addressId + " address3: " + address3);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating address 3");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " address3: " + address3 +
@@ -762,9 +709,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET city = ? " +
                     "WHERE address_id = ?");
@@ -781,8 +726,6 @@ public class AddressBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " +
                     addressId + " city: " + city);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating city");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " city: " + city + "\n" +
@@ -812,9 +755,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET state_code = ? " +
                     "WHERE address_id = ?");
@@ -831,8 +772,6 @@ public class AddressBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: '" +
                     addressId + "' state_code: " + stateCode);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating state code");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " state_code: " + stateCode +
@@ -863,9 +802,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET province = ? " +
                     "WHERE address_id = ?");
@@ -882,8 +819,6 @@ public class AddressBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: '" +
                     addressId + "' province: " + province);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating state code");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " province: " + province +
@@ -914,9 +849,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET zip = ? " +
                     "WHERE address_id = ?");
@@ -933,8 +866,6 @@ public class AddressBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating address_id: " +
                     addressId + " zip: " + zip);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating zip");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " zip: " + zip + "\n" +
@@ -964,9 +895,7 @@ public class AddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE address SET country_code = ? " +
                     "WHERE address_id = ?");
@@ -984,8 +913,6 @@ public class AddressBean extends BaseEJB {
             throw new EJBException("SQLException updating address_id: " +
                     addressId + " country_code: " +
                     countryCode);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating country code");
         } catch (Exception e) {
             throw new EJBException("Exception updating address_id: " +
                     addressId + " country_code: " +
@@ -1018,9 +945,7 @@ public class AddressBean extends BaseEJB {
         long addressTypeId = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT address_type_id " +
                     "FROM address " +
@@ -1044,9 +969,6 @@ public class AddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting address_type_desc");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting address type " +
-                    "description");
         } catch (Exception e) {
             throw new EJBException("Exception getting address_type_desc\n" +
                     e.getMessage());

@@ -40,9 +40,7 @@ public class ContactBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("INSERT INTO contact (contact_id, " +
                     "company_id) VALUES (?,?)");
@@ -57,8 +55,6 @@ public class ContactBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating contact");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating contact");
         } catch (Exception e) {
             throw new EJBException("Exception creating contact:\n" +
                     e.getMessage());
@@ -85,9 +81,7 @@ public class ContactBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE contact SET company_id = ? " +
                     "WHERE contact_id = ?");
@@ -104,8 +98,6 @@ public class ContactBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating contact_id: " +
                     contactId + " company_id: " + companyId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating company ID");
         } catch (Exception e) {
             throw new EJBException("Exception updating contact_id: " +
                     contactId + " company_id: " + companyId +
@@ -135,9 +127,7 @@ public class ContactBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT company_id FROM contact " +
                     "WHERE contact_id = ?");
@@ -151,8 +141,6 @@ public class ContactBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting company_id for " +
                     "contact_id: " + contactId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting contact ID");
         } catch (Exception e) {
             throw new EJBException("Exception getting company_id for " +
                     "contact_id: " + contactId + "\n" +
@@ -185,9 +173,7 @@ public class ContactBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT title FROM contact " +
                     "WHERE contact_id = ?");
@@ -203,8 +189,6 @@ public class ContactBean extends BaseEJB {
                     sqe);
             throw new EJBException("SQLException getting title for " +
                     "contact_id: " + contactId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting contact title");
         } catch (Exception e) {
             throw new EJBException("Exception getting title for contact_id: " +
                     contactId + "\n" + e.getMessage());
@@ -234,9 +218,7 @@ public class ContactBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE contact SET title = ? " +
                     "WHERE contact_id = ?");
@@ -253,8 +235,6 @@ public class ContactBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating contact_id: " +
                     contactId + " title: " + title);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating title");
         } catch (Exception e) {
             throw new EJBException("Exception updating contact_id: " +
                     contactId + " title: " + title + "\n" +

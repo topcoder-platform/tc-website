@@ -2,6 +2,7 @@ package com.topcoder.shared.ejb.EmailServices;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import java.rmi.RemoteException;
 import java.util.*;
@@ -60,9 +61,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("getJobs based on status=" + status);
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             java.sql.Timestamp now = new java.sql.Timestamp(new Date().getTime());
 
@@ -131,9 +130,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("setJobStatus (jobId " + jobId + ", status " + status + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -189,9 +186,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("setJobType (jobId " + jobId + ", type " + type + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -246,9 +241,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("clearDetailRecords jobId " + jobId);
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" DELETE");
@@ -302,9 +295,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("addDetailRecord (jobId " + jobId + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
@@ -374,9 +365,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("setDetailStatus (jobId " + jobId + ", detailId " + detailId + ", status " + status + ":" + reason + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -435,9 +424,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("setJobBuilt (jobId " + jobId + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -494,9 +481,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("archiveDetail (jobId " + jobId + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL_JTS");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL_JTS");
             conn.setAutoCommit(false);
 
             java.sql.Timestamp now = new java.sql.Timestamp(new Date().getTime());
@@ -571,9 +556,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("getSchedulerId requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
@@ -635,9 +618,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("acquireJob(" + jobId + "," + controlId + ") requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" INSERT INTO");
@@ -695,9 +676,7 @@ public class EmailServerBean extends BaseEJB {
         if (oldId == 0 && acquireJob(jobId, controlId)) return true;
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE ");
@@ -747,9 +726,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("getJobControlId(" + jobId + ") requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT ");
@@ -795,9 +772,7 @@ public class EmailServerBean extends BaseEJB {
         log.debug("clearJobControlIds(" + controlId + ") requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" DELETE");

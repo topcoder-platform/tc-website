@@ -27,15 +27,12 @@ public class UserTermsOfUseBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
             query.append("INTO user_terms_of_use_xref (user_id,terms_of_use_id) ");
             query.append("VALUES (?,?)");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, _terms_of_use_id);
@@ -49,9 +46,6 @@ public class UserTermsOfUseBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -68,15 +62,12 @@ public class UserTermsOfUseBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             StringBuffer query = new StringBuffer(1024);
             query.append("DELETE ");
             query.append("FROM user_terms_of_use_xref ");
             query.append("WHERE user_id=? AND terms_of_use_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, _terms_of_use_id);
@@ -90,9 +81,6 @@ public class UserTermsOfUseBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -110,16 +98,12 @@ public class UserTermsOfUseBean extends BaseEJB {
         boolean ret = false;
         InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
-
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT '1' ");
             query.append("FROM user_terms_of_use_xref ");
             query.append("WHERE user_id=? AND terms_of_use_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, termsOfUseId);
@@ -129,9 +113,6 @@ public class UserTermsOfUseBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);

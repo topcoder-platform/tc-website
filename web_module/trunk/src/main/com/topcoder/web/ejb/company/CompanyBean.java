@@ -60,8 +60,7 @@ public class CompanyBean extends BaseEJB {
 
             ret = IdGenerator.nextId("COMPANY_SEQ");
 
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("INSERT INTO company (company_id) " +
                     "VALUES (?)");
@@ -107,9 +106,7 @@ public class CompanyBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT company_name FROM company " +
                     "WHERE company_id = ?");
@@ -123,8 +120,6 @@ public class CompanyBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting company_name for " +
                     "company_id: " + companyId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting company name");
         } catch (Exception e) {
             throw new EJBException("Exception getting company_name for " +
                     "company_id: " + companyId + "\n" +
@@ -157,9 +152,7 @@ public class CompanyBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT primary_contact_id FROM " +
                     "company WHERE company_id = ?");
@@ -173,9 +166,6 @@ public class CompanyBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting primary_contact_id " +
                     "for company_id: " + companyId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting primary contact " +
-                    "id");
         } catch (Exception e) {
             throw new EJBException("Exception getting primary_contact_id for" +
                     " company_id: " + companyId + "\n" +
@@ -208,9 +198,7 @@ public class CompanyBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT new_user_status FROM " +
                     "company WHERE company_id = ?");
@@ -224,9 +212,6 @@ public class CompanyBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting new_user_status " +
                     "for company_id: " + companyId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting new_user_statust " +
-                    "id");
         } catch (Exception e) {
             throw new EJBException("Exception getting new_user_status for" +
                     " company_id: " + companyId + "\n" +
@@ -259,9 +244,7 @@ public class CompanyBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE company SET company_name = ? " +
                     "WHERE company_id = ?");
@@ -278,8 +261,6 @@ public class CompanyBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating company_id: " +
                     companyId + " company_name: " + name);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating company name");
         } catch (Exception e) {
             throw new EJBException("Exception updating company_id: " +
                     companyId + " company_name: " + name +
@@ -307,9 +288,7 @@ public class CompanyBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE company SET " +
                     "primary_contact_id = ? " +
@@ -329,9 +308,6 @@ public class CompanyBean extends BaseEJB {
             throw new EJBException("SQLException updating company_id: " +
                     companyId + " primary_contact_id: " +
                     primaryContactId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating company " +
-                    "primaryContactId");
         } catch (Exception e) {
             throw new EJBException("Exception updating company_id: " +
                     companyId + " primary_contact_id: " +
@@ -359,9 +335,7 @@ public class CompanyBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE company SET " +
                     "new_user_status = ? " +

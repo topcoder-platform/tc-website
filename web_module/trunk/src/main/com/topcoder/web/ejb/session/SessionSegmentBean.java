@@ -49,9 +49,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("segment_length)");
             query.append(" VALUES(?,?,?) ");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, sessionId);
@@ -63,8 +61,6 @@ public class SessionSegmentBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in createSessionSegment sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in createSessionSegment sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } catch (Exception e) {
             throw new EJBException("Exception in createSessionSegment sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } finally {
@@ -98,9 +94,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("UPDATE session_segment SET start_time = ? WHERE ");
             query.append("session_id = ? AND session_segment_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setDate(1, startTime);
@@ -112,8 +106,6 @@ public class SessionSegmentBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setStartTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " startTime: " + startTime);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setStartTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " startTime: " + startTime);
         } catch (Exception e) {
             throw new EJBException("Exception in setStartTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " startTime: " + startTime);
         } finally {
@@ -146,9 +138,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("UPDATE session_segment SET end_time = ? WHERE ");
             query.append("session_id = ? AND session_segment_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setDate(1, endTime);
@@ -160,8 +150,6 @@ public class SessionSegmentBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setEndTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " endTime: " + endTime);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setEndTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " endTime: " + endTime);
         } catch (Exception e) {
             throw new EJBException("Exception in setEndTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " endTime: " + endTime);
         } finally {
@@ -194,9 +182,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("UPDATE session_segment SET segment_length = ? ");
             query.append("WHERE session_id = ? AND session_segment_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, segmentLength);
@@ -208,8 +194,6 @@ public class SessionSegmentBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setSegmentLength sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setSegmentLength sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } catch (Exception e) {
             throw new EJBException("Exception in setSegmentLength sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } finally {
@@ -242,9 +226,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("SELECT start_time FROM session_segment ");
             query.append("WHERE session_id = ? AND session_segment_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionId);
@@ -261,8 +243,6 @@ public class SessionSegmentBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getStartTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getStartTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } catch (Exception e) {
             throw new EJBException("Exception in getStartTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } finally {
@@ -296,9 +276,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("SELECT end_time FROM session_segment ");
             query.append("WHERE session_id = ? AND session_segment_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionId);
@@ -315,8 +293,6 @@ public class SessionSegmentBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getEndTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getEndTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } catch (Exception e) {
             throw new EJBException("Exception in getEndTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } finally {
@@ -350,9 +326,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("SELECT segment_length FROM session_segment ");
             query.append("WHERE session_id = ? AND session_segment_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionId);
@@ -409,9 +383,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("AND a.session_segment_id = ? ");
             query.append("AND a.session_segment_id = b.session_segment_id");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionId);
@@ -428,8 +400,6 @@ public class SessionSegmentBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getSessionSegmentDesc sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getSessionSegmentDesc sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } catch (Exception e) {
             throw new EJBException("Exception in getSessionSegmentDesc sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } finally {

@@ -1,8 +1,11 @@
 package com.topcoder.shared.util;
 
+import com.topcoder.web.common.BaseProcessor;
+
 import javax.sql.DataSource;
 import javax.naming.NamingException;
 import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 import java.io.*;
 import java.sql.*;
 
@@ -111,14 +114,19 @@ public class DBMS {
      * @return
      * @throws SQLException
      */
-    private static final java.sql.Connection getConnection(String dataSourceName) throws SQLException {
+    public static final java.sql.Connection getConnection(String dataSourceName) throws SQLException {
         Connection conn = null;
+        InitialContext ctx = null;
         try {
-            conn = getConnection(TCContext.getInitial(), dataSourceName);
+            ctx = TCContext.getInitial();
+            conn = getConnection(ctx, dataSourceName);
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
+        } finally {
+            BaseProcessor.close(ctx);
         }
+
         return conn;
     }
 
@@ -132,10 +140,11 @@ public class DBMS {
     }
 
 
-    public static java.sql.Connection getConnection(InitialContext context, String dataSourceName) throws SQLException {
+    public static final java.sql.Connection getConnection(InitialContext context, String dataSourceName) throws SQLException {
         DataSource ds = null;
         try {
-            ds = (DataSource)context.lookup(dataSourceName);
+            ds = (DataSource) PortableRemoteObject.narrow(
+                    context.lookup(dataSourceName),DataSource.class);
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());

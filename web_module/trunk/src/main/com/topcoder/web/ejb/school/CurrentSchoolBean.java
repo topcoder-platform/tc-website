@@ -25,9 +25,7 @@ public class CurrentSchoolBean extends BaseEJB {
             query.append(  "INTO current_school (coder_id) ");
             query.append("VALUES (?)");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, coderId);
 
@@ -40,8 +38,6 @@ public class CurrentSchoolBean extends BaseEJB {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw(new EJBException(sqle.getMessage()));
-        } catch (NamingException e) {
-            e.printStackTrace();
         } finally {
             close(ps);
             close(conn);
@@ -61,9 +57,7 @@ public class CurrentSchoolBean extends BaseEJB {
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE current_school SET school_name = ? WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, schoolName);
             ps.setLong(2, coderId);
@@ -77,8 +71,6 @@ public class CurrentSchoolBean extends BaseEJB {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw(new EJBException(sqle.getMessage()));
-        } catch (NamingException e) {
-            e.printStackTrace();
         } finally {
             close(ps);
             close(conn);
@@ -98,9 +90,7 @@ public class CurrentSchoolBean extends BaseEJB {
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE current_school SET school_id = ? WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, schoolId);
             ps.setLong(2, coderId);
@@ -114,8 +104,6 @@ public class CurrentSchoolBean extends BaseEJB {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw(new EJBException(sqle.getMessage()));
-        } catch (NamingException e) {
-            e.printStackTrace();
         } finally {
             close(ps);
             close(conn);
@@ -139,9 +127,7 @@ public class CurrentSchoolBean extends BaseEJB {
             query.append( " FROM current_school");
             query.append(" WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, coderId);
 
@@ -150,8 +136,6 @@ public class CurrentSchoolBean extends BaseEJB {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw(new EJBException(sqle.getMessage()));
-        } catch (NamingException e) {
-            e.printStackTrace();
         } finally {
             close(rs);
             close(ps);

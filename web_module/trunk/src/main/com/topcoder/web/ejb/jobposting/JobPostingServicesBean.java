@@ -39,11 +39,7 @@ public class JobPostingServicesBean extends BaseEJB {
 
         InitialContext ctx = null;
         try{
-            ctx = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(ctx.lookup(dataSource),
-                        DataSource.class);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             /*
                check if this user has already "hit" this job
              */
@@ -113,11 +109,7 @@ public class JobPostingServicesBean extends BaseEJB {
 
         InitialContext ctx = null;
         try{
-            ctx = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(ctx.lookup(dataSource),
-                        DataSource.class);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, jobId);
             rs = ps.executeQuery();
@@ -158,11 +150,7 @@ public class JobPostingServicesBean extends BaseEJB {
 
         InitialContext ctx = null;
         try{
-            ctx = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(ctx.lookup(dataSource),
-                        DataSource.class);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             query = new StringBuffer();
             query.append(" SELECT 'dok'");
             query.append(  " FROM job");

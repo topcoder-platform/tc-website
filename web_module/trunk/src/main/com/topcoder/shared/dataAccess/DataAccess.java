@@ -1,6 +1,7 @@
 package com.topcoder.shared.dataAccess;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -15,7 +16,7 @@ import java.util.Map;
  */
 public class DataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(DataAccess.class);
-    private DataSource dataSource;
+    private String dataSource;
 
     /**
      * Default Constructor
@@ -27,7 +28,7 @@ public class DataAccess implements DataAccessInt {
      * Construtor that takes a data source to be used.
      * @param dataSource
      */
-    public DataAccess(DataSource dataSource) {
+    public DataAccess(String dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -43,7 +44,7 @@ public class DataAccess implements DataAccessInt {
      * the data from the EJB.
      */
     public Map getData(RequestInt request) throws Exception {
-        Connection conn = dataSource.getConnection();
+        Connection conn = DBMS.getConnection(dataSource);
         try {
             DataRetriever dr = new DataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
@@ -63,14 +64,14 @@ public class DataAccess implements DataAccessInt {
     /**
      * @param dataSource
      */
-    public void setDataSource(DataSource dataSource) {
+    public void setDataSource(String dataSource) {
         this.dataSource = dataSource;
     }
 
     /**
      * @return this object's data source
      */
-    public DataSource getDataSource() {
+    public String getDataSource() {
         return dataSource;
     }
 }

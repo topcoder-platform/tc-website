@@ -58,8 +58,7 @@ public class PhoneBean extends BaseEJB {
 
             ret = IdGenerator.nextId("PHONE_SEQ");
 
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("INSERT INTO phone (user_id, " +
                     "phone_id) VALUES (?,?)");
@@ -106,9 +105,7 @@ public class PhoneBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT phone_type_id FROM phone " +
                     "WHERE phone_id = ?");
@@ -121,8 +118,6 @@ public class PhoneBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting phone_type_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting phone_type_id");
         } catch (Exception e) {
             throw new EJBException("Exception getting phone_type_id\n" +
                     e.getMessage());
@@ -154,9 +149,7 @@ public class PhoneBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT phone_number FROM phone " +
                     "WHERE phone_id = ?");
@@ -169,8 +162,6 @@ public class PhoneBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting phone number");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting phone number");
         } catch (Exception e) {
             throw new EJBException("Exception getting phone number\n" +
                     e.getMessage());
@@ -200,9 +191,7 @@ public class PhoneBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE phone SET phone_type_id = ? " +
                     "WHERE phone_id = ?");
@@ -217,8 +206,6 @@ public class PhoneBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating phoneTypeId");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating phoneTypeId");
         } catch (Exception e) {
             throw new EJBException("Exception updating phoneTypeId\n" +
                     e.getMessage());
@@ -245,9 +232,7 @@ public class PhoneBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE phone SET phone_number = ? " +
                     "WHERE phone_id = ?");
@@ -262,8 +247,6 @@ public class PhoneBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating phone_number");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating phone_number");
         } catch (Exception e) {
             throw new EJBException("Exception updating phone_number\n" +
                     e.getMessage());
@@ -291,9 +274,7 @@ public class PhoneBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT phone_id FROM phone " +
                     "WHERE user_id = ? AND primary = 1");
@@ -305,8 +286,6 @@ public class PhoneBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting primary phone_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting primary phone_id");
         } catch (Exception e) {
             throw new EJBException("Exception getting primary phone_id\n" +
                     e.getMessage());
@@ -335,9 +314,7 @@ public class PhoneBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("UPDATE phone SET primary = 0 " +
                     "WHERE user_id = ?");
@@ -360,8 +337,6 @@ public class PhoneBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating primary phone");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating primary phone");
         } catch (Exception e) {
             throw new EJBException("Exception updating primary phone\n" +
                     e.getMessage());
@@ -391,9 +366,7 @@ public class PhoneBean extends BaseEJB {
         int ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT primary FROM phone " +
                     "WHERE user_id = ? AND phone_id = ?");
@@ -407,9 +380,6 @@ public class PhoneBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException checking primary phone_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException checking primary " +
-                    "phone_id");
         } catch (Exception e) {
             throw new EJBException("Exception checking primary phone_id\n" +
                     e.getMessage());

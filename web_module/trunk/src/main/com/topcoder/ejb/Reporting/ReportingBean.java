@@ -27,14 +27,10 @@ public class ReportingBean extends BaseEJB {
         ArrayList resultList = new ArrayList();
         int[] returnTypes = query.getReturnTypes();
         Connection conn = null;
-        Context ctx = null;
-        DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
             if (query.getDB()==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(query.getDB());
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(query.getDB());
 
             log.debug("query:\n" + query.getQuery());
             ps = conn.prepareStatement(query.getQuery());

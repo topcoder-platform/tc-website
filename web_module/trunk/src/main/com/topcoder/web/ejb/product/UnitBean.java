@@ -52,8 +52,7 @@ public class UnitBean extends BaseEJB {
 
             ret = IdGenerator.nextId("UNIT_SEQ");
 
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("INSERT INTO unit (unit_id, " +
                     "unit_type_id) VALUES (?,?)");
@@ -93,9 +92,7 @@ public class UnitBean extends BaseEJB {
         String ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT unit_desc FROM unit " +
                     "WHERE unit_id = ?");
@@ -108,8 +105,6 @@ public class UnitBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting unit_desc");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting unit_desc");
         } catch (Exception e) {
             throw new EJBException("Exception getting unit_desc\n" +
                     e.getMessage());
@@ -134,9 +129,7 @@ public class UnitBean extends BaseEJB {
         int ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT unit_type_id FROM unit " +
                     "WHERE unit_id = ?");
@@ -149,8 +142,6 @@ public class UnitBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting cost");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting cost");
         } catch (Exception e) {
             throw new EJBException("Exception getting cost\n" +
                     e.getMessage());
@@ -174,9 +165,7 @@ public class UnitBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE unit SET unit_desc = ?" +
                     "WHERE unit_id = ?");
@@ -191,8 +180,6 @@ public class UnitBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating unitDesc");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating unitDesc");
         } catch (Exception e) {
             throw new EJBException("Exception updating unitDesc\n" +
                     e.getMessage());
@@ -213,9 +200,7 @@ public class UnitBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE unit SET unit_type_id = ? " +
                     "WHERE unit_id = ?");
@@ -230,8 +215,6 @@ public class UnitBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating cost");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating cost");
         } catch (Exception e) {
             throw new EJBException("Exception updating cost\n" +
                     e.getMessage());

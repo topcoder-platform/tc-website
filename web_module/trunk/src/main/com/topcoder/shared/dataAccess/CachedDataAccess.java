@@ -2,8 +2,8 @@ package com.topcoder.shared.dataAccess;
 
 import com.topcoder.shared.distCache.CacheClientPool;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.Map;
 
@@ -18,7 +18,7 @@ import java.util.Map;
 public class CachedDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(CachedDataAccess.class);
     private long expireTime;
-    private DataSource dataSource;
+    private String dataSource;
     private static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 5;
 
     /**
@@ -44,7 +44,7 @@ public class CachedDataAccess implements DataAccessInt {
      * Construtor that takes a data source to be used.
      * @param dataSource
      */
-    public CachedDataAccess(DataSource dataSource) {
+    public CachedDataAccess(String dataSource) {
         this(DEFAULT_EXPIRE_TIME);
         this.dataSource = dataSource;
     }
@@ -55,7 +55,7 @@ public class CachedDataAccess implements DataAccessInt {
      * @param expireTime
      * @param dataSource
      */
-    public CachedDataAccess(long expireTime, DataSource dataSource) {
+    public CachedDataAccess(long expireTime, String dataSource) {
         this(expireTime);
         this.dataSource = dataSource;
     }
@@ -86,7 +86,7 @@ public class CachedDataAccess implements DataAccessInt {
             }
             /* if it was not found in the cache */
             if (map == null) {
-                conn = dataSource.getConnection();
+                conn = DBMS.getConnection(dataSource);
                 dr = new DataRetriever(conn);
                 map = dr.executeCommand(request.getProperties());
                 /* attempt to add this object to the cache */
@@ -131,14 +131,14 @@ public class CachedDataAccess implements DataAccessInt {
     /**
      * @param dataSource
      */
-    public void setDataSource(DataSource dataSource) {
+    public void setDataSource(String dataSource) {
         this.dataSource = dataSource;
     }
 
     /**
      * @return this object's data source
      */
-    public DataSource getDataSource() {
+    public String getDataSource() {
         return dataSource;
     }
 }

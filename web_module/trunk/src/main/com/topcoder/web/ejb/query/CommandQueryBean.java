@@ -41,8 +41,7 @@ public class CommandQueryBean extends BaseEJB {
             query.append(" VALUES (?, ?)");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, commandId);
             ps.setLong(2, queryId);
@@ -80,8 +79,7 @@ public class CommandQueryBean extends BaseEJB {
             query.append(   " AND query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, sortOrder);
             ps.setLong(2, commandId);
@@ -122,8 +120,7 @@ public class CommandQueryBean extends BaseEJB {
             query.append(   " AND query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, commandId);
             ps.setLong(2, queryId);
@@ -163,8 +160,7 @@ public class CommandQueryBean extends BaseEJB {
             query.append(   " AND query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, commandId);
             ps.setLong(2, queryId);
@@ -208,8 +204,7 @@ public class CommandQueryBean extends BaseEJB {
             query.append(   " AND q.query_id = cqx.query_id");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, commandId);
             rs = ps.executeQuery();
@@ -258,8 +253,7 @@ public class CommandQueryBean extends BaseEJB {
 
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, queryId);
             rs = ps.executeQuery();

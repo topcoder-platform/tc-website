@@ -3,7 +3,6 @@ package com.topcoder.ejb.Util;
 import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
 
 import java.rmi.RemoteException;
@@ -39,9 +38,9 @@ public class UtilBean extends BaseEJB {
         query.append(   " AND contest_id = ?");
 
         try {
-            ctx = TCContext.getInitial();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
+
+
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, userId);
 //            ps.setInt(2, roundId);
@@ -101,8 +100,6 @@ public class UtilBean extends BaseEJB {
      * Add a respone to the response for the given user and question.
      *
      * @param userId the user who clicked
-     * @param jobId the particular job
-     * @param hitTypeId the type of hit
      * @throws RemoteException if the give user already answered the question, or some other
      * issue with the db.
      */
@@ -121,9 +118,7 @@ public class UtilBean extends BaseEJB {
         query.append(" AND question_id = ?");
 
         try {
-            ctx = TCContext.getInitial();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, userId);
             ps.setInt(2, questionId);
@@ -171,9 +166,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             ps = conn.prepareStatement("SELECT CURRENT FROM dual");
             rs = ps.executeQuery();
             if (rs.next()) result = rs.getDate(1);
@@ -217,9 +210,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             ps = conn.prepareStatement("SELECT CURRENT FROM dual");
             rs = ps.executeQuery();
             if (rs.next()) result = rs.getTime(1);
@@ -263,9 +254,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             ps = conn.prepareStatement("SELECT CURRENT FROM dual");
             rs = ps.executeQuery();
             if (rs.next()) result = rs.getTimestamp(1);
@@ -311,9 +300,7 @@ public class UtilBean extends BaseEJB {
         java.sql.Connection conn = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             conn.setAutoCommit(true);
             ps = conn.prepareStatement(query);
             ps.setInt(1, coderId);
@@ -357,9 +344,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
             /*********************************************************/
             query.append(" SELECT");
@@ -445,9 +430,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(175);
             /*********************************************************/
             query.append(" SELECT");
@@ -536,9 +519,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
             /*********************************************************/
             query.append(" INSERT");
@@ -602,9 +583,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
             /*********************************************************/
             query.append(" UPDATE");
@@ -667,9 +646,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
             /*********************************************************/
             query.append(" INSERT");
@@ -727,9 +704,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
             /*********************************************************/
             query.append(" SELECT");
@@ -823,9 +798,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             /*********************************************************/
             StringBuffer query = new StringBuffer(200);
             query.append(" SELECT");
@@ -931,9 +904,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             /*********************************************************/
             StringBuffer query = new StringBuffer(200);
             query.append(" SELECT");
@@ -999,9 +970,7 @@ public class UtilBean extends BaseEJB {
         ResultSet rs = null;
         javax.naming.Context ctx = null;
         try {
-            ctx = new javax.naming.InitialContext();
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
             javax.naming.Context env = (javax.naming.Context) ctx.lookup("java:comp/env");
             int seq = ((java.lang.Integer) env.lookup("LINK_SEQ")).intValue();

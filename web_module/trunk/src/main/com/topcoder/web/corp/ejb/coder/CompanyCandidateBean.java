@@ -59,9 +59,7 @@ public class CompanyCandidateBean extends BaseEJB {
             query.append("INSERT INTO company_candidate_xref (company_id, ");
             query.append("candidate_id) values(?,?) ");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setLong(1,companyId);
@@ -73,11 +71,6 @@ public class CompanyCandidateBean extends BaseEJB {
             DBMS.printSqlException(true,e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createCompanyCandidate. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in createCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -125,9 +118,7 @@ public class CompanyCandidateBean extends BaseEJB {
             query.append("WHERE company_id = ? ");
             query.append("AND candidate_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setLong(1,companyId);
@@ -139,11 +130,6 @@ public class CompanyCandidateBean extends BaseEJB {
             DBMS.printSqlException(true,e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in removeCompanyCandidate. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in removeCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {

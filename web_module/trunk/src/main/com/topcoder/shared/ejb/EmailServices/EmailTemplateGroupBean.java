@@ -2,6 +2,7 @@ package com.topcoder.shared.ejb.EmailServices;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import java.rmi.RemoteException;
 import java.util.HashMap;
@@ -42,9 +43,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         log.debug("Add template group requested (name " + name + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -110,9 +109,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         log.debug("Update template group requested (id " + id + ", name " + name + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -170,9 +167,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         log.debug("Remove template group requested (id " + id + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" DELETE FROM");
@@ -228,9 +223,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         log.debug("getGroups for template groups requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -284,9 +277,7 @@ public class EmailTemplateGroupBean extends BaseEJB {
         log.debug("getName for template group requested (id " + id + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");

@@ -45,9 +45,7 @@ public class CoderBean extends BaseEJB {
             query.append("member_since, status)");
             query.append(" VALUES(?,CURRENT,?) ");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setLong(1,coderId);
@@ -58,8 +56,6 @@ public class CoderBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
         } catch (Exception e) {
             throw new EJBException("Exception creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
         } finally {
@@ -91,9 +87,7 @@ public class CoderBean extends BaseEJB {
             query.append("UPDATE coder set member_since = ? ");
             query.append("where coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setDate(1, memberSince);
@@ -104,8 +98,6 @@ public class CoderBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
         } catch (Exception e) {
             throw new EJBException("Exception in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
         } finally {
@@ -136,9 +128,7 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("UPDATE coder set status = ? where coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setInt(1, coderStatusId);
@@ -148,8 +138,6 @@ public class CoderBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setCoderStatusId coderId: " + coderId + " coderStatusId: " + coderStatusId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setCoderStatusId coderId: " + coderId + " coderStatusId: " + coderStatusId);
         } catch (Exception e) {
             throw new EJBException("Exception in setCoderStatusId coderId: " + coderId + " coderStatusId: " + coderStatusId);
         } finally {
@@ -180,9 +168,7 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT member_since FROM coder WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setLong(1,coderId);
@@ -198,8 +184,6 @@ public class CoderBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getMemberSince coderId: " + coderId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getMemberSince coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getMemberSince coderId: " + coderId);
         } finally {
@@ -232,9 +216,7 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT status FROM coder WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setLong(1,coderId);
@@ -250,8 +232,6 @@ public class CoderBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getCoderStatusId coderId: " + coderId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getCoderStatusId coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getCoderStatusId coderId: " + coderId);
         } finally {
@@ -288,9 +268,7 @@ public class CoderBean extends BaseEJB {
             query.append("WHERE a.coder_id = ? ");
             query.append(" AND a.status = b.coder_status_id");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setLong(1,coderId);
@@ -306,8 +284,6 @@ public class CoderBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getCoderStatusDesc coderId: " + coderId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getCoderStatusDesc coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getCoderStatusDesc coderId: " + coderId);
         } finally {

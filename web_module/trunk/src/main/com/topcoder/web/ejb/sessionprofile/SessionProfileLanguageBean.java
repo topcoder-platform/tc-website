@@ -57,9 +57,7 @@ public class SessionProfileLanguageBean extends BaseEJB {
             query.append("(session_profile_id, language_id) ");
             query.append("VALUES(?,?)");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, sessionProfileId);
@@ -71,11 +69,6 @@ public class SessionProfileLanguageBean extends BaseEJB {
             DBMS.printSqlException(true, e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createProfileLanguage. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in createProfileLanguage. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -121,9 +114,7 @@ public class SessionProfileLanguageBean extends BaseEJB {
             query.append("DELETE FROM session_profile_language_xref ");
             query.append("WHERE session_profile_id = ? AND language_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, sessionProfileId);
@@ -135,11 +126,6 @@ public class SessionProfileLanguageBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in removeProfileLanguage. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in removeProfileLanguage. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -189,9 +175,7 @@ public class SessionProfileLanguageBean extends BaseEJB {
             query.append(" WHERE l.language_id = x.language_id");
             query.append(" AND x.session_profile_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionProfileId);

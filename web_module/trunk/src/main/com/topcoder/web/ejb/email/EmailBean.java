@@ -29,9 +29,6 @@ public class EmailBean extends BaseEJB {
 
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
                         "current_value", 9999999999L, 1, false);
@@ -44,7 +41,7 @@ public class EmailBean extends BaseEJB {
             query.append("INTO email (email_id,user_id) ");
             query.append("VALUES (?,?)");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, email_id);
             ps.setLong(2, userId);
@@ -76,15 +73,13 @@ public class EmailBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
             query.append("SET primary=0 ");
             query.append("WHERE user_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
 
@@ -112,9 +107,6 @@ public class EmailBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -132,15 +124,13 @@ public class EmailBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT email_id ");
             query.append("FROM email ");
             query.append("WHERE user_id=? AND primary=1");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
 
@@ -154,9 +144,6 @@ public class EmailBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -175,15 +162,13 @@ public class EmailBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
             query.append("SET email_type_id=? ");
             query.append("WHERE email_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, emailTypeId);
             ps.setLong(2, emailId);
@@ -196,9 +181,6 @@ public class EmailBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -217,15 +199,13 @@ public class EmailBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT email_type_id ");
             query.append("FROM email ");
             query.append("WHERE email_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, emailId);
 
@@ -239,9 +219,6 @@ public class EmailBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -260,15 +237,13 @@ public class EmailBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
             query.append("SET address=? ");
             query.append("WHERE email_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, address);
             ps.setLong(2, emailId);
@@ -281,9 +256,6 @@ public class EmailBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -302,15 +274,13 @@ public class EmailBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT address ");
             query.append("FROM email ");
             query.append("WHERE email_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, emailId);
 
@@ -324,9 +294,6 @@ public class EmailBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);

@@ -6,7 +6,6 @@ import com.topcoder.common.web.data.User;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.user.UserAddress;
@@ -17,9 +16,6 @@ import com.topcoder.web.ejb.phone.PhoneHome;
 import com.topcoder.web.ejb.phone.Phone;
 
 import javax.naming.InitialContext;
-import javax.naming.Context;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.sql.*;
 import java.util.*;
 
@@ -1361,7 +1357,6 @@ final class UserDbCoder {
         ResultSet rs = null;
         StringBuffer query = null;
         Connection conn = null;
-        Context ctx = null;
 
         try {
             query = new StringBuffer(300);
@@ -1369,10 +1364,8 @@ final class UserDbCoder {
             query.append(   " FROM coder_rank");
             query.append(  " WHERE coder_id = ?");
             query.append(    " AND coder_rank_type_id = ?");
-            ctx = TCContext.getInitial();
-            DataSource ds = (DataSource) PortableRemoteObject.narrow(
-                    ctx.lookup(DBMS.DW_DATASOURCE_NAME),DataSource.class);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
+
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, coder.getCoderId());
             ps.setInt(2, CODER_RATING_RANK_TYPE_ID);
@@ -1412,13 +1405,6 @@ final class UserDbCoder {
                 }
             }
 
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getAddressTypeId");
-                }
-            }
         }
     }
 

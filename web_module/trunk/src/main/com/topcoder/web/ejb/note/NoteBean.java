@@ -54,9 +54,7 @@ public class NoteBean extends BaseEJB {
             query.append("note_type_id) ");
             query.append("VALUES(?,?,?,?) ");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             noteId = IdGeneratorClient.getSeqId("NOTE_SEQ");
@@ -71,8 +69,6 @@ public class NoteBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in createNote noteId: " + noteId + " text: " + text);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in createNote noteId: " + noteId + " text: " + text);
         } catch (Exception e) {
             throw new EJBException("Exception in createNote noteId: " + noteId + " text: " + text);
         } finally {
@@ -103,9 +99,7 @@ public class NoteBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("UPDATE note set text = ? where note_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setBytes(1, text.getBytes());
@@ -116,8 +110,6 @@ public class NoteBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setText noteId: " + noteId + " text: " + text);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setText noteId: " + noteId + " text: " + text);
         } catch (Exception e) {
             throw new EJBException("Exception in setText noteId: " + noteId + " text: " + text);
         } finally {
@@ -147,9 +139,7 @@ public class NoteBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("UPDATE note set submitted_by = ? where note_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, submittedBy);
@@ -160,8 +150,6 @@ public class NoteBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setSubmittedBy noteId: " + noteId + " submittedBy: " + submittedBy);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setSubmittedBy noteId: " + noteId + " submittedBy: " + submittedBy);
         } catch (Exception e) {
             throw new EJBException("Exception in setSubmittedBy noteId: " + noteId + " submittedBy: " + submittedBy);
         } finally {
@@ -191,9 +179,7 @@ public class NoteBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("UPDATE note set note_type_id = ? where note_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, noteTypeId);
@@ -204,8 +190,6 @@ public class NoteBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setNoteTypeId noteId: " + noteId + " noteTypeId: " + noteTypeId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setNoteTypeId noteId: " + noteId + " noteTypeId: " + noteTypeId);
         } catch (Exception e) {
             throw new EJBException("Exception in setNoteTypeId noteId: " + noteId + " noteTypeId: " + noteTypeId);
         } finally {
@@ -236,9 +220,7 @@ public class NoteBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT text from note where note_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, noteId);
@@ -251,8 +233,6 @@ public class NoteBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getText noteId: " + noteId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getText noteId: " + noteId);
         } catch (Exception e) {
             throw new EJBException("Exception in getText noteId: " + noteId);
         } finally {
@@ -286,9 +266,7 @@ public class NoteBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT submitted_by from note where note_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, noteId);
@@ -301,8 +279,6 @@ public class NoteBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getSubmittedBy noteId: " + noteId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getSubmittedBy noteId: " + noteId);
         } catch (Exception e) {
             throw new EJBException("Exception in getSubmittedBy noteId: " + noteId);
         } finally {
@@ -336,9 +312,7 @@ public class NoteBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT note_type_id from note where note_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, noteId);
@@ -351,8 +325,6 @@ public class NoteBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getNoteTypeId noteId: " + noteId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getNoteTypeId noteId: " + noteId);
         } catch (Exception e) {
             throw new EJBException("Exception in getNoteTypeId noteId: " + noteId);
         } finally {
@@ -386,9 +358,7 @@ public class NoteBean extends BaseEJB {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT note_type_desc from note where note_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, noteId);
@@ -401,8 +371,6 @@ public class NoteBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getNoteTypeDesc noteId: " + noteId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getNoteTypeDesc noteId: " + noteId);
         } catch (Exception e) {
             throw new EJBException("Exception in getNoteTypeDesc noteId: " + noteId);
         } finally {

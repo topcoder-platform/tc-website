@@ -2,6 +2,7 @@ package com.topcoder.shared.ejb.EmailServices;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import java.rmi.RemoteException;
 import java.util.HashMap;
@@ -41,9 +42,7 @@ public class EmailListGroupBean extends BaseEJB {
         log.debug("Add list group requested (name " + name + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -110,9 +109,7 @@ public class EmailListGroupBean extends BaseEJB {
         log.debug("Update list group requested (id " + id + ", name " + name + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -171,9 +168,7 @@ public class EmailListGroupBean extends BaseEJB {
         log.debug("Remove list group requested (id " + id + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" DELETE FROM");
@@ -230,9 +225,7 @@ public class EmailListGroupBean extends BaseEJB {
         log.debug("getGroups for list groups requested");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
@@ -287,9 +280,7 @@ public class EmailListGroupBean extends BaseEJB {
         log.debug("getName for list group requested (id " + id + ")");
 
         try {
-            ctx = new javax.naming.InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("TC_EMAIL");
 
             sqlStmt.setLength(0);
             sqlStmt.append(" SELECT");
