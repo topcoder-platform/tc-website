@@ -117,7 +117,7 @@
                         <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
                             <td class="projectCells" align="center"><img src="/i/development/smJava.gif"/></td>
                         <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
-                            <td class="projectCells" align="center"><img src="/i/development/smFlash.gif"/></td>
+                            <td class="projectCells" align="center"><img src="/i/development/flashSm.gif"/></td>
                         <% } else { %>
                             <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <% } %>
