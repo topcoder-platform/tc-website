@@ -98,7 +98,8 @@
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                     <td background="/i/steel_bluebv_bg.gif" width="50%" class="statText">Design Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Payment*</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Submit by</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Submit by</td>\
+                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center"># of Inquiries</td>
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                 </tr>
 
@@ -112,12 +113,12 @@
                             <a class="statText">
                                 <xsl:variable name="href"> <!--2&#47;19&#47;2003-->
                                     <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;payment=', $payment, '&amp;date=2&#47;19&#47;2003')"/>
-                                    
                                 </xsl:variable><xsl:value-of select="./componentName"/>
                             </a>
                         </td>
                         <td background="" class="statText" align="center"><xsl:value-of select="./payment"/></td>
                         <td background="" class="statText" align="center">2.19.2003</td>
+                        <td background="" class="statText" align="center">19</td>
                         <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     </tr>
                 </xsl:for-each>
