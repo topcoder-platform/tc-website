@@ -29,7 +29,7 @@
           </query:linkIterator>
         </TABLE>
       </TD>
-      <TD WIDTH="4" BGCOLOR="#333333" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
+      <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" VALIGN="top" ALIGN="left">
         <TABLE WIDTH="80%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="ModifyCommandQueryTask" property="ServletPath"/>" method="post" name="ModifyCommandQueryForm" >
