@@ -25,7 +25,7 @@
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-        <td align="center"><img src="/i/events/google2003/Logo_50wht.gif" width="163" height="74" border="0"/></td>
+        <td align="center"><img src="/i/events/google2003/Logo_50wht.gif" width="150" height="74" border="0"/></td>
 
          <td width="100%" align="center" colspan="3">
             <object 
@@ -47,10 +47,25 @@
 <!-- Gutter Ends -->
 
 <!-- Left Column Begins-->
-         <td valign="top">
-         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
-         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
-         <img src="/i/clear.gif" width="180" height="40" border="0"/>
+         <td valign="top" width="150">
+         <p><img src="/i/clear.gif" width="150" height="10" border="0"/><br />
+            <table border="1" width="100%" cellspacing="0" cellpadding="3">
+               <tr>
+                  <td class="bodyText">Important Dates<br />
+                  Registration Starts<br />
+                  Wednesday, October 1st<br />
+                  Online Round 1<br />
+                  Friday, October 24th<br />
+                  Onsite Championship<br />
+                  Round<br />
+                  Friday, November 14th</td>
+               </tr>
+            </table><br />
+            <table border="1" width="100%" cellspacing="0" cellpadding="3">
+               <tr>
+                  <td class="bodyText">Important Dates</td>
+               </tr>
+            </table><br />
          </p>
          </td>         
 <!-- Left Column Ends -->

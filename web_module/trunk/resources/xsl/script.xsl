@@ -3,6 +3,16 @@
 
 
 
+  <xsl:template name="TCOCSS">
+    <SCRIPT type="text/javascript"><![CDATA[
+if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
+  document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle_linux.css"/>');
+} else {
+  document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>');
+}
+    ]]></SCRIPT>
+  </xsl:template>
+
   <xsl:template name="CSS">
     <SCRIPT type="text/javascript"><![CDATA[
 if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
@@ -14,8 +24,6 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
 }
     ]]></SCRIPT>
   </xsl:template>
-
-
 
   <xsl:template name="DateTime">
 <SCRIPT type="text/javascript"><![CDATA[
