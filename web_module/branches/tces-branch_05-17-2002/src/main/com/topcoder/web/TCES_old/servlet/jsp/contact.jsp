@@ -89,37 +89,51 @@ String language = objCoder.language_id.toString();
 
 StateBean beanState = new StateBean();
 
-Lookup states;
+Lookup states= new Lookup();
+states.addPair("AL", "alabama");
+/*
 try {
     states = beanState.listStateCodeStateName();
 } catch (SQLException exc) {
 //xxx todo: add exception handling
 }
+*/
 
 CountryBean beanCountry = new CountryBean();
-Lookup countries;
+Lookup countries= new Lookup();
+countries.addPair("792", "Turkey");
+
+/*
 try {
     countries = beanCountry.listCountryCodeCountryName();
 } catch (SQLException ecx) {
 //xxx todo: add exception handling
 }
+*/
 
 EditorBean beanEditor = new EditorBean();
-Lookup editors;
+Lookup editors = new Lookup();
+
+editors.addPair("1", "jvi");
+/*
 try {
     editors = beanEditor.listEditorCodeEditorName();
 } catch (SQLException exc) {
 //xxx todo: add exception handling
 }
+*/
+
 
 LanguageBean beanLanguage = new LanguageBean();
-Lookup languages;
+Lookup languages = new Lookup();
+languages.addPair("1", "Java");
+/*
 try {
     languages = beanLanguage.listEditorCodeEditorName();
 } catch (SQLException exc) {
 //xxx todo: add exception handling
 }
-
+*/
 %>
 
 <FORM NAME="frm" ACTION="<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
