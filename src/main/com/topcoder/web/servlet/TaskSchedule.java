@@ -49,12 +49,10 @@ public final class TaskSchedule {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("tourney_advancers");
                 dataRequest.setProperty("rds", roundids.trim());
-                if (sortCol!=null)
-                    dataRequest.setProperty("sc", sortCol);
-                if (sortDir!=null)
-                    dataRequest.setProperty("sdir", sortDir);
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("Tourney_Advancers");
+                if (sortCol != null && sortDir != null)
+                    rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                 schedTag.addTag(rsc.getTag("Advancers", "Advancer"));
             }
 
