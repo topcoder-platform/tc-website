@@ -25,7 +25,7 @@
 
 </head>
 
-<body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body>
 
 
 
@@ -36,7 +36,7 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 <!-- Left Column Begins -->
-		<td width="170" bgcolor="#CCCCCC" valign="top">
+		<td width="180" valign="top">
 			<xsl:call-template name="global_left"/>
 		</td>
 <!-- Left Column Ends -->
