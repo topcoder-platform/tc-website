@@ -66,6 +66,8 @@
             </TR>                                             
             <TR>
               <TD VALIGN="top" CLASS="bodyText">
+              
+              
 <IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" BORDER="0"/><BR/>
 Level One (250) - <A HREF="/i/2002tccc/PolePosition_250.pdf" CLASS="bodyText">PolePosition</A> | <A HREF="/i/2002tccc/PolePosition_Anly.pdf" CLASS="bodyText">PolePosition Analysis</A> by jay_peg<BR/>
 Level Two (500) - <A HREF="/i/2002tccc/SetPartition_500.pdf" CLASS="bodyText">SetPartition</A> Writer: kyky | <A HREF="/i/2002tccc/SetPartition_Anly.pdf" CLASS="bodyText">SetPartition Analysis</A> by jay_peg<BR/>
