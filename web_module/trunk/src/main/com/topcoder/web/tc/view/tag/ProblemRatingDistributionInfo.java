@@ -18,5 +18,3 @@ public class ProblemRatingDistributionInfo extends TagExtraInfo {
     }
 
 
-
-}

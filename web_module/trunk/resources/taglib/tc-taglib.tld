@@ -610,4 +610,29 @@
     </attribute>
   </tag>
 
-</taglib>  
+    <tag>
+        <name>format</name>
+        <tagclass>com.topcoder.web.common.tag.FormatTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag for format objects
+        </info>
+        <attribute>
+            <name>object</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>ifNull</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+</taglib>

@@ -2,8 +2,9 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-taglib.tld" prefix="tc-tags" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<jsp:useBean id="problemRatingResults" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<jsp:useBean id="problemRatingResults" scope="request" class="java.util.List" />
 <jsp:useBean id="overallDistribution" scope="request" class="java.util.List" />
 <jsp:useBean id="div1Distribution" scope="request" class="java.util.List" />
 <jsp:useBean id="div2Distribution" scope="request" class="java.util.List" />
@@ -107,28 +108,28 @@
                 div2Count = problemRatingResults.getIntItem(0,"div2_count");
             }
         %>
-        <rsc:iterator list="<%=problemRatingResults%>" id="result">
+        <rsc:problemRatingResultIterator list="<%=problemRatingResults%>" id="result">
         <tr>
             <td class="bodyText">
-                <rsc:item row="<%=result%>" name="question"/> :
+                <jsp:getProperty name="result" property="Question"/>
             </td>
             <td class="bodyText" align="right">
-                <rsc:item row="<%=result%>" name="average" format="0.00"/>
+                <tc-tags:format object="<%=result.getOverallAverage()%>" format="0.00"/>
             </td>
             <td class="bodyText" align="right">
-                <rsc:item row="<%=result%>" name="div1_average" format="0.00"/>
+                <tc-tags:format object="<%=result.getDiv1Average()%>" format="0.00"/>
             </td>
             <td class="bodyText" align="right">
-                <rsc:item row="<%=result%>" name="div2_average" format="0.00"/>
+                <tc-tags:format object="<%=result.getDiv2Average()%>" format="0.00"/>
             </td>
         </tr>
-        </rsc:iterator>
+        </rsc:problemRatingResultIterator>
         <tr><td class="bodyTextBig" colspan="4" align="center"><%=count%> Total votes | <%=div1Count%> Div I Votes | <%=div2Count%> Div II Votes</td></tr>
     </table><br/>
          <center>
 <SCRIPT language="JavaScript">
 <!--
-     var params = '<tc:problemRatingResultIterator list="<%=overallDistribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingResultIterator><tc:problemRatingResultIterator list="<%=div1Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingResultIterator><tc:problemRatingResultIterator list="<%=div2Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingResultIterator>'
+     var params = '<tc:problemRatingDistributionIterator list="<%=overallDistribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator><tc:problemRatingDistributionIterator list="<%=div1Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator><tc:problemRatingDistributionIterator list="<%=div2Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator>'
      params = params.substring(0, params.length-1);
      if (flashinstalled>1){
              document.write('<object type="application/x-shockwave-flash" data="/i/problem_rating.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="100%" height=400 border="0" salign="Top" id="myFlash" >');
