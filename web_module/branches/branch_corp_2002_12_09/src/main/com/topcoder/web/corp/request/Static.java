@@ -1,9 +1,9 @@
 package com.topcoder.web.corp.request;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.topcoder.web.common.RequestProcessor;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//
+//import com.topcoder.web.common.RequestProcessor;
 
 /**
 * <p>Title: Static </p>
@@ -41,7 +41,7 @@ public class Static extends AbstractRequestProcessor {
         setContentTag(getNextPage());
     }
 
-    public boolean hasNextPageSameContext() {
+    public boolean isNextPageInContext() {
         return false;
     }
     /**

@@ -27,11 +27,11 @@ public class ContentFetcherA extends AbstractRequestProcessor {
         return null;
     }
     
-    /**
+	/**
      * not implemented.
-     * @see com.topcoder.web.common.RequestProcessor#hasNextPageSameContext()
-     */
-    public boolean hasNextPageSameContext() {
-        return false;
-    }
+	 * @see com.topcoder.web.common.RequestProcessor#isNextPageInContext()
+	 */
+	public boolean isNextPageInContext() {
+		return false;
+	}
 }

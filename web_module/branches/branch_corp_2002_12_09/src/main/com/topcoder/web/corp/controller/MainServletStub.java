@@ -1,7 +1,7 @@
 package com.topcoder.web.corp.controller;
 
 import java.io.IOException;
-import javax.servlet.ServletConfig;
+//import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +27,7 @@ public class MainServletStub extends HttpServlet {
         log.debug("URI Request received: "+request.getRequestURI() + "?" +
                    request.getQueryString());
         RequestProcessor currentProc = new com.topcoder.web.corp.request.Static();
-        currentProc.prepare(request);
+        currentProc.setRequest(request);
         try {
             currentProc.process();
         }
