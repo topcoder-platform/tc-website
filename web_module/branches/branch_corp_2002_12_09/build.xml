@@ -46,7 +46,7 @@
         <property name="regservlets" value="com/topcoder/web/reg/servlet"/>
         <property name="resumeservlets" value="com/topcoder/web/resume/servlet"/>
         <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet"/>
-        <property name="tcesservlets" value="com/topcoder/web/tces/servlet"/>
+<!--        <property name="tcesservlets" value="com/topcoder/web/tces/servlet"/> -->
         <mkdir dir="${classes}"/>
         <mkdir dir="${testclasses}"/>
         <mkdir dir="${bin}"/>
@@ -58,7 +58,7 @@
         <mkdir dir="${servlets}/${regservlets}"/>
         <mkdir dir="${servlets}/${resumeservlets}"/>
         <mkdir dir="${servlets}/${jobpostingservlets}"/>
-        <mkdir dir="${servlets}/${tcesservlets}"/>
+<!--        <mkdir dir="${servlets}/${tcesservlets}"/> -->
     </target>
     <target name="move_file_upload_xml">
         <property name="toDir" value="${resources}/com/topcoder/servlet/request"/>
@@ -83,7 +83,10 @@
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
     </target>
     <target name="full_deploy" depends="build_ejbs,deploy"/>
+<!--
     <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES,deploy-corp"/>
+-->
+    <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,deploy-corp"/>
     <target name="servlets" depends="compile,move_file_upload_xml">
         <move todir="${servlets}/${statservlets}">
             <fileset dir="${classes}/${statservlets}">
@@ -120,11 +123,13 @@
                 <include name="*.class"/>
             </fileset>
         </move>
+<!--
         <move todir="${servlets}/${tcesservlets}">
             <fileset dir="${classes}/${tcesservlets}">
                 <include name="*.class"/>
             </fileset>
         </move>
+-->
     </target>
     <target name="moveStruts" depends="check_java_version,create_public_html">
         <copy todir="${public_html}/WEB-INF/lib">
@@ -169,6 +174,7 @@
             </fileset>
         </copy>
     </target>
+<!--
     <target name="moveTCES" depends="check_java_version">
         <copy todir="${public_html}/WEB-INF">
             <fileset dir="resources/tces">
@@ -176,6 +182,7 @@
             </fileset>
         </copy>
     </target>
+-->
     <target name="jsp" depends="check_java_version">
         <property name="stat.trgt" value="${public_html}/stat_jsp"/>
         <property name="stat.src" value="${web}/stat/servlet/jsp"/>
@@ -197,8 +204,10 @@
         <property name="resume.src" value="${web}/resume/servlet/jsp"/>
         <property name="jobposting.trgt" value="${public_html}/jobposting_jsp"/>
         <property name="jobposting.src" value="${web}/jobposting/servlet/jsp"/>
+<!--
         <property name="tces.trgt" value="${public_html}/tces/tces_jsp"/>
         <property name="tces.src" value="${web}/tces/servlet/jsp"/>
+-->
         <mkdir dir="${stat.trgt}"/>
         <mkdir dir="${root.trgt}"/>
         <mkdir dir="${pacts.trgt}"/>
@@ -256,11 +265,13 @@
             </fileset>
         </copy>
 
+<!--
         <copy todir="${tces.trgt}">
             <fileset dir="${tces.src}">
                 <include name="**/*.jsp"/>
             </fileset>
         </copy>
+-->
 
         <copy todir="${public_html}/WEB-INF">
             <fileset dir="${taglib}">
@@ -473,7 +484,7 @@
         <antcall target="dev_war_query"/>
         <antcall target="dev_war_email"/>
         <antcall target="dev_war_corp"/>
-<!--		<antcall target="dev_war_tces"/> -->
+        <antcall target="dev_war_tces"/>
     </target>
     <target name="dev_war_corp" depends="compile">
         <!--      <delete dir="${public_html}/${corp.war.name}"/>
@@ -535,6 +546,26 @@
         <copy todir="${tc_cluster}/${email.war.name}/classes">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/email/**"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="dev_war_tces" depends="compile">
+        <delete dir="${tc_cluster}/${tces.war.name}"/>
+        <mkdir dir="${tc_cluster}/${tces.war.name}"/>
+        <copy todir="${tc_cluster}/${tces.war.name}">
+            <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <copy todir="${tc_cluster}/${tces.war.name}/WEB-INF">
+            <fileset dir="${resources}/${tces.war.name}">
+                <include name="*.tld"/>
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
+        <copy todir="${tc_cluster}/${tces.war.name}/classes">
+            <fileset dir="${classes}">
+                <include name="com/topcoder/web/tces/**"/>
             </fileset>
         </copy>
     </target>

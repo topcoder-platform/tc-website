@@ -56,7 +56,7 @@
 
 <servlet-mapping>
   <servlet-name>tces</servlet-name>
-  <url-pattern>tces</url-pattern>
+  <url-pattern>/</url-pattern>
 </servlet-mapping>
 
 </web-app>
