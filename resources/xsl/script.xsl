@@ -283,11 +283,11 @@ function goTo(selection)
   } 
   else if (sel == "apr_02")
   {
-    window.location = "/index?t=schedule&c=index";
+    window.location = "/index?t=schedule&c=apr_02";
   }  
   else if (sel == "may_02")
   {
-    window.location = "/index?t=schedule&c=may_02";
+    window.location = "/index?t=schedule&c=index";
   }  
   else if (sel == "june_02")
   {
