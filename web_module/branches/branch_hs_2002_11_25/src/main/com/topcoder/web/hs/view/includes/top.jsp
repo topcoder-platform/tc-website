@@ -43,9 +43,9 @@ function openWin(url, name, w, h) {
 <% if(SessionInfo.isGuest()) { %>
         &nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=registration&d2=registration" CLASS="rednav">Register</A> 
 <% } else if(SessionInfo.isStudent()) { %>
-        &nbsp;&nbsp;&nbsp;<A HREF="?module=StudentUpdate" CLASS="rednav">Update Profile</A> 
+        &nbsp;&nbsp;&nbsp;<A HREF="?module=StudentRegistration" CLASS="rednav">Update Profile</A> 
 <% } else if(SessionInfo.isCoach()) { %>
-        &nbsp;&nbsp;&nbsp;<A HREF="?module=CoachUpdate" CLASS="rednav">Update Profile</A> 
+        &nbsp;&nbsp;&nbsp;<A HREF="?module=CoachRegistration" CLASS="rednav">Update Profile</A> 
 <% } else { // assuming admin %>
         &nbsp;&nbsp;&nbsp;<A CLASS="rednav">Register</A>
 <% } %>
