@@ -66,6 +66,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     private ArrayList data;
     private ResultColumn columns[];
     private HashMap columnNameMap;
+    private int startRow;
+    private int endRow;
 
     // Variables indicating whether there is other relevant data which
     // was not placed in this ResultSetContainer because the row numbers
@@ -81,6 +83,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         columnNameMap = new HashMap();
         dataBefore = false;
         dataAfter = false;
+        startRow = 1;
+        endRow = Integer.MAX_VALUE;
     }
 
     /**
@@ -101,6 +105,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         while (rs.next()) {
             addRow(rs);
         }
+        endRow = data.size();
+
     }
 
     /**
@@ -124,6 +130,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
                 addRowWithNulls(rs);
             }
         }
+        endRow = data.size();
     }
 
     /**
@@ -168,6 +175,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             }
             addRow(rs);
         }
+        startRow = start;
+        endRow = end;
     }
 
     /**
@@ -215,6 +224,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
                 addRowWithNulls(rs);
             }
         }
+        startRow = start;
+        endRow = end;
     }
 
 
@@ -282,6 +293,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             }
             addRanklistRow(rs, rank);
         }
+        startRow = start;
+        endRow = end;
     }
 
     /**
@@ -351,6 +364,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
                 addRanklistRowWithNulls(rs, rank);
             }
         }
+        startRow = start;
+        endRow = end;
     }
 
 
@@ -1415,6 +1430,26 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      */
     public int getRowCount() {
         return data.size();
+    }
+
+    /**
+     * Gets the 1 based index of the first row in the container with respect to what
+     * the full set might be.  If > 1, this means that a
+     * start rank > 1 was provided to the contructor
+     * @return
+     */
+    public int getStartRow() {
+        return startRow;
+    }
+
+    /**
+     * Gets the 1 based infex of the last row in the container with respect to what
+     * the full set might be.  If an end rank was provided in the contructor
+     * that what will be returned, otherwise, it'll be the size of the data set.
+     * @return
+     */
+    public int getEndRow() {
+        return endRow;
     }
 
     /**************************************************************************/
