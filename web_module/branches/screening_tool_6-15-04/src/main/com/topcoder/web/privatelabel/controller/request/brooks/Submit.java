@@ -3,6 +3,7 @@ package com.topcoder.web.privatelabel.controller.request.brooks;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
@@ -10,7 +11,14 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.shared.util.*;
+
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
+import java.util.*;
 
 /**
  * @author dok
@@ -34,15 +42,63 @@ public class Submit extends FullRegSubmit {
                 buf.append(Constants.MODULE_KEY);
                 buf.append("=");
                 buf.append(Constants.STATIC);
-                if (((FullRegInfo)regInfo).getCoderType()==Constants.PROFESSIONAL)
-                    buf.append(Constants.DC_REG_PRO_SUCCESS_PAGE);
-                else buf.append(Constants.DC_REG_STUDENT_SUCCESS_PAGE);
+                buf.append(Constants.BROOKS_REG_SUCCESS_PAGE);
                 setNextPage(buf.toString());
                 setIsNextPageInContext(false);
             }
         } else {
             throw new RuntimeException("impossible, isEligible returned false, fix the code");
         }
+    }
+    
+    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+        UserPrincipal ret = super.store(regInfo, newUser);
+        
+        //check for resume save
+        ResumeRegInfo info = (ResumeRegInfo)regInfo;
+        if(info.getUploadedFile() != null)
+        {
+            byte[] fileBytes = null;   
+            String fileName = "";
+            int fileType = -1;
+            
+            fileBytes = new byte[(int) info.getUploadedFile().getSize()];
+            info.getUploadedFile().getInputStream().read(fileBytes);
+            if (fileBytes == null || fileBytes.length == 0)
+                addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
+            else {
+                //fileType = Integer.parseInt(file.getParameter("fileType"));
+                Map types = getFileTypes(transDb);
+                if(types.containsKey(info.getUploadedFile().getContentType()) )
+                {
+                    log.info("FOUND TYPE");
+                    fileType = ((Long) types.get(info.getUploadedFile().getContentType())).intValue();
+                }
+                else
+                {
+                    log.info("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
+                }
+                fileName = info.getUploadedFile().getRemoteFileName();
+                ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
+                resumeServices.putResume(ret.getId(), fileType, fileName, fileBytes, transDb);
+            }
+        }
+        return ret;
+    }
+    
+    protected Map getFileTypes(String db) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("file_types");
+        Map qMap = getDataAccess(db, true).getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            ret.put(row.getStringItem("mime_type"), new Long( row.getLongItem("file_type_id")) );
+        }
+        return ret;
     }
 
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
