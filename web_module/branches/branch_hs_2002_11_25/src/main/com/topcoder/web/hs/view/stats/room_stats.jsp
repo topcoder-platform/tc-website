@@ -42,6 +42,7 @@ pageContext.setAttribute("rm", currRoom);
                 <TR>
                   <TD COLSPAN="4"  CLASS="statText">
                     <SPAN CLASS="statText"><B>Please select a round:</B><BR/></SPAN>
+                    <FORM name="selectform">
                     <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown"><OPTION value="#">Select a Round:</OPTION>
                       <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
                         <% if (resultRow.getItem(0).toString().equals(pageContext.getAttribute("rd"))) { %>
@@ -51,11 +52,13 @@ pageContext.setAttribute("rm", currRoom);
                         <% } %>      
                       </logic:iterate>
                     </SELECT>
+                    </FORM>
                   </TD>
                 </TR>
                 <TR>
                   <TD COLSPAN="4"  CLASS="statText">
                      <SPAN CLASS="statText"><B>Please select a room:</B><BR/></SPAN>
+                     <FORM name="selectanotherform">
                      <SELECT NAME="Round" onchange="goTo(this)" CLASS="dropdown"><OPTION value="#">Select a Room:</OPTION>
                        <logic:iterate name="resultSetRooms" id="resultRowRoom" type="ResultSetContainer.ResultSetRow">
                          <% if (resultRowRoom.getItem(0).toString().equals(pageContext.getAttribute("rm"))) { %>
@@ -65,6 +68,7 @@ pageContext.setAttribute("rm", currRoom);
                          <% } %>                 
                        </logic:iterate>
                      </SELECT>
+                     </FORM>
                    </TD>
                  </TR>  
                  <TR>

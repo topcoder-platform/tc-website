@@ -21,6 +21,7 @@ pageContext.setAttribute("resultSetDates", rdlist);
   <TR>
    <TD>
     <SPAN class="statText"><B>Please select a round:</B><BR/></SPAN>
+    <FORM name="selectform">
     <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
         <OPTION value="#">Select a Round:</OPTION>
         <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
@@ -31,6 +32,7 @@ pageContext.setAttribute("resultSetDates", rdlist);
         <% } %>
         </logic:iterate>
     </SELECT>
+    </FORM>
     </TD>
   </TR>
 </TABLE>
