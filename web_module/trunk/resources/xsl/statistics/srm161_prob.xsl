@@ -461,8 +461,8 @@ wanted the permutation corresponding to a lexPos of 47 we would get 2, 5, 3, 4,
 <OL>
   <LI>Took 2. We are now left with 1,3,4,5. </LI>
   <LI>Took 5. We are now left with 1,3,4. </LI>
-  <LI>Took 3. We are now left with 1,4. </LI>
-  <LI>Took 4. We are now left with 1. </LI>
+  <LI>Took 4. We are now left with 1,4. </LI>
+  <LI>Took 3. We are now left with 1. </LI>
   <LI>Took 1. </LI>
 </OL>
 <p>Notice how the values we took correspond to the factorial 
