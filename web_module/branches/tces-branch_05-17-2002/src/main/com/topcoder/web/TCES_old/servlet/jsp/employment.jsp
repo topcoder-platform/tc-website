@@ -154,6 +154,10 @@ String endYear = "";
 <tr>
 <td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 1: Enter Company Name and Information</b></td>
+<td colspan="2"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+</tr>
+<tr>
 <td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Company&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><input type="text" name="company" value="<%= company %>" size="30" maxlength="30"></td>
@@ -265,6 +269,7 @@ String endYear = "";
 <td colspan="3" class="errorText" align="left" valign="middle"></td>
 </tr>
 
+<%// big line %>
 
 <tr valign="middle">
 <td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
@@ -277,6 +282,99 @@ String endYear = "";
 <tr valign="middle">
 <td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
 </tr>
+
+<%//step 2 %>
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Step 2: Your Position</b></td>
+<td colspan="2"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+</tr>
+<tr>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Title&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><%= titles.getSelectBox("", "", "", "") %></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+
+<% // role %>
+
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Role&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><%= roles.getSelectBox("", "", "", "") %></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+<% // management %>
+
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Management?&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><%= managed.getSelectBox("", "", "", "") %></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+<% // numberPeople %>
+
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">People Managed&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><%= numberPeople.getSelectBox("", "", "", "") %></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+
+<%// big line %>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;</td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+
 
 <tr>
 <td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Term of Employment: Select Start Date<br>
