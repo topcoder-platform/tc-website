@@ -68,7 +68,7 @@
               <BR/>
               <B>Campaign:</B> <%=MemberInterestTask.getCampaignName()%><BR>
               </P>
-              <TABLE ID="dataTable" WIDTH="50%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+              <TABLE ID="dataTable" WIDTH="50%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                 <TR>
                   <TD class="testTableTitle" HEIGHT="18">&#160;<b>Position Name</b></TD>
                   <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -76,14 +76,16 @@
                 </TR>
 
 
+                <% int i=0; %>
                 <tces:rowIterator id="hit" rowList="<%=(List)MemberInterestTask.getHitList()%>">
+                <% i++; %>
 
                 <TR>
-                  <TD class="bodyText" HEIGHT="18">&#160;
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">&#160;
                     <%= hit.getItem("job_desc").toString() %>
                   </TD>                                   
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= JSPUtils.autoFormat(hit.getItem("timestamp")) %>
                   </TD>
                 </TR>
