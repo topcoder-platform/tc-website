@@ -73,7 +73,7 @@
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
-                        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                        <table width="100%" border="0" cellpadding="3" cellspacing="1">
                             <tr><td colspan="4" class="statText"><strong>This Year's Competitors</strong><br /><br /></td></tr>
 
                             <tr>
