@@ -579,7 +579,7 @@ public final class TaskDevelopment {
 
                         }
                     } else {
-                        throw new NavigationException("Sorry, this project is full.", "http://"+ApplicationServer.SERVER_NAME);
+                        devTag.addTag(new ValueTag("projectFull", "true"));
                     }
                 } else {
                     requiresLogin = true;
