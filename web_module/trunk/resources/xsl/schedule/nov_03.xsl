@@ -111,7 +111,7 @@
                                     Online Round #4<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_artifact" class="statText">Artifact</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">6</td>
