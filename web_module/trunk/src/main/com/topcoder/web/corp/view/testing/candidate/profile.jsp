@@ -226,7 +226,7 @@ if ( MM_FlashCanPlay ) {
                             <%if(((String)request.getAttribute("resume")).equals("")) { %>
                                 None
                             <% } else { %>
-                                <a href="?module=DownloadResume&uid=<%=request.getAttribute(Constants.USER_ID)%>">View (<%=request.getAttribute("resume")%>)</a>
+                                <a href="?module=DownloadResume&<%=Constants.USER_ID%>=<%=request.getAttribute(Constants.USER_ID)%>">View (<%=request.getAttribute("resume")%>)</a>
                             <% } %>
                             </td>
                         </tr>
