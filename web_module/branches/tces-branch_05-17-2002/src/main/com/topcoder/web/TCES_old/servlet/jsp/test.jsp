@@ -44,7 +44,7 @@
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 							<BR><BR><BR>
 							User is <%= user %><BR>
-							<%= user.getHandle %> (<%= user.getUserId() %>)
+							<%= user.getHandle() %> (<%= user.getUserId() %>)
 							<BR><BR>
 		    		</TD>
 		    		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
