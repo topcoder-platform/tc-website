@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
 
 public class Controller
@@ -131,8 +132,6 @@ public class Controller
 
                 forward(request, response, task.getNextPage());
             }
-        } catch (ServletException se) {
-            throw se;
         } catch (PermissionException pe) {
             log.debug("caught PermissionException");
             try {
@@ -158,8 +157,27 @@ public class Controller
                 e.printStackTrace();
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ServletException(e.getMessage());
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            request.setAttribute(BaseServlet.MESSAGE_KEY, "An error has occurred when attempting to process your request.");
+            request.setAttribute("exception", e);
+            try {
+                getServletContext().getRequestDispatcher(response.encodeURL("/errorPage.jsp")).forward(request, response);
+            } catch (Exception e1) {
+                log.fatal("forwarding to error page failed", e);
+                e.printStackTrace();
+                response.setContentType("text/html");
+                response.setStatus(500);
+                PrintWriter out = null;
+                try {
+                    out = response.getWriter();
+                    out.println("<html><head><title>Internal Error</title></head>");
+                    out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+                    out.println("</body></html>");
+                    out.flush();
+                } catch (IOException e2) {
+                    throw new ServletException(e2);
+                }
+            }
         } finally {
             if (session != null) {
                 setNavigation(session);
