@@ -117,7 +117,7 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Palm_Transfers_App_Design2">Palm Transfers Application</a>
+                                        <a href="?t=development&amp;c=Palm_Transfers_App_Design2">Palm Transfers and Receiving Application</a>
                                     </td>
                                     <td class="projectCells" align="right">$2800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>

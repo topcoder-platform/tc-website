@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Palm Transfers Application Design Project at TopCoder</title>
+                <title>Palm Transfers and Receiving Application Design Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Palm Transfers Application</td>
+                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Palm Transfers And Receiving Application</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -323,7 +323,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20Receiving%20Application">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20and%20Receiving%20Application">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                                         Once you have registered for the project you will be given more information on the project including the requirements specification, prototype and other additional information.  After viewing this information, you will have 12 hours to accept the position.
                                                     </p>
                                                 </td>
