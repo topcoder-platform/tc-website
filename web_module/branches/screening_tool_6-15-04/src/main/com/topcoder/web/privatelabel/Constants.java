@@ -124,6 +124,11 @@ public class Constants {
     public static String DC_REG_CONFIRM;
     public static String DC_REG_SUBMIT;
     public static String DC_ACTIVATION;
+    public static String BROOKS_REG_MAIN;
+    public static String BROOKS_REG_DEMOG;
+    public static String BROOKS_REG_CONFIRM;
+    public static String BROOKS_REG_SUBMIT;
+    public static String BROOKS_ACTIVATION;
 
     //various constants
     public static int STUDENT;
