@@ -6,9 +6,11 @@ import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.query.ejb.QueryServices.QueryInput;
+import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
+import java.util.List;
 
 /**
  * @author Greg Paul
@@ -26,6 +28,7 @@ public class QueryDetail extends BaseProcessor {
     private int columnIndex;
     private ResultSetContainer inputList;
     private int queryId;
+    private List commandList;
 
     /* Creates a new Login */
     public QueryDetail() {
@@ -47,13 +50,14 @@ public class QueryDetail extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
         Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
-
+        CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
 
         setQueryText(q.getText(getQueryId(), getDb()));
         setQueryName(q.getName(getQueryId(), getDb()));
         setRankingQuery(q.getRanking(getQueryId(), getDb())==1?true:false);
         setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
         setInputList(qi.getInputsForQuery(getQueryId(), getDb()));
+        setCommandList(cq.getCommandsForQuery(getQueryId(), getDb()));
 
         request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.QUERY_DETAIL_PAGE);
@@ -126,6 +130,13 @@ public class QueryDetail extends BaseProcessor {
         this.queryId = queryId;
     }
 
+    public List getCommandList() {
+        return commandList;
+    }
+
+    public void setCommandList(List commandList) {
+        this.commandList = commandList;
+    }
 
 }
 
