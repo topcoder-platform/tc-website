@@ -102,6 +102,9 @@
       <td colspan="3"><center>&lt;A HREF="/stat?c=member_profile&amp;amp;cr=<%=p.getUserId()%>" CLASS="<%=className%>"&gt;<%=p.getHandle()%>&lt;/A&gt;</center></td>
     </tr>
     <tr>
+      <td colspan="3"><center>&lt;A HREF="/stat?c=coder_room_stats&amp;amp;cr=<%=p.getUserId()%>" CLASS="<%=className%>"&gt;<%=p.getHandle()%>&lt;/A&gt;</center></td>
+    </tr>
+    <tr>
       <td><br/></td>
     </tr>
     <tr>
