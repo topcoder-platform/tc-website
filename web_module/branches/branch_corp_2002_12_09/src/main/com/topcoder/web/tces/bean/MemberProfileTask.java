@@ -58,7 +58,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     private boolean hasResume;
 
-    private long uid;
+    //private long uid; // moved to BaseTask
 
     /** Holds data about the coder's Division I performance. */
     private ResultSetContainer.ResultSetRow divIStats;
@@ -288,18 +288,13 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
      * @param response The servlet response object.
      * @throws Exception
      */
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-        HttpSession session = request.getSession(true);
-
-//        if (!havePermission(this)) {
-//            throw new TCESAuthorizationException(curUser.getUserName() + 
-//                              " not Authorized for access to resouce.");
-//        }
-
-        User curUser = getAuthenticityToken().getActiveUser();
-        uid = curUser.getId();
-    }
+//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+//            throws Exception {
+//        HttpSession session = request.getSession(true);
+//
+//        User curUser = getAuthenticityToken().getActiveUser();
+//        uid = curUser.getId();
+//    }
 
     /** Performs post-processing for the task.
      * @param request The servlet request object.

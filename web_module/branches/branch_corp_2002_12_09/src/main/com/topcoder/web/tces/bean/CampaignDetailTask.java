@@ -154,19 +154,16 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         this.companyName = companyName;
     }
 
-/*
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception {
 
-//        if (!havePermission(this)) {
-//            throw new TCESAuthorizationException(curUser.getUserName() + 
-//                              " not Authorized for access to resouce.");
-//        }
 
-        User curUser = getAuthenticityToken().getActiveUser();
-        uid = curUser.getId();
-    }
-*/
+//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+//        throws Exception {
+//
+//        User curUser = getAuthenticityToken().getActiveUser();
+//        uid = curUser.getId();
+//    }
+
+
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
 
@@ -192,7 +189,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         dataRequest.setProperty("uid", Long.toString(uid) );
         log.debug("User id set in CampaignDetailTask= "+uid);
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-        log.debug("Company id set in CampaignDetailTask= "+uid);
+        log.debug("Company id set in CampaignDetailTask= "+cid);
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 

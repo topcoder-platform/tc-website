@@ -30,7 +30,7 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
 
     private static Logger log = Logger.getLogger(CoderDemographicsTask.class);
 
-    private long uid;
+    //private long uid; //movede to BaseTask
     private int cid;
     private int jid;
     private int mid;
@@ -56,18 +56,13 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         uid=-1;
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception
-    {
-
-//        if (!havePermission(this)) {
-//            throw new TCESAuthorizationException(curUser.getUserName() + 
-//                              " not Authorized for access to resouce.");
-//        }
-
-        User curUser = getAuthenticityToken().getActiveUser();
-        uid = curUser.getId();
-    }
+//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+//        throws Exception
+//    {
+//
+//        User curUser = getAuthenticityToken().getActiveUser();
+//        uid = curUser.getId();
+//    }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {

@@ -86,20 +86,14 @@ public class MainTask extends BaseTask implements Task, Serializable {
         return hasManyCompanies;
     }
 
-/*
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception
-    {
-
-        User curUser = getAuthenticityToken().getActiveUser();
-        uid = curUser.getId();
-
-        String testUser = request.getParameter("testUserId");
-        if (testUser != null) {
-            uid = Long.parseLong(testUser);
-        }
-        log.debug("User id set: "+uid);
-    }*/
+//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+//        throws Exception
+//    {
+//
+//        User curUser = getAuthenticityToken().getActiveUser();
+//        uid = curUser.getId();
+//
+//    }
 
     public void processStep(String step)
         throws Exception

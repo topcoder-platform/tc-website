@@ -51,7 +51,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     private Map proDemoInfo;
 
     /* Holds the ID of the currently logged-in user */
-    private long uid;
+    //private long uid;  // moved to BaseTask
 
     /* Creates a new DemographicTask */
     public DemographicTask() {
@@ -191,18 +191,13 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         this.companyName = companyName;
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception
-    {
-
-//        if (!havePermission(this)) {
-//            throw new TCESAuthorizationException(curUser.getUserName() + 
-//                              " not Authorized for access to resouce.");
-//        }
-
-        User curUser = getAuthenticityToken().getActiveUser();
-        uid = curUser.getId();
-    }
+//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+//        throws Exception
+//    {
+//
+//        User curUser = getAuthenticityToken().getActiveUser();
+//        uid = curUser.getId();
+//    }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
