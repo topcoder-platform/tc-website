@@ -371,7 +371,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,last_login ");                // 29
             query.append("       ,coder_region_code ");         // 30
             query.append("       ,image ");                    // 31
-            query.append("       ,comp_country_code ");         // 32
+            query.append("       ,comp_country_code) ");         // 32
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
