@@ -51,7 +51,7 @@
   </tag>
 
   <tag>
-    <name>resultSetItemTag</name>
+    <name>resultSetItem</name>
     <tagclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTag</tagclass>
     <teiclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
