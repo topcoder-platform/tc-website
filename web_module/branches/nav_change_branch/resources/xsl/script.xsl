@@ -50,7 +50,7 @@ if (document.images) {
   image2on = new Image();
   image2on.src = "/i/menu_tces_on.gif";
   image3on = new Image();
-  image3on.src = "/i/menu_applet_on.gif";
+  image3on.src = "/i/menu_applet2_on.gif";
   image4on = new Image();
   image4on.src = "/i/menu_tcs_on.gif";
   image5on = new Image();
@@ -66,7 +66,7 @@ if (document.images) {
   image2off = new Image();
   image2off.src = "/i/menu_tces_off.gif";
   image3off = new Image();
-  image3off.src = "/i/menu_applet_off.gif";
+  image3off.src = "/i/menu_applet2_off.gif";
   image4off = new Image();
   image4off.src = "/i/menu_tcs_off.gif";
   image5off = new Image();

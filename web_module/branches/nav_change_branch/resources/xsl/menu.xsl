@@ -1,10 +1,18 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="TopMenu">
-    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CC0000">
       <TR>
         <!-- <TD HEIGHT="21" BGCOLOR="#000000" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/></TD> -->
-        <TD CLASS="registerNav" WIDTH="114" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif">
+        <TD CLASS="registerNav" WIDTH="114" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif" NOWRAP="0">
+          <A HREF="Javascript:arena()" CLASS="registerNav" onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent">
+            <IMG SRC="/i/menu_applet2_off.gif" NAME="image3" ALT="Competition Applet" WIDTH="170" HEIGHT="21" BORDER="0"/>
+          </A>
+        </TD> 
+        <!-- <TD WIDTH="5" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right">
+          <IMG SRC="/i/top_bar_left.gif" WIDTH="21" HEIGHT="21" BORDER="0"/>
+        </TD> -->                  
+        <TD CLASS="globalNav" WIDTH="100%" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" NOWRAP="0">
           <xsl:choose>
             <xsl:when test="/TC/LoggedIn='true'">
               <A CLASS="registerNav" TARGET="_parent">
@@ -18,27 +26,23 @@
                 <IMG SRC="/i/menu_reg_off.gif" ALT="Register" WIDTH="114" HEIGHT="21" BORDER="0"/>
               </A>  
             </xsl:otherwise>
-          </xsl:choose>
-        </TD>
-        <TD CLASS="globalNav" WIDTH="100%" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" NOWRAP="0">
-          <A HREF="Javascript:arena()" CLASS="registerNav" onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent">
-            <IMG SRC="/i/menu_applet_off.gif" NAME="image3" ALT="Competition Applet" WIDTH="127" HEIGHT="21" BORDER="0"/>
-          </A> 
+          </xsl:choose>            
+        <!-- <TD CLASS="globalNav" WIDTH="100" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" NOWRAP="0">   
           <A onMouseOver="changeImages('image7', 'image7on')" onMouseOut="changeImages('image7', 'image7off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=practice&amp;c=index</xsl:attribute>
             <IMG NAME="image7" ALT="Practice Room" WIDTH="100" HEIGHT="21" BORDER="0">
               <xsl:attribute name="SRC">/i/menu_practice_<xsl:choose><xsl:when test="/TC/Task='practice'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
-          </A>                  
+          </A>
+         </TD> -->          
+          <IMG SRC="/i/divider.gif" ALT="" WIDTH="1" HEIGHT="21" BORDER="0"/>
           <A onMouseOver="changeImages('image2', 'image2on')" onMouseOut="changeImages('image2', 'image2off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
             <IMG NAME="image2" ALT="TCES" WIDTH="187" HEIGHT="21" BORDER="0">
               <xsl:attribute name="SRC">/i/menu_tces_<xsl:choose><xsl:when test="/TC/Task='tces'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
-          </A>         
-          <A HREF="http://www.topcodersoftware.com" onMouseOver="changeImages('image4', 'image4on')" onMouseOut="changeImages('image4', 'image4off')" TARGET="_blank">
-            <IMG SRC="/i/menu_tcs_off.gif" NAME="image4" ALT="TCS" WIDTH="128" HEIGHT="21" BORDER="0"/>
           </A>
+          <IMG SRC="/i/divider.gif" ALT="" WIDTH="1" HEIGHT="21" BORDER="0"/>
           <!-- <A onMouseOver="changeImages('image5', 'image5on')" onMouseOut="changeImages('image5', 'image5off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>
             <IMG NAME="image5" SRC="/i/menu_rounds_off.gif" ALT="Round Tables" WIDTH="90" HEIGHT="21" BORDER="0"/>
