@@ -58,7 +58,7 @@ public class DemographicInput extends BaseTag {
 
     private String buildText() {
         StringBuffer s = new StringBuffer(500);
-        s.append("<input type=\"text\" size=\"40\" maxlength=\"255\"");
+        s.append("<input type=\"text\" size=\"25\" maxlength=\"255\"");
         s.append(" name=\"");
         s.append(name);
         s.append("\"");
