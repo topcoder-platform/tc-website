@@ -1,0 +1,133 @@
+<project name="topcoder" default="compile" basedir=".">
+
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="bin.dir" value="${lib.dir}/bin"/>
+    <property name="shared.dir" value="../shared/src/main"/>
+    <property name="shared.jar" value="${bin.dir}/shared.jar"/>
+    <property name="src.dir" value="src"/>
+    <property name="java.dir" value="${src.dir}/main"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="resources.dir" value="resources"/>
+    <property name="war.dir" value="${build.dir}/wars"/>
+
+
+
+    <property name="deprecation" value="true"/>
+    <property name="debug" value="true"/>
+
+    <path id="class.path">
+        <pathelement location="${classes.dir}"/>
+        <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+        <pathelement location="${jars.dir}/jboss-j2ee.jar"/>
+        <pathelement location="${jars.dir}/idgenerator.jar"/>
+        <pathelement location="${jars.dir}/upload.jar"/>
+        <pathelement location="${jars.dir}/servletapi-2.3.jar"/>
+        <pathelement location="${jars.dir}/tcsUtil.jar"/>
+        <pathelement location="${jars.dir}/configmanager2.jar"/>
+
+    </path>
+
+
+    <target name="create_directories">
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${war.dir}"/>
+        <mkdir dir="${bin.dir}"/>
+    </target>
+
+    <target name="compile_shared" depends="create_directories">
+        <javac
+            srcdir="${shared.dir}"
+            destdir="${classes.dir}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            >
+            <exclude name="com/topcoder/shared/docGen/**"/>
+            <exclude name="com/topcoder/shared/ejb/**"/>
+            <exclude name="com/topcoder/shared/email/**"/>
+            <exclude name="com/topcoder/shared/language/**"/>
+            <exclude name="com/topcoder/shared/messaging/**"/>
+            <exclude name="com/topcoder/shared/netCommon/**"/>
+            <exclude name="com/topcoder/shared/problem/**"/>
+            <exclude name="com/topcoder/shared/problemParser/**"/>
+            <exclude name="com/topcoder/shared/screening/**"/>
+        </javac>
+    </target>
+
+    <target name="jar_shared" depends="compile_shared">
+        <jar jarfile="${shared.jar}">
+            <fileset dir="${classes.dir}">
+                <include name="com/topcoder/shared/**/*.class"/>
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="compile" depends="create_directories,jar_shared">
+        <javac
+            srcdir="${java.dir}"
+            destdir="${classes.dir}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            >
+            <exclude name="com/coolservlets/**"/>
+            <exclude name="com/fx4m/**"/>
+            <exclude name="com/topcoder/apps/**"/>
+            <exclude name="com/topcoder/common/**"/>
+            <exclude name="com/topcoder/dde/**"/>
+            <exclude name="com/topcoder/ejb/**"/>
+            <exclude name="com/topcoder/security/**"/>
+            <exclude name="com/topcoder/shared/**"/>
+            <exclude name="com/topcoder/sql/**"/>
+            <exclude name="com/topcoder/util/**"/>
+            <exclude name="com/topcoder/utilities/**"/>
+            <exclude name="com/topcoder/web/admin/**"/>
+            <exclude name="com/topcoder/web/codinginterface/**"/>
+            <exclude name="com/topcoder/web/common/**"/>
+            <exclude name="com/topcoder/web/corp/**"/>
+            <exclude name="com/topcoder/web/ejb/**"/>
+            <exclude name="com/topcoder/web/email/**"/>
+            <exclude name="com/topcoder/web/hs/**"/>
+            <exclude name="com/topcoder/web/jsp/**"/>
+            <exclude name="com/topcoder/web/privatelabel/**"/>
+            <exclude name="com/topcoder/web/project/**"/>
+            <exclude name="com/topcoder/web/query/**"/>
+            <exclude name="com/topcoder/web/render/**"/>
+            <exclude name="com/topcoder/web/tc/**"/>
+        </javac>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${bin.dir}"/>
+    </target>
+
+    <target name="war-tcs" depends="compile">
+        <war warfile="${war.dir}/tcs.war" webxml="${resources.dir}/tcs/web.xml">
+            <fileset dir="${java.dir}/com/topcoder/web/tcs/view">
+                <include name="**/*.*"/>
+            </fileset>
+<!--
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+            </fileset>
+-->
+            <classes dir="${classes.dir}">
+                <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/web/tcs/**/*.class"/>
+            </classes>
+            <classes dir="${resources.dir}">
+                <include name="com/topcoder/servlet/request/FileUpload.xml"/>
+            </classes>
+            <lib dir="">
+                <include name="${shared.jar}"/>
+            </lib>
+        </war>
+    </target>
+
+
+
+
+</project>
