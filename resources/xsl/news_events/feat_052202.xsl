@@ -55,10 +55,10 @@
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">
 <!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
 
-<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Headline</B></FONT><BR/>
-<I>subhead</I><BR/><BR/>
+<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>A look at Obfuscation</B></FONT><BR/>
+<I>Case studies and the TopCoder view point</I><BR/><BR/>
 Wednesday, May 22, 2002<BR/>
-By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/></P>
+By&#160;<A HREF="/stat?c=member_profile&amp;cr=264761" CLASS="bodyGeneric">KaiEl</A>,<I>Contributing Member</I><BR/></P>
 
 <P>
 It's the challenge phase.  At first glance the code you're looking at 
@@ -119,7 +119,7 @@ drop points because a person has poor coding habits."
 <P>
 "Bad indentation or oddly placed brackets doesn't seem like it enough to call it 
 obfuscation," agrees <A HREF="/stat?c=member_profile&amp;cr=155375" CLASS="bodyGeneric">fbplayr78</A> , 
-a coder who has direct experience with obfuscation charges. fbplayr78 was accused for 
+a coder who has direct experience with obfuscation charges. <B>fbplayr78</B> was accused for 
 a Level Two submission  in Single Round Match 86 that contained a 'hidden' if-statement like the one described in 
 the first paragraph (<A HREF="/stat?c=problem_solution&amp;rm=5315&amp;rd=4150&amp;pm=708&amp;cr=155375" CLASS="bodyGeneric">members 
 click here to view problem statement</A>).  
@@ -139,11 +139,11 @@ hit backspace or delete," said <B>fbplayr78</B>, when asked how the if statement
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=267455" CLASS="bodyGeneric">cocoapi</A>
-, who was also in the room with <B>fbplayr78</B> in SRM 86, is skeptical of this explanation.  
+<A HREF="/stat?c=member_profile&amp;cr=267455" CLASS="bodyGeneric">cocoapi</A>, 
+who was also in the room with <B>fbplayr78</B> in SRM 86, is skeptical of this explanation.  
 "It does not seem really easy to make a mistake like that and not notice it. Usually when you 
 click delete, it takes that line to the beginning of the previous line, not to the end of it 
-and clearly off the page."  Despite his skepticism, though, <B>cocoapi</B> "doesn't think [the code] 
+and clearly off the page." Despite his skepticism, though, <B>cocoapi</B> "doesn't think [the code] 
 was that clear to really do too much about."
 </P>
 
