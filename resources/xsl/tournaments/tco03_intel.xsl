@@ -49,93 +49,66 @@ function openWin(url, name, w, h) {
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->	
-        <td class="promoText" align="center" width="99%">
-            <table border="0" cellspacing="10" cellpadding="0" width="510">
-               
-                <tr valign="top">
-                    <td align="center" width="510">
-                        <table border="0" cellpadding="0" cellspacing="0">
-                            
-                            <tr>
-                               <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="115" /></td>
-                              </tr>
-                            
-                            
-                            
-                            
-                            
-                            <tr>
-                            	<td valign="top" width="275" >
-                            		<table>
-                            			<tr align="left" >
-                            				
-                            				
-                            				<td class="bodyText" >
-                            					<p><br/></p>
-                            					<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; 
-                            					Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
-                             					take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
+<table border="0" cellspacing="10" cellpadding="0" width="510">
+    <tr valign="top">
+        <td align="center" width="510">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="115" /></td>
+                </tr> 
+                <tr align="left">
+                    <td class="bodyText" valign="top" width="275" > 
+                        <p><br/></p>
+                                            <p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">
+                                            <strong>Intel&#174; Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations, 
+                                            take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
                              				
-                             				<p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
-                            				technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer 
-                            				Services</strong> </a> gives you FREE access to tools and resources that can maximize your code's performance, give you 
-                            				time-to-market advantage and make your software sing. Fast.</p></td>
-                            		</tr> 
-                            		</table>
-                            	</td>
+                             	        <p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
+                            		technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer 
+                            		Services</strong> </a> gives you FREE access to tools and resources that can maximize your code's performance, give you 
+                            		time-to-market advantage and make your software sing. Fast.</p>
                             	
-                            	<td>
-                            		<table>
-                            			<tr width="255" >
-                            				<td align="center" ><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /></td>
-                            			</tr>
-                            			
-                            			<tr>
-                            				<td align ="left">
-                            					<table>
-                            						<tr>
-                            							<td><img src="/i/spacer.gif" height="13" width="13"/></td>
-                            								<td class="bodyText" > <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
+                     </td>
+                     <td>
+                      <table>
+                           <tr width="255" >
+                            <td align="center" ><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" />
+                            </td>
+                            </tr>
+                            <tr>
+                                <td align ="left">
+                                    <table>
+                                        <tr>
+                                            <td><img src="/i/spacer.gif" height="13" width="13"/>
+                                            </td>
+                                            <td class="bodyText" > <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
                             									mobile-technology- based notebook! <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_specs','comp',540,700);"><strong>View Specs</strong></A>.
                             									<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
-                            						</tr>
-                            					</table>
-                            						
-                            						</td>
-                            		</tr> 
+                            	    </tr>
                             	</table>
-                            </td>
-                         </tr>
-                            
-                           
-             <tr>
-             	<td colspan="2">
-             			<p><br/></p>
-             	</td>
+                                </td>
+                            </tr> 
+                      </table>
+                 </td>
              </tr>
-                        
-                        <tr>
-                        	<td colspan="2">
+             <tr>
+                <td colspan="2">
+                    <p><br/></p>
+                </td>
+             </tr>
+             <tr>
+                <td colspan="2">
                     <p class="promoCallout">
-                    
                     <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_sample','comp',540,700);"><strong>Check out a sample</strong></A> of what Intel Developer 
                     Services offers you.  Then join <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer Services</strong> </a> today and get FREE technical resources designed to help you capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. <br/>
                     <br/>Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
-                    <p class="promoCallout"><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_rules','comp',540,700);"><strong>Official Drawing Rules for Intel&#174; Centrino&#153; Mobile Technology-based Notebook.</strong></A></p>
-                        
-                        <p><br /></p>
-
-                   
-                        	</td>
-                        </tr>
-                  
-                        </table>
-                    </td>
-                </tr>
-                
-              
-            </table>
-        </td>
+                    <p class="bodyText"><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_rules','comp',540,700);">Official Drawing Rules</A> for Intel&#174; Centrino&#153; Mobile Technology-based Notebook.</p>
+                    <p><br /></p>
+                </td>
+            </tr>
+        </table>
+    </tr>
+</table>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
