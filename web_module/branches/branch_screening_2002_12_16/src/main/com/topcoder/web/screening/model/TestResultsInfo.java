@@ -20,6 +20,12 @@ public class TestResultsInfo implements java.io.Serializable {
     /** Holds value of property sessionId. */
     private long sessionId;
     
+    /** Holds value of property sessionComplete. */
+    private boolean sessionComplete;
+    
+    /** Holds value of property problemSetBCount. */
+    private int problemSetBCount;
+    
     /** Getter for property problemSetAResults.
      * @return Value of property problemSetAResults.
      */
@@ -74,6 +80,34 @@ public class TestResultsInfo implements java.io.Serializable {
      */
     public void setSessionId(long sessionId) {
         this.sessionId = sessionId;
+    }
+    
+    /** Getter for property sessionComplete.
+     * @return Value of property sessionComplete.
+     */
+    public boolean isSessionComplete() {
+        return this.sessionComplete;
+    }
+    
+    /** Setter for property sessionComplete.
+     * @param sessionComplete New value of property sessionComplete.
+     */
+    public void setSessionComplete(boolean sessionComplete) {
+        this.sessionComplete = sessionComplete;
+    }
+    
+    /** Getter for property problemSetBCount.
+     * @return Value of property problemSetBCount.
+     */
+    public int getProblemSetBCount() {
+        return this.problemSetBCount;
+    }
+    
+    /** Setter for property problemSetBCount.
+     * @param problemSetBCount New value of property problemSetBCount.
+     */
+    public void setProblemSetBCount(int problemSetBCount) {
+        this.problemSetBCount = problemSetBCount;
     }
     
 }
