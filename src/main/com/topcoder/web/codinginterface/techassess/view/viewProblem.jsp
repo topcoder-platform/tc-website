@@ -6,7 +6,7 @@
     <title>Technical Assessment</title>
   </head>
   <frameset cols="0,*">
-    <frame name="clockFrame" src="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=<%=Constants.RP_CURRENT_TIME%>" frameborder=0 noresize>
+    <frame name="clockFrame" src="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Static&d1=clockFrame" frameborder=0 noresize>
     <frame name="mainFrame" src="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=<%=Constants.RP_VIEW_PROBLEM_INNER%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>&<%=Constants.PROBLEM_TYPE_ID%>=<%=request.getParameter(Constants.PROBLEM_TYPE_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>" frameborder=0 noresize>
   </frameset>
 </html>
