@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>03.03.05<br>4:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">School name to be made public in Member Profiles</A></span><br><br>
+      A member's school name will be available within the web site member profiles, and will eventually be available from within the TopCoder Arena.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>03.02.05<br>4:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -242,18 +254,6 @@
    <tr><td class="newsLinksCell">
          <A href="/?&t=news_events&c=pr_02_09_05">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>02.07.05<br>1:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/reid.mov">reid, on going to an onsite event</A></span><br><br>
-      One of TC's top ranked algorithm members talks about what it's like to go to an onsite event and meet up with other members. 
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tco04/onsite_movies/reid.mov">watch movie</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
 
 </table>
