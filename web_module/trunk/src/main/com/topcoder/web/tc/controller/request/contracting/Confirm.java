@@ -123,7 +123,7 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("techSkills", techSkills);
-            getRequest().setAttribute("techNote", getNote(Constants.TECH_NOTE_TYPE_ID, getUser().getId()));
+            getRequest().setAttribute("techNote", info.getNote(String.valueOf(Constants.TECH_NOTE_TYPE_ID)));
 
             //database skill
             ArrayList dbSkills = new ArrayList();
@@ -148,7 +148,7 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("dbSkills", dbSkills);
-            getRequest().setAttribute("dbNote", getNote(Constants.DB_NOTE_TYPE_ID, getUser().getId()));
+            getRequest().setAttribute("dbNote", info.getNote(String.valueOf(Constants.DB_NOTE_TYPE_ID)));
 
             //languages skill
             ArrayList langSkills = new ArrayList();
@@ -173,7 +173,7 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("langSkills", langSkills);
-            getRequest().setAttribute("langNote", getNote(Constants.LANGUAGE_NOTE_TYPE_ID, getUser().getId()));
+            getRequest().setAttribute("langNote", info.getNote(String.valueOf(Constants.LANGUAGE_NOTE_TYPE_ID)));
 
             //os skill
             ArrayList osSkills = new ArrayList();
@@ -198,7 +198,7 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("osSkills", osSkills);
-            getRequest().setAttribute("osNote", getNote(Constants.OS_NOTE_TYPE_ID, getUser().getId()));
+            getRequest().setAttribute("osNote", info.getNote(String.valueOf(Constants.OS_NOTE_TYPE_ID)));
 
             //industries skill
             ArrayList industrySkills = new ArrayList();
@@ -223,25 +223,13 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("industrySkills", industrySkills);
-            getRequest().setAttribute("industryNote", getNote(Constants.INDUSTRY_NOTE_TYPE_ID, getUser().getId()));
+            getRequest().setAttribute("industryNote", info.getNote(String.valueOf(Constants.INDUSTRY_NOTE_TYPE_ID)));
 
         } catch(TCWebException tce) {
             throw tce;
         } catch(Exception e) {
             throw new TCWebException(e);
         }
-    }
-
-
-    protected String getNote(int noteTypeId, long userId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("skill_note");
-        r.setProperty(Constants.USER_ID, String.valueOf(userId));
-        r.setProperty("ntid", String.valueOf(noteTypeId));
-        ResultSetContainer skillNote = (ResultSetContainer)getDataAccess().getData(r).get("skill_note");
-        if (skillNote.isEmpty()) return "";
-        else return skillNote.getStringItem(0, "text");
-
     }
 
     protected void setNextPage() {

@@ -190,11 +190,6 @@ public class Constants {
     public static String SKILL_PREFIX;
 
     public static String NOTE_PREFIX;
-    public static String NOTE_LANGUAGES;
-    public static String NOTE_TECHNOLOGIES;
-    public static String NOTE_OS;
-    public static String NOTE_DATABASES;
-    public static String NOTE_INDUSTRIES;
 
     public static String TCCC05_STUDENT_REPS;
 
