@@ -24,8 +24,8 @@ public abstract class Base extends BaseProcessor {
     private QueueMessageSender sender = null;
     private WebQueueResponseManager receiver = null;
     private String messageId = null;
-    private long sessionId=-1;
-    private long companyId=-1;
+    private long sessionId = -1;
+    private long companyId = -1;
 
 
     public void setReceiver(WebQueueResponseManager receiver) {
@@ -37,8 +37,8 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected User getUser() {
-        if (user==null)
-            user=getAuthentication().getUser();
+        if (user == null)
+            user = getAuthentication().getUser();
         return user;
     }
 
@@ -60,8 +60,8 @@ public abstract class Base extends BaseProcessor {
     }
 
     public long getSessionId() {
-        if (sessionId<0) {
-            Long temp = (Long)getRequest().getSession().getAttribute(Constants.SESSION_ID);
+        if (sessionId < 0) {
+            Long temp = (Long) getRequest().getSession().getAttribute(Constants.SESSION_ID);
             if (temp == null)
                 throw new RuntimeException("session id has not be set");
             else {
@@ -77,8 +77,8 @@ public abstract class Base extends BaseProcessor {
     }
 
     public long getCompanyId() {
-        if (companyId<0) {
-            Long temp = (Long)getRequest().getSession().getAttribute(Constants.COMPANY_ID);
+        if (companyId < 0) {
+            Long temp = (Long) getRequest().getSession().getAttribute(Constants.COMPANY_ID);
             if (temp == null)
                 throw new RuntimeException("company id has not be set");
             else {
@@ -89,28 +89,29 @@ public abstract class Base extends BaseProcessor {
     }
 
 
-
     protected void clearSessionErrors(String messageId) {
-        getRequest().getSession().removeAttribute(ERRORS_KEY+messageId);
-        if (errors==null)
+        getRequest().getSession().removeAttribute(ERRORS_KEY + messageId);
+        if (errors == null)
             log.debug("errors is null");
-        else log.debug("errors is " + errors);
+        else
+            log.debug("errors is " + errors);
     }
 
     protected void clearSessionDefaults(String messageId) {
-        getRequest().getSession().removeAttribute(DEFAULTS_KEY+messageId);
-        if (defaults==null)
+        getRequest().getSession().removeAttribute(DEFAULTS_KEY + messageId);
+        if (defaults == null)
             log.debug("defaults is null");
-        else log.debug("defaults is " + defaults);
+        else
+            log.debug("defaults is " + defaults);
     }
 
     protected void loadSessionErrorsIntoRequest(String messageId) {
-        HashMap m = (HashMap)getRequest().getSession().getAttribute(ERRORS_KEY+messageId);
+        HashMap m = (HashMap) getRequest().getSession().getAttribute(ERRORS_KEY + messageId);
         Map.Entry me = null;
         log.debug("loading session errors into request " + m);
-        if (m!=null) {
-            for (Iterator it = m.entrySet().iterator();it.hasNext();) {
-                me = (Map.Entry)it.next();
+        if (m != null) {
+            for (Iterator it = m.entrySet().iterator(); it.hasNext();) {
+                me = (Map.Entry) it.next();
                 errors.put(me.getKey(), me.getValue());
             }
         }
@@ -118,28 +119,28 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void loadSessionDefaultsIntoRequest(String messageId) {
-        HashMap m = (HashMap)getRequest().getSession().getAttribute(DEFAULTS_KEY+messageId);
+        HashMap m = (HashMap) getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId);
         Map.Entry me = null;
         log.debug("loading session defaults into request " + m);
-        if (m!=null) {
-            for (Iterator it = m.entrySet().iterator();it.hasNext();) {
-                me = (Map.Entry)it.next();
-                setDefault((String)me.getKey(), me.getValue());
+        if (m != null) {
+            for (Iterator it = m.entrySet().iterator(); it.hasNext();) {
+                me = (Map.Entry) it.next();
+                setDefault((String) me.getKey(), me.getValue());
             }
         }
     }
 
     protected String buildProcessorRequestString(String processor, String[] keys, String[] values) {
-        if (keys!=null&&values!=null&&keys.length!=values.length)
+        if (keys != null && values != null && keys.length != values.length)
             throw new IllegalArgumentException("the number of parameter keys must be the same as the number of values");
 
-        SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
         StringBuffer ret = new StringBuffer(100);
         //doing this to get rid of https in the case of the login request it would be there
         ret.append(info.getAbsoluteServletPath());
         ret.append("?").append(Constants.MODULE).append("=").append(processor);
-        if (keys!=null&&values!=null) {
-            for (int i=0; i<keys.length; i++) {
+        if (keys != null && values != null) {
+            for (int i = 0; i < keys.length; i++) {
                 ret.append("&").append(keys[i]).append("=").append(values[i]);
             }
         }
@@ -151,53 +152,49 @@ public abstract class Base extends BaseProcessor {
         getResponse().setStatus(200);
         getResponse().setContentType("text/html");
 
-            PrintWriter out = getResponse().getWriter();
-            out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Technical Assessment</title>");
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >");
-            out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >");
-            out.println("</head>");
-            out.print("<body onLoad=\"window.location.href=\'");
-            out.print(nextPage);
-            out.print("\'\">");
-            out.println("<table class=bodyCenter cellspacing=0 cellpadding=0>");
-            out.println("<tr>");
-            out.println("      <td align=center>");
-            out.println("            <table cellspacing=0 cellpadding=0 class=tabTable>");
-            out.println("               <tr>");
-            out.println("                  <td class=logoBox rowspan=2><img src=\"/i/corp/screening/clientLogo.gif\" alt=\"\"/></td>");
-            out.println("                  <td class=titleBar colspan=4><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>");
-            out.println("                  <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>");
-            out.println("               </tr>");
-            out.println("               <tr>");
-            out.println("                  <td class=tabBar><a href=\"/mockup/directions.jsp\"><img src=\"/i/corp/screening/mainTab.gif\" alt=\"\"/></a></td>");
-            out.println("                  <td class=tabBar><a href=\"/mockup/help.jsp\"><img src=\"/i/corp/screening/helpTab.gif\" alt=\"\"/></a></td>");
-            out.println("                  <td class=tabBar><a href=\"/mockup/login.jsp\"><img src=\"/i/corp/screening/logoutTab.gif\" alt=\"\"/></a></td>");
-            out.println("               </tr>");
-            out.println("            </table>");
-            out.println("            <table cellspacing=0 cellpadding=0 class=timeTable>");
-            out.println("               <tr>");
-            out.println("                  <td class=timeCellLeft><img src=\"/i/corp/screening/techAssTitle.gif\" alt=\"\" /></td>");
-            out.println("                  <td class=timeCellRight>&#160;<br />&#160;</td>");
-            out.println("               </tr>");
-            out.println("            </table>");
-            out.println("      <table cellspacing=0 cellpadding=0 class=bodyTable>");
-            out.println("         <tr>");
-            out.println("            <td><img src=\"/i/corp/screening/bodyTL.gif\" alt=\"\"/></td>");
-            out.println("            <td class=bodyT>&#160;</td>");
-            out.println("            <td><img src=\"/i/corp/screening/bodyTR.gif\" alt=\"\"/></td>");
-            out.println("         </tr>");
-            out.println("         <tr>");
-            out.println("            <td class=bodyL>&#160;</td>");
-            out.println("            <td class=bodyContent>");
-            out.println("            <br /><br />");
-            out.println("            <p class=pC><span class=bodySmallTitle>Processing...</span></p>");
-    }
-
-    protected void closeProcessingPage() throws IOException {
         PrintWriter out = getResponse().getWriter();
+        out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Technical Assessment</title>");
+        out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >");
+        out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >");
+        out.println("</head>");
+        out.print("<body onLoad=\"window.location.href=\'");
+        out.print(nextPage);
+        out.print("\'\">");
+        out.println("<table class=bodyCenter cellspacing=0 cellpadding=0>");
+        out.println("<tr>");
+        out.println("      <td align=center>");
+        out.println("            <table cellspacing=0 cellpadding=0 class=tabTable>");
+        out.println("               <tr>");
+        out.println("                  <td class=logoBox rowspan=2><img src=\"/i/corp/screening/clientLogo.gif\" alt=\"\"/></td>");
+        out.println("                  <td class=titleBar colspan=4><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>");
+        out.println("                  <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>");
+        out.println("               </tr>");
+        out.println("               <tr>");
+        out.println("                  <td class=tabBar><a href=\"/mockup/directions.jsp\"><img src=\"/i/corp/screening/mainTab.gif\" alt=\"\"/></a></td>");
+        out.println("                  <td class=tabBar><a href=\"/mockup/help.jsp\"><img src=\"/i/corp/screening/helpTab.gif\" alt=\"\"/></a></td>");
+        out.println("                  <td class=tabBar><a href=\"/mockup/login.jsp\"><img src=\"/i/corp/screening/logoutTab.gif\" alt=\"\"/></a></td>");
+        out.println("               </tr>");
+        out.println("            </table>");
+        out.println("            <table cellspacing=0 cellpadding=0 class=timeTable>");
+        out.println("               <tr>");
+        out.println("                  <td class=timeCellLeft><img src=\"/i/corp/screening/techAssTitle.gif\" alt=\"\" /></td>");
+        out.println("                  <td class=timeCellRight>&#160;<br />&#160;</td>");
+        out.println("               </tr>");
+        out.println("            </table>");
+        out.println("      <table cellspacing=0 cellpadding=0 class=bodyTable>");
+        out.println("         <tr>");
+        out.println("            <td><img src=\"/i/corp/screening/bodyTL.gif\" alt=\"\"/></td>");
+        out.println("            <td class=bodyT>&#160;</td>");
+        out.println("            <td><img src=\"/i/corp/screening/bodyTR.gif\" alt=\"\"/></td>");
+        out.println("         </tr>");
+        out.println("         <tr>");
+        out.println("            <td class=bodyL>&#160;</td>");
+        out.println("            <td class=bodyContent>");
+        out.println("            <br /><br />");
+        out.println("            <p class=pC><span class=bodySmallTitle>Processing...</span></p>");
         out.println("            <br /><br />");
         out.println("            </td>");
         out.println("            <td class=bodyR>&#160;</td>");
@@ -213,26 +210,28 @@ public abstract class Base extends BaseProcessor {
         out.println("</table>");
         out.println("</body>");
         out.println("</html>");
+    }
+
+    protected void closeProcessingPage() throws IOException {
+        PrintWriter out = getResponse().getWriter();
         out.flush();
     }
 
     protected Message receive(int waitTime) throws TimeOutException {
 
-        if (messageId==null) throw new RuntimeException("You must call send before receive.");
+        if (messageId == null) throw new RuntimeException("You must call send before receive.");
 
         log.debug("setting up session errors");
-        getRequest().getSession().setAttribute(ERRORS_KEY+messageId, errors);
+        getRequest().getSession().setAttribute(ERRORS_KEY + messageId, errors);
         getRequest().removeAttribute(ERRORS_KEY);
         log.debug("setting up session defaults");
-        getRequest().getSession().setAttribute(DEFAULTS_KEY+messageId, defaults);
+        getRequest().getSession().setAttribute(DEFAULTS_KEY + messageId, defaults);
         getRequest().removeAttribute(DEFAULTS_KEY);
-        log.debug("defaults: " + getRequest().getSession().getAttribute(DEFAULTS_KEY+messageId));
-        log.debug("errors: " + getRequest().getSession().getAttribute(ERRORS_KEY+messageId));
+        log.debug("defaults: " + getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId));
+        log.debug("errors: " + getRequest().getSession().getAttribute(ERRORS_KEY + messageId));
 
-        return (Message)receiver.receive(waitTime, messageId, getResponse());
+        return (Message) receiver.receive(waitTime, messageId, getResponse());
     }
-
-
 
 
 }
