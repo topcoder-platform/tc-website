@@ -9,12 +9,12 @@
                             <tr>
                                 <td width="49%"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
 
-<!-- Summary tab *** Keep out until after Championship Round 
+<!-- Summary tab --> 
 <% if (isSummaryPage) { %>
         <td class="statTextBig" nowrap="nowrap"><a href="?module=Static&d1=tournaments&d2=tchs03_summary_home" class="statTextBig"><img src="/i/tournament/tchs03/summary_on.gif" alt="Summary" width="85" height="21" border="0"></a></td>
 <% } else { %>
         <td class="statTextBig" nowrap="nowrap"><a href="?module=Static&d1=tournaments&d2=tchs03_summary_home" class="statTextBig"><img src="/i/tournament/tchs03/summary_off.gif" alt="Summary" width="85" height="21" border="0"></a></td>
-<%  } %>  -->
+<%  } %>
 
 <!-- Schools tab -->
 <% if (isSchoolsPage) { %>
