@@ -18,9 +18,9 @@
 
 <body onLoad="focus()" id="quickLaunch">
 
-<table width="290" cellspacing="0" cellpadding="10" border="0">
+<table width="100%" cellspacing="0" cellpadding="10" border="0">
     <tr>
-        <td class="statText">
+        <td class="statText" width="100%">
             <h2>Competition Arena</h2>
 
             <p>This page should present you with a button to start the competition arena applet.</p>

@@ -32,17 +32,40 @@
                     <td align="left" width="99%" class="statText">
                         <img src="/i/headinginside_comparena.gif" width="348" height="44" border="0">
 
-                        <p><font size="3">The Practice Rooms in the TopCoder High School Competition Arena are open to TopCoder High School members. As a 
-                        member you can access the problems, code a solution, and submit the  solution to see the possible point value. In addition, 
-                        you can view the submissions of participating members from previous match dates.</font></p>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr valign="top">
+                                <td class="statText" width="99%">
+                                    <p><font size="3">The Practice Rooms in the TopCoder High School Competition Arena are open to TopCoder High School members. As a 
+                                    member you can access the problems, code a solution, and submit the  solution to see the possible point value. In addition, 
+                                    you can view the submissions of participating members from previous match dates.</font></p>
                         
-                        <p><strong>Note:</strong> Any use of the TopCoder High School Competition Arena, including the Practice Room, is 
-                        limited to personal, non-commercial or educational purposes only.</p>
-                        
-                        <table align="right" width="240" cellpadding="0" cellspacing="10" border="0">
-                            <tr>
+                                    <p><strong>Note:</strong> Any use of the TopCoder High School Competition Arena, including the Practice Room, is 
+                                    limited to personal, non-commercial or educational purposes only.</p>
+                                </td>
+                                
+                                 <td width="10"><img src="/i/spacer.gif" alt="" width="10" height="10" border="0"></td>
+
+                                <td width="250" class="statText"><img src="/i/screenshot_hs_applet.gif" alt="Applet Screen" width="250" height="179" border="0"><br>&#160;</td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="statText" width="99%">
+                                    <p><br><strong><font size="3">Practicing before a competition allows you to...</font></strong></p>
+                                    
+                                    <p>Become familiar with the competition arena before competing in a live contest.</p>
+                       
+                                    <p>This applet will provide the same interface as an actual contest, and give you a chance to code some practice problems.</p>
+                                   
+                                    <p>Code solutions, view other coders' solutions and challenge the solutions of other coders. Normally, these are two separate 
+                                        phases of a competition, and of course, we would not allow you to view a competitor's code while the coding phase is active.</p>
+                                        
+                                    <p>System Test your solutions just as they would be in a Single Round Match.</p>
+                                </td>
+                                
+                                 <td width="10"><img src="/i/spacer.gif" alt="" width="10" height="10" border="0"></td>
+
                                 <td>
-                                    <table width="100%" cellpadding="5" cellspacing="0" class="insetFrame">
+                                    <table width="250" cellpadding="5" cellspacing="0" class="insetFrame">
                                         <tr><td class="moduleTitle" colspan="2">Requirements:</td></tr>
                             
                                         <tr><td class="moduleSubhead" colspan="2">You must have:</td></tr>
@@ -68,25 +91,11 @@
                             </tr>
                         </table>
                             
-                        <p>Practicing before a competition allows you to...
-                                    
-                        <ul>
-                            <li>Become familiar with the competition arena before competing in a live contest.<br><br>
-                            This applet will provide the same interface as an actual contest, and give you a chance to code some practice problems.</li>
-                                   
-                            <li>Code solutions, view other coders' solutions and challenge the solutions of other coders. Normally, these are two separate 
-                            phases of a competition, and of course, we would not allow you to view a competitor's code while the coding phase is active.<br><br></li>
-                                        
-                            <li>System Test your solutions just as they would be in a Single Round Match.</li>
-                        </ul>
-                                    
                         <p><a href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',310,274);" class="statText"><strong><font size="3">Ready to practice?</font></strong></a><br>
                         Click the button below to launch the TopCoder High School Competition Arena. To enter the practice
                         area once you log in, select "Practice Room" from the "Active Contests" menu.</p>
-
-                        <p>Click the button below to launch the Arena.</p>
                                     
-                        <p><a class="rednav" href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);"><img border="0" height="30" width="200" alt="Download Arena Applet" src="/i/download_applet_hs.gif"></a></p>
+                        <p><a class="statTextLarge" href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);"><img border="0" height="30" width="200" alt="Download Arena Applet" src="/i/download_applet_hs.gif"></a></p>
                                     
                         <p><br></p>
                         
