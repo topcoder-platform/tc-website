@@ -112,26 +112,28 @@
                  
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
-                    <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
-                    <xsl:variable name="price" select="./price"/>
-                    <xsl:variable name="comp" select="./component_id"/>
-                    <xsl:variable name="initial_submission_date">
-                        <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
-                    </xsl:variable>
-                    <tr valign="top">
-                        <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                        <td background="" class="statText">
-                            <a class="statText">
-                                <xsl:attribute name="href"> <!--2&#47;19&#47;2003-->
-                                    <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', $comp, '&amp;payment=', $price, '&amp;date=2&#47;19&#47;2003')"/>
-                                </xsl:attribute><xsl:value-of select="./component_name"/>
-                            </a>
-                        </td>
-                        <td background="" class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
-                        <td background="" class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                        <td background="" class="statText" align="center"><xsl:value-of select="$initial_submission_date"/></td>
-                        <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    </tr>
+                    <xsl:if test="./phase_id='112'"/>
+                        <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+                        <xsl:variable name="price" select="./price"/>
+                        <xsl:variable name="comp" select="./component_id"/>
+                        <xsl:variable name="initial_submission_date">
+                            <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <tr valign="top">
+                            <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                            <td background="" class="statText">
+                                <a class="statText">
+                                    <xsl:attribute name="href"> <!--2&#47;19&#47;2003-->
+                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', $comp, '&amp;payment=', $price, '&amp;date=2&#47;19&#47;2003')"/>
+                                    </xsl:attribute><xsl:value-of select="./component_name"/>
+                                </a>
+                            </td>
+                            <td background="" class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td background="" class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td background="" class="statText" align="center"><xsl:value-of select="$initial_submission_date"/></td>
+                            <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                        </tr>
+                    </xsl:if>
                 </xsl:for-each>
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
