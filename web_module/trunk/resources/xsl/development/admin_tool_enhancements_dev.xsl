@@ -76,15 +76,22 @@
                                             the Development Phase.  The functional requirements for the Admin Tool project have
                                             been seperated into 3 groups.  For this project there will be 2 members selected per
                                             functional group to compete for the winning submission.
-                                            <br>
-                                                Group 1
-                                            </br>
-                                            <br>
-                                                Group 2
-                                            </br>
-                                            <br>
-                                                Group 3
-                                            </br>
+                                            <br/>Group 1 - Must implement the following functionality according to the design:
+                                            <br/>Add Time
+                                            <br/>Advance Contest Phase
+                                            <br/>Compiler and Tester Restart
+                                            <br/>Dynamic Loading of Terms
+
+                                            <br/>Group 2 - Must implement the following functionality according to the design:
+                                            <br/>Implement Round Sequence
+                                            <br/>Auto room assigments
+                                            <br/>Security Object Upgrade
+
+                                            <br/>Group 3 - Must implement the following functionality according to the design:
+                                            <br/>Admin Broadcast Problem
+                                            <br/>Backup and Restore Tables
+                                            <br/>Statistics Warehouse Load
+
                                         </p>
                                         <p>
                                             Members that are chosen for the Admin Tool Enhancements project will be given full access
