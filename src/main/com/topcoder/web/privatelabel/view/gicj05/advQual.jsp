@@ -50,6 +50,7 @@
 			<td class=advancersRound width="40%">Problem Set</td>
 			<td class=advancersRound width="30%" align="right">Score</td>
 			</tr>
+
 <tr class=sidebarText><td>23-27</td><td>Qualification Set 5</td><td align="right">607.63</td></tr>
 <tr class=sidebarText><td>345tyu</td><td>Qualification Set 17</td><td align="right">153.07</td></tr>
 <tr class=sidebarText><td>4v1n45h</td><td>Qualification Set 1</td><td align="right">466.01</td></tr>
@@ -376,6 +377,7 @@
 <tr class=sidebarText><td>rajeshgoli</td><td>Qualification Set 17</td><td align="right">744.20</td></tr>
 <tr class=sidebarText><td>rajeshnagarjuna</td><td>Qualification Set 9</td><td align="right">179.86</td></tr>
 <tr class=sidebarText><td>rajorshi_biswas</td><td>Qualification Set 1</td><td align="right">157.97</td></tr>
+<tr class=sidebarText><td>rakeshbs</td><td>Qualification Set 4</td><td align="right">193.17</td></tr>
 <tr class=sidebarText><td>RakeshN</td><td>Qualification Set 15</td><td align="right">810.62</td></tr>
 <tr class=sidebarText><td>rakeshsihag</td><td>Qualification Set 13</td><td align="right">112.39</td></tr>
 <tr class=sidebarText><td>ramanujam</td><td>Qualification Set 18</td><td align="right">220.74</td></tr>
@@ -509,7 +511,6 @@
 <tr class=sidebarText><td>v_mahajan</td><td>Qualification Set 14</td><td align="right">470.42</td></tr>
 <tr class=sidebarText><td>v_shailesh</td><td>Qualification Set 2</td><td align="right">172.98</td></tr>
 <tr class=sidebarText><td>vaishnav</td><td>Qualification Set 7</td><td align="right">206.63</td></tr>
-<tr class=sidebarText><td>vamsihcu</td><td>Qualification Set 7</td><td align="right">232.47</td></tr>
 <tr class=sidebarText><td>VaraKumar</td><td>Qualification Set 9</td><td align="right">174.91</td></tr>
 <tr class=sidebarText><td>varun.vgupta</td><td>Qualification Set 11</td><td align="right">471.20</td></tr>
 <tr class=sidebarText><td>veerabahu</td><td>Qualification Set 20</td><td align="right">448.10</td></tr>
