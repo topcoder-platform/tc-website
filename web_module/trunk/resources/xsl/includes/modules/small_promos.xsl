@@ -53,7 +53,6 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
                             ]]></SCRIPT>
 
                     </td>
-<!--                    <td height="42" align="center"><A href="/?&amp;t=development&amp;c=index" target="_top"><IMG src="/i/promos/development_promo_third.gif" width="170" height="120" border="0" alt="Earn cash while using your skills." /></A></td>-->
                     <td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td height="42" align="center"><A href="/tc?module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_overview"  target="_top"><IMG src="/i/promos/crpf_promo_third.gif" alt="crpf starts november 11" width="170" height="120" border="0"/></A></td>
                     <td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
