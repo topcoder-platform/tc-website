@@ -62,7 +62,7 @@ public class EmailBean implements SessionBean {
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), ds, "sequence_object", "name",
-                        "current_value", 9999999999L, 1, true);
+                        "current_value", 9999999999L, 1, false);
             }
 
             email_id = IdGenerator.nextId("EMAIL_SEQ");

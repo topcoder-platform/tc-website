@@ -63,7 +63,7 @@ public class TermsOfUseBean implements SessionBean {
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), ds, "sequence_object", "name",
-                        "current_value", 9999999999L, 1, true);
+                        "current_value", 9999999999L, 1, false);
             }
 
             terms_of_use_id = IdGenerator.nextId("TERMS_OF_USE_SEQ");
