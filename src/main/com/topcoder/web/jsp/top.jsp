@@ -71,7 +71,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
                 <tr valign="middle"><form name="selectform">
                 <% if (rating > 1199) { %>
-                    <td width="99%" align="left"><img src="/i/top_div1_badge.jpg.gif" width="370" height="75" border="0"/></td>
+                    <td width="99%" align="left"><img src="/i/top_div1_badge.jpg" width="370" height="75" border="0"/></td>
                 <% } else { %>
                     <td width="99%" align="left"><img src="/i/top_div2_badge.jpg" width="390" height="75" border="0"/></td>
                 <% } %>
