@@ -65,7 +65,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr valign="middle">
         <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+<% if (level1.equals("development")) {%>
         <td width="206"><a href="/" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
+<% } else { %>
+        <td width="206"><a href="/" target="_parent"><img src="/i/logo_r.gif" width="206" height="49" border="0" vspace="5"/></a></td>
+<% } %>
         <td width="99%" nowrap>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
