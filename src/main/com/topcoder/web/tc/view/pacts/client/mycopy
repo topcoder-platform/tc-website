@@ -1,2 +1,0 @@
-#!/bin/bash
-scp  $1 milo@coder-dev.topcoder.com:/export/home/apps/weblogic6/tc_cluster/public_html
