@@ -62,6 +62,7 @@ public class XSLTransformerCache {
                 result = new XSLTransformerWrapper(file);
                 log.debug("adding " + cacheKey + " to cache.");
                 cache.put(cacheKey, result);
+                log.debug("cache size is now: " + cache.size());
             }
         } catch (Exception e) {
             throw  e;
