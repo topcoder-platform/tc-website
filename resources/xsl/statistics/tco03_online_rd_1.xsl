@@ -485,7 +485,7 @@ accomplish the same in C++. Here's how <b>SnapDragon</b> pulled it off.
 <pre>
 string dtos(double d) {
     char buf[1000];
-    if( fabs(d) < 1.0 )
+    if( fabs(d) &lt; 1.0 )
         sprintf(buf, "%.3lfE00", d);
     else
         sprintf( buf, "%.3lE", d );
