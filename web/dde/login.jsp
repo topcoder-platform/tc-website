@@ -1,5 +1,6 @@
 <%@ page import="javax.naming.*,
-                 com.topcoder.dde.util.Cookies" %>
+                 com.topcoder.dde.util.Cookies,
+                 com.topcoder.dde.user.UserNotActivatedException" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -8,8 +9,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
 
-<%@ include file="/includes/util.jsp" %>
-<%@ include file="/includes/session.jsp" %>
+<%@ include file="includes/util.jsp" %>
+<%@ include file="includes/session.jsp" %>
 
 <%
     // STANDARD PAGE VARIABLES
@@ -75,7 +76,7 @@
                 debug.addMsg("login", "this user has been verified");
 
                 if ("true".equalsIgnoreCase(request.getParameter("remember_me"))) {
-                    setLoginCookies(tcSubject.getUserId(), password, response);
+                    Cookies.setLoginCookies(tcSubject.getUserId(), password, response);
                     debug.addMsg("login", "auto-login cookies set");
                 }
 

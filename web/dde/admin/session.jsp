@@ -1,4 +1,9 @@
-<%@ page import="com.topcoder.security.*" %>
+<%@ page import="com.topcoder.security.*,
+                 com.topcoder.dde.util.Cookies,
+                 java.lang.reflect.UndeclaredThrowableException,
+                 javax.rmi.PortableRemoteObject,
+                 javax.naming.InitialContext,
+                 javax.naming.Context" %>
 <%@ page import="com.topcoder.security.admin.*" %>
 <%@ page import="com.topcoder.security.login.*" %>
 <%@ page import="com.topcoder.security.policy.*" %>
@@ -73,7 +78,7 @@ if (objTCSubject != null && objTCSubject instanceof TCSubject) {
 		e.printStackTrace();
 	}
 } else {
-	tcSubject = getAdminFromLoginCookies(request, response, USER_MANAGER, ADMIN_LOGIN);
+	tcSubject = Cookies.getAdminFromLoginCookies(request, response, USER_MANAGER, ADMIN_LOGIN);
     if (session != null) session.putValue("AdminTCSubject", tcSubject);
 }
 
