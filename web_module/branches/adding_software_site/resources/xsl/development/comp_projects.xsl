@@ -248,7 +248,7 @@
                                     <xsl:when test="./total_inquiries&lt;number(/TC/DEVELOPMENT/MaxInquiries)">
                                         <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
                                     </xsl:when>
-                                    <xsl:otherwise>
+                                    <xsl:otherwise> 
                                         Registration Full
                                     </xsl:otherwise>
                                 </xsl:choose>
