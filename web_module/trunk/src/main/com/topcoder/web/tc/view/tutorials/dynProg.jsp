@@ -53,7 +53,7 @@
 			</p>
 
 <p>
-An important part of given problems can be solved with the help of dynamic programming (<b>DP</b> for short).  Being able to tackle problems of this type would increase much your skill.
+An important part of given problems can be solved with the help of dynamic programming (<b>DP</b> for short).  Being able to tackle problems of this type would greatly increase your skill.
 I will try to help you in understanding how to solve problems using DP. The article is based on examples, because a raw theory is very hard to understand.
 <br/><br/>
 Note: If you're bored reading one section and you already know what's being discussed in it - skip it and go to the next one.
@@ -74,20 +74,20 @@ First of all we need to find a state for which an optimal solution is found and 
 <br/><br/>
 <em><b>What does a "state" stand for?</b></em>
 <br/><br/>
-It's a way to describe a situation, a sub-solution for the problem. For example a state would be the solution for sum <b>i</b>, where <b>i&#8804;S</b>. A smaller state than state <b>i</b> would be the solution for any sum <b>j</b>, where <b>j&lt ;i</b>. For finding a <b>state i</b>, we need first to find all smaller states <b>j (j&lt;i) </b>. Having found the minimum number of coins which sum up to <b>i</b>, we can easily find the next state - the solution for <b>i+1</b>.
+It's a way to describe a situation, a sub-solution for the problem. For example a state would be the solution for sum <b>i</b>, where <b>i&#8804;S</b>. A smaller state than state <b>i</b> would be the solution for any sum <b>j</b>, where <b>j<i</b>. For finding a <b>state i</b>, we need to first find all smaller states <b>j (j&lt;i) </b>. Having found the minimum number of coins which sum up to <b>i</b>, we can easily find the next state - the solution for <b>i+1</b>.
 <br/><br/>
 <em><b>How can we find it?</b></em>
 <br/><br/>
-It is simple - for each coin <b>j, V<sub>j</sub>&#8804;i</b>, look at the minimum number of coins found for <b>i-V<sub>j</sub></b>sum (we have already found it previously). Let this number be <b>m</b>. If <b>m+1</b> is less than the minimum number of coins already found for current sum <b>i</b>, then we write the new result for it.
+It is simple - for each coin <b>j, V<sub>j</sub>&#8804;i</b>, look at the minimum number of coins found for the <b>i-V<sub>j</sub></b>sum (we have already found it previously). Let this number be <b>m</b>. If <b>m+1</b> is less than the minimum number of coins already found for current sum <b>i</b>, then we write the new result for it.
 <br/><br/>
 For a better understanding let's take this example:<br/>
-Given coins with values 1,3 and 5.<br/>
+Given coins with values 1, 3, and 5.<br/>
 And the sum <b>S</b> is set to be 11.
 <br/><br/>
-First of all we mark that for state 0 (sum 0) we have found a solution with minimum number of 0 coins. 
-We then go to sum 1. First, we mark that we haven't yet found a solution for this one (a value of Infinity would be fine). Then we see that only coin 1 is less or equal to the current sum. Analyzing it, we see that for sum 1-<b>V<sub>1</sub></b>= 0  we have a solution with 0 coins. Because we add one coin to this solution, we'll have a solution with 1 coin for sum 1. It's the only solution yet found for this sum. We write (save) it.
+First of all we mark that for state 0 (sum 0) we have found a solution with a minimum number of 0 coins. 
+We then go to sum 1. First, we mark that we haven't yet found a solution for this one (a value of Infinity would be fine). Then we see that only coin 1 is less than or equal to the current sum. Analyzing it, we see that for sum 1-<b>V<sub>1</sub></b>= 0  we have a solution with 0 coins. Because we add one coin to this solution, we'll have a solution with 1 coin for sum 1. It's the only solution yet found for this sum. We write (save) it.
 Then we proceed to the next state - <b>sum 2</b>. We again see that the only coin which is less or equal to this sum is the first coin, having a value of 1. The optimal solution found for sum (2-1) = 1  is coin 1. This coin 1 plus the first coin will sum up to 2, and thus make a sum of 2 with the help of only 2 coins. This is the best and only solution for sum 2.
-Now we proceed to sum 3. We now have here 2 coins which are to be analyzed - first and second one, having values of 1 and 3. Let's see the first one. There exists a solution for sum 2 (3 - 1) and therefore we can construct from it a solution for sum 3 by adding the first coin to it. Because the best solution for sum 2 that we found has 2 coins, the new solution for sum 3 will have 3 coins.
+Now we proceed to sum 3. We now have 2 coins which are to be analyzed - first and second one, having values of 1 and 3. Let's see the first one. There exists a solution for sum 2 (3 - 1) and therefore we can construct from it a solution for sum 3 by adding the first coin to it. Because the best solution for sum 2 that we found has 2 coins, the new solution for sum 3 will have 3 coins.
 Now let's take the second coin with value equal to 3. The sum for which this coin needs to be added to make 3 , is 0. We know that sum 0 is made up of 0 coins. Thus we can make a sum of 3 with only one coin - 3. We see that it's better than the previous found solution for sum 3 , which was composed of 3 coins. We update it and mark it as having only 1 coin.
 The same we do for sum 4, and get a solution of 2 coins - 1+3. And so on.
 <br/><br/>
@@ -184,7 +184,7 @@ Having understood the basic way a <b>DP</b> is used, we may now see a slightly d
 Let's consider the problem above. Start with having a solution of 0 coins for sum 0. Now let's try to add first coin (with value 1) to all sums already found. If the resulting sum <b>t</b> will be composed of fewer coins than the one previously found - we'll update the solution for it. Then we do the same thing for the second coin, third coin, and so on for the rest of them. 
 For example, we first add coin 1 to sum 0 and get sum 1. Because we haven't yet found a possible way to make a sum of 1 - this is the best solution yet found, and we mark <b>S[1]=1</b>. By adding the same coin to sum 1, we'll get sum 2, thus making <b>S[2]=2</b>. And so on for the first coin. 
 After the first coin is processed, take coin 2 (having a value of 3) and consecutively try to add it to each of the sums already found. Adding it to 0, a sum 3 made up of 1 coin will result. Till now, <b>S[3]</b> has been equal to 3, thus the new solution is better than the previously found one. We update it and mark <b>S[3]=1</b>. After adding the same coin to sum 1, we'll get a sum 4 composed of 2 coins. Previously we found a sum of 4 composed of 4 coins; having now found a better solution we update <b>S[4]</b> to 2. 
-The same thing is done for next sums - each time a better solution is found, the results for it is updated.
+The same thing is done for next sums - each time a better solution is found, the results are updated.
 <br/><br/>
 <H3>Elementary</H3>
 To this point, very simple examples have been discussed. Now let's see how to find a way for passing from one state to another, for harder problems. For that we will introduce a new term called recurrent relation, which makes a connection between a lower and a greater state.
@@ -196,7 +196,7 @@ Given a sequence of N numbers - <b>A[1] </b>, <b>A[2] </b>, ..., <b>A[N] </b>. F
 As described above we must first find how to define a "state" which represents a sub-problem and thus we have to find a solution for it. Note that in most cases the states rely on lower states and are independent from greater states.
 <br/><br/>
 Let's define a state <b>i</b> as being the longest non-decreasing sequence which has its last number <b>A[i] </b>. This state carries only data about the length of this sequence. Note that for <b>i&lt;j</b> the state <b>i</b> is independent from <b>j</b>, i.e. doesn't change when we calculate state <b>j</b>. Let's see now how these states are connected to each other. Having found the solutions for all states lower than <b>i</b>, we may now look for state <b>i</b>. At first we initialize it with a solution of 1, which consists only of the <b>i-th</b> number itself. Now for each <b>j&lt;i</b>  let's see if it's possible to pass from it to state i. This is possible only when <b>A[j]&#8804;A[i] </b>, thus keeping (assuring) the sequence non-decreasing. So if <b>S[j] </b> (the solution found for state <b>j</b>) + <b>1</b> (number <b>A[i] </b> added to this sequence which ends with number <b>A[j] </b>) is better than a solution found for <b>i</b> (ie. <b>S[j]+1>S[i] </b>), we make <b>S[i]=S[j]+1</b>. 
-This way we consecutively find the best solutions for each <b>i</b>, till last state N.
+This way we consecutively find the best solutions for each <b>i</b>, until last state N.
 <br/><br/>
 Let's see what happens for a randomly generated sequence: 5, 3, 4, 8, 6, 7:
 <br/><br/>
@@ -259,9 +259,9 @@ Find the maximum number of apples you can collect.
 <br/><br/>
 This problem is solved in the same way as other DP problems; there is almost no difference.
 <br/><br/>
-First of all we have to find a state. The first thing that must be observed is that there are at most 2 ways we can come to a cell - from the left (if it's not situated on the first column) and from the up (if it's not situated on the most upper row). Thus to find the best solution for that cell, we have to have already found the best solutions for all of the cells from which we can arrive to the current cell.
+First of all we have to find a state. The first thing that must be observed is that there are at most 2 ways we can come to a cell - from the left (if it's not situated on the first column) and from the top (if it's not situated on the most upper row). Thus to find the best solution for that cell, we have to have already found the best solutions for all of the cells from which we can arrive to the current cell.
 <br/><br/>
-From the above, a recurrent relation can be easily obtained:<br/>
+From above, a recurrent relation can be easily obtained:<br/>
 <b>S[i][j]=A[i][j] + max(S[i-1][j], if i>0 ; S[i][j-1], if j>0) </b> (where <b>i</b> represents the row and <b>j</b> the column of the table , its left-upper corner having coordinates {0,0} ; and <b>A[i][j]</b> being the number of apples situated in cell <b>i,j</b>).
 <br/><br/>
 <b>S[i][j] </b> must be calculated by going first from left to right in each row and process the rows from top to bottom, or by going first from top to bottom in each column and process the columns from left to right.
@@ -290,9 +290,9 @@ As a good example would serve the following problem:
 Given an undirected graph <b>G</b> having positive weights and <b>N</b> vertices. 
 <br/><br/>
 You start with having a sum of <b>M</b> money. For passing through a vertex <b>i</b>, you must pay <b>S[i] </b> money. If you don't have enough money - you can't pass through that vertex. 
-Find the shortest from vertex 1 to vertex N, respecting the above conditions; or state that such path doesn't exist. If there exist more than one path having the same length, then output the cheapest one. 
+Find the shortest path from vertex 1 to vertex N, respecting the above conditions; or state that such path doesn't exist. If there exist more than one path having the same length, then output the cheapest one. 
 Restrictions: 1&lt;N&lt;=100 ; 0&lt;=M&lt;=100 ; for each i, 0&lt;=S[i]&lt;=100. 
-As we can see, this is the same as classical Dijkstra problem (finding the shortest path between two vertices), with exception that it has a condition. 
+As we can see, this is the same as the classical Dijkstra problem (finding the shortest path between two vertices), with the exception that it has a condition. 
 In the classical Dijkstra problem we would have used a uni-dimensional array <b>Min[i] </b>, which marks the length of the shortest path found to vertex <b>i</b>. 
 However in this problem we should also keep information about the money we have. 
 Thus it would be reasonable to extend the array to something like <b>Min[i][j] </b>, which represents the length of the shortest path found to vertex <b>i</b>, with <b>j</b> money being left. In this way the problem is reduced to the original path-finding algorithm. 
@@ -347,7 +347,7 @@ Here are a few TC problems for practicing:
 <li><A href="/tc?module=ProblemDetail&rd=4630&pm=1861">ShortPalindromes</A> - SRM 165 Div 2</li>
 </ul>
 <h3>Advanced</h3>
-Following type of problems will need some good observations in order to reduce them to a dynamic solution.
+The following problems will need some good observations in order to reduce them to a dynamic solution.
 <br/><br/>
 <b>Problem <A href="/tc?module=ProblemDetail&rd=5854&pm=2940">StarAdventure</A> - SRM 208 Div 1:</b>
 <br/><br/>
