@@ -1108,29 +1108,41 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         logger.debug("agreeToComponentTerms("+userId+") called");
         Context ctx = null;
         Connection conn = null;
+        PreparedStatement ps1 = null;
         PreparedStatement ps = null;
+        ResultSet rs = null;
         try {
+
             ctx = new InitialContext();
             final String sqlUpdate =
                 "INSERT " +
                 "INTO user_terms_of_use_xref (user_id,terms_of_use_id) " +
                 "VALUES (?,?)";
+            final String sqlSelect =
+                    "select '1' from user_terms_of_use_xref where user_id = ? and terms_of_use_id = ?";
             DataSource datasource = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDS");
             conn = datasource.getConnection();
 
-
-            ps = conn.prepareStatement(sqlUpdate);
-            ps.setLong(1, userId);
-            ps.setInt(2, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
-            int retVal = ps.executeUpdate();
-            if (retVal!=1) throw new EJBException("Failed to insert into user_terms_of_use_xref");
+            ps1 = conn.prepareStatement(sqlSelect);
+            ps1.setLong(1, userId);
+            ps1.setInt(2, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
+            rs = ps1.executeQuery();
+            if (rs.next()) {
+                ps = conn.prepareStatement(sqlUpdate);
+                ps.setLong(1, userId);
+                ps.setInt(2, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
+                int retVal = ps.executeUpdate();
+                if (retVal!=1) throw new EJBException("Failed to insert into user_terms_of_use_xref");
+            }
 
         } catch (NamingException e) {
             throw new EJBException(e);
         } catch (SQLException e) {
             throw new EJBException(e);
         } finally {
+            close(rs);
             close(ps);
+            close(ps1);
             close(conn);
             close(ctx);
         }
