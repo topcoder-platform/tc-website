@@ -30,11 +30,12 @@
 <table width="100%" border=0 CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
 <!-- Center Column Begins -->
-        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br>
+        <td width="100%" align="center">
+			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br>
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
-                        <p class="testHead">Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></p>
+                        <p><span class=testHead>Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></span></p>
                     </td>
                 </tr>
             </table>
@@ -42,9 +43,9 @@
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader">Campaign Name</td>
-                    <td class="screeningHeader" nowrap="nowrap">Start Date</td>
-                    <td class="screeningHeader" nowrap="nowrap">End Date</td>
-                    <td class="screeningHeader" nowrap="nowrap">Most Recent Hit</td>
+                    <td class="screeningHeader" nowrap="nowrap" align=center>Start Date</td>
+                    <td class="screeningHeader" nowrap="nowrap" align=center>End Date</td>
+                    <td class="screeningHeader" nowrap="nowrap" align=center>Most Recent Hit</td>
                 </tr>
     
                 <%
@@ -73,10 +74,10 @@
                    } %>
 
                 <tr>
-                    <td width="40%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
-                    <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></td>
-                    <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></td>
-                    <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap"><rsc:item row="<%=campaignInfo%>" name="most_recent_hit" format="MM/dd/yyyy"/></td>
+                    <td width="40%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;&#160;&#160;<A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
+                    <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><%=campaignInfo.getItem("start_date").toString()%></td>
+                    <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><%=campaignInfo.getItem("end_date").toString()%></td>
+                    <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><rsc:item row="<%=campaignInfo%>" name="most_recent_hit" format="MM/dd/yyyy"/></td>
                 </tr>
 
                 </tces:rowIterator>
