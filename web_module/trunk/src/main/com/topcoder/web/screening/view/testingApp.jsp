@@ -17,22 +17,22 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td rowspan="2"><img border="0" height="54" width="10" src="/i/testHeadTopLeft.gif" alt=""></td>
-        <td id="testHead"><img alt="0" border="0" height="36" width="114" src="/images/clear.gif"></td>
-        <td id="testHead" width="100%"><img alt="0" border="0" height="36" width="10" src="/images/clear.gif"></td>
+        <td id="testHead"><img alt="0" border="0" height="36" width="114" src="/i/clear.gif"></td>
+        <td id="testHead" width="100%"><img alt="0" border="0" height="36" width="10" src="/i/clear.gif"></td>
         <td align="right"><img border="0" height="36" width="171" src="/i/testHeadTCLogo.gif" alt="TopCoder"></td>
         <td rowspan="2"><img alt="0" border="0" height="54" width="10" src="/i/testHeadTopRight.gif" alt=""></td>
       </tr>
 
     <tr>
         <td align="left"><img border="0" height="18" width="114" src="/i/testHeadTabLeft.gif" alt=""></td>
-        <td width="100%"><img border="0" alt="" height="18" width="10" src="/images/clear.gif"></td>
-        <td align="right"><img border="0" height="18" width="171" src="/images/clear.gif"></td>
+        <td width="100%"><img border="0" alt="" height="18" width="10" src="/i/clear.gif"></td>
+        <td align="right"><img border="0" height="18" width="171" src="/i/clear.gif"></td>
     </tr>
 </table>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td><img border="0" alt="" height="15" width="10" src="/images/clear.gif"></td>
+        <td><img border="0" alt="" height="15" width="10" src="/i/clear.gif"></td>
     </tr>
 </table>
 
