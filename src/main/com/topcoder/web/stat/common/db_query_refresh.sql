@@ -32,4 +32,5 @@ insert into command values(21,"last_match_sorted");
 insert into command values(22,"top_room_winners");
 insert into command values(23,"top_ranked_div_1");
 insert into command values(24,"top_ranked_div_2");
+insert into command values(25,"div_2_problem_level_stats");
 
