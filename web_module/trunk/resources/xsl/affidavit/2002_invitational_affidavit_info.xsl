@@ -70,7 +70,7 @@
                 </li>
               </xsl:if>
               <li>
-	        Click <A HREF="#">here</A> to fill out a TopCoder 2002 Questionnaire.
+	        Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_questionaire">here</A> to view the TopCoder 2002 Questionnaire.
               </li>
               <li>
 	        Click <A HREF="#">here</A> to complete a Travel Information Page.
