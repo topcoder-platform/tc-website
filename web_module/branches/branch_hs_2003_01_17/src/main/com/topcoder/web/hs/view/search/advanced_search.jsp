@@ -106,7 +106,7 @@
      </TR>
      <TR>
       <TD COLSPAN="5" ALIGN="center">
-       <%=(search.getHasPrev()?"<A HREF=\"Javascript:document.advForm.next.value='true';Javascript:document.advForm.submit()\">&lt;&lt; prev</A>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<A HREF=\"Javascript:document.advForm.next.value='false';Javascript:document.advForm.submit()\">next &gt;&gt;</A>":"&gt;&gt; next")%>
+       <%=(search.getHasPrev()?"<A HREF=\"Javascript:document.advForm.next.value='false';Javascript:document.advForm.submit()\">&lt;&lt; prev</A>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<A HREF=\"Javascript:document.advForm.next.value='true';Javascript:document.advForm.submit()\">next &gt;&gt;</A>":"&gt;&gt; next")%>
       </TD>
      </TR>
      <TR>
