@@ -167,7 +167,7 @@ public class ReviewProjectDetail extends Base {
             //we'll always assume all submission gets through screening
             ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissions);
         } else {
-            ret = new ReviewBoardApplication(detail.getFloatItem(0, "primary_amount"), detail.getFloatItem(0, "amount"));
+            ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"), detail.getFloatItem(0, "amount"));
         }
 
         ret.setProjectId(projectId);

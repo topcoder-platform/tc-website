@@ -23,8 +23,8 @@ public class ReviewBoardApplication {
         this.component = new DefaultPriceComponent(level, submissionCount, submissionsPassedScreening, phaseId);
     }
 
-    public ReviewBoardApplication(float primaryReviewerPrice, float reviewerPrice) {
-        this.component = new CustomPriceComponent(primaryReviewerPrice, reviewerPrice);
+    public ReviewBoardApplication(int phaseId, float primaryReviewerPrice, float reviewerPrice) {
+        this.component = new CustomPriceComponent(primaryReviewerPrice, reviewerPrice, phaseId);
     }
 
 

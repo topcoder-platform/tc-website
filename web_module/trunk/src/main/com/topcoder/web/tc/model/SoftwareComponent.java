@@ -37,5 +37,7 @@ public interface SoftwareComponent {
      */
     float getReviewPrice();
 
+    int getPhaseId();
+
 }
 
