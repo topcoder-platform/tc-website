@@ -77,14 +77,11 @@ public class Constants {
                 if (!ignore(f[i].getName())) {
                     if (f[i].getType().getName().equals("int")) {
                         try {
-                            value = bundle.getProperty(f[i].getName().toLowerCase(), INT_NOT_FOUND);
+                            f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) { }
-                        if (!value.equals(INT_NOT_FOUND)) {
-                            f[i].setInt(null, Integer.parseInt(value));
-                        }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
                         try {
-                            f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase(), null));
+                            f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) { }
                     } else {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());

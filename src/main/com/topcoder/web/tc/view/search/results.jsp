@@ -31,8 +31,8 @@
 
               <tr valign="middle">
                   <td class="statText" height="16" colspan="7" align="center">
-                    <%=(memberSearch.hasPrev()?"<a href=\"Javascript:document.simpleSearch.next.value='false';Javascript:document.simpleSearch.submit()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(memberSearch.hasNext()?"<a href=\"Javascript:document.simpleSearch.next.value='true';Javascript:document.simpleSearch.submit()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
+                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:document.simpleSearch.next.value='false';Javascript:document.simpleSearch.submit()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:document.simpleSearch.next.value='true';Javascript:document.simpleSearch.submit()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
                   </td>
               </tr>
 
@@ -64,8 +64,8 @@
 
               <tr valign="middle">
                   <td class="statText" height="16" colspan="7" align="center">
-                    <%=(memberSearch.hasPrev()?"<a href=\"Javascript:document.simpleSearch.next.value='false';Javascript:document.simpleSearch.submit()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(memberSearch.hasNext()?"<a href=\"Javascript:document.simpleSearch.next.value='true';Javascript:document.simpleSearch.submit()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
+                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:document.simpleSearch.next.value='false';Javascript:document.simpleSearch.submit()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:document.simpleSearch.next.value='true';Javascript:document.simpleSearch.submit()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
                   </td>
               </tr>
 
