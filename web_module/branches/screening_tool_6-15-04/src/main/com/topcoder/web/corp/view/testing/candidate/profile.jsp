@@ -166,8 +166,18 @@ function getProblemDetail(id) {
                         </tr>
                         </screen:resultSetRowIterator>
 
+                        <%
+                            int pref;
+                            if(((List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)).get(0) == null)
+                            {
+                                pref = 0;
+                            }
+                            else
+                                pref = ((ResultSetContainer.ResultSetRow)((List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)).get(0)).getIntItem("level");
+                        %>
+                        <%=pref%>
                         <screen:resultSetRowIterator id="row"
-                                list="<%=(List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)%>">
+                                list="<%=%>">
                         <tr>
                             <td class="screeningCellEven" align=right>Preference Level:</td>
                             <td class="screeningCellEven" valign=middle>
