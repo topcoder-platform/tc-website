@@ -665,7 +665,8 @@ java com.topcoder.utilities.QueryLoader "OLTP" 1005 "TCES_Campaign_Hit_List" 0 0
 SELECT c.coder_id
      , jh.job_id
      , u.handle
-     , r.rating
+     , (CASE WHEN r.num_ratings = 0 THEN 'Not Rated' ELSE ''||r.rating END) AS rating
+     , r.rating AS rating_sort
      , (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code
      , (CASE WHEN NVL(c.state_code, '') = '' THEN 'ZZ' ELSE c.state_code END) as state_code_sort 
      , country.country_name AS country
@@ -707,7 +708,8 @@ java com.topcoder.utilities.QueryLoader "OLTP" 1007 "TCES_Position_Hit_List" 0 0
 SELECT c.coder_id
      , jh.job_id
      , u.handle
-     , r.rating
+     , (CASE WHEN r.num_ratings = 0 THEN 'Not Rated' ELSE ''||r.rating END) AS rating
+     , r.rating AS rating_sort
      , (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code
      , (CASE WHEN NVL(c.state_code, '') = '' THEN 'ZZ' ELSE c.state_code END) as state_code_sort 
      , country.country_name AS country_code
