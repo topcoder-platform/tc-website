@@ -124,21 +124,21 @@
     <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999"><font size="3">Design Winners</font></td>
+                    <td class="projectTitles">Design Winners</td>
                 </tr>
             </table>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="27%">Project Name</td>
+                    <td class="projectHeaders" width="27%">Project Name</td>
 <!--
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Total<br/>Submissions</td>
+                    <td class="projectHeaders" width="17%" align="center">Total<br/>Submissions</td>
 -->
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="5%" align="right">Place</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%">Winner(s)</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Board&#160;Score</td>
+                    <td class="projectHeaders" width="5%" align="right">Place</td>
+                    <td class="projectHeaders" width="17%">Winner(s)</td>
+                    <td class="projectHeaders" width="17%" align="center">Score</td>
 
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="right">Total&#160;&#160;<br/>Earnings*</td>
+                    <td class="projectHeaders" width="17%" align="right">Earnings</td>
 
                 </tr>
 
@@ -146,27 +146,22 @@
                        
                    <xsl:if test="./phase_id=$design-phase" >
                        <tr valign="middle">
-                          <td class="formHandleOdd">
-                              <a class="statText">
+                          <td class="projectCells">
+                              <a>
                                   <xsl:attribute name="href">
                                       <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/> 
                                   </xsl:attribute><xsl:value-of select="./component_name"/>
                               </a>
                           </td>
-                         <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
-                         <td class="formHandleOdd">
+                         <td class="projectCells" align="center"><xsl:value-of select="./place"/></td>
+                         <td class="projectCells">
                             <a>
                                 <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                                <xsl:attribute name="CLASS">
-                                    <xsl:call-template name="GetRatingClass">
-                                        <xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param>
-                                    </xsl:call-template>
-                                </xsl:attribute>
                                 <xsl:value-of select="user_id"/>
                             </a>
                          </td>
-                         <td class="formHandleOdd" align="center"><xsl:value-of select="./score"/></td>
-                         <td class="formHandleOdd" align="center"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
+                         <td class="projectCells" align="center"><xsl:value-of select="./score"/></td>
+                         <td class="projectCells" align="right"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
                      </tr>
                    </xsl:if> 
                 </xsl:for-each>
@@ -177,42 +172,34 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999"><font size="3">Development Winners</font></td>
+                    <td class="projectTitles">Development Winners</td>
                 </tr>
             </table>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="27%">Project Name</td>
-<!--
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Total<br/>Submissions</td>
--->
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="5%" align="right">Place</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%">Winner(s)</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Board&#160;Score</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="right">Total&#160;&#160;<br/>Earnings*</td>
+                    <td class="projectHeaders" width="27%">Project Name</td>
+                    <td class="projectHeaders" width="5%" align="right">Place</td>
+                    <td class="projectHeaders" width="17%">Winner(s)</td>
+                    <td class="projectHeaders" width="17%" align="center">Score</td>
+                    <td class="projectHeaders" width="17%" align="right">Earnings</td>
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/component_winners/winner">
                        
                    <xsl:if test="./phase_id=$dev-phase" >
                        <tr valign="middle">
-                          <td class="formHandleOdd">
-                              <a class="statText">
+                          <td class="projectCells">
+                              <a>
                                   <xsl:attribute name="href">
                                       <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/> 
                                   </xsl:attribute><xsl:value-of select="./component_name"/>
                               </a>
                           </td>
-                         <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
-                         <td class="formHandleOdd">
+                         <td class="projectCells" align="center"><xsl:value-of select="./place"/></td>
+                         <td class="projectCells">
                             <a>
                                 <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                                <xsl:attribute name="CLASS">
-                                    <xsl:call-template name="GetRatingClass">
-                                        <xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param>
-                                    </xsl:call-template>
-                                </xsl:attribute>
                                 <xsl:value-of select="user_id"/>
                             </a>
 <!--
@@ -224,8 +211,8 @@
                                     </a>
 -->
                          </td>
-                         <td class="formHandleOdd" align="center"><xsl:value-of select="./score"/></td>
-                         <td class="formHandleOdd" align="center"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
+                         <td class="projectCells" align="center"><xsl:value-of select="./score"/></td>
+                         <td class="projectCells" align="right"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
                      </tr>
                    </xsl:if> 
                 </xsl:for-each>
