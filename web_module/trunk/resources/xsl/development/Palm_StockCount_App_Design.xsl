@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Palm Transfers and Receiving Application Development Project at TopCoder</title>
+                <title>Palm Stock Count Application Design Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Palm Transfers And Receiving Application</td>
+                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Palm Transfers And Receiving Application</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -86,31 +86,13 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        A TopCoder client has existing infrastructure and software to support
-                                                        certain in-store Palm applications at all of their stores.  One of
-                                                        these is a merchandise transfers application.   In order to minimize
-                                                        the number of transferred cartons that are lost or stolen, the client
-                                                        would like to begin storing transfers in a corporate database on a 
-                                                        real-time basis as they are being scanned on the Palm at the store.
-                                                        <br/>
-                                                        <br/>
-                                                        The existing Palm-based Transfers and Receiving Applications will be modified 
-                                                        to not only write its data to a local Palm database (PDB), but to also connect 
-                                                        via a socket to an instance of TopCoder's Data Access Socket Server Component 
-                                                        running on a corporate server to persist the data to a central RDBMS. There are 
-                                                        also some enhancements to the overall functionality of the Transfers and Receiving 
-                                                        Applications, including a signature capture screen.                                                    
-                                                        <br/>
-                                                        <br/>                                                        
-                                                        <strong>Note:</strong>
-                                                        <br/>
-                                                        TopCoder will supply Code Warrior 8 to all participating members.
-                                                        
-                                                        </p>                                                        
+A TopCoder client has existing infrastructure and software to support certain in-store Palm applications at all of their stores.  The client will add a Stock Count Application that will utilize the same real-time architecture as the new transfers and receiving applications that are being built, but will provide the ability to perform in-store Stock Counts as they are requested by corporate.                                                    
+                                                        </p>
+
                                                     <p>
                                                         <strong>Business Requirements Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Palm_Transfers_Receiving_App_Req_Spec062204.pdf">Business Requirements Specification</a> for this project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Palm_Stock_Count_App_Req_Spec_0713.pdf">Business Requirements Specification</a> for this project.
                                                     </p>
 
 
@@ -133,8 +115,8 @@
                                                         </tr>
                                                     </table>
                                                     <p>
-                                                        For each development project, TopCoder will compensate the member with the
-                                                        winning solution as well as the second place developer. In order to be
+                                                        For each design project, TopCoder will compensate the member with the
+                                                        winning solution as well as the second place designer. In order to be
                                                         paid, the submission must pass screening and receive a review score
                                                         above the minimum score of 50.
                                                         <br/>
@@ -155,12 +137,12 @@
                                                         <br/>
                                                         <strong> Second Place Compensation: </strong>
                                                         <br/>
-                                                        Compensation for the second place developer will be paid in one installment
-                                                        following the completion of the development project.
+                                                        Compensation for the second place designer will be paid in one installment
+                                                        following the completion of the design project.
                                                     </p>
 
                                                     <p class="noSpListTitle">
-                                                        <strong>Winning Developer</strong>
+                                                        <strong>Winning Designer</strong>
                                                     </p>
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
@@ -178,7 +160,7 @@
                                                     </table>
 
                                                     <p class="noSpListTitle">
-                                                        <strong>Second Place Developer</strong>
+                                                        <strong>Second Place Designer</strong>
                                                     </p>
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
@@ -187,12 +169,30 @@
                                                         </tr>
                                                     </table>
 
+                                                    <p class="noSpListTitle">
+                                                        <strong>Reviewers</strong>
+                                                    </p>
+                                                    <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Primary Design Reviewer -</td>
+                                                            <td class="bodyText" align="right">$223.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Design Reviewer -</td>
+                                                            <td class="bodyText" align="right">$208.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Design Reviewer - </td>
+                                                            <td class="bodyText" align="right">$208.00</td>
+                                                        </tr>
+                                                    </table>
+
                                                     <br/>
 
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$3,500.00</td>
+                                                            <td class="bodyText" align="right">$4,139.00</td>
                                                         </tr>
                                                     </table>
 
@@ -207,7 +207,7 @@
 
                                                     <ul class="noSpList">
                                                         <li>The Submission has been selected by the board as the winning submission.</li>
-                                                        <li>Final fixes accepted by the development review board.</li>
+                                                        <li>Final fixes accepted by the design review board.</li>
                                                         <li>Application launch into production environment.</li>
                                                     </ul>
 
@@ -236,33 +236,31 @@
                                                         </tr>
                                                     </table>
                                                     <p>
-                                                        The Development Submission must be submitted on time. All questions submitted
-                                                        prior to 6PM EDT on the day prior to a due date will be answered. Following review
-                                                        from the board the winning member is given until the Final Fixes Due Date
+                                                        The Design Submission must be submitted on time. All questions submitted
+                                                        prior to 6PM EDT on the Submission Due Dates will be answered. Following review
+                                                        from the board the winning member is given until the Updated Submission Due Date
                                                         to modify their submission.
                                                     </p>
-
-
 
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.07.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.13.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.14.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.15.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.15.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.16.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Development Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.15.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap">Design Start:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.17.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Development Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap">Design Due:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">07.27.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
@@ -272,47 +270,31 @@
 
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.31.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.30.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.31.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.30.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.01.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.31.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.01.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.31.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap">Updated Submission Due Date:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">08.04.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.05.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap">Design Complete:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.06.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Development Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.05.2004 &#160;&#160;5:00 PM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Integration Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.05.2004 &#160;&#160;5:00 PM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Integration End:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.13.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Certification Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.14.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Certification End:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.27.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.03.2004</td>
                                                         </tr>
                                                     </table>
 
@@ -323,13 +305,12 @@
                                                         <br/>
                                                         View the <a target="_new" class="bodyText" href="/?t=development&amp;c=app_sample_docs">Documents and Templates</a> for the Application Development Methodology
 
-
                                                     </p>
 
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20and%20Receiving%20Application%20Dev">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Stock%20Count%20Application%20Design">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                                         Once you have registered for the project you will be given more information on the project including the requirements specification and other additional information.  After viewing this information, you will have 12 hours to accept the position.
                                                     </p>
                                                 </td>
