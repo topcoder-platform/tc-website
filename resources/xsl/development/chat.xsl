@@ -55,7 +55,7 @@
                                     </FORM>
                                     <b>Moderated Chat Session Project</b>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Moderated Chat Session';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Moderated Chat Session';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <b>Overview</b>
@@ -206,7 +206,7 @@ You must be a rated TopCoder member, meeting all of the membership requirements 
                                         <li>A Lawful Permanent Resident of the US (i.e., a Green Card holder).</li>
                                         <li>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</li>
                                     </ol>
-                                    <a href="Javascript:document.frmInquire.Project.value='Moderated Chat Session';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Moderated Chat Session';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
           <P><br/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

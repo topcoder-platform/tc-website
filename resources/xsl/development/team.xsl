@@ -53,9 +53,8 @@
                                     <FORM method="POST" name="frmInquire" ACTION="/">
                                         <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
                                     </FORM>
-                                    <b>Teams Project<br/>(see below for links to inquire)</b>
+                                    <b>Teams Project<br/></b>
                                     <BR/>
-                                    
                                     <BR/>
                                     <BR/>
                                     <b>Preface</b>
@@ -112,7 +111,7 @@ The QA Developer is responsible for testing the completed component. Tests shoul
                                     <b>Draft Application Components</b>
                                     <BR/>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Draft Application';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Draft Application Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Draft Application';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Draft Application Position &gt;&gt;</b></a>-->
                                     <BR/>
 On the day of the draft TopCoder members will be using the components developed by the draft team to choose their team members.  The draft components will be composed of a newly designed applet and server.  The Draft team will be composed of two developers and one architect.  One developer will work on the client side and the other on the server side development.  
                                     <ul>
@@ -208,7 +207,7 @@ $1680.00 at the completion of the project*
 
                                         </li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Draft Application';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Draft Application Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Draft Application';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Draft Application Position &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <BR/>
@@ -217,7 +216,7 @@ $1680.00 at the completion of the project*
                                     <b>Member Problem Services and Quality Assurance System (MPSQAS)</b>
                                     <BR/>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams MPSQAS';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams MPSQAS Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams MPSQAS';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams MPSQAS Position &gt;&gt;</b></a>-->
                                     <BR/>
 MPSQAS is the system that current problem coordinators, writers and testers use in order to provide problems in the SRMs.  MPSQAS needs modifications in order to support team-based competitions as well as provide some must needed enhancements.    There will be two developers and one architect on the MPSQAS team.
                                     <ul>
@@ -327,7 +326,7 @@ $1680.00 at the completion of the project*
                                             </ul>
                                         </li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams MPSQAS';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams MPSQAS Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams MPSQAS';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams MPSQAS Position &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <BR/>
@@ -336,7 +335,7 @@ $1680.00 at the completion of the project*
                                     <b>Core Competition Engine</b>
                                     <BR/>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Core Competition Engine';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Core Competition Engine Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Core Competition Engine';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Core Competition Engine Position &gt;&gt;</b></a>-->
                                     <BR/>
 The Core Competition engine is exactly what it sounds like.  It is the core system that handles all of the socket management and business logic behind Single Round Matches.  The existing core server will be enhanced to support teams-based competitions.  Part of the development team will also be responsible for developing a new Rules Engine and have the existing Competition Engine interface with it.   All of the rules will be defined in a relational database; the competition server will be able to dynamically load the rules upon request.  The architect for this component will also be responsible for the Arena, Testers/Compilers, and the Web Services Application servers.  There will be a total of four developers and one architect working on the Core Engine.
                                     <ul>
@@ -457,7 +456,7 @@ $1,650.00 at the completion of the project*
                                             </ul>
                                         </li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Core Competition Engine';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Core Competition Engine Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Core Competition Engine';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Core Competition Engine Position &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <BR/>
@@ -466,7 +465,7 @@ $1,650.00 at the completion of the project*
                                     <b>Web Services Application Servers</b>
                                     <BR/>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Web Services';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Web Services Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Web Services';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Web Services Position &gt;&gt;</b></a>-->
                                     <BR/>
 One developer will handle the Web Services implementation.  The developer will be responsible to configuring the Web Services application servers and implementing the structure for other Web Services clients.  The developer will also enhance all existing TopCoder tester and compiler services by adding support for Web Services.
                                     <ul>
@@ -510,7 +509,7 @@ $1,680.00 at the completion of the project*
                                             </ul>
                                         </li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Web Services';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Web Services Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Web Services';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Web Services Position &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <BR/>
@@ -519,7 +518,7 @@ $1,680.00 at the completion of the project*
                                     <b>Testers and Compilers</b>
                                     <BR/>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Testers and Compilers';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Testers and Compilers Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Testers and Compilers';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Testers and Compilers Position &gt;&gt;</b></a>-->
                                     <BR/>
 TopCoder currently has in place compiler and testers services that processes compile and test requests from the competition server.  There will be two developers on this team responsible for making the necessary changes to support Web Services and teams-based competitions.  Making changes to support teams-based competitions will be very important because submitted code will need to be tested at many different levels.  They will also modify the services to support MSPQAS compiles and tests.  Changes need to be made to the Java, C++ and C# services.
                                     <ul>
@@ -563,7 +562,7 @@ $1,680.00 at the completion of the project*
 </ul>
                                         </li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Testers and Compilers';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Testers and Compilers Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Testers and Compilers';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Testers and Compilers Position &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <BR/>
@@ -572,7 +571,7 @@ $1,680.00 at the completion of the project*
                                     <b>Competition Applet (Arena)</b>
                                     <BR/>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Competition Arena';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Competition Arena Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Competition Arena';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Competition Arena Position &gt;&gt;</b></a>-->
                                     <BR/>
 The competition applet more commonly known as the arena needs to undergo heavy modifications to support teams-based competitions.  The arena needs to support inter-team communication, new problem statement types, and all other requirements that come from the design of teams-based competitions.
                                     <ul>
@@ -613,7 +612,7 @@ $1,380.00 at the completion of the project*
 </ul>
                                         </li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Competition Arena';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Competition Arena Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Competition Arena';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Teams Competition Arena Position &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <BR/>
@@ -622,7 +621,7 @@ $1,380.00 at the completion of the project*
                                     <b>Quality Assurance</b>
                                     <BR/>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Quality Assurance';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Quality Assurance Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Quality Assurance';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Quality Assurance Position &gt;&gt;</b></a>-->
                                     <BR/>
 The quality assurance team will have the job of validating all of the development work.  They will responsible for producing test cases and notifying the development team of all issues surrounding their respective development.  There will be a total of 5 members assigned the role of Quality Assurance.  Each QA person will be assigned a specific system: MPSQAS, Competition Server, Web Services Application Server, Arena Applet, Draft Components.
                                      <ul>
@@ -717,7 +716,7 @@ $540.00 at the completion of the project*
 </ul>
                                         </li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='Teams Quality Assurance';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Quality Assurance Position &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='Teams Quality Assurance';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire about a Quality Assurance Position &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <BR/>
