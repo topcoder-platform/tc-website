@@ -85,9 +85,7 @@ public class TransactionInfo {
         }
 
         // find out purchase parameters
-        SessionPersistor store = new SessionPersistor(
-                req.getSession(true)
-        );
+        SessionPersistor store = new SessionPersistor(req.getSession(true));
         User user = new BasicAuthentication(store, req, resp).getUser();
         if (user.isAnonymous()) {
             throw new NotAuthorizedException("User not logged in: " + user.getId());
@@ -99,9 +97,7 @@ public class TransactionInfo {
         try {
             icEJB = (InitialContext) TCContext.getInitial();
             // check if there is such product
-            Product productTable = (
-                    (ProductHome) icEJB.lookup(ProductHome.EJB_REF_NAME)
-                    ).create();
+            Product productTable = ((ProductHome) icEJB.lookup(ProductHome.EJB_REF_NAME)).create();
             cost = productTable.getCost(productID);
             if (cost <= 0) {
                 throw new Exception("No valid product found for ID given");
@@ -117,11 +113,9 @@ public class TransactionInfo {
             }
 
 
-            Contact contactTable = (
-                    (ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)
-                    ).create();
+            Contact contactTable = ((ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
             companyID = contactTable.getCompanyId(buyerID);
-            
+
             setRolesPerProduct(productID);
             
             verify();
@@ -143,8 +137,6 @@ public class TransactionInfo {
         if (productID <= 0) msg += "illegal product ID\n";
         if (buyerID <= 0) {
             msg += "illegal contact ID\n";
-        } else if (companyID <= 0) {
-            msg += "illegal company ID\n";
         }
         if (qtty <= 0) msg += "illegal unit qtty\n";
         if (cost <= 0) msg += "illegal product cost\n";
