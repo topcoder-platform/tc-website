@@ -5,6 +5,30 @@
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Advancers</title>
 
 <jsp:include page="../../script.jsp" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var MM_contentVersion = 6;
+var MM_FlashCanPlay = false;
+var plugin = (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"]) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+if ( plugin ) {
+		var words = navigator.plugins["Shockwave Flash"].description.split(" ");
+	    for (var i = 0; i < words.length; ++i)
+	    {
+		if (isNaN(parseInt(words[i])))
+		continue;
+		var MM_PluginVersion = words[i];
+	    }
+	MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
+}
+else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
+   && (navigator.appVersion.indexOf("Win") != -1)) {
+	document.write('<SCR' + 'IPT LANGUAGE=VBScript\> \n'); //FS hide this from IE4.5 Mac by splitting the tag
+	document.write('on error resume next \n');
+	document.write('MM_FlashCanPlay = ( IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
+	document.write('</SCR' + 'IPT\> \n');
+}
+//-->
+</SCRIPT>
 
 </head>
 
@@ -52,29 +76,29 @@
                <tr>
                   <td width = "100%" align = "center">
 
-<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
- codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
- WIDTH="510" 
- HEIGHT="450" 
- id="bracket" 
- ALIGN="top">
- <PARAM NAME=movie VALUE="/i/tournament/tco03/bracket.swf"> 
- <PARAM NAME=menu VALUE=false>
- <PARAM NAME=quality VALUE=high> 
- <PARAM NAME=salign VALUE=T> 
- <PARAM NAME=bgcolor VALUE=#FFFFFF> 
- <EMBED src="/i/tournament/tco03/bracket.swf" 
- quality=high 
- salign=T 
- bgcolor="#FFFFFF"  
- WIDTH="510" 
- HEIGHT="450" 
- NAME="bracket" 
- ALIGN="top"
- TYPE="application/x-shockwave-flash" 
- PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
- </EMBED>
-</OBJECT>
+<SCRIPT language="JavaScript">
+                <!--
+if ( MM_FlashCanPlay ) {
+       document.write('<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"');
+	document.write('  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
+	document.write(' ID="bracket" WIDTH="510" HEIGHT="450" ALIGN="top">');
+	document.write(' <PARAM NAME=movie VALUE="/i/tournament/tco03/bracket.swf"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  '); 
+	document.write(' <EMBED src="/i/tournament/tco03/bracket.swf" menu=false quality=high salign=T bgcolor=#FFFFFF  ');
+	document.write(' swLiveConnect=FALSE WIDTH="510" HEIGHT="450" NAME="bracket" ALIGN="top"');
+	document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">');
+	document.write(' </EMBED>');
+	document.write(' </OBJECT>');
+}
+// -->
+</SCRIPT>
+<SCRIPT language="JavaScript">
+<!--
+       if (!MM_FlashCanPlay){
+       document.write('<a href="/tc?&module=CRPFReport"><img src="/i/tournament/crpf03/fundraisers.gif" width="180" height="100" border="0" hspace="0"></a>');
+       }
+// -->
+</SCRIPT>
+
                         </td>
                    </tr>
             </table>
