@@ -79,7 +79,7 @@
 <b>Additional Responsibilities:</b>
    <ul>
    <li>May work on multiple internal projects simultaneously.</li>
-   <li>No travel / relocation to the Hartford, CT area is necessary</li>
+   <li>No travel required, however relocation to the Hartford, CT area is necessary</li>
    </ul>
 <b>Technical Skills:</b>
    <ul>
