@@ -45,7 +45,7 @@ List industryList = (List)request.getAttribute("industrySkills");
             </tr>
             <tr>
                 <td align=center>
-                <% if (request.getAttribute("has_notes").equals(Boolean.TRUE)) { %>
+                <% if (((Boolean)request.getAttribute("has_notes")).booleanValue()) { %>
                      <A HREF="/tc?module=ViewNotes&uid=<jsp:getProperty name="contractingInfo" property="userId" />">View Notes</A>
                 <% } else { %>
                      <A HREF="/tc?module=EditNote&uid=<jsp:getProperty name="contractingInfo" property="userId" />"/>">Add Note</A>
