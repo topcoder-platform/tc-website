@@ -69,6 +69,10 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
             }
+            
+            if(result instanceof SuccessResult) {
+                AutoPilot.finalReviewEmail(data);
+            }
         
             return result;
         }

@@ -79,10 +79,12 @@ public final class SaveScreeningScorecardAction extends ReviewAction {
             // Call the business layer
             data = ssForm.toScreeningData(orpd);
             result = new BusinessDelegate().screeningScorecard(data);
-        
+                   
             if (result instanceof SuccessResult)  {
                 request.getSession().removeAttribute(mapping.getAttribute());
             }
+            
+            AutoPilot.screeningEmail(data);
                 
             return result;
         }

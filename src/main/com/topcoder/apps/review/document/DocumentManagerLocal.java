@@ -1,7 +1,7 @@
 /*
  * DocumentManagerLocal.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -319,6 +319,8 @@ public interface DocumentManagerLocal extends EJBLocalObject {
     public ScorecardTemplate[] getScorecardTemplates();
         
     public ScorecardTemplate getScorecardTemplate(long reqTemplateId);
+    
+    public ScorecardTemplate getDefaultScorecardTemplate(long projectTypeId, long scorecardTypeId);
        
     public void saveScorecardTemplate(ScorecardTemplate template,
             boolean saveNew, boolean saveQuestions);

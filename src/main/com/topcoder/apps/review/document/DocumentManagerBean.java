@@ -4535,7 +4535,7 @@ public class DocumentManagerBean implements SessionBean {
             ps = conn.prepareStatement(
                     "SELECT st.template_id, st.template_name, " +
                     "st.status_id, " +
-                    "st.project_type, st.scorecard_type " +
+                    "st.project_type, st.scorecard_type, st.default_ind " +
                     "FROM scorecard_template st " +
                     "ORDER BY st.status_id, " +
                     "st.project_type, st.scorecard_type, " +
@@ -4549,9 +4549,10 @@ public class DocumentManagerBean implements SessionBean {
                 int statusId = rs.getInt(3);
                 int projectType = rs.getInt(4);
                 int scorecardType = rs.getInt(5);
+                boolean default_ind = rs.getBoolean(6);
 
                 ScorecardTemplate st = new ScorecardTemplate(templateId,
-                        templateName, statusId, projectType, scorecardType, null);
+                        templateName, statusId, projectType, scorecardType, null, default_ind);
                 templateList.add(st);
             }
             return (ScorecardTemplate[])templateList.toArray(new ScorecardTemplate[0]);
@@ -4560,6 +4561,41 @@ public class DocumentManagerBean implements SessionBean {
         } finally {
             Common.close(conn, ps, rs);
         }
+    }
+    
+    public ScorecardTemplate getDefaultScorecardTemplate(long projectTypeId, long scorecardTypeId) {
+        ScorecardTemplate st = null;
+        
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try { 
+            conn = dataSource.getConnection();
+
+            ps = conn.prepareStatement(
+                    "SELECT st.template_id " +
+                    "FROM scorecard_template st " +
+                    "WHERE st.default_ind = 1 AND " +
+                    "st.scorecard_type = ? AND " +
+                    "st.project_type = ? ");
+            ps.setLong(1, scorecardTypeId);
+            ps.setLong(2, projectTypeId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                long templateId = rs.getLong(1);
+                
+                st = getScorecardTemplate(templateId);
+            } else {
+                throw new RuntimeException("No default found");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            Common.close(conn, ps, rs);
+        }
+        return st;
     }
 
     public ScorecardTemplate getScorecardTemplate(long reqTemplateId) {
@@ -4575,7 +4611,7 @@ public class DocumentManagerBean implements SessionBean {
             ps = conn.prepareStatement(
                     "SELECT st.template_id, st.template_name, " +
                     "st.status_id, " +
-                    "st.project_type, st.scorecard_type " +
+                    "st.project_type, st.scorecard_type, st.default_ind " +
                     "FROM scorecard_template st " +
                     "WHERE st.template_id = ? " +
                     "ORDER BY st.status_id, " +
@@ -4589,9 +4625,10 @@ public class DocumentManagerBean implements SessionBean {
                 int statusId = rs.getInt(3);
                 int projectType = rs.getInt(4);
                 int scorecardType = rs.getInt(5);
+                boolean default_ind = rs.getBoolean(6);
 
                 st = new ScorecardTemplate(templateId,
-                        templateName, statusId, projectType, scorecardType, null);
+                        templateName, statusId, projectType, scorecardType, null, default_ind);
             } else {
                 throw new RuntimeException("No scorecardtemplate found with id: " + reqTemplateId);
             }
@@ -4851,6 +4888,20 @@ public class DocumentManagerBean implements SessionBean {
                     }
                 }
             } // end save questions
+            
+            if(template.isDefault()) {
+                //update default_ind = 0 for all other scorecards with same type
+                ps = conn.prepareStatement(
+                        "UPDATE scorecard_template " +
+                        "SET default_ind = 0 " +
+                        "WHERE project_type = ? " +
+                        "AND scorecard_type = ? ");
+                ps.setInt(1, template.getProjectType());
+                ps.setInt(2, template.getScorecardType());
+                
+                int nr = ps.executeUpdate();
+                Common.close(ps);
+            }
 
             // save scorecard_template
             if (saveNew) {
@@ -4874,13 +4925,15 @@ public class DocumentManagerBean implements SessionBean {
                         "SET template_name = ?, " +
                         "status_id = ?, " +
                         "project_type = ?, " +
-                        "scorecard_type = ? " +
+                        "scorecard_type = ?, " +
+                        "default_ind = ? " +
                         "WHERE template_id = ?");
                 ps.setString(1, template.getName());
                 ps.setInt(2, template.getStatus());
                 ps.setInt(3, template.getProjectType());
                 ps.setInt(4, template.getScorecardType());
-                ps.setLong(5, template.getId());
+                ps.setBoolean(5, template.isDefault());
+                ps.setLong(6, template.getId());
                 int nr = ps.executeUpdate();
                 Common.close(ps);
             }

@@ -96,6 +96,11 @@ public final class SaveAppealAction extends ReviewAction {
 	        if (result instanceof SuccessResult) {
 	            request.getSession().removeAttribute(mapping.getAttribute());
 	        }
+                
+                if(orpd.getUser().getId() == ((AppealForm)form).getAppeal().getReviewer().getId()) {
+                    //check autopilot
+                    AutoPilot.appeal(data);
+                }
 	        
 	        return result;
         }

@@ -401,7 +401,7 @@ public final class Constants {
     /**
      * The date format string.
      */
-    public final static String DATE_FORMAT = "MM.dd.yyyy";
+    public final static String DATE_FORMAT = "MM.dd.yyyy hh:mm a";
 
     /**
      * Another date format string.
