@@ -38,6 +38,7 @@
               </form>
             </td>
           </tr>
+          <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></tr>
           <tr>
             <td class="statText" ALIGN="right" colspan="2">DB:&#160;</td>
             <td class="statText" ALIGN="left" colspan="2">
