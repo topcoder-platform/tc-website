@@ -24,12 +24,12 @@ import java.util.Map;
  * Processing for NoteCreate page.
  * @author Porgery
  */
-public class NoteCreate extends BaseProcessor {
+public class NoteCreate extends BaseScreeningProcessor {
 
     /** Implements the processing step.
      * @throws com.topcoder.web.common.TCWebException
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }

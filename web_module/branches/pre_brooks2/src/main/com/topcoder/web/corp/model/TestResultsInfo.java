@@ -1,5 +1,7 @@
 package com.topcoder.web.corp.model;
 
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
@@ -17,6 +19,10 @@ public class TestResultsInfo implements java.io.Serializable {
     /** Holds value of property problemSetATCStats. */
     private ResultSetContainer problemSetATCStats;
     
+    private ResultSetContainer problemSetBStats;
+    
+    private Map problemSetBPercentile;
+    
     /** Holds value of property sessionId. */
     private long sessionId;
     
@@ -26,9 +32,30 @@ public class TestResultsInfo implements java.io.Serializable {
     /** Holds value of property problemSetBCount. */
     private int problemSetBCount;
     
+    public ResultSetContainer getProblemSetBStats()
+    {
+        return problemSetBStats;
+    }
+    
+    public void setProblemSetBStats(ResultSetContainer rsc)
+    {
+        problemSetBStats = rsc;
+    }
+    
+    public Map getProblemSetBPrecentiles()
+    {
+        return problemSetBPercentile;
+    }
+    
+    public void setProblemSetBPercentiles(Map a)
+    {
+        problemSetBPercentile = a;
+    }
+    
     /** Getter for property problemSetAResults.
      * @return Value of property problemSetAResults.
      */
+    
     public ResultSetContainer getProblemSetAResults() {
         return this.problemSetAResults;
     }

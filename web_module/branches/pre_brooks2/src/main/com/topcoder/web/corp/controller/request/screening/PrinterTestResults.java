@@ -18,9 +18,9 @@ import java.util.List;
 public class PrinterTestResults extends TestResults {
     private static Logger log = Logger.getLogger(PrinterTestResults.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         //get the test results information
-        super.businessProcessing();
+        super.screeningProcessing();
 
         long sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
         try {
@@ -39,7 +39,7 @@ public class PrinterTestResults extends TestResults {
             dr.setProperty("cid", String.valueOf(cinfo.getUserId()));
 
 
-            Map map = Util.getDataAccess().getData(dr);
+            Map map = Util.getDataAccess(false).getData(dr);
 
             if (map != null) {
                 ResultSetContainer result = (ResultSetContainer) map.get("candidateInfo");

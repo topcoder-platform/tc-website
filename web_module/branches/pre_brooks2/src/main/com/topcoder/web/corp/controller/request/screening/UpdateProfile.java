@@ -25,7 +25,7 @@ import javax.transaction.UserTransaction;
 import java.util.Map;
 
 public class UpdateProfile extends BaseProfileProcessor {
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         synchronized (UpdateProfile.class) {
             if (getAuthentication().getUser().isAnonymous()) {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));

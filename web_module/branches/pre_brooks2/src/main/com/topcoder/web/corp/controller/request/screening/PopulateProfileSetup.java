@@ -34,7 +34,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
                 Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY);
     }
 
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }

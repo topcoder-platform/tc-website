@@ -56,13 +56,9 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
         setNextPage();
     }
-
-    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-        UserPrincipal ret = super.store(regInfo, newUser);
-        Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+    
+    public UserPrincipal storeQuestions(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
         Response response = (Response)createEJB(getInitialContext(), Response.class);
-
-        coder.setCoderTypeId(ret.getId(), ((FullRegInfo)regInfo).getCoderType(), transDb);
 
         DemographicResponse r = null;
         DemographicQuestion q = null;
@@ -71,7 +67,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
         //remove the current response for questions they have answered
         for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {
             r = (DemographicResponse) it.next();
-            int numWacked = response.remove(ret.getId(), r.getQuestionId(), transDb);
+            int numWacked = response.remove(newUser.getId(), r.getQuestionId(), transDb);
             log.debug(numWacked + " response items removed");
         }
 
@@ -80,9 +76,9 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
             q = (DemographicQuestion) questions.get(new Long(r.getQuestionId()));
             if (q.getAnswerType()==DemographicQuestion.SINGLE_SELECT ||
                     q.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT ) {
-                response.createResponse(ret.getId(), r.getQuestionId(), r.getAnswerId(), transDb);
+                response.createResponse(newUser.getId(), r.getQuestionId(), r.getAnswerId(), transDb);
             } else {
-                response.createResponse(ret.getId(), r.getQuestionId(), r.getText(), transDb);
+                response.createResponse(newUser.getId(), r.getQuestionId(), r.getText(), transDb);
             }
             //if this is the "what school did you go to" question, add a record to the current school table for TCES
             if (q.getId()==Constants.SCHOOL_QUESTION && ((FullRegInfo)regInfo).isStudent()) {
@@ -97,11 +93,11 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
                     schoolName = r.getText();
                 }
                 s.setFullName(schoolId, schoolName, transDb);
-                if (!cs.exists(ret.getId(), transDb)) {
-                    cs.createCurrentSchool(ret.getId(), transDb);
+                if (!cs.exists(newUser.getId(), transDb)) {
+                    cs.createCurrentSchool(newUser.getId(), transDb);
                 }
-                cs.setSchoolId(ret.getId(), schoolId, transDb);
-                cs.setSchoolName(ret.getId(), schoolName, transDb);
+                cs.setSchoolId(newUser.getId(), schoolId, transDb);
+                cs.setSchoolName(newUser.getId(), schoolName, transDb);
             }
         }
 
@@ -116,12 +112,34 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
                 }
             }
             //put their user id in the session so that they can upload a resume
-            getRequest().getSession(true).setAttribute(Constants.USER_ID, new Long(ret.getId()));
 //        } else {
 //            User user = (User) createEJB(getInitialContext(), User.class);
             //they're not eligible so override whatever we had set their status to be private label ineligible
 //            user.setStatus(ret.getId(), '3', transDb);
 //        }
+
+        return newUser;
+    }
+    
+    protected void setCoderType(long coderId, int coderType) throws Exception
+    {
+        Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+
+        coder.setCoderTypeId(coderId, coderType, transDb);
+
+        return;
+    }
+
+    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+        UserPrincipal ret = super.store(regInfo, newUser);
+        Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+
+        coder.setCoderTypeId(ret.getId(), ((FullRegInfo)regInfo).getCoderType(), transDb);
+
+        ret = this.storeQuestions(regInfo, ret);
+        
+            //put their user id in the session so that they can upload a resume
+        getRequest().getSession(true).setAttribute(Constants.USER_ID, new Long(ret.getId()));
 
         return ret;
     }

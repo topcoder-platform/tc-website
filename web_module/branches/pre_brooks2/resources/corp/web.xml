@@ -514,6 +514,24 @@
             <param-value>/errorPage.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
+        
+        <init-param>
+            <param-name>first_name</param-name>
+            <param-value>firstName</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>last_name</param-name>
+            <param-value>lastName</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>email_address</param-name>
+            <param-value>emailAddress</param-value>
+            <description></description>
+        </init-param>
         <!-- end  parameters required by BaseServlet -->
 
         <!-- Controller parameters -->
@@ -528,11 +546,46 @@
             <param-value>abcdefghijkmnopqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWXYZ_</param-value>
             <description></description>
         </init-param>
+        
+        <init-param>
+            <param-name>search_scroll_size</param-name>
+            <param-value>20</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>student</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>professional</param-name>
+            <param-value>2</param-value>
+            <description></description>
+        </init-param>
 
         <init-param>
             <param-name>default_page</param-name>
             <param-value>/testing/home.jsp</param-value>
             <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>demographics_page</param-name>
+            <param-value>/testing/results/demographics.jsp</param-value>
+            <description>where to forward for demographics</description>
+        </init-param>
+        <init-param>
+            <param-name>search_page</param-name>
+            <param-value>/testing/search/search.jsp</param-value>
+            <description>where to forward for searching</description>
+        </init-param>
+        
+        <init-param>
+            <param-name>search_results_page</param-name>
+            <param-value>/testing/search/results.jsp</param-value>
+            <description>where to forward for searching</description>
         </init-param>
 
         <!-- URL Parameter constant names -->
@@ -560,11 +613,6 @@
             <description></description>
         </init-param>
 
-        <init-param>
-            <param-name>email_address</param-name>
-            <param-value>emailAddress</param-value>
-            <description></description>
-        </init-param>
 
         <init-param>
             <param-name>first_attempt</param-name>
@@ -688,7 +736,7 @@
 
         <init-param>
             <param-name>candidate_email</param-name>
-            <param-value>candidateEmail</param-value>
+            <param-value>candidateEmailInfo</param-value>
             <description></description>
         </init-param>
 
@@ -714,6 +762,199 @@
             <param-name>session_id</param-name>
             <param-value>sid</param-value>
             <description></description>
+        </init-param>
+
+        <!-- Since Screening Tool 1.1 -->
+        <init-param>
+            <param-name>preference_level</param-name>
+            <param-value>preferenceLevel</param-value>
+            <description>the url parameter that contains the new preference level value for candidate</description>
+        </init-param>
+
+        <init-param>
+            <param-name>company_usage_type_query_key</param-name>
+            <param-value>usage_type</param-value>
+            <description>the name of a query to get the application usage type set for company associated with the user</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_profile_page</param-name>
+            <param-value>/testing/candidate/profile.jsp</param-value>
+            <description>the name of a JSP page to display the details of candidate's profile to the user</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_profile_info</param-name>
+            <param-value>candidateProfileInfo</param-value>
+            <description>the name of a command to be used to get the candidate's profile data</description>
+        </init-param>
+        
+        <init-param>
+            <param-name>candidate_address_info</param-name>
+            <param-value>candidateAddressInfo</param-value>
+            <description>the name of a query to be used to get the candidate's address</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_demographic_info</param-name>
+            <param-value>candidateDemographicInfo</param-value>
+            <description>the name of a query to be used to get the candidate's demographic info</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_personal_info</param-name>
+            <param-value>candidatePersonalInfo</param-value>
+            <description>the name of a query to be used to get the candidate's personal info</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_problems_info</param-name>
+            <param-value>candidateProblemInfo</param-value>
+            <description>the name of a query to be used to get the details for candidate's solutions for testing problems</description>
+        </init-param>
+        
+        <init-param>
+            <param-name>candidate_preference_info</param-name>
+            <param-value>candidatePreferenceInfo</param-value>
+            <description>the name of a query to be used to get the details for candidate's solutions for testing problems</description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_notes</param-name>
+            <param-value>noteList</param-value>
+            <description>the name of a query to be used to get the candidate's notes</description>
+        </init-param>
+
+        <init-param>
+            <param-name>company_info</param-name>
+            <param-value>companyInfo</param-value>
+            <description>the name of a query to be used to get the company details</description>
+        </init-param>
+
+        <init-param>
+            <param-name>company_campaigns_list</param-name>
+            <param-value>companyCampaignList</param-value>
+            <description>the name of a query to be used to get the company campaigns details</description>
+        </init-param>
+
+        <init-param>
+            <param-name>company_campaigns_page</param-name>
+            <param-value>/testing/results/campaignList.jsp</param-value>
+            <description>the URL for the JSP page to be used to display the company campaigns list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_positions_page</param-name>
+            <param-value>/testing/results/positionList.jsp</param-value>
+            <description>the URL for the JSP page to be used to display the company campaign's position list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_id</param-name>
+            <param-value>campaignId</param-value>
+            <description>the url parameter that contains the ID of a requested campaign</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_info</param-name>
+            <param-value>campaignInfo</param-value>
+            <description>the name of the query to be used to get the details for specified campaign</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_info</param-name>
+            <param-value>positionInfo</param-value>
+            <description>the name of the query to be used to get the details for specified position</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_positions_list</param-name>
+            <param-value>campaignPositionsList</param-value>
+            <description>the name of a query to be used to get the campaign positions list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_results_list</param-name>
+            <param-value>campaignResults</param-value>
+            <description>the name of a query to be used to get the campaign results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_results_list</param-name>
+            <param-value>positionResults</param-value>
+            <description>the name of a query to be used to get the position results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_results_page</param-name>
+            <param-value>/testing/results/campaignResults.jsp</param-value>
+            <description>the URL for the JSP page to be used to display the company campaign's results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_results_page</param-name>
+            <param-value>/testing/results/positionResults.jsp</param-value>
+            <description>the URL for the JSP page to be used to display the company position's results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>job_position_id</param-name>
+            <param-value>positionId</param-value>
+            <description>the url parameter that contains the ID of a requested position associated with ampaign</description>
+        </init-param>
+
+        <init-param>
+            <param-name>update_preference_processor</param-name>
+            <param-value>UpdatePreference</param-value>
+            <description>the name of a processor to be used to update the preference level for candidates</description>
+        </init-param>
+
+        <init-param>
+            <param-name>note_create_processor</param-name>
+            <param-value>NoteCreate</param-value>
+            <description>the name of a processor to be used to add new note for candidate profile</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_results_processor</param-name>
+            <param-value>CampaignResults</param-value>
+            <description>the name of a processor to be used to handle the requests for campaign results</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_results_processor</param-name>
+            <param-value>PositionResults</param-value>
+            <description>the name of a processor to be used to handle the requests for position results</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_list_processor</param-name>
+            <param-value>CampaignList</param-value>
+            <description>the name of a processor to be used to handle the requests for company campaign list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_list_processor</param-name>
+            <param-value>PositionList</param-value>
+            <description>the name of a processor to be used to handle the requests for campaign position list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>sort_by</param-name>
+            <param-value>sortBy</param-value>
+            <description>the name of a parameter of request containing the name of a column to sort the result set</description>
+        </init-param>
+
+        <init-param>
+            <param-name>page_start_index</param-name>
+            <param-value>startIndex</param-value>
+            <description>the name of a parameter of request containing the start index of element of results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>page_size</param-name>
+            <param-value>20</param-value>
+            <description>the number of elements to be displayed at page at one time</description>
         </init-param>
 
         <!-- Parameters used by Candidate -->
@@ -1062,6 +1303,24 @@
         <init-param>
             <param-name>session_info</param-name>
             <param-value>testSessionInfo</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>usage_type</param-name>
+            <param-value>companyUsageType</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>usage_type_testing</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>usage_type_screening</param-name>
+            <param-value>2</param-value>
             <description></description>
         </init-param>
 
