@@ -68,7 +68,7 @@
                               </TR>	
                            </TABLE>
 
-                           <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
+                           <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
 <p><B>Front End Focus</B><br/>
 Help shape the way Google looks and works! As a software engineer with a UI focus, you will work on new Google products and features, developing and designing both the underlying system and the front-end interface to that system. If you're a strong coder who's interested in building interfaces that will be used by millions of users, this is the job for you.</p>

@@ -68,7 +68,7 @@
                               </TR>	
                            </TABLE>
 
-                           <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
+                           <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
 <p><B>Windows</B><br/>
 We are looking for Windows developers to join our world-class engineering team to design and develop cutting edge client-based search products, 

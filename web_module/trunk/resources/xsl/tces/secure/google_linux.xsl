@@ -68,7 +68,7 @@
                               </TR>	
                            </TABLE>
 
-                           <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
+                           <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
 <p><B>Linux Kernel</B><br/>
 Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
