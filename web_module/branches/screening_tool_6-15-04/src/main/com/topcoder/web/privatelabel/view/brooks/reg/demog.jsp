@@ -65,7 +65,7 @@
                                 </td>
                             </tr>
                            <tr>
-                                <td class="brRegTableQuestion">
+                                <td class="brRegTableQuestion"> 
                                     Resume
                                 </td>
                                 <td class="brRegTableAnswer">

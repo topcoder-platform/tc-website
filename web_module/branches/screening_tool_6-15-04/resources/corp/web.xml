@@ -549,7 +549,7 @@
         
         <init-param>
             <param-name>search_scroll_size</param-name>
-            <param-value>20</param-value>
+            <param-value>10</param-value>
             <description></description>
         </init-param>
         

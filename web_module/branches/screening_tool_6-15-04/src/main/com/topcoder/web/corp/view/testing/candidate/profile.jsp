@@ -177,7 +177,7 @@ function getProblemDetail(id) {
                         %>
                         <%=pref%>
                         <screen:resultSetRowIterator id="row"
-                                list="<%=%>">
+                                list="<%=(List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)%>">
                         <tr>
                             <td class="screeningCellEven" align=right>Preference Level:</td>
                             <td class="screeningCellEven" valign=middle>
