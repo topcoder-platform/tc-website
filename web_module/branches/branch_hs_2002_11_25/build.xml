@@ -255,6 +255,7 @@
       <copy todir="${mock.trgt}/WEB-INF">
          <fileset dir="${resources}/hs">
                  <include name="web.xml" />
+                 <include name="*.tld"/>
          </fileset>
       </copy>
 
