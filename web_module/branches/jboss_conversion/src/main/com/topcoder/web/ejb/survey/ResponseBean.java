@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 public class ResponseBean extends BaseEJB {
 
-    private static Logger log = Logger.getLogger(ResponseBean.class);
+    private static final Logger log = Logger.getLogger(ResponseBean.class);
     private final static String DATA_SOURCE = "java:comp/env/datasource_name";
     private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
