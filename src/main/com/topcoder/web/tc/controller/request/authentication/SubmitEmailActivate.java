@@ -2,14 +2,13 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.util.*;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.TCSubject;
-import com.topcoder.common.web.data.*;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.ejb.UserServices.UserServices;
 
@@ -52,6 +51,9 @@ public class SubmitEmailActivate extends Base {
                 return;
             }
             try {
+
+                User user = (User) createEJB(getInitialContext(), User.class);
+
                 updateEmail(subject, email);
                 TCSEmailMessage mail = new TCSEmailMessage();
                 mail.setSubject("TopCoder Account Reactivation");
@@ -62,7 +64,7 @@ public class SubmitEmailActivate extends Base {
                 msgText.append("/tc?module=EmailActivate&");
                 msgText.append(Constants.ACTIVATION_CODE);
                 msgText.append("=");
-                msgText.append(StringUtils.getActivationCode(subject.getUserId()));
+                msgText.append(user.getActivationCode(subject.getUserId(), DBMS.OLTP_DATASOURCE_NAME));
                 msgText.append("\n\n");
                 msgText.append("Thank You,\nTopCoder Service");
                 mail.setBody(msgText.toString());
