@@ -297,14 +297,14 @@
         <antcall target="package-EJB-ReportingBean"/>
         <antcall target="package-EJB-ProjectServicesBean"/>
         <antcall target="package-EJB-MPSQASServicesBean"/>
-        <antcall target="package-EJB-TCESServicesBean"/>
+        <antcall target="package-EJB-JobPostingServicesBean"/>
    </target>
 
-<target name="package-EJB-TCESServicesBean" depends="compile,init-TCESServicesBean-properties,package-EJB-GenericBean"/>
+<target name="package-EJB-JobPostingServicesBean" depends="compile,init-JobPostingServicesBean-properties,package-EJB-GenericBean"/>
 
-<target name="init-TCESServicesBean-properties" >
-       <property name="bean.dir"          value="TCESServices" />
-        <property name="bean.jar.name"     value="TCESServices.jar" />
+<target name="init-JobPostingServicesBean-properties" >
+       <property name="bean.dir"          value="JobPostingServices" />
+        <property name="bean.jar.name"     value="JobPostingServices.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/web/tces/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
