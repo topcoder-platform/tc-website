@@ -15,7 +15,7 @@
             <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
                 <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="CreateAffidavitTemplate"/>
                 <table border="1" cellpadding="5" cellspacing="0">
-                    <tr><td><tc-webtag:errorIterator id="err" name="<%=PactsConstants.ROUND_ID%>"><%=err%></tc-webtag:errorIterator></td></tr>
+                    <tr><td><tc-webtag:errorIterator id="err" name="<%=PactsConstants.AFFIDAVIT_TEXT%>"><%=err%></tc-webtag:errorIterator></td></tr>
                     <tr>
                         <td align="center">
                           <select name="<%=PactsConstants.AFFIDAVIT_TYPE_ID%>" size="1">

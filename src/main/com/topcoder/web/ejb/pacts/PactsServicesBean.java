@@ -4388,7 +4388,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             conn = DBMS.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
-            query.append("insert into affidavit_tempate (affidavit_template_id, affidavit_type_id, text)");
+            query.append("insert into affidavit_template (affidavit_template_id, affidavit_type_id, text)");
             query.append("values (?, ?, ?)");
 
 
