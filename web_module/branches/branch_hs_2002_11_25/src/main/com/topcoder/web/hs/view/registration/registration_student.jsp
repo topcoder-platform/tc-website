@@ -400,7 +400,7 @@ If you have any questions regarding these Terms, contact us at service@topcoder.
         <td align="right" valign="middle"></td>
         <td colspan="2" align="left" valign="middle" class="bodyText">
         <!--<input type="button" onClick="if(checkInputs())reg.submit();" name="continueButton" value="[ continue &gt;" />-->
-        <A HREF="/?module=Static&d1=registration&d2=confirm_student" CLASS="statTextBig"><B>[ continue &gt;</B></A>
+        <A HREF="?module=Static&d1=registration&d2=confirm_student" CLASS="statTextBig"><B>[ continue &gt;</B></A>
         </td>
     </tr>
   </table>

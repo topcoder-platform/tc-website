@@ -44,7 +44,7 @@
 <P>&nbsp;</P>
             <P>Welcome to TopCoder High School, a site developed for high school students who are already interested in computer science.</P>
             <P><B>There is no cost to sign up or compete.</B></P>
-  <FORM ACTION="<%="http://"+request.getServerName()%>" METHOD="post" NAME="regForm" >
+  <FORM ACTION="@@@<%="http://"+request.getServerName()%>" METHOD="post" NAME="regForm" >
     <INPUT TYPE="hidden" NAME="c" VALUE="hs_reg_email"/>
   <table width="400" border="0" cellspacing="0" cellpadding="5" align="center">
     <tr>

@@ -41,12 +41,12 @@
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body starts here-->
-<BR><P><ul CLASS="bodyText"><li><A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=manual_fig1"><b>Figure 1.</b> Login</A></li><li><A CLASS="bodyText" 
+<BR><P><ul CLASS="bodyText"><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig1"><b>Figure 1.</b> Login</A></li><li><A CLASS="bodyText" 
 
-HREF="/?module=Static&d1=faq&d2=manual_fig2"><b>Figure 2.</b> Lobby</A></li><li><A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=manual_fig3"><b>Figure 3.</b> Problem Selection</A></li><li><b>Figure 4.</b> Coding Window - 
+HREF="?module=Static&d1=faq&d2=manual_fig2"><b>Figure 2.</b> Lobby</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig3"><b>Figure 3.</b> Problem Selection</A></li><li><b>Figure 4.</b> Coding Window - 
 
 Coding Phase
- </li><li><A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=manual_fig5"><b>Figure 5.</b> Status Window - Challenge Phase</A></li></ul></P><P CLASS="bodyText"><b>Figure 4: Coding Window - 
+ </li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig5"><b>Figure 5.</b> Status Window - Challenge Phase</A></li></ul></P><P CLASS="bodyText"><b>Figure 4: Coding Window - 
 
 Coding Phase</b></P><IMG BORDER="0" HEIGHT="434" WIDTH="619" ALT="Coding Window" SRC="/i/problem_statement.gif"><P CLASS="bodyText">The <b>Coding Window</b> consists of: 
           <ol CLASS="bodyText"><li>The <b>problem information:</b> Class Name, Method Name, Return Type, and Argument Types, found at the top of the window.</li><BR><li>Choice of <b>Standard</b> or <b>VI</b> editor is 

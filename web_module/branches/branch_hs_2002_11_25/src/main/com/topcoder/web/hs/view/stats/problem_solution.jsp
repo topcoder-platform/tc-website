@@ -104,7 +104,7 @@ if (rscSubmissions.size() > 0) {  %>
                      </TD>
        <% } else { %>
          <TD  CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
-                      <A HREF="/?module=Statistics&c=problem_solution&rd=<%= sRoundId %>&rm=<%=sRoomId %>&cr=<%=sCoderId%>&pm=<bean:write name="resultRow" property='<%= "item[" + 2 /* class name */ + "]" %>'/>"  CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 0 /* class name */ + "]" %>'/></A>
+                      <A HREF="?module=Statistics&c=problem_solution&rd=<%= sRoundId %>&rm=<%=sRoomId %>&cr=<%=sCoderId%>&pm=<bean:write name="resultRow" property='<%= "item[" + 2 /* class name */ + "]" %>'/>"  CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 0 /* class name */ + "]" %>'/></A>
                  </TD>
        <% } %>
                      <TD  CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 1 /* method name */ + "]" %>'/></TD>
@@ -128,7 +128,7 @@ if (rscSubmissions.size() > 0) {  %>
 
                  <TR>
                    <TD  CLASS="statText" COLSPAN="7" VALIGN="middle" ALIGN="center">
-                     <A HREF="/?module=Statistics&c=problem_statement&pm=<%= pageContext.getAttribute("pm").toString()%>&rd=<%=sRoundId%>&rm=<%=sRoomId%>&cr=<%=sCoderId%>" CLASS="statText">View&nbsp;<%= sClassName %>&nbsp; Problem Statement</A>
+                     <A HREF="?module=Statistics&c=problem_statement&pm=<%= pageContext.getAttribute("pm").toString()%>&rd=<%=sRoundId%>&rm=<%=sRoomId%>&cr=<%=sCoderId%>" CLASS="statText">View&nbsp;<%= sClassName %>&nbsp; Problem Statement</A>
                    </TD>
                  </TR>
                  <TR>
@@ -175,7 +175,7 @@ if (rscDefense.size() > 0) {
                  <TR>
                    <TD  VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD  CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
-                     <A HREF="/?module=Statistics&c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* challenger name */ + "]" %>'/></A>
+                     <A HREF="?module=Statistics&c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* challenger name */ + "]" %>'/></A>
                    </TD>
                    <TD  CLASS="statText" VALIGN="middle" ALIGN="center"><%= JSPUtils.htmlEncode(resultRow.getItem(7))%></TD>
                    <TD  VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
@@ -193,7 +193,7 @@ if (rscDefense.size() > 0) {
                  <TR>
                    <TD BGCOLOR="#1B2E5D" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
-                     <A HREF="/?module=Statistics&c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* challenger name */ + "]" %>'/></A>
+                     <A HREF="?module=Statistics&c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* challenger name */ + "]" %>'/></A>
                    </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" VALIGN="middle" ALIGN="center"><%= JSPUtils.htmlEncode(resultRow.getItem(7))%></TD>
                    <TD BGCOLOR="#1B2E5D" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>

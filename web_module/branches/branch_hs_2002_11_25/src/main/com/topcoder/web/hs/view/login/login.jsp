@@ -41,7 +41,7 @@
             </TD>
             <TD HEIGHT="100%"><BR><BR>
                         <P CLASS="bodyText">Forgot your password?
-If you cannot remember your password <A HREF="/?module=Static&d1=login&d2=pass_help">click here</A> and we can send it to you via email. 
+If you cannot remember your password <A HREF="?module=Static&d1=login&d2=pass_help">click here</A> and we can send it to you via email. 
 
 New to TopCoder?
 Click here to register now. After you complete the registration process, we will send your account activation code via email. 
@@ -52,7 +52,7 @@ Click here to register now. After you complete the registration process, we will
     <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" SIZE="25"></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="text" SIZE="25"><BR/><B><A HREF="/?module=Static&d1=home&d2=index_member" CLASS="statTextBig">Login>></A></B></TD>
+    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="text" SIZE="25"><BR/><B><A HREF="?module=Static&d1=home&d2=index_member" CLASS="statTextBig">Login>></A></B></TD>
 </TR>
 </TABLE>
 

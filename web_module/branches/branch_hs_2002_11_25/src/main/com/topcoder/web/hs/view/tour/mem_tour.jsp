@@ -41,9 +41,9 @@
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body Starts-->
-            <P><B><A HREF="/?module=Static&d1=tour&d2=getting_started">Getting Started</A></B><BR/></P>
+            <P><B><A HREF="?module=Static&d1=tour&d2=getting_started">Getting Started</A></B><BR/></P>
 
-<P><B><A HREF="/?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</A></B><BR/></P>
+<P><B><A HREF="?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</A></B><BR/></P>
 
 <P><B><EM>Coming Soon!</EM></B><BR/>
 These other Topics</P>

@@ -66,7 +66,7 @@
                How can I view problem statements, submissions, or statistics for previous matches or tournament rounds? 
               </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#17">
               Can I re-submit my code during the coding phase if I find an error?
-              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD CLASS="bodyText"><B>More Questions? <A CLASS="bodyText" HREF="/?t=contacts&c=index">Contact Us</A></B></TD></TR><TR><TD VALIGN="top" HEIGHT="20"><IMG BORDER="0" HEIGHT="20" WIDTH="1" SRC="/images/spacer.gif" ALT=""></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><A CLASS="bodyText" NAME="1"><B>How are point values for code submissions determined?</B></A><BR>
+              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD CLASS="bodyText"><B>More Questions? <A CLASS="bodyText" HREF="?module=Static&d1=contacts&d2=contacts">Contact Us</A></B></TD></TR><TR><TD VALIGN="top" HEIGHT="20"><IMG BORDER="0" HEIGHT="20" WIDTH="1" SRC="/images/spacer.gif" ALT=""></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><A CLASS="bodyText" NAME="1"><B>How are point values for code submissions determined?</B></A><BR>
 
       Points are determined based on two factors: the difficulty of the problem and time it took to code once it was opened. 
       The longer it takes to code, the fewer points will be awarded upon submission, and vice versa.<BR><A CLASS="bodyText" HREF="#top">[back to top]</A><BR><BR><A CLASS="bodyText" NAME="2"><B>How do I advance?</B></A><BR>
@@ -84,7 +84,7 @@
       Regular season matches and tournament rounds are considered rated events, and therefore rating will be adjusted 
       after each.  Finishing first and advancing does not necessarily guarantee your rating will go up. It is 
       based on your performance compared to everyone else participating in that round, taking into account relative 
-      ratings. <A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=ratings_ovrev">Click here to see a detailed description of the rating process.</A><BR><A CLASS="bodyText" HREF="#top">[back to top]</A><BR><BR><A CLASS="bodyText" NAME="5"><B>Why is the point system so complicated?  Are you saying that at the time I submit a solution, I have no idea how many points 
+      ratings. <A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=ratings_ovrev">Click here to see a detailed description of the rating process.</A><BR><A CLASS="bodyText" HREF="#top">[back to top]</A><BR><BR><A CLASS="bodyText" NAME="5"><B>Why is the point system so complicated?  Are you saying that at the time I submit a solution, I have no idea how many points 
       I will receive for my submission?</B></A><BR>
 
       That's exactly what we're saying. The reason the point system needs to be so complex is so that ties are avoided. 

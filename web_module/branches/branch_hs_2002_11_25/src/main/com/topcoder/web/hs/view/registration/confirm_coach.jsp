@@ -165,7 +165,7 @@
         <td align="right" valign="middle"></td>
         <td colspan="2" align="left" valign="middle" class="bodyText">
         <!--<input type="button" onClick="if(checkInputs())reg.submit();" name="continueButton" value="[ continue &gt;" />-->
-        <A HREF="/?module=Static&d1=registration&d2=registration_coach" CLASS="statTextBig"><B>&lt; back ]</B></A>&nbsp;&nbsp;<A HREF="/?module=Static&d1=registration&d2=thankyou" CLASS="statTextBig"><B>[ continue &gt;</B></A>
+        <A HREF="?module=Static&d1=registration&d2=registration_coach" CLASS="statTextBig"><B>&lt; back ]</B></A>&nbsp;&nbsp;<A HREF="?module=Static&d1=registration&d2=thankyou" CLASS="statTextBig"><B>[ continue &gt;</B></A>
         </td>
     </tr>
   </table>

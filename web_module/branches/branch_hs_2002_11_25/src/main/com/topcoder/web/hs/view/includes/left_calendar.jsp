@@ -1,6 +1,6 @@
 <!--Small Calendar Starts-->
       <!--  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR VALIGN="baseline"><TD><A HREF="/?module=Static&d1=schedule&d2=schedule" CLASS="sidenav"><IMG SRC="/i/hs/small_calendar.gif" WIDTH="170" HEIGHT="114" ALT="" BORDER="0"/></A>
+        <TR VALIGN="baseline"><TD><A HREF="?module=Static&d1=schedule&d2=schedule" CLASS="sidenav"><IMG SRC="/i/hs/small_calendar.gif" WIDTH="170" HEIGHT="114" ALT="" BORDER="0"/></A>
         </TD></TR>
         </TABLE>-->
         
@@ -20,7 +20,7 @@
                         <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">F</FONT></TD>
                         <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
                       </TR>
-                      <TR> <!-- <A HREF="/stat?c=round_stats&amp;rd=4400" CLASS="smallFoot"> -->
+                      <TR> <!-- <A HREF="@@@/stat?c=round_stats&amp;rd=4400" CLASS="smallFoot"> -->
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
@@ -35,7 +35,7 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">3</TD>                      
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">4</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">5</TD>
-                        <TD BGCOLOR="#cccccc" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">6</A></TD>
+                        <TD BGCOLOR="#cccccc" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">6</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">7</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">8</TD>
                       </TR>
@@ -45,7 +45,7 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">10</TD>                      
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">11</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">22</TD>
-                        <TD BGCOLOR="#cccccc" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">13</A></TD>
+                        <TD BGCOLOR="#cccccc" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">13</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">14</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">15</TD>
                       </TR>
@@ -55,7 +55,7 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">17</TD>                      
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">18</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">19</TD>
-                        <TD BGCOLOR="#cccccc" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">20</A></TD>
+                        <TD BGCOLOR="#cccccc" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">20</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">21</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">22</TD>
                       </TR>
@@ -64,7 +64,7 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">24</TD>                      
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">25</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">26</TD>
-                        <TD BGCOLOR="#cccccc" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">27</A></TD>
+                        <TD BGCOLOR="#cccccc" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">27</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">28</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">29</TD>
                       </TR>				  
@@ -83,7 +83,7 @@
         <TR> 
                 <TD BGCOLOR="#CCCCCC" BACKGROUND="" HEIGHT="15" ALIGN="right" CLASS="smallText">
                   <SPAN CLASS="smallText">More 
-                    <A HREF="/?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">
+                    <A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">
                       2003 match dates
                     </A>
                   </SPAN>
@@ -98,10 +98,10 @@
       </TABLE>        
 <!--Small Calendar ends-->
 
-<!--Schools Stars-->
+<!--Schools Starts-->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
         <TR VALIGN="baseline"><TD><MAP NAME="details">
-        <AREA ALT="" SHAPE="poly" COORDS="88,52,88,62,108,62,108,72,160,72,160,51" HREF="/?module=Static&d1=registration&d2=registration">
+        <AREA ALT="" SHAPE="poly" COORDS="88,52,88,62,108,62,108,72,160,72,160,51" HREF="?module=Static&d1=registration&d2=registration">
         </MAP>
         &nbsp;<IMG SRC="/i/hs/left_schools2.gif" WIDTH="164" HEIGHT="80" ALT="" BORDER="0" USEMAP="#details">
         </TD></TR>

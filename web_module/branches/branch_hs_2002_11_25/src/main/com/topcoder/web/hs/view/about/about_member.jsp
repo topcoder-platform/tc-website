@@ -51,7 +51,7 @@ The more a coder competes, the better their rating can become. Ratings are the k
 <P>
 As you look through the site, you will see color coding with member's handles. These colors indicate the rating level of that member. Participating members (those who compete versus spectate) are able to view each other's profiles, past code submissions, statistics and more.</p>
 <P>
--<B> There is no cost to <A HREF="/?module=Static&d1=registration&d2=registration">register</A> or participate in TopCoder High School</B> -</P>
+-<B> There is no cost to <A HREF="?module=Static&d1=registration&d2=registration">register</A> or participate in TopCoder High School</B> -</P>
                         
                         
              <P><BR/></P>           

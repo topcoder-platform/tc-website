@@ -42,7 +42,7 @@
             <TD HEIGHT="100%" CLASS="bodyText">
             <!-- Start Body-->
   <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
-  <form action="/Registration" method="post" name="frmReg" >
+  <form action="@@@/Registration" method="post" name="frmReg" >
 <SCRIPT type="text/javascript">
 var reg;
 var focusSet=false;
@@ -571,8 +571,8 @@ function lookupText(qId){
       <td colspan="3"><br/></td>
     </tr>
     <tr align="right" valign="middle">
-        <td align="right" valign="middle" CLASS="bodyText"><!--<input type="button" name="backButton" value="&lt; back ]" onclick="location='index.jsp';">--><A HREF="/?module=Static&d1=registration&d2=demographics" CLASS="statTextBig">&lt; back ]</A></td>
-        <td colspan="2" align="left" valign="middle" CLASS="bodyText"><!--<input type="button" name="continueButton" onClick="if(checkInputs())reg.submit();" value="[ continue &gt;">--><A HREF="/?module=Static&d1=registration&d2=demographics" CLASS="statTextBig"><B>[ continue &gt;</B></A></td>
+        <td align="right" valign="middle" CLASS="bodyText"><!--<input type="button" name="backButton" value="&lt; back ]" onclick="location='index.jsp';">--><A HREF="?module=Static&d1=registration&d2=demographics" CLASS="statTextBig">&lt; back ]</A></td>
+        <td colspan="2" align="left" valign="middle" CLASS="bodyText"><!--<input type="button" name="continueButton" onClick="if(checkInputs())reg.submit();" value="[ continue &gt;">--><A HREF="?module=Static&d1=registration&d2=demographics" CLASS="statTextBig"><B>[ continue &gt;</B></A></td>
     </tr>   
   </table>
 

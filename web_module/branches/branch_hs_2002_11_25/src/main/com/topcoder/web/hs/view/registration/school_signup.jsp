@@ -47,7 +47,7 @@
             <INPUT TYPE="text" NAME="school" SIZE="25"><BR/>
             <B>State</B><BR/>
             <INPUT TYPE="text" NAME="school" SIZE="25"><BR/>
-            <A HREF="/?module=Static&d1=registration&d2=thankyou_school">Submit</A>            
+            <A HREF="?module=Static&d1=registration&d2=thankyou_school">Submit</A>            
             <!-- End Body-->            
             </TD>
              <TD>

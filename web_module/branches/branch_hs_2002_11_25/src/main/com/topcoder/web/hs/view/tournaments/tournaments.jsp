@@ -77,7 +77,7 @@ Compete: 12:00 PM
 May, 2003<BR/>-->
     
    
-    <!--Hartford Regional <BR>Hartford, CT<BR/><A CLASS="bodyText" HREF="/?module=Static&d1=schedule&d2=sched_may_2003">Go to Summary</A></P>-->
+    <!--Hartford Regional <BR>Hartford, CT<BR/><A CLASS="bodyText" HREF="?module=Static&d1=schedule&d2=sched_may_2003">Go to Summary</A></P>-->
 <P><BR/></P>  
             <!--Body Ends Here-->
             </TD>

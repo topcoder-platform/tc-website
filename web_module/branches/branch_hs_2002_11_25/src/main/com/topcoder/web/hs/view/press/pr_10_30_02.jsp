@@ -55,7 +55,7 @@ Host of Computer Programming Contests Offer Team Competitions at Connecticut Hig
 
 <P>Competing students will receive a rating based upon their performance in the competitions. This rating is a true indicator of programming talent and problem solving skills. This competitive experience offers students a way to differentiate themselves in the college admission process, and enables colleges to determine the most proficient programmers at a high school level for admission to their computer science and/or engineering programs. </P>
 
-<P>There is no sign-up fee for schools or students. The program will be funded through corporate sponsorship. Interested companies should contact Drew Vaughn at (860) 633-5540 or <A HREF="mailto:dvaughn@topcoder.com.">dvaughn@topcoder.com.</A></P> 
+<P>There is no sign-up fee for schools or students. The program will be funded through corporate sponsorship. Interested companies should contact Drew Vaughn at (860) 633-5540 or <A HREF="mailto:dvaughn@topcoder.com">dvaughn@topcoder.com.</A></P> 
 
 
 

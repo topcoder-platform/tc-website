@@ -46,7 +46,7 @@
 										<UL><LI>Rating</LI><LI>Volatility</LI><LI>Number of times previously rated</LI></UL>
 										Before competing, new members ratings are provisional.<BR><BR> 
 										After a competition the algorithm below is applied to the competitors. First, the ratings of members who have previously competed are calculated, with new members' performances not considered. Second, new members are given a rating based on their performance relative to everyone in the competition.
-										<P><A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=ratings_cal">How ratings are calculated</A></P></TD></TR></TABLE></TD></TR></TABLE><P><BR></P>
+										<P><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=ratings_cal">How ratings are calculated</A></P></TD></TR></TABLE></TD></TR></TABLE><P><BR></P>
               <!--Body Ends Here-->
             </TD>
              <TD>

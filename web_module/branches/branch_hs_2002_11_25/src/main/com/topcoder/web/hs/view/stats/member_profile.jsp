@@ -52,7 +52,7 @@ if (!bEmpty) {
                    <TD CLASS="statText" WIDTH="50%">Rating:</TD>
                    <TD CLASS="statText" WIDTH="20%"ALIGN="right"><%= coderrank.toString() %></TD>
                    <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" WIDTH="30%" ALIGN="left"><A HREF="/?module=Statistics&c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ ratings history ]</A></TD>
+                   <TD CLASS="statText" WIDTH="30%" ALIGN="left"><A HREF="?module=Statistics&c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ ratings history ]</A></TD>
                  </TR>
                  <TR>
                    <TD CLASS="statText">Volatility Factor:</TD>

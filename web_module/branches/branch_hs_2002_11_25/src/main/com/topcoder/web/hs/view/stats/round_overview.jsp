@@ -3,7 +3,7 @@
 <script language="JavaScript">
    function submitForm(){
  	var frm = document.coderRankForm;
- 	frm.action = "/";
+ 	frm.action = "";
     if (isNaN(parseInt(frm.er.value)))
       alert(frm.er.value+" is not a valid integer");
     else{
@@ -72,9 +72,9 @@ pageContext.setAttribute("resultSetDates", rsc);
         <OPTION value="#">Select a Round:</OPTION>
         <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
          <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
-           <OPTION value="/?module=Statistics&c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+           <OPTION value="?module=Statistics&c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                <% } else { %>
-           <OPTION value="/?module=Statistics&c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+           <OPTION value="?module=Statistics&c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
         <% } %>
         </logic:iterate>
     </SELECT>
@@ -107,10 +107,10 @@ pageContext.setAttribute("resultSetDates", rsc);
             <TD></TD><TD></TD><TD></TD><TD></TD>
         <%}else{%>
             <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">
-              <A HREF="/?module=Statistics&c=member_profile&cr=<%= coderIDs[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
+              <A HREF="?module=Statistics&c=member_profile&cr=<%= coderIDs[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
             </TD>
             <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">
-              <A HREF="/?module=Statistics&c=school_round_stats&rd=<%= currRound %>&hs=<%= hsids[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= schools[j][i] %></A>
+              <A HREF="?module=Statistics&c=school_round_stats&rd=<%= currRound %>&hs=<%= hsids[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= schools[j][i] %></A>
             </TD>
             <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
             <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="center">&#160;<%= rooms[j][i] %></TD>
@@ -154,7 +154,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 
   <TR>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;<%=problemLevel%></TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;&#160;<A HREF="/?module=Statistics&c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></A></TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;&#160;<A HREF="?module=Statistics&c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></A></TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &#160;&#160;</TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>

@@ -57,7 +57,7 @@ TopCoder members must register for each single round match from within the compe
               TopCoder will perform the room assignments prior to the start of 
               a competition round, in a manner such that only coders in the same 
               division are placed in a room and the average competitor 
-              rating for each room is similar. The start time will vary from match to match, so be sure to check the <A CLASS="bodyText" HREF="/?module=Static&d1=schedule&d2=schedule">calendar</A> for
+              rating for each room is similar. The start time will vary from match to match, so be sure to check the <A CLASS="bodyText" HREF="?module=Static&d1=schedule&d2=schedule">calendar</A> for
               the starting times of each match.            
             
             <BR></LI><BR><BR><LI><B>Upon Entering an Online Tournament Round</B><BR>

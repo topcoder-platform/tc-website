@@ -41,7 +41,7 @@
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body Starts-->
-            <P><A HREF="/?module=Static&d1=tour&d2=getting_started">Getting Started</A>  |  <A HREF="/?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</A>  |  Practicing / Training in the TopCoder Arena  |  Competing in a TopCoder Rated Event  |  Further Customizing the TopCoder Arena  |  The Coding Window  |  How our software interfaces with the submissions.  |  The Room Summary Window</P>
+            <P><A HREF="?module=Static&d1=tour&d2=getting_started">Getting Started</A>  |  <A HREF="?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</A>  |  Practicing / Training in the TopCoder Arena  |  Competing in a TopCoder Rated Event  |  Further Customizing the TopCoder Arena  |  The Coding Window  |  How our software interfaces with the submissions.  |  The Room Summary Window</P>
 
 <P><B>Logging in to the TopCoder Arena</B></P>
 

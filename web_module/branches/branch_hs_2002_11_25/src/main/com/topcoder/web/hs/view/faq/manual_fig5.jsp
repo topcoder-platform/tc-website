@@ -41,7 +41,7 @@
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body starts here-->
-<BR><P><ul CLASS="bodyText"><li><A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=manual_fig1"><b>Figure 1.</b> Login</A></li><li><A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=manual_fig2"><b>Figure 2.</b> Lobby</A></li><li><A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=manual_fig3"><b>Figure 3.</b> Problem Selection</A></li><li><A CLASS="bodyText" HREF="/?module=Static&d1=faq&d2=manual_fig4"><b>Figure 4.</b> Coding Window - Coding Phase</A></li><li><b>Figure 5.</b> Status Window - Challenge Phase
+<BR><P><ul CLASS="bodyText"><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig1"><b>Figure 1.</b> Login</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig2"><b>Figure 2.</b> Lobby</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig3"><b>Figure 3.</b> Problem Selection</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig4"><b>Figure 4.</b> Coding Window - Coding Phase</A></li><li><b>Figure 5.</b> Status Window - Challenge Phase
                                         </li></ul></P><P CLASS="bodyText"><b>Figure 5: Status Window - Challenge Phase</b></P><IMG BORDER="0" HEIGHT="434" WIDTH="619" ALT="Status Window" SRC="/i/status_window.gif"><P CLASS="bodyText">
 Once the Challenge Phase begins, the timer will reset itself for that phase and the Status window will open. To access another user's code, right-click on the user's point total. "Source" and "Challenge will be the two choices. Here, a user is able to view any other user's code and submit a challenge. A user's code may only be challenged once. 
 </P><P><BR></P>

@@ -126,12 +126,12 @@
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                       
                         <TR>
                             <TD CLASS="bodyText">
-                                    <B>More Questions? <A HREF="/?t=contacts&amp;c=index" CLASS="bodyText">Contact Us</A></B>
+                                    <B>More Questions? <A HREF="?module=Static&d1=contacts&d2=contacts" CLASS="bodyText">Contact Us</A></B>
                             </TD>
                         </TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <!--end questions-->
-                        <TR><TD VALIGN="top" CLASS="bodyText"> <B>For FAQs specific to the competition phase, see the <A HREF="/?t=support&amp;c=comp_faq" CLASS="bodyText">Competition FAQ</A>.</B></TD></TR>
+                        <TR><TD VALIGN="top" CLASS="bodyText"> <B>For FAQs specific to the competition phase, see the <A HREF="?module=Static&d1=faq&d2=compet_faq" CLASS="bodyText">Competition FAQ</A>.</B></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="25" BORDER="0"/></TD></TR>
                         <!--begin answers-->
                         <TR><TD CLASS="bodyText"><A NAME="10"><B>What is "TopCoder"?</B></A></TD></TR>
@@ -159,11 +159,11 @@
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="67"><B>Who owns the source code that I write during competitions?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">The coder.  Our Terms of Use agreement basically specifies that the coder who submits any source code to TopCoder High School owns the code.  We simply require that we can display the source code for the normal course of the competitions and within the practice rooms.  The actual source code is viewable during certain parts of the competition to competitors and spectators. You can read the complete Terms of Use agreement <A HREF="/?module=Static&d1=home&d2=terms" CLASS="bodyText">here</A>.</TD></TR>
+                        <TR><TD CLASS="bodyText">The coder.  Our Terms of Use agreement basically specifies that the coder who submits any source code to TopCoder High School owns the code.  We simply require that we can display the source code for the normal course of the competitions and within the practice rooms.  The actual source code is viewable during certain parts of the competition to competitors and spectators. You can read the complete Terms of Use agreement <A HREF="?module=Static&d1=home&d2=terms" CLASS="bodyText">here</A>.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="80"><B>How does the rating system work?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">The details of the rating formula can be found <A HREF="/?module=Static&d1=faq&d2=ratings_ovrev" CLASS="bodyText">here</A>.</TD></TR>
+                        <TR><TD CLASS="bodyText">The details of the rating formula can be found <A HREF="?module=Static&d1=faq&d2=ratings_ovrev" CLASS="bodyText">here</A>.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="90"><B>How will I know where I stand in the ratings?</B></A></TD></TR>
@@ -171,7 +171,7 @@
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="110"><B>How do I find out when the next tournament is being held?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">Just click on this link to <A HREF="/?module=Static&d1=tournaments&d2=tournaments" class="bodyText">"Tournaments"</A> to bring up a list of up-coming tournaments and registration details.  The up-coming tournaments are also listed on the member home page.</TD></TR>
+                        <TR><TD CLASS="bodyText">Just click on this link to <A HREF="?module=Static&d1=tournaments&d2=tournaments" class="bodyText">"Tournaments"</A> to bring up a list of up-coming tournaments and registration details.  The up-coming tournaments are also listed on the member home page.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                   
                         <TR><TD CLASS="bodyText"><A NAME="130"><B>What do I need to do in order to participate in a TopCoder match?</B></A></TD></TR>
