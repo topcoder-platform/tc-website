@@ -138,7 +138,7 @@ public class UpdatePreference extends BaseProcessor {
 
         // Construct the request
         Request dr = new Request();
-        dr.setContentHandle("candidateInfo");
+        dr.setContentHandle(Constants.CANDIDATE_INFO);
         dr.setProperty("uid", String.valueOf(uid));
         dr.setProperty("cid", String.valueOf(cuid));
 
@@ -151,7 +151,7 @@ public class UpdatePreference extends BaseProcessor {
         }
 
         if (map != null) {
-            ResultSetContainer result = (ResultSetContainer) map.get("candidateInfo");
+            ResultSetContainer result = (ResultSetContainer) map.get(Constants.CANDIDATE_INFO);
             if (result.isEmpty()) {
                 throw new PermissionDeniedException(getUser(),
                         "User not authorized to view information about candidate: "
