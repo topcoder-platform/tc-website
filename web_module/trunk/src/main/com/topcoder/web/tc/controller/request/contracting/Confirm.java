@@ -188,6 +188,30 @@ public class Confirm  extends ContractingBase {
             
             getRequest().setAttribute("osSkills", osSkills);
             
+            //industries skill
+            ArrayList industrySkills = new ArrayList();
+            
+            //load skill list from db
+            r = new Request();
+            r.setContentHandle("skill_list");
+            r.setProperty("stid", String.valueOf(Constants.SKILL_TYPE_INDUSTRIES));
+
+            rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_list");
+            for(int i = 0; i < rsc.size(); i++) {
+                int id = rsc.getIntItem(i, "skill_id");
+                String text = rsc.getStringItem(i, "skill_desc");
+
+                if(info.getSkill(String.valueOf(id)) != null) {
+                    ContractingResponse resp = new ContractingResponse();
+                    resp.setName(text);
+                    resp.setVal(info.getSkill(String.valueOf(id)));
+                    
+                    industrySkills.add(resp);                
+                }
+            }
+            
+            getRequest().setAttribute("industrySkills", industrySkills);
+            
         } catch(TCWebException tce) {
             throw tce;
         } catch(Exception e) {

@@ -19,6 +19,7 @@ List techList = (List)request.getAttribute("techSkills");
 List dbList = (List)request.getAttribute("dbSkills");
 List langList = (List)request.getAttribute("langSkills");
 List osList = (List)request.getAttribute("osSkills");
+List industryList = (List)request.getAttribute("industrySkills");
 %>
 
 </head>
@@ -157,6 +158,18 @@ List osList = (List)request.getAttribute("osSkills");
               <tr>
                 <td align=right><%=((ContractingResponse)os).getName()%>:</td>
                 <td valign=top><%=((ContractingResponse)os).getVal()%></td>
+            </tr>				
+            </tc:listIterator>
+            <tr><td>&#160;</td></tr>			
+
+            <tr>
+				<td align=right><b>Industries</b></td>
+				<td valign=top><a href="javascript:goToPage('ContractingIndustries');">edit<a/></td>
+            </tr>
+            <tc:listIterator id="industry" list="<%=industryList%>">
+              <tr>
+                <td align=right><%=((ContractingResponse)industry).getName()%>:</td>
+                <td valign=top><%=((ContractingResponse)industry).getVal()%></td>
             </tr>				
             </tc:listIterator>
 		</table>
