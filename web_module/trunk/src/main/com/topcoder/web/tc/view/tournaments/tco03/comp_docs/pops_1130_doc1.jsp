@@ -31,7 +31,7 @@
                 </tr>
 
                 <tr>
-                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/pops/1130/AddaMethodAspecttoanexistingobject.gif" alt="" width="2502" height="714" border="0"></div></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/pops/1130/AddaMethodAspecttoanexistingobject.gif" alt="" width="1056" height="434" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 
