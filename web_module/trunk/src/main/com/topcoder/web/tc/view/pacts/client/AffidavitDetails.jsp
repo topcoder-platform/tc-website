@@ -73,7 +73,7 @@ All four requirements must be met for TopCoder to release payment.
   </LI>
   <LI><B>One notarized affidavit on file with TopCoder.</B><BR>
   TopCoder requires all prize winners to have one
-  notarized affidavit on file with TopCoder before a cash prize can be paid. If you never had an
+  notarized affidavit on file with TopCoder before a cash prize can be paid. If you have never had an
   affidavit notarized for TopCoder, you must do so before you will be
   paid. You need only have one affidavit notarized. <i>All subsequent winnings will be paid upon
   receipt of an affirmed TopCoder affidavit.</i>
