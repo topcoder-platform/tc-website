@@ -57,15 +57,17 @@
 package com.coolservlets.util;
 
 import com.topcoder.shared.distCache.CacheClientPool;
+import com.topcoder.shared.distCache.CacheClient;
 
 import java.io.*;
 import java.rmi.RemoteException;
 
 public class Cache {
 
-    private com.topcoder.shared.distCache.CacheClient cache;
+    private CacheClient cache;
     private static final int MAX_SIZE = 10000;
     private int timeOut= 1000*24*60*60*1000;
+    private boolean isDistributed = false;
 
     public Cache() {
         new Cache(MAX_SIZE, timeOut);
@@ -85,9 +87,8 @@ public class Cache {
     }
 
     public Cache(boolean isDistributed) {
-        if (isDistributed)
-            cache = CacheClientPool.getPool().getClient();
-        else {
+        this.isDistributed = isDistributed;
+        if (!isDistributed) {
             try {
                 cache = new com.topcoder.shared.distCache.SimpleCacheClientImpl(MAX_SIZE);
             } catch (RemoteException e) {
@@ -96,10 +97,15 @@ public class Cache {
         }
     }
 
+    private CacheClient getCache() {
+        if (isDistributed) return CacheClientPool.getPool().getClient();
+        else return cache;
+    }
+
     public Object get(int uniqueID) {
         Object ret = null;
         try {
-            ret = cache.get(String.valueOf(uniqueID));
+            ret = getCache().get(String.valueOf(uniqueID));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -108,7 +114,7 @@ public class Cache {
 
 	public void add(int uniqueID, Object object) {
         try {
-            cache.set(String.valueOf(uniqueID), object, timeOut);
+            getCache().set(String.valueOf(uniqueID), object, timeOut);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -117,7 +123,7 @@ public class Cache {
     public boolean containsKey(int key) {
         boolean ret = false;
         try {
-            ret = cache.get(String.valueOf(key))!=null;
+            ret = (getCache().get(String.valueOf(key)))!=null;
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -126,7 +132,7 @@ public class Cache {
 
 	public void remove(int uniqueID) {
         try {
-            cache.remove(String.valueOf(uniqueID));
+            getCache().remove(String.valueOf(uniqueID));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -134,7 +140,7 @@ public class Cache {
 
     public void clear() {
         try {
-            cache.clearCache();
+            getCache().clearCache();
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
