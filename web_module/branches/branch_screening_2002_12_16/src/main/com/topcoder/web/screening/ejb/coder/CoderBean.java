@@ -42,7 +42,7 @@ public class CoderBean extends BaseEJB {
             StringBuffer query = new StringBuffer(180);
             query.append("INSERT INTO coder (coder_id, ");
             query.append("member_since, create_date, modify_date, status)");
-            query.append(" VALUES(?,?,?,?,?) ");
+            query.append(" VALUES(?,CURRENT,CURRENT,CURRENT,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);

@@ -61,7 +61,7 @@ public class NoteBean extends BaseEJB {
             noteId = IdGeneratorClient.getSeqId("NOTE_SEQ");
 
             pstmt.setLong(1,noteId);
-            pstmt.setString(2,text);
+            pstmt.setBytes(2,text.getBytes());
             pstmt.setLong(3,submittedBy);
             pstmt.setInt(4,noteTypeId);
 
@@ -106,7 +106,7 @@ public class NoteBean extends BaseEJB {
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
-            pstmt.setString(1, text);
+            pstmt.setBytes(1, text.getBytes());
             pstmt.setLong(2, noteId);
 
             pstmt.executeUpdate();
