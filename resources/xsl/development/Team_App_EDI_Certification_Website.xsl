@@ -147,7 +147,7 @@
                                                         </p>
                                                         <br/>
                                                         All payments will be subject to any prize penalties that were assessed by a team during the
-                                                        application design and development process.  Any payments will be sent upon project completion.
+                                                        application design and development process.  Any payments will be sent upon project completion*.
                                                         Payments will be divided evenly between the two named team members and sent separately.
 
                                                     </p>
