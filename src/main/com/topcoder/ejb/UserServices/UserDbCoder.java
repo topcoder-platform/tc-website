@@ -23,6 +23,7 @@ import java.util.*;
 final class UserDbCoder {
     private static Logger log = Logger.getLogger(UserDbCoder.class);
     private static final int ADDRESS_TYPE_ID = 2; //home
+    private static final int DEFAULT_PHONE_TYPE_ID = 2;
 
 //                                 INSERT
 
@@ -181,6 +182,7 @@ final class UserDbCoder {
             long phoneId = phoneEJB.createPhone(coder.getCoderId());
             phoneEJB.setNumber(phoneId, coder.getHomePhone());
             phoneEJB.setPrimaryPhoneId(coder.getCoderId(), phoneId);
+            phoneEJB.setPhoneTypeId(phoneId, DEFAULT_PHONE_TYPE_ID);
 
             //if ( inserted != qIdsForCoderType.size() ) throw new TCException ( "INCORRECT NUMBER OF DEMOG INFO INSERTED!!!" );
         } catch (SQLException sqe) {

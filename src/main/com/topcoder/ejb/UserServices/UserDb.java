@@ -23,6 +23,8 @@ import java.util.HashMap;
 final class UserDb {
     private static Logger log = Logger.getLogger(UserDb.class);
 
+    private static final long DEFAULT_EMAIL_TYPE_ID = 1;
+
     static void insertUser(User user) throws TCException {
         log.debug("ejb.User.UserDb:insertUser():called...");
         Connection conn = null;
@@ -115,6 +117,8 @@ final class UserDb {
                 long emailId = emailEJB.createEmail(coder.getCoderId());
                 emailEJB.setAddress(emailId, user.getEmail());
                 emailEJB.setPrimaryEmailId(user.getUserId(), emailId);
+                emailEJB.setEmailTypeId(emailId, DEFAULT_EMAIL_TYPE_ID);
+
 
                 UserDbCoder.insertCoder(conn, coder);
 
@@ -227,7 +231,6 @@ final class UserDb {
 
                 long emailId = emailEJB.getPrimaryEmailId(coder.getCoderId());
                 emailEJB.setAddress(emailId, user.getEmail());
-                emailEJB.setPrimaryEmailId(user.getUserId(), emailId);
 
                 coder.setAllModifiedStable();
             }
