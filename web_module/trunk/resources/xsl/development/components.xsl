@@ -190,7 +190,7 @@
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
-                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: </strong><span class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304976">giginim</a></span></td></tr>
+                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: </strong><span class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304697">ozzie</a></span></td></tr>
 
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
@@ -198,25 +198,25 @@
 								<td class="statText" rowspan="5" width="55"><!--<a href="/stat?c=member_profile&amp;cr=304976" class="coderTextGreen"><img src="/i/m/giginim_small.jpg" alt="WishingBone" width="55" height="61" border="0" hspace="5" vspace="5" /></a>--></td>
                                 <td class="statText" rowspan="5" width="5"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
                                 <td class="statText" width="65%">Developer Level:</td>
-                                <td class="statText" align="right" width="10%">II</td>
+                                <td class="statText" align="right" width="10%">III</td>
                                 <td class="statText" width="25%"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Rating:</td>
-                                <td class="statText" align="right">1035</td>
-                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=304976" class="statText">[ ratings history ]</a></td>
+                                <td class="statText" align="right">1183</td>
+                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=304697" class="statText">[ ratings history ]</a></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Total Earnings for All Component Projects*:</td>
-                                <td class="statText" align="right">$560.00</td>
+                                <td class="statText" align="right">$844.00</td>
                                 <td class="statText"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Review Board Score for this Project:</td>
-                                <td class="statText" align="right">85.55</td>
+                                <td class="statText" align="right">90.76</td>
                                 <td class="statText"></td>
                             </tr>
 
@@ -234,12 +234,12 @@
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="middle">
                     <td class="statText">
-                        <p><strong>.NET Command Line</strong><br />
-                       	Simplifies the process of providing and parsing switches for command line executables. Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=6526755" target="parent" class="statText">.NET Command Line</a> on the TopCoder Software web site.</p>
+                        <p><strong>File Writer</strong><br />
+                       	Provides a framework for writing to various file formats without requiring additional coding. Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=6510304" target="parent" class="statText">.NET Command Line</a> on the TopCoder Software web site.</p>
                         
                         <p><strong>Review Board Comments</strong><br />
-                        "Good Design."
-                        <a href="/stat?c=member_profile&amp;cr=119676" class="coderTextYellow">&#160;&#151;Pops</a></p></td>
+                        This is a solid design that manages to be simple and extensible."
+                        <a href="/stat?c=member_profile&amp;cr=156859" class="coderTextBlue">&#160;&#151;ivern</a></p></td>
                 </tr>
             </table>
 
@@ -274,6 +274,18 @@
                     <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304697"><strong>ozzie</strong></a></td>
                     <td class="statText" height="15" align="center">90.76</td>
                     <td class="statText" height="15" align="right">$175.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6526755" class="statText" target="parent">.NET command Line</a></td>
+                    <td class="statText" height="15" align="center">1</td>
+                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304976"><strong>giginim</strong></a></td>
+                    <td class="statText" height="15" align="center">85.55</td>
+                    <td class="statText" height="15" align="right">$105.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
