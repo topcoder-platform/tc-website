@@ -128,7 +128,7 @@
                             <xsl:choose>
                             <xsl:when test="$roundId=5849">
                                 <table>
-                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The dates and times are as follows:</td></tr>
+                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
                                   <tr><td class="bodyText"></td></tr>
                                   <tr><td class="bodyText">August 10:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
                                   <tr><td class="bodyText">September 14:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
@@ -140,7 +140,7 @@
                             </xsl:when>
                             <xsl:when test="$roundId=5853">
                                 <table>
-                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The dates and times are as follows:</td></tr>
+                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
                                   <tr><td class="bodyText"></td></tr>
                                   <tr><td class="bodyText">September 14:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
                                   <tr><td class="bodyText">October 4:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
@@ -151,7 +151,7 @@
                             </xsl:when>
                             <xsl:when test="$roundId=5857">
                                 <table>
-                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The dates and times are as follows:</td></tr>
+                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
                                   <tr><td class="bodyText"></td></tr>
                                   <tr><td class="bodyText">October 4:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
                                   <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
@@ -161,7 +161,7 @@
                             </xsl:when>
                             <xsl:when test="$roundId=5860">
                                 <table>
-                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The dates and times are as follows:</td></tr>
+                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
                                   <tr><td class="bodyText"></td></tr>
                                   <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
                                   <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
@@ -170,7 +170,7 @@
                             </xsl:when>
                             <xsl:when test="$roundId=5864">
                                 <table>
-                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The dates and times are as follows:</td></tr>
+                                  <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
                                   <tr><td class="bodyText"></td></tr>
                                   <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
                                 </table>
