@@ -104,14 +104,12 @@ public class TransactionServlet extends HttpServlet {
 
     private static final int APPROVED = 0;
 
-    private String defaultPageSuccess = null;
-    private String defaultPageFailure = null;
-    private String defaultPageIntForm = null;
-    private String defaultPageTerms = null;
-    private String defaultPageBadCountry = null;
-    private String errorPageSecurity = null;
-    private TransactionInfo txInfo = null;
-
+    private static String defaultPageSuccess = null;
+    private static String defaultPageFailure = null;
+    private static String defaultPageIntForm = null;
+    private static String defaultPageTerms = null;
+    private static String defaultPageBadCountry = null;
+    private static String errorPageSecurity = null;
 
     /**
      * Sets up default success, failure and, intermediate form pages for servlet
@@ -171,7 +169,7 @@ public class TransactionServlet extends HttpServlet {
                     throw new NotAuthorizedException("Not enough permissions to work with requested module");
                 }
 
-                txInfo = buildTermsTransactionInfo(req, resp);
+                TransactionInfo txInfo = buildTermsTransactionInfo(req, resp);
                 if (txInfo.isFromEligibleCountry()) {
                     req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
                     req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
@@ -262,9 +260,9 @@ public class TransactionServlet extends HttpServlet {
                             "Not enough permissions to work with requested module"
                     );
                 }
+                TransactionInfo txInfo = buildTransactionInfo(request, response);
                 //only begin if they have agreed to terms.
                 if ("on".equalsIgnoreCase(request.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
-                    txInfo = buildTransactionInfo(request, response);
                     if (txInfo.isFromEligibleCountry()) {
                         InitialContext ic = TCContext.getInitial();
                         UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
@@ -274,7 +272,7 @@ public class TransactionServlet extends HttpServlet {
                             userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME);
                         }
                         txInfo.setAgreed(true);
-                        txBegin(request);
+                        txBegin(request, txInfo);
                         request.getRequestDispatcher(defaultPageIntForm).forward(request, response);
                     } else {
                         request.getRequestDispatcher(defaultPageBadCountry).forward(request, response);
@@ -401,7 +399,7 @@ public class TransactionServlet extends HttpServlet {
      * @throws Exception transaction parameters are invalid or there was an
      * errors when trying to fetch product and / or user information from the DB
      */
-    private void txBegin(HttpServletRequest req)
+    private void txBegin(HttpServletRequest req, TransactionInfo txInfo)
             throws Exception {
         addTransaction(req, txInfo);
         log.debug("CcTx started");
