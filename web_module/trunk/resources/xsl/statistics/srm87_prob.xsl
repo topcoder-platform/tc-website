@@ -82,112 +82,73 @@
 	</TR>
  	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
-<!--end contextual links <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">NDBronson</A> -->
+<!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
 <P><B>Single Round Match 87</B><BR/>
 May 9, 2002</P>
-<P><B>Lessons Learned the Hard Way</B></P>
+<P><B>Problem Set Analysis &amp; Opinion</B></P>
 
-<P>
-SRM 87 had 623 registrants, and this resulted in 41 rooms in Division-II, of 
-which 5 rooms were in the non-rated competition. 
-</P>
-
-<P>
-The problem slate in Division-II formed a good test: the 250 had a sting in 
-its tail which led to an exciting challenge round, the 550 was a reasonable 
-problem which tested knowledge of data structures, and the 1050 was a more 
-complex challenge which involved navigating a graph. 
-</P>
-
-<P>
-For the green section, the result appears to have been an excellent 
-contest.  In the grey rooms, however, no-one in the bottom 10 rooms 
-managed a successful 1050.  In a discussion in the lobby, the idea of 
-deliberately varying the difficulty of the Division-II slate (one 
-relatively easy, one more challenging each week) was put forward. 
-This may be worth trying, either officially or unofficially in the future. 
-Certainly, SRM 87 was more than a "typing contest" in most rooms. 
-</P>
-
-<P>
-<B>250 (Eenie):</B><BR/> 
-This problem was a simple token counting problem based on childrens' 
-counting games like "Eenie meenie miney mo".  Input was a string representing the rhyme, 
-and the number of children in the circle.  The problem was to return 
-the number of the child selected.  The twist was that the counting was 
-1-based. 
-</P>
-
-<P>
-I got a feeling from many of the failed solutions, that the coder felt it 
-was merely a typing speed test.  In java, the solution is simple, using a 
-StringTokenizer and the countTokens() method.  It is interesting that many Java coders among 
-those whose problems I surveyed did not think of this method in the heat of battle. 
-</P>
-
-<P>
-<B>Problems identified:</B> 
-<OL>
-	<LI> A surprising number of people failed this by unthinking use of the mod function. This failed because mod returns a value in [0, n-1] rather that [1, n]</LI> 
-	<LI> Counting the children against the words, rather than vice versa.</LI> 
-	<LI> Correctly identifying the problem case of where count = n, but returning 1 or the number of words instead of n.</LI> 
-	<LI> Use of regular instead of modular division.</LI>
-</OL>
+ <P>
+The Division-II Easy problem wasn't hard, though perhaps somewhat easier in
+ Java. You simply had to count the words (with StringTokenizer), then modulus
+ with the number of items. Note that if you got 0, you had to return the
+ number of items, *not* 0. C++ made it a little more difficult due to no
+ really easy way to count the number of words - however, you could count the
+ number of spaces instead and add one, since you were guaranteed only one
+ space distance between words and no leading/trailing spaces.
 </P>
  
 <P>
-This problem led to a very eventful first minute or so of challenge phase in 
-some rooms, as a lucky coder challenged several problems successfully one after another. 
+ The Division-II Medium problem was mostly simple. You simply had to add up
+ the scores for each player. There was some vagueness on the precise scores
+ for each place, and it took a little math to come up with an array of { 6,
+ 3, 2 } for this (many people hardcoded it). After that was done, one could
+ simply add up the totals, then choose the lowest score, put all the people
+ with those names together, and sort, and you're
+ done. The only tricky bit was figuring out a way to hold all the players,
+ but as they limited it to 100 player names total, you could use a static
+ array, a map&lt string, string &gt, or a HashMap.
 </P>
-
+ 
 <P>
-<B>550 (losers):</B><BR/> 
-This problem involved scoring a mythical game, where points are awarded for 
-the first 3 positions in each round.  Given a list of round results, the goal was to 
-return an alphabetically sorted String[] of the lowest scorer or scorers.  The points awarded were 6 
-for 1st, 3 for 2nd and 2 for 3rd. 
+ The Division-I Easy/Division-II Hard problem started off the Div-I problem set
+ with a rather easy brute-force problem, the type of which many of us have
+ seen before. Whenever you see an item set that goes from 1 to 20 elements,
+ this algorithm is a good bet. Basically, you try every combination, and keep
+ track of the best answer. That's it. 
+ <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A> (me) did it recursively,
+ while <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>
+ counted from 0 to 2^20 and turned each number into a
+ possible solution using its binary representation. Basically all the
+ solutions fell into one category or another.
 </P>
-
+ 
 <P>
-This problem was simplified by a knowledge of standard data structures such 
-as java.util.HashSet or c++ map, for example. 
+ The Division-I Medium problem was also a brute-force deal. Take the "target"
+ and find all his parents. Then find all *their* parents. Then find all their
+ children. Then remove the target and the result of step 1 from that. And
+ there's your result (after you sort it). C++'s set&lt;&gt; came in very
+ handy, since it not only sorts automatically but insures uniqueness (no
+ point in storing a parent twice, and uniqueness is bad on the final step.)
+ It's not the most elegant solution in the world, but it will easily run fast
+ enough. <B>ZorbaTHut</B> built functions for "find all children" and "find all
+ parents", so it may be easier to read. <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
+ has an equivalent solution
+ using Java's HashSet.
 </P>
-
+ 
 <P>
-<B>Problems:</B> 
-<OL>
-	<LI> Failure to return more than one name when a tie occured, resulting from using a constant, where a loop index was required. </LI>
-	<LI> Failing to add elements outside the top 3 to the data structure.  This never registered contestants who never placed.</LI> 
-	<LI> Failing to deduce the scoring mechanism correctly from the problem description.  In this category, one finds people giving points beyond third.</LI> 
-	<LI> Code path failure using combined conditions.  One example of this involved checking that this  was a scoring entry and that a HashTable included the key.  In the false part of the condition, the coder didn't check the Hashtable again, and instead reset the accumulated score for that key to zero.</LI> 
-</OL>
+ Somewhat annoyingly, the Division-I Hard problem was solvable brute-force as
+ well. My solution generated all the possibilities recursively, and for each
+ possibility, it made sure every single result in the list was consistent
+ with it. I had to write a little generator to compare two possibilities,
+ then it was just a matter of comparing how many potential solutions were
+ found. If it was 0 solutions, it was invalid. More than 1 meant unknown. And
+ 1 gave us the answer (which presumably we've stored somewhere.)
 </P>
 
-<P>
-<B>1050 (AuntUncle):</B><BR/> 
-The goal was to take a series of triples, representing 2 parents and a 
-child, and return the set of siblings of the parents of a specified target. 
-Including the parents or the target was forbidden. 
-</P>
-
-<P>
-The problem proved quite tricky, with a large number of submissions failing. 
-Among the errors found were: 
-</P>
-
-<P>
-<OL>
-	<LI> Use of String.endsWith() rather than tokenizing first, resulting in spurious errors</LI> 
-	<LI> Returning parents as uncles or aunts.</LI> 
-	<LI> Segfaulting.</LI> 
-	<LI> Returning the target. </LI>
-	<LI> The case including an incestuous family tree caused some problems. </LI>
-	<LI> Nullpointer Exception traversing HashMaps in java when there were no links between the families specified.</LI>
-</OL>
-</P>
-
-         
+<IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
