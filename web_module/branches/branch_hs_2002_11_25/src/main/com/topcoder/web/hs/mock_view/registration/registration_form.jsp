@@ -86,7 +86,7 @@
         <td colspan="2"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
     </tr>
     <tr align="right" valign="middle">
-        <td class="bodyText" align="center" valign="middle" colspan="2">Coach<INPUT TYPE="radio" NAME="coderType" VALUE="">&nbsp;&nbsp;  Student<INPUT TYPE="radio" NAME="coderType" VALUE=""></td>
+        <td class="bodyText" align="center" valign="middle" colspan="2">Coach<INPUT TYPE="radio" NAME="coderType" VALUE="coach">&nbsp;&nbsp;  Student<INPUT TYPE="radio" NAME="coderType" VALUE="student"></td>
   </tr>
     <tr>
         <td colspan="2"><img src="/i/clear.gif" width="1" height="1" border="0"></td>

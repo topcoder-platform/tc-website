@@ -30,12 +30,11 @@ public final class Index extends HttpServlet {
                 mail.setSubject("High School Registration");
                 StringBuffer msgText = new StringBuffer(1000);
 
-                msgText.append("first:  " + checkNull(request.getParameter("firstName")));
-                msgText.append("last:   " + checkNull(request.getParameter("lastName")));
-                msgText.append("school: " + checkNull(request.getParameter("school")));
-                msgText.append("email:  " + checkNull(request.getParameter("email")));
-                msgText.append("type:   " + checkNull(request.getParameter("coderType")));
- System.out.println(msgText.toString());
+                msgText.append("first:  " + checkNull(request.getParameter("firstName")) + "\n");
+                msgText.append("last:   " + checkNull(request.getParameter("lastName")) + "\n");
+                msgText.append("school: " + checkNull(request.getParameter("school")) + "\n");
+                msgText.append("email:  " + checkNull(request.getParameter("email")) + "\n");
+                msgText.append("type:   " + checkNull(request.getParameter("coderType")) + "\n");
                 mail.setBody(msgText.toString());
                 mail.addToAddress("service@topcoder.com", TCSEmailMessage.TO);
                 mail.setFromAddress(checkNull(request.getParameter("email")));
