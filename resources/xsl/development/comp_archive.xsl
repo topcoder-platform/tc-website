@@ -90,7 +90,7 @@
 
                 <tr>
                     <td width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
-                    <td class="statText" colspan="5"><a name="design"></a><h1 class="devSubhead">Component Design Project Status</h1></td>
+                    <td class="statText" colspan="6"><a name="design"></a><h1 class="devSubhead">Component Design Project Status</h1></td>
                     <td width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
                 </tr>
 
@@ -109,6 +109,7 @@
                     <xsl:if test="./phase_id=$design-phase">
                         <tr>
                             <td><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
+                            <td class="statText" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="statText" >                            
                                 <a class="statText" target="_new">
                                     <xsl:attribute name="href"> 
@@ -153,6 +154,7 @@
                     <xsl:if test="./phase_id=$dev-phase">
                         <tr>
                             <td><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
+                            <td class="statText" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="statText" >                            
                                 <a class="statText" target="_new">
                                     <xsl:attribute name="href"> 
@@ -163,7 +165,7 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="statText" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            
                             <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
                             <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
