@@ -24,8 +24,6 @@ public class Constants {
     public static String MODULE_KEY;
 
     /* pages */
-    public static String LOGIN;
-
     public static String SURVEY_RESULTS;
     public static String SURVEY_VIEW;
     public static String SURVEY_LIST;
