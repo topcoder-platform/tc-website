@@ -336,7 +336,7 @@ public class CommandBean extends BaseEJB {
 
 
     public ResultSetContainer getCommandList(String dataSourceName) throws RemoteException, EJBException {
-        log.debug("getCommandList called...");
+        log.debug("getCommandList(String) called...");
 
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -406,7 +406,7 @@ public class CommandBean extends BaseEJB {
 
 
     public ResultSetContainer getCommandList(String dataSourceName, int commandGroupId) throws RemoteException, EJBException {
-        log.debug("getCommandList called...");
+        log.debug("getCommandList(String, int) called...");
 
         ResultSet rs = null;
         PreparedStatement ps = null;
