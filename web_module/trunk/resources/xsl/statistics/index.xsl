@@ -92,18 +92,16 @@
                               <TD COLSPAN="3" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
                            </TR> -->                           
                            <TR>
-                              <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="left"><IMG SRC="/i/steelblue_top_left1.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>
-                              <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="75" ALIGN="left"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
-                              <TD CLASS="bodyTextBold" VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/label_quick_stats_sm.gif" ALT="Quick Stats" WIDTH="104" HEIGHT="26" BORDER="0"/></TD>                              
+                              <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" BGCOLOR="#43515E" WIDTH="100%" ALIGN="left">&#160;&#160;Quick Stats</TD>                              
                            </TR>
                            <TR>
-                             <TD CLASS="statText" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+                             <TD CLASS="statText" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
                           </TR> 							
 							<TR>
-								<TD CLASS="statText" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3" WIDTH="50%">Select a Quick Stat from the menu below or <A HREF="/index?t=statistics&amp;c=quick_stats" CLASS="statText">click here</A> to access the Quick Stats intro page.<BR/><BR/></TD>
+								<TD CLASS="statText" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="50%">Select a Quick Stat from the menu below or <A HREF="/index?t=statistics&amp;c=quick_stats" CLASS="statText">click here</A> to access the Quick Stats intro page.<BR/><BR/></TD>
 							</TR>							
 							<TR>
-								<TD CLASS="statText" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="50%" COLSPAN="3">
+								<TD CLASS="statText" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="50%">
     <!-- Quick Stat Pulldown Begins --> 
         <DIV ALIGN="right"><xsl:call-template name="quick_stats_pulldown"/></DIV>
     <!-- Quick Stat Pulldown Ends --> 
@@ -119,13 +117,40 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD COLSPAN="6" CLASS="statText" VALIGN="top" BGCOLOR="#FFFFFF">
-<A HREF="/index?t=statistics&amp;c=round_stats&amp;Last_Match=true"><IMG SRC="/i/label_srm_results_sm.gif" ALT="Last Match Results" WIDTH="138" HEIGHT="26" BORDER="0"/></A><BR/>					
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+  <TR>
+    <TD VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="184"><A HREF="/index?t=statistics&amp;c=match_summary"><IMG SRC="/i/label_srm_summary.gif" ALT="Last Match Summary" WIDTH="184" HEIGHT="26" HSPACE="5" BORDER="0" ALIGN="left"/></A></TD>
+    <TD WIDTH="100%" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="194" ALIGN="right"><A HREF="/stat?c=last_match" CLASS="bodyGeneric"><IMG SRC="/i/label_view_results.gif" ALT="Last Match Results" WIDTH="194" HEIGHT="26" BORDER="0" ALIGN="right"/></A></TD>
+  </TR>
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+  <TR>  
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>    
+  </TR>  
+</TABLE> 					
     <!-- Last SRM Begins --> 
         <xsl:call-template name="last_srm"/>
     <!-- Last SRM Ends --> 	
 				 	</TD>
 					<TD VALIGN="top" WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>		 
-				</TR>				
+				</TR>
+  <TR>  
+    <TD VALIGN="top" COLSPAN="9" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="11" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" COLSPAN="6" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+  </TR>    
+  <TR>  
+    <TD VALIGN="top" COLSPAN="9" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR>								
 
 				<TR>
 					<!-- <TD VALIGN="top" WIDTH="11" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD> -->
