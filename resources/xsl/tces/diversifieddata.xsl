@@ -18,7 +18,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>AlphaSimplex jobs at TopCoder Employment Services</title>
+<title>Diversified Data jobs at TopCoder Employment Services</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -58,22 +58,22 @@
 
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
-                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;AlphaSimplex Jobs</b></td></tr>
-                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=alphasimplex_softdev&amp;a=secure" class="bodyText">Jobs</A></td></tr>
+                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Diversified Data Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=diversifieddata_softdev&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Message Begins -->
-                        <p><A href="/?&amp;t=tces&amp;c=alphasimplex" class="bodyText"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="AlphaSimplex" border="0" /></A></p>
 
                        <p>Diversified Data sees the big picture!</p>
-                       <p>Solutions</p>
-                       <p>Understanding clients’ requirements, challenges, and technology goals is the foundation of our customer-centric solutions. Diversified Data is the leader in 
+                       <p><strong>Solutions</strong></p>
+                       <p>Understanding clients' requirements, challenges, and technology goals is the foundation of our customer-centric solutions. Diversified Data is the leader in 
                        Content Addressed Storage (CAS) consulting and the design and integration of complex content and knowledge management environments.  Our Professional 
                        Services teams build solutions that fuel the greatest technology breakthroughs of the 21st century.</p>
                        <p>Teams comprising our leading solutions architects, accomplished engineers, project managers, and senior developers collaborate to craft end-to-end solutions 
                        that can be deployed and sustained locally or globally. </p>
-                       <p>Solving our clients’ most challenging technology problems and enabling their success is our mission and our passion. Discover the exceptional benefits of 
-                       Diversified Data® solutions in the following core competencies:</p>
+                       <p>Solving our clients' most challenging technology problems and enabling their success is our mission and our passion. Discover the exceptional benefits of 
+                       Diversified Data&#174; solutions in the following core competencies:</p>
                         <ul>
                         <li>Analysis of business requirements </li>
                         <li>Business process design </li>
@@ -85,17 +85,13 @@
                         <li>Centera QuickStart Developer Training </li>
                         </ul>
 
-                        <p>Proven, Results-Focused Methodology</p>
-                        <p>Diversified Data has developed a clearly defined, results-based methodology, called 3DM, for implementing clients’ Centera solution. Our proven 
+                        <p><strong>Proven, Results-Focused Methodology</strong></p>
+                        <p>Diversified Data has developed a clearly defined, results-based methodology, called 3DM, for implementing clients' Centera solution. Our proven 
                         methodology provides a roadmap for the successful and rapid implementation of a customized Centera solution. 3DM includes guidelines, checklists and 
                         templates to ensure product success and client satisfaction at every stage.</p>
-                        <p>What we’re looking for:</p>
+                        <p><strong>What were looking for:</strong></p>
                         <p>Developers with 3+ years of experience to join our team on a contract-to-hire basis.  Unix and Perl experience a must.  Check out more of the 
-                        details here.  (“here” should link to the job description)</p>
-
-                        <p>Individuals with advanced training in other quantitative disciplines are also encouraged to apply. If you are excited by the prospect of changing the investment management 
-                        industry by developing and implementing cutting-edge technologies that span many diverse disciplines, and you are at the top of your field, we want to meet you.  
-                        Check out our open positions <A href="/?&amp;t=tces&amp;c=alphasimplex_softdev&amp;a=secure" class="bodyText">here</A>. </p>
+                        details <A href="/?&amp;t=tces&amp;c=diversifieddata_softdev&amp;a=secure" class="bodyText">here</A>.</p>
 <!-- Client Message Ends -->
 
                         <p><br /></p>

@@ -74,8 +74,8 @@
 
 <!-- DiversifiedData begins -->
                             <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=alphasimplex" target="_top"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></a></td>
-                                <td width="99%" class="bodyText"><strong>Diversified Data, (ASG)</strong>  the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=diversifieddata" target="_top"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="AlphaSimplex" border="0" /></a></td>
+                                <td width="99%" class="bodyText"><strong>Diversified Data, </strong>  the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
                                 complex content and knowledge management environments, is looking to hire developers with Unix and Perl experience on a contract-to-hire basis.  Join teams comprised of their leading solutions 
                                 architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
                                 <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
@@ -147,9 +147,9 @@ Microsoft ends -->
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
  Solipsys ends -->
 
-<!-- Nvidia begins
+<!-- Nvidia begins-->
                             <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="120" height="83" border="0"/></a></td>
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/nvidia/nvidia_logo.gif" width="120" height="83" border="0"/></a></td>
                                 <td width="99%" class="bodyText"><strong>NVIDIA&#174; Corporation (Nasdaq: NVDA)</strong> is the worldwide leader in 
                                     graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We 
                                     define the cutting-edge. We deliver to the nth degree. <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> 
