@@ -71,8 +71,8 @@
             </xsl:call-template>
 
             <blockquote>
-            <h2>Competitors</h2>
-            <div align="right" class="bodyText"><strong>Design</strong>&#160;&#160;|&#160;&#160;<A href="/index?t=tournaments&amp;c=tco03_comp_dev_rd1">Development</A></div>
+            <h2>Advancers</h2>
+            <div align="right" class="bodyText">Design&#160;&#160;|&#160;&#160;<A href="/index?t=tournaments&amp;c=tco03_comp_dev_rd1">Development</A></div>
             <br/>
             
 <!-- Design Winners Begins -->
@@ -95,7 +95,7 @@
                     <td class="formHandleOdd" align="center">1(T)</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
                     <td class="formHandleOdd" align="right">bye</td>
-                    <td class="formHandleOdd" align="right"><strong><a class="StatText" href="http://www.topcoder.com/?&amp;t=development&amp;c=bonus_contest_0303">Contest 1</a></strong></td>
+                    <td class="formHandleOdd" align="right"><a class="StatText" href="http://www.topcoder.com/?&amp;t=development&amp;c=bonus_contest_0303">Contest 1</a></td>
                     <td class="formHandleOdd" align="right">$0.00</td>
                 </tr>
 
@@ -103,7 +103,7 @@
                     <td class="formHandleEven" align="center">1(T)</td>
                     <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
                     <td class="formHandleEven" align="right">bye</td>
-                    <td class="formHandleEven" align="right"><strong><a class="StatText" href="http://www.topcoder.com/?t=development&amp;c=des_bonus_contest_2">Contest 2</a></strong></td>
+                    <td class="formHandleEven" align="right"><a class="StatText" href="http://www.topcoder.com/?t=development&amp;c=des_bonus_contest_2">Contest 2</a></td>
                     <td class="formHandleEven" align="right">$0.00</td>
                 </tr>
 
@@ -111,7 +111,7 @@
                     <td class="formHandleOdd" align="center">3</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
                     <td class="formHandleOdd" align="right">91.21</td>
-                    <td class="formHandleOdd" align="right"><strong>86.78, 94.64</strong></td>
+                    <td class="formHandleOdd" align="right">86.78, 94.64</td>
                     <td class="formHandleOdd" align="right">$315.00</td>
                 </tr>
 
@@ -119,7 +119,7 @@
                     <td class="formHandleEven" align="center">4</td>
                     <td class="formHandleEven" align="left"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
                     <td class="formHandleEven" align="right">86.40</td>
-                    <td class="formHandleEven" align="right"><strong>81.84, 90.86</strong></td>
+                    <td class="formHandleEven" align="right">81.84, 90.86</td>
                     <td class="formHandleEven" align="right">$210.00</td>
                 </tr>
 
@@ -127,7 +127,7 @@
                     <td class="formHandleOdd" align="center">5</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="formHandleOdd" align="right">86.05</td>
-                    <td class="formHandleOdd" align="right"><strong>79.54,  92.56</strong></td>
+                    <td class="formHandleOdd" align="right">79.54,  92.56</td>
                     <td class="formHandleOdd" align="right">$236.25</td>
                 </tr>
 
@@ -135,7 +135,7 @@
                     <td class="formHandleEven" align="center">6</td>
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342">kyky</a></td>
                     <td class="formHandleEven" align="right">80.08</td>
-                    <td class="formHandleEven" align="right"><strong>80.03, 80.13</strong></td>
+                    <td class="formHandleEven" align="right">80.03, 80.13</td>
                     <td class="formHandleEven" align="right">$158.00</td>
                 </tr>
 
@@ -164,7 +164,7 @@
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
                     <td class="formHandleOdd" align="right">90.38</td>
-                    <td class="formHandleOdd" align="right"><strong>90.38</strong></td>
+                    <td class="formHandleOdd" align="right">90.38</td>
                     <td class="formHandleOdd" align="right">$105.00</td>
                 </tr>
 
@@ -172,7 +172,7 @@
                     <td class="formHandleEven" align="center">2</td>
                     <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976">giginim</a></td>
                     <td class="formHandleEven" align="right">89.18</td>
-                    <td class="formHandleEven" align="right"><strong>89.18</strong></td>
+                    <td class="formHandleEven" align="right">89.18</td>
                     <td class="formHandleEven" align="right">$52.50</td>
                 </tr>
 
@@ -180,7 +180,7 @@
                     <td class="formHandleOdd" align="center">3</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7405912">StrongHold</a></td>
                     <td class="formHandleOdd" align="right">80.58</td>
-                    <td class="formHandleOdd" align="right"><strong>80.58</strong></td>
+                    <td class="formHandleOdd" align="right">80.58</td>
                     <td class="formHandleOdd" align="right">$105.00</td>
                 </tr>
 
@@ -209,21 +209,21 @@
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7411659" class="statText" target="_blank">Business Date Utility</a></td>
                     <td class="formHandleOdd" align="center">3</td>
                     <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="formHandleOdd" align="right">92.56</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven"></td>
                     <td class="formHandleEven" align="center"></td>
                     <td class="formHandleEven" align="center">2</td>
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
                     <td class="formHandleEven" align="right">90.38</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd"></td>
                     <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd" align="center">3</td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342">kyky</a></td>
                     <td class="formHandleOdd" align="right">80.03</td>
                 </tr>
 
@@ -231,42 +231,42 @@
                     <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7409563" class="statText" target="_blank">Dependency Map</a></td>
                     <td class="formHandleEven" align="center">1</td>
                     <td class="formHandleEven" align="center"></td>
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a></td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342">kyky</a></td>
                     <td class="formHandleEven" align="right">80.13</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7410827" class="statText" target="_blank">Image Overlay</a></td>
                     <td class="formHandleOdd" align="center">3</td>
                     <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018"><strong>Tomson</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
                     <td class="formHandleOdd" align="right">94.64</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven"></td>
                     <td class="formHandleEven" align="center"></td>
                     <td class="formHandleEven" align="center">2</td>
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976"><strong>giginim</strong></a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976">giginim</a></td>
                     <td class="formHandleEven" align="right">89.18</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd"></td>
                     <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd" align="center">3</td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="formHandleOdd" align="right">79.54</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7408776" class="statText" target="_blank">Load Estimator</a></td>
                     <td class="formHandleEven" align="center">1</td>
                     <td class="formHandleEven" align="center"></td>
-                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180"><strong>isv</strong></a></td>
+                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
                     <td class="formHandleEven" align="right">90.86</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7410707" class="statText" target="_blank">Shopping Cart</a></td>
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180"><strong>isv</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
                     <td class="formHandleOdd" align="right">81.84</td>
                 </tr>
                 
@@ -274,7 +274,7 @@
                     <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7408797" class="statText" target="_blank">SVG Generator</a></td>
                     <td class="formHandleEven" align="center">1</td>
                     <td class="formHandleEven" align="center"></td>
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018"><strong>Tomson</strong></a></td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
                     <td class="formHandleEven" align="right">86.79</td>
                 </tr>
 
@@ -282,7 +282,7 @@
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7411234" class="statText" target="_blank">Tree View Tag</a></td>
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7405912"><strong>Stronghold</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7405912">Stronghold</a></td>
                     <td class="formHandleOdd" align="right">80.58</td>
                 </tr>
 
