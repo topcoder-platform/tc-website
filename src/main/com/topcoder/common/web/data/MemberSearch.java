@@ -13,6 +13,7 @@ public class MemberSearch implements TagRenderer, Serializable {
     private int maxRating;
     private int minNumRatings;
     private int maxNumRatings;
+    private int monthsSinceLastComp;
     private Scroll scroll;
     private boolean isResult;
     private ArrayList coders;
@@ -24,6 +25,7 @@ public class MemberSearch implements TagRenderer, Serializable {
         maxRating = 0;
         minNumRatings = 0;
         maxNumRatings = 0;
+        monthsSinceLastComp = 0;
         scroll = new Scroll();
         isResult = false;
         coders = new ArrayList();
@@ -68,6 +70,9 @@ public class MemberSearch implements TagRenderer, Serializable {
         this.coders = coders;
     }
 
+    public void setMonthsSinceLastComp(int monthsSinceLastComp) {
+        this.monthsSinceLastComp = monthsSinceLastComp;
+    }
 //gets
 
     public String getHandle() {
@@ -106,6 +111,10 @@ public class MemberSearch implements TagRenderer, Serializable {
         return this.coders;
     }
 
+    public int getMonthsSinceLastComp() {
+        return monthsSinceLastComp;
+    }
+
     public RecordTag getXML() throws Exception {
         RecordTag result = null;
         try {
@@ -116,6 +125,7 @@ public class MemberSearch implements TagRenderer, Serializable {
             result.addTag(new ValueTag("MaxRating", maxRating));
             result.addTag(new ValueTag("MinNumRatings", minNumRatings));
             result.addTag(new ValueTag("MaxNumRatings", maxNumRatings));
+            result.addTag(new ValueTag("MonthsSinceLastComp", monthsSinceLastComp));
             result.addTag(new ValueTag("IsResult", isResult));
             result.addTag(scroll.getXML());
             result.addTag(RecordTag.getListXML("CoderList", coders));

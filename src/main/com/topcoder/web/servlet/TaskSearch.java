@@ -161,10 +161,7 @@ public final class TaskSearch {
 
 
     /**
-     **********************************************************************************
-     * search()
      * Makes bean call to search for coders.
-     * @author Greg Paul
      * @param HTMLmaker
      * @param request
      * @param nav
@@ -173,7 +170,6 @@ public final class TaskSearch {
      * @param listTag
      * @return String - the generated HTML page
      * @throws NavigationException
-     *********************************************************************************
      */
     private static String search(HTMLRenderer HTMLmaker, HttpServletRequest request,
                                  Navigation nav, XMLDocument document, MemberSearch search, RecordTag listTag)
@@ -213,6 +209,11 @@ public final class TaskSearch {
                 search.setMaxNumRatings(-1);
             else
                 search.setMaxNumRatings(Integer.parseInt(request.getParameter("MaxNumRatings")));
+            if ((Conversion.checkNull(request.getParameter("MonthsSinceLastComp")).equals("")))
+                search.setMonthsSinceLastComp(-1);
+            else
+                search.setMonthsSinceLastComp(Integer.parseInt(request.getParameter("MonthsSinceLastComp")));
+
 
             search.getScroll().setRow(1);
             search.getScroll().setReturns(DEFAULT_ROW_COUNT);
@@ -251,10 +252,7 @@ public final class TaskSearch {
 
 
     /**
-     **********************************************************************************
      * scroll()
-     * Handles the scrolling of the results of a member search
-     * @author Greg Paul
      * @param HTMLmaker
      * @param request
      * @param nav
@@ -263,7 +261,6 @@ public final class TaskSearch {
      * @param listTag
      * @return String - the generated HTML page
      * @throws NavigationException
-     *********************************************************************************
      */
     private static String scroll(HTMLRenderer HTMLmaker, HttpServletRequest request,
                                  Navigation nav, XMLDocument document, MemberSearch search, RecordTag listTag)
