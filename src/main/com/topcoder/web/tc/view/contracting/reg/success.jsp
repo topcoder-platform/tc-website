@@ -20,7 +20,7 @@
         <td width="180">
             <jsp:include page="../../../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="index"/>
+                <jsp:param name="level2" value="employmentOpps"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -30,7 +30,7 @@
         <div class="myTCBody">
 
         <jsp:include page="../../page_title.jsp" >
-            <jsp:param name="image" value="contract"/>
+            <jsp:param name="image" value="employmentOpps"/>
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
@@ -66,7 +66,6 @@
 
 
         </div>
-		<p align=center class=bodyText><b>Please check to make sure that your information is up-to-date.</b></p>
         <p><br/></p>
         </td>
 <!-- Center Column Ends -->

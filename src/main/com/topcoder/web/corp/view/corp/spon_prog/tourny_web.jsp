@@ -97,7 +97,7 @@
                         <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop all 
                         graphics necessary for the web site at no additional cost to sponsors.</p>
                         
-                        <p><a href="/?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is the SRM Program?</a></p>
+                        <p><a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is the SRM Program?</a></p>
 
                         <p><br/></p>
                     </td>

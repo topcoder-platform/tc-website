@@ -21,9 +21,11 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-        <td class="topNav" nowrap><A href="/tc" class="topLink">Competition Home</A></td>
+        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="topLink">Software</A></td>
 
-        <td class="topNav" nowrap><A href="/?t=development&c=index" class="topLink">Development</A></td>
+        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><A href="/corp/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</A></td>
+
+        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Marketing Services</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>

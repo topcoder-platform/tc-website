@@ -179,7 +179,7 @@ problems and challenges after the system-testing phase has completed.<br>
 <br>
 After each round of competition a coder's rating will be adjusted based on his or her performance relative to the other
 coders competing in the round.  A detailed overview of our rating system can be found on the TopCoder
-<a href="/?module=Static&amp;d1=faq&amp;d2=ratings_ovrev">rating system</a> page.<br>
+<a href="/tc?module=Static&amp;d1=faq&amp;d2=ratings_ovrev">rating system</a> page.<br>
 <br>
 <br>
 <b>Tournament Advancement</b>

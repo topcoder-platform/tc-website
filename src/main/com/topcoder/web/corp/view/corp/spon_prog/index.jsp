@@ -51,7 +51,7 @@
                         <img src="/i/corp/marketing_image.jpg" width="530" height="220" alt="" border="0">
                         </div>
 
-                        <p><span class="bodySubtitle">Reaching the Developer Community</span><br>
+                        <p><span class="bodySubtitle">Reaching the TopCoder Community</span><br>
                         TopCoder has created an online venue that brings together some of the most talented developers 
                         from around the world.  Each week, TopCoder hosts an online programming competition (Single Round Match) 
                         during which developers compete for ratings and bragging rights, and to hone their skills for our 
@@ -79,7 +79,7 @@
                             <li>Held biannually</li>
                             <li>Title, Premier and Corporate sponsorships available</li>
                             <li>Online and onsite over a 10 - 12 week period</li>
-                            <li>Sponsors promoted on TopCoder website, arena applet, opt-in email and onsite</li>
+                            <li>Sponsors promoted on TopCoder website, competition arena, opt-in email and onsite</li>
                             <li>Extensive PR</li>
                         </ul>
  

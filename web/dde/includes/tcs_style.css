@@ -993,6 +993,169 @@ H3
 
 .headStripe { background: #666; }
 
+.homeTopBar
+{
+	font-size: 10px;
+	color: #FFF;
+	font-style: normal;
+	font-weight: bold;
+	white-space: nowrap;
+	background-color: #333333;
+	padding: 3px 10px 5px 10px;
+}
+
+.homeLogo
+{
+	background-color: #000000;
+	color: #333333;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+	padding: 15px 15px 15px 15px;
+    margin: 0px 0px 0px 0px;
+	text-align: left;
+}
+
+.homeRedBar
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	white-space: nowrap;
+	background-color: #000;
+	background-image: url(/i/redbv_lite_bg.gif);
+	padding: 3px 10px 3px 10px;
+	border-top:  4px solid #666666;
+	border-bottom:  2px solid #000000;
+}
+
+.homeArrow
+{
+	padding: 10px 3px 0px 6px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.leftNavSpacer
+{
+	margin: 15px 0px 15px 0px;
+	padding: 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.homeBigPromo
+{
+	text-align: center;
+	vertical-align: top;
+	padding: 15px 15px 15px 15px;
+}
+.homeRightPromos
+{
+	color: #333333;
+	padding: 15px 0px 15px 0px;
+	text-align: right;
+	vertical-align: top;
+}
+.homeClientPromo
+{
+	padding: 0px 0px 10px 0px;
+}
+.homeLeftCol
+{
+	color: #333333;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+	padding: 0px;
+	text-align: center;
+	vertical-align: top;
+	border-top:  1px solid #666666;
+	border-right:  1px solid #666666;
+}
+
+.homeCentCol
+{
+	color: #333333;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+	padding: 0px;
+	text-align: center;
+	vertical-align: top;
+	border-top:  1px solid #666666;
+}
+
+.homeRightCol
+{
+	color: #333333;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+	padding: 0px;
+	text-align: center;
+	vertical-align: top;
+	border-top:  1px solid #666666;
+	border-left:  1px solid #666666;
+}
+
+.homeGutter
+{
+	border-top:  1px solid #666666;
+}
+
+.homeSmallPromo
+{
+	border-bottom:  1px solid #666666;
+}
+
+.homeTitle
+{
+	color: #990000;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	padding: 10px 0px 0px 0px;
+	width: 100%;
+	text-align: left;
+	vertical-align: top;
+}
+
+A.homeTitleLink:link
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.homeTitleLink:visited
+{
+	color: #990000;
+	text-decoration: none;
+}
+
+A.homeTitleLink:hover
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+A.homeTitleLink:active
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+.homeText
+{
+	color: #333333;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+	padding: 0px 10px 10px 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
 html, body
 {
 	background: #FFF;

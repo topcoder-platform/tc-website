@@ -19,34 +19,31 @@
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <a name="top"/>
-<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
-    <tr valign="middle">
-        <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
-        <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <%=new DecimalFormat("#,##0").format(dcHome.getMemberCount())%> - <span class="time"><jsp:include page="../../date_time.jsp" /></span><a href="Javascript:tcTime()" class="statText"><strong>[Get Time]</strong></a></span></td>
-        <td width="99%" align="right" class="login" nowrap="0">
-
+<table width="100%" border=0 cellpadding=0 cellspacing=0>
+    <tr>
+        <td class=homeTopBar>
+		<span class="time">Current Member Count</span>
+		&#160;:&#160; <%=new DecimalFormat("#,##0").format(dcHome.getMemberCount())%> - 
+		<span class="time"><jsp:include page="../../date_time.jsp" /></span>
+		<a href="Javascript:tcTime()" class="statText">&#160;<strong>[Get Time]</strong></a>
+		</td>
+        <td class=homeTopBar width="100%" align=right>
 <% if (sessionInfo.isAnonymous()) {  // no logged user %>
-            <a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=LoginPage" class="loginLinks" target="_parent">Login</a>
-            &#160;&#160;|&#160;&#160;<a href="https://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Registration" class="loginLinks">Register</a>
+            <a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=LoginPage" class=loginLinks>Login</a>
+            &#160;&#160;|&#160;&#160;<a href="https://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Registration" class=loginLinks>Register</a>
 <% } else { %>
             <strong>Hello, <jsp:getProperty name="sessionInfo" property="Handle" /></strong>
-            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Logout" class="loginLinks" target="_parent">Logout</a>
-            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Registration" class="loginLinks">Update Profile</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Logout" class=loginLinks>Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Registration" class=loginLinks>Update Profile</a>
 <% } %>
-
-            &#160;&#160;|&#160;&#160;<a href="/" class="loginLinks" target="_parent">Home</a>
+            &#160;&#160;|&#160;&#160;<a href="/" class=loginLinks>Home</a>
         </td>
-        <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
     </tr>
 </table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">    
-    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
-</table> 
-
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 	<tr>
-		<td class=homeLogo><img src="http://www.topcoder.com/i/logo_r.gif" border=0 /></td>
+		<td class=homeLogo><A href="/"><img src="http://www.topcoder.com/i/logo_r.gif" border=0 /></A></td>
 	</tr>
 </table>
 
@@ -60,6 +57,6 @@
 			</tr>
 		</table>
 <% } else { %>
-	<jsp:include page="../../menu.jsp"/>
+<jsp:include page="../../corpMenu.jsp"/>
 <% } %>
 <!-- Main Navigation bar ends -->
