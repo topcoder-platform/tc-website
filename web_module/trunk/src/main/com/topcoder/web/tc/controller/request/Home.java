@@ -2,8 +2,6 @@ package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
@@ -24,17 +22,11 @@ public class Home extends Base {
 
     protected void loadPublicData() throws TCWebException {
         try {
-            CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-            countDai.setExpireTime(15*60*1000);
-            Request countReq = new Request();
-            countReq.setContentHandle("member_count");
-            getRequest().setAttribute("member_count", countDai.getData(countReq).get("member_count"));
-
             CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             nextRoundDai.setExpireTime(30*60*1000);
             Request nextRoundReq = new Request();
             nextRoundReq.setContentHandle("next_srm");
-            getRequest().setAttribute("Next_SRM", nextRoundDai.getData(countReq).get("Next_SRM"));
+            getRequest().setAttribute("Next_SRM", nextRoundDai.getData(nextRoundReq).get("Next_SRM"));
 
             CachedDataAccess dwDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
             Request dataRequest = new Request();
