@@ -117,7 +117,7 @@
                             <li>Detroit</li>
                         </ul>
                         
-                        <p align="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=119&amp;jt=2" class="bodyText">Apply now!</A></p>
+                        <p align="center" class="bodyText"><a href="mailto:service@topcodersoftware.com?subject=TopCoder Project Manager Position">Apply for this job</a> by email. <br /></p>
 
                     </td>
                 </tr>
