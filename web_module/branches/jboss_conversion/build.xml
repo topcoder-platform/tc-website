@@ -650,7 +650,12 @@
              </fileset>
          </copy>
      </target>
-     <target name="move-libs">
+     <target name="move-libs" depends="package-Jive">
+         <copy todir="${jboss_lib}">
+             <fileset dir="${bin}">
+                 <include name="Jive.jar"/>
+             </fileset>
+         </copy>
          <copy todir="${jboss_lib}">
              <fileset dir="${bin}">
                  <include name="shared.jar"/>
