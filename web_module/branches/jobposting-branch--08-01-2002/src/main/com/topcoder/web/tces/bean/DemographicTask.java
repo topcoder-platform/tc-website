@@ -167,7 +167,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             for (int typeI=0;typeI<types.length;typeI++) {
                 dataRequest.setProperty("uid", Integer.toString(uid) );
                 dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-                dataRequest.setProperty("ct", new Integer(types[typeI]) );
+                dataRequest.setProperty("ct", Integer.toString(types[typeI]) );
                 dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
                 resultMap = dai.getData(dataRequest);
 
@@ -184,7 +184,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 ResultSetContainer.ResultSetRow refRspRow = null;
                 ArrayList referralMapList = new ArrayList();
                 for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-                    Map refRspRow = rsc.getRow(rowI);
+                    refRspRow = rsc.getRow(rowI);
                     Map referralItem = new HashMap();
 
                     double pct = ((double)((Integer)refRspRow.getItem("resp_count").getResultData()).intValue()) /
@@ -202,7 +202,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 ResultSetContainer.ResultSetRow notifyRow = null;
                 ArrayList notifyMapList = new ArrayList();
                 for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-                    Map notifyRow = rsc.getRow(rowI);
+                    notifyRow = rsc.getRow(rowI);
                     Map notifyItem = new HashMap();
 
                     double pct =
