@@ -4,6 +4,10 @@
 <P><B>Registration for Students Confirmation page</B></P>
 <BR>
 <FORM ACTION="" METHOD="post" NAME="regForm">
+ <INPUT TYPE="hidden" NAME="first_name" VALUE="<jsp:getProperty name="student" property="FirstName"/>">
+ <INPUT TYPE="hidden" NAME="last_name" VALUE="<jsp:getProperty name="student" property="LastName"/>">
+ <INPUT TYPE="hidden" NAME="state" VALUE="<jsp:getProperty name="student" property="StateCode"/>">
+ <INPUT TYPE="hidden" NAME="school" VALUE="<jsp:getProperty name="student" property="SchoolId"/>">
  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" ALIGN="center">
   <TR VALIG="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
@@ -20,9 +24,9 @@
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR>
-   <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><B>First Name</B>&nbsp;</TD>
+   <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">First Name&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><B>Information passed</B></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="student" property="FirstName"/></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -30,9 +34,9 @@
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
-   <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><B>Last Name</B>&nbsp;</TD>
+   <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Last Name&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><B>Information passed</B></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="student" property="LastName"/></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -42,7 +46,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">School&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><B>Information passed</B></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="student" property="</TD>
   </TR>
   <TR>
    <TD></TD>
