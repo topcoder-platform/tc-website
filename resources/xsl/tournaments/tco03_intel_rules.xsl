@@ -61,7 +61,7 @@
                             			
                             			<p><strong>PARTICIPATION</strong> <br/>Promotion begins September 26, 2003 at 8 a.m. PST, and is open to legal residents of the 50 United States 
                             			and the District of Columbia, as well as to residents of countries that can accept sweepstakes awards, who are 18 years of age or older. 
-                            			Employees of Intel Corp. http://www.intel.com/ <http://www.intel.com/> <http://www.intel.com/>, their affiliated companies, 
+                            			Employees of Intel Corp. <http://www.intel.com/> <http://www.intel.com/> <http://www.intel.com/>, their affiliated companies, 
                             			advertising and promotion agencies and the immediate family members of each are not eligible. Subject to all federal, state and local 
                             			laws and regulations apply. Void where prohibited. </p>
                             			
