@@ -3,6 +3,7 @@ package com.topcoder.web.codinginterface.techassess.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
+import com.topcoder.shared.netCommon.screening.response.ScreeningLoginResponse;
 
 import javax.jms.ObjectMessage;
 import java.io.Serializable;
@@ -46,11 +47,19 @@ public class Login extends Base {
         log.debug("sent message " + messageId);
 
         log.debug(Thread.currentThread().toString());
-        Serializable response = receive(5000, messageId);
+        ScreeningLoginResponse response = (ScreeningLoginResponse)receive(5000, messageId);
         log.debug("response " + response);
 
-        setNextPage(Constants.PAGE_INDEX);
-        setIsNextPageInContext(true);
+        if (response.isSuccess()) {
+            setNextPage(Constants.PAGE_INDEX);
+            setIsNextPageInContext(true);
+
+        } else {
+            addError(Constants.HANDLE, response.getMessage());
+            setNextPage(Constants.PAGE_LOGIN);
+            setIsNextPageInContext(true);
+        }
+
     }
 
 }

@@ -1,3 +1,6 @@
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -6,6 +9,7 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css"/>
 </head>
 <body>
+
 <table width=800 align=center cellspacing=0 cellpadding=0 class=bodyTable>
 	<tr>
 		<td colspan=3>
@@ -26,7 +30,7 @@
 		<td class=bodyL>&#160;</td>
 		<td class=bodyContent>
 
-		<FORM>
+        <form action="<jsp:getProperty name="sessionInfo" property="SecureAbosoluteServletPath"/>" method=post name=loginForm>
 		<table width="400" align=center cellspacing=0 cellpadding=0 class=tableFrame>
 			<tr>
 				<td class=tableTitle colspan=2>Login</td>
@@ -35,13 +39,13 @@
 			<tr>
 				<td class=tableText align=right width="40%">Login:</td>
 				<td class=tableText width="60%">
-				<INPUT TYPE="TEXT" NAME="ID" SIZE="20" VALUE="">
+				<tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="15"/>
 				</td>
 			</tr>
 			<tr>
 				<td class=tableText align=right>Password:</td>
 				<td class=tableText>
-				<INPUT TYPE="PASSWORD" NAME="password" SIZE="20" VALUE="">
+                <tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="15"/>
 				</td>
 			</tr>
 			<tr>
@@ -54,7 +58,7 @@
 			</tr>
 			<tr><td class=tableText colspan=2>&#160;</td></tr>
 		</table>
-		</FORM>
+		</form>
 
 
 		</td>
