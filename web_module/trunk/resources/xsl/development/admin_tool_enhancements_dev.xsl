@@ -166,7 +166,8 @@
                                         <sup>*</sup>Completion of the integration project is defined as follows:
                                         <ul>
                                             <li>The Submission has been selected by the board as the winning submission.</li>
-                                            <li>Final payment is conditional on acceptance of the fully integrated functional application by the Development Review Board.</li>
+                                            <li>Acceptance of the fully integrated functional application by the Development Review Board.</li>
+                                            <li>Application launch into production environment.</li>
                                         </ul>
                                         <!-- Eligibility Requirements -->
                                         <p>
