@@ -182,6 +182,13 @@ if (!rsc.isEmpty()) {
                             </TR>
                             
                             <TR>
+                                <TD CLASS="statText" >&#160;&#160;Rank:</TD>
+                                <TD CLASS="statText" ALIGN="right"><rsc:item set="<%=rsc%>" name="rank" ifNull="Not Ranked"/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+
+                            <TR>
                                 <TD CLASS="statText">&#160;&#160;Number of Competitions:</TD>
                                 <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 8 /* number of comps */ + "]" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -205,51 +212,53 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
-                            
+
+<%--
                             <TR>
                                 <TD CLASS="statText">&#160;&#160;Average Points per Contest:</TD>
                                 <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /*"avg final pts"*/ + "].resultData" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
-                            
+--%>
+
                             <TR>
                                 <TD CLASS="statText">&#160;&#160;Maximum Rating:</TD>
                                 <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 10 /*"max rating"*/ + "].resultData" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
-                            
+
                             <TR>
                                 <TD CLASS="statText">&#160;&#160;Minimum Rating:</TD>
                                 <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 26 /*"min rating"*/ + "].resultData" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
-                            
+
                   <% if ( nav.isIdentified() && Integer.parseInt(rsr.getItem(1).toString())==nav.getUserId() ) { %>
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                             </TR>
-                
+
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText"><A HREF="<%="https://"+request.getServerName()+"/Registration"%>" CLASS="statText" TARGET="_parent">Update your profile</A></TD>
                             </TR>
-                  
+
                   <% } else { %><% } %>
-                            
+
                 <% if (hasCharity) {%>
-                  
+
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText">* Some or all of these earnings have been donated to charity.</TD>
                             </TR>
-                            
+
                 <% } %>
-                
+
                             <TR>
                                 <TD COLSPAN="4" HEIGHT="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                             </TR>
-                            
+
 <%-- Design Statistics begins --%>
                             <TR>
                                 <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="4" CLASS="registerNav" HEIGHT="18">&#160;&#160;Design Statistics</TD>
