@@ -38,7 +38,7 @@
 
 			<ul>
 				<li><strong>The Coding Phase</strong> is a timed event where all contestants are presented with a set of two questions
-                that randomly selected from two possible sets.  A solution to each question may be submitted only one time.
+                that are automatically selected from two possible sets.  A solution to each question may be submitted only one time.
 				Points for a problem are awarded upon submission of any
 				solution that successfully compiles and are calculated based on the total time elapsed from the time the problem
 				was opened to the time it was submitted, regardless of the time it took to submit any previous solutions to
