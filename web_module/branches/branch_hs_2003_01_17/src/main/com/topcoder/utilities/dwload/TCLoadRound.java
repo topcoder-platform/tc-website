@@ -1487,85 +1487,98 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.coder_id ");                             // 3
             query.append("       ,rr.point_total ");                          // 4
             query.append("       ,rr.room_seed ");                            // 5
-            query.append("       ,rr.old_rating ");                           // 7
-            query.append("       ,rr.new_rating ");                           // 8
-            query.append("       ,rr.room_placed ");                          // 9
-            query.append("       ,rr.attended ");                             // 10
-            query.append("       ,rr.advanced ");                             // 11
-            query.append("       ,(SELECT sum(c.challenger_points) ");        // 12
+            query.append("       ,rr.old_rating ");                           // 6
+            query.append("       ,rr.new_rating ");                           // 7
+            query.append("       ,rr.room_placed ");                          // 8
+            query.append("       ,rr.attended ");                             // 9
+            query.append("       ,rr.advanced ");                             // 10
+            query.append("       ,(SELECT sum(c.challenger_points) ");        // 11
             query.append("           FROM challenge c ");
             query.append("          WHERE c.round_id = rr.round_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("          AND c.challenger_id = rr.coder_id) ");
-            query.append("       ,(SELECT sum(deduction_amount) ");           // 13
+            query.append("       ,(SELECT sum(deduction_amount) ");           // 12
             query.append("           FROM system_test_result str ");
             query.append("          WHERE str.round_id = rr.round_id ");
             query.append("            AND str.coder_id = rr.coder_id) ");
-            query.append("       ,(SELECT division_id FROM room ");           // 14
+            query.append("       ,(SELECT division_id FROM room ");           // 13
             query.append("          WHERE room.room_id = rr.room_id) ");
-            query.append("       ,(SELECT count(*) ");                        // 15
+            query.append("       ,(SELECT count(*) ");                        // 14
             query.append("           FROM round_component rp ");
             query.append("                ,room r ");
             query.append("          WHERE rp.round_id = rr.round_id ");
             query.append("            AND rp.division_id = r.division_id ");
             query.append("            AND rr.room_id = r.room_id) ");
-            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 16
+            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 15
             query.append("          WHERE cs.round_id = rr.round_id ");
             query.append("            AND cs.coder_id = rr.coder_id ");
             query.append("            AND cs.status_id = " + STATUS_PASSED_SYS_TEST + ") ");
-            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 17
+            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 16
             query.append("          WHERE cs.round_id = rr.round_id ");
             query.append("            AND cs.coder_id = rr.coder_id ");
             query.append("            AND cs.status_id = " + STATUS_FAILED_SYS_TEST + ") ");
-            query.append("       ,(SELECT count(*) FROM challenge c ");       // 18
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 17
             query.append("          WHERE c.round_id = rr.round_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.defendant_id = rr.coder_id ");
             query.append("            AND c.succeeded = " + STATUS_SUCCEEDED + ") ");
-            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 19
+            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 18
             query.append("          WHERE cs.round_id = rr.round_id ");
             query.append("            AND cs.coder_id = rr.coder_id) ");
-            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 20
+            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 19
             query.append("          WHERE cs.round_id = rr.round_id ");
             query.append("            AND cs.coder_id = rr.coder_id ");
             query.append("            AND cs.status_id = " + STATUS_OPENED + ") ");
-            query.append("       ,(SELECT count(*) FROM challenge c ");       // 21
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 20
             query.append("          WHERE c.challenger_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id) ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 21
+            query.append("          WHERE c.challenger_id = rr.coder_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.round_id = rr.round_id ");
+            query.append("            AND c.succeeded = " + STATUS_SUCCEEDED + ") ");
             query.append("       ,(SELECT count(*) FROM challenge c ");       // 22
             query.append("          WHERE c.challenger_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id ");
-            query.append("            AND c.succeeded = " + STATUS_SUCCEEDED + ") ");
-            query.append("       ,(SELECT count(*) FROM challenge c ");       // 23
-            query.append("          WHERE c.challenger_id = rr.coder_id ");
-            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            query.append("            AND c.round_id = rr.round_id ");
             query.append("            AND c.succeeded = " + STATUS_FAILED + ") ");
-            query.append("       ,(SELECT count(*) FROM challenge c ");       // 24
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 23
             query.append("          WHERE c.defendant_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id) ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 24
+            query.append("          WHERE c.defendant_id = rr.coder_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.round_id = rr.round_id ");
+            query.append("            AND c.succeeded = " + STATUS_SUCCEEDED + ") ");
             query.append("       ,(SELECT count(*) FROM challenge c ");       // 25
             query.append("          WHERE c.defendant_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id ");
-            query.append("            AND c.succeeded = " + STATUS_SUCCEEDED + ") ");
-            query.append("       ,(SELECT count(*) FROM challenge c ");       // 26
-            query.append("          WHERE c.defendant_id = rr.coder_id ");
-            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            query.append("            AND c.round_id = rr.round_id ");
             query.append("            AND c.succeeded = " + STATUS_FAILED + ") ");
-            query.append("       ,(SELECT sum(c.defendant_points) ");           // 27
+            query.append("       ,(SELECT sum(c.defendant_points) ");           // 26
             query.append("           FROM challenge c ");
             query.append("          WHERE c.round_id = rr.round_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.defendant_id = rr.coder_id) ");
-            query.append("       ,rr.overall_rank ");                        // 28
-            query.append("       ,rr.division_placed ");                     // 29
-            query.append("       ,rr.division_seed ");                       // 30
-            query.append("  FROM room_result rr ");
+            query.append("       ,rr.overall_rank ");                        // 27
+            query.append("       ,rr.division_placed ");                     // 28
+            query.append("       ,rr.division_seed ");                       // 29
+            query.append("       ,NVL(school_rank.division_placed, 0) ");    // 30
+            query.append("       ,school_rank.count(*) ");
+            query.append("  FROM room_result rr, ");
+            query.append(" OUTER TABLE(MULTISET(SELECT FIRST 3 ");
+            query.append("                  coder_id ");
+            query.append("                 ,round_id ");
+            query.append("                 ,school_id ");
+            query.append("                 ,division_placed ");
+            query.append("                  FROM room_result))");
+            query.append("    AS school_rank ");
+            query.append(" WHERE school_rank.coder_id = rr.coder_id ");
+            query.append("   AND school_rank.round_id = rr.round.id ");
+            query.append("   AND school_rank.school_id = rr.school_id ");
+            query.append(" ORDER BY school_rank.division_placed ASC ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
@@ -1586,33 +1599,34 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,coder_id ");                        // 3
             query.append("       ,final_points ");                    // 4
             query.append("       ,room_seed ");                       // 5
-            query.append("       ,old_rating ");                      // 7
-            query.append("       ,new_rating ");                      // 8
-            query.append("       ,room_placed ");                     // 9
-            query.append("       ,attended ");                        // 10
-            query.append("       ,advanced ");                        // 11
-            query.append("       ,challenge_points ");                // 12
-            query.append("       ,system_test_points ");              // 13
-            query.append("       ,division_id ");                     // 14
-            query.append("       ,problems_presented ");              // 15
-            query.append("       ,problems_correct ");                // 16
-            query.append("       ,problems_failed_by_system_test ");  // 17
-            query.append("       ,problems_failed_by_challenge ");    // 18
-            query.append("       ,problems_opened ");                 // 19
-            query.append("       ,problems_left_open ");              // 20
-            query.append("       ,challenge_attempts_made ");         // 21
-            query.append("       ,challenges_made_successful ");      // 22
-            query.append("       ,challenges_made_failed ");          // 23
-            query.append("       ,challenge_attempts_received ");     // 24
-            query.append("       ,challenges_received_successful ");  // 25
-            query.append("       ,challenges_received_failed ");      // 26
-            query.append("       ,defense_points ");                  // 27
-            query.append("       ,overall_rank ");                    // 28
-            query.append("       ,division_placed ");                 // 29
-            query.append("       ,division_seed) ");                  // 30
+            query.append("       ,old_rating ");                      // 6
+            query.append("       ,new_rating ");                      // 7
+            query.append("       ,room_placed ");                     // 8
+            query.append("       ,attended ");                        // 9
+            query.append("       ,advanced ");                        // 10
+            query.append("       ,challenge_points ");                // 11
+            query.append("       ,system_test_points ");              // 12
+            query.append("       ,division_id ");                     // 13
+            query.append("       ,problems_presented ");              // 14
+            query.append("       ,problems_correct ");                // 15
+            query.append("       ,problems_failed_by_system_test ");  // 16
+            query.append("       ,problems_failed_by_challenge ");    // 17
+            query.append("       ,problems_opened ");                 // 18
+            query.append("       ,problems_left_open ");              // 19
+            query.append("       ,challenge_attempts_made ");         // 20
+            query.append("       ,challenges_made_successful ");      // 21
+            query.append("       ,challenges_made_failed ");          // 22
+            query.append("       ,challenge_attempts_received ");     // 23
+            query.append("       ,challenges_received_successful ");  // 24
+            query.append("       ,challenges_received_failed ");      // 25
+            query.append("       ,defense_points ");                  // 26
+            query.append("       ,overall_rank ");                    // 27
+            query.append("       ,division_placed ");                 // 28
+            query.append("       ,division_seed ");                   // 29
+            query.append("       ,school_points) ");                  // 30
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-            query.append("        ?,?,?,?,?,?,?,?,?)");  // 29 total values
+            query.append("        ?,?,?,?,?,?,?,?,?,?)");  // 30 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1667,7 +1681,12 @@ public class TCLoadRound extends TCLoad {
                 psIns.setInt(27, rs.getInt(27));  // overall_rank
                 psIns.setInt(28, rs.getInt(28));  // division_placed
                 psIns.setInt(29, rs.getInt(29));  // division_seed
-
+                if (rs.getInt(31)>=3) {
+                    psIns.setInt(30, rs.getInt(30)); // divison_placed
+                }
+                else {
+                    psIns.setInt(30, 0);
+                }
                 retVal = psIns.executeUpdate();
                 count += retVal;
                 if (retVal != 1) {
