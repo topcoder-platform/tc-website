@@ -510,8 +510,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
     By&#160;Yarin<br/><i>[TC]&#160;Member</i><br/></td>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td> 
     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 129</b></font><br/>  
-Tuesday, January 14, 2003<br/><br/>
+    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 129</b></font> 
     </td>
   </tr>      
   <tr>
@@ -520,6 +519,7 @@ Tuesday, January 14, 2003<br/><br/>
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm129_prob</xsl:attribute>
         <b>Problem Set Analysis &amp; Opinion</b>
       </a><br/>
+Tuesday, January 14, 2003<br/>      
 <p>It was a long time since it last happened, but last night it happened again - a cancelled SRM! 
 Many people (including me) had serious connection problems starting just a few minutes before the 
 SRM was about to begin. The contest was postponed 20 minutes, but even then not everyone who had 
