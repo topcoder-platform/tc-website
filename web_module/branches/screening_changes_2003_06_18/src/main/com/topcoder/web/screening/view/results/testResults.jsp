@@ -123,6 +123,7 @@ function getProblemDetail(id) {
                      Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
                      Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                      boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
+                     boolean isCompiled = row.getItem("is_compiled").toString().equals("1");
                      %>
                      
                 <tr>
@@ -135,7 +136,7 @@ function getProblemDetail(id) {
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>">
-                 <% if (isSubmitted) {%>
+                 <% if (isSubmitted || isCompiled) {%>
                  <screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink>
                  <% } %>
                </td>
