@@ -23,12 +23,14 @@
     String url ="";
     String responseURL = "";
     String responsePostURL = responseURL.equals("") ? "" :  responseURL.substring(1);
-    String timeoutURL = "http://" + request.getServerName() + "?&t=authentication&c=login&errorMsg=Your session has been idle for more that 30 minutes, please log in again.";
-    n = (Navigation) session.getAttribute("navigation"); 
+    n = (Navigation) session.getAttribute("navigation");
     if (n==null) {
-      session = request.getSession(true);
-      response.sendRedirect(timeoutURL);
-      System.out.println("********************* still executing this damn thing *******************");
+      request.setAttribute("errorURL", "/rtables/post.jsp?"+request.getQueryString());
+      request.setAttribute("t", "authentication");
+      request.setAttribute("c", "login");
+      request.setAttribute("errorMsg", "You do not have an active session, please log in.");
+      getServletConfig().getServletContext().getContext("/").getRequestDispatcher(
+                response.encodeURL("/")).forward(request, response);
       return;
     }
     try {
@@ -48,10 +50,33 @@
       response.sendRedirect(Redirect_URL);
     }
     // get the authToken as a way to get userID's below
-    Authorization authToken = (Authorization)session.getValue("jiveAuthorization");
+      Authorization authToken = null;
+      com.topcoder.ejb.AuthenticationServices.User user = null;
+      String rtUser = "";
+      String rtPassword = "";
+      try {
+        user = n.getUser();
+        if ( n.getLoggedIn() ) {
+          rtUser =user.getHandle();
+          rtPassword =user.getPassword();
+        }
+      } catch( Exception e ) {
+        response.sendRedirect(Redirect_URL);
+        return;
+      }
+      AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
+      if(rtUser.equals("")){
+        authToken = authFactory.getAnonymousAuthorization();
+        session.setAttribute("jiveAuthorization",authToken);
+      }else{
+        authToken = authFactory.getAuthorization(rtUser,rtPassword);
+        session.setAttribute("jiveAuthorization",authToken);
+      }
+
     if (authToken.getUserID() == -1) {  //if it's an anonymous user, they can't post
       response.sendRedirect(Redirect_URL);
     }
+    System.out.println("query: " + request.getQueryString());
     // get parameters
     int forumID  = ParamUtils.getIntParameter(request,"forum",-1);
     int threadID = ParamUtils.getIntParameter(request,"thread",-1);
