@@ -494,7 +494,7 @@ public class TCLoadRound extends TCLoad {
             query.append(" LEFT OUTER JOIN submission s ");
             query.append(" ON cs.component_state_id = s.component_state_id");
             query.append(" LEFT OUTER JOIN compilation c ");
-            query.append(" ON ps.component_state_id = c.component_state_id");
+            query.append(" ON cs.component_state_id = c.component_state_id");
             query.append(" WHERE cs.round_id = ?");
             query.append("   AND cs.component_id = cm.component_id");
             query.append("   AND NOT EXISTS ");
@@ -1016,7 +1016,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,points) ");           // 14
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");
-            query.append("?,?,?,?,?,?,?)");         
+            query.append("?,?,?,?)");         
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1051,7 +1051,7 @@ public class TCLoadRound extends TCLoad {
             while (rs.next()) {
                 int problem_id = rs.getInt(1);
                 int round_id = rs.getInt(2);
-                int division_id = rs.getInt(16);
+                int division_id = rs.getInt(13);
 
                 psSel2.clearParameters();
                 psSel2.setInt(1, problem_id);
