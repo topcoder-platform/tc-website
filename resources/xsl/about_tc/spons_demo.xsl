@@ -95,7 +95,7 @@
 					<!--top inner table-->
 					<TABLE WIDTH="75%" BORDER="1" CELLPADDING="4" CELLSPACING="0" BACKGROUND="/i/steel_gray_bg.gif">
 					<TR><TD ALIGN="left" CLASS="statText">Overall, members are the biggest driving force behind new membership in TopCoder, with <SPAN CLASS="statTextBig">word of mouth accounting for over 27&#37;</SPAN> of weekly new membership. 
-					Emails forwarded from Faculty accounts for more than 12&#37; of weekly growth.<BR/><BR/>Competition is the primary interest of both the student &#40;57&#37;&#41; and professional &#40;71&#37;&#41; demographic in comparison to cash prizes and employment opportunities.</TD></TR>
+					Emails forwarded from Faculty accounts for more than 8&#37; of weekly growth.<BR/><BR/>Competition is the primary interest of both the student &#40;57&#37;&#41; and professional &#40;71&#37;&#41; demographic in comparison to cash prizes and employment opportunities.</TD></TR>
 					</TABLE></DIV>
 					<DIV ALIGN="center"><BR/><BR/>
 					<TABLE WIDTH="75%" BORDER="0" CELLPADDING="4" CELLSPACING="0" BACKGROUND="/i/steel_gray_bg.gif">
@@ -107,14 +107,14 @@
 					<TR>
 						<TD ALIGN="left" WIDTH="47%" VALIGN="top" CLASS="statText">
 						<B>Industry Influence</B><BR/>
-						27&#37;&#32;&#32;recommend technology direction and product purchasing for their organization.<BR/><BR/>
-						19&#37;&#32;&#32;of professional member's organizations spend &#36;10 million or more annually on Information Technology.<BR/><BR/>
+						26&#37;&#32;&#32;recommend technology direction and product purchasing for their organization.<BR/><BR/>
+						18&#37;&#32;&#32;of professional member's organizations spend &#36;10 million or more annually on Information Technology.<BR/><BR/>
 						<B>Primary Interest</B><BR/>
-						67&#37;&#32;&#32;are focused on Software Development both personally and professionally. Game Software Development, Networking and Web are other primary interests.<BR/><BR/>
+						66&#37;&#32;&#32;are focused on Software Development both personally and professionally. Game Software Development, Networking and Web are other primary interests.<BR/><BR/>
 						<B>Industry Representation</B><UL>
 						<LI>64&#37;&#32;&#32;Computers - Software</LI>
 						<LI>10&#37;&#32;&#32;Computers - Consulting</LI>
-						<LI>4&#37;&#32;&#32;&#32;Computers - Networking</LI>
+						<LI>3&#37;&#32;&#32;&#32;Computers - Networking</LI>
 						<LI>3&#37;&#32;&#32;&#32;Systems Software Development</LI></UL>
 						<B>Company Position</B><UL>
 						<LI>41&#37;&#32;&#32;Application Developer</LI>
@@ -125,15 +125,15 @@
 						<TD ALIGN="center" WIDTH="6%" VALIGN="top" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 						<TD ALIGN="left" WIDTH="47%" VALIGN="top" CLASS="statText">
 						<B>School Penetration</B><BR/>
-						TopCoder's student membership represents 618 schools with an average of 9 members at each school.<BR/><BR/>
+						TopCoder's student membership represents 633 schools with an average of 9 members at each school.<BR/><BR/>
 						<B>Top Five Schools</B><BR/>(by member count)<UL>
 						<LI>U. of Mich. Ann Arbor - 166</LI>
-						<LI>MIT - 150</LI>
-						<LI>Virginia Tech - 125</LI>
-						<LI>U. of Texas Austin - 115</LI>
-						<LI>Georgia Tech - 103</LI></UL>
+						<LI>MIT - 157</LI>
+						<LI>Virginia Tech - 126</LI>
+						<LI>U. of Texas Austin - 117</LI>
+						<LI>Georgia Tech - 107</LI></UL>
 						<B>Education to Workforce</B><UL>
-						<LI>32&#37;&#32;&#32;planned 2002 graduates</LI>
+						<LI>31&#37;&#32;&#32;planned 2002 graduates</LI>
 						<LI>27&#37;&#32;&#32;planned 2003 graduates</LI>
 						<LI>21&#37;&#32;&#32;planned 2004 graduates</LI></UL>
 						<B>Degree Concentration</B><UL>
