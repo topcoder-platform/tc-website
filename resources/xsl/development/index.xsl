@@ -118,14 +118,14 @@
                 <tr valign="top">
                     <td class="bodyText">
                         <p align="left"><font size="3"><strong>Review Boards</strong></font><br/>
-                        <a href="/tc?module=Static&amp;d1=review_board&amp;d2=design"><img src="/i/development/review.gif" alt="" width="165" height="95" border="0" align="right" /></a>
+                        <a href="/tc?module=ReviewBoard&amp;ph=112"><img src="/i/development/review.gif" alt="" width="165" height="95" border="0" align="right" /></a>
                        	Highly rated and experienced TopCoder members fill the ranks of the Architecture and Development Review Board. 
                        	The Architecture Review Board members screen and review all design submissions to ensure the components meet 
                        	the functional requirements, are documented properly and contain the appropriate sequence, use case and class 
                        	diagrams. The Development Review Board members verify that each development submission meets the required 
                        	functionality, coding style, adheres to the component design and contains a suitable test suite.</p>
                         
-                        <p><a href="/tc?module=Static&amp;d1=review_board&amp;d2=design">Meet</a> the TopCoder Review Board members.</p>
+                        <p><a href="/tc?module=ReviewBoard&amp;ph=112">Meet</a> the TopCoder Review Board members.</p>
                     </td>
                 </tr>
             </table>

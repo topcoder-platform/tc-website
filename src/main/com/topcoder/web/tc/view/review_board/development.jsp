@@ -47,8 +47,8 @@
                 <tr>
                     <td width="49%"></td>
 <%--         <td height="42"><A href="/tc?module=Static&amp;d1=review_board&amp;d2=competition"  target="_top"><img src="/i/promos/competition_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>--%>
-                    <td height="42"><A href="/tc?module=Static&amp;d1=review_board&amp;d2=design"  target="_top"><img src="/i/promos/design_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
-                    <td height="42""><A href="/tc?module=Static&amp;d1=review_board&amp;d2=development"  target="_top"><img src="/i/promos/development_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
+                    <td height="42"><A href="/tc?module=ReviewBoard&ph=112"  target="_top"><img src="/i/promos/design_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
+                    <td height="42"><A href="/tc?module=ReviewBoard&ph=113"  target="_top"><img src="/i/promos/development_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
                     <td width="49%"></td>
                 </tr>
             </table>
