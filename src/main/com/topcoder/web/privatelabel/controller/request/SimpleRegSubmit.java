@@ -194,7 +194,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
     }
 
     /**
-     * Store all teh data in the database.  This method is called within a transaction by the commit
+     * Store all the data in the database.  This method is called within a transaction by the commit
      * method.  Everything that is transactional should be done in here.
      * @param regInfo
      * @return
