@@ -18,6 +18,7 @@ public class Constants {
     //pages
     public static String REGISTRATION_PAGE;
     public static String REGISTRATION_CONFIRM_PAGE;
+    public static String DEFAULT_PAGE;
 
     //parameter keys
     public static String HANDLE;
@@ -34,6 +35,7 @@ public class Constants {
     public static String CITY;
     public static String ZIP;
     public static String MODULE_KEY;
+    public static String STATIC_PREFIX;
 
     //rules
     public static int MAX_PASSWORD_LENGTH;

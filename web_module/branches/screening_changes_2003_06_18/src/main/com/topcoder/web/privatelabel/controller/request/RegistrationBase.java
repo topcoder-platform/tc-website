@@ -42,7 +42,7 @@ abstract class RegistrationBase extends BaseProcessor {
         //check password
         if (info.getPassword().length() > Constants.MAX_PASSWORD_LENGTH ||
                 info.getPassword().length() < Constants.MIN_PASSWORD_LENGTH) {
-            addError(Constants.HANDLE, "Your password must contain between " +
+            addError(Constants.PASSWORD, "Your password must contain between " +
                     Constants.MIN_PASSWORD_LENGTH + " and " + Constants.MAX_PASSWORD_LENGTH + " characters.");
         }
         if (!info.getPassword().equals(info.getPasswordConfirm())) {
@@ -51,7 +51,7 @@ abstract class RegistrationBase extends BaseProcessor {
 
         //check email
         if (info.getEmail().length() > Constants.MAX_EMAIL_LENGTH) {
-            addError(Constants.HANDLE, "Your password must be between at most " +
+            addError(Constants.EMAIL, "Your password must be between at most " +
                     Constants.MAX_EMAIL_LENGTH + " characters.");
         }
         StringTokenizer st = new StringTokenizer(info.getEmail(), "@.");

@@ -16,7 +16,7 @@
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>
-            <param-value>Registration</param-value>
+            <param-value>Static</param-value>
             <description>the processor to execute if non is specified in the request</description>
         </init-param>
 <!--
@@ -58,6 +58,12 @@
             <param-value>/reg/registrationConfirm.jsp</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>default_page</param-name>
+            <param-value>/index.jsp</param-value>
+            <description></description>
+        </init-param>
+
 
         <!-- parameter keys -->
         <init-param>
