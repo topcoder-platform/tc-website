@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.03.05<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena">Prof. Steven Skiena to speak at TCCC05</A></span><br><br>
+      The well-known author and algorist Prof. Steven Skiena will be featured presenter at the TCCC05 finals!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.16.05<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_16_05">NVIDIA Corporation Returns as Premier Sponsor of 2005 TCCC</A></span><br><br>
       NVIDIA sponsors their fifth consecutive TC tournament.
