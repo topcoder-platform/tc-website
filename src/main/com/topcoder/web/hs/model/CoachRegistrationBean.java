@@ -5,198 +5,182 @@ import java.util.*;
 
 public class CoachRegistrationBean implements Serializable {
 
-  private Long user_id=null;
+    private Long userId = null;
+    private String firstName = null;
+    private String lastName = null;
+    private String stateCode = null;
+    private Long schoolId = null;
+    private String handle = null;
+    private boolean changePassword = false;
+    private String password = null;
+    private String confirmPassword = null;
+    private String email = null;
+    private String confirmEmail = null;
+    private Integer editorId = null;
+    private Integer languageId = null;
+    private boolean agreeTerms = false;
+    private List stateList = null;
+    private List schoolList = null;
+    private List editorList = null;
+    private List languageList = null;
+    private String termsOfUse = null;
 
-  private String first_name=null;
+    public CoachRegistrationBean() {
+        /* do nothing */
+    }
 
-  private String last_name=null;
+    public Long getUserId() {
+        return (userId);
+    }
 
-  private String state_code=null;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
-  private Long school_id=null;
+    public String getFirstName() {
+        return (firstName);
+    }
 
-  private String handle=null;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-  private boolean change_password=false;
+    public String getLastName() {
+        return (lastName);
+    }
 
-  private String password=null;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-  private String confirm_password=null;
+    public String getStateCode() {
+        return (stateCode);
+    }
 
-  private String email=null;
+    public void setStateCode(String stateCode) {
+        this.stateCode = stateCode;
+    }
 
-  private String confirm_email=null;
+    public Long getSchoolId() {
+        return (schoolId);
+    }
 
-  private Integer editor_id=null;
+    public void setSchoolId(Long schoolId) {
+        this.schoolId = schoolId;
+    }
 
-  private Integer language_id=null;
+    public String getHandle() {
+        return (handle);
+    }
 
-  private boolean agree_terms=false;
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
 
-  private List state_list=null;
+    public boolean getChangePassword() {
+        return (changePassword);
+    }
 
-  private List school_list=null;
+    public void setChangePassword(boolean changePassword) {
+        this.changePassword = changePassword;
+    }
 
-  private List editor_list=null;
+    public String getPassword() {
+        return (password);
+    }
 
-  private List language_list=null;
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  private String terms_of_use=null;
+    public String getConfirmPassword() {
+        return (confirmPassword);
+    }
 
-  public CoachRegistrationBean() {
-    /* do nothing */
-  }
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
-  public Long getUserId() {
-    return(user_id);
-  }
+    public String getEmail() {
+        return (email);
+    }
 
-  public void setUserId(Long _user_id) {
-    user_id=_user_id;
-  }
+    public void setEmail(String _email) {
+        email = _email;
+    }
 
-  public String getFirstName() {
-    return(first_name);
-  }
+    public String getConfirmEmail() {
+        return (confirmEmail);
+    }
 
-  public void setFirstName(String _first_name) {
-    first_name=_first_name;
-  }
+    public void setConfirmEmail(String confirmEmail) {
+        this.confirmEmail = confirmEmail;
+    }
 
-  public String getLastName() {
-    return(last_name);
-  }
+    public Integer getEditorId() {
+        return (editorId);
+    }
 
-  public void setLastName(String _last_name) {
-    last_name=_last_name;
-  }
+    public void setEditorId(Integer editorId) {
+        this.editorId = editorId;
+    }
 
-  public String getStateCode() {
-    return(state_code);
-  }
+    public Integer getLanguageId() {
+        return (languageId);
+    }
 
-  public void setStateCode(String _state_code) {
-    state_code=_state_code;
-  }
+    public void setLanguageId(Integer languageId) {
+        this.languageId = languageId;
+    }
 
-  public Long getSchoolId() {
-    return(school_id);
-  }
+    public boolean getAgreeTerms() {
+        return (agreeTerms);
+    }
 
-  public void setSchoolId(Long _school_id) {
-    school_id=_school_id;
-  }
+    public void setAgreeTerms(boolean agreeTerms) {
+        this.agreeTerms = agreeTerms;
+    }
 
-  public String getHandle() {
-    return(handle);
-  }
+    public List getStateList() {
+        return (stateList);
+    }
 
-  public void setHandle(String _handle) {
-    handle=_handle;
-  }
+    public void setStateList(List stateList) {
+        this.stateList = stateList;
+    }
 
-  public boolean getChangePassword() {
-    return(change_password);
-  }
+    public List getSchoolList() {
+        return (schoolList);
+    }
 
-  public void setChangePassword(boolean _change_password) {
-    change_password=_change_password;
-  }
+    public void setSchoolList(List schoolList) {
+        this.schoolList = schoolList;
+    }
 
-  public String getPassword() {
-    return(password);
-  }
+    public List getEditorList() {
+        return (editorList);
+    }
 
-  public void setPassword(String _password) {
-    password=_password;
-  }
+    public void setEditorList(List editorList) {
+        this.editorList = editorList;
+    }
 
-  public String getConfirmPassword() {
-    return(confirm_password);
-  }
+    public List getLanguageList() {
+        return (languageList);
+    }
 
-  public void setConfirmPassword(String _confirm_password) {
-    confirm_password=_confirm_password;
-  }
+    public void setLanguageList(List languageList) {
+        this.languageList = languageList;
+    }
 
-  public String getEmail() {
-    return(email);
-  }
+    public String getTermsOfUse() {
+        return (termsOfUse);
+    }
 
-  public void setEmail(String _email) {
-    email=_email;
-  }
+    public void setTermsOfUse(String termsOfUse) {
+        this.termsOfUse = termsOfUse;
+    }
 
-  public String getConfirmEmail() {
-    return(confirm_email);
-  }
+}
 
-  public void setConfirmEmail(String _confirm_email) {
-    confirm_email=_confirm_email;
-  }
-
-  public Integer getEditorId() {
-    return(editor_id);
-  }
-
-  public void setEditorId(Integer _editor_id) {
-    editor_id=_editor_id;
-  }
-
-  public Integer getLanguageId() {
-    return(language_id);
-  }
-
-  public void setLanguageId(Integer _language_id) {
-    language_id=_language_id;
-  }
-
-  public boolean getAgreeTerms() {
-    return(agree_terms);
-  }
-
-  public void setAgreeTerms(boolean _agree_terms) {
-    agree_terms=_agree_terms;
-  }
-
-  public List getStateList() {
-    return(state_list);
-  }
-
-  public void setStateList(List _state_list) {
-    state_list=_state_list;
-  }
-
-  public List getSchoolList() {
-    return(school_list);
-  }
-
-  public void setSchoolList(List _school_list) {
-    school_list=_school_list;
-  }
-
-  public List getEditorList() {
-    return(editor_list);
-  }
-
-  public void setEditorList(List _editor_list) {
-    editor_list=_editor_list;
-  }
-
-  public List getLanguageList() {
-    return(language_list);
-  }
-
-  public void setLanguageList(List _language_list) {
-    language_list=_language_list;
-  }
-
-  public String getTermsOfUse() {
-    return(terms_of_use);
-  }
-
-  public void setTermsOfUse(String _terms_of_use) {
-    terms_of_use=_terms_of_use;
-  }
-
-};
+;
