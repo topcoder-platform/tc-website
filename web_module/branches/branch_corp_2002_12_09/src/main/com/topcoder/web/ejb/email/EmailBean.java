@@ -81,13 +81,15 @@ public class EmailBean implements SessionBean {
                 IdGenerator.init(
                                  new SimpleDB(),
                                  (DataSource)ctx.lookup((String)
-                                 ctx.lookup("java:comp/env/datasource_name")),
-                                 "sequence_object",
-                                 "name",
-                                 "current_value",
-                                 9999999999L,
-                                 1,
-                                 true);
+                                 ctx.lookup(
+                                     "java:comp/env/idgen_datasource_name")),
+                                    "sequence_object",
+                                    "name",
+                                    "current_value",
+                                    9999999999L,
+                                    1,
+                                    true
+                                 );
             }
 
             ret = IdGenerator.nextId("EMAIL_SEQ");
@@ -229,14 +231,12 @@ public class EmailBean implements SessionBean {
     /**
      *
      *
-     * @param userId user ID of the entry
      * @param emailId email ID of the entry
      *
      * @return a long with the entry's email type ID
      */
-     public long getEmailTypeId(long userId, long emailId) {
-        log.debug("getEmailTypeId called...user_id: " + userId +
-                  " email_id: " + emailId);
+     public long getEmailTypeId(long emailId) {
+        log.debug("getEmailTypeId called...email_id: " + emailId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -252,9 +252,8 @@ public class EmailBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT email_type_id FROM email " +
-                                       "WHERE user_id = ? AND email_id = ?");
-            ps.setLong(1, userId);
-            ps.setLong(2, emailId);
+                                       "WHERE email_id = ?");
+            ps.setLong(1, emailId);
 
             rs = ps.executeQuery();
 
@@ -311,14 +310,12 @@ public class EmailBean implements SessionBean {
     /**
      *
      *
-     * @param userId user ID of the entry
      * @param emailId email ID of the entry
      *
      * @return a String with the entry's address
      */
-    public String getAddress(long userId, long emailId) {
-        log.debug("getAddress called...user_id: " + userId + " email_id: " +
-                  emailId);
+    public String getAddress(long emailId) {
+        log.debug("getAddress called...email_id: " + emailId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -334,9 +331,8 @@ public class EmailBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address FROM email " +
-                                       "WHERE user_id = ? AND email_id = ?");
-            ps.setLong(1, userId);
-            ps.setLong(2, emailId);
+                                       "WHERE email_id = ?");
+            ps.setLong(1, emailId);
 
             rs = ps.executeQuery();
 
@@ -397,8 +393,8 @@ public class EmailBean implements SessionBean {
      * @param emailId email ID of entry to set
      * @param emailTypeId the email type ID to set to
      */
-    public void setEmailTypeId(long userId, long emailId, long emailTypeId) {
-        log.debug("setEmailTypeId called...userId: " + userId + " emailId: " +
+    public void setEmailTypeId(long emailId, long emailTypeId) {
+        log.debug("setEmailTypeId called...emailId: " +
                   emailId + " emailTypeId: " + emailTypeId);
 
         Context ctx = null;
@@ -413,10 +409,9 @@ public class EmailBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE email SET email_type_id = ?" +
-                                       "WHERE user_id = ? AND email_id = ?");
+                                       "WHERE email_id = ?");
             ps.setLong(1, emailTypeId);
-            ps.setLong(2, userId);
-            ps.setLong(3, emailId);
+            ps.setLong(2, emailId);
 
             int rows = ps.executeUpdate();
 
@@ -468,8 +463,8 @@ public class EmailBean implements SessionBean {
      * @param emailId email ID of entry to set
      * @param address the email address to set to
      */
-    public void setAddress(long userId, long emailId, String address) {
-        log.debug("setAddress called...userId: " + userId + " emailId: " +
+    public void setAddress(long emailId, String address) {
+        log.debug("setAddress called...emailId: " +
                   emailId + " address: " + address);
 
         Context ctx = null;
@@ -484,10 +479,9 @@ public class EmailBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE email SET address = ? " +
-                                       "WHERE user_id = ? AND email_id = ?");
+                                       "WHERE email_id = ?");
             ps.setString(1, address);
-            ps.setLong(2, userId);
-            ps.setLong(3, emailId);
+            ps.setLong(2, emailId);
 
             int rows = ps.executeUpdate();
 

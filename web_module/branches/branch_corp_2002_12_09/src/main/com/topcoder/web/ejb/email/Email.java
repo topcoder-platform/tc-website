@@ -34,7 +34,7 @@ public interface Email extends EJBObject {
      *
      * @see com.topcoder.web.ejb.email.EmailBean#getEmailTypeId
      */
-    long getEmailTypeId(long userId, long emailId)
+    long getEmailTypeId(long emailId)
                  throws RemoteException, EJBException;
 
     /**
@@ -42,7 +42,7 @@ public interface Email extends EJBObject {
      *
      * @see com.topcoder.web.ejb.email.EmailBean#getAddress
      */
-    String getAddress(long userId, long emailId)
+    String getAddress(long emailId)
                throws RemoteException, EJBException;
 
     /**
@@ -50,7 +50,7 @@ public interface Email extends EJBObject {
      *
      * @see com.topcoder.web.ejb.email.EmailBean#setEmailTypeId
      */
-    void setEmailTypeId(long userId, long emailId, long emailTypeId)
+    void setEmailTypeId(long emailId, long emailTypeId)
                  throws RemoteException, EJBException;
 
     /**
@@ -58,7 +58,7 @@ public interface Email extends EJBObject {
      *
      * @see com.topcoder.web.ejb.email.EmailBean#setAddress
      */
-    void setAddress(long userId, long emailId, String address)
+    void setAddress(long emailId, String address)
              throws RemoteException, EJBException;
 
     /**

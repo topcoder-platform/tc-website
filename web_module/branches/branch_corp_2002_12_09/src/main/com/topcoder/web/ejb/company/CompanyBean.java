@@ -81,13 +81,15 @@ public class CompanyBean implements SessionBean {
                 IdGenerator.init(
                                  new SimpleDB(),
                                  (DataSource)ctx.lookup((String)
-                                 ctx.lookup("java:comp/env/datasource_name")),
-                                 "sequence_object",
-                                 "name",
-                                 "current_value",
-                                 9999999999L,
-                                 1,
-                                 true);
+                                 ctx.lookup(
+                                    "java:comp/env/idgen_datasource_name")),
+                                    "sequence_object",
+                                    "name",
+                                    "current_value",
+                                    9999999999L,
+                                    1,
+                                    true
+                                );
             }
 
             ret = IdGenerator.nextId("COMPANY_SEQ");

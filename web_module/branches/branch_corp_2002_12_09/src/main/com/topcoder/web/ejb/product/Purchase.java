@@ -18,7 +18,8 @@ public interface Purchase extends EJBObject {
      *
      * @see com.topcoder.web.ejb.product.PurchaseBean#createPurchase
      */
-    long createPurchase(long companyId, long productId, long contactId, double sum)
+    long createPurchase(long companyId, long productId, long contactId,
+                        double paid)
                  throws RemoteException, EJBException;
 
     /**
@@ -95,4 +96,19 @@ public interface Purchase extends EJBObject {
      * @see com.topcoder.web.ejb.product.PurchaseBean#getEndDate
      */
     Date getEndDate(long purchaseId) throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.product.PurchaseBean#getPaid
+     */
+    long getPaid(long purchaseId) throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.product.PurchaseBean#setPaid
+     */
+    void setPaid(long purchaseId, double Paid)
+            throws RemoteException, EJBException;
 }

@@ -80,13 +80,15 @@ public class PhoneBean implements SessionBean {
                 IdGenerator.init(
                                  new SimpleDB(),
                                  (DataSource)ctx.lookup((String)
-                                 ctx.lookup("java:comp/env/datasource_name")),
-                                 "sequence_object",
-                                 "name",
-                                 "current_value",
-                                 9999999999L,
-                                 1,
-                                 true);
+                                 ctx.lookup(
+                                    "java:comp/env/idgen_datasource_name")),
+                                    "sequence_object",
+                                    "name",
+                                    "current_value",
+                                    9999999999L,
+                                    1,
+                                    true
+                                 );
             }
 
             ret = IdGenerator.nextId("PHONE_SEQ");
@@ -152,9 +154,8 @@ public class PhoneBean implements SessionBean {
      *
      * @return a long with the entry's phone type ID
      */
-    public long getPhoneTypeId(long userId, long phoneId) {
-        log.debug("getPhoneTypeId called...user_id: " + userId +
-                  " phone_id: " + phoneId);
+    public long getPhoneTypeId(long phoneId) {
+        log.debug("getPhoneTypeId called...phone_id: " + phoneId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -170,9 +171,8 @@ public class PhoneBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT phone_type_id FROM phone " +
-                                       "WHERE user_id = ? AND phone_id = ?");
-            ps.setLong(1, userId);
-            ps.setLong(2, phoneId);
+                                       "WHERE phone_id = ?");
+            ps.setLong(1, phoneId);
 
             rs = ps.executeQuery();
 
@@ -312,9 +312,8 @@ public class PhoneBean implements SessionBean {
      *
      * @return a long with the entry's phone number
      */
-    public String getNumber(long userId, long phoneId) {
-        log.debug("getNumber called...user_id: " + userId + " phone_id: " +
-                  phoneId);
+    public String getNumber(long phoneId) {
+        log.debug("getNumber called...phone_id: " + phoneId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -330,7 +329,7 @@ public class PhoneBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT phone_number FROM phone " +
-                                       "WHERE user_id = ? AND phone_id = ?");
+                                       "WHERE phone_id = ?");
             ps.setLong(1, userId);
             ps.setLong(2, phoneId);
 
@@ -393,8 +392,8 @@ public class PhoneBean implements SessionBean {
      * @param phoneId phone ID of entry to set
      * @param phoneTypeId the phone type ID to set to
      */
-    public void setPhoneTypeId(long userId, long phoneId, long phoneTypeId) {
-        log.debug("setPhoneTypeId called...userId: " + userId + " phoneId: " +
+    public void setPhoneTypeId(long phoneId, long phoneTypeId) {
+        log.debug("setPhoneTypeId called...phoneId: " +
                   phoneId + " phoneTypeId: " + phoneTypeId);
 
         Context ctx = null;
@@ -409,10 +408,9 @@ public class PhoneBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE phone SET phone_type_id = ? " +
-                                       "WHERE user_id = ? AND phone_id = ?");
+                                       "WHERE phone_id = ?");
             ps.setLong(1, phoneTypeId);
-            ps.setLong(2, userId);
-            ps.setLong(3, phoneId);
+            ps.setLong(2, phoneId);
 
             int rows = ps.executeUpdate();
 
@@ -464,8 +462,8 @@ public class PhoneBean implements SessionBean {
      * @param phoneId phone ID of entry to set
      * @param phoneTypeId the phone number to set to
      */
-    public void setNumber(long userId, long phoneId, String number) {
-        log.debug("setNumber called...userId: " + userId + " phoneId: " +
+    public void setNumber(long phoneId, String number) {
+        log.debug("setNumber called...phoneId: " +
                   phoneId + " number: " + number);
 
         Context ctx = null;
@@ -480,10 +478,9 @@ public class PhoneBean implements SessionBean {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE phone SET phone_number = ? " +
-                                       "WHERE user_id = ? AND phone_id = ?");
+                                       "WHERE phone_id = ?");
             ps.setString(1, number);
-            ps.setLong(2, userId);
-            ps.setLong(3, phoneId);
+            ps.setLong(2, phoneId);
 
             int rows = ps.executeUpdate();
 

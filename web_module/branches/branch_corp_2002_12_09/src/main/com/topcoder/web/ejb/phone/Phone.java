@@ -24,7 +24,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#getPhoneTypeId
      */
-    long getPhoneTypeId(long userId, long phoneId)
+    long getPhoneTypeId(long phoneId)
                  throws RemoteException, EJBException;
 
     /**
@@ -41,7 +41,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#getNumber
      */
-    String getNumber(long userId, long phoneId)
+    String getNumber(long phoneId)
               throws RemoteException, EJBException;
 
     /**
@@ -49,7 +49,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#setPhoneTypeId
      */
-    void setPhoneTypeId(long userId, long phoneId, long phoneTypeId)
+    void setPhoneTypeId(long phoneId, long phoneTypeId)
                  throws RemoteException, EJBException;
 
     /**
@@ -57,7 +57,7 @@ public interface Phone extends EJBObject {
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#setNumber
      */
-    void setNumber(long userId, long phoneId, String number)
+    void setNumber(long phoneId, String number)
             throws RemoteException, EJBException;
 
     /**
