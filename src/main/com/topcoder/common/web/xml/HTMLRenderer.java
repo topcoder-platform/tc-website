@@ -18,7 +18,6 @@ public class HTMLRenderer {
 
     /**
      * Use the provided XML and file to generate html.
-     * Note that cacheKey is not used.
      */
     public String render(XMLDocument xmldocObject, String xsldocURLString, String cacheKey)
             throws TCException {
@@ -36,6 +35,7 @@ public class HTMLRenderer {
             return baos.toString();
 
         } catch (Exception e) {
+            e.printStackTrace();
             throw new TCException("ejb.HTMLRenderer.HTMLRendererBean:render:ERROR:\n" + e);
         }
     }
