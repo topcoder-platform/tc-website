@@ -528,6 +528,27 @@
         <copy file="${informixinit.sar}" todir="${jboss.deploy.dir}"/>
     </target>
 
+    <target name="deploy-expanded" depends="dist">
+        <copy file="${configdir}/jboss/informix-service.xml" todir="${jboss.deploy.dir}"/>
+        <copy file="${configdir}/jboss/log4j.xml" todir="${jboss.default.dir}/conf"/>
+        <mkdir dir="${jboss.conf.dir}/${security.dir}"/>
+        <mkdir dir="${jboss.conf.dir}/${upload.dir}"/>
+        <copy file="${informixinit.sar}" todir="${jboss.deploy.dir}"/>
+
+        <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
+        <unjar src="${dde.ear}" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
+
+        <delete file="${jboss.deploy.dir}/dde.ear/dde.war" quiet="false"/>
+        <delete dir="${jboss.deploy.dir}/dde.ear/dde.war" quiet="false"/>
+        <mkdir dir="${jboss.deploy.dir}/dde.ear/dde.war"/>
+        <unwar src="${dde.war}" dest="${jboss.deploy.dir}/dde.ear/dde.war" overwrite="yes"/>
+
+        <delete file="${jboss.deploy.dir}/dde.ear/review.war" quiet="false"/>
+        <delete dir="${jboss.deploy.dir}/dde.ear/review.war" quiet="false"/>
+        <mkdir dir="${jboss.deploy.dir}/dde.ear/review.war"/>
+        <unwar src="${onlinereview.war}" dest="${jboss.deploy.dir}/dde.ear/review.war" overwrite="yes"/>
+    </target>
+
 
     <target name="dev-deploy" depends="dev-dist">
         <copy file="${dde.ear}" todir="${jboss.deploy.dir}"/>
