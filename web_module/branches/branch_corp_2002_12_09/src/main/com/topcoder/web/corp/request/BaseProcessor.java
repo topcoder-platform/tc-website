@@ -42,22 +42,26 @@ public abstract class BaseProcessor implements RequestProcessor {
         //
     }
 
-    /**
-     * Returns the next page to go to.  just a placeholder for now and should 
-     * be overridden by exteneded classes.  Not sure if null is a good default
-     * to return.  (will Check into this)
-     */
-    public String getNextPage() {
-        return null;
-    }
+//    /**
+//     * Returns the next page to go to.  just a placeholder for now and should 
+//     * be overridden by exteneded classes.  Not sure if null is a good default
+//     * to return.  (will Check into this)
+//     */
+//    public String getNextPage() {
+//        return null;
+//    }
 
-    public boolean isNextPageInContext() {
-        return pageInContext;
-    }
+	/**
+	 * @see com.topcoder.web.common.RequestProcessor#isNextPageInContext()
+	 */
+	public boolean isNextPageInContext() {
+		return isNextPageInContext();
+	}
 
-    protected void setIsNextPageInContext(boolean flag) {
-        pageInContext = flag;
-    }
+//
+//    protected void setIsNextPageInContext(boolean flag) {
+//        pageInContext = flag;
+//    }
 
     /**
      * Stores given request inside for further processing
@@ -78,17 +82,4 @@ public abstract class BaseProcessor implements RequestProcessor {
      * 
      */
     abstract void businessProcessing() throws Exception;  
-
-
-
-//    /**
-//     * Populates 'where-to-go' request's attribute with given value. It is only
-//     * to get stubs working.
-//     * 
-//     * @param contentLocation determines where real content file is located
-//     */
-//    protected void setContentTag(String contentLocation) {
-//        request.setAttribute("where-to-go", contentLocation);
-//    }
-
 }
