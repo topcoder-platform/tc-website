@@ -1,45 +1,27 @@
 <?xml version="1.0"?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-
   <xsl:import href="../includes/modules/srm_dates.xsl"/>
-
   <xsl:import href="../includes/modules/common_questions.xsl"/>
-
   <xsl:import href="../includes/modules/tc_updates.xsl"/>
-
   <xsl:import href="../includes/modules/last_srm.xsl"/>
-
   <xsl:import href="../includes/modules/quick_stats_pulldown.xsl"/>
-
   <xsl:import href="../includes/modules/quick_stats_tidbit.xsl"/>
-
   <xsl:import href="../includes/modules/countries.xsl"/>    
-
   <xsl:import href="../includes/modules/coder_week.xsl"/>
-
   <xsl:import href="../includes/modules/top_10_coders.xsl"/>
-
   <xsl:import href="../includes/modules/round_table.xsl"/>
-
   <xsl:import href="../includes/modules/practice_room.xsl"/>
-
   <xsl:import href="../includes/modules/module_login.xsl"/>
-
   <xsl:import href="../includes/modules/arena.xsl"/>  
-
   <xsl:import href="../includes/modules/calendar.xsl"/>  
-
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
-
   <xsl:template name="PublicBody">
-
 <!-- Body Begins -->
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
 
   <TR>
-
     <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/><BR/>
 
       <!-- SRM Promo Begins -->
@@ -182,7 +164,7 @@
 
         </TR>
   <TR>
-    <TD VALIGN="top" COLSPAN="4" WIDTH="100%" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/><IMG SRC="/i/label_tourney_breakdown.gif" ALT="" WIDTH="220" HEIGHT="26" BORDER="0"/></TD>
+    <TD VALIGN="middle" COLSPAN="4" WIDTH="100%" ALIGN="left" BGCOLOR="#FFFFFF"><!-- <FONT SIZE="4" COLOR="#093158" FACE="tahoma, verdana"><B>&#160;&#160;&#160;&#160;2002 TopCoder Collegiate Challenge</B></FONT><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/> --><IMG SRC="/i/label_2002tccc.gif" ALT="" WIDTH="300" HEIGHT="26" BORDER="0" VSPACE="3"/></TD>
     <!-- <TD VALIGN="top" WIDTH="33%" COLSPAN="2" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="33%" COLSPAN="3" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/steelblue_top_left2.gif" ALT="" WIDTH="75" HEIGHT="26" BORDER="0"/></TD> -->
   </TR>        
@@ -203,55 +185,76 @@
   </TR> 
 </TABLE> -->
 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif">   
-  <TR>
-    <TD VALIGN="top" align="center"><A HREF="/?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/sunsemi1_sm.gif" ALT="" WIDTH="267" HEIGHT="161" BORDER="0" VSPACE="5"/><IMG SRC="/i/sunsemi2_sm.gif" ALT="" WIDTH="217" HEIGHT="161" BORDER="0" VSPACE="5"/></A></TD>
-    <!-- <TD VALIGN="top" COLSPAN="2" ALIGN="left" BGCOLOR="#FFFFFF"></TD> -->
-  </TR> 
-</TABLE>
 
-<!-- Favs, Cinder, Who to Watch --> 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif">  
-  <!-- <TR>  
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" COLSPAN="9" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-  </TR> -->
+<!-- breakdown blurb --> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">   
   <TR>  
-    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="2" BORDER="0"/></TD>    
-  </TR>   
-  <TR>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="26" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="33%" ALIGN="left" CLASS="statText"><DIV><A HREF="/index?t=statistics&amp;c=2002tccc_favs"><IMG SRC="/i/tourny_badge_favs.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
-    <IMG SRC="/i/m/dmwright_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="8" VSPACE="1" ALIGN="left"/>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114853" CLASS="coderTextRed">dmwright</A><BR/>
-The big cheese.  The head honcho.  The top gun.  The dictionary defines a favorite as "a competitor judged most likely to win".  And win is exactly what the favorites have done so far in their TopCoder careers, as all of the favorites are among the top-25 in all-time room wins.  Let's take a deeper look at the four coders who have earned the distinction as favorites...<A HREF="/?t=statistics&amp;c=2002tccc_favs" CLASS="statText">full&#160;story</A>
-</TD>
-    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="1" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="33%"  ALIGN="left" CLASS="statText"><DIV><A HREF="/index?t=statistics&amp;c=2002tccc_cind"><IMG SRC="/i/tourny_badge_cind.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
-    <IMG SRC="/i/m/ante_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="8" VSPACE="1" ALIGN="left"/>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=264869" CLASS="coderTextYellow">ante</A><BR/>
-Every competition has them.  The 1980 "Miracle on Ice" US Mens Ice Hockey Team, Buster Douglas, Rocky Balboa, the New England Patriots, and most recently Sarah Hughes.  They're what make tournaments fun, interesting and compelling. They also provide a ton of emotional drama.  It's the American way; everyone loves the underdog...<A HREF="/?t=statistics&amp;c=2002tccc_cind" CLASS="statText">full&#160;story</A>
-</TD>
-    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="1" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="33%" ALIGN="left" CLASS="statText"><DIV><A HREF="/index?t=statistics&amp;c=2002tccc_eyeon"><IMG SRC="/i/tourny_badge_eyeon.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
-    <IMG SRC="/i/m/milhouse_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="8" VSPACE="1" ALIGN="left"/>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=154089" CLASS="coderTextRed">milhouse</A><BR/>    
-These are the coders that the top-seeds fear the most.  They are either TopCoder veterans, TopCoder tournament tested, those who had outstanding performances with top scores in the Regional Quarterfinals and/or Regional Semifinals, or all of the above...<A HREF="/?t=statistics&amp;c=2002tccc_eyeon" CLASS="statText">full&#160;story</A></TD>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>    
+     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+     <TD VALIGN="top" COLSPAN="7" BGCOLOR="#44515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>     
+     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+  <TR>  
+     <TD VALIGN="top" COLSPAN="9" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="40%" CLASS="bodyText" NOWRAP="0">
+
+<A HREF="/?t=statistics&amp;c=2002tccc_breakdown"><FONT SIZE="3" COLOR="#CC0000" FACE="tahoma, verdana"><B>Tournament&#160;Breakdown</B></FONT></A>
+
+<DIV ALIGN="center"><IMG SRC="/i/02tccc_logow_sm.gif" ALT="" WIDTH="96" HEIGHT="74" BORDER="0"/></DIV>
+
+<B>Semifinals/Championship</B><BR/>
+Location: University Park Hotel &#64; MIT<BR/>
+When: Friday, April 19th and Saturday, April 20th<BR/>
+Check back here for updates!<BR/>
+
+<P>
+<!-- <A HREF="/?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">Click here</A> to view tournament room 
+assignments as well as "The Favorites", "The Cinderellas" and who to "Keep Your Eye On". -->
+<UL>
+	<LI><A HREF="/?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">Semifinals Breakdown</A></LI>
+	<LI><A HREF="/?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">Room Assignments</A></LI>
+	<LI><A HREF="/?t=statistics&amp;c=2002tccc_favs" CLASS="bodyText">Favorites</A></LI>
+	<LI><A HREF="/?t=statistics&amp;c=2002tccc_cind" CLASS="bodyText">Cinderellas</A></LI>
+	<LI><A HREF="/?t=statistics&amp;c=2002tccc_eyeon" CLASS="bodyText">Keep Your Eye On...</A></LI>
+</UL>
+</P>
+    </TD>
+    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" BGCOLOR="#44515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="60%" CLASS="bodyText">
+<P><FONT SIZE="3" COLOR="#000000" FACE="tahoma, verdana"><B>Sun Technical Presentation</B></FONT></P>
+<P>
+Sun will be presenting on J2ME, Java &amp; XML,
+Java &amp; LOGO, and the <A HREF="/i/sun_redir.html" CLASS="bodyText" target="_blank">STAR program</A>.</P>
+
+<P>
+<B>Attendance:</B>
+<UL>
+	<LI>Open to members only</LI>
+	<LI>Saturday, April 20th</LI>
+	<LI>9:00am - 11:30am</LI>
+	<LI>University Park Hotel &#64; MIT</LI>
+	<LI>Limited seating</LI>
+	<LI><A HREF="mailto:tccc_sun@topcoder.com?subject=Seating at Sun Presentation" CLASS="bodyText">Contact us</A> for seating</LI>
+</UL></P>     
+    </TD>    
+    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
   </TR>
   <TR>  
-    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="15" BORDER="0"/></TD>    
-  </TR>    
-</TABLE>
-     
-
-     
-
+     <TD VALIGN="top" COLSPAN="9" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
+  </TR>  
+  <TR>  
+     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+     <TD VALIGN="top" COLSPAN="7" BGCOLOR="#44515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>     
+     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
+  <TR>  
+     <TD VALIGN="top" COLSPAN="9" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
+  </TR>     
+</TABLE> 
     <!-- Last SRM Begins --> 
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
@@ -493,21 +496,21 @@ These are the coders that the top-seeds fear the most.  They are either TopCoder
         </TR> -->                
         <TR>
           <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">&#160;&#160;&#160;1st.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1570.58</TD>  
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">2</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1152.03</TD>  
         </TR>    
         <TR>
           <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="12">2nd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="coderTextYellow">Zaen</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">6</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1453.35</TD>
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1130.16</TD>
         </TR>
         <TR>
           <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">3rd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=262902" CLASS="coderTextYellow">ZandMaster</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">7</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1447.96</TD>
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=151360" CLASS="coderTextYellow">buddh4sack</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">8</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">580.93</TD>
         </TR>
 
         <TR>
@@ -604,21 +607,21 @@ These are the coders that the top-seeds fear the most.  They are either TopCoder
 
         <TR>
           <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">&#160;&#160;&#160;1st.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">29</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1210.52</TD>  
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=274023" CLASS="coderTextBlue">venco</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">48</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1651.44</TD>  
         </TR>    
         <TR>
           <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="12">2nd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=272510" CLASS="coderTextBlue">C8H10N4O2</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">59</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1150.53</TD>
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=268010" CLASS="coderTextBlue">cem1834</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">26</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1651.01</TD>
         </TR>
         <TR>
           <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">3rd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=155869" CLASS="coderTextBlue">Kniht</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">30</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1146.03</TD>
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=262602" CLASS="coderTextBlue">infrared</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">27</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1649.46</TD>
         </TR>
 
         <TR>
