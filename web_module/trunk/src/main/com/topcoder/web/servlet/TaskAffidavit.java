@@ -135,6 +135,7 @@ public final class TaskAffidavit {
             log.error("TaskAffidavit error" + ne);
             throw ne;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new NavigationException("TaskAffidavit error", TCServlet.INTERNAL_ERROR_PAGE);
         }
         return result;
