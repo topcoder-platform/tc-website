@@ -72,6 +72,14 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Order_Fulfillment_Design ">Palm Common Connectivity Application</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$225 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">closed</td>
+                                </tr>
 
                                 <tr valign="top">
                                     <td class="projectCells">
@@ -88,7 +96,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$150 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">05/12/2004 9:00AM ET</td>
+                                    <td class="projectCells" align="right">clsoed</td>
                                 </tr>
 
                             </table>
