@@ -12,7 +12,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.SessionInfo;
@@ -87,7 +87,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
 
         //check dates in db to see if we need to have them pick new ones
         if(success) {
-            SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_TIME_FORMAT);
+            SimpleDateFormat sdf = new SimpleDateFormat(DBMS.INFORMIX_DATETIME_FORMAT);
             Request dRequest = new Request();
             dRequest.setProperty(DataAccessConstants.COMMAND, 
                     Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);

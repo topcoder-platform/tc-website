@@ -217,7 +217,7 @@ public class DataRetriever implements DataRetrieverInt {
             try {
                 // Check that what we have first in the string is a valid date,
                 // in the expected yyyy-mm-dd format.
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat sdf = new SimpleDateFormat(DataAccessConstants.DATE_FORMAT);
                 sdf.setLenient(false);
                 ParsePosition pp = new ParsePosition(0);
                 sdf.parse(input, pp);
