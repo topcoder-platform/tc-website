@@ -438,7 +438,7 @@ if (action != null) {
         GregorianCalendar gcDate = new GregorianCalendar(Integer.parseInt(year), Integer.parseInt(month)-1, Integer.parseInt(date));
         ver.setPhaseDate(gcDate.getTime());
         ver.setPhase(Long.parseLong(phase));
-
+        
         try {
             if (colTechnology != null) {
                 Iterator iter = colTechnology.iterator();
@@ -456,7 +456,7 @@ if (action != null) {
                     }
                 }
             }
-            componentManager.updateVersionInfo(ver, tcSubject);
+            componentManager.updateVersionInfo(ver, tcSubject, levelId); 
             if(verDateInfo != null && (ver.getPhase() == ComponentVersionInfo.DEVELOPMENT || ver.getPhase() == ComponentVersionInfo.SPECIFICATION || ver.getPhase() == ComponentVersionInfo.COMPLETED))
             {
 
