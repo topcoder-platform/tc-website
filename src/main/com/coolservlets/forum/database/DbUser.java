@@ -62,6 +62,7 @@ import com.coolservlets.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import java.sql.*;
+import java.io.Serializable;
 
 /**
  * Database implementation of the User interface. Additionally, it filters all
@@ -81,7 +82,7 @@ import java.sql.*;
  * personal data, and easy solution is to adapt the user properties facility
  * to load and access this data.
  */
-public class DbUser implements User {
+public class DbUser implements User, Serializable {
 
     private static final String LOAD_USER_BY_USERNAME =
         "SELECT u.user_id, u.handle, u.password, u.email, r.rating FROM user u, rating r WHERE u.user_id = r.coder_id and u.handle=?";
