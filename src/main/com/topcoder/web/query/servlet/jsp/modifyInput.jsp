@@ -82,5 +82,6 @@
       <TD WIDTH="25" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
     </TR>
   </TABLE>
+  <jsp:include page="bottom.jsp" />
   </BODY>
 </HTML>
