@@ -135,7 +135,7 @@ public class Search extends Base {
 
 
     List school_list=new ArrayList();
-    school_list.add(new ListPairBean("","Any school"));
+    school_list.add(new ListPairBean(new Long(-1),"Any school"));
     if (isValidListValue(_sb.getStateCode(),_sb.getStateList())) {
       map.put(DataAccessConstants.COMMAND,"state_schools");
       map.put(STATE_INPUT_CODE,_sb.getStateCode());
@@ -202,9 +202,9 @@ public class Search extends Base {
     valid&=(checkValidState(_errors,_sb.getStateCode(),_sb.getStateList())&&
             checkValidSchool(_errors,_sb.getSchoolId(),_sb.getSchoolList()));
     valid&=checkValidStateSchool(_errors,_sb.getStateCode(),_sb.getSchoolId());
-    valid&=(checkValidMinRating(_errors,_sb.getMinRating())&&
-            checkValidMaxRating(_errors,_sb.getMaxRating())&&
-            checkValidMinMax(_errors,_sb.getMinRating(),_sb.getMaxRating()));
+    valid&=checkValidMinRating(_errors,_sb.getMinRating());
+    valid&=checkValidMaxRating(_errors,_sb.getMaxRating());
+    valid&=checkValidMinMax(_errors,_sb.getMinRating(),_sb.getMaxRating());
     return(valid);
   }
 
