@@ -152,7 +152,7 @@ public class UserEdit extends BaseProcessor {
                 userName = secTok.targetUser.getName();
                 retrieveUserDataFromDB((InitialContext)TCContext.getInitial());
             }
-            return secTok.createNew;
+            return true;
         }
         return false;
     }
