@@ -79,7 +79,7 @@
                         upgrade your Java runtime.  If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade 
                         is not required, the application will load automatically and present you with an orange <strong>Launch Testing Application</strong> button.</p>
                         
-                        <p><a href="http://java.sun.com/products/plugin/" target="_blank">Get further information on Java 1.4 runtime</a></p>
+                        <p>Get further information on <a href="http://java.sun.com/products/plugin/" target="_blank">Java 1.4 runtime</a></p>
 
                     </td>
                 </tr>
