@@ -1720,9 +1720,12 @@ public class Registration
                 log.debug("looking for userid " + key + " in cache");
                 CacheClient client = CacheClientFactory.createCacheClient();
                 ArrayList list = client.getKeys();
+                log.debug("searching " + list.size() + " keys");
                 for (int i=0; i<list.size(); i++) {
                     tempKey = (String)list.get(i);
+                    log.debug(tempKey);
                     if (tempKey.equals(key)) {
+                        log.debug("removing " + tempKey);
                         client.remove(tempKey);
                     }
                 }
