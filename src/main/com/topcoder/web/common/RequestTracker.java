@@ -1,6 +1,5 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.util.Queue;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -22,7 +21,7 @@ public class RequestTracker {
     private static final User GUEST = SimpleUser.createGuest();
     private static final int BATCH_PERIOD = 60 * 1000;
 
-    private static List q = Collections.synchronizedList(new LinkedList());
+    private static Queue q = new Queue();
 
     private static Logger log = Logger.getLogger(RequestTracker.class);
     private static Thread t = null;
@@ -61,7 +60,7 @@ public class RequestTracker {
         synchronized (q) {
             log.debug("beginning move from queue to temp storage");
             while (!q.isEmpty())
-                a.add(((LinkedList) q).removeLast());
+                a.add(q.pop());
             log.debug("move from queue to temp storage complete");
         }
         InitialContext ctx = null;
@@ -105,5 +104,23 @@ public class RequestTracker {
             this.u = u;
             this.r = r;
         }
+    }
+
+    private static class Queue {
+        private final LinkedList q = new LinkedList();
+        private synchronized boolean add(Object o) {
+            return q.add(o);
+        }
+        private synchronized int size() {
+            return q.size();
+        }
+        private synchronized boolean isEmpty() {
+            return q.isEmpty();
+        }
+        private synchronized Object pop() {
+            return q.removeLast();
+        }
+
+
     }
 }
