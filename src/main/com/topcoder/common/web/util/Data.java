@@ -12,6 +12,7 @@ import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.Transaction;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
@@ -56,7 +57,7 @@ public final class Data {
             UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
             Integer key = new Integer(nav.getUser().getUserId());
             UserServices userEJB = (UserServices) userHome.findByPrimaryKey(key);
-            uTx = com.topcoder.common.Transaction.get();
+            uTx = Transaction.get();
             uTx.begin();
             userEJB.setUser(nav.getUser());
             uTx.commit();
