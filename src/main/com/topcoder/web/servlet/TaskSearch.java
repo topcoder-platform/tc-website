@@ -10,8 +10,6 @@ import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.ejb.CoderStatistics.CoderStatistics;
-import com.topcoder.ejb.CoderStatistics.CoderStatisticsHome;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.Search.Search;
 import com.topcoder.ejb.Search.SearchHome;
@@ -24,7 +22,6 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -369,7 +366,7 @@ public final class TaskSearch {
             Scroll scroll = nav.getScroll(TCServlet.REFERRAL_SORT_SCROLL, "ReferralScroll");
             // EVALUATE MODE TO PROCESS SESSION
             if (request.getParameterValues("Mode") != null) {
-                mode = (String) request.getParameter("Mode");
+                mode = request.getParameter("Mode");
                 //************************ watch sort mode *************************
                 if (mode.equals("sort")) {
                     int key = Sort.DEFAULT_REFERRAL_SORT_KEY;

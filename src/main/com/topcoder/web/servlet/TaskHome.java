@@ -6,8 +6,6 @@ import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.ejb.CoderStatistics.CoderStatistics;
-import com.topcoder.ejb.CoderStatistics.CoderStatisticsHome;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -17,7 +15,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
@@ -25,7 +22,6 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
 
@@ -79,8 +75,6 @@ public final class TaskHome {
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
                 transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-                CoderStatisticsHome home = (CoderStatisticsHome) ctx.lookup(ApplicationServer.CODER_STATISTICS);
-                CoderStatistics temp = home.create();
                 if (nav.getLoggedIn()) {
 
                     dataRequest = new Request();
