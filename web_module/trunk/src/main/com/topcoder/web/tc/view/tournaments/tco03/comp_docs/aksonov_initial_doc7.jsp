@@ -15,7 +15,7 @@
         <td width="190" rowspan="3">
             <jsp:include page="aksonov_names.jsp">
                 <jsp:param name="time" value="initial" />
-                <jsp:param name="doc" value="doc1" />
+                <jsp:param name="doc" value="doc7" />
             </jsp:include>
         </td>
 
