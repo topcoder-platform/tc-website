@@ -50,11 +50,13 @@ public class Home extends Base {
             getRequest().setAttribute("recent_srm_survey_question",
                     surveyDai.getData(surveyRequest).get("recent_srm_survey_question"));
 
+/*
             CachedDataAccess tcsDai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
             Request tcsRequest = new Request();
             tcsRequest.setContentHandle("project_totals");
             getRequest().setAttribute("total_component_prices",
                     tcsDai.getData(tcsRequest).get("total_component_prices"));
+*/
 
 
         } catch (TCWebException e) {
