@@ -1,18 +1,10 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
-import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.messaging.QueueMessageReceiver;
-import com.topcoder.shared.messaging.QueueResponseManager;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
-import com.topcoder.shared.screening.common.ScreeningContext;
 
-import javax.naming.Context;
 import javax.jms.ObjectMessage;
-import java.util.HashMap;
 
 /**
  * User: dok
@@ -51,6 +43,7 @@ public class Login extends Base {
         ObjectMessage response = receive(2000, messageId);
         log.debug("response " + response);
 
+        log.debug(Thread.currentThread().toString());
 
         setNextPage(Constants.PAGE_INDEX);
         setIsNextPageInContext(true);
