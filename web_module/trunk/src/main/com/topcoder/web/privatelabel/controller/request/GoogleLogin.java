@@ -172,6 +172,7 @@ public class GoogleLogin extends FullLogin {
     }
 
     private FullRegInfo getCommonInfo(long userId, String db) throws Exception {
+        log.debug("getCommonInfo("+userId+","+db+")");
         FullRegInfo info = new FullRegInfo();
         info.setNew(false);
         User user = (User) createEJB(getInitialContext(), User.class);
