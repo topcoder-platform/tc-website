@@ -4,7 +4,6 @@ import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpSession;
-import java.util.EmptyStackException;
 import java.util.Stack;
 
 /**
@@ -36,38 +35,6 @@ public class SessionPersistor implements Persistor {
     public void removeObject(String key) {
         session.removeAttribute(key);
     }
-
-    /**
-     * @deprecated
-     * @param page
-     */
-    public void pushLastPage(String page) {
-        Stack pages = (Stack) session.getAttribute(KEY_PREVPAGE);
-        String top = null;
-        try {
-            top = (String) pages.peek();
-        } catch (EmptyStackException ee) {
-        }
-        if (!page.equals(top)) {
-            pages.push(page);
-            log.debug("last page set as " + page);
-        }
-    }
-
-    /**
-     *
-     * @deprecated
-     * @return String
-     */
-    public String popLastPage() {
-        try {
-            Stack pages = (Stack) session.getAttribute(KEY_PREVPAGE);
-            return (String) pages.pop();
-        } catch (EmptyStackException e) {
-            return null;
-        }
-    }
-
 
 }
 

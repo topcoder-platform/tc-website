@@ -1,18 +1,15 @@
 package com.topcoder.web.common.security;
 
-import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PolicyRemote;
-import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
@@ -33,9 +30,7 @@ import java.util.Iterator;
  *
  */
 public class TCSAuthorization implements Authorization {
-    protected static final Logger log = Logger.getLogger(
-            TCSAuthorization.class
-    );
+    protected static final Logger log = Logger.getLogger(TCSAuthorization.class);
 
     private TCSubject tcUser;
     private PolicyRemote policy;
@@ -45,21 +40,15 @@ public class TCSAuthorization implements Authorization {
      *
      * @param user
      */
-    public TCSAuthorization(TCSubject user) throws NamingException, CreateException, RemoteException {
+    public TCSAuthorization(TCSubject user) throws Exception, RemoteException, NamingException {
         tcUser = user;
-        InitialContext ic = null;
-        try {
-            ic = (InitialContext) TCContext.getContext(
-                    ApplicationServer.SECURITY_CONTEXT_FACTORY,
-                    ApplicationServer.SECURITY_PROVIDER_URL
-            );
-            PolicyRemoteHome pHome;
-            pHome = (PolicyRemoteHome) ic.lookup(PolicyRemoteHome.EJB_REF_NAME);
+        policy = (PolicyRemote) Constants.createEJB(PolicyRemote.class);
+    }
 
-            policy = pHome.create();
-        } finally {
-            closeIC(ic);
-        }
+    public TCSAuthorization(User user) throws Exception, RemoteException, NamingException {
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+        this.tcUser = pmgr.getUserSubject(user.getId());
+        policy = (PolicyRemote) Constants.createEJB(PolicyRemote.class);
     }
 
     /**
@@ -97,7 +86,10 @@ public class TCSAuthorization implements Authorization {
         }
     }
 
-        /** Hack to get the groups for the user by looking for specially named roles in their TCSubject. */
+    /**
+     * Hack to get the groups for the user by looking for specially named roles in their TCSubject.
+     * @deprecated
+     */
     public Set getGroups() {
         Set groupnames = new HashSet();
         Iterator it = tcUser.getPrincipals().iterator();
