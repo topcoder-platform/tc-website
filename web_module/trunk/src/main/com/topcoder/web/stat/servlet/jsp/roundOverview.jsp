@@ -176,7 +176,7 @@
         int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
         double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
         String perCor = dfp.format((((double)correct)/submissions));
-        String avgPoints = df.format(total/correct);
+        String avgPoints = df.format(total);
   %>
 
   <TR>
