@@ -173,17 +173,6 @@
                    </tr>
                   <tr>
                      <td class="sidebarText">
-                        Scorecards posted*
-                        </td>
-                     <td class="sidebarText">
-                        12.05.03 8:00am
-                        </td>
-                     <td class="sidebarText">
-                        12.05.03 8:00am
-                        </td>
-                   </tr>
-                  <tr>
-                     <td class="sidebarText">
                         Final fixes*
                         </td>
                      <td class="sidebarText">
