@@ -30,7 +30,7 @@ function submitEnter(e) {
     else if (e) keycode = e.which;
     else return true;
     if (keycode == 13) {
-     login.submit();
+     document.frmLogin.submit();
      return false;
     } else return true;
   }
