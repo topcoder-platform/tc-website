@@ -65,14 +65,29 @@
 	      <LI>Room assignments place members of like divisions together</LI>
 	      <LI>Rating changes go into effect in next participated match</LI></UL>
 	      <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Division structure</A><BR/><BR/>
-	      <B>Each match has a total prize purse of $10,000</B><BR/>
+	      <!-- <B>Each match has a total prize purse of $10,000</B><BR/>
 	      - $500 from each match is donated to <A HREF="/index?t=support&amp;c=charities" CLASS="bodyText">charity</A><BR/>
 	      - $100 is paid to the unrated competitor who has the highest points for the match<BR/>
 	      - Coders must place with a positive point total to collect their prize.<BR/><BR/>
-	      <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Prize structure</A><BR/><BR/>
+	      <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Prize structure</A><BR/><BR/> -->
 	      <B>About the Tournament</B><BR/><UL>
 	      <LI><B>When to start the Online Tournament Rounds</B><BR/>
-            TopCoder members must register for the online tournament. 
+TopCoder members must register for each single round match from within the competition arena. 
+              Registration is for 1.5 hours before the start of each match.
+              To register, login to the Tournament Arena applet, click on the 'Main' menu, and 
+              choose the option for 'Event Registration'.
+              TopCoder members from all over the world will be participating
+              in this event, but <B><I>all start times will be communicated as 
+              &#160;Eastern Standard Time, so contestants in different time zones must 
+              adjust accordingly.</I></B>  
+              All competitors who have registered for the match 
+               will be assigned to a specific competition room.  
+              TopCoder will perform the room assignments prior to the start of 
+              a competition round, in a manner such that only coders in the same 
+              division are placed in a room and the average competitor 
+              rating for each room is similar. The start time will vary from match to match, so be sure to check the <A HREF="/index?t=schedule&amp;c=index" CLASS="bodyText">calendar</A> for
+              the starting times of each match.            
+            <!-- TopCoder members must register for the online tournament. 
               Registration is from
               7:30&#160;PM
                               to
@@ -97,10 +112,7 @@
               division are placed in a room and the average competitor 
               rating for each room is similar.  
               The Online Round will begin at 
-              9:00&#160;PM
-              
-              
-                &#160;EST.
+              9:00&#160;PM &#160;EST. -->
             <BR/>
                                         </LI>
                                         <BR/>
@@ -141,9 +153,9 @@
                                         <BR/>
                                         <LI>
                                             <B>Scoring during Online Tournament Rounds</B>
-                                            <BR/>
+                                            <!-- <BR/>
 The prize winners of each room will be determined as follows:  Coder standing in each room is determined by comparing the point values for all coders in the room for all three phases of the round.  Those with the top three positive point values in the room, place in first, second, and third.  In the event of a tie (unlikely, since scoring is calculated to .01), all coders who have greater than zero points tied for a place will split that prize money combined with the prize money of lesser place(s) equal to the number of coders tied.  For example:  if three coders within a room are tied for first place with positive point totals, they split the combined prize money for first, second and third place.  No other coders are paid.  If two coders are tied for first place with positive point totals, they split the first and second prize money combined, and the coder with the next highest positive point total wins the third place prize money.
-            <BR/>
+            <BR/> -->
                                             <BR/>
             All contestants, who opened any problem during the round, will have their ratings 
             adjusted up or down to reflect their performance, based on TopCoder's rating formula.  
@@ -168,7 +180,7 @@ The prize winners of each room will be determined as follows:  Coder standing in
         submissions and all other matters pertaining to the tournament
         shall be within the sole discretion of TopCoder or its designee and shall be final and
         binding in all respects.<BR/>
-                                    <BR/>
+                                    <!-- <BR/>
 
         Prize winners will be notified via e-mail within 10 days of the completion of the tournament 
         that they have won a prize and will be forwarded an affidavit of eligibility to be completed 
@@ -186,15 +198,16 @@ By participating in a tournament and redeeming a prize, a winner releases and ag
                                     <BR/>
 
 Verified winners agree to use their name, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by or attributed to the winner relating to TopCoder and any and all rights to said use, without further compensation.
-<BR/>
+<BR/> -->
                                     <BR/>
 
 TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with the entry process, the operation of the Web site, the tournament process, or is otherwise in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
 <BR/>
                                     <BR/>
                                     <BR/>
-                                    <B>Participants</B>
-                                    <BR/>
+                                    <B>Participants</B><BR/>
+                                    Anyone who is at least 13 years of age may participate in any single round match.<BR/><BR/>
+                                    <!-- <BR/>
 
         The match is open to members who are at least 18 years of age, 
         meeting the following eligibility requirements:
@@ -228,7 +241,7 @@ TopCoder, in its sole discretion, reserves the right to disqualify any person ta
 
 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <BR/>
-                                    <BR/>
+                                    <BR/> -->
                                     <B>Other</B>
                                     <BR/>
 
