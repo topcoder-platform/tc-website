@@ -86,11 +86,30 @@
             </TR>
           </TABLE>
 <BR/>
+          <P class="statText">
+          The following competitors have advanced from <xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_name"/> to the next round.
+          </P>
+
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="1" ALIGN="center">
             <TR>
-              <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" HEIGHT="18" BGCOLOR="#666666">Handle</TD>
-              <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#666666">Points</TD>              
-              <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#666666">Tourney Seed</TD>              
+              <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" HEIGHT="18" BGCOLOR="#666666">
+                <A class="statTextBig">
+                  <xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=tourney_advancers&amp;rds=<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_id"/>&amp;sc=sort_handle&amp;sdir=asc</xsl:attribute>
+                  Handle
+                </A>
+              </TD>
+              <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#666666">
+                <A class="statTextBig">
+                  <xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=tourney_advancers&amp;rds=<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_id"/>&amp;sc=point_total&amp;sdir=desc</xsl:attribute>
+                  Points
+                </A>
+              </TD>              
+              <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#666666">
+                <A class="statTextBig">
+                  <xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=tourney_advancers&amp;rds=<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_id"/>&amp;sc=seed&amp;sdir=asc</xsl:attribute>
+                  Tourney Seed
+                </A>
+              </TD>              
             </TR>
             <xsl:for-each select="/TC/SCHEDULE/Advancers/Advancer">
               <TR>
