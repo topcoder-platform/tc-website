@@ -68,13 +68,16 @@ public class Controller
 
                 request.setAttribute(taskName, task);
 
-                log.debug(task.getNextPage());
 
-                if (task.getNextPageInternal()) {
-                    getServletContext().getRequestDispatcher(
-                            response.encodeURL(task.getNextPage())).forward(request, response);
-                } else {
-                    response.sendRedirect(response.encodeURL(task.getNextPage()));
+                if (!response.isCommitted()) {
+                    log.debug(task.getNextPage());
+
+                    if (task.getNextPageInternal()) {
+                        getServletContext().getRequestDispatcher(
+                                response.encodeURL(task.getNextPage())).forward(request, response);
+                    } else {
+                        response.sendRedirect(response.encodeURL(task.getNextPage()));
+                    }
                 }
             }
             else {

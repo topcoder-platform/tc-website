@@ -38,10 +38,12 @@ public class DownloadTask extends ResumeTask{
         response.setContentType(resume.getFileType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
-        log.debug("update file:\n");
-        log.debug("************************************************************\n"+new String(resume.getFile()));
-        log.debug("************************************************************");
         response.setStatus(HttpServletResponse.SC_OK);
+        /* this is not really what i want to do, but i can't think of another
+         * way to complete the download without having to forward to another page.
+         */
+        sos.flush();
+        sos.close();
         super.setNextPageInternal(false);
         super.setNextPage(Constants.SUCCESS_PAGE);
     }
