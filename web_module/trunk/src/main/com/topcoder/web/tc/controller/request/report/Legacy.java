@@ -231,6 +231,7 @@ public class Legacy extends Base {
         DataAccessInt dataAccess = getDataAccess(true);
         Map m = dataAccess.getData(r);
         request.setAttribute(Constants.REPORT_PROFILE_SEARCH_KEY, m);
+        ResultSetContainer languages = (ResultSetContainer)m.get("languages");
         ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographics_questions");
         ResultSetContainer demographic_answers = (ResultSetContainer)m.get("demographics_answers");
         ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
@@ -241,9 +242,13 @@ public class Legacy extends Base {
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
         String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating"};
-        String[] checkBoxes = {"count","pro","stud"};
+        String[] checkBoxes = {"count","pro","stud","resume","travel","auth"};
         boolean[] def = {false,true,true};
         boolean revise = "on".equals(request.getParameter("revise"));
+        for(int i = 0; i<languages.getRowCount(); i++){
+            ResultSetContainer.ResultSetRow lang = languages.getRow(i);
+            setDefault("lang_"+lang.getIntItem("language_id"), "true");
+        }
         for(int i = 0; i<textFields.length; i++){
             setDefault(textFields[i],request.getParameter(textFields[i]));
         }
