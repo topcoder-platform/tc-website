@@ -37,9 +37,6 @@ public class ModifyInput extends BaseProcessor {
 
 
 	protected void baseProcessing() throws Exception {
-        if (userIdentified()) {
-            throw new AuthenticationException("User not authenticated for access to query tool resource.");
-        }
         Enumeration parameterNames = request.getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
