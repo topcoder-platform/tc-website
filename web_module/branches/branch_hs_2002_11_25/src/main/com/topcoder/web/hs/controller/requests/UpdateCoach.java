@@ -1,6 +1,7 @@
 package com.topcoder.web.hs.controller.requests;
 
 import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
@@ -25,7 +26,7 @@ public class UpdateCoach extends Base {
 
   private final static String HOME_PAGE="/home/index.jsp";
 
-  private final static String REGISTER_CMD="update";
+  private final static String UPDATE_CMD="update";
 
   private final static String CONFIRM_CMD="confirm";
 
@@ -34,6 +35,8 @@ public class UpdateCoach extends Base {
 
   private final static String MISSING_SESSION="Cannot update information "+
                                               "without logging in";
+
+  private final static Logger log=Logger.getLogger(UpdateCoach.class);
 
   protected User getAuthUser() {
     return(auth.getUser());
@@ -47,6 +50,9 @@ public class UpdateCoach extends Base {
      * coach page 
      */
     if (cmd==null||cmd.equals("")) {
+
+      log.debug("Processing UpdateCoach '' command.");
+
       CoachRegistrationBean crb=new CoachRegistrationBean();
 
       SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
@@ -69,7 +75,10 @@ public class UpdateCoach extends Base {
      * information, then perform some data validation and redirect to the
      * confirmation page
      */
-    else if (cmd.equals(REGISTER_CMD)) {
+    else if (cmd.equals(UPDATE_CMD)) {
+
+      log.debug("Processing UpdateCoach 'update' command.");
+
       CoachRegistrationBean crb=new CoachRegistrationBean();
 
       SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
@@ -101,6 +110,9 @@ public class UpdateCoach extends Base {
      * validation again, and persist it to the database
      */
     else if (cmd.equals(CONFIRM_CMD)) {
+
+      log.debug("Processing UpdateCoach 'confirm' command.");
+
       CoachRegistrationBean crb=new CoachRegistrationBean();
 
       SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
