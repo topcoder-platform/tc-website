@@ -93,7 +93,7 @@
                 The expected rank of the coder is calculated:
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="expected rank" HEIGHT="39" WIDTH="118" SRC="/i/rating/er.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="expected rank" SRC="/i/rating/er.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 <B>The expected performance of the coder is calculated:</B>
                 <BR/>
@@ -122,7 +122,7 @@
                 <B>The weight of the competition for the coder is calculated:</B>
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="weight of the competition" HEIGHT="37" WIDTH="223" SRC="/i/rating/wt.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="weight of the competition" SRC="/i/rating/wt.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 Where TimesPlayed is the number of times the coder has been rated before.
                 <BR/>
