@@ -39,7 +39,7 @@ public final class Index extends HttpServlet {
                 mail.addToAddress("service@topcoder.com", TCSEmailMessage.TO);
                 mail.setFromAddress(checkNull(request.getParameter("email")));
                 EmailEngine.send(mail);
-                response.sendRedirect("/hs/home/index.jsp");
+                response.sendRedirect("/hs/registration/temp_thankyou.jsp");
             } else {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/hs/home/index.jsp");
                 dispatcher.forward(request, response);
