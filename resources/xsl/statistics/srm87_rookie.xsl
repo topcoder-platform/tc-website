@@ -86,108 +86,73 @@
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
 <P><B>Single Round Match 87</B><BR/>
 May 9, 2002</P>
-<P><B>Lessons Learned the Hard Way</B></P>
+<P><B>Rookie Review</B></P>
 
-<P>
-SRM 87 had 623 registrants, and this resulted in 41 rooms in Division-II, of 
-which 5 rooms were in the non-rated competition. 
-</P>
-
-<P>
-The problem slate in Division-II formed a good test: the 250 had a sting in 
-its tail which led to an exciting challenge round, the 550 was a reasonable 
-problem which tested knowledge of data structures, and the 1050 was a more 
-complex challenge which involved navigating a graph. 
-</P>
-
-<P>
-For the green section, the result appears to have been an excellent 
-contest.  In the grey rooms, however, no-one in the bottom 10 rooms 
-managed a successful 1050.  In a discussion in the lobby, the idea of 
-deliberately varying the difficulty of the Division-II slate (one 
-relatively easy, one more challenging each week) was put forward. 
-This may be worth trying, either officially or unofficially in the future. 
-Certainly, SRM 87 was more than a "typing contest" in most rooms. 
-</P>
-
-<P>
-<B>250 (Eenie):</B><BR/> 
-This problem was a simple token counting problem based on childrens' 
-counting games like "Eenie meenie miney mo".  Input was a string representing the rhyme, 
-and the number of children in the circle.  The problem was to return 
-the number of the child selected.  The twist was that the counting was 
-1-based. 
-</P>
-
-<P>
-I got a feeling from many of the failed solutions, that the coder felt it 
-was merely a typing speed test.  In java, the solution is simple, using a 
-StringTokenizer and the countTokens() method.  It is interesting that many Java coders among 
-those whose problems I surveyed did not think of this method in the heat of battle. 
-</P>
-
-<P>
-<B>Problems identified:</B> 
-<OL>
-	<LI> A surprising number of people failed this by unthinking use of the mod function. This failed because mod returns a value in [0, n-1] rather that [1, n]</LI> 
-	<LI> Counting the children against the words, rather than vice versa.</LI> 
-	<LI> Correctly identifying the problem case of where count = n, but returning 1 or the number of words instead of n.</LI> 
-	<LI> Use of regular instead of modular division.</LI>
-</OL>
+ <P>
+The Rookie Rooms started with mostly scores around the 300 or 400 area, but
+ with a few interesting spikes. <A HREF="/stat?c=member_profile&amp;cr=281135" CLASS="bodyGeneric">Teagueboy</A>
+ submitted 1236.00 points of
+ solutions, <A HREF="/stat?c=member_profile&amp;cr=283323" CLASS="bodyGeneric">hunsaker</A>
+ 1436.28 points, and <A HREF="/stat?c=member_profile&amp;cr=282719" CLASS="bodyGeneric">Drache</A>
+ a surprising 1646.61 points.
+ Challenge phase, however, revealed that while <B>Teagueboy</B> and <B>hunsaker</B> had
+ submitted serious solutions, <B>Drache</B>'s medium and hard solutions were simply
+ stubs that returned an empty vector. Unfortunately, <B>hunsaker</B>'s easy and
+ medium solutions folded to challenges, as did <B>Teagueboy</B>'s easy.
 </P>
  
 <P>
-This problem led to a very eventful first minute or so of challenge phase in 
-some rooms, as a lucky coder challenged several problems successfully one after another. 
+ The room favorite of 63, <A HREF="/stat?c=member_profile&amp;cr=278549" CLASS="bodyGeneric">itsouk</A>, 
+ had submitted for 688.21 points, and
+ managed to get another 200 points in challenge phase, succeeding on five
+ challenges and failing on one. Meanwhile, 
+ <A HREF="/stat?c=member_profile&amp;cr=282521" CLASS="bodyGeneric">jmayhew</A>
+ in room 61 almost tripled
+ his submission score of 121.31 with four successful challenges of his own.
 </P>
-
+ 
 <P>
-<B>550 (losers):</B><BR/> 
-This problem involved scoring a mythical game, where points are awarded for 
-the first 3 positions in each round.  Given a list of round results, the goal was to 
-return an alphabetically sorted String[] of the lowest scorer or scorers.  The points awarded were 6 
-for 1st, 3 for 2nd and 2 for 3rd. 
+ Challenges were quite thorough this round, as systests only wiped out one or
+ two problems in most rooms, doing absolutely nothing in Room 61. However,
+ Room 64 was hit quite hard by them, losing six submissions total.
 </P>
-
+ 
 <P>
-This problem was simplified by a knowledge of standard data structures such 
-as java.util.HashSet or c++ map, for example. 
+ In Room 60, the room leader was <A HREF="/stat?c=member_profile&amp;cr=281014" CLASS="bodyGeneric">krogoth</A>, 
+ getting 451.60 points for two
+ working submissions and balancing one successful and one unsuccessful
+ challenge. Room 61's winner was <A HREF="/stat?c=member_profile&amp;cr=280985" CLASS="bodyGeneric">yavinmoon</A>
+ with 458.07 points, including 50
+ points for a good challenge and barely beating out <B>krogoth</B> for the leader of
+ all the Rookie Rooms. Room 62's leader was momth with 307.88 points, getting
+ only a submitted solution for easy but an extra 100 points from challenge
+ phase. Room 63's leader was <B>itsouk</B>, submitting an easy and a hard, losing
+ the hard, but still coming through on 195 points from his working easy
+ solution and more than doubling that with another 200 points from challenge
+ phase, totaling 395.00. And room 64's leader was Impartial, getting a total
+ of 442.92 points for two working solutions and unfortunately missing a
+ challenge.
 </P>
-
+ 
 <P>
-<B>Problems:</B> 
-<OL>
-	<LI> Failure to return more than one name when a tie occured, resulting from using a constant, where a loop index was required. </LI>
-	<LI> Failing to add elements outside the top 3 to the data structure.  This never registered contestants who never placed.</LI> 
-	<LI> Failing to deduce the scoring mechanism correctly from the problem description.  In this category, one finds people giving points beyond third.</LI> 
-	<LI> Code path failure using combined conditions.  One example of this involved checking that this  was a scoring entry and that a HashTable included the key.  In the false part of the condition, the coder didn't check the Hashtable again, and instead reset the accumulated score for that key to zero.</LI> 
-</OL>
+ Also of note are the aforementioned <B>jmayhew</B> in Room 61, finishing with
+ 321.31 points, the fourth highest in the rookie rooms, and <B>Teagueboy</B>,
+ keeping a working Level Two submission for 308.11 points.
 </P>
-
+ 
 <P>
-<B>1050 (AuntUncle):</B><BR/> 
-The goal was to take a series of triples, representing 2 parents and a 
-child, and return the set of siblings of the parents of a specified target. 
-Including the parents or the target was forbidden. 
+ In a mildly ironic note, it's worth pointing out that <B>Drache</B>'s
+ obviously-broken Level Three problem still successfully defended itself
+ against no less than four challenges. It simply returned an empty array -
+ {} - and all four first people to challenge did so with cases where the
+ correct answer was the empty array! It took <A HREF="/stat?c=member_profile&amp;cr=111888" CLASS="bodyGeneric">mverrey</A>
+ to come up with a test
+ case that did not result in a null set for the result.
 </P>
 
-<P>
-The problem proved quite tricky, with a large number of submissions failing. 
-Among the errors found were: 
-</P>
 
-<P>
-<OL>
-	<LI> Use of String.endsWith() rather than tokenizing first, resulting in spurious errors</LI> 
-	<LI> Returning parents as uncles or aunts.</LI> 
-	<LI> Segfaulting.</LI> 
-	<LI> Returning the target. </LI>
-	<LI> The case including an incestuous family tree caused some problems. </LI>
-	<LI> Nullpointer Exception traversing HashMaps in java when there were no links between the families specified.</LI>
-</OL>
-</P>
-
-         
+<IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

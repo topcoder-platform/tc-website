@@ -86,108 +86,117 @@
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
 <P><B>Single Round Match 87</B><BR/>
 May 9, 2002</P>
-<P><B>Lessons Learned the Hard Way</B></P>
+<P><B>Room 1 Review</B></P>
 
 <P>
-SRM 87 had 623 registrants, and this resulted in 41 rooms in Division-II, of 
-which 5 rooms were in the non-rated competition. 
-</P>
-
-<P>
-The problem slate in Division-II formed a good test: the 250 had a sting in 
-its tail which led to an exciting challenge round, the 550 was a reasonable 
-problem which tested knowledge of data structures, and the 1050 was a more 
-complex challenge which involved navigating a graph. 
-</P>
-
-<P>
-For the green section, the result appears to have been an excellent 
-contest.  In the grey rooms, however, no-one in the bottom 10 rooms 
-managed a successful 1050.  In a discussion in the lobby, the idea of 
-deliberately varying the difficulty of the Division-II slate (one 
-relatively easy, one more challenging each week) was put forward. 
-This may be worth trying, either officially or unofficially in the future. 
-Certainly, SRM 87 was more than a "typing contest" in most rooms. 
-</P>
-
-<P>
-<B>250 (Eenie):</B><BR/> 
-This problem was a simple token counting problem based on childrens' 
-counting games like "Eenie meenie miney mo".  Input was a string representing the rhyme, 
-and the number of children in the circle.  The problem was to return 
-the number of the child selected.  The twist was that the counting was 
-1-based. 
-</P>
-
-<P>
-I got a feeling from many of the failed solutions, that the coder felt it 
-was merely a typing speed test.  In java, the solution is simple, using a 
-StringTokenizer and the countTokens() method.  It is interesting that many Java coders among 
-those whose problems I surveyed did not think of this method in the heat of battle. 
-</P>
-
-<P>
-<B>Problems identified:</B> 
-<OL>
-	<LI> A surprising number of people failed this by unthinking use of the mod function. This failed because mod returns a value in [0, n-1] rather that [1, n]</LI> 
-	<LI> Counting the children against the words, rather than vice versa.</LI> 
-	<LI> Correctly identifying the problem case of where count = n, but returning 1 or the number of words instead of n.</LI> 
-	<LI> Use of regular instead of modular division.</LI>
-</OL>
+I'm the winner of Room 1 (<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>), and it's finally pulling me out of a
+ long slump (for now, at least), but since I'm the writer, it might be a
+ little hard to avoid tooting my own horn, so to speak. Bear with me. I'll
+ talk in the third person so it's not quite so unbearable.
 </P>
  
 <P>
-This problem led to a very eventful first minute or so of challenge phase in 
-some rooms, as a lucky coder challenged several problems successfully one after another. 
+ Room 1 started out with an extremely fast submission by <B>ZorbaTHut</B> on the
+ Level One - 3:47, getting 294.77 points and securing the fastest Level One
+ submission in Div-I. <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> submitted about a minute and a half
+ later, getting 290.67 points, followed by <A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="bodyGeneric">SnapDragon</A> a minute after that
+ with 287.37 points, and <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="bodyGeneric">ambrose</A>
+ twenty seconds later for 285.90 points.
+ <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
+ submitted within five seconds of each other after almost
+ eight minutes of coding, getting 279.03 and 279.37 points. <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="coderTextRed">benetin</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A>
+ brought up the end, <B>evd</B> spending eleven and a half minutes for 260.29
+ points.
 </P>
-
+ 
 <P>
-<B>550 (losers):</B><BR/> 
-This problem involved scoring a mythical game, where points are awarded for 
-the first 3 positions in each round.  Given a list of round results, the goal was to 
-return an alphabetically sorted String[] of the lowest scorer or scorers.  The points awarded were 6 
-for 1st, 3 for 2nd and 2 for 3rd. 
+ A minute and a half after <B>evd</B>'s Level One submission, <B>ZorbaTHut</B> submitted
+ his solution for the Level Two after nine and a quarter minutes of coding,
+ getting the fastest Level Two submission as well as 499.02 points. Following
+ him after slightly more than 3 minutes was, again, <B>Snapdragon</B>, spending ten
+ and a half minutes coding the Level Two and getting 487.81 points for his
+ work. This time <B>dmwright</B> tied with <B>evd</B>, both spending a little under
+ thirteen and a half minutes, getting 456.36 and 457.92 points each. <B>malpt</B>
+ and benetin finished last, taking 18:24 for 405.26pt and 22:30 for 367.54pt.
 </P>
-
+ 
 <P>
-This problem was simplified by a knowledge of standard data structures such 
-as java.util.HashSet or c++ map, for example. 
+ Before benetin submitted his Level Two, however, <B>ZorbaTHut</B> finished up his
+ Level Three in only fifteen and a half minutes, getting 712.42pt, finishing
+ the entire set in only 28 and a half minutes for a grand total of over 1500
+ points. <B>Snapdragon</B> finished approximately three minutes later, spending only
+ 15 extra seconds on the 900 but only getting 706.56 points for it (though
+ also beating out benetin's 550.) <B>Snapdragon</B> finished with a grand total of
+ 1481.74 points, well within range of a single challenge.
 </P>
-
+ 
 <P>
-<B>Problems:</B> 
-<OL>
-	<LI> Failure to return more than one name when a tie occured, resulting from using a constant, where a loop index was required. </LI>
-	<LI> Failing to add elements outside the top 3 to the data structure.  This never registered contestants who never placed.</LI> 
-	<LI> Failing to deduce the scoring mechanism correctly from the problem description.  In this category, one finds people giving points beyond third.</LI> 
-	<LI> Code path failure using combined conditions.  One example of this involved checking that this  was a scoring entry and that a HashTable included the key.  In the false part of the condition, the coder didn't check the Hashtable again, and instead reset the accumulated score for that key to zero.</LI> 
-</OL>
+ However, four minutes after <B>Snapdragon</B>'s completion, <B>John Dethridge</B>
+ submitted his 900 as well, beating <B>ZorbaTHut</B>'s time by 30 seconds for 721.57
+ points, a total of 1447.43, within one challenge of <B>Snapdragon</B>. And five
+ minutes after that <B>malpt</B> beat <B>John Dethridge</B>'s time by almost a full minute,
+ taking barely over 14 minutes of coding time to finish with 735.89 points
+ for the Level Three (the best score in for this problem over the entire
+ division), 1420.18 points total, within one challenge of <B>John Dethridge</B>.
 </P>
-
+ 
 <P>
-<B>1050 (AuntUncle):</B><BR/> 
-The goal was to take a series of triples, representing 2 parents and a 
-child, and return the set of siblings of the parents of a specified target. 
-Including the parents or the target was forbidden. 
+ Unfortunately, the next person to complete all three problems - <B>dmwright</B> -
+ placed him 56 points behind <B>malpt</B>. <B>dmwright</B> took 20:39 to earn 628.27
+ points. Next was <B>ambrose</B>, a mere 28 points behind <B>dmwright</B>. It must have
+ been very frustrating when <B>evd</B> beat <B>ambrose</B>'s time on the 900 by a minute,
+ beating <B>ambrose</B>'s score by less than a single point despite spending almost
+ three minutes more on all the problems together.
 </P>
-
+ 
 <P>
-The problem proved quite tricky, with a large number of submissions failing. 
-Among the errors found were: 
+ By 47 minutes into the match everyone in Room One had submitted all three
+ problems, with the exceptions of <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="bodyGeneric">benetin</A> and 
+ <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="bodyGeneric">thekcc</A>. <B>benetin</B> was still
+ working on his Level Three solution, which he eventually submitted just
+ before the end of the match for 438.21 points, getting second-to-last with a
+ total score of 1072.04. <B>thekcc</B>, on the other hand, had opened all three
+ problems and left with no submissions, clearly an attempt to lower his
+ rating to get out of Room One (and frankly, I can't blame him - Room One is
+ brutal.)
 </P>
-
+ 
 <P>
-<OL>
-	<LI> Use of String.endsWith() rather than tokenizing first, resulting in spurious errors</LI> 
-	<LI> Returning parents as uncles or aunts.</LI> 
-	<LI> Segfaulting.</LI> 
-	<LI> Returning the target. </LI>
-	<LI> The case including an incestuous family tree caused some problems. </LI>
-	<LI> Nullpointer Exception traversing HashMaps in java when there were no links between the families specified.</LI>
-</OL>
+ Challenge Phase could have been devastating, as the only person who couldn't
+ raise their rank by a single challenge was <B>dmwright</B>. However, almost all the
+ solutions were bugless. <B>ambrose</B> successfully challenged 
+ <B>benetin</B>'s 900pt,
+ dropping <B>benetin</B>'s 8th-place to a lower-scoring 8th-place but raising
+ <B>ambrose</B> two ranks, but then unsuccessfully challenged <B>benetin</B>'s 550pt,
+ dropping <B>ambrose</B> back to 7th again. benetin attempted to kill <B>ZorbaTHut</B>'s
+ 900 on a worst-case efficiency challenge, but failed. There were no other
+ challenges, despite all the competitors looking for anything to use.
+</P>
+ 
+<P>
+ System tests proved the quality of the submissions - every remaining problem
+ passed all the tests, leaving the winners <B>ZorbaTHut</B>, <B>Snapdragon</B>, and <B>John Dethridge</B>. Despite the fastest Level Three in the division, <B>malpt</B> missed
+ placing by 27 points.
+</P>
+ 
+<P>
+ This round was good to the ratings in Room One. <B>ZorbaTHut</B> gained 148 rating
+ points, <B>Snapdragon</B> 93, and <B>John Dethridge</B> 76. <B>malpt</B> gained the fewest,
+ getting only 37. The only people to lose rating were <B>dmwright</B> (dropping 4
+ points from his astronomical rating of 2932, now only leading 
+ <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>
+ by
+ 17 points), <B>benetin</B>
+ (losing 68 points), and <B>thekcc</B>
+, capping out his maximum
+ drop in one round by diving 170 rating points, plummeting to rank 37 and
+ barely going yellow.
 </P>
 
-         
+<IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
