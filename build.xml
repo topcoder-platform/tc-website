@@ -840,6 +840,10 @@
             <param name="unit-jar-name" value="Demographic"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/demographic"/>
         </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="CurrentSchool"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/currentschool"/>
+        </antcall>
         <antcall target="package-EJB-JobPostingServicesBean"/>
 
         <war warfile="${war.dir}/privatelabel.war" webxml="${resources}/privatelabel/web.xml">

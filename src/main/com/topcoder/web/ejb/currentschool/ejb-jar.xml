@@ -5,7 +5,7 @@
 <ejb-jar>
     <enterprise-beans>
         <session>
-            <ejb-name>Rating</ejb-name>
+            <ejb-name>CurrentSchool</ejb-name>
             <home>com.topcoder.web.ejb.currentschool.CurrentSchoolHome</home>
             <remote>com.topcoder.web.ejb.currentschool.CurrentSchool</remote>
             <ejb-class>com.topcoder.web.ejb.currentschool.CurrentSchoolBean</ejb-class>
