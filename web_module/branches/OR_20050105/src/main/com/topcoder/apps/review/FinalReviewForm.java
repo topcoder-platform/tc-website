@@ -232,15 +232,17 @@ public class FinalReviewForm extends AggregationWorksheetForm {
             errors.add("approved", new ActionError("error.status.required"));
             approvedValid = false;
         } else {
+            boolean approved = Boolean.valueOf(getApproved()).booleanValue();
+
             // if the project was rejected but all the items were fixed, a comment is needed
-            if (!finalReview.isApproved() && !mustReject && ((getComments() == null) || (getComments().trim().length() == 0))) {
+            if (!approved && !mustReject && ((getComments() == null) || (getComments().trim().length() == 0))) {
                 setValid(false);
                 errors.add("comments", new ActionError("error.message.required"));
                 commentsValid = false;
             }
 
             //  if the reviewer approved the project but there are not fixed items, show error
-            if (finalReview.isApproved() && mustReject) {
+            if (approved && mustReject) {
                 setValid(false);
                 errors.add("approved", new ActionError("error.reject.required"));
                 approvedValid = false;
