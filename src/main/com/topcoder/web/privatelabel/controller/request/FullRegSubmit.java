@@ -66,7 +66,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
         DemographicResponse r = null;
         DemographicQuestion q = null;
-        Map questions = FullRegBase.getQuestions(transDb, regInfo.getCompanyId());
+        Map questions = FullRegBase.getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType());
 
         //remove the current response for questions they have answered
         for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {

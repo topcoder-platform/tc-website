@@ -10,6 +10,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.demographic.Response;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import java.util.Iterator;
@@ -64,12 +65,9 @@ public class VerizonActivate extends BaseActivate {
         ResultSetContainer.ResultSetRow row = null;
         DemographicQuestion question = null;
 
-        //get the demographic answers that we also need to determine eligibility
-        long companyId = 0;
-        if (getRequest().getParameter(Constants.COMPANY_ID) != null) {
-            companyId = Long.parseLong(getRequest().getParameter(Constants.COMPANY_ID));
-        }
-        Map questions = VerizonReg.getQuestions(transDb, companyId);
+       Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+
+        Map questions = VerizonReg.getQuestions(transDb, coder.getCoderTypeId(userId, transDb));
         for (Iterator it = responses.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
             question = VerizonReg.findQuestion(row.getLongItem("demographic_question_id"), questions);
