@@ -106,7 +106,8 @@ IMLP puts information management careers on the fast track. Program graduates ar
 		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=apex"><IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText">Apex is a company built upon a set of core values that guide their every action - excellence, human 
-dignity and integrity.  They consider themselves "the best place to work for the best people to work."  
+dignity and integrity.  They consider themselves "the best place for the best
+people to work."  
 <A HREF="/?&amp;t=tces&amp;c=apex" CLASS="bodyText">Click here</A> to view current job opportunities available at Apex.<BR/><BR/>		
 		</TD>
 	</TR>
