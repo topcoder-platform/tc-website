@@ -323,7 +323,6 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 
 
 <p>
-
 We are to implement a simplified version of the word-processing feature
 that, given a piece of text, redistributes the line breaks so as to make
 every line fit tightly within a desired column width. Line breaks are
@@ -379,7 +378,7 @@ starts with this latest token. Otherwise, we add it to the current line.
 
 </p><pre>
       if (c == ' ' || ci == lines[li].length()-1) {
-        if (line.length() &gt;0 && line.length()+1+tok.length() &gt;columnWidth) {
+        if (line.length() &gt;0 &amp;&amp; line.length()+1+tok.length() &gt;columnWidth) {
           v.add(line);
           line = tok;
         }
@@ -497,14 +496,11 @@ and a minimum cost must be stored separately for each case. This is likely
 what tripped up many coders' efforts during the match. To see why it
 won't do to merge the two cases at each cell, consider the example below.
 
-</p><p>
+</p>
 
-<center>
-  <img src="http://michaellaszlo.com/images/lumberjack_example.png" />
-</center>
+<div align="center"><img src="/i/srm/srm186_2.png"/></div>
 
-</p><p>
-
+<p>
 The lumberjack takes 38 seconds to travel from A to B along the solid
 blue line. By following the solid red line and traversing a water cell
 along the way, he can travel from A to B in only 31 seconds. Now if
@@ -514,14 +510,15 @@ safety, at a total cost of 31+19 = 50 seconds. Yet the dashed blue line,
 which the lumberjack can only follow if he hasn't previously used up his
 chance to traverse a water cell, will lead to safety at a lower total
 cost of 38+11 = 49 seconds.
+</p>
 
-</p><p>
-
+<p>
 Hence, we must take care to allocate a three-dimensional array that,
 for each cell in the grid, lets us store the best known cost of reaching
 it both with and without traversing a water cell.
+</p>
 
-</p><pre>
+<pre>
   public int timeToShore(String[] riverMap) {
     int QLEN = 110000, q[][] = new int[QLEN][4], head, tail;
     int cost[][][] = new int[50][50][2];
@@ -537,8 +534,9 @@ it both with and without traversing a water cell.
       }
     q[0][2] = q[0][3] = tail = 0;
     head = 1;
-</pre><p>
+</pre>
 
+<p>
 We also allocate a queue that will store the grid locations we are
 currently exploring. You may recall from elementary algorithmics that a
 stack lends itself to depth-first search, which tends to be inefficient
@@ -549,26 +547,29 @@ the Java code above, we declare a pair of arrays, <code>dx</code> and
 <code>dy</code>, that let us look up the <i>x</i> and <i>y</i> coordinate
 increments for each of the four directions. We also find the lumberjack's
 starting location and initialize the cost array with a dummy value.
+</p>
 
-</p><pre>
+<pre>
     while (head != tail) {
       int x = q[tail][0], y = q[tail][1], c = q[tail][2], w = q[tail][3];
       tail = (tail+1)%QLEN;
-      if (w &gt;1 || (cost[x][y][w] != -1 && cost[x][y][w] <= c))
+      if (w &gt;1 || (cost[x][y][w] != -1 &amp;&amp; cost[x][y][w] &lt;= c))
         continue;
       cost[x][y][w] = c;
-      if ((y == 0 || y == yy-1) && (best == -1 || c &lt;best))
+      if ((y == 0 || y == yy-1) &amp;&amp; (best == -1 || c &lt;best))
         best = c;
-</pre><p>
+</pre>
 
+<p>
 This loop runs until the queue is empty. Here we are reading a state off
 the tail of the queue. Further below, we shall push new states onto its
 head. States that are not better than the current optimum need not be
 pursued any further. Otherwise, we update the optimal cost of reaching
 this cell in the grid, as well as the optimal cost of reaching safety,
 if applicable.
+</p>
 
-</p><pre>
+<pre>
       for (int i = 0; i &lt;4; i++) {
         int nx = x+dx[i], ny = y+dy[i], nc = c, nw = w;
         if (nx &lt;0 || nx >= xx || ny &lt;0 || ny >= yy)
@@ -588,16 +589,16 @@ if applicable.
     }
     return best;
   }
-</pre><p>
+</pre>
 
+<p>
 Finally, we generate a new state in each of the four directions,
 remembering to increment the travel cost appropriately. Notice that most
 of this code consists of bookkeeping for the cost grid and the state
 queue: initializing arrays, popping states off, pushing states on. This
 is routine stuff that will come to you easily once you have implemented
 breadth-first search a few times.
-
-</p><p>
+</p>
 
 <font size="+2">
 <b><a
@@ -704,7 +705,7 @@ of them applies. If none of them does, we break out of the inner loop.
             if (sub.charAt(jx) != cuss.charAt(jx)) {
               int kx = 0;
               for ( ; kx &lt;code.length(); kx++)
-                if (sub.charAt(jx) == code.charAt(kx) &&
+                if (sub.charAt(jx) == code.charAt(kx) &amp;&amp;
                   plain.charAt(kx) == cuss.charAt(jx))
                     break;
               if (kx == code.length())
@@ -718,7 +719,7 @@ length of the substring from the indices we used to extract it.
 
 </p><pre>
           if (jx == cuss.length())
-            for (int k = i; k <= j; k++)
+            for (int k = i; k &lt;= j; k++)
               clean.setCharAt(k, '*');
         }
       }
@@ -817,14 +818,11 @@ right.  All players are reflected indiscriminately, so that they can block
 the puck before or after the rebound. The straight path of travel makes
 it impossible for both a player and his mirror image to block the puck.
 
-</p><p>
+</p>
 
-<center>
-  <img src="http://michaellaszlo.com/images/rink_reflection_01.png" />
-</center>
+<div align="right"><img src="/i/srm/srm186.png" /></div>
 
-</p><p>
-
+<p>
 In the Java code below, we use a single loop to iterate over the players
 twice, using them raw the first time and reflecting them the second.
 Values <code>l</code> and <code>r</code> are the <i>x</i> coordinates that
@@ -835,7 +833,6 @@ The arrays <code>sl</code> and <code>sr</code> are used to store the
 left and right endpoints of the longest intervals that are not shadowed
 by any player so far. We shall use <code>nsl</code> and <code>nsr</code>
 to temporarily hold the new intervals computed in each iteration.
-
 </p>
 
 <pre>
@@ -858,7 +855,6 @@ to temporarily hold the new intervals computed in each iteration.
 </pre>
 
 <p>
-
 We maintain the unshadowed intervals in order from left to right while
 calculating the effect of successive shadows. There are four types of
 shadow to deal with.  There is a kind that obscures an interval entirely,
@@ -866,13 +862,12 @@ and another that doesn't occlude it at all. Among the shadows that fall
 partially onto an interval, some leave an unoccluded segment to the left,
 and some to the right. Or perhaps both, but there is no need to deal
 with such cases separately.
-
 </p>
 
 <pre>
       nsnum = 0;
       for (int j = 0; j &lt;snum; j++) {
-        if (l <= sl[j] && sr[j] <= r)
+        if (l &lt;= sl[j] &amp;&amp; sr[j] &lt;= r)
           continue;
         if (r &lt;sl[j] || sr[j] &lt;l) {
           nsl[nsnum] = sl[j];
@@ -903,11 +898,9 @@ with such cases separately.
 </pre>
 
 <p>
-
 All our calculations use a reflected goal. Thus, in retrieving what
 appears to be the left endpoint of the leftmost interval, we actually
 obtain the right endpoint of the rightmost interval.
-
 </p>
 
 
