@@ -78,8 +78,8 @@
                     <td width="50%" align="center"><img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/></td>
                 </tr>
                 <tr>
-                    <td width="50%" align="center"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></td>
-                    <td width="50%" align="center"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></td>
+                    <td width="50%" align="center"><a href="/index?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></a></td>
+                    <td width="50%" align="center"><a href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></a></td>
                 </tr>
                 <tr><td align="center" colspan="2"><img src="/i/tournament/tco03/bracket.gif" alt="bracket" width="392" height="19" border="0" vspace="0"/></td></tr>
             </table>
@@ -91,6 +91,7 @@
 
 <!-- Tab bar links-->
             <xsl:call-template name="tco03_links">
+                <xsl:with-param name="selectedContest">coding</xsl:with-param>
                 <xsl:with-param name="selectedTab">coding_rules</xsl:with-param>
             </xsl:call-template>
 
