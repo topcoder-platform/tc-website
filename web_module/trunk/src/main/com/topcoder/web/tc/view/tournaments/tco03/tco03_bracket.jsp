@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -5,6 +7,10 @@
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Advancers</title>
 
 <jsp:include page="../../script.jsp" />
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco03_bracket"); %>
 
 </head>
 
@@ -62,61 +68,22 @@
                   <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="/">Semi</a></td>
                   <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="/">Final</a></td>
                </tr>
+
+
+
+                <rsc:iterator list="<%=rsc%>" id="resultRow">
                    <tr>
-                      <td align = "right" class="advancers_list">1</td>
-                      <td align = "left" class="advancers_list">ntrefz</td>
-                      <td align = "right" class="advancers_list">1111</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">champion</td>
+                      <td align="right" class="advancers_list"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+                      <td align="left" class="advancers_list"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+                      <td align="right" class="advancers_list"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                      <td class="sidebarText"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+                      <td class="sidebarText"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+                      <td class="sidebarText"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+                      <td class="sidebarText"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+                      <td class="sidebarText"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+                      <td class="sidebarText"><rsc:item name="final" row="<%=resultRow%>"/></td>
                    </tr>
-                   <tr>
-                      <td align = "right" class="advancers_list">1</td>
-                      <td align = "left" class="advancers_list">ntrefz</td>
-                      <td align = "right" class="advancers_list">1111</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText"><font color=red>eliminated</font></td>
-                   </tr>
-                   <tr>
-                      <td align = "right" class="advancers_list">1</td>
-                      <td align = "left" class="advancers_list">ntrefz</td>
-                      <td align = "right" class="advancers_list">1111</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText"><font color=red>eliminated</font></td>
-                      <td class="sidebarText">&#160;</td>
-                   </tr>
-                   <tr>
-                      <td align = "right" class="advancers_list">1</td>
-                      <td align = "left" class="advancers_list">ntrefz</td>
-                      <td align = "right" class="advancers_list">1111</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText"><font color=red>eliminated</font></td>
-                      <td class="sidebarText">&#160;</td>
-                      <td class="sidebarText">&#160;</td>
-                   </tr>
-                   <tr>
-                      <td align = "right" class="advancers_list">1</td>
-                      <td align = "left" class="advancers_list">ntrefz</td>
-                      <td align = "right" class="advancers_list">1111</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText">advanced</td>
-                      <td class="sidebarText"><font color=red>eliminated</font></td>
-                      <td class="sidebarText">&#160;</td>
-                      <td class="sidebarText">&#160;</td>
-                      <td class="sidebarText">&#160;</td>
-                   </tr>
+                </rsc:iterator>
             </table>
          <p><br/></p>
          </td>
