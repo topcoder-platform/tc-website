@@ -2,7 +2,7 @@
 <!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN" "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd">
 <ejb-jar id="ejb-jar_ID">
    <enterprise-beans>
-      <session id="Session_2">
+      <session>
          <ejb-name>Query</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.QueryHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.Query</remote>
@@ -10,7 +10,7 @@
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
-      <session id="Session_3">
+      <session>
          <ejb-name>QueryInput</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.QueryInputHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.QueryInput</remote>
@@ -18,7 +18,7 @@
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
-      <session id="Session_4">
+      <session>
          <ejb-name>Command</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.CommandHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.Command</remote>
@@ -26,7 +26,7 @@
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
-      <session id="Session_5">
+      <session>
          <ejb-name>CommandGroup</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.CommandGroupHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.CommandGroup</remote>
@@ -34,7 +34,7 @@
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
-      <session id="Session_6">
+      <session>
          <ejb-name>Input</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.InputHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.Input</remote>
@@ -42,7 +42,7 @@
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
-      <session id="Session_7">
+      <session>
          <ejb-name>CommandQuery</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.CommandQueryHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.CommandQuery</remote>
@@ -51,7 +51,40 @@
          <transaction-type>Container</transaction-type>
       </session>
    </enterprise-beans>
-   <assembly-descriptor>
-   </assembly-descriptor>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>Command</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>CommandGroup</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>CommandQuery</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>Input</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>Query</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>QueryInput</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
 </ejb-jar>
 
