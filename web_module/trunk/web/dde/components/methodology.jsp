@@ -92,7 +92,7 @@
                         <p><strong>Specification</strong><br>
                         TopCoder Project Managers (PM) moderate the TopCoder <a href="/forum/c_active_collab.jsp">Customer Forums</a> to gather 
                         requirements about a new Component Project. Once the project scope has been determined, the PM creates a Requirements Specification 
-                        for the Design Phase of the project. New projects are regularly posted to the TopCoder <a href="http://www.topcoder.com/?t=development&c=index">Member Development site</a> 
+                        for the Design Phase of the project. New projects are regularly posted to the TopCoder <a href="http://www.topcoder.com/?t=development&c=index">Software Development site</a>
                         and emails are sent out to members notifying them of the new projects.</p>
 <!-- Collaboration ends -->
 
@@ -102,7 +102,7 @@
                         Projects. Submitted designs are scored using a standardized <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">scorecard</a>. The design with the best score above the TopCoder Software
                         Minimum Score is chosen for the project. The winning designer is given additional time to incorporate suggestions from the 
                         Review Board.  If the time frame is not met, the designer will be disqualified and the next design in order of score will be declared the 
-                        winner. Once a winning design is determined, the PM posts the Development Phase of the project on the TopCoder Member Development site.</p>
+                        winner. Once a winning design is determined, the PM posts the Development Phase of the project on the TopCoder Software Development site.</p>
 <!-- Design ends -->
 
 <!-- Development begins -->
