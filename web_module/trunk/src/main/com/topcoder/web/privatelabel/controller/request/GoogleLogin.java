@@ -91,10 +91,10 @@ public class GoogleLogin extends FullLogin {
             getAuthentication().login(new SimpleUser(0, handle, password));
         } catch (Exception e) {
             e.printStackTrace();
-        } catch (LoginException e) {
-            if (!hasError(Constants.HANDLE))
-                addError(Constants.HANDLE, e.getMessage());
-        }
+        } //catch (LoginException e) {
+          //  if (!hasError(Constants.HANDLE))
+          //      addError(Constants.HANDLE, e.getMessage());
+       // }
         if (!getUser().isAnonymous()) {
             User user = (User) createEJB(getInitialContext(), User.class);
             char status = user.getStatus(getUser().getId(), db);
