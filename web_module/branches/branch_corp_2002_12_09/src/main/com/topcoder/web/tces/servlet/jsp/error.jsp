@@ -44,7 +44,7 @@
         </TD>
 	</TABLE>
 	<BR>
-<TABLE>
+<TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 	<TR>
    <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
    <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
