@@ -74,7 +74,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
             
             <table width="510" align="center" border="0" cellpadding="0" cellspacing="0">
                <tr>
-                  <td width = "100%" align = "center">
+                  <td width = "100%" align = "center"> 
 
 <SCRIPT language="JavaScript">
                 <!--
@@ -94,7 +94,7 @@ if ( MM_FlashCanPlay ) {
 <SCRIPT language="JavaScript">
 <!--
        if (!MM_FlashCanPlay){
-       document.write('<a href="/tc?&module=CRPFReport"><img src="/i/tournament/crpf03/fundraisers.gif" width="180" height="100" border="0" hspace="0"></a>');
+       document.write('<img src="/i/tournament/tco03/bracket.gif" width="510" height="261" border="0">');
        }
 // -->
 </SCRIPT>
