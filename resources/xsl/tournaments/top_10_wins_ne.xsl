@@ -86,7 +86,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=260835" CLASS="coderTextRed">reid</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=260835" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=260835" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1394.76</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -102,7 +102,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=147102" CLASS="coderTextRed">pl31415</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=147102" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=147102" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1342.69</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -118,7 +118,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=133846" CLASS="coderTextRed">stanf</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=133846" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=133846" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1247.92</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -134,7 +134,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=252281" CLASS="coderTextYellow">turian</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=252281" CLASS="statText">View Code</A></TD>	
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=252281" CLASS="statText">View Code</A></TD>	
 					<TD ALIGN="right" CLASS="statText">1234.17</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -150,7 +150,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=146723" CLASS="coderTextBlue">Demolisher</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=146723" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=146723" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1168.33</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -166,7 +166,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=154089" CLASS="coderTextRed">milhouse</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=154089" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=154089" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1162.85</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -182,7 +182,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=156768" CLASS="coderTextYellow">Nok</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=156768" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=156768" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1124.95</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -198,7 +198,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=153479" CLASS="coderTextYellow">petch</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=153479" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=153479" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1107.50</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -214,7 +214,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="coderTextYellow">lbackstrom</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=159052" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=159052" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1097.68</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>
@@ -230,7 +230,7 @@
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD align="left" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=158837" CLASS="coderTextYellow">axch</A></TD>
-					<TD VALIGN="middle" CLASS="statText"><A HREF="/?t=statistics&amp;c=room_stats&amp;Contest_Id=60&amp;Round_Id=60&amp;Coder_Id=158837" CLASS="statText">View Code</A></TD>
+					<TD VALIGN="middle" CLASS="statText"><A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=158837" CLASS="statText">View Code</A></TD>
 					<TD ALIGN="right" CLASS="statText">1096.95</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 				</TR>				
