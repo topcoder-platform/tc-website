@@ -30,6 +30,7 @@ public class Constants {
     public static String EMAIL;
     public static String ACTIVATION_CODE;
 
+    public static String USER_ID;
     public static String HANDLE;
     public static String STATE_CODE;
     public static String COUNTRY_CODE;
