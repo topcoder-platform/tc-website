@@ -53,7 +53,7 @@ public class QuerySearch extends BaseProcessor {
         }
 
         request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
-        setNextPage(Constants.QUERY_DETAIL_PAGE);
+        setNextPage(Constants.QUERY_SEARCH_PAGE);
         setIsNextPageInContext(true);
     }
 

@@ -26,6 +26,7 @@ public class Constants {
     public static String MODIFY_QUERY_INPUT_PAGE;
     public static String MODIFY_INPUT_PAGE;
     public static String MODIFY_COMMAND_QUERY_PAGE;
+    public static String QUERY_SEARCH_PAGE;
 
     public static String TASK_PARAM;
     public static String STEP_PARAM;
@@ -109,6 +110,7 @@ public class Constants {
         MODIFY_QUERY_INPUT_PAGE = servletConfig.getInitParameter("modify_query_input_page");
         MODIFY_INPUT_PAGE = servletConfig.getInitParameter("modify_input_page");
         MODIFY_COMMAND_QUERY_PAGE = servletConfig.getInitParameter("modify_command_query_page");
+        QUERY_SEARCH_PAGE = servletConfig.getInitParameter("query_search_page");
 
         TASK_PARAM = servletConfig.getInitParameter("module_key");
         STEP_PARAM = servletConfig.getInitParameter("step_param");

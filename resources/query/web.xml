@@ -126,6 +126,13 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>query_search_page</param-name>
+            <param-value>querySearch.jsp</param-value>
+            <description></description>
+        </init-param>
+
+
 
         <init-param>
             <param-name>step_param</param-name>
