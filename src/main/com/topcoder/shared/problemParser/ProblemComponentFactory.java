@@ -444,8 +444,8 @@ public class ProblemComponentFactory
 
         if(stmt.isValid()) {
             System.out.println("XML:\n\n" + stmt.toXML());
-            System.out.println("\nHTML (Java):\n\n" + stmt.toHTML(new JavaLanguage()));
-            System.out.println("\nHTML (C++):\n\n" + stmt.toHTML(new CPPLanguage()));
+//            System.out.println("\nHTML (Java):\n\n" + stmt.toHTML(new JavaLanguage()));
+//            System.out.println("\nHTML (C++):\n\n" + stmt.toHTML(new CPPLanguage()));
         } else
             System.out.println("Problem statement not valid!");
     }

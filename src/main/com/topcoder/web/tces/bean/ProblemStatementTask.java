@@ -17,6 +17,7 @@ import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.shared.problem.*;
 import com.topcoder.shared.problemParser.*;
 import com.topcoder.shared.language.CStyleLanguage;
+import com.topcoder.common.web.render.ProblemRenderer;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -151,7 +152,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
         Problem problem = new Problem();
         problem.setProblemComponents(arrProblemComponent);
-        setProblemText(problem.toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
+        setProblemText(new ProblemRenderer(problem).toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
 
         setNextPage( TCESConstants.PROBLEM_STATEMENT_PAGE );
     }

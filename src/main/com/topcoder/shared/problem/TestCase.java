@@ -1,7 +1,5 @@
 package com.topcoder.shared.problem;
 
-import com.topcoder.shared.language.Language;
-
 import com.topcoder.shared.netCommon.CSReader;
 import com.topcoder.shared.netCommon.CSWriter;
 
@@ -17,9 +15,7 @@ import java.io.ObjectStreamException;
  * @see Element
  * @author Logan Hanks
  */
-public class TestCase
-    implements Element
-{
+public class TestCase extends BaseElement implements Element {
     public static final String UNKNOWN_OUTPUT = "UNKNOWN-OUTPUT10291821323";
     public static final String ERROR = "ERROR-GENERATING-OUTPUT10291821323";
 
@@ -29,8 +25,7 @@ public class TestCase
     private Element annotation;
     private boolean example;
 
-    public TestCase()
-    {
+    public TestCase() {
     }
 
     /**
@@ -40,8 +35,7 @@ public class TestCase
      * @param output    A string representation of the expected output for this test case
      * @param example   Specifies whether or not this is an example test case
      */
-    public TestCase(String[] input, String output, boolean example)
-    {
+    public TestCase(String[] input, String output, boolean example) {
         this(input, output, null, example);
     }
 
@@ -54,27 +48,25 @@ public class TestCase
      * @param example       Specifies whether or not this is an example test case
      * @see Element
      */
-    public TestCase(String[] input, String output, Element annotation, boolean example)
-    {
+    public TestCase(String[] input, String output, Element annotation, boolean example) {
         this.input = input;
         this.output = output;
         this.annotation = annotation;
         this.example = example;
-        if(annotation == null)
+        if (annotation == null)
             text = "";
         else
             text = annotation.toXML();
 
         this.output = ProblemComponent.decodeXML(this.output);
-        for(int i = 0; i < this.input.length; i++)
-        {
-          this.input[i] = ProblemComponent.decodeXML(this.input[i]);
+        for (int i = 0; i < this.input.length; i++) {
+            this.input[i] = ProblemComponent.decodeXML(this.input[i]);
         }
     }
 
     /**
      * Constructs a TestCase whos output is yet unknown.
-     * 
+     *
      * @param input         An array of input values.  The first value should be the value for the first argument, etc.
      * @param annotation    An <code>Element</code> representing a writer's annotation, or explanation of this test case.
      *                      This value can be <code>null</code> if no annotation exists, and should only be non-<code>null</code>
@@ -82,14 +74,12 @@ public class TestCase
      * @param example       Specifies whether or not this is an example test case
      * @see Element
      */
-    public TestCase(String[] input, Element annotation, boolean example)
-    {
-      this(input, UNKNOWN_OUTPUT, annotation, example);
+    public TestCase(String[] input, Element annotation, boolean example) {
+        this(input, UNKNOWN_OUTPUT, annotation, example);
     }
 
     public void customWriteObject(CSWriter writer)
-        throws IOException
-    {
+            throws IOException {
         writer.writeObjectArray(input);
         writer.writeString(output);
         writer.writeObject(annotation);
@@ -97,19 +87,18 @@ public class TestCase
     }
 
     public void customReadObject(CSReader reader)
-        throws IOException, ObjectStreamException
-    {
+            throws IOException, ObjectStreamException {
 
         Object[] o_input;
 
         o_input = reader.readObjectArray();
         output = reader.readString();
-        annotation = (Element)reader.readObject();
+        annotation = (Element) reader.readObject();
         example = reader.readBoolean();
         input = new String[o_input.length];
-        for(int i = 0; i < o_input.length; i++)
-            input[i] = (String)o_input[i];
-        if(annotation == null)
+        for (int i = 0; i < o_input.length; i++)
+            input[i] = (String) o_input[i];
+        if (annotation == null)
             text = "";
         else
             text = annotation.toXML();
@@ -118,35 +107,30 @@ public class TestCase
     /**
      * True if this test case is an example test case.
      */
-    public boolean isExample()
-    {
+    public boolean isExample() {
         return example;
     }
 
-    public void setExample(boolean example)
-    {
-      this.example = example;
+    public void setExample(boolean example) {
+        this.example = example;
     }
 
     /**
      * Returns the string representations of the input values as an array.  The order of the
      * array corresponds to the order of parameters to the solution.
      */
-    public String[] getInput()
-    {
+    public String[] getInput() {
         return input;
     }
 
-    public void setOutput(String output)
-    {
+    public void setOutput(String output) {
         this.output = output;
     }
 
     /**
      * Returns the string representation of the expected output for this test case.
      */
-    public String getOutput()
-    {
+    public String getOutput() {
         return output;
     }
 
@@ -154,42 +138,18 @@ public class TestCase
      * Returns the annotation associated with this test case.  Returns <code>null</code> if no
      * annotation exists.
      */
-    public Element getAnnotation()
-    {
+    public Element getAnnotation() {
         return annotation;
     }
 
-    public String toHTML(Language language)
-    {
-        StringBuffer buf = new StringBuffer(256);
-
-        buf.append("<li>");
-        for(int i = 0; i < input.length; i++) {
-            buf.append("<tt>");
-            buf.append(ProblemComponent.encodeHTML(input[i]));
-            buf.append("</tt>");
-            buf.append("<br>");
-        }
-        buf.append("<br>Returns: ");
-        buf.append("<tt>");
-        buf.append(ProblemComponent.encodeHTML(output));
-        buf.append("</tt>");
-        if(annotation != null) {
-            buf.append("<p>");
-            buf.append(annotation.toHTML(language));
-        }
-        return buf.toString();
-    }
-
-    public String toXML()
-    {
+    public String toXML() {
         StringBuffer buf = new StringBuffer(256);
 
         buf.append("<test-case");
-        if(example)
+        if (example)
             buf.append(" example=\"1\"");
         buf.append('>');
-        for(int i = 0; i < input.length; i++) {
+        for (int i = 0; i < input.length; i++) {
             buf.append("<input>");
             buf.append(ProblemComponent.encodeXML(input[i]));
             buf.append("</input>");
@@ -197,40 +157,19 @@ public class TestCase
         buf.append("<output>");
         buf.append(ProblemComponent.encodeXML(output));
         buf.append("</output>");
-        if(text != null && !text.equals(""))
-        {
-            buf.append(ProblemComponent.handleTextElement("annotation", 
-                   annotation));
+        if (text != null && !text.equals("")) {
+            buf.append(ProblemComponent.handleTextElement("annotation",
+                    annotation));
         }
         buf.append("</test-case>");
         return buf.toString();
     }
 
-    public String toPlainText(Language language)
-    {
-        StringBuffer buf = new StringBuffer(256);
+    public boolean equals(Object obj) {
+        if (obj == null || !(obj instanceof TestCase)) return false;
 
-//        buf.append("<li>");
-        for(int i = 0; i < input.length; i++) {
-            buf.append(input[i]);
-            buf.append("\n");
-        }
-        buf.append("\nReturns: ");
-        buf.append(output);
-        if(annotation != null) {
-            buf.append("\n\n");
-            buf.append(annotation.toPlainText(language));
-        }
-        return buf.toString();
-    }
-
-
-    public boolean equals(Object obj)
-    {
-      if(obj == null || !(obj instanceof TestCase)) return false;
-
-      TestCase t = (TestCase)obj;
-      return toXML().equals(t.toXML());
+        TestCase t = (TestCase) obj;
+        return toXML().equals(t.toXML());
     }
 }
 
