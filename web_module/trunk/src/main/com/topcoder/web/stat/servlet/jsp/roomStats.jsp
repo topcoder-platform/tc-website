@@ -7,6 +7,7 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/stat-taglib.tld" prefix="stat" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder :: Statistics</TITLE>
@@ -231,17 +232,17 @@ else {
          <% } %>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>        
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 6 /* submits */ + "]" %>'/></TD>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* submit pts */ + "].resultData" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* submit pts */ + "].resultData" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right">&#160;&#160;</TD>    
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 8 /* defenses */ + "]" %>'/></TD>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* defense pts */ + "].resultData" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* defense pts */ + "].resultData" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right">&#160;&#160;</TD>    
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 10 /* challenges */ + "]" %>'/></TD>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 11 /* challenge pts */ + "].resultData" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 11 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD> 
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 12 /* challenge pts */ + "].resultData" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 12 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>           
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 13 /* challenge pts */ + "].resultData" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 13 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right">&#160;&#160;</TD>        
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 15 /* pre-rating */ + "]" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="5%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>       
@@ -306,7 +307,7 @@ if (rscProblems != null && rscProblems.size() > 0) {
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 3 /* level desc */ + "]" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><%= sdfTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem(5).toString()))).toString() %></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* status */ + "]" %>'/></TD>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* points */ + "].resultData" %>'/></TD>      
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* points */ + "].resultData" %>'/></TD>      
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
                  </TR>  
                  <TR>
@@ -354,7 +355,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
                    </TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>    
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>      
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>      
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
                  </TR>  
                  <TR>
@@ -405,7 +406,7 @@ pageContext.setAttribute("resultSet", rscDefense);
                    </TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>    
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
                  </TR>  
                  <TR>

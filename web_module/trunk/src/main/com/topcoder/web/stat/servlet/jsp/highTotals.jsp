@@ -8,6 +8,7 @@
 <%@ taglib uri='/WEB-INF/struts-template.tld' prefix='template' %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/stat-taglib.tld" prefix="stat" %>
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 
@@ -119,9 +120,9 @@ function goTo(selection){
             <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 3 /*"coder_score"*/ + "]" %>'/>
           <td CLASS="smallFoot" align="right" height="13"><bean:write name="resultRow" property='<%= "item[" + 8/*"rank"*/ + "]" %>'/>&nbsp;</td>
           <td><A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"coder_id"*/ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"> <bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></td>
-        <TD CLASS="statText" ALIGN="center"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 2 /*"score"*/ + "].resultData" %>'/></TD>
+        <TD CLASS="statText" ALIGN="center"><stat:write format="0.00" name="resultRow" property='<%= "item[" + 2 /*"score"*/ + "].resultData" %>'/></TD>
                 <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 7 /*"contest"*/ + "]" %>'/></TD>
-                <TD CLASS="statText" ALIGN="center"><bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 6 /*"date"*/ + "].resultData" %>'/></TD>
+                <TD CLASS="statText" ALIGN="center"><stat:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 6 /*"date"*/ + "].resultData" %>'/></TD>
     </tr>
     </logic:iterate>
   </logic:present>
