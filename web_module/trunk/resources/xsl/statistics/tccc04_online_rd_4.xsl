@@ -276,7 +276,7 @@ cut a lot.
 <p>
 Once we have the search space mapped out, we can implement the search
 algorithm. The most natural choice is to use Dijkstra, by using
-priority_queue<> in C++ for instance. See speed demon <b>antimatter</b>'s solution
+priority_queue&lt;&gt; in C++ for instance. See speed demon <b>antimatter</b>'s solution
 for a relative clean implementation of this.
 </p>
 
@@ -393,7 +393,7 @@ on the remaining parts.
 </p>
 
 <h3>Step 2: Code flow</h3>
-<div align="right"><img src="/i/srm/tccc04rd4_1.jpg" border ="0"/></div>
+<img align="right" src="/i/srm/tccc04rd4_1.jpg" border ="0"/>
 <p>
 The second step is to figure out the possible code flows. Before
 doing that, some meaning should be given to the semantics of
@@ -419,8 +419,8 @@ and the ELSE statements:
 <li>One next line for an IF statement is the line immediately
 following it. The other next line is the line after a
 matching ELSE statement (if it exist) <i>or</i> the matching
-END IF statement
-<li>For an ELSE statement, the next line is it's matching END IF statement.
+END IF statement</li>
+<li>For an ELSE statement, the next line is it's matching END IF statement.</li>
 </ul>
 
 <p>
