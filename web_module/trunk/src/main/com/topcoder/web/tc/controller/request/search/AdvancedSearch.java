@@ -105,6 +105,7 @@ public class AdvancedSearch extends SimpleSearch {
         if (m.getMaxRating()!=null) r.setProperty(Constants.MAX_RATING, m.getMaxRating().toString());
         if (m.getMinNumRatings()!=null) r.setProperty(Constants.MIN_NUM_RATINGS, m.getMinNumRatings().toString());
         if (m.getMaxNumRatings()!=null) r.setProperty(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings().toString());
+        if (m.getMaxDaysSinceLastComp()!=null) r.setProperty(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp().toString());
 
         CachedDataAccess cda = (CachedDataAccess)getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
         cda.setExpireTime(15*60*1000); //cache for 15 minutes
