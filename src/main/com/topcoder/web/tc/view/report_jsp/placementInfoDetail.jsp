@@ -22,6 +22,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 %>
 
 <jsp:usebean id="contractingInfo" class="com.topcoder.web.tc.model.ContractingInfo" scope="request" />
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
@@ -29,7 +30,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
         <table border=0 cellpadding=0 cellspacing=0 width="100%">
             <tr>
-				<td align=left><p><a href="/report?t=new_report&c=placement_people&db=OLTP"><< back to placement registrants report</a></p></td>
+				<td align=left><p><a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?t=new_report&c=placement_people&db=OLTP"><< back to placement registrants report</a></p></td>
 
             </tr>
             <tr><td><br/></td></tr>
