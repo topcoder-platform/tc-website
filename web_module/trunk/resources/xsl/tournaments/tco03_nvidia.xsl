@@ -71,8 +71,8 @@
                       <td class="promoText" align="left" width="232.5">
                         <p>We invite you to explore the opportunities available at NVIDIA. Click on the link to see what your future may hold.</p>
                         <ul>
-                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_soft_intern&#38;a=secure">Software and Graphics Positions</A></li>
-                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_hard_intern&#38;a=secure">Hardware and Systems Engeneering Positions</A></li></ul>
+                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_intern_soft&#38;a=secure">Software &#38; Graphics Positions</A></li>
+                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_intern_hard&#38;a=secure">Hardware &#38; Systems Engineering Positions</A></li></ul>
                        <p><strong>We love what we do because we do what we love. Join us.</strong></p>
                       </td>
                   </tr>
@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td colspan="2" align="left" width="480" class="bodyText">
-                <p><A href="http://www.nvidia.edu" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia_geforcefx.gif" alt="geforce" width="160" height="160" border="0" align="right" /></A>
+                <p><A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia_geforcefx.gif" alt="geforce" width="160" height="160" border="0" align="right" /></A>
                          As a world leader in visual computing technology NVIDIA's objective remains solid: to be the most important 3D company in the world. We are committed 
                          to developing innovative technologies that deliver stunning multimedia experiences on mass computing platforms. We invest in our people and our 
                          technologies, support and fund industry research around the world, and consistently deliver a quality, competitively priced product to our customers. </p>
