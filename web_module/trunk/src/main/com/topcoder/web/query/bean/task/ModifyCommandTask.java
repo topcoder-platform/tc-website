@@ -9,18 +9,16 @@ import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroupHome;
 import com.topcoder.web.query.ejb.QueryServices.CommandHome;
-import com.topcoder.web.query.bean.task.BaseTask;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
+import java.util.Enumeration;
 
 /**
  * @author Greg Paul
  *
  */
 
-public class ModifyCommandTask extends BaseTask implements Task, Serializable {
+public class ModifyCommandTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(ModifyCommandTask.class);
 
@@ -41,15 +39,22 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
     }
 
 
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-        super.servletPreAction(request, response);
-        if (!super.getAuthentication().isLoggedIn()) {
+	protected void baseProcessing() throws Exception {
+        if (userIdentified()) {
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
-	}
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = parameterNames.nextElement().toString();
+            String[] parameterValues = request.getParameterValues(parameterName);
+            if (parameterValues != null) {
+                setAttributes(parameterName, parameterValues);
+            }
+        }
+ 	}
 
-    public void process(String step) throws Exception {
+    protected void businessProcessing() throws Exception {
+        String step = request.getParameter(Constants.STEP_PARAM);
         CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
         Command c = cHome.create();
 
@@ -62,7 +67,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
             checkCommandDesc(getCommandDesc());
             checkGroupId(getGroupId(), cg);
             checkCommandId(getCommandId(), c);
-            if (!super.hasErrors()) {
+            if (!hasErrors()) {
                 if (isNewCommand()) {
                     setCommandId(c.createCommand(getCommandDesc(), getGroupId(), getDb()));
                 } else {
@@ -77,7 +82,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
             }
         }
 
-        super.setNextPage(Constants.MODIFY_COMMAND_PAGE);
+        setNextPage(Constants.MODIFY_COMMAND_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -95,29 +100,29 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
             try {
                 setGroupId(Integer.parseInt(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         }
     }
 
     private void checkCommandDesc(String command) {
-        if (super.isEmpty(command)) {
-            super.addError(Constants.COMMAND_DESC_PARAM, "You must specify a command name");
+        if (isEmpty(command)) {
+            addError(Constants.COMMAND_DESC_PARAM, "You must specify a command name");
         } else if (command.length() > 100) {
-            super.addError(Constants.COMMAND_DESC_PARAM, "Invalid Command Name, too long");
+            addError(Constants.COMMAND_DESC_PARAM, "Invalid Command Name, too long");
         }
     }
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
         if (cg.getCommandGroupName(groupId, getDb())==null) {
-            super.addError(Constants.GROUP_ID_PARAM, "Invalid Group");
+            addError(Constants.GROUP_ID_PARAM, "Invalid Group");
         }
     }
 
     private void checkCommandId(long commandId, Command c) throws Exception {
         if (!isNewCommand()) {
             if (c.getCommandDesc(commandId, getDb())==null) {
-                super.addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
+                addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
             }
         }
     }

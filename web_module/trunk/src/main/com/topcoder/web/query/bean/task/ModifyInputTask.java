@@ -6,18 +6,16 @@ import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.Input;
 import com.topcoder.web.query.ejb.QueryServices.InputHome;
-import com.topcoder.web.query.bean.task.BaseTask;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
+import java.util.Enumeration;
 
 /**
  * @author Greg Paul
  *
  */
 
-public class ModifyInputTask extends BaseTask implements Task, Serializable {
+public class ModifyInputTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(ModifyInputTask.class);
 
@@ -38,15 +36,22 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
     }
 
 
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-        super.servletPreAction(request, response);
-        if (!super.getAuthentication().isLoggedIn()) {
+	protected void baseProcessing() throws Exception {
+        if (userIdentified()) {
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
-	}
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = parameterNames.nextElement().toString();
+            String[] parameterValues = request.getParameterValues(parameterName);
+            if (parameterValues != null) {
+                setAttributes(parameterName, parameterValues);
+            }
+        }
+ 	}
 
-    public void process(String step) throws Exception {
+    protected void businessProcessing() throws Exception {
+        String step = request.getParameter(Constants.STEP_PARAM);
         InputHome iHome = (InputHome) getInitialContext().lookup(ApplicationServer.Q_INPUT);
         Input i = iHome.create();
 
@@ -55,7 +60,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             checkInputDesc(getInputDesc());
             checkDataTypeId(getDataTypeId());
             checkInputId(getInputId(), i);
-            if (!super.hasErrors()) {
+            if (!hasErrors()) {
                 if (isNewInput()) {
                     setInputId(i.createInput(getInputCode(), getDataTypeId(), getInputDesc(), getDb()));
                 } else {
@@ -73,7 +78,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
 
         }
 
-        super.setNextPage(Constants.MODIFY_INPUT_PAGE);
+        setNextPage(Constants.MODIFY_INPUT_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -87,7 +92,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             try {
                 setInputId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.INPUT_DESC_PARAM)) {
             setInputDesc(value);
@@ -97,30 +102,30 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             try {
                 setDataTypeId(Integer.parseInt(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         }
     }
 
     private void checkInputCode(String inputCode, Input i) throws Exception {
-        if (super.isEmpty(inputCode)) {
-            super.addError(Constants.INPUT_CODE_PARAM, "You must enter an input code");
+        if (isEmpty(inputCode)) {
+            addError(Constants.INPUT_CODE_PARAM, "You must enter an input code");
         } else if (i.inputCodeExists(inputCode, getDb()) && isNewInput()) {
-            super.addError(Constants.INPUT_CODE_PARAM, "Input Code already exists");
+            addError(Constants.INPUT_CODE_PARAM, "Input Code already exists");
         } else if (inputCode.length() > 25) {
-            super.addError(Constants.INPUT_CODE_PARAM, "Input Code too long");
+            addError(Constants.INPUT_CODE_PARAM, "Input Code too long");
         } else if (containsNonLetters(inputCode)) {
-            super.addError(Constants.INPUT_CODE_PARAM, "Invalid input code, letters only");
+            addError(Constants.INPUT_CODE_PARAM, "Invalid input code, letters only");
         } else if (inputCode.trim().toLowerCase().equals(com.topcoder.shared.dataAccess.DataAccessConstants.COMMAND)) {
-            super.addError(Constants.INPUT_CODE_PARAM, "Invalid input code");
+            addError(Constants.INPUT_CODE_PARAM, "Invalid input code");
         }
     }
 
     private void checkInputDesc(String inputDesc) {
-        if (super.isEmpty(inputDesc)) {
-            super.addError(Constants.INPUT_DESC_PARAM, "You must enter an input description");
+        if (isEmpty(inputDesc)) {
+            addError(Constants.INPUT_DESC_PARAM, "You must enter an input description");
         } else if (inputDesc.length() > 100) {
-            super.addError(Constants.INPUT_DESC_PARAM, "Input description too long");
+            addError(Constants.INPUT_DESC_PARAM, "Input description too long");
         }
     }
 
@@ -130,14 +135,14 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             found = Constants.DATA_TYPE_IDS[i]==dataTypeId;
         }
         if (!found) {
-            super.addError(Constants.DATA_TYPE_ID_PARAM,  "Invalid data type");
+            addError(Constants.DATA_TYPE_ID_PARAM,  "Invalid data type");
         }
     }
 
     private void checkInputId(long inputId, Input i) throws Exception {
         if (!isNewInput()) {
             if (i.getInputCode(inputId, getDb())==null) {
-                super.addError(Constants.INPUT_ID_PARAM, "Invalid input id");
+                addError(Constants.INPUT_ID_PARAM, "Invalid input id");
             }
         }
     }

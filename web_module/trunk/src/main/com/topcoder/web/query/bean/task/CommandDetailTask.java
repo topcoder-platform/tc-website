@@ -6,18 +6,16 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.*;
-import com.topcoder.web.query.bean.task.BaseTask;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
+import java.util.Enumeration;
 
 /**
  * @author Greg Paul
  *
  */
 
-public class CommandDetailTask extends BaseTask implements Task, Serializable {
+public class CommandDetailTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(CommandDetailTask.class);
 
@@ -34,16 +32,23 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         super();
     }
 
-
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-        super.servletPreAction(request, response);
-        if (!super.getAuthentication().isLoggedIn()) {
+    protected void baseProcessing() throws Exception {
+        if (userIdentified()) {
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
- 	}
 
-    public void process(String step) throws Exception {
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = parameterNames.nextElement().toString();
+            String[] parameterValues = request.getParameterValues(parameterName);
+            if (parameterValues != null) {
+                setAttributes(parameterName, parameterValues);
+            }
+        }
+
+    }
+
+    public void businessProcessing() throws Exception {
         CommandQueryHome cqHome = (CommandQueryHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_QUERY);
         CommandQuery cq = cqHome.create();
 
@@ -67,7 +72,7 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
             setDb(value);

@@ -8,11 +8,8 @@ import com.topcoder.web.query.bean.CommandQueryBean;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.bean.QueryBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
-import com.topcoder.web.query.bean.task.BaseTask;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -20,7 +17,7 @@ import java.util.*;
  *
  */
 
-public class ModifyCommandQueryTask extends BaseTask implements Task, Serializable {
+public class ModifyCommandQueryTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(ModifyCommandQueryTask.class);
 
@@ -49,15 +46,22 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
     }
 
 
-	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException, Exception {
-        super.servletPreAction(request, response);
-        if (!super.getAuthentication().isLoggedIn()) {
+	protected void baseProcessing() throws Exception {
+        if (userIdentified()) {
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
-	}
+        Enumeration parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = parameterNames.nextElement().toString();
+            String[] parameterValues = request.getParameterValues(parameterName);
+            if (parameterValues != null) {
+                setAttributes(parameterName, parameterValues);
+            }
+        }
+ 	}
 
-    public void process(String step) throws Exception {
+    protected void businessProcessing() throws Exception {
+        String step = request.getParameter(Constants.STEP_PARAM);
         QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
         Query q = qHome.create();
 
@@ -75,7 +79,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             CommandQueryBean cqb = null;
             checkSortOrder(getCurrentQueryList());
-            if (!super.hasErrors()) {
+            if (!hasErrors()) {
                 for (int j=0; j<getCurrentQueryList().size(); j++) {
                     cqb = (CommandQueryBean)getCurrentQueryList().get(j);
                     cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder(), getDb());
@@ -91,7 +95,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
         setOtherQueryList(q.getAllQueries(false, getDb()));
 
-        super.setNextPage(Constants.MODIFY_COMMAND_QUERY_PAGE);
+        setNextPage(Constants.MODIFY_COMMAND_QUERY_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -104,13 +108,13 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             try {
                 setCommandId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.QUERY_ID_PARAM)) {
             try {
                 setQueryId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         } else {
             /*
@@ -123,13 +127,11 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
     }
 
     private void processAttributeQueue() {
-        Iterator it = attributeQueue.entrySet().iterator();
-
         String paramName = null;
         String value = null;
         Map.Entry me = null;
 
-        for ( ; it.hasNext(); ) {
+        for (Iterator it = attributeQueue.entrySet().iterator(); it.hasNext(); ) {
             me = (Map.Entry)it.next();
             paramName = me.getKey().toString();
             value = me.getValue().toString();
@@ -138,9 +140,9 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
                     long queryId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
                     getCommandQuery(getCurrentQueryList(), queryId).setSortOrder(Integer.parseInt(value));
                 } catch (NumberFormatException e) {
-                    super.addError(paramName, e);
+                    addError(paramName, e);
                 } catch (Exception e) {
-                    super.addError(paramName, e);
+                    addError(paramName, e);
                 }
             }
         }
@@ -148,7 +150,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
 
     private void checkCommandId(long commandId, Command c) throws Exception {
         if (c.getCommandDesc(commandId, getDb())==null) {
-            super.addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
+            addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
         }
     }
 
@@ -157,7 +159,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         for(int i=0; i<list.size(); i++) {
             queryId = ((CommandQueryBean)list.get(i)).getQueryId();
             if (q.getName(queryId, getDb())==null) {
-                super.addError(Constants.QUERY_ID_PARAM+queryId, "Invalid query id");
+                addError(Constants.QUERY_ID_PARAM+queryId, "Invalid query id");
             }
         }
     }
@@ -183,20 +185,20 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             next = (CommandQueryBean)list.get(i+1);
             found = curr.getSortOrder() == next.getSortOrder();
             if (found) {
-                super.addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "No two sort order entries may be the same");
+                addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "No two sort order entries may be the same");
             } else {
                 if (curr.getSortOrder() == 0) {
                     found = true;
-                    super.addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "You must fill in a sort order");
+                    addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "You must fill in a sort order");
                 } else if (next.getSortOrder() == 0) {
                     found = true;
-                    super.addError(Constants.SORT_ORDER_PARAM+next.getQueryId(), "You must fill in a sort order");
+                    addError(Constants.SORT_ORDER_PARAM+next.getQueryId(), "You must fill in a sort order");
                 } else if (curr.getSortOrder() > 999) {
                     found = true;
-                    super.addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "Invalid sortorder specified");
+                    addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "Invalid sortorder specified");
                 } else if (next.getSortOrder() > 999) {
                     found = true;
-                    super.addError(Constants.SORT_ORDER_PARAM+next.getQueryId(), "Invalid sort order specified");
+                    addError(Constants.SORT_ORDER_PARAM+next.getQueryId(), "Invalid sort order specified");
                 }
 
 
