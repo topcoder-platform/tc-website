@@ -1713,6 +1713,7 @@ public class TCLoadRound extends TCLoad {
                     psIns.setInt(31, rs.getInt("payment_type_id"));
                     psIns.setString(32, rs.getString("payment_type_desc"));
                 }
+                log.debug("get coder: " + coder_id);
                 int numRatings = ((Integer)ratingsMap.get(new Long(coder_id))).intValue();
                 psIns.setInt(33, rs.getInt("rated_flag")==1?numRatings+1:numRatings);
                 psIns.setInt(34, rs.getInt("rated_flag"));
