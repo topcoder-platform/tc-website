@@ -33,11 +33,7 @@
                            <td class="sidebarTitle" width="30%">Problem Set</td>
                            <td class="sidebarTitle" width="30%">Score</td>
                         </tr>
-                        <tr>
-                           <td class="sidebarText">some jerk</td>
-                           <td class="sidebarText">some stupid set</td>
-                           <td class="sidebarText">some stupid score</td>
-                        </tr>
+                        <tr><td class="sidebarText"></td><td class="sidebarText"></td><td class="sidebarText"></td></tr>
                      </table>
 
 		</td>

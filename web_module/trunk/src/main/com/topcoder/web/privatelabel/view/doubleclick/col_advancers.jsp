@@ -32,6 +32,9 @@
                         <tr valign="top">
                            <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_adv_qual1">Qualification Round - Session #1</a></td>
                         </tr>
+                        <tr valign="top">
+                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_adv_qual2">Qualification Round - Session #2</a></td>
+                        </tr>
                      </table>
 
 		</td>
