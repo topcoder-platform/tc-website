@@ -41,6 +41,6 @@ public class MainServlet extends BaseServlet {
         request.setAttribute("t", "authentication");
         request.setAttribute("c", "login");
 
-        fetchRegularPage(request, response, "http://"+info.getServerName(), true);
+        fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
     }
 }
