@@ -80,7 +80,7 @@
 
     <tag>
         <name>sort</name>
-        <tagclass>com.topcoder.web.tc.view.tag.SortTag</tagclass>
+        <tagclass>com.topcoder.web.common.tag.SortTag</tagclass>
         <attribute>
             <name>column</name>
             <required>true</required>

@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.view.tag;
+package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.StringUtils;
