@@ -6,8 +6,11 @@
                  com.topcoder.web.tc.model.SoftwareComponent"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
-<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
-<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>
+<jsp:useBean id="prices" scope="request" class="java.util.List"/>
+<jsp:useBean id="projectList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"/>
+<%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
+
+<%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
 <head>
 <title>Open Component Projects Available for Review</title>
 
@@ -114,7 +117,9 @@
                     <td class="projectHeaders" align="left">Details</td>
                 </tr>
 
+                <% int i = 0; %>
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
+                    <% pageContext.setAttribute("price", prices.get(i));%>
                     <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
                     <tr>
                         <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
@@ -128,8 +133,8 @@
                         <% } %>
 
                         <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
-                        <td class="projectCells" align="right">$123.45&#160;</td>
-                        <td class="projectCells" align="right">$123.45&#160;</td>
+                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/>*&#160;</td>
+                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/>*&#160;</td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
@@ -138,6 +143,7 @@
                         <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
                     </tr>
                     <% } %>
+                    <% i++;%>
                 </rsc:iterator>
 
                     <tr>
@@ -163,7 +169,9 @@
                     <td class="projectHeaders" align="left">Details</td>
                 </tr>
 
+                <% int j=0; %>
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
+                    <% pageContext.setAttribute("price", prices.get(i));%>
                     <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) { %>
                     <tr>
                         <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
@@ -177,8 +185,8 @@
                         <% } %>
 
                         <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
-                        <td class="projectCells" align="right">$123.45&#160;</td>
-                        <td class="projectCells" align="right">$123.45&#160;</td>
+                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/>*&#160;</td>
+                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/>*&#160;</td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
@@ -187,6 +195,7 @@
                         <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
                     </tr>
                     <% } %>
+                    <% j++; %>
                 </rsc:iterator>
 
                     <tr>
