@@ -1077,29 +1077,65 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
     }
 
+
+    private final static String COMPONENT =
+        " select cc.component_id " +
+             " , cv.comp_vers_id " +
+             " , cc.current_version as version " +
+             " , cc.component_name " +
+             " , cv.version_text " +
+             " , cv.comments " +
+             " , cc.short_desc " +
+             " , cc.description " +
+             " , cv.phase_time " +
+             " , cv.phase_id " +
+             " , cv.price " +
+             " , cc.status_id " +
+             " , cc.root_category_id " +
+          " from comp_catalog cc " +
+             " , comp_versions cv " +
+         " where cc.component_id = ? " +
+           " and cv.component_id = cc.component_id " +
+           " and cc.current_version = cv.version ";
+
+
     public ComponentSummary getComponent(long componentId)
-           throws CatalogException {
-        LocalDDECompCatalog comp;
+           throws CatalogException, NamingException, SQLException {
+
+        Connection conn = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
         try {
-            comp = catalogHome.findByPrimaryKey(new Long(componentId));
-        } catch(ObjectNotFoundException exception) {
-            throw new CatalogException(
-            "Specified component does not exist in the catalog: "
-            + exception.toString());
-        } catch(FinderException exception) {
-            throw new CatalogException(exception.toString());
+            conn = getConnection();
+            ps = conn.prepareStatement(COMPONENTS_BY_STATUS);
+            ps.setLong(1, componentId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new ComponentSummary(
+                        rs.getLong("component_id"),
+                        rs.getLong("comp_vers_id"),
+                        rs.getLong("version"),
+                        rs.getString("component_name"),
+                        rs.getString("version_text").trim(),
+                        rs.getString("comments"),
+                        rs.getString("short_desc"),
+                        rs.getString("description"),
+                        rs.getLong("phase_id"),
+                        rs.getDate("phase_time"),
+                        rs.getDouble("price"),
+                        rs.getLong("Status_id"),
+                        rs.getLong("root_category_id"));
+            } else {
+                throw new CatalogException("Couldn't find component " + componentId);
+            }
+
+        } finally {
+            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
+            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
+            try { if (conn  != null) {  conn.close();  conn = null; } } catch (SQLException e) {}
         }
-        LocalDDECompVersions ver;
-        try {
-            ver = versionsHome.findByComponentIdAndVersion(
-                ((Long) comp.getPrimaryKey()).longValue(),
-                comp.getCurrentVersion());
-        } catch(FinderException exception) {
-            throw new CatalogException(
-            "Failed to retrieve current version information for component "
-            + comp.getPrimaryKey() + ": " + exception.toString());
-        }
-        return generateSummary(comp, ver);
+
     }
 
     private void createComponentRole(long componentId)
