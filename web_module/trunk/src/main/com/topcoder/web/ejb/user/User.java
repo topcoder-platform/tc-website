@@ -27,6 +27,7 @@ public interface User extends EJBObject {
     public long getUserStatusId(long _user_id)
             throws EJBException, RemoteException;
 
+    public boolean userExists(long userId) throws RemoteException, EJBException;
 }
 
 ;

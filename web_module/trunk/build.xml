@@ -6,7 +6,7 @@
    <property name="tces.war.name"      value="tces"/>
    <property name="email.war.name"      value="email"/>
    <property name="query.war.name"      value="query"/>
-   <property name="corp.war.name" value="corp"/>
+   <property name="screening.war.name"      value="screening"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
    <property name="classes"       value="${build}/classes" />
    <property name="testclasses"   value="${build}/testcases" />
@@ -30,6 +30,7 @@
 
    <property name="deprecation"   value="false" />
    <property name="debug"   value="true" />
+   <property name="junitsummary" value="on" />
 
 
 
@@ -601,6 +602,7 @@
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
+        <antcall target="war_screening" />
     </target>
 
     <target name="dev_wars" depends="compile">
@@ -984,6 +986,130 @@
 
 
 
+
+    <target name="compile_tests" depends="compile">
+        <javac srcdir="${testjava}" destdir="${testclasses}"
+               classpathref="class.path"
+               deprecation="${deprecation}"
+               debug="${debug}">
+        </javac>
+    </target>
+
+    <target name="run_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath refid="class.path" />
+            <formatter type="xml" />
+            <batchtest todir="${testclasses}">
+                <fileset dir="${testclasses}">
+                    <include name="**/*TestCase.class" />
+                </fileset>
+            </batchtest>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
+    <!-- screening application specific targets go here -->
+    <target name="deploy_screening" depends="compile">
+        <delete dir="${war.dir}"/>
+        <mkdir  dir="${war.dir}"/>
+        <antcall target="war_query"/>
+        <antcall target="war_screening"/>
+        <antcall target="package-EJB-Coder"/>
+        <antcall target="package-EJB-Email"/>
+        <antcall target="package-EJB-Note"/>
+        <antcall target="package-EJB-Session"/>
+        <antcall target="package-EJB-SessionProfile"/>
+        <antcall target="package-EJB-User"/>
+        <antcall target="package-EJB-QueryServicesBean"/>
+    </target>
+
+    <target name="package-EJB-Coder" depends="compile,init-ScreeningCoderBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-ScreeningCoderBean-properties" >
+        <property name="bean.dir"          value="coder" />
+        <property name="bean.jar.name"     value="coder.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/screening/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+    <target name="package-EJB-Email" depends="compile,init-EmailBean-properties,package-EJB-GenericBean"/>
+
+    <target name="package-EJB-Note" depends="compile,init-NoteBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-NoteBean-properties" >
+        <property name="bean.dir"          value="note" />
+        <property name="bean.jar.name"     value="note.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+    <target name="package-EJB-Session" depends="compile,init-SessionBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-SessionBean-properties" >
+        <property name="bean.dir"          value="session" />
+        <property name="bean.jar.name"     value="session.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+    <target name="package-EJB-SessionProfile" depends="compile,init-SessionProfileBean-properties,package-EJB-GenericBean"/>
+
+    <target name="init-SessionProfileBean-properties" >
+        <property name="bean.dir"          value="sessionprofile" />
+        <property name="bean.jar.name"     value="sessionprofile.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    </target>
+
+    <target name="package-EJB-User" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
+
+    <target name="war_screening" depends="compile">
+        <war warfile="${war.dir}/${screening.war.name}.war" webxml="${resources}/screening/web.xml">
+            <fileset dir="${java}/com/topcoder/web/screening/view">
+                <include name="**/*.jsp"/>
+                <include name="**/*.jpg"/>
+                <include name="**/*.gif"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/screening/"/>
+                <include name="com/topcoder/web/common/"/>
+                <include name="com/topcoder/shared/util/"/>
+                <include name="com/topcoder/shared/docGen/"/>
+                <include name="com/topcoder/shared/dataAccess/"/>
+                <include name="com/topcoder/shared/security/"/>
+                <include name="com/topcoder/shared/language/"/>
+                <include name="com/topcoder/shared/problem/"/>
+                <include name="com/topcoder/shared/problemParser/"/>
+                <include name="com/topcoder/shared/netCommon/"/>
+                <include name="com/topcoder/common/web/"/>
+
+                <exclude name="com/topcoder/web/screening/ejb/" />
+            </classes>
+
+            <classes dir="${resources}">
+                <include name="ApplicationServer.properties" />
+            </classes>
+
+            <webinf dir="${resources}/screening">
+                <include name="screening.tld"/>
+            </webinf>
+        </war>
+    </target>
+  <!-- end of screening application specific targets -->
 
 </project>
 
