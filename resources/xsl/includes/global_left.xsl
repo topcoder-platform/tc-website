@@ -289,7 +289,7 @@
         </xsl:when>
 <!-- Features ends -->
 
-<!-- Development Begins -->
+<!-- Development-Overview Begins -->
         <xsl:when test="/TC/Task='development'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
@@ -318,7 +318,21 @@
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=dev_payment</xsl:attribute>Payment Requirements</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=dev_payment</xsl:attribute>How to Get Paid</A>
+                    </td>
+                </tr>
+
+<!-- Development Round Tables -->
+                <tr>
+                    <td id="leftSubnav">
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/viewForum.jsp?forum=157655&amp;mc=239</xsl:attribute>TC Developer Round Tables</A>
+                    </td>
+                </tr>
+
+<!-- TCS Developer Forums -->
+                <tr>
+                    <td id="leftSubnav">
+                        <A class="leftOn"><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/pages/c_active_collab.jsp?ft=2</xsl:attribute>TCS Developer Forums</A>
                     </td>
                 </tr>
 
@@ -361,13 +375,6 @@
                         </xsl:choose>
                         </xsl:attribute>
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_archive</xsl:attribute>Project Status</A>
-                    </td>
-                </tr>
-
-<!-- Developer Forums -->
-                <tr>
-                    <td id="leftSubnav">
-                        <A class="leftOn"><xsl:attribute name="HREF">http://software.topcoder.com/pages/c_active_collab.jsp?ft=2</xsl:attribute>Developer Forums</A>
                     </td>
                 </tr>
 
@@ -1115,6 +1122,18 @@
 
 <xsl:template name="dev_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</A></td></tr>
+</xsl:template>
+
+<xsl:template name="dev_overview_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Overview</A></td></tr>
+</xsl:template>
+
+<xsl:template name="components_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>Components</A></td></tr>
+</xsl:template>
+
+<xsl:template name="applications_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Applications</A></td></tr>
 </xsl:template>
 
 <xsl:template name="tourney_row">
