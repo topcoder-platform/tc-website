@@ -30,7 +30,6 @@ public class ProfileSearch extends Base {
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
-
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -46,9 +45,6 @@ public class ProfileSearch extends Base {
         List tables, constraints;
         (tables = skills[0]).addAll(demo[0]);
         (constraints = skills[1]).addAll(demo[1]);
-        if(tables.size() == 0){
-            return null;
-        }
         StringBuffer query = new StringBuffer(5000);
         query.append("SELECT u.handle FROM coder c,\n");
         query.append("  c.first_name,\n");
@@ -184,7 +180,7 @@ public class ProfileSearch extends Base {
             return " = lower('"+s+"')";
         }
     }
-    String buildCoderConstraints(TCRequest request, boolean skill){
+    private String buildCoderConstraints(TCRequest request, boolean skill){
         String[] columns = {"c.zip","c.city","c.first_name","c.last_name","u.email","u.handle"};
         String[] fields = {"zipcode","city","firstname","lastname","email","handle"};
         StringBuffer query = new StringBuffer(200);
