@@ -36,45 +36,45 @@ public class ProblemStatementTag extends TagSupport {
                 textColor = parseColor(val);
             }
             else if(val.equalsIgnoreCase("black")) {
-                textColor = Color.BLACK;
+                textColor = Color.black;
             }
             else if(val.equalsIgnoreCase("white")) {
-                textColor = Color.WHITE;
+                textColor = Color.white;
             }
             else if(val.equalsIgnoreCase("blue")) {
-                textColor = Color.BLUE;
+                textColor = Color.blue;
             }
             else if(val.equalsIgnoreCase("cyan")) {
-                textColor = Color.CYAN;
+                textColor = Color.cyan;
             }
             else if(val.equalsIgnoreCase("dark_gray") || 
                     val.equalsIgnoreCase("darkgray")) {
-                textColor = Color.DARK_GRAY;
+                textColor = Color.darkGray;
             }
             else if(val.equalsIgnoreCase("gray")) {
-                textColor = Color.GRAY;
+                textColor = Color.gray;
             }
             else if(val.equalsIgnoreCase("green")) {
-                textColor = Color.GREEN;
+                textColor = Color.green;
             }
             else if(val.equalsIgnoreCase("light_gray") || 
                     val.equalsIgnoreCase("lightgray")) {
-                textColor = Color.LIGHT_GRAY;
+                textColor = Color.lightGray;
             }
             else if(val.equalsIgnoreCase("magenta")) {
-                textColor = Color.MAGENTA;
+                textColor = Color.magenta;
             }
             else if(val.equalsIgnoreCase("orange")) {
-                textColor = Color.ORANGE;
+                textColor = Color.orange;
             }
             else if(val.equalsIgnoreCase("pink")) {
-                textColor = Color.PINK;
+                textColor = Color.pink;
             }
             else if(val.equalsIgnoreCase("red")) {
-                textColor = Color.RED;
+                textColor = Color.red;
             }
             else if(val.equalsIgnoreCase("yellow")) {
-                textColor = Color.YELLOW;
+                textColor = Color.yellow;
             }
         }
     }
