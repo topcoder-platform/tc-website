@@ -78,5 +78,14 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>sort</name>
+        <tagclass>com.topcoder.web.tc.view.tag.SortTag</tagclass>
+        <attribute>
+            <name>column</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>
