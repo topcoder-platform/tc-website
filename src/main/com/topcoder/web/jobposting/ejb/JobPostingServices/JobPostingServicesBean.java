@@ -34,26 +34,40 @@ public class JobPostingServicesBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        query = new StringBuffer();
-        query.append(" SELECT 'dok'");
-        query.append(" FROM job_hit");
-        query.append(" WHERE job_id = ?");
-        query.append(" AND user_id = ?");
-        query.append(" AND hit_type_id = ?");
-
         try {
             conn = DBMS.getConnection();
+            /*
+               check if this user has already "hit" this job
+             */
+            query = new StringBuffer();
+            query.append(" SELECT 'dok'");
+            query.append(" FROM job_hit");
+            query.append(" WHERE job_id = ?");
+            query.append(" AND user_id = ?");
+            query.append(" AND hit_type_id = ?");
+
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, jobId);
             ps.setInt(2, userId);
             ps.setInt(3, hitTypeId);
             rs = ps.executeQuery();
-            /*
-               check if this user has already "hit" this job
-               if not, add their hit.
-             */
-            if (rs.next()) {
+            boolean hasHit = rs.next();
+
+            query = new StringBuffer();
+            query.append(" SELECT 'dok'");
+            query.append(  " FROM job");
+            query.append( " WHERE job_id = ?");
+            query.append(   " AND status_id = 1");
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, jobId);
+            rs = ps.executeQuery();
+         
+            boolean jobExists = rs.next();
+ 
+            if (hasHit) {
                 log.debug("user_id: " + userId + " job_id: " + jobId + " hit_type_id: " + hitTypeId + " already exists.");
+            } else if (!jobExists) {
+                throw new Exception("job: " + jobId + " either does not exist or is not active.");
             } else {
                 query = new StringBuffer();
                 query.append(" INSERT");
