@@ -23,15 +23,6 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=serial_num">Serial Number Generator:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.18.2002</td>
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
-							
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-							<tr valign="top">
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_pool">Object Pool:&#160;Design</a></td>
 								<td background="" class="statText" align="center">12.18.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
@@ -81,12 +72,21 @@
 								<td background="" class="statText" align="center">12.18.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
+							
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=serial_num">Serial Number Generator:&#160;Design</a></td>
+								<td background="" class="statText" align="center">12.18.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
 
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td colspan="2" background="" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=comp_projects">::&#160;See all open Component Projects</a></td>
+								<td colspan="2" background="" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=comp_projects">&#62;&#160;See all open Component Projects</a></td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							
@@ -130,7 +130,7 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td colspan="2" background="" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=app_projects">::&#160;See all open Application Projects</a></td>
+								<td colspan="2" background="" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=app_projects">&#62;&#160;See all open Application Projects</a></td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							

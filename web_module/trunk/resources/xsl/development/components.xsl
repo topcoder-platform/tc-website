@@ -56,8 +56,7 @@
 	<!-- Featured Winner Begins -->
 				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText" width="100%" colspan="4"><strong><img src="/i/development/title_weekly_comp_winners.gif" alt="This Week's Component Project Winners" width="346" height="26" border="0" /></strong><br/>
-						<span class="statTextSmall">Week Ending November 22, 2002</span></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText" width="100%" colspan="4"><strong><img src="/i/development/title_weekly_comp_winners.gif" alt="This Week's Component Project Winners" width="346" height="26" border="0" /></strong></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
@@ -87,7 +86,7 @@
 							</tr>
 
 							<tr valign="top">
-								<td class="statText">Component Review Board Score for This Project:</td>
+								<td class="statText">Review Board Score for this Project:</td>
 								<td class="statText" align="right">83.63</td>
 								<td class="statText"></td>
 							</tr>
@@ -107,86 +106,71 @@
 							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr></table></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
+			</table>
 
+			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" height="18" colspan="4">&#160;&#160;Component Description</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+					<td class="statText" background="/i/steel_darkblue_bg.gif">
+						<p><strong>Java API Comparator:&#160;Design</strong><br />
+						The <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2400324" class="statText">Java API Comparator</a> component is used to compare the differences between two Java classes. For more details, check out the Java API Comparator at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</p>
+						
+						<p><strong>Review Board Comments</strong><br />
+						"Right approach.  Also, nice touch in including Javadocs."<a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271008">&#160;&#151;ilya</a></p>
+
+						<p><strong>Total Submissions for this Project:</strong> 1</p></td>
 				</tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" colspan="4">
-						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statText"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2400324" class="statText"><strong>Java API Comparator:&#160;Design</strong></a><br />
-									The Java API Comparator component is used to compare the differences between two Java classes. For more details, check out <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2400324" class="statText">Java API Comparator</a> at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</td></tr>
-						</table></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" height="18" colspan="4">&#160;&#160;Component Review Board Comments</td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr valign="middle">
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" colspan="4">
-						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statText">"Right approach.  Also, nice touch in including Javadocs."<a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271008">&#160;&#151;ilya</a></td></tr>
-						</table></td>
-					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-				</tr>
-
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="25" colspan="6"><img src="/i/clear.gif" alt="" height="25" border="0" /></td></tr>
+			</table>
 	<!-- Featured Winner Ends -->
 
 	<!-- Weekly Winners Begins -->
+			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_gray_bg3.gif" class="registerNav" height="18" colspan="4">&#160;&#160;Congratulations to All of This Week's Winners</td>
+					<td background="/i/steel_gray_bg3.gif" class="registerNav" height="18" colspan="5">&#160;&#160;Congratulations to All of This Week's Winners</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18">&#160;&#160;Coder</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="45%" height="18">Project Name</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="20%" height="18" align="center">Board Score</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="20%" height="18" align="center">Total Earnings*</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" width="40%" height="18">&#160;&#160;Project Name</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Total Submissions</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18">Winner</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Board Score</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18" align="center">Total Earnings*</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextYellow" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=299180" class="coderTextGreen"><strong>isv</strong></a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2400324" class="statText">Java API Comparator:&#160;Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">83.63</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$210.00</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2400324" class="statText">Java API Comparator:&#160;Design</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">1</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=299180" class="coderTextGreen"><strong>isv</strong></a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">83.63</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">$210.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a> **</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2800280" class="statText">IP Filter:&#160;Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">88.17</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$390.00</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2800280" class="statText">IP Filter:&#160;Design</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">2</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a> **</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">88.17</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" height="18" align="center">$390.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="4">&#160;&#160;* Total Earnings for all Component Projects (before royalties)&#160;&#160;** Our first 2x winner!</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="5">&#160;&#160;* Total Earnings for all Component Projects (before royalties)<br />&#160;&#160;** Our first 2x winner!</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 			</table>
 	<!-- Weekly Winners Ends -->
 				

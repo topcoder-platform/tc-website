@@ -15,7 +15,7 @@
 
 	<xsl:call-template name="Preload" />      
 
- <title>TopCoder :: Development</title>
+ <title>TopCoder &#160;|&#160; Development</title>
 
 	<xsl:call-template name="CSS" />      
 
@@ -36,7 +36,8 @@ ul {
 	
 li {
 	margin-left: 0px;
-	padding-bottom: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	}
 	
 .topPage {
@@ -44,7 +45,39 @@ li {
 	}
 	
 .methNav {
-	color: #F90;
+	font-family:tahoma, arial, verdana, helvetica, sans-serif; 
+	color:#FC3; 
+	font-size:11px; 
+	font-weight:normal; 
+	text-decoration:none 
+	}
+A.methNav:link { 
+	font-family:tahoma, arial, verdana, helvetica, sans-serif; 
+	color:#FC3; 
+	font-size:11px; 
+	font-weight:normal; 
+	text-decoration:none 
+	}
+A.methNav:visited { 
+	font-family:tahoma, arial, verdana, helvetica, sans-serif; 
+	color:#FC3; 
+	font-size:11px; 
+	font-weight:normal; 
+	text-decoration:none 
+	}
+A.methNav:hover { 
+	font-family:tahoma, arial, verdana, helvetica, sans-serif; 
+	color:#666; 
+	font-size:11px; 
+	font-weight:normal; 
+	text-decoration:none 
+	}
+A.methNav:active { 
+	font-family:tahoma, arial, verdana, helvetica, sans-serif; 
+	color:#666; 
+	font-size:11px; 
+	font-weight:normal; 
+	text-decoration:none 
 	}
 	
 	</style>
@@ -81,10 +114,9 @@ li {
 				</tr>
 			</table>
 				
-			<table border="0" cellspacing="0" cellpadding="10" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
+			<table border="0" cellspacing="0" cellpadding="5" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
-					<td class="statText">
-						<div align="center"><h1 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h1></div></td>
+					<td class="statText"><div align="center"><h1 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h1></div></td>
 				</tr>
 
 				<tr valign="top">
@@ -92,27 +124,29 @@ li {
 						<div align="center">
 						<table width="565" border="0" cellpadding="0" cellspacing="0">
 							<tr>
-								<td rowspan="3"><img src="images/spacer.gif" width="59" height="204" alt=""></td>
-								<td><a class="statText" href="#certification"><img src="images/methodology_02.gif" width="161" height="67" alt="Certification" border="0"></a></td>
-								<td><img src="images/methodology_03.gif" width="118" height="67" alt=""></td>
-								<td><a class="statText" href="#collaboration"><img src="images/methodology_04.gif" width="177" height="67" alt="Collaboration" border="0"></a></td>
-								<td rowspan="3"><img src="images/spacer.gif" width="50" height="204" alt=""></td>
+								<td rowspan="3"><img src="/i/clear.gif" width="59" height="204" alt="" /></td>
+								<td><a class="statText" href="#certification"><img src="/i/development/methodology_02.gif" width="161" height="67" alt="Certification" border="0" /></a></td>
+								<td><img src="/i/development/methodology_03.gif" width="118" height="67" alt="" /></td>
+								<td><a class="statText" href="#collaboration"><img src="/i/development/methodology_04.gif" width="177" height="67" alt="Collaboration" border="0" /></a></td>
+								<td rowspan="3"><img src="/i/clear.gif" width="50" height="204" alt="" /></td>
 							</tr>
 						
 							<tr>
-								<td><img src="images/methodology_06.gif" width="161" height="56" alt=""></td>
-								<td><img src="images/methodology_07.gif" width="118" height="56" alt=""></td>
-								<td><img src="images/methodology_08.gif" width="177" height="56" alt=""></td>
+								<td><img src="/i/development/methodology_06.gif" width="161" height="56" alt="" /></td>
+								<td><img src="/i/development/methodology_07.gif" width="118" height="56" alt="" /></td>
+								<td><img src="/i/development/methodology_08.gif" width="177" height="56" alt="" /></td>
 							</tr>
 
 							<tr>
-								<td><a class="statText" href="#development"><img src="images/methodology_09.gif" width="161" height="81" alt="Development" border="0"></a></td>
-								<td><img src="images/methodology_10.gif" width="118" height="81" alt=""></td>
-								<td><a class="statText" href="#design"><img src="images/methodology_11.gif" width="177" height="81" alt="Design" border="0"></a></td>
+								<td><a class="statText" href="#development"><img src="/i/development/methodology_09.gif" width="161" height="81" alt="Development" border="0" /></a></td>
+								<td><img src="/i/development/methodology_10.gif" width="118" height="81" alt="" /></td>
+								<td><a class="statText" href="#design"><img src="/i/development/methodology_11.gif" width="177" height="81" alt="Design" border="0" /></a></td>
 							</tr>
 						</table></div></td>
 				</tr>
+			</table>
 
+			<table border="0" cellspacing="0" cellpadding="10" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
 					<td class="statText">
 						<p>The Component Development Methodology combines the best of traditional software development methodologies with the power 
@@ -122,11 +156,11 @@ li {
 
 <!-- Collaboration begins -->
 				<tr valign="top">
-					<td width="100%" background="/i/steel_darkblue_bg.gif">
+					<td width="100%" background="/i/steel_darkblue_bg.gif"><a name="collaboration"></a>
 						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
 							<tr valign="top">
-								<td class="statText" width="98%">
-									<a name="collaboration"><strong>Collaboration</strong></a><span class="methNav">&#160;&#160;&#160;&#160;&#160;<a class="statText" href="#collPart">Participants</a>&#160;::&#160;<a class="statText" href="#collDet">Details</a>&#160;&#160;&#160;</span></td>
+								<td class="methNav" width="98%">
+									<span class="statText"><strong>Collaboration</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
 								<td class="statText" width="2%" nowrap="nowrap">
 									<div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
 							</tr>
@@ -135,32 +169,42 @@ li {
 				
 				<tr valign="top">
 					<td class="statText">
-						<p>Gather component scope by collaborating with customers and topcodersoftware.com members though online 
-						<a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Collaboration Forums.</a>  For new components this includes a new request for a component, for existing components it is the request for additional functionality.</p>
+						<p>Gather component scope by collaborating with customers and TopCoder members through online 
+						<a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Collaboration Forums.</a>  For new components this 
+						is a new request for a component. For existing components it is a request for additional functionality.</p>
 									
-						<p><a name="collPart"><strong>Participants</strong></a><br />
+						<p><strong>Participants</strong><br />
 						Product Manager (PM)<br />
 						TopCoder Software Customers<br />
-						TopCoder Software Members</p>
+						TopCoder Members</p>
 									
-						<p><a name="collDet"><strong>Details</strong></a><br />
+						<p><strong>Details</strong><br />
 						<ol>
-							<li>PM moderates <a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Collaboration Forums</a> on topcodersoftware.com to gather component requirements.</li>
-							<li>The Collaboration Forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post replies to the forums.</li>
+							<li>PM moderates <a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Collaboration Forums</a> on 
+							topcodersoftware.com to gather component requirements.</li>
+							
+							<li>The Collaboration Forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post replies 
+							to the forums.</li>
+							
 							<li>Once the project scope has been determined, the PM creates a Requirements Specification for the Design Phase of that component.</li>
-							<li>The project is <a class="statText" href="index?t=development&amp;c=comp_projects">posted</a> on the Development Section of topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment and submission deadline for all design submissions.</li>
-							<li>Interested members are required to inquire about projects, at that point all eligible members are granted access to the required project specification and a secure forum to communicate with the PM.</li>
+							
+							<li>The project is <a class="statText" href="index?t=development&amp;c=comp_projects">posted</a> on the Development Section of 
+							topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment details and 
+							submission deadline for all design submissions.</li>
+							
+							<li>Eligible rated TopCoder members who inquire about Design Projects are granted secure access to the Project Specification and Project 
+							Deliverable documents in the online Specification Forums.</li>
 						</ol></p></td>
 				</tr>
 <!-- Collaboration ends -->
 
 <!-- Design begins -->
 				<tr valign="top">
-					<td width="100%" background="/i/steel_darkblue_bg.gif">
+					<td width="100%" background="/i/steel_darkblue_bg.gif"><a name="design"></a>
 						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
 							<tr valign="top">
-								<td class="statText" width="98%">
-									<strong>Architecture and Design</strong><span class="methNav">&#160;&#160;&#160;<a class="statText" href="#desPart">Participants</a>&#160;::&#160;<a class="statText" href="#desDet">Details</a>&#160;::&#160;<a class="statText" href="#desDel">Deliverables</a>&#160;&#160;&#160;</span></td>
+								<td class="methNav" width="98%">
+									<a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
 								<td class="statText" width="2%" nowrap="nowrap">
 									<div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
 							</tr>
@@ -169,41 +213,73 @@ li {
 				
 				<tr valign="top">
 					<td class="statText">
-						<p>Gather component scope by collaborating with customers and topcodersoftware.com members though online 
-						Collaboration Forums.  For new components this includes a new request for a component, for existing components it is 
-						the request for additional functionality.</p>
+						<p>Eligible rated TopCoder Members submit design proposals, which are scored by an Architecture Review Board in a peer review process to 
+						determine the best design. If an acceptable design is not found the phase is restarted.</p>
 									
-						<p><a name="desPart"><strong>Participants</strong></a><br />
+						<p><strong>Participants</strong><br />
 						Product Manager (PM)<br />
-						Customers<br />
-						TopCoder Software Members</p>
+						Designer<br />
+						Architecture Review Board<br />
+						Invited TopCoder Software Customers*</p>
+
+						<p>* Customers will be invited if deemed necessary by the PM, or is requested by the customer.</p>
 									
-						<p><a name="desDet"><strong>Details</strong></a><br />
+						<p><strong>Details</strong><br />
 						<ol>
-							<li>PM moderates collaboration forums on topcodersoftware.com to gather component requirements.</li>
-							<li>Collaboration sessions will last a minimum of one week and last as long as the - PM deems necessary to gather the requirements.</li>
-							<li>Each PM will start a minimum of double their component quota of active collaborations per month.</li>
-							<li>The collaboration forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post to the forums.</li>
-							<li>Once a project scope has been determined, the PM creates a Requirements Specification and Project Posting for the design of that component.</li>
-							<li>The project is posted on the Development Section of topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment and submission date for all design submissions.  Interested members are required to inquire about projects, at that point all eligible members are granted access to the required project specification and a secure forum to communicate with the TopCoder Product Manager.</li>
+							<li>The PM creates an Architecture Review Board made up of 3 members of the Architect Pool.  The Architect Pool consists of Level III 
+							developers and invited architects according to TC Rating. The more winning designs you submit, the closer you get to Level III and an 
+							invitation to join the Architect Pool. </li>
+							
+							<li>One member of the Architecture Review Board is assigned the Role of Primary Reviewer.  The Primary Reviewer fills out a Design 
+							Screening Score Card for each submitted design.  The score card consists of two parts: first is a checklist for required elements of the 
+							design submission; second is a series of objective questions used by the Primary Reviewer to score the designs. </li>
+							
+							<li>All eligible rated TopCoder members can submit design proposals.</li>
+							
+							<li>At a minimum, proposals consist of: Use-Case Diagram, Class Diagram, Sequence Diagram, Component Specification, Test Cases. </li>
+							
+							<li>Proposals that do not pass** the screening are sent back to the designer with the Design Screening Score card.</li>
+							
+							<li>Proposals that pass** the screening will be reviewed in greater detail by all members of the Architecture Review Board.</li>
+							
+							<li>Each Architecture Review Board member reviews all passing proposals and scores them using the Design Review Score card.  The 
+							Design Review Score card consists of a series of subjective questions that require both a score and comments to explain the score.</li>
+							
+							<li>The design with the best score above the minimum score** is chosen for the project.  If there is a tie in score, then the member's TC 
+							ranking is used to break the tie.  The Design Screening Score card and the Design Review Score card are returned to all designers whose 
+							designs passed the initial screening.</li>
+							
+							<li>The Primary Reviewer aggregates all of the comments and handles all conflicts in the board by communicating with the 
+							architects through a secure online forum on topcodersoftware.com.  The Primary Reviewer may declare some suggestions as mandatory 
+							with the approval of the PM.  </li>
+							
+							<li>The winning designer is given additional time to incorporate the aggregated design suggestions from the Architecture Review Board.  
+							If the time frame is not met, the designer will be disqualified and the next design in order of score will be declared the winner.</li>
+							
+							<li>The Primary Reviewer gives the updated submission a final review to make sure that all mandatory suggestions were implemented 
+							and any optional suggestions were implemented correctly.</li>
+							
+							<li>If no proposals pass the design review**, the design phase starts over and all designers are allowed to re-submit modified designs.</li>
+							
+							<li>75% of the payment is paid out once the final version of the winning design is approved by the Architecture Review Board.  The 
+							remaining 25% of the payment is sent out following the Development Phase.</li>
+							
+							<li>Once a winning design is determined, the PM posts the Development Phase of the project in the Development Section of topcoder.com.  
+							The posting includes the submission deadline and the payment details.  Once eligible rated TopCoder members inquire about the project they 
+							are granted access to the design and specification documents in a secure online forum.</li>
 						</ol></p>
-									
-						<p><a name="desDel"><strong>Deliverables</strong></a><br />
-						<ul>
-							<li>Project overview and functional requirements in the collaboration forum.</li>
-							<li>(PM) Requirements Specification detailing the specific requirements of the component is created and posted to the specification forum.</li>
-							<li>(PM) Project Posting for design project (including: Requirements Specification, timeline, payments and deliverables).</li>
-						</ul></p></td>
+						
+						<p>** Minimum passing score is determined by TopCoder for both the screening and architecture review.</p></td>
 				</tr>
 <!-- Design ends -->
 
 <!-- Development begins -->
 				<tr valign="top">
-					<td width="100%" background="/i/steel_darkblue_bg.gif">
+					<td width="100%" background="/i/steel_darkblue_bg.gif"><a name="development"></a>
 						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
 							<tr valign="top">
-								<td class="statText" width="98%">
-									<strong>Development and Testing</strong><span class="methNav">&#160;&#160;&#160;<a class="statText" href="#devPart">Participants</a>&#160;::&#160;<a class="statText" href="#devDet">Details</a>&#160;::&#160;<a class="statText" href="#devDel">Deliverables</a>&#160;&#160;&#160;</span></td>
+								<td class="methNav" width="98%">
+									<a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
 								<td class="statText" width="2%" nowrap="nowrap">
 									<div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
 							</tr>
@@ -212,41 +288,77 @@ li {
 				
 				<tr valign="top">
 					<td class="statText">
-						<p>Gather component scope by collaborating with customers and topcodersoftware.com members though online 
-						Collaboration Forums.  For new components this includes a new request for a component, for existing components it is 
-						the request for additional functionality.</p>
+						<p>Eligible rated TopCoder Members submit development solutions, which are reviewed by the Development Review Board in a peer review 
+						process to determine the winning solution.  If an acceptable solution is not found the phase starts over.</p>
 									
-						<p><a name="devPart"><strong>Participants</strong></a><br />
+						<p><strong>Participants</strong><br />
 						Product Manager (PM)<br />
-						Customers<br />
-						TopCoder Software Members</p>
+						Designer<br />
+						Developer<br />
+						Development Review Board</p>
 									
-						<p><a name="devDet"><strong>Details</strong></a><br />
+						<p><strong>Details</strong><br />
 						<ol>
-							<li>PM moderates collaboration forums on topcodersoftware.com to gather component requirements.</li>
-							<li>Collaboration sessions will last a minimum of one week and last as long as the - PM deems necessary to gather the requirements.</li>
-							<li>Each PM will start a minimum of double their component quota of active collaborations per month.</li>
-							<li>The collaboration forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post to the forums.</li>
-							<li>Once a project scope has been determined, the PM creates a Requirements Specification and Project Posting for the design of that component.</li>
-							<li>The project is posted on the Development Section of topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment and submission date for all design submissions.  Interested members are required to inquire about projects, at that point all eligible members are granted access to the required project specification and a secure forum to communicate with the TopCoder Product Manager.</li>
-						</ol></p>
+							<li>The PM creates a Development Review Board made up of 3 members of the Development Review Pool.  The Development Review Pool is 
+							created of Level II and Level III developers and invited members according to TC Rating.</li>
+							
+							<li>The Designer is required to be available for questions during the Development Phase. All communication will occur in the online forums 
+							of topcodersoftware.com.</li>
+							
+							<li>One member of the Development Review Board is assigned the Role of Primary Reviewer.  The Primary Reviewer examines all 
+							development submissions and fills out a Development Screening Score card.  The score card consists of three parts: first, a checklist for 
+							required elements of the design submission; second, the component is run through the designer's test cases; third, a series of objective 
+							questions used by the Primary Reviewer to score the submission. At a minimum, submissions consist of: Source Code, Executable Code, Build 
+							Script, Unit Test Cases, Developer Guide. Any submissions that do not pass the checklist or the designer's test cases are rejected.</li>
+							
+							<li>All eligible rated TopCoder members can submit development solutions for the project.</li>
+							
+							<li>Development submissions that do not pass** the screening are sent back to the Developer with the Development Screening Score card.</li>
+							
+							<li>Proposals that pass** the screening will be reviewed in greater detail by all members of the Development Review Board.</li>
+							
+							<li>Each Development Review Board Member reviews all passing submissions and scores them using the Development Review Score card.  
+							The Development Review Score card consists of a series of questions that require both a score and comments to explain the score. The 
+							questions are answered by testing the solution with the appropriate test cases.</li>
+							
+							<li>Each Development Review Board Member is assigned a different QA role. 
+								<ul>
+									<li>Stress Tester&#151;Tests the submissions to ensure acceptable performance and throughput.</li>
 									
-						<p><a name="devDel"><strong>Deliverables</strong></a><br />
-						<ul>
-							<li>Project overview and functional requirements in the collaboration forum.</li>
-							<li>(PM) Requirements Specification detailing the specific requirements of the component is created and posted to the specification forum.</li>
-							<li>(PM) Project Posting for design project (including: Requirements Specification, timeline, payments and deliverables).</li>
-						</ul></p></td>
+									<li>Accuracy Tester&#151;Tests the submissions for the accuracy of results when using the component.</li>
+									
+									<li>Failure Tester&#151;Tests the submission's ability to handle bad data and incorrect usage.</li>
+								</ul>
+								Each role is required to submit test cases and results for each component. These results directly affect the overall score of the component.</li>
+								
+							<li>The development submission with the best score above the minimum score** is chosen for the project.  If there is a tie in score, then 
+							the members' TC rankings are used to break the tie.  Both the Development Screening Score card and the Development Review Score card 
+							are sent to all developers whose submissions passed the initial screening.</li>
+							
+							<li>The winning developer is given additional time to incorporate the aggregated suggestions from the Development Review 
+							Board.  If the time frame is not met, the developer will be disqualified and the next design in order of score will be declared the winner.</li>
+							
+							<li>The Primary Reviewer gives the updated submission a final review to make sure that all mandatory suggestions were implemented 
+							and any optional suggestions were implemented correctly.  At that point the submission is regression tested with all test cases.</li>
+							
+							<li>If no submissions pass the Development Review**, the Development Phase starts over and all developers are allowed to re-submit their 
+							modified implementations.</li>
+							
+							<li>100% of the payment is paid out once the final version of the winning development solution is approved by the Development Review 
+							Board.</li>
+						</ol></p>
+												
+						<p>** Minimum passing score is determined by TopCoder for both the screening and development review.</p></td>
 				</tr>
 <!-- Development ends -->
 
 <!-- Certification begins -->
 				<tr valign="top">
-					<td width="100%" background="/i/steel_darkblue_bg.gif">
+					<td width="100%" background="/i/steel_darkblue_bg.gif"><a name="certification"></a>
 						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
 							<tr valign="top">
-								<td class="statText" width="98%">
-									<strong>Certification</strong><span class="methNav">&#160;&#160;&#160;<a class="statText" href="#certPart">Participants</a>&#160;::&#160;<a class="statText" href="#certDet">Details</a>&#160;::&#160;<a class="statText" href="#certDel">Deliverables</a>&#160;&#160;&#160;</span></td>
+								<td class="methNav" width="98%">
+									<a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="statText"><strong>Certification</strong></span>&#160;&#160;&#160;&#160;</td>
 								<td class="statText" width="2%" nowrap="nowrap">
 									<div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
 							</tr>
@@ -255,31 +367,19 @@ li {
 				
 				<tr valign="top">
 					<td class="statText">
-						<p>Gather component scope by collaborating with customers and topcodersoftware.com members though online 
-						Collaboration Forums.  For new components this includes a new request for a component, for existing components it is 
-						the request for additional functionality.</p>
+						<p>Additional environment certifications.</p>
 									
-						<p><a name="certPart"><strong>Participants</strong></a><br />
+						<p><strong>Participants</strong><br />
 						Product Manager (PM)<br />
-						Customers<br />
-						TopCoder Software Members</p>
+						Developer</p>
 									
-						<p><a name="certDet"><strong>Details</strong></a><br />
+						<p><strong>Details</strong><br />
 						<ol>
-							<li>PM moderates collaboration forums on topcodersoftware.com to gather component requirements.</li>
-							<li>Collaboration sessions will last a minimum of one week and last as long as the - PM deems necessary to gather the requirements.</li>
-							<li>Each PM will start a minimum of double their component quota of active collaborations per month.</li>
-							<li>The collaboration forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post to the forums.</li>
-							<li>Once a project scope has been determined, the PM creates a Requirements Specification and Project Posting for the design of that component.</li>
-							<li>The project is posted on the Development Section of topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment and submission date for all design submissions.  Interested members are required to inquire about projects, at that point all eligible members are granted access to the required project specification and a secure forum to communicate with the TopCoder Product Manager.</li>
-						</ol></p>
-									
-						<p><a name="certDel"><strong>Deliverables</strong></a><br />
-						<ul>
-							<li>Project overview and functional requirements in the collaboration forum.</li>
-							<li>(PM) Requirements Specification detailing the specific requirements of the component is created and posted to the specification forum.</li>
-							<li>(PM) Project Posting for design project (including: Requirements Specification, timeline, payments and deliverables).</li>
-						</ul></p></td>
+							<li>Completed components often need to be certified on additional platforms for specific customers.</li>
+							<li>Certification projects will be posted on the TopCoder web site and developers will be selected from the resulting inquiries.</li>
+							<li>Developers will be responsible for testing the component on the specified platform and reporting the results.</li>
+							<li>Developers will be paid a fixed amount.</li>
+						</ol></p></td>
 				</tr>
 <!-- Certification ends -->
 			</table>

@@ -72,54 +72,46 @@
 				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=db_abstract-design">Database Abstraction:&#160;Design</a><br/>
-						Posted: 11.26.2002<br/>
-						Submission Deadline: 12.11.2002<br/>
-						</p>   
-
-						<!-- <p>
-						Project: <a class="statText" href="/index?t=development&amp;c=encrypt-design">Encryption:&#160;Design</a><br/>
-						Posted: 11.26.2002<br/>
-						Submission Deadline: 12.11.2002<br/>
-						</p>   -->
-
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling:&#160;Design</a><br/>
-						Posted: 11.26.2002<br/>
-						Submission Deadline: 12.11.2002<br/>
-						</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=object_pool">Object Pool:&#160;Design</a><br/>
+						Submit by: 12.18.2002</p>   
 
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=spell_check">Spell Check:&#160;Design</a><br/>
-						Posted: 11.21.2002<br/>
-						Submission Deadline: 12.04.2002<br/>
-						</p>   
+						Submit by: 12.18.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=email_validator_design">Email Address Verifier:&#160;Design</a><br/>
-						Posted: 11.14.2002<br/>
-						Submission Deadline: 11.27.2002<br/>
-						</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler:&#160;Design</a><br/>
+						Submit by: 12.18.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=exec_wrapper">Executable Wrapper:&#160;Design</a><br/>
+						Submit by: 12.18.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=service_mgr">Service Manager:&#160;Design</a><br/>
+						Submit by: 12.18.2002</p>   
 					</td>
 
 					<td class="statText" width="50%">
 						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=currency">Currency:&#160;Design</a><br/>
+						Submit by: 12.18.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=serial_num">Serial Number Generator:&#160;Design</a><br/>
+						Submit by: 12.18.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=db_abstract-design">Database Abstraction:&#160;Design</a><br/>
+						Submit by: 12.11.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling:&#160;Design</a><br/>
+						Submit by: 12.11.2002</p>   
+
+						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector:&#160;Design</a><br/>
-						Posted: 11.26.2002<br/>
-						Submission Deadline: 12.11.2002<br/>
-						</p>   
-
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=math_eval">Math Evaluator:&#160;Design</a><br/>
-						Posted: 11.21.2002<br/>
-						Submission Deadline: 12.04.2002<br/>
-						</p>   
-
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=simple_cache">Simple Cache:&#160;Design</a><br/>
-						Posted: 11.14.2002<br/>
-						Submission Deadline: 11.27.2002<br/>
-						</p>   
+						Submit by: 12.11.2002</p>   
 					</td>
 				</tr>
 				
@@ -127,43 +119,24 @@
 
 				<tr><td class="statText" colspan="2"><a name="development"><h1 class="devSubhead">Open Component Development Projects</h1></a></td></tr>
 				
-<!--				<tr valign="top">
-					<td class="statText">
-						<p>
-						There are no Open Component Development postings.<br/>
-						</p>   
-					</td>
-				</tr>  -->
-							
 				<tr valign="top">
+					<td class="statText">
+						<p>There are no Open Component Development postings.</p></td>
+				</tr>
+							
+<!--				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=timer_dev">Timer:&#160;Development</a><br/>
-						Posted: 11.21.2002<br/>
-						Submission Deadline: 12.05.2002<br/>
-						</p>   
-
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=email_engine_dev">Email Engine Enhancements:&#160;Development</a><br/>
-						Posted: 11.14.2002<br/>
-						Submission Deadline: 11.29.2002<br/>
-						</p>   
+						Submit by: 12.05.2002</p>   
 					</td>
 
 					<td class="statText" width="50%">
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=utg_dev">Unit Test Generator:&#160;Development</a><br/>
-						Posted: 11.21.2002<br/>
-						Submission Deadline: 12.05.2002<br/>
-						</p>   
-
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=log_interface_dev">Logging Wrapper:&#160;Development</a><br/>
-						Posted: 11.14.2002<br/>
-						Submission Deadline: 11.29.2002<br/>
-						</p>   
+						Submit by: 12.05.2002</p>   
 					</td>
-				</tr>
+				</tr>  -->
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
