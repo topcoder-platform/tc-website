@@ -20,7 +20,7 @@ import java.sql.ResultSet;
  */
 public class NoteBean extends BaseEJB {
 
-    private static Logger log = Logger.getLogger(NoteBean.class);
+    private final static Logger log = Logger.getLogger(NoteBean.class);
 /*
     private static final String DATA_SOURCE = "java:comp/env/datasource_name";
     private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
