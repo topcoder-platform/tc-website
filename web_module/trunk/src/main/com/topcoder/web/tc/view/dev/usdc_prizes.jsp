@@ -45,7 +45,8 @@
 <ul><li><a href="#design">Design Prizes</a></li>
 <li><a href="#development">Development Prizes</a></li></ul>
 <a name="design"></a>
-<h3>Design Prizes</h3>			
+<h3><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>Design Prizes</h3>			
 <p align="center"><strong>*Prizes are in addition to component payments.*</strong></p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -93,7 +94,8 @@
                     
             <img src="/i/clear.gif" width="400" height="10" vspace="5" border="0">
             <a name="development"></a>
-            <h3>Development Prizes</h3>
+            <h3><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>Development Prizes</h3>
 			<p align="center"><strong>*Prizes are in addition to component payments.*</strong></p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
