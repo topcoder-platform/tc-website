@@ -22,8 +22,8 @@
 <!-- Left Column Begins -->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/> 
+                <jsp:param name="level1" value=""/>
+                <jsp:param name="level2" value=""/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -40,22 +40,22 @@
            <jsp:param name="title" value=""/>  
         </jsp:include>
 
-<center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
+<p class="header"><%= request.getAttribute("problemName") %></p>
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
 <form name="ratings" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
-    <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#001B35">
+    <table BORDER="1" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
         <tr><td></td>
             <% for(int i = 1; i<=10; i++){ %>
-                <td class="statTextBig">
-                    &nbsp;&nbsp;<%=i%>
+                <td class="bodyTextBig" align="center">
+                    <%=i%>
                 </td>
             <% } %>
         </tr>
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <td class="statText">
+            <td class="bodyText">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
             <tc:counter min="1" max="10" inc="1" id="rating">
@@ -66,12 +66,10 @@
             </tc:counter>
         </tr>
         </tc:problemRatingIterator>
-    </table>
-    <table align="right">
-        <tr>
-        <td align="right">
+        <tr><td></td>
+        <td align="center" colspan="5" nowrap>
             <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="button">View Results</a>&nbsp;&nbsp;
-        </td><td align="right">
+        </td><td align="center" colspan="5" nowrap>
             <a href="javascript:document.ratings.submit()" class="button">Submit Ratings</a>&nbsp;&nbsp;
         </td></tr>
     </table>
@@ -85,8 +83,8 @@
 <!-- Right Column Begins -->
        <td width="170">
             <jsp:include page="../public_right.jsp">
-                <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/> 
+                <jsp:param name="level1" value="review_board"/>
+                <jsp:param name="level2" value="competition"/> 
             </jsp:include>
         </td>
 <!-- Right Column Ends -->
