@@ -15,60 +15,52 @@
 
 <body>
 
-<!-- TCO Header -->
 <a name="top_page"></a>
 <table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
    <tr>
-         <td width="100%" align="center" colspan="7">
+
+<!-- TCO Header -->
+
+        <td width="176" valign="top" colspan="2" bgcolor="#B8B8B8"><img src="/i/events/google2003/Logo_60gry.gif" width="176" height="77" border="0"/></td>
+
+         <td width="100%" align="center" colspan="3">
             <object 
             type="application/x-shockwave-flash"
             data="/i/events/google2003/google.swf"
             width="100%"
-            height="280"
+            height="80"
             border="0">           
             <param name="movie" value="/i/events/google2003/google.swf" />
             <param name="quality" value="high" />
             <param name="salign" value="t">
             </object><br/>
       </td>
+        <td width="176" valign="top" colspan="2" bgcolor="#B8B8B8"><img src="/i/clear.gif" width="176" height="77" border="0"/></td>
    </tr>
    
+   <tr>
+      <td colspan="7" width ="100%" align="center">
+            <object 
+            type="application/x-shockwave-flash"
+            data="/i/events/google2003/googletabs.swf"
+            width="100%"
+            height="150"
+            border="0">           
+            <param name="movie" value="/i/events/google2003/googletabs.swf" />
+            <param name="quality" value="high" />
+            <param name="salign" value="t">
+            </object><br/>
+        </td>
+     </tr>
 
 <!-- Gutter Begins -->
    <tr>
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Left Column Begins
-         <td valign="top" width="150">
-            <table border="0" width="100%" cellspacing="0" cellpadding="3">
-               <tr><td valign="middle" bgcolor="#3366CC" class="statText" width="100%"><font size="3"><strong>Important Dates</strong></font></td></tr>        
-               <tr>
-                  <td class="bodyText">
-                  <p><b>Registration Starts</b><br />
-                  Wednesday, October 1st</p>
-                  <p><b>Online Round 1</b><br />
-                  Friday, October 24th</p>
-                  <p><b>Onsite Championship Round</b><br />
-                  Friday, November 14th</p></td>
-               </tr>
-            </table><br />
-            <table border="0" width="100%" cellspacing="0" cellpadding="3">
-               <tr><td valign="middle" bgcolor="#3366CC" class="statText" width="100%" colspan="2"><font size="3"><strong>Cash Prizes</strong></font></td></tr>        
-               </tr>
-               <tr><td class="bodyText">1st Place<br />
-               2nd Place<br />
-               3rd Place<br />
-               4th Place</td>
-               <td class="bodyText" align="right">$10,000<br />
-               $5,000<br />
-               $3,500<br />
-               $1,250<br />
-               <p><br /></p></td></tr>
-            </table><br />
-     
-         </td>         
-Left Column Ends -->
+<!-- Left Column Begins-->
+        <td width="150" valign="top"><img src="/i/clear.gif" width="150" height="1" border="0"/></td>
+<!--Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
@@ -76,6 +68,7 @@ Left Column Ends -->
 
 <!-- Center Column Begins-->
          <td class="bodyText" valign="top">
+            <img src="/i/clear.gif" width="500" height="1" border="0"/><br />
        
             <h2>Conditions of Participation</h2>
             
@@ -148,6 +141,15 @@ Left Column Ends -->
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
+
+<!-- Left Column Begins-->
+        <td width="150" valign="top"><img src="/i/clear.gif" width="150" height="1" border="0"/></td>
+<!--Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
     </tr>
 </table>
 
