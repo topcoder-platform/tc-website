@@ -21,7 +21,7 @@
                 <!-- Header Begins -->
                 <xsl:call-template name="Top"/>
                 <!-- Header Begins -->
-                <table width="100%" border="0" cellpadding="0" cellspacing="0"  bgcolor="#000000">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                         <!-- Left Column Begins -->
                         <td width="180" valign="top">
@@ -233,7 +233,7 @@
                                 </tr>
 
                             </table>
-                            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#000000" width="100%">
+                            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                                 <tr valign="top">
                                     <td height="10"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" />
                                     </td>
@@ -247,7 +247,7 @@
                         </td>
                         <!-- Gutter Ends -->
                         <!-- Right Column Begins -->
-                        <td width="244" valign="top" bgcolor="#000000">
+                        <td width="244" valign="top">
                             <xsl:call-template name="public_dev_right"/>
                         </td>
                         <!-- Right Column Ends -->

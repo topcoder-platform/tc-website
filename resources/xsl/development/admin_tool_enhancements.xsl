@@ -233,7 +233,7 @@
                                 </tr>
 
                             </table>
-                            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+                            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                                 <tr valign="top">
                                     <td height="10"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" />
                                     </td>
@@ -247,7 +247,7 @@
                         </td>
                         <!-- Gutter Ends -->
                         <!-- Right Column Begins -->
-                        <td width="244" valign="top" bgcolor="#001B35">
+                        <td width="244" valign="top">
                             <xsl:call-template name="public_dev_right"/>
                         </td>
                         <!-- Right Column Ends -->
