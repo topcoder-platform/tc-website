@@ -197,9 +197,7 @@
 
 <P><A HREF="/?t=jobs&amp;c=ge_faq">Read our Frequently Asked Questions</A></P>
 
-<P>If you are interested in IMLP or an IMLP internship apply below"</P>
 
-<P><B><A HREF="http://www.gecareers.com/campus/filled.cfm?FilledDate=September%202">Apply</A></B></P>
 
 <!--end contextual links-->
 

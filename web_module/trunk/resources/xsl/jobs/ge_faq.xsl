@@ -190,6 +190,7 @@
 <A HREF="#relocate" CLASS="bodyText">Will I relocate while on program?  Are moving expenses reimbursed?</A><BR/>
 <A HREF="#international" CLASS="bodyText">Is there an opportunity for an international assignment during IMLP?</A><BR/>
 <A HREF="#path" CLASS="bodyText">What type of career path will IMLP set me on?</A><BR/>
+<A HREF="#benefits" CLASS="bodyText">What benefits does GE offer?</A>
 
 <A NAME="imlp"></A>
 <P><B>What is IMLP?</B></P>
@@ -257,6 +258,11 @@
 
 <A HREF="#top" CLASS="bodyText">top of page</A>
 
+<A NAME="benefits"></A>
+<P><B>What benefits does GE offer?</B></P>
+<A HREF="http://www.gecareers.com/AboutGE/e_ben.cfm">GE Benefits </A>
+
+<A HREF="#top" CLASS="bodyText">top of page</A>
 
 <!--end contextual links-->
 
