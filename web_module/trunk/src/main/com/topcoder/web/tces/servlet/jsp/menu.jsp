@@ -2,9 +2,10 @@
 contentType="text/html"
 %>
 <% String appContext = request.getContextPath(); %> 
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-<TR>
-<TD CLASS="registerNav" WIDTH="10" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="21" BORDER="0"></TD></TD>            
-<TD WIDTH="100%" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" CLASS="statText" VALIGN="middle"><A HREF="/?t=tces&c=index" CLASS="subNav" TARGET="_parent">TCES Program</A>&#160;&#160;|&#160;&#160;<A HREF="/tces/?task=MainTask" CLASS="subNav" TARGET="_parent">Campaign List</A></TD>
-</TR>
-</TABLE>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr valign="middle">
+<td class="registerNav" width="49%" height="21" background="/i/top_bar_bg.gif"><img src="/i/clear.gif" alt="" width="10" height="21" border="0"></td>            
+<td height="21" background="/i/top_bar_bg.gif" bgcolor="#CC0000" class="statText" nowrap><a href="/?t=tces&c=index" class="subNav" target="_parent">TopCoder Recruiting Program</a>&#160;&#160;|&#160;&#160;<a href="<%=appContext%>/tces/?task=MainTask" class="subNav" target="_parent">Campaign List</a></td>
+<td class="registerNav" width="49%" height="21" background="/i/top_bar_bg.gif"><img src="/i/clear.gif" alt="" width="10" height="21" border="0"></td>            
+</tr>
+</table>
