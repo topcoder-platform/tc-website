@@ -22,11 +22,11 @@
 				
 				<tr valign="middle">
 					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
-					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif">Rank</td>  
+					<td class="statText" align="right" background="/i/steel_bluebv_bg.gif">Rank</td>  
  					<td width="7" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="7" height="1" border="0"/></td>
-					<td class="statTextBig" background="/i/steel_bluebv_bg.gif">Name</td>
+					<td class="statText" background="/i/steel_bluebv_bg.gif">Name</td>
  					<td width="7" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="7" height="1" border="0"/></td>
-					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif">Avg. Rating</td>			
+					<td class="statText" align="right" background="/i/steel_bluebv_bg.gif">Avg. Rating</td>			
 					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
 				</tr>				  
 				
