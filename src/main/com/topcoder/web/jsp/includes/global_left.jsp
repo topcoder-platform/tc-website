@@ -18,6 +18,7 @@
     if (info==null) {
         Navigation nav = (Navigation)session.getAttribute("navigation");
         if (nav==null) info = new Navigation(request, response).getSessionInfo();
+        else info = nav.getSessionInfo();
     }
 
 %>
