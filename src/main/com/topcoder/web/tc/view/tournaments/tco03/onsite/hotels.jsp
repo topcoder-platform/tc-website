@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2003 TopCoder Open sponsored by Intel&#174;  - Hotel Info for the Onsite Finals</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Rules</title>
 
 <jsp:include page="../../../script.jsp" />
 
@@ -46,24 +46,31 @@
    <jsp:param name="selectedTab" value="hotels"/>
 </jsp:include>
 
-            <h2>About Mohegan Sun</h2>
+            <h2>Hotels Near Mohegan Sun</h2>
             
-            <p><img src="/i/tournament/tco03/pic_about_entry.jpg" width="160" height="478" border="0" alt="" align="right">
-            Created by the Mohegan Tribe of Connecticut in 1996, Mohegan Sun is a legendary gaming and entertainment destination. 
-            Renowned for exceptional service, hospitality and excitement, Mohegan Sun offers some of the region's finest dining, hotel 
-            accommodations, live entertainment and retail shopping. It also hosts the fabulous Kids Quest/Cyber Quest family 
-            entertainment facility, a luxurious day spa, convention event center and meeting facilities, and major sporting events such 
-            as Arena Football and Ultimate Fighting Championships. Featuring an extraordinary Mohegan-themed design unlike any other 
-            in the industry, Mohegan Sun is one of the most unique casinos in the world.</p>
+            <p><strong>Hotel at Mohegan Sun</strong><br/>
+            There is a 34-story luxury hotel at Mohegan Sun. Find out <a href="http://www.mohegansun.com/plan_visit/faq_accomodations.jsp" target="_blank">more info</a> 
+            or make a <a href="http://www.mohegansun.com/hotel_spa/hotel_reservations.jsp" target="_blank">reservation</a> on the Mohegan Sun web site.</p>
+            
+            <p>Several other hotels are located only a short drive away from Mohegan Sun. We have included a representative sampling for your convenience:</p>
+            
+            <p><strong>Courtyard Norwich</strong><br/>
+            181 West Town Street<br/>
+            Norwich, CT 06360<br/>
+            860.886.2600<br/>
+            <a href="http://www.marriott.com/courtyard/toc/" target="_blank">http://www.marriott.com/courtyard/toc/</a></p>
 
-            <p>On September 25th, 2000, Mohegan Sun evolved even further to become one of the world's most amazing destinations. It 
-            now hosts 300,000 square feet of gaming excitement, including games such as Baccarat, Blackjack, Craps, Caribbean Stud 
-            Poker, Keno, Pai Gow Poker, Roulette, Sic Bo, Spanish 21 and Wheel of Fortune. It also features over 29 delectable dining 
-            options, over 30 fine shops and boutiques, and some of the hottest concerts and live entertainment in the area. Mohegan Sun 
-            is also home to the WNBA's new Connecticut Sun. Unlike other casino properties, Mohegan Sun Casino features stunning 
-            architecture and design. The Casino of the Sky and Wombi Rock reside under the Sky Dome, the world's largest, most 
-            spectacular planetarium dome, decorating the casino with an ever-changing display of sparkling constellations. The amazing 
-            7-story waterfall located at The Shops at Mohegan Sun also adds to the breathtaking Mohegan Sun experience.</p>
+            <p><strong>Comfort Suites Norwich</strong><br/>
+            275 Otrobando Avenue<br/>
+            Norwich, CT 06360<br/>
+            860.892.9292<br/>
+            <a href="http://www.comfortsuites.com/" target="_blank">http://www.comfortsuites.com/</a></p>
+
+            <p><strong>Hilton Mystic</strong><br/>
+            20 Coogan Blvd.<br/>
+            Mystic, CT 06355<br/>
+            860.572.0731<br/>
+            <a href="http://www.hilton.com/" target="_blank">http://www.hilton.com/</a></p>
 
             <p><br/></p>
             
