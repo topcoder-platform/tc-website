@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer,
+                    com.topcoder.web.corp.common.Constants"%>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <a name="top"></a>
 
@@ -44,6 +45,10 @@
         <td width="1" class="testTop">&#160;</td>
         <td nowrap class="testTop"><screen:servletLink processor="ProblemList" styleclass="topLink">Problem Sets</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
+        <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+        <td nowrap class="testTop"><screen:servletLink processor="CampaignList" styleclass="topLink">Results</screen:servletLink></td>
+        <td width="1" class="testTop">&#160;</td>
+        <% } %>
         <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidate Status</screen:servletLink></td>
         <td class="testTop" width="49%">&#160;</td>
    </tr>
