@@ -28,7 +28,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     private HttpSession session;
     private String redirectPage;
-    private boolean displayOnly;
+    private boolean handleSet;
+    private boolean passwordSet;
 
     /* Creates a new LoginTask */
     public LoginTask() {
@@ -36,19 +37,19 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         setHandleInput("");
         setPasswordInput("");
         setRedirectPage("");
-        displayOnly = false;
+        handleSet = false;
+        passwordSet = false;
     }
 
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         session = request.getSession(true);
         super.setAuthentication(Authentication.getAuthentication(session));
-        displayOnly=request.getQueryString()==null;
     }
 
     public void process(String step) throws Exception {
 
-        if (displayOnly) {
+        if (!handleSet && !passwordSet) {
             setNextPage(Constants.LOGIN_PAGE);
         } else {
             if (!super.getAuthentication().isLoggedIn())
@@ -83,6 +84,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
      * @param handleInput New value of property handleInput.
      */
     public void setHandleInput(String handleInput) {
+        handleSet = true;
         this.handleInput=handleInput;
     }
 
@@ -97,6 +99,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
      * @param passwordInput New value of property passwordInput.
      */
     public void setPasswordInput(String passwordInput) {
+        passwordSet = true;
         this.passwordInput=passwordInput;
     }
 
