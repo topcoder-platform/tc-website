@@ -21,13 +21,13 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>Page Title</p>
+        <p class=pageTitle>SnapDragon takes it</p>
 
 		<img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
 		<div class="leadPhoto">
 		<span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos">See more photos!</a></p></span>
-		<img src="/i/tournament/tco04/onsite_photos/room1.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-		<span class="leadPhotoCaption">Caption<br/><br/></span>
+		<img src="/i/tournament/tco04/onsite_photos/shot_room2.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+		<span class="leadPhotoCaption"><br/>SnapDragon thinking his way right into the finals<br/></span>
 		</div>
 
 		<a href="/stat?c=member_profile&cr=269554"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
@@ -38,6 +38,13 @@
 		<br/><br/>
 		</p>
 <p>
+3 out of 4 of the 2002 TCO finals competitors rematched in round 2 of the semifinals.  The first problem was rated at 325, which is always a bad sign.  However, after 15 minutes, SnapDragon was the first to submit.  John Dethridge was next to submit, but was about 8 minutes behind, followed shortly by monsoon.  SnapDragon was also first to submit the medium problem, despite the fact that he missed a crucial constraint for a few minutes.  Many of the other coders also submitted two problems, and at the end of coding six of them had two submissions.
+<br/><br/>
+In the challenge phase, SnapDragon was first to act, putting himself almost out of reach, providing his submissions suceeded.  Towards the end of the challenge phase, jms137 also moved up 50 points, but it wasn't enough for him to advance.
+<br/><br/>
+Things were far from over, however.  The examples were rather scant, and half of the surviving submissions were destined to go down.  dgarthur lost both his problems, while John Dethridge, jms137, and cnettel each lost one.  Only SnapDragon and monsoon ended up with two successful submissions, and took first and second, respectively.  John Detridge had the only other surviving medium submission, and narrowly edged out jms137.
+<br/><br/>
+
 <span class=bodySubtitle>BadXML</span>
 
 <p>

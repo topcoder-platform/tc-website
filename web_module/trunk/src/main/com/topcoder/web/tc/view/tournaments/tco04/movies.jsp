@@ -28,7 +28,9 @@
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rm1_1.AVI"><img src="/i/tournament/tco04/onsite_movies/rm1_1.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tco04/onsite_movies/rm1_1.AVI">RalphFurmaniak enters<br/>the battle (761 KB)</A><br/></td>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rm1_2.MPG"><img src="/i/tournament/tco04/onsite_movies/rm1_2.jpg" border=0/></A>
-				<br/><A href="/i/tournament/tco04/onsite_movies/rm1_2.MPG">tomek interview (6 MB)</A><br/></td>
+				<br/><A href="/i/tournament/tco04/onsite_movies/rm1_2.MPG">tomek on his win (6 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rm2_1.MPG"><img src="/i/tournament/tco04/onsite_movies/rm2_1.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/rm2_1.MPG">SnapDragon celebrates (11 MB)</A><br/></td>
             </tr>
 		</table>
 
