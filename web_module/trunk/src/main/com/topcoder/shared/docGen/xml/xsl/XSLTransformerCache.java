@@ -69,6 +69,7 @@ public class XSLTransformerCache {
                 log.debug("cache size is now: " + CacheClientPool.getPool().getClient().size());
             }
         } catch (Exception e) {
+            e.printStackTrace();
             throw  e;
         }
         return result;
