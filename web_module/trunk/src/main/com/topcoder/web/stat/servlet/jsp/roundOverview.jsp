@@ -62,6 +62,8 @@
     String coders[][] = new String[divisions][topN];
     String scores[][] = new String[divisions][topN];
     String rooms[][] = new String[divisions][topN];
+    String ratings[][] = new String[divisions][topN];
+    String coderIDs[][] = new String[divisions][topN];
     int lastDivisionID = -1;
     int divisionPtr = -1;
     for(int i = 0; i<leaders.size();i++){
@@ -75,8 +77,12 @@
         String handle = currentRow.getItem("handle").toString();
         String room_name = currentRow.getItem("room_name").toString();
         String points = currentRow.getItem("final_points").toString();
+        String rating = currentRow.getItem("new_rating").toString();
+        String coder_id = currentRow.getItem("coder_id").toString();
         coders[divisionPtr][ptrs[divisionPtr]]=handle;
         scores[divisionPtr][ptrs[divisionPtr]]=points;
+        ratings[divisionPtr][ptrs[divisionPtr]]=rating;
+        coderIDs[divisionPtr][ptrs[divisionPtr]]=coderID;
         rooms[divisionPtr][ptrs[divisionPtr]++]=room_name;
     }
     topN = 0;
@@ -109,11 +115,14 @@
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0"><A HREF="/stat?c=<%= lastMatch?"last_match":("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" CLASS="bodyGeneric">Results</A></TD>
   <%}%>
   </TR>
+<bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
   <%for(int i = 0; i<topN;i++){%>
       <TR>
         <%for(int j = 0; j<divisions;j++){%>
-            <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="bodyText">&#160;<%= coders[j][i] %></TD>
+            <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="bodyText">
+              <A HREF="/stat?c=member_profile&cr=<%= coderIDs[j][i] %>'" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
+            </TD>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText">&#160;<%= rooms[j][i] %></TD>
   <%    }%>
