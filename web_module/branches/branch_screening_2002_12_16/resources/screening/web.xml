@@ -491,6 +491,18 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>check_access_query_key</param-name>
+    <param-value>checkAccess</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>accuracy_info_query_key</param-name>
+    <param-value>accuracyInfo</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Results constants -->
   <init-param>
     <param-name>problem_result_page</param-name>

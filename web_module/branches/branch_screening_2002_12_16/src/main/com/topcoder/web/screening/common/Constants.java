@@ -97,6 +97,8 @@ public class Constants
     public static String EXAMPLE_PROBLEM_ID;
     public static String PROBLEM_TYPE_EXAMPLE_ID;
     public static String PROBLEM_TYPE_TEST_SET_B_ID;
+    public static String ACCURACY_INFO_QUERY_KEY;
+    public static String CHECK_ACCESS_QUERY_KEY;
     
     //Results constants
     public static String PROBLEM_RESULT_PAGE;
@@ -254,6 +256,10 @@ public class Constants
             config.getInitParameter("problem_type_example_id");
         PROBLEM_TYPE_TEST_SET_B_ID = 
             config.getInitParameter("problem_type_test_set_b_id");
+        CHECK_ACCESS_QUERY_KEY =
+            config.getInitParameter("check_access_query_key");
+        ACCURACY_INFO_QUERY_KEY = 
+            config.getInitParameter("accuracy_info_query_key");
         
         //Result constants
         PROBLEM_RESULT_PAGE = config.getInitParameter("problem_result_page");

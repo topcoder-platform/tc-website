@@ -9,28 +9,36 @@ import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 
+
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.common.ScreeningException;
 
 public class ProblemInfo extends BaseModel {
-    private static DataAccess access;
+    private static DataAccess nonCached;
+    private static CachedDataAccess cached;
+    private static DataAccess dwAccess;
 
     private String problemName;
     private String divisionDesc;
     private String difficultyDesc;
-    private String accuracy;
     private String categoryDesc;
     private String problemStatement;
     private Long roundId;
     private Long problemId;
+    private String submissionAccuracy;
+    private String submission;
+    private String overallAccuracy;
     private HashSet algorithmicCategories;
     private HashSet businessCategories;
+
 
     public ProblemInfo() {
         algorithmicCategories = new HashSet();
@@ -139,26 +147,6 @@ public class ProblemInfo extends BaseModel {
     }
 
     /**
-     * Sets the value of <code>accuracy</code>.
-     *
-     * @param accuracy
-     */
-    public void setAccuracy( String val )
-    {
-        accuracy = val;
-    }
-
-    /**
-     * Gets the value of <code>accuracy</code>.
-     *
-     * @return 
-     */
-    public String getAccuracy()
-    {
-        return accuracy;
-    }
-
-    /**
      * Sets the value of <code>categoryDesc</code>.
      *
      * @param categoryDesc
@@ -198,6 +186,67 @@ public class ProblemInfo extends BaseModel {
         return problemStatement;
     }
 
+    /**
+     * Sets the value of <code>submissionAccuracy</code>.
+     *
+     * @param submissionAccuracy
+     */
+    public void setSubmissionAccuracy( String val )
+    {
+        submissionAccuracy = val;
+    }
+
+    /**
+     * Gets the value of <code>submissionAccuracy</code>.
+     *
+     * @return 
+     */
+    public String getSubmissionAccuracy()
+    {
+        return submissionAccuracy;
+    }
+
+    /**
+     * Sets the value of <code>submission</code>.
+     *
+     * @param submission
+     */
+    public void setSubmission( String val )
+    {
+        submission = val;
+    }
+
+    /**
+     * Gets the value of <code>submission</code>.
+     *
+     * @return 
+     */
+    public String getSubmission()
+    {
+        return submission;
+    }
+
+    /**
+     * Sets the value of <code>overallAccuracy</code>.
+     *
+     * @param overallAccuracy
+     */
+    public void setOverallAccuracy( String val )
+    {
+        overallAccuracy = val;
+    }
+
+    /**
+     * Gets the value of <code>overallAccuracy</code>.
+     *
+     * @return 
+     */
+    public String getOverallAccuracy()
+    {
+        return overallAccuracy;
+    }
+
+
     public void addAlgorithmicCategory(String category) {
         if(category == null) return;
         algorithmicCategories.add(category);
@@ -234,15 +283,49 @@ public class ProblemInfo extends BaseModel {
                                                 long problemId) 
         throws Exception {
 
-        if(access == null) {
+        if(nonCached == null) {
             InitialContext context = new InitialContext();
             DataSource ds = (DataSource)
                 PortableRemoteObject.narrow(
                         context.lookup(Constants.DATA_SOURCE),
                                             DataSource.class);
 
-            access = new DataAccess(ds);
+            nonCached = new DataAccess(ds);
         }
+
+        if(cached == null) {
+            InitialContext context = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(
+                        context.lookup(Constants.DATA_SOURCE),
+                                            DataSource.class);
+
+            cached = new CachedDataAccess(ds);
+        }
+
+        if(dwAccess == null) {
+            InitialContext context = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(
+                        context.lookup(Constants.DW_DATA_SOURCE),
+                                       DataSource.class);
+
+            dwAccess = new DataAccess(ds);
+        }
+
+        //first check permissions on given problem
+        Request checkAccess = new Request();
+        checkAccess.setProperty(DataAccessConstants.COMMAND,
+                Constants.CHECK_ACCESS_QUERY_KEY);
+        checkAccess.setProperty("uid", String.valueOf(user.getId()));
+        checkAccess.setProperty("rid", String.valueOf(roundId));
+        Map map = nonCached.getData(checkAccess);
+        ResultSetContainer rsc = (ResultSetContainer)
+                    map.get(Constants.PROBLEM_INFO_QUERY_KEY);
+        if(rsc.size() == 0) {
+            throw new PermissionDeniedException("User cannot access this problem");
+        }
+
 
         Request problemDetail = new Request();
         problemDetail.setProperty(DataAccessConstants.COMMAND,
@@ -250,13 +333,11 @@ public class ProblemInfo extends BaseModel {
 
         problemDetail.setProperty("pid", String.valueOf(problemId));
         problemDetail.setProperty("rid", String.valueOf(roundId));
-        problemDetail.setProperty("uid", String.valueOf(user.getId()));
-        Map map = access.getData(problemDetail);
-        ResultSetContainer rsc = (ResultSetContainer)
-                    map.get(Constants.PROBLEM_INFO_QUERY_KEY);
+        map = cached.getData(problemDetail);
+        rsc = (ResultSetContainer)map.get(Constants.PROBLEM_INFO_QUERY_KEY);
         if(rsc.size() == 0) {
             throw new ScreeningException(
-                    "Data error, user may not be allowed to view problem");
+                    "Data error, Problem info query returned no rows");
         }
         if(rsc.size() > 1) {
             throw new ScreeningException(
@@ -271,8 +352,11 @@ public class ProblemInfo extends BaseModel {
         info.setProblemName(row.getItem("name").toString());
         info.setDivisionDesc(row.getItem("division_desc").toString());
         info.setDifficultyDesc(row.getItem("difficulty_desc").toString());
-        info.setAccuracy(row.getItem("accuracy").toString());
         info.setProblemStatement(row.getItem("problem_statement").toString());
+
+        //need these for accuracy
+        String contestRoundId = row.getItem("contest_round_id").toString();
+        String divisionId = row.getItem("division_id").toString();
 
         rsc = (ResultSetContainer)
             map.get(Constants.PROBLEM_ALGORITHMIC_CATEGORY_QUERY_KEY);
@@ -288,6 +372,31 @@ public class ProblemInfo extends BaseModel {
             row = (ResultSetContainer.ResultSetRow)i.next();
             info.addBusinessCategory(row.getItem("category_name").toString());
         }
+
+        Request accuracyInfo = new Request();
+        accuracyInfo.setProperty(DataAccessConstants.COMMAND,
+                Constants.ACCURACY_INFO_QUERY_KEY);
+
+        accuracyInfo.setProperty("pm", String.valueOf(problemId));
+        accuracyInfo.setProperty("rd", contestRoundId);
+        accuracyInfo.setProperty("dn", divisionId);
+        map = dwAccess.getData(accuracyInfo);
+        rsc = (ResultSetContainer)map.get(Constants.ACCURACY_INFO_QUERY_KEY);
+
+        if(rsc.size() == 0) {
+            throw new ScreeningException(
+                    "Data error, accuracy info query returned no rows");
+        }
+        if(rsc.size() > 1) {
+            throw new ScreeningException(
+                    "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
+        }
+
+
+        row = (ResultSetContainer.ResultSetRow)rsc.get(0);
+        info.setSubmissionAccuracy(row.getItem("submission_accuracy").toString());
+        info.setSubmission(row.getItem("submission_percentage").toString());
+        info.setOverallAccuracy(row.getItem("overall_accuracy").toString());
 
         return info;
     }
