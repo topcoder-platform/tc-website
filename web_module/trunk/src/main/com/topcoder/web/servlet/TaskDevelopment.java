@@ -151,7 +151,7 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("final_submission", request.getParameter("final_submission")));
             devTag.addTag(new ValueTag("winner_announced", request.getParameter("winner_announced")));
             devTag.addTag(new ValueTag("estimated_dev", request.getParameter("estimated_dev")));
-            
+            devTag.addTag(new ValueTag("compvers", request.getParameter("compvers")));
 
 
             if (command.equals("inquire")) {
