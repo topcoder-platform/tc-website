@@ -33,18 +33,18 @@
   <% }
     } %>
  function changeState() {
-  var idx=state.selectedIndex
+  var idx=document.state.selectedIndex
   if (idx==-1) {
-   school.disabled=true
-   school.selectedIndex=0
-   school.options.length=1
+   document.school.disabled=true
+   document.school.selectedIndex=0
+   document.school.options.length=1
   }
   else {
-   school.disabled=false
-   school.options.length=schools[idx].size+1
+   document.school.disabled=false
+   document.school.options.length=schools[idx].size+1
    for (i=0;i<schools[idx].size;i++) {
-    school.options(i+1).text=schools[idx][i]
-    school.options(i+1).value=codes[idx][i]
+    document.school.options(i+1).text=schools[idx][i]
+    document.school.options(i+1).value=codes[idx][i]
    } 
   }
  }
