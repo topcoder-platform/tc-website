@@ -5,13 +5,18 @@ package com.topcoder.web.common;
  *
  * @author Ambrose Feinstein
  */
-public class NavigationException extends Exception {
-
-    public NavigationException(String s) {
-        super(s);
+public class NavigationException extends TCWebException {
+    public NavigationException() {
+        super();
     }
-
-    public NavigationException(Exception e) {
-        super(e.getMessage());
+    public NavigationException(String message) {
+        super(new Exception(message));
+    }
+    public NavigationException(Throwable nestedException) {
+        super("Sorry, the resource you requested does not exist.", nestedException);
+    }
+    public NavigationException(String message, Throwable nestedException) {
+        super(message, nestedException);
     }
 }
+

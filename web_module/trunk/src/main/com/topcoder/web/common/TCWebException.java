@@ -9,19 +9,18 @@ import java.io.PrintStream;
  * @author Grimicus
  * @version 1.0
  */
-public class TCWebException extends Exception
-{
+public class TCWebException extends Exception {
     /** 
      * Line separator for the local OS
      */
-    private static final String SEPARATOR = 
-        System.getProperty("line.separator");
+    private static final String SEPARATOR =
+            System.getProperty("line.separator");
 
     /** 
      * String constant for delimiting this exception and its nested one. 
      */
-    private static final String NESTED_STRING = 
-        SEPARATOR + SEPARATOR + " NESTED WITHIN: ";
+    private static final String NESTED_STRING =
+            SEPARATOR + SEPARATOR + " NESTED WITHIN: ";
 
     /**
      * The nested exception.  The exception that this class is wrapped around.
@@ -31,11 +30,10 @@ public class TCWebException extends Exception
     /**
      * Default Constructor
      */
-    public TCWebException()
-    {
+    public TCWebException() {
         super();
     }
-    
+
     /**
      * <p>
      * Constructor taking a string message
@@ -43,8 +41,7 @@ public class TCWebException extends Exception
      *
      * @param message - the message of the exception
      */
-    public TCWebException(String message)
-    {
+    public TCWebException(String message) {
         super(message);
     }
 
@@ -55,8 +52,7 @@ public class TCWebException extends Exception
      *
      * @param nestedException the nested exception
      */
-    public TCWebException(Throwable nestedException)
-    {
+    public TCWebException(Throwable nestedException) {
         super();
         this.nestedException = nestedException;
     }
@@ -69,8 +65,7 @@ public class TCWebException extends Exception
      * @param message the message of this exception
      * @param nestedException the nested exception
      */
-    public TCWebException(String message, Throwable nestedException)
-    {
+    public TCWebException(String message, Throwable nestedException) {
         super(message);
         this.nestedException = nestedException;
     }
@@ -80,20 +75,18 @@ public class TCWebException extends Exception
      *  
      * @param val The throwable to be nested
      */
-    protected void setNestedException(Throwable val)
-    {
+    protected void setNestedException(Throwable val) {
         nestedException = val;
     }
-    
+
     /**
      * <p>
      * Gets the nested exception
      * </p>
      *
      * @return Throwable the nested exception
-     */    
-    public Throwable getNestedException()
-    {
+     */
+    public Throwable getNestedException() {
         return nestedException;
     }
 
@@ -107,36 +100,25 @@ public class TCWebException extends Exception
      * @return The string holding the messages of all nested exceptions and 
      *         this one.
      */
-    public String getNestedMessage()
-    {
+    public String getNestedMessage() {
         String output = null;
         String msg = null;
         String msg2 = super.getMessage();
-        
-        if (nestedException != null)
-        {
+
+        if (nestedException != null) {
             msg = nestedException.getMessage();
         }
 
-        if (msg != null)
-        {
-            if (msg2 != null)
-            {
+        if (msg != null) {
+            if (msg2 != null) {
                 output = msg + NESTED_STRING + msg2;
-            }
-            else
-            {
+            } else {
                 output = msg;
             }
-        }
-        else
-        {
-            if (msg2 != null)
-            {
+        } else {
+            if (msg2 != null) {
                 output = msg2;
-            }
-            else
-            {
+            } else {
                 output = null;
             }
         }
@@ -147,8 +129,7 @@ public class TCWebException extends Exception
     /**
      * Prints the stack trace to standard error
      */
-    public void printStackTrace()
-    {
+    public void printStackTrace() {
         printStackTrace(System.err);
     }
 
@@ -159,10 +140,8 @@ public class TCWebException extends Exception
      *
      * @param writer PrintWriter containing stack trace
      */
-    public void printStackTrace(PrintWriter writer)
-    {
-        if (nestedException != null)
-        {
+    public void printStackTrace(PrintWriter writer) {
+        if (nestedException != null) {
             nestedException.printStackTrace(writer);
             writer.println(NESTED_STRING);
         }
@@ -176,10 +155,8 @@ public class TCWebException extends Exception
      *
      * @param stream PrintStream containing stack trace
      */
-    public void printStackTrace(PrintStream stream)
-    {
-        if (nestedException != null)
-        {
+    public void printStackTrace(PrintStream stream) {
+        if (nestedException != null) {
             nestedException.printStackTrace(stream);
             stream.println(NESTED_STRING);
         }
