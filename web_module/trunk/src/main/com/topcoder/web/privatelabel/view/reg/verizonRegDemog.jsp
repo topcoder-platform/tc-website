@@ -80,10 +80,10 @@
                 </td>
             </tr>
             <tr>
-                <td align="right">
+                <td align="right" width="49%">
                     Student/Professional
                 </td>
-                <td align="left">
+                <td align="left" width="49%">
                     Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
