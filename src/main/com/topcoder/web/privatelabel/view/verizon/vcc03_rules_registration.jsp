@@ -9,16 +9,6 @@
 <head>
 <title>TopCoder | Private Label Registration</title>
 
-<SCRIPT type="text/javascript">
-if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
-  // Linux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/corpStyle_linux.css"/>');
-} else {
-  // NonLinux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/corpStyle.css"/>');
-}
-</SCRIPT>
-
 <jsp:include page="../script.jsp" />
 
 </head>
@@ -71,18 +61,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             Registration will open on Monday, August 4th and will close on Friday, August 15th.  Registration is unlimited, however only the first 
             500 eligible individuals to register will be invited to compete.  Official invitations will be emailed on Monday, August 18th. 
             </p>
+            <p><br/></p>
+            <p><a href="pl/?&module=FullReg&cid=1">Register</a></p>
             </blockquote>
 
-            <p><br/></p>
-            <p><br/></p>
-            <table class="bodyText" align="center">
-               <tr><td><div><p class="button" align="center"><a href="pl/?&module=FullReg&cid=1" class="button">Register</a>
-               </p></div></td>
-               </tr> 
-            </table>
-            
-            
-        </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
