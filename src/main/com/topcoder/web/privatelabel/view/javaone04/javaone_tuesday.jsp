@@ -39,34 +39,41 @@
   						<p></p>
   						<p class ="regmiddle"><strong><font size="4">Enterprise Services Winners - Tuesday June 29</font></strong></p>
 						
-						<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_monday">Monday</a> | Tuesday | <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_wednesday">Wednesday</a></p>
+						<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_monday">Monday</a> | Tuesday</p>
 						
 			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="30%" class="sidebarTitle">Placement</td>
                     <td width="70%" class="sidebarTitle">Winner</td>
+                    <td width="70%" class="sidebarTitle">Score</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText" valign="top">Grand Prize Winner</td>
-                    <td width="70%" class="sidebarText">Name Here</td>
+                    <td width="70%" class="sidebarText">Nathan Egge</td>
+                    <td width="70%" class="sidebarText">757.93</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">1st Runner Up</td>
-                    <td width="70%" class="sidebarText">Name Here</td>
+                    <td width="70%" class="sidebarText">Ryan Park</td>
+                    <td width="70%" class="sidebarText">699.06</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">2nd Runner Up</td>
-                    <td width="70%" class="sidebarText">Name Here</td>
+                    <td width="70%" class="sidebarText">Dan Sommerfield</td>
+                    <td width="70%" class="sidebarText">226.34</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">3rd Runner Up</td>
-                    <td width="70%" class="sidebarText">Name Here</td>
+                    <td width="70%" class="sidebarText">Patrick Chan</td>
+                    <td width="70%" class="sidebarText">166.03</td>
                 </tr>
             </table>
+            
+            <p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_tuesdayphotos">View Photos</a> from the event.</p>
 					
 					
 					</td>
