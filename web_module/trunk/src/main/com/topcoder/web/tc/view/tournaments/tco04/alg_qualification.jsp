@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet" href="/css/TCO04style.css"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc04_alg_qual"); %>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco04_alg_qual"); %>
 </head>
 <body>
 
