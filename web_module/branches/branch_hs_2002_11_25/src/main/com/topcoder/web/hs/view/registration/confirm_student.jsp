@@ -25,7 +25,7 @@
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
   </TR>
   <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16" BACKGROUND="/i/hs/inside_heading_bg.gif">&nbsp;Contact Information</TD>
+   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Contact Information</TD>
   </TR>
   <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
@@ -74,7 +74,7 @@
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
   </TR>
   <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16" BACKGROUND="/i/hs/inside_heading_bg.gif">&nbsp;Handle &amp; Password</TD>
+   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Handle &amp; Password</TD>
   </TR>
   <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
