@@ -46,9 +46,9 @@ public class Compile extends Base {
                 languageId, code);
         request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
-        String messageId = send(request);
+        send(request);
 
-        Message response = receive(2000, messageId);
+        Message response = receive(2000);
 
 
 

@@ -38,9 +38,9 @@ public class ViewProblem extends Base {
         ScreeningOpenComponentForCodingRequest request = new ScreeningOpenComponentForCodingRequest(componentId, problemTypeId);
         request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
-        String messageId = send(request);
+        send(request);
 
-        Message response = receive(2000, messageId);
+        Message response = receive(2000);
 
 
 

@@ -47,9 +47,9 @@ public class Test extends Base {
         ScreeningTestRequest request = new ScreeningTestRequest(args, componentId, problemTypeId);
         request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
-        String messageId = send(request);
+        send(request);
 
-        Message response = receive(2000, messageId);
+        Message response = receive(2000);
 
 
         setNextPage(Constants.PAGE_INDEX);
