@@ -101,7 +101,7 @@ public class EmailInfo extends BaseModel {
         msgText.append("as an objective measure of your programming ability.");
         msgText.append("\n\n");
         msgText.append("Please review the Help Manual before getting started: ");
-        msgText.append("http://corporate.topcoder.com/testing/help/index.jsp");
+        msgText.append("http://www.topcoder.com/corp/testing/help/index.jsp");
         msgText.append("\n\n");
         msgText.append("The following session has been scheduled for you:");
         msgText.append("\n\n");
@@ -121,12 +121,12 @@ public class EmailInfo extends BaseModel {
         msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 2 HOURS TO COMPLETE ALL PORTIONS OF THE TEST.");
         msgText.append("\n\n");
         msgText.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed and can access ");
-        msgText.append("the Testing Application here: http://corporate.topcoder.com/testing/testingApp.jsp?company=");
+        msgText.append("the Testing Application here: http://www.topcoder.com/corp/testing/testingApp.jsp?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
         msgText.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version ");
         msgText.append("10.2.x.  Those users may access the Testing Application here: ");
-        msgText.append("http://corporate.topcoder.com/testing/testingApp.jsp?company=");
+        msgText.append("http://www.topcoder.com/corp/testing/testingApp.jsp?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
         msgText.append("Thank you,\n");
@@ -154,7 +154,7 @@ public class EmailInfo extends BaseModel {
         msgText.append(" Eastern Time\n");
         msgText.append("\n");
         msgText.append("Access this individual's information by logging into the Testing Application ");
-        msgText.append("Management Tool http://corporate.topcoder.com/testing/ and clicking on Candidates.");
+        msgText.append("Management Tool http://www.topcoder.com/corp/testing/ and clicking on Candidates.");
         msgText.append("\n");
         msgText.append("\n");
         msgText.append("Thank you,");
