@@ -30,11 +30,10 @@
     <PARAM name="archive" value="ContestApplet.jar"/>
     <PARAM name="type" value="application/x-java-applet;version=1.2"/>
     <PARAM name="scriptable" value="false"/>
-    <PARAM name="host">
-      <xsl:attribute name="value">www.topcoder.com</xsl:attribute>
-    </PARAM>
+    <PARAM name="host" value="www.topcoder.com"/>
     <PARAM name="port" value="5001"/>
     <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5001"/>
+    <PARAM name="roomVersion" value="TopCoder"/>
     <EMBED>
       <xsl:attribute name="type">application/x-java-applet;version=1.2</xsl:attribute>
       <xsl:attribute name="code">com.topcoder.client.contestApplet.LaunchApplet.class</xsl:attribute>
@@ -44,6 +43,7 @@
       <xsl:attribute name="host">www.topcoder.com</xsl:attribute>
       <xsl:attribute name="port">5001</xsl:attribute>
       <xsl:attribute name="tunnel">http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5001</xsl:attribute>
+      <xsl:attribute name="roomVersion">TopCoder</xsl:attribute>
       <xsl:attribute name="width">239</xsl:attribute>
       <xsl:attribute name="height">26</xsl:attribute>
       <xsl:attribute name="align">middle</xsl:attribute>
