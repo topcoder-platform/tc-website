@@ -92,9 +92,9 @@ public class UserListTest extends BaseProcessor {
                                , user u
                                , contact c
                            WHERE su.login_id = u.user_id
-                             AND u.user_id = c.contact_id"
+                             AND u.user_id = c.contact_id
                              AND c.company_id = ");
-            query.append(companyId.toString());
+            query.append(companyId);
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
