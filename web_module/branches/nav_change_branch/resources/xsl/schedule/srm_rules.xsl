@@ -22,10 +22,10 @@
         <a name="top_page"></a>
         <xsl:call-template name="Top"/>
         <!-- Body Begins -->
-        <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+        <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
           <TR>
-            <!-- Left Column Begins -->
-            <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+    <!-- Left Column Begins -->
+		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
               <!-- Left Column Include Begins -->  
               <!-- Global Seconday Nav Begins -->  
               <xsl:call-template name="global_left"/>
@@ -33,12 +33,12 @@
               <!-- Left Column Include Ends -->          
             </TD>
             <!-- Left Column Ends -->
-            <!-- Gutter Begins -->
-            <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"/></TD>
+	<!-- Gutter Begins -->
+		<TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
             <!-- Gutter Ends -->
             <!-- Body Area -->
             <!-- Center Column Begins -->  
-            <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
+            <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" valign="top">
               <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
@@ -438,17 +438,17 @@ Employees of TopCoder and those involved in the development, production (includi
 
             </TD>
             <!-- Gutter -->
-            <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+            <TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
             <!-- Gutter Ends -->
             <!-- Right Column Begins -->
-            <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+            <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
               <!-- Right Column Include Begins --> 
               <xsl:call-template name="public_right_col"/>       
               <!-- Right Column Include Ends -->        
             </TD>
             <!-- Right Column Ends -->
             <!-- Gutter -->
-            <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+            <TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
             <!-- Gutter Ends -->
           </TR>
         </TABLE>

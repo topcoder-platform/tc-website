@@ -22,10 +22,10 @@
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <xsl:call-template name="Top"/>
         <!-- Body Begins -->
-        <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+        <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
           <TR>
-            <!-- Left Column Begins -->
-            <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+    <!-- Left Column Begins -->
+		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
             <!-- Left Column Include Begins -->  
             <!-- Global Seconday Nav Begins -->  
             <xsl:call-template name="global_left"/>
@@ -34,12 +34,12 @@
             </TD>
             <!-- Left Column Ends -->
             <!-- Gutter Begins -->
-            <TD WIDTH="10" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="8" BORDER="0"/></TD>
+            <TD WIDTH="10" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="8" BORDER="0"/></TD>
             <!-- Gutter Ends -->
         
             <!-- Body Area -->
             <!-- Center Column Begins -->  
-            <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
+            <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" valign="top">
               <SPAN CLASS="header">Schedule</SPAN>
               <DIV CLASS="bodySubhead">[ <FONT COLOR="#333333">Tournament Match Detail</FONT> ]</DIV>
               <BR/>
@@ -47,8 +47,8 @@
                 <TR>
                   <TD VALIGN="top" WIDTH="11" ALIGN="right"><IMG SRC="/i/table_top_left1.gif" ALT="" WIDTH="11" HEIGHT="16" BORDER="0"/></TD>
                   <TD VALIGN="top" WIDTH="75" ALIGN="left"><IMG SRC="/i/table_top_left2.gif" ALT="" WIDTH="75" HEIGHT="16" BORDER="0"/></TD>
-                  <TD CLASS="bodyTextBold" VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/></TD>
-                  <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="16" BORDER="0"/></TD>
+                  <TD CLASS="bodyTextBold" VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/></TD>
+                  <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="16" BORDER="0"/></TD>
                 </TR>
                 <TR>
                   <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
@@ -56,10 +56,10 @@
                     <DIV ALIGN="center">
                       <TABLE WIDTH="400" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                         <TR>
-                          <TD WIDTH="21" ALIGN="right" BGCOLOR="#CCCCCC">
+                          <TD WIDTH="21" ALIGN="right" BGCOLOR="#FFFFFF">
                             <IMG SRC="/i/srm_detail_angle.gif" ALT="" WIDTH="22" HEIGHT="22" BORDER="0" /><BR/><IMG SRC="/i/clear.gif" ALT="" WIDTH="22" HEIGHT="1" BORDER="0" /></TD>
-                          <TD WIDTH="263" ALIGN="left" CLASS="bodyText" BGCOLOR="#CCCCCC">Single Round Match 00 - 00.00.00<BR/>Registration Time: &#40;EST&#41;<BR/>Match Time: &#40;EST&#41;</TD>
-                          <TD ROWSPAN="2" HEIGHT="93" ALIGN="left" BGCOLOR="#CCCCCC"><IMG SRC="/i/srm_detail_badge.gif" ALT="" WIDTH="93" HEIGHT="93" BORDER="0" /></TD>
+                          <TD WIDTH="263" ALIGN="left" CLASS="bodyText" BGCOLOR="#FFFFFF">Single Round Match 00 - 00.00.00<BR/>Registration Time: &#40;EST&#41;<BR/>Match Time: &#40;EST&#41;</TD>
+                          <TD ROWSPAN="2" HEIGHT="93" ALIGN="left" BGCOLOR="#FFFFFF"><IMG SRC="/i/srm_detail_badge.gif" ALT="" WIDTH="93" HEIGHT="93" BORDER="0" /></TD>
                         </TR>
                         <TR><TD COLSPAN="3" HEIGHT="21" ALIGN="right"><IMG SRC="/i/srm_downloadapplet.gif" ALT="" WIDTH="263" HEIGHT="21" BORDER="0" /></TD></TR>
                       </TABLE>
@@ -104,33 +104,33 @@
             <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
           </TR>     
           <TR>
-            <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+            <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
             <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
             <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-            <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
           </TR>  
           <TR>
-            <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-            <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-            <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-            <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+            <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+            <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
           </TR>
         </TABLE>
       </TD>
       <!-- Center Column Ends -->
       <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+      <TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
       <!-- Gutter Ends -->
       <!-- Right Column Begins -->
-      <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+      <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
         <!-- Right Column Include Begins --> 
         <xsl:call-template name="public_right_col"/>       
         <!-- Right Column Include Ends -->       
       </TD>
       <!-- Right Column Ends -->
       <!-- Gutter -->
-      <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+      <TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
       <!-- Gutter Ends -->
     </TR>
   </TABLE>
