@@ -16,6 +16,7 @@ import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
 import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 
 import javax.servlet.http.HttpUtils;
@@ -105,8 +106,19 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     info.setPassword(principalMgr.getPassword(userId));
                 }
 
+
                 try {
                     DataAccessInt dAccess = Util.getDataAccess();
+
+                    Request prefRequest = new Request();
+                    prefRequest.setContentHandle("contactInfo");
+                    prefRequest.setProperty("uid", String.valueOf(getUser().getId()));
+                    Map prefMap = dAccess.getData(prefRequest);
+
+                    PreferenceLevel pl = (PreferenceLevel)createEJB(getInitialContext(), PreferenceLevel.class);
+                    info.setPreference(pl.getLevel(Constants.DATA_SOURCE,
+                            ((ResultSetContainer)prefMap.get("contactInfo")).getLongItem(0, "company_id"), getUser().getId()));
+
 
                     Request dr = new Request();
                     dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
