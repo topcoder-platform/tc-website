@@ -398,6 +398,8 @@ public class StudentRegistration extends Base {
       is_valid=false;
     }
 
+    request.setAttribute("form_errors",errors);
+
     return(is_valid);
   }
 
