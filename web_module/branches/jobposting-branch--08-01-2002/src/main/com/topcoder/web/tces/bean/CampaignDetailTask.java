@@ -161,8 +161,11 @@ log.debug("setting most recent hit = "+mostRecentHit);
                          posListRow.getItem("job_desc").toString() );
             position.put("hit_count",
                          ((Long)posListRow.getItem("hit_count").getResultData()).toString() );
-            position.put("most_recent",
-                          getDate( posListRow, "most_recent") );
+            if(((Long)posListRow.getItem("hit_count").getResultData()).longValue()==0){
+                position.put("most_recent", "N/A");
+            }else{
+                position.put("most_recent", getDate( posListRow, "most_recent") );
+            }
             position.put("job_id",
                          ((Long)posListRow.getItem("job_id").getResultData()).toString() );
 

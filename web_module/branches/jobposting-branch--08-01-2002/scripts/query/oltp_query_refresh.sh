@@ -445,7 +445,7 @@ SELECT COUNT(*) AS total_hits,
 java com.topcoder.utilities.QueryLoader "OLTP" 1004 "TCES_Position_List" 0 0 "
 SELECT j.job_id,
        j.job_desc,
-       COUNT(*) AS hit_count,
+       COUNT(jh.user_id) AS hit_count,
        MAX(jh.timestamp) AS most_recent
   FROM job j
      , campaign_job_xref cjx
