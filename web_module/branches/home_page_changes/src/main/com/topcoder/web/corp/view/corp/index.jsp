@@ -83,7 +83,7 @@
 						<A href="/corp/?module=Static&d1=corp&d2=testing&d3=index">Screening</A><br/>
 						The TopCoder Technical Assessment Tool offers a way to rate and rank candidates based on their problem solving skills and programming ability. Companies use the platform to make a heavy candidate flow manageable and as final step in the process for candidate that meet all other criteria.
 						<br/><br/>
-						<A href="/">Placement</A><br/>
+						<A href="/corp/?module=Static&d1=corp&d2=placement&d3=index">Placement</A><br/>
 						TopCoder works with companies to fill both full-time and contract positions. Clients provide us with a description of the position they need filled and we locate the most qualified members. TopCoder will contact the candidates and handle the logistics of interviews and provide the hiring company with a resume and TopCoder rating.
 						<br/><br/>
 						</td>
