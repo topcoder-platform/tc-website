@@ -751,10 +751,11 @@
                 <include name="com/topcoder/web/common/**"/>
                 <include name="com/topcoder/web/ejb/**"/>
                 <include name="com/topcoder/shared/**"/>
+                <include name="com/topcoder/shared/**/*.class"/>
+                <include name="com/topcoder/security/**/*.class" />
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
             </classes>
-
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="screening.tld"/>
