@@ -76,8 +76,7 @@ Inquiry Deadline: TBD<BR/>
 Project: <A HREF="/index?t=development&amp;c=file_reader" CLASS="statTextBig">File Reader</A><BR/>
 Start Date: August 2, 2002<BR/>
 End Date: August 21, 2002<BR/>
-Member Selection: <B>Open</B><BR/>
-Inquiry Deadline: August 2, 2002<BR/>
+Member Selection: <B>Closed</B><BR/>
 </P>
 
 <P>
