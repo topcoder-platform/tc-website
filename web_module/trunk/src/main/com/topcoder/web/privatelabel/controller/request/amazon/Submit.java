@@ -251,7 +251,7 @@ public class Submit extends FullRegSubmit {
                 StringBuffer buf = new StringBuffer(1000);
 
                 TCSEmailMessage mail = new TCSEmailMessage();
-                mail.setSubject("Invitation to Brooks Automation Technical Assessment Tool");
+                mail.setSubject("Invitation to Amazon.com Technical Assessment Tool");
 
                 Date transBegin = translateDate(beginDate);
                 Date transEnd = translateDate(endDate);
@@ -291,7 +291,7 @@ public class Submit extends FullRegSubmit {
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-                mail.setFromAddress("amazon@topcoder.com", "Invitation to Amazon.com Technical Assessment Tool");
+                mail.setFromAddress("amazon@topcoder.com", "Amazon.com");
                 EmailEngine.send(mail);
                 log.info("sent registration email to " + info.getEmail());
 
