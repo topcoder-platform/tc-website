@@ -170,7 +170,7 @@
      <target name="package-EJB-QueryServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="QueryServices"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/query"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/query"/>
          </antcall>
          <jar jarfile="${ejb_jars}/QueryServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -185,7 +185,7 @@
      <target name="package-EJB-JobPostingServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="JobPostingServices"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/jobposting"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/jobposting"/>
          </antcall>
          <jar jarfile="${ejb_jars}/JobPostingServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -197,7 +197,7 @@
      <target name="package-EJB-ResumeServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="ResumeServices"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/resume"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/resume"/>
          </antcall>
          <jar jarfile="${ejb_jars}/ResumeServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -212,7 +212,7 @@
      <target name="package-EJB-ReportingBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Reporting"/>
-             <param name="unit-class-path" value="com/topcoder/ejb/Reporting"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/ejb/Reporting"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Reporting.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/report/*.class"/>
@@ -225,14 +225,14 @@
      <target name="package-EJB-ProjectServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="ProjectServices"/>
-             <param name="unit-class-path" value="com/topcoder/web/project/ejb/ProjectServices"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/project/ejb/ProjectServices"/>
          </antcall>
      </target>
 
      <target name="package-EJB-SearchBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Search"/>
-             <param name="unit-class-path" value="com/topcoder/ejb/Search"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/ejb/Search"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Search.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
@@ -249,7 +249,7 @@
      <target name="package-EJB-PactsServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="PactsServices"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/pacts"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/pacts"/>
          </antcall>
          <jar jarfile="${ejb_jars}/PactsServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -264,7 +264,7 @@
      <target name="package-EJB-JavaDocServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="JavaDocServices"/>
-             <param name="unit-class-path" value="com/topcoder/ejb/JavaDocServices"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/ejb/JavaDocServices"/>
          </antcall>
          <jar jarfile="${ejb_jars}/JavaDocServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
@@ -276,7 +276,7 @@
      <target name="package-EJB-AuthenticationServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="AuthenticationServices"/>
-             <param name="unit-class-path" value="com/topcoder/ejb/AuthenticationServices"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/ejb/AuthenticationServices"/>
          </antcall>
          <jar jarfile="${ejb_jars}/AuthenticationServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
@@ -298,7 +298,7 @@
      <target name="package-EJB-DataCacheBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="DataCache"/>
-             <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/ejb/DataCache"/>
          </antcall>
          <jar jarfile="${ejb_jars}/DataCache.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
@@ -314,7 +314,7 @@
      <target name="package-EJB-UtilBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Util"/>
-             <param name="unit-class-path" value="com/topcoder/ejb/Util"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/ejb/Util"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Util.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
@@ -329,7 +329,7 @@
      <target name="package-EJB-CoderBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Coder"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/coder"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/coder"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Coder.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -341,7 +341,7 @@
      <target name="package-EJB-DemographicBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Demographic"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/demographic"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/demographic"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Demographic.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -355,7 +355,7 @@
      <target name="package-EJB-UserBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="User"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/user"/>
          </antcall>
          <jar jarfile="${ejb_jars}/User.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -369,7 +369,7 @@
      <target name="package-EJB-SchoolBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="School"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/school"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/school"/>
          </antcall>
          <jar jarfile="${ejb_jars}/School.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -383,7 +383,7 @@
      <target name="package-EJB-RatingBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Rating"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/rating"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/rating"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Rating.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -394,7 +394,7 @@
      <target name="package-EJB-SurveyBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Survey"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/survey"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/survey"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Survey.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -406,7 +406,7 @@
      <target name="package-EJB-ProblemRatingBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="ProblemRatingServices"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/problemrating"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/problemrating"/>
          </antcall>
          <jar jarfile="${ejb_jars}/ProblemRatingServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -419,7 +419,7 @@
      <target name="package-EJB-EmailBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Email"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/email"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Email.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -433,7 +433,7 @@
      <target name="package-EJB-AddressBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Address"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/address"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Address.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -447,7 +447,7 @@
      <target name="package-EJB-RBoard" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="RBoard"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/rboard"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/rboard"/>
          </antcall>
          <jar jarfile="${ejb_jars}/RBoard.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -458,7 +458,7 @@
      <target name="package-EJB-PhoneBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Phone"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/phone"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Phone.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -472,7 +472,7 @@
      <target name="package-EJB-ProductBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Product"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/product"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Product.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -487,7 +487,7 @@
      <target name="package-EJB-UserEvent" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="UserEvent"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/userevent"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/userevent"/>
          </antcall>
          <jar jarfile="${ejb_jars}/UserEvent.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException"/>
@@ -502,7 +502,7 @@
      <target name="package-EJB-NoteBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Note"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/note"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Note.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -516,7 +516,7 @@
      <target name="package-EJB-SessionBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Session"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/session"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Session.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -530,7 +530,7 @@
      <target name="package-EJB-SessionProfileBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="SessionProfile"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/sessionprofile"/>
          </antcall>
          <jar jarfile="${ejb_jars}/SessionProfile.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -545,7 +545,7 @@
      <target name="package-EJB-TermsOfUseBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="TermsOfUse"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/termsofuse"/>
          </antcall>
          <jar jarfile="${ejb_jars}/TermsOfUse.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -559,7 +559,7 @@
      <target name="package-EJB-CompanyBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="Company"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/company"/>
          </antcall>
          <jar jarfile="${ejb_jars}/Company.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -573,7 +573,7 @@
      <target name="package-EJB-ScreeningCoderBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="ScreeningCoder"/>
-             <param name="unit-class-path" value="com/topcoder/web/corp/ejb/coder"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/corp/ejb/coder"/>
          </antcall>
          <jar jarfile="${ejb_jars}/ScreeningCoder.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
@@ -586,7 +586,7 @@
      <target name="package-EJB-UserServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="UserServices"/>
-             <param name="unit-class-path" value="com/topcoder/ejb/UserServices"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/ejb/UserServices"/>
          </antcall>
          <jar jarfile="${ejb_jars}/UserServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
@@ -627,7 +627,7 @@
      <target name="package-EJB-PreferenceLevelBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="PreferenceLevel"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/preferencelevel"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/preferencelevel"/>
          </antcall>
          <jar jarfile="${ejb_jars}/PreferenceLevel.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -639,7 +639,7 @@
      <target name="package-EJB-CoderSkillBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="CoderSkill"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/coderskill"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/coderskill"/>
          </antcall>
          <jar jarfile="${ejb_jars}/CoderSkill.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -650,7 +650,7 @@
      <target name="package-EJB-ComponentRegistrationServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="ComponentRegistrationServices"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/ComponentRegistrationServices"/>
+             <param name="unit-class-path" value="${java}/com/topcoder/web/ejb/ComponentRegistrationServices"/>
          </antcall>
          <jar jarfile="${ejb_jars}/ComponentRegistrationServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -902,7 +902,7 @@
          <!-- check if rebuild required -->
          <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}.jar">
              <srcfiles dir="${classes}" includes="${unit-class-path}/**/*.class"/>
-             <srcfiles dir="${java}/${deploy-desc-path}" includes="*.xml"/>
+             <srcfiles dir="${deploy-desc-path}" includes="*.xml"/>
          </uptodate>
          <antcall target="conditional-build-ejb-unit"/>
      </target>
@@ -916,7 +916,7 @@
          <echo message="getting deployment descriptors from ${deploy-desc-path}"/>
          <jar jarfile="${tmp-dir}/${unit-jar-name}.jar">
              <zipfileset dir="${classes}" includes="${unit-class-path}/**/*.class"/>
-             <zipfileset dir="${java}/${deploy-desc-path}" includes="*.xml" prefix="META-INF"/>
+             <zipfileset dir="${deploy-desc-path}" includes="*.xml" prefix="META-INF"/>
          </jar>
          <!-- rmi-iiop for weblogic -->
          <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
