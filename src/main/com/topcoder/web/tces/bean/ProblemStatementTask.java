@@ -25,6 +25,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.io.StringReader;
+import java.awt.Color;
 
 /** Processes the problem statement task.
  * @author George Dean
@@ -52,41 +53,6 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
 
     /** Holds value of property problemText. */
     private String problemText;
-
-    private String formatProblemText(String sProblemText){
-        //here is where we make the problem-text readable
-        int i=-1;
-        while((i = sProblemText.indexOf("\n\n"))>=0){
-            sProblemText = sProblemText.substring(0,i+1) + "&nbsp;" + sProblemText.substring(i+1);
-        }
-        java.util.StringTokenizer strtok = new java.util.StringTokenizer(sProblemText,"\n");
-        StringBuffer stBuffer = new StringBuffer(sProblemText.length());
-        String sTemp = "";
-        boolean bAsciiArt = false;
-        while (strtok.hasMoreTokens()){
-            sTemp = strtok.nextToken();
-            bAsciiArt = (sTemp.length() < 100);
-            for (i=0; i < sTemp.length() && sTemp.charAt(i)==' '; i++){
-                bAsciiArt = true;
-                stBuffer.append("&nbsp;");
-            }
-            sTemp = sTemp.substring(i);
-            if (!bAsciiArt) stBuffer.append(JSPUtils.htmlEncode(sTemp));
-            else{
-                for (i=0;i<sTemp.length(); i++){
-                    if (sTemp.charAt(i)==' ')
-                        stBuffer.append("&nbsp;");
-                    else if (sTemp.charAt(i)=='\t')
-                        stBuffer.append("&nbsp;&nbsp;&nbsp;");
-                    else
-                        stBuffer.append(JSPUtils.htmlEncode(sTemp.substring(i, i+1)));
-                }
-            }
-            stBuffer.append("<BR>");
-        }
-
-        return stBuffer.toString();
-    }
 
     /** Performs pre-processing for the task.
      * @param request The servlet request object.
@@ -152,7 +118,9 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
         Problem problem = new Problem();
         problem.setProblemComponents(arrProblemComponent);
-        setProblemText(new ProblemRenderer(problem).toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
+        ProblemRenderer pr = new ProblemRenderer(problem);
+        pr.setForegroundColor(Color.white);
+        setProblemText(pr.toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
 
         setNextPage( TCESConstants.PROBLEM_STATEMENT_PAGE );
     }
