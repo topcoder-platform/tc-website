@@ -175,34 +175,25 @@
 
 <IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/>
 
-<P>Apex Data Services (<A HREF="http://www.apexinc.com" CLASS="bodyText">http://www.apexinc.com</A>) is an international data conversion company headquartered in Herndon, VA.  We are an employee-owned company devoted to the growth of our staff as we solve interesting technical problems in a stimulating environment.</P>
-<P>We are looking for a small number of excellent software developers, and believe that our environment will challenge even the best and brightest.  Here's some of what makes us the best place for the best people to work:</P>
+<P>Here is a sample of some of the algorithmically or architecturally challenging problems we're facing now:</P>
+<UL>
+<LI>Image manipulation problems such as image segmentation or automatic zoning of pages of magazines, newspapers, or other publications</LI>
+<LI>Designing multi-platform production environments that keep track of fine-grained task dependencies, operator statistics, and data conversion operations in a scalable and introspective fashion</LI>
+<LI>Development of heuristic algorithms that combine machine intelligence and human intelligence to solve tricky production problems efficiently and get better results than could be achieved with either software or manual effort operating alone</LI>
+</UL>
 
-<P><B>We are not a greedy company.</B></P>
-<P>Although the financial bottom line is always important, doing things right is more important.  Our core values are Excellence, Integrity, and Human Dignity.  These values are practiced throughout our business, both inside and outside of our software development activities.  We respect people, take pleasure in solving problems well, and love to teach and learn from each other.</P>
+<P>Here are some of the kinds of skills we're looking at.  All candidates don't need all skills, but we like multitalented people.  We'd love to see what new skills you can bring to the table.</P>
+<UL>
+<LI>Deep knowledge of C++, Java, Perl, Python, or other programming languages and concepts.  Comfort working in multiple languages is essential.</LI>
+<LI>Experience in both Linux and Windows environments</LI>
+<LI>Deep understanding of object-oriented programming</LI>
+<LI>System administration background</LI>
+<LI>Knowledge of relational database concepts</LI>
+<LI>Excellent problem-solving ability</LI>
+<LI>Good theoretical foundation</LI>
+</UL>
 
-<P><B>We are a meritocracy.</B></P>
-<P>Advancement and reward come from doing good work and making good contributions.  Our environment encourages people who have what it takes to do a good job.</P>
-
-<P><B>We are a small company where everyone gets to do a little of everything.</B></P>
-<P>In a software development role, you'll obviously spend a fair amount of time writing code, but you'll never have to worry about coding in a vacuum.  Our programmers are expected to be able to function in all phases of a project's life cycle from requirements analysis through maintenance, and from interfacing with customers to interfacing with users.</P>
-
-<P><B>We sell services, not products.</B></P>
-<P>The vast majority of the software we develop is for our own internal use.  We're not selling a product -- we're selling a service.  We write software to enable us to generate the kind of data that our customers want.  That software is run by our own production facilities, which employ close to 2,000 people.  This gives us an unusual level of control over our environment as well as direct access to our user base.</P>
-
-<P><B>We solve algorithmically complex problems.</B></P>
-<P>The nature of our work requires us to decompose problems in a manner different from how most people would do it.  Because of the high volume of material that we process and the high degree of control that we require, we often choose to build custom solutions to problems from scratch.  This means we have the chance to build foundations and components as well as top-level applications.  We can define abstractions barriers and then work on both sides of them.  Getting all this right requires a higher caliber of programmer than one who just assembles existing pieces or works with off-the-shelf APIs.</P>
-
-<P><B>Our software practices guarantee quality.</B></P>
-<P>Our entire software infrastructure and all of our applications are backed by automated regression test suites.  These are not quick and dirty test setups thrown together by some automated testing tool.  These are test suites coded as carefully as the applications that they are testing.  The result is that our software is very stable, and that when a bug does show up, it gets fixed and stays fixed.</P>
-
-<P><B>We know when to build and when to throw away.</B></P>
-<P>The solutions that work today won't necessarily be the best solutions in two or three years.  You may decide in time that a solution you built earlier is no longer adequate to the problems that are occurring today.  At Apex, we're not afraid to build new technology to solve a problem, and we're not afraid to retire old technology when it has outlived its usefulness.  If we feel something we did before needs fixing, we fix it.</P>
-
-<P><B>Our software engineering VP is a TopCoder member!</B></P>
-<P>Wouldn't you rather work for someone who writes code because it's fun?  At Apex, you can grow and advance while still getting your hands dirty, and you'll always have people to bounce ideas off of.</P>
-
-<P><A HREF="/?t=jobs&amp;c=apex_details">Click here</A> for job details.</P>
+<P>If all this sounds intriguing, we'd like to hear from you.  The first step is taking our programming test, but that should fun, right?</P>
 
 
 <!--end contextual links-->
