@@ -1,5 +1,5 @@
 <%@ page errorPage="../home/error.jsp" %>
-<%@ taglib uri="/search-taglib.tld" prefix="adv" %>
+<%-- @ taglib uri="/search-taglib.tld" prefix="adv" --%>
 <%--jsp:useBean id="search" type="com.topcoder.web.hs.model.SearchBean" scope="request"/--%>
 <%@ include file="head.inc" %>
 <P><BR></P>   
