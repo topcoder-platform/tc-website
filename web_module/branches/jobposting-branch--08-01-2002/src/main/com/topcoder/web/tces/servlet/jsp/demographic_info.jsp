@@ -61,10 +61,10 @@
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               
               <P>
-              <B>Campaign: <jsp:getProperty name="MainTask" property="CampaignName"/></B><BR>
+              <B>Campaign: <jsp:getProperty name="DemographicTask" property="CampaignName"/></B><BR>
               
               <% if (DemographicTask.getPositionID()>0) { %>             
-              Position: <B><jsp:getProperty name="MainTask" property="PositionName"/></B><BR>
+              Position: <B><jsp:getProperty name="DemographicTask" property="PositionName"/></B><BR>
               <% } %>
               </P>
               
@@ -73,7 +73,7 @@
                 <TD>
                   <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
-                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="MainTask" property="StudentCoderCount"/>)</b></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
                       <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>
 
@@ -133,7 +133,7 @@
                 <TD>
                   <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
-                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="MainTask" property="StudentCoderCount"/>)</b></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
                       <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <TR>

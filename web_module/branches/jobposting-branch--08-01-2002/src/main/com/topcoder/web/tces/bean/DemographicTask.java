@@ -204,7 +204,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
                 double pct = (((Long)refRspRow.getItem("resp_count").getResultData())).doubleValue() / ((double) getStudentCoderCount());
 
-                referralItem.put("title", refRspRow.getItem("referral_desc").toString() );
+                referralItem.put("title", refRspRow.getItem("response").toString() );
                 referralItem.put("count", refRspRow.getItem("resp_count").toString() );
                 referralItem.put("percent", Double.toString(pct)+"%");
 
