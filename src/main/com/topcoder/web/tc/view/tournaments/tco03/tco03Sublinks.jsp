@@ -54,6 +54,19 @@
                <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr> 
             </table>
 
+    <% } else if (list.equals("component_advancers")) { %>
+            <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tcoSubNav">
+                <tr>
+                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="<%=tab.equals("design")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_des_rd2" class="topLink">Design</a></td>
+                    <td class="<%=tab.equals("development")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_dev_rd2" class="topLink">Development</a></td>
+                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
+               <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr> 
+            </table>
+
     <% } else { %>
         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tcoSubNav">
             <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>

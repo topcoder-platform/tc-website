@@ -143,10 +143,10 @@
                         Projects posted
                      </td>
                      <td class="sidebarText">
-                        11.06.03 12:00am
+                        11.11.03 12:00am
                      </td>
                      <td class="sidebarText">
-                        11.06.03 12:00am
+                        11.11.03 12:00am
                      </td>
                </tr>
                <tr>
@@ -154,10 +154,10 @@
                         Submission deadline
                      </td>
                      <td class="sidebarText">
-                        11.17.03 11:59pm
+                        11.20.03 11:59pm
                      </td>
                      <td class="sidebarText">
-                        11.17.03 11:59pm
+                        11.20.03 11:59pm
                      </td>
                 </tr>
                   <tr>
@@ -165,10 +165,10 @@
                         Submissions posted
                         </td>
                      <td class="sidebarText">
-                        11.25.03 6:00pm
+                        11.26.03 6:00pm
                         </td>
                      <td class="sidebarText">
-                        11.25.03 6:00pm
+                        11.26.03 6:00pm
                         </td>
                    </tr>
                   <tr>
@@ -179,7 +179,7 @@
                         12.05.03 8:00am
                         </td>
                      <td class="sidebarText">
-                        11.25.03 8:00am
+                        12.05.03 8:00am
                         </td>
                    </tr>
                   <tr>
