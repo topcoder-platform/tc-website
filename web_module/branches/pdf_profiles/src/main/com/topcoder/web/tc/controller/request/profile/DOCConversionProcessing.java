@@ -19,6 +19,7 @@ import javax.naming.InitialContext;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.servlet.request.*;
 
+import javax.servlet.ServletOutputStream;
 import java.io.*;
 /**
  *
@@ -53,12 +54,9 @@ public class DOCConversionProcessing extends BaseProcessor {
                     
                     byte[] result = filebean.convertDoc(b);
                                       
-                    PrintWriter out = getResponse().getWriter();
-                    getResponse().setContentType("application/x-pdf");
-                    for(int i = 0; i < result.length; i++) {
-                        out.print((char)result[i]);
-                    }
-                    
+                    ServletOutputStream sos = getResponse().getOutputStream();
+                    sos.write(result);
+                    sos.flush();
                     
                     getResponse().flushBuffer();
                 }
