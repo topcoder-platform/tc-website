@@ -262,6 +262,8 @@ public class ProfileInfo extends BaseModel {
          * if it's not new, or if the test set was set to no test set a, then we'll
          * return as such
          */
+        log.debug("isnew: " + isNew() + " testseta: " + testSetA);
+
         return !(testSetA==null&&!isNew()) || testSetA.equals(new Long(Constants.NO_TEST_SET_A));
     }
 
