@@ -96,11 +96,11 @@
 <B>Total Prize:</B> $150,000<BR/><BR/>		
         <TABLE WIDTH="300" CELLSPACING="0" CELLPADDING="0" BORDER="0">
 			<TR>
-                <TD WIDTH="50">
+                <TD WIDTH="100" CLASS="bodyText" VALIGN="top">
                 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
                 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>
                 </TD>
-                <TD>
+                <TD CLASS="bodyText" VALIGN="top">
                 <P>On Friday, Oct. 4th, contestants will receive a final invitation &amp; will be notified of which part of online round #1 they are assigned to.</P>
                 </TD>
             </TR>
