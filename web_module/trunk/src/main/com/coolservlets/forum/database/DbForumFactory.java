@@ -281,6 +281,10 @@ public class DbForumFactory extends ForumFactory {
         return cacheEnabled;
     }
 
+    public boolean isUserPermCacheEnabled() {
+        return userPermCacheEnabled;
+    }
+
     /**
      * Sets whether cache is enabled.
      */
