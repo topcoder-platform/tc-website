@@ -45,6 +45,7 @@ public class Constants {
     public static String TEST_SET_B;
     public static String EXAMPLES;
     public static String LANGUAGES;
+    public static String PROBLEM_SETS;
 
     //other
     public static int TEST_SET_A_ID;

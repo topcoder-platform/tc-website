@@ -76,24 +76,11 @@ public class Login extends Base {
         if (response.isSuccess()) {
             getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
             ScreeningProblemSet[] problemSets = response.getProblemSets();
-
-            ArrayList examples = new ArrayList();
-            ArrayList testSetA = new ArrayList();
-            ArrayList testSetB = new ArrayList();
-
+            ArrayList sets = new ArrayList();
             for (int i=0; i<problemSets.length; i++) {
-                if (problemSets[i].getType().intValue()==Constants.TEST_SET_A_ID) {
-                    testSetA.add(problemSets[i]);
-                } else if (problemSets[i].getType().intValue()==Constants.TEST_SET_B_ID) {
-                    testSetB.add(problemSets[i]);
-                } else if (problemSets[i].getType().intValue()==Constants.EXAMPLE_ID) {
-                    examples.add(problemSets[i]);
-                }
+                sets.add(problemSets[i]);
             }
-
-            getRequest().getSession().setAttribute(Constants.EXAMPLES, examples);
-            getRequest().getSession().setAttribute(Constants.TEST_SET_A, testSetA);
-            getRequest().getSession().setAttribute(Constants.TEST_SET_B, testSetB);
+            getRequest().getSession().setAttribute(Constants.PROBLEM_SETS, sets);
             getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
 
         } else {
