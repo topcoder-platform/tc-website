@@ -109,7 +109,7 @@ out.print("<center><table><tr><td class=\"statText\">");
 out.print("<input type=hidden name=" + PactsConstants.AFFIDAVIT_ID);
 out.print(" value=" + a.affidavit._header._id + ">");
 if(a.affidavit._birthday.length() <= 0) {
-	out.print("Enter your birthday: <input type=\"text\" name=\"date_of_birth\" size=15 maxlength=15>");
+	out.print("Enter your birthday (MM/dd/YYYY): <input type=\"text\" name=\"date_of_birth\" size=15 maxlength=15>");
 } 
 out.print("<input type=\"submit\" value=\"affirm affidavit\">");
 out.print("</form>");
