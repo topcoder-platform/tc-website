@@ -54,4 +54,44 @@
       <required>true</required>
     </attribute>
   </tag>
+
+  <tag>
+    <name>iterator</name>
+    <tagclass>com.topcoder.web.common.tag.IteratorTag</tagclass>
+    <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      generic iterator tag iterates through elements of a Collection
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>collection</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>item</name>
+    <tagclass>com.topcoder.web.common.tag.ResultSetItemTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+      Tag to get the value of a TCResultItem
+    </info>
+    <attribute>
+      <name>row</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
 </taglib>
