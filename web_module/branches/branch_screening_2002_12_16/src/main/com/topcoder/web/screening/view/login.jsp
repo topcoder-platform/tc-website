@@ -44,7 +44,7 @@
                                  <%= request.getAttribute("msg").toString() %>
                               </p>
                            <% } %>
-                           <screen:form NAME="login" METHOD="POST" ACTION="<%= request.getServletPath() %>">
+                           <screen:form NAME="login" METHOD="POST" ACTION="/screening">
                               <INPUT type="hidden" name='rp' value='Login'/>
                               <% if((String)request.getAttribute("redir") != null){ %>
                                  <INPUT type="hidden" name='redir' value='<%= request.getAttribute("redir").toString() %>'/>
