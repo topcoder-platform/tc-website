@@ -39,4 +39,6 @@ public interface UserManagerLocal extends javax.ejb.EJBLocalObject {
 
     public void sendPasswordEmail(String username)
             throws EJBException, DDEException, NoSuchUserException;
+
+    public void agreeToComponentTerms(long userId) throws EJBException;
 }
