@@ -38,6 +38,7 @@
      * @return
      */
     String addParams(HttpServletRequest request) {
+        System.out.println(request.getQueryString());
         Hashtable h = HttpUtils.parseQueryString(request.getQueryString());
         StringBuffer buf = new StringBuffer(100);
         Map.Entry me = null;
