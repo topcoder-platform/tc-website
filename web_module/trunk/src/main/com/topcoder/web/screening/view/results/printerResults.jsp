@@ -222,14 +222,20 @@
               <p><br></p>
             <% } %>
 
-            <% List solutions = (List)request.getAttribute("problemSolutionList"); %>
-            <% List statements = (List)request.getAttribute("problemStatementList"); %>
+
+            <% List solutionA = (List)request.getAttribute("problemSolutionAList"); %>
+            <% List solutionB = (List)request.getAttribute("problemSolutionBList"); %>
+            <% List[] solutions = {solutionA, solutionB}; %>
+            <% List statementsA = profileInfo.getTestSetAList(); %>
+            <% List statementsB = profileInfo.getTestSetBList(); %>
+            <% List[] statements = {statementsA, statementsB}; %>
             <% ProblemInfo problem = null; %>
             <% SubmissionInfo solution = null; %>
 
-                <% for (int i=0; i<statements.size(); i++) { %>
-                    <% problem = (ProblemInfo)statements.get(i); %>
-                    <% solution = (SubmissionInfo)solutions.get(i); %>
+              <% for (int j=0; j<statements.length; j++) { %>
+                <% for (int i=0; i<statements[j].size(); i++) { %>
+                    <% problem = (ProblemInfo)statements[j].get(i); %>
+                    <% solution = (SubmissionInfo)solutions[j].get(i); %>
                     <% if (!solution.isSubmitted()) continue; %>
                   <table style="page-break-before:always" cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
@@ -246,6 +252,7 @@
                   <tr><td><br/></td></tr>
                   </table>
                 <% } %>
+              <% } %>
               </table>
 
 <% } //isSessionComplete %>
