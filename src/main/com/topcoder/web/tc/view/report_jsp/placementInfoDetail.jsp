@@ -32,6 +32,12 @@ List industryList = (List)request.getAttribute("industrySkills");
 		<tr>
 		<td valign=top width="50%">
 		<table width="100%" cellpadding="0" cellspacing="5" align="center" >
+
+            <tr>
+				<td align=left colspan=2><p><a href="/report?t=new_report&c=placement_people&db=OLTP"><< back to placement registrants report</a></p></td>
+
+            </tr>
+
             <tr>
 				<td align=right width="65%"><b>Preferences</b></td>
 				<td width="35%"></td>
