@@ -40,6 +40,10 @@
 <% out.println("      <form method=\"GET\" action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\">"); %>
         <table border="0" cellpadding="5" cellspacing="0">
           <tr>
+            <td>Payment ID:</td>
+<% out.println("            <td><input type=\"text\" name=\""+PactsConstants.PAYMENT_ID+"\" size=\"20\"></td>"); %>
+          </tr>
+          <tr>
             <td>Handle:</td>
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.HANDLE+"\" size=\"20\"></td>"); %>
           </tr>
@@ -98,8 +102,7 @@
 </center>
 
 
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

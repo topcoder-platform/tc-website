@@ -144,10 +144,18 @@
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.AFFIDAVIT_CMD+"&");
    out.println(PactsConstants.AFFIDAVIT_ID+"="+affidavit._header._id);
    out.println("\">Update Affidavit</a><br>");
+
+   if (!affidavit._header._affirmed) {
+   	out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+   	out.print(PactsConstants.TASK_STRING+"="+PactsConstants.AFFIRM_TASK+"&");
+   	out.println(PactsConstants.CMD_STRING+"="+PactsConstants.AFFIDAVIT_CMD+"&");
+   	out.println(PactsConstants.AFFIDAVIT_ID+"="+affidavit._header._id);
+   	out.println("\">Affirm Affidavit</a><br>");
+   }
 %>
 
 
-<jsp:include page="/InternalFooter.jsp" flush="true" />
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 
 </body>
 

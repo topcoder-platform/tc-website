@@ -45,12 +45,28 @@
 			user = new UserProfileHeader();
 		}
 	}
+	int status = -1;
+	try { status = Integer.parseInt(request.getParameter("status_id")); } catch (Exception e) {}
+	String desc = request.getParameter("payment_desc");
+	if (desc == null) desc = "";
+	int type = -1;
+	try { type = Integer.parseInt(request.getParameter("payment_type_id")); } catch (Exception e) {}
+	String net = request.getParameter("net_amount");
+	if (net == null) net = "";
+	String gross = request.getParameter("gross_amount");
+	if (gross == null) gross = "";
+	String due = request.getParameter("date_due");
+	if (due == null) due = "";
 %>
 
 <h1>PACTS</h1>
 <h2>Add 
 <% if (payment_is_for_contract) out.print("Contract"); %>
 Payment</h2>
+
+<font color="#FF0000">
+<% out.print(message); %>
+</font>
 
 <% out.print("<form action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=\"post\">");
    out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\"");
@@ -116,18 +132,20 @@ Payment</h2>
 <%		int rowCount;
 		ResultSetContainer.ResultSetRow rsr;
 		String s;
+		int s_id;
 		if (stati != null) {
 			rowCount = stati.getRowCount();
 			for (int n = 0; n < rowCount; n++) {
 				rsr = stati.getRow(n);
 				out.print("<option value=");
-				out.print("" + TCData.getTCInt(rsr,"status_id",0,true));
+				s_id =TCData.getTCInt(rsr,"status_id",0,true);
+				out.print(s_id);
 				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS)) {
+				if (status < 0 && payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS)) {
 					out.print(" selected");
-				} else if (!payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_STATUS)) {
+				} else if (status < 0 && !payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_STATUS)) {
 					out.print(" selected");
-				}
+				} else if (status == s_id) out.print(" selected");
 				out.print(">" + s + "</option>\n");
 			}
 		}
@@ -137,7 +155,7 @@ Payment</h2>
 		</tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-		<input type=text width=25 name="payment_desc">
+		<input type=text width=25 name="payment_desc" value="<% out.print(desc); %>">
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
@@ -147,13 +165,14 @@ Payment</h2>
 			for (int n = 0; n < rowCount; n++) {
 				rsr = paymentTypes.getRow(n);
 				out.print("<option value=");
-				out.print("" + TCData.getTCInt(rsr,"payment_type_id",0,true));
+				s_id = TCData.getTCInt(rsr,"payment_type_id",0,true);
+				out.print(s_id);
 				s = TCData.getTCString(rsr,"payment_type_desc","default payment type",true);
-				if (payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_TYPE)) {
+				if (type < 0 && payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_TYPE)) {
 					out.print(" selected");
-				} else if (!payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_TYPE)) {
+				} else if (type < 0 && !payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_TYPE)) {
 					out.print(" selected");
-				}
+				} else if (type == s_id) out.print(" selected");
 				out.print(">" + s + "</option>\n");
 			}
 		}
@@ -162,23 +181,22 @@ Payment</h2>
 		</td></tr>
 		<tr>
 		<td><b>Net Amount:</b></td><td>
-		<input type=text width=25 name="net_amount">
+		<input type=text width=25 name="net_amount" value="<% out.print(net); %>">
 		</td></tr>
 		<tr>
 		<td><b>Gross Amount:</b></td><td>
-		<input type=text width=25 name="gross_amount">
+		<input type=text width=25 name="gross_amount" value="<% out.print(gross); %>">
 		</td></tr>
 		<tr>
 		<td><b>Date Due:</b></td><td>
-		<input type=text width=25 name="date_due">
+		<input type=text width=25 name="date_due" value="<% out.print(due); %>">
 		</td></tr>
 
 	</table>
 
 <input type=submit>
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

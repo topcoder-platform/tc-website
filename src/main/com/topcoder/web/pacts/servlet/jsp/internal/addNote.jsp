@@ -26,12 +26,16 @@
 	if (message == null) {
 		message = "";
 	}
+	int t = -1;
+	try { t = Integer.parseInt(request.getParameter("note_type_id")); } catch (Exception e) {}
+	String text = request.getParameter("text");
+	if (text == null) text = "";
 %>
 
 <h1>PACTS</h1>
 <h2>Add Note</h2>
 
-<%		out.print("<text color=\"red\">" + message + "</text>");
+<%		out.print("<font color=\"#FF0000\">" + message + "</font>");
 		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
 		out.print("\" method=\"post\">");
 		out.print("<input type=\"hidden\" name=\"object_type\" value=\""+object_type+"\">");
@@ -58,9 +62,9 @@
 				type = TCData.getTCInt(rsr,"note_type_id",0,true);
 				out.print("<option value="+type);
 				s = TCData.getTCString(rsr,"note_type_desc","default status",true);
-				if (type == object_type) {
+				if (t < 0 && type == object_type) {
 					out.print(" selected");
-				}
+				} else if (t == type) out.print (" selected");
 				out.print(">" + s + "</option>\n");
 			}
 		}
@@ -69,14 +73,13 @@
 		</td>
 		</tr>
 		<tr><td>Text:</td><td>
-		<textarea name="text" rows=10 cols=80></textarea>
+		<textarea name="text" rows=10 cols=80><% out.print(text); %></textarea>
 		</td></tr>
 	</table>
 
 <input type=submit>
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

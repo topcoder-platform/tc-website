@@ -64,19 +64,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private ResultSetContainer runSelectQuery(String query) throws SQLException {
+    private ResultSetContainer runSelectQuery(String query, boolean setLockTimeout) throws SQLException {
         String s[] = new String[1];
         s[0] = query;
-        ResultSetContainer rsc[] = runSelectQuery(s);
+        ResultSetContainer rsc[] = runSelectQuery(s, setLockTimeout);
         return rsc[0];
     }
 
-    private ResultSetContainer[] runSelectQuery(String query[]) throws SQLException {
+    private ResultSetContainer[] runSelectQuery(String query[], boolean setLockTimeout) throws SQLException {
         Connection c = null;
 
         try {
             c = DBMS.getConnection();
-            ResultSetContainer rsc[] = runSelectQuery(c, query);
+            ResultSetContainer rsc[] = runSelectQuery(c, query, setLockTimeout);
             c.close();
             c = null;
             return rsc;
@@ -87,18 +87,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private ResultSetContainer runSelectQuery(Connection c, String query) throws SQLException {
+    private ResultSetContainer runSelectQuery(Connection c, String query, boolean setLockTimeout) throws SQLException {
         String s[] = new String[1];
         s[0] = query;
-        ResultSetContainer rsc[] = runSelectQuery(c, s);
+        ResultSetContainer rsc[] = runSelectQuery(c, s, setLockTimeout);
         return rsc[0];
     }
 
-    private ResultSetContainer[] runSelectQuery(Connection c, String query[]) throws SQLException {
+    private ResultSetContainer[] runSelectQuery(Connection c, String query[], boolean setLockTimeout) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ResultSetContainer rsc[] = new ResultSetContainer[query.length];
+            if (setLockTimeout)
+                setLockTimeout(c);
             for (int i=0; i<query.length; i++) {
                 ps = c.prepareStatement(query[i]);
                 rs = ps.executeQuery();
@@ -127,11 +129,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private int runUpdateQuery(String query) throws SQLException {
+    private int runUpdateQuery(String query, boolean setLockTimeout) throws SQLException {
         Connection c = null;
         try {
             c = DBMS.getConnection();
-            int rowsModified = runUpdateQuery(c, query);
+            int rowsModified = runUpdateQuery(c, query, setLockTimeout);
             c.close();
             c = null;
             return rowsModified;
@@ -142,9 +144,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private int runUpdateQuery(Connection c, String query) throws SQLException {
+    private int runUpdateQuery(Connection c, String query, boolean setLockTimeout) throws SQLException {
         PreparedStatement ps = null;
         try {
+            if (setLockTimeout)
+                setLockTimeout(c);
             ps = c.prepareStatement(query);
             int rowsModified = ps.executeUpdate();
             ps.close();
@@ -164,12 +168,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private ResultSetContainer runSearchQuery(String query, ArrayList objects) throws SQLException {
+    private ResultSetContainer runSearchQuery(String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             c = DBMS.getConnection();
+            if (setLockTimeout)
+                setLockTimeout(c);
             ps = c.prepareStatement(query);
             for (int i=0; i<objects.size(); i++) {
                 Object o = objects.get(i);
@@ -256,6 +262,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         throw new Exception("String " + booleanString + " could not be converted to boolean type");
     }
 
+    private void setLockTimeout(Connection c) throws SQLException {
+        PreparedStatement ps = null;
+        try {
+            ps = c.prepareStatement("SET LOCK MODE TO WAIT " + LOCK_TIMEOUT_VALUE);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            try { if (ps != null) ps.close(); } catch (Exception e1) { printException(e1); }
+            ps = null;
+        }
+    }
+    
     /*****************************************************
      * Object retrieval functions
      *****************************************************/
@@ -291,7 +308,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             // Get affidavit header
-            ResultSetContainer rsc = runSelectQuery(c, selectAffidavitHeader.toString());
+            ResultSetContainer rsc = runSelectQuery(c, selectAffidavitHeader.toString(), true);
             if (rsc.getRowCount()==0) {
                 c.close();
                 c = null;
@@ -302,7 +319,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             hm.put(AFFIDAVIT_HEADER_LIST, rsc);
 
             // Get affidavit details
-            rsc = runSelectQuery(c, selectAffidavitDetails.toString());
+            rsc = runSelectQuery(c, selectAffidavitDetails.toString(), false);
             if (rsc.getRowCount()==0) {
                 c.close();
                 throw new NoObjectFoundException("No affidavit details found with ID " + affidavitId);
@@ -323,7 +340,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectPaymentHeader.append("AND s.status_id = pd.status_id ");
             selectPaymentHeader.append("AND p.user_id = u.user_id ");
 
-            rsc = runSelectQuery(c, selectPaymentHeader.toString());
+            rsc = runSelectQuery(c, selectPaymentHeader.toString(), false);
             if (rsc.getRowCount()==0) {
                 c.close();
                 throw new NoObjectFoundException("No payment header details found for payment ID " + paymentId);
@@ -357,7 +374,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectContractHeader.append("WHERE c.contract_id = " + contractId + " ");
         selectContractHeader.append("AND c.status_id = s.status_id ");
         selectContractHeader.append("AND c.contracted_user_id = u.user_id ");
-	selectContractHeader.append("AND ct.contract_type_id = c.contract_type_id");
+        selectContractHeader.append("AND ct.contract_type_id = c.contract_type_id");
 
         StringBuffer selectContractDetails = new StringBuffer(300);
         selectContractDetails.append("SELECT start_date, end_date, contract_desc FROM contract ");
@@ -381,7 +398,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         queries[0] = selectContractHeader.toString();
         queries[1] = selectContractDetails.toString();
         queries[2] = selectPaymentHeaders.toString();
-        ResultSetContainer rsc[] = runSelectQuery(queries);
+        ResultSetContainer rsc[] = runSelectQuery(queries, true);
 
         HashMap hm = new HashMap();
         hm.put(CONTRACT_HEADER_LIST, rsc[0]);
@@ -412,7 +429,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         String queries[] = new String[2];
         queries[0] = selectNoteHeader.toString();
         queries[1] = selectNoteDetails.toString();
-        ResultSetContainer rsc[] = runSelectQuery(queries);
+        ResultSetContainer rsc[] = runSelectQuery(queries, true);
 
         HashMap hm = new HashMap();
         hm.put(NOTE_HEADER_LIST, rsc[0]);
@@ -506,7 +523,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
         try {
             c = DBMS.getConnection();
-            ResultSetContainer rsc = runSelectQuery(c, selectPaymentHeader.toString());
+            ResultSetContainer rsc = runSelectQuery(c, selectPaymentHeader.toString(), true);
             if (rsc.getRowCount() == 0) {
                 throw new NoObjectFoundException("Payment " + paymentId + " not found");
             }
@@ -515,7 +532,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             HashMap hm = new HashMap();
             hm.put(PAYMENT_HEADER_LIST, rsc);
 
-            rsc = runSelectQuery(c, detailsQuery);
+            rsc = runSelectQuery(c, detailsQuery, false);
             hm.put(PAYMENT_DETAIL_LIST, rsc);
 
             StringBuffer selectCoderAddress = new StringBuffer(300);
@@ -527,7 +544,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectCoderAddress.append("AND state.state_code = c.state_code ");
             selectCoderAddress.append("AND country.country_code = c.country_code");
 
-            rsc = runSelectQuery(c, selectCoderAddress.toString());
+            rsc = runSelectQuery(c, selectCoderAddress.toString(), false);
             hm.put(CURRENT_CODER_ADDRESS, rsc);
 
             c.close();
@@ -564,9 +581,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
             HashMap hm = new HashMap();
             hm.putAll(getUserProfileHeader(c, userId));
-            ResultSetContainer rsc = runSelectQuery(c, selectDetails.toString());
+            ResultSetContainer rsc = runSelectQuery(c, selectDetails.toString(), false);
             hm.put(USER_PROFILE_DETAIL, rsc);
             c.close();
             c = null;
@@ -590,6 +608,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
             Map m = getUserProfileHeader(c, userId);
             c.close();
             c = null;
@@ -616,7 +635,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         queries[0] = selectHeader.toString();
         queries[1] = selectGroups.toString();
 
-        ResultSetContainer rsc[] = runSelectQuery(c, queries);
+        ResultSetContainer rsc[] = runSelectQuery(c, queries, false);
         HashMap hm = new HashMap();
         hm.put(USER_PROFILE_HEADER_LIST, rsc[0]);
         hm.put(USER_GROUP_LIST, rsc[1]);
@@ -640,7 +659,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectTaxForm.append("WHERE tf.tax_form_id = " + taxFormId + " ");
         selectTaxForm.append("AND s.status_id = tf.status_id");
 
-        ResultSetContainer rsc = runSelectQuery(selectTaxForm.toString());
+        ResultSetContainer rsc = runSelectQuery(selectTaxForm.toString(), true);
         HashMap hm = new HashMap();
         hm.put(TAX_FORM_LIST, rsc);
         return hm;
@@ -679,7 +698,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         queries[0] = selectHeader.toString();
         queries[1] = selectDetails.toString();
 
-        ResultSetContainer rsc[] = runSelectQuery(queries);
+        ResultSetContainer rsc[] = runSelectQuery(queries, true);
         HashMap hm = new HashMap();
         hm.put(USER_TAX_FORM_HEADER_LIST, rsc[0]);
         hm.put(USER_TAX_FORM_DETAIL, rsc[1]);
@@ -710,7 +729,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectAffidavitHeaders.append("AND a.status_id = s.status_id ");
         selectAffidavitHeaders.append("ORDER BY 1");
 
-        ResultSetContainer rsc = runSelectQuery(selectAffidavitHeaders.toString());
+        ResultSetContainer rsc = runSelectQuery(selectAffidavitHeaders.toString(), true);
         HashMap hm = new HashMap();
         hm.put(AFFIDAVIT_HEADER_LIST, rsc);
         return hm;
@@ -732,10 +751,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectContractHeaders.append("WHERE c.contracted_user_id = " + userId + " ");
         selectContractHeaders.append("AND u.user_id = " + userId + " ");
         selectContractHeaders.append("AND c.status_id = s.status_id ");
-	selectContractHeaders.append("AND ct.contract_type_id = c.contract_type_id ");
+    	selectContractHeaders.append("AND ct.contract_type_id = c.contract_type_id ");
         selectContractHeaders.append("ORDER BY 1");
 
-        ResultSetContainer rsc = runSelectQuery(selectContractHeaders.toString());
+        ResultSetContainer rsc = runSelectQuery(selectContractHeaders.toString(), true);
         HashMap hm = new HashMap();
         hm.put(CONTRACT_HEADER_LIST, rsc);
         return hm;
@@ -762,7 +781,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("AND s.status_id = pd.status_id ");
         selectPaymentHeaders.append("ORDER BY 1");
 
-        ResultSetContainer rsc = runSelectQuery(selectPaymentHeaders.toString());
+        ResultSetContainer rsc = runSelectQuery(selectPaymentHeaders.toString(), true);
         HashMap hm = new HashMap();
         hm.put(PAYMENT_HEADER_LIST, rsc);
         return hm;
@@ -786,7 +805,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("AND s.status_id = utf.status_id ");
         selectHeaders.append("ORDER BY 1");
 
-        ResultSetContainer rsc = runSelectQuery(selectHeaders.toString());
+        ResultSetContainer rsc = runSelectQuery(selectHeaders.toString(), true);
         HashMap hm = new HashMap();
         hm.put(USER_TAX_FORM_HEADER_LIST, rsc);
         return hm;
@@ -835,7 +854,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectNoteHeaders.append("AND u.user_id = n.submitted_by ");
         selectNoteHeaders.append("ORDER BY 1");
 
-        ResultSetContainer rsc = runSelectQuery(selectNoteHeaders.toString());
+        ResultSetContainer rsc = runSelectQuery(selectNoteHeaders.toString(), true);
         HashMap hm = new HashMap();
         hm.put(NOTE_HEADER_LIST, rsc);
         return hm;
@@ -863,7 +882,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("AND p.user_id = u.user_id ");
         selectPaymentHeaders.append("ORDER BY 1");
 
-        ResultSetContainer rsc = runSelectQuery(selectPaymentHeaders.toString());
+        ResultSetContainer rsc = runSelectQuery(selectPaymentHeaders.toString(), true);
         HashMap hm = new HashMap();
         hm.put(PAYMENT_HEADER_LIST, rsc);
         return hm;
@@ -891,7 +910,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectClause = "SELECT text FROM tax_form WHERE tax_form_id = " + objectId;
         }
 
-        ResultSetContainer rsc = runSelectQuery(selectClause);
+        ResultSetContainer rsc = runSelectQuery(selectClause, true);
         HashMap hm = new HashMap();
         hm.put(TEXT, rsc);
         return hm;
@@ -911,7 +930,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT affidavit_type_id, affidavit_type_desc FROM affidavit_type_lu ORDER BY 2");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(AFFIDAVIT_TYPE_LIST, rsc);
         return hm;
@@ -927,7 +946,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT contract_type_id, contract_type_desc FROM contract_type_lu ORDER BY 2");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(CONTRACT_TYPE_LIST, rsc);
         return hm;
@@ -943,7 +962,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT note_type_id, note_type_desc FROM note_type_lu ORDER BY 2");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(NOTE_TYPE_LIST, rsc);
         return hm;
@@ -958,7 +977,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map getPaymentTypes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT payment_type_id, payment_type_desc FROM payment_type_lu ORDER BY 2");
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(PAYMENT_TYPE_LIST, rsc);
         return hm;
@@ -975,7 +994,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("SELECT modification_rationale_id, modification_rationale_desc ");
         sb.append("FROM modification_rationale_lu ORDER BY 2");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(MODIFICATION_RATIONALE_LIST, rsc);
         return hm;
@@ -992,7 +1011,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT status_id, status_desc FROM status_lu ORDER BY 2");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(STATUS_CODE_LIST, rsc);
         return hm;
@@ -1010,7 +1029,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("SELECT status_id, status_desc FROM status_lu WHERE status_type_id = ");
         sb.append(objectType + " ORDER BY 2");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(STATUS_CODE_LIST, rsc);
         return hm;
@@ -1026,7 +1045,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT user_type_id, user_type_desc FROM user_type ORDER BY 2");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(USER_TYPE_LIST, rsc);
         return hm;
@@ -1048,7 +1067,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("AND rs.segment_id = 1 ");
         sb.append("ORDER BY 2 DESC");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(ROUND_LIST, rsc);
         return hm;
@@ -1075,7 +1094,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("AND dans.demographic_answer_id = dr.demographic_answer_id ");
         sb.append("ORDER BY da.sort");
 
-        ResultSetContainer rsc = runSelectQuery(sb.toString());
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(USER_DEMOGRAPHICS, rsc);
         return hm;
@@ -1139,7 +1158,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         selectHeaders.append(" ORDER BY 1");
-        ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects);
+        ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(AFFIDAVIT_HEADER_LIST, rsc);
         return hm;
@@ -1164,7 +1183,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE c.status_id = s.status_id ");
         whereClauses.append(" AND c.contracted_user_id = u.user_id ");
-	whereClauses.append(" AND ct.contract_type_id = c.contract_type_id ");
+    	whereClauses.append(" AND ct.contract_type_id = c.contract_type_id ");
 
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();
@@ -1218,7 +1237,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectContractHeaders.append(whereClauses.toString());
         selectContractHeaders.append(" ORDER BY 1");
 
-        ResultSetContainer rsc = runSearchQuery(selectContractHeaders.toString(), objects);
+        ResultSetContainer rsc = runSearchQuery(selectContractHeaders.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(CONTRACT_HEADER_LIST, rsc);
         return hm;
@@ -1250,7 +1269,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         select.append(" FROM user_tax_form_note_xref WHERE note_id = " + noteId);
         select.append(" ORDER BY 1, 2");
 
-        ResultSetContainer rsc = runSelectQuery(select.toString());
+        ResultSetContainer rsc = runSelectQuery(select.toString(), true);
         HashMap hm = new HashMap();
         hm.put(ENTRY_HEADER_LIST, rsc);
         return hm;
@@ -1358,7 +1377,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectNoteHeaders.append(whereClauses.toString());
         selectNoteHeaders.append(" ORDER BY 1");
 
-        ResultSetContainer rsc = runSearchQuery(selectNoteHeaders.toString(), objects);
+        ResultSetContainer rsc = runSearchQuery(selectNoteHeaders.toString(), objects, true);
 
         HashMap hm = new HashMap();
         hm.put(NOTE_HEADER_LIST, rsc);
@@ -1448,7 +1467,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append(whereClauses.toString());
         selectHeaders.append(" ORDER BY 1");
 
-        ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects);
+        ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(PAYMENT_HEADER_LIST, rsc);
         return hm;
@@ -1491,7 +1510,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         selectTaxForms.append(" ORDER BY ucname");
 
-        ResultSetContainer rsc = runSelectQuery(selectTaxForms.toString());
+        ResultSetContainer rsc = runSelectQuery(selectTaxForms.toString(), true);
         HashMap hm = new HashMap();
         hm.put(TAX_FORM_LIST, rsc);
         return hm;
@@ -1552,7 +1571,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         selectHeaders.append(" ORDER BY uchandle, ucname");
 
-        ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects);
+        ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(USER_TAX_FORM_HEADER_LIST, rsc);
         return hm;
@@ -1568,15 +1587,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle ");
+        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, c.first_name, c.middle_name, c.last_name ");
 
         StringBuffer from = new StringBuffer(300);
-        from.append("FROM user u");
+        from.append("FROM user u, coder c");
 
         ArrayList whereClauses = new ArrayList();
+        whereClauses.add("u.user_id = c.coder_id");
         ArrayList orClauses = new ArrayList();
         ArrayList objects = new ArrayList();
-        boolean joinCoder = false;
 
         Iterator i = searchCriteria.keySet().iterator();
         try {
@@ -1600,27 +1619,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.add("u.user_id = utf.user_id");
                     whereClauses.add("utf.tax_form_id = " + value);
                 } else if (key.equals(FIRST_NAME)) {
-                    if (!joinCoder) {
-                        joinCoder = true;
-                        from.append(", coder c");
-                        whereClauses.add("u.user_id = c.coder_id");
-                    }
                     whereClauses.add("UPPER(c.first_name) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(MIDDLE_NAME)) {
-                    if (!joinCoder) {
-                        joinCoder = true;
-                        from.append(", coder c");
-                        whereClauses.add("u.user_id = c.coder_id");
-                    }
                     whereClauses.add("UPPER(c.middle_name) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(LAST_NAME)) {
-                    if (!joinCoder) {
-                        joinCoder = true;
-                        from.append(", coder c");
-                        whereClauses.add("u.user_id = c.coder_id");
-                    }
                     whereClauses.add("UPPER(c.last_name) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(HANDLE)) {
@@ -1698,7 +1702,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         selectHeader.append(" ORDER BY uchandle");
 
-        ResultSetContainer rsc = runSearchQuery(selectHeader.toString(), objects);
+        ResultSetContainer rsc = runSearchQuery(selectHeader.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(USER_PROFILE_HEADER_LIST, rsc);
         return hm;
@@ -1743,7 +1747,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
-
+            setLockTimeout(c);
+            
             long affidavitId = makeAffidavitPayment(c, a, affidavitText, p);
 
             c.commit();
@@ -1822,6 +1827,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         PreparedStatement ps = null;
         try {
             con = DBMS.getConnection();
+            setLockTimeout(con);
 
             // Get ID numbers
             long contractId = (long) DBMS.getSeqId(con, DBMS.CONTRACT_SEQ);
@@ -1894,7 +1900,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         checkPaid.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
         checkPaid.append("AND pd.status_id = " + PAID_STATUS + " ");
         checkPaid.append("AND p.payment_id = " + p._header._id);
-        ResultSetContainer rsc = runSelectQuery(c, checkPaid.toString());
+        ResultSetContainer rsc = runSelectQuery(c, checkPaid.toString(), false);
         int paidRecords = Integer.parseInt(rsc.getItem(0,0).toString());
         if (paidRecords > 0) {
             throw new PaymentPaidException("Payment " + p._header._id + " has already been paid " +
@@ -1928,7 +1934,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getUserWithholding.append("AND c.country_code = country.country_code ");
         getUserWithholding.append("AND country.default_taxform_id = utf.tax_form_id ");
         getUserWithholding.append("AND utf.user_id = " + p._header._user._id);
-        ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString());
+        ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
         if (rsc.getRowCount() > 0) {
             withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
             withholdPercent = TCData.getTCFloat(rsc.getRow(0), "withholding_percentage");
@@ -1944,7 +1950,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWithholding.append("AND c.country_code = country.country_code ");
             getWithholding.append("AND country.default_taxform_id = tf.tax_form_id");
 
-            rsc = runSelectQuery(c, getWithholding.toString());
+            rsc = runSelectQuery(c, getWithholding.toString(), false);
             if (rsc.getRowCount() > 0) {
                 log.debug("Got country withholding");
                 withholdAmount = TCData.getTCDouble(rsc.getRow(0), "default_withholding_amount");
@@ -1985,7 +1991,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getReferralUser.append("AND cr.referral_id = " + CODER_REFERRAL_TYPE + " ");
         getReferralUser.append("AND u.user_id = cr.reference_id ");
         getReferralUser.append("AND u2.user_id = cr.coder_id");
-        return runSelectQuery(c, getReferralUser.toString());
+        return runSelectQuery(c, getReferralUser.toString(), false);
     }
 
     // Helper function that adds the specified payment to the database
@@ -2020,7 +2026,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 selectAddress.append("AND state.state_code = c.state_code ");
                 selectAddress.append("AND country.country_code = c.country_code ");
 
-                ResultSetContainer rsc = runSelectQuery(c, selectAddress.toString());
+                ResultSetContainer rsc = runSelectQuery(c, selectAddress.toString(), false);
                 if (rsc.getRowCount() == 0)
                     throw new NoObjectFoundException("Coder " + p._header._user._id + " not found in database");
 
@@ -2129,6 +2135,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
+            setLockTimeout(c);
             long paymentId = makeNewPayment(c, p, false);
             c.commit();
             c.setAutoCommit(true);
@@ -2162,13 +2169,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
+            setLockTimeout(c);
             long paymentId = makeNewPayment(c, p, false);
 
             // Now add the contract_payment_xref entry
             StringBuffer insertXref = new StringBuffer(300);
             insertXref.append("INSERT INTO contract_payment_xref VALUES(" + contractId);
             insertXref.append("," + paymentId + ")");
-            runUpdateQuery(c, insertXref.toString());
+            runUpdateQuery(c, insertXref.toString(), false);
 
             c.commit();
             c.setAutoCommit(true);
@@ -2216,6 +2224,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
             long taxFormId = (long) DBMS.getSeqId(c, DBMS.TAX_FORM_SEQ);
 
             StringBuffer insertTaxForm = new StringBuffer(300);
@@ -2257,11 +2266,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         PreparedStatement ps = null;
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
 
             StringBuffer getDefaults = new StringBuffer(300);
             getDefaults.append("SELECT default_withholding_amount, default_withholding_percentage, use_percentage ");
             getDefaults.append("FROM tax_form WHERE tax_form_id = " + t._header._id);
-            ResultSetContainer rsc = runSelectQuery(c, getDefaults.toString());
+            ResultSetContainer rsc = runSelectQuery(c, getDefaults.toString(), false);
             if (rsc.getRowCount() != 1) {
                 throw new SQLException("Tax form ID " + t._header._id + " not found or not unique");
             }
@@ -2318,6 +2328,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
+            setLockTimeout(c);
 
             // Get ID number
             long noteId = (long) DBMS.getSeqId(c, DBMS.NOTE_SEQ);
@@ -2399,7 +2410,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertXref.append("INSERT INTO user_tax_form_note_xref VALUES(" + taxFormUserId + ",");
             insertXref.append(objectId + "," + noteId + ")");
         }
-        runUpdateQuery(insertXref.toString());
+        runUpdateQuery(insertXref.toString(), true);
     }
 
     /*****************************************************
@@ -2425,11 +2436,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
+            setLockTimeout(c);
 
             StringBuffer checkAffidavit = new StringBuffer(300);
             checkAffidavit.append("SELECT status_id, payment_id, affirmed FROM affidavit ");
             checkAffidavit.append("WHERE affidavit_id = " + affidavitId);
-            ResultSetContainer rsc = runSelectQuery(c, checkAffidavit.toString());
+            ResultSetContainer rsc = runSelectQuery(c, checkAffidavit.toString(), false);
             if (rsc.getRowCount() == 0) {
                 throw new NoObjectFoundException("Affidavit " + affidavitId + " not found in database");
             }
@@ -2514,6 +2526,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
 
             String longStr = "";
             if (a._roundID == null)
@@ -2573,6 +2586,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             con = DBMS.getConnection();
+            setLockTimeout(con);
 
             StringBuffer update = new StringBuffer(300);
             update.append("UPDATE contract SET name = ?");
@@ -2631,6 +2645,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
+            setLockTimeout(c);
 
             ResultSetContainer.ResultSetRow addressData = null;
 
@@ -2646,7 +2661,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 selectAddresses.append("AND state.state_code = c.state_code ");
                 selectAddresses.append("AND country.country_code = c.country_code ");
 
-                ResultSetContainer rsc = runSelectQuery(c, selectAddresses.toString());
+                ResultSetContainer rsc = runSelectQuery(c, selectAddresses.toString(), false);
                 if (rsc.getRowCount() == 0)
                     throw new NoObjectFoundException("Payment " + p._header._id + " not found in database");
                 addressData = rsc.getRow(0);
@@ -2781,6 +2796,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
 
             StringBuffer update = new StringBuffer(300);
             update.append("UPDATE tax_form SET name = ?");
@@ -2844,6 +2860,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
 
             StringBuffer update = new StringBuffer(300);
             update.append("UPDATE user_tax_form_xref SET date_filed = ?");
@@ -2901,6 +2918,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int rowsModified = 0;
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
             StringBuffer update = new StringBuffer(300);
 
             if (objectType == CONTRACT_OBJ) {
@@ -2947,7 +2965,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     // This is a lot like the helper function below, but requires payment-level granularity and
-    // a record of each payment update outcome.
+    // a record of each payment update outcome.  Also commits after each payment update to release
+    // locks.
     private UpdateResults batchUpdateStatus(Connection c, long paymentId[], int statusId)
     throws SQLException {
         ResultSetContainer addressData, detailData;
@@ -2958,7 +2977,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // Get status name
         String query = "SELECT status_desc FROM status_lu WHERE status_id = " + statusId;
-        ResultSetContainer statusName = runSelectQuery(c, query);
+        ResultSetContainer statusName = runSelectQuery(c, query, false);
 
         if (statusName.getRowCount() == 0) {
             throw new SQLException("Status code " + statusId + " not found in database");
@@ -2982,7 +3001,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 selectAddress.append("AND state.state_code = c.state_code ");
                 selectAddress.append("AND country.country_code = c.country_code ");
 
-                addressData = runSelectQuery(c, selectAddress.toString());
+                addressData = runSelectQuery(c, selectAddress.toString(), false);
                 if (addressData.getRowCount() != 1) {
                     ur.put(paymentId[i], new NoObjectFoundException("Payment not found in database"));
                     continue;
@@ -2997,7 +3016,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectData.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
             selectData.append("AND p.payment_id = " + paymentId[i]);
 
-            detailData = runSelectQuery(c, selectData.toString());
+            detailData = runSelectQuery(c, selectData.toString(), false);
             if (detailData.getRowCount() != 1) {
                 ur.put(paymentId[i], new NoObjectFoundException("Payment not found in database"));
                 continue;
@@ -3021,6 +3040,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else {
                     updatePayment(c, p, addressData.getRow(0));
                 }
+                // Commit after each payment update to release locks for anybody else waiting on the
+                // payment tables
+                c.commit();
             } catch(Exception e) {
                 // Record error and keep going, unless there's a database problem
                 if (e instanceof SQLException)
@@ -3055,7 +3077,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectAddresses.append("AND country.country_code = c.country_code ");
             selectAddresses.append("ORDER BY p.payment_id");
 
-            addressData = runSelectQuery(c, selectAddresses.toString());
+            addressData = runSelectQuery(c, selectAddresses.toString(), false);
             if (addressData.getRowCount() != paymentId.length) {
                 throw new NoObjectFoundException("Some payment ID's could not be found to update.");
             }
@@ -3070,7 +3092,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectData.append("AND p.payment_id IN(" + paymentList +") ");
         selectData.append("ORDER BY p.payment_id");
 
-        detailData = runSelectQuery(c, selectData.toString());
+        detailData = runSelectQuery(c, selectData.toString(), false);
         if (detailData.getRowCount() != paymentId.length) {
             throw new NoObjectFoundException("Some payment ID's could not be found to update.");
         }
@@ -3111,10 +3133,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.debug("In doBatchUpdatePaymentStatus()");
             c = DBMS.getConnection();
             c.setAutoCommit(false);
+            setLockTimeout(c);
 
             UpdateResults ur = batchUpdateStatus(c, paymentId, statusId);
 
-            c.commit();
+            // Commits done after each payment in batchUpdateStatus()
+            // c.commit();
             c.setAutoCommit(true);
             c.close();
             c = null;
@@ -3197,23 +3221,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
 
             Arrays.sort(paymentId);
             String idList = makeList(paymentId);
 
-            ResultSetContainer rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ")");
+            ResultSetContainer rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ")", false);
             int paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
             if (paymentCount != paymentId.length) {
                 throw new NoObjectFoundException("Some of the payments to update could not be found");
             }
 
-            rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ") AND print_count > 0");
+            rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ") AND print_count > 0", false);
             paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
             if (paymentCount != paymentId.length) {
                 throw new IllegalUpdateException("Some of the payments to mark as reviewed have not been printed");
             }
 
-            runUpdateQuery(c, "UPDATE payment SET review = 1 WHERE payment_id IN(" + idList + ")");
+            runUpdateQuery(c, "UPDATE payment SET review = 1 WHERE payment_id IN(" + idList + ")", false);
             c.close();
             c = null;
         } catch (Exception e) {
@@ -3247,12 +3272,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             c = DBMS.getConnection();
+            setLockTimeout(c);
 
             // Check for payment existence
             Arrays.sort(paymentId);
             String idList = makeList(paymentId);
 
-            ResultSetContainer rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ")");
+            ResultSetContainer rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ")", false);
             int paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
             if (paymentCount != paymentId.length) {
                 throw new NoObjectFoundException("Some of the payments to update could not be found");
@@ -3265,7 +3291,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             checkPaid.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
             checkPaid.append("AND pd.status_id = " + PAID_STATUS + " ");
             checkPaid.append("AND p.payment_id IN (" + idList + ")");
-            rsc = runSelectQuery(c, checkPaid.toString());
+            rsc = runSelectQuery(c, checkPaid.toString(), false);
             paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
             if (paymentCount > 0) {
                 throw new IllegalUpdateException("Some of the payments to mark as paid have already been paid");
@@ -3281,7 +3307,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             checkPrinted.append("AND p.payment_id IN (" + idList + ") ");
             checkPrinted.append("GROUP BY 1 ");
             checkPrinted.append("ORDER BY 2");
-            rsc = runSelectQuery(c, checkPrinted.toString());
+            rsc = runSelectQuery(c, checkPrinted.toString(), false);
             int detailRowCount = rsc.getRowCount();
             if (detailRowCount != paymentId.length) {
                 throw new IllegalUpdateException("Some of the payments to mark as paid have not been printed");
@@ -3354,7 +3380,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
         try {
             c = DBMS.getConnection();
-            ResultSetContainer rsc = runSelectQuery(c, checkNotarized.toString());
+            setLockTimeout(c);
+            
+            ResultSetContainer rsc = runSelectQuery(c, checkNotarized.toString(), false);
             int notarizedCount = Integer.parseInt(rsc.getItem(0,0).toString());
             if (notarizedCount == 0) {
                 c.close();
@@ -3362,7 +3390,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 return false;
             }
 
-            rsc = runSelectQuery(c, checkDemographics.toString());
+            rsc = runSelectQuery(c, checkDemographics.toString(), false);
             int questionsLeftBlank = Integer.parseInt(rsc.getItem(0,0).toString());
             c.close();
             c = null;
@@ -3402,6 +3430,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
+            setLockTimeout(c);
 
             // First we have to put payments on hold if they belong to inactive coders.
             // This also includes the corresponding referral payments.
@@ -3413,7 +3442,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getHoldPayments.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
             getHoldPayments.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
             getHoldPayments.append("AND u.status != '" + ACTIVE_CODER_STATUS + "' ");
-            ResultSetContainer rsc = runSelectQuery(c, getHoldPayments.toString());
+            ResultSetContainer rsc = runSelectQuery(c, getHoldPayments.toString(), false);
 
             int rc = rsc.getRowCount();
 
@@ -3483,7 +3512,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             select.append("AND utx2.tax_form_id = tx2.tax_form_id ");
             select.append("AND tx2.name = '" + W8BEN_TAX_FORM + "'");
 
-            rsc = runSelectQuery(c, select.toString());
+            rsc = runSelectQuery(c, select.toString(), false);
 
             // Check the print_count and review fields to ensure that we're not printing
             // a payment without review
@@ -3700,11 +3729,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (makeChanges) {
                 c.setAutoCommit(false);
             }
+            setLockTimeout(c);
 
             // Make sure we haven't done this before for this round.
             StringBuffer checkNew = new StringBuffer(300);
             checkNew.append("SELECT COUNT(*) FROM affidavit WHERE round_id = " + roundId);
-            ResultSetContainer rsc = runSelectQuery(c, checkNew.toString());
+            ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
             int existingAffidavits = Integer.parseInt(rsc.getItem(0,0).toString());
             if (existingAffidavits > 0) {
                 throw new IllegalUpdateException("Data already generated for round " + roundId + "!");
@@ -3717,7 +3747,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             checkExists.append("FROM round r, contest con ");
             checkExists.append("WHERE r.round_id = " + roundId + " ");
             checkExists.append("AND con.contest_id = r.contest_id");
-            rsc = runSelectQuery(c, checkExists.toString());
+            rsc = runSelectQuery(c, checkExists.toString(), false);
             if (rsc.getRowCount() != 1) {
                 throw new IllegalUpdateException("Round " + roundId + " does not exist or is not unique");
             }
@@ -3731,14 +3761,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("AND rr.paid > 0 ");
             getWinners.append("AND rr.coder_id = c.coder_id ");
             getWinners.append("ORDER BY rr.room_id, rr.room_placed");
-            ResultSetContainer winners = runSelectQuery(c, getWinners.toString());
+            ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
             int numWinners = winners.getRowCount();
 
             StringBuffer getAffidavitTexts = new StringBuffer(300);
             getAffidavitTexts.append("SELECT country_code, text ");
             getAffidavitTexts.append("FROM affidavit_template ");
             getAffidavitTexts.append("WHERE affidavit_type_id = " + CONTEST_WINNING_AFFIDAVIT);
-            ResultSetContainer texts = runSelectQuery(c, getAffidavitTexts.toString());
+            ResultSetContainer texts = runSelectQuery(c, getAffidavitTexts.toString(), false);
             int numTexts = texts.getRowCount();
 
             HashMap textMap = new HashMap();
@@ -3838,6 +3868,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
+            setLockTimeout(c);
 
             StringBuffer getPayments = new StringBuffer(300);
             getPayments.append("SELECT payment_id FROM affidavit ");
@@ -3845,14 +3876,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getPayments.append("AND date_created + " + AFFIDAVIT_EXPIRE_TIME + " UNITS DAY < TODAY ");
             getPayments.append("AND status_id = " + AFFIDAVIT_PENDING_STATUS + " ");
             getPayments.append("AND payment_id IS NOT NULL");
-            ResultSetContainer payments = runSelectQuery(c, getPayments.toString());
+            ResultSetContainer payments = runSelectQuery(c, getPayments.toString(), false);
 
             StringBuffer updateAffidavits = new StringBuffer(300);
             updateAffidavits.append("UPDATE affidavit SET status_id = " + AFFIDAVIT_EXPIRED_STATUS);
             updateAffidavits.append(" WHERE affidavit_type_id = " + CONTEST_WINNING_AFFIDAVIT);
             updateAffidavits.append(" AND date_created + " + AFFIDAVIT_EXPIRE_TIME + " UNITS DAY < TODAY");
             updateAffidavits.append(" AND status_id = " + AFFIDAVIT_PENDING_STATUS);
-            int rowsUpdated = runUpdateQuery(c, updateAffidavits.toString());
+            int rowsUpdated = runUpdateQuery(c, updateAffidavits.toString(), false);
 
             int i, rowCount = payments.getRowCount();
             long j[] = new long[1];

@@ -154,11 +154,11 @@ public class ReceiverController extends Thread {
             Log.msg(VERBOSE,this.queueName + " - Listening... " + (System.currentTimeMillis()-timeStamp));
             timeStamp = System.currentTimeMillis();
           }
-          
+
           try {
           	msg = (ObjectMessage) qreceiver.receive(blockTime);
-          } catch (Exception e) 
-          {	
+          } catch (Exception e)
+          {
                   Log.msg("ERROR: Error retreiving next message.");
 	          while(!initJMS())
 	          {
@@ -167,7 +167,7 @@ public class ReceiverController extends Thread {
 	              Thread.sleep(5000);
 	            } catch (Exception ex) { ex.printStackTrace(); }
 	          }
-	        }	
+	        }
 
           if (qsession.getTransacted() && autoCommit)
           //if (this.transacted && autoCommit)
@@ -269,7 +269,9 @@ public class ReceiverController extends Thread {
 
     } catch (Exception e) {
       Log.msg("ERROR: Could not initialize JMS queue.");
-      //e.printStackTrace();
+	  // Matt Murphy 4/14/02 Uncommented the line below to debug.
+	  // Feel free to comment it out if it gets in the way.
+      e.printStackTrace();
     }
 
     this.initInProgress = false;

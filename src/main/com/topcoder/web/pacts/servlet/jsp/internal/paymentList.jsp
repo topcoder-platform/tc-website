@@ -38,6 +38,7 @@
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
 		<td></td>
+		<td><b>ID</b></td>
 		<td><b>User</b></td>
 		<td><b>Description</b></td>
 		<td><b>Net Amount</b></td>
@@ -47,7 +48,8 @@
 		</tr>
 <%
   		for (int n = 0; n < paymentList.length; n++) {
-			out.print("<tr><td><input type=checkbox name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+paymentList[n]._id+"\">\n");
+			out.print("<tr><td><input type=checkbox name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+paymentList[n]._id+"\" checked>\n");
+  			out.print("</td><td>" + paymentList[n]._id + "</td>");
 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
 			out.print("?"+PactsConstants.TASK_STRING+"=");
@@ -83,9 +85,10 @@
 
 <table>
 <%
-out.print("<tr><td></td><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.REVIEW_CMD+"\"></td></tr>\n");
-out.print("<tr><td></td><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.PAID_CMD+"\"></td></tr>\n");
-out.print("<tr><td><select name=\"status_id\">");
+out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.REVIEW_CMD+"\"></td></tr>\n");
+out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.PAID_CMD+"\"></td></tr>\n");
+out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.STATUS_CMD+"\"></td>\n");
+out.print("<td><select name=\"status_id\">");
 
 int rowCount;
 String s;
@@ -101,13 +104,13 @@ for (int n = 0; n < rowCount; n++) {
 	out.print(">"+s+"</option>\n");
 }
 
-out.print("</td><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.STATUS_CMD+"\"></td></tr>\n");
+out.print("</td></tr>");
+
 %>
 </table>
 
 </form>
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

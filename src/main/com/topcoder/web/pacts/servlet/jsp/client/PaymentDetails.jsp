@@ -32,7 +32,7 @@ function goTo(selection){
    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
      <TR>
        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-         <%@ include file="/pacts/client/Pacts_left.jsp" %>
+         <%@ include file="/Pacts_left.jsp" %>
        </TD>
        <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
@@ -45,7 +45,7 @@ function goTo(selection){
 	<TR>
 		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<BR/>
+
 <!-- <jsp:include page="MemberHeader.jsp" flush="true" /> -->
 <%@ page import="com.topcoder.web.pacts.common.*" %>
 
@@ -90,16 +90,11 @@ function goTo(selection){
 
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
-	table.setBgcolor("\"#001935\"");
+	table.setBgcolor("\"#FFFFFF\"");
 	table.setCellSpacing("0");
-	table.setCellPadding("2");
-	table.setRowColor(0,"\"#093158\"");
-	table.setWidth("100%");		
-	table.setColumnWidth(0,"50%");
-	table.setColumnWidth(1,"50%");		
-	table.setBorder("0");
+	table.setCellPadding("3");
+	table.setBorder("1");
 	table.setFontSize("0");
-	table.setClassName("statText");	
 	out.print(table.getHtml());
     } else {
 %>
