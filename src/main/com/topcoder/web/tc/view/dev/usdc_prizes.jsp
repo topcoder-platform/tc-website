@@ -42,7 +42,7 @@
 
 <h2>Prizes</h2>
 			
-
+<p>All Prizes are in addition to current project payments.</p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td colspan="2" class="sidebarTitle"><strong>Design Contest</strong> - The Design contest will award the following prizes:</td>
@@ -63,8 +63,8 @@
                 
                 <tr>
                     <td width="20%" class="sidebarText" valign="top"><strong>Monthly Prizes</strong></td>
-                    <td width="80%" class="sidebarText"><strong>$3,500 each month</strong><br/>
-                    The following Monthly Prizes will be awarded to the 3 designers with the highest score achieved during the month (min. of 3 submissions):
+                    <td width="80%" class="sidebarText"><strong>$3,500 each month*</strong><br/>
+                    The following Monthly Prizes will be awarded to the 3 designers with the highest placement score achieved during the month (min. of 3 submissions):
                     <ol>
                     <li>First Place: $2,000</li>
                     <li>Second Place: $1,000</li>
@@ -75,8 +75,8 @@
                 
                 <tr>
                     <td width="20%" class="sidebarText" valign="top"><strong>Quarterly Prizes</strong></td>
-                    <td width="80%" class="sidebarText"><strong>$9,000 each quarter</strong><br/>
-                    The following Quarterly Prizes will be awarded to the 3 designers with the highest score achieved during the quarter (min. of 8 submissions):	
+                    <td width="80%" class="sidebarText"><strong>$9,000 each quarter*</strong><br/>
+                    The following Quarterly Prizes will be awarded to the 3 designers with the highest placement score achieved during the quarter (min. of 8 submissions):	
                     <ol>
                     <li>First Place: $6,000</li>
                     <li>Second Place: $2,000</li>
@@ -85,9 +85,10 @@
                     </td>
                 </tr>
             </table>
-            
+            <p>*View scoring details <a href="/tc?module=Static&d1=dev&d2=usdc_rules">here</a>.</p>  
+                    
             <img src="/i/clear.gif" width="400" height="10" vspace="5" border="0">
-
+<p>All Prizes are in addition to current project payments.</p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td colspan="2" class="sidebarTitle"><strong>Development Contest</strong> - The Development contest will award the following prizes:</td>
@@ -109,8 +110,8 @@
                 
                 <tr>
                     <td width="20%" class="sidebarText" valign="top"><strong>Monthly Prizes</strong></td>
-                    <td width="80%" class="sidebarText"><strong>$1,750 each month</strong><br/>
-                    The following Monthly Prizes will be awarded to the 3 developers with the highest score achieved during the month (min. of 3 submissions):
+                    <td width="80%" class="sidebarText"><strong>$1,750 each month*</strong><br/>
+                    The following Monthly Prizes will be awarded to the 3 developers with the highest placement score achieved during the month (min. of 3 submissions):
                     <ol>
                     <li>First Place: $1,000</li>
                     <li>Second Place: $500</li>
@@ -121,8 +122,8 @@
                 
                 <tr>
                     <td width="20%" class="sidebarText" valign="top"><strong>Quarterly Prizes</strong></td>
-                    <td width="80%" class="sidebarText"><strong>$4,500 each quarter</strong><br/>
-                    The following Quarterly Prizes will be awarded to the 3 developers with the highest score achieved during the quarter (min. of 8 submissions):		
+                    <td width="80%" class="sidebarText"><strong>$4,500 each quarter*</strong><br/>
+                    The following Quarterly Prizes will be awarded to the 3 developers with the highest placement score achieved during the quarter (min. of 8 submissions):		
                     <ol>
                     <li>First Place: $3,000</li>
                     <li>Second Place: $1,000</li>
@@ -131,6 +132,7 @@
                     </td>
                 </tr>
             </table>
+            <p>*View scoring details <a href="/tc?module=Static&d1=dev&d2=usdc_rules">here</a>.</p>  
 			<p>**If the minimum # of components are not submitted for a given contest period, the prizes for that period 
 			will not be awarded and will be added to the next period's contest.  </p>
 			
