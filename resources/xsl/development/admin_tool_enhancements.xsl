@@ -151,8 +151,8 @@
                                         <p>
                                             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
                                                 <tr>
-                                                    <td class="statText" colspan="2" valign="top" bgcolor="#001B35" width="100%">Application Project Posting:</td>
-                                                    <td class="statText" colspan="2" valign="top" bgcolor="#001B35" width="100%">7.15.2003</td>
+                                                    <td class="statText" bgcolor="#001B35" width="100%">Application Project Posting:</td>
+                                                    <td class="statText" bgcolor="#001B35" width="100%">7.15.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText" colspan="2" valign="top" bgcolor="#001B35" width="100%">Member Selection:</td>
