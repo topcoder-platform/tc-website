@@ -245,7 +245,8 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Click <a href="/index?t=development&amp;c=tcs_team_app_inquire&amp;Project=EDI%20Certification%20Website">here</a> to obtain the information necessary to submit a solution.
+                                                        Closed.
+                                                        <!--Click <a href="/index?t=development&amp;c=tcs_team_app_inquire&amp;Project=EDI%20Certification%20Website">here</a> to obtain the information necessary to submit a solution.-->
                                                     </p>
                                                 </td>
                                             </tr>
