@@ -259,12 +259,15 @@ final class UserDbCoder {
     private static void insertCurrentSchool(Connection conn, School currentSchool) throws TCException {
         log.debug("ejb.User.UserDbCoder:insertCurrentSchool():called.");
         PreparedStatement ps = null;
-        String query = "INSERT INTO current_school ( coder_id, school_id, school_name ) VALUES ( ?, ?, ? )";
+        String query = "INSERT INTO current_school(coder_id, school_id, school_name, gpa, gpa_scale)" +
+                      " VALUES (?, ?, ?, ?, ?)";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, currentSchool.getUserId());
             ps.setInt(2, currentSchool.getSchoolId());
             ps.setString(3, currentSchool.getName());
+            ps.setFloat(4, currentSchool.getGpa());
+            ps.setFloat(5, currentSchool.getGpaScale());
             int RetVal = ps.executeUpdate();
             currentSchool.setModified("S");
         } catch (SQLException sqe) {
@@ -679,12 +682,14 @@ final class UserDbCoder {
             ps.clearParameters();
             if (rs.next()) {
                 /**************************************************************/
-                query = "UPDATE current_school SET school_id=?, school_name=? WHERE coder_id=?";
+                query = "UPDATE current_school SET school_id=?, school_name=?, gpa=?, gpa_scale=? WHERE coder_id=?";
                 /**************************************************************/
                 ps = conn.prepareStatement(query);
                 ps.setInt(1, currentSchool.getSchoolId());
                 ps.setString(2, currentSchool.getName());
                 ps.setInt(3, currentSchool.getUserId());
+                ps.setFloat(4, currentSchool.getGpa());
+                ps.setFloat(5, currentSchool.getGpaScale());
                 ps.executeUpdate();
                 currentSchool.setModified("S");
             } else {
@@ -1244,6 +1249,8 @@ final class UserDbCoder {
         query.append(" ,st.state_name");
         query.append(" ,s.country_code");
         query.append(" ,ct.country_name");
+        query.append(" ,c.gpa");
+        query.append(" ,c.gpa_scale");
         query.append(" FROM");
         query.append(" current_school c");
         query.append(" ,school s");
@@ -1260,17 +1267,19 @@ final class UserDbCoder {
             rs = ps.executeQuery();
             if (rs.next()) {
                 currentSchool.setUserId(coder.getCoderId());
-                currentSchool.setSchoolId(rs.getInt(1));
+                currentSchool.setSchoolId(rs.getInt("school_id"));
                 if (currentSchool.getSchoolId() == 0) {
-                    currentSchool.setName(rs.getString(2));
+                    currentSchool.setName(rs.getString("school_name"));
                 } else {
-                    currentSchool.setName(rs.getString(3));
+                    currentSchool.setName(rs.getString("name"));
                 }
-                currentSchool.setCity(rs.getString(4));
-                currentSchool.getState().setStateCode(rs.getString(5));
-                currentSchool.getState().setStateName(rs.getString(6));
-                currentSchool.getCountry().setCountryCode(rs.getString(7));
-                currentSchool.getCountry().setCountryName(rs.getString(8));
+                currentSchool.setCity(rs.getString("city"));
+                currentSchool.getState().setStateCode(rs.getString("state_code"));
+                currentSchool.getState().setStateName(rs.getString("state_name"));
+                currentSchool.getCountry().setCountryCode(rs.getString("country_code"));
+                currentSchool.getCountry().setCountryName(rs.getString("country_name"));
+                currentSchool.setGpa(rs.getFloat("gpa"));
+                currentSchool.setGpa(rs.getFloat("gpa_scale"));
                 currentSchool.setModified("S");
             }
             XMLDocument test = new XMLDocument("test");

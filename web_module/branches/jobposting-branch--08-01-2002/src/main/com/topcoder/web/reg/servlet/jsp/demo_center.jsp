@@ -198,6 +198,29 @@ function lookupText(qId){
     <td colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
   </tr>
 
+  </tr>
+    <tr>
+        <td></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="GpaError" /></td>
+    </tr>
+  <tr>
+  <tr>
+    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">Gpa&nbsp;</td>
+    <td colspan="2" class="statText" align="left" valign="middle">Gpa</td>
+  </tr>
+
+  </tr>
+    <tr>
+        <td></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="GpaScaleError" /></td>
+    </tr>
+  <tr>
+
+  <tr>
+    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">GpaScale&nbsp;</td>
+    <td colspan="2" class="statText" align="left" valign="middle">GpaScale</td>
+  </tr>
+
+
+
 <%}%>
 
 

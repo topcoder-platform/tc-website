@@ -84,6 +84,8 @@ public class Registration
     public static final String SCHOOL = "school";
     public static final String SCHOOL_STATE = "schoolState";
     public static final String SCHOOL_NAME = "schoolName";
+    public static final String GPA = "gpa";
+    public static final String GPA_SCALE = "gpaScale";
 
     // step 3 attributes
     public static final String REGISTER = "register"; // error only
@@ -174,6 +176,8 @@ public class Registration
     protected boolean schoolStateChanged;
     protected String school;
     protected String schoolName;
+    protected String gpa;
+    protected String gpaScale;
     protected String code;
     protected boolean hasResume;
 
@@ -236,6 +240,8 @@ public class Registration
             school = "";
             schoolName = "";
             code = "";
+            gpa = "";
+            gpaScale = "";
             hasResume = false;
             resetUser();
         } else {
@@ -473,6 +479,16 @@ public class Registration
                     log.debug("this.school is not a number =>" + this.school);
                     addError(SCHOOL, "Please select your school.");
                 }
+                if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
+                       (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
+                    log.debug("bad gpa entered: " + this.gpa);
+                    addError(GPA, "Please enter a valid GPA.");
+                }
+                if ((!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true)) ||
+                       (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
+                    log.debug("bad gpa scale entered: " + this.gpaScale);
+                    addError(GPA_SCALE, "Please enter a valid GPA Scale.");
+                }
             }
 
             boolean employed = false;
@@ -654,6 +670,10 @@ public class Registration
                 setSchoolState(value);
             else if (name.equalsIgnoreCase(SCHOOL))
                 setSchool(value);
+            else if (name.equalsIgnoreCase(GPA))
+                setGpa(value);
+            else if (name.equalsIgnoreCase(GPA_SCALE))
+                setGpaScale(value);
             else if (name.startsWith(DEMO_PREFIX))
                 setDemographics(name.substring(DEMO_PREFIX.length()), valArray);
             else
@@ -789,6 +809,16 @@ public class Registration
         this.schoolName = checkNull(value);
     }
 
+
+    public void setGpa(String value) {
+        log.debug("setGpa(" + value + ") called");
+        this.gpa = checkNull(value);
+    }
+
+    public void setGpaScale(String value) {
+        log.debug("setGpaScale(" + value + ") called");
+        this.gpaScale = checkNull(value);
+    }
 
     public void setNotification(String notifyId, String value) {
         try {
@@ -1139,12 +1169,28 @@ public class Registration
         return this.schoolName;
     }
 
+    public String getGpa() {
+        return this.gpa;
+    }
+
+    public String getGpaScale() {
+        return this.gpaScale;
+    }
+
     public String getSchoolError() {
         return getError(SCHOOL);
     }
 
     public String getSchoolNameError() {
         return getError(SCHOOL_NAME);
+    }
+
+    public String getGpaError() {
+        return getError(GPA);
+    }
+
+    public String getGpaScaleError() {
+        return getError(GPA_SCALE);
     }
 
 

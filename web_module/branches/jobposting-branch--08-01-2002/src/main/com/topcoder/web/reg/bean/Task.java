@@ -81,6 +81,22 @@ public class Task {
         return true;
     }
 
+    public boolean isNumber(String s, boolean acceptFloat) {
+        if (isEmpty(s)) return false;
+        for (int i = 0; i < s.length(); i++) {
+            if (acceptFloat) {
+                if (!Character.isDigit(s.charAt(i)) && s.charAt(i)!='.') {
+                    return false;
+                }
+            } else {
+                if (!Character.isDigit(s.charAt(i))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public void setUser(User user) {
         log.debug("Task.setUser()");
         if (user != null && (this.user == null || this.user.getUserId() != user.getUserId())) {
