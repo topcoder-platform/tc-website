@@ -35,9 +35,8 @@ public class TestResults extends BaseProcessor {
         if(map == null)
             throw new ScreeningException("getData failed!");
         
-        ResultSetContainer result =
-            (ResultSetContainer)map.get("sessionInfo");
-        if(result.getRowCount() == 0){
+        ResultSetContainer result = (ResultSetContainer)map.get("sessionInfo");
+        if(result.isEmpty()) {
             throw new PermissionDeniedException(
                 "You are not authorized to view information about this session.");
         }
