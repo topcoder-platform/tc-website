@@ -115,6 +115,10 @@ public class GoogleLogin extends FullLogin {
 
         if (hasCompanyAccount) {
             info = getCommonInfo(userId, db);
+
+            Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+            info.setCoderType(coder.getCoderTypeId(userId, db));
+
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
             ResultSetContainer responses = response.getResponses(userId, db);
@@ -139,6 +143,10 @@ public class GoogleLogin extends FullLogin {
         } else if (hasTCAccount) {
 
             info = getCommonInfo(userId, DBMS.OLTP_DATASOURCE_NAME);
+
+            Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+            info.setCoderType(coder.getCoderTypeId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
             ResultSetContainer responses = response.getResponses(userId, DBMS.OLTP_DATASOURCE_NAME);
@@ -182,7 +190,6 @@ public class GoogleLogin extends FullLogin {
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class);
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
-        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
 
         info.setHandle(getAuthentication().getActiveUser().getUserName());
         info.setPassword("");
@@ -207,7 +214,6 @@ public class GoogleLogin extends FullLogin {
 
         info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
         info.setEventId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
-        info.setCoderType(coder.getCoderTypeId(userId, db));
         return info;
     }
 
