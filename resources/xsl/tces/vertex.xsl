@@ -90,11 +90,7 @@
 </TABLE>
 <IMG SRC="/i/es/vertex/vertex_logo.gif" WIDTH="76" HEIGHT="52" BORDER="0"/><BR/> 
 <P>
-<B>About Vertex</B>
-</P>
-
-<P>
-A Leader in Small Molecule Drug Discovery...
+<B>A Leader in Small Molecule Drug Discovery...</B>
 </P>
 
 <P>
