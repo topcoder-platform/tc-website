@@ -53,7 +53,7 @@
            </tr>
          </table>
 
-         <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
+         <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35">
            <tr>
              <td class="statTextBig">
                Problem Name:
