@@ -4,76 +4,81 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+<title>Topcoder | Testing Application Management Tool</title>
+
 <jsp:include page="/script.jsp"/>
+
 </HEAD>
 
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0" onLoad="self.focus();document.note.<%=Constants.NOTE_TEXT%>.focus()">
-<jsp:include page="/includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-            <h1 class="testHead">Note Creation</h1>                  
+<body>
+
+<!-- Header begins -->
+<jsp:include page="/includes/top.jsp" />
+<!-- Header ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
+<!-- gutter begins -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- gutter ends -->
+
+<!-- Middle column begins -->
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td class="bodyText">
+                        <h1 class="testHead">Note Creation</h1> 
+                    </td>
+                </tr>
+            </table>
 
             <screen:form name='note' method='POST' action='<%=Constants.CONTROLLER_URL%>'>
-         <INPUT type="hidden" name='<%=Constants.REQUEST_PROCESSOR%>' value='NoteCreate'/>
-         <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
-         <INPUT type="hidden" name='<%=Constants.CANDIDATE_ID%>' value='<%=candidateInfo.getUserId()%>'/>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">           
-           <TR>
-              <TD ALIGN="center" CLASS="bodyText"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></TD>
-           </TR>           
-           <TR>
-              <TD class="errorText" align="left" valign="middle">
-                  <% if((String)request.getAttribute(Constants.MESSAGE_PARAMETER) != null){ %>
-                      &nbsp;<BR>
-                      <%= request.getAttribute(Constants.MESSAGE_PARAMETER).toString() %>
-                      <BR>&nbsp;
-                  <% }else if((String)request.getParameter(Constants.MESSAGE_PARAMETER) != null){ %>
-                      &nbsp;<BR>
-                      <%= request.getParameter(Constants.MESSAGE_PARAMETER) %>
-                      <BR>&nbsp;
-                  <% } %>
-              </TD>
-           </TR>           
-           <TR>
-              <TD ALIGN="center"><TEXTAREA NAME="<%=Constants.NOTE_TEXT%>" COLS="80" ROWS="4"></TEXTAREA></TD>
-           </TR>    
-           
-           <TR>
-              <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD ALIGN="center"><A HREF="Javascript:document.note.submit()" CLASS="bodyText">Save</A></TD>
-           </TR>           
-         </TABLE>                        
-</screen:form>         
-<P><BR/></P>   
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+            <INPUT type="hidden" name='<%=Constants.REQUEST_PROCESSOR%>' value='NoteCreate'/>
+            <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
+            <INPUT type="hidden" name='<%=Constants.CANDIDATE_ID%>' value='<%=candidateInfo.getUserId()%>'/>
+            
+            <table cellspacing="1" cellpadding="0" width="70%">
+                <tr><td class="body" align="center"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></td></tr>
+            </table>
 
-  <jsp:include page="/includes/foot.jsp"/>
+                <tr>
+                    <td class="errorText">
+                        <% if ((String)request.getAttribute(Constants.MESSAGE_PARAMETER) != null){ %>
+                        &nbsp;<br>
+                        <%= request.getAttribute(Constants.MESSAGE_PARAMETER).toString() %>
+                        <br>&nbsp;
+                        <% } else if ((String)request.getParameter(Constants.MESSAGE_PARAMETER) != null){ %>
+                        &nbsp;<br>
+                        <%= request.getParameter(Constants.MESSAGE_PARAMETER) %>
+                        <br>&nbsp;
+                    <% } %>
+                    </td>
+                </tr>
+                
+                <tr><td align="center"><textarea name="<%=Constants.NOTE_TEXT%>" COLS="80" ROWS="4"></textarea></td></tr>    
+            </table>
 
-</BODY>
-</HTML>
+            <table border="0" cellspacing="10" cellpadding="0" width="70%">
+                 <tr>
+                    <td><div align="center"><p class="button"><a href="Javascript:document.note.submit()" CLASS="bodyText">Save</a></p></div></td>
+                 </tr>
+            </table>
+            </screen:form>
+            <p><br></p>
+        </td>
+<!-- Middle Column ends -->
+
+<!-- Gutter -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
+
+  <jsp:include page="/includes/foot.jsp" />
+
+</body>
+</html>
