@@ -57,10 +57,6 @@ public class ApplicationServer {
     public static String Q_QUERY = bundle.getProperty("Q_QUERY", "com.topcoder.web.query.ejb.QueryServices.Query");
     public static String Q_QUERY_INPUT = bundle.getProperty("Q_QUERY_INPUT", "com.topcoder.web.query.ejb.QueryServices.QueryInput");
 
-    //formats used by informix for converting string to date(time)
-    public static String INFORMIX_DATE_FORMAT = bundle.getProperty("INFORMIX_DATE_FORMAT", "MM/dd/yy");
-    public static String INFORMIX_DATETIME_FORMAT = bundle.getProperty("INFORMIX_DATETIME_FORMAT", "yyyy-MM-dd HH:mm:ss.SSS");
-
     private static String[] getClusterArray(String s) {
         StringTokenizer st = new StringTokenizer(s, ",");
         String[] ret = new String[st.countTokens()];
