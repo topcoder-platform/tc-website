@@ -35,11 +35,11 @@
                 <tr><td width="100%" bgcolor="001934"><img src="/i/headinginside_compguide.gif" width="348" height="44" border="0"></td></tr>
                 
                 <tr>
-                    <td width="100%" class="bodyTextBig">
+                    <td width="100%" class="bodyText">
                     
                         <h3><a href="?module=Static&d1=tour&d2=getting_started">Getting Started</a></h3>
 
-                        <h3><a href="?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</a></h3>
+                        <h3><a href="?module=Static&d1=tour&d2=general_usage">The TopCoder Arena</a></h3>
 
                         <p><strong><em>New Topics Coming Soon!</em></strong><br>
                         Practicing / Training in the TopCoder Arena<br>
