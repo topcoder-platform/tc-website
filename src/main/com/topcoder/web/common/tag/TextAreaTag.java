@@ -13,7 +13,7 @@ public class TextAreaTag extends BaseTag {
     public int doStartTag() {
         StringBuffer ret = new StringBuffer(150);
 
-        ret.append("<TEXTAREA>");
+        ret.append("<TEXTAREA");
         if (cols >= 0) {
             ret.append("COLS=\"").append(cols).append("\" ");
         }
