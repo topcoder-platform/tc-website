@@ -14,7 +14,7 @@
 
         <td class="login" nowrap>
             <strong>Hello, <jsp:getProperty name="SessionInfo" property="Handle" />.</strong>
-            &#160;&#160;|&#160;&#160;<a href="</?module=Logout" class="loginLinks" target="_parent">Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="/?module=Logout" class="loginLinks" target="_parent">Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/?task=MainTask" class="loginLinks">Corporate Services Home</a>
         </td>
         <td class="login" width="10">&nbsp;</td>
