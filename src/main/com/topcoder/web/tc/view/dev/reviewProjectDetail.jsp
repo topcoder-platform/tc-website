@@ -58,7 +58,7 @@
                 </tr>
             </table>
             
-            <table cellspacing="0" width="530" class="bodyText">
+            <table cellspacing="0" width="530" class="formFrame">
                 <tr>
                     <td class="header" colspan="3">Component Info</td>
                 </tr>
@@ -76,7 +76,7 @@
 
             <br/>
 
-            <table cellspacing="0" width="530" class="bodyText">
+            <table cellspacing="0" width="530" class="formFrame">
                 <tr>
                     <td class="header" colspan="3">Timeline</td>
                 </tr>
@@ -123,7 +123,7 @@
             
             <br/>
 
-            <table cellspacing="0" width="530" class="bodyText">
+            <table cellspacing="0" width="530" class="formFrame">
                 <tr>
                     <td class="header" colspan="3">Positions Available</td>
                 </tr>
