@@ -45,7 +45,7 @@
           			<TD COLSPAN="2" CLASS="bodyText" VALIGN="top">
 <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Click here</A> to read about
 
-the impressive Rating Point Gain of <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A> in Single Round Match 79.
+the impressive Rating Point Gain of <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">eduar09</A> in Single Round Match 79.
          			</TD>
         		</TR>              				              				
             			</TABLE>
