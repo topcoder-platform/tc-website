@@ -42,8 +42,11 @@
 
 
 <h2>Prizes</h2>
-			
-<p align="center"><strong>*All Prizes are in addition to current project payments.*</strong></p>
+<ul><li><a href="#design">Design Prizes</a></li>
+<li><a href="#development">Development Prizes</a></li></ul>
+<a name="design"></a>
+<h3>Design Prizes</h3>			
+<p align="center"><strong>*Prizes are in addition to component payments.*</strong></p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td colspan="2" class="sidebarTitle"><strong>Design Contest</strong> - The Design contest will award the following prizes:</td>
@@ -89,7 +92,9 @@
             <p>*View scoring details <a href="/tc?module=Static&d1=dev&d2=usdc_rules">here</a>.</p>  
                     
             <img src="/i/clear.gif" width="400" height="10" vspace="5" border="0">
-			<p align="center"><strong>*All Prizes are in addition to current project payments.*</strong></p>
+            <a name="development"></a>
+            <h3>Development Prizes</h3>
+			<p align="center"><strong>*Prizes are in addition to component payments.*</strong></p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td colspan="2" class="sidebarTitle"><strong>Development Contest</strong> - The Development contest will award the following prizes:</td>
@@ -134,10 +139,7 @@
                 </tr>
             </table>
             <p>*View scoring details <a href="/tc?module=Static&d1=dev&d2=usdc_rules">here</a>.</p>  
-			<p>**If the minimum # of components are not submitted for a given contest period, the prizes for that period 
-			will not be awarded and will be added to the next period's contest.  </p>
-			
- <p><br/></p>
+			<p></br></p>
         </td>
 <!-- Center Column Ends -->
 
