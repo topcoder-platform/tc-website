@@ -136,13 +136,17 @@
 
   <%for(int i = 0; i<topN;i++){%>
       <TR>
-        <%for(int j = 0; j<divisions;j++){%>
+        <%for(int j = 0; j<divisions;j++){
+        if(coderIDs[j][i]==null){%>
+            <TD></TD><TD></TD><TD></TD>
+        <%}else{%>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="statText">
               <A HREF="/stat?c=member_profile&cr=<%= coderIDs[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
             </TD>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText">&#160;<%= rooms[j][i] %></TD>
-  <%    }%>
+  <%    }
+        }%>
       </TR>
   <%}%>
 <%  int currentRowPtr = 0;
