@@ -108,20 +108,27 @@ public class Controller extends HttpServlet {
                 callProcess(rp, request, response);
             }
 
+            /* only reporting errors at this point */
+
             if(rp.isNextPageInContext()) {
-                getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).forward(request, response);
+                try {
+                    getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).forward(request, response);
+                } catch(IllegalStateException e) {  /* meaning response was already committed */
+                    request.setAttribute("disable-includes", "yes");  /* only error.jsp respects this */
+                    getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).include(request, response);
+                }
             } else {
                 response.sendRedirect(response.encodeRedirectURL(rp.getNextPage()));
             }
 
-        /* things are extremely broken, make one last attempt to get an error message to the logs and browser */
+        /* things are extremely broken, make one last attempt to get an error message to the browser */
         } catch(Exception e) {
             log.fatal("forwarding to error page failed", e);
 
             response.setStatus(500);
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Internal Error</title></head>");
-            out.println("<body><h3>Error: "+e.getMessage()+"</h3>");
+            out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
             out.println("</body></html>");
             out.flush();
         }

@@ -39,7 +39,7 @@ if(!(bSorted)){
   ResultSetContainer rscRoomCount = (ResultSetContainer) queryEntries.get("Division_Room_Count");
   try {
     iMaxRoom = Integer.parseInt(rscRoomCount.getItem(0,0).toString());
-  } catch(Exception e) { e.printStackTrace(); }
+  } catch(Exception e) { }
   bHasNextScroll = (iMaxRoom >= iTemp);
 }
 iTemp += Integer.parseInt(sNumRow)-1;

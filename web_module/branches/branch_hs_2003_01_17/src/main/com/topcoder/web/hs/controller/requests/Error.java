@@ -22,6 +22,7 @@ public class Error extends Base {
 
     protected void businessProcessing() throws Exception {
 
+//@@@ err, this next blob is useless because the jsp does this stuff itself
         Exception e = (Exception)request.getAttribute("exception");
         String en, et;
         if(e==null) {
