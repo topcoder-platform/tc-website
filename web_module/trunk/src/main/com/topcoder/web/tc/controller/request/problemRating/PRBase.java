@@ -36,7 +36,7 @@ abstract public class PRBase extends Base {
         //get the info for the distribution graphs
         List overall = getDistributionList(
                 (ResultSetContainer)qMap.get("overall_votes"),
-                (ResultSetContainer)qMap.get("div1_overal_votes"),
+                (ResultSetContainer)qMap.get("div1_overall_votes"),
                 (ResultSetContainer)qMap.get("div2_overall_votes"));
         List div1 = getDistributionList(qMap, "div1_problem_rating_distribution");
         List div2 = getDistributionList(qMap, "div2_problem_rating_distribution");
