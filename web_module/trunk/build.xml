@@ -648,6 +648,39 @@
       </copy>
     </target>
 
+    <target name="dev_war_hs" depends="compile">
+      <delete dir="${tc_cluster}/${hs.war.name}"/>
+      <mkdir dir="${tc_cluster}/${hs.war.name}"/>
+      <copy todir="${tc_cluster}/${hs.war.name}">
+        <fileset dir="${java}/com/topcoder/web/hs/view">
+          <include name="**/*.jsp"/>
+          <include name="**/*.inc"/>
+          <include name="**/*.html"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF">
+        <fileset dir="${resources}/${hs.war.name}">
+          <include name="*.tld"/>
+          <include name="*.xml"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF">
+        <fileset dir="${struts.dir}">
+          <include name="*.tld"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF/lib">
+        <fileset dir="${struts.dir}">
+          <include name="*.jar"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${hs.war.name}/classes">
+        <fileset dir="${classes}">
+          <include name="com/topcoder/web/hs/**"/>
+        </fileset>
+      </copy>
+    </target>
+
     
     <target name="war_email" depends="compile">
         <war warfile="${war.dir}/${email.war.name}.war" webxml="${resources}/email/web.xml">
@@ -665,6 +698,7 @@
             </zipfileset>
         </war>
     </target>
+
     <target name="war_query" depends="compile">
         <war warfile="${war.dir}/${query.war.name}.war" webxml="${resources}/query/web.xml">
             <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
@@ -678,7 +712,27 @@
             </webinf>
         </war>
     </target>
-
+    <target name="war_hs" depends="compile">
+        <war warfile="${war.dir}/${hs.war.name}.war" webxml="${resources}/hs/web.xml">
+            <fileset dir="${java}/com/topcoder/web/hs/view">
+                <include name="**/*.jsp"/>
+                <include name="**/*.inc"/>
+                <include name="**/*.html"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/hs/**"/>
+            </classes>
+            <webinf dir="${resources}/hs">
+                <include name="hs-taglib.tld"/>
+            </webinf>
+            <webinf dir="${struts.dir}">
+                    <include name="*.tld" />
+            </webinf>
+            <lib dir="${struts.dir}">
+                    <include name="*.jar" />
+            </lib>
+        </war>
+    </target>
 
 </project>
 
