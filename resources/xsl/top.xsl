@@ -50,7 +50,7 @@
         <td width="206">
           <A target="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/</xsl:attribute>
-            <img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/>
+            <img src="/i/logo_r.gif" width="206" height="49" border="0" vspace="5"/>
           </A>
         </td>
         <td width="99%">
