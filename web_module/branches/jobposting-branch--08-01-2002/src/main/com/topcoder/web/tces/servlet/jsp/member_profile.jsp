@@ -143,7 +143,7 @@
                     <TR>
                         <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES.length;i++) { %>
                             <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
-                                <%= TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES[i] %>
+                                <B><%= TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES[i] %></B>
                             </b></TD>
                             <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
                         <% } %>
@@ -169,7 +169,7 @@
                     <TR>
                         <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_TITLES.length;i++) { %>
                             <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
-                                <%= TCESConstants.MEM_RATING_STATSBYLANG_TITLES[i] %>
+                                <B><%= TCESConstants.MEM_RATING_STATSBYLANG_TITLES[i] %></B>
                             </b></TD>
                             <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
                         <% } %>

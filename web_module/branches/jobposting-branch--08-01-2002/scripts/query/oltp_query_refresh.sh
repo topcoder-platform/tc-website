@@ -686,7 +686,7 @@ SELECT c.coder_id
      , cy.country_name
      , u.email
      , c.home_phone
-     , TO_CHAR(c.member_since, '%iY-%m-%d') as member_since_date
+     , TO_CHAR(c.member_since, '%m/%d/%iY') as member_since_date
      , p.path || i.file_name AS image_path
      , (SELECT COUNT(*)
           FROM coder_image_xref cix

@@ -87,7 +87,7 @@
                     <%= (String)hit.get("handle") %>
                   </A></TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">
+                  <TD class="statText" NOWRAP>
                     <%= (String)hit.get("rating") %>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
