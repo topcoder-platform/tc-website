@@ -51,7 +51,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
-                <xsl:with-param name="title">July 2003</xsl:with-param>
+                <xsl:with-param name="title">December 2003</xsl:with-param>
             </xsl:call-template>			
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
@@ -74,93 +74,105 @@
                             </tr>
                           
                             <tr> 
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">1</span><br />
-                                    <strong>Match 153</strong><br />
-                                    Register: 6:00&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">AlphaSimplex</A><br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4570&amp;t=schedule&amp;c=srm">Details</A></td>
+                                <td id="calendarBlank">
+                                &#160;<br />
+                                &#160;<br />
+                                &#160;<br />
+                                &#160;<br />
+                                &#160;<br /></td>
+                                <td id="calendar">1</td>
                                 <td id="calendar">2</td>
                                 <td id="calendar">3</td>
-                                <td id="calendar">4</td>
-                                <td id="calendar">5</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">4</span><br />
+                                    <strong>2003 TCO</strong><br />
+                                    Semifinal Rounds<br />
+                                    Round 1: 10:00&#160;AM<br />
+                                    Round 2: 1:00&#160;PM<br />
+                                    Round 3: 4:00&#160;PM<br />
+                                    Round 4: 7:00&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">5</span><br />
+                                    <strong>2003 TCO</strong><br />
+                                    Championship Round<br />
+                                    Compete: 1:00&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
+                                <td id="calendar">6</td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">6</td>
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">9</span><br />
-                                    <strong>Match 154</strong><br />
-                                    Register: 6:00&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">Appian</A><br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4575&amp;t=schedule&amp;c=srm">Details</A></td>
+                                <td id="calendar">9</td>
                                 <td id="calendar">10</td>
                                 <td id="calendar">11</td>
                                 <td id="calendar">12</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">13</span><br />
+                                    <strong>Match 174</strong><br />
+                                    Register: 9:00&#160;AM<br />
+                                    Compete: 12:00&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=4675&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">13</td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
                                 <td id="calendar">16</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">17</span><br />
-                                    <strong>Match 155</strong><br />
-                                    Register: 7:00&#160;PM<br />
-                                    Compete: 10:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">Nvidia</A><br />
+                                    <strong>Match 175</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4580&amp;t=schedule&amp;c=srm">Details</A></td>
+                                    <A href="/?RoundId=4680&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
+                                <td id="calendar">20</td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">20</td>
                                 <td id="calendar">21</td>
-                                <td id="calendar">22</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">23</span><br />
-                                    <strong>Match 156</strong><br />
-                                    Register: 6:00&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
+                                    <span id="calendarSRMDate">22</span><br />
+                                    <strong>Match 176</strong><br />
+                                    Register: 7:00&#160;PM<br />
+                                    Compete: 10:00&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4585&amp;t=schedule&amp;c=srm">Details</A></td>
+                                    <A href="/?RoundId=4685&amp;t=schedule&amp;c=srm">Details</A></td>
+                                <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                                 <td id="calendar">25</td>
                                 <td id="calendar">26</td>
+                                <td id="calendar">27</td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">27</td>
+                                <td id="calendar">28</td>
+                                <td id="calendar">29</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">28</span><br />
-                                    <strong>Match 157</strong><br />
+                                    <span id="calendarSRMDate">30</span><br />
+                                    <strong>Match 177</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
-                                    <!-- Sponsored by: <br /> -->
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4590&amp;t=schedule&amp;c=srm">Details</A></td>
-                                <td id="calendar">29</td>
-                                <td id="calendar">30</td>
+                                    <A href="/?RoundId=4690&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">31</td>
                                 <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">
-                                    &#160;<br />
-                                    &#160;<br />
-                                    &#160;<br />
-                                    &#160;</td>
-                            </tr>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                           </tr>
+                            
                         </table>
 
                         <p><br /></p>
