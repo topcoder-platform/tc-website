@@ -72,6 +72,7 @@ public class JobHit extends Base {
             jpServices = (JobPostingServices) BaseProcessor.createEJB(getInitialContext(), JobPostingServices.class);
             if (hitType == Constants.PLACEMENT_CLICK_THRU_ID) {
                 if (jpServices.jobExists(jobId, DBMS.OLTP_DATASOURCE_NAME)) {
+                    jpServices.addJobHit(hit.getUserId(), jobId, hitType, DBMS.OLTP_DATASOURCE_NAME);
                     SessionInfo sessionInfo = (SessionInfo)
                             getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
