@@ -16,8 +16,9 @@ public class TCO04ComponentTerms extends TCO04AlgorithmTerms {
         return Constants.TCO04_COMPONENT_TERMS_OF_USE_ID;
     }
 
-    protected void setSuccessPage() {
-        setNextPage(Constants.TCO04_TERMS);
+    protected void setSuccessPage() throws Exception {
+        if (!isRegistered())
+            setNextPage(Constants.TCO04_TERMS);
         setIsNextPageInContext(true);
     }
 }
