@@ -149,7 +149,7 @@
                                             answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.
                                         </p>
                                         <p>
-                                            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="50%">
+                                            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="30%">
                                                 <tr>
                                                     <td class="statText" >Application Project Posting:</td>
                                                     <td class="statText" align="right">7.15.2003</td>
@@ -172,7 +172,7 @@
                                                         <br/>&#160;&#160;&#160;Class Diagrams
                                                         <br/>&#160;&#160;&#160;Sequence Diagrams
                                                     </td>
-                                                    <td class="statText" align="right">7.28.2003</td>
+                                                    <td class="statText" valign="top" align="right">7.28.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Phase 2 Due Date:</td>
