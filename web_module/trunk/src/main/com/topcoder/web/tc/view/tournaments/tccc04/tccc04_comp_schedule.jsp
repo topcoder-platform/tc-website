@@ -38,9 +38,9 @@
 
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
-   <jsp:param name="tabLev1" value="algorithm"/>
+   <jsp:param name="tabLev1" value="component"/>
    <jsp:param name="tabLev2" value="about"/>
-   <jsp:param name="tabLev3" value="schedule"/> 
+   <jsp:param name="tabLev3" value="schedule"/>
 </jsp:include>
 
             <h2>Schedule</h2>
