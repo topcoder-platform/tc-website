@@ -7,20 +7,16 @@
 package com.topcoder.web.tces.bean;
 
 import com.topcoder.common.web.render.ProblemRenderer;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.CStyleLanguage;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.io.StringReader;
 import java.util.Map;
@@ -83,8 +79,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
         dataRequest.setProperty("pm", Integer.toString(getProblemID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
+        Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
@@ -94,8 +89,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
                     " does not belong to uid=" + Long.toString(uid));
         }
 
-        dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
-        resultMap = dai.getData(dataRequest);
+        resultMap = getDataAccess(getDw()).getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Statement");
         if (rsc.getRowCount() == 0) {

@@ -1,15 +1,24 @@
 package com.topcoder.web.tces.bean;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 
@@ -23,6 +32,8 @@ import java.util.StringTokenizer;
 public abstract class BaseTask implements Task {
 
     private static Logger log = Logger.getLogger(BaseTask.class);
+    private static final int TRANSACTIONAL_DB_TYPE = 2;
+    private static final int DW_DB_TYPE = 3;
 
     /* Holds the InitialContext of a request being processed by this task */
     private InitialContext ctx;
@@ -160,5 +171,69 @@ public abstract class BaseTask implements Task {
         this.info = info;
     }
 
+    /**
+     * returns the transactional database to be used for the
+     * authenticated user.  if it's not in the database,
+     * we'll return a default.
+     * @return
+     * @throws Exception
+     */
+    protected String getOltp() throws Exception {
+        String ret = getDb(TRANSACTIONAL_DB_TYPE);
+        if (ret==null) {
+            ret = DBMS.OLTP_DATASOURCE_NAME;
+        }
+        return ret;
+    }
+
+    /**
+     * returns the datawarehouse database to be used for
+     * the authenticated user.  if it's not in the database
+     * we'll return a default
+     * @return
+     * @throws Exception
+     */
+    protected String getDw() throws Exception {
+        String ret = getDb(DW_DB_TYPE);
+        if (ret==null) {
+            ret = DBMS.DW_DATASOURCE_NAME;
+        }
+        return ret;
+    }
+
+    private String getDb(int type) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("contact_datasource");
+        r.setProperty("uid", String.valueOf(getAuthenticityToken().getActiveUser().getId()));
+        r.setProperty("dtid", String.valueOf(type));
+        Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
+        ResultSetContainer rsc = (ResultSetContainer)m.get("contact_datasource");
+        String ret = null;
+        if (!(rsc==null || rsc.isEmpty())) {
+            ret = rsc.getStringItem(0, "datasource_name");
+        }
+        return ret;
+    }
+
+
+    protected static DataAccessInt getDataAccess(String db) throws Exception {
+        return getDataAccess(db, false);
+    }
+
+    protected static DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
+        if (datasource == null)
+            throw new IllegalArgumentException("datasource name is null.");
+        InitialContext context = new InitialContext();
+        DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(context.lookup(datasource),
+                        DataSource.class);
+        BaseProcessor.close(context);
+        DataAccessInt dAccess = null;
+        if (cached)
+            dAccess = new CachedDataAccess(ds);
+        else
+            dAccess = new DataAccess(ds);
+        return dAccess;
+    }
 
 }

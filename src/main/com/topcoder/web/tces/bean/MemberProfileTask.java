@@ -1,16 +1,13 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tces.common.JSPUtils;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -334,7 +331,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         ResumeServices rServices = null;
         try {
             rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            hasResume = rServices.hasResume(memberID, DBMS.OLTP_DATASOURCE_NAME);
+            hasResume = rServices.hasResume(memberID, getOltp());
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
             e.printStackTrace();
@@ -349,8 +346,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         dwDataRequest.setContentHandle("tces_member_profile");
         dwDataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
-        DataAccessInt dw = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
-        Map dwResultMap = dw.getData(dwDataRequest);
+        Map dwResultMap = getDataAccess(getDw()).getData(dwDataRequest);
         ResultSetContainer dwRSC = null;
 
         // set up OLTP query command.
@@ -361,8 +357,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         oltpDataRequest.setProperty("cid", Integer.toString(getCampaignID()));
         oltpDataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
-        DataAccessInt oltp = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map oltpResultMap = oltp.getData(oltpDataRequest);
+        Map oltpResultMap = getDataAccess(getOltp()).getData(oltpDataRequest);
 
         // verify that campaign/job/tces user have access to this members's info.
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");

@@ -6,16 +6,13 @@
 
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -104,7 +101,7 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
         ResumeServices rServices = null;
         try {
             rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            setHasResume(rServices.hasResume(mid, DBMS.OLTP_DATASOURCE_NAME));
+            setHasResume(rServices.hasResume(mid, getOltp()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
             e.printStackTrace();
@@ -120,8 +117,7 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
         dataRequest.setProperty("jid", Integer.toString(getJobID()));
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
+        Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {
@@ -142,8 +138,7 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
         setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
                 getItem(0, "job_desc").toString());
 
-        dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
-        resultMap = dai.getData(dataRequest);
+        resultMap = getDataAccess(getDw()).getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Competition_History");
         ArrayList compList = new ArrayList();
@@ -153,7 +148,7 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
             HashMap comp = new HashMap();
 
             comp.put("round_id",
-                    ((Long) compListRow.getItem("round_id").getResultData()).toString());
+                    (compListRow.getItem("round_id").getResultData()).toString());
             comp.put("date",
                     getDate(compListRow, "date"));
             comp.put("contest_name",

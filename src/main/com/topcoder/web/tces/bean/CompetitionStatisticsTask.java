@@ -6,11 +6,8 @@
 
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.JSPUtils;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
@@ -129,8 +126,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
         dataRequest.setProperty("rd", Integer.toString(getRoundID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
+        Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {
@@ -147,8 +143,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
                     " does not belong to uid=" + Long.toString(uid));
         }
 
-        dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
-        resultMap = dai.getData(dataRequest);
+        resultMap = getDataAccess(getDw()).getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Comp_Stats");
         if (rsc.getRowCount() == 0) {
@@ -157,10 +152,10 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         setCompetitionStats(rsc.getRow(0));
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Comp_Stats_by_Level");
-        setCoderStatsByLevel((List) rsc);
+        setCoderStatsByLevel(rsc);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Overall_Comp_Stats_by_Level");
-        setOverallStatsByLevel((List) rsc);
+        setOverallStatsByLevel(rsc);
 
         setNextPage(TCESConstants.COMPETITION_STATISTICS_PAGE);
     }

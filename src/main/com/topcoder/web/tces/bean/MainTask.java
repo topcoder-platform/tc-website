@@ -1,7 +1,5 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -105,8 +103,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         if (super.getSessionInfo().isAdmin()) {
             dataRequest.setContentHandle("tces_admin_main");
-            DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-            Map resultMap = dai.getData(dataRequest);
+            Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Admin_Campaign_List");
 
@@ -120,8 +117,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
             log.debug("Database Source: " + DBMS.OLTP_DATASOURCE_NAME + " User ID:" + uid);
 
             dataRequest.setProperty("uid", Long.toString(uid));
-            DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-            Map resultMap = dai.getData(dataRequest);
+            Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
 
             if (rsc.getRowCount() == 0) {

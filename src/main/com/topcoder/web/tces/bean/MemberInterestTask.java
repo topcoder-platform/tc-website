@@ -6,11 +6,8 @@
 
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
 
@@ -108,8 +105,7 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         dataRequest.setProperty("jid", Integer.toString(getJobID()));
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
+        Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {
@@ -146,7 +142,7 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Member_Hit_List");
-        setHitList((List) rsc);
+        setHitList(rsc);
 
         setNextPage(TCESConstants.MEMBER_INTEREST_PAGE);
     }
