@@ -59,7 +59,7 @@
 	<xsl:call-template name="invit02_rule_links"/>
 					<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 						<TR><TD VALIGN="middle" COLSPAN="3" HEIGHT="16" CLASS="statText"><BR/>
-						<P><B>2002 TopCoder Invitational Tournament Official Rules<BR/>Official Rules and Regulations</B></P>
+						<P><B>Official Rules and Regulations</B></P>
 						<DIV ALIGN="center">No purchase necessary to enter or win.</DIV><BR/>
 						<DIV CLASS="statTextBig">Overview of the Tournament</DIV><BR/>
 						<P>The 2002 TopCoder Invitational tournament will take place between October 8th and November 23rd. It will consist of four (4) online elimination rounds and two 
