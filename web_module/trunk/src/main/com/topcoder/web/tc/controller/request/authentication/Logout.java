@@ -2,13 +2,13 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.TCSubject;
 import com.topcoder.common.web.data.Navigation;
-
-import javax.servlet.http.HttpServletRequest;
 
 public class Logout extends Base{
 
@@ -21,7 +21,7 @@ public class Logout extends Base{
             throw new TCWebException(e);
         }
 
-        setNextPage("/");
+        setNextPage(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
         setIsNextPageInContext(false);
     }
 

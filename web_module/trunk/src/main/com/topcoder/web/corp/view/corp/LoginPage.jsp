@@ -56,7 +56,7 @@
                         <% if (sessionInfo.isAnonymous()) { %>
                             <p>New to TopCoder? <a href="/?module=Registration" class="bodyText">Register</a> today!</p>
                         <% } else { %>
-                            <p>If you are not <%=sessionInfo.getHandle()%>, and would like to create a new account <a href="/tc?module=Logout&<%=BaseServlet.NEXT_PAGE_KEY%>=/?<%=Constants.KEY_MODULE+"=Registration"%>" class="bodyText">click here</a>.
+                            <p>If you are not <%=sessionInfo.getHandle()%>, and would like to create a new account <a href="<%=sessionInfo.getServletPath()%>?module=Logout&<%=BaseServlet.NEXT_PAGE_KEY%>=<%=sessionInfo.getServletPath()%>?<%=Constants.KEY_MODULE+"=Registration"%>" class="bodyText">click here</a>.
                         <% } %>
 
                     </td>
