@@ -52,7 +52,7 @@ function getProblemDetail(url,wd,ht) {
         <% } %>
 
          <%-- Start a fresh table --%>
-         <% even = true; %>
+         <% even = true; curProfile = row.getItem("session_profile_id").toString(); %>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
 	        <TR>
 		       <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></B></FONT></TD>		       	       		       
