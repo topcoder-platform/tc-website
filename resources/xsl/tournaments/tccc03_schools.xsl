@@ -272,16 +272,33 @@
 
                             <tr valign="top">
                                 <td colspan="2" class="statText">
-                                    Australia<br/>
-                                    Canada, excluding Quebec<br/>
-                                    China<br/>
-                                    India
+                            Canada (40)<br />
+                            China (14)<br />
+                            Australia (12)<br />
+                            India (10)<br />
+                            Norway (7)<br />
+                            United Kingdom (7)<br />
+                            Germany (6)<br />
+                            Romania (6)<br />
+                            Russian Federation (6)<br />
+                            Sweden (5)<br />
+                            Malaysia (3)<br />
+                            Croatia (2)<br />
                                 </td>
 
                                 <td colspan="2" class="statText">
-                                    Ireland<br/>
-                                    New Zealand<br/>
-                                    United Kingdom
+                            Hungary (2)<br />
+                            Poland (2)<br />
+                            South Africa (2)<br />
+                            Colombia (1)<br />
+                            Czech Republic (1)<br />
+                            France (1)<br />
+                            Iran (1)<br />
+                            Ireland (1)<br />
+                            Israel (1)<br />
+                            Mexico (1)<br />
+                            Portugal (1)<br />
+                            Ukraine (1)<br />
                                 </td>
                             </tr>
 
