@@ -2,6 +2,7 @@
 <%@ page language="java"  %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 <% ResultSetContainer results = memberSearch.getResults();%>
           <a name="data"/>
@@ -34,7 +35,7 @@
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
                   <td align="left" class="formHandleEven" valign="top" nowrap>
-                      <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="user_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getStringItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                      <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/>
                   </td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
