@@ -15,7 +15,8 @@
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
     CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     //this can probably go if we can standardize the MVC.  rtables is the current exception
-    if (info==null) info = new Navigation(request, response).getSessionInfo();
+    Navigation nav = (Navigation)session.getAttribute("navigation");
+    if (nav==null) info = new Navigation(request, response).getSessionInfo();
 %>
 
             <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
