@@ -64,7 +64,7 @@
        <!-- Body Area -->
        <!-- Center Column Begins -->
       <TD class="statText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
-        <jsp:include page="/body_top.jsp" >
+        <jsp:include page="body_top.jsp" >
            <jsp:param name="image" value="tces"/>
            <jsp:param name="image1" value="steelblue"/>
            <jsp:param name="title" value="System Error"/>
