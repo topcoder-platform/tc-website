@@ -23,6 +23,11 @@
 <!--
     function sort(i){
         document.revise['module'].value = 'ProfileSearch';
+        if(i == document.revise['order'].value){
+            document.revise['sort'].sort = -document.revise['order'].sort;
+        }else{
+            document.revise['sort'].sort = 1;
+        }
         document.revise['order'].value = i;
         document.revise.submit();
     }
@@ -57,12 +62,6 @@
     </rsc:iterator>
     </table>
     <form name="revise" action="tc" method="get">
-        <%if(request.getParameter("t") == null){%>
-            <input type="hidden" name="t" value="">
-        <%}>
-        <%if(request.getParameter("order") == null){%>
-            <input type="hidden" name="order" value="">
-        <%}>
         <logic:iterate collection="<%=e%>" id="key">
             <logic:iterate collection="<%=Arrays.asList(request.getParameterValues(key.toString()))%>" id="val">
                 <input type="hidden" name="<%=key%>" value="<%=val%>">
