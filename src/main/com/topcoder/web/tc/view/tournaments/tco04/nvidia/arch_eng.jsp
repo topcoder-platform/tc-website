@@ -23,14 +23,27 @@
 				<tr>
 					<td class="bodyText">
                     <A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
-                    <p class=pageTitle>Positions Available</p>
-					<ul>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=arch_eng">Architecture Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_toolsarch">3D Tools Architect</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_gse">3D Graphics Software Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_sse">3D System Software Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=linux_gse">Linux Graphics Software Engineer</a></li>
+                    <p class=pageTitle>ARCHITECTURE ENGINEER #590181</p>
+                    
+                    <p>RESPONSIBILITIES:</p>
+                    <ul>
+                    	<li>Develop behavioral and performance models of hardware features defined by chip architects.</li>
+						<li>Develop and maintain diagnostics and tests for hardware.</li>
+						<li>Develop and maintain scripted workflows.</li>
+						<li>Develop and maintain infrastructure such very large multi-platform build environments.</li>
+						<li>Support development of compilers for interface description languages.</li>
+						<li>Develop and maintain automated testing infrastructure.</li>
 					</ul>
+
+					<p>Required Skills:</p>
+					<ul>
+						<li>Bachelors Degree in relevant discipline(s) (CS, EE, Math). Advanced degrees helpful.</li>
+						<li>2 to 5 years' relevant industrial experience preferred.</li>
+						<li>Strong programming ability: C, C++ and Perl preferred.</li>
+					</ul>
+					<p>EOE</p>
+					<p><span class="bodySubtitle"><a href="">Apply Now!</a></span></p>
+					
 				   </td>
    				</tr>
    			</table>

@@ -23,14 +23,26 @@
 				<tr>
 					<td class="bodyText">
                     <A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
-                    <p class=pageTitle>Positions Available</p>
-					<ul>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=arch_eng">Architecture Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_toolsarch">3D Tools Architect</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_gse">3D Graphics Software Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_sse">3D System Software Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=linux_gse">Linux Graphics Software Engineer</a></li>
+                    <p class=pageTitle>3D SYSTEM SOFTWARE ENGINEER #598498</p>
+                    
+                    <p>RESPONSIBILITIES:<br/>
+						Use your experience in 3D background and D3D Drivers (OpenGL is acceptable) to accelerate the fastest 
+						2D/3D graphics controller on the market. Looking for people who are performance minded and hold a 
+						thorough knowledge of 3D principles. </p>
+					<p>MINIMUM REQUIREMENTS:</p>
+
+                    <ul>
+                    	<li>BSEE/CS + 5 years experience or MS + 3 years experience in developing graphics and 
+                    	video device drivers on Windows95 or Windows NT operating systems. </li>
+						<li>Core language competency in C/C++ required, as well as 80x86. </li>
+						<li>Knowledge of extended Intel and AMD instructions sets (SSE/3DNow) a plus.</li>
+						<li>Understanding of Windows internals and other OS fundamentals required.</li>
+						<li>Understanding of 3D graphics algorithms is highly desirable</li>
 					</ul>
+
+					<p>EOE</p>
+					<p><span class="bodySubtitle"><a href="">Apply Now!</a></span></p>
+					
 				   </td>
    				</tr>
    			</table>

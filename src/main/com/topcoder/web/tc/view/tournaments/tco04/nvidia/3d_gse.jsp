@@ -23,14 +23,20 @@
 				<tr>
 					<td class="bodyText">
                     <A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
-                    <p class=pageTitle>Positions Available</p>
-					<ul>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=arch_eng">Architecture Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_toolsarch">3D Tools Architect</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_gse">3D Graphics Software Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_sse">3D System Software Engineer</a></li>
-						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=linux_gse">Linux Graphics Software Engineer</a></li>
+                    <p class=pageTitle>3D GRAPHICS SOFTWARE ENGINEER (Req# 520749)</p>
+
+                    <ul>
+                    	<li>Software engineer with 3-5 years of experience and strong background in 3D graphics.</li>
+						<li>Experience with shaders, rendering effects and hardware accelerated programmable graphics desired. </li>
+						<li>A background in compilers/knowledge of compilers and code optimization is a big plus. </li>
+						<li>Prior experience in developing game engine/designing and developing middleware tools for graphics-effects/game companies is desired. </li>
+						<li>Strong C/C++ programming skills and expert knowledge of DirectX8/9 and OpenGL needed. </li>
+						<li>An enthusiastic, self starter and hard-working person.</li>
 					</ul>
+
+					<p>EOE</p>
+					<p><span class="bodySubtitle"><a href="">Apply Now!</a></span></p>
+					
 				   </td>
    				</tr>
    			</table>
