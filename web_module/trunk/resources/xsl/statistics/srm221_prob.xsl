@@ -71,7 +71,7 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
 					 <table width="100%" border="0" cellspacing="0" cellpadding="3">
 						 <tr valign="middle">
-							 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 221</font></td>
+							 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 220</font></td>
 							 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
 						 </tr>
 
@@ -231,8 +231,8 @@ Java code changes that double into the correct format:<pre>
 String make(double d) {
     int di = (int)(d*10000); //get an extra 4 digits
     String whole = di/10000+"", frac = di%10000+"";
-    while(whole.length() < 4) whole = "0"+whole; //add zeros if needed
-    while(frac.length() < 4) frac = "0"+frac;
+    while(whole.length() &lt; 4) whole = "0"+whole; //add zeros if needed
+    while(frac.length() &lt; 4) frac = "0"+frac;
     return whole+"."+frac;
 }
 </pre>
@@ -517,8 +517,8 @@ third rule with xy -> yyyyx, and observe how the problem changes.
 
  
 					 <p>
-					 <img src="/i/m/brett1479 _mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-					 By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479 </strong></a><br />
+					 <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+					 By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br />
 					 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 					 </p>
 				 </td>
