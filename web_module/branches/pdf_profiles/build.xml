@@ -59,6 +59,7 @@
 	<!-- file conversion component -->
 	<pathelement location="${jars.dir}/fileconvert.jar"/>
 	<pathelement location="${jars.dir}/httpunit.jar"/>
+	<pathelement location="${jars.dir}/itext-1.1.jar"/>
     </path>
 
     <target name="init">
