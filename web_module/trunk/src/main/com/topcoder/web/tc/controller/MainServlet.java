@@ -41,8 +41,7 @@ public class MainServlet extends BaseServlet {
         request.setAttribute("t", "authentication");
         request.setAttribute("c", "login");
 
-        getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL(LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET)).forward(request, response);
+        getServletContext().getContext("/").getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
     }
 
 }
