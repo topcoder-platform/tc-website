@@ -2,13 +2,18 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.web.common.*;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.common.web.data.Navigation;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 public class Login extends Base {
@@ -44,6 +49,7 @@ public class Login extends Base {
                             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                             setNextPage(dest);
                             setIsNextPageInContext(false);
+                            doLegacyCrap(getRequest());
                             return;
                         } else {
                             if (hasDisabledAccount(status)) {
@@ -115,6 +121,22 @@ public class Login extends Base {
             return result.getStringItem(0, "status");
         }
 
+    }
+
+    private void doLegacyCrap(HttpServletRequest request) throws Exception {
+        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+        CoderSessionInfo ret = null;
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
+                com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+        TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
+        ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
+        nav = new Navigation(request, ret);
+        if (nav == null) {
+            nav = new Navigation(request, ret);
+            request.getSession(true).setAttribute("navigation", nav);
+        } else {
+            nav.setCoderSessionInfo(ret);
+        }
     }
 
 }
