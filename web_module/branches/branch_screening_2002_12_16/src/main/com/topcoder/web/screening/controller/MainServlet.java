@@ -114,6 +114,7 @@ public class MainServlet extends HttpServlet {
         } catch (PermissionDeniedException e) {
             sendToErrorPage(request, response, e);
         } catch (Exception e) {
+            e.printStackTrace(); //temporary for debugging
             sendToErrorPage(request, response, e);
         }
     }
