@@ -395,6 +395,7 @@ public class RegistrationHelper {
             email.setPrimaryEmailId(user_id, email_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             email.setAddress(email_id, srb.getEmail(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             email.setEmailTypeId(email_id, EMAIL_TYPE_ID_DEFAULT, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            email.setStatusId(email_id, 1, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             Coder coder = (Coder)BaseProcessor.createEJB(ctx, Coder.class);
             coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
