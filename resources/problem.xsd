@@ -112,7 +112,7 @@
 
 <xs:element name="a">
     <xs:complexType>
-        <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:choice minOccurs="1" maxOccurs="unbounded">
             <xs:group ref="inline"/>
         </xs:choice>
         <xs:attribute name="name" type="xs:anyURI"/>
