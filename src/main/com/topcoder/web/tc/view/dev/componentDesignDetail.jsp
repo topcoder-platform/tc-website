@@ -26,20 +26,20 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
-<!-- Left Column Begins-->
+<%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
-<!-- Left Column Ends -->
+<%-- Left Column Ends --%>
 
-<!-- Gutter Begins -->
+<%-- Gutter Begins --%>
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
+<%-- Gutter Ends --%>
 
-<!-- Center Column Begins -->
+<%-- Center Column Begins --%>
         <td width="100%" align="center">
 
             <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br/>
@@ -48,7 +48,7 @@
                 <tr valign="middle">
                     <td class="bodyText">
 
-<!-- Title -->
+<%-- Title --%>
                         <h2 class="devSubhead"><strong><rsc:item set="<%=projectDetail%>" name="component_name"/>: Design</strong></h2>
                     </td>
                     <td align="right">
@@ -63,19 +63,19 @@
                 <tr valign="top">
                     <td class="bodyText">
 
-<!-- Overview -->
+<%-- Overview --%>
                         <p><strong>Overview</strong><br />
                         <rsc:item set="<%=projectDetail%>" name="description"/>
                         </p>
 
-<!-- Project Type -->
+<%-- Project Type --%>
                         <p><strong>Project Type</strong><br />
                         Component Design Project: Provide a complete design for the <rsc:item set="<%=projectDetail%>" name="component_name"/> component.</p>
 
                         <p>Please review the TopCoder Software <a href="http://www.topcoder.com/?t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution.
                         If you're not sure what to submit, go to <a href="/?t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.</p>
 
-<!-- Technologies -->
+<%-- Technologies --%>
                         <p><strong>Technologies</strong></p>
                         <ul>
                             <rsc:iterator list="<%=technologies%>" id="item">
@@ -83,12 +83,12 @@
                             </rsc:iterator>
                         </ul>
 
-<!-- Documentation -->
+<%-- Documentation --%>
                         <p><strong>Documentation</strong><br />
                         All <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">documentation</a>
                         for this project is available on the TopCoder Software web site.</p>
 
-<!-- Payment -->
+<%-- Payment --%>
                         <p><strong>Payment</strong><br />
                         TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
                         First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
@@ -106,7 +106,7 @@
                         <p><strong>Second Place Designer</strong><br />
                            Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br/>
                         </p>
-<!-- Definition of Completion -->
+<%-- Definition of Completion --%>
                         <p><sup>*</sup>Completion of the project is defined as follows:</p>
 
                         <ul>
@@ -115,7 +115,7 @@
                             <li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
                         </ul>
 
-<!-- Eligibility Requirements -->
+<%-- Eligibility Requirements --%>
                         <p><strong>Eligibility</strong><br />
                         You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
@@ -126,7 +126,7 @@
                             <li>A Non-US Citizen working in your country of residence.</li>
                         </ol>
 
-<!-- Time Line -->
+<%-- Time Line --%>
                         <p><strong>Time Line</strong><br/>
                         All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
@@ -139,7 +139,7 @@
 
                         <p><br /></p>
 
-<!-- Register at TCS -->
+<%-- Register at TCS --%>
 
                            <p><strong>View the <A target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project</strong>
                             </p>
@@ -156,7 +156,7 @@
                             <p><strong>Upload Your Submission</strong><br/>
                             Managing your projects is now easier than ever with the Project Submit &amp; Review application. After you've inquired about a project,
                             use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
-                            <!-- Learn more about Project Submit & Review (link to future How-to guide -->
+                            <%-- Learn more about Project Submit & Review (link to future How-to guide --%>
 
                            <p align="center"><strong><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit &amp; Review</A> &gt;</strong></p>
                     </td>
@@ -171,21 +171,21 @@
 
 
         </td>
-<!-- Center Column Ends -->
+<%-- Center Column Ends --%>
 
-<!-- Gutter -->
+<%-- Gutter --%>
          <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
+<%-- Gutter Ends --%>
 
-<!-- Right Column Begins -->
+<%-- Right Column Begins --%>
          <td width="180">
             <jsp:include page="right.jsp"/>
          </td>
-<!-- Right Column Ends -->
+<%-- Right Column Ends --%>
 
-<!-- Gutter -->
+<%-- Gutter --%>
          <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0"></td>
-<!-- Gutter Ends -->
+<%-- Gutter Ends --%>
 
     </tr>
 </table>

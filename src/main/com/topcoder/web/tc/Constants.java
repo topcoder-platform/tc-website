@@ -75,7 +75,7 @@ public class Constants {
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;
     public static String DESIGN_DETAIL;
-
+    public static String DEVELOPMENT_DETAIL;
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
