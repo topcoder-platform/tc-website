@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
                  com.topcoder.web.corp.model.TestSessionInfo,
-                 java.util.Date" %>
+                 java.util.Date,
+                 com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -46,27 +47,27 @@
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                  <tr>
                    <td align="left" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=handle">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=handle">
                             Candidate
                         </A>
                    </td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=profile_sort">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=profile_sort">
                             Profile
                         </A>
                    </td>               
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=begin_time">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=begin_time">
                             Begin
                         </a>
                    </td>               
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=end_time">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=end_time">
                             End
                         </A>
                    </td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=status_sort">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=status_sort">
                             Status
                         </A>
                    </td>
@@ -74,7 +75,7 @@
                    <td align="center" class="screeningHeader">Preference Level</td>
                    <% } %>--%>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=notes_sort">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=notes_sort">
                             Notes
                         </A>
                    </td>                                          
