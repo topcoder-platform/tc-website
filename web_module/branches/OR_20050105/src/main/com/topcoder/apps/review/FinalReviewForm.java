@@ -16,7 +16,7 @@ import org.apache.struts.action.ActionMapping;
 
 /**
  * <p>
- * Form bean for the final review editing page.  
+ * Form bean for the final review editing page.
  * </p>
  *
  * @author TCSDEVELOPER
@@ -24,21 +24,21 @@ import org.apache.struts.action.ActionMapping;
  */
 
 public class FinalReviewForm extends AggregationWorksheetForm {
-    
+
     // --------------------------------------------------- Instance Variables
-    
+
     /**
      * The final review.
      */
     private FinalReview finalReview = null;
-    
+
     /**
      * The possible final fix statuses.
      */
     private FinalFixStatus[] statuses = null;
-    
+
     // ----------------------------------------------------------- Properties
-    
+
     /**
      * Return the specified final fix status.
      *
@@ -47,8 +47,8 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     public String getFixItem(int idx) {
         if (finalReview != null) {
-            FinalFixStatus status = 
-                finalReview.getFixCheckList()[idx].getFinalFixStatus();            
+            FinalFixStatus status =
+                finalReview.getFixCheckList()[idx].getFinalFixStatus();
             if (status != null) {
                 return status.getName();
             } else {
@@ -58,7 +58,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
             return null;
         }
     }
-    
+
     /**
      * Set the specified final fix status.
      *
@@ -66,7 +66,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * @param status The new final fix status.
      */
     public void setFixItem(int idx, String status) {
-        if (finalReview != null && idx >= 0 
+        if (finalReview != null && idx >= 0
                 && idx < finalReview.getFixCheckList().length) {
             for (int i = 0; i < statuses.length; i++) {
                 if (statuses[i].getName().equals(status)) {
@@ -76,7 +76,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
             }
         }
     }
-    
+
     /**
      * Return all the possible final fix statuses.
      *
@@ -85,7 +85,52 @@ public class FinalReviewForm extends AggregationWorksheetForm {
     public FinalFixStatus[] getFinalFixStatuses() {
         return statuses;
     }
-    
+
+
+    /**
+     * <p>
+     * Return whether this final review is approved
+     * </p>
+     *
+     * @return "true" if the final review is approved, otherwise "false".
+     */
+    public String isApproved() {
+        return finalReview.isApproved() ? "true" : "false";
+    }
+
+    /**
+     * <p>
+     * Set whether this review is approved.
+     * </p>
+     *
+     * @param isApproved Whether this review is approved.
+     */
+    public void setApproved(String isApproved) {
+        finalReview.setApproved(isApproved.equals("true"));
+    }
+
+    /**
+     * <p>
+     * Get the comments for this review
+     * </p>
+     *
+     * @return the comments for this review
+     */
+    public String getComments() {
+        return finalReview.getComments();
+    }
+
+    /**
+     * <p>
+     * Set the comments for this review
+     * </p>
+     *
+     * @param comments comments for this review
+     */
+    public void setComments(String comments) {
+        finalReview.setComments(comments);
+    }
+
     // --------------------------------------------------------- Public Methods
 
     /**
@@ -97,7 +142,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      *
      * @param mapping The mapping used to select this instance
      * @param request The servlet request we are processing
-     * 
+     *
      * @return an <code>ActionErrors</code> object that encapsulates any
      * validation errors that have been found.
      */
@@ -105,52 +150,52 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                                  HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         setValid(true);
-        
+
         if (getResponses() != null) {
             for (int i = 0; i < getResponses().length; i++) {
                 String status = getFixItem(i);
                 getResponses()[i].setValid(true);
-                
+
                 if (status == null || status.length() < 1) {
                     setValid(false);
                     getResponses()[i].setValid(false);
-                    errors.add("responses[" + i + "]", 
+                    errors.add("responses[" + i + "]",
                                new ActionError("error.status.required"));
-                } 
+                }
             }
         }
-        
+
         return errors;
     }
-    
+
     // ------------------------------------------------------ Protected Methods
-    
+
     /**
      * Creates the form bean from the final review.
      *
-     * @param finalReview The final review for creating the 
+     * @param finalReview The final review for creating the
      * form bean.
      */
     protected void fromReview(FinalReview finalReview) {
-        AggregationResponse[] responses = 
+        AggregationResponse[] responses =
             new AggregationResponse[finalReview.getFixCheckList().length];
         BusinessDelegate businessDelegate = new BusinessDelegate();
-        
+
         this.finalReview = finalReview;
         for (int i = 0; i < responses.length; i++) {
-            responses[i] = 
+            responses[i] =
                 finalReview.getFixCheckList()[i].getAggregationResponse();
         }
-        super.fromWorksheet(finalReview.getAggregationWorkSheet(), 
+        super.fromWorksheet(finalReview.getAggregationWorkSheet(),
                             responses);
-        
+
         statuses = businessDelegate.getFinalFixStatuses();
     }
-    
+
     /**
      * Creates the FinalReviewData from this form bean.
-     * 
-     * @param orpd The OnlineReviewProjectData to create the 
+     *
+     * @param orpd The OnlineReviewProjectData to create the
      * FinalReviewData.
      * @return the FinalReviewData created from this form bean.
      */

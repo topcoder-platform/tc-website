@@ -107,12 +107,30 @@ public class AutoPilot {
             ProjectForm form = new ProjectForm();
 
             form.fromProject(project);
+
             form.setCurrentPhase("Final Fixes");
+
             form.setScorecardTemplates(docManager.getScorecardTemplates());
+
             form.setReason("auto pilot moving to Final Fixes");
 
+            UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
+            UserProjectInfo info = null;
+            for(int i = 0; i < projs.length; i++) {
+                if(projs[i].getId() == project.getId()) {
+                    info = projs[i];
+                }
+            }
 
+            if(info == null) return new FailureResult("Project not found");
 
+            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
+
+            ProjectData new_data = form.toActionData(orpd);
+            ResultData result = new BusinessDelegate().projectAdmin(new_data);
+            if(!(result instanceof SuccessResult)) {
+                return result;
+            }
         } catch(Exception e) {
             return new FailureResult(e.toString());
         }
