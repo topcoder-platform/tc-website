@@ -5,16 +5,16 @@
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.TCESConstants" %>
 
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <jsp:useBean id="DemographicTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.DemographicTask" />
 
-<% 
+<%
     Map StudentDemoInfoMap = DemographicTask.getStudentDemoInfo();
     List StudentResponseList = (List)StudentDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY);
     Map StudentQuestionMap = (Map)StudentDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_INFO_KEY);
     Iterator StudentQuestionIterator = StudentQuestionMap.keySet().iterator();
-    
+
     Map ProDemoInfoMap = DemographicTask.getProDemoInfo();
     List ProResponseList = (List)ProDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY);
     Map ProQuestionMap = (Map)ProDemoInfoMap.get(TCESConstants.DEMOGRAPHIC_INFO_KEY);
@@ -26,7 +26,7 @@
   <HEAD>
     <TITLE>TopCoder | Recruiting Reports</TITLE>
     <jsp:include page="script.jsp" />
-    
+
   </HEAD>
   <body>
 <jsp:include page="top.jsp" >
@@ -57,8 +57,8 @@
               <TABLE WIDTH="100%" cellspacing="0" cellpadding="0" border=0>
                 <TR valign='top'>
                 <TD width='50%'>
-                  <% if (DemographicTask.getStudentCoderCount() > 0) { %>    
-                
+                  <% if (DemographicTask.getStudentCoderCount() > 0) { %>
+
             		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
                           <TD class="screeningTitle" COLSPAN="3"><b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
@@ -113,11 +113,11 @@
                             <% odd = !odd; %>
                         </tces:mapIterator>
 					</table>
-                        <%            
+                        <%
                           }
                         %>
 
-                      
+
                    <% }else{ %>
                       <TABLE WIDTH="100%" cellspacing="0" cellpadding="3" BORDER="0">
                         <TR>
@@ -125,10 +125,10 @@
                         </TR>
                         <TR>
                           <TD class="screeningCellOdd" COLSPAN="3"><BR></TD>
-                        </TR>                
+                        </TR>
                         <TR>
                           <TD class="screeningCellOdd" COLSPAN="3" align="center">No data available.</TD>
-                        </TR>                
+                        </TR>
                       </TABLE>
                    <% } %>
 
@@ -139,7 +139,7 @@
                 <TD width="50%">
 
                   <% if (DemographicTask.getProCoderCount() > 0) { %>
-                  
+
             		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
                           <TD class="screeningTitle" COLSPAN="3">Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</TD>
@@ -177,7 +177,7 @@
 
                         <TR>
                           <TD class="screeningHeader" COLSPAN="3"><B><%=question%></B></TD>
-                        </TR>                
+                        </TR>
 
                         <% boolean odd = true; %>
                         <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
@@ -196,11 +196,11 @@
                         </tces:mapIterator>
 
 					</table>
-                        <%            
+                        <%
                           }
                         %>
 
-                  
+
                    <% }else{ %>
             		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
@@ -209,18 +209,18 @@
 
                         <TR>
                           <TD class="screeningCellOdd" COLSPAN="3"><BR></TD>
-                        </TR>                
+                        </TR>
 
                         <TR>
                           <TD class="screeningCellOdd" COLSPAN="3" align="center">No data available.</TD>
-                        </TR>                
+                        </TR>
                       </TABLE>
                     <% } %>
-                   
+
                 </TD>
                 </TR>
               </TABLE>
-              
+
               <P><BR></P>
 	    </TD>
   <!-- Center Column Ends -->

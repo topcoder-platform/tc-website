@@ -5,7 +5,7 @@
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.TCESConstants" %>
 
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <jsp:useBean id="CompetitionHistoryTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.CompetitionHistoryTask" />
 
