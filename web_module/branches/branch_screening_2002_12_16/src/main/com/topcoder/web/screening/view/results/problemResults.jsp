@@ -7,7 +7,7 @@
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
-function getTCProblemResult(coderId, roundId, problemId) {
+function getTCProblemResults(coderId, roundId, problemId) {
     var width = screen.availWidth * 2 / 3;
     var height = screen.availHeight / 2;
     var left = (screen.availWidth - width) / 2;
