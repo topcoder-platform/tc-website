@@ -75,6 +75,11 @@ public final class JavaDocServlet extends HttpServlet {
         String handle = request.getParameter(HANDLE);
         log.info("webServiceName = " + webServiceName + ", path = " + path + ", password = " + password + ", handle = " + handle);
 
+        if(webServiceName == null) {
+            forwardToErrorPage(request, response, null, "A webServiceName property must be set.");
+            return;
+        }
+
         //is the user logged in and able to view this web service?
         HttpSession session = request.getSession();
         Object obj = session.getAttribute(webServiceName);
@@ -164,7 +169,7 @@ public final class JavaDocServlet extends HttpServlet {
 
         out.append(
                 "Please login to view the java docs for " + webServiceName + ".<P>" +
-                "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + SERVLET_NAME + "?" + WEB_SERVICE_NAME + "="+webServiceName+">" +
+                "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + SERVLET_NAME + "?" + WEB_SERVICE_NAME + "="+webServiceName+\"">" +
                 "Handle: + <INPUT TYPE=\"text\" NAME=\"" + PASSWORD + "\" SIZE=\"15\"<BR>" +
                 "Password: + <INPUT TYPE=\"password\" NAME=\"" + HANDLE + "\" SIZE=\"15\"<BR>" +
                 "<INPUT TYPE=\"submit\" NAME=\"login_button\" VALUE=\"Login\"><BR>" + 
