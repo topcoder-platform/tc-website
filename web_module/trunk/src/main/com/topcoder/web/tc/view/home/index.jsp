@@ -133,7 +133,7 @@
 <%-- Right Column --%>
       <td class=homeRightCol>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/i/tournament/tco04/onsite_movies/snapdragon.mov"><img src="/i/home/promos/tco04_snapCommunity.jpg" border=0 /></A></td></tr>
+         <tr><td class=homeBigPromo><A href="/i/tournament/tco04/onsite_movies/rhughes.mov"><img src="/i/home/promos/robPerfCred_mov.jpg" border=0 /></A></td></tr>
       </table>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
