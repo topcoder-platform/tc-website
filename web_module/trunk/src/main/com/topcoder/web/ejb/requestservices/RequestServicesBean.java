@@ -25,7 +25,7 @@ public class RequestServicesBean extends BaseEJB {
                 + " userId: " + userId + " time: " + time + " session: " + sessionId);
 
         StringBuffer query = new StringBuffer(200);
-        query.append("insert into request (user_id, url, create_date, session_id) ");
+        query.append("insert into request (user_id, url, timestamp, session_id) ");
         query.append(" values (?, ?, ?, ?)");
 
         Connection conn = null;
@@ -53,7 +53,7 @@ public class RequestServicesBean extends BaseEJB {
     public void createRequest(String url, Timestamp time, String sessionId, String dataSource) {
         log.debug("createRequest called. url: " + url + " time: " + time + " session: " + sessionId);
         StringBuffer query = new StringBuffer(200);
-        query.append("insert into request (url, create_date, session_id) ");
+        query.append("insert into request (url, timestamp, session_id) ");
         query.append(" values (?, ?, ?)");
 
         Connection conn = null;
