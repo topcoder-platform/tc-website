@@ -307,7 +307,7 @@
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="tc_gear_row"/>
 
-                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support / FAQs</A></td></tr>
+                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support / FAQs</A></td></tr>
 
 <!-- Alg Competition Guide -->
                 <tr>
