@@ -12,6 +12,12 @@ import java.util.*;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.3  2002/04/02 18:00:38  apps
+ *           Add ability to pass in data source chuck
+ *
+ *           Revision 1.1.2.2  2002/04/01 18:00:38  apps
+ *           Add stat directory for Statistics ejb and related common classes chuck
+ *
  *           Revision 1.1.2.1  2002/03/16 20:18:54  gpaul
  *           moving these over from the member dev area.
  *
@@ -35,8 +41,13 @@ import java.util.*;
 
 public interface Statistics extends EJBObject {
     /**
-     * @see StatisticsBean#executeCommand
+     * @see StatisticsBean#executeCommand(Map)
      */
     public Map executeCommand(Map inputs) throws RemoteException;
+
+    /**
+     * @see StatisticsBean#executeCommand(Map,String)
+     */
+    public Map executeCommand(Map inputs, String dataSourceName) throws RemoteException;
 }
 

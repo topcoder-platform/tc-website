@@ -5,8 +5,11 @@ import java.math.*;
 import java.rmi.*;
 import java.sql.*;
 import java.text.*;
-import com.topcoder.ejb.*;
-import com.topcoder.common.*;
+import javax.sql.DataSource;
+import javax.naming.Context;
+import com.topcoder.common.DBMS;
+import com.topcoder.server.ejb.BaseEJB;
+import com.topcoder.server.docGen.xml.*;
 import com.topcoder.web.stat.common.*;
 
 /** 
@@ -16,6 +19,12 @@ import com.topcoder.web.stat.common.*;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.2  2002/04/01 22:43:10  apps
+ *           SB altered to fix bean structure
+ *
+ *           Revision 1.1.2.1  2002/04/01 18:00:38  apps
+ *           SB  added stat directory for Statistics ejb and related common classes
+ *
  *           Revision 1.1.2.2  2002/03/19 01:22:45  gpaul
  *           changed query_input to query_input_xref
  *
@@ -96,6 +105,8 @@ public class StatisticsBean extends BaseEJB {
     // Keeps track of the most recent query run, for exception handling purposes
     private StringBuffer query;
 
+    private final static String DEFAULT_DATA_SOURCE = "TC_DW";
+
     private void closeObject(Object o) {
         if (o == null) 
             return;
@@ -108,8 +119,8 @@ public class StatisticsBean extends BaseEJB {
                 ((Connection)o).close();
         } catch (Exception e) {
             try {
-                Log.msg(VERBOSE, "Statistics EJB:  Error closing " + o.getClass());
-                Log.msg(VERBOSE, e.getMessage());
+                System.out.println( "Statistics EJB:  Error closing " + o.getClass());
+                System.out.println( e.getMessage());
             } catch (Exception ex) {}
         }
     }
@@ -125,17 +136,17 @@ public class StatisticsBean extends BaseEJB {
 
     private void handleException(Exception e, String lastQuery, Map inputs) {
         try {
-            Log.msg(VERBOSE, "Statistics EJB: Exception caught: " + e.toString());
-            Log.msg(VERBOSE, "The last query run was: ");
-            Log.msg(VERBOSE, lastQuery);
-            Log.msg(VERBOSE, "Function inputs were: ");
+            System.out.println( "Statistics EJB: Exception caught: " + e.toString());
+            System.out.println( "The last query run was: ");
+            System.out.println( lastQuery);
+            System.out.println( "Function inputs were: ");
             Iterator i = inputs.keySet().iterator();
             while (i.hasNext()) {
                 String key = (String)i.next();
                 String value = (String)inputs.get(key);
-                Log.msg(VERBOSE, "Input code: " + key + " --- Input value: " + value);
+                System.out.println( "Input code: " + key + " --- Input value: " + value);
             }
-            Log.msg(VERBOSE, "Exception details:");
+            System.out.println( "Exception details:");
             if (e instanceof SQLException)
                 DBMS.printSqlException(true, (SQLException)e);
             else
@@ -274,7 +285,11 @@ public class StatisticsBean extends BaseEJB {
      *                              the queries specified by the passed-in command.
      * @return      The statistical data requested by the command.
      */
-    public Map executeCommand(Map inputs) throws RemoteException {
+    public Map executeCommand ( Map inputs ) throws RemoteException {
+      return executeCommand ( inputs, DEFAULT_DATA_SOURCE );
+    }
+
+    public Map executeCommand ( Map inputs, String dataSource ) throws RemoteException {
         String commandDesc = (String) inputs.get(StatisticsQueries.COMMAND_ID);
         if (commandDesc == null)
             throw new RemoteException("Missing command description");
@@ -299,7 +314,9 @@ public class StatisticsBean extends BaseEJB {
             query.append("AND cqx.command_id = c.command_id ");
             query.append("AND q.query_id = cqx.query_id ");
             query.append("ORDER BY cqx.sort_order ASC ");
-            c = DBMS.getDWConnection();
+            Context ctx = getContext();
+            DataSource ds = (DataSource) ctx.lookup ( dataSource );
+            c = ds.getConnection();
             ps = c.prepareStatement(query.toString());
             ps.setString(1, commandDesc);
             rs = ps.executeQuery();
