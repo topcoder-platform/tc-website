@@ -200,7 +200,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_campaign_detail");
 
-        dataRequest.setProperty("uid", Integer.toString(uid) );
+        dataRequest.setProperty("uid", Long.toString(uid) );
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
@@ -228,7 +228,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
         if (rsc.getRowCount() == 0) {
             throw new Exception (" cid="+Integer.toString(getCampaignID())+
-                                 "does not belong to uid="+Integer.toString(uid) );
+                                 "does not belong to uid="+Long.toString(uid) );
         }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_List");
