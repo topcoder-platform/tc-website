@@ -25,36 +25,21 @@
 		<td class="dc_bodyText">
          <p class="bigTitle">Schedule</p>
          
-         <table class="sidebarBox" width="500" cellpadding="6" cellspacing="2">
-            <tr>
-               <td class="sidebarTitle" size="33%">Event</td>
-               <td class="sidebarTitle" size="33%">Date</td>
-               <td class="sidebarTitle" size="33%">Time (ET)</td>
-            </tr>
-            <tr>
-               <td class="sidebarText">Registration Opens</td>
-               <td class="sidebarText">Monday, February 2</td>
-               <td class="sidebarText">12:00PM (noon)</td>
-            </tr>
-            <tr>
-               <td class="sidebarText">Registration Closes</td>
-               <td class="sidebarText">Sunday, February 15</td>
-               <td class="sidebarText">12:00PM (noon)</td>
-            </tr>
-            <tr>
-               <td class="sidebarText" valign="top">Main Competition Round - all qualifiers</td>
-               <td class="sidebarText" valign="top">Thursday, February 19</td>
-               <td class="sidebarText" valign="top" nowrap>Sign in - 10:00 -10:50AM<br/>Start - 11:00AM</td>
-            </tr>
-            <tr>
-               <td class="sidebarText">Final Round - 10 finalists</td>
-               <td class="sidebarText">Friday, February 27</td>
-               <td class="sidebarText">1:00PM</td>
-            </tr>
-            <tr>
-            	<td class="sidebarText" colspan="3">*NOTE:  In the event a Round must be cancelled for any reason, all reasonable attempts will be made to run the Round the following business day at the same time.</td>
-            </tr>
-         </table>
+                     <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                        <tr valign="top">
+                           <td class="sidebarTitle">Round</td>
+                           <td class="sidebarTitle">Date and Time (all Eastern Time)</td>
+                        </tr>
+                        <tr valign="top">
+                           <td class="sidebarText">Registration and practice</td>
+                           <td class="sidebarText">Starts: Monday, February 21, 2005 at 9:00 AM<br>Ends:  Tuesday, March 1, 2005 at 6:00 PM</td>
+                        </tr>
+                        <tr valign="top">
+                           <td class="sidebarText">Competition Round</td>
+                           <td class="sidebarText">Wednesday, March 2, 2005<br>Sign in:  10:00 AM - 10:50 AM<br>START: 11:00 AM</td>
+                        </tr>
+                        <tr><td class="sidebarText" colspan="2">NOTE:  In the event the competition round must be cancelled for any reason, all reasonable attempts will be made to run the round the following business day at the same time.</td></tr>
+                     </table>
 
 		</td>
 	</tr>

@@ -24,7 +24,7 @@
 		<td class="dc_bodyText">
          <p class="bigTitle">FAQ</p>
 
-			<p><span class="dc_subTitle">Is there a way to practice before the Main Competition Round?</span><br/>
+			<p><span class="dc_subTitle">Is there a way to practice before the Competition Round?</span><br/>
 			Once you've registered for the DCCC, you may use your username and password to log into the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you.</p>
 
 			<p><span class="dc_subTitle">What resources can I use to help me?</span><br/>
@@ -35,11 +35,6 @@
 
 			<p><span class="dc_subTitle">I've submitted a solution for a problem, but the time has not run out.  Can I submit again?</span><br/>
 			Yes, you may resubmit.  However, remember that resubmitting carries a penalty.  Your score for that submission will be adjusted to account for the additional lapsed time since your last submission, as well as an additional penalty of 10% of the maximum point value for the problem.</p>
-
-			<p><span class="dc_subTitle">How will I know if I have advanced to the Final  Round of the DCCC?</span><br/>
-			Shortly following the Challenge Phase in the Main Competition Round, the testing will be done.  As soon as the testing is completed the advancers to the Final Round will be posted on this site.</p>
-
-			In addition, an email will be sent to all participants indicating whether or not each has advanced.</p>
 
 		</td>
 	</tr>
