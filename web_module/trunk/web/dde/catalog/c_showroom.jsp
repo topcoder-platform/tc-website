@@ -107,13 +107,13 @@
                 + "                <td width=\"35\" class=\"catalogText\">";
             switch (catalog) {
                 case 0:
-                    rv += "<img src=\"/images/javaSm.gif\" alt=\"\" width=\"33\" height=\"17\" border=\"0\" />";
+                    rv += "<img src=\"/images/javaSm.gif\" alt=\"\" border=\"0\" />";
                     break;
                 case 1:
-                    rv += "<img src=\"/images/netSm.gif\" alt=\"\" width=\"33\" height=\"17\" border=\"0\" />";
+                    rv += "<img src=\"/images/netSm.gif\" alt=\"\" border=\"0\" />";
                     break;
                 case 2:
-                    rv += "<img src=\"/images/flashSm.gif\" alt=\"\" width=\"33\" height=\"17\" border=\"0\" />";
+                    rv += "<img src=\"/images/flashSm.gif\" alt=\"\" border=\"0\" />";
                     break;
                 default:
                     break;
@@ -150,13 +150,13 @@
                 + "                <td width=\"35\" class=\"catalogText\">";
                 switch (catalog) {
                     case 0:
-                        rv += "<img src=\"/images/javaSm.gif\" alt=\"\" width=\"33\" height=\"17\" border=\"0\" />";
+                        rv += "<img src=\"/images/javaSm.gif\" alt=\"\" border=\"0\" />";
                         break;
                     case 1:
-                        rv += "<img src=\"/images/netSm.gif\" alt=\"\" width=\"33\" height=\"17\" border=\"0\" />";
+                        rv += "<img src=\"/images/netSm.gif\" alt=\"\" border=\"0\" />";
                         break;
                     case 2:
-                        rv += "<img src=\"/images/flashSm.gif\" alt=\"\" width=\"33\" height=\"17\" border=\"0\" />";
+                        rv += "<img src=\"/images/flashSm.gif\" alt=\"\" border=\"0\" />";
                         break;
                     default:
                         break;
