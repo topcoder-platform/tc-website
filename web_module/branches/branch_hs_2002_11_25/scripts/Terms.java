@@ -11,12 +11,18 @@ public class Terms {
   public static void main(String _argv[]) {
     try {
       Context ctx=TCContext.getInitial();
+      System.out.println("got context");
       TermsOfUseHome touh=(TermsOfUseHome)
                                         ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
+      System.out.println("got home");
       TermsOfUse tou=touh.create();
+      System.out.println("create bean");
       long terms_of_use_id=tou.createTermsOfUse();
+      System.out.println("create terms of use: "+terms_of_use_id);
       tou.setTermsOfUseTypeId(terms_of_use_id,1);
+      System.out.println("set status");
       tou.setText(terms_of_use_id,TEXT);
+      System.out.println("set text");
     }
     catch (Exception _e) {
       _e.printStackTrace();
