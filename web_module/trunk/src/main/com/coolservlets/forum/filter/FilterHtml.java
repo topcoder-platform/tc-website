@@ -239,10 +239,10 @@ public class FilterHtml extends ForumMessageFilter implements Serializable {
         for( int i=0; i<input.length(); i++ ) {
             ch = input.charAt(i);
             if( ch == '<' ) {
-                if (input.substring(i, i+OPEN_PRE.length()).toLowerCase().equals(OPEN_PRE)) {
+                if (i<=input.length()-OPEN_PRE.length() && input.substring(i, i+OPEN_PRE.length()).toLowerCase().equals(OPEN_PRE)) {
                     buf.append(OPEN_PRE);
                     i+=OPEN_PRE.length()-1;
-                } else if (input.substring(i, i+CLOSE_PRE.length()).toLowerCase().equals(CLOSE_PRE)) {
+                } else if (i<=input.length()-CLOSE_PRE.length() && input.substring(i, i+CLOSE_PRE.length()).toLowerCase().equals(CLOSE_PRE)) {
                         buf.append(CLOSE_PRE);
                         i+=CLOSE_PRE.length()-1;
                 } else {
