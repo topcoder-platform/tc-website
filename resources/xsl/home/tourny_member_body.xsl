@@ -716,7 +716,7 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
   <IMG SRC="/i/promo_teams.gif" WIDTH="244" HEIGHT="81" BORDER="0"/>
 </A><BR/>
 <A TARGET="_parent">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=jobs&amp;c=index</xsl:attribute>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
   <IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/>
 </A>-->
 <xsl:call-template name="my_stats"/>

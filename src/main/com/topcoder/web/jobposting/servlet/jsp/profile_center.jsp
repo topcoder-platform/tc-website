@@ -11,7 +11,7 @@
     <TD CLASS="statText" ALIGN="left" VALIGN="middle" COLSPAN="2">
       Thank you for expressing interest in TopCoder employment services.  You have successfully indicated your interest in this position(s).  Much of your TopCoder profile information will now become available to be viewed by the employer.  Below, you will find a summarization of your TopCoder profile information that will be available to the employer.  Please verify the accuracy of all of the information.  In addition to the information below, your past and/or future competition statistics, your current and/or future member photo, and your current and/or future resume will also be available for viewing by the employer.<BR/>
       <BR/>
-      If you would like to make changes the information below, click <A HREF="/reg/index.jsp" class="statText">here</A> to update your profile.<BR/>
+      If you would like to make changes to the information below, click <A HREF="/reg/index.jsp" class="statText">here</A> to update your profile.<BR/>
       <BR/>
     </TD>
   </TR>
