@@ -12,6 +12,7 @@ import org.jdom.Element;
 import org.jdom.output.XMLOutputter;
 
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * My comments/description/notes go here
@@ -22,6 +23,7 @@ import com.topcoder.shared.security.User;
  *
  */
 public class PersistStore {
+    protected static final Logger log = Logger.getLogger(PersistStore.class);
     public static final String STORAGE_FILE = "pstore.xml";
     private Document store = null;
     private File xmlStore = null;
@@ -40,6 +42,7 @@ public class PersistStore {
      * @return PersistStore
      */
     public static PersistStore getInstance(File dir) {
+        log.debug("--- where xml would be= "+dir.getAbsolutePath());
         if( me == null ) {
             synchronized(STORAGE_FILE) {
                 if( me == null ) {
