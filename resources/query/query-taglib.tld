@@ -103,7 +103,7 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
-      <name>rowList</name>
+      <name>list</name>
       <required>true</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>

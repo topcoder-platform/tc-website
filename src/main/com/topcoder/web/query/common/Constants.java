@@ -56,6 +56,7 @@ public class Constants {
     public static String MODIFY_QUERY_TASK;
     public static String MODIFY_QUERY_INPUT_TASK;
     public static String MODIFY_INPUT_TASK;
+    public static String MODIFY_COMMAND_QUERY_TASK;
 
     public static String LOGIN_NAME;
     public static String DB_SELECTION_NAME;
@@ -131,6 +132,7 @@ public class Constants {
         MODIFY_QUERY_TASK = servletConfig.getInitParameter("modify_query_task");
         MODIFY_QUERY_INPUT_TASK = servletConfig.getInitParameter("modify_query_input_task");
         MODIFY_INPUT_TASK = servletConfig.getInitParameter("modify_input_task");
+        MODIFY_COMMAND_QUERY_TASK = servletConfig.getInitParameter("modify_command_query_task");
 
         LOGIN_NAME = servletConfig.getInitParameter("login_name");
         DB_SELECTION_NAME = servletConfig.getInitParameter("db_selection_name");
