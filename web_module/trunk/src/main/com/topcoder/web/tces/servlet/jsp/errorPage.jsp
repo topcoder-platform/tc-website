@@ -15,7 +15,7 @@
     <jsp:include page="script.jsp" />
     
   </HEAD>
-  <BODY class="tces">
+  <BODY id="tces">
 
   
   
