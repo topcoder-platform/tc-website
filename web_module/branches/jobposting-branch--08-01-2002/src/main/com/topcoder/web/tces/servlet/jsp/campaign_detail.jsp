@@ -48,23 +48,25 @@
            <jsp:param name="image1" value="steelblue"/>  
            <jsp:param name="title" value="<%=CampaignDetailTask.getCompanyName()%>"/>
         </jsp:include>
+        <P ALIGN="center">
+          <A HREF="<%=request.getServletPath()+"?"+TCESConstants.TASK_PARAM+"="+TCESConstants.MAIN_TASK+"&"+TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">Main</A>
+        </P> 
+        <P ALIGN="center">
+          <B>
+            <jsp:getProperty name="CampaignDetailTask" property="CompanyName"/>
+          </B>
+          <BR/>
+          <jsp:getProperty name="CampaignDetailTask" property="CampaignName"/>
+        </P>
         
-        <p align="center">
-        <b>
-        <jsp:getProperty name="CampaignDetailTask" property="CompanyName"/>
-        </b>
-        <br>
-        <jsp:getProperty name="CampaignDetailTask" property="CampaignName"/>
-        </p>
+        <P ALIGN="center">
+          <B>Total Hits:</B> <jsp:getProperty name="CampaignDetailTask" property="TotalHits"/><BR/>
+          <B>Most Recent Hit:</B> <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit"/>
+        </P>
         
-        <p align="center">
-        <B>Total Hits:</B> <jsp:getProperty name="CampaignDetailTask" property="TotalHits"/><br>
-        <B>Most Recent Hit:</B> <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit"/>
-        </p>
-        
-        <p align="center">
-        <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View Overall Campaign Interest</a>
-        </p>
+        <P ALIGN="center">
+        <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View Overall Campaign Interest</A>
+        </P>
         
         <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
