@@ -145,7 +145,7 @@
                       </TD></TR>
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
 					  <B>Each match has a total prize purse of $<xsl:choose><xsl:when test="$contestId='4136' or $contestId='4140'">2</xsl:when><xsl:otherwise>1</xsl:otherwise></xsl:choose>0,000</B><BR/>
-					  - $500 from each match is donated to <A HREF="/index?t=support&amp;c=charities" CLASS="bodyText">charity</A><BR/>
+					  - $<xsl:choose><xsl:when test="$contestId='4136' or $contestId='4140'">10</xsl:when><xsl:otherwise>5</xsl:otherwise></xsl:choose>00 from each match is donated to <A HREF="/index?t=support&amp;c=charities" CLASS="bodyText">charity</A><BR/>
 					  - $<xsl:choose><xsl:when test="$contestId='4136' or $contestId='4140'">2</xsl:when><xsl:otherwise>1</xsl:otherwise></xsl:choose>00 is paid to the unrated competitor who has the highest points for the match<BR/>
 					  - Coders must place with a positive point total to collect their prize.<BR/><BR/>
 					  <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Prize structure</A><BR/><BR/>
