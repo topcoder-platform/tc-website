@@ -130,7 +130,7 @@ public abstract class SelectTag extends BaseTag {
         s.append("</option>");
         if (options != null) {
             if (selectedValue == null) {
-                selectedValue = getDefaultValue().toString();
+                selectedValue = getDefaultValue()==null?null:getDefaultValue().toString();
             }
             Iterator it = options.iterator();
             for (; it.hasNext();) {
