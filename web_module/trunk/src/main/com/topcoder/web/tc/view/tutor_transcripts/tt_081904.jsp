@@ -48,7 +48,7 @@
 <tr><td class=tutorEven><b>NeverMore</b></td><td class=tutorEven>vorthys: cool</td></tr>
 <tr><td class=tutorOdd><b>Tron3k</b></td><td class=tutorOdd>In Java you can make huge arrays like int[][][][]</td></tr>
 <tr><td class=tutorEven><b>Tron3k</b></td><td class=tutorEven>but in C++ you have to do ridiculous things like</td></tr>
-<tr><td class=tutorOdd><b>Tron3k</b></td><td class=tutorOdd>vector<vector<vector<int> > ></td></tr>
+<tr><td class=tutorOdd><b>Tron3k</b></td><td class=tutorOdd>vector&lt;vector&lt;vector&lt;int&gt; &gt; &gt;</td></tr>
 <tr><td class=tutorEven><b>vorthys</b></td><td class=tutorEven>Tron3k: you can still use arrays, but then you don't have all the convenient methods you get with vectors</td></tr>
 <tr><td class=tutorOdd><b>marian</b></td><td class=tutorOdd>because I can't believe that i didn't see that we are actually finding 3 paths from (0,0) to (n,m)</td></tr>
 <tr><td class=tutorEven><b>Tron3k</b></td><td class=tutorEven>vorthys: let's say I wanted an int[1000000] or something. would it be ok if i made it global?</td></tr>
@@ -56,7 +56,7 @@
 <tr><td class=tutorEven><b>vorthys</b></td><td class=tutorEven>marian: yeah, having the 2nd pass be backwards was (deliberately) misleading</td></tr>
 <tr><td class=tutorOdd><b>antimatter</b></td><td class=tutorOdd>Tron3k: do you mean "ok" as in "won't run out of memory"?</td></tr>
 <tr><td class=tutorEven><b>Tron3k</b></td><td class=tutorEven>yeah i guess</td></tr>
-<tr><td class=tutorOdd><b>Tron3k</b></td><td class=tutorOdd>i usually would do vector<int> v(1000000)</td></tr>
+<tr><td class=tutorOdd><b>Tron3k</b></td><td class=tutorOdd>i usually would do vector&lt;int&gt; v(1000000)</td></tr>
 <tr><td class=tutorEven><b>marian</b></td><td class=tutorEven>Tron3k: when you define it as global, you're ok</td></tr>
 <tr><td class=tutorOdd><b>antimatter</b></td><td class=tutorOdd>the memory limits are 64MB, so it's perfectly fine either way.</td></tr>
 <tr><td class=tutorEven><b>marian</b></td><td class=tutorEven>antimatter: be careful because stack is smaller</td></tr>
