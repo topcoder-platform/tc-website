@@ -118,10 +118,10 @@ ProfileExperienceObject profExp = tces.getProfileExperienceObject();
 	String selectedNumberPeople = profExp.organization_size_id.toString();
 	
         Calendar c = new GregorianCalendar();
-        c.setTime(profExp.date_start);
+        c.setTime(profExp.date_start.getTime());
 	String startMonth = c.get(Calendar.MONTH) + 1;
 	String startYear = c.get(Calendar.YEAR) + 1900;
-        c.setTime(profExp.date_end);
+        c.setTime(profExp.date_end.getTime());
 	String endMonth = c.get(Calendar.MONTH) + 1;
 	String endYear = c.get(Calendar.YEAR) + 1900;
 %>
