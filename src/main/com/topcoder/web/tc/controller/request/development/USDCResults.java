@@ -19,7 +19,7 @@ public class USDCResults extends StatBase {
     }
     
     String getDataSourceName() {
-        return DBMS.TCS_DW_DATASOURCE_NAME;
+        return DBMS.DW_DATASOURCE_NAME;
     }
     
     String getPageName() {
