@@ -72,6 +72,7 @@ abstract public class ContractingBase extends BaseProcessor {
                 log.debug("ERRORS FOUND, using " + errorProcessor);
                 errorProcessor.setRequest(getRequest());
                 errorProcessor.setResponse(getResponse());
+                errorProcessor.setAuthentication(getAuthentication());
                 
                 errorProcessor.contractingProcessing();
                 errorProcessor.setNextPage();
@@ -141,6 +142,11 @@ abstract public class ContractingBase extends BaseProcessor {
                 if(info.getPreference(overallPreferences[i]) == null) {
                     addError(Constants.PREFERENCE_PREFIX + overallPreferences[i], "This question is required.");
                 }
+            }
+            
+            if(info.getResume() == null) {
+                good = false;
+                addError("Resume", "A resume is required.");
             }
             
             if(!good) {

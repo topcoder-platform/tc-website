@@ -132,6 +132,13 @@ return false;
 			<tr>
 				<td class=bodyText>Attach your <b>resume</b> here and we'll include it in your profile</td>
 			</tr>
+			<tc-webtag:errorIterator id="err" name="Resume">
+                            <tr>
+                                <td class=bodyText>
+                                    <span class="bigRed"><%=err%></span>
+                                </td>
+                            </tr>
+                        </tc-webtag:errorIterator>
 			<%if(request.getAttribute("hasResume") != null && request.getAttribute("hasResume").equals("true")) {%>
 			<tr>
 				<td class=bodyText><a href="/Resume?&t=DownloadTask">Download your existing resume</a></td>
