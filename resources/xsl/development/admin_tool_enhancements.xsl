@@ -114,9 +114,9 @@
                                             <br/>
                                             Total Payment - $1,860.00
                                             <br/>
-                                            First Payment - $1,300.00
+                                            First Payment - $1,400.00
                                             <br/>
-                                            Final Payment - $560.00
+                                            Final Payment - $460.00
                                             <br/>
                                         </p>
                                         <strong>Second Place Designer</strong>
