@@ -78,11 +78,11 @@
             <BR/><BR/>
             At the TCCC04, you will be sharing a hotel room with another competitor.  Once the finalists have
             been announced, you can email me bhealy@topcoder.com with any preference you may have for a
-            roommate.  We will do all possible to accommodate your request. <BR/>
+            roommate.  We will do everything possible to accommodate your request. <BR/>
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
-          Your travel information must be submitted no later than <strong>Wednesday, March 24th</strong>.    TopCoder will secure
+          Your travel information must be submitted no later than <strong>9:00 PM ET on Wednesday, March 24th</strong>.    TopCoder will secure
             airline reservations based upon your registration information and email a travel itinerary to you
             by Friday, April 2nd.  Please be advised that once airlines tickets are confirmed, any changes are
             subject to penalty fees at your own expense.
@@ -215,13 +215,13 @@
 
             <BR/>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="December 3, 2003 - preferred departure time"/>April 14, 2004 - preferred departure time:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="April 14, 2004 - preferred departure time"/>April 14, 2004 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a28"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="December 6, 2003 - preferred departure time"/>April 14, 2004 - preferred departure time:</TD>
-              <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="April 17, 2004 - preferred departure time:"/>April 17, 2004 - preferred departure time:</TD>
+              <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT> Please not: You <u>must</u> depart on Saturday April 17, 2004.</TD>
             </TR>
 
             <BR/>
@@ -252,7 +252,7 @@
                 expense. TopCoder is offering a spectator package for members and guests to join us at this most exciting
                 tournament yet!  For a cost of $495pp, the spectator package includes 2 nights at the hotel, 2 meals with
                 the competitors, attendance at all onsite events (competitions, technical presentations, etc.) and an
-                assortment of TopCoder Gear.  The package does not include any travel to the event.
+                assortment of TopCoder Gear.  The package does not include any travel to the event, or attendance at the Awards Dinner.
                 <br/><br/>
             For more details, click <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=spectator_package">here</a>
                 </td>
