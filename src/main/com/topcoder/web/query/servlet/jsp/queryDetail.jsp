@@ -93,7 +93,6 @@
               <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr bgcolor="#333333">
                   <td></td>
-                  <td class="statTextBig" ALIGN="left"></td>
                   <td class="statTextBig" ALIGN="left">Command</td>
                   <td class="statTextBig" ALIGN="left">Command Group</td>
                 </tr>
