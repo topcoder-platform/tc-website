@@ -96,11 +96,6 @@
         <BR/>
             The Boston Park Plaza Hotel provides a shuttle to and from Logan International Airport every half hour.
             Further information on where to board upon your arrival at the airport will be indicated on your itinerary.
-         <BR/>
-        <BR/>
-        <CENTER>
-          <H1>Travel Form</H1>
-        </CENTER>
         </p>
 
 
@@ -108,6 +103,7 @@
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
         <INPUT TYPE="hidden" NAME="c" VALUE="2004_collegiate_comp_submit_info"/>
+            <TR><TD COLSPAN="2"><H1 align="center">Travel Form</H1></TD></TR>
             <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
 
             <TR>
@@ -148,7 +144,6 @@
           <TD align="left"><INPUT TYPE="text" NAME="a7" size="15"/></TD>
         </TR>
 
-            <BR/>
             <TR><TD COLSPAN="2"><U><B>Mailing address:</B></U></TD></TR>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="Street Address"/>Street Address:</TD>
@@ -175,7 +170,6 @@
               <TD align="left"><INPUT TYPE="text" NAME="a12" size="15"/></TD>
             </TR>
 
-            <BR/>
             <TR><TD COLSPAN="2"><U><B>Emergency contact:</B></U></TD></TR>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q13" VALUE="Emergency contact Name"/>Name:</TD>
@@ -191,9 +185,6 @@
               <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="Emergency contact Relationship"/>Relationship:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a15" size="30"/></TD>
             </TR>
-
-            <BR/>
-
 
             <TR><TD COLSPAN="2"><U><B>Media Information:</B></U></TD></TR>
 
@@ -218,14 +209,12 @@
               <TD align="left"><INPUT TYPE="text" NAME="a18" size="50"/></TD>
             </TR>
 
-            <BR/>
             <TR><TD COLSPAN="2"><U><B>TRAVEL INFORMATION:</B></U></TD></TR>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q26" VALUE="Departure City/Airport"/>Departure City/Airport:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a26" size="50"/></TD>
             </TR>
 
-            <BR/>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="April 15, 2004 - preferred departure time"/>April 15, 2004 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a28"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
@@ -236,8 +225,6 @@
               <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
-            <BR/>
-
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q30" VALUE="Seating preference"/>Seating preference:</TD>
               <TD align="left"><SELECT name="a30"><OPTION value="Window">Window</OPTION><OPTION value="Aisle">Aisle</OPTION></SELECT></TD>
@@ -246,8 +233,7 @@
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q31" VALUE="Preference for your hotel room"/>Preference for your hotel room :</TD>
               <TD align="left"><SELECT name="a31"><OPTION value="Smoking">Smoking</OPTION><OPTION value="Non Smoking">Non Smoking</OPTION></SELECT></TD>
-            </TR>
-
+           </TR>
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q32" VALUE="Personal Considerations/Special Requests"/>Personal Considerations/Special Requests: (Physical requirements or Medical needs)</TD>
