@@ -173,7 +173,7 @@ if (rscSubmissions.size() > 0) {  %>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" COLSPAN="7" VALIGN="middle" ALIGN="left">
-                  <%= stBuffer.toString() %>
+                  <%= stBuffer.toString().trim().length()==0?"Solution Not Available":stBuffer.toString() %>
                    </TD>
                  </TR>
                  <TR>
