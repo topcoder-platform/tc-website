@@ -109,7 +109,7 @@ public class HistoryPlot
  static final int   w = 800 ; // image width
  static final int   h = 600 ; // image height
  static final int   blackwidth    = w;//180 ;  // for the black to grey background
- static final int   fadewidth     = 0;//100 ;  // for the black to grey background
+ static final int   fadewidth     = 100 ;  // for the black to grey background
  static final int   grayish       = 100 ;
  static final int   maxyearlabels = 21 ;
  static final Color plotColor        = new Color(255,255,255);
