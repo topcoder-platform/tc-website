@@ -59,7 +59,6 @@ public class Controller
                     forwardToError(request, response, e);
                     return;
                 }
-                log.debug("task is word");
                 log.debug("about to make task: "+taskName);
                 try {
                     task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class}).newInstance(new Object[]{fu});
