@@ -223,6 +223,7 @@
             <% } %>
 
 
+            <%-- TODO this is terrible, get this java could OUTTA here --%>
             <% List solutionA = (List)request.getAttribute("problemSolutionAList"); %>
             <% List solutionB = (List)request.getAttribute("problemSolutionBList"); %>
             <% List[] solutions = {solutionA, solutionB}; %>
@@ -233,11 +234,12 @@
             <% SubmissionInfo solution = null; %>
 
               <% for (int j=0; j<statements.length; j++) { %>
-                <h3>Test Set A</h3>
                 <% for (int i=0; i<statements[j].size(); i++) { %>
                     <% problem = (ProblemInfo)statements[j].get(i); %>
                     <% solution = (SubmissionInfo)solutions[j].get(i); %>
                     <% if (!solution.isSubmitted()) continue; %>
+                    <%=j==0&&i==0&&solution.isSubmitted()?"<h3>Test Set A</h3>":""%>
+                    <%=j==1&&i==0&&solution.isSubmitted()?"<h3>Test Set B</h3>":""%>
                   <table style="page-break-before:always" cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="bodyText"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
@@ -253,7 +255,6 @@
                   <tr><td><br/></td></tr>
                   </table>
                 <% } %>
-                <h3>Test Set B</h3>
               <% } %>
               </table>
 
