@@ -1,4 +1,4 @@
-            <img src="/i/hs/clear.gif" width="200" height="16" alt="" border="0"><br>
+            <img src="/i/hs/clear.gif" width="200" height="17" alt="" border="0"><br>
 
 <!--Participate Promo Starts-->
             <a href="?module=Static&d1=registration&d2=registration"><img src="/i/hs/left_schools2.gif" width="200" height="64" alt="" border="0"></a><br>
