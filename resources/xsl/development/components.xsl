@@ -235,7 +235,7 @@
                 <tr valign="middle">
                     <td class="statText">
                         <p><strong>File Writer</strong><br />
-                       	Provides a framework for writing to various file formats without requiring additional coding. Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=6510304" target="parent" class="statText">.NET Command Line</a> on the TopCoder Software web site.</p>
+                       	Provides a framework for writing to various file formats without requiring additional coding. Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=6510304" target="parent" class="statText">File Writer</a> on the TopCoder Software web site.</p>
                         
                         <p><strong>Review Board Comments</strong><br />
                         This is a solid design that manages to be simple and extensible."
