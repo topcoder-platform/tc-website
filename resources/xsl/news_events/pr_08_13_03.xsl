@@ -95,7 +95,7 @@
                         details or information regarding TopCoder Software, TopCoder Employment Services or sponsorship of TopCoder Events, please visit 
                         <a href="/">www.topcoder.com</a>.</p>
 
-                        <p><span class="bodySubTitle">About TopCoder, Inc.</span><br />
+                        <p><span class="bodySubTitle">About CRPF</span><br />
                         The Christopher Reeve Paralysis Foundation is committed to funding research that develops treatments and cures for paralysis caused 
                         by spinal cord injury and other central nervous system disorders. The Foundation also vigorously works to improve the quality of life for 
                         people living with disabilities through its grants program, paralysis resource center and advocacy efforts.  For more information, please 
