@@ -104,7 +104,7 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=2289&amp;rd=5008">Fences</a></b>
 </font>
-<A href="java-script:openProblemRating(2289)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/>
+<A href="javascript:openProblemRating(2289)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/>
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -218,7 +218,7 @@ arrays.
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=2326&amp;rd=5008">ImageCompress</a></b>
 </font>
-<A href="java-script:openProblemRating(2326)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/>
+<A href="javascript:openProblemRating(2326)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/>
 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
@@ -359,7 +359,7 @@ took as evidence of the writer's character.
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=2401&amp;rd=5008">Decaffeinated</a></b>
 </font>
-<A href="java-script:openProblemRating(2401)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/>
+<A href="javascript:openProblemRating(2401)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/>
 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
