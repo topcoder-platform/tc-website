@@ -35,6 +35,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.project.Project;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
@@ -450,144 +451,157 @@ else if (command.equals("send")) {
                         long componentId = Long.parseLong(request.getParameter("comp"));
                         long version = Long.parseLong(request.getParameter("version"));
                         long ph = Long.parseLong(phase);
+                        long projId = Long.parseLong(request.getParameter("projectId"));
+                        
+                        //get fancy new ejb
+                        InitialContext ctx = TCContext.getInitial();
+                        
+                        Project projBean = (Project)BaseProcessor.createEJB(ctx, Project.class);
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
-                            /*if (!isProjectLockedOut(componentId, version, phase, nav.getSessionInfo().getUserId()) ||
-                                    isTournamentComponent(componentId, version, phase)) {*/
-                             if(!isProjectRegClosed(Long.parseLong(request.getParameter("projectId")))) {
-                                if (!hasRegistered(Long.parseLong(request.getParameter("projectId")), nav.getSessionInfo().getUserId())) {
-                                    if (reviewerCheck(Long.parseLong(request.getParameter("projectId")), nav.getSessionInfo().getUserId())) {
-                                        if (winningDesignerCheck(Long.parseLong(request.getParameter("projectId")), nav.getSessionInfo().getUserId())) {
-
-                                            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-
-
-                                            com.topcoder.security.UserPrincipal selectedPrincipal = null;
-
-                                            //get principal manager
-                                            Object objPrincipalManager = CONTEXT.lookup("security/PrincipalMgr");
-                                            PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
-                                            PrincipalMgrRemote PRINCIPAL_MANAGER = principalManagerHome.create();
-
-
-                                            //get forum object
-                                            //DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(CONTEXT.lookup("dde/DDEForum"), DDEForumHome.class);
-                                            //DDEForum ddeforum = ddeforumhome.create();
-
-                                            //retrieve the coder registration information
-                                            log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
-
-
-                                            log.debug("creating user");
-                                            Object objUserManager = CONTEXT.lookup("dde/UserManager");
-                                            UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
-                                            UserManagerRemote USER_MANAGER = userManagerHome.create();
-
-                                            try {
-                                                selectedPrincipal = PRINCIPAL_MANAGER.getUser(handle);
-                                                userId = selectedPrincipal.getId();
-                                                //PricingTier pt = new PricingTier(1, 5.0);
-                                                log.debug("got user");
-                                            } catch (NoSuchUserException noSuchUserException) {
-                                                log.error("noSuchUserException: " + handle + noSuchUserException);
-                                                throw noSuchUserException;
-
-                                            } catch (Exception e) {
-                                                throw e;
-
-                                            }
-
-                                            //add the user to the appropriate role to view the specification
-                                            java.util.HashSet rolesSet = (java.util.HashSet) PRINCIPAL_MANAGER.getRoles(null);
-                                            RolePrincipal[] roles = (RolePrincipal[]) rolesSet.toArray(new RolePrincipal[0]);
-                                            //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
-
-                                            log.debug("phase: " + ph);
-                                            log.debug("version: " + version);
-
-                                            long projectId = Long.parseLong(request.getParameter("projectId"));
-
-                                            USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, ph, version, projectId);
-
-
-
-                                            //log.debug("FormattedProject: " + formattedProject);
-
-                                            int i = 0;
-                                            boolean notFound = true;
-                                            //if (rating > 0 || rating == -1) {
-                                            //get catalog object
-                                            Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
-                                            ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
-
-                                            ComponentManager componentMgr = home.create(componentId);
-                                            com.topcoder.dde.catalog.Forum activeForum = componentMgr.getActiveForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
-
-                                            while (notFound && i < roles.length) {
-                                                String roleName = roles[i].getName();
-                                                if (roleName.startsWith("ForumUser")) {
-
-
-                                                    if (activeForum != null) {
-
-                                                        log.debug("Role: " + roleName);
-                                                        log.debug("FormName:  FormUser " + activeForum.getId());
-                                                        activeForumId = Long.toString(activeForum.getId());
-                                                        devTag.addTag(new ValueTag("forumId", activeForumId));
-                                                        if (roleName.equalsIgnoreCase("ForumUser " + activeForumId)) {
-                                                            log.debug("--->got a match");
-                                                            notFound = false;
-                                                            //RolePrincipal roleToAdd = roles[i];
-                                                            try {
-
-                                                                PRINCIPAL_MANAGER.assignRole(selectedPrincipal, roles[i], null);
-                                                                permissionAdded = true;
-                                                            } catch (com.topcoder.security.GeneralSecurityException gse) {
-                                                                //ignore
-                                                                log.error("GeneralSecurityException occurred! ", gse);
-                                                                notFound = true;
-
-                                                            }
-                                                        }
-
-                                                    }
-                                                }
-                                                i++;
-                                            }
-                                            //}
-
-                                            if (!permissionAdded) {
-
-                                                log.error("Could not find a match for the specific forum");
-                                            }
-
-
-                                            TCSEmailMessage mail = new TCSEmailMessage();
-                                            log.debug("from: " + from);
-                                            mail.addToAddress(from, TCSEmailMessage.TO);
-                                            mail.setFromAddress(to);
-                                            mail.setSubject(project);
-
-
-                                            xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
-
-                                            if (ph == ComponentVersionInfo.SPECIFICATION) {
-                                                mail.setBody("Registration Complete. \r\n\r\n" +
-                                                        "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\r\n\r\n" +
-                                                        "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\r\n\r\n" +
-                                                        "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
-                                                        "TopCoder Software Team");
-
+                             if(!projBean.isRegClosed(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                if (!projBean.isUserRegistered(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                    if (!projBean.hasUserReviewedProject(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                        if (!projBean.isUserWinningDesigner(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                            //check max rated / unrated
+                                            if(rating == 0 && projBean.getUnratedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= projBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) ) {
+                                                //reg full - unrated
+                                                devTag.addTag(new ValueTag("max_reg", projBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
+                                                xsldocURLString = XSL_DIR + "reg_full_unrated.xsl";
+                                            } else if (rating != 0 && projBean.getRatedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= projBean.getMaxRatedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                                //reg full - rated
+                                                devTag.addTag(new ValueTag("max_reg", projBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
+                                                xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
                                             } else {
 
-                                                mail.setBody("Registration Complete\r\n\r\n" +
-                                                        "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\r\n\r\n" +
-                                                        "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your solution using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review. If you encounter any problems, please contact us at service@topcodersoftware.com.  Any late submissions will be ignored. \r\n\r\n" +
-                                                        "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
-                                                        "TopCoder Software Team");
-                                            }
-                                            EmailEngine.send(mail);
+                                                Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
+                                                com.topcoder.security.UserPrincipal selectedPrincipal = null;
+
+                                                //get principal manager
+                                                Object objPrincipalManager = CONTEXT.lookup("security/PrincipalMgr");
+                                                PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
+                                                PrincipalMgrRemote PRINCIPAL_MANAGER = principalManagerHome.create();
+
+
+                                                //get forum object
+                                                //DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(CONTEXT.lookup("dde/DDEForum"), DDEForumHome.class);
+                                                //DDEForum ddeforum = ddeforumhome.create();
+
+                                                //retrieve the coder registration information
+                                                log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
+
+
+                                                log.debug("creating user");
+                                                Object objUserManager = CONTEXT.lookup("dde/UserManager");
+                                                UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
+                                                UserManagerRemote USER_MANAGER = userManagerHome.create();
+
+                                                try {
+                                                    selectedPrincipal = PRINCIPAL_MANAGER.getUser(handle);
+                                                    userId = selectedPrincipal.getId();
+                                                    //PricingTier pt = new PricingTier(1, 5.0);
+                                                    log.debug("got user");
+                                                } catch (NoSuchUserException noSuchUserException) {
+                                                    log.error("noSuchUserException: " + handle + noSuchUserException);
+                                                    throw noSuchUserException;
+
+                                                } catch (Exception e) {
+                                                    throw e;
+
+                                                }
+
+                                                //add the user to the appropriate role to view the specification
+                                                java.util.HashSet rolesSet = (java.util.HashSet) PRINCIPAL_MANAGER.getRoles(null);
+                                                RolePrincipal[] roles = (RolePrincipal[]) rolesSet.toArray(new RolePrincipal[0]);
+                                                //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
+
+                                                log.debug("phase: " + ph);
+                                                log.debug("version: " + version);
+
+                                                long projectId = Long.parseLong(request.getParameter("projectId"));
+
+                                                USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, ph, version, projectId);
+
+
+
+                                                //log.debug("FormattedProject: " + formattedProject);
+
+                                                int i = 0;
+                                                boolean notFound = true;
+                                                //if (rating > 0 || rating == -1) {
+                                                //get catalog object
+                                                Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
+                                                ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
+
+                                                ComponentManager componentMgr = home.create(componentId);
+                                                com.topcoder.dde.catalog.Forum activeForum = componentMgr.getActiveForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+
+                                                while (notFound && i < roles.length) {
+                                                    String roleName = roles[i].getName();
+                                                    if (roleName.startsWith("ForumUser")) {
+
+
+                                                        if (activeForum != null) {
+
+                                                            log.debug("Role: " + roleName);
+                                                            log.debug("FormName:  FormUser " + activeForum.getId());
+                                                            activeForumId = Long.toString(activeForum.getId());
+                                                            devTag.addTag(new ValueTag("forumId", activeForumId));
+                                                            if (roleName.equalsIgnoreCase("ForumUser " + activeForumId)) {
+                                                                log.debug("--->got a match");
+                                                                notFound = false;
+                                                                //RolePrincipal roleToAdd = roles[i];
+                                                                try {
+
+                                                                    PRINCIPAL_MANAGER.assignRole(selectedPrincipal, roles[i], null);
+                                                                    permissionAdded = true;
+                                                                } catch (com.topcoder.security.GeneralSecurityException gse) {
+                                                                    //ignore
+                                                                    log.error("GeneralSecurityException occurred! ", gse);
+                                                                    notFound = true;
+
+                                                                }
+                                                            }
+
+                                                        }
+                                                    }
+                                                    i++;
+                                                }
+                                                //}
+
+                                                if (!permissionAdded) {
+
+                                                    log.error("Could not find a match for the specific forum");
+                                                }
+
+
+                                                TCSEmailMessage mail = new TCSEmailMessage();
+                                                log.debug("from: " + from);
+                                                mail.addToAddress(from, TCSEmailMessage.TO);
+                                                mail.setFromAddress(to);
+                                                mail.setSubject(project);
+
+
+                                                xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
+
+                                                if (ph == ComponentVersionInfo.SPECIFICATION) {
+                                                    mail.setBody("Registration Complete. \r\n\r\n" +
+                                                            "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\r\n\r\n" +
+                                                            "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\r\n\r\n" +
+                                                            "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
+                                                            "TopCoder Software Team");
+
+                                                } else {
+
+                                                    mail.setBody("Registration Complete\r\n\r\n" +
+                                                            "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\r\n\r\n" +
+                                                            "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your solution using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review. If you encounter any problems, please contact us at service@topcodersoftware.com.  Any late submissions will be ignored. \r\n\r\n" +
+                                                            "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
+                                                            "TopCoder Software Team");
+                                                }
+                                                EmailEngine.send(mail);
+                                            }
                                         } else {
                                             xsldocURLString = XSL_DIR + "winning_designer.xsl";
                                         }
@@ -734,26 +748,6 @@ else if (command.equals("send")) {
         return ret;
     }
 
-    public static boolean isProjectRegClosed(long projectId) throws Exception {
-
-        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        Request inquiryRequest = new Request();
-        inquiryRequest.setContentHandle("project_detail");
-        inquiryRequest.setProperty("pj", String.valueOf(projectId));
-        ResultSetContainer detailRsc = (ResultSetContainer) dAccess.getData(inquiryRequest).get("project_detail");
-
-        String closed = detailRsc.getStringItem(0, "project_status");
-
-        boolean ret = false;
-        if(closed.equals("closed"))
-        {
-            ret = true;
-        }
-        //it's never locked up, we took that out (at least for now)
-        return ret;
-
-    }
-
     public static boolean isProjectLockedOut(long componentId, long version, long phase, long userId) throws Exception {
 /*
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
@@ -812,37 +806,6 @@ else if (command.equals("send")) {
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_suspension");
         return !rsc.isEmpty();
     }
-
-    static boolean hasRegistered(long projectId, long userId) throws Exception {
-        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        Request r = new Request();
-        r.setContentHandle("component_inquiry");
-        r.setProperty("pj", String.valueOf(projectId));
-        r.setProperty("uid", String.valueOf(userId));
-        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_inquiry");
-        return !rsc.isEmpty();
-    }
-
-    static boolean reviewerCheck(long projectId, long userId) throws Exception {
-        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        Request r = new Request();
-        r.setContentHandle("reviewer_check");
-        r.setProperty("pj", String.valueOf(projectId));
-        r.setProperty("uid", String.valueOf(userId));
-        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("reviewer_check");
-        return rsc.isEmpty();
-    }
-
-    static boolean winningDesignerCheck(long projectId, long userId) throws Exception {
-        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        Request r = new Request();
-        r.setContentHandle("winning_designer_check");
-        r.setProperty("pj", String.valueOf(projectId));
-        r.setProperty("uid", String.valueOf(userId));
-        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("winning_designer_check");
-        return rsc.isEmpty();
-    }
-
 
     static ComponentManager getComponentManager(long componentId) {
 
