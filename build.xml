@@ -811,8 +811,6 @@
 
         <antcall target="war-privatelabel"/>
 
-        <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
-        <delete dir="${public_html}/privatelabel/META-INF"/>
     </target>
 
     <target name="war-privatelabel" depends="compile">
@@ -845,6 +843,8 @@
                 <include name="rsc-taglib.tld"/>
             </webinf>
         </war>
+        <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
+        <delete dir="${public_html}/privatelabel/META-INF"/>
     </target>
 
 
