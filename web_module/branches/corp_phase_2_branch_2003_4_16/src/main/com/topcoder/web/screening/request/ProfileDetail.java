@@ -8,11 +8,14 @@ import com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileLanguage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 
 import javax.rmi.PortableRemoteObject;
 import javax.naming.InitialContext;
 import javax.naming.Context;
 import java.util.Iterator;
+import java.util.Map;
 
 public class ProfileDetail extends BaseProfileProcessor {
     private static Logger log = Logger.getLogger(ProfileDetail.class);
@@ -47,9 +50,27 @@ public class ProfileDetail extends BaseProfileProcessor {
 
         info.setLanguageList(getLanguageList());
 
+        info.setSessionList(getSessionList(info.getProfileId().longValue(), getAuthentication().getActiveUser().getId()));
+
         getRequest().setAttribute(Constants.PROFILE_INFO, info);
         setNextPage(Constants.PROFILE_DETAIL_PAGE);
         setNextPageInContext(true);
+    }
+
+
+    private ResultSetContainer getSessionList(long profileId, long userId) throws Exception {
+        Request dataRequest = new Request();
+        dataRequest.setProperty(DataAccessConstants.COMMAND, Constants.PROFILE_SESSION_LIST_QUERY_KEY);
+        dataRequest.setProperty("spid", String.valueOf(profileId));
+        dataRequest.setProperty("uid", String.valueOf(userId));
+
+        Map map = getDataAccess().getData(dataRequest);
+
+        ResultSetContainer ret = null;
+        if (map != null) {
+            ret = (ResultSetContainer)map.get(Constants.PROFILE_TEST_SET_A_QUERY_KEY);
+        }
+        return ret;
     }
 
 
