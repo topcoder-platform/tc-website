@@ -62,6 +62,7 @@ public class Constants {
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
+    public static int TOURNAMENT_SURVEY_QUESTION;
     public static int SEARCH_SCROLL_SIZE;
 
 
