@@ -63,6 +63,23 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!-- DoubleClick Announcement -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_03_01_04"><img src="/i/pressroom/dccc.gif" alt="DoubleClick" width="135" height="100" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td> 
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_03_01_04">Columbia University Student Wins DoubleClick's 2004 TopCoder Programming Challenge</A></strong></font><br />
+                        Jason Winokur of Columbia University has won the DoubleClick 2004 Coding Challenge.  In the DoubleClick employee competition, 
+                        first place finisher was Eliot Horowitz of the New York City office.  The competition was open to all eligible students at Columbia 
+                        University and New York University as well as DoubleClick employees. The tournament was designed to highlight the competitors' 
+                        relative skills in the analysis of complex algorithmic problems and the ability to write software to solve those problems.<span class="prHead"> [March 1]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Yahoo TCCC Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
