@@ -75,7 +75,7 @@ The architect will be responsible for the delivery of a component or software ap
 </P>
 
 <P>
-The intention of this posting is to amass a group of members interested in the architect position.  If you are interested or have additional questions that are not covered in this posting, please inquire about this position by clicking the “Inquire” link on this page.  TopCoder will interview each candidate to review qualifications as well to ensure each architect fully understands their role in TopCoder Software development projects.  Inquiring does not commit you to working on a project.  In addition, when responding to this posting, please explain your technical strengths (i.e. UML, J2EE, data architecture, .NET, etc.), your development and design experience as well as the estimated number of hours you are typically available to work.
+The intention of this posting is to amass a group of members interested in the architect position.  If you are interested or have additional questions that are not covered in this posting, please inquire about this position by clicking the Inquire link on this page.  TopCoder will interview each candidate to review qualifications as well to ensure each architect fully understands their role in TopCoder Software development projects.  Inquiring does not commit you to working on a project.  In addition, when responding to this posting, please explain your technical strengths (i.e. UML, J2EE, data architecture, .NET, etc.), your development and design experience as well as the estimated number of hours you are typically available to work.
 </P>
 
 <P>
