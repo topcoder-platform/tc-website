@@ -25,6 +25,14 @@
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
+<script>
+function openWin(url, name, w, h) {
+    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+</script>
+
 </head>
 
 <body onLoad="timer(1);">
@@ -98,6 +106,23 @@
                   <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4701">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
+               </tr>
+            </table>
+            <br/><br/>
+            <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
+               <tr>
+                  <td width = "40%" align = "left" class="advancers_header">Round</td>
+                  <td width = "15%" align = "right" class="advancers_header">Advancers</td>
+                  <td width = "15%" align = "right" class="advancers_header">Room Winners</td>
+                  <td width = "15%" align = "right" class="advancers_header">Wildcards</td>
+                  <td width = "15%" align = "right" class="advancers_header">radeye's Odds</td>
+               </tr>
+               <tr>
+                  <td align = "left" class="advancers_roundid"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Online Round 1</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/index?t=tournaments&amp;c=tco03_top100">200</a></td>
+                  <td align = "right" class="advancers_faded">n/a</td>
+                  <td align = "right" class="advancers_faded">n/a</td>
+                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye','comp',600,400);">view</A></td>
                </tr>
             </table>
            </blockquote>
