@@ -14,15 +14,17 @@ public class ProfileDetail extends BaseProfileProcessor {
     public void process() throws Exception {
         ProfileInfo info = buildProfileInfo(getRequest());
 
-        log.debug("ProfileDetail for profile: " + info.getProfileId());
-        info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), getAuthentication().getActiveUser()));
-        info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getAuthentication().getActiveUser()));
-
         SessionProfileHome spHome = (SessionProfileHome)
             PortableRemoteObject.narrow(
                     TCContext.getInitial().lookup(SessionProfileHome.class.getName()),
                                    SessionProfileHome.class);
         SessionProfile profile = spHome.create();
+
+        log.debug("ProfileDetail for profile: " + info.getProfileId());
+        info.setTestSetAList(getTestSetAList(profile.getSessionRoundId(info.getProfileId().longValue()),
+                getAuthentication().getActiveUser()));
+        info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getAuthentication().getActiveUser()));
+
         info.setProfileName(profile.getSessionProfileDesc(info.getProfileId().longValue()));
 
         getRequest().setAttribute(Constants.PROFILE_INFO, info);
