@@ -861,7 +861,7 @@ SELECT p.class_name as class_name
        ,room_result rr
  WHERE cp.problem_id = p.problem_id
    AND cp.division_id = p.division_id
-   AND cp.round_id = (SELECT round_id FROM round WHERE calendar_id = (SELECT MAX(calendar_id) FROM round))
+   AND cp.round_id = @rd@
    AND cp.division_id = 2 
    AND cp.coder_id = rr.coder_id
    AND cp.round_id = rr.round_id
