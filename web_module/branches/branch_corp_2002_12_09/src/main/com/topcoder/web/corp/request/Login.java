@@ -53,7 +53,8 @@ public class Login extends BaseProcessor {
     /**
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
-    void businessProcessing() throws AuthenticationException {
+    void businessProcessing() throws AuthenticationException  
+    {
         if( authToken.isLoggedIn() ) {
             throw new InvalidLogonException("Already logged in. Try logout at first");
         }
@@ -78,8 +79,9 @@ public class Login extends BaseProcessor {
             markFormFieldAsInvalid(KEY_USER_HANDLE);
         }
         log.debug("login attempt[login/passw]: "+handle+"/"+passw);
+
         User possibleUser = new SimpleUser(handle, passw);
-        
+
         try {
             authToken.login(possibleUser);
             log.debug("user "+possibleUser.getUserName()+" has logged in");
@@ -88,6 +90,7 @@ public class Login extends BaseProcessor {
             markFormFieldAsInvalid(KEY_USER_PASS);
             throw ae;
         }
+        
         
         // done. if there is destination page then go there
         String destination = request.getParameter(KEY_DESTINATION_PAGE);

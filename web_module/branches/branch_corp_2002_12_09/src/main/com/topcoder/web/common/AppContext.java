@@ -14,6 +14,8 @@ import javax.naming.NamingException;
 
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.login.LoginRemote;
+import com.topcoder.security.login.LoginRemoteHome;
 import com.topcoder.shared.dataAccess.DatabaseContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.stub.PersistStore;
@@ -42,12 +44,34 @@ public class AppContext {
 	 */
 	private AppContext() {}
 	
-	
-	public static AppContext getInstance() throws IOException, FileNotFoundException, NamingException {
+	/**
+     * 
+	 * @return AppContext
+	 * @throws IOException
+	 * @throws FileNotFoundException
+	 * @throws NamingException
+	 */
+	public static AppContext getInstance()
+    throws IOException, FileNotFoundException, NamingException
+    {
 		return getInstance(null);
 	}
 
-
+    /**
+     * 
+     * 
+     * @return LoginRemote
+     * @throws NamingException
+     * @throws CreateException
+     * @throws RemoteException
+     */
+    public LoginRemote getRemoteLogin()
+    throws NamingException, CreateException, RemoteException
+    {
+        Object  l = getJndiInitialContext().lookup(LoginRemoteHome.EJB_REF_NAME);
+        return ((LoginRemoteHome) l).create();
+    }
+    
     /**
      * 
      * @param propertiesFileName

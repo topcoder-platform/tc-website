@@ -35,11 +35,11 @@ public interface User {
     public String getPassword();
     
     
-    /**
-     * Returns 
-     * @return String
-     */
-    public String getGroup();
+//    /**
+//     * Returns 
+//     * @return String
+//     */
+//    public String getGroup();
     
     /**
      * Shows is user anonymous or not.

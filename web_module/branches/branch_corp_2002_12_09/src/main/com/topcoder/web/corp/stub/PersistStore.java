@@ -135,7 +135,7 @@ public class PersistStore {
             return new SimpleUser(
                 u.getAttributeValue("handle"),
                 u.getAttributeValue("passw"),
-                u.getAttributeValue("group"),
+//                u.getAttributeValue("group"),
                 u.getAttribute("id").getLongValue()
             );
         }
@@ -195,7 +195,7 @@ public class PersistStore {
         u.setAttribute("id", ""+user.getId());
         u.setAttribute("handle", user.getUserName());
         u.setAttribute("passw", user.getPassword());
-        u.setAttribute("group", user.getGroup());
+//        u.setAttribute("group", user.getGroup());
         getUsersNode().addContent(u);
         save();
     }

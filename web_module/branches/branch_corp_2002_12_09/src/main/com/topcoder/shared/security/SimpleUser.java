@@ -9,7 +9,7 @@ package com.topcoder.shared.security;
  *
  */
 public class SimpleUser implements User {
-    private String grp = null;
+//    private String grp = null;
     private String uname = null;
     private String pw = null;
     private long id = USER_ANONYMOUS_ID;
@@ -33,10 +33,10 @@ public class SimpleUser implements User {
      * @param group
      * @param userID
      */
-    public SimpleUser(String username, String password, String group, long userID) {
+    public SimpleUser(String username, String password, /*String group,*/ long userID) {
         uname = username;
         pw = password;
-        grp = group;
+//        grp = group;
         id = userID;
     }
     
@@ -45,15 +45,15 @@ public class SimpleUser implements User {
      * @return User
      */
     public static User createAnonymous() {
-        return new SimpleUser(USER_ANONYMOUS_HANDLE, null, null, USER_ANONYMOUS_ID);
+        return new SimpleUser(USER_ANONYMOUS_HANDLE, null, USER_ANONYMOUS_ID);
     }
     
-    /**
-     * @see com.topcoder.shared.security.User#getGroup()
-     */
-    public String getGroup() {
-        return grp;
-    }
+//    /**
+//     * @see com.topcoder.shared.security.User#getGroup()
+//     */
+//    public String getGroup() {
+//        return grp;
+//    }
 
     /**
      * @see com.topcoder.shared.security.User#getId()

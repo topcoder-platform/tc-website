@@ -30,7 +30,7 @@
  <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
    <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
       <FORM NAME="login" METHOD="POST" action="<%=appContext%>/?module=login">
-        <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
+        <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="50%" ALIGN="left">
            <TR>
               <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">User Name:&#160;&#160;</TD>
               <TD HEIGHT="20" VALIGN="TOP">

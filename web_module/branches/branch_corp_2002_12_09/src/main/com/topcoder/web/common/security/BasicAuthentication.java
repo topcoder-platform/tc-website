@@ -4,7 +4,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.AuthenticationException;
 import com.topcoder.shared.security.InvalidLogonException;
 import com.topcoder.shared.security.Persistor;
@@ -83,17 +84,18 @@ public class BasicAuthentication implements WebAuthentication {
         if( ! checkCookie ) {
             return u;
         }
+        return u;
             
-        long id = getIDFromCookies();
-        if( id == User.USER_ANONYMOUS_ID ) {
-            return u;
-        }
-        try {
-            return pullUserFromDB(id);
-        }
-        catch(Exception e) { // it is impossible to pull that user from db
-            return u; 
-        }
+//        long id = getIDFromCookies();
+//        if( id == User.USER_ANONYMOUS_ID ) {
+//            return u;
+//        }
+//        try {
+//            return pullUserFromDB(id);
+//        }
+//        catch(Exception e) { // it is impossible to pull that user from db
+//            return u; 
+//        }
     }
 
     /**
@@ -120,24 +122,40 @@ public class BasicAuthentication implements WebAuthentication {
      * @see com.topcoder.shared.security.Authentication#login(com.topcoder.shared.security.User)
      */
     public void login(User user) throws AuthenticationException {
-        User desiredUser;
         try {
-            if( user.getUserName() != null ) {
-                desiredUser = pullUserFromDB(user.getUserName());
-            }
-            else {
-                desiredUser = pullUserFromDB(user.getId());
-            }
+            AppContext ac = AppContext.getInstance();
+            LoginRemote lrBean = ac.getRemoteLogin();
+            TCSubject subjUser = lrBean.login(user.getUserName(), user.getPassword());
+            long id = subjUser.getUserId();
+            User loggedUser = new SimpleUser(user.getUserName(), user.getPassword(), id);
+            store.setObject(KEY_LOGGEDIN_USER, loggedUser);
+            embedAutoConnectCookies(loggedUser.getId(), false);
         }
-        catch(Exception e) {
-            e.printStackTrace(System.err);
-            throw new InvalidLogonException(e);
+        catch(Exception e) { //
+            e.printStackTrace();
+            throw new InvalidLogonException(e.getMessage());
         }
-        if( ! desiredUser.getPassword().equals(user.getPassword()) ) {
-            throw new InvalidLogonException();
-        }
-        store.setObject(KEY_LOGGEDIN_USER, desiredUser);
-        embedAutoConnectCookies(desiredUser.getId(), false);
+
+//
+//
+//        
+//        try {
+//
+//
+//            if( user.getUserName() != null ) {
+//                desiredUser = pullUserFromDB(user.getUserName());
+//            }
+//            else {
+//                desiredUser = pullUserFromDB(user.getId());
+//            }
+//        }
+//        catch(Exception e) {
+//            e.printStackTrace(System.err);
+//            throw new InvalidLogonException(e);
+//        }
+//        if( ! desiredUser.getPassword().equals(user.getPassword()) ) {
+//            throw new InvalidLogonException();
+//        }
     }
 
     /**
@@ -150,7 +168,8 @@ public class BasicAuthentication implements WebAuthentication {
      * @param clear if true, then auto connect cookies are dropped out.
      */
     private void embedAutoConnectCookies(long userID, boolean clear) {
-        Cookie [] ret = new Cookie [2];
+        log.debug("embedding cookies ["+(clear?"clean up]" : "set up]"));
+        Cookie [] ret = new Cookie [1];
         ret[0] = new Cookie(KEY_LOGON_COOKIE_ID, clear ? "" : ""+userID);
         int expiresIn = clear ? -10*24*60*60 : 10*24*60*60;
         ret[0].setMaxAge(expiresIn);
@@ -183,44 +202,43 @@ public class BasicAuthentication implements WebAuthentication {
         return ret;
     }
 
-    /**
-     * Pulls out user matching given id from db
-     * 
-     * @param id
-     * @return User
-     * @throws Exception
-     */    
-    private static User pullUserFromDB(long id) throws Exception {
-        log.debug("pulling out user from db [id="+id+"]");
-        PrincipalMgrRemote mgr = 
-            AppContext.getInstance().getRemotePrincipalManager();
-        String uname = mgr.getUser(id).getName();
-        log.debug("[username="+uname+"]");
-        String pw = mgr.getPassword(id);
-        log.debug("[password="+pw+"]");
-        String grp = mgr.getGroup(id).getName();
-        log.debug("[group="+grp+"]");
-        return new SimpleUser(uname, pw, grp, id);
-    }
-    
-    /**
-     * Pulls out user matching given username from db
-     * 
-     * @param uname
-     * @return User
-     * @throws Exception
-     */
-    private static User pullUserFromDB(String uname) throws Exception {
-        log.debug("pulling out user from db [uname="+uname+"]");
-        PrincipalMgrRemote mgr =
-            AppContext.getInstance().getRemotePrincipalManager();
-        long id = mgr.getUser(uname).getId();
-        log.debug("[id="+id+"]");
-        String pw = mgr.getPassword(id);
-        log.debug("[password="+pw+"]");
-        String grp = mgr.getGroup(id).getName();
-        log.debug("[group="+grp+"]");
-        return new SimpleUser(uname, pw, grp, id);
-    }
-    
+//    /**
+//     * Pulls out user matching given id from db
+//     * 
+//     * @param id
+//     * @return User
+//     * @throws Exception
+//     */    
+//    private static User pullUserFromDB(long id) throws Exception {
+//        log.debug("pulling out user from db [id="+id+"]");
+//        PrincipalMgrRemote mgr = 
+//            AppContext.getInstance().getRemotePrincipalManager();
+//        String uname = mgr.getUser(id).getName();
+//        log.debug("[username="+uname+"]");
+//        String pw = mgr.getPassword(id);
+//        log.debug("[password="+pw+"]");
+//        String grp = mgr.getGroup(id).getName();
+//        log.debug("[group="+grp+"]");
+//        return new SimpleUser(uname, pw, grp, id);
+//    }
+//    
+//    /**
+//     * Pulls out user matching given username from db
+//     * 
+//     * @param uname
+//     * @return User
+//     * @throws Exception
+//     */
+//    private static User pullUserFromDB(String uname) throws Exception {
+//        log.debug("pulling out user from db [uname="+uname+"]");
+//        PrincipalMgrRemote mgr =
+//            AppContext.getInstance().getRemotePrincipalManager();
+//        long id = mgr.getUser(uname).getId();
+//        log.debug("[id="+id+"]");
+//        String pw = mgr.getPassword(id);
+//        log.debug("[password="+pw+"]");
+//        String grp = mgr.getGroup(id).getName();
+//        log.debug("[group="+grp+"]");
+//        return new SimpleUser(uname, pw, grp, id);
+//    }
 }
