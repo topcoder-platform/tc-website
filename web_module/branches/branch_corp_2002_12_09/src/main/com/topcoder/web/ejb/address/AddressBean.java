@@ -74,9 +74,9 @@ public class AddressBean implements SessionBean {
             ret = IdGenerator.nextId("ADDRESS_SEQ");
 
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO address (address_id, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO address (address_id) VALUES (");
             query.append(Long.toString(ret));
-            query.append(",'now','now')");
+            query.append(")");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
@@ -383,7 +383,7 @@ public class AddressBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET address_type_id = " + addressTypeId + ", modify_date = 'now' WHERE address_id = ");
+            query.append("UPDATE address SET address_type_id = " + addressTypeId + " WHERE address_id = ");
             query.append(Long.toString(addressId));
 
             ctx = new InitialContext();
@@ -418,7 +418,7 @@ public class AddressBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET address1 = '" + address1 + "', modify_date = 'now' WHERE address_id = ");
+            query.append("UPDATE address SET address1 = '" + address1 + "' WHERE address_id = ");
             query.append(Long.toString(addressId));
 
             ctx = new InitialContext();
@@ -453,7 +453,7 @@ public class AddressBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET address2 = '" + address2 + "', modify_date = 'now' WHERE address_id = ");
+            query.append("UPDATE address SET address2 = '" + address2 + "' WHERE address_id = ");
             query.append(Long.toString(addressId));
 
             ctx = new InitialContext();
@@ -488,7 +488,7 @@ public class AddressBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET city = '" + city + "', modify_date = 'now' WHERE address_id = ");
+            query.append("UPDATE address SET city = '" + city + "' WHERE address_id = ");
             query.append(Long.toString(addressId));
 
             ctx = new InitialContext();
@@ -523,7 +523,7 @@ public class AddressBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET state_code = '" + stateCode + "', modify_date = 'now' WHERE address_id = ");
+            query.append("UPDATE address SET state_code = '" + stateCode + "' WHERE address_id = ");
             query.append(Long.toString(addressId));
 
             ctx = new InitialContext();
@@ -558,7 +558,7 @@ public class AddressBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("UPDATE address SET zip = '" + zip + "', modify_date = 'now' WHERE address_id = ");
+            query.append("UPDATE address SET zip = '" + zip + "' WHERE address_id = ");
             query.append(Long.toString(addressId));
 
             ctx = new InitialContext();
@@ -593,7 +593,7 @@ public class AddressBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("UPDATE address SET country_code = '" + countryCode + "', modify_date = 'now' WHERE address_id = ");
+            query.append("UPDATE address SET country_code = '" + countryCode + "' WHERE address_id = ");
             query.append(Long.toString(addressId));
 
             ctx = new InitialContext();

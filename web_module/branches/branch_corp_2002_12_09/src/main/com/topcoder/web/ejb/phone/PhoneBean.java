@@ -74,9 +74,9 @@ public class PhoneBean implements SessionBean {
             ret = IdGenerator.nextId("PHONE_SEQ");
 
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO phone (user_id, phone_id, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO phone (user_id, phone_id) VALUES (");
             query.append(Long.toString(userId) + "," + Long.toString(ret));
-            query.append(",'now','now')");
+            query.append(")");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
@@ -192,7 +192,7 @@ public class PhoneBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE phone SET phone_type_id = " + phoneTypeId + ", modify_date = 'now' WHERE user_id = ");
+            query.append("UPDATE phone SET phone_type_id = " + phoneTypeId + " WHERE user_id = ");
             query.append(Long.toString(userId));
             query.append(" AND phone_id = ");
             query.append(Long.toString(phoneId));
@@ -229,7 +229,7 @@ public class PhoneBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE phone SET phone_number = '" + number + "', modify_date = 'now' WHERE user_id = ");
+            query.append("UPDATE phone SET phone_number = '" + number + "' WHERE user_id = ");
             query.append(Long.toString(userId));
             query.append(" AND phone_id = ");
             query.append(Long.toString(phoneId));

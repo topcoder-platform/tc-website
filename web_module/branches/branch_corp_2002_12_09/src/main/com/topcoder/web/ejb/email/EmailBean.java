@@ -74,9 +74,9 @@ public class EmailBean implements SessionBean {
             ret = IdGenerator.nextId("EMAIL_SEQ");
 
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO email (user_id, email_id, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO email (user_id, email_id) VALUES (");
             query.append(Long.toString(userId) + "," + Long.toString(ret));
-            query.append(",'now','now')");
+            query.append(")");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
@@ -192,7 +192,7 @@ public class EmailBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE email SET email_type_id = " + emailTypeId + ", modify_date = 'now' WHERE user_id = ");
+            query.append("UPDATE email SET email_type_id = " + emailTypeId + " WHERE user_id = ");
             query.append(Long.toString(userId));
             query.append(" AND email_id = ");
             query.append(Long.toString(emailId));
@@ -229,7 +229,7 @@ public class EmailBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE email SET address = '" + address + "', modify_date = 'now' WHERE user_id = ");
+            query.append("UPDATE email SET address = '" + address + "' WHERE user_id = ");
             query.append(Long.toString(userId));
             query.append(" AND email_id = ");
             query.append(Long.toString(emailId));
