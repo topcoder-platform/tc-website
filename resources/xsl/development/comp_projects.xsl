@@ -89,20 +89,21 @@
             </p>
 -->
 
-            <table class="devInstrTitle"  width="600" align="center" cellspacing="0">
-                <tr><td class="bodyText" colspan="3"><img src="/i/development/header_instr.gif" border="0"/></td></tr>
-                <tr><td class="bodyText" colspan="3">How to earn cash, royalties, and recognition through TopCoder Components quickly and easily</td></tr>
+            <table class="devInstrTitle"  width="610" align="center" cellspacing="0">
+                <tr><td class="bodyText"><img src="/i/development/header_instr.gif" border="0"/></td></tr>
             </table>
-            <table width="600" align="center" class="devInstrTable" cellspacing="0" border="0">
-                <tr><td class="devInstrHeader">1.</td><td class="devInstrHeader" valign="top" width="30%">Choose a component: </td><td width="70%" class="devInstr">Click through the component names listed below and find one that sounds right for you.</td></tr>
+            <table width="610" align="center" class="devInstrTable" cellspacing="0" border="0">
+                <tr><td class="devInstrHeader">1.</td><td class="devInstrHeader" valign="top" width="50%">Choose a component: </td><td width="50%" class="devInstr">Click through the component names listed below and find one that sounds right for you.</td></tr>
                 <tr><td class="devInstrHeader">2.</td><td class="devInstrHeader">Register: </td><td class="devInstr">On the component defintion page, click the link to "Register for this Component" and agree to the terms. You are now commited to that project!</td></tr>
                 <tr><td class="devInstrHeader">3.</td><td class="devInstrHeader">Check out the Developer Forum: </td><td class="devInstr">After registering, you will receive an email allowing you access to the forums for that project.</td></tr>
                 <tr><td class="devInstrHeader">4.</td><td class="devInstrHeader">Download the Development Distribution: </td><td class="devInstr">Download the Design Distribution. Read through the docs and become familiar with the requirements.</td></tr>
                 <tr><td class="devInstrHeader">5.</td><td class="devInstrHeader">Complete the project requirements and submit: </td><td class="devInstr">Login to <A href="http://software.topcoder.com/review/login.jsp">Project Submit and Review</A> and submit your submission.</td></tr>
-                <tr><td class="bodyText" colspan="3"><p align="right"><A href="/?t=development&amp;c=getting_started">...more detailed competition instructions</A></p></td></tr>
+            </table>
+            <table class="bodyText"  width="610" align="center" cellspacing="0">
+                <tr><td class="bodyText"><p align="right"><A href="/?t=development&amp;c=getting_started">...more detailed competition instructions</A></p></td></tr>
             </table>
             
-            <br/><br/>
+            <br/>
             
 <!-- Open Component Design Projects begins -->
 
