@@ -52,8 +52,6 @@ assignmentArray[22] = 24 // 'Toronto'
 assignmentArray[23] = 28 // 'Other'
 
 function changeField() {
-    alert(document.regForm.demog_1[document.regForm.demog_1.selectedIndex].value);
-    
     var newVal = assignmentArray[document.regForm.demog_1[document.regForm.demog_1.selectedIndex].value];
     for(var i =0; i < document.regForm.demog_1.length; i++) {
         if(document.regForm.demog_2[i].value == newVal) {
