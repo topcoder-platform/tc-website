@@ -1,7 +1,7 @@
 #!/bin/ksh
 
 MAXMEM=512m
-JAVACMD=/usr/j2sdk1.4.2/bin/java
+JAVACMD=${JAVA_HOME}/bin/java
 BASE=..
 MAIN=com.topcoder.shared.distCache.CacheServerMain
 PROCESSOR=DefaultProcessor
@@ -13,8 +13,9 @@ CP=$CP:$BASE/resources
 CP=$CP:$BASE/lib/jars/nbio.jar
 CP=$CP:$CLASSPATH
 
-OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=128 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:CMSInitiatingOccupancyFraction=60"
-#OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=20000 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC"
+OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=128 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCTimeStamps -XX:CMSInitiatingOccupancyFraction=10 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
+
+#OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=20000 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC - XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC"
 
 
 ##############################################
@@ -25,6 +26,8 @@ OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=128 -Xms$MAXMEM -Xmx$
 #5. -XX:+ UseConcMarkSweepGC
 #6. -XX:+UseParNewGC
 #7. -XX:CMSInitiatingOccupancyFraction=X
+#8. -Dsun.rmi.dgc.client.gcInterval=X
+#9. -Dsun.rmi.dgc.server.gcInterval=X
 #
 #1.  promote to old generation immediately
 #     without going between survivor space and
@@ -37,6 +40,8 @@ OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=128 -Xms$MAXMEM -Xmx$
 #6.  use the parallel new generation gc (multi cpu)
 #7.  when the old generation is X% full, start
 #     the CMS collection
+#8.  only collect client side rmi objects every X millis
+#9.  only collect server side rmi objects every X millis
 ##############################################
 
 if [[ $1 != "" ]] ; then
@@ -62,3 +67,4 @@ else
     echo "      start - start cache"
     echo "      stop  - stop cache"
 fi
+
