@@ -6,12 +6,14 @@ import com.topcoder.web.privatelabel.model.VerizonRegInfo;
 
 public class VerizonRegDemog extends FullRegDemog {
     protected void setNextPage() {
-        if (hasErrors()) {
+        setNextPage(Constants.VERIZON_REG_PAGE);
+        setIsNextPageInContext(true);
+/*        if (hasErrors()) {
             setNextPage(Constants.VERIZON_REG_PAGE);
         } else {
             setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
         }
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(true);*/
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
