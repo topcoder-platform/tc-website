@@ -12,6 +12,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("problem_list"); %>
 <% ResultSetContainer levels = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("levels"); %>
+<% ResultSetContainer categories = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("categories"); %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <script language="JavaScript"><!--
   function next() {
@@ -96,7 +97,7 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="../script.jsp" />
- 
+
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
@@ -141,13 +142,18 @@
 
                <table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
                 <tr>
-                    <td colspan="4" class="errorText" align="center">
+                    <td colspan="2" class="errorText" align="center">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.CLASS_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.CATEGORY%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
                 </tr>
                  <tr>
-                    <td colspan=2 align="right" class="statText">Class Name</td>
-                    <td colspan=2 align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="right" class="statText">Class Name</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="right" class="statText">Category</td>
+                    <td align="left" class="statText"><tc-webtag:rscSelect name="<%=Constants.CATEGORY%>" list="<%=categories%>" fieldText="category" fieldValue="category"/></td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
