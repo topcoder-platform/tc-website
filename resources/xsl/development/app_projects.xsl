@@ -79,14 +79,14 @@
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server</td>
                     <td class="formTextOdd" align="center">$3,306</td>
                     <td class="formTextOdd" align="center">$1,005</td>
-                    <td class="formTextOdd" align="center">11/4 6:00 PM ET</td>
+                    <td class="formTextOdd" align="center">closed</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Application Authentication</td>
                     <td class="formTextOdd" align="center">$2,826</td>
                     <td class="formTextOdd" align="center">$855</td>
-                    <td class="formTextOdd" align="center">11/4 6:00 PM ET</td>
+                    <td class="formTextOdd" align="center">closed</td>
                 </tr>
 
                 <tr valign="top">
