@@ -31,7 +31,7 @@
    </tr>
 
     <tr>
-      <td width="100%" align="center" colspan="5"><img src="/i/clear.gif" alt="" width="10" height="5" border="0"  vspace="0"/></td>
+      <td width="100%" align="center" colspan="5"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"  vspace="0"/></td>
    </tr>
    
 <!-- LEVEL 1 TABS -->
