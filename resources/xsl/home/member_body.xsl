@@ -391,8 +391,8 @@
                     <tr>
                         <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 133</strong></a><br />
-                            Wednesday, February 5, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 135</strong></a><br />
+                            Tuesday, February 11, 2003<br /><br />
                         </td>
                         <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
                     </tr>
@@ -484,25 +484,29 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 
         <tr>
           <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
-          <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-            By&#160;Yarin<br /><i>[TC]&#160;Member</i><br /></td>
+          <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+            By&#160;brett1479<br /><i>[TC]&#160;Member</i><br /></td>
           <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
           <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-            <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 133</b></font>
+            <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 135</b></font>
           </td>
         </tr>
 
         <tr>
           <td valign="top" class="bodyText" width="100%">
             <a class="bodyGeneric">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm133_prob</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm135_prob</xsl:attribute>
             <b>Problem Set Analysis &amp; Opinion</b></a><br />
             <p>
-            It seems that SRM 131 was no exception, and that 400+ competitors in a SRM will become standard. The problem
-                set was written by yours truly, thus any comments I make will definitely be biased - I wouldn't write a
-                problem if I didn't think it was "good"! For a change though, no problem required dynamic programming.
-                Instead two of the problems could be considered to be graph theory, although of different kind.
-            <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm133_prob</xsl:attribute>Get the analysis</a>
+    The last competition before the Collegiate Championship went off without a hitch.   Well over 400 competed in what
+    turned out to be a very exciting match.  In Division 1 it was a close race between all of the top rated competitors.
+    Lunatic Fringe came out early finishing the easy and medium problems before anyone.  At one point yellow rated
+    coders led all of the rooms.  This slowly changed as Yarin, John Dethridge, and Ambrose came through - submitting
+    their solutions to the hard problem.  Despite their efforts, Modulator, a yellow rated competitor, emerged from the
+    coding phase with the highest score.  In the challenge phase, the top position exchanged numerous times between
+    Yarin and Modulator.   Once the system testing had completed, Yarin prevailed with one of the few correct solutions
+    to the hard problem.
+            <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm135_prob</xsl:attribute>Get the analysis</a>
             </p></td>
           <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
         </tr>
@@ -530,7 +534,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
             <map name="srmanimation_home">
                 <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="http://www.gentleware.com" target="_blank" />
 <!--                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> -->
-                <area shape="poly" alt="SRM Match 133" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4465&amp;t=schedule&amp;c=srm" />
+                <area shape="poly" alt="SRM Match 135" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4465&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
 
