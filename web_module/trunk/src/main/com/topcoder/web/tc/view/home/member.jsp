@@ -34,17 +34,7 @@
 		<td width="100%" align="center">
 			<img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
 			<jsp:include page="big_promo.jsp" />
-  			<jsp:include page="small_promos.jsp" />
-			<img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
-			<jsp:include page="next_match.jsp" />
-			<a name="memberSurveys"><img src="/i/clear.gif" alt="" width="1" height="15" border="0" /></a>
-			<jsp:include page="member_surveys.jsp" />
-			<a name="algoArena"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></a>
-			<jsp:include page="arena.jsp" />
-			<a name="codersPOV"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></a>
-			<jsp:include page="coder_pov.jsp" />
-			<a name="feature"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></a>
-			<jsp:include page="feature_home.jsp" />
+  			<jsp:include page="news.jsp" />
 		 </td>
 <!-- Center Column Ends -->
 
