@@ -170,7 +170,7 @@
                             <tr valign="top">
                                 <td class="bodyText">04.01.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a href="/tc?module=Static&amp;d1=dev&amp;d2=desReviewScoring" class="bodyText">Design Review Scoring</a></td>
+                                <td class="bodyText"><a href="/tc?module=DevStatic&amp;d1=dev&amp;d2=desReviewScoring" class="bodyText">Design Review Scoring</a></td>
                             </tr>
                             <tr valign="top">
                                 <td class="bodyText">11.10.2003</td>
@@ -185,7 +185,7 @@
                             <tr valign="top">
                                 <td class="bodyText">04.01.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a href="/tc?module=Static&amp;d1=dev&amp;d2=devReviewScoring" class="bodyText">Development Review Scoring</a></td>
+                                <td class="bodyText"><a href="/tc?module=DevStatic&amp;d1=dev&amp;d2=devReviewScoring" class="bodyText">Development Review Scoring</a></td>
                             </tr>
                         </table>
                     </td>

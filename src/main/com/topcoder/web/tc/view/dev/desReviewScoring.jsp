@@ -67,7 +67,6 @@
 <p class="bodyText"><span class="bodySubtitle">Sequence Diagram(s)</span><br/>
 <ul><li>Sequence diagrams exist for each implementation of a use case</li></ul>
 
-<hr width="100%" size="1px" color="666666" />
 
          <p class="bodyText"><br/></p>
          </td>
