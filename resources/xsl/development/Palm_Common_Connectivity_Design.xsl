@@ -108,7 +108,11 @@
                                                         are common among the various Palm applications that will be modified/developed.
                                                         <br/>
                                                         <br/>
-                                                        <strong>Note: TopCoder Will supply Code Warrior 8 to all participating members.</strong>
+
+                                                        <strong>
+                                                            <br/>
+                                                            Note: TopCoder Will supply Code Warrior 8 to all participating members.
+                                                        </strong>
 
                                                     </p>
 
