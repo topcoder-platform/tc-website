@@ -44,7 +44,7 @@
         rsr = (ResultSetContainer.ResultSetRow)rows.next();
         for (int j=0; j<columns.length; j++) {
 %>
-          <TD><%=rsr.getItem(j).toString()%></TD>
+          <TD NOWRAP="true"><%=rsr.getItem(j).toString()%></TD>
 <%      }  %>
         </TR>
 <%
