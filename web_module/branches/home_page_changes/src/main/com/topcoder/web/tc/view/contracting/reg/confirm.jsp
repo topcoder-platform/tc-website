@@ -46,7 +46,7 @@ List industryList = (List)request.getAttribute("industrySkills");
         <div class="myTCBody">
 
         <jsp:include page="../../page_title.jsp" >
-            <jsp:param name="image" value="contract"/>
+            <jsp:param name="image" value="employmentOpps"/>
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 

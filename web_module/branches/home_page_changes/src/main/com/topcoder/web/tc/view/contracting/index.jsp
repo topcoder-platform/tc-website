@@ -47,13 +47,9 @@ return false;
         <td class="cardCell" width="100%" align="center">
 
         <div class="myTCBody">
-        <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="employmentOpps"/>
-            <jsp:param name="title" value=""/>
-        </jsp:include>
-
+		<br/>
 		<div align=center>
-		<img src="/i/clear.gif" border=1 width=500 height=100/>
+		<A href="/tc?module=ContractingPreferences"><img src="/i/empOppsBanner.jpg" border=0/></A>
 		</div>
 
 		<p>
