@@ -118,7 +118,7 @@
     <tr>
       <td>Referral Type</td>
       <td>&#160;&#160;&#160;</td>
-      <td><rsc:item name="referral_desc" row="<%=p%>"/><%=p.getItem("referral_info").equals("") ? "" : ", "+p.getItem("referral_info").toString()%></td>
+      <td><rsc:item name="referral_desc" row="<%=p%>"/>&#160;<rsc:item name="referral_info" row="<%=p%>"/></td>
     </tr>
     <tr>
       <td>Status</td>
@@ -205,7 +205,7 @@
   </table>
 
 <%
-    if (demographicList!=null) {
+    if (!demographicList.isEmpty()) {
 %>
   <br/><br/>
   <table cellpadding="0" cellspacing="0"> 
@@ -213,14 +213,9 @@
   
        <rsc:iterator list="<%=demographicList%>" id="resultRow">
          <tr>
-<%
-        for(int j=0; j<demographicList.getColumnCount(); j++) {
-%>
-      <td><%=resultRow.getItem(j).toString()%></td>
+      <td><rsc:item name="demographic_question_text" row="<%=resultRow%>"/></td>
       <td>&#160;&#160;&#160;</td>
-<%
-        }
-%>
+      <td><rsc:item name="demographic_answer_text" row="<%=resultRow%>"/></td>
     </tr>
     </rsc:iterator>
   </table>
@@ -228,14 +223,12 @@
     }
 %>
 
-
-
 <%
-    if (notifyList!=null) {
+    if (!notifyList.isEmpty()) {
 %>
   <br/><br/>
   <table cellpadding="0" cellspacing="0">
-    <tr><td colspan="5"><b>Notifications</b></td></tr>
+    <tr><td><b>Notifications</b></td></tr>
 
        <rsc:iterator list="<%=notifyList%>" id="resultRow">
     <tr>
@@ -250,40 +243,44 @@
     }
 %>
 
-  <br/>
-  <br/>
 <%
-        if (handleList!=null) {
+        if (!handleList.isEmpty()) {
 %>
   <br/><br/>
-  <table cellpadding="0" cellspacing="0">
-    <tr><td colspan="5"><b>Handle History</b></td></tr>
+  <table cellpadding="5" cellspacing="0">
+    <tr><td colspan="3"><b>Handle History</b></td></tr>
+    <tr>
+      <td><b>old handle</b></td>
+      <td><b>new handle</b></td>
+      <td><b>date of change</b></td>
+      </tr>
 
        <rsc:iterator list="<%=handleList%>" id="resultRow">
     <tr>
       <td><rsc:item name="old_value" row="<%=resultRow%>"/></td>
       <td><rsc:item name="new_value" row="<%=resultRow%>"/></td>
-      <td><rsc:item name="timestamp" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="timestamp" row="<%=resultRow%>" format="MM/dd/yyyy hh:mm a"/></td>
       </tr>
     </rsc:iterator>
   </table>
 <%
         }
-%>
-  <br/>
-  <br/>
-<%
-        if (addressList!=null) {
+        if (!addressList.isEmpty()) {
 %>
   <br/><br/>
-  <table cellpadding="0" cellspacing="0">
-    <tr><td colspan="5"><b>Address History</b></td></tr>
+  <table cellpadding="5" cellspacing="0">
+    <tr><td colspan="3"><b>Address History</b></td></tr>
 
+    <tr>
+      <td><b>old address</b></td>
+      <td><b>new address</b></td>
+      <td><b>date of change</b></td>
+      </tr>
        <rsc:iterator list="<%=addressList%>" id="resultRow">
     <tr>
       <td><rsc:item name="old_value" row="<%=resultRow%>"/></td>
       <td><rsc:item name="new_value" row="<%=resultRow%>"/></td>
-      <td><rsc:item name="timestamp" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="timestamp" row="<%=resultRow%>" format="MM/dd/yyyy hh:mm a"/></td>
       </tr>
     </rsc:iterator>
   </table>
