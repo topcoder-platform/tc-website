@@ -84,14 +84,12 @@
                 }
             %>
                 <tr><td id="<%=level2.equals("round_overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>
+                <tr><td id="<%=level2.equals("last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>
                 <% if (!info.isAnonymous() && info.getRating()>0) { %>
-                   <tr><td id="<%=level2.equals("last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=round_stats">Last Match Results</a></td></tr>
                     <tr><td id="<%=level2.equals("my_last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=coder_room_stats&cr=<%=info.getUserId()%>">My Last Match</a></td></tr>
                     <tr><td id="<%=level2.equals("member_profile")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=member_profile&cr=<%=info.getUserId()%>">Member Profile</a></td></tr>
                     <tr><td id="<%=level2.equals("ratings_history")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=ratings_history&cr=<%=info.getUserId()%>">Ratings History</a></td></tr>
                     <tr><td id="<%=level2.equals("earnings_history")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=earnings_history&cr=<%=info.getUserId()%>">Earnings History</a></td></tr>
-                <% } else { %>
-                    <tr><td id="<%=level2.equals("last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>
                 <% } %>
                 <tr><td id="<%=level2.equals("coder_ratings")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>
                 <tr><td id="<%=level2.equals("editorial_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>
