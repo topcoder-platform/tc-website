@@ -21,7 +21,31 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=bigTitle>2004 TopCoder Open - Overview</p>
+        <p class=bigTitle>Description of the Algorithm Competition</p>
+
+            Once again, 24 of the world's best coders will be invited to compete live at the onsite finals in Santa Clara, CA, USA.</p>
+            <ul>
+                <li><strong>Registration</strong><br />
+                    STARTS: Monday, December 20 at 9:00 AM ET<br/>
+                    ENDS: Tuesday, January 11 at 9:00 AM ET</li>
+                    
+                <li><strong>Qualification Round</strong><br />
+                    STARTS: Tuesday, January 11 at 12:00 PM ET (noon)<br/>
+                    ENDS: Wednesday, January 12 at 12:00 PM ET (noon)</li>
+                    
+                <li><strong>Elimination Rounds</strong><br/>
+                     January 16<br/>
+                     January 19<br/>
+                     January 22<br/>
+                     February 2
+                     </li>
+                <li><strong>Onsite Finals</strong><br />
+                    March 10 & 11 at the Santa Clara Marriott in Santa Clara, CA, USA</li>
+                <li><strong>Free Competition</strong></li>
+                <li><strong>Open to all eligible college students over the age of 18.</strong></li>
+            </ul>
+            
+            See the official rules and regulations for more details.
 
         </div>
 		</td>
