@@ -288,14 +288,19 @@ public class TCLoadRequests extends TCLoad {
     private long getCalendarId(Timestamp time) throws Exception {
         //log.debug("called getCalendarId " + time);
         long ret = -1;
-        Date d = new Date(time.getTime());
-        if (calendarMap.containsKey(d)) {
-            log.debug("date " + d + " found");
-            ret = ((Long)calendarMap.get(d)).longValue();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(time);
+        String dateString = cal.get(Calendar.YEAR) + " " +
+                            (cal.get(Calendar.MONTH) + 1) + " " +
+                            cal.get(Calendar.DAY_OF_MONTH);
+
+        if (calendarMap.containsKey(dateString)) {
+            log.debug("date " + time + " found");
+            ret = ((Long)calendarMap.get(dateString)).longValue();
         } else {
-            log.debug("date " + d + " not found");
+            log.debug("date " + time + " not found");
             ret = lookupCalendarId(time, TARGET_DB);
-            calendarMap.put(d, new Long(ret));
+            calendarMap.put(dateString, new Long(ret));
         }
         return ret;
     }
