@@ -6,11 +6,13 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.common.web.data.Navigation;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
@@ -42,6 +44,21 @@ public class MainServlet extends BaseServlet {
         request.setAttribute("c", "login");
 
         getServletContext().getContext("/").getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
+    }
+
+    protected WebAuthentication createAuthentication(HttpServletRequest request,
+                                                     HttpServletResponse response) throws Exception {
+        WebAuthentication ret = super.createAuthentication(request, response);
+        HttpSession session = request.getSession(true);
+        Navigation nav = (Navigation)session.getAttribute("navigation");
+        if (nav==null) {
+            nav = new Navigation(request);
+        }
+        if (nav.getAuthentication()==null) {
+            nav.setAuthentication(ret);
+        }
+        session.setAttribute("navigation", nav);
+        return ret;
     }
 
 }
