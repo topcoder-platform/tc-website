@@ -38,7 +38,7 @@
   </init-param>
 
   <init-param>
-    <param-name>processor-CreateEdit</param-name>
+    <param-name>processor-UserEdit</param-name>
     <param-value>com.topcoder.web.corp.request.UserEdit</param-value>
     <description>creates/edit user/permissions</description>
   </init-param>
@@ -61,12 +61,6 @@
      |
   -->
   <init-param>
-    <param-name>config-context</param-name>
-    <param-value>/WEB-INF/app-context.properties</param-value>
-    <description>configures some general things for application: jndi, etc - to be removed</description>
-  </init-param>
-  
-  <init-param>
     <param-name>page-main</param-name>
     <param-value>/index.jsp</param-value>
     <description>all unresolved requests will go here</description>
@@ -77,7 +71,6 @@
     <param-value>/error.jsp</param-value>
     <description>all of the controller exceptions will return this to user</description>
   </init-param>
-
 
 </servlet>
 
@@ -92,6 +85,5 @@
     <taglib-uri>tc-webtags.tld</taglib-uri>
     <taglib-location>/WEB-INF/classes</taglib-location>
 </taglib>
-
 
 </web-app>
