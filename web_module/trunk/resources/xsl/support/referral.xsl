@@ -13,7 +13,7 @@
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
-        <TITLE>Referral Incentive Program</TITLE>
+        <TITLE>TopCoder Referral Program</TITLE>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -45,22 +45,22 @@
 	<TR>
 		<TD CLASS="bodyText">
 			<DIV ALIGN="CENTER"><IMG SRC="/i/referral_header.gif" WIDTH="510" HEIGHT="40" BORDER="0"/></DIV>
-			<P><STRONG>The TopCoder Referral Incentive Program is designed to increase the number of<br/>
+			<P><STRONG>The TopCoder Referral Program is designed to increase the number of
 			top-performing coders who participate in TopCoder competitions, 
 			and to reward those TopCoder members who spread the word.</STRONG></P>
 
-			<P><TABLE BORDER="0" CELLSPACING="1" CELLPADDING="5" BGCOLOR="#999999" WIDTH="200" ALIGN="RIGHT" STYLE="MARGIN-LEFT: 10PX; MARGIN-TOP: 0PX; MARGIN-RIGHT: 0PX; MARGIN-BOTTOM: 0PX;" >
-
-				<TR>
-					<TD CLASS="smallText" BGCOLOR="#EEEEEE">
+			<P>	<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="5" BGCOLOR="#999999" WIDTH="200" ALIGN="RIGHT" STYLE="MARGIN-LEFT: 10PX; MARGIN-TOP: 0PX; MARGIN-RIGHT: 0PX; MARGIN-BOTTOM: 10PX;" >
+					<TR>
+						<TD CLASS="smallText" BGCOLOR="#EEEEEE">
 						<P><STRONG>Example #1</STRONG><BR/>
 						You refer 3 new members. During the next 12 months, each of the 3 members you referred wins $500 in component design and development 
-						competitions, totaling $1,500 in prize money awarded to the members you referred. You will receive a commission for $150.</P>
+						competitions, totaling $1,500 in prize money awarded. You will receive a commission of $150.</P>
 						<P><STRONG>Example #2</STRONG><BR/>
 						You refer a new member who wins one of the grand prizes of $25,000 in the TopCoder Open. You will receive $2,500!!! </P>
-					</TD>
-				</TR>
-			</TABLE><STRONG><font size="4">How it works</font></STRONG><BR/>
+						</TD>
+					</TR>
+				</TABLE>
+			<STRONG><font size="4">How it works</font></STRONG><BR/>
 			On the member registration page, there is a "Referring Member" field. If you convince a fellow coder to register with TopCoder, 
 			ask him or her to provide your handle in the "Referring Member" field when they register on www.topcoder.com.</P>
 
@@ -78,11 +78,11 @@
 			of your member home page.</P>
 
 			<P><STRONG><font size="4">Official Rules</font></STRONG><BR/>
-			The Referral Incentive Program will apply only to those referred members who have registered with TopCoder between May 1, 
+			The Referral Program will apply only to those referred members who have registered with TopCoder between May 1, 
 			2004 and April 30, 2005.</P>
 
 			<P>Any eligible TopCoder member whose TopCoder handle was provided in the "Referring Member" field of the TopCoder 
-			registration process after May 1, 2004 will be placed into the Referral Incentive Program.</P>
+			registration process after May 1, 2004 will be placed into the Referral Program.</P>
 
 			<P>TopCoder will pay a referral commission equal to 10% of any cash prize won by a referred member during the 365-day 
 			period following the initial registration date of the referred member. No additional referral compensation will be paid 
@@ -90,15 +90,15 @@
 
 			<P>To receive a referral commission, the TopCoder member must be 18 years of age or older and must not have been permanently 
 			suspended from participating in TopCoder competitions.  Payment is contingent upon TopCoder receiving a completed affidavit 
-			of eligibility, verifying the member's eligibility to participate in the Referral Incentive Program, and a completed appropriate tax form.</P>
+			of eligibility, verifying the member's eligibility to participate in the Referral Program, and a completed appropriate tax form.</P>
 
 			<P>The "Referring Member" field in the registration may not be changed once the registration process has been completed.</P>
 
 			<P>TopCoder strongly discourages members from "spamming" individuals with unsolicited emails in an attempt to entice people 
 			to register and participate at TopCoder. Sending such unsolicited emails to people will not be tolerated, and such activity 
-			may lead to your termination from the TopCoder Referral Incentive Program.</P>
+			may lead to your termination from the TopCoder Referral Program.</P>
 
-			<P>TopCoder reserves the right to modify, cancel and/or disqualify any TopCoder member from the TopCoder Referral Incentive 
+			<P>TopCoder reserves the right to modify, cancel and/or disqualify any TopCoder member from the TopCoder Referral 
 			Program at any time for any reason.</P>
 		
 		</TD>
