@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<title>TopCoder | Login</title>
+<title>TopCoder | Activation</title>
 
 <jsp:include page="../script.jsp" />
 </head>
