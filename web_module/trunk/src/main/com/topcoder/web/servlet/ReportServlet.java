@@ -235,9 +235,19 @@ public final class ReportServlet extends HttpServlet {
         log.debug("getProfile called...");
         Request mainRequest = new Request();
         mainRequest.setContentHandle("profile_lookup");
-        System.out.println("original request email is " + (request.getParameter(Constants.REPORT_EMAIL_KEY)==null?"null":request.getParameter(Constants.REPORT_EMAIL_KEY)));
-        mainRequest.setProperties(HttpUtils.parseQueryString(request.getQueryString()));
-        System.out.println("request email is " + (mainRequest.getProperty(Constants.REPORT_EMAIL_KEY)==null?"null":request.getParameter(Constants.REPORT_EMAIL_KEY)));
+        String handle = Conversion.checkNull(request.getParameter(Constants.REPORT_HANDLE_KEY));
+        String firstName = Conversion.checkNull(request.getParameter(Constants.REPORT_FIRST_NAME_KEY));
+        String lastName = Conversion.checkNull(request.getParameter(Constants.REPORT_LAST_NAME_KEY));
+        String email = Conversion.checkNull(request.getParameter(Constants.REPORT_EMAIL_KEY));
+
+        if (!handle.equals(""))
+            mainRequest.setProperty(Constants.REPORT_HANDLE_KEY, handle);
+        if (!firstName.equals(""))
+            mainRequest.setProperty(Constants.REPORT_FIRST_NAME_KEY, firstName);
+        if (!lastName.equals(""))
+            mainRequest.setProperty(Constants.REPORT_LAST_NAME_KEY, lastName);
+        if (!email.equals(""))
+            mainRequest.setProperty(Constants.REPORT_EMAIL_KEY, email);
 
         InitialContext context = new InitialContext();
         DataAccessInt dai = new DataAccess((javax.sql.DataSource) context.lookup(DBMS.OLTP_DATASOURCE_NAME));
