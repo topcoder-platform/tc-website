@@ -76,7 +76,7 @@
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">1</span><br>
-                                    <strong>Match 7</strong><br>
+                                    <strong>Match 6</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
@@ -89,7 +89,12 @@
                                 <td id="calendar">5</td>
                                 <td id="calendar">6</td>
                                 <td id="calendar">7</td>
-                                <td id="calendar">8</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">8</span><br>
+                                    <strong>Match 7</strong><br>
+                                    Register: 2:00&nbsp;PM<br>
+                                    Compete: 3:00&nbsp;PM<br>
+                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
                             </tr>
@@ -99,12 +104,7 @@
                                 <td id="calendar">12</td>
                                 <td id="calendar">13</td>
                                 <td id="calendar">14</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">15</span><br>
-                                    <strong>Match 8</strong><br>
-                                    Register: 2:00&nbsp;PM<br>
-                                    Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
+                                <td id="calendar">15</td>
                                 <td id="calendar">16</td>
                                 <td id="calendar">17</td>
                             </tr>
