@@ -100,7 +100,7 @@
                             <li>Strong communication skills</li>
                         </ul>
                         
-                        <p align="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=xxx&amp;jt=x" class="bodyText">Apply now!</A></p>
+                        <p align="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=118&amp;jt=2" class="bodyText">Apply now!</A></p>
 
 <!-- Client Job List ends -->
 
