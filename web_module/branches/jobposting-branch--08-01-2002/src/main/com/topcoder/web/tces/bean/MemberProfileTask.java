@@ -33,6 +33,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     private Map memberInfo;
     private String jobName;
     private List statsByLevel;
+    private boolean isStudent;
 
     private int uid;
 
@@ -44,6 +45,14 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         setJobID(-1);
         setCampaignID(-1);
+    }
+
+    public boolean getIsStudent() {
+        return isStudent;
+    }
+
+    public void setIsStudent(boolean isStudent) {
+        this.isStudent = isStudent;
     }
 
     public List getStatsByLevel() {
@@ -182,6 +191,11 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                             memProfRow.getItem("email").toString() +
                             " | " +
                             memProfRow.getItem("home_phone").toString() );
+        if (memProfRow.getItem("coder_type_desc").toString().toUpperCase().indexOf("STUDENT")>=0)
+            setIsStudent(true);
+        else
+            setIsStudent(false);
+
         memberInfo.put(TCESConstants.MEM_INFO_MEMTYPE_KEY,
                             memProfRow.getItem("coder_type_desc").toString() );
         memberInfo.put(TCESConstants.MEM_INFO_SCHOOLNAME_KEY,
