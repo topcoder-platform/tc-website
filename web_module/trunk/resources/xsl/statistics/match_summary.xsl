@@ -98,8 +98,8 @@
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <!-- <A HREF="/index?t=statistics&amp;c=consec_wins_div1" CLASS="bodyGeneric">View the list of Division-I Consecutive Wins</A>
 <A HREF="/stat?c=all_time_wins_by_div&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Wins</A>
-<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gain</A>
-<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="bodyGeneric">View the list of Division-II Rating Point Gain</A>
+<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gains</A>
+<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="bodyGeneric">View the list of Division-II Rating Point Gains</A>
 <A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="bodyGeneric">View the list of Winning Debuts</A> 
 <A HREF="/stat?c=all_time_wins" CLASS="bodyGeneric">View the list of Overall Wins</A>
 <A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="bodyGeneric">View the list of Winning Debuts</A>
@@ -108,11 +108,11 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>In Room 17, <A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A> was the room winner with 367.44 final points, and gained 460 rating points, 
-which is the second largest gain ever  (View the list of Division-I Rating Point Gains). <B>binaryni</B> coded the Level One problem for 167.44 points and the Level Two 
-problem for 288.57 in the "Coding Phase". <B>binaryni</B> then successfully challenged the Level Two submissions of <A HREF="/stat?c=member_profile&amp;cr=157915" CLASS="bodyGeneric">Ustaad</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=280985" CLASS="bodyGeneric">yavinmoon</A>, <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">seaniswise</A>, and 
-<A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A> for 200 additional points in the "Challenge Phase".  The Level Two submission of <B>binaryni</B> 
-ended up failing the system test.</P>
+which is the second largest gain ever  (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gains</A>). <B>binaryni</B> 
+coded the Level One problem for 167.44 points and the Level Two problem for 288.57 in the "Coding Phase". <B>binaryni</B> then successfully challenged the Level Two submissions 
+of <A HREF="/stat?c=member_profile&amp;cr=157915" CLASS="bodyGeneric">Ustaad</A>, <A HREF="/stat?c=member_profile&amp;cr=280985" CLASS="bodyGeneric">yavinmoon</A>, 
+<A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">seaniswise</A>, and <A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A> for 200 
+additional points in the "Challenge Phase".  The Level Two submission of <B>binaryni</B> ended up failing the system test.</P>
 
 <P><A HREF="/stat?c=member_profile&amp;cr=263381" CLASS="bodyGeneric">fist</A> was the winner in Room 16 with 217.38 final points, and added 350 rating points, which is the 
 fifth highest gain. <B>fist</B> coded the Level One problem for 167.38 points, and successfully challenged the Level One submission of 
@@ -130,11 +130,11 @@ with a successful challenge of the Level Two submission of <A HREF="/stat?c=memb
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P><A HREF="/stat?c=member_profile&amp;cr=282718" CLASS="bodyGeneric">rustyoldman</A> won Room 41 with 1275.68 final points, and added 506 rating points, which is the second 
-largest gain (View the list of Division-II Rating Point Gain). <B>rustyoldman</B> earned 233.75 points on the Level One problem, 404.83 on the Level Two problem and 587.10 on 
-the Level Three problem for a total of 1225.68 points in the "Coding Phase". <B>rustyoldman</B> lost 50 points with an unsuccessful challenge of the Level Two submission of 
-<A HREF="/stat?c=member_profile&amp;cr=280290" CLASS="bodyGeneric">Iconoclast</A>, but gained that 50 points back with a successful challenge of the Level Two submission of 
-<A HREF="/stat?c=member_profile&amp;cr=160009" CLASS="bodyGeneric">Sherlockk</A>, and added another 50 with a successful challenge of the Level Three submission of 
-<A HREF="/stat?c=member_profile&amp;cr=280185" CLASS="bodyGeneric">ericc</A>.</P>
+largest gain (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="bodyGeneric">View the list of Division-II Rating Point Gains</A>). <B>rustyoldman</B> earned 233.75 points 
+on the Level One problem, 404.83 on the Level Two problem and 587.10 on the Level Three problem for a total of 1225.68 points in the "Coding Phase". <B>rustyoldman</B> lost 50 
+points with an unsuccessful challenge of the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=280290" CLASS="bodyGeneric">Iconoclast</A>, but gained that 50 points 
+back with a successful challenge of the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=160009" CLASS="bodyGeneric">Sherlockk</A>, and added another 50 with a 
+successful challenge of the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=280185" CLASS="bodyGeneric">ericc</A>.</P>
 
 <P><A HREF="/stat?c=member_profile&amp;cr=284107" CLASS="bodyGeneric">jder</A> finished second to <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">honda89dude</A> 
 in Room 31, but earned 464 rating points, which is the fifth largest gain. <B>jder</B> earned 245 points on the Level One problem, 458.19 on the Level Two problem, and 550.48 on 
