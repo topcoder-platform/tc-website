@@ -74,7 +74,7 @@
                    <td align="center" class="screeningHeader">Preference Level</td>
                    <% } %>--%>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=handle">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=Constants.SORT_BY%>=notes_sort">
                             Notes
                         </A>
                    </td>                                          
