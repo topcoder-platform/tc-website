@@ -39,7 +39,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <TD class="statText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
+        <TD class="statText" width="100%" align="center">
             
             <jsp:include page="/body_top.jsp" >
                 <jsp:param name="image" value="tces"/>
@@ -47,15 +47,15 @@
                 <jsp:param name="title" value="<%=MainTask.getCompanyName()%>"/>
             </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
             
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="50%">
+            <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="50%" align="center">
                 <TR VALIGN="top">
                     <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                     <TD class="statTextBig" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/><br>
                         <P>Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></P>
-                        <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+                        <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                             <TR>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="49%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18"><strong>Campaign Name</strong></TD>
+                                <TD WIDTH="49%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Campaign Name</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Start Date</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
