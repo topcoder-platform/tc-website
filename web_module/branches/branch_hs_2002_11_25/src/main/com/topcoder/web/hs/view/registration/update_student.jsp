@@ -216,31 +216,6 @@
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="top">The competition applet allows for a choice of programming languages. The language you choose will be your default.</TD>
   </TR>
   <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
-  </TR>
-  <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Terms</TD>
-  </TR>
-  <TR>
-   <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle">
-    <TEXTAREA CLASS="bodyText" ROWS="10" COLS="80" READONLY>
-     <jsp:getProperty name="student" property="TermsOfUse"/>
-    </TEXTAREA>
-   </TD>
-  </TR>
-  <TR>
-   <TD></TD>
-   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
-    <reg:errorIterator id="error" name="AgreeTerms"><%=error%><BR></reg:errorIterator>
-   </TD>
-  </TR>
-  <TR ALIGN="right" VALIGN="middle">
-   <TD CLASS="bodyText" ALIGN="right" VALIGN="top"></TD>
-   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="center"><INPUT TYPE="checkbox" NAME="terms" VALUE="true">&nbsp;I Agree to the Terms and Conditions stated above</TD>
-  </TR>
-  <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><BR><BR></TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
