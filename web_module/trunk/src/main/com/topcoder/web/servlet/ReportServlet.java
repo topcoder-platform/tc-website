@@ -235,7 +235,9 @@ public final class ReportServlet extends HttpServlet {
         log.debug("getProfile called...");
         Request mainRequest = new Request();
         mainRequest.setContentHandle("profile_lookup");
+        System.out.println("original request email is " + (request.getParameter(Constants.REPORT_EMAIL_KEY)==null?"null":request.getParameter(Constants.REPORT_EMAIL_KEY)));
         mainRequest.setProperties(HttpUtils.parseQueryString(request.getQueryString()));
+        System.out.println("request email is " + (mainRequest.getProperty(Constants.REPORT_EMAIL_KEY)==null?"null":request.getParameter(Constants.REPORT_EMAIL_KEY)));
 
         InitialContext context = new InitialContext();
         DataAccessInt dai = new DataAccess((javax.sql.DataSource) context.lookup(DBMS.OLTP_DATASOURCE_NAME));
