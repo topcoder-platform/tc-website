@@ -163,7 +163,7 @@ public class ProjectAdministration implements Model {
                 }
 
                 //build a set of the top 5 scores, for use in advancing to review
-                ArrayList scores = new ArrayList();
+                /*ArrayList scores = new ArrayList();
                 
                 for(int i = 0; i < submissions.length; i++) {
                     if (!submissions[i].isRemoved()) {
@@ -184,7 +184,7 @@ public class ProjectAdministration implements Model {
                 //remove all but top five scores.  No need to check ties, this will gaurentee they advance
                 while(scores.size() > 5) {                
                     scores.remove(5);
-                }
+                }*/
                 
                 int count = 0;
                 String message = "";
@@ -198,7 +198,7 @@ public class ProjectAdministration implements Model {
                             if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
                                 ok = true;
                                 double minscore = ConfigHelper.getMinimumScore();
-                                if (scorecards[j].getPassed() && scorecards[j].getScore() >= minscore && scores.contains(new Double(scorecards[j].getScore()))) {
+                                if (scorecards[j].getPassed() && scorecards[j].getScore() >= minscore ) {
                                     InitialSubmission sub = scorecards[j].getSubmission();
                                     sub.setPassedScreening(true);
                                     sub.setAdvancedToReview(true);
