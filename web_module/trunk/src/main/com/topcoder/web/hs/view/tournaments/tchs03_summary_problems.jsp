@@ -56,8 +56,8 @@
 
                 <h2>Problem Set Analysis &amp; Opinion</h2>
 
-                <p>by XXX, <em>TopCoder Member</em><br />
-                Saturday, April 5, 2002</p>
+                <p>by lars2520, <em>TopCoder Member</em><br />
+                Tuesday, May 20, 2003</p>
 
                 <h3>IntRange</h3>
 
