@@ -27,7 +27,6 @@ List industryList = (List)request.getAttribute("industrySkills");
 
 <body>
 
-
         <table border=0 cellpadding=0 cellspacing=0 width="100%">
             <tr>
 				<td align=left><p><a href="/report?t=new_report&c=placement_people&db=OLTP"><< back to placement registrants report</a></p></td>
@@ -38,6 +37,9 @@ List industryList = (List)request.getAttribute("industrySkills");
 				<td align=left><p><a href="/stat?c=member_profile&cr=<jsp:getProperty name="contractingInfo" property="userId" />">View Member Profile</a></p></td>
 
             </tr>
+        </table>
+
+        <table border=0 cellpadding=0 cellspacing=0 width="100%">
 		<tr>
 		<td valign=top width="50%">
 		<table width="100%" cellpadding="0" cellspacing="5" align="center" >
