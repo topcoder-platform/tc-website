@@ -279,7 +279,8 @@ public class TransactionServlet extends HttpServlet {
             } catch (Exception e) {
                 try {
                     ((TransactionInfo) currentTransactions.get(transactionKey(req))).setTcExc(e);
-                } catch (Exception ignore) {
+                } catch (Exception e) {
+					e.printStackTrace();
                 }
 
                 log.error("Can't complete CC Tx", e);
@@ -377,7 +378,7 @@ public class TransactionServlet extends HttpServlet {
         int rc = -1;
         try {
             rc = Integer.parseInt(rcString);
-        } catch (Exception ignore) {
+        } catch (Exception e) {
         }
 
         if (rc != RCINT_APPROVED) {
@@ -407,6 +408,7 @@ public class TransactionServlet extends HttpServlet {
         }
 
         if (!refreshRetCode(req, txInfo)) {
+            log.debug("refreshRetCode returned false");
             return false;
         }
 
