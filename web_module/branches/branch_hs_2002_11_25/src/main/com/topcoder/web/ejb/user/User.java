@@ -6,7 +6,7 @@ import javax.ejb.EJBObject;
 
 public interface User extends EJBObject {
 
-  public long createUser() throws EJBException, RemoteException;
+  public void createUser(long _user_id) throws EJBException, RemoteException;
 
   public void setFirstName(long _user_id,String _first_name)
                                            throws EJBException, RemoteException;
