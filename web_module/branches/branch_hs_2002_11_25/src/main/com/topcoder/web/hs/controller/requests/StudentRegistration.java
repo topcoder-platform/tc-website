@@ -70,6 +70,9 @@ public class StudentRegistration extends Base {
   private final static String INVALID_HANDLE="The handle field must contain "+
                                              "only alpha numeric symbols";
 
+  private final static String HANDLE_TAKEN="This handle is already in use by "+
+                                           "another user";
+
   private final static String PASSWORD_NOT_EMPTY="Ensure that the password "+
                                                  "field is not empty";
 
@@ -331,7 +334,33 @@ public class StudentRegistration extends Base {
         is_valid=false;
       }
       else {
-        
+        boolean handle_taken=true;
+        try {
+          Context ctx=TCContext.getInitial();
+          PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
+                                ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+          PrincipalMgrRemote pmr=pmrh.create();
+          try {
+          }
+          catch (NoSuchUserException _nsue) {
+            handle_take=false;
+          }
+        catch (RemoteException _re) {
+          _re.printStackTrace();
+        }
+        catch (CreateException _ce) {
+          _ce.printStackTrace();
+        }
+        catch (NamingException _ne) {
+          _ne.printStackTrace();
+        }
+        catch (GeneralSecurityException _gse) {
+          _gse.printStackTrace();
+        }
+        if (handle_taken) {
+          addErrorMessage(errors,"Handle",HANDLE_TAKEN);
+          is_valid=false;
+        }
       }
     }
 
