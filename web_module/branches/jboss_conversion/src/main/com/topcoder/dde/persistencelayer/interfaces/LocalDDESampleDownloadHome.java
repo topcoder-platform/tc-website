@@ -23,7 +23,7 @@ public interface LocalDDESampleDownloadHome extends EJBLocalHome {
     LocalDDESampleDownload create(String catalog, String firstName, String lastName, String emailAddress, int countryId, int contactMe) throws CreateException;
 
 
-    LocalDDECompVersionDates findByPrimaryKey(Long key) throws FinderException;
+    LocalDDESampleDownload findByPrimaryKey(Long key) throws FinderException;
 
 
 }

@@ -139,6 +139,12 @@
              debug="${debug}"
              deprecation="${deprecation}">
              <include name="com/topcoder/apps/review/projecttracker/**"/>
+             <include name="com/topcoder/apps/review/document/**"/>
+             <include name="com/topcoder/apps/review/ConcurrentModificationException.class"/>
+             <include name="com/topcoder/apps/review/GeneralSecurityException.class"/>
+             <include name="com/topcoder/apps/review/IncorrectProjectStateException.class"/>
+             <include name="com/topcoder/apps/review/persistence/**"/>
+             <include name="com/topcoder/apps/review/security/*Permission.class"/>
          </javac>
      </target>
 
