@@ -85,7 +85,12 @@
                     <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_ratings</xsl:attribute>Coder Rankings</A></td>
                 </tr>
 
-<!-- Overview -->
+<!-- Problem Archive -->
+                <tr>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?module=ProblemArchive</xsl:attribute>Problem Archive</A></td>
+                </tr>
+
+<!-- Match Editorials -->
                 <tr>
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
@@ -98,7 +103,7 @@
                     </td>
                 </tr>
 
-<!-- Overview -->
+<!-- Quick Stats -->
                 <tr>
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
