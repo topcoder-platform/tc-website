@@ -1,5 +1,15 @@
 <%@  page   
   language="java"
+  import="java.util.*,
+          java.io.*,
+          java.text.*,
+          javax.naming.*,
+          com.coolservlets.forum.*,
+          com.coolservlets.forum.util.*,
+          weblogic.common.T3Services,
+          com.topcoder.common.web.data.Navigation,
+          com.topcoder.ejb.AuthenticationServices.*,
+          com.topcoder.common.*" 
 %>
 
 
