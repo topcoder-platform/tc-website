@@ -43,7 +43,9 @@
 
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
-
+<%
+    boolean isComplete = true;
+%>
 
 <!-- Tab bar links-->
 <%
@@ -84,7 +86,12 @@ else
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>"><rsc:item name="component_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>"><rsc:item name="component_name" row="<%=resultRow%>"/>
+                                <% if(resultRow.getIntItem("is_complete")) == 0 { 
+                                    isComplete = false;%>
+                                    *
+                                <% } %>
+                                </A></td>
                                 <td class="sidebarText" align=center><A href="/tc?module=USDCProjectDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="start_date" format="MM.dd.yyyy" row="<%=resultRow%>"/> 9:00AM</td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="end_date" format="MM.dd.yyyy" row="<%=resultRow%>"/> 9:00AM</td>
@@ -93,7 +100,13 @@ else
                             </tr>
                             </rsc:iterator>
                         </table>
-                        
+                        <%if(!isComplete) {%>
+                        <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
+                            <tr>
+                              <td class="bodyText">* This project is still in progress, results subject to change</td>
+                            </tr>
+                        </table>
+                        <% } %>
                         <br/>
                         
         <p><br/></p>
