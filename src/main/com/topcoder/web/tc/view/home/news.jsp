@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.05.05<br>4:05 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/040105.pdf" target="_blank">University computer whiz wins big at tech tourney</A></span><br><br>
+      A piece on the TCCC05 Component Development Competition Champion, Gary Linscott, aka gladius." [Barrhaven Independent]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/pressroom/040105.pdf" target="_blank">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.04.05<br>2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -242,18 +254,6 @@
    <tr><td class="newsLinksCell">
          <A href="/?&t=news_events&c=pr_03_14_05b">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.11.05<br>8:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_finals_analysis">mathijs wins the TCCC05 Algorithm Competition!</A></span><br><br>
-      A stunning upset.  mathijs has put an end to tomek's streak.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_finals_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
