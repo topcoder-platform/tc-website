@@ -6,23 +6,23 @@ import javax.ejb.EJBObject;
 
 public interface Email extends EJBObject {
 
-  public long createEmail(long _user_id) throws EJBException, RemoteException;
+    public long createEmail(long userID) throws EJBException, RemoteException;
 
-  public void setPrimaryEmailId(long _user_id,long _email_id)
+    public void setPrimaryEmailId(long userID,long emailID)
                                            throws EJBException, RemoteException;
 
-  public long getPrimaryEmailId(long _user_id)
+    public long getPrimaryEmailId(long userId)
                                            throws EJBException, RemoteException;
 
-  public void setEmailTypeId(long _email_id,long _email_type_id)
+    public void setEmailTypeId(long emailId,long emailTypeId)
                                            throws EJBException, RemoteException;
 
-  public long getEmailTypeId(long _email_id)
+    public long getEmailTypeId(long emailId)
                                            throws EJBException, RemoteException;
 
-  public void setAddress(long _email_id,String _address)
+    public void setAddress(long emailId,String address)
                                            throws EJBException, RemoteException;
 
-  public String getAddress(long _email_id) throws EJBException, RemoteException;
+    public String getAddress(long emailId) throws EJBException, RemoteException;
 
 };
