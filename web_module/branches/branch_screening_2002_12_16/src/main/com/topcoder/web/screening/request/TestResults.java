@@ -20,7 +20,7 @@ public class TestResults extends BaseProcessor {
         ProfileInfo pinfo = new ProfileInfo();
         pinfo.setProfileName("Sample Test Profile");
         pinfo.setTestSetAName("Sample Problem Set");
-        getRequest().setAttribute("profileInfo",cinfo);
+        getRequest().setAttribute("profileInfo",pinfo);
         
         TestResultsInfo tinfo = new TestResultsInfo();
         getRequest().setAttribute("testResultsInfo",tinfo);
