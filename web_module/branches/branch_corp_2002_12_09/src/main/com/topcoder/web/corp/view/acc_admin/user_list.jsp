@@ -47,21 +47,28 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>Last Name</B></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>		
 	</TR>
-	<%-- testing code --%>
-	<TD COLSPAN=4> number of user's found: <%=rsc.size()%> </TD>
+
+	<% /* Setup variables used for row alternating background colors */
+		boolean isGreyBGCOLOR = true; 
+		String bgColor = new String();
+	%>
 
 	<tc-webtag:iterator list="<%=rsc%>" id="resultRow" >
+	<% 
+		bgColor = isGreyBGCOLOR ? "#CCCCCC" : "#FFFFFF";
+		isGreyBGCOLOR = !isGreyBGCOLOR; // change BGCOLOR for next row.
+	%>
 	  <TR>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">&#160;
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">&#160;
 			<tc-webtag:item row="<%=resultRow%>" name="user_id"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
 			<tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
 			<tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"> <A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>		
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
 	</tc-webtag:iterator>
-	
+
 	<TR>
 		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Add</A></TD>		
 	</TR>				

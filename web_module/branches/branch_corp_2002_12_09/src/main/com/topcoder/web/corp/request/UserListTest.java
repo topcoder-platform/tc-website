@@ -71,10 +71,10 @@ public class UserListTest extends BaseProcessor {
     private void setupUsersList() throws Exception {
 
         log.debug("UserList getting users");
-//        String companyId = (String)request.getAttribute("companyId");
-//        if (companyId == null || companyId.length() == 0) { 
-//            throw new Exception("Error getting company attribute");
-//        }
+        String companyId = (String)request.getAttribute("companyId");
+        if (companyId == null || companyId.length() == 0) { 
+            throw new Exception("Error getting company attribute");
+        }
         Context ctx = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -84,19 +84,17 @@ public class UserListTest extends BaseProcessor {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u");
-
-//        query.append("SELECT u.user_id 
-//                           , su.user_id AS handle
-//                           , u.first_name
-//                           , u.last_name
-//                        FROM security_user su
-//                           , user u
-//                           , contact c
-//                       WHERE su.login_id = u.user_id
-//                         AND u.user_id = c.contact_id"
-//                         AND c.company_id = ");
-//        query.append(companyId.toString());
+            query.append("SELECT u.user_id 
+                               , su.user_id AS handle
+                               , u.first_name
+                               , u.last_name
+                            FROM security_user su
+                               , user u
+                               , contact c
+                           WHERE su.login_id = u.user_id
+                             AND u.user_id = c.contact_id"
+                             AND c.company_id = ");
+            query.append(companyId.toString());
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -104,9 +102,8 @@ public class UserListTest extends BaseProcessor {
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
 
-            //if (rs.isBeforeFirst()) {
-                ret = new ResultSetContainer(rs);
-            //}
+            ret = new ResultSetContainer(rs);
+
             request.setAttribute("companyUsers",ret);
 
         } catch (SQLException sqe) {
