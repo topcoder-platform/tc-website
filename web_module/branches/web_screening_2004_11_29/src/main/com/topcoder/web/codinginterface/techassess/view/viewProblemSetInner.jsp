@@ -10,6 +10,8 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <tc-webtag:useBean id="problems" name="<%=Constants.PROBLEMS%>" type="java.util.List" toScope="page" />
 <tc-webtag:useBean id="problemType" name="<%=Constants.PROBLEM_TYPE_ID%>" type="java.lang.Integer" toScope="page" />
+<tc-webtag:useBean id="continueLink" name="<%=Constants.CONTINUE_LINK%>" type="java.lang.String" toScope="page" />
+<tc-webtag:useBean id="continueDesc" name="<%=Constants.CONTINUE_DESC%>" type="java.lang.String" toScope="page" />
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
@@ -128,8 +130,8 @@
 <%-- IF LAST PROBLEM SET, "CONTINUE" GOES TO MAIN, OTHERWISE IT GOES TO NEXT SET --%>
             <table width="100%" cellspacing=0 cellpadding=0>
                <tr>
-                  <td class=bodyCell100 align=right>Click the continue button to start &lt;NEXT SET NAME&gt;&#160;&#160;</td>
-                  <td align=right><img src="/i/corp/screening/buttonContinue.gif" alt=""/></td>
+                  <td class=bodyCell100 align=right>Click the continue button to <%=continueDesc%><&gt;&#160;&#160;</td>
+                  <td align=right><a href="<%=continueLink%>" target="_top"><img src="/i/corp/screening/buttonContinue.gif" alt=""/></a></td>
                </tr>
             </table>
 

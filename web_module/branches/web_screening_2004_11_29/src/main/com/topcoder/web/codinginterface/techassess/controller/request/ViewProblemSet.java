@@ -61,9 +61,11 @@ public class ViewProblemSet extends Base {
                                 buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET,
                                         new String[] {Constants.PROBLEM_TYPE_ID},
                                         new String[] {problemSets[i].getType().toString()}));
+                        setDefault(Constants.CONTINUE_DESC, "start " + problemSets[i].getProblemSetName());
                     } else {
                         //there's nothing left to do, so go to the index
                         setDefault(Constants.CONTINUE_LINK, buildProcessorRequestString(Constants.RP_INDEX, null, null));
+                        setDefault(Constants.CONTINUE_DESC, "go back to the main room");
                     }
                 }
             }
