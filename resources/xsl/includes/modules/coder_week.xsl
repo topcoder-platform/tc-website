@@ -15,11 +15,11 @@
           			<TD WIDTH="263"><IMG SRC="/i/tc_lines2.gif" WIDTH="263" HEIGHT="11" BORDER="0"/></TD>
         		</TR> -->
         		<TR> 
-          			<TD WIDTH="73" BACKGROUND="/i/steel_gray_bg.gif" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/ZorbaTHut.gif" ALT="Coder of the Week" WIDTH="73" HEIGHT="95" BORDER="0"/></TD>
+          			<TD WIDTH="73" BACKGROUND="/i/steel_gray_bg.gif" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/jesser.gif" ALT="Coder of the Week" WIDTH="73" HEIGHT="95" BORDER="0"/></TD>
           			<TD WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" CLASS="bodyTextBold" HEIGHT="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
-          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;March 18 - 24, 2002</TD>
+          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;March 25 - 31, 2002</TD>
         		</TR>
         		<TR> 
           			<TD HEIGHT="65" VALIGN="top" CLASS="statText" BGCOLOR="#000033" BACKGROUND="/i/image_bw_bg2.gif">
@@ -31,14 +31,15 @@
                   &#160;&#160;Member&#160;Since:<BR/>
                   &#160;&#160;Total&#160;Competitions:<BR/></TD>
                					 <TD BACKGROUND="/i/image_bw_bg2.gif" CLASS="statText" HEIGHT="53" WIDTH="20%" ALIGN="right" VALIGN="top" NOWRAP="">
-               	  <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A><BR/>
-               	  2787<BR/>
-                  August&#160;2,&#160;2001<BR/>
-                  47<BR/></TD>
+               	  <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="coderTextYellow">jesser</A><BR/>
+               	  1845<BR/>
+                  March&#160;26,&#160;2002<BR/>
+                  1<BR/></TD>
                					 <TD BACKGROUND="/i/image_bw_bg2.gif" WIDTH="8" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>                  
                					 <TD BACKGROUND="/i/image_bw_bg2.gif" CLASS="statText" WIDTH="60%" HEIGHT="53" VALIGN="top">
 <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="statText">Click here</A> to read about
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A>, the top-rated collegiate member.
+
+the impressive debut by <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="coderTextYellow">jesser</A> in Single Round Match 75.
 </TD>
               				</TR>
             			</TABLE>

@@ -164,8 +164,8 @@
 			  <B>Status:</B> Candidates needed<BR/>
 			  <UL><LI>Midtown NYC</LI>
 			  <LI>Hedge fund</LI>
-			  <LI>Previous knowledge of or current serious interest in finance is a must</LI>
-			  <LI>Developing models for trading strategies</LI></UL>
+			  <LI>Developing models for trading strategies</LI>
+			  <LI>Serious interest in finance is a must though previous financial experience is not required</LI></UL>
             </TD>
             <TD WIDTH="2%">&#160;</TD>
             <TD WIDTH="48%" ALIGN="left" VALIGN="top" CLASS="bodyText">
@@ -173,8 +173,8 @@
 			  <B>Status:</B> Candidates needed<BR/>
 			  <UL><LI>Midtown NYC</LI>
 			  <LI>Hedge fund</LI>
-			  <LI>Previous knowledge of or current serious interest in finance is a must</LI>
-			  <LI>Programming business applications</LI></UL>
+			  <LI>Programming business applications</LI>
+			  <LI>Serious interest in finance is a must though previous financial experience is not required</LI></UL>
             </TD>
           </TR>
 		  <TR>
