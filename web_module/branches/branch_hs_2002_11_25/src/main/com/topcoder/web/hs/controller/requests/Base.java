@@ -46,7 +46,9 @@ public abstract class Base implements RequestProcessor {
       return user.getId() == -1;  // hardcoded userid for anonymous user
     }
 
+    /** sets up some beans visible to subclasses and the jsp which ultimately renders the request */
     protected void addBeans() {
+
         info = new SessionInfoBean();
         info.setUserId((int)user.getId());
         info.setHandle(isUserGuest() ? "" : user.getUserName());
@@ -59,8 +61,8 @@ public abstract class Base implements RequestProcessor {
         request.setAttribute("NavZone", nav);
     }
 
-    /** Some things we want to do for all subclassed request processors. */
-    protected void baseProcessing() throws Exception {
+    /** override this to disable auth setup */
+    protected void doAuth() throws Exception {
 
         Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
         auth = new BasicAuthentication(persistor, request, response);
@@ -69,7 +71,12 @@ public abstract class Base implements RequestProcessor {
         hsa = new HSAuthorization(user);
         if(!hsa.hasPermission(new ClassResource(this.getClass())))
             throw new PermissionException("You must login to view this page.");
+    }
 
+    /** Some things we want to do for all subclassed request processors. */
+    protected void baseProcessing() throws Exception {
+
+        doAuth();
         addBeans();
     }
 
