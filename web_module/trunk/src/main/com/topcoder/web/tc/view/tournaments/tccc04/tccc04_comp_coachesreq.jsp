@@ -124,7 +124,7 @@
                     <td class="sidebarText">srowen</td>
                     <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=296145">View stats</a></td>
                     <td class="sidebarText" align="center">3</td>
-                    <td class="sidebarText" align="center">2</td>
+                    <td class="sidebarText" align="center">1</td>
                     <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - srowen">request this coach</a></td>
                 </tr>
              </table>
