@@ -68,7 +68,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=260578"><img src="/i/m/danno_mug.gif" alt="danno" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=260578"><strong>danno</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=260578"><strong>danno</strong></a><span class="smallText"> graduated with a BS degree in Computer Science and Mathematics from Houghton College.  He was the runner up for Best Paper at IEEE's SMC/ia 2001 Conference.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -94,7 +94,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=299180"><img src="/i/m/isv_mug.gif" alt="isv" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=299180"><strong>isv</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=299180"><strong>isv</strong></a><span class="smallText"> graduated from Don State Technical University in Russia and is a certified specialist in Computer Science.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -107,7 +107,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=291974"><img src="/i/m/kanliang_mug.gif" alt="kanliang" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=291974"><strong>kanliang</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=291974"><strong>kanliang</strong></a><span class="smallText"> graduated from the Renmin University of China.  She hopes to learn from others' designs as part of the review board.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -120,7 +120,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=265736"><img src="/i/m/Ken_Alverson_mug.gif" alt="Ken Alverson" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=265736"><strong>Ken Alverson</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=265736"><strong>Ken Alverson</strong></a><span class="smallText"> graduated from the Case Western Reserve University.  He placed 5th in a Microsoft Research sponsored collegiate programming competition.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -146,7 +146,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=152342"><img src="/i/m/kyky_mug.gif" alt="kyky" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a><span class="smallText"> graduated from the Moscow Institute of Electronic Technology with a BS in Computer Engineering and also earned an MS in Computer Science from the New Jersey Institute of Technology.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -159,7 +159,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=292451"><img src="/i/m/Mr._Sketch_mug.gif" alt="Mr. Sketch" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=292451"><strong>Mr. Sketch</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=292451"><strong>Mr. Sketch</strong></a><span class="smallText"> graduated Cum Laude with a BS in Computer Science and Computer Engineering.  He also has four years of on-the-job experience designing software.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -172,7 +172,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=150940"><img src="/i/m/orb_mug.gif" alt="orb" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=150940"><strong>orb</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=150940"><strong>orb</strong></a><span class="smallText"> graduated from the University of Texas.  He has also written for several magazines including Java Developer's Journal and Doctor Dobb's Journal.  His first book should be coming out soon.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -185,7 +185,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=290395"><img src="/i/m/pmadden_mug.gif" alt="pmadden" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=290395"><strong>pmadden</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=290395"><strong>pmadden</strong></a><span class="smallText"> graduated with a BS and an MS in Computer Science and Mathematics from New Mexico Tech and also earned an PhD in Computer Science from UCLA.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -211,7 +211,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=296145"><img src="/i/m/srowen_mug.gif" alt="srowen" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a><span class="smallText"> graduated from Harvard University with a BA in Computer Science and has several Sun certifications.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -224,7 +224,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=277356"><img src="/i/clear.gif" alt="aksonov" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>                        
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a><span class="smallText"> graduated from the Nikolaev Informatical and Mathematical Lyceum.  He was a jury member of the Ukranian Olympiads in informatics and won the ACM Regional Programming Contest award</span>
                         </p>
                      </td>
                 </tr>
@@ -237,7 +237,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=273206"><img src="/i/clear.gif" alt="b0b0b0b" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=273206"><strong>b0b0b0b</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=273206"><strong>b0b0b0b</strong></a><span class="smallText"> graduated from Carnegie Mellon University with a BS in Computer Science and Mathematics.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -250,7 +250,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=153434"><img src="/i/clear.gif" alt="bokbok" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=153434"><strong>bokbok</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=153434"><strong>bokbok</strong></a><span class="smallText"> graduated from Princeton University.  He feels that being a part of the review board will allow him to learn from others as they learn from him.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -289,7 +289,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=158201"><img src="/i/clear.gif" alt="mecraw" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158201"><strong>mecraw</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158201"><strong>mecraw</strong></a><span class="smallText"> graduated from UMass Amherst.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -302,7 +302,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=304697"><img src="/i/clear.gif" alt="ozzie" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=304697"><strong>ozzie</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=304697"><strong>ozzie</strong></a><span class="smallText"> graduated from Lalor Secondary College in Melbourne, Australia.  He is a Sun Certified Programmer for Java 1.1 and 1.4.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -315,7 +315,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=119676"><img src="/i/clear.gif" alt="Pops" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><span class="smallText"> graduated from Indiana University and has received many corporate awards.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -354,7 +354,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=272069"><img src="/i/clear.gif" alt="sunyuan" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=272069"><strong>sunyuan</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=272069"><strong>sunyuan</strong></a><span class="smallText"> graduated from the University of Toronto and looks forward to keeping up to date on new technologies by being on the review board.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -367,7 +367,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=269515"><img src="/i/clear.gif" alt="valeriy" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=269515"><strong>valeriy</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=269515"><strong>valeriy</strong></a><span class="smallText"> graduated from St.-Petersburg State University in Russia.</span>
                         </p>                       
                      </td>
                 </tr>
