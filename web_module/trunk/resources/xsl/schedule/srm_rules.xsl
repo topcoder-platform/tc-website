@@ -213,9 +213,11 @@ However, prizes will only be paid to members who are at least 18 years of age, m
                           <li>All US* Citizens.</li>
                           <li>All Lawful Permanent Residents of the US (i.e., Green Card Holders).</li>
                           <li>All Citizens and Legal Permanent Residents of Canada, excluding Quebec.</li>
+                          <li>All Citizens and Legal Permanent Residents of China.</li>                          
                           <li>All Citizens and Legal Permanent Residents of Australia.</li>
                           <li>All Citizens and Legal Permanent Residents of India.</li>
                           <li>All Citizens and Legal Permanent Residents of Ireland.</li>
+                          <li>All Citizens and Legal Permanent Residents of New Zealand.</li>                          
                           <li>All Citizens and Legal Permanent Residents of the United Kingdom.</li>
                           <li>All non-immigrants** currently residing in the US with a valid Visa.</li>
                         </ul>
