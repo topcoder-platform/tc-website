@@ -50,6 +50,7 @@ public class TCESConstants {
     public static String CAMPAIGN_ID_PARAM = "cid";
     public static String JOB_ID_PARAM = "jid";
     public static String MEMBER_ID_PARAM = "mid";
+    public static String JOB_HIT_TYPE_PARAM = null;
 
     public static String MSG_ATTR_KEY = null;
     public static String COMPANY_NAME_ATTR_KEY = "CompanyName";
@@ -74,8 +75,11 @@ public class TCESConstants {
     public static String MEM_RATING_MOSTRECENT_KEY = "mostrecent";
     public static String MEM_RATING_AVGPOINTS_KEY = "avgpoints";
 
+    public static String JOB_HIT_PREFIX = null;
+
     public static int PRO_CODER_TYPE  = 2;
     public static int STUDENT_CODER_TYPE = 1;
+
     public static int CLICK_THRU_ID = -1;
     public static int JOB_POSTING_ID = -1;
 
@@ -90,6 +94,9 @@ public class TCESConstants {
         PASSWORD_PARAM = servletConfig.getInitParameter("password_param");
 
         MSG_ATTR_KEY = servletConfig.getInitParameter("msg_attr_key");
+
+        JOB_HIT_TYPE_PARAM = servletConfig.getInitParameter("job_hit_type_param");
+        JOB_HIT_PREFIX= servletConfig.getInitParameter("job_hit_prefix");
 
         CLICK_THRU_ID = getIntParameter(servletConfig, "click_thru_id");
         JOB_POSTING_ID = getIntParameter(servletConfig, "job_posting_id");
