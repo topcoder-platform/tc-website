@@ -7,22 +7,27 @@
           com.topcoder.common.web.data.Navigation" %>
 <jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
 
-<A NAME="top"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">
- <TR>
-    <TD WIDTH="15" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-    <TD WIDTH="206" BGCOLOR="#000000"><A HREF="/?t=index" TARGET="_parent"><IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="10"/></A></TD>
-    <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="35"/></TD>
-    <TD WIDTH="100%" BGCOLOR="#000000" ALIGN="right" VALIGN="top">
-      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
-        <TR>
-          <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><A TARGET="_parent" HREF="/?&amp;t=tces&amp;c=index"><IMG SRC="/i/tces_button.gif" ALT="" WIDTH="102" HEIGHT="17" BORDER="0"/></A></TD>
-          <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif" CLASS="time" NOWRAP="0"><jsp:getproperty name="SessionInfo" property="Handle" /> is logged in.</TD>
-          <TD VALIGN="middle" BGCOLOR="#43515E" WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0">&#160;<A HREF="/?t=index" CLASS="globalNavSmall" TARGET="_parent">TopCoder Home</A></TD>
-          <TD WIDTH="50" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0" VSPACE="8"/></TD>
-        </TR>
-      </TABLE>
-    </TD>
-  </TR>
-</TABLE>
+<a name="top"/>
+<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
+    <tr valign="middle">
+        <td class="login" width="99%">&nbsp;</td>
+        <td class="login" nowrap><strong><jsp:getproperty name="SessionInfo" property="Handle" /> is logged in.</strong></td>
+        <td class="login" width="10">&nbsp;</td>
+    </tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+    <tr valign="middle">
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" alt="" border="0"></td>
+        <td width="206"><a href="/?t=index" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
+        <td width="20"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" hspace="15"></td>
+        <td width="99%" nowrap align="right">&#160;</td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+    </tr>
+    <tr><td height="4" class="headStripe" colspan="5"><img src="/images/clear.gif" alt="" height="4" alt="" border="0"></td></tr>
+</table>
+<!-- Header ends -->
+
+<!-- Main Navigation bar begins -->
 <jsp:include page="menu.jsp"/>
+<!-- Main Navigation bar ends -->
