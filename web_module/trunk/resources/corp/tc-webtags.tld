@@ -44,6 +44,42 @@
         </attribute>
     </tag>
     <tag>
+        <name>textArea</name>
+        <tagclass>com.topcoder.web.common.tag.TextAreaTag</tagclass>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>rows</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>cols</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>text</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>wrap</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>readOnly</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>onChange</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>class</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+    <tag>
         <name>chkBox</name>
         <tagclass>com.topcoder.web.common.tag.ChkBoxTag</tagclass>
         <attribute>
