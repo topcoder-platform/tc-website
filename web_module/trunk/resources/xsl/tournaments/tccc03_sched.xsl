@@ -429,10 +429,10 @@
                       <TD ALIGN="center" HEIGHT="13" CLASS="statText">7:00pm (EST)</TD>
                       <TD ALIGN="center" HEIGHT="13" CLASS="statText">&#160;</TD>                      
                     </TR>                    
-                    <!-- <TR>
-                      <TD COLSPAN="5" VALIGN="middle" HEIGHT="13" CLASS="statText">Friday, April 19th</TD>
-                    </TR>                    
                     <TR>
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">Times are subject to change.</TD>
+                    </TR>                    
+                    <!-- <TR>
                       <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Room 1 - 8am EST<BR/>Room 2 - 11am EST</TD>
                       <TD COLSPAN="3" VALIGN="middle" CLASS="statText">Room 3 - 3pm EST<BR/>Room 4 - 6pm EST</TD>
                     </TR> -->                  
@@ -467,7 +467,7 @@
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>                      
                     </TR>
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">Saturday, April 5, @ 11am EST</TD>
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">Saturday, April 5, @ 12pm EST</TD>
                     </TR> 
                     <TR>
                       <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
