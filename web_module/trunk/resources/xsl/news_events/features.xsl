@@ -50,31 +50,33 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
-            <TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="0" BGCOLOR="#FFFFFF">
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;August</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" WIDTH="15%">&#160;08.28.02</TD><TD WIDTH="85%" VALIGN="middle" CLASS="bodyText">Loss / TBD</TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.21.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara / Wireless</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.14.02</TD><TD VALIGN="middle" CLASS="bodyText">Loss / Draft Report - Who wasn't selected</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.07.02</TD><TD VALIGN="middle" CLASS="bodyText">KaiEl / Strategy</TD></TR>
+            <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1" BGCOLOR="#FFFFFF">
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>
+		<TR><TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="18" WIDTH="12%" CLASS="bodyText">&#160;&#160;<B>Date</B></TD><TD WIDTH="30%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Author</B></TD><TD WIDTH="58%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Feature</B></TD></TR>		
+	
+		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;August</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.28.02</TD><TD VALIGN="middle" CLASS="bodyText">Staff Writer</TD><TD VALIGN="middle" CLASS="bodyText">Open</TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.21.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara</TD><TD VALIGN="middle" CLASS="bodyText">Wireless</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.14.02</TD><TD VALIGN="middle" CLASS="bodyText">Staff Writer</TD><TD VALIGN="middle" CLASS="bodyText">Draft Report - Who wasn't selected</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.07.02</TD><TD VALIGN="middle" CLASS="bodyText">KaiEl</TD><TD VALIGN="middle" CLASS="bodyText">Strategy</TD></TR>
 		
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;July</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.31.02</TD><TD VALIGN="middle" CLASS="bodyText">Loss / TBD</TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.24.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara / Developing for Users</TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.17.02</TD><TD VALIGN="middle" CLASS="bodyText">Loss / Day in the Life</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.10.02</TD><TD VALIGN="middle" CLASS="bodyText">HeyJude / Working with Women Coders</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.03.02</TD><TD VALIGN="middle" CLASS="bodyText">Loss / TBD</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;July</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.31.02</TD><TD VALIGN="middle" CLASS="bodyText">Staff Writer</TD><TD VALIGN="middle" CLASS="bodyText">Open</TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.24.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara</TD><TD VALIGN="middle" CLASS="bodyText">Developing for Users</TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.17.02</TD><TD VALIGN="middle" CLASS="bodyText">Staff Writer</TD><TD VALIGN="middle" CLASS="bodyText">Day in the Life</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.10.02</TD><TD VALIGN="middle" CLASS="bodyText">HeyJude</TD><TD VALIGN="middle" CLASS="bodyText">Working with Women Coders</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.03.02</TD><TD VALIGN="middle" CLASS="bodyText">Staff Writer</TD><TD VALIGN="middle" CLASS="bodyText">Open</TD></TR>
 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;June</TD></TR> 
-		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.26.02</TD><TD VALIGN="middle" CLASS="bodyText">Jamiebb / Web Serv.</TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.19.02</TD><TD VALIGN="middle" CLASS="bodyText">Loss / Country Comparisons</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.12.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara / Outsourcing</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.05.02</TD><TD VALIGN="middle" CLASS="bodyText">Loss / Qubits</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;June</TD></TR> 
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.26.02</TD><TD VALIGN="middle" CLASS="bodyText">Jamiebb</TD><TD VALIGN="middle" CLASS="bodyText">Web Serv.</TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.19.02</TD><TD VALIGN="middle" CLASS="bodyText">Staff Writer</TD><TD VALIGN="middle" CLASS="bodyText">Country Comparisons</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.12.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara</TD><TD VALIGN="middle" CLASS="bodyText">Outsourcing</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.05.02</TD><TD VALIGN="middle" CLASS="bodyText">Staff Writer</TD><TD VALIGN="middle" CLASS="bodyText">Where Has The Time Gone?</TD></TR>
 
 		<TR><TD COLSPAN="2" ALIGN="left" CLASS="bodyText"><BR/><BR/><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write?</A><BR/><BR/></TD></TR>
             </TABLE>
