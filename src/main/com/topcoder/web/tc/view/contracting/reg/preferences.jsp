@@ -1,10 +1,18 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.model.PreferenceGroup,
+                 java.util.List" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder Contract</title>
 
 <jsp:include page="../../../script.jsp" />
+
+<%
+List prefList = (List)request.getAttribute("groups");
+%>
 
 <SCRIPT TYPE="text/javascript">
 <!--
@@ -67,6 +75,14 @@ return false;
 				</td>
 			</tr>
 		</table>
+		
+		RYAN START
+		
+		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
+                    <%=prefGroup.getName()%>
+		</tc:preferenceGroupIterator>
+		
+		RYAN END
 
 		<span class=bodySubtitle>Contract Work</span>
 		<br/>
