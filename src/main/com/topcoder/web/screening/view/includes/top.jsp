@@ -24,7 +24,6 @@
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
     <tr valign="top">
         <td width="15" class="testTop">&#160;</td>
-        <td width="1" class="testTop">&#160;</td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="PopulateSession" styleclass="testTopNav">Create a New Session</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="ProfileList" styleclass="testTopNav">Test Profiles</screen:servletLink></td>
