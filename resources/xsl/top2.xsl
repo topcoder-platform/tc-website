@@ -10,53 +10,35 @@
     <xsl:call-template name="Top"/>
   </xsl:template>
   <xsl:template name="Top">
-    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">    
-            <TR>
-<!--
-          	  <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><A TARGET="_blank" HREF="http://www.topcodersoftware.com"><IMG SRC="/i/tcs_button.gif" ALT="" WIDTH="144" HEIGHT="17" BORDER="0"/></A></TD>            
 
+<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
+    <tr valign="middle">
+        <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+        <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - <span class="time"><xsl:call-template name="DateTime"/></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></td>
+        <td width="99%" align="right" class="login" nowrap="0">
 
-          	  <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><A TARGET="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute><IMG SRC="/i/tces_button.gif" ALT="" WIDTH="102" HEIGHT="17" BORDER="0"/></A></TD>
--->           <TD VALIGN="middle" BGCOLOR="#333333" CLASS="time" NOWRAP="0"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="5"/></TD>
-              <TD VALIGN="middle" BGCOLOR="#333333" NOWRAP="0" CLASS="registerToday"><SPAN CLASS="time">&#160;&#160;&#160;&#160;Current Member Count</SPAN>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - <span class="time"><xsl:call-template name="DateTime"/></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></TD>
-              <TD VALIGN="middle" BGCOLOR="#333333" WIDTH="100%" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0">
-                <!-- <A TARGET="_parent" CLASS="globalNavSmall">
-                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>
-                  About [TC]
-                </A>&#160;&#160;&#160;:&#160;&#160;&#160; -->  
-                <!-- <A HREF="http://www.topcodersoftware.com" TARGET="_parent" CLASS="globalNavSmall">TopCoder Software</A>&#160;&#160;&#160;|&#160;&#160;&#160;
-                <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160; -->
-                <xsl:choose>
-                  <xsl:when test="/TC/LoggedIn='true'">
-                    <A TARGET="_parent" CLASS="globalNavSmall">
-                      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=submit_logout</xsl:attribute>
-                      Logout
-                    </A>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <A TARGET="_parent" CLASS="globalNavSmall">
-                      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>
-                      Login
-                    </A>
-                  </xsl:otherwise>
-                </xsl:choose>&#160;&#160;&#160;|&#160;&#160;&#160;
-                <!-- <A TARGET="_parent" CLASS="globalNavSmall">
-                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>
-                  Contacts
-                </A>
-                &#160;&#160;&#160;:&#160;&#160;&#160; -->
-                <A TARGET="_parent" CLASS="globalNavSmall">
-                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
-                  Home
-                </A>
-              </TD>
-              <TD WIDTH="15" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0" VSPACE="8"/></TD>
-            </TR>
-            <TR>
-              <TD BGCOLOR="#000000" COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-            </TR>                
-    </TABLE> 
-    <!-- Logo Bar Include Begins -->       
+            <xsl:choose>
+                <xsl:when test="/TC/LoggedIn='true'">
+                    <A class="loginLinks" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=submit_logout</xsl:attribute>Logout</A>
+                    &#160;&#160;|&#160;&#160;<A class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Update Profile</A>
+                </xsl:when>
+                <xsl:otherwise>
+                    <A class="loginLinks" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A>
+                    &#160;&#160;|&#160;&#160;<A class="loginLinks" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</A>
+                </xsl:otherwise>
+            </xsl:choose>
+            
+            &#160;&#160;|&#160;&#160;<A target="_parent" class="loginLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>Home</A>
+        </td>
+        <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+    </tr>
+</table> 
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">    
+    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
+</table> 
+
+<!-- Logo Bar Include Begins -->       
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
       <TR valign="middle">
         <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A>
