@@ -10,11 +10,10 @@
 
 
 <%
-  System.out.println(request.getAttribute(BaseProcessor.ERRORS_KEY));
-    System.out.println(request.getAttribute(BaseProcessor.DEFAULTS_KEY));
-    System.out.println("\n\n\n\n");
-    System.out.println(session.getAttribute(BaseProcessor.ERRORS_KEY));
-      System.out.println(session.getAttribute(BaseProcessor.DEFAULTS_KEY));
+  System.out.println("request errors: " + request.getAttribute(BaseProcessor.ERRORS_KEY));
+    System.out.println("request defaults: " + request.getAttribute(BaseProcessor.DEFAULTS_KEY));
+    System.out.println("session errors: " + session.getAttribute(BaseProcessor.ERRORS_KEY));
+      System.out.println("session defaults: " + session.getAttribute(BaseProcessor.DEFAULTS_KEY));
 
 %>
 <script type="text/javascript">
