@@ -13,7 +13,6 @@ import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.servlet.http.HttpUtils;
@@ -213,12 +212,12 @@ public class PopulateCandidate extends BaseProcessor {
                 } else {
                     // if Query Tool returned null (in fact this should never happen) - notify the user that something
                     // went wrong
-                    throw new TCWebException("An unexpected error occured while retrieving the candidate's profile.");
+                    throw new ScreeningException("An unexpected error occured while retrieving the candidate's profile.");
                 }
             } catch (TCWebException e) {
                 throw e;
             } catch (Exception e) {
-                throw(new TCWebException(e));
+                throw(new ScreeningException(e));
             }
 
             // Redirect the request to newly defined "Candidate profile page"
@@ -227,7 +226,7 @@ public class PopulateCandidate extends BaseProcessor {
 
         } else {
             // notify the user about the necessity to select a candidate to display the profile details for
-            throw new TCWebException("The candidate ID is not specified.");
+            throw new ScreeningException("The candidate ID is not specified.");
         }
     }
 
@@ -243,7 +242,8 @@ public class PopulateCandidate extends BaseProcessor {
     private int getCompanyUsageType() throws Exception {
         // Construct the request
         Request dataRequest = new Request();
-        dataRequest.setProperty(DataAccessConstants.COMMAND, Constants.COMPANY_USAGE_TYPE_QUERY_KEY);
+        dataRequest.setContentHandle(Constants.COMPANY_USAGE_TYPE_QUERY_KEY);
+//        dataRequest.setProperty(DataAccessConstants.COMMAND, Constants.COMPANY_USAGE_TYPE_QUERY_KEY);
         dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
 
         // Execute the query
