@@ -113,19 +113,6 @@ I understand and acknowledge and hereby waive and release any and all rights, de
 <BR/>
 I understand that I will be disqualified from receiving and agree to return to TopCoder any prize which may be awarded to me if any statement made by me in this affidavit is false and I agree to return immediately upon demand to TopCoder any prize, or at the election of TopCoder the value of such prize, which has been or may have been awarded to me if any statement made by me in this affidavit is false.  I state further that I have read the above publicity and liability release prior to its execution, and that I fully understand its contents.   <BR/>
 <BR/>
-[REMAINDER OF PAGE INTENTIONALLY LEFT BLANK]<BR/>
-<BR/>
- <BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
 <BR/>
 It is understood and agreed that this is a complete RELEASE and DISCHARGE of all claims and rights of the undersigned against TopCoder and the Sponsors and that no action will be taken by or on behalf of the undersigned with respect to any such rights, it being understood that this release shall be binding upon the heirs, executors, and administrators of the undersigned.  <BR/>
 <BR/>
@@ -134,11 +121,9 @@ It is understood and agreed that this is a complete RELEASE and DISCHARGE of all
 <TABLE>
   <TR>
     <TD>_____________________________</TD>
-    <TD>Name:&#160;&#160;&#160;&#160; ____________________________</TD>
   </TR>
   <TR>
-    <TD>(Signature of &lt;NAME&gt;)</TD>
-    <TD>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(Please print)</TD>
+    <TD>(Signature of <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/>)</TD>
   </TR>
 </TABLE>
    

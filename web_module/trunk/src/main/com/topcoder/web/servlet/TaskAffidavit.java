@@ -62,6 +62,8 @@ public final class TaskAffidavit {
                 affidavitTag.addTag(rsc.getTag("Affidavit", "Info"));
                 rsc = (ResultSetContainer) resultMap.get("TCES_Member_Demographics");
                 affidavitTag.addTag(rsc.getTag("Demographics", "Demographic"));
+                rsc = (ResultSetContainer) resultMap.get("TCES_Member_Profile");
+                affidavitTag.addTag(rsc.getTag("Member", "Profile"));
 
                 document.addTag(affidavitTag);
                 log.debug(document.getXML(2));

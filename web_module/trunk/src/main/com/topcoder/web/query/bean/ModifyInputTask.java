@@ -112,6 +112,8 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             super.addError(Constants.INPUT_CODE_PARAM, "Input Code too long");
         } else if (containsNonLetters(inputCode)) {
             super.addError(Constants.INPUT_CODE_PARAM, "Invalid input code, letters only");
+        } else if (inputCode.trim().toLowerCase().equals(com.topcoder.shared.dataAccess.DataAccessConstants.COMMAND)) {
+            super.addError(Constants.INPUT_CODE_PARAM, "Invalid input code");
         }
     }
 

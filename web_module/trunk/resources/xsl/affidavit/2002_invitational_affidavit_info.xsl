@@ -44,8 +44,8 @@
     <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
       <xsl:call-template name="BodyTop">
         <xsl:with-param name="image1">white</xsl:with-param>
-        <xsl:with-param name="image">affidavit</xsl:with-param>
-        <xsl:with-param name="title">&#160;Affidavit</xsl:with-param>
+        <xsl:with-param name="image">invit</xsl:with-param>
+        <xsl:with-param name="title"></xsl:with-param>
       </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
         <TR>
@@ -64,7 +64,9 @@
               </li>
               <xsl:if test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                 <li>
-                  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to print out a tax form.  This must be returned immediately.
+                  You must print out a tax form and send it immediately.<BR/>
+                  <A HREF="/contest/fw9.pdf">Download W9 tax form</A>  (<A HREF="/contest/iw9.pdf">W9 instructions</A>)<BR/>
+                  <A HREF="/contest/fw8ben.pdf">Download W8-BEN tax form</A> (<A HREF="/contest/iw8ben.pdf">W8-BEN instructions</A>)
                 </li>
               </xsl:if>
               <li>
