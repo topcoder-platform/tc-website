@@ -814,10 +814,53 @@
         </init-param>
 
         <init-param>
+            <param-name>campaign_results_list</param-name>
+            <param-value>campaignResultsList</param-value>
+            <description>the name of a query to be used to get the campaign results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_results_page</param-name>
+            <param-value>/testing/results/campaignResults.jsp</param-value>
+            <description>the URL for the JSP page to be used to display the company campaign's results list</description>
+        </init-param>
+
+        <init-param>
             <param-name>job_position_id</param-name>
             <param-value>positionId</param-value>
             <description>the url parameter that contains the ID of a requested position associated with ampaign</description>
         </init-param>
+
+        <init-param>
+            <param-name>update_preference_processor</param-name>
+            <param-value>UpdatePreference</param-value>
+            <description>the name of a processor to be used to update the preference level for candidates</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_results_processor</param-name>
+            <param-value>CampaignResults</param-value>
+            <description>the name of a processor to be used to handle the requests for campaign results</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_results_processor</param-name>
+            <param-value>PositionResults</param-value>
+            <description>the name of a processor to be used to handle the requests for position results</description>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_list_processor</param-name>
+            <param-value>CampaignList</param-value>
+            <description>the name of a processor to be used to handle the requests for company campaign list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_list_processor</param-name>
+            <param-value>PositionList</param-value>
+            <description>the name of a processor to be used to handle the requests for campaign position list</description>
+        </init-param>
+
         <!-- Parameters used by Candidate -->
         <init-param>
             <param-name>candidate_info</param-name>
