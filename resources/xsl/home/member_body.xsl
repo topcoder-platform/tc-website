@@ -38,29 +38,32 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" align="center"><img src="/i/clear.gif" alt="" width="1" height="6" border="0" /><br />
-
-
+        <td width="100%" align="center">
+        
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+        
 <!-- Catalog Intro begins -->
             <table border="0" cellspacing="0" cellpadding="0">
-                <tr><td colspan="3" height="60"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro/catalog_intro_title.gif" alt="Introducing the TopCoder Software Component Catalog" width="556" height="60" border="0" /></A></td></tr>
-                <tr>
-                    <td width="220" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp#personal" target="_top"><img src="/i/promos/catalog_intro/catalog_intro_personal.gif" alt="Personal" width="220" height="100" border="0" /></A></td>
-                    <td width="126" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro/catalog_intro_icon.gif" alt="" width="126" height="100" border="0" /></A></td>
-                    <td width="210" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp#professional" target="_top"><img src="/i/promos/catalog_intro/catalog_intro_professional.gif" alt="Professional" width="210" height="100" border="0" /></A></td>
-                </tr>
-                <tr><td colspan="3" height="20"><img src="/i/promos/catalog_intro/catalog_intro_nav.gif" alt="" width="556" height="20" border="0" usemap="#catalog_intro_map" /></td></tr>
+                <tr><td height="42" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_a.gif" alt="Save the date!" width="494" height="42" border="0" /></A></td></tr>
+                <tr><td height="119" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_b.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" /></A></td></tr>
+                <tr><td height="64" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_c.gif" alt="Qualification rounds start online October 7th" width="494" height="64" border="0" /></A></td></tr>
             </table>
-
-            <map name="catalog_intro_map">
-                <area shape="rect" alt="Buy now" coords="334,0,396,18" href="http://software.topcoder.com/pages/s_subscriptions.jsp" target="_top" />
-                <area shape="rect" alt="Browse catalog" coords="235,0,333,18" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_top" />
-                <area shape="rect" alt="Learn more" coords="158,0,234,18" href="http://software.topcoder.com/pages/s_learn.jsp" target="_top" />
-            </map>
 <!-- Catalog Intro ends -->
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
+<!-- Small Promos begin -->
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="42" align="center"><A href="#" target="_top"><img src="/i/promos/sweden_small.gif" alt="Swedish TopCoder members can earn cash" width="263" height="86" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td height="64" align="center"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/tcs_catalog_small.gif" alt="TopCoder Software Component Catalog available" width="263" height="86" border="0" /></A></td>
+                </tr>
+            </table>
+<!-- Small Promos end -->
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
+        
 <!-- My Stats Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
@@ -390,7 +393,9 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td valign="top" class="statText" width="244" bgcolor="#001935">
+        <td valign="top" class="statText" width="244">
+        
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
 
 <!--SRM Sponsor Starts-->
             <xsl:call-template name="srm_sponsor"/>
@@ -398,24 +403,19 @@
 
 <!-- Coder of the Month Begins -->
             <xsl:call-template name="coder_of_month"/>
-<!-- Coder of the Month ends -->
-
-<!-- Promo - JavaOne Coding Challenge begins -->
-            <A href="/?t=sponsor&amp;c=javaone2003" target="_parent"><img src="/i/sponsor/javaone_2003/promo_home_javaone.gif" alt="JavaOne(sm) Coding Challenge" width="243" height="84" border="0" /></A>
-<!-- Promo - JavaOne Coding Challenge ends -->
+<!-- Coder of the Month Ends -->
 
 <!-- TCS Promo Begins -->
             <xsl:call-template name="tcs_promo"/>
 <!-- TCS Promo Ends-->
-
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
-            </table>
+        
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
                 <tr valign="top"><td height="17" class="moduleTitle" bgcolor="#093158"><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-            </table>
+                <tr>
+                    <td>
 
             <xsl:choose>
                 <xsl:when test="number(/TC/Rating)&lt;1200">
@@ -427,18 +427,13 @@
                 </xsl:otherwise>
             </xsl:choose>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr>
-                    <td align="left" class="statText"><img src="/i/clear.gif" width="20" height="10" border="0"/></td>
-                    <td></td>
-                    <td></td>
-                    <td align="left" class="statText"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
+                    </td>
                 </tr>
             </table>
 
 <!-- Statistics Begins -->
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
-                <tr><td colspan="3" bgcolor="#001935"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
+                <tr><td colspan="3" bgcolor="#093158"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
                 <tr>
                     <td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
                     <td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td>
