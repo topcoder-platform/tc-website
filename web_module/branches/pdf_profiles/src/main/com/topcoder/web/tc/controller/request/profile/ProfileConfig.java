@@ -43,8 +43,8 @@ public class ProfileConfig extends BaseProcessor {
             InitialContext ctx = TCContext.getInitial();
             User userbean = (User)createEJB(ctx, User.class);
             
-            info.setHandle(userbean.getHandle(uid, DBMS.OLTP_DATASOURCE_NAME));
-            info.setName(userbean.getFirstName(uid, DBMS.OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(uid, DBMS.OLTP_DATASOURCE_NAME));
+            info.setHandle(userbean.getHandle(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            info.setName(userbean.getFirstName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             
             getRequest().setAttribute("info", info);
 
