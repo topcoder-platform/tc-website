@@ -24,6 +24,12 @@ public interface User extends EJBObject {
 
     void setActivationCode(long userId, String code, String dataSource)
             throws EJBException, RemoteException;
+    
+    public String getHandle(long userId, String dataSource)
+            throws EJBException, RemoteException;
+    
+    public void setHandle(long userId, String handle, String dataSource)
+            throws EJBException, RemoteException;
 
     String getFirstName(long userId, String dataSource)
             throws EJBException, RemoteException;
