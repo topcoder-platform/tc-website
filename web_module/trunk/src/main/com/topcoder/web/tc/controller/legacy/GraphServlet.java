@@ -168,6 +168,8 @@ public final class GraphServlet extends HttpServlet {
                         TCServlet.NAVIGATION_ERROR_PAGE);
             }
             response.setContentType("image/gif");
+            response.setHeader("content-disposition","inline; filename=graph.png");
+            response.setContentType("image/png");
             o = response.getOutputStream();
             o.write(result);
         } catch (Exception e) {
