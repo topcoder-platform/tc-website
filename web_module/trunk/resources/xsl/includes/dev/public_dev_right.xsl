@@ -28,14 +28,14 @@
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
 <!-- Application projects begins -->
-<!--
+
             <A href="/?t=development&amp;c=app_projects"><img src="/i/development/head_app_projects.gif" alt="Application Projects" width="180" height="20" border="0" /></A>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$1,755</span> in payments.</td>
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$2,659</span> in payments.</td>
                             </tr>
                         </table>
                     </td>
@@ -45,18 +45,29 @@
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
-                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=online_gift_card_v10_des"><strong>Online Gift Card Sales</strong></A></td>
+                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=online_gift_card_v10_dev"><strong>Online Gift Card Sales Development</strong></A></td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectWinner">Winning Designer:</td>
-                                <td class="devProjectWinnerMoney">$810.00</td>
+                                <td><strong>Group 1<strong></td>
+                                <td class="devProjectWinner">Winning Developer:</td>
+                                <td class="devProjectWinnerMoney">$833.00</td>
                             </tr>
 
                             <tr>
                                 <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$225.00</td>
+                                <td class="devProjectSecondMoney">$313.00</td>
                             </tr>
+                            <tr>
+                                <td><strong>Group 2<strong></td>
+                                <td class="devProjectWinner">Winning Developer:</td>
+                                <td class="devProjectWinnerMoney">$333.00</td>
+                            </tr>
+
+                            <tr>
+                                <td class="devProjectSecond">Second Place:</td>
+                                <td class="devProjectSecondMoney">$125.00</td>
+                            </tr>                            
                         </table>
                     </td>
                 </tr>
@@ -81,7 +92,7 @@
                     </td>
                 </tr>
             </table>
--->
+
 <!-- Application projects ends -->            
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
