@@ -1,16 +1,17 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.*;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,74 +47,6 @@ public class FullRegConfirm extends FullRegBase {
         setIsNextPageInContext(true);
     }
 
-    protected SimpleRegInfo makeRegInfo() throws Exception {
-        //get the main reg info from the session
-        FullRegInfo info = (FullRegInfo) getRegInfoFromPersistor();
-        if (info == null) {
-            //perhaps we should load it up from the db...in the case of updates...
-            throw new NavigationException("Sorry, your session has expired, you'll have to begin again.");
-        }
-
-
-        //get the rest from the request
-        if (hasRequestParameter(Constants.CODER_TYPE)) {
-            String sCoderType = getRequestParameter(Constants.CODER_TYPE);
-            info.setCoderType(Integer.parseInt(sCoderType == null ? "-1" : sCoderType));
-        }
-
-        //get the demographic responses
-        DemographicQuestion q = null;
-        String[] values = null;
-        DemographicResponse r = null;
-        String key = null;
-        List questionList = getQuestionList();
-        //loop through all the questions
-        for (Iterator it = questionList.iterator(); it.hasNext();) {
-            q = (DemographicQuestion) it.next();
-            key = Constants.DEMOG_PREFIX + q.getId();
-            values = getRequest().getParameterValues(key);
-            if (q.isRequired() && !hasRequestParameter(key) && !info.hasResponse(q.getId())) {
-                //this is cheating, cuz really it should be done in the data checking method.
-                addError(key, "Please enter a valid answer, this question is required.");
-            } else if (values != null) {
-                //if they've responded in this request, replace whatever was there in persitor with this new stuff
-                if (values.length > 0) {
-                    info.removeResponses(q.getId());
-                }
-                String value = null;
-                //loop through all the responses in the request
-                for (int i = 0; i < values.length; i++) {
-                    value = StringUtils.checkNull(values[i]).trim();
-                    if (value.length()>0) {
-                        r = new DemographicResponse();
-                        r.setQuestionId(q.getId());
-                        if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
-                            r.setText(values[i]);
-                            info.addResponse(r);
-                        } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                                q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                            try {
-                                r.setAnswerId(Long.parseLong(values[i]));
-                                info.addResponse(r);
-                            } catch (NumberFormatException e) {
-                                //skip it, it's invalid, checking will have to pick it up later
-                            }
-                        } else {
-                            throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
-                        }
-                    } else if (q.isRequired()) {
-                        /* at this point, we know that the parameter was included in the request, but the value
-                         * was empty.  we'll complain to them and ask them to fill in the question
-                         */
-                        addError(key, "Please enter a valid answer, this question is required.");
-                    }
-                }
-            }
-
-        }
-
-        return info;
-    }
 
     /**
      * Check the extended type information only.
@@ -166,6 +99,15 @@ public class FullRegConfirm extends FullRegBase {
             found = (aRow.getIntItem("demographic_answer_id") == response.getAnswerId());
         }
         return found;
+    }
+
+    protected SimpleRegInfo makeRegInfo() throws Exception {
+        if (getRegInfoFromPersistor() == null) {
+            //perhaps we should load it up from the db...in the case of updates...
+            throw new NavigationException("Sorry, your session has expired, you'll have to begin again.");
+        } else {
+            return super.makeRegInfo();
+        }
     }
 
 

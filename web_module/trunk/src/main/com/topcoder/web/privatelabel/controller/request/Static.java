@@ -1,7 +1,8 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.shared.security.*;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 
 /**

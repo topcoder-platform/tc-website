@@ -1,16 +1,15 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.security.UserPrincipal;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
-import com.topcoder.security.UserPrincipal;
-
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Iterator;
 import java.util.Map;
