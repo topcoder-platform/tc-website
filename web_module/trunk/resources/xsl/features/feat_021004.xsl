@@ -58,211 +58,51 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%">         
-                        <p><font size="4"><strong>An Enterprise Java Overview</strong></font><br />
-                        Wednesday, January 14, 2004</p>
+                        <p><font size="4"><strong>The 5 Most Common Design Mistakes</strong></font><br />
+                        Tuesday, February 10, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251184"><strong>dplass</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>
-In this feature, I will give an overview of designing systems using Java 2 Enterprise Edition  (J2EE) and 
-touch upon some of the technologies used to implement these systems.  J2EE actually encompasses over a 
-dozen separate technologies; I will only describe a handful of them here.  Likewise, this article mostly covers 
-web applications ("web apps") since that has been my area of expertise over the last 4 years, even though 
-Enterprise Java can be used for client-server, or other types of applications.</p>
+Being on the review board, I see designs that are first attempts, those that are well polished and everything in-between.  After seeing so many, a few mistakes seem to be made over and over.  I polled two fellow designers, srowen and kyky, to see if they have had any similar experiences with mistakes and whether they would have any recommendations to avoid those mistakes.  I've attempted to summarize their and my experiences in a compilation of the most 5 common mistakes and how to avoid them.</p>
 
-<p><b>Design Overview</b><br/>
-J2EE web app design nearly always uses the "Model-View-Controller", or MVC design pattern.  It allows 
-software architects to design in layers, which naturally leads to an implementation with those corresponding 
-layers:</p>
+<p><span class="bodySubtitle">1. Making assumptions</span><br/>
+Easily the biggest mistake that I run across because it can happen in every stage of the design process.  You should have a crystal clear understanding of the requirements - if you do not, you have made an assumption on some requirement point.  This is a problem because the reviewer may make a different assumption on the same point and mark you down because of it.</p>
 
-<div align="center"><img src="/i/f/feat_011404.gif" width="350" height="252" border="0"/></div>
+<p>You should make use of the forums extensively to either challenge unclear requirements or to refine your own understanding until you are crystal clear.  The forum also becomes a nice paper trail of your decision that can be followed by the review board members.</p>
 
-<p>The <b>Model</b> layer represents the actual "business objects" that are manipulated, such as a User, an Address, 
-or an Order.  This layer is often combined with a persistence layer, such as Entity Enterprise Java Beans (EJBs) 
-or Java Database Connectivity (JDBC.)</p>
+<p>Your design elements (documentation, skeletons, class diagrams, sequence diagrams, etc) must show your intent clearly.  You cannot assume that the developer, or more importantly - the review board, will 'get it' or understand the subtlety or implications in your design.  While I'm working on a design, I usually keep a scratch sheet that I use to write down any of my thoughts that occur.  I will not consider the design finished until all those thoughts have been documented somewhere in the design.</p>
 
-<p>The <b>View</b> presents the model to the user.  Typically this is provided by Java Server Pages (JSPs), which 
-render HTML to the user.  The <b>Controller</b> accepts input from the user, modifies the Model, and can change 
-which View the user is seeing.  They are usually implemented using Java Servlets and/or EJBs.</p>
+<p><span class="bodySubtitle">2. You're a designer - not a developer</span><br/>
+You are writing a design for a developer - not developing the component.  Remember, a developer is synonymous to a programmer analyst.  I mention this because the 'analyst' part of that definition is the key word.  The developer is responsible for analyzing your design and figuring out the most efficient implementation - not you.</p>
 
+<p>This means that you should never write a single line of code (with the single exception of validating a concept that your design hinges on).  If you write code, two possible side effects could happen.  Your eventual design, whether you realize it or not, will generally either require or heavily favor the implementation that you wrote  - eliminating or severely limiting a potentially better implementation the programmer analyst could implement.  Secondly, your design will inevitably create a component whose API is easy for you to implement rather than focusing on a component whose API is easy for the customer to use - which should be your focus.</p>
 
-<p><b>The Model Layer</b><br/>
-The Model is usually implemented using "PODS" - Plain Old Data Structures.  These are "simple" Java classes 
-that have "getters" and "setters" for their properties.  The properties themselves are private but the getters 
-and setters are public.  For example:</p>
+<p><span class="bodySubtitle">3. Making behemoth APIs</span><br/>
+A single class taking up the majority of the design with function after function is probably symptomatic of a design problem rather than being a valid design decision.  While there are cases when a huge class is proper, the far likelier case is that the class has too large of scope and can be broken down into smaller, more easily maintainable classes with a more specific scope.  The overall design usually becomes more flexible with smaller classes because you have more 'building blocks' to combine in different ways.</p>
 
-<pre>
-public class Address
-{
-      private String city;
+<p>Secondly, a huge API generally points to the component being in 'overkill' mode - trying to accomplish too much too early on.  Most of the components that are being designed are version 1.0 components.  A component should start simple, accomplishing or slightly surpassing the requirements, and allow future enhancements (driven by market needs) to expand upon it.</p>
 
-      public String getCity() { return city; }
-      public void setCity(String c) { this.city = c;}
-}
-</pre>
+<p><span class="bodySubtitle">4. Know the parties involved and their focus</span><br/>
+Designers need to understand who will be using the designs and for what purpose.  The audience of the design consists of three separate parties:  the customer, the review board and the developer.  These parties are distinctly different in focus and need to be treated differently in your design.  The customer is looking at the design to figure out how to use it.  The review board is looking for well-founded patterns, flexibility and overall cleanliness of the design.  The developer is reviewing it to determine the best implementation.  Too many of the designs submitted forget who the target audience of each element is.  Let's look at each element and discuss who the element is for and why.</p>
 
-<p>The model holds data that is input from the user or stored in the database.  The relationships between these business 
-entities are modeled using references between a parent and its children.  For example:</p>
+<p>The component specification is of main interest to the review board and secondarily by the developer.  The component specification explains what the design accomplishes, the approach used, why it is designed this way and what the strengths/weaknesses are of the approach.  Think of the specification as your explanation to the review board on your design and it should address all assumptions, the reasoning and the design decisions that you have made in the design.  The specification should not only document the strengths of your design but also the weaknesses (otherwise you run the risk of a review board member finding the weakness and marking down for it).</p>
 
-<pre>
-public class Person
-{
-      private Address address;
-      public Address getAddress() { return address; }
-      public void setAddress(Address a) { this.address = c; }
-}
-</pre>
+<p>The class diagram is of interest to all parties and is probably tied with the specification document in importance.  The customer and review board will use it to understand the structure of the component and how it interacts.  The developer will use it as a guide to their development.  Because of the importance to all parties, it must be crystal clear in intent (see the presentation point below for ideas on improving this area).</p>
 
-<p>A one-to-many relationship is usually built as a Vector or List of multiple instances of the object.</p>
+<p>The developer will primarily use the 'documentation tab' to understand the element's use, rules and functionality within the component.  The documentation is written using javadoc formatting (or XML doc formatting in .NET designs) but is NOT really javadoc in the true sense.  This documentation is to the developer to explain how to implement that particular element.  The developer is then responsible in writing the proper customer javadocs.  The method documentation should mention functions intent and what are valid and invalid arguments.  A variable documentation should not only state what the variable means but also its limits and potentially, what methods modify it.</p>
 
-<p><b>Persistence Models</b><br/>
-The persistence layer provides storage of data to the database, and retrieval from databases, usually relational SQL databases.</p>
+<p>The use cases are of primary interest to the customer.  The use cases cover a high level look at the cases this component would be good for.  Use cases are a bit of art because they can be described at many levels (from fairly detailed cases to very high level cases).  A good rule of thumb is to think from the customer's standpoint and try to decide what level of detail is appropriate.</p>
 
-<p>The commonly used persistence models include:</p>
-<ol>
-<li>JDBC - Java Database Connectivity.  This is a standard J2EE technology used for accessing SQL databases.  Most 
-major database vendors provide JDBC drivers, which are specific to each database itself.  Happily, since JDBC 
-standardizes the access to SQL, developers do not need to know the specifics of each database in order to use JDBC.</li>
-<li>The drawback of JDBC is that there is no standard way to map between objects and relational databases 
-(the so-called "O-R mapping").  Many third-party Java products exist, such as Hibernate and JDO, to aid in this 
-mapping and can make persistence nearly invisible to the rest of the code.</li>
-<li>Entity EJB.  This technology can automatically map a Java class to a table in a SQL database.  A major benefit of 
-using EJBs is that the server, not the developer, manages transactions. Entity EJBs can be cumbersome to code.  
-Historically, the mapping between the model and the database has been vendor-specific and it has been difficult to 
-model complex table relationships (although both are mitigated by the latest EJB 2.0 specification.) </li>
-</ol>
+<p>The sequence diagrams are of primary interest to the developer.  Think of the sequence diagrams as pseudo-code on how your component accomplishes the use cases and should not be very low-level (again, you're the designer - not the developer).  They should show the flow from class to class but not really get into the internal implementation details.</p>
 
-<p><b>Enterprise Java Beans (EJB)</b><br/>
-EJBs are components that provide distributed execution, transaction control, declarative security, multi-threading, 
-and scalability.  The mechanism to access an EJB is similar to a remote procedure call, except that the EJB compiler 
-rather than the developer implements the actual call.</p>
+<p><span class="bodySubtitle">5. Presentation</span><br/>
+Presentation is one of the most important elements in the review process.  A badly presented design will almost always lose to a well-presented weaker design because it is easier to grasp.  A clear, concise design leaves the reviewer with no assumptions or misunderstandings and represents the thoroughness and time the designer put into the design.   The presentation is the 'sell' aspect to the review board - here's the design, it's easy to understand so score it well.</p>
 
-<p>There are various flavors of EJBs, which include:</p>
-<ol>
-<li><b>Entity EJBs</b>. Each instance of the bean represents a row in a table of a database.  Entity EJBs are cached 
-in the application server so that multiple clients do not have to re-read the same records from the database. The 
-two variations on Entity EJBs are:</li>
-<ol>
-<li>Container Managed Persistence (CMP)- The mapping between the columns of a table is defined by the developer 
-in a configuration file (called a deployment descriptor).  Until recently, this was a vendor-specific mapping where 
-the specific application server's EJB compiler implements all the insert, update, delete and retrieve code.</li>
-<li>Bean Managed Persistence (BMP) - All database interactions are written by the developer.  The developer can 
-model complex relationships between tables, and thus objects.  The drawback to BMP is that it is error-prone and 
-potentially slower to develop than CMP beans.</li>
-</ol>
-<li><b>Session EJBs</b>.  These EJBs are used as controllers.</li>
-<ol>
-<li>Stateful Session EJBs (SFSB).  These beans keep their state between calls; they can be used as "shopping carts" 
-for a particular user.</li>
-<li>Stateless Session EJBs (SLSB).  The application server maintains a "pool" of objects that do not retain their 
-state between calls.  SLSB's are useful to control a transaction from start to finish, spanning multiple Entity EJB 
-calls, multiple databases, and JDBC calls.</li>
-</ol>
-</ol>
+<p>The component specification should contain no spelling errors and be neatly laid out (alignment, sections, bullet points, etc).  The class diagram should have no overlapping edges to any element, use colors to denote class types and have well laid out association lines (did you know that you can click on the middle of a association line to create an angle?).  More importantly, you should logically group related elements together in the class diagram - implementations of an interface better be near the interface rather than scattered around.  Classes, methods and variables should be consistently named across the diagram as well within each class. The sequence diagrams are nearly impossible, in Posedian, to lay out cleanly - you should make generous use of notes in the diagram to further explain the sequence.</p>
 
-<p><b>The View Layer</b><br/>
-Java Server Pages (JSPs) are the technology of choice when implementing the View of a web application.  
-JSPs are text files with sections that can include Java code or XML (called "tags").  For example, this is a 
-simple JSP that generates HTML to show the current date:</p>
-
-<pre>
-&lt;%@ page import="java.util.Date"%&gt;
-&lt;html&gt; &lt;head&gt;&lt;title&gt;JSP Date&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;
-The current date is &lt;%=new Date()%&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
-
-<p>The output of this JSP is:</p>
-<div align="center"><img src="/i/f/feat_011404_2.gif" width="350" height="252" border="0"/></div>
-
-<p>Even though the above example renders HTML and JSPs are nearly always used to generate HTML, JSPs can 
-be used to generate any kind of text.  The usefulness of JSPs is that they can generate dynamic content but still 
-use a familiar format.</p>
-
-<p>There are actually two different ways to produce dynamic content in JSPs. Java scriptlets are bits and pieces 
-of Java code interspersed in the text of the page.  In the example above, the scriptlet is underlined.  The 
-disadvantage of this is that the code is not re-usable.  If you wanted the same code snippet on multiple pages, 
-(even though there is an "include" mechanism in JSP) the code itself is not inherently reusable.  Another 
-disadvantage of using scriptlets is that JSP development is frequently relegated to non-Java developers who 
-specialize in HTML and JSPs.  Forcing them to use a language that they do not know is counter-productive and 
-can lead to sub-optimal JSPs.</p>
-
-<p>Instead, JSP custom tag libraries are used.  The developer can either write her own tag libraries (in Java), 
-or use pre-made libraries, such as the JSTL library.  With a JSP tag library, tags replace the scriptlets.   Instead of:</p>
-
-<pre>The current date is &lt;%=new Date()%&gt;</pre>
-
-<p>A developer could write</p>
-
-<pre>
-The current date is 
-&lt;dt:format pattern="MM/dd/yyyy hh:mm"&gt;
-&lt;dt:currentTime/&gt;
-&lt;/dt:format&gt;
-</pre>
-
-<p>As one can see, the tag syntax is XML and therefore it would be easy to transition HTML developers into 
-"JSP-with-tags" developers.</p>
- 
-<p>When designing a website that uses JSP technology, I strongly advise that you consider designing and 
-developing with templates.  Web sites need a consistent look and feel and therefore will contain common 
-visual elements, such as a header, navigation area, and footer.  By designing your pages to use a common 
-template, you will save yourself headaches later when you need to change the header on EVERY page.   
-There are many frameworks for JSP that can help with this; Tiles is one of these frameworks and works 
-with the Struts framework; both part of The Apache Software Foundation's Jakarta project.</p>
-
-<p><b>The Controller Layer</b><br/>
-The Controller is responsible for receiving input from the user (usually in the form of an HTTP request), 
-taking some action, and updating the model.  The controller then sends the user to a view (usually a different 
-view) to display the results of the action.</p>
-
-<p>Servlets are the J2EE objects that take input from users.  They can be multi-threaded (to increase 
-performance) with little effort on the part of the coder, and can take part in container-managed security.</p>
-
-<p>Servlets and JSPs co-operate in two ways:</p>
-<ol>
-<li>a. Servlets store their output - the updated Model - in common places for JSPs to then read and display.</li>
-<li>JSPs send their data to servlets based on the target of an HTML form; servlets redirect the web browser 
-back to a particular JSP to change the "view".</li>
-</ol>
-
-<p>Often, servlets are used in conjunction with Stateless Session EJBs.  The benefit of this mechanism 
-is that we can avoid writing our own transaction control by using the EJB's Container-Managed Transaction 
-management.</p>
-
-<p><b>Struts</b><br/>
-Finally, I'd like to mention Struts.  Struts is a widely-used, widely-supported framework that 
-makes designing and building the View, Controller, and Model layers easier.  The benefits of using Struts 
-includes the following:</p>
-
-<ol>
-<li>Data mapping from a servlet to a Model</li>
-<li>A JSP tag library</li>
-<li>A way to "internationalize" messages in JSPs</li>
-<li>A mechanism to redirect among different JSPs after the controller processes user requests</li>
-<li>Other useful View and Controller functionality</li>
-</ol>
-
-<p>A thorough discussion of Struts is way beyond the scope of this article.  There are a plethora of written 
-and on-line references for more information.</p>
-
-<p><b>Conclusion and references</b><br/>
-As with every other framework, designing systems using Enterprise Java provides much flexibility, requiring 
-the software designer to make many choices along the way.  This article shows the typical layers of J2EE applications 
-and identifies some of the decision points that arise when building web applications. Each topic is worthy of an article 
-unto itself; this article was just the tip of the iceberg!</p>
-
-
-<p><A href="http://java.sun.com/blueprints/enterprise/index.html">http://java.sun.com/blueprints/enterprise/index.html</A>  - Sun Microsystems publishes their "Blueprints" to design and develop Enterprise applications and provides much on-line documentation.  This covers EJBs, JSP, Java Servlets, as well as the design patterns that Sun recommends when designing web applications.</p>
-
-<p><A href="http://jakarta.apache.org">http://jakarta.apache.org</A> - The Jakarta project has too many Java libraries and frameworks to mention; Struts, Tiles, Taglibs, and others are used in many web applications.  Instead of re-inventing the wheel, you can use these open-source projects to reduce development time.</p>
-
-<p><A href="http://java.sun.com/products/jdo/">http://java.sun.com/products/jdo/</A> - "The Java Data Objects (JDO) API is a standard interface-based Java model abstraction of persistence."</p>
-
-<p><A href="http://www.hibernate.org">http://www.hibernate.org</A> - "Hibernate is a powerful, ultra-high performance object/relational persistence and query service for Java"</p>
+<p>While many other design mistakes have been seen, these probably represent the largest grouping of them.  The suggestions (and errors for that matter) are generic enough to be applied to any of the components that you may submit.  Try to follow some of the suggestions represented here and the designs you submit should start receiving higher points.</p>
 
                         <p><br/></p>
 
