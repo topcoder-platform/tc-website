@@ -121,7 +121,7 @@ public class MainServlet extends HttpServlet {
         Enumeration initNames = srvCfg.getInitParameterNames();
         String initParam, initValue;
         Class opClass;
-        RequestProcessor req;
+        RequestProcessor req = null;
         boolean found = false;
         
         while( initNames.hasMoreElements() ) {
@@ -150,9 +150,9 @@ public class MainServlet extends HttpServlet {
             }
         }
         
-        if( found ) {
+        if( found && req != null ) {
             log.debug( "doGet: module found" );
-            //sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
+            sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
         }
         else {
             log.debug( "doGet: module not found" );
