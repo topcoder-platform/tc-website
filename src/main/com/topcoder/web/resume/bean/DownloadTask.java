@@ -1,13 +1,14 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.resume.ResumeServices;
 
-import javax.servlet.http.*;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class DownloadTask extends ResumeTask{
     private Resume resume = null;
@@ -28,8 +29,8 @@ public class DownloadTask extends ResumeTask{
         } else {
              userId = navigation.getUserId();
         }
-        if (super.getFileUpload().getParameter("cid")!=null) {
-            companyId = Long.parseLong(super.getFileUpload().getParameter("cid"));
+        if (getRequestParameter(request, "compid")!=null) {
+            companyId = Long.parseLong(super.getFileUpload().getParameter("compid"));
             db = getCompanyDb(companyId);
         }
     }
