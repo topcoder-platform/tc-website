@@ -28,7 +28,7 @@ function showEmail() {
         rEmail = "YES";
     }
     <% String url = sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=PreviewEmail"; %>
-    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+ cid + "&<%=Constants.REP_EMAIL%>=" + rEmail + "&<%=Constants.CANDIDATE_EMAIL%>=" + cEmail,name,cmd);
+    window.open('<%=url%>&<%=Constants.CANDIDATE_ID%>='+ cid + "&<%=Constants.REP_EMAIL%>=" + rEmail + "&<%=Constants.CANDIDATE_EMAIL%>=" + cEmail,name,cmd);
     return;
   }
 
