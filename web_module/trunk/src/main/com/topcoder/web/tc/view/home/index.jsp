@@ -13,7 +13,7 @@
 		<td colspan=7>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
-				<td class=homeTopBar align=right><A href="/" class="loginLinks">About TopCoder</A></td>
+				<td class=homeTopBar align=right><A href="/?t=about_tc&c=index" class="loginLinks">About TopCoder</A></td>
 			</tr>
 			<tr>
 				<td class=homeLogo><img src="/i/logo_r.gif" border=0 /></td>
