@@ -1,12 +1,13 @@
 package com.topcoder.web.privatelabel.model;
 
 import java.lang.reflect.Method;
+import java.io.Serializable;
 
 /**
  *
  * @author gpaul 06.26.2003
  */
-public class Base {
+abstract public class Base implements Serializable, Cloneable {
     private boolean isNew;
 
     public Base() {
