@@ -13,6 +13,7 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc05_alg_adv_overview"); %>
 
 
@@ -50,7 +51,7 @@
                 <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr class="<%=even?"advanceDk":"advanceLt"%>"><td align="center" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td ><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+<td ><tc-webtag:handle coderId="<%=resultRow.getIntItem("user_id")%>" context="algorithm"/</td>
 <td align="right" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
 <td  ><rsc:item name="round1" row="<%=resultRow%>"/></td>
