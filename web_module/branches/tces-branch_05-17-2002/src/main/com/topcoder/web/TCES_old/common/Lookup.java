@@ -1,5 +1,4 @@
-//package com.topcoder.web.tces.common;
-package com.topcoder.web.TCES.common;
+package com.topcoder.web.tces.common;
 
 import java.util.*;
 import	java.io.Serializable;
