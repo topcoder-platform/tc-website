@@ -6,7 +6,7 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.security.TCSubject;
-import com.topcoder.web.tc.ejb.ProblemRatingServices.ProblemRatingServices;
+import com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServices;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -29,7 +29,7 @@ public class Submit extends Base {
         InitialContext ctx = null;
         try {
             ctx = new InitialContext();
-            ProblemRatingServices prs = (ProblemRatingServices)createEJB(ctx, ProblemRatingServices.class, "main:");
+            ProblemRatingServices prs = (ProblemRatingServices)createEJB(ctx, ProblemRatingServices.class);
             HttpServletRequest request = getRequest();
             Enumeration en = request.getParameterNames();
             ArrayList al = new ArrayList(10);
