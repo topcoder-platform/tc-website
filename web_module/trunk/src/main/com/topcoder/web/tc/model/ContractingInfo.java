@@ -17,6 +17,7 @@ public class ContractingInfo implements Serializable {
     
     private long userID;
     private Hashtable preferences;
+    private Hashtable skills;
     private UploadedFile resume;
     private boolean edit;
     
@@ -24,8 +25,25 @@ public class ContractingInfo implements Serializable {
     public ContractingInfo() {
         userID = 0;
         preferences = new Hashtable();
+        skills = new Hashtable();
         resume = null;
         edit = false;
+    }
+    
+    public void clearSkills() {
+        skills.clear();
+    }
+    
+    public void setSkill(String skill, String val) {
+        skills.put(skill, val);
+    }
+    
+    public String getSkill(String skill) {
+        return (String)skills.get(skill);
+    }
+    
+    public Iterator getSkillNames() {
+        return skills.ketSet().iterator();
     }
     
     public boolean isEdit() {
