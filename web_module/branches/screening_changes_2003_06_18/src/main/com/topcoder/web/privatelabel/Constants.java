@@ -18,6 +18,7 @@ public class Constants {
     //pages
     public static String REGISTRATION_PAGE;
     public static String REGISTRATION_CONFIRM_PAGE;
+    public static String REGISTRATION_SUCCESS_PAGE;
     public static String DEFAULT_PAGE;
 
     //parameter keys

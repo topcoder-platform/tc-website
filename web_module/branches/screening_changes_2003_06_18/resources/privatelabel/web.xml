@@ -59,6 +59,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>registration_success_page</param-name>
+            <param-value>/reg/registrationSuccess.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>default_page</param-name>
             <param-value>/index.jsp</param-value>
             <description></description>

@@ -14,7 +14,7 @@ public class RegistrationSubmit extends RegistrationBase {
         } else {
             //TODO commit to db
             //TODO should some some kind of thank you page or something
-            setNextPage(Constants.REGISTRATION_CONFIRM_PAGE);
+            setNextPage(Constants.DEFAULT_PAGE);
         }
         setIsNextPageInContext(true);
     }
