@@ -1,7 +1,8 @@
 package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IdGenerator;
+//import com.topcoder.util.idgenerator.IdGenerator;
+import com.topcoder.util.idgenerator.*;
 import com.topcoder.shared.util.DBMS;
 
 import javax.ejb.SessionBean;
@@ -31,9 +32,6 @@ public class UserBean implements SessionBean {
 	private static final String dataSourceName = "CORP_OLTP";
 	private static final String idGenDataSourceName = "SCREENING_OLTP";
 
-	//private SessionContext ctx;
-	//private transient Context InitContext;
-
 	//required ejb methods
 
 	public void ejbActivate() {
@@ -44,7 +42,7 @@ public class UserBean implements SessionBean {
 
 	public void ejbCreate() {
 
-		InitContext = new InitialContext();
+//		InitContext = new InitialContext();
 	}
 
 	public void ejbRemove() {
@@ -52,14 +50,14 @@ public class UserBean implements SessionBean {
 
 	public void setSessionContext(SessionContext ctx) {
 
-		this.ctx = ctx;
+//		this.ctx = ctx;
 	}
 
 	//business methods
 
 	public long createUser() {
 
-		log.debug("createUser called...")
+		log.debug("createUser called...");
 
 		Context ctx = null;
 		PreparedStatement ps = null; //could just use Statement
@@ -70,14 +68,14 @@ public class UserBean implements SessionBean {
 		try {
 			ctx = new InitialContext();
 			if (!IdGenerator.isInitialized()) {
-				IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(idGenDataSourceName), "sequence_object", "name", "current_value", 9999999999, 1, true);
+				IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(idGenDataSourceName), "sequence_object", "name", "current_value", 9999999999L, 1, true);
 			}
 			ret = IdGenerator.nextId("USER_SEQ");
 
 			StringBuffer query = new StringBuffer();
-			query.append("INSERT INTO user (user_id) VALUES (");
+			query.append("INSERT INTO user (user_id, create_date, modify_date) VALUES ('");
 			query.append(Long.toString(ret));  //the reason we can just use Statement :-)
-			query.append(")");
+			query.append("','now','now')");
 
 			ds = (DataSource)ctx.lookup(dataSourceName);
 			conn = ds.getConnection();
@@ -103,7 +101,7 @@ public class UserBean implements SessionBean {
 
 	public void setFirstName(long userId, String firstName) {
 
-		log.debug("setFirstName called...user_id: " + userId + " first_name: " + firstName)
+		log.debug("setFirstName called...user_id: " + userId + " first_name: " + firstName);
 
 		Context ctx = null;
 		PreparedStatement ps = null;
@@ -113,7 +111,7 @@ public class UserBean implements SessionBean {
 
 		try {
 			StringBuffer query = new StringBuffer();
-			query.append("UPDATE user SET first_name = " + firstName + " WHERE user_id = ");
+			query.append("UPDATE user SET first_name = '" + firstName + "', modify_date = 'now' WHERE user_id = ");
 			query.append(Long.toString(userId));
 
 			ctx = new InitialContext();
@@ -137,9 +135,9 @@ public class UserBean implements SessionBean {
         }
 	}
 
-	public void setLastName(long userId, string lastName) {
+	public void setLastName(long userId, String lastName) {
 
-		log.debug("setLastName called...user_id: " + userId + " last_name: " + lastName)
+		log.debug("setLastName called...user_id: " + userId + " last_name: " + lastName);
 
 		Context ctx = null;
 		PreparedStatement ps = null;
@@ -149,7 +147,7 @@ public class UserBean implements SessionBean {
 
 		try {
 			StringBuffer query = new StringBuffer();
-			query.append("UPDATE user SET last_name = " + lastName + " WHERE user_id = ");
+			query.append("UPDATE user SET last_name = '" + lastName + "', modify_date = 'now' WHERE user_id = ");
 			query.append(Long.toString(userId));
 
 			ctx = new InitialContext();
@@ -175,7 +173,7 @@ public class UserBean implements SessionBean {
 
 	public void setUserStatusId(long userId, long userStatusId) {
 
-		log.debug("setUserStatusId called...user_id: " + userId + " userStatusId: " + user_status_id)
+		log.debug("setUserStatusId called...user_id: " + userId + " user_status_id: " + userStatusId);
 
 		Context ctx = null;
 		PreparedStatement ps = null;
@@ -185,7 +183,7 @@ public class UserBean implements SessionBean {
 
 		try {
 			StringBuffer query = new StringBuffer();
-			query.append("UPDATE user SET user_status_id = " + userStatusId + " WHERE user_id = ");
+			query.append("UPDATE user SET user_status_id = " + userStatusId + ", modify_date = 'now' WHERE user_id = ");
 			query.append(Long.toString(userId));
 
 			ctx = new InitialContext();
@@ -211,7 +209,7 @@ public class UserBean implements SessionBean {
 
 	public String getFirstName(long userId) {
 
-		log.debug("getFirstName called...user_id: " + userId)
+		log.debug("getFirstName called...user_id: " + userId);
 
 		Context ctx = null;
 		PreparedStatement ps = null;
@@ -249,7 +247,7 @@ public class UserBean implements SessionBean {
 
 	public String getLastName(long userId) {
 
-		log.debug("getLastName called...user_id: " + userId)
+		log.debug("getLastName called...user_id: " + userId);
 
 		Context ctx = null;
 		PreparedStatement ps = null;
@@ -287,7 +285,7 @@ public class UserBean implements SessionBean {
 
 	public long getUserStatusId(long userId) {
 
-		log.debug("getUserStatusId called...user_id: " + userId)
+		log.debug("getUserStatusId called...user_id: " + userId);
 
 		Context ctx = null;
 		PreparedStatement ps = null;
@@ -322,3 +320,4 @@ public class UserBean implements SessionBean {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getUserStatusId");}}
         }
 	}
+}
