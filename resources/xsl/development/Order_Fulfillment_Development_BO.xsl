@@ -110,6 +110,11 @@
                                                         Communication between the system and the factories is not in scope for this application.
                                                         <br/>
                                                         <br/>
+                                                        The developer of this project is responsible for creating all of the ASP.NET pages 
+                                                        and validation controls for the front end.  This layer will call the business object 
+                                                        to perform all logic.  
+                                                        <br/>
+                                                        <br/>
                                                     </p>
                                                     <p class="noSpListTitle">
                                                         <strong>Objectives</strong>
@@ -132,6 +137,7 @@
                                                         <li>Windows Server 2003</li>
                                                         <li>SQL Server 2000</li>
                                                         <li>Microsoft .NET Framework Version 1.1</li>
+                                                        <li>ASP.NET</li>
                                                     </ul>
 
                                                     <!-- Payment -->
@@ -219,7 +225,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$3,850.00</td>
+                                                            <td class="bodyText" align="right">$3,200.00</td>
                                                         </tr>
                                                     </table>
 o

@@ -110,6 +110,12 @@
                                                         Communication between the system and the factories is not in scope for this application.
                                                         <br/>
                                                         <br/>
+                                                        The developer of this project is responsible for creating all of the business objects.  The
+                                                        business objects handle all of the rules and logic of the system.  This layer will be utilized 
+                                                        by the front end and will call the data access layer to handle all persistence.
+                                                        <br/>
+                                                        <br/>
+                                                        
                                                     </p>
                                                     <p class="noSpListTitle">
                                                         <strong>Objectives</strong>

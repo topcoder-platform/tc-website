@@ -110,6 +110,11 @@
                                                         Communication between the system and the factories is not in scope for this application.
                                                         <br/>
                                                         <br/>
+                                                        The developer of this project is responsible for creating all of the data access layer object
+                                                        to handle all persistence.  This layer will be utilized by the business object layer.  The 
+                                                        developer must be comfortable with SQL Server 2000 and stored procedures.
+                                                        <br/>
+                                                        <br/>
                                                     </p>
                                                     <p class="noSpListTitle">
                                                         <strong>Objectives</strong>
@@ -159,7 +164,7 @@
                                                         <br/>
                                                         &#160;&#160;&#160;&#160;&#160;1. Second Payment:
                                                         <br/>
-                                                        &#160;&#160;&#160;&#160;&#160;At the completion of the development project.
+                                                        &#160;&#160;&#160;&#160;&#160;At the completion of the development project.*
                                                         <br/>
                                                         <br/>
                                                         <strong> Second Place Compensation: </strong>
@@ -174,11 +179,11 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$1500.00</td>
+                                                            <td class="bodyText" align="right">$1,800.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$1000.00</td>
+                                                            <td class="bodyText" align="right">$1,00.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment -</td>
@@ -219,7 +224,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$5,600.00</td>
+                                                            <td class="bodyText" align="right">$3,200.00</td>
                                                         </tr>
                                                     </table>
 
