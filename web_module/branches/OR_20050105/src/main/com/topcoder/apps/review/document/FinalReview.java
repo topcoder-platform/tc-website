@@ -29,7 +29,7 @@ public class FinalReview implements Serializable {
     private boolean dirtyFlag = false;
     private long requestorId;
     private long versionId;
-    private Boolean isApproved;
+    private boolean isApproved;
     private String comments;
 
     /**
@@ -42,7 +42,7 @@ public class FinalReview implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public FinalReview(long id, FixItem[] fixItem, AggregationWorksheet aggWorksheet,
-            boolean isCompleted, long requestorId, long versionId, Boolean isApproved, String comments) {
+            boolean isCompleted, long requestorId, long versionId, boolean isApproved, String comments) {
         this.id = id;
         this.fixItem = fixItem;
         this.aggregationWorksheet = aggWorksheet;
@@ -182,7 +182,7 @@ public class FinalReview implements Serializable {
      *
      * @return true if the final review is approved, otherwise false.
      */
-    public Boolean isApproved() {
+    public boolean isApproved() {
         return isApproved;
     }
 
@@ -193,7 +193,7 @@ public class FinalReview implements Serializable {
      *
      * @param isApproved Whether this review is approved.
      */
-    public void setApproved(Boolean isApproved) {
+    public void setApproved(boolean isApproved) {
         this.isApproved = isApproved;
     }
 

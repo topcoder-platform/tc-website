@@ -176,9 +176,7 @@
 				</logic:equal>
 				<tr>
 					<td class="forumTextOdd" align="center">
-						<html:radio property="approved" value="true" /> Accepted
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<html:radio property="approved" value="false" /> Rejected
+						<html:checkbox property="approved"/>Approve Final Fixes
 					</td>
 				</tr>
 		</table>

@@ -105,15 +105,11 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      *
      * @return "true" if the final review is approved, "false" in not approved, or null if unknown
      */
-    public String getApproved() {
+    public boolean getApproved() {
         if (finalReview == null) {
-            return null;
+            return false;
         }
-        if (finalReview.isApproved() == null) {
-            return null;
-        }
-        return finalReview.isApproved().toString();
-        //return finalReview.isApproved() ? "true" : "false";
+        return finalReview.isApproved();
     }
 
     /**
@@ -123,19 +119,11 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      *
      * @param isApproved Whether this review is approved.
      */
-    public void setApproved(String approved) {
-        finalReview.setApproved(new Boolean(approved));
-
-/*        if (finalReview != null) {
-            if (approved.equals("true"))  {
-                finalReview.setApproved(true);
-            } else if (approved.equals("false")) {
-                finalReview.setApproved(false);
-            } else {
-                approvedStatus = null;
-            }
+    public void setApproved(boolean approved) {
+        if (finalReview == null) {
+            return;
         }
-*/
+        finalReview.setApproved(approved);
     }
 
     /**
@@ -227,27 +215,18 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         approvedValid = true;
         commentsValid = true;
 
-        if (getApproved() == null) {
+        // if the project was rejected but all the items were fixed, a comment is needed
+        if (!getApproved() && !mustReject && ((getComments() == null) || (getComments().trim().length() == 0))) {
             setValid(false);
-            errors.add("approved", new ActionError("error.status.required"));
+            errors.add("comments", new ActionError("error.message.required"));
+            commentsValid = false;
+        }
+
+        //  if the reviewer approved the project but there are not fixed items, show error
+        if (getApproved() && mustReject) {
+            setValid(false);
+            errors.add("approved", new ActionError("error.reject.required"));
             approvedValid = false;
-        } else {
-            boolean approved = Boolean.valueOf(getApproved()).booleanValue();
-
-            // if the project was rejected but all the items were fixed, a comment is needed
-            if (!approved && !mustReject && ((getComments() == null) || (getComments().trim().length() == 0))) {
-                setValid(false);
-                errors.add("comments", new ActionError("error.message.required"));
-                commentsValid = false;
-            }
-
-            //  if the reviewer approved the project but there are not fixed items, show error
-            if (approved && mustReject) {
-                setValid(false);
-                errors.add("approved", new ActionError("error.reject.required"));
-                approvedValid = false;
-            }
-
         }
 
 

@@ -2874,10 +2874,10 @@ public class DocumentManagerBean implements SessionBean {
                     boolean isApproved = rs.getBoolean (4);
                     String comments = rs.getString (5);
                     finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
-                            reviewVersionId, Boolean.valueOf(isApproved), comments);
+                            reviewVersionId, isApproved, comments);
                 } else {
                     finalReview = new FinalReview(-1, null, aggWorksheet,
-                            false, requestor.getUserId(), -1, null, null);
+                            false, requestor.getUserId(), -1, false, null);
                 }
             } else {
                 ps = conn.prepareStatement(
@@ -2927,7 +2927,7 @@ public class DocumentManagerBean implements SessionBean {
                 if (fixItemList.size() > 0) {
                     FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                     finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
-                            reviewVersionId, Boolean.valueOf(isApproved), comments);
+                            reviewVersionId, isApproved, comments);
                 } else {
                     if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
                             project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
@@ -2947,7 +2947,7 @@ public class DocumentManagerBean implements SessionBean {
                         }
                         FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                         finalReview = new FinalReview(-1, fixItemArr, aggWorksheet,
-                                isCompleted, requestor.getUserId(), -1, Boolean.valueOf(isApproved), comments);
+                                isCompleted, requestor.getUserId(), -1, isApproved, comments);
                     }
                 }
             }
@@ -3386,7 +3386,7 @@ public class DocumentManagerBean implements SessionBean {
                 ps.setLong(2, finalReview.getAggregationWorkSheet().getId());
                 ps.setBoolean(3, finalReview.isCompleted());
                 ps.setLong(4, requestorId);
-                ps.setBoolean(5, Boolean.TRUE.equals(finalReview.isApproved()));
+                ps.setBoolean(5, finalReview.isApproved());
                 ps.setString (6, finalReview.getComments());
 
                 int nr = ps.executeUpdate();
