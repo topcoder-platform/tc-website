@@ -14,9 +14,9 @@ public class ViewProblemSetInner extends Base {
                     new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
-            setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET, null, null));
-            setIsNextPageInContext(false);
 
+            setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
+            setIsNextPageInContext(false);
             if (hasParameter(Constants.MESSAGE_ID)) {
                 log.debug("has message id");
                 String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
@@ -29,6 +29,19 @@ public class ViewProblemSetInner extends Base {
                     getRequest().setAttribute(Constants.PROBLEM_TYPE_ID, getDefault(Constants.PROBLEM_TYPE_ID));
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_SET_INNER);
                     setIsNextPageInContext(true);
+                } else {
+                    if (hasDefault(Constants.PROBLEM_TYPE_ID)) {
+                        //this is *highly* unlikely, but why not include it? :)
+                        setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET,
+                                new String[] {Constants.PROBLEM_TYPE_ID},
+                                new String[] {(String)getDefault(Constants.PROBLEM_TYPE_ID)}));
+                        setIsNextPageInContext(false);
+                    } else if (hasParameter(Constants.PROBLEM_TYPE_ID)) {
+                        setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET,
+                                new String[] {Constants.PROBLEM_TYPE_ID},
+                                new String[] {getRequest().getParameter(Constants.PROBLEM_TYPE_ID)}));
+                        setIsNextPageInContext(false);
+                    }
                 }
             }
         }
