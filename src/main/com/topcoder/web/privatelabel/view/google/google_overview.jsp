@@ -171,7 +171,7 @@ The 500 participants in Round 1 will receive a "Google Code Jam 2003" t-shirt. T
 </ul>
 Those finalists not finishing as one of the top four scorers in the Championship Round will each receive $250.
                   <p><br /></p>
-                  <p><a href="http://www.topcoder.com"><img align="right" src="http://www.google.com/codejam/topcoder.gif" width="100" height="33" border="0"></a>
+                  <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
                   <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
                   </font></p>
                   </div>
