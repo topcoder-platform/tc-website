@@ -829,6 +829,11 @@
     </target>
 
     <target name="deploy-tc" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Survey"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/survey"/>
+        </antcall>
+
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.jsp"/>
