@@ -66,4 +66,12 @@ public class Question implements Serializable {
         this.answerInfo = answerInfo;
     }
 
+    public boolean isFreeForm() {
+         return isFreeForm(styleId);
+    }
+
+    public static boolean isFreeForm(int styleId) {
+        return (styleId==Question.LONG_ANSWER||styleId==Question.SHORT_ANSWER);
+    }
+
 }
