@@ -6,6 +6,12 @@
 <HEAD>
 <TITLE>TopCoder - Candidate Setup</TITLE>
 <jsp:include page="/script.jsp"/>
+
+<SCRIPT language="JavaScript"><!--
+function back() {
+    history.back();
+}
+//--></SCRIPT>
 </HEAD>
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -63,7 +69,7 @@
            </TR>                                
 <%    } else {%>
            <TR>
-              <TD COLSPAN="2" ALIGN="center"><screen:servletLink processor="<%=candidateInfo.getReferrer()%>" styleClass="bodyText">Go Back</screen:servletLink></TD>
+              <TD COLSPAN="2" ALIGN="center"><a href="JavaScript:back()" class="bodyText">Go Back</a></TD>
            </TR>                                
 <%    } %>
          </TABLE>
