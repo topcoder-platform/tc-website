@@ -98,9 +98,10 @@
            <td class="bodyTextBig" align="right" valign="bottom" nowrap>Overall Average Rating</td>
            <td class="bodyTextBig" align="right" valign="bottom" nowrap>Average Rating for Competitors</td>
         </tr>
-        <%  if (!problemRatingResults.isEmpty())
-            count = problemRatingResults.getIntItem(0,"count");
-            compCount = problemRatingResults.getIntItem(0,"comp_count");
+        <%  if (!problemRatingResults.isEmpty()) {
+                count = problemRatingResults.getIntItem(0,"count");
+                compCount = problemRatingResults.getIntItem(0,"comp_count");
+            }
         %>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
         <tr>
