@@ -47,6 +47,8 @@ public class SearchResults extends BaseScreeningProcessor {
         ret.setLastName(StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME)));
         ret.setEmailAddress(StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL_ADDRESS)));
         
+        ret.setUserId(getUser().getId());
+        
         StringBuffer query = new StringBuffer(1000);
         //generate results
         query.append("select distinct u.first_name || ' ' || u.last_name as name, ");

@@ -54,8 +54,8 @@ function getProblemDetail(id) {
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="coder_type"/></td>
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="job"/></td>
                   <td class="screeningCellOdd" align=center><A href="javascript:getProblemDetail('<rsc:item row="<%=resultRow%>" name="session_round_id"/>,<rsc:item row="<%=resultRow%>" name="problem_id"/>');"><rsc:item row="<%=resultRow%>" name="problem_name"/></A></td>
-                  <td class="screeningCellOdd" align=center>01/01/04</td>
-                  <td class="screeningCellOdd" align=center>00:40.20</td>
+                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="start_date"/></td>
+                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="problem_time"/></td>
                   <td class="screeningCellOdd" align=center>
                     <object
                     classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
@@ -72,7 +72,7 @@ function getProblemDetail(id) {
                     <param name="quality" value="high" />
                     <param name="bgcolor" value="#ffffff" />
                     <param name="preference" value="3" />
-                    <param name="link" value="/corp/testing/?module=UpdatePreference&userId=7267401&cid=9102106" />
+                    <param name="link" value="/corp/testing/?module=UpdatePreference&userId=<%=request.getUserPrincipal().getName()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>" />
                     <embed
                     src="/i/corp/screeningRatingOdd.swf"
                     menu="false"
