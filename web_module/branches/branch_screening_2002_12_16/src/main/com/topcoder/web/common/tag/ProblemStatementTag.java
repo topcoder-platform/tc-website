@@ -20,8 +20,64 @@ import com.topcoder.common.web.render.ProblemRenderer;
 
 public class ProblemStatementTag extends TagSupport {
 
+    private Color textColor = Color.BLACK;
     private String text;
     private Language language;
+
+    /**
+     * Sets the value of <code>textColor</code>.
+     *
+     * @param textColor
+     */
+    public void setTextColor( String val )
+    {
+        if(val != null) {
+            if(val.startsWith("#") && val.length() == 7) {
+                textColor = parseColor(val);
+            }
+            else if(val.equalsIgnoreCase("black")) {
+                textColor = Color.BLACK;
+            }
+            else if(val.equalsIgnoreCase("white")) {
+                textColor = Color.WHITE;
+            }
+            else if(val.equalsIgnoreCase("blue")) {
+                textColor = Color.BLUE;
+            }
+            else if(val.equalsIgnoreCase("cyan")) {
+                textColor = Color.CYAN;
+            }
+            else if(val.equalsIgnoreCase("dark_gray") || 
+                    val.equalsIgnoreCase("darkgray")) {
+                textColor = Color.DARK_GRAY;
+            }
+            else if(val.equalsIgnoreCase("gray")) {
+                textColor = Color.GRAY;
+            }
+            else if(val.equalsIgnoreCase("green")) {
+                textColor = Color.GREEN;
+            }
+            else if(val.equalsIgnoreCase("light_gray") || 
+                    val.equalsIgnoreCase("lightgray")) {
+                textColor = Color.LIGHT_GRAY;
+            }
+            else if(val.equalsIgnoreCase("magenta")) {
+                textColor = Color.MAGENTA;
+            }
+            else if(val.equalsIgnoreCase("orange")) {
+                textColor = Color.ORANGE;
+            }
+            else if(val.equalsIgnoreCase("pink")) {
+                textColor = Color.PINK;
+            }
+            else if(val.equalsIgnoreCase("red")) {
+                textColor = Color.RED;
+            }
+            else if(val.equalsIgnoreCase("yellow")) {
+                textColor = Color.YELLOW;
+            }
+        }
+    }
 
     /**
      * Sets the value of <code>text</code>.
@@ -78,7 +134,7 @@ public class ProblemStatementTag extends TagSupport {
         Problem problem = new Problem();
         problem.setProblemComponents(arrProblemComponent);
         ProblemRenderer pr = new ProblemRenderer(problem);
-        pr.setForegroundColor(Color.white);
+        pr.setForegroundColor(textColor);
 
         try {
             pageContext.getOut().println(pr.toHTML(language));
@@ -88,5 +144,16 @@ public class ProblemStatementTag extends TagSupport {
         }
 
         return SKIP_BODY;
+    }
+
+    private Color parseColor(String rgbColor) {
+
+        String r = rgbColor.substring(1,3);
+        String g = rgbColor.substring(3,5);
+        String b = rgbColor.substring(5);
+
+        return new Color(Integer.parseInt(r, 16),
+                         Integer.parseInt(g, 16),
+                         Integer.parseInt(b, 16));
     }
 }
