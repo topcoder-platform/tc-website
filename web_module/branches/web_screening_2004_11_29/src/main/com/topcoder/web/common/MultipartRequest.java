@@ -94,7 +94,7 @@ public class MultipartRequest implements TCRequest {
         return request.getProtocol();
     }
 
-    public void removeAttribute(java.lang.String name) {
+    public void removeAttribute(String name) {
         request.removeAttribute(name);
     }
 

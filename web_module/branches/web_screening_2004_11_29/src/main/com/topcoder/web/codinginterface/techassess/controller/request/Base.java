@@ -41,36 +41,23 @@ public abstract class Base extends BaseProcessor {
          *the behavior so that we don't wait indefinately
          */
         this.messageId = sender.sendMessageGetID(new HashMap(), m);
+
+    }
+
+    protected void useSessionForErrors() {
+        log.debug("setting up session errors");
+        getRequest().getSession().setAttribute(ERRORS_KEY+messageId, errors);
+        getRequest().removeAttribute(ERRORS_KEY);
+    }
+
+    protected void useSessionForDefaults() {
+        log.debug("setting up session defaults");
+        getRequest().getSession().setAttribute(DEFAULTS_KEY+messageId, defaults);
+        getRequest().removeAttribute(DEFAULTS_KEY);
     }
 
     public String getMessageId() {
         return messageId;
-    }
-
-    /**
-     * If we have a messageId, that means that we've already put the
-     * request on the jms queue, additionally, this means that we've
-     * already started writting to the response.  In that case,
-     * another requeest will have to be dispatched in order to get
-     * back and show the error approriately.  Therefore, we can't
-     * store errors/default informatin in the request because it's
-     * as good as dead, we'll store it in the session.  The processor
-     * that retreives it is expected to remove it and place it in
-     * a request for usage by the front end.
-     * @throws TCWebException
-     */
-    protected void baseProcessing() throws TCWebException {
-        /*
-         * key it with the message id so that in case someone
-         * has two browsers we can keep things straight.
-         */
-        if (messageId==null) {
-            getRequest().setAttribute(ERRORS_KEY, errors);
-            getRequest().setAttribute(DEFAULTS_KEY, defaults);
-        } else {
-            getRequest().getSession().setAttribute(ERRORS_KEY+messageId, errors);
-            getRequest().getSession().setAttribute(DEFAULTS_KEY+messageId, defaults);
-        }
     }
 
     protected void clearSessionErrors(String messageId) {
