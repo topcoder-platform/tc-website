@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- Morris -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_09_07_04"><img src="/i/pressroom/sdbp_logo.gif" alt="" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_07_04">TopCoder Software Industry Expert Michael Morris to Speak at 2004 SD Best Practices Conference</A></strong></font><br />
+                        Michael Morris, vice president of software development, will be speaking at the Software Development Best Practices Conference and Expo at the Hynes Convention Center in Boston, MA September 20-23rd. Produced by CMP Media's SD Events group, the SD Best Practices Conference and Expo gives software management professionals an expansive range of topics that focus on boosting efficiency, streamlining infrastructure and producing successful project outcomes to enhance the quality of software production.<span class="prHead"> [September 7]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Yahoo! TCO-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
