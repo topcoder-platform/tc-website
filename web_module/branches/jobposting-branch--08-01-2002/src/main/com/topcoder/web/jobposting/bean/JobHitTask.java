@@ -159,7 +159,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
 
         data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         Map dwMap = data.getData(dataRequest);
-        ResultSetContainer dwResult = (ResultSetContainer)dwMap.get("TCES_Member_Profile");
+        ResultSetContainer dwResult = (ResultSetContainer)dwMap.get("TCES_Coder_Stats");
         if (!dwResult.isEmpty()) {
             setMostRecentEvent(dwResult.getItem(0, "last_rated_event").toString());
         }
