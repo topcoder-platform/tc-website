@@ -335,6 +335,7 @@ abstract public class ContractingBase extends BaseProcessor {
         //notes
         r = new Request();
         r.setContentHandle("contracting_user_notes");
+        r.setProperty("uid", String.valueOf(info.getUserID()));
 
         rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
         for(int i = 0; i < rsc.size(); i++) {
