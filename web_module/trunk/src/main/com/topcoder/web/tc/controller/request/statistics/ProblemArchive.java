@@ -78,7 +78,7 @@ public class ProblemArchive extends Base {
                 filters.add(new Equals(new Integer(div2Level), "div2_level"));
 
             if (filters.size()>0) {
-                rsc = new ResultSetContainer(rsc, (ResultFilter[])filters.toArray());
+                rsc = new ResultSetContainer(rsc, (ResultFilter[])filters.toArray(new ResultFilter[0]));
             }
 
             SortInfo s = new SortInfo();

@@ -739,6 +739,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     }
 
     private void initializeMetaData(ResultSetContainer rs) {
+        columns = new ResultColumn[rs.columns.length];
         System.arraycopy(rs.columns, 0, columns, 0, rs.columns.length);
     }
 
