@@ -47,8 +47,8 @@ public class Demographics extends BaseScreeningProcessor {
             // Campaign Demographics
             dataRequest.setContentHandle("campaign_demographics");
 
-            int types[] = {com.topcoder.web.privatelabel.Constants.PROFESSIONAL,
-                           com.topcoder.web.privatelabel.Constants.STUDENT};
+            int types[] = {Constants.PROFESSIONAL,
+                           Constants.STUDENT};
 
             for (int typeI = 0; typeI < types.length; typeI++) {
 
@@ -67,9 +67,9 @@ public class Demographics extends BaseScreeningProcessor {
                 log.info("CODER TYPE: " + types[typeI]);
                 log.info("COUNT: " +coderCountRow.getItem("coder_type_count").toString());
                 
-                if (types[typeI] == com.topcoder.web.privatelabel.Constants.STUDENT)
+                if (types[typeI] == Constants.STUDENT)
                     m.setStudentCount(Integer.parseInt(coderCountRow.getItem("coder_type_count").toString()));
-                else if (types[typeI] == com.topcoder.web.privatelabel.Constants.PROFESSIONAL)
+                else if (types[typeI] == Constants.PROFESSIONAL)
                     m.setProCount(Integer.parseInt(coderCountRow.getItem("coder_type_count").toString()));
 
                 rsc = (ResultSetContainer) resultMap.get("campaign_demographic_responses");
@@ -87,7 +87,7 @@ public class Demographics extends BaseScreeningProcessor {
 
                     double pct =
                             (((Long) demoInfoRow.getItem("resp_count").getResultData())).doubleValue()
-                            / ((types[typeI] == com.topcoder.web.privatelabel.Constants.STUDENT) ?
+                            / ((types[typeI] == Constants.STUDENT) ?
                             ((double) m.getStudentCount()) : ((double) m.getProCount()));
                     pct = (int) (pct * 10000 + 0.5) / 100.0;
 
@@ -100,9 +100,9 @@ public class Demographics extends BaseScreeningProcessor {
                     respList.add(respItem);
                 }
 
-                if (types[typeI] == com.topcoder.web.privatelabel.Constants.STUDENT)
+                if (types[typeI] == Constants.STUDENT)
                     m.setStudentDemoInfo(demoOtherMap);
-                else if (types[typeI] == com.topcoder.web.privatelabel.Constants.PROFESSIONAL)
+                else if (types[typeI] == Constants.PROFESSIONAL)
                     m.setProDemoInfo(demoOtherMap);
             }
 

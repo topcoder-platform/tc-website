@@ -53,7 +53,7 @@
                           <TD class="testTableTitle" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="demographicInfo" property="StudentCount"/>)</b></TD>
                         </TR>
 
-<%--                        <%
+                        <%
                           while (StudentQuestionIterator.hasNext()) {
                             String question = (String)StudentQuestionIterator.next();
                             List StudentResponsesList = (List)StudentQuestionMap.get(question);
@@ -86,7 +86,7 @@
 
                         <%            
                           }
-                        %> --%>
+                        %> 
 
                       </TABLE>
                       
@@ -118,7 +118,7 @@
                         <TR>
                           <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="demographicInfo" property="ProCount"/>)</b></TD>
                         </TR>
-<%--                        <%
+                        <%
                           while (ProQuestionIterator.hasNext()) {
                             String question = (String)ProQuestionIterator.next();
                             List ProResponsesList = (List)ProQuestionMap.get(question);
@@ -150,7 +150,7 @@
 
                         <%            
                           }
-                        %>  --%>
+                        %>  
 
                       </TABLE>                  
                   

@@ -552,6 +552,18 @@
             <param-value>20</param-value>
             <description></description>
         </init-param>
+        
+        <init-param>
+            <param-name>student</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>professional</param-name>
+            <param-value>2</param-value>
+            <description></description>
+        </init-param>
 
         <init-param>
             <param-name>default_page</param-name>
