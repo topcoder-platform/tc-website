@@ -26,17 +26,13 @@
         <p>Eight Component finalists will be invited to attend the onsite finals in Santa Clara, CA, USA.</p>
             <ul>
                 <li><strong>Registration</strong><br />
-                    STARTS: Monday, August 9 at 9:00 AM ET<br/>
-                    ENDS: Tuesday, September 7 at 9:00 AM ET</li>
-                <li><strong>Competition Starts</strong><br />
-                    August 10, 2004<br />
-                <li><strong>Onsite Review of Competition</strong><br />
-                    November 12, 2004 at the Santa Clara Marriott in Santa Clara, CA, USA</li>
+                    STARTS: Monday, December 20 at 9:00 AM ET<br/>
+                    ENDS: Monday, January 3 at 6:00 PM ET</li>
                 <li><strong>Free Competition</strong><br />
-                <li><strong>Open to all registered TopCoder members over the age of 18.</strong></li>
+                <li><strong>Open to all registered TopCoder college students over the age of 18.</strong></li>
             </ul>
             
-            <p>See the official rules and regulations for more details.</p>
+            <p>See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_rules">rules and regulations</A> for more details.</p>
 
          <p><br/></p>
 
