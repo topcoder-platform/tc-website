@@ -1,12 +1,14 @@
 package com.topcoder.web.ejb.rboard;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import java.sql.Timestamp;
+import javax.naming.InitialContext;
+import java.sql.*;
 
 /**
  * @author dok
@@ -14,7 +16,7 @@ import java.sql.Timestamp;
  */
 public class RBoardApplicationBean extends BaseEJB {
 
-    private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
+    private static final Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
     public void createRBoardApplication(String dataSource, long userId, long projectId, int phaseId) {
         int ret = insert("rboard_application",
@@ -87,19 +89,42 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     public ResultSetContainer getReviewers(String dataSource, long projectId, int phaseId) {
-            return selectSet("rboard_application",
-                    new String[] {"user_id", "review_resp_id", "primary_ind", "create_date"},
-                    new String[] {"project_id"},
-                    new String[] {String.valueOf(projectId)},
-                    dataSource);
+        return selectSet("rboard_application",
+                new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
+                new String[]{"project_id"},
+                new String[]{String.valueOf(projectId)},
+                dataSource);
     }
 
     public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
-        return selectLatestTimestamp("rboard_application",
-                "create_date",
-                new String[] {"user_id"},
-                new String[] {String.valueOf(userId)},
-                dataSource);
+        StringBuffer query = new StringBuffer(200);
+        query.append("select create_date from rboard_application where user_id = ?");
+        query.append(" order by create_date desc");
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        Timestamp ret = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                ret = rs.getTimestamp("create_date");
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+        return ret;
+
     }
-    
 }
