@@ -1,6 +1,4 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         autoFlush="false"
-         buffer="64kb"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
                  com.topcoder.web.tc.Constants" %>
