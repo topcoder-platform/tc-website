@@ -55,7 +55,7 @@
 </P>
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
 <P>Algorithms:<BR/>PoemCode - 250<BR/>
-Like most 250's the algorithm was straightforward and there were not really any special cases to watch for.  You simply have remove the extra characters (',','.', and ' ') and then loop 
+Like most 250's the algorithm was straightforward and there were not really any special cases to watch for.  You simply have to remove the extra characters (',','.', and ' ') and then loop 
 from 'a' to 'z' and keep a counter outside the loop.  Whenever you hit the letter your loop is on, you set the corresponding spot in your return array to the value of the counter, and 
 increment the counter.  Look at any solution in <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Room 1</A> to see this in action.  This was one of the easier easy problems in recent 
 history, with only 8 out of 215 people not submitting correct solutions.</P>
