@@ -33,14 +33,7 @@ abstract class RegistrationBase extends BaseProcessor {
 
     protected final void businessProcessing() throws TCWebException {
         p = new SessionPersistor(getRequest().getSession(true));
-        SimpleRegInfo temp = (SimpleRegInfo)p.getObject(Constants.REGISTRATION_INFO);
-        if (temp==null) {
-            log.debug("reg info not found in persistor, generating a new one");
-            regInfo = makeRegInfo();
-        } else {
-            log.debug("reg info found in persistor " + temp.toString());
-            regInfo = temp;
-        }
+        regInfo = makeRegInfo();
         db = getCompanyDb(regInfo.getCompanyId());
         p.setObject(Constants.REGISTRATION_INFO, regInfo);
         registrationProcessing();
@@ -53,8 +46,7 @@ abstract class RegistrationBase extends BaseProcessor {
 
     /**
      * makeRegInfo() will be called before registrationProcessing()
-     * is called in child classes if there isn't already
-     * a regInfo in the persistor(session).
+     * is called in child classes.
      * @return
      */
     protected abstract SimpleRegInfo makeRegInfo();
