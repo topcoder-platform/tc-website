@@ -74,7 +74,7 @@ document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
 document.write(' codebase="http://fpdownload.macromedia.com" ');
 document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 document.write(' width="400" ');
-document.write(' height="400" ');
+document.write(' height="410" ');
 document.write(' id="tc_card" ');
 document.write(' align="middle">');
 document.write(' <param name="allowScriptAccess" value="sameDomain" />');
@@ -89,7 +89,7 @@ document.write(' menu="false" ');
 document.write(' quality="high" ');
 document.write(' bgcolor="#ffffff" ');
 document.write(' width="400" ');
-document.write(' height="400" ');
+document.write(' height="410" ');
 document.write(' name="tc_card" ');
 document.write(' align="middle" ');
 document.write(' allowScriptAccess="sameDomain" ');
@@ -106,7 +106,7 @@ document.write(' <p align="center"><a href="/tc?module=Static&d1=card&d2=instruc
 <!--
 if (!MM_FlashCanPlay){
 document.write('<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
-document.write('<img src="/i/card/noFlash.gif" width="400" height="400" border="0"></A> ');
+document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="0"></A> ');
 document.write(' <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock2.gif" border="0"/></a></p> ');
 }
 // -->

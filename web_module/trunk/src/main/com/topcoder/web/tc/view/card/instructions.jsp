@@ -94,7 +94,7 @@ document.write( 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
 document.write( 'codebase="http://fpdownload.macromedia.com" ');
 document.write( '/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 document.write( 'width="400" ');
-document.write( 'height="400" ');
+document.write( 'height="410" ');
 document.write( 'id="tc_card" ');
 document.write( 'align="middle"&gt; ');
 document.write( '&lt;param name="allowScriptAccess" value="sameDomain" /&gt; ');
@@ -109,7 +109,7 @@ document.write( 'menu="false" ');
 document.write( 'quality="high" ');
 document.write( 'bgcolor="#ffffff" ');
 document.write( 'width="400" ');
-document.write( 'height="400" ');
+document.write( 'height="410" ');
 document.write( 'name="tc_card" ');
 document.write( 'align="middle" ');
 document.write( 'allowScriptAccess="sameDomain" ');
@@ -156,7 +156,7 @@ document.write( '&lt;img src="http://www.topcoder.com/i/card/noFlash.gif" border
 classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
 codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" 
 width="400" 
-height="400" 
+height="410" 
 id="tc_card" 
 align="middle"&gt;
 &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
@@ -170,7 +170,7 @@ menu="false"
 quality="high" 
 bgcolor="#ffffff" 
 width="400" 
-height="400" 
+height="410" 
 name="tc_card" 
 align="middle" 
 allowScriptAccess="sameDomain" 
