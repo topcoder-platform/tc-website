@@ -404,7 +404,7 @@
                 <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                 <xsl:when test="starts-with(/TC/Command,'tccc03_')">graybv_lite_bg</xsl:when>
                 <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_schedule_mit</xsl:attribute>2003 Collegiate Challenge</a></td>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_champ</xsl:attribute>2003 Collegiate Challenge</a></td>
                 </tr>
                 
                 <xsl:call-template name="div_line_row"/>
