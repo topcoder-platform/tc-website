@@ -77,8 +77,8 @@
                            <tr><td  class="sidebarText">(2)Xu Chuan, Hangzhou, China</td><td  class="sidebarText">*Tom Sirgedas, Ann Arbor, MI, US</td></tr>
                            <tr><td  class="sidebarText">Tomasz Czajka, Warsaw, Poland</td><td  class="sidebarText">*Bogdan Stanescu, Fairfax, VA, US</td></tr>
                            <tr><td  class="sidebarText">*James Esser, San Jose, CA, US</td><td  class="sidebarText">Jiqing Tang, Hong Kong</td></tr>
-                           <tr><td  class="sidebarText">*Ambrose Feinstein, Orlando, FL, </td><td  class="sidebarText">Eugene Vasilchenko, North Potomac, MD, US</td></tr>
-                           <tr><td  class="sidebarText">USOleksandr Grushetskyy, Kiev, Ukraine</td><td  class="sidebarText">Mathijs Vogelzang, Groningen, Netherlands</td></tr>
+                           <tr><td  class="sidebarText">*Ambrose Feinstein, Orlando, FL, US</td><td  class="sidebarText">Eugene Vasilchenko, North Potomac, MD, US</td></tr>
+                           <tr><td  class="sidebarText">Oleksandr Grushetskyy, Kiev, Ukraine</td><td  class="sidebarText">Mathijs Vogelzang, Groningen, Netherlands</td></tr>
                            <tr><td  class="sidebarText">*Derek Kisman, Waterloo, Canada</td><td  class="sidebarText">*Ben Wilhelm, Seattle, WA, US</td></tr>
                            <tr><td  class="sidebarText">*Jimmy Mardell, Stockholm, Sweden</td><td  class="sidebarText">(2)Jiazhi Wu, Hangzhou, China</td></tr>
                            <tr><td colspan="2" class="sidebarText">*Developers who have previously participated in TopCoder tournament onsite rounds.</td></tr>

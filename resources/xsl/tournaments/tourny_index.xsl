@@ -78,10 +78,6 @@
                         Mohegan Sun Casino<br />
                         Uncasville, Connecticut</p>
                         
-                        <p><em>Coding Tournament</em><br/><font color="#CC0000"><strong>Round 3 on October 29</strong></font></p>
-                        
-                        <p><em>Component Competition</em><br/><font color="#CC0000"><strong>Round 2 winners announced November 6</strong></font></p>
-
                         <p><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_overview">Official Rules and Regulations</A></p><br />
                     </td>
                 </tr>
