@@ -58,44 +58,25 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Microsoft Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.microsoft.com/careers/benefits.htm" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="http://www.microsoft.com/careers/diversity.htm" TARGET="_blank" CLASS="bodyText">Diversity</A> | <A HREF="http://www.microsoft.com/careers/nwculture.htm" TARGET="_blank" CLASS="bodyText">Northwest</A> | <A HREF="http://www.microsoft.com/careers/oncampus.htm" TARGET="_blank" CLASS="bodyText">On Campus</A> | <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">Microsoft Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.microsoft.com/careers/benefits.htm" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="http://www.microsoft.com/careers/diversity.htm" TARGET="_blank" CLASS="bodyText">Diversity</A> | <A HREF="http://www.microsoft.com/careers/nwculture.htm" TARGET="_blank" CLASS="bodyText">Northwest</A> | <A HREF="http://www.microsoft.com/careers/oncampus.htm" TARGET="_blank" CLASS="bodyText">On Campus</A> | <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">Microsoft Main Page</A>
       </TD>
   </TR>
 </TABLE>
 <!--end contextual links-->
-<!-- Client Job List Begins -->
-<IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/><BR/>       
-<P>Below is a listing of current open positions within Microsoft. Click on the job title for the position description and requirements.
-</P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_progmanvb&amp;a=secure" CLASS="bodyText">Program Manager - Visual Basic</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdeseng48615&amp;a=secure" CLASS="bodyText">Software Design Engineer - Req #48615</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest53193&amp;a=secure" CLASS="bodyText">Software Design Engineer in Test - Req #53193</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest&amp;a=secure" CLASS="bodyText">Software Design Engineer #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softeng1&amp;a=secure" CLASS="bodyText">Software Engineer #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_devlead1&amp;a=secure" CLASS="bodyText">Development Lead #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdeseng52721&amp;a=secure" CLASS="bodyText">Software Design Engineer - Req #52721</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest52832&amp;a=secure" CLASS="bodyText">Software Design Engineer in Test - Req #52832</A></B><BR/>
-        </P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>       
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengwmbu&amp;a=secure" CLASS="bodyText">Software Design Engineer - Windows Management Business Unit</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_devlead2&amp;a=secure" CLASS="bodyText">Development Lead #2</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softeng2&amp;a=secure" CLASS="bodyText">Software Design Engineer #2</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_seniorsoftdesengwctt&amp;a=secure" CLASS="bodyText">Senior Software Design Engineer - Windows Core Technology team</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengwut&amp;a=secure" CLASS="bodyText">Software Design Engineer - Windows UDDI Team</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_perarch&amp;a=secure" CLASS="bodyText">Performance Architect</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_progman53769&amp;a=secure" CLASS="bodyText">Program Manager - Req #53769</A></B><BR/>
-       </P> 
-    </TD>
-  </TR>
-</TABLE> 
+<!-- Job Description Begins -->
+<IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/><BR/>
 
-<!-- Client Job List Ends -->
+
+<P><B>Software Design Engineer in Test</B></P>
+<P>
+Join us in testing Microsoft's next billion-dollar revenue generator, SQL Server. With major new functionality planned for the YUKON release, you can help us to make SQL Server a solid platform for the next generation of applications and web services. You will be responsible for designing, implementing, and executing tests for the newest features of the upcoming SQL Server release. You will work closely with the development team and the PM team to define, review, test and deliver high-quality components. Primary responsibilities include designing test scenarios and writing test plans/specifications, implementing test components and test tools/scripts, executing automated tests and performing code coverage analysis. This position entails excellent debugging skills, attention to detail, strong problem solving and focus. Additional responsibilities include test harness development, strong ability to investigate failures and follow bug resolution, generating and writing clear and concise bug reports, reviewing specs, being able to follow team process and work well with other groups, good communication skills, being able to pick up quickly on new technologies. Qualifications should include a minimum of two years experience in test development and at least two years experience developing and debugging software in C/C++. A BS/MS degree in computer science or a related technical discipline is preferred as is experience with Microsoft SQL Server or another relational database product.
+</P>
+  
+
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=79&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
+<!-- Job Description Ends -->
           
           <P><BR/></P>
           </TD>

@@ -67,7 +67,7 @@
 
 <P>There are two key aspects to Microsoft's past and future success: our vision of technology and the values that we live by every day as a company. To reflect our role as an industry leader and to focus our efforts on the opportunities ahead, we have embraced a new corporate mission: </P>
 
-<P>To enable people and businesses throughout the world to realize their full potential.</P>
+<P><EM><FONT COLOR="#3333CC">To enable people and businesses throughout the world to realize their full potential.</FONT></EM></P>
 
 <P>Delivering on this mission requires a clearly defined set of values and tenets. Our company values are not new, but have recently been articulated to reinforce our new mission. </P>
 

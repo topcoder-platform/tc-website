@@ -58,44 +58,25 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Microsoft Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.microsoft.com/careers/benefits.htm" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="http://www.microsoft.com/careers/diversity.htm" TARGET="_blank" CLASS="bodyText">Diversity</A> | <A HREF="http://www.microsoft.com/careers/nwculture.htm" TARGET="_blank" CLASS="bodyText">Northwest</A> | <A HREF="http://www.microsoft.com/careers/oncampus.htm" TARGET="_blank" CLASS="bodyText">On Campus</A> | <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">Microsoft Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.microsoft.com/careers/benefits.htm" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="http://www.microsoft.com/careers/diversity.htm" TARGET="_blank" CLASS="bodyText">Diversity</A> | <A HREF="http://www.microsoft.com/careers/nwculture.htm" TARGET="_blank" CLASS="bodyText">Northwest</A> | <A HREF="http://www.microsoft.com/careers/oncampus.htm" TARGET="_blank" CLASS="bodyText">On Campus</A> | <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">Microsoft Main Page</A>
       </TD>
   </TR>
 </TABLE>
 <!--end contextual links-->
-<!-- Client Job List Begins -->
-<IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/><BR/>       
-<P>Below is a listing of current open positions within Microsoft. Click on the job title for the position description and requirements.
-</P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_progmanvb&amp;a=secure" CLASS="bodyText">Program Manager - Visual Basic</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdeseng48615&amp;a=secure" CLASS="bodyText">Software Design Engineer - Req #48615</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest53193&amp;a=secure" CLASS="bodyText">Software Design Engineer in Test - Req #53193</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest&amp;a=secure" CLASS="bodyText">Software Design Engineer #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softeng1&amp;a=secure" CLASS="bodyText">Software Engineer #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_devlead1&amp;a=secure" CLASS="bodyText">Development Lead #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdeseng52721&amp;a=secure" CLASS="bodyText">Software Design Engineer - Req #52721</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest52832&amp;a=secure" CLASS="bodyText">Software Design Engineer in Test - Req #52832</A></B><BR/>
-        </P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>       
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengwmbu&amp;a=secure" CLASS="bodyText">Software Design Engineer - Windows Management Business Unit</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_devlead2&amp;a=secure" CLASS="bodyText">Development Lead #2</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softeng2&amp;a=secure" CLASS="bodyText">Software Design Engineer #2</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_seniorsoftdesengwctt&amp;a=secure" CLASS="bodyText">Senior Software Design Engineer - Windows Core Technology team</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengwut&amp;a=secure" CLASS="bodyText">Software Design Engineer - Windows UDDI Team</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_perarch&amp;a=secure" CLASS="bodyText">Performance Architect</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_progman53769&amp;a=secure" CLASS="bodyText">Program Manager - Req #53769</A></B><BR/>
-       </P> 
-    </TD>
-  </TR>
-</TABLE> 
+<!-- Job Description Begins -->
+<IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/><BR/>
 
-<!-- Client Job List Ends -->
+
+<P><B>Software Design Engineer - Windows Management Business Unit</B></P>
+<P>
+The Server Manager project is Microsoft's next generation solution that provides the infrastructure to manage and monitor distributed applications. We have combined the Microsoft Operations Manager (MOM) and Application Center teams to tackle the challenges of large scale distributed management of thousands of production servers. This is an unique opportunity for someone who wants to work on a large, new product built on a brand new code base. We are looking for a very talented and motivated Developer to design and implementation of our storage, reporting and analysis system which is built on Microsoft SQL Server, release. These are cornerstone components of Server Manager that provides a state of the art configuration management, storage, reporting and analysis solutions. The ideal candidate is fluent in C++, SQL Queries, and XML. Proficiency in C#, .NET framework is preferred. The candidate should have 2-4 years experience working on shipping products. Good oral and written communication skills are required. A bachelor's and/or master's degree in computer science or related fields are preferred. If you love learning new technologies, solving hard problems and want the challenge of shipping a super important product in the next eighteen months, then this is a rare opportunity to play an important role and drive a critical area for Microsoft. 
+</P>
+  
+
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=84&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
+<!-- Job Description Ends -->
           
           <P><BR/></P>
           </TD>

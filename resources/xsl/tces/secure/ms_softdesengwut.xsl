@@ -58,44 +58,25 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Microsoft Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.microsoft.com/careers/benefits.htm" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="http://www.microsoft.com/careers/diversity.htm" TARGET="_blank" CLASS="bodyText">Diversity</A> | <A HREF="http://www.microsoft.com/careers/nwculture.htm" TARGET="_blank" CLASS="bodyText">Northwest</A> | <A HREF="http://www.microsoft.com/careers/oncampus.htm" TARGET="_blank" CLASS="bodyText">On Campus</A> | <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">Microsoft Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.microsoft.com/careers/benefits.htm" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="http://www.microsoft.com/careers/diversity.htm" TARGET="_blank" CLASS="bodyText">Diversity</A> | <A HREF="http://www.microsoft.com/careers/nwculture.htm" TARGET="_blank" CLASS="bodyText">Northwest</A> | <A HREF="http://www.microsoft.com/careers/oncampus.htm" TARGET="_blank" CLASS="bodyText">On Campus</A> | <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">Microsoft Main Page</A>
       </TD>
   </TR>
 </TABLE>
 <!--end contextual links-->
-<!-- Client Job List Begins -->
-<IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/><BR/>       
-<P>Below is a listing of current open positions within Microsoft. Click on the job title for the position description and requirements.
-</P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_progmanvb&amp;a=secure" CLASS="bodyText">Program Manager - Visual Basic</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdeseng48615&amp;a=secure" CLASS="bodyText">Software Design Engineer - Req #48615</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest53193&amp;a=secure" CLASS="bodyText">Software Design Engineer in Test - Req #53193</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest&amp;a=secure" CLASS="bodyText">Software Design Engineer #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softeng1&amp;a=secure" CLASS="bodyText">Software Engineer #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_devlead1&amp;a=secure" CLASS="bodyText">Development Lead #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdeseng52721&amp;a=secure" CLASS="bodyText">Software Design Engineer - Req #52721</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest52832&amp;a=secure" CLASS="bodyText">Software Design Engineer in Test - Req #52832</A></B><BR/>
-        </P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>       
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengwmbu&amp;a=secure" CLASS="bodyText">Software Design Engineer - Windows Management Business Unit</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_devlead2&amp;a=secure" CLASS="bodyText">Development Lead #2</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softeng2&amp;a=secure" CLASS="bodyText">Software Design Engineer #2</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_seniorsoftdesengwctt&amp;a=secure" CLASS="bodyText">Senior Software Design Engineer - Windows Core Technology team</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengwut&amp;a=secure" CLASS="bodyText">Software Design Engineer - Windows UDDI Team</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_perarch&amp;a=secure" CLASS="bodyText">Performance Architect</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_progman53769&amp;a=secure" CLASS="bodyText">Program Manager - Req #53769</A></B><BR/>
-       </P> 
-    </TD>
-  </TR>
-</TABLE> 
+<!-- Job Description Begins -->
+<IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/><BR/>
 
-<!-- Client Job List Ends -->
+
+<P><B>Software Design Engineer - Windows UDDI Team</B></P>
+<P>
+The Windows UDDI Team (Universal Description, Discovery and Integration) is seeking an experienced Software Design Engineer to participate in the design and development of the web service discovery technology for the Windows server platform. As a part of the operating system, UDDI has a unique role to play in the integration of web services. As a leading engineer on this team you will be required to design and build systems in managed code that leverage XML, SOAP, UDDI, WSDL and the .NET Framework. Successful candidates will have the following experience: Development Skills: Minimum of 5 years experience in development of scalable and reliable systems or services. A proven track record for shipping commercial quality software. A deep understanding of Microsoft's server platform (NT Server/Windows 2000 Server, IIS, .NET, SQL Server) required. Experience with the following is highly desirable: C#, C/C++, XML, Networking.
+</P>
+  
+
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=88&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
+<!-- Job Description Ends -->
           
           <P><BR/></P>
           </TD>
