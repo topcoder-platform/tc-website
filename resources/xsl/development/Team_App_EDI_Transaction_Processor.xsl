@@ -100,7 +100,7 @@
                                                     <p>
                                                         <strong>Business Requirements Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/EDI_Certification_Website.pdf">Business Requirements Specification</a> for this project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/EDI_Transaction_Processor.pdf">Business Requirements Specification</a> for this project.
                                                     </p>
 
 
@@ -112,8 +112,6 @@
                                                         <li>Linux</li>
                                                         <li>Java 1.4</li>
                                                         <li>Oracle 8.1.7.3</li>
-                                                        <li>Tomcat</li>
-                                                        <li>Apache</li>
                                                     </ul>
 
                                                     <!-- Payment -->
