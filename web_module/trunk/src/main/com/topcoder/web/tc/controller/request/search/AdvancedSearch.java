@@ -36,11 +36,11 @@ public class AdvancedSearch extends SimpleSearch {
     protected void setDefaults(MemberSearch m) {
         super.setDefaults(m);
         if (m.getStateCode()!=null) setDefault(Constants.STATE_CODE, m.getStateCode());
-        if (m.getStateCode()!=null) setDefault(Constants.COUNTRY_CODE, m.getStateCode());
-        if (m.getStateCode()!=null) setDefault(Constants.MIN_RATING, m.getStateCode());
-        if (m.getStateCode()!=null) setDefault(Constants.MAX_RATING, m.getStateCode());
-        if (m.getStateCode()!=null) setDefault(Constants.MIN_NUM_RATINGS, m.getStateCode());
-        if (m.getStateCode()!=null) setDefault(Constants.MAX_NUM_RATINGS, m.getStateCode());
+        if (m.getCountryCode()!=null) setDefault(Constants.COUNTRY_CODE, m.getCountryCode());
+        if (m.getMinRating()!=null) setDefault(Constants.MIN_RATING, m.getMinRating());
+        if (m.getMaxRating()!=null) setDefault(Constants.MAX_RATING, m.getMaxRating());
+        if (m.getMinNumRatings()!=null) setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings());
+        if (m.getMaxNumRatings()!=null) setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings());
     }
 
     /**
