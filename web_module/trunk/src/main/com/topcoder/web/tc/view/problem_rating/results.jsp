@@ -42,7 +42,11 @@
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
     <table BORDER="0" CELLSPACING="0" CELLPADDING="5" WIDTH="100%">
-        <tr><td class="bodyTextBig">Question</td><td class="bodyTextBig" align="right">Average Rating</td></tr>
+        <tr>
+           <td class="bodyTextBig">Question</td>
+           <td class="bodyTextBig" align="right">Overall Average Rating</td>
+           <td class="bodyTextBig" align="right">Average Rating for Competitors</td>
+        </tr>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
         <% count = result.getIntItem("count"); %>
         <tr>
@@ -51,6 +55,9 @@
             </td>
             <td class="bodyText" align="right">
                 <rsc:item row="<%=result%>" name="average" format="#.##"/>
+            </td>
+            <td class="bodyText" align="right">
+                <rsc:item row="<%=result%>" name="comp_average" format="#.##"/>
             </td>
         </tr>
         </rsc:iterator>
