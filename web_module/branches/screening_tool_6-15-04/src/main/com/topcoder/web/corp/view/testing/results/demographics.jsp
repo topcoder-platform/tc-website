@@ -39,12 +39,12 @@
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
-					<P>Campaign: <jsp:getProperty name="demographicInfo" property="CampaignName"/></B></P>
+					<P class=testHead>Campaign: <jsp:getProperty name="demographicInfo" property="CampaignName"/></B></P>
                     </td>
                 </tr>
             </table>
 
-              <TABLE WIDTH="700" CELLSPACING="10" CELLPADDING="0" border="0">
+              <TABLE WIDTH="700" CELLSPACING="0" CELLPADDING="0" border="0">
                 <TR valign='top'>
                 <TD width="50%">
                 
@@ -52,7 +52,7 @@
                 
 					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="screeningTitle" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="demographicInfo" property="StudentCount"/>)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3"><b>Student (<jsp:getProperty name="demographicInfo" property="StudentCount"/>)</b></TD>
                         </TR>
 
                         <%
@@ -91,7 +91,7 @@
                    <% }else{ %>
 					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="screeningTitle" COLSPAN="3">&#160;<b>Student (0)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3"><b>Student (0)</b></TD>
                         </TR>
                         <TR>
                           <TD class="bodyText" COLSPAN="3"><BR></TD>
@@ -104,8 +104,7 @@
 
                 </TD>
 
-
-
+				<td><img src="/i/corp/clear.gif" width="15" height="1" alt="" border="0"></td>
 
                 <TD width="50%">
 
@@ -113,7 +112,7 @@
                   
 					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="screeningTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="demographicInfo" property="ProCount"/>)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3"><b>Professional (<jsp:getProperty name="demographicInfo" property="ProCount"/>)</b></TD>
                         </TR>
                         <%
                           while (ProQuestionIterator.hasNext()) {
@@ -150,7 +149,7 @@
                    <% }else{ %>
 					<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="screeningTitle" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3"><b>Professional (0)</b></TD>
                         </TR>
 
                         <TR>
