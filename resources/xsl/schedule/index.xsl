@@ -51,7 +51,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
-                <xsl:with-param name="title">Monthly View - March 2003</xsl:with-param>
+                <xsl:with-param name="title">Monthly View - April 2003</xsl:with-param>
             </xsl:call-template>			
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
@@ -77,98 +77,89 @@
                             <tr> 
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
                                 <td id="calendar">1</td>
-                            </tr>
-
-                            <tr> 
                                 <td id="calendar">2</td>
                                 <td id="calendar">3</td>
-                                <td id="calendar">4</td>
+                                <td id="calendarTourney">
+                                    <span id="calendarSRMDate">4</span><br/>
+                                    <strong>2003 TopCoder Collegiate Challenge</strong><br/>
+                                    Semifinals<br/>
+                                    Compete: 10:00&#160;AM-7:00&#160;PM<br/>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?&amp;t=tournaments&amp;c=tccc03_sched" class="statText">Details</a></td>
                                 <td id="calendarTourney">
                                     <span id="calendarSRMDate">5</span><br/>
                                     <strong>2003 TopCoder Collegiate Challenge</strong><br/>
-                                    Regional Semifinals<br/>
-                                    Compete: 9:00&#160;PM<br/>
+                                    Championship<br/>
+                                    Compete: 1:00&#160;PM<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?&amp;t=tournaments&amp;c=tccc03_sched" class="statText">Details</a></td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">6</span><br/>
-                                    <strong>Match 137</strong><br/>
-                                    Register: 6:00&#160;PM<br/>
-                                    Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: FBI &#38; Google<br/>
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?RoundId=4475&amp;t=schedule&amp;c=srm">Details</a></td>
+                            </tr>
+
+                            <tr> 
+                                <td id="calendar">6</td>
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
-                            </tr>
-                            
-                            <tr> 
                                 <td id="calendar">9</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">10</span><br/>
-                                    <strong>Match 138</strong><br/>
+                                    <strong>Match 141</strong><br/>
                                     Register: 7:00&#160;PM<br/>
                                     Compete: 10:00&#160;PM<br/>
-                                    Sponsored by: NVIDIA<br/>
+                                    Sponsored by: FBI<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?RoundId=4480&amp;t=schedule&amp;c=srm">Details</a></td>
+                                    ..//<a href="/?RoundId=4495&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">11</td>
-                                <td id="calendarTourney">
-                                    <span id="calendarSRMDate">12</span><br/>
-                                    <strong>2003 TopCoder Collegiate Challenge</strong><br/>
-                                    Regional Championship<br/>
-                                    Compete: 9:00&#160;PM<br/>
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?&amp;t=tournaments&amp;c=tccc03_sched" class="statText">Details</a></td>
+                                <td id="calendar">12</td>
+                            </tr>
+
+                            <tr> 
                                 <td id="calendar">13</td>
                                 <td id="calendar">14</td>
-                                <td id="calendar">15</td>
-                            </tr>
-                            
-                            <tr> 
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">15</span><br/>
+                                    <strong>Match 142</strong><br/>
+                                    Register: 6:00&#160;PM<br/>
+                                    Compete: 9:00&#160;PM<br/>
+                                    Sponsored by: Apex &#38; NVIDIA<br/>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?RoundId=4500&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">16</td>
                                 <td id="calendar">17</td>
+                                <td id="calendar">18</td>
+                                <td id="calendar">19</td>
+                            </tr>
+
+                            <tr> 
+                                <td id="calendar">20</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">18</span><br/>
-                                    <strong>Match 139</strong><br/>
+                                    <span id="calendarSRMDate">21</span><br/>
+                                    <strong>Match 143</strong><br/>
                                     Register: 5:00&#160;PM<br/>
                                     Compete: 8:00&#160;PM<br/>
                                     Sponsored by: Gentleware<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?RoundId=4485&amp;t=schedule&amp;c=srm">Details</a></td>
-                                <td id="calendar">19</td>
-                                <td id="calendar">20</td>
-                                <td id="calendar">21</td>
+                                    ..//<a href="/?RoundId=4505&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">22</td>
-                            </tr>
-                            
-                            <tr> 
                                 <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                                 <td id="calendar">25</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">26</span><br/>
-                                    <strong>Match 140</strong><br/>
-                                    Register: 6:00&#160;PM<br/>
-                                    Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: Solipsys &#38; NVIDIA<br/>
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?RoundId=4490&amp;t=schedule&amp;c=srm">Details</a></td>
+                                <td id="calendar">26</td>
+                            </tr>
+
+                            <tr> 
                                 <td id="calendar">27</td>
                                 <td id="calendar">28</td>
                                 <td id="calendar">29</td>
-                            </tr>
-                            
-                            <tr> 
-                                <td id="calendar">30</td>
-                                <td id="calendar">31</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">30</span><br/>
+                                    <strong>Match 144</strong><br/>
+                                    Register: 6:00&#160;PM<br/>
+                                    Compete: 9:00&#160;PM<br/>
+                                    Sponsored by: Solipsys<br/>
+                                    <!--Sponsored by: NVIDIA<BR/>-->
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    ..//<a href="/?RoundId=4515&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">&#160;</td>
