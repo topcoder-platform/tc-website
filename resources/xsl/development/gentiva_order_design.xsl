@@ -243,7 +243,7 @@
                                                         to modify their submission.
                                                     </p>
 
-                                                    <table class="bodyText" cellspacing="2" cellpadding="0" border="0" width="300">
+                                                    <table class="bodyText" cellspacing="0" cellpadding="0" border="2" width="300">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">03.31.2004</td>
