@@ -49,12 +49,14 @@ public class TCSAuthorization implements Authorization {
         Context ctx = null;
 
         try {
-            Hashtable env = new Hashtable();
+/*            Hashtable env = new Hashtable();
             env.put(Context.INITIAL_CONTEXT_FACTORY,
                 "org.jnp.interfaces.NamingContextFactory");
             env.put(Context.PROVIDER_URL,
                 ApplicationServer.SECURITY_PROVIDER_URL);
             ctx = new InitialContext(env);
+*/
+            ctx = new InitialContext();
 
             PolicyLocalHome pHome = (PolicyLocalHome)
                 PortableRemoteObject.narrow(
