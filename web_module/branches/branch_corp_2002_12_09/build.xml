@@ -681,12 +681,15 @@
             </webinf>
 
             <zipfileset dir="${java}/com/topcoder/web/corp/request/jsp/" includes="prim-reg.jsp" prefix="reg" />
+
+			<zipfileset dir="${java}/com/topcoder/web/corp/view/**"  includes="*" prefix="" />
+<!--
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="error.jsp" prefix="" />
 			<zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="index.jsp" prefix="" />
 			<zipfileset dir="${java}/com/topcoder/web/corp/view/includes/"  includes="top.jsp" prefix="includes" />
 			<zipfileset dir="${java}/com/topcoder/web/corp/view/includes/"  includes="left.jsp" prefix="includes" />
 			<zipfileset dir="${java}/com/topcoder/web/corp/view/includes/"  includes="foot.jsp" prefix="includes" />
-
+-->
 
             <zipfileset dir="${resources}/${corp.war.name}/images/" includes="*.gif" prefix="images" />
 
