@@ -39,6 +39,7 @@ INSERT INTO command VALUES(1013,"tces_competition_history",8);
 INSERT INTO command VALUES(1014,"tces_competition_statistics",8);
 INSERT INTO command VALUES(1015,"tces_problem_statistics",8);
 INSERT INTO command VALUES(1016,"tces_problem_statement",8);
+INSERT INTO command VALUES(1017,"tces_member_interest",8);
 INSERT INTO command VALUES(1100,"tces_user_and_pw",8);
 
 
@@ -128,6 +129,9 @@ INSERT INTO command_query_xref VALUES(1014, 1097, 2);
 INSERT INTO command_query_xref VALUES(1015, 1050, 1);
 INSERT INTO command_query_xref VALUES(1015, 1097, 2);
 INSERT INTO command_query_xref VALUES(1016, 1097, 1);
+INSERT INTO command_query_xref VALUES(1017, 1050, 1);
+INSERT INTO command_query_xref VALUES(1017, 1053, 2);
+INSERT INTO command_query_xref VALUES(1017, 1097, 3);
 INSERT INTO command_query_xref VALUES(1100, 1100, 1);
 
 
@@ -224,6 +228,8 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1050, "N", null, 1003, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1051, "N", null, 1003, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1052, "N", null, 1003, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1053, "N", null, 1001, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1053, "N", null, 1003, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1097, "N", null, 1000, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1097, "N", null, 1001, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1097, "N", null, 1002, 3);
