@@ -155,7 +155,13 @@
 
   <init-param>
     <param-name>problem_id_parameter</param-name>
-    <param-value>problemId</param-value>
+    <param-value>pid</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>round_id_parameter</param-name>
+    <param-value>rid</param-value>
     <description></description>
   </init-param>
 

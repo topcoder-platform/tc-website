@@ -36,6 +36,7 @@ public class Constants
     public static String TEST_SET_B_ADD;
     public static String TEST_SET_B_REMOVE;
     public static String PROBLEM_ID;
+    public static String ROUND_ID;
     public static String BEGIN_MONTH;
     public static String BEGIN_DAY;
     public static String BEGIN_YEAR;
@@ -156,6 +157,7 @@ public class Constants
         TEST_SET_B_REMOVE = 
             config.getInitParameter("test_set_b_remove_parameter");
         PROBLEM_ID = config.getInitParameter("problem_id_parameter");
+        ROUND_ID = config.getInitParameter("round_id_parameter");
         BEGIN_MONTH = config.getInitParameter("begin_month_parameter");
         BEGIN_DAY = config.getInitParameter("begin_day_parameter");
         BEGIN_YEAR = config.getInitParameter("begin_year_parameter");
