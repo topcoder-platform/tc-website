@@ -1,6 +1,8 @@
 package com.topcoder.web.corp.request;
 
 import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.ejb.CreateException;
@@ -10,6 +12,7 @@ import javax.sql.DataSource;
 import javax.transaction.Transaction;
 
 import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -66,28 +69,28 @@ public class Registration extends BaseProcessor {
     public static final String KEY_EMAIL1       = "prim-email";
     public static final String KEY_EMAIL2       = "prim-email-once-more";
 
-        private String firstName;
-        private String lastName;
-        private String title;
+    private String firstName;
+    private String lastName;
+    private String title;
     private String company;
-        private String compAddress1;
-        private String compAddress2;
-        private String city;
-        private String state;
-        private String zip;
-        private String country;
-        private String phone;
-        private String userName;
-        private String password;
-        private String password2;
+    private String compAddress1;
+    private String compAddress2;
+    private String city;
+    private String state;
+    private String zip;
+    private String country;
+    private String phone;
+    private String userName;
+    private String password;
+    private String password2;
 
-        private String email;
-        private String email2;
+    private String email;
+    private String email2;
     
     private boolean stateFieldEmpty = false;
     private boolean countryFieldEmpty = false;
     
-        public Registration() {
+    public Registration() {
         pageInContext = true;
         // For this processor next page is always in the context. It is either
         // same form page (if any errors were encountered) or next workflow page
@@ -282,31 +285,31 @@ public class Registration extends BaseProcessor {
         setFormFieldDefault(itemKey, itemValue == null ? "" : itemValue);
         
         if( !required ) {
-                if( itemValue == null || itemValue.length() == 0 ) {
-                        chkMore = false;
-                }
+            if( itemValue == null || itemValue.length() == 0 ) {
+                chkMore = false;
+            }
         }
         if( ! chkMore ) return ret;
         
         // either this field is required or (optional and not empty)
         if( itemValue == null || itemValue.length() == 0 ) {
-                ret = false;
+            ret = false;
             markFormFieldAsInvalid(itemKey, errMsg);
         }
         else {
-                //  alphabet check
-                        if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
-                                ret = false;
+            //  alphabet check
+            if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
+                ret = false;
                 markFormFieldAsInvalid(itemKey, errMsg);
-                        }
-                        else {
-                                if( maxWords <= 1 ) maxWords = 1;
-                                
-                                if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
-                                        ret = false;
+            }
+            else {
+                if( maxWords <= 1 ) maxWords = 1;
+                
+                if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
+                    ret = false;
                     markFormFieldAsInvalid(itemKey, errMsg);
-                                }
-                        }
+                }
+            }
         }
         return ret;
     }
@@ -342,6 +345,18 @@ public class Registration extends BaseProcessor {
         try {
             mgr = Util.getPrincipalManager();
             newSecurityUser = mgr.createUser(userName, password, corpAppSubject);
+            Iterator groups = mgr.getGroups(corpAppSubject).iterator();
+            GroupPrincipal group = null;
+            while(groups.hasNext()) {
+                group = (GroupPrincipal)groups.next();
+                if( group.getName().equalsIgnoreCase("Corp User")) {
+                    break;
+                }
+            }
+            if( group != null ) {
+                mgr.addUserToGroup(group, newSecurityUser, corpAppSubject);
+            }
+             
             icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
             long userID = newSecurityUser.getId();
             
