@@ -40,7 +40,6 @@
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
 <!-- Upcoming Tournaments begins -->
-<%--
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Private Label Events</font></td></tr>
             </table>
@@ -63,7 +62,6 @@
                     <td valign="bottom" width="1%"><img src="/i/clear.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></td>
                 </tr>
             </table>
---%>
 <%--                <hr width="100%" size="1" noshade="noshade" />
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
