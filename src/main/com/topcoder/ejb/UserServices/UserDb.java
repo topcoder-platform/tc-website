@@ -23,6 +23,7 @@ final class UserDb {
         log.debug("ejb.User.UserDb:insertUser():called...");
         Connection conn = null;
         PreparedStatement ps = null;
+        PreparedStatement ps1 = null;
         /**************************************************************/
         StringBuffer query = new StringBuffer(200);
         /**************************************************************/
@@ -81,11 +82,11 @@ final class UserDb {
             query.append(" INSERT INTO security_user");
             query.append(       " (login_id, user_id, password)");
             query.append(" VALUES (?, ?, ?)");
-            ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, user.getUserId());
-            ps.setString(2, user.getHandle());
-            ps.setString(3, encodePassword(user.getPassword()));
-            regVal = ps.executeUpdate();
+            ps1 = conn.prepareStatement(query.toString());
+            ps1.setLong(1, user.getUserId());
+            ps1.setString(2, user.getHandle());
+            ps1.setString(3, encodePassword(user.getPassword()));
+            regVal = ps1.executeUpdate();
             if (regVal != 1) {
                 throw new TCException("ejb.User.UserDb:insertUser():did not update security user record:\n");
             }
@@ -98,6 +99,12 @@ final class UserDb {
             if (ps != null) {
                 try {
                     ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps1 != null) {
+                try {
+                    ps1.close();
                 } catch (Exception ignore) {
                 }
             }
@@ -116,6 +123,7 @@ final class UserDb {
     static void updateUser(User user) throws TCException {
         log.debug("ejb.User.UserDb:updateUser():called...");
         PreparedStatement ps = null;
+        PreparedStatement ps1 = null;
         Connection conn = null;
         try {
             conn = DBMS.getTransConnection();
@@ -154,11 +162,11 @@ final class UserDb {
                 query.append(   " SET user_id = ?");
                 query.append(    " , password = ?");
                 query.append( " WHERE login_id = ?");
-                ps = conn.prepareStatement(query.toString());
-                ps.setString(1, user.getHandle());
-                ps.setString(2, encodePassword(user.getPassword()));
-                ps.setLong(3, user.getUserId());
-                regVal = ps.executeUpdate();
+                ps1 = conn.prepareStatement(query.toString());
+                ps1.setString(1, user.getHandle());
+                ps1.setString(2, encodePassword(user.getPassword()));
+                ps1.setLong(3, user.getUserId());
+                regVal = ps1.executeUpdate();
                 if (regVal != 1) {
                     throw new TCException("ejb.User.UserDb:updateUser():did not update security user record:\n");
                 }
@@ -181,6 +189,12 @@ final class UserDb {
             if (ps != null) {
                 try {
                     ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps1 != null) {
+                try {
+                    ps1.close();
                 } catch (Exception ignore) {
                 }
             }

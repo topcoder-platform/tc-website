@@ -99,6 +99,7 @@ public class UserServicesBean implements EntityBean {
      */
     public void ejbLoad() throws RemoteException {
         try {
+            log.debug("UserServicesBean.ejbLoad called...");
             Integer pk = (Integer) ctx.getPrimaryKey();
             User newUser = new User();
             newUser.setUserId(pk.intValue());
@@ -116,6 +117,7 @@ public class UserServicesBean implements EntityBean {
      */
     public void ejbStore() throws RemoteException {
         try {
+            log.debug("UserServicesBean.ejbStore called...");
             UserDb.updateUser(this.user);
         } catch (Exception ex) {
             throw new RemoteException("ejb.User.UserServicesBean:ejbStore:failed:\n", ex);
