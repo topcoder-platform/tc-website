@@ -165,7 +165,6 @@ public class TCLoadRound extends TCLoad {
 
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
 
-/*
             getLastUpdateTime();
 
             clearRound();
@@ -193,15 +192,12 @@ public class TCLoadRound extends TCLoad {
             //if running for an old round, the rating history load can not be run
             //don't forget to remove it from the clear round method as well.
             loadRatingHistory();
-*/
 
             loadCoderProblem();
 
-/*
             loadChallenge();
 
             setLastUpdateTime();
-*/
 
             log.info("SUCCESS: Round " + fRoundId +
                     " load ran successfully.");
