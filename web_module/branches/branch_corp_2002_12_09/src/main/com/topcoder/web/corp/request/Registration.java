@@ -13,6 +13,7 @@ import javax.transaction.Transaction;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -352,9 +353,25 @@ public class Registration extends BaseProcessor {
                 }
             }
             if( group != null ) {
+                log.debug("including to the 'Corp User' group");
                 mgr.addUserToGroup(group, newSecurityUser, corpAppSubject);
             }
-             
+            // becase user is company primary person,
+            // grant 'Corp Company Admin' role to he
+            Iterator roles = mgr.getRoles(corpAppSubject).iterator();
+        	RolePrincipal role = null;
+        	while(roles.hasNext()) {
+        		role = (RolePrincipal)roles.next();
+        		if( role.getName().equalsIgnoreCase("Corp Company Admin")) {
+        			break;
+        		}
+        	}
+        	if( role != null ) {
+                log.debug("assigning 'Company Admin' role");
+        		mgr.assignRole(newSecurityUser, role, corpAppSubject);
+        	}
+            
+            
             icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
             long userID = newSecurityUser.getId();
             
