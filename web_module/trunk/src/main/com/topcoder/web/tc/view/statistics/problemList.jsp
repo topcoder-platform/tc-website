@@ -62,7 +62,7 @@
                  <rsc:iterator list="<%=rsc%>" id="resultRow">
                    <TR>
                      <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                     <TD CLASS="statText" HEIGHT="13"><rsc:item name="problem_name" row="<%=resultRow%>"/></TD>
+                     <TD CLASS="statText" HEIGHT="13"><A HREF="/stat?c=problem_statement&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>"><rsc:item name="problem_name" row="<%=resultRow%>"/></A></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="contest_name" row="<%=resultRow%>"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="contest_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_level" row="<%=resultRow%>" ifNull="N/A"/></TD>
