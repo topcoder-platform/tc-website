@@ -101,7 +101,7 @@ sub = NavZone.getLevel1();
         <%=subitem("?module=Statistics&c=member_profile&cr="+SessionInfo.getUserId(), "Member Profile", "member_profile")%>
     <% } %>
     <%=rootsep%>
-%-->
+--%>
 
     <%=rootitem("?module=Static&d1=tournaments&d2=tournaments", "Tournaments", "tournaments", false)%>
     <%=rootsep%>
