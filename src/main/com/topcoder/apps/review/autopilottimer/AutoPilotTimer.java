@@ -164,6 +164,8 @@ public class AutoPilotTimer
                                 continue;
                             }
 
+			    
+
                             //override, change me
                             //email = "rfairfax@topcoder.com";
 
@@ -175,7 +177,7 @@ public class AutoPilotTimer
                             mail.append(p.getName());
                             mail.append("\n\nhas completed appeals");
 
-                            sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
+                            //sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
                         }
                     }
                 }
