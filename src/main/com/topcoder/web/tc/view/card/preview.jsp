@@ -57,7 +57,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
 
             <p class="bodyText">This is a preview of what your card will look like:</p>
 
-        <table width="100%" cellpadding="0" cellspacing="0" border="1" align="center">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
             <tr>
                 <td align="center">
             
