@@ -99,7 +99,8 @@ Exception excCaught = (Exception)request.getAttribute("caught-exception");
 if( excCaught != null ) { 
      excCaught.printStackTrace(new java.io.PrintWriter(out));
 }
- %>
+else if ( exception!=null ) exception.printStackTrace(new java.io.PrintWriter(out));
+%>
 </pre>
 <hr>
 <!-- web-app debug time stack trace END -->
