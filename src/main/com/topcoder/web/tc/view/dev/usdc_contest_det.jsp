@@ -59,7 +59,7 @@
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=6><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</td>
+                                <td class=header colspan=5><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Component Name</td>

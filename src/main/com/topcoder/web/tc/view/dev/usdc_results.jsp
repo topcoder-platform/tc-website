@@ -61,7 +61,7 @@
                         <a name="week"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=7>Weekly Contests</td>
+                                <td class=header colspan=6>Weekly Contests</td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle">Contest</td>
@@ -107,7 +107,7 @@
                         <a name="month"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=7>Monthly Contests</td>
+                                <td class=header colspan=6>Monthly Contests</td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle">Contest</td>
@@ -134,7 +134,7 @@
                         <a name="quarter"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=7>Quarterly Contests</td>
+                                <td class=header colspan=6>Quarterly Contests</td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle">Contest</td>
