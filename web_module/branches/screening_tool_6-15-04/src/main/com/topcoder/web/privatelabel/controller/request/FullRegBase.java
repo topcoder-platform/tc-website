@@ -57,7 +57,7 @@ public abstract class FullRegBase extends SimpleRegBase {
                 log.info("GETTING QUESTIONS");
                 try
                 {
-                    getQuestions(transDb, ((FullRegInfo) info).getCoderType());
+                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType());
                 }
                 catch(Exception e)
                 {
