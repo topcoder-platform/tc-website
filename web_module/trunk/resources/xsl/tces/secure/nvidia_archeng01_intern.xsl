@@ -65,18 +65,11 @@
 
 
 
-<P><B>ARCHITECTURE INTERN/CO-OP</B></P>
-<P><B>Role/Responsibilities:</B>
-This is an opportunity to work with the hottest team in the history of semiconductor architecture!  The current team members possess over 100 patents and average over 15 years of experience apiece.  Areas of specialization include 3D Graphics, Video, Audio, PC Systems and Networking.  The architect will be expected to become familiar with NVIDIA's current architecture, algorithms, products, and development methodologies, and perform research supporting the development of new algorithms and ideas.  In pursuit of this development, the architect will be expected to document the mathematical equations involved in the algorithms, generate test programs to validate the ideas, and generate C-model code to assist in hardware design and verification. </P>
+<P><B>ARCHITECT INTERN/CO-OP</B></P>
+<P><B>Role/Responsibilities:</B></P>
+<P>This is an opportunity to work with the hottest team in the history of semiconductor architecture!  The current team members possess over 100 patents and average over 15 years of experience apiece.  Areas of specialization include 3D Graphics, Video, Audio, PC Systems and Networking.  The architect will be expected to become familiar with NVIDIA's current architecture, algorithms, products, and development methodologies, and perform research supporting the development of new algorithms and ideas.  In pursuit of this development, the architect will be expected to document the mathematical equations involved in the algorithms, generate test programs to validate the ideas, and generate C-model code to assist in hardware design and verification. </P>
 <P><B>Qualifications:  GPA 3.5</B></P>
 <P>The ideal candidate will possess an advanced degree in Computer Science, Mathematics or related discipline, and approximately 2+ years of relevant industry or internship experience.</P>
-
-<P>
-NVIDIA's Intern &amp; Co-op Program is a year-round program offering work terms ranging from 3 to 6 months. 
-In addition to a competitive salary, we provide relocation assistance and housing assistance for 
-those that do not reside or attend a university in the Bay Area. For more information, 
-check out <A HREF="http://www.nvidia.com" CLASS="bodyText" TARGET="_blank">www.nvidia.com</A>.
-</P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=113&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 

@@ -65,9 +65,9 @@
 
 
 
-<P><B>PLATFORM ARCHITECTURE INTERN/CO-OP</B></P>
-<P><B>Role/Responsibilities:</B>
-In one of several key roles, you will be responsible for research and development of PC core logic architectures, and/or research and development of architectures for networking integrated into core logic.  Responsibilities include evaluation of new features (including integrated graphics, audio, disk, other I/O, networking), performance analysis and measurement, performance prediction, development of C simulation and reference models to evaluate and verify new architectures, and development of infrastructure for architectural validation and hardware verification.</P>
+<P><B>PLATFORM ARCHITECT INTERN/CO-OP</B></P>
+<P><B>Role/Responsibilities:</B></P>
+<P>In one of several key roles, you will be responsible for research and development of PC core logic architectures, and/or research and development of architectures for networking integrated into core logic.  Responsibilities include evaluation of new features (including integrated graphics, audio, disk, other I/O, networking), performance analysis and measurement, performance prediction, development of C simulation and reference models to evaluate and verify new architectures, and development of infrastructure for architectural validation and hardware verification.</P>
 <P><B>Qualifications:  GPA 3.7</B></P>
 <UL>
 <LI>Very strong programming skills and strong written/verbal ability are required. </LI>
@@ -76,12 +76,6 @@ In one of several key roles, you will be responsible for research and developmen
 <LI>Experience performance analysis and performance modeling highly desirable.</LI>
 </UL>
 
-<P>
-NVIDIA's Intern &amp; Co-op Program is a year-round program offering work terms ranging from 3 to 6 months. 
-In addition to a competitive salary, we provide relocation assistance and housing assistance for 
-those that do not reside or attend a university in the Bay Area. For more information, 
-check out <A HREF="http://www.nvidia.com" CLASS="bodyText" TARGET="_blank">www.nvidia.com</A>.
-</P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=114&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 

@@ -64,13 +64,32 @@
 <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
 <P>
 <B>Full Time Positions</B><BR/>
-Below is a listing of current open positions within NVIDIA.  All jobs are located in Santa Clara, CA unless otherwise noted.  Click on the job title for the position description and requirements.
+Below is the current listing of full time positions within NVIDIA.  All
+positions are available in Santa Clara, and limited opportunities are
+available in Austin, TX and Durham, NC.  If the position is location
+specific, it is noted in the description.  If you are interested in a
+position other than Santa Clara, please indicate your location
+preference on your resume.  All resumes with no location preference will
+be considered for Santa Clara, unless otherwise specified.
 </P>
+<P><BR/></P>
+<P><B>Recent College Graduate</B></P>
 <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/><BR/>
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER</A></B><BR/><BR/>
+      </TD>
+      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">       
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01&amp;a=secure" CLASS="bodyText">ARCHITECT</A></B><BR/> <BR/>  
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECT</A></B><BR/><BR/>   
+    </TD>
+  </TR>
+</TABLE> 
+<P><B>Experienced Professional</B></P>
+<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
+   <TR>
+      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_jr_ogleng&amp;a=secure" CLASS="bodyText">JUNIOR OPENGL ENGINEER (524954)</A></B><BR/><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sr_ogleng&amp;a=secure" CLASS="bodyText">SENIOR OPENGL ENGINEER (524953)</A></B><BR/><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dsseng83&amp;a=secure" CLASS="bodyText">3D SYSTEM SOFTWARE ENGINEER (521183)</A></B><BR/><BR/>
@@ -88,9 +107,7 @@ Below is a listing of current open positions within NVIDIA.  All jobs are locate
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_fieldappeng&amp;a=secure" CLASS="bodyText">FIELD APPLICATION ENGINEER (Seoul, Korea)</A></B><BR/>-->
       
       </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">       
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01&amp;a=secure" CLASS="bodyText">ARCHITECTURE</A></B><BR/> <BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE</A></B><BR/><BR/>  
+      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"> 
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dsseng82&amp;a=secure" CLASS="bodyText">3D SYSTEM SOFTWARE ENGINEER (521182)</A></B><BR/><BR/> 
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgseng&amp;a=secure" CLASS="bodyText">3D GRAPHICS SOFTWARE ENGINEER (520749)</A></B><BR/><BR/> 
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sqaeng&amp;a=secure" CLASS="bodyText">SQA ENGINEER - MOBILE (517399)</A></B><BR/><BR/> 
@@ -109,7 +126,7 @@ Below is a listing of current open positions within NVIDIA.  All jobs are locate
       
     </TD>
   </TR>
-</TABLE> 
+</TABLE>
 <!--end contextual links-->
           
           <P><BR/></P>

@@ -64,51 +64,32 @@
 <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
 <P>
 <B>Intern/Co-op Positions</B><BR/> 
-Below is a listing of current open positions within NVIDIA.  All jobs are located in Santa Clara, CA unless otherwise noted.  Click on the job title for the position description and requirements.
+NVIDIA's Intern &amp; Co-op Program is a year-round program offering work
+terms ranging from 3 to 6 months. In addition to a competitive salary, we
+provide relocation assistance and housing assistance for those that do not
+reside or attend a university in the Bay Area. For more information, check out
+<A HREF="http://www.nvidia.com" CLASS="bodyText" TARGET="_blank">www.nvidia.com</A>.
 </P>
+<P> 
+Below is the current listing of intern and co-op positions within
+NVIDIA.  All positions are available in Santa Clara, CA, Austin, TX, and
+Durham, NC unless otherwise noted. All resumes will be considered for
+Santa Clara, and if you are interested in another location, please
+indicate your location preference on your resume.  Click on the job
+title for the position description and requirements.
+</P>
+
 <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01_intern&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01_intern&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/></P>
-        <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgrapharch&amp;a=secure" CLASS="bodyText">3D GRAPHIC ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platverarch&amp;a=secure" CLASS="bodyText">PLATFORM VERIFICATION ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sqaeng_mobil&amp;a=secure" CLASS="bodyText">SQA ENGINEER - MOBILE</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_kernelsofteng&amp;a=secure" CLASS="bodyText">KERNEL SOFTWARE ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_mobbioseng&amp;a=secure" CLASS="bodyText">MOBILE BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng1&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srsyseng&amp;a=secure" CLASS="bodyText">SR. SYSTEM ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysbioseng&amp;a=secure" CLASS="bodyText">SYSTEM BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_oemtechprogmang&amp;a=secure" CLASS="bodyText">OEM TECHNICAL PROGRAM MANAGER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_fieldappeng&amp;a=secure" CLASS="bodyText">FIELD APPLICATION ENGINEER (Seoul, Korea)</A></B><BR/>-->
-      
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01_intern&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/></P>      
       </TD>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>       
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01_intern&amp;a=secure" CLASS="bodyText">ARCHITECTURE INTERN/CO-OP</A></B><BR/><BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE INTERN/CO-OP</A></B><BR/><BR/></P> 
-        <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dpertooleng&amp;a=secure" CLASS="bodyText">3D PERFORMANCE TOOLS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dappsweng&amp;a=secure" CLASS="bodyText">3D APPLICATION SW ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cusqeng&amp;a=secure" CLASS="bodyText">CUSTOMER QUALITY ENGINEER (Taipei, Taiwan)</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_packdesigner&amp;a=secure" CLASS="bodyText">PACKAGE DESIGNER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srdesigneng&amp;a=secure" CLASS="bodyText">SENIOR DESIGN ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_prodtesteng&amp;a=secure" CLASS="bodyText">PRODUCT/TEST ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_whqleng&amp;a=secure" CLASS="bodyText">WHQL ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysdesigneng&amp;a=secure" CLASS="bodyText">SYSTEM DESIGN ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platnetwarch&amp;a=secure" CLASS="bodyText">PLATFORM NETWORKING ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_dfteng&amp;a=secure" CLASS="bodyText">DFT ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysdesignlead&amp;a=secure" CLASS="bodyText">SYSTEMS DESIGN LEAD</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srsignalinteng&amp;a=secure" CLASS="bodyText">SR. SIGNAL INTEGRITY ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_appeng_intern&amp;a=secure" CLASS="bodyText">APPLICATIONS ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_memarch&amp;a=secure" CLASS="bodyText">MEMORY ARCHITECT</A></B><BR/>-->
-      
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01_intern&amp;a=secure" CLASS="bodyText">ARCHITECT INTERN/CO-OP</A></B><BR/><BR/>  
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECT INTERN/CO-OP</A></B><BR/><BR/></P> 
     </TD>
   </TR>
 </TABLE> 
