@@ -90,7 +90,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             query.append("and p.project_id in (select project_id from project where comp_vers_id = (select comp_vers_id from project where project_id = ? and cur_version = 1))  ");
             query.append("and not exists (select p2 project_id from project p2  ");
             query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
-            query.append("and p2.project_stat_id in (5,6,7) and p2.project_type_id = (select project_type_id from project where project_id = ? and cur_version = 1) ) ");
+            query.append("and p2.project_stat_id in (6,7) and p2.project_type_id = (select project_type_id from project where project_id = ? and cur_version = 1) ) ");
             query.append("and (not exists (select p2.project_id from project p2 ");
             query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
             query.append("and p2.project_stat_id = 5 ) or ");
