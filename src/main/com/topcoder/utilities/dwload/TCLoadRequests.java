@@ -77,8 +77,8 @@ public class TCLoadRequests extends TCLoad {
             "       ,log_type_id) " +
             " VALUES (0, ?, ?, ?)";
 
-    private static final String GET_CURRENT =
-            " select current from dual";
+    private static final String NEWEST_REQUEST_TIME =
+            " select max(timestamp) from request";
 
 
     public TCLoadRequests() {
@@ -97,15 +97,16 @@ public class TCLoadRequests extends TCLoad {
      */
     public void performLoad() throws Exception {
         try {
-            fStartTime = getCurrentTime();
-            log.info("It is now " + fStartTime.toString());
-
+            //this should only be use for web requests, it doesn't mean anything for other
+            //types of requests.
+            fStartTime = getNewestTime();
 /*
             fLastLogTime = getLastUpdateTime(REQUEST_LOAD);
             log.debug("set last log time for request load to " + fLastLogTime);
 */
             fLastWebLogTime = getLastUpdateTime(WEB_REQUEST_LOAD);
-            log.debug("set last log time for web request load to " + fLastWebLogTime);
+            log.info("loading requests that happened between " +
+                    fLastWebLogTime + " and " + fStartTime);
 
 
 /*            loadRequests();
@@ -390,12 +391,12 @@ public class TCLoadRequests extends TCLoad {
         }
     }
 
-    private Timestamp getCurrentTime() throws Exception {
+    private Timestamp getNewestTime() throws Exception {
         ResultSet rs = null;
         PreparedStatement ps = null;
         Timestamp ret = null;
         try {
-            ps = prepareStatement(GET_CURRENT, TARGET_DB);
+            ps = prepareStatement(NEWEST_REQUEST_TIME, TARGET_DB);
             rs = ps.executeQuery();
             if (rs.next()) {
                 ret = rs.getTimestamp(1);
