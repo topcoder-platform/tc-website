@@ -81,8 +81,8 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             <tr class="bodyText">
                 <td align="right" nowrap class="bodyText"><h2>100 people have raised</h2>
                 </td>
-                <td align="left" width="100%" class="bodyText"><h2>
-                     $<rsc:item row="<%=info%>" name="amount" format="0.00"/>.</h2>
+                <td align="center" width="100%" class="bodyText"><h2>
+                     $<rsc:item row="<%=info%>" name="amount" format="0.00"/></h2>
                 </td>
             </tr>
              </rsc:iterator>
