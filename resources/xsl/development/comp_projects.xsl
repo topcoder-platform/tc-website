@@ -127,7 +127,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=command_line_utility-design&amp;payment=175&amp;date=2&#47;19&#47;2003">Command Line Utilities</a></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=command_line_utility-design&amp;payment=175&amp;date=2&#47;19&#47;2003">Command Line Utility</a></td>
                     <td background="" class="statText" align="center">$175.00</td>
                     <td background="" class="statText" align="center">2.19.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -395,7 +395,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=File_Conversion_-_Web_Services_Interface&amp;payment=120&amp;date=2&#47;26&#47;2003">File Conversion - Web Services Interface</a></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion_-_web_services_interface-development&amp;payment=120&amp;date=2&#47;26&#47;2003">File Conversion - Web Services Interface</a></td>
                     <td background="" class="statText" align="center">$120.00</td>
                     <td background="" class="statText" align="center">2.26.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
