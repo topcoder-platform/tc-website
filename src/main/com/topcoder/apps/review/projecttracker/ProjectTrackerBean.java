@@ -159,7 +159,8 @@ public class ProjectTrackerBean implements SessionBean {
                     "cv.component_id, " +
                     "p.project_v_id, " +
                     "cv.comp_vers_id, " +
-                    "pcat.category_name catalog_name " +
+                    "pcat.category_name catalog_name," +
+                    "p.level_id  " +
                     "FROM project p, comp_versions cv, " +
                     "comp_catalog cc, " +
                     "comp_categories ccat, categories cat, categories pcat " +
@@ -188,6 +189,7 @@ public class ProjectTrackerBean implements SessionBean {
                 long projectVersionId = rs.getLong(11);
                 long compVersId = rs.getLong(12);
                 String catalogName = rs.getString(13);
+                long levelId = rs.getLong(14);                
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
@@ -265,7 +267,7 @@ public class ProjectTrackerBean implements SessionBean {
                         currentPhaseInstance, userRole, notes, overview, projectType,
                         projectStatus, notificationSent,
                         templateId[0], templateId[1],
-                        requestor.getUserId(), projectVersionId);
+                        requestor.getUserId(), projectVersionId, levelId);
                 project.setCatalog(catalogName);
 /*
 // Old project ( no forumId )
@@ -643,9 +645,9 @@ public class ProjectTrackerBean implements SessionBean {
                         "(project_v_id, project_id, comp_vers_id, phase_instance_id, " +
                         "winner_id, overview, " +
                         "notes, project_type_id, project_stat_id, notification_sent, " +
-                        "modify_user, modify_reason, " +
+                        "modify_user, modify_reason, level_id, " +
                         "cur_version) VALUES " +
-                        "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                        "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
 
                 PhaseInstance[] piArr = project.getTimeline();
                 Phase currentPhase = project.getCurrentPhase();
@@ -701,6 +703,7 @@ public class ProjectTrackerBean implements SessionBean {
                 ps.setBoolean(9, project.isNotificationSent());
                 ps.setLong(10, project.getRequestorId());
                 ps.setString(11, reason);
+                ps.setLong(12, project.getLevelId());
                 nr = ps.executeUpdate();
 
                 Common.close(ps);
@@ -1568,7 +1571,8 @@ public class ProjectTrackerBean implements SessionBean {
             long projectTypeId,
             String overview,
             Date[] dates,
-            TCSubject requestor) throws TCException {
+            TCSubject requestor,
+            long levelId) throws TCException {
         info("PT.createProject: compVersId: " + compVersId);
 
         Connection conn = null;
@@ -1613,9 +1617,9 @@ public class ProjectTrackerBean implements SessionBean {
                     + "winner_id, overview, "
                     + "notes, project_type_id, "
                     + "project_stat_id, notification_sent, "
-                    + "modify_user, modify_reason, "
+                    + "modify_user, modify_reason, level_id "
                     + "cur_version) VALUES "
-                    + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', 1)");
+                    + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1)");
 
             String notes = "";
             long projectStatId = ProjectStatus.ID_PENDING_START;
@@ -1634,6 +1638,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps.setLong(6, projectTypeId);
             ps.setLong(7, projectStatId);
             ps.setLong(8, modUserId);
+            ps.setLong(9, levelId);
 
             int nr = ps.executeUpdate();
 
@@ -2226,7 +2231,7 @@ public class ProjectTrackerBean implements SessionBean {
             String projectName, String version, long versionId,
             long componentId,
             long compVersId, long phaseId, long projectTypeId,
-            String overview, Date[] dates, TCSubject requestor)
+            String overview, Date[] dates, TCSubject requestor, long levelId)
             throws TCException {
         info("PT.convertProject()");
 
@@ -2256,7 +2261,7 @@ public class ProjectTrackerBean implements SessionBean {
             if (!rsProject.next()) {
                 // Project didn't exist
                 projectId = createProject(projectName, version,
-                        compVersId, projectTypeId, overview, dates, requestor);
+                        compVersId, projectTypeId, overview, dates, requestor, levelId);
 
                 info("Created project, projectId: " + projectId +
                         " ,componentId: " + componentId +

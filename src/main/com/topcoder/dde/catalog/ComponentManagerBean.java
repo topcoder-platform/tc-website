@@ -721,7 +721,7 @@ public class ComponentManagerBean
         }
     }
 
-    public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor)
+    public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
         if (info == null) {
             throw new CatalogException(
@@ -885,7 +885,8 @@ public class ComponentManagerBean
                         projectTypeId,
                         versionBean.getCompCatalog().getDescription(),
                         null,
-                        requestor);
+                        requestor,
+                        levelId);
             } catch (ClassCastException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.toString());

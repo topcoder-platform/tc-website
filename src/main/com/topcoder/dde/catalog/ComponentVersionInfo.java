@@ -58,7 +58,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
         this.phaseDate = (Date) phaseDate.clone();
         this.price = price;
     }
-
+    
     public boolean getPublicForum() {
         return publicForum;
     }
