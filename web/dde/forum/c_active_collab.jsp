@@ -95,7 +95,7 @@
         <td width="180" class="leftColumn">
             <jsp:include page="/includes/left.jsp" >
                 <jsp:param name="level1" value="forum"/>
-                <jsp:param name="level2" value="all"/>
+                <jsp:param name="level2" value="all"/> 
             </jsp:include>
         </td>
 <!-- Left Column ends -->
@@ -166,7 +166,7 @@
                 <tr valign="top">
                     <td class="forumText<%=oddeven%>">
                         <table border="0" cellpadding="0" cellspacing="0">
-                            <tr valign="top">
+                            <tr valign="middle">
                                 <td width="25" class="forumText"><img src="<%=getStatusIcon((int)forum.getVersionPhase())%>" alt="" width="25" height="17" border="0"></td>
 				<td>
 				<%
