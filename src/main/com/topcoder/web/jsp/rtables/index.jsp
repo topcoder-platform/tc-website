@@ -142,7 +142,7 @@
 %>
                       <TR>
                         <TD VALIGN="top" class="statText" HEIGHT="13">
-                          <A HREF="/rtables/viewForum.jsp?forum=<%= forumID %>" class="statText"><%= forumName %></A>
+                          <A HREF="/rtables/viewForum.jsp?forum=<%= forumID %>&mc=<%=messageCount%>" class="statText"><%= forumName %></A>
                         </TD>
                         <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                         <TD VALIGN="top" class="statText"><%=threadCount%>/<%=messageCount%></TD>

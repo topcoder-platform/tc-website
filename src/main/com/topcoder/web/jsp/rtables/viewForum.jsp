@@ -628,11 +628,11 @@ String checked4 = "";
 
   <% if ( responseURL =="") {%>
 
-                    <td valign="top" class="statText"><a href="/rtables/viewThread.jsp?forum=<%= forumID %>&thread=<%= threadID %>" class="statText"><%= threadName %></a></td>
+                    <td valign="top" class="statText"><a href="/rtables/viewThread.jsp?forum=<%= forumID %>&thread=<%= threadID %>&mc=<%=thread.getMessageCount()%>" class="statText"><%= threadName %></a></td>
 
   <% } else {%>
 
-                    <td valign="top" class="statText"><a href="/rtables/viewThread.jsp&forum=<%= forumID %>&thread=<%= threadID %>" class="statText"><%= threadName %></a></td>
+                    <td valign="top" class="statText"><a href="/rtables/viewThread.jsp&forum=<%= forumID %>&thread=<%= threadID %>&mc=<%=thread.getMessageCount()%>" class="statText"><%= threadName %></a></td>
 
   <% }%>
 
