@@ -146,7 +146,7 @@
               </SCRIPT>
 
   </FORM>
-<P ALIGN="center"><B>You will be contacted by TopCoder when the full registration becomes available.</B></P>
+<P ALIGN="center"><B>This is the temporary TopCoder High School Registration.  You will be contacted by TopCoder when the full registration becomes available.</B></P>
 <P><BR></P>
             <!-- End Body-->
             </TD>
