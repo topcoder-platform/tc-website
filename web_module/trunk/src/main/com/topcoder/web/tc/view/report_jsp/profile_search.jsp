@@ -28,9 +28,9 @@
 <html>
   <head>
 <style type="text/css">
-	.search {font-size: 0.9em; }
-	.search SELECT{font-size: 0.9em; }
-	.search INPUT{font-size: 0.9em; }
+	.search {font-size: 8pt; }
+	.search SELECT{font-size: 8pt; }
+	.search INPUT{font-size: 8pt; }
 	.left{text-align: right; BORDER-RIGHT: #DDDDDD 1px solid; padding-right: 3px;}
 	.right{text-align: left; padding-left: 2px; }
 	.lefttop{text-align: right; BORDER-RIGHT: #999999 2px solid; padding-right: 10px;}
@@ -39,6 +39,19 @@
 	.multiSel1{width:12em;}
 	.multiSel2{width:15em;}
 	.multiSel3{width:12em;}
+    A:link {
+	    COLOR: #4444bb; TEXT-DECORATION: none
+    }
+    A:visited {
+	    COLOR: #4444bb; TEXT-DECORATION: none
+    }
+    A:active {
+	    COLOR: #7777FF; TEXT-DECORATION: none
+    }
+    A:hover {
+	    COLOR: #7777FF; TEXT-DECORATION: none
+    }
+
 </style>
     <title>TopCoder Reporting</title>
 <script language="javascript">
