@@ -5,6 +5,7 @@
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
    <property name="email.war.name"      value="email.war"/>
+   <property name="resume.war.name"     value="resume.war"/>
    <property name="tces.war.name" value="tces.war"/>
    <property name="stat.war.name" value="stat.war"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
@@ -49,6 +50,7 @@
       <property name="webservlets"   value="com/topcoder/web/servlet" />
       <property name="pactsservlets" value="com/topcoder/web/pacts/servlet" />
       <property name="regservlets" value="com/topcoder/web/reg/servlet" />
+      <property name="resumeservlets" value="com/topcoder/web/resume/servlet" />
       <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet" />
       <mkdir dir="${classes}" />
       <mkdir dir="${testclasses}" />
@@ -59,6 +61,7 @@
       <mkdir dir="${servlets}/${webservlets}" />
       <mkdir dir="${servlets}/${pactsservlets}" />
       <mkdir dir="${servlets}/${regservlets}" />
+      <mkdir dir="${servlets}/${resumeservlets}" />
       <mkdir dir="${servlets}/${jobpostingservlets}" />
       <mkdir dir="${public_html}/WEB-INF/lib" />
    </target>
@@ -108,6 +111,11 @@
       </move>
       <move todir="${servlets}/${regservlets}">
          <fileset dir="${classes}/${regservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${resumeservlets}">
+         <fileset dir="${classes}/${resumeservlets}" >
                  <include name="*.class" />
          </fileset>
       </move>
@@ -178,6 +186,8 @@
       <property name="reg.src"       value="${web}/reg/servlet/jsp" />
       <property name="render.trgt"   value="${public_html}/cm" />
       <property name="render.src"    value="${web}/render/servlet/jsp" />
+      <property name="resume.trgt"   value="${public_html}/resume" />
+      <property name="resume.src"    value="${web}/resume/servlet/jsp" />
       <property name="jobposting.trgt"      value="${public_html}/jobposting_jsp" />
       <property name="jobposting.src"       value="${web}/jobposting/servlet/jsp" />
 
@@ -216,6 +226,11 @@
       </copy>
       <copy todir="${render.trgt}">
          <fileset dir="${render.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${resume.trgt}">
+         <fileset dir="${resume.src}" >
                  <include name="**/*.jsp" />
          </fileset>
       </copy>
@@ -493,6 +508,7 @@
         <antcall target="war_email"/>
         <antcall target="war_tces"/>
 <!--        <antcall target="war_stat"/> -->
+<!--        <antcall target="war_resume"/> -->
     </target>
     
 <!-- 
@@ -557,6 +573,17 @@
             </classes>
         </war>
     </target>
+    <target name="war_resume" depends="compile">
+        <war warfile="${war.dir}/${resume.war.name}" webxml="${resources}/resume/web.xml">
+            <fileset dir="${java}/com/topcoder/web/resume/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/resume/**"/>
+            </classes>
+        </war>
+    </target>
+
 
 
 </project>
