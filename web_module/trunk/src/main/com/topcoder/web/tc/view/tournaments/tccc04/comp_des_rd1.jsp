@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -170,7 +171,7 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6707859" class="statText" target="_blank">Base64 Codec</a></td>
+                    <td class="formHandleEven"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=6707859" class="statText" target="_blank">Base64 Codec</a></td>
                     <td class="formHandleEven" align="center">7</td>
                     <td class="formHandleEven" align="center">pending</td>
                     <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=260578">danno</a></td>
