@@ -61,10 +61,14 @@
                     <td width="427" class="bodyCopy">
 
                         <h2 class="pgTitle">Registration</h2>
-            
+
                         <p class="bodyText">In order to be eligible to compete in the Verizon Coding Contest, you must be 18 years of age or older,
                         have completed an undergraduate degree, and be a current resident of Chennai, India.<br /></p>
-                        
+
+                        <% if (regInfo.isRegFull()) { %>
+                        <p>Registration is full</p
+                        <% } %>
+
                             <table cellpadding="0" cellspacing="3" class="bodyText" align="center" border="0">
                                 <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
                                 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERIZON_REG_DEMOG%>"/>
