@@ -186,8 +186,6 @@
                                <% if (sessionInfo.isAnonymous()) { %>
                                  Login required to register for this project.   <br/><br/>
                                <% } %>
-                               <% if (projectDetail.getIntItem(0, "status_id")==Constants.TOURNAMENT_COMPONENT ||
-                                       !"true".equals(request.getAttribute("projectFull"))) { %>
                                        <%--
                             <p class="bigRed">
                             **Important Note:
@@ -195,9 +193,6 @@
                            <p>             --%>
                                <strong><A href="/?t=development&amp;version=<rsc:item set="<%=projectDetail%>" name="version_id"/>&phase=<rsc:item set="<%=projectDetail%>" name="phase_id"/>&comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>&c=tcs_inquire&Project=<%=response.encodeURL(projectDetail.getStringItem(0, "component_name")+" Development")%>&date=<rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>&projectId=<%= request.getAttribute("projectId") %>">
                                         Register</A> for this Component Project to get information necessary to submit a solution</strong>
-                               <% } else {%>
-                                 Registration is full.
-                               <% } %>
                            <% } %>
                            </p>
 
