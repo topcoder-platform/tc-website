@@ -75,7 +75,7 @@
 <td class="ccrh2" align="right" nowrap="0">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right" nowrap="0">Wildcard Win</td>
+<td class="ccrh2" align="right" nowrap="0">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -337,7 +337,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -599,7 +599,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -861,7 +861,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -1123,7 +1123,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -1385,7 +1385,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -1647,7 +1647,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -1909,7 +1909,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -2171,7 +2171,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -2433,7 +2433,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -2695,7 +2695,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -2957,7 +2957,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -3219,7 +3219,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -3481,7 +3481,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -3743,7 +3743,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -4005,7 +4005,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -4267,7 +4267,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -4529,7 +4529,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -4791,7 +4791,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -5053,7 +5053,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -5315,7 +5315,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -5577,7 +5577,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -5839,7 +5839,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -6101,7 +6101,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -6363,7 +6363,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -6625,7 +6625,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -6887,7 +6887,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -7149,7 +7149,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
@@ -7411,7 +7411,7 @@
 <td class="ccrh2" align="right">Online 4</td>
 <td class="ccrh2" align="right">Semifinals</td>
 <td class="ccrh2" align="right">Wildcard</td>
-<td class="ccrh2" align="right">Wildcard Win</td>
+<td class="ccrh2" align="right">WC Win</td>
 <td class="ccrh2" align="right">Finals</td>
 <td class="ccrh3" align="right">4th</td>
 <td class="ccrh3" align="right">3rd</td>
