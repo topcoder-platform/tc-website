@@ -110,7 +110,7 @@
         </tr>
         <tr>
           <td colspan="2">
-            <br/><input type="submit" name="submit" value="Move to Production" />
+            <br/><input type="button" name="submit" value="Move to Production" onClick="if(confirm('Move to Production.  Are you sure?'))submit();" />
           </td>
         </tr>
 
