@@ -1,6 +1,5 @@
 package com.topcoder.shared.security;
 
-import com.topcoder.web.common.security.AuthorizationException;
 
 /**
  * classes that implement Authorization will determine if a particular user has
@@ -9,7 +8,7 @@ import com.topcoder.web.common.security.AuthorizationException;
  * permissions, roles groups etc.
  *
  * @author Fred Wang (silentmobius)
- * @version $Revision$ 
+ * @version $Revision$
  * Jan 7, 2003 11:40:10 PM
  *
  */
