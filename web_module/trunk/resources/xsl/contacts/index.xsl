@@ -49,7 +49,7 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br />
 
-                        <p class="bodyText">TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
+                        <p>TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
                         TopCoder is about. Please contact the appropriate individuals below for more information or assistance.</p>
                         
                         <div align="center">
@@ -68,7 +68,7 @@
                                 <td width="50%" align="left" class="bodyText">
                                     <p><strong>Contact us by email</strong><br />
                                     <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A><br />
-                                    <A href="mailto:mlydon@topcoder.com" class="bodyText">Competition Tech Support</A><br />
+                                    <A href="mailto:service@topcoder.com" class="bodyText">Competition Tech Support</A><br />
                                     <A href="mailto:service@topcodersoftware.com" class="bodyText">Software Tech Support</A></p>
                                 </td>
                             </tr>
@@ -93,7 +93,7 @@
 
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:mlydon@topcoder.com" class="bodyText">Competition Applet / Web Site</a><br />
+                                    <p><a href="mailto:service@topcoder.com" class="bodyText">Competition Applet / Web Site</a><br />
                                     Mike Lydon, CTO<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
