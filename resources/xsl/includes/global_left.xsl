@@ -27,11 +27,6 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="srm_dates"/>
@@ -52,11 +47,6 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="srm_dates"/>
@@ -81,7 +71,7 @@
                             <xsl:otherwise>leftNavOn</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Schedule:</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/clear.gif" border="0" />Schedule</A>
                     </td>
                 </tr>
 
@@ -90,11 +80,6 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -168,11 +153,6 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -246,11 +226,6 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -299,11 +274,6 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -377,12 +347,6 @@
                     <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
                     <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
                 </xsl:call-template>
-
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -437,11 +401,6 @@
 
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -644,12 +603,6 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=sample_problems</xsl:attribute>Sample Problem Statements</A>
                     </td>
                 </tr>
-
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -813,12 +766,6 @@
                         <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/tces/?task=MainTask</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TCES Reporting</A><br /><div style="font-size:11px; font-weight:normal; margin-left:10;">Employers log in to access Recruiting Reports</div>
                     </td>
                 </tr>
-
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -847,11 +794,6 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="srm_dates"/>
@@ -882,11 +824,6 @@
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="tc_info_row"/>
-                <xsl:call-template name="about_row"/>
-                <xsl:call-template name="reviewboard_row"/>
-                <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="simple_search"/>
