@@ -54,7 +54,7 @@
 
 
                         <p><%= message %></p>
-                        <p>New to TopCoder? Click <a href="/?module=Registration">here</a> to register now.</p>
+                        <p><b>New to TopCoder? Click <a href="/?module=Registration">here</a> to register now.</b></p>
 
                     </td>
                 </tr>
