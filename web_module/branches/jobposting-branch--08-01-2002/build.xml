@@ -541,7 +541,7 @@
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
-        <antcall target="war_tces"/>
+<!--        <antcall target="war_tces"/> -->
 <!--        <antcall target="war_stat"/> -->
 <!--        <antcall target="war_resume"/> -->
     </target>
