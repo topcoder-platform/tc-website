@@ -369,6 +369,24 @@ A.catalogCategoryLink:active
 }
 
 .catalogFoot { padding: 5px; }
+
+.catalogIndexCell
+{
+	border-bottom: 1px solid #999;
+	padding: 8px 0px 8px 0px;
+}
+
+.catalogIndexHeader
+{
+	font-size: 15px;
+	font-weight: bold;
+	color: #000;
+	white-space: nowrap;
+	background-color: #FFFFFF;
+	background-image: url(/images/header_grad.gif);
+	padding: 5px 10px 5px 10px;
+	border: 1px solid #999;
+}
 .catalogTable { background-color: #CCCCCC; }
 
 .catalogTextOdd, .catalogTextEven, .catalogText
@@ -944,6 +962,20 @@ H3
 {
 	color: #FFF;
 	background: #000;
+}
+
+.header
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	white-space: nowrap;
+	background-color: #999999;
+	vertical-align:top;
+	padding-left: 7px;
+	padding-top: 3px;
+	padding-right: 7px;
+	padding-bottom: 3px;
 }
 
 .headRight
