@@ -18,6 +18,7 @@
       </TD>
     </TR>
   </TABLE>
+	<%= (tces != null ? "tces.getCurrentNav().getTaskKey()=" + tces.getCurrentNav().getTaskKey() : "null tces") %>
   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BACKGROUND="/i/steel_gray_bg2.gif" BGCOLOR="#43515E"> 
     <TR>
       <TD COLSPAN="2" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="2"/></TD>
@@ -37,41 +38,6 @@
 		<% } %>
 		<% } %>
 				
-    <!--TR>
-      <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
-      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
-        <A HREF="/tcesctx?task=contact" CLASS="subNav">Contact Info</A>
-      </TD>
-      <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    </TR>
-    <TR>
-      <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
-      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
-        <A HREF="/tcesctx?task=education" CLASS="subNav">Education</A>
-      </TD>
-      <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    </TR>
-    <TR>
-      <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
-      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
-        <A HREF="/tcesctx?task=employment" CLASS="subNav">Employment</A>
-      </TD>
-      <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    </TR>
-    <TR>
-      <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
-      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
-        <A HREF="/tcesctx?task=skills" CLASS="subNav">Skills</A>
-      </TD>
-      <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    </TR>
-    <TR>
-      <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
-      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
-        <A HREF="/tcesctx?task=job" CLASS="subNav">Job Builder</A>
-      </TD>
-      <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    </TR-->
     <TR>
       <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
       <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">

@@ -26,7 +26,7 @@ public class TCES extends Task implements Serializable {
 		private TCESNav currentNav = null;
 		private TCESNav nextNav = null;
 		private Hashtable htParams = new Hashtable();
-		private boolean isTaskValidated = true;
+		private boolean isTaskValidated = false;
 
     public static final String PROTOCOL = "http";
     public static final String HOST = ApplicationServer.SERVER_NAME;
@@ -60,9 +60,6 @@ public class TCES extends Task implements Serializable {
 		    
 		public boolean setAttributes(String param, String[] values) {
 			htParams.put(param, values);
-			if (currentNav.getTaskKey().equals("contact")) {
-				
-			}
 			return true;
 		}
 				
@@ -70,6 +67,9 @@ public class TCES extends Task implements Serializable {
     	Log.msg(VERBOSE,"TCES.process()");
 			if (currentNav == null) {
 				throw new TaskException("TCES.process(): No current task");
+			}
+			if (htParams.size() == 0) {
+				isTaskValidated = false;
 			}
 /*
 			int user_id = user.getUserId();
