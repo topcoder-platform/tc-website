@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * @author Greg Paul
@@ -18,7 +19,7 @@ import java.util.List;
  *
  */
 
-public abstract class BaseTask implements Task {
+public abstract class BaseTask implements Task, Serializable {
 
     private static Logger log = Logger.getLogger(BaseTask.class);
 
