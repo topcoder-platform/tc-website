@@ -287,6 +287,7 @@ private void processContact() throws SQLException, TaskException {
             error.add("Problem updating CoderObject: " + e.getMessage());
             Log.msg("Problem with updating CoderObject: " + e.getMessage());
             isTaskValidated = false;
+            e.printStackTrace();
             //throw new TaskException("TCES.processEmployment(): Exception: " + e.getMessage());
         }
         try {
