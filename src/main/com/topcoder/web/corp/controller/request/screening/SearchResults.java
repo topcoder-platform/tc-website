@@ -85,58 +85,7 @@ public class SearchResults extends BaseScreeningProcessor {
         ret.setEmailAddress(StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL_ADDRESS)));
         
         ret.setUserId(getUser().getId());
-        
-        //load demographic info
 
-        List l = getQuestionList();
-        Collections.sort(l);
-
-        ret.setQuestions(l);
-        
-        //get the demographic responses
-        DemographicQuestion q = null;
-        String[] values = null;
-        DemographicResponse rs = null;
-        String key = null;
-        List questionList = getQuestionList();
-        //loop through all the questions
-        List responses = new ArrayList();
-        
-        for (Iterator it = questionList.iterator(); it.hasNext();) {
-            q = (DemographicQuestion) it.next();
-            key = Constants.DEMOG_PREFIX + q.getId(); 
-            values = getRequest().getParameterValues(key);
-            if (values != null) {
-                String value = null;
-                //loop through all the responses in the request
-                for (int i = 0; i < values.length; i++) {
-                    value = StringUtils.checkNull(values[i]).trim();
-                    if (value.length() > 0) {
-                        rs = new DemographicResponse();
-                        rs.setQuestionId(q.getId());
-                        if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
-                            rs.setText(values[i]);
-                            rs.setSort(q.getSort());
-                            responses.add(rs);
-                        } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                                q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                            try {
-                                rs.setAnswerId(Long.parseLong(values[i]));
-                                rs.setSort(q.getSort());
-                                responses.add(rs);
-                            } catch (NumberFormatException e) {
-                                //skip it, it's invalid, checking will have to pick it up later
-                            }
-                        } else {
-                            throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
-                        }
-                    }
-                }
-            }
-        }
-        
-        ret.setResponses(responses);
-        
         String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         if (start.equals(""))
             ret.setStart(1); 
@@ -228,6 +177,58 @@ public class SearchResults extends BaseScreeningProcessor {
         {
             query.append("and lower(e.address) like '" + ret.getEmailAddress().toLowerCase() + "' ");
         }
+        
+        //load demographic info
+        List l = getQuestionList();
+        Collections.sort(l);
+
+        ret.setQuestions(l);
+        
+        //get the demographic responses
+        DemographicQuestion q = null;
+        String[] values = null;
+        DemographicResponse rs = null;
+        String key = null;
+        List questionList = getQuestionList();
+        //loop through all the questions
+        List responses = new ArrayList();
+        
+        for (Iterator it = questionList.iterator(); it.hasNext();) {
+            q = (DemographicQuestion) it.next();
+            key = Constants.DEMOG_PREFIX + q.getId(); 
+            values = getRequest().getParameterValues(key);
+            if (values != null) {
+                String value = null;
+                //loop through all the responses in the request
+                for (int i = 0; i < values.length; i++) {
+                    value = StringUtils.checkNull(values[i]).trim();
+                    if (value.length() > 0) {
+                        rs = new DemographicResponse();
+                        rs.setQuestionId(q.getId());
+                        if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                            rs.setText(values[i]);
+                            rs.setSort(q.getSort());
+                            responses.add(rs);
+                            query.append("and exists(select coder_id from demographic_response where coder_id = u.user_id and demographic_question_id = " + q.getId() + " and demographic_response like '" + values[i].toLowerCase() + "') ");
+                        } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                            try {
+                                rs.setAnswerId(Long.parseLong(values[i]));
+                                rs.setSort(q.getSort());
+                                responses.add(rs);
+                                query.append("and exists(select coder_id from demographic_response where coder_id = u.user_id and demographic_question_id = " + q.getId() + " and demographic_answer_id in (" + values[i].toLowerCase() + ")) ");
+                            } catch (NumberFormatException e) {
+                                //skip it, it's invalid, checking will have to pick it up later
+                            }
+                        } else {
+                            throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
+                        }
+                    }
+                }
+            }
+        }
+        
+        ret.setResponses(responses);
         
         countQuery.append("select count(*) as count from table(multiset( ");
         countQuery.append(query.toString());
