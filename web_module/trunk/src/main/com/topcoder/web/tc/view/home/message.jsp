@@ -4,7 +4,7 @@
     </table>
     <table cellspacing="0" cellpadding="5" class="messageBoxFrame">
         <tr>
-            <td class="messageBoxText">
+            <td class="messageBoxText">Over $11,000 in reviewer payments available. Check it out <A href="/tc?module=ViewReviewProjects">here</A>.
             </td>
         </tr>
     </table>
