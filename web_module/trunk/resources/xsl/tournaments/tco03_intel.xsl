@@ -52,21 +52,25 @@
                               </tr>
                             <tr>
                             <td class="bodyText" >
-                            	<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; Developer Services</strong> </a>offers the resources and opportunities you need to keep stride with industry innovations,
+                            	<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; 
+                            	Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
                              	take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p></td>
                              
                             <td align="center"><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /></td>
                       </tr>
                       <tr>
-                            <td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
-                            Intel Developer Services gives you FREE access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p></td>
+                            <td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
+                            technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>IntelDeveloper 
+                            Services</strong> </a> gives you FREE access to tools and resources that can maximize your code's performance, give you 
+                            time-to-market advantage and make your software sing. Fast.</p></td>
                             
                           <td>
                             	<table>
                             		<tr>
                             			<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                            			<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino mobile-technology-based notebook! View Specs.
-                            			<br/><br/>Register Now! Use promotion code TCO2003. </p></td>
+                            			<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
+                            			mobile-technology-based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
+                            			<br/><br/><body text="#0033FF">Register Now! Use promotion code TCO2003. </body text> </p></td>
                             		</tr>
                             		<tr><td></td></tr>
                             	</table>
@@ -75,8 +79,8 @@
                         
                         <tr>
                         	<td colspan="2">
-                    <p class="promoCallout">Check out a sample of what Intel Developer Services offers you.  Then join Intel Developer Services today and get FREE technical resources designed to help you 
-                    capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. <br/>
+                    <p class="promoCallout"><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Checkout a sample</strong> </a> of what Intel Developer 
+                    Services offers you.  Then join <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer Services</strong> </a> today and get FREE technical resources designed to help you capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. <br/>
                     <br/>Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
                         
                         <p><br /></p>
