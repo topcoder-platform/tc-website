@@ -81,7 +81,7 @@
          </env-entry>
       </session>
       <session id="Session_7">
-         <ejb-name>Input</ejb-name>
+         <ejb-name>CommandQuery</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.CommandQueryHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.CommandQuery</remote>
          <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandQueryBean</ejb-class>

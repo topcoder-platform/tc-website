@@ -23,8 +23,8 @@ public class CommandGroupBean extends BaseEJB {
     private static Logger log = Logger.getLogger(CommandGroupBean.class);
     private String dataSourceName;
 
-    public void createCommandGroup(int commandGroupId, String commandGroupDesc) throws RemoteException, EJBException {
-        log.debug("createCommandGroup called...group: " + commandGroupId + " desc: " + commandGroupDesc);
+    public void createCommandGroup(String commandGroupDesc) throws RemoteException, EJBException {
+        log.debug("createCommandGroup called...desc: " + commandGroupDesc);
 
         PreparedStatement ps = null;
         Connection conn = null;
@@ -41,16 +41,16 @@ public class CommandGroupBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, commandGroupId);
+            ps.setInt(1, getNextValue());
             ps.setString(2, commandGroupDesc);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
-                    " group: " + commandGroupId + " desc: " + commandGroupDesc);
+                    " desc: " + commandGroupDesc);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating group: " + commandGroupId + " desc: " + commandGroupDesc);
+            throw new EJBException("SQLException creating desc: " + commandGroupDesc);
         } catch (Exception e) {
-            throw new EJBException("Exception creating group: " + commandGroupId + " desc: " + commandGroupDesc +
+            throw new EJBException("Exception creating desc: " + commandGroupDesc +
                     "\n " + e.getMessage());
         } finally {
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -158,6 +158,41 @@ public class CommandGroupBean extends BaseEJB {
             throw new EJBException("SQLException getting all command groups");
         } catch (Exception e) {
             throw new EJBException("Exception getting all command groups\n " + e.getMessage());
+        } finally {
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
+            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
+        }
+        return ret;
+    }
+
+    private int getNextValue() {
+        log.debug("getNextValue called...");
+
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        Context ctx = null;
+        DataSource ds = null;
+        int ret = 0;
+        try {
+            StringBuffer query = new StringBuffer();
+            query.append("  EXECUTE PROCEDURE nextval(?)");
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, DBMS.COMMAND_GROUP_SEQ);
+            rs = ps.executeQuery();
+            if (rs.next())
+                ret = rs.getInt(1);
+            else throw new SQLException("nextval() did not return a value");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting sequence");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
