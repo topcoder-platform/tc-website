@@ -75,7 +75,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                <h2>Advancers</h2>
 <!-- Online Rounds begins -->
             <p align="right"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_advancers">Round 1</a>&#160;|&#160;Finals</p>
-            <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
+            <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox" width=400>
     		<% String sLink = "/stat?c=member_profile&cr=";%>
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="3" bgcolor="#4E9DD5">Finals</td>
