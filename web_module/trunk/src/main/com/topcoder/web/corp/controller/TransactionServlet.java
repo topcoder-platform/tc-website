@@ -486,15 +486,6 @@ public class TransactionServlet extends HttpServlet {
             throws Exception {
         TransactionInfo txInfo = new TransactionInfo(req, resp);
         txInfo.setFromEligibleCountry(userCountryEligible(txInfo.getBuyerID(), txInfo.getProductID()));
-        InitialContext ic = (InitialContext) TCContext.getInitial();
-        Product product = ((ProductHome) ic.lookup(ProductHome.EJB_REF_NAME)).create();
-        long termsId = product.getTermsOfUseId(txInfo.getProductID());
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-        if (userTerms.hasTermsOfUse(txInfo.getBuyerID(), termsId)) {
-            txInfo.setAgreed(true);
-        } else {
-            txInfo.setAgreed(false);
-        }
         return txInfo;
     }
 
