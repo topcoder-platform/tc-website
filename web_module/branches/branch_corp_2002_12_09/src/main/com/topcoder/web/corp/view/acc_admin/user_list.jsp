@@ -50,7 +50,7 @@
 
 
 	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
-	<% ResultSetRow rsr = ResultSetContainer.ResultSetRow((TCResultItem[])resultRow); %>
+	<% ResultSetRow rsr = new ResultSetContainer.ResultSetRow((TCResultItem[])resultRow); %>
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
 			&#160;<tc-webtag:item name="user_id" row="<%=rsr%>"/></TD>
