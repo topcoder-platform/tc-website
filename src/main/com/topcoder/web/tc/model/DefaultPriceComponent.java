@@ -15,8 +15,9 @@ public class DefaultPriceComponent implements SoftwareComponent{
     private final static float DEV_REVIEW_RATE = 20f;
     private final static float DESIGN_REVIEW_RATE = 25f;
 
-    private int phaseId;
-    private int level;
+    protected int phaseId;
+    protected int level;
+
     private int submissionCount;
     private int submissionsPassedScreening;
 
@@ -173,6 +174,15 @@ public class DefaultPriceComponent implements SoftwareComponent{
         return reviewCost + startupCost;
     }
 
+    public int getPhaseId() {
+        return phaseId;
+    }
+
+/*
+    public int getLevel() {
+        return level;
+    }
+*/
 
     public static void main(String[] args) {
         if (args.length!=4) {
