@@ -19,7 +19,7 @@
 
 <%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
-      <jsp:param name="probTimer" value="off"/>
+      <jsp:param name="timer" value="off"/>
       </jsp:include>
 
       <table cellspacing=0 cellpadding=0 class=bodyTable>

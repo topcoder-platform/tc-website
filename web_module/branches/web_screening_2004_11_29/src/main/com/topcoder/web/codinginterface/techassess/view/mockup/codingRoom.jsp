@@ -19,7 +19,7 @@
 
 <%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
-      <jsp:param name="probTimer" value="off"/>
+      <jsp:param name="timer" value="off"/>
       </jsp:include>
 
       <table cellspacing=0 cellpadding=0 class=bodyTable>
@@ -51,7 +51,7 @@
 
             <br/><br/>
             <p class=pL><span class=bodySmallTitle>Input Area</span></p>
-            <textarea class=codingArea name="code" rows="21" cols="42">
+            <textarea class=codingArea name="code" rows="20" cols="40" wrap="off">
 using System;
 using System.Collections;
 using System.Text.RegularExpressions;

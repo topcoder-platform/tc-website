@@ -1,5 +1,5 @@
 <%
-    String probTimer = request.getParameter("probTimer")==null?"":request.getParameter("probTimer");
+    String timer = request.getParameter("timer")==null?"":request.getParameter("timer");
 %>
 
 <table cellspacing=0 cellpadding=0 class=timeTable>
