@@ -56,7 +56,6 @@
                 <tr valign="middle"><td class="bodyText">I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.KEY_AGREE_TO_TERMS%>" value="<%=TransactionInfo.hasAgreed()%>"/></td></tr>
                 <tr valign="middle"><td align="center">
                         <input type="hidden" name="module" value="Registration">
-                        <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>">
                         <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID" />">
                         <input type="submit" onClick="" name="submit" value=" Continue">
                     </td>
