@@ -71,7 +71,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_10_25_04">Google's creative search for elite programmers</A></strong></font><br />
-						Some people like to play tennis or golf to blow off steam after a hard day. Bolek Szewcyzk likes to pound out line after line after line of code on his computer, solving complex problems or just exulting in the art of creation.<span class="prHead">[October 19 - SJ Mercury]</span></p>
+						Google Inc. finds almost anything on the Internet within seconds, but finding the sharp-minded computer engineers who program the company's lightning-quick search engine takes more time -- and a quirky bit of ingenuity.<span class="prHead"> [October 25 - Associated Press]</span></p>
                     </td>
                 </tr>
             </table>
