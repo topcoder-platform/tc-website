@@ -23,8 +23,6 @@ import java.rmi.RemoteException;
 public class Authentication implements Serializable {
     private static Logger log = Logger.getLogger(Authentication.class);
 
-    private static int USER_NOT_LOGGED_IN = -1;
-
     /* Holds the id of the currently logged in user */
     private long userId;
 
@@ -34,30 +32,31 @@ public class Authentication implements Serializable {
     /* Holds the URL for which access was attempted */
     private String requestedURL;
 
+    private boolean loggedIn;
+
     private static final String AUTHENTICATION_KEY = "query_auth";
+
+    private Authentication() {
+        setUserId(0);
+        setErrorMessage("");
+        setRequestedURL("");
+        setLoggedIn(false);
+    }
 
     /** Attempts to authenticate a user and set him/her as logged in
      * @param handle The handle of the user for this authentication request
      * @param password The password of the user for this authentication request
      * @param ctx The InitialContext of the originating request
      * @param session The HttpSession of the originating request
-     * @param requestedURL The URL being requested
      * @throws com.topcoder.web.query.common.AuthenticationException if the login information is incorrect
      * or there is a problem with the ejb
      */
-    public static void attemptLogin(String handle, String password, InitialContext ctx,
-                                    HttpSession session, String requestedURL) throws AuthenticationException {
+    public void attemptLogin(String handle, String password, InitialContext ctx,
+                                    HttpSession session) throws AuthenticationException {
         try {
             log.debug("handle: " + handle + " pass: " + password);
-            Authentication auth;
 
-            if ( (auth=(Authentication)session.getAttribute(AUTHENTICATION_KEY))==null) {
-                auth = new Authentication();
-                session.setAttribute(AUTHENTICATION_KEY, auth);
-            }
-
-            auth.setUserId(USER_NOT_LOGGED_IN);
-            auth.setRequestedURL(requestedURL);
+            setRequestedURL(requestedURL);
 
             QueryAuthenticationHome qaHome = (QueryAuthenticationHome) ctx.lookup(ApplicationServer.Q_QUERY_AUTHENTICATION);
             QueryAuthentication qa = qaHome.create();
@@ -65,21 +64,19 @@ public class Authentication implements Serializable {
 
             if (rsc.isEmpty()) {
                 log.debug("bad handle");
-                auth.setErrorMessage("Incorrect handle.  Please retry.");
-                throw new AuthenticationException("Incorrect handle.  Please retry.");
+                setErrorMessage("Incorrect handle.  Please retry.");
             } else {
                 String actualPassword = rsc.getItem(0, "password").toString();
                 if (!actualPassword.trim().equals(password.trim())) {
                     log.debug("bad password");
-                    auth.setErrorMessage("Incorrect password.  Please retry.");
-                    throw new AuthenticationException("Incorrect password.  Please retry.");
+                    setErrorMessage("Incorrect password.  Please retry.");
                 } else {
                     log.debug("successfull login");
-                    // record in this session that we have authenticated a user.
-                    auth.setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
+                    setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
+                    setLoggedIn(true);
+                    session.setAttribute(AUTHENTICATION_KEY, this);
                 }
             }
-
         } catch (RemoteException e) {
             throw new AuthenticationException(e.getMessage());
         } catch (NamingException e) {
@@ -90,76 +87,26 @@ public class Authentication implements Serializable {
         }
     }
 
-    /** Indicates whether a user is authenticated within the given session
-     * @param session The HttpSession of the originating request
-     * @return A boolean indicating whether a user is authenticated within the given session
-     */
-    public static boolean isLoggedIn(HttpSession session) {
-        log.debug("isLoggedIn called...");
+    public static Authentication getAuthentication(HttpSession session) {
         Authentication auth = (Authentication)session.getAttribute(AUTHENTICATION_KEY);
-
-        if (auth==null) {
-            log.debug("no auth in session");
-            return false;
-        } else if (auth.getUserId()==USER_NOT_LOGGED_IN) {
-            log.debug("user not logged in");
-            return false;
-        } else {
-            log.debug("user logged in");
-            return true;
-        }
+        if (auth==null) auth = new Authentication();
+        return auth;
     }
-
-    /** Indicates whether a user is authenticated within the given session, and the ID of that user
-     * @param session The HttpSession of the originating request
-     * @return The ID of the user authenticated, if any, within the given session
-     */
-    public static long userLoggedIn(HttpSession session) {
-        Authentication auth = (Authentication)session.getAttribute(AUTHENTICATION_KEY);
-
-        if (auth==null)
-            return USER_NOT_LOGGED_IN;
-        else
-            return auth.getUserId();
-    }
-
 
     private void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }
 
-
-    /** Returns the error message generated by the last authentication attempt in the given session
-     * @param session The HttpSession of the originating request
-     * @return The authentication error message, if any, within the given session
-     */
-    public static String getErrorMessage(HttpSession session) {
-        Authentication auth = (Authentication)session.getAttribute(AUTHENTICATION_KEY);
-
-        if (auth==null)
-            return "";
-        else
-            return auth.errorMessage;
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
-    /** Returns the requested URL during the last authentication attempt in the given session
-     * @param session The HttpSession of the originating request
-     * @return The requested URL during the last authentication attempt in the given session
-     */
-    public static String getRequestedURL(HttpSession session) {
-        Authentication auth = (Authentication)session.getAttribute(AUTHENTICATION_KEY);
-
-        if (auth==null)
-            return "";
-        else
-            return (auth.requestedURL==null?"":auth.requestedURL);
+    public void setRequestedURL(String requestedURL) {
+        this.requestedURL = requestedURL;
     }
 
-    public static void resetRequestedURL(HttpSession session) {
-        Authentication auth = (Authentication)session.getAttribute(AUTHENTICATION_KEY);
-
-        if (auth!=null)
-            auth.requestedURL="";
+    public String getRequestedURL() {
+        return requestedURL;
     }
 
     private void setUserId(long userId) {
@@ -170,7 +117,12 @@ public class Authentication implements Serializable {
         return userId;
     }
 
-    private void setRequestedURL(String requestedURL) {
-        this.requestedURL = requestedURL;
+    public boolean isLoggedIn() {
+        return loggedIn;
     }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+
 }

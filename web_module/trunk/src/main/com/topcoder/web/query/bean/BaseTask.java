@@ -3,6 +3,7 @@ package com.topcoder.web.query.bean;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.LinkBean;
+import com.topcoder.web.query.common.Authentication;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +37,8 @@ public abstract class BaseTask implements Task {
 
     private boolean internalResource;
 
+    private Authentication authentication;
+
     /* Makes a new BaseTask */
     public BaseTask() {
         setInitialContext(null);
@@ -44,6 +47,7 @@ public abstract class BaseTask implements Task {
         errors = new HashMap();
         navLinks = new ArrayList();
         internalResource = true;
+        authentication = null;
     }
 
     public abstract void process(String step) throws Exception;
@@ -74,6 +78,8 @@ public abstract class BaseTask implements Task {
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
          throws Exception {
+        setAuthentication(Authentication.getAuthentication(request.getSession(true)));
+        getAuthentication().setRequestedURL(request.getQueryString());
     }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
@@ -170,5 +176,14 @@ public abstract class BaseTask implements Task {
     public void setInternalResource(boolean internalResource) {
         this.internalResource = internalResource;
     }
+
+    public Authentication getAuthentication() {
+        return authentication;
+    }
+
+    public void setAuthentication(Authentication authentication) {
+        this.authentication = authentication;
+    }
+
 }
 
