@@ -366,7 +366,8 @@ public final class Registration extends UserEdit {
             try {
                 String tmp = rsc.getItem(0, "address_id").getResultData().toString();
                 addressID = Long.parseLong(tmp);
-            } catch (IndexOutOfBoundsException ignore) {
+            } catch (IndexOutOfBoundsException e) {
+				e.printStackTrace();
             }
         }
         if (addressID < 0) {
@@ -424,7 +425,8 @@ public final class Registration extends UserEdit {
         try {
             String tmp = rsc.getItem(0, "address_id").getResultData().toString();
             addrID = Long.parseLong(tmp);
-        } catch (IndexOutOfBoundsException ignore) {
+        } catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
         }
 
         if (addrID < 0) { // user has not an address yet
