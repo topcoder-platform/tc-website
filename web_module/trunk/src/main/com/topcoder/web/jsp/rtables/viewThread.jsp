@@ -20,7 +20,6 @@
   String bufurl = response.encodeURL("/rtables/post.jsp");
 %>        
 
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -28,6 +27,7 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <%@ include file="../script.jsp" %>
+    <%@ include file="rating.jsp" %>
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
     <%@ include file="../top.jsp" %>
@@ -91,6 +91,8 @@
     boolean msgIsAnonymous = message.isAnonymous();
     User author = message.getUser();
     String authorName = author.getUsername();
+
+
     int forumID = forum.getID();
     int threadID = thread.getID();
     int messageID = message.getID();
@@ -134,7 +136,7 @@
     buf.append("</tr>");
     buf.append("<tr>");    
     buf.append("<td align=\"left\" valign=\"middle\" class=\"statText\" background=\"/i/steel_blue_bg.gif\" height=\"18\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" />");
-    buf.append("Posted By: ").append(authorName);
+    buf.append("Posted By: "+getUserDisplay(author));
     buf.append("</td>");
     buf.append("<td align=\"right\" valign=\"middle\" class=\"statText\" background=\"/i/steel_blue_bg.gif\" height=\"18\">");
     buf.append("Posted ").append(dateFormatter.format(creationDate));
@@ -314,6 +316,7 @@
 <%  /////////////////////
   // get root message properties
   User author = rootMessage.getUser();
+
   int rootMsgAuthorID = author.getID();
   String authorName = null;
   authorName = author.getUsername();
@@ -394,7 +397,10 @@ int numReplies = thread.getMessageCount()-1;
         </tr>
      
         <tr>
-          <td align="left" class="statText" background="/i/steel_blue_bg.gif" height="18"><img src="/i/clear.gif" width="3" height="1" />Posted By: <%= authorName %></td>
+          <td align="left" class="statText" background="/i/steel_blue_bg.gif" height="18">
+            <img src="/i/clear.gif" width="3" height="1" />Posted By: <%=getUserDisplay(author)%></td>
+
+
           <td colspan="3" align="right" class="statText" background="/i/steel_blue_bg.gif" height="18">Posted <i><%= dateFormatter.format(creationDate) %>&#160;<img src="/i/clear.gif" width="6" height="1" /></td>
         </tr>
         <tr>

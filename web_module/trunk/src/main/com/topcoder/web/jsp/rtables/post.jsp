@@ -259,6 +259,7 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 
     <%@ include file="../script.jsp" %>
+    <%@ include file="rating.jsp" %>
 
   </HEAD>
 
@@ -747,7 +748,7 @@ DER="0"><BR>
 
      <tr>
 
-       <td align="left" class="statText"><img src="/i/clear.gif" width="3" height="1" />Posted By: <%= authorName %></td>
+       <td align="left" class="statText"><img src="/i/clear.gif" width="3" height="1" />Posted By: <%= getUserDisplay(author)%></td>
 
        <td colspan="3" align="right" class="statText">Posted <%= SkinUtils.dateToText(creationDate) %>
 
