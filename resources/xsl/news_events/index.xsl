@@ -70,7 +70,21 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=65934" target="_blank">Focus on software talent</A></strong></font><br />
-                       CaA confluence of events has set the stage for an interesting scenario over the next several quarters. Companies have pared down staff over the past few years, schools and universities are producing fewer computer science graduates, and offshore outsourcing is meeting with mixed results. Companies are searching for better, cheaper alternatives to software development, fearing a return to 1999, when they paid through the nose for developers to work on projects, most of which failed to see the light of day. <span class="prHead">[June 21]</span></p>
+                       CaA confluence of events has set the stage for an interesting scenario over the next several quarters. Companies have pared down staff over the past few years, schools and universities are producing fewer computer science graduates, and offshore outsourcing is meeting with mixed results. Companies are searching for better, cheaper alternatives to software development, fearing a return to 1999, when they paid through the nose for developers to work on projects, most of which failed to see the light of day. <span class="prHead">[July]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Fast Company -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/i/pressroom/FastCompany0704.pdf" target="_blank"><img src="/i/pressroom/fastcompany_logo.gif" alt="fcLogo" width="135" height="33" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/i/pressroom/FastCompany0704.pdf" target="_blank">"There are good people everywhere"</A></strong></font><br />
+                       Tomasz Czajka, a 23-year-old Polish university student, has won two big computer-programming contests in a row - and he's ranked first among TopCoder's 38,000 coders.  Is he the world's best geek?<span class="prHead">[June 21]</span></p>
                     </td>
                 </tr>
             </table>
