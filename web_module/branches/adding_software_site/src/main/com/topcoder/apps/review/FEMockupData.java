@@ -504,32 +504,32 @@ public final class FEMockupData {
             screeningScorecards[0] =
                 new ScreeningScorecard(1, false, false, screeningQuestions,
                                        users[0], projects[1],
-                                       submissions[0], 0.0, 1, 1);
+                                       submissions[0], 0.0, 1, 1, 0.0, null);
             screeningScorecards[1] =
                 new ScreeningScorecard(2, false, false, screeningQuestions,
                                        users[1], projects[1],
-                                       submissions[1], 0.0, 2, 1);
+                                       submissions[1], 0.0, 2, 1, 0.0, null);
 
             // The review scorecards.
             reviewScorecards = new ReviewScorecard[6];
             reviewScorecards[0] =
                 new ReviewScorecard(1, true, false, reviewQuestions, users[0],
-                                    projects[2], submissions[0], 60.0, 1, 1);
+                                    projects[2], submissions[0], 60.0, 1, 1, 0.0, null);
             reviewScorecards[1] =
                 new ReviewScorecard(2, false, false, reviewQuestions, users[0],
-                                    projects[2], submissions[1], 0.0, 2, 1);
+                                    projects[2], submissions[1], 0.0, 2, 1, 0.0, null);
             reviewScorecards[2] =
                 new ReviewScorecard(1, true, false, reviewQuestions, users[1],
-                                    projects[2], submissions[0], 70.0, 1, 1);
+                                    projects[2], submissions[0], 70.0, 1, 1, 0.0, null);
             reviewScorecards[3] =
                 new ReviewScorecard(2, true, false, reviewQuestions, users[1],
-                                    projects[2], submissions[1], 50.0, 2, 1);
+                                    projects[2], submissions[1], 50.0, 2, 1, 0.0, null);
             reviewScorecards[4] =
                 new ReviewScorecard(1, true, false, reviewQuestions, users[2],
-                                    projects[2], submissions[0], 50.0, 1, 1);
+                                    projects[2], submissions[0], 50.0, 1, 1, 0.0, null);
             reviewScorecards[5] =
                 new ReviewScorecard(2, true, false, reviewQuestions, users[2],
-                                    projects[2], submissions[1], 60.0, 2, 1);
+                                    projects[2], submissions[1], 60.0, 2, 1, 0.0, null);
 
             // The aggregation worksheet.
             aggregationWorksheet =

@@ -774,6 +774,57 @@ public class ProjectTrackerBean implements SessionBean {
                     }
 
                 }
+                
+                if(oldPhaseId == Phase.ID_SUBMISSION && currentPhase.getId() == Phase.ID_SCREENING)
+                {
+                    //update project result records for people who submitted
+                    ps = conn.prepareStatement(
+                                "update project_result " +
+                                "set valid_submission_ind = 0, reliability_ind = 1 " +
+                                "where not exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) " +
+                                "and project_id = ?");
+                    
+                    ps.setLong(1, project.getId());
+                    ps.execute();
+                    Common.close(ps);
+                }
+                else if(oldPhaseId == Phase.ID_SCREENING && currentPhase.getId() == Phase.ID_REVIEW)
+                {
+                    ps = conn.prepareStatement(
+                                "update project_result " +
+                                "set valid_submission_ind = 0, reliability_ind = 1 " +
+                                "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 0) " +
+                                "and project_id = ?");
+                    
+                    ps.setLong(1, project.getId());
+                    ps.execute();
+                    Common.close(ps);
+                    
+                    ps = conn.prepareStatement(
+                                "update project_result " +
+                                "set valid_submission_ind = 1, reliability_ind = 1 " +
+                                "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 1) " +
+                                "and project_id = ?");
+                    
+                    ps.setLong(1, project.getId());
+                    ps.execute();
+                    Common.close(ps);
+                }
+                else if(oldPhaseId == Phase.ID_REVIEW && currentPhase.getId() == Phase.ID_APPEALS)
+                {
+                    ps = conn.prepareStatement(
+                                "update project_result " +
+                                "set raw_score = (select ROUND(sum(s.raw_score)/3,2) from scorecard s where s.project_id = project_id and s.scorecard_type = 2" +
+                                "   AND s.cur_version = 1 and" +
+                                " s.submission_id = (select submission_id from submission where project_id = project_result.project_id and " +
+                                " submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) )" +
+                                "where project_id = ?");
+                    
+                    ps.setLong(1, project.getId());
+                    ps.execute();
+                    Common.close(ps);
+                }
+                
                 if (oldStatusId != project.getProjectStatus().getId() && (
                    project.getProjectStatus().getId() == ProjectStatus.ID_TERMINATED ||
                    project.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED ||
@@ -1908,6 +1959,66 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(ps);
             rs = null;
             ps = null;
+            
+            ps = conn.prepareStatement(
+                    "SELECT rating from user_reliability where user_id = ?");
+            ps.setLong(1, userId);
+            rs = ps.executeQuery();
+
+            double old_reliability;
+            if (rs.next()) {
+                old_reliability = rs.getDouble(1);
+            } else {
+                old_reliability = 1;
+            }
+            Common.close(rs);
+            Common.close(ps);
+            rs = null;
+            ps = null;
+            
+            ps = conn.prepareStatement(
+                    "SELECT rating from user_rating where user_id = ? and phase_id = ?");
+            ps.setLong(1, userId);
+            if(projectTypeId == 1)
+            {
+                ps.setLong(2, 112);
+            }
+            else
+            {
+                ps.setLong(2, 113);
+            }
+            rs = ps.executeQuery();
+
+            double old_rating;
+            if (rs.next()) {
+                old_rating = rs.getDouble(1);
+            } else {
+                old_rating = 1200;
+            }
+            Common.close(rs);
+            Common.close(ps);
+            rs = null;
+            ps = null;
+
+            
+            ps = conn.prepareStatement(
+                    "INSERT INTO project_result " +
+                    "(project_id, user_id, rating_ind, valid_sumbmission_ind, reliability_ind, old_reliability, old_rating) " +
+                    "values (?, ?, ?, ?, ?, ?, ?)"
+                    );
+            
+            ps.setLong(1, projectId);
+            ps.setLong(2, userId);
+            ps.setLong(3, 0);
+            ps.setLong(4, 0);
+            ps.setLong(5, 0);
+            ps.setDouble(6, old_reliability);
+            ps.setDouble(7, old_rating);
+            
+            ps.execute();
+            
+            Common.close(ps);
+            ps = null; 
 
             ps = conn.prepareStatement(
                     "INSERT INTO r_user_role " +
@@ -2546,6 +2657,7 @@ public class ProjectTrackerBean implements SessionBean {
                      "        price, " +
                      "        sb.submitter_id," +
                      "        pi.end_date," +
+                     "        p.project_id, " +
                      "       ROUND(sum(s.score)/3,2) score," +
                      "	case when sb.submitter_id =  (" +
                      "   select sub.submitter_id" +
@@ -2590,34 +2702,33 @@ public class ProjectTrackerBean implements SessionBean {
                      "          pi.end_date," +
                      "          9" +
                      " ORDER BY score desc";
-        final String insertScores = "INSERT INTO user_component_score(" +
-                                    "            user_component_score_id," +
-                                    "            user_id," +
-                                    "            level_id," +
-                                    "            comp_vers_id," +
-                                    "            phase_id," +
-                                    "            score," +
-                                    "            place," +
-                                    "            submission_date," +
-                                    "            money," +
-                                    "            multiplier" +
-                                    "            ) " +
-                                    "      VALUES(?,"+
-                                    "             ?,"+
-                                    "             ?,"+
-                                    "             ?,"+
-                                    "             ?,"+
-                                    "             ?,"+
-                                    "             ?,"+
-                                    "             ?,"+
-                                    "             ?,"+
-                                    "             ?)";
+        final String insertScores = "update project_results set " +
+                                    "            final_score = ?," +
+                                    "            placed = ?," +
+                                    "            payment = ?" +
+                                    "      where user_id = ?"+
+                                    "             and project_id = ?";
+        
+        final String setCompleteDate = "update project set complete_date = CURRENT where project_id = ? and cur_version = 1";
+        final String setRatingInd = "update project_result set rating_ind = 1 where project_id = ?";
+        
         PreparedStatement psRetrieveScores = null;
         PreparedStatement psInsertScores = null;
+        PreparedStatement psCompleteDate = null;
+        PreparedStatement psRatingInd = null;
         ResultSet rsScores = null;
         Connection conn = null;
         try{
             conn = dataSource.getConnection();
+            
+            psCompleteDate = conn.prepareStatement(setCompleteDate);
+            psCompleteDate.setLong(1, projectId);
+            psCompleteDate.execute();
+            
+            psRatingInd = conn.prepareStatement(setRatingInd);
+            psRatingInd.setLong(1, projectId);
+            psRatingInd.execute();
+            
             psRetrieveScores = conn.prepareStatement(retrieveScores);
             psRetrieveScores.setLong(1, projectId);
             rsScores = psRetrieveScores.executeQuery();
@@ -2626,10 +2737,6 @@ public class ProjectTrackerBean implements SessionBean {
             while(rsScores.next()){
                 double money = rsScores.getLong("price");
                 double score = rsScores.getDouble("score");
-                int multiplier = rsScores.getInt("multiplier");
-
-                //disable multipler
-                multiplier = 0;
 
                 //increment place
                 place = place + 1;
@@ -2645,51 +2752,33 @@ public class ProjectTrackerBean implements SessionBean {
                 else if(place != 1 || score < 70){
                     money = 0;
                 }
-                if((place == 1 || place == 2) && multiplier == 1)
-                {
-                    money = Math.round((money * 2.0));
-                }
 
-                //user_component_score_Id
-                psInsertScores.setLong(1,idGen.nextId());
-                //user_score
-                psInsertScores.setLong(2,rsScores.getLong("submitter_id"));
-                //level_id
-                psInsertScores.setLong(3,rsScores.getLong("level_id"));
-                //comp_vers_id
-                psInsertScores.setLong(4,rsScores.getLong("comp_vers_id"));
-                //phase_id
-                psInsertScores.setLong(5,rsScores.getLong("phase_id"));
+                
+                
                 //score
-                psInsertScores.setDouble(6, score);
+                psInsertScores.setDouble(1, score);
 
                 //NEED  TO ADD TO CONFIG
                 //place
                 if(score < 70)
                 {
-                    psInsertScores.setInt(7, 0);
+                    psInsertScores.setInt(2, 0);
                     money = 0;
                 }
                 else
                 {
-                    psInsertScores.setInt(7,place);
+                    psInsertScores.setInt(2,place);
                 }
 
-                //submission_date
-                psInsertScores.setTimestamp(8,rsScores.getTimestamp("end_date"));
                 //money
-                psInsertScores.setDouble(9,money);
-                psInsertScores.setInt(10, multiplier);
-
+                psInsertScores.setDouble(3,money);
+                psInsertScores.setLong(4,rsScores.getLong("submitter_id"));
+                psInsertScores.setLong(5,projectId);
 
                 psInsertScores.executeUpdate();
             }
         }
         catch(SQLException sqe)
-        {
-           throw new Exception(sqe);
-        }
-        catch(RemoteException sqe)
         {
            throw new Exception(sqe);
         }
@@ -2726,6 +2815,28 @@ public class ProjectTrackerBean implements SessionBean {
                 catch(SQLException sqe)
                 {
                     System.err.println("Tried to close insert scores ps: " +
+                        sqe);
+                }
+            }
+            if(psCompleteDate != null)
+            {
+                try{
+                    psCompleteDate.close();
+                }
+                catch(SQLException sqe)
+                {
+                    System.err.println("Tried to close completed date ps: " +
+                        sqe);
+                }
+            }
+            if(psRatingInd != null)
+            {
+                try{
+                    psRatingInd.close();
+                }
+                catch(SQLException sqe)
+                {
+                    System.err.println("Tried to close ratind ind ps: " +
                         sqe);
                 }
             }

@@ -301,7 +301,7 @@ public class DocumentManagerBean implements SessionBean {
                         "SELECT s.scorecard_id, " +
                         "s.is_completed, s.is_pm_reviewed, " +
                         "s.author_id, s.submission_id, s.score, " +
-                        "s.scorecard_v_id, sub.is_removed " +
+                        "s.scorecard_v_id, sub.is_removed, s.raw_score, s.pm_review_timestamp " +
                         "FROM scorecard s, submission sub " +
                         "WHERE s.cur_version = 1 AND " +
                         "sub.cur_version = 1 AND " +
@@ -326,6 +326,8 @@ public class DocumentManagerBean implements SessionBean {
                 double score = rs.getDouble(6);
                 long scorecardVersionId = rs.getLong(7);
                 boolean subIsRemoved = rs.getBoolean(8);
+                double raw_score = rs.getDouble("raw_score");
+                java.sql.Timestamp pm_review_timestamp = rs.getTimestamp("pm_review_timestamp");
 
                 // TODO Retrieve a new Project???
                 User author = Common.getUser(dataSource, authorId);
@@ -351,11 +353,11 @@ public class DocumentManagerBean implements SessionBean {
                 if (scorecardType == ScreeningScorecard.SCORECARD_TYPE) {
                     boolean passed = getPassedScreening(scorecardId);
                     scorecard = new ScreeningScorecard(scorecardId, isCompleted, isPMReviewed, scorecardQuestion,
-                            author, project, submission, score, requestor.getUserId(), scorecardVersionId);
+                            author, project, submission, score, requestor.getUserId(), scorecardVersionId, raw_score, pm_review_timestamp);
                     ((ScreeningScorecard)scorecard).setPassed(passed);
                 } else {
                     scorecard = new ReviewScorecard(scorecardId, isCompleted, isPMReviewed, scorecardQuestion,
-                            author, project, submission, score, requestor.getUserId(), scorecardVersionId);
+                            author, project, submission, score, requestor.getUserId(), scorecardVersionId, raw_score, pm_review_timestamp);
                 }
 
                 scorecardList.add(scorecard);
@@ -860,8 +862,9 @@ public class DocumentManagerBean implements SessionBean {
                         "INSERT INTO scorecard (scorecard_v_id, scorecard_id, scorecard_type, " +
                         "is_completed, " +
                         "is_pm_reviewed, author_id, project_id, " +
-                        "submission_id, score, modify_user, cur_version) VALUES (" +
-                        "0, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                        "submission_id, score, modify_user, cur_version," +
+                        "raw_score, pm_review_timestamp) VALUES (" +
+                        "0, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)");
                 ps.setLong(1, scorecard.getId());
 
                 if (scorecard instanceof ScreeningScorecard) {
@@ -877,6 +880,8 @@ public class DocumentManagerBean implements SessionBean {
                 ps.setLong(7, scorecard.getSubmission().getId());
                 ps.setDouble(8, scorecard.getScore());
                 ps.setLong(9, requestorId);
+                ps.setDouble(10, scorecard.getRawScore());
+                ps.setTimestamp(11, scorecard.getPMReviewTimestamp());
 
                 int nr = ps.executeUpdate();
 
@@ -3619,10 +3624,10 @@ public class DocumentManagerBean implements SessionBean {
                     }
                     if (scorecardType == ScreeningScorecard.SCORECARD_TYPE) {
                         scorecard = new ScreeningScorecard(-1, false, false, newQuestionArr,
-                                authorArr[authInd], project, subArr[subInd], 0, fakeSubject.getUserId(), -1);
+                                authorArr[authInd], project, subArr[subInd], 0, fakeSubject.getUserId(), -1, 0.0, null);
                     } else if (scorecardType == ReviewScorecard.SCORECARD_TYPE) {
                         scorecard = new ReviewScorecard(-1, false, false, newQuestionArr,
-                                authorArr[authInd], project, subArr[subInd], 0, fakeSubject.getUserId(), -1);
+                                authorArr[authInd], project, subArr[subInd], 0, fakeSubject.getUserId(), -1, 0.0, null);
                     } else {
                         error("DM.createScorecards(): No scorecards to be created for type: " + scorecardType);
                         return null;

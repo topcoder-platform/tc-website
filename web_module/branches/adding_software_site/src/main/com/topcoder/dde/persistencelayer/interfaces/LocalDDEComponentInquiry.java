@@ -67,4 +67,6 @@ public interface LocalDDEComponentInquiry extends EJBLocalObject {
      * @return  the top coder user id
      */ 
     long getTcUserId();
+    
+    long getProjectId();
 }

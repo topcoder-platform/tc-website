@@ -143,6 +143,7 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("winner_announced", request.getParameter("winner_announced")));
             devTag.addTag(new ValueTag("estimated_dev", request.getParameter("estimated_dev")));
             devTag.addTag(new ValueTag("compvers", request.getParameter("compvers")));
+            devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
 
 
             if (command.equals("inquire")) {
@@ -490,7 +491,10 @@ public final class TaskDevelopment {
 
                                     log.debug("phase: " + phase);
                                     log.debug("version: " + version);
-                                    USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, phase, version);
+                                    
+                                    long projectId = Long.parseLong(request.getParameter("projectId"));
+                                    
+                                    USER_MANAGER.registerInquiry(userId, componentId, rating, (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, phase, version, projectId);
 
 
 

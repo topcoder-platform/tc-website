@@ -8,6 +8,7 @@ package com.topcoder.apps.review.document;
 
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.User;
+import java.sql.Timestamp;
 
 import java.io.Serializable;
 
@@ -43,6 +44,10 @@ public abstract class AbstractScorecard implements Serializable {
 
     /** Doc */
     protected double score;
+    
+    protected double raw_score;
+    
+    protected Timestamp pm_review_timestamp;
 
     /** Dirtyflag */
     protected boolean dirtyFlag = false;
@@ -54,7 +59,7 @@ public abstract class AbstractScorecard implements Serializable {
      */
     public AbstractScorecard(long id, boolean isCompleted, boolean isPMReviewed,
         ScorecardQuestion[] scorecardQuestion, User author, Project project,
-        InitialSubmission submission, double score, long requestorId, long versionId) {
+        InitialSubmission submission, double score, long requestorId, long versionId, double raw_score, Timestamp pm_review_timestamp) {
         this.id = id;
         this.isCompleted = isCompleted;
         this.isPMReviewed = isPMReviewed;
@@ -65,6 +70,8 @@ public abstract class AbstractScorecard implements Serializable {
         this.score = score;
         this.requestorId = requestorId;
         this.versionId = versionId;
+        this.raw_score = raw_score;
+        this.pm_review_timestamp = pm_review_timestamp;
         if (id == -1) {
             dirtyFlag = true;
         }
@@ -261,6 +268,28 @@ public abstract class AbstractScorecard implements Serializable {
         AbstractScorecard scorecard = (AbstractScorecard) o;
 
         return scorecard.getId() == this.id;
+    }
+    
+    public Timestamp getPMReviewTimestamp()
+    {
+        return pm_review_timestamp;
+    }
+    
+    public void setPMReviewTimestamp(Timestamp pm_review_timestamp)
+    {
+        this.pm_review_timestamp = pm_review_timestamp;
+        this.dirtyFlag = true;
+    }
+    
+    public double getRawScore()
+    {
+        return raw_score;
+    }
+    
+    public void setRawScore(double raw_score)
+    {
+        this.raw_score = raw_score;
+        this.dirtyFlag = true;
     }
 
     /**

@@ -92,6 +92,8 @@ public final class SavePMReviewAction extends ReviewAction {
                         AbstractScorecard scorecard = ((SubmissionForm) form).getScorecards()[i];
                         if (scorecard.getSubmission().getId() == sid) {
                             scorecard.setPMReviewed(true);
+                            scorecard.setRawScore(scorecard.getScore());
+                            scorecard.setPMReviewTimestamp(new java.sql.Timestamp(System.currentTimeMillis()));
 
                             if (scorecard instanceof ScreeningScorecard) {
                                 if (((SubmissionForm) form).getIsScreening()) {

@@ -151,6 +151,10 @@
                 <field-name>rating</field-name>
                 <column-name>rating</column-name>
             </cmp-field>
+            <cmp-field>
+                <field-name>projectId</field-name>
+                <column-name>project_id</column-name>
+            </cmp-field>
         </entity>
         <entity>
             <ejb-name>DDECompCatalogEJB</ejb-name>

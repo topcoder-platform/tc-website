@@ -46,9 +46,9 @@ public class ScreeningScorecard extends AbstractScorecard implements Serializabl
      */
     public ScreeningScorecard(long id, boolean isCompleted, boolean isPMReviewed,
         ScorecardQuestion[] scorecardQuestion, User author, Project project,
-        InitialSubmission submission, double score, long requestorId, long versionId) {
+        InitialSubmission submission, double score, long requestorId, long versionId, double raw_score, java.sql.Timestamp pm_review_timestamp) {
         super(id, isCompleted, isPMReviewed, scorecardQuestion, author, project, submission, score,
-            requestorId, versionId);
+            requestorId, versionId, raw_score, pm_review_timestamp);
     }
     /**
      * @return Returns the passed.

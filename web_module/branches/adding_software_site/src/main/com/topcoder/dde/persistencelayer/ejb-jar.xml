@@ -80,6 +80,9 @@
             <cmp-field>
                 <field-name>rating</field-name>
             </cmp-field>
+            <cmp-field>
+                <field-name>projectId</field-name>
+            </cmp-field>
             <primkey-field>id</primkey-field>
             <ejb-local-ref>
                 <ejb-ref-name>ejb/IdGenEJB</ejb-ref-name>
