@@ -4,27 +4,32 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.RegistrationInfo;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import javax.rmi.PortableRemoteObject;
 import java.util.StringTokenizer;
+import java.util.Map;
+import java.util.Iterator;
 
 abstract class RegistrationBase extends BaseProcessor {
 
     private String db;
     protected RegistrationInfo regInfo;
-    protected final void businessProcessing() {
+    protected final void businessProcessing() throws TCWebException {
         regInfo = new RegistrationInfo(getRequest());
         getRequest().setAttribute("registrationInfo", regInfo);
         setDb(getCompanyDb(regInfo.getCompanyId()));
         registrationProcessing();
     }
 
-    protected abstract void registrationProcessing();
+    protected abstract void registrationProcessing() throws TCWebException;
 
     private String getCompanyDb(long companyId) {
         //TODO dynamicize when we have db support
@@ -47,7 +52,7 @@ abstract class RegistrationBase extends BaseProcessor {
         setDefault(Constants.ZIP, info.getZip());
     }
 
-    protected void checkRegInfo(RegistrationInfo info) {
+    protected void checkRegInfo(RegistrationInfo info) throws TCWebException {
         //check handle
         //TODO check if handle exists
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
@@ -103,8 +108,16 @@ abstract class RegistrationBase extends BaseProcessor {
         //nothing to check for address2
 
         //check country code
+        if (info.getCountryCode().trim().length()==0 || findCountry(info.getCountryCode())==null) {
+            addError(Constants.COUNTRY_CODE, "Please chooose a country from the list.");
+        }
 
         //state code
+        if (info.getCountryCode().equals("840")) {
+            if (info.getStateCode().trim().length()==0 || findState(info.getStateCode())==null) {
+                addError(Constants.COUNTRY_CODE, "Please chooose a state from the list.");
+            }
+        }
 
         //city
         if (info.getCity().length()<1) {
@@ -141,6 +154,56 @@ abstract class RegistrationBase extends BaseProcessor {
         if (cached) dAccess = new CachedDataAccess(ds);
         else dAccess = new DataAccess(ds);
         return dAccess;
+    }
+
+    protected String findState(String stateCode) throws TCWebException {
+        ResultSetContainer list = getStateList();
+        ResultSetContainer.ResultSetRow row = null;
+        for (Iterator it = list.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow)it.next();
+            if (row.getItem("state_code").toString().equals(stateCode))
+                return row.getItem("state_name").toString();
+        }
+        return null;
+    }
+
+    protected String findCountry(String countryCode) throws TCWebException {
+        ResultSetContainer list = getStateList();
+        ResultSetContainer.ResultSetRow row = null;
+        for (Iterator it = list.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow)it.next();
+            if (row.getItem("country_code").toString().equals(countryCode))
+                return row.getItem("country_name").toString();
+        }
+        return null;
+    }
+
+    protected ResultSetContainer getCountryList() throws TCWebException {
+        try {
+            Request request = new Request();
+            request.setContentHandle("country_list");
+            Map map = getDataAccess(true).getData(request);
+            if (map == null)
+                throw new Exception("error getting country list from db");
+            else
+                return (ResultSetContainer) map.get("country_list");
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+    protected ResultSetContainer getStateList() throws TCWebException {
+        try {
+            Request request = new Request();
+            request.setContentHandle("state_list");
+            Map map = getDataAccess(true).getData(request);
+            if (map == null)
+                throw new Exception("error getting state list from db");
+            else
+                return (ResultSetContainer) map.get("state_list");
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
 }

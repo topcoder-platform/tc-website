@@ -9,37 +9,13 @@ import com.topcoder.common.web.error.TCException;
 import java.util.Map;
 
 public class Registration extends RegistrationBase {
-    protected void registrationProcessing() {
+    protected void registrationProcessing() throws TCWebException {
         //TODO get country and state lists and put them in request
+        getRequest().setAttribute("countryList", getCountryList());
+        getRequest().setAttribute("stateList", getStateList());
         setNextPage(Constants.REGISTRATION_PAGE);
         setIsNextPageInContext(true);
     }
 
-    private ResultSetContainer getCountryList() throws TCWebException {
-        try {
-            Request request = new Request();
-            request.setContentHandle("country_list");
-            Map map = getDataAccess(true).getData(request);
-            if (map == null)
-                throw new Exception("error getting country list from db");
-            else
-                return (ResultSetContainer) map.get("country_list");
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-    }
 
-    private ResultSetContainer getStateList() throws TCWebException {
-        try {
-            Request request = new Request();
-            request.setContentHandle("state_list");
-            Map map = getDataAccess(true).getData(request);
-            if (map == null)
-                throw new Exception("error getting state list from db");
-            else
-                return (ResultSetContainer) map.get("state_list");
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-    }
 }
