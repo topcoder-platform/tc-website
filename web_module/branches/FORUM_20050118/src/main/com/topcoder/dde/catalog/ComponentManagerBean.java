@@ -907,9 +907,13 @@ public class ComponentManagerBean
 
                         Notification notification = notificationHome.create();
 
-                        notification.createNotification("forum post " + project.getForumId(),
-                                project.getWinner().getId(),
-                                notification.FORUM_POST_TYPE_ID);
+                        if (notification != null) {
+                            notification.createNotification("forum post " + project.getForumId(),
+                                    project.getWinner().getId(),
+                                    notification.FORUM_POST_TYPE_ID);
+                        } else {
+                            log.debug("Can't get the notification bean.  The desing winner was not added.");
+                        }
                     } else {
                         log.debug("Winner can't be retrieved because project.getWinner()==null.  No notification added");
                     }
@@ -938,9 +942,20 @@ public class ComponentManagerBean
 
                     Notification notification = notificationHome.create();
 
-                    notification.createNotification("forum post "+ newForum,
-                            project.getProjectManager().getId(),
-                            notification.FORUM_POST_TYPE_ID);
+                    if (notification != null) {
+                        if (project == null) {
+                            log.debug("project is null");
+                        } else if (project.getProjectManager() == null) {
+                            log.debug("project.getProjectManager() is null");
+                        } else {
+
+                        notification.createNotification("forum post "+ newForum,
+                                project.getProjectManager().getId(),
+                                notification.FORUM_POST_TYPE_ID);
+                            }
+                    } else {
+                        log.debug("Can't get the notification bean.  The desing winner was not added.");
+                    }
                 }
 
             } catch (ClassCastException e) {
