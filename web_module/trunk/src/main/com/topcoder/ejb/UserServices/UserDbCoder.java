@@ -397,7 +397,7 @@ final class UserDbCoder {
     log.debug("ejb.User.UserDbCoder:insertCoderConfirmation() called ...");
     log.debug(" coder: " + coderConfirmation.getCoderId() +
               " contest: " + coderConfirmation.getContestId() + 
-              " coder: " + coderConfirmation.getCode());
+              " code: " + coderConfirmation.getCode());
     PreparedStatement ps = null;
     StringBuffer query = new StringBuffer(250);
     query.append(" INSERT");
