@@ -459,7 +459,7 @@ public class ProjectAdministration implements Model {
                         
                         for(int y = 0; y < j; y++)
                         {
-                            LogHelper.log(y + "=" + vals[y]);
+                            LogHelper.log(((Item)alTies.get(y)).getSubmission().getSubmitter().getId() + "=" + vals[y]);
                         }
                         
                         for(int y = 0; y < j; y++)
@@ -486,6 +486,8 @@ public class ProjectAdministration implements Model {
                         items[i] = itemsTemp[i];
                     }
                 }
+                
+                winner = items[0].getSubmission().getSubmitter();
                 
                 // set winner and assign permission to submit final fix for winner
                 newProject.setWinner(winner);
