@@ -89,7 +89,7 @@ function submitConfirm() {
             </table>
 
             <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
-            <jsp:useBean id="AllTestSetAList" class="com.topcoder.shared.dataAccess.ResultSetContainer" scope="request" />
+            <jsp:useBean id="AllTestSetAList" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 
             <screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="" >
