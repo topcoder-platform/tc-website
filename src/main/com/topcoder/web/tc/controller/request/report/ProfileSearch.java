@@ -55,7 +55,9 @@ public class ProfileSearch extends Base {
         
         StringBuffer query = new StringBuffer(5000);
         if("on".equals(request.getParameter("count"))){
-            query.append("SELECT 'Count = ' || COUNT(*)\n");
+            headers = new ArrayList();
+            headers.add("Count");
+            query.append("SELECT COUNT(*)\n");
         }else{
             query.append("SELECT u.handle as Handle\n");
             query.append("  , c.first_name as First_Name\n");
@@ -179,22 +181,16 @@ public class ProfileSearch extends Base {
         List selects = new ArrayList();
         Map names = new HashMap();
 
-        String skillNames = request.getParameter("skill_names");
-        StringTokenizer st = new StringTokenizer(skillNames,"\r\n");
-        while(st.hasMoreTokens()){
-            Integer id = new Integer(st.nextToken());
-            names.put(id,st.nextToken());
-        }
-
         while (e.hasMoreElements()) {
             String param = (String) e.nextElement();
             String[] values = request.getParameterValues(param);
             if (param.startsWith("skillset") && values != null && values.length > 0) {
                 for(int i = 0; i<values.length; i++){
                     int idx = values[i].indexOf("_");
+                    int idx2 = values[i].indexOf("_",idx+1);
                     int skillId = Integer.parseInt(values[i].substring(0,idx));
-                    int skillLevel = Integer.parseInt(values[i].substring(idx+1));
-                    String name = (String)request.getParameter("skill_name_"+skillId);
+                    int skillLevel = Integer.parseInt(values[i].substring(idx+1,idx2));
+                    String name = values[i].substring(idx+2);
                     StringBuffer query = new StringBuffer(100);
                     query.append("cs");
                     query.append(skillId);
@@ -211,7 +207,7 @@ public class ProfileSearch extends Base {
                     tables.add("coder_skill cs"+skillId);
                     constraints.add(query.toString());
                     selects.add("cs"+skillId+".ranking as skill_name_"+skillId);
-                    headers.add(names.get(new Integer(skillId)));
+                    headers.add(name);
                 }
             }
         }

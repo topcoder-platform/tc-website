@@ -7,35 +7,20 @@
 
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="web" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%
-    String s;
-    String[] sa;
     Map m = null;
     ResultSetContainer.ResultSetRow p;
     m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_KEY);
-    ResultSetContainer states = (ResultSetContainer)m.get("state_list");
-    ResultSetContainer countries = (ResultSetContainer)m.get("country_list");
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
     ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographics_questions");
-    ResultSetContainer demographic_answers = (ResultSetContainer)m.get("demographics_answers");
     ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
-    ResultSetContainer skills = (ResultSetContainer)m.get("skills");
     Map skillNames = new HashMap();
-    boolean revise = "on".equals(request.getParameter("revise"));
-    Set state = new HashSet(); 
-    Set country = new HashSet(); 
-    Set coo= new HashSet(); 
-    sa = request.getParameterValues("states");
-    if(sa!=null)state.addAll(Arrays.asList(sa));
-    sa = request.getParameterValues("country");
-    if(sa!=null)country.addAll(Arrays.asList(sa));
-    sa = request.getParameterValues("countryoforigin");
-    if(sa!=null)coo.addAll(Arrays.asList(sa));
-
-    ResultSetContainer.ResultSetRow answer;
-    ResultSetContainer.ResultSetRow skill;
-    int idx = 0;
+    Map selected = (Map)request.getAttribute("selected");
+    Map demoMap = (Map)request.getAttribute("demoMap");
+    Map skillMap = (Map)request.getAttribute("skillMap");
+    Map skillSetMap = (Map)request.getAttribute("skillSetMap");
 %>
   <FORM name="search" ACTION="/tc" METHOD="GET">
 
@@ -66,7 +51,7 @@
                 var text1 = document.search[a].options[i].text;
                 var text2 = document.search[b].options[j].text;
                 op = new Option();
-                op.value = val1+"_"+text2;
+                op.value = val1+"_"+text2+"_"+text1;
                 op.text = text1+" >= "+text2;
                 document.search[c].options[len] = op;
                 document.search['skill_names'].value = document.search['skill_names'].value + val1 + "\n" + text1 + "\n";
@@ -111,80 +96,35 @@
 
     <table cellpadding="0" cellspacing="0" border="0">
       <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A></TD></TR>
-      <tr><td>Show count only: <INPUT type="checkbox" name="count" <%= "on".equals(request.getParameter("count")) ? " checked" : "" %>/></td></tr>
-      <tr><td>Handle: <input type="text" name="handle" size="15" value="<%=request.getParameter("handle")%>"></td></tr>
-      <tr><td>E-Mail: <input type="text" name="email" size="15" value="<%=request.getParameter("email")%>"></td></tr>
-      <tr><td>First Name: <input type="text" name="firstname" size="15" value="<%=request.getParameter("firstname")%>"></td></tr>
-      <tr><td>Last Name: <input type="text" name="lastname" size="15" value="<%=request.getParameter("lastname")%>"></td></tr>
-      <tr><td>Zipcode: <input type="text" name="zipcode" size="5" value="<%=request.getParameter("zipcode")%>"></td></tr>
-      <tr><td>City: <input type="text" name="city" size="15" value="<%=request.getParameter("city")%>"></td></tr>
-      <tr><td>Company: <input type="text" name="company" size="15" value="<%=request.getParameter("company")%>"></td></tr>
-      <tr><td>State: <select name="states" multiple size=5>
-        <rsc:iterator list="<%=states%>" id="resultRow">
-          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"<%=state.contains(resultRow.getStringItem("state_code")) ? " selected" : ""%>><rsc:item name="state_code" row="<%=resultRow%>"/></option>
-        </rsc:iterator>
-        </select>
-        <a href="JavaScript:deselect('states')">Deselect</a>
-      </td></tr>
-      <tr><td>Country: <select name="country" multiple size=5>
-        <option value="840" <%=country.contains("840") ? " selected" : ""%>>United States</option>
-        <rsc:iterator list="<%=countries%>" id="resultRow">
-          <% 
-            String countryCode = resultRow.getStringItem("country_code");
-            if(countryCode == null || countryCode.equals("840") || countryCode.equals(""))continue;//put the US first for convenience 
-          %>
-          <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"<%=country.contains(resultRow.getStringItem("country_code")) ? " selected" : ""%>><rsc:item name="country_name" row="<%=resultRow%>"/></option>
-        </rsc:iterator>
-        </select>
-        <a href="JavaScript:deselect('country')">Deselect</a>
-      </td></tr>
-      <tr><td>Country of Origin: <select name="countryoforigin" multiple size=5>
-        <option value="840" <%=coo.contains("840") ? " selected" : ""%>>United States</option>
-        <rsc:iterator list="<%=countries%>" id="resultRow">
-          <% 
-            String countryCode = resultRow.getStringItem("country_code");
-            if(countryCode == null || countryCode.equals("840") || countryCode.equals(""))continue;//put the US first for convenience 
-          %>
-          <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"<%=coo.contains(resultRow.getStringItem("country_code")) ? " selected" : ""%>><rsc:item name="country_name" row="<%=resultRow%>"/></option>
-        </rsc:iterator>
-        </select>
-        <a href="JavaScript:deselect('countryoforigin')">Deselect</a>
-      </td></tr>
-      <tr><td>Professional: <INPUT type="checkbox" name="pro"<%=(s = request.getParameter("pro")) == null && !revise ? " checked":""%>/>
-      Student: <INPUT type="checkbox" name="stud"<%=(s = request.getParameter("stud")) == null && !revise ? " checked":""%>/></td></tr>
+      <tr><td>Show count only: <web:chkBox name="count"/></td></tr>
+      <tr><td>Handle: <web:textInput name="handle" size="15"/></td></tr>
+      <tr><td>E-Mail: <web:textInput name="email" size="15"/></td></tr>
+      <tr><td>First Name: <web:textInput name="firstname" size="15"/></td></tr>
+      <tr><td>Last Name: <web:textInput name="lastname" size="15"/></td></tr>
+      <tr><td>Zipcode: <web:textInput name="zipcode" size="5"/></td></tr>
+      <tr><td>City: <web:textInput name="city" size="15"/></td></tr>
+      <tr><td>Company: <web:textInput name="company" size="15"/></td></tr>
+      <tr><td>State: <web:multiRSCSelect name="states" multiple="true" size="5" list="<%=states%>" selected="<%=selected.get("states")%>"><a href="JavaScript:deselect('states')">Deselect</a></td></tr>
+      <tr><td>Country: <web:multiRSCSelect name="country" multiple="true" size="5" list="<%=country%>" selected="<%=selected.get("country")%>"><a href="JavaScript:deselect('country')">Deselect</a></td></tr>
+      <tr><td>Country of origin: <web:multiRSCSelect name="countryoforigin" multiple="true" size="5" list="<%=country%>" selected="<%=selected.get("countryoforigin")%>"><a href="JavaScript:deselect('countryoforigin')">Deselect</a></td></tr>
+      <tr><td>Professional: <web:chkBox name="pro"/>
+      Student: <web:chkBox name="stud"/></td></tr>
       <tr><td>Languages: 
         <rsc:iterator list="<%=languages%>" id="resultRow">
-          <rsc:item name="language_name" row="<%=resultRow%>"/>: <input type="checkbox" name="lang_<rsc:item name="language_id" row="<%=resultRow%>"/>"<%=(s = request.getParameter(resultRow.getStringItem("language_id"))) == null && !revise ? " checked":""%>>
+          <rsc:item name="language_name" row="<%=resultRow%>"/>: 
+            <web:chkBox name="lang_<rsc:item name="language_id" row="<%=resultRow%>"/>"/>
         </rsc:iterator>
       </td></tr>
-      <tr><td>Max days since last rating: <input type="textbox" size="5" name="maxdayssincerating" value="<%=request.getParameter("maxdayssincerating")%>"></td></tr>
-      <tr><td>Min events: <input type="textbox" size="5" name="minevents" value="<%=request.getParameter("minevents")%>"></td></tr>
-      <tr><td>Days since registration: <input type="textbox" size="5" name="mindays" value="<%=request.getParameter("mindays")%>"> to <input type="textbox" size="5" name="maxdays" value="<%=request.getParameter("maxdays")%>"></td></tr>
-      <tr><td>Rating range: <input type="textbox" size="5" name="minrating" value="<%=request.getParameter("minrating")%>"> to <input type="textbox" size="5" name="maxrating" value="<%=request.getParameter("maxrating")%>"></td></tr>
+      <tr><td>Max days since last rating: <web:textInput name="maxdayssincerating" size="5"/></td></tr>
+      <tr><td>Min events: <web:textInput name="minevents" size="5"/></td></tr>
+      <tr><td>Days since registration: <web:textInput name="mindays" size="5"/> to <web:textInput name="maxdays" size="5"/></td></tr>
+      <tr><td>Rating range: <web:textInput name="minrating" size="5"/> to <web:textInput name="maxrating" size="5"/></td></tr>
       <tr><td><hr/><center><h2>Demographics</h2></center></td></tr>
       <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
         <tr><td>
         <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:
-        <select size="3" multiple name="demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
-        <%
-        Set hs = new HashSet();
-        sa = request.getParameterValues("demo_"+resultRow.getIntItem("demographic_question_id"));
-        if(sa!=null) hs.addAll(Arrays.asList(sa));
-        while(idx < demographic_answers.getRowCount()){
-            answer = demographic_answers.getRow(idx);
-            if(answer.getIntItem("demographic_question_id") == resultRow.getIntItem("demographic_question_id")){
-              %>
-                <option value="<rsc:item name="demographic_answer_id" row="<%=answer%>"/>"<%=hs.contains(answer.getStringItem("demographic_answer_id")) ? " selected" : ""%>>
-                    <rsc:item name="demographic_answer_text" row="<%=answer%>"/>
-                </option>
-              <%
-              idx++;
-            }else{
-                break;
-            }
-        }
-        %>
-        </select>
+        <% int questionId = resultRow.getIntItem("demographic_question_id");%>
+        <web:listSelect name="<%="demo_"+questionId"%>" list="<%=demoMap.get(new Integer(questionId))%>
         <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
         </td></tr>
       </rsc:iterator>
@@ -197,9 +137,9 @@
       <option value="full"<%= "full".equals(request.getParameter("placement")) ? " selected" : "" %>>Full time</option>
       </select>
       </td></tr>
-      <tr><td>Resume: <INPUT type="checkbox" name="resume" <%= "on".equals(request.getParameter("resume")) ? " checked" : "" %>/></td></tr>
-      <tr><td>Willing to travel/relocate: <INPUT type="checkbox" name="travel" <%= "on".equals(request.getParameter("travel")) ? " checked" : "" %>/></td></tr>
-      <tr><td>US Authorization: <INPUT type="checkbox" name="auth"<%= "on".equals(request.getParameter("auth")) ? " checked" : "" %>/></td></tr>
+      <tr><td>Resume: <web:chkBox name="resume"/></td></tr>
+      <tr><td>Willing to travel/relocate: <web:chkBox name="travel"/></td></tr>
+      <tr><td>US Authorization: <web:chkBox name="auth"/></td></tr>
       <tr><td><hr/><center><h2>Skills</h2></center></td></tr>
 
 
@@ -207,22 +147,8 @@
       <rsc:iterator list="<%=skill_types%>" id="resultRow">
         <tr><td>
         <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
-        <select size=10 multiple name="skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
-        <%
-        while(idx < skills.getRowCount()){
-            skill = skills.getRow(idx);
-            if(skill.getIntItem("skill_type_id") == resultRow.getIntItem("skill_type_id")){
-              %>
-                <option value="<rsc:item name="skill_id" row="<%=skill%>"/>"><rsc:item name="skill_desc" row="<%=skill%>"/></option>
-              <%
-              skillNames.put(new Integer(skill.getIntItem("skill_id")),skill.getStringItem("skill_desc"));
-              idx++;
-            }else{
-                break;
-            }
-        }
-        %>
-        </select>
+        <% int skillType = resultRow.getIntItem("skill_type_id");%>
+        <web:listSelect name="<%="skills"+skillType%>" list="<%=skillMap.get(new Integer(skillType))%">
         <select size=10 name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         <option>1</option>
         <option>2</option>
@@ -230,18 +156,7 @@
         <option>4</option>
         <option>5</option>
         </select>
-        <select multiple size=10 name="skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
-            <% 
-                sa = request.getParameterValues("skillset"+resultRow.getStringItem("skill_type_id")); 
-                for(int i = 0; sa!=null && i<sa.length; i++){
-                    String skill_selection = sa[i];
-                    int us = skill_selection.toString().indexOf("_");
-            %>
-                <option value="<%=skill_selection%>">
-                    <%= skillNames.get(new Integer(skill_selection.toString().substring(0,us))) + " >= " + skill_selection.substring(us+1) %>
-                </option>
-            <%}%>
-        </select>
+        <web:listSelect name="<%="skillset"+skillType%>" multiple="true" list="<%=skillSetMap.get(new Integer(skillType))%">
         <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a><br/>
         <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a>
         <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
