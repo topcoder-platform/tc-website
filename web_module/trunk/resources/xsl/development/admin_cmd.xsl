@@ -73,7 +73,7 @@ A new EJB (Enterprise Java Bean) should be created, which controls all interacti
 There will be a total of four people assigned to the project with positions available for Developer, Software Architect and QA Developer.  Each development assignment will undergo three phases.  Phase one is getting up to speed on the project as well as the design phase.  Reading through requirements, documentation and providing any insight as to what the over all project will entail.  The first phase will also be used for developers to get acclimated to the development serves and source code control environments.  Also, for the design portion, the team as a whole will discuss the over all project goals and objectives and come up with the different designs for each specific component.  Phase two is the development period and the final phase addresses quality assurance and bug fixes.
                                     <BR/>
                                     <BR/>
-TopCoder strongly feels that the developers have a very big role when it comes to coming up with requirements for a development project.  As a member of this team you are expected to contribute to the design and implementation of various components even if you will not be working on the directly.  TopCoder also mandates that developers provide feedback and give ideas as to how the system should run from an operations standpoint.  
+TopCoder strongly feels that the developers have a very big role when it comes to coming up with requirements for a development project.  As a member of this team you are expected to contribute to the design and implementation of various components even if you will not be working on the components directly.  TopCoder also mandates that developers provide feedback and give ideas as to how the system should run from an operations standpoint.  
                                     <BR/>
                                     <BR/>
                                     <b>Staffing</b>
@@ -240,7 +240,7 @@ You must be a rated TopCoder member, meeting all of the membership requirements 
                                     <b>Time Line</b>
                                     <BR/>
                                     <BR/>            
-The project will begin on the 9th of May. There will be a kick-off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The project is scheduled to be complete by July 12th. 
+The project will begin on the 9th of May. There will be a kick-off conference call to address the following: introduction of all team members, design considerations for the new systems, specific time lines, deliverables, development, and any outstanding issues. The project is scheduled to be complete by June 20th. 
                                     <ul>
                                         <li>Project Start Date:    May 9, 2002</li>
                                         <li>Project End Date:      June 20, 2002</li>
