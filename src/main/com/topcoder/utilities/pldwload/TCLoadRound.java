@@ -1577,12 +1577,9 @@ if students change schools, reloading an old round will lose historical data
             query.append("       ,rr.overall_rank ");                        // 27
             query.append("       ,rr.division_placed ");                     // 28
             query.append("       ,rr.division_seed ");                       // 29
-            query.append("       , x.school_id");                             //30
             query.append("  FROM room_result rr ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
-            query.append("  JOIN user_school_xref x ON rr.coder_id = x.user_id");
-            query.append("   AND x.current_ind = 1");
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
             query.append("   AND rr.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
@@ -1624,11 +1621,10 @@ if students change schools, reloading an old round will lose historical data
             query.append("       ,defense_points ");                  // 26
             query.append("       ,overall_rank ");                    // 27
             query.append("       ,division_placed ");                 // 28
-            query.append("       ,division_seed ");                   // 29
-            query.append("       ,school_id) ");                      // 30
+            query.append("       ,division_seed)");                   // 29
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-            query.append("        ?,?,?,?,?,?,?,?,?,?)");  // 30 total values
+            query.append("        ?,?,?,?,?,?,?,?,?)");  // 29 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(1024);
@@ -1683,7 +1679,6 @@ if students change schools, reloading an old round will lose historical data
                 psIns.setInt(27, rs.getInt(27));  // overall_rank
                 psIns.setInt(28, rs.getInt(28));  // division_placed
                 psIns.setInt(29, rs.getInt(29));  // division_seed
-                psIns.setInt(30, rs.getInt(30));  // school_id
                 retVal = psIns.executeUpdate();
                 count += retVal;
                 if (retVal != 1) {
