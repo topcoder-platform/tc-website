@@ -666,8 +666,10 @@
 
     <target name="war_screening" depends="compile">
         <war warfile="${war.dir}/${screening.war.name}.war" webxml="${resources}/screening/web.xml">
-            <fileset dir="${java}/com/topcoder/web/screening/servlet/jsp">
+            <fileset dir="${java}/com/topcoder/web/screening/view">
                 <include name="**/*.jsp"/>
+                <include name="**/*.jpg"/>
+                <include name="**/*.gif"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/screening/"/>
