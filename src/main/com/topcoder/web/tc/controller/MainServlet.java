@@ -28,18 +28,16 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
+/*
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         //just trying to protect against invalid requests getting to the
         //app server.  currently, we don't have a way to stop this ad the web
         //server layer.
-/*
         if ((ApplicationServer.PROD == ApplicationServer.ENVIRONMENT &&
                 request.getServerName().startsWith(ApplicationServer.SERVER_NAME)) ||
                 ApplicationServer.ENVIRONMENT != ApplicationServer.PROD) {
-*/
             super.process(request, response);
-/*
         } else {
             log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
             response.setStatus(400);
@@ -50,9 +48,9 @@ public class MainServlet extends BaseServlet {
             out.println("</body></html>");
             out.flush();
         }
-*/
 
     }
+*/
 
 
     protected SessionInfo createSessionInfo(TCRequest request,
