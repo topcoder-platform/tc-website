@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Rustyoldman_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=282718"><strong>Rustyoldman</strong></a><br/>
+                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,16 +19,19 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm192_prob">SRM 192 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, April 27, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm193_prob">SRM 193 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, May 5, 2004</p>
 
                         <p>
-<b>SnapDragon</b> started out quickly with the first 250 submission, but then,
-shockingly, he dropped back into the pack when he was forced to resubmit the easy
-problem.  <b>tmyklebu</b> ended up with the fastest successful time on the
-Div-I 250 of 4 minutes and 5 seconds. All in all the 250 went pretty quickly. 
+Coders in both divisions finished the first two problems in record
+time.  At first glance it appeared this competition would be over
+before the 30-minute mark.  These thoughts were quickly dismissed as
+players' read their respective hards.  Div 1 coders faced a complex
+problem in automata theory that was both difficult conceptually,
+and tricky to implement.  Div 2 coders faced a deceptively easy
+simulation, whose nuances claimed most solutions.
 
-<a href="/?t=statistics&amp;c=srm192_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                        <a href="/?t=statistics&amp;c=srm193_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
