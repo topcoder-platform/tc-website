@@ -30,6 +30,13 @@ public class UpdateProfile extends BaseProfileProcessor {
     public void process() throws Exception {
         requireLogin();
         
+        //validate the info
+        if(!validateProfileInfo()) {
+            setNextPage(Constants.PROFILE_SETUP_PAGE);
+            setNextPageInContext(true);
+            return;
+        }
+
         ServletRequest request = getRequest();
         ProfileInfo info = buildProfileInfo(request);
         InitialContext context = new InitialContext();
