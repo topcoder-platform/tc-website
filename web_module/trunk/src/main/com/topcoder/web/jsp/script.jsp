@@ -15,30 +15,38 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 <SCRIPT type="text/javascript">
 if (document.images) {
-  image1on = new Image();
-  image1on.src = "/i/nav_about_on.gif";
   image2on = new Image();
-  image2on.src = "/i/nav_news_on.gif";
+  image2on.src = "/i/menu_sched_on.gif";
   image3on = new Image();
-  image3on.src = "/i/nav_roundtables_on.gif";
+  image3on.src = "/i/menu_teams_on.gif";
   image4on = new Image();
-  image4on.src = "/i/nav_stats_on.gif";
+  image4on.src = "/i/menu_stats_on.gif";
   image5on = new Image();
-  image5on.src = "/i/nav_schedule_on.gif";
+  image5on.src = "/i/menu_rounds_on.gif";
   image6on = new Image();
-  image6on.src = "/i/nav_support_on.gif";    
-  image1off = new Image();
-  image1off.src = "/i/nav_about_off.gif";
+  image6on.src = "/i/menu_dev_on.gif";
+  image7on = new Image();
+  image7on.src = "/i/menu_jobs_on.gif";
+  image8on = new Image();
+  image8on.src = "/i/menu_press_on.gif";  
+  image9on = new Image();
+  image9on.src = "/i/menu_support_on.gif";      
   image2off = new Image();
-  image2off.src = "/i/nav_news_off.gif";
+  image2off.src = "/i/menu_sched_off.gif";
   image3off = new Image();
-  image3off.src = "/i/nav_roundtables_off.gif";
+  image3off.src = "/i/menu_teams_off.gif";
   image4off = new Image();
-  image4off.src = "/i/nav_stats_off.gif";
+  image4off.src = "/i/menu_stats_off.gif";
   image5off = new Image();
-  image5off.src = "/i/nav_schedule_off.gif";
+  image5off.src = "/i/menu_rounds_off.gif";
   image6off = new Image();
-  image6off.src = "/i/nav_support_off.gif";    
+  image6off.src = "/i/menu_dev_off.gif";
+  image7off = new Image();
+  image7off.src = "/i/menu_jobs_off.gif";
+  image8off = new Image();
+  image8off.src = "/i/menu_press_off.gif";  
+  image9off = new Image();
+  image9off.src = "/i/menu_support_off.gif";    
 }
 function changeImages() {
   if (document.images) {
