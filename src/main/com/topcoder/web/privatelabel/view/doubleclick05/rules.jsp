@@ -33,10 +33,10 @@
          <br><br>
          <a name="eligibility"></a>
          <span class="dc_subTitle">Eligibility</span><br>
-         All DoubleClick employees as of February 21, 2005 are eligible to compete in the DCCC.  For the purpose of this tournament, "employee" is defined as full-time employee, part-time employee, or intern.  Consultants are not eligible to participate.
+         All DoubleClick employees as of February 22, 2005 are eligible to compete in the DCCC.  For the purpose of this tournament, "employee" is defined as full-time employee, part-time employee, or intern.  Consultants are not eligible to participate.
          <br><br>
          <span class="dc_subTitle">Registration</span><br>
-         Registration will open on Monday, February 21 at 9:00AM ET and will close on Tuesday, March 1 at 6:00PM ET.  Employees may only register once.
+         Registration will open on Tuesday, February 22 at 9:00AM ET and will close on Tuesday, March 1 at 6:00PM ET.  Employees may only register once.
          <br><br>
          <span class="dc_subTitle">Competition Schedule</span>
          <br><br>
@@ -48,7 +48,7 @@
                         </tr>
                         <tr valign="top">
                            <td class="sidebarText">Registration and practice</td>
-                           <td class="sidebarText">Starts: Monday, February 21, 2005 at 9:00 AM<br>Ends:  Tuesday, March 1, 2005 at 6:00 PM</td>
+                           <td class="sidebarText">Starts: Tuesday, February 22, 2005 at 9:00 AM<br>Ends:  Tuesday, March 1, 2005 at 6:00 PM</td>
                         </tr>
                         <tr valign="top">
                            <td class="sidebarText">Competition Round</td>
