@@ -146,25 +146,19 @@
                                             answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.
                                         </p>
                                         <p>
-                                            <br/>Application Project Posting: 7.15.2003
-                                            <br/>Member Selection: 7.18.2003
-                                            <br/>Member Acceptance: 7.21.2003
-                                            <br/>Design Start: 7.22.2003
+                                            <br/>Application Project Posting: 7.15.2003 <br/>
+                                            <br/>Member Selection: 7.18.2003 <br/>
+                                            <br/>Member Acceptance: 7.21.2003 <br/>
+                                            <br/>Design Start: 7.22.2003 <br/>
                                             <br/>Phase 1 Complete: 7.28.2003
-                                            <ul>
-                                                <li> Use Cases </li>
-                                                <li> Class Diagrams </li>
-                                                <li> Sequence Diagrams </li>
-                                            </ul>
+                                                <br/>Use Cases
+                                                <br/>Class Diagrams
+                                                <br/>Sequence Diagrams
                                             <br/>Phase 2 Complete: 8.04.2003
-                                            <ul>
-                                                <li> Design Specification </li>
-                                            </ul>
+                                                 <br/> Design Specification
                                             <br/>Phase 3 Complete: 8.11.2003
-                                            <ul>
-                                                <li> Test Plan </li>
-                                                <li> Development Scope Document</li>
-                                            </ul>
+                                                 <br/>Test Plan
+                                                 <br/>Development Scope Document
                                             <br/>Winner Announced 8.13.3003
                                             <br/>Updated Submission Due Date: 8.15.2003
                                             <br/>Estimated Development End Date: 10.6.2003
