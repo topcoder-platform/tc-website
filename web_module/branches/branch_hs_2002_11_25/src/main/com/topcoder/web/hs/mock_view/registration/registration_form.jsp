@@ -112,10 +112,6 @@
                       alert("Please enter a valid email address.");
                       document.regForm.email.focus();
                       return false;
-                  } else if (document.regForm.email.value != document.regForm.confirmEmail.value) {
-                      alert("Your email address does not match it's confirmation");
-                      document.regForm.email.focus();
-                      return false;
                   } else {
                       return true;
                   }
