@@ -82,7 +82,7 @@
             }
 
             function setModify(name) {
-                function putAttrib("document.frmTesting", name, "src", "/i/corp/screening/buttonModify.gif") {
+                function putAttrib(document.frmTesting, name, "src", "/i/corp/screening/buttonModify.gif") {
             }
 
             function launchArray(id) {
