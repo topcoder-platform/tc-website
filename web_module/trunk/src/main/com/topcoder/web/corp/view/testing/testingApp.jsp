@@ -5,7 +5,7 @@
 
 <head>
 
-<title>Testing Environment</title>
+<title>Technical Assessment Environment</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
@@ -42,7 +42,7 @@
         <td background="/i/testBodyTop.gif" width="100%"><img src="/i/corp/clear.gif" alt="" width="10" height="10" alt="0" border="0"></td>
         <td><img src="/i/corp/testBodyTopRight.gif" alt="" width="10" height="10" alt="0" border="0"></td>
       <tr>
-      
+
     <tr>
         <td background="/i/testBodyLeft.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" align="center">
@@ -50,29 +50,29 @@
                 <tr>
                     <td class="bodyText">
                         <h1 id="bodyTitle">Testing Environment</h1>
-                        
+
                         <p>This page should present you with a button to start the applet.</p>
-                        
-                        <p><strong>NOTE:</strong> If an orange button to <strong>Load Testing Environment</strong> does <strong>not</strong> appear below, you may not have the 
-                        appropriate Plug-in software installed. 
-                        
+
+                        <p><strong>NOTE:</strong> If an orange button to <strong>Load Testing Environment</strong> does <strong>not</strong> appear below, you may not have the
+                        appropriate Plug-in software installed.
+
                         <script type="text/javascript">
                             function getReq(){u='/?t=support&amp;c=software_req';window.open(u);close();}
                         </script>
                         <a href="http://java.sun.com/products/plugin/" target="_blank">Get more information</a></p>
-                        
+
                         <div align="center">
                         <p>
                         <%
                             String host = request.getParameter("host");
                             if ((host==null) || host.equals("")) host="corporate.topcoder.com";
-                            
+
                             if(ApplicationServer.SERVER_NAME.equals("172.16.20.23"))
                             {
                                 //dev
                                 host = "172.16.210.55";
                             }
-                                   
+
 
                             String port = request.getParameter("port");
                             if ((port==null) || port.equals("")) port="8001";
@@ -116,7 +116,7 @@
                         </NOEMBED>
                         </OBJECT></p>
                         </div>
-                        
+
                         <p><strong>You may minimize this browser window, but do not close it.</strong> Doing so will close the applet.</p>
                     </td>
                 </tr>
@@ -124,14 +124,14 @@
         </td>
         <td  background="/i/testBodyRight.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
-      
+
     <tr>
         <td width="10"><img src="/i/corp/testBodyBottomLeft.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" background="/i/testBodyBottom.gif"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="10"><img src="/i/corp/testBodyBottomRight.gif" alt="" width="10" height="10" border="0"></td>
     <tr>
 </table>
-      
+
 </div>
 
 </body>

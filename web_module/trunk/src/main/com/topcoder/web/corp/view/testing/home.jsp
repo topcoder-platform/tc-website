@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Program Management Tool</title>
 
 <jsp:include page="includes/script.jsp" />
 
@@ -28,13 +28,13 @@
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Welcome!</h1>
-                        <p>TopCoder Testing allows companies to test the technical abilities of candidates during the interview process, thereby reducing 
-                        the time incurred by in-house engineers.  This administration tool allows you to set up candidates to be tested, as well as review 
+                        <p>The TopCoder Technical Assessment Program allows companies to test the technical abilities of candidates during the interview process, thereby reducing
+                        the time incurred by in-house engineers.  This administration tool allows you to set up candidates to be tested, as well as review
                         each candidate's results.  Follow the steps below to begin.</p>
                     </td>
                 <tr>
             </table>
-                            
+
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="20"></td></tr>
                 <tr><td colspan="3"><h3 class="testSubhead">Create a New Session:</h3></td></tr>
@@ -42,22 +42,22 @@
                     <td valign="top" class="bodyText" nowrap="nowrap"><strong>Step 1:</strong></td>
                     <td><img src="/i/corp/clear.gif" width="5" height="1"></td>
                     <td valign="top" class="bodyText"><strong>Create a Test Profile</strong><br />
-                        Each candidate is assigned to a Test Profile.  Each Test Profile is assigned two sets of problems&#151;Test Set A, which 
-                        is used to screen for accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</td>   
+                        Each candidate is assigned to a Test Profile.  Each Test Profile is assigned two sets of problems&#151;Test Set A, which
+                        is used to screen for accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="10"></td></tr>
                 <tr>
                     <td valign="top" class="bodyText" nowrap="nowrap"><strong>Step 2:</strong></td>
                     <td><img src="/i/corp/clear.gif" width="5" height="1"></td>
                     <td valign="top" class="bodyText"><strong>Set up or Add a Candidate</strong><br />
-                        Each candidate is set up in the system and assigned to a Test Profile.  Test results are tracked and reported by candidate.</td>               
+                        Each candidate is set up in the system and assigned to a Test Profile.  Test results are tracked and reported by candidate.</td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="10"></td></tr>
                 <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="10"></td></tr>
-                <tr><td colspan="3"><div align="center"><p class="button"><screen:servletLink processor="PopulateSession" styleclass="button">Create a New Session</screen:servletLink></p></div></td></tr>                                                       
+                <tr><td colspan="3"><div align="center"><p class="button"><screen:servletLink processor="PopulateSession" styleclass="button">Create a New Session</screen:servletLink></p></div></td></tr>
             </table>
-            <p><br/></p>    
-        </td> 
+            <p><br/></p>
+        </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
