@@ -1,6 +1,8 @@
 <%@  page
   language="java"
-  errorPage="/errorPage.jsp" %>
+  errorPage="/errorPage.jsp"
+  import="com.topcoder.web.pacts.common.*"
+ %>
 
   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top">
     <TR>
