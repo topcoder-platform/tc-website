@@ -345,7 +345,6 @@
                       </TD>
                     </TR>
                   </TABLE>
-                  <P><BR></P>
     <% } %>
 
     <% if (MemberProfileTask.hasDivisionII()) { %>
@@ -554,7 +553,6 @@
                       </TD>
                     </TR>
                   </TABLE>
-                  <P><BR></P>
     <% } %>
 
 <% } else { %>
@@ -576,6 +574,7 @@
             
 <% } %>
               
+                  <P><BR></P>
               
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
