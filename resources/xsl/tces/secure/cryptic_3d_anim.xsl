@@ -62,7 +62,7 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Cryptic Studios Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back toJobs</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Cryptic Studios Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Cryptic Studios Main Page</A>
       </TD>
   </TR>
 </TABLE>
@@ -101,7 +101,7 @@ to relocate to San Jose, CA.</p>
 <p>If you're looking for a place to shine and believe that you have what it takes to contribute to great games, 
 apply now!</p>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=131&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=132&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 
 <!--end contextual links-->
           
