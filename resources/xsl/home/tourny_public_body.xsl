@@ -92,7 +92,14 @@
   </TR>
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top" NOWRAP="0"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A><BR/>
+    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/> <IMG SRC="/i/tournament/invit02/home_invt02champ.jpg" BORDER="0" WIDTH="400" HEIGHT="105" ALT=""/></A><BR/>
+<P><B>The Land Down Under comes out On Top!</B><BR/>
+by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
+Saturday, November 23, 2002</P>
+
+<P>Forever concerned about the integrity of the competition results, the four finalists were asked to compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> in the Championship round... <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>read&#160;more</A></P>
+
+
 <!--<B>When:</B> November 22nd and 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
 <B>Total Prize:</B> $150,000<BR/>
