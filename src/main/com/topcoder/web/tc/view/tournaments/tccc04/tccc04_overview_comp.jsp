@@ -43,8 +43,7 @@
 
 <!-- Tab bar sublinks-->
 <jsp:include page="tccc04Sublinks.jsp" >
-   <jsp:param name="selectedList" value=""/>
-   <jsp:param name="selectedTab" value=""/>
+   <jsp:param name="selectedList" value="overview"/>
 </jsp:include>
 
             <p class="terciary">
