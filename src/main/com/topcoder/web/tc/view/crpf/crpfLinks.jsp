@@ -37,11 +37,18 @@ function openWin(url, name, w, h) {
                  <td class="statTextBig" width="88"><A href="/tc/?&module=Static&d1=crpf&d2=crpf_rules_overview" class="statTextBig"><img src="/i/tournament/crpf03/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
             <% } %>
 
+<!-- Top Fundraisers tab -->
+            <% if (selectedTab.equals("fundraisers")) {%>
+                 <td class="statTextBig" width="128"><A href="/tc/?&module=Static&d1=crpf&d2=crpf_fundraisers" class="statTextBig"><img src="/i/tournament/crpf03/tab_top_fundraisers_on.gif" alt="Fundraisers" width="128" height="22" border="0" /></A></td>
+            <% } else { %>
+                 <td class="statTextBig" width="128"><A href="/tc/?&module=Static&d1=crpf&d2=crpf_fundraisers" class="statTextBig"><img src="/i/tournament/crpf03/tab_top_fundraisers_off.gif" alt="Fundraisers" width="128" height="22" border="0" /></A></td>
+            <% } %>            
+
 <!-- Practice Arena tab -->
             <% if (selectedTab.equals("arena")) {%>
-                 <td class="statTextBig" width="108"><A href="Javascript:openWin('?module=Static&d1=crpf&d2=crpf_quick_launch','comp',300,225);"class="statTextBig"><img src="/i/tournament/vcc03/tab_arena_on.gif" alt="Arena" width="108" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="108"><A href="Javascript:openWin('?module=Static&d1=crpf&d2=crpf_quick_launch','comp',300,225);"class="statTextBig"><img src="/i/tournament/crpf03/tab_arena_on.gif" alt="Arena" width="108" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="108"><A href="Javascript:openWin('?module=Static&d1=crpf&d2=crpf_quick_launch','comp',300,225);"class="statTextBig"><img src="/i/tournament/vcc03/tab_arena_off.gif" alt="Arena" width="108" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="108"><A href="Javascript:openWin('?module=Static&d1=crpf&d2=crpf_quick_launch','comp',300,225);"class="statTextBig"><img src="/i/tournament/crpf03/tab_arena_off.gif" alt="Arena" width="108" height="22" border="0" /></A></td>
             <% } %>            
 
                                 
