@@ -243,7 +243,17 @@ function submitEnter(e) {
                     <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=stateRsc%>" fieldText="state_name" fieldValue="state_code"/>
                 </td>
             </tr>
-
+            <tr>
+                <td colspan="2" class="errorText" align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" nowrap>Province</td>
+                <td align="left">
+                    <tc-webtag:textInput name="<%=Constants.PROVINCE%>"  size="15" maxlength="50"/>
+                </td>
+            </tr>
             <tr>
                 <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -270,6 +280,20 @@ function submitEnter(e) {
                 <td align="left">
                     <% ResultSetContainer countryRsc = (ResultSetContainer)request.getAttribute("countryList"); %>
                     <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
+                </td>
+            </tr>
+            <tr>
+                <td ccolspan="2" class="errorText" align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" nowrap>
+                    Student/Professional
+                </td>
+                <td align="left">
+                    Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
+                    Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
             </tr>
             <tr>
