@@ -67,111 +67,113 @@ function openWin(url, name, w, h) {
                      <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
                      <a href="/pl/?&module=Static&d1=google&d2=google_registration">Register Now</a> &nbsp;|&nbsp; 
                      <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
-                  </font>
+                     </font>
                   </div><br><br>
                   <b><font size="+1">Schedule</font></b>
                   <img align="right" hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0">
             
 <!-- Qualification Rounds begins -->
-           <p><font color="006633" size="3"><b>Qualification Rounds</b></font><br />
-           <font size="-1">The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jame 2003.</p>
+                  <p><font color="006633" size="3"><b>Qualification Rounds</b></font></p>
+                  <p><font size="-1">The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2003.</font></p>
 
-            <a name="sched"></a>
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Qualification Round</td>
-                    <td class="sidebarText">
-                        8:00 AM Friday, October 17 through<br />
-                        8:00 AM Monday, October 20<br />
-                    </td>
-                    <td class="sidebarText" align="center">All eligible members</td>
-                    <td class="sidebarText" align="center">500</td>
-                </tr>
+                     <a name="sched"></a>
+                     <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                        <tr>
+                           <td class="sidebarTitle" width="25%">Round</td>
+                           <td class="sidebarTitle" width="35%">Date and Time*</td>
+                           <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+                           <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                        </tr>
+                        <tr valign="top">
+                           <td class="sidebarText">Qualification Round</td>
+                           <td class="sidebarText">8:00 AM Friday, October 17 through<br />
+                              8:00 AM Monday, October 20<br />
+                           </td>
+                           <td class="sidebarText" align="center">All eligible members</td>
+                           <td class="sidebarText" align="center">500</td>
+                        </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern 
-                    </td>
-                </tr>
-            </table><br />
+                        <tr valign="top">
+                           <td class="sidebarText" colspan="4">
+                           *NOTE: All times are Eastern Time
+                           </td>
+                        </tr>
+                     </table>
+            
 <!-- Qualification Rounds ends -->
 
 <!-- Online Elimination Rounds begins -->
-            <A name="online"></A><p><font color="006633" size="3"><b>Online Elimination Rounds</b></font><br />
-            Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of 
-            the online round.  All start times will be communicated as Eastern Time.  If a coder does not participate, for any reason, in an online 
-            round he/she has advanced to, it will be treated as an automatic loss in that round of competition. </p>
+                  <p><A name="online"></A><font color="006633" size="3"><b>Online Elimination Rounds</b></font></p>
+                  <p><font size="-1">Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of 
+                  the online round.  All start times will be communicated as Eastern Time.  If a coder does not participate, for any reason, in an online 
+                  round he/she has advanced to, it will be treated as an automatic loss in that round of competition. </font></p>
             
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
-                </tr>
+                  <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                     <tr>
+                        <td class="sidebarTitle" width="25%">Round</td>
+                        <td class="sidebarTitle" width="35%">Date and Time*</td>
+                        <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+                        <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                     </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText">Online Round 1</td>
-                    <td class="sidebarText">
-                        Friday, October 24th<br />
-                        Sign in:  8:55 PM<br />
-                        START: 9:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">500</td>
-                    <td class="sidebarText" align="center">250</td>
-                </tr>
+                     <tr valign="top">
+                        <td class="sidebarText">Online Round 1</td>
+                        <td class="sidebarText">
+                           Friday, October 24th<br />
+                           Sign in:  8:55 PM<br />
+                           START: 9:00 PM<br />
+                        </td>
+                        <td class="sidebarText" align="center">500</td>
+                        <td class="sidebarText" align="center">250</td>
+                     </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText">Online Round 2</td>
-                    <td class="sidebarText">
-                        Monday, October 27th<br />
-                        START: 9:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">250</td>
-                    <td class="sidebarText" align="center">25</td>
-                </tr>
+                     <tr valign="top">
+                        <td class="sidebarText">Online Round 2</td>
+                        <td class="sidebarText">
+                           Monday, October 27th<br />
+                           START: 9:00 PM<br />
+                        </td>
+                        <td class="sidebarText" align="center">250</td>
+                        <td class="sidebarText" align="center">25</td>
+                     </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event that an online round must be cancelled for any reason, the "raindate" 
-                        will be the following day at the same time.
-                    </td>
-                </tr>
-            </table>
+                     <tr valign="top">
+                        <td class="sidebarText" colspan="4">
+                           *NOTE: All times are Eastern Time. In the event that an online round must be cancelled for any reason, the "raindate" 
+                           will be the following day at the same time.
+                        </td>
+                     </tr>
+                  </table>
+            
 <!-- Online Elimination Rounds ends -->
 
 <!-- Onsite Championship Round begins -->
-            <p><font color="006633" size="3"><b>Onsite Championship Round</b></font><br />
-            Up to 25 coders will compete in the Championship Round being held onsite at Google's headquarters.  Each finalist is responsible for arriving at Google's headquarters to compete.</p>
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td> 
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Championship Round</td>
-                    <td class="sidebarText">
-                        Friday, November 14th<br />
-                        START: 3:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">25</td>
-                    <td class="sidebarText" align="center">n/a</td>
-                </tr>
+                  <p><font color="006633" size="3"><b>Onsite Championship Round</b></font></p>
+                  <p><font size="-1">Up to 25 coders will compete in the Championship Round being held onsite at Google's headquarters.  Each finalist is responsible for arriving at Google's headquarters to compete.</font></p>
+            
+                  <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                     <tr>
+                        <td class="sidebarTitle" width="25%">Round</td>
+                        <td class="sidebarTitle" width="35%">Date and Time*</td>
+                        <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+                        <td class="sidebarTitle" width="19%" align="center"># of Advancers</td> 
+                     </tr>
+                     <tr valign="top">
+                        <td class="sidebarText">Championship Round</td>
+                        <td class="sidebarText">
+                           Friday, November 14th<br />
+                           START: 3:00 PM<br />
+                        </td>
+                        <td class="sidebarText" align="center">25</td>
+                        <td class="sidebarText" align="center">n/a</td>
+                     </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. The time of the onsite round is subject to change.
-                    </td>
-                </tr>
-            </table><br />
+                     <tr valign="top">
+                        <td class="sidebarText" colspan="4">
+                           *NOTE: All times are Eastern Time. The time of the onsite round is subject to change.
+                        </td>
+                     </tr>
+                  </table>
             
                   <p><br /></p>
                   <p><a href="http://www.topcoder.com"><img align="right" src="http://www.google.com/codejam/topcoder.gif" width="100" height="33" border="0"></a>
@@ -184,8 +186,8 @@ function openWin(url, name, w, h) {
       </td>
    </tr>
 </table>
-</div>
-<p><div class=footer> 
+<p>
+<div class=footer> 
 <small> &copy;2003 Google - 
 <a href="http://www.google.com/">Home</a> - 
 <a href="http://www.google.com/about.html">All About Google</a> - 
