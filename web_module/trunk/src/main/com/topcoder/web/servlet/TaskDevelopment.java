@@ -542,9 +542,10 @@ public final class TaskDevelopment {
 
                     if (rating <= 0 && rating != -1){
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
-                        mail.setBody("Thank you, " + handle + ", for your inquiry.\r\n" +
-                                     "Unfortunately, you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current schedule for details regarding upcoming matches. To view other components and discuss component ideas with other members, visit TopCoder Software. Your TopCoder handle and password will give you access to post questions or comments on the Customer Forums.\r\n" +
-                                     "If you have any problems please contact service@topcodersoftware.com");
+                        mail.setBody("Thank you, " + handle + ", for your inquiry.\r\n\r\n" +
+                                     "Unfortunately, you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current schedule for details regarding upcoming matches. To view other components and discuss component ideas with other members, visit TopCoder Software. Your TopCoder handle and password will give you access to post questions or comments on the Customer Forums.\r\n\r\n" +
+                                     "If you have any problems please contact service@topcodersoftware.com\r\n\r\n" + 
+                                     "TopCoder Software Team");
 
                         EmailEngine.send(mail);
                     }
@@ -558,19 +559,21 @@ public final class TaskDevelopment {
 
                         if(Long.parseLong(phase) == ComponentVersionInfo.SPECIFICATION)
                         {
-                            mail.setBody("Your inquiry has been sent. Thank You!\r\n" +
-                                         "Thank you, " + handle + ", for your interest in the BWT Compression: Development component. You now have access to the Developer Forum ( http://www.topcodersoftware.com/pages/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\r\n" +
-                                         "The deadline for submitting a solution is " + request.getParameter("initial_submission") + " at 11:59 PM EST. Please submit your design to submissions@topcodersoftware.com.  All late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning designer will receive payment.\r\n" +
-                                         "If you have any questions please contact service@topcodersoftware.com");
+                            mail.setBody("Your inquiry has been received. Thank You!\r\n\r\n" +
+                                         "Thank you, " + handle + ", for your interest in the "+ project + " component. You now have access to the Developer Forum ( http://www.topcodersoftware.com/pages/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\r\n\r\n" +
+                                         "The deadline for submitting a solution is " + date + " at 11:59 PM EST. Please submit your design to submissions@topcodersoftware.com.  All late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning designer will receive payment.\r\n\r\n" +
+                                         "If you have any questions please contact service@topcodersoftware.com\r\n\r\n"+
+                                         "TopCoder Software Team");
 
                         }
                         else
                         {
 
-                            mail.setBody("Your inquiry has been sent. Thank You!\r\n" +
-                                         "Thank you, " + handle + ", for your interest in the BWT Compression: Development component. You now have access to the Developer Forum ( http://www.topcodersoftware.com/pages/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\r\n" +
-                                         "The deadline for submitting a solution is " + request.getParameter("initial_submission") + " at 11:59 PM EST. Please submit your solution to submissions@topcodersoftware.com. Any late submissions will be ignored. Also, a reminder that this is a competition, and only the winning developer will receive payment.\r\n" +
-                                         "If you have any questions please contact service@topcodersoftware.com");
+                            mail.setBody("Your inquiry has been received. Thank You!\r\n\r\n" +
+                                         "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://www.topcodersoftware.com/pages/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\r\n\r\n" +
+                                         "The deadline for submitting a solution is " + date +   " at 11:59 PM EST. Please submit your solution to submissions@topcodersoftware.com. Any late submissions will be ignored. Also, a reminder that this is a competition, and only the winning developer will receive payment.\r\n\r\n" +
+                                         "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
+                                         "TopCoder Software Team");
                         }
                         EmailEngine.send(mail);
 
