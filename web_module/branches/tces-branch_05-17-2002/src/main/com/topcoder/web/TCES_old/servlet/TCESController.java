@@ -47,7 +47,7 @@ public class TCESController
             }
             session = request.getSession(true); // for now create a new session, later this'll be done in the front page
 						if (getUser(session) == null) {
-							forward(request,response,"/?t=authentication&c=login");
+							response.sendRedirect("/?t=authentication&c=login");
 						} else {
             	forward(request,response,TCES.PATH + taskName + ".jsp");
 						}
