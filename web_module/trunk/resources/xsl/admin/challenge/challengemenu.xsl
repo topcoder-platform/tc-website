@@ -30,6 +30,11 @@
 <form name="frmResults" method="post">
 <xsl:attribute name="action">http<xsl:value-of select="/TC/AdminURL"/></xsl:attribute>
 <input type="hidden" name="Task" value=""/>
+<input type="hidden" name="constraintid" value="">
+    <xsl:attribute name="value">
+        <xsl:value-of select="/TC/CONSTRAINTID"/> 
+    </xsl:attribute>
+</input>
 <input type="hidden" name="Command" value=""/>
 <input type="hidden" name="results" value="">
     <xsl:attribute name="value">
@@ -68,7 +73,14 @@
   function doFilter(id) {
     document.frmResults.filter.value = id;
     document.frmResults.Task.value = 'challenge';
-    document.frmResults.Command.value = 'getChallengeList';
+    if(document.frmResults.constraintid.value == '1') 
+    {
+        document.frmResults.Command.value = 'getChallengeList';
+    } else if(document.frmResults.constraintid.value == '2')  {
+        document.frmResults.Command.value = 'getProblemChallengeList';
+    } else if(document.frmResults.constraintid.value == '3')  {
+        document.frmResults.Command.value = 'getCoderChallengeList';
+    }
     document.frmResults.submit();
   }
 ]]></SCRIPT>
