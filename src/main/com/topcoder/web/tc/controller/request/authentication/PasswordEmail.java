@@ -9,6 +9,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
+import java.util.StringTokenizer;
+
 
 public class PasswordEmail extends Base {
 
@@ -29,7 +31,7 @@ public class PasswordEmail extends Base {
                 r.setContentHandle("password_email");
                 r.setProperty(Constants.FIRST_NAME, firstName);
                 r.setProperty(Constants.LAST_NAME, lastName);
-                r.setProperty(Constants.EMAIL, email);
+                r.setProperty(Constants.EMAIL, cleanEmail(email));
                 ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("password_email");
                 if (rsc.isEmpty()) {
                     addError(Constants.FIRST_NAME, "Sorry, the information you supplied was not found.");
@@ -64,5 +66,14 @@ public class PasswordEmail extends Base {
             }
 
         }
+    }
+
+    private static String cleanEmail(String email) {
+        StringBuffer ret = new StringBuffer(email.length()+1);
+        StringTokenizer st = new StringTokenizer(email, "'");
+        while(st.hasMoreTokens()) {
+            ret.append(st.nextToken()).append("''");
+        }
+        return ret.toString();
     }
 }
