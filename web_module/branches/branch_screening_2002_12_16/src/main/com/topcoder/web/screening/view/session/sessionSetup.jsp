@@ -15,7 +15,7 @@ function showEmail() {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="previewEmail";
-    var id = document.sessionSetupForm.cid.options[sessionSetupForm.cid.selectedIndex].value;
+    var id = document.sessionSetupForm.cid.options[document.sessionSetupForm.cid.selectedIndex].value;
     <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PreviewEmail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+id,name,cmd);
     return;
