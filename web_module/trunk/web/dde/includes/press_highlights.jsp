@@ -8,6 +8,8 @@
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
                               
+                <tr><td class="prHead"><A href="http://www.topcoder.com/?&t=news_events&c=pr_09_07_04"> Morris to Speak at 2004 SD Best Practices Conference</A> [September 7]</td></tr>    
+                           
                 <tr><td class="prHead"><A href="http://www.topcoder.com/?&t=news_events&c=pr_08_10_04">TopCoder Software Wins New Customer Contracts</A> [August 10]</td></tr>    
                            
                 <tr><td class="prHead"><A href="http://www.devx.com/Java/Article/21602" target="_blank">The Smart Choice for Smart Clients: J2EE or .NET?</A> [July 27 - DevX]</td></tr>    
@@ -17,8 +19,6 @@
                 <tr><td class="prHead"><A href="http://www.topcoder.com/?&t=news_events&c=pr_11_03_03">TopCoder Teams with Telecom Leaders in OSS through Java&#153; Initiative</A> [November 3]</td></tr>    
                            
                 <tr><td class="prHead"><A href="http://www.cio.com/archive/101503/tl_winner.html" target="_blank">Winner's Circle for Sale</A> [October 15 - CIO]</td></tr>    
-                           
-                <tr><td class="prHead"><A href="http://www.topcoder.com/?&t=news_events&c=pr_10_14_03">Talbots Licenses Component Catalog From TopCoder Software</A> [October 14]</td></tr>    
                            
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
