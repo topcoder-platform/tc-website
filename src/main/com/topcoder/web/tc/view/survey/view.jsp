@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.tc.Constants,
-                 com.topcoder.web.tc.view.tag.AnswerInput"%>
+                 com.topcoder.web.tc.view.tag.AnswerInput,
+                 com.topcoder.web.tc.model.Question"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
@@ -53,7 +54,9 @@
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
                   <% int i=1; %>
+                  <% boolean resultsViewable = false;%>
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
+                  <% resultsViewable |= (!Question.isFreeForm(question) && question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE);%>
                   <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                         <tr>
                            <td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">
@@ -88,7 +91,7 @@
                      <p><br/></p>
                      <% i++;%>
                   </tc:questionIterator>
-                  <% if (!questionInfo.isEmpty()) { %>
+                  <% if (resultsViewable) { %>
                      <table class="bodyText" align="center">
                         <tr><td><a href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img src="/i/results.gif" width="60" height="18" border="0"/></a>
                                      <img src="/i/clear.gif" width="10" height="18" border="0"/>
