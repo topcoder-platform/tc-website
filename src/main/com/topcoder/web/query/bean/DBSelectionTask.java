@@ -2,8 +2,6 @@ package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.*;
-import com.topcoder.shared.util.DBMS;
-
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -25,7 +23,7 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
         super();
         dbList = new ArrayList();
         for (int i=0; i<Constants.DB_LIST.length; i++) {
-            dbList.add(new DataBaseBean(Constants.DB_LIST[i][0], Constants.DB_LIST[i][1]));
+            dbList.add(new DatabaseBean(Constants.DB_LIST[i][0], Constants.DB_LIST[i][1]));
         }
     }
 
@@ -70,7 +68,7 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
         return dbList;
     }
 
-    private void setDbs(ArrayList dbList) {
+    private void setDbList(ArrayList dbList) {
         this.dbList = dbList;
     }
 
