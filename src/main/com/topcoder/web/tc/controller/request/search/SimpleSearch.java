@@ -141,7 +141,7 @@ public class SimpleSearch extends Base {
         searchQuery.append(" ORDER BY rating_order, lower_handle");
 
         StringBuffer countQuery = new StringBuffer(400);
-        countQuery.append(" SELECT count(*) ");
+        countQuery.append(" SELECT count(*) as count ");
         countQuery.append(queryBottom.toString());
 
         QueryRequest r = new QueryRequest();
