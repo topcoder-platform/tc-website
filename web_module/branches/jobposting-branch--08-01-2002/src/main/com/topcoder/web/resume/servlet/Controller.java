@@ -7,8 +7,7 @@ import com.topcoder.web.resume.bean.ResumeTask;
 import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.servlet.request.UploadedFile;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Enumeration;
@@ -113,7 +112,9 @@ public class Controller
 
     void forwardToError(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getContext("/").getRequestDispatcher(
+        ServletContext sc = getServletContext();
+        sc = sc.getContext("/");
+        sc.getRequestDispatcher(
                 response.encodeURL(CONTROLLER_ERROR_URL)).forward(request, response);
     }
 
