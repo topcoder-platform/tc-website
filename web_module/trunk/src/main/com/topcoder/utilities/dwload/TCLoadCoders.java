@@ -164,14 +164,16 @@ public class TCLoadCoders extends TCLoad {
                 String state_code = rs.getString("state_code");
 
                 try {
-                    psIns.setString(1, rs.getString("state_name"));
-                    psIns.setString(2, rs.getString("region_code"));
+                    psIns.setString(1, state_code);
+                    psIns.setString(2, rs.getString("state_name"));
+                    psIns.setString(3, rs.getString("region_code"));
                     retVal = psIns.executeUpdate();
                 } catch (Exception e) {
                     // the insert failed, so try an update
                     psUpd.setString(1, rs.getString("state_name"));
                     psUpd.setString(2, rs.getString("region_code"));
-                    psUpd.setString(4, state_code);
+                    psUpd.setString(3, state_code);
+                    retVal = psUpd.executeUpdate();
                 }
 
 
@@ -187,6 +189,8 @@ public class TCLoadCoders extends TCLoad {
             log.info("state records copied = " + count);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'state' table failed.\n" +
+                    sqle.getMessage());
         }
     }
 
@@ -229,14 +233,16 @@ public class TCLoadCoders extends TCLoad {
                 String country_code = rs.getString("country_code");
 
                 try {
-                    psIns.setString(1, rs.getString("country_name"));
-                    psIns.setInt(2, rs.getInt("participating"));
+                    psIns.setString(1, country_code);
+                    psIns.setString(2, rs.getString("country_name"));
+                    psIns.setInt(3, rs.getInt("participating"));
                     retVal = psIns.executeUpdate();
                 } catch (Exception e) {
                     // the insert failed, so try an update
                     psUpd.setString(1, rs.getString("country_name"));
                     psUpd.setString(2, rs.getString("participating"));
                     psUpd.setString(3, country_code);
+                    retVal = psUpd.executeUpdate();
                 }
 
 
@@ -252,6 +258,8 @@ public class TCLoadCoders extends TCLoad {
             log.info("country records copied = " + count);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'country' table failed.\n" +
+                    sqle.getMessage());
         }
     }
 
@@ -1382,6 +1390,7 @@ public class TCLoadCoders extends TCLoad {
                     psUpd.setString(2, rs.getString("school_id"));
                     psUpd.setString(3, rs.getString("degree_number"));
                     psUpd.setInt(4, coder_id);
+                    retVal = psUpd.executeUpdate();
                 }
 
 
