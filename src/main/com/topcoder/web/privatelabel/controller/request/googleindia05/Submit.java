@@ -10,7 +10,6 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.security.UserPrincipal;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -82,41 +81,12 @@ public class Submit extends FullRegSubmit {
 
     protected void setNextPage() {
         //reg closed
-        setNextPage(Constants.GOOGLE04_REG_CLOSED_PAGE);
+        setNextPage(Constants.GOOGLE_INDIA_05_REG_SUCCESS_PAGE);
         setIsNextPageInContext(true);
-
-/*
-        if (isEligible((FullRegInfo)regInfo)) {
-            if (hasErrors()) {
-                setNextPage(Constants.GOOGLE04_REG_PAGE);
-                setIsNextPageInContext(true);
-            } else {
-                SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-                StringBuffer buf = new StringBuffer(150);
-                buf.append("http://");
-                buf.append(ApplicationServer.SERVER_NAME);
-                buf.append(info.getServletPath());
-                buf.append("?");
-                buf.append(Constants.MODULE_KEY);
-                buf.append("=");
-                buf.append(Constants.STATIC);
-                buf.append(Constants.GOOGLE04_REG_SUCCESS_PAGE);
-                setNextPage(buf.toString());
-                setIsNextPageInContext(false);
-            }
-        } else {
-            throw new RuntimeException("impossible, isEligible returned false, fix the code");
-        }
-*/
-
     }
 
     protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
         try {
-            //todo if we ever allow them to update their account
-            //todo we'll need to figure out a way to not send
-            //todo them this email. but send it to people
-            //todo that are converting tc accounts
             StringBuffer buf = new StringBuffer(1000);
             User user = (User) createEJB(getInitialContext(), User.class);
             String code = user.getActivationCode(userId, db);
@@ -149,14 +119,13 @@ public class Submit extends FullRegSubmit {
             buf.append("LAUNCHING THE ARENA\n");
             buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://www.topcoder.com/googlecodejam and clicking on the Competition Arena tab.\n\n");
             buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
-            //buf.append("Mac OS X  users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.\n\n");
             buf.append("We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/googlecodejam and downloading the competition manual.\n\n");
             buf.append("If you have any questions about how to participate, please email them to googlecodejam@topcoder.com\n\n");
             buf.append("Thank you for registering for the Google Code Jam 2004, Powered by TopCoder.  We look forward to seeing you in the Arena!\n\n");
 
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-            mail.setFromAddress("googlecodejam@topcoder.com", "Google Code Jam Team");
+            mail.setFromAddress("gicj05@topcoder.com", "Google Code Jam Team");
             log.info("sent registration email to " + info.getEmail());
             EmailEngine.send(mail);
         } catch (Exception e) {
@@ -173,7 +142,7 @@ public class Submit extends FullRegSubmit {
         buf.append("?");
         buf.append(Constants.MODULE_KEY);
         buf.append("=");
-        buf.append(Constants.GOOGLE04_ACTIVATION);
+        buf.append(Constants.GOOGLE_INDIA_05_ACTIVATION);
         buf.append("&");
         buf.append(BaseActivate.ACTIVATION_CODE);
         buf.append("=");

@@ -28,7 +28,6 @@ abstract public class Base extends BaseProcessor {
     }
 
 
-
     protected String getDb() throws Exception {
 
         long companyId;
@@ -38,7 +37,7 @@ abstract public class Base extends BaseProcessor {
         } else {
             cid = file.getParameter(Constants.COMPANY_ID);
         }
-        if (cid!=null) {
+        if (cid != null) {
             companyId = Long.parseLong(cid);
         } else {
             throw new Exception("Company id missing from request");
@@ -50,8 +49,8 @@ abstract public class Base extends BaseProcessor {
         r.setProperty("dstid", String.valueOf(TRANSACTIONAL));
         //not sure if this db is ok...we'll see
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
-        ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");
-        if (rsc==null || rsc.isEmpty()) {
+        ResultSetContainer rsc = (ResultSetContainer) m.get("company_datasource");
+        if (rsc == null || rsc.isEmpty()) {
             throw new Exception("Could not find datasource for company: " + companyId);
         } else {
             return rsc.getStringItem(0, "datasource_name");

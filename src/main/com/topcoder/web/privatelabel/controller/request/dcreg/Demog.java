@@ -30,13 +30,13 @@ public class Demog extends FullRegDemog {
                     info.getEmail().equals("mluce@topcoder.com")))
                 addError(Constants.EMAIL, "Please provide a valid email address ending in either columbia.edu or nyu.edu");
 
-            } else {
-                if (!(info.getEmail().toLowerCase().endsWith("doubleclick.net") ||
-                        info.getEmail().toLowerCase().endsWith("abacus-direct.com") ||
-                        info.getEmail().equals("gpaul@topcoder.com") ||
-                        info.getEmail().equals("mluce@topcoder.com")))
-                    addError(Constants.EMAIL, "Please provide a valid email address ending in either doubleclick.net or abacus-direct.com");
-            }
+        } else {
+            if (!(info.getEmail().toLowerCase().endsWith("doubleclick.net") ||
+                    info.getEmail().toLowerCase().endsWith("abacus-direct.com") ||
+                    info.getEmail().equals("gpaul@topcoder.com") ||
+                    info.getEmail().equals("mluce@topcoder.com")))
+                addError(Constants.EMAIL, "Please provide a valid email address ending in either doubleclick.net or abacus-direct.com");
+        }
         //we're not bothering with an email confirmation field, so don't require it
         removeError(Constants.EMAIL_CONFIRM);
     }

@@ -14,6 +14,7 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.*;
 import com.topcoder.web.corp.Util;
+
 /**
  * @author dok
  * Date: Jan 21, 2004
@@ -24,13 +25,13 @@ public class Reg extends FullReg {
         setNextPage(Constants.AMAZON_REG_PAGE);
         setIsNextPageInContext(true);
     }
-/*    
+/*
     protected void registrationProcessing() throws TCWebException {
         try {
             if (getAuthentication().getUser().isAnonymous()) {
                  throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
             }
-            
+
             TCSubject tcUser = Util.retrieveTCSubject(getAuthentication().getActiveUser().getId());
             Authorization authorization = new TCSAuthorization(tcUser);
 
@@ -71,7 +72,7 @@ public class Reg extends FullReg {
         }
 */
         if (!hasError(Constants.COUNTRY_CODE)) {
-            if (ret.getCountryCode()==null || ret.getCountryCode().length()==0)
+            if (ret.getCountryCode() == null || ret.getCountryCode().length() == 0)
                 ret.setCountryCode("840");
         }
 

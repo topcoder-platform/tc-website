@@ -15,6 +15,7 @@ import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.State;
 import com.topcoder.common.web.data.Country;
 import com.topcoder.web.privatelabel.controller.request.*;
+
 import java.util.*;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -22,6 +23,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import com.topcoder.web.ejb.resume.ResumeServices;
+
 import javax.transaction.UserTransaction;
 import javax.transaction.Status;
 
@@ -35,9 +37,8 @@ public class Submit extends FullRegSubmit {
         long userId = super.commit(regInfo);
         try {
 
-            ResumeRegInfo info = (ResumeRegInfo)regInfo;
-            if(info.getUploadedFile() != null)
-            {
+            ResumeRegInfo info = (ResumeRegInfo) regInfo;
+            if (info.getUploadedFile() != null) {
                 byte[] fileBytes = null;
                 String fileName = "";
                 int fileType = -1;
@@ -49,13 +50,10 @@ public class Submit extends FullRegSubmit {
                 else {
                     //fileType = Integer.parseInt(file.getParameter("fileType"));
                     Map types = getFileTypes(transDb);
-                    if(types.containsKey(info.getUploadedFile().getContentType()) )
-                    {
+                    if (types.containsKey(info.getUploadedFile().getContentType())) {
                         log.debug("FOUND TYPE");
                         fileType = ((Long) types.get(info.getUploadedFile().getContentType())).intValue();
-                    }
-                    else
-                    {
+                    } else {
                         log.debug("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
                     }
                     fileName = info.getUploadedFile().getRemoteFileName();
@@ -68,7 +66,7 @@ public class Submit extends FullRegSubmit {
                 UserTransaction uTx = null;
                 try {
                     UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int)userId));
+                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int) userId));
                     com.topcoder.common.web.data.User u = userEJB.getUser();
 
                     u.setPassword(regInfo.getPassword());
@@ -128,7 +126,7 @@ public class Submit extends FullRegSubmit {
         Map ret = new HashMap();
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            ret.put(row.getStringItem("mime_type"), new Long( row.getLongItem("file_type_id")) );
+            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
         }
         return ret;
     }

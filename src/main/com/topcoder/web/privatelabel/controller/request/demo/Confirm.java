@@ -11,6 +11,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 
 import java.util.*;
+
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.servlet.request.*;
 
@@ -20,7 +21,7 @@ import com.topcoder.servlet.request.*;
  */
 public class Confirm extends FullRegConfirm {
     protected static Logger log = Logger.getLogger(Confirm.class);
-    
+
     protected void setNextPage() {
 
         if (hasErrors()) {
@@ -33,34 +34,31 @@ public class Confirm extends FullRegConfirm {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         FullRegInfo info;
-        info = (FullRegInfo)super.makeRegInfo();
-        
-        if(!(info instanceof ResumeRegInfo))
-        {
+        info = (FullRegInfo) super.makeRegInfo();
+
+        if (!(info instanceof ResumeRegInfo)) {
             info = new ResumeRegInfo(info);
         }
-        
-        MultipartRequest req = (MultipartRequest)getRequest();
+
+        MultipartRequest req = (MultipartRequest) getRequest();
         UploadedFile file = req.getUploadedFile(Constants.RESUME);
-        
+
         if (file != null && file.getContentType() != null) {
-                log.debug("FOUND RESUME");
-                ((ResumeRegInfo)info).setUploadedFile(file);
-            }
-        
+            log.debug("FOUND RESUME");
+            ((ResumeRegInfo) info).setUploadedFile(file);
+        }
+
         return info;
     }
 
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
-        super.checkRegInfo(info);    
-        
-        try
-        {
+        super.checkRegInfo(info);
+
+        try {
             //validate uploaded file, if applicable
-            ResumeRegInfo rinfo = (ResumeRegInfo)info;
-            if(rinfo.getUploadedFile() != null)
-            {
-                byte[] fileBytes = null;   
+            ResumeRegInfo rinfo = (ResumeRegInfo) info;
+            if (rinfo.getUploadedFile() != null) {
+                byte[] fileBytes = null;
 
                 fileBytes = new byte[(int) rinfo.getUploadedFile().getSize()];
                 rinfo.getUploadedFile().getInputStream().read(fileBytes);
@@ -69,37 +67,32 @@ public class Confirm extends FullRegConfirm {
                 else {
                     //fileType = Integer.parseInt(file.getParameter("fileType"));
                     Map types = getFileTypes(transDb);
-                    if(!types.containsKey(rinfo.getUploadedFile().getContentType()) )
-                    {
+                    if (!types.containsKey(rinfo.getUploadedFile().getContentType())) {
                         log.debug("DID NOT FIND TYPE " + rinfo.getUploadedFile().getContentType());
                         addError(Constants.FILE, "Unsupported file type (" + rinfo.getUploadedFile().getContentType() + ")");
                     }
                 }
             }
-            
+
             DemographicResponse r = null;
             DemographicQuestion q = null;
             int count = 0;
             for (Iterator it = ((FullRegInfo) info).getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
-                if(r.getQuestionId() == Long.parseLong(Constants.BROOKS_REFERRAL_QUESTION_ID))
-                {
+                if (r.getQuestionId() == Long.parseLong(Constants.BROOKS_REFERRAL_QUESTION_ID)) {
                     count++;
                 }
             }
-            
-            if(count != 0 && count > 3)
-            {
+
+            if (count != 0 && count > 3) {
                 addError(Constants.DEMOG_PREFIX + Constants.BROOKS_REFERRAL_QUESTION_ID, "Please choose a maximum of three answers.");
             }
-        
-        }
-        catch(Exception e)
-        {
+
+        } catch (Exception e) {
             throw new TCWebException(e);
         }
     }
-    
+
     protected Map getFileTypes(String db) throws Exception {
         Request r = new Request();
         r.setContentHandle("file_types");
@@ -110,7 +103,7 @@ public class Confirm extends FullRegConfirm {
         Map ret = new HashMap();
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            ret.put(row.getStringItem("mime_type"), new Long( row.getLongItem("file_type_id")) );
+            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
         }
         return ret;
     }
