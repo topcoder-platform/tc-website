@@ -208,7 +208,7 @@ applications for the first seven(7) days of each month. In order for your
 application to be reviewed, it must be submitted by 11:59 pm CST on the 7th
 day of each month.
 </P>
-<A HREF="https://www.fbijobs.com/SpAppl.asp?r=101409586652" TARGET="_blank" CLASS="bodyText">APPLY NOW</A>
+<A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=29&amp;jt=1" TARGET="_blank" CLASS="bodyText">APPLY NOW</A>
 <!--end contextual links-->
           <P><BR/></P>
           </TD>
