@@ -24,7 +24,7 @@ public class SessionStatusLinkTag extends TagSupport {
             String link = "Details";
             if (sessBegin != null) {
                 int statusFlag = SessionInfo.sessionStatus(curr, sessBegin, segEnd, sessEnd);
-                if (statusFlag < 0) link = "Results";
+                if (statusFlag > 0) link = "Results";
             }
             pageContext.getOut().print(link);
         } catch (IOException e) {
