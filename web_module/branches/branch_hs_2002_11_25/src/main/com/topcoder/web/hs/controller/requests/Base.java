@@ -70,7 +70,7 @@ public abstract class Base implements RequestProcessor {
         Set groups = ((HSAuthorization)hsa).getGroups();
         info.setAll(user, groups);
 
-        log.info(user.getUserName+" accessing "+request.getQueryString());
+        log.info(user.getUserName+" accessing "+((HttpServletRequest)request).getQueryString());
 
         if(!hsa.hasPermission(new ClassResource(this.getClass())))
             throw new PermissionException("access to processor denied", user);

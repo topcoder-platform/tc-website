@@ -18,7 +18,7 @@ function openWin(url, name, w, h) {
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <% String style = CoderRatingStyle.getStyle(SessionInfo.getRating()); %>
 <% if(SessionInfo.isLoggedIn()) { %>
-        <font color=orange>Hello, <span class="<%=style%>"><jsp:getProperty name="SessionInfo" property="Handle" /></span>!</font>
+        <font color="orange">Hello,</font> <span class="<%=style%>"><jsp:getProperty name="SessionInfo" property="Handle" /></span>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Logout" CLASS="globalNavSmall">Logout</A>
 <% } else { %>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Login" CLASS="globalNavSmall">Login</A>
