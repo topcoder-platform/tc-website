@@ -50,7 +50,7 @@
             </TR>            
             <TR>
                <TD VALIGN="top" CLASS="bodyTextBold"><B>Step 2:</B></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="5" HEIGHT="1"></TD>
-               <TD VALIGN="top" CLASS="bodyText"><B>Set-Up or Add a Candidate</B><BR>
+               <TD VALIGN="top" CLASS="bodyText"><B>Set up or Add a Candidate</B><BR>
                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.</TD>               
             </TR>
