@@ -469,10 +469,10 @@ z<pre>
 	    if ((x &amp; (1 &lt;&lt; i)) != 0) {
 	        int s = health[i];
 		for (int j = 0; j &lt; N; j++) {
-		    if (i != j &amp;&amp; (x &amp; 1 &lt;&lt; j) != 0 &amp;&amp; shots[i+1][j+1] &lt; s)
+		    if (i != j &amp;&amp; (x &amp; 1 &lt;&lt; j) != 0 &amp;&amp; shots[j+1][i+1] &lt; s)
 		        s = shots[j+1][i+1];
 		}
-		int q = go(x ^ (1 &lt;&lt; i)) + s;
+		int q = recurse(x ^ (1 &lt;&lt; i)) + s;
 		if (q &lt; ret) ret = q;
 	    }
 	}
