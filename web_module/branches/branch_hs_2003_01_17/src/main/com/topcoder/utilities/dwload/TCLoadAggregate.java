@@ -1180,12 +1180,12 @@ public class TCLoadAggregate extends TCLoad {
             query.append("SELECT rr.round_id ");               // 1
             query.append("      ,rr.school_id ");              // 2
             query.append("      ,rr.coder_id ");               // 3
-            query.append("      ,rr.division_placed ");        // 4
+            query.append("      ,rr.overall_rank ");           // 4
             query.append("      ,(SELECT COUNT(*) ");          // 5
             query.append("          FROM room_result rr3 ");
             query.append("         WHERE rr3.school_id = rr.school_id ");
             query.append("           AND rr3.round_id = rr.round_id ");
-            query.append("           AND rr3.division_placed < rr.division_placed) ");
+            query.append("           AND rr3.overall_rank < rr.overall_rank) ");
             query.append("       ,(SELECT COUNT(*) ");         // 6
             query.append("           FROM room_result rr2 ");
             query.append("          WHERE rr2.school_id = rr.school_id ");
@@ -1211,13 +1211,13 @@ public class TCLoadAggregate extends TCLoad {
                 int round_id = rs.getInt(1);
                 int school_id = rs.getInt(2);
                 int coder_id = rs.getInt(3);
-                int division_placed = rs.getInt(4);
+                int overall_rank = rs.getInt(4);
                 int place_within_school = rs.getInt(5);
                 int num_attended_school = rs.getInt(6);
 
                 int school_points = 0;
                 if (num_attended_school >= 3 && place_within_school < 3)
-                    school_points = division_placed;
+                    school_points = overall_rank;
 
                 psUpd.clearParameters();
                 psUpd.setInt(1, school_points);
