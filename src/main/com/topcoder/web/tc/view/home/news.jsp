@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.10.05<br>3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room1_analysis">tomek takes Room 1</A></span><br><br>
+      In the end, tomek won as expected, and misof and ante moved on to the wildcard round.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room1_analysis">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>03.09.05<br>9:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/gr_03.MPG">mathijs wins the TCCC05... poker tournament!</A></span><br><br>
       Things are already heating up at the TCCC05.
@@ -239,21 +251,6 @@
    <tr><td class="newsLinksCell">
          <A href="/?t=support&c=ratings_cal">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>02.09.05<br>4:54 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity1">Computational Complexity: Section 1</A></span><br><br>
-      "In this article I'll try to introduce you to the area of computation complexity."</td>
-      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=8357090">misof</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=complexity1">full article</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=index">archive</A>
    </td></tr>
 
 </table>
