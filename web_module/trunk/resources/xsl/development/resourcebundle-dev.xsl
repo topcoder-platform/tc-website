@@ -78,7 +78,7 @@
 
 							<p><strong>Payment</strong><br />
 							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed at the completion of the project*.</p>
-							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the QA Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
+							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 							
 							<p><strong>Developer</strong><br />
 							Royalty Percentage - 25%</p>
