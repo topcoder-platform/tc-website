@@ -1329,7 +1329,7 @@ SELECT llu.language_id
 java com.topcoder.utilities.QueryLoader "DW" 1010 "TCES_Problem_Statement" 0 0 "
 SELECT (CASE WHEN r.round_type_id = 2
              THEN c.name || ' ' || r.name
-             ELSE c.name) AS contest_name
+             ELSE c.name END) AS contest_name
      , dlu.division_desc
      , p.class_name
      , p.problem_text
