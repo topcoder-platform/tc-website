@@ -82,12 +82,12 @@
       <br/>
       <br/>
       <br/>
-      <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?module=Static&d1=report_jsp&d2=newIndex">Additional Reports<a><br/><br/>
+      <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Static&d1=report_jsp&d2=newIndex">Additional Reports<a><br/><br/>
 
       <b>Profile Information<b><br/>
       <ul><li><a href=<%=Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>
-      <ul><li><a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?module=Static&d1=report_jsp&d2=profile">Profile Look Up<a></li></ul>
-      <ul><li><a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?module=Static&d1=report_jsp&d2=tcs_profile">TCS Profile Look Up<a></li></ul>
+      <ul><li><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Static&d1=report_jsp&d2=profile">Profile Look Up<a></li></ul>
+      <ul><li><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Static&d1=report_jsp&d2=tcs_profile">TCS Profile Look Up<a></li></ul>
      <!-- <ul><li><a href=<%=Constants.JSP_ADDR + "&"+Constants.TASK_NAME_KEY+"=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>-->
 
 <%=

@@ -27,7 +27,7 @@
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" valign="top" ALIGN="left">
         <table width="80%" border="0" cellpadding="0" cellspacing="0">
-          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="post" name="ModifyCommandQueryForm" >
+          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="ModifyCommandQueryForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_COMMAND_QUERY_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandQuery" property="CommandId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
@@ -55,7 +55,7 @@
                     <tr><td class="errorText" colspan="4"><query:error id="err" name="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"><%=err%></query:error></td></tr>
                     <tr>
                       <td class="statTextBig">
-                        <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>" class="statText">
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>" class="statText">
                           [edit]
                         </A>
                       </td>
@@ -64,7 +64,7 @@
                         <input type="text" name="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>" value ="<jsp:getProperty name="commandQuery" property="SortOrder"/>" size="3" maxlength="3"/>
                       </td>
                       <td class="statTextBig">
-                        <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="commandId"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>&<%=Constants.STEP_PARAM%>=<%=Constants.REMOVE_STEP%>" class="statText">
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="commandId"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>&<%=Constants.STEP_PARAM%>=<%=Constants.REMOVE_STEP%>" class="statText">
                           [remove]
                         </A>
                       </td>

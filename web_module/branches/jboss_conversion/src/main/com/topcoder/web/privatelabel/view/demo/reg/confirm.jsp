@@ -26,7 +26,7 @@
 	<a href="http://www.topcoder.com/"><img src="/i/demo/pbtc_logo.gif" border="0" width="90" height="66"/></a></td></tr>
 	<tr><td><div class=demoHead><img src="/i/clear.gif" height="23" width="1"></div></td></tr>
 	<tr><td><div><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
-	<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+	<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DEMO_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -48,7 +48,7 @@
                         <tr>
                             <td class="demoRegQuestion"><b>Personal</b></td>
                             <td class="demoRegAnswer">
-                                <a class="demoRegAnswer" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                                <a class="demoRegAnswer" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                             </td>
                         </tr>
                         <tr>
@@ -110,7 +110,7 @@
                         <tr>
                             <td class="demoRegQuestion"><b>Demographics</b></td>
                             <td class="demoRegAnswer">
-                                <a class="demoRegAnswer" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                                <a class="demoRegAnswer" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                             </td>
                         </tr>
                         <pl:responseIterator id="resp" list="<%=responseList%>">

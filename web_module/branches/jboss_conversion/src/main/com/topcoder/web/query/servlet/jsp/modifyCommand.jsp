@@ -27,7 +27,7 @@
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top" ALIGN="left">
         <table width="40%" border="0" cellpadding="0" cellspacing="0">
-          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="post" name="ModCommandForm" >
+          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="ModCommandForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_COMMAND_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommand" property="CommandId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
@@ -35,7 +35,7 @@
             <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_COMMAND_NAME%></td></tr>
             <% if (!ModifyCommand.isNewCommand()) { %>
               <tr><td class="statText" colspan="2" ALIGN="center">
-                <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommand" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="ModifyCommand" property="CommandId"/>" class="statText">
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommand" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="ModifyCommand" property="CommandId"/>" class="statText">
                   [edit command query]
                 </A>
               </td></tr>

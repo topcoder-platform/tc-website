@@ -17,7 +17,7 @@
 <link type="text/css" rel="stylesheet" href="/css/corpStyle.css"/>
 
 <jsp:include page="script.jsp" />
-    
+
 </head>
 
 <body>
@@ -48,11 +48,11 @@
                     <td class="screeningHeader" nowrap="nowrap" align=center>End Date</td>
                     <td class="screeningHeader" nowrap="nowrap" align=center>Most Recent Hit</td>
                 </tr>
-    
+
                 <%
                   /* this is some logic so that if you're an "admin" user, you'll get the company names
                      to separate the different campaigns.  if this tool get's big, we should do it better.
-                   */                
+                   */
                  int lastCompany;
                  if (MainTask.getCampaignInfoList().isEmpty()) {
                      lastCompany = -1;
@@ -62,20 +62,20 @@
                  int currCompany = -1;
                  int i=0;
                  %>
- 
+
                 <tces:rowIterator id="campaignInfo" rowList="<%=MainTask.getCampaignInfoList()%>">
-                
+
                 <% i++;
-                   currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
-                   if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %> 
-                
+                   currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString());
+                   if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %>
+
                 <tr><td colspan=4 class="screeningHeader"><%= campaignInfo.getItem("company_name").toString() %></td></tr>
-                
+
                 <% lastCompany = currCompany;
                    } %>
 
                 <tr>
-                    <td width="40%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;&#160;&#160;<A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
+                    <td width="40%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;&#160;&#160;<A HREF="<jsp:getProperty name="MainTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
                     <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><%=campaignInfo.getItem("start_date").toString()%></td>
                     <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><%=campaignInfo.getItem("end_date").toString()%></td>
                     <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><rsc:item row="<%=campaignInfo%>" name="most_recent_hit" format="MM/dd/yyyy"/></td>
@@ -84,7 +84,7 @@
                 </tces:rowIterator>
 
                 <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
-                
+
                 <tr>
                     <td class="screeningCellOdd" colspan=4>
                         <img src="/i/corp/clear.gif" alt="" width="10" height="10" border=0><br>

@@ -41,10 +41,10 @@
           </td></tr>
           <tr><td colspan="2"><img src="/i/clear.gif" width="1" height="8"></td></tr>
           <tr><td class="statText" colspan="2" ALIGN="center">
-            <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetail" property="QueryId"/>" class="statText">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetail" property="QueryId"/>" class="statText">
               [edit query]
             </A>
-            <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetail" property="QueryId"/>" class="statText">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetail" property="QueryId"/>" class="statText">
               [edit query input]
             </A>
           </td></tr>
@@ -71,7 +71,7 @@
                 <query:resultSetRowIterator id="input" list="<%=QueryDetail.getInputList()%>">
                   <tr>
                     <td class="statText" ALIGN="right">
-                      <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
+                      <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
                         [edit]
                       </A>
                       &#160;&#160;
@@ -104,7 +104,7 @@
                 <query:resultSetRowIterator id="command" list="<%=QueryDetail.getCommandList()%>">
                   <tr>
                     <td class="statText" ALIGN="right">
-                      <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
+                      <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetail" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
                         [edit]
                       </A>
                       &#160;&#160;

@@ -42,7 +42,7 @@ body,td,font,p,a
       </TR>
       <TR>
         <TD nowrap><font size="-1">
-          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadResume">
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<%=request.getParameter(Constants.COMPANY_ID)%>">
             <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>

@@ -1,4 +1,4 @@
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.web.corp.common.*,
@@ -19,7 +19,7 @@
 <!-- JavaScript begins -->
 <jsp:include page="script.jsp" />
 <!-- JavaScript ends -->
-    
+
 </head>
 
 <body>
@@ -50,7 +50,7 @@
 			            <strong>Campaign:</strong> <jsp:getProperty name="CampaignDetailTask" property="CampaignName" /><br/>
 			            <strong>Total Hits:</strong> <jsp:getProperty name="CampaignDetailTask" property="TotalHits" /><br/>
 			            <strong>Most Recent Hit:</strong> <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit" /></p>
-			            <p><A href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID" />" class="bodyText">View Overall Campaign Interest</A></p>
+			            <p><A href="<jsp:getProperty name="CampaignDetailTask" property="servletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID" />" class="bodyText">View Overall Campaign Interest</A></p>
                     </td>
                 </tr>
             </table>
@@ -65,21 +65,21 @@
                 <% int i=0; %>
                     <tces:mapIterator id="position" mapList="<%=(List)CampaignDetailTask.getPositionList()%>">
                 <% i++; %>
-                                
+
                 <tr>
-                    <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap><A href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="bodyText"><%= (String)position.get("job_desc") %></A></td>
+                    <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap><A href="<jsp:getProperty name="CampaignDetailTask" property="servletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="bodyText"><%= (String)position.get("job_desc") %></A></td>
                     <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=center><%= (String)position.get("hit_count") %></td>
                     <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=center><%= (String)position.get("most_recent") %></td>
                 </tr>
-                                
+
                 </tces:mapIterator>
 
                 <% if(CampaignDetailTask.getPositionList().isEmpty()){ %>
-                                
+
                 <tr><td class="bodyText" colspan="3"><br/></td></tr>
-                                
+
                 <tr><td class="bodyText" align=center colspan="3">No positions available.</td></tr>
-                                
+
                 <% } %>
 
             </table>

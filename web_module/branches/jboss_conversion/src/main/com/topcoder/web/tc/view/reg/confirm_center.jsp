@@ -46,7 +46,7 @@
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Phone:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="Phone" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="phone" /></td>
                     <td></td>
                 </tr>
 
@@ -54,19 +54,19 @@
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Email: </strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="Email" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="email" /></td>
                     <td></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Handle:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="Handle" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="handle" /></td>
                     <td></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Password:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="MaskedPassword" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="maskedPassword" /></td>
                     <td></td>
                 </tr>
 
@@ -82,7 +82,7 @@
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Quote:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="Quote" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="quote" /></td>
                     <td></td>
                 </tr>
 
@@ -115,7 +115,7 @@
                             <tc:getProperty id="referralOther" name="Registration" property="ReferralOther" />
                             (<tc:schoolSelect name="referralOther" selectedValue="<%=referralOther%>" selectedOnly="true" />)
                         <% } else { %>
-                            (<jsp:getProperty name="Registration" property="ReferralOther" />)
+                            (<jsp:getProperty name="Registration" property="referralOther" />)
                         <% } %>
                     </td>
                     <td></td>

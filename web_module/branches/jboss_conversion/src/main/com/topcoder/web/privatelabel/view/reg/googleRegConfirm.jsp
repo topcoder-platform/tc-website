@@ -68,7 +68,7 @@ body,td,font,p,a
                   <b><font size="+1">Registration</font></b><br>
 
       <table width="100%" cellpadding="1" cellspacing="3" class="bodyText" align="center" >
-        <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+        <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -77,7 +77,7 @@ body,td,font,p,a
                  <td align="right" width="50%"><b>Personal</b>
                  </td>
                 <td align="left" width="50%">
-                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                 </td>
             </tr>
             <tr>
@@ -218,7 +218,7 @@ body,td,font,p,a
                 <td align="right"><b>Demographics</b>
                 </td>
                 <td align="left">
-                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                 </td>
             </tr>
             <tr>

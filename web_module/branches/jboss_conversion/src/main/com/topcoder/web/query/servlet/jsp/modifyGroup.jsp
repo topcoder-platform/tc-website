@@ -27,7 +27,7 @@
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top" ALIGN="left">
         <table width="40%" border="0" cellpadding="0" cellspacing="0">
-          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="post" name="ModGroupForm" >
+          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="ModGroupForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_GROUP_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.GROUP_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="GroupId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">

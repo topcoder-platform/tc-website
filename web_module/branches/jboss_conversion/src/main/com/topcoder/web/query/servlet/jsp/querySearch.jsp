@@ -45,7 +45,7 @@
             </td>
           </tr>
           <tr bgcolor="#333333">
-            <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="get" name="QuerySearchForm" >
+            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="QuerySearchForm" >
               <input type="hidden" name="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.QUERY_SEARCH_TASK%>">
               <input type="hidden" name="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="QuerySearch" property="Db"/>">
             <td class="statTextBig">Search Criteria:</td>
@@ -63,12 +63,12 @@
           <query:queryIterator id="query" list="<%=QuerySearch.getSearchResults()%>">
             <tr>
               <td class="statText" ALIGN="right">
-                <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
                   [edit]
                 </A>
               </td>
               <td class="statText">
-                <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
                   <jsp:getProperty name="query" property="name"/>
                 </A>
               </td>

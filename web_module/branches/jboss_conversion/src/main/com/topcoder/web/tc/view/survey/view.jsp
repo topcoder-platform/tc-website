@@ -50,7 +50,7 @@
                      </tr>
                   </table>
 
-               <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm">
+               <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
                   <% int i=1; %>;

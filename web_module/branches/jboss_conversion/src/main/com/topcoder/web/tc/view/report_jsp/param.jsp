@@ -28,7 +28,7 @@
   </head>
   <body>
     <a href=<%=Constants.SERVLET_ADDR%><< back to main menu<a><br/><br/>
-    <form name="paramForm" method="get" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+    <form name="paramForm" method="get" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
       <input type="hidden" name="module" value="LegacyReport"/>
       <input type="hidden" name="<%=Constants.TASK_NAME_KEY%>" value="<%=Constants.REPORT_RESULT_KEY%>"/>
       <input type="hidden" name="<%=Constants.REPORT_ID_KEY%>" value="<%=request.getParameter(Constants.REPORT_ID_KEY)%>"/>
