@@ -48,12 +48,11 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="15">
 
                   <tr><td align="center"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
-                        <hr width="100%" size="1" noshade="0"/>
-                        </td></tr>
+                  </td></tr>
                             
                 <tr valign="top">
-                    <td class="promoText" width="99%">
-                        <p><A href="http://www.northface.edu" target="_blank">Northface University</A> is establishing the finest university in the world for software developers. 
+                    <td width="99%">
+                        <p class="bodyText" ><A href="http://www.northface.edu" target="_blank">Northface University</A> is establishing the finest university in the world for software developers. 
                         Our educational programs focus on the latest advancements in modeling, business rules, data management and systems integration. The courses are  fast-paced, utilize leading edge technologies 
                         and reinforce best practice skills for the implementation of real-world projects.</p>
                         </td>
@@ -70,7 +69,7 @@
                         
                         
 		<tr valign="top"> <td align="left">
-                        <p><A href="http://www.northface.edu" target="_blank">Northface University's</A> students are mentored by some of the most well-respected thought leaders in the software industry. The Northface University programs 
+                        <p class="bodyText"><A href="http://www.northface.edu" target="_blank">Northface University's</A> students are mentored by some of the most well-respected thought leaders in the software industry. The Northface University programs 
                         provide:</p>
                         
                         <blockquote>
