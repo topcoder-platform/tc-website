@@ -105,14 +105,19 @@ function goTo(selection){
 	
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
-	table.setBgcolor("\"#FFFFFF\"");
-	table.setCellSpacing("0");
-	table.setCellPadding("3");
-	table.setBorder("1");
-	table.setRowColor(0,"\"#C0C0C0\"");	
-	table.setFontSize("0");
-	table.setRowBold(0,true);
+ 	table.setBgcolor("\"#001935\"");
+ 	table.setCellSpacing("1");
+ 	table.setCellPadding("2");
+ 	table.setBorder("0");
+ 	table.setWidth("100%");
+ 	table.setColumnWidth(0, "40%");
+ 	table.setColumnWidth(1, "60%");				
+ 	table.setRowColor(0,"\"#093158\"");	
+ 	table.setClassName("statText");
+ 	table.setRowBold(0,true);	
+
 	out.print(table.getHtml());
+
 
 	out.print("<p><b>Contract Text:</b></p><p>" + c.text + "</p>");
 
