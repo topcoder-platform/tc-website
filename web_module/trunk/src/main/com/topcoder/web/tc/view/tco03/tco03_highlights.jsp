@@ -99,10 +99,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   <td width = "15%" align = "right" class="advancers_header">radeye's Odds</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702" class="topLink">Online Round 1</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">200</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">47</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">153</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers" class="topLink">Online Round 1</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers">200</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers">47</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers">153</a></td>
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/tc?module=Static&d1=tco03&d2=tco03_radeye_rd1','radeye1',900,600);">view</A></td>
                </tr>
                <tr>
