@@ -38,7 +38,7 @@ abstract class RegistrationBase extends BaseProcessor {
             log.debug("reg info not found in persistor, generating a new one");
             regInfo = makeRegInfo();
         } else {
-            log.debug("reg info found in persistor");
+            log.debug("reg info found in persistor " + temp.toString());
             regInfo = temp;
         }
         db = getCompanyDb(regInfo.getCompanyId());

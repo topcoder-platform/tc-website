@@ -14,9 +14,6 @@ import java.util.StringTokenizer;
  */
 abstract class SimpleRegBase extends RegistrationBase {
 
-    protected String db;
-    protected SimpleRegInfo regInfo;
-
     protected abstract void registrationProcessing() throws TCWebException;
 
     protected void setDefaults(SimpleRegInfo info) {
