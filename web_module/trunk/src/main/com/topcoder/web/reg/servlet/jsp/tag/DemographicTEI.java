@@ -9,7 +9,8 @@ public class DemographicTEI
         {
             new VariableInfo(Demographic.QUESTION_ID, String.class.getName(), true, VariableInfo.NESTED),
             new VariableInfo(Demographic.QUESTION, String.class.getName(), true, VariableInfo.NESTED),
-            new VariableInfo(Demographic.ANSWER, String.class.getName(), true, VariableInfo.NESTED)
+            new VariableInfo(Demographic.ANSWER, String.class.getName(), true, VariableInfo.NESTED),
+            new VariableInfo(Demographic.DESCRIPTION, String.class.getName(), true, VariableInfo.NESTED)
         };
 
         return variableInfo;
