@@ -74,7 +74,7 @@ function infoWindow(url) {
   var width = 200
   var height = 150
   var left = (screen.availWidth - width) / 2;
-  var top = 0;
+  var top = (screen.availHeight-height)/2;
   OpenWin=this.open(url,"Info",
             "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes"
             + ",width=" + width + ",height=" + height
