@@ -81,15 +81,14 @@ Inquiry Deadline: June 4, 2002<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=pdf_cci" CLASS="statTextBig">PDF Conversion Component Implementation Project</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=pdf_cci" CLASS="statText">PDF Conversion Component Implementation Project</A><BR/>
 Start Date: May 30, 2002<BR/>
 End Date: Jul 2, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: May 29, 2002<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=editorial" CLASS="statTextBig">Website Editorial</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=editorial" CLASS="statText">Website Editorial</A><BR/>
 Start Date: May 28, 2002<BR/>
 End Date: Jul 9, 2002<BR/>
 Member Selection: Closed<BR/>
