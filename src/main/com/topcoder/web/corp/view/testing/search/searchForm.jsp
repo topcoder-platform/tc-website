@@ -6,6 +6,7 @@
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
 <%List questionList = searchResults.getQuestions();%>
+<%=questionList.size()%>
 <script language="JavaScript"><!--
                         function submitEnter(e) {
                             var keycode;
