@@ -117,6 +117,7 @@
 
 <!-- Component Design Projects begin -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
+                    <xsl:if test="/TC/DEVELOPMENT/multiplier/status/phase=$design-phase">
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="7"><a name="design"></a><font size="3"><strong>Component Design Multiplier Status</strong></font></td></tr>
 
                 <tr valign="middle">
@@ -131,7 +132,6 @@
 
 
                 <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status"> 
-                    <xsl:if test="./phase=$design-phase">
                         <tr>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
@@ -184,13 +184,14 @@
                                  </CENTER>
                             </td>
                         </tr>                 
-                    </xsl:if>
                 </xsl:for-each> 
 
                 <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 <!-- Component Design Projects ends -->
+                    </xsl:if>
 
 <!-- Component Dev Projects begin -->
+                    <xsl:if test="/TC/DEVELOPMENT/multiplier/status/phase=$dev-phase">
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="7"><a name="development"></a><font size="3"><strong>Component Development Multiplier Status</strong></font></td></tr>
 
                 <tr valign="middle">
@@ -204,7 +205,6 @@
                 </tr>
                 
                 <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status"> 
-                    <xsl:if test="./phase=$dev-phase">
                         <tr>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
@@ -257,8 +257,8 @@
                                  </CENTER>
                             </td>
                         </tr>                 
-                    </xsl:if>
                 </xsl:for-each> 
+                    </xsl:if>
             </table>
 <!-- Component Dev Projects ends -->
 
