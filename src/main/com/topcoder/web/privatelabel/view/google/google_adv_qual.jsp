@@ -93,26 +93,15 @@ function openWin(url, name, w, h) {
                         
                         <p><font size="-1">
                         
+                  
                       <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="350">
                         <tr>
-                           <td class="advancersTitle">Round</td>
-                           <td class="advancersTitle" align="right" width="100%">Advancers</td>
+                           <td class="advancersTitle" align="left" colspan="4">Qualification Round</td>
                         </tr>
-                        <tr valign="top">
-                           <td class="google_round_id"><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Qualification Round</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_qual">500</a></td>
-                        </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Online Round 1</a></td>
-                           <td class="sidebarText" align="right">TBA</td>
-                        </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Online Round 2</a></td>
-                           <td class="sidebarText" align="right">TBA</td>
-                        </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Onsite Championship Round</a></td>
-                           <td class="sidebarText" align="right">n/a</td>
+                        <tr>
+                           <td class="google_round_id" align="left" width="40%">Handle</td>
+                           <td class="google_round_id" align="left" width="20%">Problem Set</td>
+                           <td class="google_round_id" align="left" width="20%">Points</td>
                         </tr>
 
                      </table>
