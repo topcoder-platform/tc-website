@@ -7,7 +7,7 @@
 <html>
   <head>
     <title></title>
-    <META HTTP-EQUIV=Refresh CONTENT="600; URL=<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=CurrentTime">
+    <META HTTP-EQUIV=Refresh CONTENT="600; URL=<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=Static&d1=clockFrame">
     <script language="JavaScript" type="text/javascript" src="/js/techassess.js"></script>
   </head>
   <body>

@@ -24,7 +24,6 @@ public class Constants implements CodingInterfaceConstants {
     //pages
     public static String PAGE_INDEX;
     public static String PAGE_LOGIN;
-    public static String PAGE_CURRENT_TIME;
     public static String PAGE_INDEX_INNER;
     public static String PAGE_VIEW_PROBLEM;
     public static String PAGE_VIEW_PROBLEM_INNER;
@@ -40,7 +39,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String SESSION_ID;
 
     //request processors
-    public static String RP_CURRENT_TIME;
     public static String RP_LOGOUT;
     public static String RP_LOGIN;
     public static String RP_LOGIN_RESPONSE;

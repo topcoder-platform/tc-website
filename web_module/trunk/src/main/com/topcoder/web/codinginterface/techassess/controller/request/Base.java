@@ -53,33 +53,32 @@ public abstract class Base extends BaseProcessor {
     private ImageInfo sponsorImage = null;
 
     protected void businessProcessing() throws Exception {
-        //log.debug("session timeout is " + getRequest().getSession().getMaxInactiveInterval());
-        getRequest().setAttribute(Constants.CURRENT_TIME, String.valueOf(System.currentTimeMillis()));
         try {
-            techAssessProcessing();
             //figure out the sponsor image
             Request dataRequest = new Request();
             dataRequest.setContentHandle("sponsor_image");
             try {
                 dataRequest.setProperty(Constants.COMPANY_ID, String.valueOf(getCompanyId()));
+                dataRequest.setProperty(Constants.IMAGE_TYPE, String.valueOf(Constants.TEST_IMAGE_TYPE));
+                DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+                Map resultMap = dai.getData(dataRequest);
+                ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
+                if (rsc==null||rsc.isEmpty()) {
+                    sponsorImage = BLANK;
+                } else {
+                    sponsorImage = new ImageInfo();
+                    sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
+                    sponsorImage.setHeight(rsc.getIntItem(0, "height"));
+                    sponsorImage.setWidth(rsc.getIntItem(0, "width"));
+                    sponsorImage.setLink(rsc.getStringItem(0, "link"));
+                }
             } catch (TCWebException e) {
-                throw new NavigationException("Request missing required parameter cm");
-            }
-            dataRequest.setProperty(Constants.IMAGE_TYPE, String.valueOf(Constants.TEST_IMAGE_TYPE));
-            DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            Map resultMap = dai.getData(dataRequest);
-            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
-            if (rsc==null||rsc.isEmpty()) {
+                log.warn("company id not set, using default image");
                 sponsorImage = BLANK;
-            } else {
-                sponsorImage = new ImageInfo();
-                sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
-                sponsorImage.setHeight(rsc.getIntItem(0, "height"));
-                sponsorImage.setWidth(rsc.getIntItem(0, "width"));
-                sponsorImage.setLink(rsc.getStringItem(0, "link"));
             }
             getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
-
+            techAssessProcessing();
+            getRequest().setAttribute(Constants.CURRENT_TIME, String.valueOf(System.currentTimeMillis()));
         } catch (TimeOutException e) {
             unlock();
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
@@ -333,21 +332,16 @@ public abstract class Base extends BaseProcessor {
 
     protected void showProcessingPage() throws IOException {
 
-        ImageInfo image = null;
-        if (sponsorImage == null)
-            image = BLANK;
-        else
-            image = sponsorImage;
         StringBuffer buffer = new StringBuffer(2000);
         buffer.append(FULL_CONTENT);
         buffer.append("<img src=\"");
-        buffer.append(image.getSrc() == null ? "" : image.getSrc());
+        buffer.append(sponsorImage.getSrc() == null ? "" : sponsorImage.getSrc());
         buffer.append("\"");
-        if (image.getHeight() >= 0) {
-            buffer.append(" height=\"").append(image.getHeight()).append("\"");
+        if (sponsorImage.getHeight() >= 0) {
+            buffer.append(" height=\"").append(sponsorImage.getHeight()).append("\"");
         }
-        if (image.getWidth() >= 0) {
-            buffer.append(" width=\"" + image.getWidth() + "\"");
+        if (sponsorImage.getWidth() >= 0) {
+            buffer.append(" width=\"" + sponsorImage.getWidth() + "\"");
         }
         buffer.append(" border=\"0\"");
         buffer.append(" alt=\"\"");
