@@ -20,8 +20,20 @@ public class IndexInner extends Base {
                     new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
-            setNextPage(Constants.PAGE_INDEX_INNER);
-            setIsNextPageInContext(true);
+            setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
+            setIsNextPageInContext(false);
+
+            if (hasParameter(Constants.MESSAGE_ID)) {
+                String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
+                loadSessionErrorsIntoRequest(messageId);
+                loadSessionDefaultsIntoRequest(messageId);
+                if (hasDefault(Constants.PROBLEM_SETS)&&hasDefault(Constants.LANGUAGES)) {
+                    getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
+                    getRequest().setAttribute(Constants.LANGUAGES, getDefault(Constants.LANGUAGES));
+                    setNextPage(Constants.PAGE_INDEX_INNER);
+                    setIsNextPageInContext(true);
+                }
+            }
         }
     }
 }
