@@ -173,15 +173,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$500.00</td>
+                                                            <td class="bodyText" align="right">$750.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$350.00</td>
+                                                            <td class="bodyText" align="right">$550.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$150.00</td>
+                                                            <td class="bodyText" align="right">$200.00</td>
                                                         </tr>
                                                     </table>
 
@@ -218,7 +218,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$1,400.00</td>
+                                                            <td class="bodyText" align="right">$1,650.00</td>
                                                         </tr>
                                                     </table>
 
