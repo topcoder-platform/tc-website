@@ -56,7 +56,7 @@ List resultsList = (List)request.getAttribute("results");
         <br />
         <table border=0>
             <tr>
-                <td colspan=3>
+                <td colspan=4>
                     <b>Search Results Here</b>
                 </td>
             </tr>
@@ -70,6 +70,9 @@ List resultsList = (List)request.getAttribute("results");
                 <td>
                     <b>Last Name</b>
                 </td>
+                <td>
+                    &nbsp;
+                </td>
             </tr>
             <tc:placementProfileSearchResultIterator id="searchResult" list="<%=resultsList%>">
             <tr>
@@ -82,6 +85,8 @@ List resultsList = (List)request.getAttribute("results");
                 <td>
                     <%=searchResult.getLastName()%>
                 </td>
+                <td>
+                    <a href="/tc?module=ProfileConfig&uid=<%=searchResult.getID()%>">configure</a>
             </tr>
             </tc:placementProfileSearchResultIterator>
         </table>

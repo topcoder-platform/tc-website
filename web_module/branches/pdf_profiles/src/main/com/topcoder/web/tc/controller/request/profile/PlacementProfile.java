@@ -51,13 +51,13 @@ public class PlacementProfile extends BaseProcessor {
                 sb.append("and p.user_id = u.user_id ");
                 sb.append("and p.preference_id in (2,7) ");
                 if(!handle.equals("")) {
-                    sb.append("and lower(u.handle) like '" + handle + "' ");
+                    sb.append("and lower(u.handle) like '" + handle.toLowerCase() + "' ");
                 }
                 if(!firstname.equals("")) {
-                    sb.append("and lower(c.first_name) like '" + firstname + "' ");
+                    sb.append("and lower(c.first_name) like '" + firstname.toLowerCase() + "' ");
                 }
                 if(!lastname.equals("")) {
-                    sb.append("and lower(c.last_name) like '" + lastname + "' ");
+                    sb.append("and lower(c.last_name) like '" + lastname.toLowerCase() + "' ");
                 }
                 sb.append("GROUP BY 1,2,3,4 ");
 
