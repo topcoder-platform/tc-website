@@ -14,8 +14,6 @@ import java.util.Date;
 
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.*;
-import com.informix.jdbc.*;
-import com.informix.jdbcx.*;
 
 import javax.sql.DataSource;
 /**
