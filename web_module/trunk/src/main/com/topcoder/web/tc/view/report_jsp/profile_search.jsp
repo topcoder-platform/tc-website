@@ -36,9 +36,6 @@
         var j = 0;
         for(i = 0; i<document.search[a].length; i++){
             if(document.search[a].options[i].selected){
-                j++;
-            }else{
-                document.search[a].options[i-j] = document.search[a].options[i];
                 document.search[a].options[i] = null;
             }
         }
@@ -68,7 +65,23 @@
             list.options[i].selected=true;
         }
         </rsc:iterator>
+        <rsc:iterator list="<%=skill_types%>" id="resultRow">
+        deselect(skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>);
+        deselect(skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>);
+        </rsc:iterator>
         document.search.submit();
+    }
+    function deselect( a ){
+        var i;
+        for(i = 0; i<document.search[a].length; i++){
+            document.search[a].options[i].selected = false;
+        }
+    }
+    function clear( a ){
+        var i;
+        for(; document.search[a].length; ){
+            document.search[a].options[0] = null;
+        }
     }
     -->
 </script>
@@ -90,6 +103,7 @@
           <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"><rsc:item name="state_code" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
+        <a href="JavaScript:deselect('states')">Deselect</a>
       </td></tr>
       <tr><td>Country: <select name="country" multiple size=5>
         <option value="840">United States</option>
@@ -101,6 +115,7 @@
           <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"><rsc:item name="country_name" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
+        <a href="JavaScript:deselect('country')">Deselect</a>
       </td></tr>
       <tr><td>Country of Origin: <select name="countryoforigin" multiple size=5>
         <option value="840">United States</option>
@@ -112,6 +127,7 @@
           <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"><rsc:item name="country_name" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
+        <a href="JavaScript:deselect('countryoforigin')">Deselect</a>
       </td></tr>
       <tr><td>Professional: <INPUT type="checkbox" name="pro" checked/>
       Student: <INPUT type="checkbox" name="stud" checked/></td></tr>
@@ -119,7 +135,6 @@
         <rsc:iterator list="<%=languages%>" id="resultRow">
           <rsc:item name="language_name" row="<%=resultRow%>"/>: <input type="checkbox" name="lang_<rsc:item name="language_id" row="<%=resultRow%>"/>" checked>
         </rsc:iterator>
-        </select>
       </td></tr>
       <tr><td>Max days since last rating: <input type="textbox" size="5" name="maxdayssincerating"></td></tr>
       <tr><td>Min events: <input type="textbox" size="5" name="minevents"></td></tr>
@@ -144,15 +159,16 @@
         }
         %>
         </select>
+        <a href="JavaScript:deselect('demographic_question_text')">Deselect</a>
         </td></tr>
       </rsc:iterator>
       <%idx=0;%>
       <tr><td><hr/><center><h2>Placement Information</h2></center></td></tr>
       <tr><td>Placement Indicator: <select name="placement">
+      <option value="none">No preference</option>
+      <option value="either">Either</option>
       <option value="contract">Contract</option>
       <option value="full">Full time</option>
-      <option value="either" selected>Either</option>
-      <option value="none">No preference</option>
       </select>
       </td></tr>
       <tr><td>Resume: <INPUT type="checkbox" name="resume"/></td></tr>
@@ -191,6 +207,7 @@
         </select>
         <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a><br/>
         <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a>
+        <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
         </td></tr>
       </rsc:iterator>
       <tr><td></td></tr>
