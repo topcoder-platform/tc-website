@@ -74,7 +74,7 @@ function submitSession() {
                 </screen:resultSetRowIterator>
               </select>
               </TD>
-              <TD CLASS="bodyText" VALIGN="middle">&#160;<a href="" onClick="submitProfile()">Create a New Test Profile</a></TD>
+              <TD CLASS="bodyText" VALIGN="middle">&#160;<a name="profile" /><a href="#profile" onClick="submitProfile()">Create a New Test Profile</a></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Candidate</b>&#160;</TD>
@@ -89,7 +89,7 @@ function submitSession() {
                 </screen:resultSetRowIterator>
               </select>
               </TD>
-              <TD CLASS="bodyText" VALIGN="middle">&#160;<a href="" onClick="submitCandidate()">Add a Candidate</a></TD>
+              <TD CLASS="bodyText" VALIGN="middle">&#160;<a name="candidate" /><a href="#candidate" onClick="submitCandidate()">Add a Candidate</a></TD>
            </TR>
            <TR>
               <TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
