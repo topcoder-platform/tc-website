@@ -32,9 +32,13 @@
            <jsp:param name="image1" value="steelblue"/>
            <jsp:param name="title" value="error"/>
         </jsp:include>
-	<TR>
 	   <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
 	   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
+	   <BR>
+	   </TD>
+	   <TR>
+	   <TD>
+
 	   <DIV CLASS="header">
 
 		 <!-- Error message content pane -->
