@@ -25,6 +25,8 @@ public class Submit extends View {
         try {
             String paramName = null;
             List responses = new ArrayList(10);
+            //we need the full list in this case, include free for questions
+            List questionInfo = getQuestionInfo(survey.getId(), true);
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String) params.nextElement();
                 log.debug("param: " + paramName);
@@ -132,12 +134,12 @@ public class Submit extends View {
                 SurveyResponse response = new SurveyResponse();
                 response.setQuestionId(question.getId());
                 response.setUserId(getUser().getId());
-                if (question.getStyleId() == Question.SINGLE_CHOICE || question.getStyleId() == Question.MULTIPLE_CHOICE) {
-                    response.setAnswerId(answerId);
-                    response.setFreeForm(false);
-                } else {
+                if (isFreeForm(question.getStyleId())) {
                     response.setText(StringUtils.checkNull(values[i]));
                     response.setFreeForm(true);
+                } else {
+                    response.setAnswerId(answerId);
+                    response.setFreeForm(false);
                 }
                 ret.add(response);
             }
