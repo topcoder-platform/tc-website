@@ -100,11 +100,13 @@ else
                             </tr>
                             </rsc:iterator>
                         </table>
+                        <%if(!isComplete) {%>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class="bodyText">* Project is still in progress, results subject to change</td>
+                              <td class="bodyText">* This project is still in progress, results subject to change</td>
                             </tr>
                         </table>
+                        <% } %>
                         <br/>
 
         <p><br/></p>
