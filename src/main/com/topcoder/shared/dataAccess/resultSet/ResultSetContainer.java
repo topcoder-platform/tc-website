@@ -1199,7 +1199,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     }	
     
     /**
-     * This method will output all columns and data, rows separated by \n, columns separated by \t
+     * This method will output all columns and data.
      *
      * @return	The columns and data, in string form.
      */
