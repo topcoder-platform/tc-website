@@ -4,7 +4,6 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.security.NoSuchUserException;
 
 import java.util.StringTokenizer;
@@ -39,24 +38,43 @@ abstract class SimpleRegBase extends RegistrationBase {
     protected SimpleRegInfo makeRegInfo() throws Exception {
         SimpleRegInfo info = getRegInfoFromPersistor();
         if (info == null) {
+            log.debug("didn't find info in persistor, proceding with info from request");
             info = new SimpleRegInfo();
-            info.setHandle(StringUtils.checkNull(getRequestParameter(Constants.HANDLE)));
-            info.setPassword(StringUtils.checkNull(getRequestParameter(Constants.PASSWORD)));
-            info.setPasswordConfirm(StringUtils.checkNull(getRequestParameter(Constants.PASSWORD_CONFIRM)));
-            info.setEmail(StringUtils.checkNull(getRequestParameter(Constants.EMAIL)));
-            info.setEmailConfirm(StringUtils.checkNull(getRequestParameter(Constants.EMAIL_CONFIRM)));
-            info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.FIRST_NAME)));
-            info.setMiddleName(StringUtils.checkNull(getRequestParameter(Constants.MIDDLE_NAME)));
-            info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.LAST_NAME)));
-            info.setAddress1(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS1)));
-            info.setAddress2(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS2)));
-            info.setAddress3(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS3)));
-            info.setCountryCode(StringUtils.checkNull(getRequestParameter(Constants.COUNTRY_CODE)));
-            info.setStateCode(StringUtils.checkNull(getRequestParameter(Constants.STATE_CODE)));
-            info.setCity(StringUtils.checkNull(getRequestParameter(Constants.CITY)));
-            info.setZip(StringUtils.checkNull(getRequestParameter(Constants.ZIP)));
-            info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
+        } else {
+            log.debug("found info in persistor, proceding with that");
         }
+        if (hasRequestParameter(Constants.HANDLE))
+            info.setHandle(StringUtils.checkNull(getRequestParameter(Constants.HANDLE)));
+        if (hasRequestParameter(Constants.PASSWORD))
+            info.setPassword(StringUtils.checkNull(getRequestParameter(Constants.PASSWORD)));
+        if (hasRequestParameter(Constants.PASSWORD_CONFIRM))
+            info.setPasswordConfirm(StringUtils.checkNull(getRequestParameter(Constants.PASSWORD_CONFIRM)));
+        if (hasRequestParameter(Constants.EMAIL))
+            info.setEmail(StringUtils.checkNull(getRequestParameter(Constants.EMAIL)));
+        if (hasRequestParameter(Constants.EMAIL_CONFIRM))
+            info.setEmailConfirm(StringUtils.checkNull(getRequestParameter(Constants.EMAIL_CONFIRM)));
+        if (hasRequestParameter(Constants.FIRST_NAME))
+            info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.FIRST_NAME)));
+        if (hasRequestParameter(Constants.MIDDLE_NAME))
+            info.setMiddleName(StringUtils.checkNull(getRequestParameter(Constants.MIDDLE_NAME)));
+        if (hasRequestParameter(Constants.LAST_NAME))
+            info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.LAST_NAME)));
+        if (hasRequestParameter(Constants.ADDRESS1))
+            info.setAddress1(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS1)));
+        if (hasRequestParameter(Constants.ADDRESS2))
+            info.setAddress2(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS2)));
+        if (hasRequestParameter(Constants.ADDRESS3))
+            info.setAddress3(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS3)));
+        if (hasRequestParameter(Constants.COUNTRY_CODE))
+            info.setCountryCode(StringUtils.checkNull(getRequestParameter(Constants.COUNTRY_CODE)));
+        if (hasRequestParameter(Constants.STATE_CODE))
+            info.setStateCode(StringUtils.checkNull(getRequestParameter(Constants.STATE_CODE)));
+        if (hasRequestParameter(Constants.CITY))
+            info.setCity(StringUtils.checkNull(getRequestParameter(Constants.CITY)));
+        if (hasRequestParameter(Constants.ZIP))
+            info.setZip(StringUtils.checkNull(getRequestParameter(Constants.ZIP)));
+        if (hasRequestParameter(Constants.COMPANY_ID))
+            info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
         return info;
     }
 

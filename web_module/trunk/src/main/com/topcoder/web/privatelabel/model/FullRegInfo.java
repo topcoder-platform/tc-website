@@ -46,7 +46,24 @@ public class FullRegInfo extends SimpleRegInfo {
         return list;
     }
 
-    public void setResponses(List responses) {
-        this.responses = responses;
+    public void removeResponses(long questionId) {
+        for (int i=0; i<responses.size(); i++) {
+            if (((DemographicResponse) responses.get(i)).getQuestionId()==questionId) {
+                responses.remove(i);
+            }
+        }
     }
+
+    public void addResponse(DemographicResponse response) {
+        responses.add(response);
+    }
+
+    public boolean hasResponse(long questionId) {
+        boolean found = false;
+        for (int i=0; i<responses.size()&&!found; i++) {
+            found = ((DemographicResponse) responses.get(i)).getQuestionId()==questionId;
+        }
+        return found;
+    }
+
 }
