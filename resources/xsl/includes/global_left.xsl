@@ -306,34 +306,6 @@
                 <xsl:call-template name="development_row"/>
                 <xsl:call-template name="applet_row"/>
 
-<!-- Overview -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="$level1='dev_index'">leftNavSelect</xsl:when>
-                            <xsl:otherwise>leftNav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn">
-                        <xsl:attribute name="class">
-                        <xsl:choose>
-                            <xsl:when test="$level1='dev_index'">leftOn</xsl:when>
-                            <xsl:otherwise>left</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>
-                        <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_right.gif">
-                            <xsl:attribute name="src">
-                                <xsl:choose>
-                                    <xsl:when test="$level1='dev_index'">/i/clear.gif</xsl:when>
-                                    <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:attribute>
-                        </img>Overview</A>
-                    </td>
-                </tr>
-
 <!-- How to Get Paid -->
                 <tr>
                     <td id="leftSubnav">
