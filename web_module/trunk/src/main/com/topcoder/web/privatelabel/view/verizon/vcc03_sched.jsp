@@ -5,9 +5,11 @@
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-<title>Verizon Coding Challenge Powered by TopCoder - Schedule</title>
+
+<title>Verizon Coding Contest Powered by TopCoder - Schedule</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -21,7 +23,7 @@
    <tr>
 
  <!-- Verizon logo-->
-        <td width="147" valign="top"><a href="http://www22.verizon.com/"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></a></td>
+        <td width="147" valign="top"><a href="http://www.verizon.com/"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></a></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
         <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Contest" border="0"></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
@@ -60,59 +62,58 @@
                 <tr valign="top">
                     <td width="427" class="bodyCopy">
 
-            <h2 class="pgTitle">Schedule</h2>
+                        <h2 class="pgTitle">Schedule</h2>
             
 <!-- Qualification Description begins -->
-            <p>Registration is unlimited, however only the first 500 eligible individuals to register will be invited to compete.</p>
+                        <p>Registration is unlimited, however only the first 500 eligible individuals to register will be invited to compete.</p>
 <!-- Qualification Description Ends -->
 
-            <a name="sched"></a>
-            <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
-                <tr>
-                    <td class="sidebarTitle">Round</td>
-                    <td class="sidebarTitle">Date and Time - Chennai Time</td>
-                    <td class="sidebarTitle" align="center"># of Participants</td>
-                    <td class="sidebarTitle" align="center"># of Advancers</td>
-                </tr>
+                        <a name="sched"></a>
+                        <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+                            <tr>
+                                <td class="sidebarTitle">Round</td>
+                                <td class="sidebarTitle">Date and Time - Chennai Time</td>
+                                <td class="sidebarTitle" align="center"># of Participants</td>
+                                <td class="sidebarTitle" align="center"># of Advancers</td>
+                            </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText">Round #1</td>
-                    <td class="sidebarText" nowrap="nowrap">
-                        Wednesday, August 20th<br />
-                        Sign In: 6:00 PM - 8:55 PM<br />
-                        START: 9:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">500</td>
-                    <td class="sidebarText" align="center">250</td>
-                </tr>
+                            <tr valign="top">
+                                <td class="sidebarText">Round #1</td>
+                                <td class="sidebarText" nowrap="nowrap">
+                                    Wednesday, August 20th<br />
+                                    Sign In: 6:00 PM - 8:55 PM<br />
+                                    START: 9:00 PM<br />
+                                </td>
+                                <td class="sidebarText" align="center">500</td>
+                                <td class="sidebarText" align="center">250</td>
+                            </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText">Round #2</td>
-                    <td class="sidebarText" nowrap="nowrap">
-                        Monday, August 25th<br />
-                        START: 9:30 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">250</td>
-                    <td class="sidebarText" align="center">25</td>
-                </tr>
+                            <tr valign="top">
+                                <td class="sidebarText">Round #2</td>
+                                <td class="sidebarText" nowrap="nowrap">
+                                    Monday, August 25th<br />
+                                    START: 9:30 PM<br />
+                                </td>
+                                <td class="sidebarText" align="center">250</td>
+                                <td class="sidebarText" align="center">25</td>
+                            </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText">Round #3 - Championship Round</td>
-                    <td class="sidebarText" nowrap="nowrap">
-                        Friday, August 29th<br />
-                        START: 9:30 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">25</td>
-                    <td class="sidebarText" align="center">4 Prize  Winners</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.
-                    </td>
-                </tr>
-            </table>
-<!-- Online Elimination Rounds ends -->
+                            <tr valign="top">
+                                <td class="sidebarText">Round #3 - Championship Round</td>
+                                <td class="sidebarText" nowrap="nowrap">
+                                    Friday, August 29th<br />
+                                    START: 9:30 PM<br />
+                                </td>
+                                <td class="sidebarText" align="center">25</td>
+                                <td class="sidebarText" align="center">4 Prize  Winners</td>
+                            </tr>
+            
+                            <tr valign="top">
+                                <td class="sidebarText" colspan="4">
+                                    *NOTE: In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.
+                                </td>
+                            </tr>
+                        </table>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
@@ -122,7 +123,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-<jsp:include page="verizon_right.jsp" />
+    <jsp:include page="verizon_right.jsp" />
 <!-- Right Column Ends -->
 
                 </tr>
@@ -132,7 +133,7 @@
 </table>
 
 <!-- Footer Begins -->
-<jsp:include page="verizon_foot.jsp" />
+    <jsp:include page="verizon_foot.jsp" />
 <!-- Footer Ends -->
 
 </body>

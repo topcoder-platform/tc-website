@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Verizon Coding Challenge Powered by TopCoder</title>
+<title>Verizon Coding Contest Powered by TopCoder</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -84,105 +84,110 @@
                 <tr valign="top">
                     <td width="427" class="bodyCopy">
 
-            <h2 class="pgTitle">The Best of the Best</h2>
+                        <h2 class="pgTitle">The Best of the Best</h2>
 
-            <p>Everyone knows that programmers from Chennai are the masters of software development. But who among them is the best? Verizon is on a mission to answer that question.
-            Through the Verizon Coding Challenge, top software developers will have a chance to showcase their skills, earn recognition as the top developers in Chennai
-            and win cash and other prizes.</p>
+                        <p>Everyone knows that programmers from Chennai are the masters of software development. But who among them is the best? 
+                        Verizon is on a mission to answer that question. Through the Verizon Coding Challenge, top software developers will have a 
+                        chance to showcase their skills, earn recognition as the top developers in Chennai and win cash and other prizes.</p>
 
-            <p>If you want to raise your profile by besting your peers, then this is the event for you. Verizon has teamed with TopCoder, the leader in online and offline programming competitions
-            and skills assessment, to execute this exciting event. Verizon may use the results of this event for the purpose of finding new employees for their Chennai Center.</p>
-
-            <p><span class="bodySubtitle">Choose Your Weapon</span><br />
-            Use Java, C++, C# or VB.NET to compete. The event will allow developers to choose from these four important programming languages, with no particular
-            advantage given to any one language.</p>
-
-            <p><span class="bodySubtitle">How It Works</span><br />
-            The tournament is a timed contest allowing all participants to compete online to solve the same problems under the same time constraints. The contests are challenging and exciting for participants and
-            spectators. The format is simple:</p>
-
-            <ul>
-            <li><strong>Download the Arena</strong><br />
-            TopCoder's Competition Arena (a Java Applet) provides the interface to the competition. Here contestants will read the problem statements, code
-            solutions, compile and test those solutions and submit their code for points. Prior to the match, you can practice on many sample problems by downloading the arena ahead of time.</li>
-
-            <li><strong>Coding Phase</strong><br />
-            At the designated date and time, competitors will enter the Arena just prior to "kick off". Competitors are placed in virtual rooms of 10 developers
-            per room. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution
-            in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tells the tale as competitors vie for the highest point total.</li>
-
-            <li><strong>Challenge Phase</strong><br />
-            During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through submitted code, with the hope that the results are not satisfied by the
-            software written. Breaking another developer's code is the most direct form of engaging competition for a programmer. In this phase, precious points
-            are awarded or taken away based on successful challenges. A penalty exists for an unsuccessful challenge.</li>
-
-            <li><strong>System Tests</strong><br />
-            Within minutes of the end of the Challenge Phase, TopCoder will determine the accuracy of all submissions and award final points to all competitors. It
-            is the instant gratification of knowing winners, losers, statistics and one's own performance versus the field that makes TopCoder events unique and
-            captivating.</li>
-            </ul>
-
-            <p><span class="bodySubtitle">Can Your Skills Carry You to August 29th?</span><br />
-            Registration for the Verizon Coding Challenge opens on August 4th and closes on August 15th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
-            register will be invited to compete in Round #1 which will be held at XXX on August 20th.</p>
-
-            <p>The competitors with the top 250 scores from the first round will advance to the second round on August 25th. The top 25 performers in the second round will be invited to
-            compete for the large cash prizes onsite at VDSI Chennai on August 29th.</p>
-
-            <a name="sched"></a>
-            <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
-                <tr>
-                    <td class="sidebarTitle">Date</td>
-                    <td class="sidebarTitle">Time</td>
-                    <td class="sidebarTitle">Status</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Monday, August 4</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Registration Opens</td>
+                        <p>If you want to raise your profile by besting your peers, then this is the event for you. Verizon has teamed with TopCoder, 
+                        the leader in online and offline programming competitions and skills assessment, to execute this exciting event. Verizon may 
+                        use the results of this event for the purpose of finding new employees for their Chennai Center.</p>
+                    </td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="sidebarText">Friday, August 15</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Registration Closes</td>
-                </tr>
+                    <td width="427" class="bodyCopy">
+                        <p><span class="bodySubtitle">Choose Your Weapon</span><br />
+                        Use Java, C++, C# or VB.NET to compete. The event will allow developers to choose from these four important programming languages, with no particular
+                        advantage given to any one language.</p>
 
-                <tr valign="top">
-                    <td class="sidebarText">Wednesday, August 20</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Round 1 - 500 participants</td>
-                </tr>
+                        <p><span class="bodySubtitle">How It Works</span><br />
+                        The tournament is a timed contest allowing all participants to compete online to solve the same problems under the same time constraints. The contests are challenging and exciting for participants and
+                        spectators. The format is simple:</p>
 
-                <tr valign="top">
-                    <td class="sidebarText">Monday, August 25</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Round 2 - 250 participants</td>
-                </tr>
+                        <ul>
+                            <li><strong>Download the Arena</strong><br />
+                            TopCoder's Competition Arena (a Java Applet) provides the interface to the competition. Here contestants will read the problem statements, code
+                            solutions, compile and test those solutions and submit their code for points. Prior to the match, you can practice on many sample problems by downloading the arena ahead of time.</li>
 
-                <tr valign="top">
-                    <td class="sidebarText">Friday, August 29</td>
-                    <td class="sidebarText">XXX</td>
-                    <td class="sidebarText">Championship - 25 participants</td>
-                </tr>
-            </table>
+                            <li><strong>Coding Phase</strong><br />
+                            At the designated date and time, competitors will enter the Arena just prior to "kick off". Competitors are placed in virtual rooms of 10 developers
+                            per room. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution
+                            in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tells the tale as competitors vie for the highest point total.</li>
 
-            <p><span class="bodySubtitle">Prizes</span><br />
-            The 500 participants in Round 1 will receive a "Verizon Coding Challenge" t-shirt to wear with pride. The shirt will be a symbol
-            of your competitive spirit. You will be recognized as leaders in Chennai's software development community. Verizon will present
-            the top 25 finishers with a Certificate of Merit for outstanding performance in the tournament. The top four scorers
-            will receive the following cash prizes:</p>
+                            <li><strong>Challenge Phase</strong><br />
+                            During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through submitted code, with the hope that the results are not satisfied by the
+                            software written. Breaking another developer's code is the most direct form of engaging competition for a programmer. In this phase, precious points
+                            are awarded or taken away based on successful challenges. A penalty exists for an unsuccessful challenge.</li>
 
-            <p>1st Place - $1,000 USD<br />
-            2nd Place - $500 USD<br/>
-            3rd Place - $300 USD<br/>
-            4th Place - $100 USD</p>
+                            <li><strong>System Tests</strong><br />
+                            Within minutes of the end of the Challenge Phase, TopCoder will determine the accuracy of all submissions and award final points to all competitors. It
+                            is the instant gratification of knowing winners, losers, statistics and one's own performance versus the field that makes TopCoder events unique and
+                            captivating.</li>
+                        </ul>
 
-            <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
-            the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules_conditions">Terms and Conditions</a>.</p>
+                        <p><span class="bodySubtitle">Can Your Skills Carry You to August 29th?</span><br />
+                        Registration for the Verizon Coding Challenge opens on August 4th and closes on August 15th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
+                        register will be invited to compete in Round #1 which will be held at XXX on August 20th.</p>
+
+                        <p>The competitors with the top 250 scores from the first round will advance to the second round on August 25th. The top 25 performers in the second round will be invited to
+                        compete for the large cash prizes onsite at VDSI Chennai on August 29th.</p>
+
+                        <a name="sched"></a>
+                        <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+                            <tr>
+                                <td class="sidebarTitle">Date</td>
+                                <td class="sidebarTitle">Time</td>
+                                <td class="sidebarTitle">Status</td>
+                            </tr>
+                            
+                            <tr valign="top">
+                                <td class="sidebarText">Monday, August 4</td>
+                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Registration Opens</td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="sidebarText">Friday, August 15</td>
+                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Registration Closes</td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="sidebarText">Wednesday, August 20</td>
+                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Round 1 - 500 participants</td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="sidebarText">Monday, August 25</td>
+                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Round 2 - 250 participants</td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="sidebarText">Friday, August 29</td>
+                                <td class="sidebarText">XXX</td>
+                                <td class="sidebarText">Championship - 25 participants</td>
+                            </tr>
+                        </table>
+
+                        <p><span class="bodySubtitle">Prizes</span><br />
+                        The 500 participants in Round 1 will receive a "Verizon Coding Challenge" t-shirt to wear with pride. The shirt will be a symbol
+                        of your competitive spirit. You will be recognized as leaders in Chennai's software development community. Verizon will present
+                        the top 25 finishers with a Certificate of Merit for outstanding performance in the tournament. The top four scorers
+                        will receive the following cash prizes:</p>
+
+                        <p>1st Place - $1,000 USD<br />
+                        2nd Place - $500 USD<br/>
+                        3rd Place - $300 USD<br/>
+                        4th Place - $100 USD</p>
+
+                        <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
+                        the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules_conditions">Terms and Conditions</a>.</p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
-            
                     </td>
                     
 <!-- Gutter Begins -->
@@ -190,7 +195,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-<jsp:include page="verizon_right.jsp" />
+    <jsp:include page="verizon_right.jsp" />
 <!-- Right Column Ends -->
 
                 </tr>
@@ -200,7 +205,7 @@
 </table>
 
 <!-- Footer Begins -->
-<jsp:include page="verizon_foot.jsp" />
+    <jsp:include page="verizon_foot.jsp" />
 <!-- Footer Ends -->
 
 </body>

@@ -57,4 +57,4 @@ function openWin(url, name, w, h) {
                             </tr>
                         </table>
 
-                        <img src="/images/spacer.gif" alt="" width="1" height="300"><br/>
+                        <img src="/images/spacer.gif" alt="" width="1" height="500"><br/>
