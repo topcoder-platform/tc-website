@@ -1,5 +1,5 @@
 <%@ include file="head.inc" %>
-<bean:define name="FORM_DATA" id="data" type="java.util.Map" scope="request"/>
+<bean:define name="STUDENT_DATA" id="data" type="java.util.Map" scope="request"/>
 <% ResultSetContainer rsc;
    ResultSetContainer.ResultSetRow rsr; %>
 <P><B>Registration for Students</B></P>

@@ -82,7 +82,7 @@ public class Registration extends Base {
         Request req=new Request(map);
         Map data=dai.getData(req);
 
-        request.setAttribute("FORM_DATA",data);
+        request.setAttribute("STUDENT_DATA",data);
 
         setNextPage(REG_BASE+REG_STUDENT_PAGE);
       }
