@@ -96,8 +96,11 @@
 <pre>
 <% 
 Exception excCaught = (Exception)request.getAttribute("caught-exception");
-if( excCaught != null ) { excCaught.printStackTrace(); }
-%>
+if( excCaught != null ) { 
+    excCaught.printStackTrace();
+    out.println(excCaugh.toString());
+}
+ %>
 </pre>
 <hr>
 <!-- web-app debug time stack trace END -->
