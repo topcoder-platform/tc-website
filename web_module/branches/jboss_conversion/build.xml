@@ -1168,7 +1168,7 @@
      </target>
 
 
-     <target name="deploy-tc" depends="compile">
+     <target name="deploy-tc">
          <antcall target="package-EJB-AddressBean"/>
          <antcall target="package-EJB-AuthenticationServicesBean"/>
          <antcall target="package-EJB-Catalog"/>
