@@ -43,9 +43,9 @@
                 <tr>
                     <td class="screeningHeader" width="33%">Campaign Name</td>
                     <td class="screeningHeader" width="33%" align=center>Most Recent Activity</td>
-                    <td class="screeningHeader" width="33%" align=right>Candidates</td>
-                    <td class="screeningHeader" width="33%" align=right>Positions</td>
-                    <td class="screeningHeader" width="33%" align=right>Collective Demographics</td>
+                    <td class="screeningHeader" width="33%" align=center>Candidates</td>
+                    <td class="screeningHeader" width="33%" align=center>Positions</td>
+                    <td class="screeningHeader" width="33%" align=center>Collective Demographics</td>
                 </tr>
 
                 <%
@@ -63,13 +63,13 @@
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
                         <screen:resultSetItem row="<%=row%>" name="most_recent_activity" format='MM/dd/yyyy hh:mm a' />
                     </td>
-                    <td class="<%=cssClasses[counter % 2]%>" align="right">
+                    <td class="<%=cssClasses[counter % 2]%>" align="center">
                         <screen:resultSetItem row="<%=row%>" name="candidates_num" />
                     </td>
-                    <td class="<%=cssClasses[counter % 2]%>" nowrap="center">
+                    <td class="<%=cssClasses[counter % 2]%>" nowrap=nowrap align=center>
                         <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_LIST_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
                     </td>
-                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
+                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap=nowrap align=center>
                         <A href='?<%=Constants.MODULE_KEY%>=Demographics&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
                     </td>
                 </tr>

@@ -63,7 +63,7 @@ function getProblemDetail(id) {
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="600">
+            <table border="0" cellspacing="0" cellpadding="0" width="700">
                 <tr valign="top">
                     <td class="bodyText">
                         <%
@@ -86,7 +86,7 @@ function getProblemDetail(id) {
             <%
                 info = (List) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST);
             %>
-            <table border="0" cellspacing="0" cellpadding="0" width="600">
+            <table border="0" cellspacing="0" cellpadding="0" width="700">
                 <tr valign="top">
                     <td class="bodyText">Total Candidates:
                         <b><%= info.size()%></b>
@@ -114,7 +114,7 @@ function getProblemDetail(id) {
 
             <br/>
 
-            <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%">
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=name&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
@@ -245,7 +245,7 @@ function getProblemDetail(id) {
 
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="600">
+            <table border="0" cellspacing="0" cellpadding="0" width="700">
                 <tr valign="top">
                     <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
                         + Math.min(info.size() -  startIndex,Constants.SEARCH_SCROLL_SIZE)%>:&#160;&#160;&#160;
