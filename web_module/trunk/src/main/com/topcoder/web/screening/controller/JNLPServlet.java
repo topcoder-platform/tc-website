@@ -58,7 +58,8 @@ public final class JNLPServlet extends HttpServlet {
              /***********************************************************************/
 
              out.print("<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                     "<jnlp spec=\"1.0+\" codebase=\"http://corporate.topcoder.com/contest/screening/\" " +
+                     "<jnlp spec=\"1.0+\" " +
+                     "codebase=\"http://corporate.topcoder.com/contest/screening/\" " +
                      "href=\"ScreeningApp.jnlp\">\r\n" +
                      "<information>\r\n" +
                      "<title>TopCoder Testing Application</title>\r\n" +
