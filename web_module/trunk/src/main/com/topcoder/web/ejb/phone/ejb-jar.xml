@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE ejb-jar PUBLIC 
- '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 
+<!DOCTYPE ejb-jar PUBLIC
+ '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN'
  'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
 
 <ejb-jar>
@@ -16,12 +16,12 @@
         <env-entry>
           <env-entry-name>datasource_name</env-entry-name>
           <env-entry-type>java.lang.String</env-entry-type>
-          <env-entry-value>JTS_DS</env-entry-value>
+          <env-entry-value>JTS_COMMON</env-entry-value>
         </env-entry>
         <env-entry>
           <env-entry-name>idgen_datasource_name</env-entry-name>
           <env-entry-type>java.lang.String</env-entry-type>
-          <env-entry-value>DS</env-entry-value>
+          <env-entry-value>COMMON</env-entry-value>
         </env-entry>
     </session>
   </enterprise-beans>
