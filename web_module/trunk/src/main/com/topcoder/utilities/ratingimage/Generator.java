@@ -13,11 +13,11 @@ public class Generator {
 
     private static final Color ORANGE = Color.decode("0xFF9900");
     private static final Color WHITE = Color.decode("0xFFFFFF");
-    private static final Color GRAY = Color.decode("0xCCCCCC");
-    private static final Color GREEN = Color.decode("0x99FF33");
-    private static final Color BLUE = Color.decode("0x66CCCC");
-    private static final Color YELLOW = Color.decode("0xFFFF00");
-    private static final Color RED = Color.decode("0xFF0000");
+    private static final Color GRAY = Color.decode("0x999999");
+    private static final Color GREEN = Color.decode("0x00A900");
+    private static final Color BLUE = Color.decode("0x6666FF");
+    private static final Color YELLOW = Color.decode("0xDDCC00");
+    private static final Color RED = Color.decode("0xEE0000");
 
     private static final Color FRAME_COLOR = Color.decode("0x666666");
 
