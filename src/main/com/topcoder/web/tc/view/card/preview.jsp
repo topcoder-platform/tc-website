@@ -61,13 +61,14 @@ if ( plugin ) {
            <jsp:param name="title" value="Preview"/>  
         </jsp:include>
 
-            <div class="bodyText">
-            <p align="center">This is a preview of what your card will look like:</p>
-
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+        <table width="540" cellpadding="0" cellspacing="0" border="0" class="bodyText" align="center">
             <tr>
-                <td align="center">
-            
+                <td class="bodyText">
+
+                    <p><br/></p>
+                    <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the link below.</p>
+
+<div align="center">
 <SCRIPT language="JavaScript">
 <!--
 if ( MM_FlashCanPlay ) {
@@ -110,14 +111,13 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="400" border="
 }
 // -->
 </SCRIPT>
+</div>
 
-
+                    <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock.gif" border="0"/></a></p>
                 </td>
             </tr>
         </table>
 
-        <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock.gif" border="0"/></a></p>
-        </div>
         <p><br/></p>
          </td>
 <!-- Center Column Ends -->
