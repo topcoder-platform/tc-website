@@ -276,7 +276,7 @@ public class RegistrationHelper {
     }
     _srb.setSchoolList(school_list);
 
-    TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
+    TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup("hs:"+TermsOfUseHome.EJB_REF_NAME);
     TermsOfUse tou=touh.create();
     _srb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
   }
@@ -384,7 +384,7 @@ public class RegistrationHelper {
       user_school.setCurrentUserSchoolId(user_id,
                                          _srb.getSchoolId().longValue());
 
-      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
+      EmailHome eh=(EmailHome)ctx.lookup("hs:"+EmailHome.EJB_REF_NAME);
       Email email=eh.create();
       long email_id=email.createEmail(user_id);
       email.setPrimaryEmailId(user_id,email_id);
@@ -472,7 +472,7 @@ public class RegistrationHelper {
         user_school.setCurrentUserSchoolId(user_id,school_id);
       }
 
-      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
+      EmailHome eh=(EmailHome)ctx.lookup("hs:"+EmailHome.EJB_REF_NAME);
       Email email=eh.create();
       long email_id=email.createEmail(user_id);
       email.setPrimaryEmailId(user_id,email_id);
@@ -652,7 +652,7 @@ public class RegistrationHelper {
     }
     _crb.setSchoolList(school_list);
 
-    TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
+    TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup("hs:"+TermsOfUseHome.EJB_REF_NAME);
     TermsOfUse tou=touh.create();
     _crb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
   }
@@ -736,7 +736,7 @@ public class RegistrationHelper {
       user_school.setCurrentUserSchoolId(user_id,
                                          _crb.getSchoolId().longValue());
 
-      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
+      EmailHome eh=(EmailHome)ctx.lookup("hs:"+EmailHome.EJB_REF_NAME);
       Email email=eh.create();
       long email_id=email.createEmail(user_id);
       email.setPrimaryEmailId(user_id,email_id);
@@ -839,7 +839,7 @@ public class RegistrationHelper {
         user_school.setCurrentUserSchoolId(user_id,school_id);
       }
 
-      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
+      EmailHome eh=(EmailHome)ctx.lookup("hs:"+EmailHome.EJB_REF_NAME);
       Email email=eh.create();
       long email_id=email.createEmail(user_id);
       email.setPrimaryEmailId(user_id,email_id);

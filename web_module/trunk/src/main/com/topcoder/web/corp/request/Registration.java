@@ -120,7 +120,7 @@ public final class Registration extends UserEdit {
             rsc = (ResultSetContainer) resultMap.get("Country_List");
             request.setAttribute("rsc-countries-list", rsc);
 
-            TermsOfUse terms = ((TermsOfUseHome)ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
+            TermsOfUse terms = ((TermsOfUseHome)ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
             setFormFieldDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
             UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();

@@ -215,7 +215,7 @@ public class UserEdit extends BaseProcessor {
 
         // email for user
         Email emailTable = (
-                (EmailHome) ic.lookup(EmailHome.EJB_REF_NAME)
+                (EmailHome) ic.lookup("corp:"+EmailHome.EJB_REF_NAME)
                 ).create();
         long emailID = emailTable.getPrimaryEmailId(targetUserID);
         email = emailTable.getAddress(emailID);
@@ -642,7 +642,7 @@ public class UserEdit extends BaseProcessor {
 
         // setup email for user
         Email emailTable = (
-                (EmailHome) ic.lookup(EmailHome.EJB_REF_NAME)
+                (EmailHome) ic.lookup("corp:"+EmailHome.EJB_REF_NAME)
                 ).create();
         long emailID = -1;
         if (!createNew) {
