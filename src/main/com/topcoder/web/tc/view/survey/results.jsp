@@ -141,9 +141,6 @@
                                document.write('<embed src="/i/barGraph.swf?percentage=<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=200 height=15 border="0" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" swLiveConnect="true" ></embed>');
                                document.write('</object>');
                             }
-                            else {
-                               document.write('<a href="http://www.macromedia.com/go/getflashplayer"><img src="/i/getflash.gif" width="15" heigh="15" border="0"></a>');
-                            }
                             // -->
                             </SCRIPT>
                             </p>
@@ -154,6 +151,20 @@
                   </table>
                   <p><br/></p>
              </tc:questionIterator>
+                  <table width="100%" border="0" cellpadding="3" cellspacing="0" class="bodyText">
+                     <tr>
+                        <td>
+                            <SCRIPT LANGUAGE="JavaScript">
+                            <!--
+                            if (flashinstalled<2){
+                               document.write('<a href="http://www.macromedia.com/go/getflashplayer"><img src="/i/getflash.gif" width="15" heigh="15" border="0"></a>');
+                            }
+                            // -->
+                            </SCRIPT>
+                        </td>
+                    </tr>
+                  </table>
+
          </td>
 <!-- Center Column Ends -->
 
