@@ -471,12 +471,10 @@ public final class Challenge {
 
         try {
             InitialContext ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+            contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
             try {
-                contestEJB = contestHome.create();
                 int challengeId = Integer.parseInt(request.getParameter("overturn"));
                 contestEJB.overturnChallenge(challengeId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: overturnChallenge error overturning challenge .");
                 e.printStackTrace();
