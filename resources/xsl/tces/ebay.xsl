@@ -18,7 +18,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>TopCoder | Employment Services</title>
+<title>eBay jobs at TopCoder Employment Services</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -35,7 +35,7 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC">
+        <td width="180">
             <xsl:call-template name="global_left"/>
         </td>
 <!-- Left Column Ends -->

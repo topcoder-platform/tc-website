@@ -8,7 +8,7 @@
 
 <head>
 
-<title>TopCoder | Employment Program</title>
+<title>Amazon jobs at TopCoder Employment Services</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css" />
 
