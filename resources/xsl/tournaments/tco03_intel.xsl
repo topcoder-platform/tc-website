@@ -107,6 +107,7 @@ function openWin(url, name, w, h) {
                 </td>
             </tr>
         </table>
+        </td>
     </tr>
 </table>
 <!-- Center Column Ends -->
