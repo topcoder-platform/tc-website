@@ -4,9 +4,14 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningOpenComponentForCodingRequest;
+import com.topcoder.shared.netCommon.screening.request.ScreeningTestRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningOpenComponentResponse;
+import com.topcoder.shared.netCommon.screening.response.ScreeningTestResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+
+import java.util.ArrayList;
 
 /**
  * User: dok
@@ -39,24 +44,28 @@ public class Test extends Base {
                 throw new NavigationException("Invalid Request, missing parameter");
             }
 
-            ScreeningOpenComponentForCodingRequest request = new ScreeningOpenComponentForCodingRequest(componentId, problemTypeId);
+            ArrayList arguments = new ArrayList();
+            String arg = null;
+            int i=0;
+            do {
+                arg = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+i);
+                arguments.add(arg);
+                i++;
+            } while (arg!=null);
+
+            ScreeningTestRequest request = new ScreeningTestRequest(arguments, componentId, problemTypeId);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
             send(request);
 
-            showProcessingPage();
+            showProcessingPage(Constants.SHORT_CONTENT);
 
-            ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse) receive(5000);
+            ScreeningTestResponse response = (ScreeningTestResponse) receive(5000);
 
-            ProblemInfo problem = new ProblemInfo(StringUtils.checkNull(response.getCode()), componentId,
-                    response.getLanguageID().intValue(), response.getProblem(), problemTypeId);
-            problem.setStartTime(response.getOpenTime());
-            problem.setTime(response.getLength());
+            setDefault(CodingInterfaceConstants.MESSAGE, response.getMessage());
 
-            setDefault(Constants.PROBLEM, problem);
-
-            closeProcessingPage(buildProcessorRequestString(Constants.RP_TEST_WINDOW_RESPONSE,
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_TEST_RESPONSE,
                     new String[]{Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
                     new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
 

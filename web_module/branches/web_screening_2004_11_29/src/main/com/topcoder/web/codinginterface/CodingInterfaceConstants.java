@@ -10,7 +10,7 @@ public interface CodingInterfaceConstants {
     public static final String HANDLE = "ha";
     public static final String PASSWORD = "ps";
     public static final String COMPONENT_ID = "cid";
-    public static final String PROBLEM_TYPE_ID = "ptid";
+    public static final String PROBLEM_TYPE_ID = "ptid"; //this may belong in the tech assess constants, not here
     public static final String LANGUAGE_ID = "lid";
     public static final String CODE = "code";
     public static final String MODULE = "module";
@@ -18,5 +18,5 @@ public interface CodingInterfaceConstants {
     public static final String MESSAGE_ID = "messid";
     public static final String SUBMIT_FLAG = "subf";
     public static final String TEST_ARGUMENT_PREFIX = "arg";
-
+    public static final String MESSAGE = "mess";
 }
