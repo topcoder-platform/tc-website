@@ -483,13 +483,13 @@ public class Registration
                 }
                
                 if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
-                       (isEmpty(this.gpa) && !isEmpty(this.gpaScale)) ||
-                       (!isEmpty(this.gpa) && !isNumber(this.gpa, true) && Float.parseFloat(this.gpa)<0)) {
+                       (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
+                    log.debug("bad gpa entered: " + this.gpa);
                     addError(GPA, "Please enter a valid GPA.");
                 }
                 if ((!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true)) ||
-                       (!isEmpty(this.gpa) && isEmpty(this.gpaScale)) {
-                       (!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true) && Float.parseFloat(this.gpaScale)<0)) {
+                       (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
+                    log.debug("bad gpa scale entered: " + this.gpaScale);
                     addError(GPA_SCALE, "Please enter a valid GPA Scale.");
                 }
                 if (!isEmpty(this.gpa) && isNumber(this.gpa, true) && 
