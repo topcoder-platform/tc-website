@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="top_scorers">    
     <xsl:param name="division"></xsl:param>
-            <table border="0" cellspacing="0" cellpadding="5" width="100%">
+            <table border="0" cellspacing="0" cellpadding="5" width="100%" bgcolor="#555555">
                 <tr valign="top">
                 <xsl:choose>
                     <xsl:when test="number($division)=2">
@@ -15,19 +15,19 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#333333">
                 <tr valign="middle">
-                    <td background="/i/steel_bluebv_bg.gif" class="statText">&#160;Rank</td>        
-                    <td background="/i/steel_bluebv_bg.gif" class="statText">Room</td>
-                    <td background="/i/steel_bluebv_bg.gif" class="statText">Handle</td>
-                    <td align="right" background="/i/steel_bluebv_bg.gif" class="statText">Final&#160;Pts&#160;</td>
+                    <td align="right" background="/i/graybv_lite_bg.gif" class="statText">&#160;Rank</td>        
+                    <td align="left" background="/i/graybv_lite_bg.gif" class="statText">Room</td>
+                    <td align="left" background="/i/graybv_lite_bg.gif" class="statText">Handle</td>
+                    <td align="right" background="/i/graybv_lite_bg.gif" class="statText">Final&#160;Pts&#160;</td>
                 </tr>
 
         <xsl:choose>
           <xsl:when test="number($division)=2">
             <xsl:for-each select="/TC/HOME/Div2TopScorers/Coder">
                 <tr>
-                    <td align="right" class="statText">&#160;<xsl:value-of select="rank"/>.&#160;&#160;&#160;&#160;</td>
+                    <td align="right" class="statText">&#160;<xsl:value-of select="rank"/>.&#160;&#160;</td>
                     <td align="left" class="statText" nowrap="nowrap"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;cr=<xsl:value-of select="coder_id"/>&amp;rd=<xsl:value-of select="round_id"/>&amp;rm=<xsl:value-of select="room_id"/></xsl:attribute><xsl:value-of select="room_name"/></A></td>
                     <td align="left" class="statText">
                         <A>
@@ -69,8 +69,14 @@
                     </td>
                 </tr>
                 
-                <tr><td colspan="4" width="1"><img height="3" width="1" src="/i/clear.gif" border="0"/></td></tr>  
-            </table>  
+                <tr>
+                    <td width="10%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
+                    <td width="10%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
+                    <td width="40%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
+                    <td width="40%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
+                 </tr> 
+            </table>
+            <img src="/i/clear.gif" width="1" height="1" border="0"/>
   </xsl:template>
 </xsl:stylesheet>
 
