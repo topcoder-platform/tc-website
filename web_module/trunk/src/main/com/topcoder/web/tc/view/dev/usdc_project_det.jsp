@@ -73,10 +73,10 @@
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
                                 <td class="sidebarText"><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
-                                <td class="sidebarText" align=center>1</td>
-                                <td class="sidebarText" align=center>90.00</td>
-                                <td class="sidebarText" align=right>$1,000</td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="submit_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center><rsc:item name="placed" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center><rsc:item name="final_score" format="0.00" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right>$<rsc:item name="payment" format="#,##0" row="<%=resultRow%>"/></td>
                             </tr>
                             </rsc:iterator>
                         </table>
