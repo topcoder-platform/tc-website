@@ -23,7 +23,194 @@
             
         <p class=pageTitle>Component Schedule</p>
 
-        <p></p>
+       <p>	Both the design and development competitions will have three (3) online rounds and one (1) online 
+            Championship Round.  Each contestant participating in an online round must submit his/her design and/or 
+            development submissions for components as scheduled. (See Competition Schedule.)  </p>
+<!-- design schedule -->            
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="25%" class="sidebarTitle">Design Contest</td>
+                    <td width="25%" class="sidebarTitle">Start Date/ Projects Posted</td>
+                    <td width="25%" class="sidebarTitle">Registration Deadline</td>
+                    <td width="25%" class="sidebarTitle">End Date/ Submission Deadline</td>
+                </tr>
+
+                <tr>
+                    <td width="25%" class="sidebarText">Round #1</td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                </tr>
+                
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 1</td>
+                    <td width="25%" class="sidebarText">08.12.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.14.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.19.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 2</td>
+                    <td width="25%" class="sidebarText">08.19.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.21.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.26.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText">Round #2</td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 3</td>
+                    <td width="25%" class="sidebarText">08.26.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.28.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.02.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 4</td>
+                    <td width="25%" class="sidebarText">09.02.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.04.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.09.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText">Round #3</td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 5</td>
+                    <td width="25%" class="sidebarText">09.09.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.11.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.16.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 6</td>
+                    <td width="25%" class="sidebarText">09.16.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.18.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.23.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                 <tr>
+                    <td width="25%" class="sidebarText" align="right">Championship Round</td>
+                    <td width="25%" class="sidebarText">10.21.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">10.23.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">10.28.2004<br/>
+                    									9:00AM</td>
+                </tr>              
+            </table>
+            <p></p>
+<!-- development schedule -->            
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="25%" class="sidebarTitle">Development Contest</td>
+                    <td width="25%" class="sidebarTitle">Start Date/ Projects Posted</td>
+                    <td width="25%" class="sidebarTitle">Registration Deadline</td>
+                    <td width="25%" class="sidebarTitle">End Date/ Submission Deadline</td>
+                </tr>
+
+                <tr>
+                    <td width="25%" class="sidebarText">Round #1</td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                </tr>
+                
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 1</td>
+                    <td width="25%" class="sidebarText">08.10.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.12.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.17.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 2</td>
+                    <td width="25%" class="sidebarText">08.17.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.19.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.24.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText">Round #2</td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 3</td>
+                    <td width="25%" class="sidebarText">08.24.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.26.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">08.31.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 4</td>
+                    <td width="25%" class="sidebarText">08.31.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.02.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.07.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText">Round #3</td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                    <td width="25%" class="sidebarText"></td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 5</td>
+                    <td width="25%" class="sidebarText">09.07.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.09.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.14.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                <tr>
+                    <td width="25%" class="sidebarText" align="right">Week 6</td>
+                    <td width="25%" class="sidebarText">09.14.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.16.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">09.21.2004<br/>
+                    									9:00AM</td>
+                </tr>
+                 <tr>
+                    <td width="25%" class="sidebarText" align="right">Championship Round</td>
+                    <td width="25%" class="sidebarText">10.19.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">10.21.2004<br/>
+                    									9:00AM</td>
+                    <td width="25%" class="sidebarText">10.26.2004<br/>
+                    									9:00AM</td>
+                </tr>              
+            </table>
             
         </div>
 		</td>
