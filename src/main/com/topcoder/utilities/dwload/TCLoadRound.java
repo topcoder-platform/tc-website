@@ -326,13 +326,10 @@ public class TCLoadRound extends TCLoad {
             query.append(" WHERE rr.coder_id = ? ");
             query.append("   AND rr.attended = 'Y' ");
             query.append("   AND rr.new_rating > 0 ");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id IN (13,14))");
 
-            psSelMinMaxRatings = prepareStatement(query.toString(), SOURCE_DB);
+            //use the target db (warehouse) for this historical data
+            psSelMinMaxRatings = prepareStatement(query.toString(), TARGET_DB);
+
 
             // No need to filter admins here as they have already been filtered from
             // the DW rating table
@@ -1016,7 +1013,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,viewable) ");         // 15
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");
-            query.append("?,?,?,?,?)");         
+            query.append("?,?,?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1798,7 +1795,7 @@ public class TCLoadRound extends TCLoad {
             query.append("           FROM round_segment rs");
             query.append("          WHERE rs.round_id = cs.round_id");
             query.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
-            query.append("       ,cs.component_id ");                            
+            query.append("       ,cs.component_id ");
             query.append(" FROM component_state cs");
             query.append(" LEFT OUTER JOIN submission s ");
             query.append(" ON cs.component_state_id = s.component_state_id");
