@@ -5,28 +5,28 @@
 <ejb-jar>
   <enterprise-beans>
     <session>
-      <ejb-name>TermsOfUse</ejb-name>
-      <home>com.topcoder.web.ejb.termsofuse.TermsOfUseHome</home>
-      <remote>com.topcoder.web.ejb.termsofuse.TermsOfUse</remote>
-      <ejb-class>com.topcoder.web.ejb.termsofuse.TermsOfUseBean</ejb-class>
+      <ejb-name>Email</ejb-name>
+      <home>com.topcoder.web.ejb.email.EmailHome</home>
+      <remote>com.topcoder.web.ejb.email.Email</remote>
+      <ejb-class>com.topcoder.web.ejb.email.EmailBean</ejb-class>
       <session-type>Stateless</session-type>
       <transaction-type>Container</transaction-type>
       <env-entry>
         <env-entry-name>jts_datasource_name</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>JTS_COMMON</env-entry-value>
+        <env-entry-value>JTS_DS</env-entry-value>
       </env-entry>
         <env-entry>
           <env-entry-name>datasource_name</env-entry-name>
           <env-entry-type>java.lang.String</env-entry-type>
-          <env-entry-value>COMMON</env-entry-value>
+          <env-entry-value>DS</env-entry-value>
         </env-entry>
     </session>
   </enterprise-beans>
   <assembly-descriptor>
     <container-transaction>
       <method>
-        <ejb-name>TermsOfUse</ejb-name>
+        <ejb-name>Email</ejb-name>
         <method-intf>Remote</method-intf>
         <method-name>*</method-name>
       </method>
