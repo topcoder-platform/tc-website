@@ -217,9 +217,9 @@ else {
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right">&#160;&#160;</TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="3" ALIGN="center">
-              <A HREF="/stat?c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=15&sd=<%= "15".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Pre</a>
+              <A HREF="/stat?c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=15&sd=<%= "15".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Old</a>
            &#160;/&#160;
-             <A HREF="/stat?c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=17&sd=<%= "17".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Post</a>
+             <A HREF="/stat?c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=17&sd=<%= "17".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">New</a>
            </TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
@@ -253,7 +253,15 @@ else {
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 15 /* pre-rating */ + "]" %>'/></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="5%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>       
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 17 /* end-rating */ + "]" %>'/></TD>
-                   <TD WIDTH="10" BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
+                   <TD CLASS="statText" ALIGN="center" VALIGN="middle">
+<% if (resultRow.getIntItem("rating_change")<0) { %>
+<IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>
+<% } %>
+<% if (resultRow.getIntItem("rating_change")>0) { %>
+<IMG src="/i/arrow_green_up.gif" width="10" height="10" border="0"/>
+<% } %>
+</TD>
+                   <TD WIDTH="10" BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
          <% } else { %>
                     <TD WIDTH="10"><A HREF="/stat?c=coder_room_stats&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></A></TD>
                    <TD CLASS="coderBrackets" ALIGN="left" HEIGHT="13"> 
@@ -276,7 +284,15 @@ else {
                    <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 15 /* pre-rating */ + "]" %>'/></TD>
                    <TD CLASS="statText" WIDTH="5%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>       
                    <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 17 /* end-rating */ + "]" %>'/></TD>
-                   <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
+                   <TD CLASS="statText" ALIGN="center" VALIGN="middle">
+<% if (resultRow.getIntItem("rating_change")<0) { %>
+<IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>
+<% } %>
+<% if (resultRow.getIntItem("rating_change")>0) { %>
+<IMG src="/i/arrow_green_up.gif" width="10" height="10" border="0"/>
+<% } %>
+</TD>
+                   <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
          <% } %>
                  </TR>
          <TR>
