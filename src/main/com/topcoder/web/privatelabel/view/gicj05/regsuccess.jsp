@@ -47,7 +47,7 @@
 
 			<br/><br/>
 
-In order to be eligible to compete in the Google Code Jam 2004,
+In order to be eligible to compete in the Google India Code Jam 2005,
 you must activate your account by following the directions sent to the email
 address provided during registration. You <u>will not</u> be able to compete if you
 do not activate your account.
