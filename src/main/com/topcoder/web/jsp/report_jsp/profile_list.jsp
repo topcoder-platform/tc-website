@@ -255,13 +255,22 @@
                 for(i=0; i<states.length; i++) {
                   if (states[i].charAt(0)!='\'')
                     ret+="'";
-                  ret+=states[i];
+                  ret+=trim(states[i]);
                   if (states[i].charAt(states[i].length-1)!='\'')
                     ret+="'";
                   if(i<states.length-1)
                     ret+=",";
                 }
                 return ret;
+              }
+              function trim(s) {
+                var ret="";
+                var i;
+                for (i=0; i<s.length&&s.charAt(i)==' '; i++);
+                var k;
+                for (k=s.length-1; k>-1&&s.charAt(k)==' '; k--);
+                return s.slice(i, k+1);
+
               }
               function markSelectedColumns() {
                 var list = document.profileListForm.selectedColumns;

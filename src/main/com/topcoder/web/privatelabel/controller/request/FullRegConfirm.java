@@ -16,10 +16,6 @@ public class FullRegConfirm extends FullRegBase {
 
     protected void registrationProcessing() throws TCWebException {
 
-        for (Iterator it = fu.getParameterNames(); it.hasNext();) {
-            log.debug("param: " + it.next().toString());
-        }
-
         /*
           check the 2nd page input, no reason to do the first page again
           we got it from the persistor at this point, so we can assume it
