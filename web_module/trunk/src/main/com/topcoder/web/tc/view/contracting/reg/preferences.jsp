@@ -82,7 +82,21 @@ return false;
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
                     <span class=bodySubtitle><%=prefGroup.getName()%></span>
                     <br/>
+                    <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
+                        <%String[] cssClasses = new String[] {"formTextEven", "formTextOdd" };
+                          int i = 0;%>
+                        <tc:preferenceIterator id="pref" list="<%=prefGroup.getPrefs()%>">
+                        <tr>
+				<td width="100%" class=<%=cssClasses[i]%>><%=pref.getText()%>:</td>
+				<td class=<%=cssClasses[i++]%>>
+					<%=pref.getType()%>
+				</td>
+			</tr>
+                        </tc:preferenceIterator>
+                    </table>
                     
+                    <br/><br/>
+
 		</tc:preferenceGroupIterator>
 		
 		<span class=bodySubtitle>Contract Work</span>
