@@ -14,11 +14,11 @@ public interface Coder extends EJBObject {
 
     /**
      *
+     * @param coderId
      * @param coderStatusId
-     * @return coderId
-     * @throws java.rmi.RemoteException
+     * @throws RemoteException
      */
-    public long createCoder(int coderStatusId)
+    public void createCoder(long coderId, int coderStatusId)
             throws RemoteException;
 
     /**

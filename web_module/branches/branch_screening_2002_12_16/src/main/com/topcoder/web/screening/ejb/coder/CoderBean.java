@@ -2,7 +2,6 @@ package com.topcoder.web.screening.ejb.coder;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -15,32 +14,32 @@ import java.sql.*;
 /**
  *
  * @author Fred Wang (fred@fredwang.com)
- * @version $Revision$ 
+ * @version $Revision$
  * Jan 9, 2003 12:48:54 AM
  */
 public class CoderBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(CoderBean.class);
     private static final String dataSourceName = "java:comp/env/datasource";
+
     /**
      *
+     * @param coderId
      * @param coderStatusId
-     * @return coderId
      * @throws RemoteException
      */
-    public long createCoder(int coderStatusId)
+    public void createCoder(long coderId, int coderStatusId)
             throws RemoteException {
-        log.debug("createCoder called. coderStatusId: " + coderStatusId);
+        log.debug("createCoder called. coderId: " + coderId
+                + "coderStatusId: " + coderStatusId);
 
         Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
         DataSource ds = null;
-        long coderId = 0;
 
         try {
             StringBuffer query = new StringBuffer();
-
             query.append("INSERT INTO coder (coder_id, " +
                     "member_since, create_date, modify_date, status)"
                     + " values(?,?,?,?,?) ");
@@ -50,28 +49,22 @@ public class CoderBean extends BaseEJB {
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
-            coderId = IdGeneratorClient.getSeqId("CODER_SEQ");
             pstmt.setLong(1,coderId);
             pstmt.setInt(5,coderStatusId);
 
-            int rowNum = pstmt.executeUpdate();
-            if (rowNum != coderId)
-                throw new EJBException("row number does not match with primary key session id. row num:  "
-                        + rowNum + "coderId: "
-                        + coderId + " in createCoder");
+            pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException creating Coder coderStatusId: " + coderStatusId);
+            throw new EJBException("SQLException creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
         } catch (NamingException e) {
-            throw new EJBException("NamingException creating Coder coderStatusId: " + coderStatusId);
+            throw new EJBException("NamingException creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
         } catch (Exception e) {
-            throw new EJBException("Exception creating Coder coderStatusId: " + coderStatusId);
+            throw new EJBException("Exception creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createCoder");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createCoder");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createCoder");}}
         }
-        return coderId;
     }
 
     /**
