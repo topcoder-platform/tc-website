@@ -46,12 +46,13 @@ public class RatingBean implements SessionBean {
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
-            query.append(  "INTO rating (coder_id) ");
-            query.append("VALUES (?)");
+            query.append(  "INTO rating (coder_id, num_ratings) ");
+            query.append("VALUES (?, ?)");
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
             ps.setLong(1, coderId);
+            ps.setInt(2, 0);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
