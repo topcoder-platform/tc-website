@@ -1,5 +1,5 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType, com.topcoder.apps.review.AdminScreeningScorecardBean" %> 
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -192,7 +192,7 @@
                     </td>
                     <td class="<%=rowClass2%>">
         <logic:equal name="adminBean" property="scorecardExists" value="true">
-                   <bean:define id="completed" value="<%=adminBean.getAdvancedToReview()%>" />
+                   <bean:define id="completed" value="<%=((AdminScreeningScorecardBean)adminBean).getAdvancedToReview()%>" />
                    <bean:write name="completed" /> 
         </logic:equal>
 		<logic:equal name="adminBean" property="scorecardExists" value="false">
