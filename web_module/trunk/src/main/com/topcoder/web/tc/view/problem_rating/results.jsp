@@ -98,9 +98,9 @@
     <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="5"align="center">
         <tr>
            <td class="bodyTextBig" align="left" valign="bottom" nowrap>Question</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Total Avg. Rating</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div I Avg. Rating</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div II Avg. Rating</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Total Avg.<br/>Rating</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div I Avg.<br/>Rating</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div II Avg.<br/>Rating</td>
         </tr>
         <%  if (!problemRatingResults.isEmpty()) {
                 count = problemRatingResults.getIntItem(0,"count");
@@ -132,7 +132,7 @@
      var params = '<tc:problemRatingDistributionIterator list="<%=overallDistribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator><tc:problemRatingDistributionIterator list="<%=div1Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator><tc:problemRatingDistributionIterator list="<%=div2Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator>'
      params = params.substring(0, params.length-1);
      if (flashinstalled>1){
-             document.write('<object type="application/x-shockwave-flash" data="/i/problem_rating.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="100%" height=400 border="0" salign="Top" id="myFlash" >');
+             document.write('<object type="application/x-shockwave-flash" data="/i/problem_rating.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="100%" height=360 border="0" salign="Top" id="myFlash" >');
              document.write('<PARAM NAME=movie VALUE="/i/problem_rating.swf?'+params+'">');
              document.write('<PARAM NAME=quality VALUE="high">');
              document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
