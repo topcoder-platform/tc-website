@@ -420,7 +420,7 @@ function checkInputs(){
 
                 <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>  
   
-                <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">Language</td></tr>
+                <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">Competition Preferences</td></tr>
   
                 <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>  
 
@@ -436,18 +436,41 @@ function checkInputs(){
                         <tc:languageSelect class="dropdown" name="<%=Registration.LANGUAGE%>" selectedValue="<%=language%>" />
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td class="registerLabel">&nbsp;</td>
                     <td class="statText" valign="top">The competition applet allows for a choice of programming languages. The language you choose will be your default.</td>
                 </tr>
-  
-                <tr valign="middle"><td colspan="2" class="statText">&nbsp;</td></tr>  
-  
+
+                <tr valign="middle"><td colspan="2" class="statText">&nbsp;</td></tr>
+
+                <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>
+
+                <tr>
+                    <td></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="CompCountryError" /></td>
+                </tr>
+
+                <tr>
+                    <td class="registerLabel">Country to Represent&nbsp;</td>
+                    <td class="statText">
+                        <tc:getProperty id="compCountry" name="Registration" property="CompCountry" />
+                        <tc:countrySelect class="dropdown" name="<%=Registration.COMP_COUNTRY%>" selectedValue="<%=compCountry%>" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="registerLabel">&nbsp;</td>
+                    <td class="statText" valign="top">Choose the country you would like to represent for statistics on the TopCoder website.</td>
+                </tr>
+
+                <tr valign="middle"><td colspan="2" class="statText">&nbsp;</td></tr>
+
+
                 <tr valign="middle"><td colspan="2" class="statTextBig" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Student or Professional (please choose one)</td></tr>
-  
-                <tr valign="middle"><td colspan="2" class="statTextBig"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>  
-                
+
+                <tr valign="middle"><td colspan="2" class="statTextBig"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>
+
                 <tc:getProperty id="coderType" name="Registration" property="CoderType" />
                 
                 <tr>
