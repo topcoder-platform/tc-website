@@ -79,7 +79,7 @@
                    </td>
                 </tr>
                 <tr>
-                   <td class="dc_regTableQuestion">Last Name</td>
+                   <td class="dc_regTableQuestion">Last Name</td> 
                    <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/>
                 </tr>
                 <tr>
