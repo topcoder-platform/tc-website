@@ -40,7 +40,7 @@
                         
                         <a href="/?t=sponsor&c=link&link=http://www.intelmktg.com/sdd/index.cfm?xid=22&refer=tco_minisite" target="_blank"><img src="/i/tournament/tco04/intel_subscription.gif" width="510" height="35" border="0" alt="Free subscription to Intel Software Developer Dispatch" /></a>
                         
-                        <p>Subscribe to Intel's free subscriber program for developers. Each Dispatch focuses on a specific Intel&#174; platform or technology. <a href="/?t=sponsor&c=link&link=http://www.intelmktg.com/sdd/index.cfm?xid=22&refer=tco_minisite" target="_blank">Subscribe now</a> and get our current release on Itanium&#174; Architecture. </p>
+                        <p>Subscribe to Intel's free subscriber program for developers. Each Dispatch focuses on a specific Intel&#174; platform or technology. <a href="/?t=sponsor&c=link&link=http://www.intelmktg.com/sdd/index.cfm?xid=22&refer=tco_minisite" target="_blank">Subscribe now</a>  and get our "2 for 1" current releases on Mobilized Software and the Intel&#174; Xeon<sup>TM</sup> Processor.</p>
                     
                         <p><br /></p>
                     </td>
