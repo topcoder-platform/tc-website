@@ -136,10 +136,11 @@ public class Controller
     void forward(HttpServletRequest request, HttpServletResponse response, String url)
         throws ServletException, IOException
     {
+        Log.msg(" => forward() to " + url);
+/*				
         response.setHeader("Cache-Control","no-store");
         response.setHeader("Pragma","no-cache");
         response.setDateHeader ("Expires", 0);
-/*				
         try
         {
             if (url != null) {
@@ -155,13 +156,14 @@ public class Controller
         if (url == null || url.length() == 0) url = "error";
         RequestDispatcher rd = null;
         synchronized(this) {
-            rd = (RequestDispatcher) dispatcherMap.get(url);
+            //rd = (RequestDispatcher) dispatcherMap.get(url);
             if (rd == null) {
                 rd = getServletContext().getRequestDispatcher(Registration.PATH + url + ".jsp");
                 if (rd == null) {
+        					Log.msg(" => tces.Controller RequestDispatcher is null");
 									throw new ServletException("cannot obtain request dispatcher");
 								} else {
-                	dispatcherMap.put(url, rd);								
+                	//dispatcherMap.put(url, rd);								
 								}
             }
         }
