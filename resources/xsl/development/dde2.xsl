@@ -53,7 +53,7 @@
                                     <FORM method="POST" name="frmInquire" ACTION="/">
                                         <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
                                     </FORM>
-                                    <b>PDF Conversion Component Implementation Project</b>
+                                    <b>Design of the TopCoder Distributed Development Environment</b>
                                     <BR/>
                                     <a href="Javascript:document.frmInquire.Project.value='Design of the TopCoder Distributed Development Environment';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
                                     <BR/>
