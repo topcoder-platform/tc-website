@@ -53,7 +53,7 @@
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
-                <xsl:with-param name="image1">steelblue</xsl:with-param>
+                <xsl:with-param name="image1">steelgray</xsl:with-param>
                 <xsl:with-param name="image">tournaments_gray</xsl:with-param>
                 <xsl:with-param name="title">2003 TopCoder Collegiate Challenge</xsl:with-param>
             </xsl:call-template>
