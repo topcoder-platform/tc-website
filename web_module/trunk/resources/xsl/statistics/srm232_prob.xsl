@@ -87,7 +87,7 @@ function openWin(url, name, w, h) {
 <p>This match seemed to have a lot less challenges than other matches, but the
 systests were brutal for many coders, especially on the division 1 650 and 900.
 The top three slots in division 1 were taken by <b>SnapDragon</b>, <b>tomek</b>,
-and <b>haha</b>; they were the only three to successfully solve all three problems.
+and <b>haha</b>.
 </p>
 
 <p>In division 2, seven coders plowed their way through all three problems, with
