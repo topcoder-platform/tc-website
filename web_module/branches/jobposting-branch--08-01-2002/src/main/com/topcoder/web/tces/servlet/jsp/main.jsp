@@ -16,10 +16,10 @@
     <TITLE>TopCoder Employment Services</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <%@ include file="../script.jsp" %>
+    <%@ include file="/script.jsp" %>
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <%@ include file="../top.jsp" %>
+  <%@ include file="/top.jsp" %>
 
 
 <jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.tces.servlet.MainTask" />
@@ -31,7 +31,7 @@
       <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <%@ include file="left.jsp" %>
+        <%@ include file="/left.jsp" %>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -119,7 +119,7 @@
       <!-- Right Column Begins -->
       <TD WIDTH="10" bgcolor="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
         <!-- Right Column Include Begins -->
-        <!-- <%@ include file="right.jsp" %> -->
+        <!-- <%@ include file="/right.jsp" %> -->
         <!--include virtual="/includes/public_right_col.shtml"-->
         <!-- Right Column Include Ends -->
       </TD>
@@ -131,7 +131,7 @@
   </TABLE>
   <!-- Body Ends -->
 
-  <%@ include file="../foot_tces.jsp" %>
+  <%@ include file="/foot_tces.jsp" %>
 
   </BODY>
 </HTML>
