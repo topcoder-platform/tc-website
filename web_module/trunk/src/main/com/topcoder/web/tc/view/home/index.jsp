@@ -57,7 +57,7 @@
 		<td class=homeLeftCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr><td class=homeBigPromo><A href="/tc"><img src="/i/home/promos/developercenter.gif" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=dev&d2=ad_overview"><img src="/i/home/promos/earncash.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/home/promos/empOpps.gif" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
