@@ -33,7 +33,12 @@
                 <FORM METHOD="post" NAME="frmLogin" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
                     <INPUT NAME="module" TYPE="hidden" VALUE="Login"/>
                     <INPUT NAME="dest" TYPE="hidden" VALUE="<%=request.getParameter("dest")%>"/>
-                <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="60%" ALIGN="center">
+                <TABLE BORDER="1" CELLPADDING="0" CELLSPACING="0" WIDTH="60%" ALIGN="center">
+                  <TR>
+                     <TD COLSPAN="3" VALIGN="middle" HEIGHT="14" ALIGN="left" class="errorText">
+                        <tc-webtag:errorIterator id="err" refname="passw"><%=err%><br></tc-webtag:errorIterator>
+                     </TD>
+                  </TR>
                   <TR>
                   <TD VALIGN="middle" HEIGHT="14" ALIGN="right"><FONT SIZE="2" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">User Name:</FONT>&#160;&#160;</TD>
                     <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2">

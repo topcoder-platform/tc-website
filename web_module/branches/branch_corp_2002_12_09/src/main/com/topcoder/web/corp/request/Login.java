@@ -43,11 +43,29 @@ public class Login extends BaseProcessor {
     public static final String KEY_USER_HANDLE      = "handle";
     public static final String KEY_USER_PASS        = "passw";
     public static final String KEY_DESTINATION_PAGE = "dest";
+
+    private static final int MAX_LOGIN_ATTEMPTS = 3;
     
     // modes either full (form to be filled returned to user)
     // or mini (user fill out miniform at the top of screen)  
     public static final String KEY_LOGINMODE   = "lm";
     public static final String KEY_MESSAGE     = "msg";
+    
+    /**
+     * Holds login attempts count and desired destination
+     * 
+     * @author djFD molc@mail.ru
+     * @version 1.02
+     *
+     */
+    private static class login_attempt {
+        int count;
+        String destination;
+        login_attempt(String dest) {
+            destination = dest;
+            count = 0;
+        }
+    }
 
     /**
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
@@ -59,6 +77,24 @@ public class Login extends BaseProcessor {
             miniLogin = Integer.parseInt(request.getParameter(KEY_LOGINMODE)) == 1;
         }
         catch(Exception e) {}
+        
+        String destination = request.getParameter(KEY_DESTINATION_PAGE);
+        SessionPersistor sp = new SessionPersistor(request.getSession(true));
+        
+        // Even with muttiple login attempts, we must not forget
+        // desired destination 
+        login_attempt la = (login_attempt)sp.getObject(
+            login_attempt.class.getName()
+        );
+        if( la == null ) {
+            la = new login_attempt(destination);
+            sp.setObject(login_attempt.class.getName(), la);
+        }
+        else {
+            if( destination != null && destination.trim().length() != 0 ) {
+                la.destination = destination;
+            }
+        }
 
         String handle = request.getParameter(KEY_USER_HANDLE);
         setFormFieldDefault(KEY_USER_HANDLE, handle == null ? "" : handle);
@@ -73,34 +109,44 @@ public class Login extends BaseProcessor {
         User possibleUser = new SimpleUser(handle, passw);
 
         try {
+            ++la.count;
             authToken.login(possibleUser);
             log.debug("user "+possibleUser.getUserName()+" has logged in");
+            destination = la.destination;
+            sp.removeObject(login_attempt.class.getName());
+            
+            // done. if there is destination page then go there
+            if( ! miniLogin ) {
+                sp.popLastPage();
+            }
+
+            // if destination is null then go to the main page
+            if( destination == null ) {
+                nextPage = Util.appRootPage(request);
+            }
+            else {
+                nextPage = destination;
+            }
+            pageInContext = false; // ensures all request parameters are dropped off
+            return;
         }
         catch(AuthenticationException ae) {
-            markFormFieldAsInvalid(
-                KEY_USER_PASS,
-                "Combination of handle/password entered is invalid"
-            );
-            throw ae;
+            if( la.count >= MAX_LOGIN_ATTEMPTS ) {
+                // cant' remember -> main page
+                nextPage = Util.appRootPage(request);
+                pageInContext = false;
+                sp.removeObject(login_attempt.class.getName());
+                return;
+            }
+            else {
+                markFormFieldAsInvalid(
+                    KEY_USER_PASS,
+                    "Combination of handle/password entered is invalid"
+                );
+                nextPage = null;
+                pageInContext = true;
+                return;
+            }
         }
-        
-        
-        // done. if there is destination page then go there
-        String destination = request.getParameter(KEY_DESTINATION_PAGE);
-
-        if( ! miniLogin ) {
-            SessionPersistor sp = new SessionPersistor(request.getSession(true));
-            sp.popLastPage();
-        }
-
-        // if destination is null then controller will fetch recently viewed page
-        if( destination == null ) {
-            nextPage = Util.appRootPage(request);
-        }
-        else {
-            nextPage = destination;
-        }
-        pageInContext = false; // ensures all request parameters are dropped off
-        return;
     }
 }
