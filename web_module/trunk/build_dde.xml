@@ -17,6 +17,7 @@
     <property name="tcslibdir" value="../tcs/lib" />
     <property name="libdir" value="lib" />
     <property name="jardir" value="${libdir}/jars"/>
+    <property name="shared" value="../shared/src/main"/>
 
     <property name="docsdir" value="docs" />
     <property name="configdir" value="conf" />
@@ -99,14 +100,14 @@
     <property name="security.jar" value="${jardir}/security.jar" />
     <property name="forum.jar" value="${jardir}/tcs/forum.jar"/>
     <property name="tcsutil.jar" value="${jardir}/tcsUtil.jar"/>
+    <property name="object_formatter.jar" value="${jardir}/tcs/object_formatter.jar"/>
+    <property name="upload.jar" value="${jardir}/upload.jar"/>
 
     <property name="emailaddressvalidator.jar" value="${tcslibdir}/tcs/email_address_validator/1.0/email_address_validator.jar"/>
     <property name="simplecache.jar" value="${tcslibdir}/tcs/simple_cache/1.0/simple_cache.jar"/>
     <property name="base_exception.jar" value="${tcslibdir}/tcs/base_exception/1.0/base_exception.jar"/>
     <property name="logging_wrapper.jar" value="${tcslibdir}/tcs/logging_wrapper/1.0/logging_wrapper.jar"/>
     <property name="refreshable_cache.jar" value="${tcslibdir}/tcs/refreshable_cache/1.0/refreshable_cache.jar"/>
-    <property name="object_formatter.jar" value="${tcslibdir}/tcs/object_formatter/1.0/object_formatter.jar"/>
-    <property name="upload.jar" value="${jardir}/upload.jar"/>
 
     <property name="review-persistence.jar" value="${onlinereview.jars.dir}/persistence.jar"/>
     <property name="onlinereview.war" value="${onlinereview.jars.dir}/review.war"/>
@@ -119,7 +120,7 @@
     <property name="jce1_2-do.jar" value="${tcslibdir}/jce1_2-do.jar"/>
     <property name="xerces.jar" value="${tcslibdir}/xerces.jar"/>
     <property name="javamail.jar" value="${jardir}/mail.jar"/>
-    <property name="jboss-j2ee.jar" value="${tcslibdir}/jboss/jboss-j2ee.jar"/>
+    <property name="jboss-j2ee.jar" value="${jardir}/jboss-j2ee.jar"/>
     <property name="jboss-system.jar" value="${tcslibdir}/jboss/jboss-system.jar"/>
     <property name="jboss-jmx.jar" value="${tcslibdir}/jboss/jboss-jmx.jar"/>
     <property name="servlet.jar" value="${tcslibdir}/servlet.jar"/>
@@ -149,6 +150,7 @@
         <pathelement location="${emailaddressvalidator.jar}"/>
         <pathelement location="${forum.jar}"/>
         <pathelement location="${tcsutil.jar}"/>
+        <pathelement location="${object_formatter.jar}"/>
 
         <pathelement location="${logging_wrapper.jar}"/>
         <pathelement location="${refreshable_cache.jar}"/>
@@ -170,8 +172,7 @@
         <pathelement location="${jdbc.jar}"/>
     </path>
 
-    <target name="compile">
-        <mkdir dir="${build_classdir}"/>
+    <target name="compile" depends="compile_shared">
         <echo message="java.vm.version=${java.vm.version}"/>
         <javac srcdir="${javamain}"
             destdir="${build_classdir}"
@@ -180,9 +181,27 @@
             deprecation="true">
             <include name="com/topcoder/dde/**" />
             <include name="com/topcoder/util/**" />
+            <include name="com/topcoder/web/common/**" />
+            <exclude name="com/topcoder/web/common/render/**" />
+            <exclude name="com/topcoder/web/common/tag/**" />
         </javac>
     </target>
 
+    <target name="compile_shared">
+        <mkdir dir="${build_classdir}"/>
+         <javac
+             srcdir="${shared}"
+             destdir="${build_classdir}"
+             classpathref="buildlibs"
+             deprecation="true"
+             debug="${debug}"
+             >
+             <exclude name="com/topcoder/shared/ejb/**" />
+             <exclude name="com/topcoder/shared/problem/**" />
+             <exclude name="com/topcoder/shared/problemParser/**" />
+             <exclude name="com/topcoder/shared/language/**" />
+         </javac>
+    </target>
 
     <target name="package" depends="compile">
         <mkdir dir="${dist.jars.dir}"/>
