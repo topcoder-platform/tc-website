@@ -83,7 +83,7 @@ li {
 							<h1 class="devSubhead"><strong>Documentation and Sample Submissions</strong></h1>
                                     
 							<p><strong>Component Design Deliverables</strong><br />
-							<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Design Deliverables</a> provides an overview of the 
+							<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Java</a> and <a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET</a> Design Deliverables provide an overview of the 
 							design process including the required deliverables for submission and the responsibilities of the winning designer. Submissions which 
 							do not meet the screening requirements will not be reviewed by the Architecture Review Board.</p>
 
