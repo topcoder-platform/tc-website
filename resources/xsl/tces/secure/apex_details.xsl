@@ -89,30 +89,28 @@
 </TD>
 </TR>
 </TABLE>
-<IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/>
-<P>
-Positions Located in Herndon, VA.
-</P>
+<IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="71" ALT="Apex" BORDER="0"/>
 
-<P>Here is a sample of some of the algorithmically or architecturally challenging problems we're facing now:</P>
-<UL>
-<LI>Image manipulation problems such as image segmentation or automatic zoning of pages of magazines, newspapers, or other publications</LI>
-<LI>Designing multi-platform production environments that keep track of fine-grained task dependencies, operator statistics, and data conversion operations in a scalable and introspective fashion</LI>
-<LI>Development of heuristic algorithms that combine machine intelligence and human intelligence to solve tricky production problems efficiently and get better results than could be achieved with either software or manual effort operating alone</LI>
-</UL>
 
-<P>Here are some of the kinds of skills we're looking at.  All candidates don't need all skills, but we like multitalented people.  We'd love to see what new skills you can bring to the table.</P>
+<P>The right candidate will meet ALL of the following criteria:</P>
 <UL>
-<LI>Deep knowledge of C++, Java, Perl, Python, or other programming languages and concepts.  Comfort working in multiple languages is essential.</LI>
-<LI>Experience in both Linux and Windows environments</LI>
-<LI>Deep understanding of object-oriented programming</LI>
-<LI>System administration background</LI>
-<LI>Knowledge of relational database concepts</LI>
+<LI>Deep knowledge of C++ and object-oriented programming concepts and practices</LI>
+<LI>Strong familiarity in at least one of Perl, Python, or Java</LI>
+<LI>Ability to operate both at the broadest conceptual level and at the level of the minutest detail</LI>
+<LI>Ability to learn new programming languages quickly.  Comfort working in multiple languages is essential.  This is a "hands-on" position!</LI>
+<LI>Experience working in a UNIX/Linux environment</LI>
+<LI>Experience with at least one other operating system. Windows experience is a plus; experience with Windows/Linux interoperability and writing code that works in both environments is a bigger plus.</LI>
 <LI>Excellent problem-solving ability</LI>
-<LI>Good theoretical foundation</LI>
+<LI>Good theoretical foundation and academic background</LI>
+<LI>Multiple years of work experience including meaningful participation in the development of at least one substantial software project</LI>
+<LI>Experience with all phases of the software development process including analysis, design, implementation, testing, maintenance, and documentation.</LI>
+<LI>Excellent oral and written skills in English</LI>
+<LI>Ability to work with clients, end users, and internal staff at both technical and non-technical level</LI>
+<LI>Willingness to have a full-time job in Herndon, VA, one of the Washington DC area's best high-tech areas.  (Relocation package available.)</LI>
 </UL>
 
-<P>If all this sounds intriguing, we'd like to hear from you.  The first step is taking our programming test, but that should be fun, right?</P>
+
+<P>Do you fit the bill?  If so, please apply.  Your resume must be posted when you apply.  Applicants who apply without a resume will not be contacted regardless of their TopCoder ratings.</P>
 <P><A HREF="/jobposting?&amp;t=JobHitTask&amp;jobhit_25=true">Click here to apply</A></P>
 <!--end contextual links-->
           <P><BR/></P>

@@ -107,13 +107,13 @@
 
 
 
-<IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/>
+<IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="71" ALT="Apex" BORDER="0"/>
 
 
 
 <P>Apex Data Services (<A HREF="http://www.apexinc.com" CLASS="bodyText" TARGET="_blank">http://www.apexinc.com</A>) is an international data conversion company headquartered in Herndon, VA.  We are an employee-owned company devoted to the growth of our staff as we solve interesting technical problems in a stimulating environment.</P>
 
-<P>We are looking for a small number of excellent software developers, and believe that our environment will challenge even the best and brightest.  Here's some of what makes us the best place for the best people to work:</P>
+<P>We have only one more position to fill, and we're looking to fill it with a real "heavy hitter."  This individual will work directly with our chief technologist on setting the technical direction of the company and will have responsibilities that include architecture, design, and implementation.  This is a full-time job (no contractors, please) at our Herndon, VA office near Dulles Airport outside of Washington, DC.</P>
 
 
 
