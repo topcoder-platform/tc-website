@@ -4,7 +4,6 @@
             <table width="530" border="0" cellspacing="0" cellpadding="3">
                 <tr>
                     <td class="bodyText" align="center">
-                        <strong>Below the fold:</strong> 
                         <a href="#matchDates">Schedule</a> | 
                         <a href="#memberSurveys">Surveys</a> | 
                         <a href="#algoArena">Algorithm Arena</a> | 
