@@ -203,7 +203,7 @@ public class NotificationBean implements SessionBean {
             message.setToAddress(to, TCSEmailMessage.TO);
             message.setSubject(subject);
             message.setBody(messageText);
-            info("Notification sending e-mail to address: " + formatAddress(to));
+            info("Notification sending e-mail to address: " + to);
             EmailEngine.send(message);
         } else {
             info("--mail--");
@@ -231,7 +231,7 @@ public class NotificationBean implements SessionBean {
      * @exception XSLTransformerWrapperException propagated from the document generator
      * @exception FileNotFoundException if the XSL file is not found
      */
-    private static String formatBody(XMLDocument xmlDocument, String bodyXSL)
+    private String formatBody(XMLDocument xmlDocument, String bodyXSL)
                 throws XSLTransformerWrapperException, FileNotFoundException {
         String xmlData = xmlDocument.createXML();
         if (EJBHelper.isTestMode()) {
