@@ -154,7 +154,7 @@ function submitConfirm() {
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="division_name" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="difficulty" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="category_name" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="#" CLASS="bodyText" onClick="submitRemove(<screen:resultSetItem row="<%=row%>" name="problem_id" />" >Remove</A></TD>	        
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="#" CLASS="bodyText" onClick="submitRemove(<screen:resultSetItem row="<%=row%>" name="problem_id" />)" >Remove</A></TD>	        
 	        </TR>	        
             </screen:resultSetRowIterator>
            <TR>
@@ -164,7 +164,7 @@ function submitConfirm() {
               <TD COLSPAN="5" ALIGN="center">
 <select name="testSetBAdd" class="dropdown" size="10" multiple="true">
 <screen:resultSetRowIterator id="row" list="<%=profile.getCompanyProblemList()%>">
-<option value="<screen:resultSetItem row="<%=row%>" name="problem_id" />"><screen:resultSetItem row="<%=row%>" name="problem_name" /></option>
+<option value="<screen:resultSetItem row="<%=row%>" name="problem_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
 </screen:resultSetRowIterator>
 </select>
               </TD>
