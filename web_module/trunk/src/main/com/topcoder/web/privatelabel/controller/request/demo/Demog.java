@@ -1,4 +1,4 @@
-package com.topcoder.web.privatelabel.controller.request.brooks;
+package com.topcoder.web.privatelabel.controller.request.demo;
 
 import com.topcoder.web.privatelabel.controller.request.FullRegDemog;
 import com.topcoder.web.privatelabel.Constants;
@@ -13,9 +13,9 @@ import com.topcoder.web.common.TCWebException;
 public class Demog extends FullRegDemog {
     protected void setNextPage() {
         if (hasErrors()) {
-            setNextPage(Constants.DEMO_REG_PAGE); 
+            setNextPage(Constants.BROOKS_REG_PAGE);
         } else {
-            setNextPage(Constants.DEMO_REG_DEMOG_PAGE);
+            setNextPage(Constants.BROOKS_REG_DEMOG_PAGE);
         }
         setIsNextPageInContext(true);
     }
