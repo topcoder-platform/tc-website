@@ -233,7 +233,10 @@ appropriate if we believe it may cause us to suffer any loss, liability or comme
 </xsl:if> -->
 <!-- Right Column Include Begins --> 
         <xsl:call-template name="public_right_col"/>      
-<!-- Right Column Include Ends -->        
+<!-- Right Column Include Ends --> 
+
+<A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
+<IMG SRC="/i/tces_quote_sm.gif" ALT="TCES" WIDTH="170" HEIGHT="200" BORDER="0"/></A>       
         </TD>
   <!-- Right Column Ends -->
   <!-- Gutter -->
