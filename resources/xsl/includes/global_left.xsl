@@ -25,6 +25,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -49,6 +50,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -86,6 +88,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -157,6 +160,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -228,6 +232,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -280,6 +285,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -461,6 +467,7 @@
 
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -573,6 +580,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -780,6 +788,7 @@
               
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -867,6 +876,7 @@
                     </td>
                 </tr>
 
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -890,6 +900,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 
 <!-- Press Releases -->
                 <tr>
@@ -940,6 +951,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
 
 <!-- Contact Us -->
@@ -992,6 +1004,7 @@
                 
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -1023,6 +1036,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -1057,6 +1071,7 @@
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
+                <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
@@ -1167,6 +1182,10 @@
 
 <xsl:template name="about_row">
                 <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</A></td></tr>
+</xsl:template>
+
+<xsl:template name="reviewboard_row">
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left" href="/tc/?d1=review_board&amp;d2=competition">Review Boards</A></td></tr>
 </xsl:template>
 
 <xsl:template name="press_row">
