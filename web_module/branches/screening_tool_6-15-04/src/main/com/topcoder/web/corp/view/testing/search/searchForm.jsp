@@ -2,6 +2,18 @@
                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@ page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<script language="JavaScript"><!--
+                        function submitEnter(e) {
+                            var keycode;
+                            if (window.event) keycode = window.event.keyCode;
+                            else if (e) keycode = e.which;
+                            else return true;
+                            if (keycode == 13) {
+                                document.searchForm.submit();
+                                return false;
+                            } else return true;
+                        }
+//--></script>
                 <table border="0" cellspacing="0" cellpadding="0" align="center" width="600">
                     <tr valign="top">
                         <td>
@@ -40,7 +52,7 @@
                                     <td class="screeningCellEven" width="25%" align=right>First Name:</td>
                                     <td class="screeningCellEven" width="75%">
                                         <%-- FIRST NAME TEXT BOX--%>
-                                        <tc-webtag:textInput type="text" name="<%=Constants.FIRST_NAME%>" size="30" maxlength="50" />
+                                        <tc-webtag:textInput type="text" name="<%=Constants.FIRST_NAME%>" size="30" maxlength="50" onkeypress="submitEnter(event)" />
                                     </td>
                                 </tr>
 
@@ -49,7 +61,7 @@
                                 <tr>
                                     <td class="screeningCellOdd" align=right>Last Name:</td>
                                     <td class="screeningCellOdd">
-                                        <tc-webtag:textInput type="text" name="<%=Constants.LAST_NAME%>" size="30" maxlength="50" />
+                                        <tc-webtag:textInput type="text" name="<%=Constants.LAST_NAME%>" size="30" maxlength="50"  onkeypress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
@@ -58,7 +70,7 @@
                                 <tr>
                                     <td class="screeningCellEven" align=right>Email Address:</td>
                                     <td class="screeningCellEven">
-                                        <tc-webtag:textInput type="text" name="<%=Constants.EMAIL_ADDRESS%>" size="30" maxlength="50" />
+                                        <tc-webtag:textInput type="text" name="<%=Constants.EMAIL_ADDRESS%>" size="30" maxlength="50" onkeypress="submitEnter(event)" />
                                     </td>
                                 </tr>
                             </table>
