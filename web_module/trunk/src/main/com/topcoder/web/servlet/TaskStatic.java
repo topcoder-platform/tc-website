@@ -132,18 +132,20 @@ public final class TaskStatic {
             String sortDir = request.getParameter("sdir");
 
             try {
-                if (!roundids.equals("") && !region.equals("")) {
+                if (!roundids.equals("")) {
                     ctx = TCContext.getInitial();
                     dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-                    dataRequest = new Request();
-                    dataRequest.setContentHandle("regional_tourney_advancers");
-                    if (roundids!=null) dataRequest.setProperty("rds", roundids.trim());
-                    if (region!=null) dataRequest.setProperty("rc", region);
-                    resultMap = dai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Advancers");
-                    if (sortCol != null && sortDir != null)
-                        rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
-                    tournamentTag.addTag(rsc.getTag("Advancers", "Advancer"));
+                    if (!region.equals("")) {
+                        dataRequest = new Request();
+                        dataRequest.setContentHandle("regional_tourney_advancers");
+                        dataRequest.setProperty("rds", roundids.trim());
+                        dataRequest.setProperty("rc", region);
+                        resultMap = dai.getData(dataRequest);
+                        rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Advancers");
+                        if (sortCol != null && sortDir != null)
+                            rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+                        tournamentTag.addTag(rsc.getTag("Advancers", "Advancer"));
+                    }
 
                     dataRequest = new Request();
                     dataRequest.setContentHandle("regional_tourney_competitors");
