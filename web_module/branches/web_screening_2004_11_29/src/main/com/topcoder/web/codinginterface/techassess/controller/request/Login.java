@@ -5,9 +5,6 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningLoginResponse;
 
-import javax.jms.ObjectMessage;
-import java.io.Serializable;
-
 /**
  * User: dok
  * Date: Dec 6, 2004
