@@ -112,7 +112,7 @@ function sort(key,dir){
   <TR>
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
-  <P CLASS="statText">The table below indicates your referrals to date. If you are uncertain about how the referral program works, <A HREF="http:/index?t=about_tc&amp;c=membr_referrals" CLASS="statText">click here</A></P>
+  <P CLASS="statText">The table below indicates your referrals to date. If you are uncertain about how the referral program works, <A HREF="/index?t=about_tc&amp;c=membr_referrals" CLASS="statText">click here</A></P>
   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center" BACKGROUND="/i/steel_darkblue_bg.gif" >
   <TR><TD COLSPAN="3" ALIGN="left" HEIGHT="21" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;Members referred by:
 
