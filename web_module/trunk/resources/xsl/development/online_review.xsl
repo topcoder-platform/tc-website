@@ -84,7 +84,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a href="/?&t=development&c=app_projects">documentation</a> for this project is available on the TopCoder web site.</p>
+						All <a href="/index?&amp;t=development&amp;c=app_projects">documentation</a> for this project is available on the TopCoder web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br /></p>
