@@ -20,10 +20,8 @@ import java.sql.SQLException;
  */
 public class IdGeneratorClient {
 
-    private static Logger log = Logger.getLogger(IdGeneratorClient.class);
     private static final String dataSourceName = "SCREENING_OLTP";
-
-    static InitialContext ctx = null;
+    private static final Logger log = Logger.getLogger(IdGeneratorClient.class);
 
     /**
      * Uses the IdGenerator class to retrieve a sequence value for the
@@ -36,8 +34,11 @@ public class IdGeneratorClient {
      */
 
     public static long getSeqId ( String seqName ) {
+
         log.debug("getSeqId called");
         long retVal = -1;
+        InitialContext ctx = null;
+
         try {
             ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
