@@ -63,11 +63,12 @@
 
                         <h2 class="pgTitle">Registration</h2>
 
-                        <p class="redsubhead">
                         <% if (regInfo.isRegFull()) { %>
+                        <p class="redsubhead">
                             Registration for the Verizon Coding Challenge is full. However, you may continue to
                                 provide your information below to be notified of future Verizon coding events.
-                        <% } %></p>
+                          </p>
+                        <% } %>
 
                             <table cellpadding="0" cellspacing="3" class="bodyText" align="center" border="0">
                                 <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
