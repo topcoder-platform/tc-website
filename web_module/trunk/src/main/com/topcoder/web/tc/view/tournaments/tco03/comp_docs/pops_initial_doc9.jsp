@@ -15,7 +15,7 @@
         <td width="190" rowspan="3">
             <jsp:include page="pops_names.jsp">
                 <jsp:param name="time" value="initial" />
-                <jsp:param name="doc" value="doc6" />
+                <jsp:param name="doc" value="doc8" />
             </jsp:include>
         </td>
 
@@ -28,7 +28,7 @@
     </tr>
     
     <tr>
-        <td width="99%"><img src="/i/tournament/tco03/comp_docs/pops/initial/CreateaMethodAspect.gif" alt="" width="1123" height="474" border="0" class="compDocs"></td>
+        <td width="99%"><img src="/i/tournament/tco03/comp_docs/pops/initial/CreatetheAOPFactory.gif" alt="" width="958" height="314" border="0" class="compDocs"></td>
         <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
     </tr>
 
