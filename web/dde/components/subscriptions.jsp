@@ -76,7 +76,7 @@
                         
 <!-- Personal Subscription -->
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr><td class="pageDivider" width="100%">Personal Subscriptions</td></tr>
+                            <tr><td class="catalogIndexHeader" width="100%">Developer Subscription</td></tr>
                         </table>
 
                         <table border="0" cellpadding="0" cellspacing="10">
@@ -90,7 +90,7 @@
 
 <!-- Enterprise Subscriptions -->
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr><td class="pageDivider" width="100%">Enterprise Subscriptions</td></tr>
+                            <tr><td class="catalogIndexHeader" width="100%">Enterprise Subscriptions</td></tr>
                         </table>
 
                         <table border="0" cellpadding="0" cellspacing="10">
@@ -99,8 +99,6 @@
                                 <td><img src="/images/dotnet_enterprise_sub.gif" alt=".NET Enterprise Subscription -- Call for pricing" width="286" height="184" border="0" /></td>
                             </tr>
                         </table><br />
-                        
-                        <img src="/images/verisign_m.gif" alt="Payment Services by Verisign" width="103" height="43" border="0" vspace="20">
                         
                         </div>
                         
