@@ -62,7 +62,7 @@ public class Submit extends View {
             if (!paramName.startsWith(AnswerInput.PREFIX)) {
                 addError(paramName, "Invalid answer.");
             } else {
-                StringTokenizer st = new StringTokenizer(paramName.substring(AnswerInput.PREFIX.length()));
+                StringTokenizer st = new StringTokenizer(paramName.substring(AnswerInput.PREFIX.length()), ",");
                 if (st.hasMoreTokens()) {
                     questionId = Long.parseLong(st.nextToken());
                 }
