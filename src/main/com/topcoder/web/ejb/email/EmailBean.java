@@ -29,7 +29,7 @@ public class EmailBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            ctx = TCContext.getInitial();
+            ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
                         "current_value", 9999999999L, 1, false);
