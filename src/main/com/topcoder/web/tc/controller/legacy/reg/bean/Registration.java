@@ -56,7 +56,7 @@ public class Registration
     public static final String STEP_2 = "2";
     public static final String STEP_3 = "3";
     public static final String STEP_4 = "4";
-    public static final String STEP_5 = "5";
+    public static final String STEP_5 = "onsite";
     public static final String DEFAULT_STEP = STEP_1;
 
     // pages
@@ -162,6 +162,8 @@ public class Registration
     private static final String DEMOGRAPHIC_QUESTION_EMPLOYER = "15";
     private static final String DEMOGRAPHIC_QUESTION_EMPLOYED = "21";
     private static final String DEMOGRAPHIC_ANSWER_EMPLOYED_YES = "141";
+    
+    private static final String DEMOGRAPHIC_QUESTION_OTHER_SCHOOL = "20";
 
     protected String firstName;
     protected String lastName;
@@ -517,6 +519,9 @@ public class Registration
                     String strAnswerId = (String) answerList.get(i);
                     if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES)) {
                         employed = true;
+                    } else if(strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
+                        this.schoolName = strAnswerId;
+                        this.school = "-1";
                     }
                     if (strAnswerId.equals("")) {
                         ArrayList assignments = getDemographicAssignments(Integer.parseInt(this.coderType));
@@ -529,6 +534,8 @@ public class Registration
                                 } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYER)) {
                                     employerBlank = true;
                                     employerQuestionText = question.getDemographicQuestionText();
+                                } else if(strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !this.country.equals(USA)) {
+                                    addError(DEMO_PREFIX + strQuestionId, "Please enter your school name.");
                                 }
                                 break;
                             }
@@ -1306,6 +1313,24 @@ public class Registration
         }
         return result;
     }
+    
+    public static int getSchoolId(String schoolName) throws TaskException {
+        int result = 0;
+        try {
+            DataCache cache = Cache.get();
+            ArrayList schools = cache.getSchools();
+            for (int i = 0; i < schools.size(); i++) {
+                School schoolObj = (School) schools.get(i);
+                if (schoolObj.getName().equals(schoolName)) {
+                    return schoolObj.getSchoolId();
+                }
+            }
+        } catch (Exception e) {
+            log.error(e.toString());
+            throw new TaskException(e);
+        }
+        return result;
+    }
 
 
     public static String getSchoolName(int schoolName)
@@ -1580,33 +1605,51 @@ public class Registration
             }
         }
 
-        if (this.coderType.equals(CODER_TYPE_STUDENT)) {
-            School currentSchool = coder.getCurrentSchool();
-            // SB -- added country.equals(USA) to fix problem with foreign student changing their school
-            if (currentSchool.getName().equals("") && this.country.equals(USA))  //&& isRegister() )
-            {
-                currentSchool.setModified("A");
-            } else {
-                currentSchool.setModified("U");
-            }
-            int schoolId = 0;
-            if (isNumber(school)) schoolId = Integer.parseInt(school);
-            currentSchool.setUserId(coder.getCoderId());
-            currentSchool.setSchoolId(schoolId);
-            currentSchool.setName(getSchoolName(schoolId));
-            if (!this.gpa.equals("")) {
-                currentSchool.setGpa(Float.parseFloat(this.gpa));
-            }
-            if (!this.gpaScale.equals("")) {
-                currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
-            }
-        }
-
+        
         Context context = null;
         String activationCode = "";
         UserTransaction transaction = null;
         try {
             context = TCContext.getInitial();
+            
+            if (this.coderType.equals(CODER_TYPE_STUDENT)) {
+                School currentSchool = coder.getCurrentSchool();
+                // SB -- added country.equals(USA) to fix problem with foreign student changing their school
+                //if (currentSchool.getName().equals("") && this.country.equals(USA))  //&& isRegister() )
+                if(isRegister())
+                {
+                    currentSchool.setModified("A");
+                } else {
+                    currentSchool.setModified("U");
+                }
+                int schoolId = 0;
+                if (isNumber(school) && Integer.parseInt(school) != -1) {
+                    schoolId = Integer.parseInt(school);
+                    this.schoolName = getSchoolName(schoolId);
+                } else {
+                    //lookup school by name
+                    schoolId = getSchoolId(this.schoolName);
+                    if(schoolId == 0) {
+                        //create school
+                        InitialContext ctxSchool = TCContext.getInitial();
+                        com.topcoder.web.ejb.school.School s = (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool, com.topcoder.web.ejb.school.School.class);
+                        schoolId = Integer.parseInt(String.valueOf(s.createSchool(DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME)));
+                        s.setFullName(schoolId, schoolName, DBMS.OLTP_DATASOURCE_NAME);
+                    }
+                }
+
+                currentSchool.setUserId(coder.getCoderId());
+                currentSchool.setSchoolId(schoolId);
+                currentSchool.setName(schoolName);  
+
+                if (!this.gpa.equals("")) {
+                    currentSchool.setGpa(Float.parseFloat(this.gpa));
+                }
+                if (!this.gpaScale.equals("")) {
+                    currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
+                }
+            }
+            
             UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
             transaction = Transaction.get();
             if (Transaction.begin(transaction)) {
@@ -1693,60 +1736,118 @@ public class Registration
                 mail.setSubject("TopCoder Activation");
                 StringBuffer msgText = new StringBuffer(3000);
 
+                if(autoActivate) {
+                    
+                    msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
+                    msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
+                    msgText.append("To activate your account, navigate to the following WWW URL:\n");
+                    msgText.append(ACTIVATION_URL);
+                    msgText.append(activationCode);
+                    msgText.append("\n");
+                    msgText.append("If you cannot click on the web address above, please copy");
+                    msgText.append(" the address into your web browser to continue.  If the ");
+                    msgText.append("address spans two lines, please make sure you copy and paste");
+                    msgText.append(" both sections without any spaces between them.\n\n");
+                    msgText.append("You may utilize your activated TopCoder handle and password ");
+                    msgText.append("in order to access your member home page on TopCoder's web site ");
+                    msgText.append("(<http://www.topcoder.com>).  Your handle and");
+                    msgText.append(" password will also provide you with access to the TopCoder ");
+                    msgText.append("Competition Arena, where you can practice, chat, and compete ");
+                    msgText.append("in rated events.\n\n\n");
+                    msgText.append("TOPCODER RATED EVENTS\n\n");
+                    msgText.append("Establishing a TopCoder rating will provide you with a number ");
+                    msgText.append("of benefits, including possible invitations to major tournaments ");
+                    msgText.append("with large cash prizes, TopCoder employment services, and the ");
+                    msgText.append("ability to apply for participation in TopCoder compensated ");
+                    msgText.append("software development projects.\n\n");
+                    msgText.append("Participating in TopCoder rated events (held weekly) will allow ");
+                    msgText.append("you to establish a TopCoder rating.  Competing in a single rated");
+                    msgText.append(" event is all it takes to become a rated member, however most ");
+                    msgText.append("major tournaments will require that you have participated in ");
+                    msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
+                    msgText.append("events here:\n");
+                    msgText.append("<http://www.topcoder.com/?&t=schedule&c=index>\n\n");
+                    msgText.append("You may view all current development projects here: ");
+                    msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
+                    msgText.append("with your TopCoder handle and password).\n\n\n");
+                    msgText.append("PRACTICING TOPCODER\n\n");
+                    msgText.append("TopCoder provides a number of practice rooms that will allow ");
+                    msgText.append("you to become acclimated with our competition environment before ");
+                    msgText.append("you participate in your first rated event.  Each practice room has ");
+                    msgText.append("a problem set that was actually used in a previous rated event.  ");
+                    msgText.append("In addition, participating in a practice room is a very similar ");
+                    msgText.append("experience to competing in an actual rated event.  The practice ");
+                    msgText.append("rooms are always available.\n\n");
+                    msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
+                    msgText.append("http://www.topcoder.com/?&t=schedule&c=practice_room\n\n");
+                    msgText.append("We also suggest that you read up on the rules and competition process ");
+                    msgText.append("from the FAQs and links that are available here:\n");
+                    msgText.append("http://www.topcoder.com/?&t=support&c=index\n\n");
+                    msgText.append("If you have any questions about how to participate, feel free ");
+                    msgText.append("to email them to service@topcoder.com.\n\n");
+                    msgText.append("Thank you for registering with TopCoder and we look forward ");
+                    msgText.append("to seeing you in the arena!");
+                    mail.setBody(msgText.toString());
+                    mail.addToAddress(email, TCSEmailMessage.TO);
+                    mail.setFromAddress("competitions@topcoder.com");
+                    EmailEngine.send(mail);
+                } else {
+                
 
-                msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
-                msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
-                msgText.append("To activate your account, navigate to the following WWW URL:\n");
-                msgText.append(ACTIVATION_URL);
-                msgText.append(activationCode);
-                msgText.append("\n");
-                msgText.append("If you cannot click on the web address above, please copy");
-                msgText.append(" the address into your web browser to continue.  If the ");
-                msgText.append("address spans two lines, please make sure you copy and paste");
-                msgText.append(" both sections without any spaces between them.\n\n");
-                msgText.append("You may utilize your activated TopCoder handle and password ");
-                msgText.append("in order to access your member home page on TopCoder's web site ");
-                msgText.append("(<http://www.topcoder.com>).  Your handle and");
-                msgText.append(" password will also provide you with access to the TopCoder ");
-                msgText.append("Competition Arena, where you can practice, chat, and compete ");
-                msgText.append("in rated events.\n\n\n");
-                msgText.append("TOPCODER RATED EVENTS\n\n");
-                msgText.append("Establishing a TopCoder rating will provide you with a number ");
-                msgText.append("of benefits, including possible invitations to major tournaments ");
-                msgText.append("with large cash prizes, TopCoder employment services, and the ");
-                msgText.append("ability to apply for participation in TopCoder compensated ");
-                msgText.append("software development projects.\n\n");
-                msgText.append("Participating in TopCoder rated events (held weekly) will allow ");
-                msgText.append("you to establish a TopCoder rating.  Competing in a single rated");
-                msgText.append(" event is all it takes to become a rated member, however most ");
-                msgText.append("major tournaments will require that you have participated in ");
-                msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
-                msgText.append("events here:\n");
-                msgText.append("<http://www.topcoder.com/?&t=schedule&c=index>\n\n");
-                msgText.append("You may view all current development projects here: ");
-                msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
-                msgText.append("with your TopCoder handle and password).\n\n\n");
-                msgText.append("PRACTICING TOPCODER\n\n");
-                msgText.append("TopCoder provides a number of practice rooms that will allow ");
-                msgText.append("you to become acclimated with our competition environment before ");
-                msgText.append("you participate in your first rated event.  Each practice room has ");
-                msgText.append("a problem set that was actually used in a previous rated event.  ");
-                msgText.append("In addition, participating in a practice room is a very similar ");
-                msgText.append("experience to competing in an actual rated event.  The practice ");
-                msgText.append("rooms are always available.\n\n");
-                msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
-                msgText.append("http://www.topcoder.com/?&t=schedule&c=practice_room\n\n");
-                msgText.append("We also suggest that you read up on the rules and competition process ");
-                msgText.append("from the FAQs and links that are available here:\n");
-                msgText.append("http://www.topcoder.com/?&t=support&c=index\n\n");
-                msgText.append("If you have any questions about how to participate, feel free ");
-                msgText.append("to email them to service@topcoder.com.\n\n");
-                msgText.append("Thank you for registering with TopCoder and we look forward ");
-                msgText.append("to seeing you in the arena!");
-                mail.setBody(msgText.toString());
-                mail.addToAddress(email, TCSEmailMessage.TO);
-                mail.setFromAddress("service@topcoder.com");
-                EmailEngine.send(mail);
+                    msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
+                    msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
+                    msgText.append("To activate your account, navigate to the following WWW URL:\n");
+                    msgText.append(ACTIVATION_URL);
+                    msgText.append(activationCode);
+                    msgText.append("\n");
+                    msgText.append("If you cannot click on the web address above, please copy");
+                    msgText.append(" the address into your web browser to continue.  If the ");
+                    msgText.append("address spans two lines, please make sure you copy and paste");
+                    msgText.append(" both sections without any spaces between them.\n\n");
+                    msgText.append("You may utilize your activated TopCoder handle and password ");
+                    msgText.append("in order to access your member home page on TopCoder's web site ");
+                    msgText.append("(<http://www.topcoder.com>).  Your handle and");
+                    msgText.append(" password will also provide you with access to the TopCoder ");
+                    msgText.append("Competition Arena, where you can practice, chat, and compete ");
+                    msgText.append("in rated events.\n\n\n");
+                    msgText.append("TOPCODER RATED EVENTS\n\n");
+                    msgText.append("Establishing a TopCoder rating will provide you with a number ");
+                    msgText.append("of benefits, including possible invitations to major tournaments ");
+                    msgText.append("with large cash prizes, TopCoder employment services, and the ");
+                    msgText.append("ability to apply for participation in TopCoder compensated ");
+                    msgText.append("software development projects.\n\n");
+                    msgText.append("Participating in TopCoder rated events (held weekly) will allow ");
+                    msgText.append("you to establish a TopCoder rating.  Competing in a single rated");
+                    msgText.append(" event is all it takes to become a rated member, however most ");
+                    msgText.append("major tournaments will require that you have participated in ");
+                    msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
+                    msgText.append("events here:\n");
+                    msgText.append("<http://www.topcoder.com/?&t=schedule&c=index>\n\n");
+                    msgText.append("You may view all current development projects here: ");
+                    msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
+                    msgText.append("with your TopCoder handle and password).\n\n\n");
+                    msgText.append("PRACTICING TOPCODER\n\n");
+                    msgText.append("TopCoder provides a number of practice rooms that will allow ");
+                    msgText.append("you to become acclimated with our competition environment before ");
+                    msgText.append("you participate in your first rated event.  Each practice room has ");
+                    msgText.append("a problem set that was actually used in a previous rated event.  ");
+                    msgText.append("In addition, participating in a practice room is a very similar ");
+                    msgText.append("experience to competing in an actual rated event.  The practice ");
+                    msgText.append("rooms are always available.\n\n");
+                    msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
+                    msgText.append("http://www.topcoder.com/?&t=schedule&c=practice_room\n\n");
+                    msgText.append("We also suggest that you read up on the rules and competition process ");
+                    msgText.append("from the FAQs and links that are available here:\n");
+                    msgText.append("http://www.topcoder.com/?&t=support&c=index\n\n");
+                    msgText.append("If you have any questions about how to participate, feel free ");
+                    msgText.append("to email them to service@topcoder.com.\n\n");
+                    msgText.append("Thank you for registering with TopCoder and we look forward ");
+                    msgText.append("to seeing you in the arena!");
+                    mail.setBody(msgText.toString());
+                    mail.addToAddress(email, TCSEmailMessage.TO);
+                    mail.setFromAddress("service@topcoder.com");
+                    EmailEngine.send(mail);
+                }
             } catch (Exception e) {
                 log.info(e.toString());
                 //throw new TaskException(e);
