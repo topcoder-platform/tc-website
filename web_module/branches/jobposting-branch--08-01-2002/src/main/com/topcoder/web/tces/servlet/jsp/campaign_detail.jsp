@@ -55,8 +55,6 @@
         </b>
         <br>
         <jsp:getProperty name="CampaignDetailTask" property="CampaignName"/>
-        <br>
-        <jsp:getProperty name="CampaignDetailTask" property="CampaignStatus"/>
         </p>
         
         <p align="center">

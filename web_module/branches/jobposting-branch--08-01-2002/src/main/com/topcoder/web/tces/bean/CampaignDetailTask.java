@@ -138,7 +138,6 @@ log.debug("setting most recent hit = "+mostRecentHit);
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
         setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
-        setCampaignStatus( cpgnInfRow.getItem("status_desc").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_Info");
         ResultSetContainer.ResultSetRow cpgnHitsRow = rsc.getRow(0);

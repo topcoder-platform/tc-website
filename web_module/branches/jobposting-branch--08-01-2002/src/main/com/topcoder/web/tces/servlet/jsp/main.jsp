@@ -63,8 +63,6 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Start Date</b></TD>
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>End Date</b></TD>
-                  <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Status</b></TD>
                 </TR>
     
                 <tces:mapIterator id="campaignInfo" MapList="<%=MainTask.getCampaignInfoList()%>">
@@ -80,10 +78,6 @@
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
                     <b><%=(String)campaignInfo.get("end_date")%></b>
-                  </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">
-                    <b><%=(String)campaignInfo.get("status_desc")%></b>
                   </TD>
                 </TR>
 
