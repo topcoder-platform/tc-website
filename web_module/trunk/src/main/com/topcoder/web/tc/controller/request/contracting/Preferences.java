@@ -36,7 +36,6 @@ public class Preferences extends ContractingBase {
             PreferenceGroup grp = new PreferenceGroup();
             
             grp.setName(rsc.getStringItem(i, "preference_group_desc"));
-            grp.setSortOrder(rsc.getIntItem(i, "sort_order"));
             
             //load preferences here
             Request rpref = new Request();
@@ -47,7 +46,6 @@ public class Preferences extends ContractingBase {
             for(int j = 0; j < rscPref.size(); j++) {
                 Preference pref = new Preference();
                 
-                pref.setSortOrder(rscPref.getIntItem(j, "sort_order"));
                 pref.setText(rscPref.getStringItem(j, "preference_desc"));
                 pref.setType(rscPref.getIntItem(j, "preference_type_id"));
                 
@@ -63,7 +61,6 @@ public class Preferences extends ContractingBase {
                         PreferenceValue pv = new PreferenceValue();
                         
                         pv.setID(rscVal.getIntItem(x, "preference_value_id"));
-                        pv.setSortOrder(rscVal.getIntItem(x, "sort_order"));
                         
                         pv.setText(rscVal.getStringItem(x, "value"));
                         

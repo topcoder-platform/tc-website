@@ -15,15 +15,13 @@ import java.util.Collections;
  *
  * @author  rfairfax
  */
-public class Preference implements Serializable, Comparable {
+public class Preference implements Serializable {
     
-    private int sortOrder;
     private String text;
     private ArrayList options;
     private int type;
     
     public Preference() {
-        sortOrder = 0;
         text = "";
         options = new ArrayList();
         type = 0;
@@ -31,7 +29,6 @@ public class Preference implements Serializable, Comparable {
     
     public void addPrefValue(PreferenceValue pv) {
         options.add(pv);
-        Collections.sort(options);
     }
     
     public int getType() {
@@ -53,20 +50,5 @@ public class Preference implements Serializable, Comparable {
     public void setText(String t) {
         this.text = t;
     }
-    
-    public int getSortOrder() {
-        return sortOrder;
-    }
-    
-    public void setSortOrder(int so) {
-        this.sortOrder = so;
-    }
-    
-    public int compareTo(Object obj) {
-        Preference pref = (Preference)obj;
-        
-        return this.getSortOrder() - pref.getSortOrder();
-    }
-    
     
 }

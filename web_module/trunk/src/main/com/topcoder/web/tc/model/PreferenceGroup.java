@@ -15,30 +15,19 @@ import java.util.Collections;
  *
  * @author  rfairfax
  */
-public class PreferenceGroup implements Serializable, Comparable {
+public class PreferenceGroup implements Serializable {
     
     private String name;
     private ArrayList prefs;
-    private int sortOrder;
     
     /** Creates a new instance of PreferenceGroup */
     public PreferenceGroup() {
         name = "";
         prefs = new ArrayList();
-        sortOrder = 0;
     }
     
     public void addPreference(Preference p) {
         prefs.add(p);
-        Collections.sort(prefs);
-    }
-    
-    public int getSortOrder() {
-        return sortOrder;
-    }
-    
-    public void setSortOrder(int so) {
-        this.sortOrder = so;
     }
     
     public List getPrefs() {
@@ -53,10 +42,5 @@ public class PreferenceGroup implements Serializable, Comparable {
         this.name = name;
     }
 
-    public int compareTo(Object obj) {
-        PreferenceGroup o2 = (PreferenceGroup)obj;
-        
-        return this.getSortOrder() - o2.getSortOrder();
-    }
     
 }
