@@ -36,7 +36,7 @@
          Participants will have their choice of using Java, C++, C# or VB.Net - the most relevant of current software development technologies - to solve complex algorithmic problems. </p>
 
          <p><span class="dc_subTitle">Here's what you do</span><br/>
-         Download the DoubleClick 2004 Coding Challenge Qualification Round <a class="bodyText_link" href="/i/events/doubleclick/col_competitionManual.pdf" target="_blank">Competition Manual</a>.</p>
+         Download the DoubleClick 2004 Coding Challenge Qualification Round <a class="bodyText_link" href="/i/events/doubleclick/int_competitionManual.pdf" target="_blank">Competition Manual</a>.</p>
 
          <p>The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.  Here's how it works:</p>
 
