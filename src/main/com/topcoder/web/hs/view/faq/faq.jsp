@@ -1,4 +1,4 @@
-<html>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%><html>
 
 <head>
 
@@ -90,7 +90,7 @@
                         
                         <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
-                        <p><strong>More Questions?<a href="?module=Static&d1=contacts&d2=contacts">Contact Us</a></strong></p>
+                        <p><strong>More Questions?<a href="<%="http://"+ApplicationServer.SERVER_NAME+"/?&t=contacts&c=index"%>">Contact Us</a></strong></p>
                         
                         <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
