@@ -108,7 +108,13 @@
 <!-- STATE/PROVINCE -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">State&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText"><tc-webtag:textInput name="prim-company-state" size="30" maxlength="30"/></TD>
+    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
+        <select name="prim-company-state">
+            <tc-webtag:queryIterator command="cmd-states-list" id="resultRow">
+              <option value="<%=resultRow.getItem("state_code")%>"><%=resultRow.getItem("state_name")%></option>
+            </tc-webtag:queryIterator>
+        </select>
+    </TD>
   </TR>
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
