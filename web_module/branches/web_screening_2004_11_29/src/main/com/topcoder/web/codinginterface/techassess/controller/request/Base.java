@@ -9,12 +9,17 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
+import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.language.*;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
+import javax.servlet.http.HttpSessionBindingListener;
+import javax.servlet.http.HttpSessionBindingEvent;
 import java.util.*;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author  dok
@@ -41,8 +46,6 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected abstract void techAssessProcessing() throws Exception;
-
-
 
     public void setReceiver(WebQueueResponseManager receiver) {
         this.receiver = receiver;
@@ -88,8 +91,16 @@ public abstract class Base extends BaseProcessor {
 
     }
 
-    public void setSessionId(long sessionId) {
+    /**
+     * making this final so that someone doesn't override and not add the object
+     * containing a sessionbindinglistener that auto logs out
+     * @param sessionId
+     */
+    public final void setSessionId(long sessionId) {
         //log.debug("session id set to " + sessionId);
+        if (getRequest().getSession().getAttribute("logouter")==null) {
+            getRequest().getSession().setAttribute("logouter", new Logouter(sessionId, sender));
+        }
         this.sessionId = sessionId;
         getRequest().getSession().setAttribute(Constants.SESSION_ID, new Long(sessionId));
     }
@@ -314,6 +325,38 @@ public abstract class Base extends BaseProcessor {
             ret.add(BaseLanguage.getLanguage(((Integer)it.next()).intValue()));
         }
         return ret;
+    }
+
+
+    private final class Logouter implements Serializable, HttpSessionBindingListener {
+
+        private long sessionId = -1;
+        private QueueMessageSender sender = null;
+
+        public Logouter(long sessionId, QueueMessageSender sender) {
+            this.sessionId = sessionId;
+            this.sender = sender;
+        }
+
+        public void valueBound(HttpSessionBindingEvent event) {
+            //whoopie, we're in the session!!
+        }
+
+        public void valueUnbound(HttpSessionBindingEvent event) {
+            //send a logout request
+            ScreeningLogoutRequest request = new ScreeningLogoutRequest();
+            request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
+            request.setSessionID(sessionId);
+            sender.sendMessage(new HashMap(), request);
+        }
+
+        public long getSessionId() {
+            return this.sessionId;
+        }
+
+        public void setSessionId(long sessionId) {
+            this.sessionId = sessionId;
+        }
     }
 
 
