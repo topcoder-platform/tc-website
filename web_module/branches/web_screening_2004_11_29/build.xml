@@ -830,7 +830,7 @@
         <delete dir="${public_html}/corp/META-INF"/>
     </target>
 
-     <target name="war-techassess" depends="compile">
+     <target name="war-techassess" depends="compile_shared, compile_techassess">
          <war warfile="${war.dir}/techassess.war" webxml="${resources}/techassess/web.xml">
              <classes dir="${classes}">
                  <include name="com/topcoder/web/codinginterface/techassess/**"/>
