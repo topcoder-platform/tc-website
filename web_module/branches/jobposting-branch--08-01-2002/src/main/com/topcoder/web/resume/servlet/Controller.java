@@ -27,11 +27,11 @@ public class Controller
     public void init(Servlet servletConfig)
             throws ServletException {
     }
-    public void service(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         service(request,response);
     }
-    public void service(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         service(request,response);
     }
