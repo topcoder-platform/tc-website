@@ -91,8 +91,6 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         if (request.getParameter(TCESConstants.STEP_PARAM)!=null &&
             request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
             if (Authentication.getRequestedURL(request.getSession(true)).trim().length()>0) {
-    log.debug(Authentication.getRequestedURL(request.getSession(true)));
-                setNextPage(Authentication.getRequestedURL(request.getSession(true)).trim());
                 customRedir=true;
                 Authentication.resetRequestedURL(request.getSession(true));
             }
