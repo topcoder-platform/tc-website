@@ -15,25 +15,25 @@ package com.topcoder.web.corp.request;
 */
 public class Static extends BaseProcessor { 
     
+    /** Constructor sets pageInContext to true since all Static pages are in
+     * the same context 
+     */
     public Static() {
-        pageInContext = true; // Static pages in same contect.
+        pageInContext = true; 
     }
 
     private final String STATIC_PREFIX = "d";  // Prefix for parameters
 
     /** process() method in BaseProcessor calls this businessProcessing() 
      *  method to define the next Page.  set next page to the Error Page 
-     *  if there is an error when processing the next page request.  */
+     *  if there is an error when processing the next page request.  
+     *  @throws Exception 
+     */
     void businessProcessing() throws Exception {
-        try {
-            nextPage = requestProcessor();
-        }
-        catch (Exception e) {
-            nextPage = ("/error.jsp?message=" + e);
-        }
+        nextPage = requestProcessor();
     }
 
-    /*
+    /**
      * method for processesing a page request and checking to make sure it 
      * is valid then returning the "served up" page containing a valid URI 
      * to display.
@@ -92,8 +92,11 @@ public class Static extends BaseProcessor {
     }
 
 
-   /* returns -1 if parameter is valid, otherwise returns the index 
-    *  of the invalid character in the request.                      */
+   /** returns -1 if parameter is valid, otherwise returns the index 
+    *  of the invalid character in the request.
+    * @param param parameter to check for validity.
+    * @return index of invalid character, or -1 if param is valid
+    */
     private int validParameter(String param) {
         for (int i=0;i<param.length();i++) {
             char curChar = param.charAt(i);
@@ -105,9 +108,12 @@ public class Static extends BaseProcessor {
     }
 
 
-    /* Determine how many STATIC_PREFIX levels the static address has, 
+    /** Determine how many STATIC_PREFIX levels the static address has, 
      *  ie: /statistics/tourney_overview/myPage.jsp page is 3 
-     *  static levels deep.                                       */
+     *  static levels deep.                                       
+     * @param request String representing URL request
+     * @return total levels deep of request (int).
+     */
     private int levelsDeep(String request) {
         int lastIndex = request.lastIndexOf("&"+STATIC_PREFIX) 
                         + STATIC_PREFIX.length()+1;
