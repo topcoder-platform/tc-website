@@ -70,11 +70,11 @@
               </P>
               
               <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">               
-                <TR>
-                <TD>
+                <TR valign='top'>
+                <TD width='50%'>
                   <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
-                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
                       <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>
 
@@ -123,11 +123,6 @@
                         </TR>                     
                     </tces:mapIterator>
 
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                    </TR>                
-
 
                     <%
                       while (StudentQuestionIterator.hasNext()) {
@@ -135,6 +130,11 @@
                         List StudentResponsesList = (List)StudentQuestionMap.get(question);
                     %>
             
+                    <TR>
+                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    </TR>                
+
                     <TR>
                       <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
                       <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -166,7 +166,7 @@
                 <TD>
                   <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
-                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Professional ()</b></TD>
                       <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <TR>
