@@ -36,7 +36,7 @@
 <!-- Left Column Begins -->
         <TD WIDTH="180" valign="top">
             <xsl:call-template name="global_left"/>
-        </td>
+        </TD>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
