@@ -1,4 +1,11 @@
 <%@  page language="java"  %>
+<%@ page
+  language="java"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          java.util.Map,com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils"
+%>
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -121,6 +128,24 @@ H3 { font-size: 125%; }
 -->
  </STYLE>
 </head>
+
+<%
+
+com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
+dataRequest.setContentHandle("showdown_tccc05_scoreboard");
+DataAccessInt dai = new DataAccess("OLTP");
+Map dataMap = null;
+dataMap = dai.getData(dataRequest);
+ResultSetContainer rscTopA = (ResultSetContainer)dataMap.get("showdown_tccc05_top_set_a");
+ResultSetContainer rscRecentA = (ResultSetContainer)dataMap.get("showdown_tccc05_recent_set_a");
+ResultSetContainer rscTopB = (ResultSetContainer)dataMap.get("showdown_tccc05_top_set_b");
+ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05_recent_set_b");
+
+
+
+%>
+
+
 <body>
 
 <!-- Tab barlinks-->
@@ -156,10 +181,14 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
+                           <% int i=1;%>
+                            <rsc:iterator list="<%=rscTopA%>" id="Row" >
                                 <tr>
-                                    <td class="leaderCell"></td>
-                                    <td class="leaderCell" align="right"></td>
+                                    <td class="leaderCell"><%=i+". "+JSPUtils.htmlEncode(Row.getStringItem("handle"))%></td>
+                                    <td class="leaderCell" align="right"><rsc:item name='points' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
+                            <% i++; %>
+                            </rsc:iterator>
                         </table>
                     </td>
 
@@ -174,10 +203,12 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
+                             <rsc:iterator list="<%=rscRecentA%>" id="Row" > 
                                 <tr>
-                                    <td class="leaderCell"></td>
-                                    <td class="leaderCell" align="right"></td>
+                                    <td class="leaderCell"><%=JSPUtils.htmlEncode(Row.getStringItem("handle"))%></td>
+                                    <td class="leaderCell" align="right"><rsc:item name='points' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
+                            </rsc:iterator>
                         </table>
                     </td>
                     <td class="spacer">&#160;</td>
@@ -192,10 +223,13 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
+                            <% int j=1;%>
+                            <rsc:iterator list="<%=rscTopB%>" id="Row" >
                                 <tr>
-                                    <td class="leaderCell"></td>
-                                    <td class="leaderCell" align="right"></td>
+                                    <td class="leaderCell"><%=j+". "+JSPUtils.htmlEncode(Row.getStringItem("handle"))%></td>
+                                    <td class="leaderCell" align="right"><rsc:item name='points' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
+                            <% j++;%>
                         </table>
                     </td>
 
@@ -210,10 +244,12 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
+                            <rsc:iterator list="<%=rscRecentB%>" id="Row" >
                                 <tr>
-                                    <td class="leaderCell"></td>
-                                    <td class="leaderCell" align="right"></td>
+                                    <td class="leaderCell"><%=JSPUtils.htmlEncode(Row.getStringItem("handle"))%></td>
+                                    <td class="leaderCell" align="right"><rsc:item name='points' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
+                            </rsc:iterator>
                         </table>
                     </td>
                 </tr>

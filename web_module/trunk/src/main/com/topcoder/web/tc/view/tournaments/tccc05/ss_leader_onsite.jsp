@@ -132,14 +132,14 @@ H3 { font-size: 125%; }
 <%
 
 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-dataRequest.setContentHandle("showdown_scoreboard");
+dataRequest.setContentHandle("showdown_tccc05_scoreboard");
 DataAccessInt dai = new DataAccess("OLTP");
 Map dataMap = null;
 dataMap = dai.getData(dataRequest);
-ResultSetContainer rscTopA = (ResultSetContainer)dataMap.get("showdown_top_set_a");
-ResultSetContainer rscRecentA = (ResultSetContainer)dataMap.get("showdown_recent_set_a");
-ResultSetContainer rscTopB = (ResultSetContainer)dataMap.get("showdown_top_set_b");
-ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent_set_b");
+ResultSetContainer rscTopA = (ResultSetContainer)dataMap.get("showdown_tccc05_top_set_a");
+ResultSetContainer rscRecentA = (ResultSetContainer)dataMap.get("showdown_tccc05_recent_set_a");
+ResultSetContainer rscTopB = (ResultSetContainer)dataMap.get("showdown_tccc05_top_set_b");
+ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05_recent_set_b");
 
 
 
