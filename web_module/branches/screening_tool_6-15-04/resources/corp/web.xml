@@ -1064,6 +1064,12 @@
             <param-value>testSessionInfo</param-value>
             <description></description>
         </init-param>
+        
+        <init-param>
+            <param-name>usage_type</param-name>
+            <param-value>companyUsageType</param-value>
+            <description></description>
+        </init-param>
 
         <init-param>
             <param-name>session_lookup_command</param-name>

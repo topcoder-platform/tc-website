@@ -155,6 +155,8 @@ public class Constants
     public static String CONTACT_INFO_QUERY_KEY;
     public static String ERRORS;
     public static String DEBUG;
+    
+    public static String USAGE_TYPE;
 
     public static String DATE_TIME_FORMAT;
 
