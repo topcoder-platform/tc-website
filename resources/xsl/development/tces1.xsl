@@ -55,7 +55,7 @@
                                     </FORM>
                                     <b>TCES Extension Project Part One</b>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='TCES Extension Part One';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='TCES Extension Part One';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
                                     <BR/>
                                     <BR/>
                                     <b>Preface</b>
@@ -168,7 +168,7 @@ The project will begin on the 15th of May. There will be a kick-off conference c
                                         <li>Project Start Date:    May 15, 2002</li>
                                         <li>Project End Date:      June 17, 2002</li>
                                     </ul>
-                                    <a href="Javascript:document.frmInquire.Project.value='TCES Extension Part One';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <!--<a href="Javascript:document.frmInquire.Project.value='TCES Extension Part One';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>-->
           <P><br/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
