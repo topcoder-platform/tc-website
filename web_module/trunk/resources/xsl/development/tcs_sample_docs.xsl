@@ -64,7 +64,7 @@
 							do not meet the screening requirements will not be reviewed by the Architecture Review Board.</p>
 
 							<p><strong>Component Development Deliverables</strong><br />
-							<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Development Deliverables</a> provides an overview 
+							<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Java</a> and <a target="tcsdocs" href="/i/development/downloads/DOTNET_Developer_Component_Deliverables.pdf" class="statText">.NET</a> Development Deliverables provides an overview 
 							of the design process including the required deliverables for submission.  Submissions which do not meet the screening requirements 
 							will not be reviewed by the Development Review Board.</p>
 							
