@@ -31,6 +31,8 @@ import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
+import com.topcoder.apps.review.projecttracker.ProjectTracker;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
@@ -779,7 +781,14 @@ public final class TaskDevelopment {
         UserManagerRemote USER_MANAGER = userManagerHome.create();
         UserPrincipal up = principalMgr.getUser(userId);
 
-        USER_MANAGER.registerInquiry(userId, componentId, rating, userId, comment, agreedToTerms, phase, version, projectId);
+        Context homeBindings = new InitialContext();
+        ProjectTrackerHome ptHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
+                homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
+                ProjectTrackerHome.class);
+        ProjectTracker pt = ptHome.create();
+
+        pt.userInquiry(userId, projectId);
+
 
         //add the user to the appropriate role to view the forum
         Collection roles = principalMgr.getRoles(null);

@@ -1,7 +1,7 @@
 /*
  * ProjectTracker.java
  *
- * Copyright ? 2003, TopCoder, Inc. All rights reserved
+ * Copyright � 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -90,7 +90,7 @@ public interface ProjectTracker extends EJBObject {
 
     /**
      * Create a new Online Review Project.
-     * 
+     *
      * @param projectName
      * @param projectVersion
      * @param compVersId
@@ -115,24 +115,39 @@ public interface ProjectTracker extends EJBObject {
      * @param version
      * @param projectTypeId
      */
+/*
     public void userInquiry(long userId, long componentId, long version, long projectTypeId)
             throws TCException, RemoteException;
+*/
+
+    /**
+     *
+     * @param userId
+     * @param projectId
+     * @throws TCException
+     * @throws RemoteException
+     */
+    public void userInquiry(long userId, long projectId)
+            throws TCException, RemoteException;
+
 
     /**
      * Return scorecardtemplate id:s for project.
-     * 
+     *
      * @param projectId
      * @return array with screening and review template id:s
      */
     public long[] getProjectTemplates(long projectId)
             throws RemoteException;
 
+/*
     public long convertProject(
             String projectName, String version, long versionId,
             long componentId,
             long compVersId, long phaseId, long projectTypeId,
             String overview, Date[] dates, TCSubject requestor, long levelId)
             throws TCException, RemoteException;
+*/
 
     public void versionRename(long compVersId, String oldVersion, String newVersion)
             throws RemoteException;

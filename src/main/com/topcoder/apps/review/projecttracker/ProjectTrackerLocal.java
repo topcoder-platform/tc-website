@@ -1,7 +1,7 @@
 /*
  * ProjectTrackerLocal.java
  *
- * Copyright ? 2003, TopCoder, Inc. All rights reserved
+ * Copyright � 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -69,7 +69,7 @@ public interface ProjectTrackerLocal extends EJBLocalObject {
 
     /**
      * Create a new Online Review Project.
-     * 
+     *
      * @param projectName
      * @param projectVersion
      * @param compVersId
@@ -93,23 +93,36 @@ public interface ProjectTrackerLocal extends EJBLocalObject {
      * @param version
      * @param projectTypeId
      */
+/*
     public void userInquiry(long userId, long componentId, long version, long projectTypeId)
+            throws TCException;
+*/
+
+    /**
+     *
+     * @param userId
+     * @param projectId
+     * @throws TCException
+     */
+    public void userInquiry(long userId, long projectId)
             throws TCException;
 
     /**
      * Return scorecardtemplate id:s for project.
-     * 
+     *
      * @param projectId
      * @return array with screening and review template id:s
      */
     public long[] getProjectTemplates(long projectId);
 
+/*
     public long convertProject(
             String projectName, String version, long versionId,
             long componentId,
             long compVersId, long phaseId, long projectTypeId,
             String overview, Date[] dates, TCSubject requestor, long levelId)
             throws TCException;
+*/
 
     public void versionRename(long compVersId, String oldVersion, String newVersion);
 

@@ -189,7 +189,7 @@ public class ProjectTrackerBean implements SessionBean {
                 long projectVersionId = rs.getLong(11);
                 long compVersId = rs.getLong(12);
                 String catalogName = rs.getString(13);
-                long levelId = rs.getLong(14);                
+                long levelId = rs.getLong(14);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
@@ -1914,6 +1914,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @param version
      * @param projectTypeId
      */
+/*
     public void userInquiry(long userId, long componentId, long version, long projectTypeId)
             throws TCException {
         info("PT.userInquiry; userId: " + userId +
@@ -1945,7 +1946,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps = null;
 
             ps = conn.prepareStatement(
-                    "SELECT cc.component_name, cv.version_text, p.project_id " +
+                    "SELECT p.project_id " +
                     "FROM comp_catalog cc, comp_versions cv, project p " +
                     "WHERE p.cur_version = 1 AND " +
                     "p.comp_vers_id = cv.comp_vers_id AND " +
@@ -1959,13 +1960,9 @@ public class ProjectTrackerBean implements SessionBean {
             ps.setLong(3, projectTypeId);
             rs = ps.executeQuery();
 
-            String projectName;
-            String projectVersion;
-            long projectId;
+            long projectId = 0;
             if (rs.next()) {
-                projectName = rs.getString(1);
-                projectVersion = rs.getString(2).trim();
-                projectId = rs.getLong(3);
+                projectId = rs.getLong(1);
             } else {
                 throw new TCException("Missing component");
             }
@@ -1973,6 +1970,32 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(ps);
             rs = null;
             ps = null;
+
+            userInquiry(userId, projectId);
+        } catch (SQLException e) {
+            ejbContext.setRollbackOnly();
+            throw new RuntimeException("SQLException: " + e.getMessage());
+        } catch (RemoteException e) {
+            ejbContext.setRollbackOnly();
+            throw new RuntimeException("RemoteException: " + e.getMessage());
+        } finally {
+            Common.close(conn, ps, rs);
+        }
+    }
+*/
+
+
+    public void userInquiry(long userId, long projectId)
+            throws TCException {
+        info("PT.userInquiry; userId: " + userId +
+                " ,projectId: " + projectId);
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = dataSource.getConnection();
 
             // Create payment info
             ps = conn.prepareStatement(
@@ -2014,13 +2037,10 @@ public class ProjectTrackerBean implements SessionBean {
             ps = null;
 
             ps = conn.prepareStatement(
-                    "SELECT rating from user_rating where user_id = ? and phase_id = ?");
+                    "SELECT rating from user_rating where user_id = ? and phase_id = " +
+                     "(select 111+project_type_id from project where project_id = ? and cur_version = 1)");
             ps.setLong(1, userId);
-            if (projectTypeId == 1) {
-                ps.setLong(2, 112);
-            } else {
-                ps.setLong(2, 113);
-            }
+            ps.setLong(2, projectId);
             rs = ps.executeQuery();
 
             double old_rating;
@@ -2091,8 +2111,34 @@ public class ProjectTrackerBean implements SessionBean {
                 throw new RuntimeException(e1);
             }
 
+
+            Common.close(ps);
+            ps = null;
+
+            ps = conn.prepareStatement(
+                    "SELECT cc.component_name, cv.version_text, p.project_type_id " +
+                    "FROM comp_catalog cc, comp_versions cv, project p " +
+                    "WHERE p.cur_version = 1 AND " +
+                    "p.comp_vers_id = cv.comp_vers_id AND " +
+                    "cc.component_id = cv.component_id AND " +
+                    "p.project_id = ? AND " +
+                    "p.project_stat_id IN (1,3)");
+            ps.setLong(1, projectId);
+            rs = ps.executeQuery();
+
+            String projectName = null;
+            String projectVersion = null;
+            long projectTypeId = 0;
+            if (rs.next()) {
+                projectName = rs.getString("component_name");
+                projectVersion = rs.getString("version_text");
+                projectTypeId = rs.getLong("project_type_id");
+
+            } else {
+                throw new TCException("Missing component");
+            }
+
             ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
-            ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
 
             String prefix = projectName + " " +
                     projectVersion + " " +
@@ -2133,6 +2179,8 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(conn, ps, rs);
         }
     }
+
+
 
     /**
      * @param roleName
@@ -2227,6 +2275,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @return long - the projectId for the create Online Review project.
      * @throws TCException
      */
+/*
     public long convertProject(
             String projectName, String version, long versionId,
             long componentId,
@@ -2406,6 +2455,7 @@ public class ProjectTrackerBean implements SessionBean {
         }
         return projectId;
     }
+*/
 
     public void versionRename(long compVersId, String oldVersion, String newVersion) {
         ddeRename(-1, compVersId, null, null, oldVersion, newVersion);
