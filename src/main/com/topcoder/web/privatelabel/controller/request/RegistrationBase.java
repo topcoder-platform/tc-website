@@ -178,6 +178,10 @@ abstract class RegistrationBase extends BaseProcessor {
         return ret;
     }
 
+    protected boolean hasRequestParameter(String name) throws Exception {
+       return getRequest().getParameter(name)!=null;
+   }
+
     protected SimpleRegInfo getRegInfoFromPersistor() {
         //TODO return a clone
         SimpleRegInfo info = null;
