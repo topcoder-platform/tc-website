@@ -77,7 +77,7 @@
                 </tr>
                 <tr>
                 <td style="background: #1B2E5D;" class="statTextBig"><b>High Score</b></td>
-                <td style="background: #1B2E5D;" class="statTextBig"><b>Yarin</b> for 237.49 points</td>
+                <td style="background: #1B2E5D;" class="statTextBig"><b>PolaristarII</b> for 249.08 points</td>
                 </tr>
                 </table>
                 </blockquote>
@@ -135,7 +135,7 @@
                 </tr>
                 <tr>
                 <td style="background: #1B2E5D;" class="statTextBig"><b>High Score</b></td>
-                <td style="background: #1B2E5D;" class="statTextBig"><b>Yarin</b> for 385.26 points</td>
+                <td style="background: #1B2E5D;" class="statTextBig"><b>PolaristarII</b> for 449.05 points</td>
                 </tr>
                 </table>
                 </blockquote>
@@ -208,7 +208,7 @@ list for this element</font>
                 </tr>
                 <tr>
                 <td style="background: #1B2E5D;" class="statTextBig"><b>High Score</b></td>
-                <td style="background: #1B2E5D;" class="statTextBig"><b>dgarthur</b> for 863.41 points</td>
+                <td style="background: #1B2E5D;" class="statTextBig"><b>MasterMargie</b> for 670.00 points</td>
                 </tr>
                 </table>
                 </blockquote>
