@@ -99,15 +99,21 @@ public final class ProjectDetailAction extends ReviewAction {
 
 
             // Find out whether the user has submitted solution
-            // It starts searching from the end of the array so if the user has a final submission,
-            // it would be retourned instead of the initial submission. (The final submission is
-            // always put in the end of the array).
             utility.setSubmitted(false);
-            for (int i = pr.getSubmissions().length - 1; i >= 0 ; i--) {
+            for (int i = 0; i < pr.getSubmissions().length; i++) {
                 if (orpd.getUser().equals(pr.getSubmissions()[i].getSubmitter())
                         && pr.getSubmissions()[i].isSubmitted()) {
                     utility.setSubmitted(true);
                     request.setAttribute(Constants.SUBMISSION_KEY, pr.getSubmissions()[i]);
+
+                    if ((len > 0) && (pr.getSubmissions()[len - 1] instanceof FinalFixSubmission) &&
+                         orpd.getUser().equals(pr.getSubmissions()[len - 1].getSubmitter())
+                        && pr.getSubmissions()[len - 1].isSubmitted()) {
+                        request.setAttribute("submissionid", new Long(-1));
+                    } else {
+                        request.setAttribute("submissionid", new Long(pr.getSubmissions()[i].getId()));
+                    }
+
                     break;
                 }
             }
