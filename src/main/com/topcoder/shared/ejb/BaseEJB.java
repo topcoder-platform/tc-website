@@ -268,7 +268,6 @@ public abstract class BaseEJB implements SessionBean {
      *
      */
     public void ejbActivate() {
-        log.debug(getTag() + ":  ejbActivate called");
     }
 
 
@@ -277,7 +276,6 @@ public abstract class BaseEJB implements SessionBean {
      *
      */
     public void ejbPassivate() {
-        log.debug(getTag() + ":  ejbPassivate called");
     }
 
 
@@ -287,8 +285,6 @@ public abstract class BaseEJB implements SessionBean {
      * @throws CreateException
      */
     public void ejbCreate() throws CreateException {
-        log.debug(getTag() + ":  ejbCreate called");
-
         InitContext = getContext();
     }
 
@@ -297,7 +293,6 @@ public abstract class BaseEJB implements SessionBean {
      * This method is required by the EJB Specification
      */
     public void ejbRemove() {
-        log.debug(getTag() + ":  ejbRemove called");
     }
 
 
@@ -307,7 +302,6 @@ public abstract class BaseEJB implements SessionBean {
      * @param ctx
      */
     public void setSessionContext(SessionContext ctx) {
-        log.debug("setSessionContext called");
         this.ctx = ctx;
         //props = ctx.getEnvironment();
     }
