@@ -13,7 +13,6 @@ public class TCESConstants {
     public static String JSP_ROOT = null;
     public static String TCES_PACKAGE = null;
     public static String ERROR_PAGE = null;
-    public static String AUTH_FAILED_PAGE = null;
     public static String LOGIN_PAGE = null;
     public static String LOGIN_OK_PAGE = null;
     public static String MAIN_PAGE = null;
@@ -233,7 +232,6 @@ public class TCESConstants {
         TCES_PACKAGE = servletConfig.getInitParameter("tces_package");
         ERROR_PAGE = JSP_ROOT+servletConfig.getInitParameter("error_page");
 
-        AUTH_FAILED_PAGE = JSP_ROOT+servletConfig.getInitParameter("auth_failed_page");
         LOGIN_PAGE = servletConfig.getInitParameter("login_page");
         MAIN_PAGE = JSP_ROOT+servletConfig.getInitParameter("main_page");
         CAMPAIGN_DETAIL_PAGE = JSP_ROOT+servletConfig.getInitParameter("campaign_detail_page");
