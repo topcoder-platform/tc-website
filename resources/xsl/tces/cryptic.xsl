@@ -65,7 +65,7 @@
 <IMG SRC="/i/es/cryptic/cryptic_logo.gif" WIDTH="120" HEIGHT="63" ALT="" BORDER="0" VSPACE="10"/><BR/>
 Cryptic Studios is currently developing its first product, <A HREF="http://www.cityofheroes.com/" TARGET="_blank" CLASS="bodyText"> City of Heroes</A>, which has been named one of the "Top 10 Games of 2003" in the October issue of PC Gamer. The super powered massively multiplayer RPG is the online world that's home to an entire universe of heroes.  Here you and thousands of other players can take on the roles of super powered heroes, fight villains, and help create the story in a stunning, 3D graphical world.
 
-<P><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Click here</A> for further descriptions of the Gameplay Programmer and Level Designer positions.
+<P><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Click here</A> for further descriptions of Cryptic Studios' open positions.
 </P>
 
 

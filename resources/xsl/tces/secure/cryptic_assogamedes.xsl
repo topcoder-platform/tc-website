@@ -68,7 +68,7 @@
 
 <P><B>We are currently looking for a full time Associate Game Designer.</B></P>
 
-<P>Cryptic Studios is hard at work on City of Heroes (www.cityofheroes.com), the super powered massively multiplayer online role playing game. You will be working towards completing and polishing City of Heroes. Day to day tasks will include:</P>
+<P>Cryptic Studios is hard at work on City of Heroes (<A HREF="http://www.cityofheroes.com/" TARGET="_blank" CLASS="bodyText">www.cityofheroes.com</A>), the super powered massively multiplayer online role playing game. You will be working towards completing and polishing City of Heroes. Day to day tasks will include:</P>
 <UL>
 <LI>Assist with level completion and tuning</LI>
 <LI>Assist with data entry and tuning for game data tables</LI>
