@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm178_prob">SRM 178 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, January 7, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm179_prob">SRM 179 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, January 17, 2004</p>
 
                         <p>
-Last night's dynamic programming course began with an excursion into the land of typesetting.  After
-coders completed the Div 1 easy (Div 2 medium), and were quite happy to be through with it, they
-moved on to a sequence of DP/Memoization problems.  Div 2 coders faced a short, but tricky problem
-on strings, with interesting mathematical properties.  Div 1 coders faced a sequence of DP problems,
-the second of which required 2 levels of DP.
+Despite a high score on the easy and hard problems, tomek finished second to radeye 
+in his second SRM since winning the TCO. Radeye was close behind on the easy and hard 
+problems, and his amazing 571/600 left him more than a full challenge ahead. With 
+the help of a challenge, grotmol took the bronze in room 4. 
 
-                       <a href="/?t=statistics&amp;c=srm178_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                       <a href="/?t=statistics&amp;c=srm179_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
