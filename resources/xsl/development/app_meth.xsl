@@ -136,8 +136,8 @@
                 
                 <tr valign="top">
                     <td class="statText">
-                        <p><b>Architecture and Design Phase:</b>  TopCoder Software Design teams of one or more members create and
-                        submit application designs to TopCoder Software.</p>
+                        <p><b>Architecture and Design Phase:</b>  TopCoder Software Designers create and submit application
+                            designs for review by a TopCoder Software Architecture Review Board. </p>
 
                         <ol>
                             <li>Eligible TopCoder members inquire to be selected for the design phase of the application.</li>
@@ -152,18 +152,16 @@
                                 <li>Sequence Diagrams - Interactions between application classes and components</li>
                                 <li>Class Diagrams - Interfaces  between application level interaction</li>
                                 <li>Application Design Specification Document</li>
-                                <li>Test Plan</li>
-                                <li>Development Plan</li>
+                                <li>Test Plan - Describes the test cases for the implementation </li>
+                                <li>Development Scope Document - Describes the development effort required and separation of work</li>
                             </ul></li>
-                            <li>TopCoder members selected for the design phase submit completed designs for the application.</li>
-                            <li>Application Managers will provide functional feedback to designers via the TopCoder Software NewsGroups.</li>
+                            <li>TopCoder members selected for the design are phase are required to submit incremental deliverables defined by the TopCoder Product Manager.</li>
+                            <li>An Architecture Review Board reviews each incremental deliverable and provides feedback to the designers after each phase of the design.</li>
                             <li>The Design Specification Document is expected to specify both generic components that can be mapped
                                 to the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>,
                                 new components and component extensions necessary to implement functionality specific to the application.</li>
-                            <li>An Architecture Review Board reviews and scores all design submissions. </li>
-                            <li>The Architecture Review Board will submit feedback to the designers 3 days after each phase of design is completed</li>
-                            <li>The designer(s) incorporate Review Board suggestions into their design.</li>
-                            <li>The Architecture Review Board selects a winning design submission and the top two entries are compensated.</li>
+                            <li>The Architecture Review Board reviews and scores each final design submission.</li>
+                            <li>Submissions passing the minimum requirements or a review score greater than 50, will be compensated for their submissions.</li>
                             <li>If the new components are required for the application, they will be developed separately using the
                             <a class="statText" href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
                             <li>The winning designer incorporate Review Board suggestions into their final design.</li>
