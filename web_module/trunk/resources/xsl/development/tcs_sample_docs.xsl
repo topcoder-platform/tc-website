@@ -184,7 +184,7 @@
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">04.10.2003</td>
+                                <td class="bodyText">09.02.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Screening_Scorecard.pdf" class="bodyText">Design Screening Scorecard.pdf</a></td>
                             </tr>
@@ -194,7 +194,7 @@
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Review_Scorecard.pdf" class="bodyText">Design Review Scorecard.pdf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">04.14.2003</td>
+                                <td class="bodyText">09.02.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Screening_Scorecard.pdf" class="bodyText">Development Screening Scorecard.pdf</a></td>
                             </tr>
