@@ -58,7 +58,7 @@ abstract class FullLogin extends FullReg {
 
     }
 
-    protected long getUserId(String handle) throws Exception {
+    private long getUserId(String handle) throws Exception {
         Request r = new Request();
         r.setContentHandle("user_id_using_handle");
         r.setProperty("ha", handle);
