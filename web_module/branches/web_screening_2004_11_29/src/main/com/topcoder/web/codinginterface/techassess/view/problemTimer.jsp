@@ -1,26 +1,23 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
                  java.util.List,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet,
-                 com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo"%>
+                 com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo,
+                 com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel"%>
 <script language="JavaScript" type="text/javascript" src="/js/techassess.js"></script>
 <script language="javascript">
 
         <%
-            Object o = request.getAttribute(Constants.PROBLEM_SETS);
+            Object o = request.getAttribute(Constants.PROBLEMS);
 if (o!=null) {
         %>
             List problems = (List)o;
 
-                var times= new Array(<%=problems.size()%>);
                 var ids = new Array(<%=problems.size()%>);
-                var types = new Array(<%=problems.size()%>);
                 var startTimes = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
-                    %> times[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTimeRemaining()%>; <%
-                    %> ids[<%=i%>] = 'problemTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
-                    %> types[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTypeId()%>; <%
-                    %> startTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
+                    %> ids[<%=i%>] = 'problemTimer<%=((ScreeningProblemLabel)problems.get(i)).getComponentID()%>'; <%
+                    %> startTimes[<%=i%>] = <%=((ScreeningProblemLabel)problems.get(i)).getStartTime()%>; <%
                 }
         %>
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
@@ -39,30 +36,18 @@ if (o!=null) {
 
         var problemSyncedOffset = problemLocalTime.getTime() - problemServerTime.getTime();
 
-        for (i=0;i<times.length; i++) {
-          times[i]=times[i] - ((problemServerOffset - problemOffset) * 60 * 60 * 1000);
-        }
-
         function problemUpdate() {
             var d = new Date();
             var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
 
             for (i=0; i<times.length;i++) {
-                var timeLeft
+                var time=0;
                 if (startTimes[i]==0) {
-                  timeLeft = times[i];
+                  time = 0;
                 } else {
-                  timeLeft = times[i] - correctedLocalTime.getTime();
+                  time = correctedLocalTime.getTime()-startTimes[i];
                 }
-                if (types[i]==EXAMPLE_SET) {
-                    text = "N/A";
-                } else  {
-                    if(timeLeft > 0 ) {
-                        text = convertToTimeString(timeLeft);
-                    } else {
-                        text = "Expired";
-                    }
-                }
+                text = convertToTimeString(time);
                 if (top.mainFrame) {
                     updateDivOrSpan(top.mainFrame.document, ids[i], text);
                 }
