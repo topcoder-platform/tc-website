@@ -25,7 +25,7 @@
 <!-- Body Begins -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
 	<tr>
-		<td valign="top" colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"/><br/>
+		<td valign="top" colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"/><br />
 <!-- SRM Promo Begins -->
 
 <!-- SRM Promo Ends -->    
@@ -37,10 +37,10 @@
 		
 <!-- Left Column Begins -->
 		<tr>
-			<td width="170" bgcolor="#000000" valign="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
+			<td width="170" bgcolor="#000000" valign="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><br /> -->
 <xsl:call-template name="global_left"/>
 
-				<img src="/i/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="5"/><br/>
+				<img src="/i/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="5"/><br />
 <!-- Do Not Delete This Line --><font size="1" color="#000000" face="tahoma">HiddenWord</font>      
 			</td>    
 <!-- Left Column Ends -->
@@ -50,18 +50,18 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-			<td width="100%" valign="top" align="center" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/><br/> 
+			<td width="100%" valign="top" align="center" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/><br /> 
 
 				<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF"> 
 					<tr> 
 						<td valign="top" width="1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td> 
 						<td valign="top" width="1" bgcolor="#000000"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="138" height="90" border="0"/></a></td>     
-						<td valign="top" bgcolor="#000000" class="statText"><br/>
-							<b>When:</b> Feb. 18th - April 5th, 2003<br/>
-							<b>Where:</b> the University Park Hotel @ MIT in Cambridge, MA<br/>
-							<b>Total Purse:</b> $100,000<br/><br/>
-							<font color="#CC0000"><b>200 TopCoder Members will win money!</b></font><br/>
-							<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Click here</a> for more information.<br/><br/>
+						<td valign="top" bgcolor="#000000" class="statText"><br />
+							<strong>When:</strong> Feb. 18th - April 5th, 2003<br />
+							<strong>Where:</strong> the University Park Hotel @ MIT in Cambridge, MA<br />
+							<strong>Total Purse:</strong> $100,000<br /><br />
+							<font color="#CC0000"><strong>200 TopCoder Members will win money!</strong></font><br />
+							<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Click here</a> for more information.<br /><br />
 						</td>    
 						<td valign="top" width="1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>   
 					</tr>
@@ -79,8 +79,8 @@
 					<tr> 
 						<td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td> 
 						<td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-							<xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 130</b></a><br/>
-							Saturday, January 25, 2003<br/><br/>
+							<xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 130</strong></a><br />
+							Saturday, January 25, 2003<br /><br />
 						</td>    
 						<td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>   
 					</tr>
@@ -150,19 +150,19 @@
   </tr>  
   <tr>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>  
-    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/> 
-    By&#160;Logan<br/><i>[TC]&#160;Member</i><br/></td>
+    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br /> 
+    By&#160;Logan<br /><i>[TC]&#160;Member</i><br /></td>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td> 
     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 130</b></font> 
+    <font size="2" color="#000000" face="tahoma, verdana"><strong>SRM 130</strong></font> 
     </td>
   </tr>      
   <tr>
     <td valign="top" class="bodyText" width="100%">
 	<a class="bodyGeneric">
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm130_prob</xsl:attribute>
-        <b>Problem Set Analysis &amp; Opinion</b>
-      </a><br/>
+        <strong>Problem Set Analysis &amp; Opinion</strong>
+      </a><br />
 
 <p>
 This is one of the easier contests I've seen. The Division-II problems were rather trivial, and 
@@ -206,18 +206,18 @@ more satisfying match for most Division-II coders
 <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">   
   <tr>
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>  
-    <td valign="top" width="55" align="left" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/><br/>
+    <td valign="top" width="55" align="left" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/><br />
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<!-- <img src="/i/m/the_gigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/> --><br/>
-By&#160;the_gigi<br/><i>[TC] Member</i><br/><br/>
+<!-- <img src="/i/m/the_gigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/> --><br />
+By&#160;the_gigi<br /><i>[TC] Member</i><br /><br />
 <a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="15"/></a></td>
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
-    <td valign="top" width="100%" align="left" class="bodyText"><br/>
+    <td valign="top" width="100%" align="left" class="bodyText"><br />
 <a class="bodyGeneric">
   <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_012203</xsl:attribute>
-  <b>Who needs another UI framework?</b></a><br/>
-<i>Unorthodox UI Framework</i><br/>
-Wednesday, January 22, 2003<br/>
+  <strong>Who needs another UI framework?</strong></a><br />
+<i>Unorthodox UI Framework</i><br />
+Wednesday, January 22, 2003<br />
 
 <p>
 The time is 1999. The internet hype is high and we were out to conquer the 
@@ -262,7 +262,7 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
   <tr><td valign="top" colspan="5"><img src="/i/clear.gif" alt="" width="1" height="6" border="0"/></td></tr>     
   <tr>
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="26" border="0"/></td>  
-    <td valign="top" width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="tahoma, verdana"><b>[TC] Sponsorships</b></font><br/>TopCoder offers sponsorship programs for the weekly 
+    <td valign="top" width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="tahoma, verdana"><strong>[TC] Sponsorships</strong></font><br />TopCoder offers sponsorship programs for the weekly 
       <a class="bodyGeneric">
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_srm</xsl:attribute>
         Single Round Matches
@@ -270,26 +270,21 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
       <a class="bodyGeneric">
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_tourny</xsl:attribute>Tournaments</a>. Read more about our 
       <a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_target</xsl:attribute>sponsorship programs</a>.<br/></td>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_target</xsl:attribute>sponsorship programs</a>.<br /></td>
     <td valign="top" width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0"/></td>
-    <td valign="top" width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="tahoma, verdana"><b>[TC] Employment Services</b></font><br/>TopCoder works with companies to connect them with top-rated developers. Read more about our 
+    <td valign="top" width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="tahoma, verdana"><strong>[TC] Employment Services</strong></font><br />TopCoder works with companies to connect them with top-rated developers. Read more about our 
       <a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br/></td>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br /></td>
     <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
   <tr><td valign="top" colspan="5"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
 </table> 
     </td>
   <!-- Center Column Ends -->    
-				<td bgcolor="#001935" valign="top" class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br/> 
+
+				<td bgcolor="#001935" valign="top" class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br /> 
+
 <!--SRM Sponsor Starts-->
-
-  <!--   <IMG SRC="/i/srm_home.gif" WIDTH="244" HEIGHT="250" ALT="" BORDER="0" USEMAP="#srm_home"/><MAP NAME="srm_home">
-<AREA ALT="" COORDS="124,28,228,90" HREF="/?&amp;t=tces&amp;c=fbi"/>
-<AREA ALT="" COORDS="141,160,224,187" HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>
-<AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/stat?&amp;c=last_match"/>
-</MAP> -->
-
-					<img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br/>
+					<img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br />
 					<map name="srmanimation_home">
 						<!-- <area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>	 -->				
 						<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
@@ -298,11 +293,9 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 					</map>
 <!--SRM Sponsor Ends-->
 
-<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
-<a><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<img src="/i/tces_quote.gif" alt="" width="244" height="174" border="0"/></a>
-<!-- <A HREF="/?&amp;t=tournaments&amp;c=invit02_cnn"><IMG SRC="/i/tournament/invit02/invit02_cnn_home.gif" ALT="TC on CNN" WIDTH="244" HEIGHT="145" BORDER="0"/></A> -->
+<!-- TCES Quote Begins -->
+			<a href="/?&amp;t=schedule&amp;c=index"><img src="/i/tces_quote.gif" alt="Only rated members can apply for TCES jobs" width="244" height="138" border="0" /></a>
+<!-- TCES Quote Ends -->
 
 <!-- Software Promo Begins -->
 					<a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_board.gif" alt="TCS" width="244" height="156" vspace="1" border="0"/></a>
@@ -455,7 +448,7 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 
 					</td>
 				</tr>               
-			</table><br/>
+			</table><br />
 			<a href="/stat?c=member_profile&amp;cr=304168">
 			<img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0"/></a>
 		</td>
