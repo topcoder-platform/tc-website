@@ -28,6 +28,7 @@ public class SearchModel extends BaseModel {
     private long end;
     
     private List questions;
+    private List responses;
     
     /** Creates a new instance of SearchModel */
     public SearchModel() {
@@ -37,6 +38,15 @@ public class SearchModel extends BaseModel {
         total = 0;
         userId = 0;
         questions = null;
+        responses = null;
+    }
+    
+    public void setResponses(List l) {
+        responses = l;
+    }
+    
+    public List getResponses() {
+        return responses;
     }
     
     public void setQuestions(List l) {
