@@ -5,7 +5,7 @@ package com.topcoder.utilities.dwload;
  *
  * TCLoadCoders loads coder information tables from one database to another.
  * The tables that are built by this load procedure are:
- * <ul>     
+ * <ul>
  * <li>state</li>
  * <li>country</li>
  * <li>coder</li>
@@ -51,17 +51,17 @@ public class TCLoadTCS extends TCLoad {
      */
     public boolean performLoad() {
         try {
-            
+
             PreparedStatement ps = prepareStatement("set lock mode to wait 5", SOURCE_DB);
             ps.execute();
             ps.close();
-            
+
             doLoadEvents();
-            
+
             doLoadContests();
-            
+
             String sSQL = "select distinct project_id from project";
-            
+
             ps = prepareStatement(sSQL, SOURCE_DB);
             ResultSet rs = ps.executeQuery();
 
@@ -74,7 +74,7 @@ public class TCLoadTCS extends TCLoad {
             rs = null;
             ps.close();
             ps = null;
-            
+
             sSQL = "select distinct project_id from project_result";
 
             ps = prepareStatement(sSQL, SOURCE_DB);
@@ -91,11 +91,11 @@ public class TCLoadTCS extends TCLoad {
             ps = null;
 
             doLoadUserRating();
-            
+
             doLoadUserReliability();
-            
+
             doLoadRoyalty();
-            
+
             //fix problems with submission date
             sSQL = "update project_result " +
                    "         set submit_timestamp = (select max(u.submission_date) " +
@@ -120,14 +120,14 @@ public class TCLoadTCS extends TCLoad {
                    "         and u.score = project_result.final_score " +
                    "         group by p.project_id " +
                    " )";
-            
+
             ps = prepareStatement(sSQL, TARGET_DB);
             ps.execute();
             ps.close();
             ps = null;
-            
+
             doClearCache();
-  
+
             log.info("SUCCESS: TCS load ran successfully.");
             return true;
         } catch (SQLException sqle) {
@@ -140,16 +140,16 @@ public class TCLoadTCS extends TCLoad {
             return false;
         }
     }
-    
+
     public void doClearCache() throws Exception
     {
         CacheClient cc = CacheClientFactory.createCacheClient();
-        
+
         String tempKey = null;
-        
+
         String[] keys = new String[] {"usdc_", "component_history", "tcs_ratings_history", "member_profile", "public_home_data", "top_designers", "top_developers", "tco04" };
 
-        ArrayList list = cc.getKeys(); 
+        ArrayList list = cc.getKeys();
         for (int i=0; i<list.size(); i++) {
             tempKey = (String)list.get(i);
             for(int j = 0; j < keys.length; j++) {
@@ -160,7 +160,7 @@ public class TCLoadTCS extends TCLoad {
             }
         }
     }
-    
+
     public void doLoadRoyalty() throws Exception
     {
         PreparedStatement ps, ps2;
@@ -219,7 +219,7 @@ public class TCLoadTCS extends TCLoad {
                     sqle.getMessage());
         }
     }
-    
+
     public void doLoadUserReliability() throws Exception
     {
         PreparedStatement ps, ps2;
@@ -275,7 +275,7 @@ public class TCLoadTCS extends TCLoad {
                     sqle.getMessage());
         }
     }
-    
+
     public void doLoadUserRating() throws Exception
     {
         PreparedStatement ps, ps2;
@@ -341,12 +341,12 @@ public class TCLoadTCS extends TCLoad {
                     sqle.getMessage());
         }
     }
-    
+
     public void doLoadProject(long project_id) throws Exception
     {
         PreparedStatement ps, ps2;
         ResultSet rs;
-        
+
         try {
             log.info("PROCESSING PROJECT " + project_id);
 
@@ -461,19 +461,19 @@ public class TCLoadTCS extends TCLoad {
             ps.close();
             ps = null;
 
-            
+
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'project_result / project' table failed.\n" +
                     sqle.getMessage());
-        }      
+        }
     }
-    
+
      public void doLoadProjectResults(long project_id) throws Exception
      {
         PreparedStatement ps, ps2;
         ResultSet rs;
-        
+
         try {
             log.info("PROCESSING PROJECT RESULTS " + project_id);
 
@@ -498,9 +498,9 @@ public class TCLoadTCS extends TCLoad {
                     "pr.valid_submission_ind, " +
                     "pr.raw_score, " +
                     "pr.final_score, " +
-                    "case when exists (select create_time from component_inquiry where project_id = p.project_id and tc_user_id = pr.user_id) then " +
-                    "(select min(create_time) from component_inquiry where project_id = p.project_id and tc_user_id = pr.user_id) else " +
-                    "(select min(create_time) from component_inquiry where component_id = cc.component_id and tc_user_id = pr.user_id) end as inquire_timestamp, " +
+                    "case when exists (select create_time from component_inquiry where project_id = p.project_id and ci.user_id = pr.user_id) then " +
+                    "(select min(create_time) from component_inquiry where project_id = p.project_id and ci.user_id = pr.user_id) else " +
+                    "(select min(create_time) from component_inquiry where component_id = cc.component_id and ci.user_id = pr.user_id) end as inquire_timestamp, " +
                     "(select submission_date from submission s where s.cur_version = 1 and s.project_id = pr.project_id and s.submitter_id = pr.user_id and submission_type = 1 and is_removed = 0) as submit_timestamp, " +
                     "(select max(pm_review_timestamp) from scorecard where scorecard_type = 2 and is_completed = 1 and submission_id = " +
                     "	(select submission_id from submission s where s.cur_version = 1 and s.project_id = pr.project_id and s.submitter_id = pr.user_id and submission_type = 1 and is_removed = 0) " +
@@ -515,7 +515,7 @@ public class TCLoadTCS extends TCLoad {
                     "and p.project_id = pr.project_id " +
                     "and p.cur_version = 1  " +
                     "and cv.comp_vers_id = p.comp_vers_id " +
-                    "and cc.component_id = cv.component_id";          
+                    "and cc.component_id = cv.component_id";
 //                    "and p.project_stat_id in (2,  4, 5, 6) " +
 
             ps = prepareStatement(sSQL, SOURCE_DB);
@@ -525,13 +525,13 @@ public class TCLoadTCS extends TCLoad {
 
             while(rs.next())
             {
-                
+
                  sSQL = "update project_result set submit_ind = ?, valid_submission_ind = ?, raw_score = ?, final_score = ?, inquire_timestamp = ?, " +
                  "submit_timestamp = ?, review_complete_timestamp = ?, payment = ?, old_rating = ?, new_rating = ?, old_reliability = ?, new_reliability = ?, " +
                  "placed = ?, rating_ind = ?, reliability_ind = ? where project_id = ? and user_id = ?";
-                
+
                  ps2 = prepareStatement(sSQL, TARGET_DB);
-                 
+
                  ps2.setObject(1, rs.getObject("submit_ind"));
                  ps2.setObject(2, rs.getObject("valid_submission_ind"));
                  ps2.setObject(3, rs.getObject("raw_score"));
@@ -549,12 +549,12 @@ public class TCLoadTCS extends TCLoad {
                  ps2.setObject(15, rs.getObject("reliability_ind"));
                  ps2.setLong(16, project_id);
                  ps2.setLong(17, rs.getLong("user_id"));
-                 
+
                  int retVal = ps2.executeUpdate();
-                 
+
                  ps2.close();
                  ps2 = null;
-                 
+
                  if(retVal == 0)
                  {
                      sSQL = "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
@@ -585,7 +585,7 @@ public class TCLoadTCS extends TCLoad {
 
                      ps2.close();
                      ps2 = null;
-                     
+
                  }
             }
 
@@ -593,7 +593,7 @@ public class TCLoadTCS extends TCLoad {
             rs = null;
             ps.close();
             ps = null;
-           
+
             //load submission_review
             /*sSQL = "delete from submission_review where project_id = ?";
 
@@ -628,9 +628,9 @@ public class TCLoadTCS extends TCLoad {
             {
                  sSQL = "update submission_review set raw_score = ?, final_score = ?, num_appeals = ?, num_successful_appeals = ? " +
                  "where project_id = ? and user_id = ? and reviewer_id = ?";
-                
+
                  ps2 = prepareStatement(sSQL, TARGET_DB);
-                 
+
                  ps2.setObject(1, rs.getObject("raw_score"));
                  ps2.setObject(2, rs.getObject("final_score"));
                  ps2.setObject(3, rs.getObject("num_appeals"));
@@ -643,7 +643,7 @@ public class TCLoadTCS extends TCLoad {
 
                  ps2.close();
                  ps2 = null;
-                 
+
                  if(retVal == 0)
                  {
                      sSQL = "insert into submission_review (project_id, user_id, reviewer_id, raw_score, final_score, num_appeals," +
@@ -722,8 +722,8 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadContests() throws Exception
     {
         PreparedStatement ps, ps2;
-        ResultSet rs; 
-        
+        ResultSet rs;
+
         try {
 
             String sSQL = "select c.contest_id, c.contest_name, " +
@@ -865,8 +865,8 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadEvents() throws Exception
     {
         PreparedStatement ps, ps2;
-        ResultSet rs; 
-        
+        ResultSet rs;
+
         try {
 
             String sSQL = "select * " +
