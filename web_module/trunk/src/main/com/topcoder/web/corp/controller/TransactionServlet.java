@@ -84,7 +84,7 @@ public class TransactionServlet extends HttpServlet {
     private static final Hashtable currentTransactions = new Hashtable();
 
     public static final String KEY_OPERATION = "op";
-    private static final String KEY_RC = "rc";
+    private static final String RETURN_CODE_KEY = "rc";
     private static final String KEY_TRANSACTION_INFO = "TransactionInfo";
 
     public static final String KEY_PRODUCT_ID = "pid";
@@ -97,11 +97,10 @@ public class TransactionServlet extends HttpServlet {
 
     private static final String FRMKEY_CCTX_UID = "USER1";
 
-    private static final String RETKEY_IRESULT = "RESULT";
-    private static final String RETKEY_SRESULT = "RESPMSG";
-//    private static final String CCTX_TYPE       = "S"; // payment/sale
+    private static final String RESPONSE_MSG_KEY = "RESPMSG";
+    private static final String FAILED_AVS = "AVSDECLINED";
 
-    private static final int RCINT_APPROVED = 0;
+    private static final int APPROVED = 0;
 
     private String defaultPageSuccess = null;
     private String defaultPageFailure = null;
@@ -109,7 +108,6 @@ public class TransactionServlet extends HttpServlet {
     private String defaultPageTerms = null;
     private String defaultPageBadCountry = null;
     private String errorPageSecurity = null;
-    private String loginApplicationPage = null;
     private TransactionInfo txInfo = null;
 
 
@@ -127,7 +125,6 @@ public class TransactionServlet extends HttpServlet {
         defaultPageTerms = cfg.getInitParameter("terms");
         defaultPageBadCountry = cfg.getInitParameter("ineligible-country");
         errorPageSecurity = cfg.getInitParameter("page-error-security");
-        loginApplicationPage = cfg.getInitParameter("page-login");
     }
 
     /**
@@ -148,7 +145,6 @@ public class TransactionServlet extends HttpServlet {
         log.debug("query: " + req.getQueryString());
         if (OP_TX_STATUS.equals(op)) {
             try {
-                // put prefix of the url into request
                 String retPage = txStatus(req);
                 req.getRequestDispatcher(retPage).forward(req, resp);
             } catch (Exception e) {
@@ -229,24 +225,24 @@ public class TransactionServlet extends HttpServlet {
      *
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String op = req.getParameter(KEY_OPERATION);
-        req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
+        String op = request.getParameter(KEY_OPERATION);
+        request.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         WebAuthentication auth = null;
         if (OP_TX_STATUS.equals(op)) {
             try {
-                String retPage = txStatus(req);
-                resp.sendRedirect(retPage);
+                String retPage = txStatus(request);
+                response.sendRedirect(retPage);
             } catch (Exception e) {
                 e.printStackTrace();
-                req.setAttribute(KEY_EXCEPTION, e);
-                req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
+                request.setAttribute(KEY_EXCEPTION, e);
+                request.getRequestDispatcher(defaultPageFailure).forward(request, response);
             }
         } else if (OP_TX_BEGIN.equals(op)) {
             try {
-                SessionPersistor store = new SessionPersistor(req.getSession(true));
-                auth = new BasicAuthentication(store, req, resp);
+                SessionPersistor store = new SessionPersistor(request.getSession(true));
+                auth = new BasicAuthentication(store, request, response);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 
@@ -259,8 +255,8 @@ public class TransactionServlet extends HttpServlet {
                     );
                 }
                 //only begin if they have agreed to terms.
-                if ("on".equalsIgnoreCase(req.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
-                    txInfo = buildTransactionInfo(req, resp);
+                if ("on".equalsIgnoreCase(request.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
+                    txInfo = buildTransactionInfo(request, response);
                     if (txInfo.isFromEligibleCountry()) {
                         InitialContext ic = (InitialContext) TCContext.getInitial();
                         UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
@@ -270,23 +266,23 @@ public class TransactionServlet extends HttpServlet {
                             userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId());
                         }
                         txInfo.setAgreed(true);
-                        txBegin(req);
-                        req.getRequestDispatcher(defaultPageIntForm).forward(req, resp);
+                        txBegin(request);
+                        request.getRequestDispatcher(defaultPageIntForm).forward(request, response);
                     } else {
-                        req.getRequestDispatcher(defaultPageBadCountry).forward(req, resp);
+                        request.getRequestDispatcher(defaultPageBadCountry).forward(request, response);
                     }
                 } else {
-                    txInfo = buildTermsTransactionInfo(req, resp);
+                    txInfo = buildTermsTransactionInfo(request, response);
                     if (txInfo.isFromEligibleCountry()) {
-                        req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
+                        request.setAttribute(KEY_TRANSACTION_INFO, txInfo);
                         HashMap formErrors = new HashMap();
                         Vector v = new Vector();
                         v.add("You must agree to terms in order to make a purchase.");
                         formErrors.put(Constants.KEY_AGREE_TO_TERMS, v);
-                        req.setAttribute(BaseTag.CONTAINER_NAME_FOR_ERRORS, formErrors);
-                        req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+                        request.setAttribute(BaseTag.CONTAINER_NAME_FOR_ERRORS, formErrors);
+                        request.getRequestDispatcher(defaultPageTerms).forward(request, response);
                     } else {
-                        req.getRequestDispatcher(defaultPageBadCountry).forward(req, resp);
+                        request.getRequestDispatcher(defaultPageBadCountry).forward(request, response);
                     }
                 }
             } catch (NotAuthorizedException nae) {
@@ -295,33 +291,34 @@ public class TransactionServlet extends HttpServlet {
                        are not authorized to access, send them to login page.    */
                     log.debug("user unauthorized to access resource and user " +
                             "not logged in, forwarding to login page.");
-                    fetchLoginPage(req, resp);
+                    fetchLoginPage(request, response);
                     return;
                 } else {
                     /* If the user is logged-in and is not authorized to access
                        the resource, send them to an authorization failed page */
                     log.error("Unauthorized Access to [" + this.getClass().getName() + "]", nae);
-                    fetchErrorPage(req, resp, errorPageSecurity, nae);
+                    fetchErrorPage(request, response, errorPageSecurity, nae);
                     //fetchAuthorizationFailedPage(request, response, nae);
                 }
             } catch (Exception e) { // possible parameters are wrong
                 e.printStackTrace();
-                req.setAttribute(KEY_EXCEPTION, e);
-                req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
+                request.setAttribute(KEY_EXCEPTION, e);
+                request.getRequestDispatcher(defaultPageFailure).forward(request, response);
             }
         } else if (OP_TX_COMMIT.equals(op)) {
             try {
-                log.debug("CcTx commit successful [" + txCommit(req) + "]");
-                resp.setStatus(HttpServletResponse.SC_OK);
+                txCommit(request);
+                log.debug("CcTx commit successful");
+                response.setStatus(HttpServletResponse.SC_OK);
             } catch (Exception e) {
                 try {
-                    ((TransactionInfo) currentTransactions.get(transactionKey(req))).setTcExc(e);
+                    ((TransactionInfo) currentTransactions.get(transactionKey(request))).setTcExc(e);
                 } catch (Exception ex) {
 					ex.printStackTrace();
                 }
 
                 log.error("Can't complete CC Tx", e);
-                resp.setStatus(HttpServletResponse.SC_ACCEPTED);
+                response.setStatus(HttpServletResponse.SC_ACCEPTED);
             }
         } else {
             throw new ServletException("post-op " + op + " not supported");
@@ -333,24 +330,25 @@ public class TransactionServlet extends HttpServlet {
      * After transacton has completed, VeriSign will return user to status page.
      * This method contains the logic to show status of the transaction.
      *
-     * @param req
+     * @param request
      * @throws Exception
      */
-    private String txStatus(HttpServletRequest req)
+    private String txStatus(HttpServletRequest request)
             throws Exception {
-        TransactionInfo txInfo = ((TransactionInfo) currentTransactions.get(transactionKey(req)));
+        TransactionInfo txInfo = ((TransactionInfo) currentTransactions.get(transactionKey(request)));
         if (txInfo == null) {
             throw new Exception("there is no transaction in progress");
         }
-        if (!refreshRetCode(req, txInfo)) {
-            throw new Exception("Rejected by VeriSign [" + txInfo.getRcVeriSign() + "]");
+        if (!isSucessfulTransaction(request)) {
+            throw new Exception("Rejected by VeriSign [return code: " + getReturnCode(request) +
+                    " response message: " + getResponseMessage(request)+ "]");
         }
         if (txInfo.getTcExc() != null) {
             // was not able to store tx info in the DB
             throw new Exception(txInfo.getTcExc().getMessage());
         }
-        return
-                txInfo.getUserBackPage() == null ? defaultPageSuccess : txInfo.getUserBackPage();
+        //TODO generate a way to handle the case when a transaction fails, should probably be a new operation
+        return txInfo.getUserBackPage() == null ? defaultPageSuccess : txInfo.getUserBackPage();
     }
 
     /**
@@ -381,58 +379,51 @@ public class TransactionServlet extends HttpServlet {
     }
 
     /**
-     * Refreshes transaction completion status by request accepted from
-     * VeriSign. If there is not any transaction related information in the
-     * request, then transaction state remains unchanged and current approval
-     * status will be returned.
+     * Checks the return code and response message in the given request to
+     * determine if the transaction is good from verisign's perspective.
      *
-     * @param req request possible containnig VeriSign transaction completion
+     * @param request request possible containnig VeriSign transaction completion
      * information
-     * @param txi transaction information to be updated
      * @return boolean true if transaction is approved
      */
-    private boolean refreshRetCode(HttpServletRequest req, TransactionInfo txi) {
-        String rcString = req.getParameter(RETKEY_IRESULT);
-        log.info("request return code: " + rcString);
-        if (rcString == null || rcString.trim().length() == 0) {
-            return txi.getRcVeriSign() == null;
-        }
+    private boolean isSucessfulTransaction(HttpServletRequest request) {
+        log.info("request return code: " + getReturnCode(request) + " request response: " + getResponseMessage(request));
 
         int rc = -1;
         try {
-            rc = Integer.parseInt(rcString);
+            rc = Integer.parseInt(getReturnCode(request));
         } catch (Exception e) {
         }
 
-        if (rc != RCINT_APPROVED) {
-            txi.setRcVeriSign(req.getParameter(RETKEY_SRESULT) + ", " + KEY_RC + "=" + rc);
-        } else {
-            txi.setRcVeriSign(null);
-        }
-        log.debug("return code in transactino info object: " + txi.getRcVeriSign());
-        return rc == RCINT_APPROVED;
+        return (rc == APPROVED && !FAILED_AVS.equals(getResponseMessage(request)));
+    }
+
+    private String getReturnCode(HttpServletRequest request) {
+        return request.getParameter(RETURN_CODE_KEY);
+    }
+
+    private String getResponseMessage(HttpServletRequest request) {
+        return request.getParameter(RESPONSE_MSG_KEY);
     }
 
     /**
      * Transaction commit routine. Updates purcase DB.
      *
-     * @param req request reseived upon silent POST from VeriSign.
-     *
-     * @return boolean commit status. True if transaction has successfully
-     * commited (purchase DB has updated, etc.). False otherwise.
+     * @param request request reseived upon silent POST from VeriSign.
      *
      * @throws Exception is thrown if there is not transaction to be completed,
      * DB errors occured, etc.
      */
-    private boolean txCommit(HttpServletRequest req) throws Exception {
-        TransactionInfo txInfo = (TransactionInfo) currentTransactions.get(transactionKey(req));
+    private void txCommit(HttpServletRequest request) throws Exception {
+        TransactionInfo txInfo = (TransactionInfo) currentTransactions.get(transactionKey(request));
         if (txInfo == null) {
             throw new Exception("there is no transaction in progress");
         }
 
-        if (!refreshRetCode(req, txInfo)) {
-            log.debug("refreshRetCode returned false");
-            return false;
+        if (!isSucessfulTransaction(request)) {
+            log.debug("isSucessfulTransaction returned false");
+            throw new Exception("Transaction error: return code: " + getReturnCode(request) +
+                    " response message: " + getResponseMessage(request));
         }
 
         // store information into the DB
@@ -466,7 +457,6 @@ public class TransactionServlet extends HttpServlet {
         } finally {
             Util.closeIC(icEJB);
         }
-        return true;
     }
 
     /**
