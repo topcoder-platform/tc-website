@@ -107,7 +107,7 @@ function getProblemDetail(id) {
             <TR>
                <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%=color%>>&#160;<screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="status" /></TD>               
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="presented" /></TD>               
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).parseLong()+((Long)row.getItem("set_b_count").getResultData()).parseLong())%></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></TD>               
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></screen:servletLink></TD>               
