@@ -25,6 +25,10 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.tc.model.ContractingInfo;
+
+import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.servlet.request.*;
+
 /**
  *
  * @author  rfairfax
@@ -101,6 +105,17 @@ abstract public class ContractingBase extends BaseProcessor {
                         info.setPreference(prefId, val);
                         log.debug("SET PREFERENCE " + prefId + " TO " + val);
                     }
+                }
+            }
+            
+            //load resume, if attached
+            if(getRequest() instanceof MultipartRequest) {
+                MultipartRequest req = (MultipartRequest)getRequest();
+                UploadedFile file = req.getUploadedFile("Resume"); 
+
+                if (file != null && file.getContentType() != null) {
+                    log.debug("FOUND RESUME");
+                    info.setResume(file); 
                 }
             }
         } else {
