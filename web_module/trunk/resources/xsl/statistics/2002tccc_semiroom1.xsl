@@ -122,10 +122,10 @@ Coding Phase, and knew it was going to be tough to catch him," said <A HREF="#" 
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
             </TR>                                             
             <TR>
-              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
-
-
-
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
+<DIV ALIGN="center"><IMG SRC="/i/2002tccc/photo_temp.jpg" ALT="" WIDTH="400" HEIGHT="265" BORDER="0"/></DIV><BR/>
+<DIV ALIGN="center"><IMG SRC="/i/2002tccc/photo_temp.jpg" ALT="" WIDTH="400" HEIGHT="265" BORDER="0"/></DIV><BR/>
+<DIV ALIGN="center"><IMG SRC="/i/2002tccc/photo_temp.jpg" ALT="" WIDTH="400" HEIGHT="265" BORDER="0"/></DIV><BR/>
 
           </TD>
             </TR>                       
