@@ -1205,6 +1205,46 @@ transfer can be made with multiple readings. </p><p class="scorecardQuestion">Ra
 				        </tbody></table>
 				    </td>
 				</tr>
+
+
+			    <tr>
+			    	<td class="forumTextOdd" width="80%"><p class="scorecardQuestion">The algorithms, test setup, dependencies, and demo sections of the Component Specification document have been properly updated if necessary.  If no changes were needed, assign a 4 here.  If other sections need to change to reflect the implementation, they should be up to date as well.
+</p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">Rating 1 - The Component Specification has not been updated and needs modifications.
+</p><p class="scorecardQuestion">Rating 2 - Major modifications are needed.
+</p><p class="scorecardQuestion">Rating 3 - Some minor modifications are needed. 
+</p><p class="scorecardQuestion">Rating 4 - The Component Specification needs no modifications to properly reflect the component as developed.
+</p><p class="scorecardQuestion"></p></td>
+			    	<td class="forumTextOdd" valign="top" width="10%">
+			    	    Weight: 20
+			    	</td>
+			    	<td class="forumTextOdd" valign="top" width="10%">
+	
+	
+			    	    <select name="questions[17].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+	
+			    	</td>
+			    </tr>
+	
+			    <tr>
+			        <td colspan="2">
+			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+			
+				        	<tbody><tr>
+				        		<td class="forumTextOdd" nowrap="nowrap" width="15%">
+				        		    <strong>Response 1:</strong></td>
+				        		<td class="forumTextOdd" width="60%">
+				        		    <textarea name="questions[17].responses[0].responseText" cols="65" rows="2"></textarea></td>
+				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		    <select name="questions[17].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+			                    </td>
+				        	</tr>
+				        </tbody></table>
+				    </td>
+				</tr>
+
+
+	    
 		
 	
     	
