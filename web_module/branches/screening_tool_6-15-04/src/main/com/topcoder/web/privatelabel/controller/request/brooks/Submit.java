@@ -14,6 +14,15 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.shared.util.*;
 import com.topcoder.web.corp.ejb.coder.*;
+import com.topcoder.web.ejb.sessionprofile.*;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import javax.transaction.UserTransaction;
+import java.sql.Timestamp;
+import com.topcoder.web.ejb.session.Session;
+import com.topcoder.web.ejb.session.SessionHome;
+import com.topcoder.web.ejb.session.SessionSegment;
+import com.topcoder.web.ejb.session.SessionSegmentHome;
+import com.topcoder.web.corp.common.ScreeningException;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -22,6 +31,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import javax.rmi.PortableRemoteObject;
 
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 /**
  * @author dok
@@ -116,63 +126,211 @@ public class Submit extends FullRegSubmit {
 
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
         try {
-            //placed here to fix transaction woes.
-            CompanyCandidateHome ccHome = (CompanyCandidateHome)
-                PortableRemoteObject.narrow(
-                        getInitialContext().lookup(CompanyCandidateHome.class.getName()),
-                        CompanyCandidateHome.class);
-            CompanyCandidate candidate = ccHome.create();
-
-            long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
-
-            candidate.createCompanyCandidate(companyId, newUser.getId());
             
-            //still todo: Session, Session Segments
-            // 96 hour session from current hour
+            UserTransaction ut = Transaction.get(getInitialContext());
+            ut.begin();
+            
+            try
+            {
+                //placed here to fix transaction woes.
+                CompanyCandidateHome ccHome = (CompanyCandidateHome)
+                    PortableRemoteObject.narrow(
+                            getInitialContext().lookup(CompanyCandidateHome.class.getName()),
+                            CompanyCandidateHome.class);
+                CompanyCandidate candidate = ccHome.create();
 
-            /*if (((FullRegInfo)info).getCoderType()==Constants.STUDENT) {
+                long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
+
+                candidate.createCompanyCandidate(companyId, newUser.getId());
+
+                //still todo: Session, Session Segments
+                // 96 hour session from current hour
+                SessionProfileHome spHome = (SessionProfileHome)
+                        PortableRemoteObject.narrow(
+                                getInitialContext().lookup(SessionProfileHome.class.getName()),
+                                SessionProfileHome.class);
+                SessionProfile profile = spHome.create();
+                SessionProfileLanguageHome splHome = (SessionProfileLanguageHome)
+                        PortableRemoteObject.narrow(
+                                getInitialContext().lookup(SessionProfileLanguageHome.class.getName()),
+                                SessionProfileLanguageHome.class);
+                SessionProfileLanguage language = splHome.create();
+                SessionProfileProblemHome sppHome = (SessionProfileProblemHome)
+                        PortableRemoteObject.narrow(
+                                getInitialContext().lookup(SessionProfileProblemHome.class.getName()),
+                                SessionProfileProblemHome.class);
+                SessionProfileProblem problem = sppHome.create();
+
+                //get problem with least assignments from company
+                DataAccessInt access = getDataAccess(transDb, false);
+                Request dataRequest = new Request();
+                dataRequest.setProperty(DataAccessConstants.COMMAND,
+                        "company_reg_problem_assignment");
+                dataRequest.setProperty("cm", String.valueOf(companyId));
+                Map map = access.getData(dataRequest);
+                ResultSetContainer rsc = (ResultSetContainer)
+                        map.get("company_reg_problem_assignment");
+
+                ResultSetContainer.ResultSetRow row =
+                        (ResultSetContainer.ResultSetRow) rsc.get(0);
+                long problemId = row.getLongItem("problem_id");
+                long roundId = row.getLongItem("round_id");
+
+                //create a session somehow
+                long spid = profile.createSessionProfile(info.getHandle(), companyId);
+
+                //now add in the example problem
+                int index = com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.indexOf(",");
+                problem.createSessionProfileProblem(spid,
+                        Long.parseLong(com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.substring(index + 1)),
+                        Integer.parseInt(com.topcoder.web.corp.common.Constants.PROBLEM_TYPE_EXAMPLE_ID),
+                        1,
+                        Long.parseLong(com.topcoder.web.corp.common.Constants.EXAMPLE_PROBLEM_ID.substring(0, index)));
+
+                //now do the test set b problem
+                problem.createSessionProfileProblem(spid,
+                        problemId,
+                        com.topcoder.web.corp.common.Constants.PROBLEM_TYPE_TEST_SET_B_ID,
+                        1,
+                        roundId);
+
+                //all languages
+                int[] languages = new int[] {1, 3, 4};
+                for (int i = 0; i < languages.length; ++i) {
+                    language.createProfileLanguage(spid, languages[i]);
+                }
+
+                //calc time
+                Calendar c = Calendar.getInstance();
+                String beginMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
+                String beginDay = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
+                String beginYear = String.valueOf(c.get(Calendar.YEAR));
+                String beginHour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));
+
+                Date beginDate = formDate(beginYear, beginMonth, beginDay, beginHour);
+                Date endDate = formEndDate(beginYear, beginMonth, beginDay, beginHour);
+
+                //create session
+                SessionHome sHome = (SessionHome)
+                        PortableRemoteObject.narrow(
+                                getInitialContext().lookup(SessionHome.class.getName()),
+                                SessionHome.class);
+                Session session = sHome.create();
+                SessionSegmentHome ssHome = (SessionSegmentHome)
+                        PortableRemoteObject.narrow(
+                                getInitialContext().lookup(SessionSegmentHome.class.getName()),
+                                SessionSegmentHome.class);
+                SessionSegment segment = ssHome.create();
+                
+                long sessionId =
+                        session.createSession(spid,
+                                newUser.getId(),
+                                new Timestamp(beginDate.getTime()),
+                                new Timestamp(endDate.getTime()),
+                                false,
+                                false,
+                                0);
+
+                //now get info for segments
+                dataRequest = new Request();
+                dataRequest.setProperty(DataAccessConstants.COMMAND,
+                        com.topcoder.web.corp.common.Constants.SESSION_SEGMENT_COMMAND);
+                dataRequest.setProperty("sid", String.valueOf(sessionId));
+
+                access = getDataAccess(com.topcoder.web.corp.common.Constants.TX_DATA_SOURCE, false);
+
+                map = access.getData(dataRequest);
+
+                rsc = (ResultSetContainer)
+                        map.get(com.topcoder.web.corp.common.Constants.SESSION_SEGMENT_TEST_SET_A_QUERY_KEY);
+                row = null;
+                if (rsc.size() != 0) {
+                    row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+
+                    //somehow get dates out and subtract them
+                    Timestamp start = (Timestamp) row.getItem("start_time").getResultData();
+                    Timestamp end = (Timestamp) row.getItem("end_time").getResultData();
+                    long testSetASegment = end.getTime() - start.getTime();
+
+                    segment.createSessionSegment(sessionId, Long.parseLong(com.topcoder.web.corp.common.Constants.SESSION_SEGMENT_TEST_SET_A_ID), testSetASegment);
+                }
+
+                rsc = (ResultSetContainer)
+                        map.get(com.topcoder.web.corp.common.Constants.SESSION_SEGMENT_TEST_SET_B_QUERY_KEY);
+                if (rsc.size() == 0) {
+                    throw new ScreeningException(
+                            "Problem with session segment test set b for new session " + sessionId);
+                }
+                row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+
+                long testSetBSegment = Long.parseLong(row.getItem("count").toString()) *
+                        Long.parseLong(com.topcoder.web.corp.common.Constants.TEST_SET_B_SEGMENT_INTERVAL);
+                segment.createSessionSegment(sessionId, Long.parseLong(com.topcoder.web.corp.common.Constants.SESSION_SEGMENT_TEST_SET_B_ID), testSetBSegment);
+
+                //send email
                 StringBuffer buf = new StringBuffer(1000);
-                User user = (User) createEJB(getInitialContext(), User.class);
-                String code = user.getActivationCode(newUser.getId(), db);
 
                 TCSEmailMessage mail = new TCSEmailMessage();
-                mail.setSubject("IMPORTANT - DoubleClick Activation Email");
+                mail.setSubject("Invitation to Brooks Automation Technical Assessment Tool");
 
+                Date transBegin = translateDate(beginDate);
+                Date transEnd = translateDate(endDate);
+                
 
-                buf.append("You're invited to take part in the DoubleClick 2004 Coding Challenge, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
-                buf.append("DOUBLECLICK 2004 CODING CHALLENGE ACTIVATION INFORMATION\n\n");
-                buf.append("Your DoubleClick activation code is ");
-                buf.append(code);
+                buf.append("Thank you for your interest in employment opportunities with Brooks Automation Private Limited in Chennai, India.  As part of our candidate selection and evaluation process, we would like you to participate in the Brooks Automation Technical Assessment Tool, powered by TopCoder.  Through this Technical Assessment Tool, you will be asked to solve algorithmic problems as an objective measure of your programming and technical problem solving ability.\n\n");
+                buf.append("Please review the Help Manual before getting started:\n");
+                buf.append("<a href='http://www.topcoder.com/corp/testing/help/index.jsp'>http://www.topcoder.com/corp/testing/help/index.jsp</a>");
                 buf.append("\n\n");
-                buf.append("To activate your account, navigate to the following WWW URL:\n\n");
-                buf.append(getUrl(code));
+                buf.append("The following session has been scheduled for you:\n\n");
+                buf.append("Begin: ");
+                buf.append(new SimpleDateFormat("MM/DD/YYYY HH:mm a").format(transBegin));
+                buf.append(" IST\n");
+                buf.append("End: ");
+                buf.append(new SimpleDateFormat("MM/DD/YYYY HH:mm a").format(transEnd));
+                buf.append(" IST\n");
+                buf.append("Login: ");
+                buf.append(info.getHandle());
+                buf.append("\n");
+                buf.append("Password: ");
+                buf.append(info.getPassword());
                 buf.append("\n\n");
-                buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
-                buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the DoubleClick 2004 Coding Challenge.\n\n");
-                buf.append("PRACTICING FOR THE EVENT AND LAUNCHING THE ARENA\n");
-                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Coding Challenge.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 12:00PM ET on February 2 through 1:00PM ET on February 27, 2004.\n\n");
-                buf.append("You can access the practice room and launch and login to the arena for the competition by navigating to ");
-                buf.append("http://");
+                buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT TOOL PRIOR TO THE END TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 1 HOUR TO COMPLETE ALL PORTIONS OF THE TEST.\n\n");
+                buf.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed and can access the Technical Assessment Tool here:\n");
+                buf.append("<a href='http://");
                 buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/pl/?&module=Static&d1=doubleclick&d2=col_arena\n\n");
-                buf.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
-                buf.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.\n\n");
-                buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
-                buf.append("You may participate in the Qualification Round during one of two sessions.  You can only attempt to qualify one time.  Session #1 will be open from 9:00AM through 9:00PM on Monday, February 16.  Session #2 will be open from 9:00AM through 9:00PM on Wednesday, February 18.  You will have up to one hour to solve one problem.  It is recommended that you utilize the practice area prior to participating in the Qualification Round.\n\n");
-                buf.append("We also suggest that you read up on the competition process by navigating to ");
-                buf.append("http://");
+                buf.append("/corp/testing/testingApp.jsp?company=");
+                buf.append(companyId);
+                buf.append("'>http://");
                 buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/pl/?&module=Static&d1=doubleclick&d2=col_overview");
-                buf.append(" and downloading the competition manual.\n\n");
-                buf.append("If you have any questions about how to participate, please email them to dccc@topcoder.com\n\n");
-                buf.append("Thank you for registering for the DoubleClick 2004 Coding Challenge.  We look forward to seeing you in the Arena!\n\n");
+                buf.append("/corp/testing/testingApp.jsp?company=");
+                buf.append(companyId);
+                buf.append("</a>\n\n");
+                buf.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.  Those users may access the Technical Assessment Tool here:\n");
+                buf.append("<a href='http://");
+                buf.append(ApplicationServer.SERVER_NAME);
+                buf.append("/corp/testing/testingApp.jsp?company=");
+                buf.append(companyId);
+                buf.append("'>http://");
+                buf.append(ApplicationServer.SERVER_NAME);
+                buf.append("/corp/testing/testingApp.jsp?company=");
+                buf.append(companyId);
+                buf.append("</a>\n\n");
+                buf.append("Thank you,\n\n");             
+                buf.append("Brooks Automation Private Limited\n");
+                buf.append("Chennai, India");
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-                mail.setFromAddress("service@topcoder.com");
-                log.info("sent registration email to " + info.getEmail());
+                mail.setFromAddress("service@topcoder.com", "Brooks Automation Private Limited, Chennai");
                 EmailEngine.send(mail);
-            }*/
+                
+                ut.commit();
+            }
+            catch(Exception e)
+            {
+                ut.rollback();
+                throw e;
+            }
         } catch (Exception e) {
             throw new TCWebException(e);
         }
@@ -199,5 +357,51 @@ public class Submit extends FullRegSubmit {
         return buf.toString();
     }
 
-
+    private Date formDate(String year, String month, String day, String hour) {
+        //if we don't have all the values then just exit
+        if(year == null || month == null || day == null || hour == null) {
+            return new Date(); //so we don't blow up in certain places
+        }
+        Calendar c = Calendar.getInstance();
+        c.set(Integer.parseInt(year),
+               months[Integer.parseInt(month)],
+               Integer.parseInt(day),
+               Integer.parseInt(hour), 0, 0);
+        c.set(Calendar.MILLISECOND, 0);
+        return c.getTime();
+    }
+    
+    private Date formEndDate(String year, String month, String day, String hour) {
+        //if we don't have all the values then just exit
+        if(year == null || month == null || day == null || hour == null) {
+            return new Date(); //so we don't blow up in certain places
+        }
+        Calendar c = Calendar.getInstance();
+        c.set(Integer.parseInt(year),
+               months[Integer.parseInt(month)],
+               Integer.parseInt(day),
+               Integer.parseInt(hour), 0, 0);
+        c.set(Calendar.MILLISECOND, 0);
+        
+        //96 hours
+        c.add(Calendar.DATE,4);
+        return c.getTime();
+    }
+    
+    private Date translateDate(Date d)
+    {
+        Date ret = new Date(d.getTime());
+        
+        //bring to GMT
+        ret = new Date( ret.getTime() + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), 0));
+        ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), 0));
+        
+        return ret;
+    }
+    
+    private static int[] months = 
+        new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
+                  Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
+                  Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
+                  Calendar.NOVEMBER, Calendar.DECEMBER};
 }

@@ -54,8 +54,6 @@ public class Confirm extends FullRegConfirm {
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);    
         
-        log.info("TZ OFFSET:" + TimeZone.getTimeZone("IST").getOffset(1,  1900 + new Date().getYear(), new Date().getMonth(), new Date().getDate(), new Date().getDay(), 0) );
-        
         try
         {
             //validate uploaded file, if applicable
