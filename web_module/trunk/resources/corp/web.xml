@@ -1251,7 +1251,7 @@
 
     <servlet-mapping>
         <servlet-name>GraphServlet</servlet-name>
-        <url-pattern>/CorpGraph/</url-pattern>
+        <url-pattern>/graph/</url-pattern>
     </servlet-mapping>
 
     <taglib>
