@@ -90,7 +90,7 @@
    </TD>
    <TD CLASS="bodyText">&nbsp;</TD>
    <TD COLSPAN="1" CLASS="bodyText" ALIGN="left" VALIGN="middle">
-    State&nbsp;<adv:listSelect name="state_code" class="dropdown" onChange="Javascript:changeState()" list="<%=search.getStateList()%>" selected="<%=search.getStateCode()%>"/>
+    State&nbsp;<adv:rscSelect name="state_code" class="dropdown" onChange="Javascript:changeState()" list="<%=search.getStateList()%>" selectedValue="<%=search.getStateCode()%>" topValue="" topText="Any State" fieldValue="state_code" fieldText="state_name"/>
    </TD>
   </TR>
   <TR>
@@ -120,7 +120,7 @@
    </TD>
    <TD CLASS="bodyText">&nbsp;</TD>
    <TD COLSPAN="1" CLASS="bodyText" VALIGN="center" ALIGN="left">
-    School&nbsp;<adv:listSelect name="school_id" class="dropdown" list="<%=search.getSchoolList()%>" selected="<%=search.getSchoolId().toString()%>"/>
+    School&nbsp;<adv:rscSelect name="school_id" class="dropdown" list="<%=search.getSchoolList()%>" selectedValue="<%=search.getSchoolId().toString()%>" topValue="-1" topText="Any School" fieldValue="school_id" fieldText="full_name"/>
    </TD>
   </TR>
   <TR>
