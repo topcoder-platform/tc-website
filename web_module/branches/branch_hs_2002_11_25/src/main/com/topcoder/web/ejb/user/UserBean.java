@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.*;
 import com.topcoder.util.idgenerator.*;
 import com.topcoder.util.idgenerator.sql.InformixDB;
 
@@ -10,9 +11,14 @@ import javax.ejb.*;
 import javax.naming.*;
 import javax.sql.*;
 
+/**
+ * @author Nathan Egge (negge@vt.edu)
+ */
 public class UserBean implements SessionBean {
 
   private final static String DATA_SOURCE="java:comp/env/datasource_name";
+
+  private final static Logger log=Logger.getLogger(UserBean.class);
 
   private transient InitialContext init_ctx=null;
 
@@ -45,6 +51,10 @@ public class UserBean implements SessionBean {
 
   public void createUser(long _user_id,String _handle,char _status)
                                           throws EJBException, RemoteException {
+
+    log.debug("createUser called. user_id="+_user_id+" "+
+                                  "handle="+_handle+" "+
+                                  "status="+_status);
 
     Connection con=null;
     PreparedStatement ps=null;
@@ -85,7 +95,7 @@ public class UserBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("createUser error. Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -93,7 +103,7 @@ public class UserBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("createUser error. Failed to close PreparedStatement");
         }
       }
     }
@@ -101,6 +111,9 @@ public class UserBean implements SessionBean {
 
   public void setFirstName(long _user_id,String _first_name)
                                           throws EJBException, RemoteException {
+
+    log.debug("setFirstName called. user_id="+_user_id+" "+
+                                "first_name="+_first_name);
 
     Connection con=null;
     PreparedStatement ps=null;
@@ -140,7 +153,7 @@ public class UserBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("setFirstName error. Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -148,7 +161,7 @@ public class UserBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("setFirstName error. Failed to close PreparedStatement");
         }
       }
     }
@@ -156,6 +169,10 @@ public class UserBean implements SessionBean {
 
   public void setLastName(long _user_id,String _last_name)
                                           throws EJBException, RemoteException {
+
+    log.debug("setLastName called. user_id="+_user_id+" "+
+                                "last_name="+_last_name);
+
     Connection con=null;
     PreparedStatement ps=null;
 
@@ -194,7 +211,7 @@ public class UserBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("setLastName error. Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -202,7 +219,7 @@ public class UserBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("setLastName error. Failed to close PreparedStatement");
         }
       }
     }
@@ -210,6 +227,10 @@ public class UserBean implements SessionBean {
 
   public void setUserStatusId(long _user_id,long _user_status_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("setUserStatusId called. user_id="+_user_id+" "+
+                               "user_status_id="+_user_status_id);
+
     Connection con=null;
     PreparedStatement ps=null;
 
@@ -248,7 +269,7 @@ public class UserBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("setUserStatusId error. Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -256,7 +277,7 @@ public class UserBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("setUserStatusId error. Failed to close PreparedStatement");
         }
       }
     }
@@ -264,6 +285,8 @@ public class UserBean implements SessionBean {
 
   public String getFirstName(long _user_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("getFirstName called. user_id="+_user_id);
 
     String first_name=null;
 
@@ -307,7 +330,7 @@ public class UserBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("getFirstName error. Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -315,7 +338,7 @@ public class UserBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("getFirstName error. Failed to close PreparedStatement");
         }
       }
     }
@@ -324,6 +347,8 @@ public class UserBean implements SessionBean {
 
   public String getLastName(long _user_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("getLastName called. user_id="+_user_id);
 
     String last_name=null;
 
@@ -367,7 +392,7 @@ public class UserBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("getLastName error. Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -375,7 +400,7 @@ public class UserBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("getLastName error. Failed to close PreparedStatement");
         }
       }
     }
@@ -384,6 +409,8 @@ public class UserBean implements SessionBean {
 
   public long getUserStatusId(long _user_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("getUserStatusId called. user_id="+_user_id);
 
     long user_status_id=0;
 
@@ -427,7 +454,7 @@ public class UserBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("getUserStatusId error. Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -435,7 +462,7 @@ public class UserBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.debug("getUserStatusId error. Failed to close PreparedStatement");
         }
       }
     }

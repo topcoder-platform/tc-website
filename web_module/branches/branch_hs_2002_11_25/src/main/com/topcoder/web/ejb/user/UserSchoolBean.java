@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.*;
 
 import java.rmi.RemoteException;
 import java.sql.*;
@@ -8,9 +9,14 @@ import javax.ejb.*;
 import javax.naming.*;
 import javax.sql.*;
 
+/**
+ * @author Nathan Egge (negge@vt.edu)
+ */
 public class UserSchoolBean implements SessionBean {
 
   private final static String DATA_SOURCE="java:comp/env/datasource_name";
+
+  private final static Logger log=Logger.getLogger(UserSchoolBean.class);
 
   private transient InitialContext init_ctx=null;
 
@@ -43,6 +49,9 @@ public class UserSchoolBean implements SessionBean {
 
   public void createUserSchool(long _user_id,long _school_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("createUserSchool called. user_id="+_user_id+" "+
+                                     "school_id="+_school_id);
 
     Connection con=null;
     PreparedStatement ps=null;
@@ -83,7 +92,8 @@ public class UserSchoolBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("createUserSchool error. "+
+                    "Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -91,7 +101,8 @@ public class UserSchoolBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("createUserSchool error. "+
+                    "Failed to close PreparedStatement");
         }
       }
     }
@@ -99,6 +110,9 @@ public class UserSchoolBean implements SessionBean {
 
   public void removeUserSchool(long _user_id,long _school_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("removeUserSchool called. user_id="+_user_id+" "+
+                                     "school_id="+_school_id);
 
     Connection con=null;
     PreparedStatement ps=null;
@@ -139,7 +153,8 @@ public class UserSchoolBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("removeUserSchool error. "+
+                    "Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -147,7 +162,8 @@ public class UserSchoolBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("removeUserSchool error. "+
+                    "Failed to close PreparedStatement");
         }
       }
     }
@@ -155,6 +171,9 @@ public class UserSchoolBean implements SessionBean {
 
   public void setCurrentUserSchoolId(long _user_id,long _school_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("setCurrentUserSchoolId called. user_id="+_user_id+" "+
+                                           "school_id="+_school_id);
 
     Connection con=null;
     PreparedStatement ps=null;
@@ -210,7 +229,8 @@ public class UserSchoolBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("setCurrentUserSchoolId error. "+
+                    "Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -218,7 +238,8 @@ public class UserSchoolBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("setCurrentUserSchoolId error. "+
+                    "Failed to close PreparedStatement");
         }
       }
     }
@@ -226,6 +247,8 @@ public class UserSchoolBean implements SessionBean {
 
   public long getCurrentUserSchoolId(long _user_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("getCurrentUserSchoolId called. user_id="+_user_id);
 
     long school_id=0;
 
@@ -270,7 +293,8 @@ public class UserSchoolBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("getCurrentUserSchoolId error. "+
+                    "Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -278,7 +302,8 @@ public class UserSchoolBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("getCurrentUserSchoolId error. "+
+                    "Failed to close PreparedStatement");
         }
       }
     }
@@ -287,6 +312,9 @@ public class UserSchoolBean implements SessionBean {
 
   public boolean isCurrentUserSchoolId(long _user_id,long _school_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("isCurrentUserSchoolId called. user_id="+_user_id+" "+
+                                          "school_id="+_school_id);
 
     boolean current=false;
 
@@ -332,7 +360,8 @@ public class UserSchoolBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("isCurrentUserSchoolId error. "+
+                    "Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -340,7 +369,8 @@ public class UserSchoolBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("isCurrentUserSchoolId error. "+
+                    "Failed to close PreparedStatement");
         }
       }
     }
@@ -349,6 +379,9 @@ public class UserSchoolBean implements SessionBean {
 
   public boolean existsUserSchoolId(long _user_id,long _school_id)
                                           throws EJBException, RemoteException {
+
+    log.debug("existsUserSchoolId called. user_id="+_user_id+" "+
+                                       "school_id="+_school_id);
 
     boolean exists=true;
 
@@ -389,7 +422,8 @@ public class UserSchoolBean implements SessionBean {
           con.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("existsUserSchoolId error. "+
+                    "Failed to close Connection");
         }
       }
       if (ps!=null) {
@@ -397,7 +431,8 @@ public class UserSchoolBean implements SessionBean {
           ps.close();
         }
         catch (Exception _e) {
-          /* do nothing */
+          log.error("existsUserSchoolId error. "+
+                    "Failed to close PreparedStatement");
         }
       }
     }
