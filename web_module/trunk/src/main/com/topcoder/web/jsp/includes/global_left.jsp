@@ -126,7 +126,7 @@
                     <% } %>
                 <% } %>
 <%-- Schedule begins --%>
-                <tr><td id="<%=level1.equals("schedule")?"leftNavOn":"leftNav"%>"><a href="/?&t=schedule&c=index" class="<%=level1.equals("schedule")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("schedule")?"bottom":"right"%>.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="<%=level1.equals("schedule")?"leftNavOn":"leftNav"%>"><a href="/?&t=schedule&c=index" class="<%=level1.equals("schedule")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("schedule")?"bottom":"right"%>.gif" alt="" border="0"/>Calendar</a></td></tr>
 <%-- Statistics begins --%>
                 <tr><td id="<%=level1.equals("statistics")?"leftNavOn":"leftNav"%>"><a href="/stat?&c=round_overview" class="<%=level1.equals("statistics")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("statistics")?"bottom":"right"%>.gif" alt="" border="0"/>Statistics</a></td></tr>
 
@@ -277,6 +277,8 @@
     <% if (level1.equals("home")) { %>
 
             <jsp:include page="../../home/coder_of_month.jsp" />
+            <img alt="" width="1" height="9" src="/i/clear.gif" border="0"/><br />
+            <jsp:include page="../calendar.jsp" />
     <% } %>
 
             <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
