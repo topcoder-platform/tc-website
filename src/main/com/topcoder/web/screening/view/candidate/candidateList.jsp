@@ -2,91 +2,105 @@
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
-<HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
-<jsp:include page="/script.jsp"/>
-</HEAD>
+<html>
+<head>
+<title>Topcoder | Testing Application Management Tool</title>
 
+<jsp:include page="/script.jsp" />
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="/includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><img src="/i/clear.gif" width="10" height="1" /></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
-            <h1 class="testHead">Candidate List</h1>               
-            <P>Below is a list of all candidates.  Clicking on a candidate's email address will bring you to the Candidate Info page.</P>  
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">                   
-           <TR>
-              <TD COLSPAN="7"><img src="/i/clear.gif" width="1" height="10" border="0" /></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="7" ALIGN="center"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:servletLink></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="7"><img src="/i/clear.gif" width="1" height="10" border="0" /></TD>
-           </TR>                       
-            <TR>
-               <TD VALIGN="middle" COLSPAN="2" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#999999"><B>&#160;Candidate</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Profile</B></TD>               
-               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Begin</B></TD>               
-               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;End</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Status</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Notes</B></TD>                                          
-            </TR>
-           <TR>
-              <TD COLSPAN="8"><img src="/i/clear.gif" width="1" height="1" border="0" /></TD>
-           </TR>            
-            <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
-            <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
-            <%
-              String params = Constants.CANDIDATE_ID + "=" + row.getItem("user_id") + "&referrer=BuildCandidateList";
-              String trparams = Constants.SESSION_ID + "=" + row.getItem("session_id") + "&referrer=BuildCandidateList";
-              boolean hasSession = !row.getItem("has_session").toString().equals("0");
-              boolean hasNotes = ((Long)row.getItem("note_count").getResultData()).longValue()>0;
-              boolean hasResults = row.getItem("has_results").getResultData().equals("1");
-            %>
-            <TR>
-               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
-               <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>               
-               <TD VALIGN="middle" CLASS="bodyText">&#160;<% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="status" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></TD>
-            </TR>
+</head>
+
+<body>
+
+<!-- Header begins -->
+<jsp:include page="/includes/top.jsp" />
+<!-- Header ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
+<!-- gutter begins -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- gutter ends -->
+
+<!-- Middle column begins -->
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td class="bodyText">
+                        <h1 class="testHead">Candidate List</h1>
+                        <p>Below is a list of all candidates.  Clicking on a candidate's email address will bring you to the Candidate Info page.<br></p>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="0" cellspacing="10" cellpadding="0" width="70%">
+                <tr>
+                    <td><div align="center"><p class="button"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="button">Add Candidate</screen:servletLink></p></div></td>
+                </tr>
+            </table>
+
+           <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+                <tr>
+                    <td colspan="2" class="testTableTitleSmall">&#160;</td>
+                    <td colspan="4" align="center" class="testTableTitleSmall">Candidates</td>
+                </tr>
+                
+                <tr>
+                   <td colspan="2" align="center" class="testTableTitle">Candidate</td>
+                   <td align="center" class="testTableTitle">Profile</td>               
+                   <td align="center" class="testTableTitle">Begin</td>               
+                   <td align="center" class="testTableTitle">End</td>
+                   <td align="center" class="testTableTitle">Status</td>
+                   <td align="center" class="testTableTitle">Notes</td>                                          
+                </tr>
+
+                <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
+            
+                <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
+
+                <%
+                    String params = Constants.CANDIDATE_ID + "=" + row.getItem("user_id") + "&referrer=BuildCandidateList";
+                    String trparams = Constants.SESSION_ID + "=" + row.getItem("session_id") + "&referrer=BuildCandidateList";
+                    boolean hasSession = !row.getItem("has_session").toString().equals("0");
+                    boolean hasNotes = ((Long)row.getItem("note_count").getResultData()).longValue()>0;
+                    boolean hasResults = row.getItem("has_results").getResultData().equals("1");
+
+                    String color = (even) ? "class='testTableEven'" : "class='testTableOdd'";
+                %>
+            
+                <tr>
+                   <td align="center" <%=color%>>&#160;</TD>
+                   <td align="center" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>               
+                   <td align="center" <%=color%>><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></TD>
+                   <td align="center" <%=color%>><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
+                   <td align="center" <%=color%>><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
+                   <td align="center" <%=color%>><screen:resultSetItem row="<%=row%>" name="status" /></TD>
+                   <td align="center" <%=color%>><screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></TD>
+                </tr>
+
+                <% even = !even; %>
+                
             </screen:resultSetRowIterator>
-           <TR>
-              <TD COLSPAN="7"><img src="/i/clear.gif" width="1" height="10" border="0" /></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="7" ALIGN="center"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:servletLink></TD>
-           </TR>
-         </TABLE>
-<P><BR/></P>    
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+            </table>
+             
+            <table border="0" cellspacing="10" cellpadding="0" width="70%">
+                 <tr>
+                    <td><div align="center"><p class="button"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="button">Add Candidate</screen:servletLink></p></div></td>
+                </screen:form></tr>
+            </table>
+            <p><br></p>
+        </td>
+<!-- Middle Column ends -->
 
-  <jsp:include page="/includes/foot.jsp"/>
+<!-- Gutter -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
 
-</BODY>
-</HTML>
+    </tr>
+</table>
+
+  <jsp:include page="/includes/foot.jsp" />
+
+</body>
+</html>
