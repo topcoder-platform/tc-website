@@ -1,5 +1,6 @@
 package com.topcoder.web.hs.controller.requests;
 
+import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.shared.security.*;
@@ -27,8 +28,8 @@ public abstract class Base implements RequestProcessor {
     protected Authorization hsa;
 
     /* return values */
-    private boolean nextPageInContext = false;
     private String nextPage = "";
+    private boolean nextPageInContext = false;
 
     public Base() {
     }
@@ -41,25 +42,19 @@ public abstract class Base implements RequestProcessor {
         this.auth = auth;
     }
 
-    protected boolean isUserGuest() {
-      return user.getId() == -1;  // hardcoded userid for anonymous user
-    }
-
     /**
      * Some things we want to do for most subclassed request processors.
      * Override this to disable auth setup and adding default beans.
      */
     protected void baseProcessing() throws Exception {
         user = auth.getUser();
+        hsa = new HSAuthorization(user);
 
         info = new SessionInfoBean();
         request.setAttribute("SessionInfo", info);
-        info.setUserId((int)user.getId());
-        info.setHandle(isUserGuest() ? "" : user.getUserName());
-        info.setGroup(isUserGuest() ? 'G' : 'S');  //@@@
-        info.setRating(2500);  //@@@
+        Set groups = ((HSAuthorization)hsa).getGroups();
+        info.setAll(user, groups);
 
-        hsa = new HSAuthorization(user);
         if(!hsa.hasPermission(new ClassResource(this.getClass())))
             throw new PermissionException("You must login to view this page.");
 
@@ -67,9 +62,8 @@ public abstract class Base implements RequestProcessor {
         request.setAttribute("NavZone", nav);
     }
 
-    /** Override this to specialize. */
-    protected void businessProcessing() throws Exception {
-    }
+    /** Subclasses should generally do their work by implementing this method. */
+    abstract protected void businessProcessing() throws Exception;
 
     /** This is final to discourage overriding it.  Instead subclasses should implement businessProcessing(). */
     public final void process() throws Exception {

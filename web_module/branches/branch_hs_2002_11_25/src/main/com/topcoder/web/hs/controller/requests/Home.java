@@ -12,7 +12,7 @@ public class Home extends Base {
     protected void businessProcessing() throws Exception {
 
         String path;
-        if(isUserGuest())
+        if(info.isGuest())
             path = Constants.public_home;
         else
             path = Constants.member_home;

@@ -13,21 +13,38 @@ public class Login extends Base {
 
     protected void businessProcessing() throws Exception {
 
-        String username = Constants.checkNull(request.getParameter("username"));
-        String password = Constants.checkNull(request.getParameter("password"));
-        if(!username.equals("") && !password.equals("")) {
+        /* may be null */
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
-            try {
-                auth.login(new SimpleUser(0, username, password));
-                /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
-                String dest = Constants.checkNull(request.getParameter("nextpage"));
-                setNextPage(dest);
-                setIsNextPageInContext(false);
-                return;
-            } catch(LoginException e) {
-                /* if the login failed, tell them why */
-                request.setAttribute("message", e.getMessage());
+        /* if not null, we got here via a form submit;
+         * otherwise, skip this and just draw the login form */
+        if(username != null) {
+
+            password = Constants.checkNull(password);
+            if(username.equals("") || password.equals("")) {
+                request.setAttribute("message", "You must enter a username and a password.");
+
+            } else {
+                try {
+
+                    auth.login(new SimpleUser(0, username, password));
+
+                    /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
+                    String dest = Constants.checkNull(request.getParameter("nextpage"));
+                    setNextPage(dest);
+                    setIsNextPageInContext(false);
+                    return;
+
+                } catch(LoginException e) {
+
+                    /* the login failed, so tell them what happened */
+                    request.setAttribute("message", e.getMessage());
+                }
             }
+
+            /* whatever was wrong with the submission, make sure they are logged out */
+            auth.logout();
         }
 
         /* we may have been forwarded here and failed, so make sure we reflect the page contents in the menus */

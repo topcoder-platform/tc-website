@@ -1,5 +1,6 @@
 package com.topcoder.web.common.security;
 
+import java.util.*;
 import com.topcoder.security.*;
 import com.topcoder.security.admin.*;
 import com.topcoder.security.policy.*;
@@ -46,5 +47,17 @@ public class HSAuthorization implements Authorization {
         } catch(Exception e) {
             return true;  //@@@ opposite of production
         }
+    }
+
+    /** Hack to get the groups for the user by looking for specially named roles in their TCSubject. */
+    public Set getGroups() {
+        Set groupnames = new HashSet();
+        Iterator it = user.getPrincipals().iterator();
+        while(it.hasNext()) {
+            String rolename = ((RolePrincipal)it.next()).getName();
+            if(rolename.startsWith("group_"))
+                groupnames.add(rolename.substring(6));
+        }
+        return groupnames;
     }
 }
