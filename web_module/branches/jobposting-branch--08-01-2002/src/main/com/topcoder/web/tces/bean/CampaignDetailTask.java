@@ -136,36 +136,43 @@ log.debug("setting most recent hit = "+mostRecentHit);
             throw new Exception ("No company name!");
         }
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-        setCompanyName( TCData.getTCString(cmpyNameRow, "company_name") );
+        setCompanyName( cmpyNameRow.getItem("company_name").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
             throw new Exception ("Bad campaign ID or campaign does not belong to user.");
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
-        setCampaignName( TCData.getTCString(cpgnInfRow, "campaign_name") );
-        setCampaignStatus( TCData.getTCString(cpgnInfRow, "status_desc") );
-
+        setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
+        setCampaignStatus( cpgnInfRow.getItem("status_desc").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_Info");
-log.debug("chinf: "+Integer.toString(rsc.getRowCount()) );
-for (int i=0;i<rsc.getRowCount();i++) {
-log.debug( rsc.getRow(i).toString() );
-}
         ResultSetContainer.ResultSetRow cpgnHitsRow = rsc.getRow(0);
-        setTotalHits( Long.toString(TCData.getTCLong(cpgnHitsRow, "total_hits")) );
-        setMostRecentHit( TCData.getTCDate(cpgnHitsRow, "most_recent") );
+        setTotalHits( ((Long)cpgnHitsRow.getItem("total_hits").getResultData()).toString() );
+        setMostRecentHit( dateToString((TCTimestampResult) cpgnHitsRow.getItem("most_recent")) );
+
+        rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
+        if (rsc.getRowCount() == 0) {
+            throw new Exception (" cid="+Integer.toString(getCampaignID())+
+                                 "does not belong to uid="+Integer.toString(uid) );
+        }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_List");
         ArrayList positionList = new ArrayList();
         ResultSetContainer.ResultSetRow posListRow = null;
         for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
             posListRow = rsc.getRow(rowI);
+
             HashMap position = new HashMap();
-            position.put("job_desc", TCData.getTCString(posListRow, "job_desc") );
-            position.put("hit_count", Long.toString(TCData.getTCLong(posListRow, "hit_count")) );
-            position.put("most_recent",TCData.getTCDate(posListRow, "most_recent") );
-            position.put("job_id", Long.toString(TCData.getTCLong(posListRow, "job_id")) );
+            position.put("job_desc",
+                         posListRow.getItem("job_desc").toString() );
+            position.put("hit_count",
+                         ((Long)posListRow.getItem("hit_count").getResultData()).toString() );
+            position.put("most_recent",
+                         dateToString((TCTimestampResult) posListRow.getItem("timestamp").getResultData()) );
+            position.put("job_id",
+                         ((Long)posListRow.getItem("job_id").getResultData()).toString() );
+
             positionList.add(position);
         }
         setPositionList( positionList );

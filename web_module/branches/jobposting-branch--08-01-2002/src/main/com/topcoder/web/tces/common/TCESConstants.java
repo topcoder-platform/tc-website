@@ -17,6 +17,7 @@ public class TCESConstants {
     public static String CAMPAIGN_DETAIL_PAGE = "/campaign_detail.jsp";
     public static String POSITION_INTEREST_PAGE = "/position_interest.jsp";
     public static String CAMPAIGN_INTEREST_PAGE = "/campaign_interest.jsp";
+    public static String DEMOGRAPHIC_PAGE = "/demographic_info.jsp";
 
     public static String LOGIN_TASK = "LoginTask";
     public static String LOGIN_TASK_STEP_VIEW = "v";
@@ -39,7 +40,12 @@ public class TCESConstants {
     public static String MSG_ATTR_KEY = null;
     public static String COMPANY_NAME_ATTR_KEY = "CompanyName";
     public static String CAMPAIGN_INFO_ATTR_KEY = "CampaignInfoList";
+    public static String DEMOGRAPHIC_REFERRAL_KEY = "referral";
+    public static String DEMOGRAPHIC_NOTIFY_KEY = "notify";
+    public static String DEMOGRAPHIC_INFO_KEY = "info";
 
+    public static int PRO_CODER_TYPE  = 2;
+    public static int STUDENT_CODER_TYPE = 1;
     public static int CLICK_THRU_ID = -1;
     public static int JOB_POSTING_ID = -1;
 

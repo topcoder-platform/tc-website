@@ -15,6 +15,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.*;
+import java.text.*;
 
 /**
  * A basic implementation of Task.
@@ -64,5 +65,21 @@ log.debug("next page -> "+nextPage);
     }
 
     public abstract void setAttributes(String paramName, String paramValues[]);
+
+    public String dateToString(TCTimestampResult timestamp) {
+        StringTokenizer tok1 = new StringTokenizer(
+                (timestamp.toString());
+        StringTokenizer token = new StringTokenizer(
+                (String) tok1.nextElement(), "-");
+
+        String year = (String) token.nextElement();
+        String returnString = "";
+        while (token.hasMoreElements()) {
+            returnString += (String) token.nextElement() + "/";
+        }
+
+        return returnString + year;
+    }
+
 }
 

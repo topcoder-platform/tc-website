@@ -44,7 +44,6 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     }
 
     public void setCampaignName( String campaignName ) {
-log.debug("Setting CampaignName = "+campaignName);
         this.campaignName = campaignName;
     }
 
@@ -53,7 +52,6 @@ log.debug("Setting CampaignName = "+campaignName);
     }
 
     public void setCampaignStatus( String campaignStatus ) {
-log.debug("Setting CampaignStatus = "+campaignStatus);
         this.campaignStatus = campaignStatus;
     }
 
@@ -78,7 +76,6 @@ log.debug("Setting CampaignStatus = "+campaignStatus);
     }
 
     public int getCampaignID() {
-log.debug("Setting CampaignID = "+Integer.toString(campaignID));
         return campaignID;
     }
 
@@ -95,7 +92,6 @@ log.debug("Setting CampaignID = "+Integer.toString(campaignID));
     }
 
     public String getCompanyName() {
-log.debug("Setting Companyname = "+companyName);
         return companyName;
     }
 
@@ -139,22 +135,29 @@ log.debug("Setting Companyname = "+companyName);
             throw new Exception ("No company name!");
         }
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-        setCompanyName( TCData.getTCString(cmpyNameRow, "company_name") );
+        setCompanyName( cmpyNameRow.getItem("company_name").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No company name!");
+            throw new Exception ("No position name!");
         }
         ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
-        setPositionName( TCData.getTCString(posNameRow, "job_desc") );
+        setPositionName( posNameRow.getItem("job_desc").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
             throw new Exception ("Bad campaign ID or campaign does not belong to user.");
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
-        setCampaignName( TCData.getTCString(cpgnInfRow, "campaign_name") );
-        setCampaignStatus( TCData.getTCString(cpgnInfRow, "status_desc") );
+        setCampaignName( posNameRow.getItem("campaign_name").toString() );
+        setCampaignStatus( posNameRow.getItem("status_desc").toString() );
+
+        rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
+        if (rsc.getRowCount() == 0) {
+            throw new Exception ("jid="+Integer.toString(getJobId())+
+                                 " cid="+Integer.toString(getCampaignID())+
+                                 "does not belong to uid="+Integer.toString(uid) );
+        }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_Hit_List");
         ArrayList hitList = new ArrayList();
@@ -163,17 +166,26 @@ log.debug("Setting Companyname = "+companyName);
             hitListRow = rsc.getRow(rowI);
             HashMap hit = new HashMap();
 
-            hit.put("coder_id", Long.toString(TCData.getTCLong(hitListRow, "coder_id")) );
-            hit.put("handle", TCData.getTCString(hitListRow, "handle") );
-            hit.put("rating", Integer.toString(TCData.getTCInt(hitListRow, "rating")) );
-            hit.put("state", TCData.getTCString(hitListRow, "state_code") );
-            hit.put("country", TCData.getTCString(hitListRow, "country_code") );
-            hit.put("type", TCData.getTCString(hitListRow, "coder_type_desc") );
-            hit.put("school", TCData.getTCString(hitListRow, "school_name") );
-            hit.put("hit_date", TCData.getTCDate(hitListRow, "timestamp") );
+            hit.put("coder_id",
+                    ((Long)hitListRow.getItem("coder_id").getResultData()).toString() );
+            hit.put("handle",
+                    hitListRow.getItem("handle").toString() );
+            hit.put("rating",
+                    ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
+            hit.put("state",
+                    hitListRow.getItem("state_code").toString() );
+            hit.put("country",
+                    hitListRow.getItem("country_code").toString() );
+            hit.put("type",
+                    hitListRow.getItem("coder_type_desc").toString() );
+            hit.put("school",
+                    hitListRow.getItem("school_name").toString() );
+            hit.put("hit_date",
+                    dateToString( (TCTimestampResult)hitListRow.getItem("timestamp").getResultData() ));
 
             hitList.add(hit);
         }
+
         setHitList( hitList );
 
         setNextPage( TCESConstants.POSITION_INTEREST_PAGE );
