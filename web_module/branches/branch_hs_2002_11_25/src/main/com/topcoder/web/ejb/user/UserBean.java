@@ -113,7 +113,7 @@ public class UserBean implements SessionBean {
       int rc=ps.executeUpdate();
       if (rc!=1) {
         throw(new RemoteException("Wrong number of rows updated in 'user'. "+
-                                  "Updated "+rc+", should have inserted 1."));
+                                  "Updated "+rc+", should have updated 1."));
       }
     }
     catch (SQLException _sqle) {
