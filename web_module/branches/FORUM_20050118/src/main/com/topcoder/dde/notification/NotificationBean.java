@@ -167,6 +167,7 @@ public class NotificationBean implements SessionBean {
     }
 
     public void notifyEvent(String event, Properties prop) {
+try {
         info("Notification.notifyEvent " + event + " with properties " + prop);
 
         XMLDocument xmlDocument = new XMLDocument("MAILDATA");
@@ -184,6 +185,9 @@ public class NotificationBean implements SessionBean {
         String bodyText = formatBody(xmlDocument, filenameXSL);
         info("body text: " + bodyText);
         sendMail("notification@gmail.com", "amarcu@gmail.com", "subject", bodyText);
+} catch (Exception e) {
+    info("Notification can't be sent because: "+e.toString());
+}
     }
 
     /**
