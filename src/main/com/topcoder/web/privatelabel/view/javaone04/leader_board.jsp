@@ -98,7 +98,16 @@ H3 { font-size: 125%; }
 	padding-left: 5px;
 	padding-right: 5px;
     vertical-align: top;
-} 
+}
+
+.winners
+{
+	color: #FF0000;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
 -->
  </STYLE>
 
@@ -131,12 +140,12 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
                             <tr>
-                                <td class="leaderCell">dude, some</td>
-                                <td class="leaderCell" align="right">1234</td>
+                                <td class="leaderCell"><span class="winners">place, first</span></td>
+                                <td class="leaderCell" align="right"><span class="winners">1234</span></td>
                             </tr>
                             <tr>
-                                <td class="leaderCell">dude, some</td>
-                                <td class="leaderCell" align="right">1234</td>
+                                <td class="leaderCell"><span class="winners">place, second</span></td>
+                                <td class="leaderCell" align="right"><span class="winners">1234</span></td>
                             </tr>
                             <tr>
                                 <td class="leaderCell">friekinwickedlong, mystupidnameis</td>
@@ -155,11 +164,15 @@ H3 { font-size: 125%; }
                             </tr>
                             <tr>
                                 <td class="leaderCell">friekinwickedlong, mystupidnameis</td>
-                                <td class="leaderCell" align="right">1234</td>
+                                <td class="leaderCell" align="right">passed<br/>(1234)</td>
                             </tr>
                             <tr>
                                 <td class="leaderCell">dude, some</td>
-                                <td class="leaderCell" align="right">1234</td>
+                                <td class="leaderCell" align="right">failed</td>
+                            </tr>
+                            <tr>
+                                <td class="leaderCell">dude, some</td>
+                                <td class="leaderCell" align="right">pending</td>
                             </tr>
                         </table>
                     </td>
