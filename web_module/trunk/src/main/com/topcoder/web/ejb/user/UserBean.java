@@ -2,7 +2,7 @@ package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.logging.Logger;
 //import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.*;
+import com.topcoder.util.idgenerator.*; // for SimpleDB() ?
 import com.topcoder.shared.util.DBMS;
 
 import javax.ejb.SessionBean;
@@ -28,6 +28,7 @@ import java.sql.SQLException;
 
 public class UserBean implements SessionBean {
 
+    private SessionContext ctx;
     private static Logger log = Logger.getLogger(UserBean.class);
     private static final String dataSourceName = "CORP_OLTP";
     private static final String idGenDataSourceName = "SCREENING_OLTP";
@@ -42,7 +43,7 @@ public class UserBean implements SessionBean {
 
     public void ejbCreate() {
 
-//      InitContext = new InitialContext();
+      //InitContext = new InitialContext(); // from BaseEJB
     }
 
     public void ejbRemove() {
@@ -50,7 +51,7 @@ public class UserBean implements SessionBean {
 
     public void setSessionContext(SessionContext ctx) {
 
-//      this.ctx = ctx;
+        this.ctx = ctx;
     }
 
     //business methods
@@ -60,7 +61,7 @@ public class UserBean implements SessionBean {
         log.debug("createUser called...");
 
         Context ctx = null;
-        PreparedStatement ps = null; //could just use Statement
+        PreparedStatement ps = null; // could just use Statement
         Connection conn = null;
         DataSource ds = null;
         long ret = 0;
@@ -74,7 +75,7 @@ public class UserBean implements SessionBean {
 
             StringBuffer query = new StringBuffer();
             query.append("INSERT INTO user (user_id, create_date, modify_date) VALUES ('");
-            query.append(Long.toString(ret));  //the reason we can just use Statement :-)
+            query.append(Long.toString(ret));  // the reason we can just use Statement :-)
             query.append("','now','now')");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
