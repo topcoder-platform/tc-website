@@ -13,12 +13,11 @@
 <HTML>
   <HEAD>
     <TITLE>TopCoder | Employment Services</TITLE>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/corpStyle.css">
     <jsp:include page="script.jsp" />
     
   </HEAD>
-  <BODY id="tces">
+  <body>
 <%--
   <jsp:include page="top.jsp" />             
 --%>
@@ -38,7 +37,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
         <!-- Center Column Begins -->
-      <TD class="statText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
+      <TD class="bodyText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
         <jsp:include page="body_top.jsp" >
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
@@ -106,8 +105,11 @@
       <TD WIDTH="25"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
     </TR>
-  </TABLE>
-  <!-- Body Ends -->
+</TABLE>
 
-  </BODY>
+<!-- Footer begins -->
+<jsp:include page="foot.jsp" />             
+<!-- Footer ends -->
+
+</BODY>
 </HTML>
