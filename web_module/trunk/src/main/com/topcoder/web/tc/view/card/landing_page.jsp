@@ -114,6 +114,8 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="
 </SCRIPT>
 </div>
 
+<p align=center><A href="/tc?module=Static&d1=card&d2=help">What am I looking at?</a></p>
+
         </div>
         <p><br/></p>
         </td>
