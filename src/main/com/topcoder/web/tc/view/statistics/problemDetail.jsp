@@ -3,7 +3,8 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.Map,
           com.topcoder.web.tc.Constants,
-          com.topcoder.web.common.StringUtils"
+          com.topcoder.web.common.StringUtils,
+          java.text.SimpleDateFormat"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -11,6 +12,7 @@
 <% ResultSetContainer div2Lang = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div1Overall = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_overall"); %>
 <% ResultSetContainer div2Overall = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_overall"); %>
+<% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S"); %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <html>
@@ -132,10 +134,10 @@
                  <tr>
                    <td VALIGN="middle" WIDTH="10">Best Time</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem().getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong(best_time))) %></TD>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem().getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong(best_time))) %></TD>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -256,10 +258,10 @@
                  <tr>
                    <td VALIGN="middle" WIDTH="10">Best Time</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></td>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem().getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong(best_time))) %></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></td>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem().getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong(best_time))) %></td>
                    </rsc:iterator>
                  </tr>
                  <tr>
