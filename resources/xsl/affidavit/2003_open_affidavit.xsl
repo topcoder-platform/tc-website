@@ -212,11 +212,11 @@
             AFFIDAVIT OF ELIGIBILITY AND LIABILITY AND PUBLICITY RELEASE<br/><br/>
             2003 TopCoder Open<BR/>
             Coding Tournament<BR/>
+        </center>
             I, _______________ [insert full name], aged ___ [insert age],
             son/daughter of ___________ [insert father's name], residing
             at _____________ [insert address] do hereby solemnly affirm and state
             as follows:
-        </center>
     </xsl:when>
     <xsl:otherwise>
         <CENTER>
