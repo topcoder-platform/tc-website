@@ -68,7 +68,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
    <jsp:param name="tabLev3" value="bracket"/>
 </jsp:include> 
 
-            <h2>Design Round 2</h2>
+            <h2>Bracket</h2>
 
 <!-- Design Winners Begins -->
 
