@@ -183,7 +183,7 @@ IMLP puts information management careers on the fast track. Program graduates ar
     </tr>
  GE ends -->
 
-<!-- Apex begins -->
+<!-- Apex begins ### Contract expired 6/9/03 ###
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=apex"><img src="/i/es/apex/apexlogo.gif" width="82" height="71" alt="Apex" border="0"/></a></td>
                                 <td class="bodyText" width="99%"><strong>Apex</strong> is a company built upon a set of core values that guide their every action - excellence, human 
@@ -192,7 +192,7 @@ IMLP puts information management careers on the fast track. Program graduates ar
                             </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-<!-- Apex ends -->
+ Apex ends -->
 
 <!-- TopCoder Software begins -->
                             <tr valign="top">
