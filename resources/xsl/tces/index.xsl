@@ -82,7 +82,7 @@
                                 <A href="/?&amp;t=tces&amp;c=vertex" class="bodyText" target="_top">open contract position.</A><br/><br/></td>
                             </tr>
                             
-                            <tr><td colspan="3" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- Vertex ends -->
 
 <!-- Microsoft begins
@@ -181,17 +181,16 @@ IMLP puts information management careers on the fast track. Program graduates ar
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 <!-- Apex ends -->
 
-<!-- TopCoder Software begins ### Pulled on 2/4/03 ###
-    <tr>
-        <td valign="middle" class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=tcs_openings&amp;a=secure"><img src="/i/es/topcoder/topcoder_logo.gif" width="160" height="31" vspace="16" alt="TopCoder" border="0"/></a></td>
-        <td><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-        <td valign="middle" class="bodyText">TopCoder Software Sales - <a href="/?&amp;t=tces&amp;c=tcs_openings&amp;a=secure" class="bodyText">Click here</a> for details.<br/><br/>    
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-    </tr>    
- TopCoder Software ends -->
+<!-- TopCoder Software begins -->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><A href="/?&amp;t=tces&amp;c=tcs_project_mgr&amp;a=secure" class="bodyText"><img src="/i/es/topcoder/tcs_logo.gif" width="170" height="49" alt="TopCoder Software" border="0" vspace="10" /></A></td>
+                                <td width="99%" class="bodyText"><strong>TopCoder Software</strong> is in need of a project manager to work with our 
+                                Applications Manager and Implementation Team to develop and deploy applications at client sites. Candidates should be located 
+                                near Hartford, Boston, NYC, Richmond or Detroit.  Check out more of the details <A href="/?&amp;t=tces&amp;c=tcs_project_mgr&amp;a=secure" class="bodyText">here.</A><br/><br/></td>
+                            </tr>
+                            
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+<!-- TopCoder Software ends -->
             
                         </table>
 
