@@ -98,11 +98,11 @@ public final class GraphServlet extends HttpServlet {
             }
             /***********************************************************************/
             else if (dataRequest.getContentHandle().equals("rating_distribution_graph_profile")) {
-                //result = getFromCache(dataRequest);
-                //if (result == null) {
+                result = getFromCache(dataRequest);
+                if (result == null) {
                     result = getRatingsDistributionProfile(dataRequest);
-                //}
-                //addToCache(dataRequest, result);
+                }
+                addToCache(dataRequest, result);
             }
             /***********************************************************************/
             else if (dataRequest.getContentHandle().equals("rating_distribution_graph_dark")) {

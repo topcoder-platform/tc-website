@@ -432,8 +432,9 @@ public class PDFGenerator extends BaseProcessor {
         ranking.addCell(inner);
         ranking.addCell(" ");
 
-        Image chart = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/graph?c=rating_distribution_graph&width=600&height=400");
+        Image chart = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/graph?c=rating_distribution_graph&width=600&height=400&rt=" + info.getRating());
         ranking.addCell(chart);
+        ranking.addCell(new Phrase("* line indicates " + info.getHandle() + "'s rating", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         t.addCell(ranking);
 
