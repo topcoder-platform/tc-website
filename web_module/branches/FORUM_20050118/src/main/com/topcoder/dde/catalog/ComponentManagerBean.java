@@ -887,8 +887,6 @@ public class ComponentManagerBean
                         ProjectTrackerHome.class);
                 ProjectTracker pt = ptHome.create();
 
-                Notification notification = null;
-
                 // if component went to dev, get the winner from design to add to forum post notification.
                 if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
                     (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
@@ -907,7 +905,7 @@ public class ComponentManagerBean
                                 homeBindings.lookup(NotificationHome.EJB_REF_NAME),
                                 NotificationHome.class);
 
-                        notification = notificationHome.create();
+                        Notification notification = notificationHome.create();
 
                         notification.createNotification("forum post " + project.getForumId(),
                                 project.getWinner().getId(),
@@ -933,9 +931,12 @@ public class ComponentManagerBean
                     log.debug("New forum created, adding PM to notification.");
                     Project project = pt.getProjectById(projectId, requestor);
 
-                    if (notification == null) {
-                        notification = notificationHome.create();
-                    }
+                    NotificationHome notificationHome = (NotificationHome)
+                                PortableRemoteObject.narrow(
+                                homeBindings.lookup(NotificationHome.EJB_REF_NAME),
+                                NotificationHome.class);
+
+                    Notification notification = notificationHome.create();
 
                     notification.createNotification("forum post "+ newForum,
                             project.getProjectManager().getId(),
