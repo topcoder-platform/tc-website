@@ -117,6 +117,14 @@ public class TestResults extends BaseScreeningProcessor {
             
             tinfo.setProblemSetBPercentiles(percents);
             
+            //lookup stats
+            Request dr3 = new Request();
+            dr3.setContentHandle("problem_statistics");
+            dr3.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+            Map map3 = dAccess.getData(dr3);
+            
+            tinfo.setProblemSetBStats((ResultSetContainer)map3.get("problem_statistics"));
+            
             getRequest().setAttribute("testResultsInfo", tinfo);
 
             pinfo.setProfileName(result.getItem(0, "session_profile_desc").toString());

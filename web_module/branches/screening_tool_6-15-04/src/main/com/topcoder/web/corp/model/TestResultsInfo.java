@@ -19,6 +19,8 @@ public class TestResultsInfo implements java.io.Serializable {
     /** Holds value of property problemSetATCStats. */
     private ResultSetContainer problemSetATCStats;
     
+    private ResultSetContainer problemSetBStats;
+    
     private Map problemSetBPercentile;
     
     /** Holds value of property sessionId. */
@@ -29,6 +31,16 @@ public class TestResultsInfo implements java.io.Serializable {
     
     /** Holds value of property problemSetBCount. */
     private int problemSetBCount;
+    
+    public ResultSetContainer getProblemSetBStats()
+    {
+        return problemSetBStats;
+    }
+    
+    public void setProblemSetBStats(ResultSetContainer rsc)
+    {
+        problemSetBStats = rsc;
+    }
     
     public Map getProblemSetBPrecentiles()
     {
