@@ -166,6 +166,7 @@
                 </td>
             </tr>
 
+<% System.out.println("questionMap: " + questionMap.toString());%>
             <pl:responseIterator id="resp" list="<%=responseList%>">
                 <tr>
                     <td align="right">
