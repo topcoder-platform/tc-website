@@ -200,7 +200,6 @@ public class EmailConstants {
     private static final String JOB_TYPE_POSTDETAIL_KEY = "job_type_postdetail";
 
     private static final String JSP_ROOT_KEY = "jsp_root";
-    private static final String LOGIN_PAGE_KEY = "login_page";
     private static final String HOME_PAGE_KEY = "home_page";
     private static final String ERROR_PAGE_KEY = "error_page";
     private static final String EMAILTEMPLATE_LIST_PAGE_KEY = "email_template_list_page";
@@ -324,8 +323,6 @@ public class EmailConstants {
 
     // Tasks
 
-    // do login
-    public static String LOGIN_TASK;
     // go home
     public static String HOME_TASK;
     // template tasks
@@ -340,9 +337,6 @@ public class EmailConstants {
     // jsp root path
 
     public static String JSP_ROOT;
-
-    // login page
-    public static String LOGIN_PAGE;
 
     // home page
     public static String HOME_PAGE;
@@ -500,14 +494,12 @@ public class EmailConstants {
         }
 
 
-        LOGIN_TASK = servletConfig.getInitParameter(LOGIN_TASK_KEY);
         HOME_TASK = servletConfig.getInitParameter(HOME_TASK_KEY);
         EMAILTEMPLATE_TASK = servletConfig.getInitParameter(EMAILTEMPLATE_TASK_KEY);
         ADDRESSLIST_TASK = servletConfig.getInitParameter(ADDRESSLIST_TASK_KEY);
         SCHEDULEDJOB_TASK = servletConfig.getInitParameter(SCHEDULEDJOB_TASK_KEY);
 
         JSP_ROOT = servletConfig.getInitParameter(JSP_ROOT_KEY);
-        LOGIN_PAGE = JSP_ROOT + servletConfig.getInitParameter(LOGIN_PAGE_KEY);
         HOME_PAGE = JSP_ROOT + servletConfig.getInitParameter(HOME_PAGE_KEY);
         ERROR_PAGE = JSP_ROOT + servletConfig.getInitParameter(ERROR_PAGE_KEY);
         EMAILTEMPLATE_LIST_PAGE = JSP_ROOT + servletConfig.getInitParameter(EMAILTEMPLATE_LIST_PAGE_KEY);

@@ -413,14 +413,6 @@
 
 
   <init-param>
-    <param-name>login_task</param-name>
-    <param-value>LoginTask</param-value>
-    <description>
-
-    </description>
-  </init-param>
-
-  <init-param>
     <param-name>home_task</param-name>
     <param-value>Home</param-value>
     <description>
@@ -454,14 +446,6 @@
   </init-param>
 
 
-
-  <init-param>
-    <param-name>login_page</param-name>
-    <param-value>login.jsp</param-value>
-    <description>
-      Login page
-    </description>
-  </init-param>
 
   <init-param>
     <param-name>home_page</param-name>
