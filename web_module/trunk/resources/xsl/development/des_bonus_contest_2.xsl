@@ -343,7 +343,7 @@
                         The TopCoder members with the 3 highest average scores will be declared the first, second and third place winners,
                         respectively.</p>
 
-                        <p>Not sure what to submit? See our <a href="index?t=development&amp;c=tcs_sample_docs">sample design solution</a> for ideas.</p>
+                        <p>Not sure what to submit? See our <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=compDocumentation">sample design solution</a> for ideas.</p>
 
                         <p>What is the screening process? Read our <a href="index?t=development&amp;c=comp_meth">methodology</a> to find out.</p>
 

@@ -220,7 +220,7 @@
                     <td width="100%" class="smallText">
                         <p>Please read the Component Development <a href="/index?t=development&amp;c=comp_meth">Methodology</a> before submitting a Component Design or Development solution.</p>
                         <p>Please read the Application Development <a href="/index?t=development&amp;c=app_meth">Methodology</a> before submitting an Application Design or Development solution.</p>
-                        <p>Not sure what to submit? Go to Component <a href="/index?t=development&amp;c=tcs_sample_docs">Documentation and Sample Submissions</a> for the information that you need.</p>
+                        <p>Not sure what to submit? Go to Component <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=compDocumentation">Documentation</a> for the information that you need.</p>
                     </td>
                 </tr>
             </table>
