@@ -1757,6 +1757,7 @@ public class Registration
                     currentSchool.setUserId(coder.getCoderId());
                     currentSchool.setSchoolId((int) schoolId);
                     currentSchool.setName(schoolName);
+                    log.debug("school id is still " + currentSchool.getSchoolId());
 
                     if (!this.gpa.equals("")) {
                         currentSchool.setGpa(Float.parseFloat(this.gpa));
