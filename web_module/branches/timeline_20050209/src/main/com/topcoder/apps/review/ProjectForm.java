@@ -133,6 +133,11 @@ private Log log = null;
     private boolean[] participantsValid = null;
 
     /**
+     * Whether the phases are valid.
+     */
+    private boolean[] phaseValid = null;
+
+    /**
      * Whether the scorecard templates are valid.
      */
     private boolean templatesValid = true;
@@ -204,7 +209,12 @@ private Log log = null;
     /**
      * The length in minutes of each phase.
      */
-    private int[] phaseLengths = null;
+    private int[] phaseMinutes = null;
+
+    /**
+     * The length of each phase as hh:mm
+     */
+    private String[] phaseLengths = null;
 
     /**
      * Indicates for each phase if it must adjust its start date to the end date of the previous phase.
@@ -693,6 +703,16 @@ private Log log = null;
     }
 
     /**
+     * Return whether the phase is valid.
+     *
+     * @param index The index of phase.
+     * @return whether the phase is valid.
+     */
+    public boolean getPhaseValid(int index) {
+        return phaseValid[index];
+    }
+
+    /**
      * Return whether the reason is valid.
      *
      * @return whether the reason is valid.
@@ -885,7 +905,7 @@ private Log log = null;
      * @param index The index of phase.
      * @return the specified phase's length in minutes
      */
-    public int getPhaseLength(int index) {
+    public String getPhaseLength(int index) {
         return phaseLengths[index];
     }
 
@@ -895,23 +915,20 @@ private Log log = null;
      * @param index The index of phase.
      * @param start The new phase's length in minutes
      */
-    public void setPhaseLength(int index, int phaseLength) {
+    public void setPhaseLength(int index, String phaseLength) {
         phaseLengths[index] = phaseLength;
+        phaseMinutes[index] = parseLength(phaseLength);
     }
-
-    public int getPhaseHours(int index) {
+/*
+    public String getPhaseLength(int index) {
         return phaseLengths[index] / 60;
     }
-    public int getPhaseMinutes(int index) {
-        return phaseLengths[index] % 60;
-    }
-    public void setPhaseHours(int index, int hours) {
+
+
+    public void setPhaseLength(int index, String value) {
         phaseLengths[index] = hours * 60 + getPhaseMinutes(index);
     }
-    public void setPhaseMinutes(int index, int minutes) {
-        phaseLengths[index] = getPhaseHours(index) * 60 + minutes;
-    }
-
+*/
 
 
     /**
@@ -1025,19 +1042,23 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
             timelineValid = true;
 
             for (int i = 0; i < project.getTimeline().length; i++) {
-                String phaseName = project.getTimeline()[i].getPhase().getName();
-
                 if (!adjustStartDates[i]) {
                     Date start = parseDate(forcedStartDates[i]);
 
                     if (start == null) {
-                        errors.add("timeline",
-                                new ActionError("error.format", "Error in the start date of phase " + phaseName));
+                        errors.add("phase[" + i + "]",
+                                new ActionError("error.format", "Error in the start date"));
+                        phaseValid[i] = false;
                         timelineValid = false;
                     }
                 }
                 //FIX: check time
 
+                if  (phaseMinutes[i] < 0) {
+                    errors.add("phase[" + i + "]",
+                               new ActionError("error.format", "Error in the phase duration"));
+                    phaseValid[i] = false;
+                }
 
             }
 
@@ -1133,7 +1154,9 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
         startDates = new String[project.getTimeline().length];
         forcedStartDates = new String[project.getTimeline().length];
         endDates = new String[project.getTimeline().length];
-        phaseLengths = new int[project.getTimeline().length];
+        phaseLengths = new String[project.getTimeline().length];
+        phaseMinutes = new int[project.getTimeline().length];
+        phaseValid = new boolean[project.getTimeline().length];
         adjustStartDates = new boolean[project.getTimeline().length];
         reviewerSeqs = new int[project.getParticipants().length];
         for (int i = 0; i < project.getParticipants().length; i++) {
@@ -1159,17 +1182,19 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
 
         for (int i = 0; i < project.getTimeline().length; i++) {
             if (project.getTimeline()[i].getStartDate() == null) {
-                    startDates[i] = null;
-                } else {
-                    startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
-                }
-
-                if (project.getTimeline()[i].getEndDate() == null) {
-                    endDates[i] = null;
-                } else {
-                    endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
-                }
+                startDates[i] = null;
+            } else {
+                startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
             }
+
+            if (project.getTimeline()[i].getEndDate() == null) {
+                endDates[i] = null;
+            } else {
+                endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
+            }
+
+            phaseValid[i] = true;
+        }
 
 
         for (int i = 0; i < projectStatuses.length; i++) {
@@ -1177,7 +1202,7 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
                 terminatedStatus = businessDelegate.getProjectStatuses()[i];
                 break;
             }
-        }
+         }
 
         this.autopilot = project.getAutoPilot();
 
@@ -1253,7 +1278,8 @@ public void timeLineFromProject(Project project)
                 }
             }
 
-            phaseLengths[i] = phases[i].getLength();
+            phaseMinutes[i] = phases[i].getLength();
+            phaseLengths[i] = formatLength(phaseMinutes[i]);
         }
 
         return new SuccessResult();
@@ -1271,11 +1297,17 @@ public void timeLineFromProject(Project project)
 log (Level.INFO, "adjustStartDates [" + i+"]: " +adjustStartDates[i]);
 
             if (!adjustStartDates[i]) {
-                startDate = parseDate(forcedStartDates[i]);
+                Date newStartDate = parseDate(forcedStartDates[i]);
+
+                // Just change the date if it is after the last phase start.  If not, it would give an error.
+                // If the date for the phase is earlier than the date for a previous phase, it is not taken into account.
+                if (newStartDate.after(startDate)) {
+                    startDate = newStartDate;
+                }
             }
 log (Level.INFO, "StartDate [" + i+"]=" +startDate);
             phase.setStartDate(startDate);
-            phase.setLength(phaseLengths[i]);
+            phase.setLength(phaseMinutes[i]);
 
             startDates[i] = dateFormatter.format(phase.getStartDate());
             endDates[i] = dateFormatter.format(phase.calcEndDate());
@@ -1295,6 +1327,35 @@ log (Level.INFO, "StartDate [" + i+"]=" +startDate);
 
     }
 
+    // qq comment
+    public int parseLength(String length) {
+        try {
+            String fields[] = length.trim().split(":");
+
+            if (fields.length != 2) {
+                return -1;
+            }
+
+            int hours = Integer.parseInt(fields[0]);
+            int minutes = Integer.parseInt(fields[1]);
+
+            if ((hours < 0) || (minutes < 0)) {
+                return -1;
+            }
+
+            return hours * 60 + minutes;
+        } catch (Exception e) {
+            return -1;
+        }
+
+    }
+
+    // qq comment
+    public String formatLength(int minutes) {
+        int h = minutes / 60;
+        int m = minutes % 60;
+        return h + ":" + (m < 10? "0" : "") + m;
+    }
 
 
     /**
