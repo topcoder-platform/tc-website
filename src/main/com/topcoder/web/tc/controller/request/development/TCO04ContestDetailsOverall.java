@@ -96,7 +96,11 @@ public class TCO04ContestDetailsOverall extends StatBase {
             TCO04OverallResult a1 = (TCO04OverallResult)o1;
             TCO04OverallResult a2 = (TCO04OverallResult)o2;
             
-            return a1.getPoints() - a2.getPoints();
+            if(a1.getPoints() == a2.getPoints() ) {
+                return a1.getHandle().compareToIgnoreCase(a2.getHandle());
+            }
+            
+            return a2.getPoints() - a1.getPoints();
         }
         
     }
