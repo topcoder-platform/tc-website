@@ -134,7 +134,7 @@ DATE<BR/>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><B>Average Pts.</B></TD>
   </TR>
-  <%while(Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID){
+  <%while(Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID&&currentRowPtr<percents.size()){
       String problemLevel = currentRow.getItem("problem_level").toString();
       String problemName = currentRow.getItem("problem_name").toString();
       int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
@@ -149,7 +149,7 @@ DATE<BR/>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;<%=problemLevel%></TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<%=problemName%></TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=correct%>% &#160;&#160;</TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=perCor%>% &#160;&#160;</TD>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=avgPoints%></TD>
   </TR>
   <%
