@@ -472,6 +472,8 @@
                 <include name="errorPage.jsp"/>
                 <include name="my_features.jsp"/>
                 <include name="public_right.jsp"/>
+                <include name="menu.jsp"/>
+                <include name="date_time.jsp"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/stat/**"/>
