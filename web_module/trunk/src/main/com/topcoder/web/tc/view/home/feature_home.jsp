@@ -9,8 +9,8 @@
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/leadhyena_inran_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=282560"><strong>leadhyena_inran</strong></a><br/>
+                        <img src="/i/m/AryanI_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=10135324"><strong>AryanI</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -18,13 +18,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td> 
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a href="/?&amp;t=features&amp;c=feat_090104" class="bodyText"><font size="4"><strong>On Sentinels</strong></font></a><br />
-                        Wednesday, September 1, 2004</p>
+                        <p><a href="/index?t=features&c=feat_100404" class="bodyText"><font size="4"><strong>Peer 2 Fear</strong></font></a><br />
+                        Monday, October 4, 2004</p>
 
                         <p>
-						When competing in the arena, while it is important to be able to code a solution quickly in order to score more points, it is just as important for the solution to work so you can actually score those points.
+						Securing P2P data sharing applications is challenging due to their open and autonomous nature. Compared to a client-server system in which servers can be relied upon or trusted to always follow protocols, peers in a P2P system may provide no such guarantee.
 
-                        <a href="/?&amp;t=features&amp;c=feat_090104" class="bodyText"><strong>full&#160;story</strong></a></p>
+                        <a href="/index?t=features&c=feat_100404" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>

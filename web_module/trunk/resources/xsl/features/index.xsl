@@ -68,9 +68,9 @@
                             </tr>
                             
                             <tr>
-                                <td valign="middle" class="bodyText" height="14">October 1</td>
-                                <td valign="middle" class="bodyText">leadhyena_inran</td>
-                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_100104" class="bodyText">On Sentinels</A></td>
+                                <td valign="middle" class="bodyText" height="14">October 4</td>
+                                <td valign="middle" class="bodyText">AryanI</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_100404" class="bodyText">Peer 2 Fear: Solutions for developers for designing secure P2P applications</A></td>
                             </tr>
 
                             <tr>
