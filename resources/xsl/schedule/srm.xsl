@@ -218,7 +218,7 @@
                                   <tr><td class="bodyText"></td></tr>
                                   <tr><td class="bodyText">December 7:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
                                 </table>
-                                <br/>
+                                <br/> 
                             </xsl:when>
                             </xsl:choose>
 
