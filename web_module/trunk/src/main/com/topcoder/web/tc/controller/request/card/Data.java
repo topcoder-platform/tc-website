@@ -71,10 +71,9 @@ public class Data extends Base {
             addElement(hd, "algorithmRating", profileRsc.getStringItem(0, "algorithm_rating"), emptyAtts);
             addElement(hd, "algorithmRatingMax", profileRsc.getStringItem(0, "highest_rating"), emptyAtts);
             addElement(hd, "rank", profileRsc.getStringItem(0, "rank"), emptyAtts);
-            addElement(hd, "percentile",
-                    df.format(((Number)profileRsc.getItem(0, "percentile").getResultData()).doubleValue()), emptyAtts);
-            addElement(hd, "memberSince", sdf.format(profileRsc.getItem(0, "member_since")), emptyAtts);
-            addElement(hd, "lastMatchDate", sdf.format(profileRsc.getItem(0, "last_match")), emptyAtts);
+            addElement(hd, "percentile", df.format(profileRsc.getDoubleItem(0, "percentile")), emptyAtts);
+            addElement(hd, "memberSince", sdf.format(profileRsc.getItem(0, "member_since").getResultData()), emptyAtts);
+            addElement(hd, "lastMatchDate", sdf.format(profileRsc.getItem(0, "last_match").getResultData()), emptyAtts);
             addElement(hd, "bestDvi1", profileRsc.getStringItem(0, "best_div1"), emptyAtts);
             addElement(hd, "bestDiv2", profileRsc.getStringItem(0, "best_div2"), emptyAtts);
             addElement(hd, "competitions", profileRsc.getStringItem(0, "num_competitions"), emptyAtts);
