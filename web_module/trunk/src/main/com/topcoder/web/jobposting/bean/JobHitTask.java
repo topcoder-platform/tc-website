@@ -135,7 +135,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
                 } catch (Exception e) {
                     throw new Exception("failed to add job hit for user: " + userId +
                             " job: " + jobId +
-                            " hit type: " + Constants.JOB_POSTING_ID);
+                            " hit type: " + Constants.JOB_POSTING_ID + "\n" + e.getMessage());
                 }
             }
         } catch (Exception e) {
