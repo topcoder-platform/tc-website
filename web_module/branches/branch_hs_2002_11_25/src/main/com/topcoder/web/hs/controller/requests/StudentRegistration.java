@@ -43,6 +43,7 @@ public class StudentRegistration extends Base {
 
       RegistrationHelper.populateStudentWithDefaults(srb);
       RegistrationHelper.populateStudentFromRequest(request,srb);
+      RegistrationHelper.getStudentStaticContent(srb);
 
       request.setAttribute("student",srb);
 
@@ -59,6 +60,7 @@ public class StudentRegistration extends Base {
 
       RegistrationHelper.populateStudentWithDefaults(srb);
       RegistrationHelper.populateStudentFromRequest(request,srb);
+      RegistrationHelper.getStudentStaticContent(srb);
 
       request.setAttribute("student",srb);
 
