@@ -87,8 +87,8 @@
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="City"/></td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Province</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Province"/></td>
+                            <td class="brRegTableQuestion">State</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="StateCode"/></td>
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion">Pin/Zip Code</td>
