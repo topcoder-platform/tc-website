@@ -14,7 +14,11 @@
 
 <head>
     <xsl:variable name='docId' select='/TC/DEVELOPMENT/documentId'/>
-    <xsl:variable name='docId' select='/TC/DEVELOPMENT/componentId'/>
+    <xsl:variable name='componentId' select='/TC/DEVELOPMENT/componentId'/>
+    <xsl:variable name='phase' select="/TC/DEVELOPMENT/phase"/>
+    <xsl:variable name='version' select="/TC/DEVELOPMENT/version"/>
+    <xsl:variable name='formattedName' select="/TC/DEVELOPMENT/formattedName"/>
+    
 	<xsl:call-template name="Preload"/>      
 
 <title>TopCoder :: Development</title>
@@ -151,7 +155,7 @@
 						        <strong>
         						<a class="statText">
         						    <xsl:attribute name="href">
-        						        <xsl:value-of select="concat('/?&amp;t=development&amp;version=<xsl:value-of select="/TC/DEVELOPMENT/version"/>&amp;phase=<xsl:value-of select="/TC/DEVELOPMENT/phase"/>&amp;comp=<xsl:value-of select="/TC/DEVELOPMENT/componentId"/>&amp;c=tcs_inquire&amp;Project=<xsl:value-of select="/TC/DEVELOPMENT/formattedName"/>:%20Design&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Design&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
                                     </xsl:attribute>
                                     Register for the Component Project
         						</a>
