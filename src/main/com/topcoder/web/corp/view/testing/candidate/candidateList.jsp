@@ -37,7 +37,7 @@
                     <td class="bodyText">
                         <h1 class="testHead">Candidate Status</h1>
                         <p>Below is a list of candidates.  Clicking on a candidate will bring you to the Candidate Info page.<br/>
-                        Viewing Candidate <%=request.getAttribute(DataAccessConstants.START_RANK)%> to <%=request.getAttribute(DataAccessConstants.END_RANK)%> of <%= request.getAttribute(DataAccessConstants.NUMBER_RECORDS)%><br/><br/></p>
+                        <br/></p>
                     </td>
                 </tr>
             </table>
@@ -50,6 +50,11 @@
             <% }%>
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+                 <tr>
+                    <td colspan=6 align=right class="bodyText">
+                        Viewing Candidate <%=request.getAttribute(DataAccessConstants.START_RANK)%> to <%=request.getAttribute(DataAccessConstants.END_RANK)%> of <%= request.getAttribute(DataAccessConstants.NUMBER_RECORDS)%><br/>
+                    </td>
+                 </tr>
                  <tr>
                    <td align="left" class="screeningHeader">
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=1">
