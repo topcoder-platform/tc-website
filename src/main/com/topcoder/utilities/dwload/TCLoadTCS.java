@@ -146,7 +146,7 @@ public class TCLoadTCS extends TCLoad {
 
         String tempKey = null;
 
-        String[] keys = new String[]{"tccc05_", "usdc_", "component_history", "tcs_ratings_history", "member_profile", "public_home_data", "top_designers", "top_developers", "tco04"};
+        String[] keys = new String[]{"tccc05_", "usdc_", "component_history", "tcs_ratings_history", "member_profile", "public_home_data", "top_designers", "top_developers", "tco04", "coder_all_ratings"};
 
         ArrayList list = cc.getKeys();
         for (int i = 0; i < list.size(); i++) {
