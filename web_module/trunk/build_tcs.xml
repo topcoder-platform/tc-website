@@ -5,7 +5,7 @@
     <property name="lib.dir" value="lib"/>
     <property name="bin.dir" value="${lib.dir}/bin"/>
     <property name="shared.dir" value="../shared/src/main"/>
-    <property name="shared.jar" value="${bin.dir}/shared.jar"/>
+    <property name="shared.jar" value="shared.jar"/>
     <property name="src.dir" value="src"/>
     <property name="java.dir" value="${src.dir}/main"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
@@ -58,7 +58,7 @@
     </target>
 
     <target name="jar_shared" depends="compile_shared">
-        <jar jarfile="${shared.jar}">
+        <jar jarfile="${bin.dir}/${shared.jar}">
             <fileset dir="${classes.dir}">
                 <include name="com/topcoder/shared/**/*.class"/>
             </fileset>
@@ -122,7 +122,7 @@
             <classes dir="${resources.dir}">
                 <include name="com/topcoder/servlet/request/FileUpload.xml"/>
             </classes>
-            <lib dir="">
+            <lib dir="${bin.dir}">
                 <include name="${shared.jar}"/>
             </lib>
         </war>

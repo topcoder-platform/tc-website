@@ -49,7 +49,7 @@
 
     <servlet-mapping>
         <servlet-name>tcs</servlet-name>
-        <url-pattern>/tcs</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 </web-app>
