@@ -395,6 +395,9 @@ final class UserDbCoder {
   private static void insertCoderConfirmation(Connection conn, CoderConfirmation coderConfirmation)  
     throws TCException {
     log.debug("ejb.User.UserDbCoder:insertCoderConfirmation() called ...");
+    log.debug(" coder: " + coderConfirmation.getCoderId() +
+              " contest: " + coderConfirmation.getContestId() + 
+              " coder: " + coderConfirmation.getCode());
     PreparedStatement ps = null;
     StringBuffer query = new StringBuffer(250);
     query.append(" INSERT");

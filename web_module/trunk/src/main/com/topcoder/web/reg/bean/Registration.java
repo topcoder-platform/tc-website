@@ -1702,7 +1702,7 @@ public class Registration
         c.setContestId(SUN_CONTEST_ID);
         try {
           log.debug("sun confirm\n" + c.getXML());
-        } catch (Exception e) { }
+        } catch (Exception e) { e.printStackTrace();}
         a.add(c);
         coder.setCoderConfirmations(a);
         if (isRegister())
