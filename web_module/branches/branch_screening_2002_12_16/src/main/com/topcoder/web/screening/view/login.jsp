@@ -52,11 +52,11 @@
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right" NOWRAP="">&#160;&#160;User Name:&#160;&#160;</TD>
-                                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="handle" TYPE="TEXT" VALUE="" onKeyPress="submitEnter(event)"/></TD>
+                                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="handle" TYPE="TEXT" VALUE=""/></TD>
                                  </TR>
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">&#160;&#160;Password:&#160;&#160;</TD>
-                                    <TD HEIGHT="20" VALIGN="TOP"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="password" TYPE="Password" VALUE="" onKeyPress="submitEnter(event)"/></TD>
+                                    <TD HEIGHT="20" VALIGN="TOP"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="password" TYPE="Password" VALUE=""/></TD>
                                     <TD CLASS="statTextBig" VALIGN="top" NOWRAP="">&#160;<A HREF="Javascript:login.submit()" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login &gt;</FONT></A>&#160;&#160;</TD>                    
                                  </TR>
                               </TABLE>
