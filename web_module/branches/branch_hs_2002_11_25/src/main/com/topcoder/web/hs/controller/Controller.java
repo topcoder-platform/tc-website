@@ -78,7 +78,7 @@ public final class Controller extends HttpServlet {
         }
     }
 
-    private String checkNull(String s) {
+    private static String checkNull(String s) {
         return s==null?"":s;
     }
 

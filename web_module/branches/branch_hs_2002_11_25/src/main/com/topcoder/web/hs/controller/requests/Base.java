@@ -26,21 +26,21 @@ public abstract class Base implements RequestProcessor {
 
     protected void buildSessionInfo() {
         SessionInfoBean si = new SessionInfoBean();
-        try {
-          String p;
-          p = request.getParameter("handle");
-          if(p!=null) si.setHandle(p);
-          p = request.getParameter("userid");
-          if(p!=null) si.setUserId(Integer.parseInt(p));
-          p = request.getParameter("group");
-          if(p!=null) si.setGroup(p.charAt(0));
-          p = request.getParameter("rating");
-          if(p!=null) si.setRating(Integer.parseInt(p));
+        try { //@@@
+            String p;
+            p = request.getParameter("handle");
+            if(p!=null) si.setHandle(p);
+            p = request.getParameter("userid");
+            if(p!=null) si.setUserId(Integer.parseInt(p));
+            p = request.getParameter("group");
+            if(p!=null) si.setGroup(p.charAt(0));
+            p = request.getParameter("rating");
+            if(p!=null) si.setRating(Integer.parseInt(p));
        } catch(Exception e) { e.printStackTrace(); }
        request.setAttribute("SessionInfo", si);
     }
 
-    public void process() {
+    public void process() throws Exception {
       buildSessionInfo();
     }
 

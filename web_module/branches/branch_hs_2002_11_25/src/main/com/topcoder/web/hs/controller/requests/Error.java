@@ -12,10 +12,9 @@ import java.util.*;
  *
  * @author Ambrose Feinstein
  */
-
 public class Error extends Base {
 
-    public void process() {
+    public void process() throws Exception {
         super.process();
 
         Exception e = (Exception)request.getAttribute("exception");
@@ -33,7 +32,7 @@ public class Error extends Base {
         request.setAttribute("error_name", en);
         request.setAttribute("error_cause", et);
 
-        setNextPage("/hs"+"/error.jsp");  //@@@ remove prefix... make relative to controller servlet
+        setNextPage("/hs"+"/home/error.jsp");  //@@@ remove prefix... make relative to controller servlet
         setIsNextPageInContext(true);
     }
 }

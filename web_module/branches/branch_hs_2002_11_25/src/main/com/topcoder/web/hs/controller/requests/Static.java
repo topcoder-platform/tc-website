@@ -10,10 +10,9 @@ import java.util.*;
  *
  * @author Ambrose Feinstein
  */
-
 public class Static extends Base {
 
-    public void process() {
+    public void process() throws Exception {
         super.process();
 
         String path = "";
