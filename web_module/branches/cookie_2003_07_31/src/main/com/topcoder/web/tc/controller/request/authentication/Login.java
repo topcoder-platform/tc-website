@@ -37,7 +37,7 @@ public class Login extends Base {
 
             password = StringUtils.checkNull(password);
             if (username.equals("") || password.equals("")) {
-                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a username and a password.");
+                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a handle and a password.");
 
             } else {
                 try {
@@ -114,8 +114,13 @@ public class Login extends Base {
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
         TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
         CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
-        Navigation nav = new Navigation(request, ret);
-        request.getSession(true).setAttribute("navigation", nav);
+        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+        if (nav==null) {
+            nav = new Navigation(request, ret);
+            request.getSession(true).setAttribute("navigation", nav);
+        } else {
+            nav.setCoderSessionInfo(ret);
+        }
     }
 
     private long getUserId(String handle) throws Exception {
