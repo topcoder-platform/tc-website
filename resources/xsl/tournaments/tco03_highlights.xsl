@@ -97,10 +97,14 @@
                   <td align = "left" class="advancers_roundid"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4701" class="topLink">Qualification Round 2</a></td>
                   <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4701">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
-                  <td align = "right" class="advancers_faded">n/a</td>
+                  <td align = "right" class="advancers_faded">n/a</td> 
                </tr>
             </table>
             <br/><br/>
+            
+            <p> Click <A href="/?&amp;t=tournaments&amp;c=tco03_bracket">here</A> to see the full TCO advancers table.</p>
+
+<!--
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
                <tr>
                   <td width = "40%" align = "left" class="advancers_header">Round</td>
@@ -124,6 +128,7 @@
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd2','radeye2',900,600);">view</A></td>
                </tr>
             </table>
+-->            
            </blockquote>
             <p><br/></p>
 
