@@ -171,7 +171,7 @@ public class Login extends FullLogin {
                 long tcQuestionId = row.getLongItem("demographic_question_id");
                 //only add the response if we have a mapping for it
                     if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                        question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions());
+                        question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
                         DemographicResponse r = new DemographicResponse();
                         r.setQuestionId(question.getId());
                         r.setSort(row.getIntItem("sort"));
