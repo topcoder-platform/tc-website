@@ -40,6 +40,9 @@ function find(n) {
             <A href="" name="changerHref"><img src="" name="changerImg" width="170" height="84" border="0" /></A><br />
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
+            <A href="/i/downloads/tco03_guide.pdf"  target="_blank"><img src="/i/promos/tco_guide_promo_third.gif" alt="The TCO Guide" width="170" height="150" border="0" /></A><br/>
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
             <jsp:include page="../calendar.jsp" />
 
             <p><br/></p>
