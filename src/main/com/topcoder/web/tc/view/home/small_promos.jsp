@@ -4,6 +4,6 @@
 		<td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 		<td height="150" align="center"><A href="/i/tournament/tco04/onsite_movies/rhughes.mov"><img src="/i/promos/robPerfCred_mov.jpg" width="170" height="150" border="0" alt="" /></A></td>
 		<td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-		<td height="150" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/promos/tco04_results_small.gif" width="170" height="150" border="0" alt="" /></A></td>
+		<td height="150" align="center"><A href="/tc?module=TCCC05StudentReps"><img src="/i/promos/tccc05_student_rep.gif" border="0" alt="" /></A></td>
 	</tr>
 </table>
