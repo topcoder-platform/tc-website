@@ -41,7 +41,7 @@
 
   </head>
   <body>
-  <table width=100%>
+  <table width="100%">
     <tr valign="top">
       <td width="170"><jsp:include page="srm_nav.jsp" /></td>
   	  <td>
