@@ -1845,10 +1845,10 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                     append("        c.succeeded, c.message, s.submission_points ").
                     append(" FROM challenge c, submission s ").
                     append(" WHERE c.challenge_id = ? ").
-                    append(" AND s.component_state_id = (SELECT cs.component_state_id FROM component_state ps ").
-                    append("                           WHERE ps.round_id = c.round_id ").
+                    append(" AND s.component_state_id = (SELECT cs.component_state_id FROM component_state cs ").
+                    append("                           WHERE cs.round_id = c.round_id ").
                     append("                           AND cs.component_id = c.component_id ").
-                    append("                           AND ps.coder_id = c.defendant_id) ");
+                    append("                           AND cs.coder_id = c.defendant_id) ");
 
             ps = conn.prepareStatement(sqlStr.toString());
             ps.setInt(1, challenge_id);
