@@ -597,12 +597,13 @@ Project Start Date: December 17, 2002<BR/>
 Project End Date:  January 29, 2003<BR/>
 </P>
 
-                                    <a href="/?&amp;t=development&amp;c=inquire&amp;Candidate Screening Tool" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a>
-          <P><br/></P>
+            <a href="/?&amp;t=development&amp;c=inquire&amp;Candidate Screening Tool" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a>
+<P><br/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
                 <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+            </tr>
             </table>
 
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
