@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.request;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import javax.servlet.ServletRequest;
 
 import com.topcoder.web.common.RequestProcessor;
@@ -21,6 +22,12 @@ import com.topcoder.web.common.RequestProcessor;
 public abstract class BaseProcessor implements RequestProcessor {
     protected HttpServletRequest request;
     protected boolean pageInContext = false;
+    
+    // form based processors must set it to new HashMap() inside
+    // constructor, while others are allowed leave it as is
+    protected HashMap formErrors = null;
+    // same for form defaults
+	protected HashMap formDefaults = null;
     
     /**
      * Performs generic pre-processing, then calls businessProcessing() method
@@ -68,6 +75,9 @@ public abstract class BaseProcessor implements RequestProcessor {
      */
     public void setRequest(ServletRequest req) {
         request = (HttpServletRequest)req;
+        if( formErrors != null ) { // in case if it is form based processor
+        	formErrors.clear(); 
+        }
     }
     
     /**

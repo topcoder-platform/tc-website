@@ -5,7 +5,6 @@
  "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 
 <web-app>
-
 <servlet>
   <servlet-name>MainServlet</servlet-name>
   <display-name>MainServlet</display-name>
@@ -41,5 +40,11 @@
   <servlet-name>MainServletStub</servlet-name>
   <url-pattern>/hs</url-pattern>
 </servlet-mapping>
+
+<taglib>
+    <taglib-uri>tc-webtags.tld</taglib-uri>
+    <taglib-location>/WEB-INF/classes</taglib-location>
+</taglib>
+
 
 </web-app>

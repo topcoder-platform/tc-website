@@ -658,7 +658,7 @@
     
     <target name="war_corp" depends="compile">
         <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
-            <fileset dir="${java}/com/topcoder/web/portal/jsp">
+            <fileset dir="${resources}/corp/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
             <classes dir="${classes}">
@@ -673,10 +673,11 @@
             <lib dir="${jars.dir}">
                 <include name="log4j.jar"/>
             </lib>
-<!--
+
             <webinf dir="${resources}/corp">
-                <include name="corp-taglib.tld"/>
+                <include name="tc-webtags.tld"/>
             </webinf>
+<!--
             <zipfileset dir="${java}/com/topcoder/web/corp/jsp">
                 <include name="**/*.jpg"/>
             </zipfileset>
