@@ -162,6 +162,15 @@ public class ProfileSearch extends Base {
         List tables = new ArrayList();
         List constraints = new ArrayList();
         List selects = new ArrayList();
+        Map names = new HashMap();
+
+        String skillNames = request.getParameter("skill_names");
+        StringTokenizer st = new StringTokenizer(skillNames,"\r\n");
+        while(st.hasMoreTokens()){
+            Integer id = new Integer(st.nextToken());
+            names.put(id,st.nextToken());
+        }
+
         while (e.hasMoreElements()) {
             String param = (String) e.nextElement();
             String[] values = request.getParameterValues(param);
@@ -187,7 +196,7 @@ public class ProfileSearch extends Base {
                     tables.add("coder_skill cs"+skillId);
                     constraints.add(query.toString());
                     selects.add("cs"+skillId+".ranking as skill_name_"+skillId);
-                    headers.add(request.getParameter("skill_name_"+skillId));
+                    headers.add(names.get(new Integer(skillId)));
                 }
             }
         }
