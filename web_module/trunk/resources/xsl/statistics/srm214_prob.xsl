@@ -623,7 +623,8 @@ int intree(struct Tree *atree, int aix, struct Tree *btree, int bix) {
     return 0;
   if (intree(atree->children[aix], 0, btree->children[bix], 0))
     return intree(atree, aix+1, btree, bix+1);
-  return intree(atree, aix, btree, bix+1); } </pre> <p>
+  return intree(atree, aix, btree, bix+1); 
+} </pre> <p>
 
 A fancy <code>intree()</code> function would count the number of identical nodes at the same time that it verified the intree relationship, but I like to keep my code simple by delegating the node count to a separate recursion.
 
@@ -661,7 +662,8 @@ void compare(char *docA, char *docB) {
   else if (AinB)
     printf("intree %d\n", count(treeB)-count(treeA));
   else
-    printf("outtree %d\n", count(treeA)-count(treeB)); } </pre> <p>
+    printf("outtree %d\n", count(treeA)-count(treeB)); 
+} </pre> <p>
 
 If the trees are neither equivalent nor incompatible, I subtract their node counts in the appropriate order to find out how many nodes they have in common.
 
@@ -745,7 +747,8 @@ struct Index *get(struct Index *index, char *s, int ix, int end) {
   int ci = (int) tolower(s[ix]);
   if (ix &lt; end &amp;&amp; index->next[ci] == NULL)
     return NULL;
-  return ((ix == end) ? index : get(index->next[ci], s, ix+1, end)); } </pre> <p>
+  return ((ix == end) ? index : get(index->next[ci], s, ix+1, end)); 
+} </pre> <p>
 
 To build an index for a certain document, I scan its text and put each maximal sequence of alphabetic characters into the trie along with its word number. At the same time, I store the character indices of each word in the array <code>spans</code>, letting me subsequently extract document substrings based on word numbers.
 
