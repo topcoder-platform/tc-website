@@ -107,7 +107,7 @@ public class NotificationBean implements SessionBean {
                                        "VALUES (?,?,?)");
 
             id = idGen.nextId("NOTIFICATION_EVENT_SEQ");
-            info("using id=" id);
+            info("using id=" + id);
             ps.setLong(1, id);
             ps.setString(2, event);
             ps.setLong(3,typeId);
