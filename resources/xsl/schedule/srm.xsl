@@ -104,7 +104,7 @@
                       <TR>
                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
                             <center><BR/>All times are Eastern Time unless otherwise noted<BR/><BR/></center>
-                            <center>Click <a><xsl:attribute name="HREF">http://www.timeanddate.com/worldclock/fixedtime.html?day=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;month=<xsl:value-of select="/TC/SCHEDULE/month"/>&amp;year=<xsl:value-of select="/TC/SCHEDULE/Round/Details/year"/>&amp;hour=<xsl:value-of select="/TC/SCHEDULE/Round/Details/hour"/>&amp;min=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;p1=179</xsl:attribute>here</a>
+                            <center>Click <a><xsl:attribute name="HREF">http://www.timeanddate.com/worldclock/fixedtime.html?day=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;month=<xsl:value-of select="/TC/SCHEDULE/Round/Details/month"/>&amp;year=<xsl:value-of select="/TC/SCHEDULE/Round/Details/year"/>&amp;hour=<xsl:value-of select="/TC/SCHEDULE/Round/Details/hour"/>&amp;min=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;p1=179</xsl:attribute>here</a>
                             here for timezone information<br/><br/></center>
 
                             <xsl:choose>
@@ -220,7 +220,7 @@
                                   <tr><td class="bodyText"></td></tr>
                                   <tr><td class="bodyText">December 7:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
                                 </table>
-                                <br/> 
+                                <br/>
                             </xsl:when>
                             </xsl:choose>
 
