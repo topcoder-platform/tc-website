@@ -130,8 +130,9 @@ public final class TaskDevelopment {
                 Date initialDate = df.parse(date);
                 devTag.addTag(new ValueTag("date", df.format(initialDate)));
                 cal.setTime(initialDate);
-                
-                
+                devTag.addTag(new ValueTag("month", cal.get(Calendar.MONTH)+ 1));
+                devTag.addTag(new ValueTag("day", cal.get(Calendar.DATE)));
+                devTag.addTag(new ValueTag("year", cal.get(Calendar.YEAR)));
                 cal.add(Calendar.DATE, 8);
                 devTag.addTag(new ValueTag("DesWinner", df.format(cal.getTime())));    
                 cal.add(Calendar.DATE, 4);
