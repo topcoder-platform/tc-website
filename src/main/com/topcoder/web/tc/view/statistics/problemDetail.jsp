@@ -60,6 +60,7 @@
              </td>
              <td class="statText">
                <A HREF="/stat?c=problem_statement&pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&rd=<rsc:item set="<%=generalInfo%>" name="round_id" class="statText"/>" class="statText"><rsc:item set="<%=generalInfo%>" name="class_name" /></A>
+               <A HREF="Javascript:void openProblemRating(<rsc:item set="<%=generalInfo%>" name="problem_id"/>)" class="statText"><img src="/i/rate_it_blue.gif" width="60" height="18" border="0" hspace="10"/></A>
 
              </td>
            </tr>
