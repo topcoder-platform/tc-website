@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-        <form name="frmArray">
+        <form name="frmArray" onsubmit="return false;">
         <table border=0 width="100%">
             <tr>
                 <td>
