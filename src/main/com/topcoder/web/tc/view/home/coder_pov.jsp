@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
+                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,18 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=tccc05_online_rd_4">TCCC05 Round 4 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, February 2, 2005</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm230_prob">SRM 230 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, February 8, 2005</p>
 
                         <p>
 
-You probably wouldn't be surprised if I told you that Poland took
-first and second place in Round 4 of the TopCoder Collegiate
-Challenge, but you might be surprised if I told you that neither coder
-was named <b>tomek</b>.  <b>Eryx</b> dominated from start to finish,
-which for him, occurred at the 35 minute mark.
+Last night's SRM was one of the most exciting in recent history.  <b>SnapDragon</b>, <b>tomek</b>, <b>John
+Dethridge</b>, and <b>radeye</b> were neck and neck till the very end.  The top ranked competitors submitted
+their solutions in rapid succession, each vying for the top position.
 
-						<a href="/index?t=statistics&c=tccc05_online_rd_4" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=srm230_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
