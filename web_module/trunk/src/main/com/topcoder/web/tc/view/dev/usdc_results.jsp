@@ -83,7 +83,7 @@
                         </table>
                         
                         <br/>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_monthly_results"); %>                    
+<% rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_monthly_results"); %>                    
                         <a name="month"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
@@ -108,7 +108,7 @@
                         </table>
 
                         <br/>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_quarterly_results"); %>                    
+<% rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_quarterly_results"); %>                    
                         <a name="quarter"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
