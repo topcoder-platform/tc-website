@@ -26,10 +26,10 @@ public class QueryBean extends BaseEJB {
     private static Logger log = Logger.getLogger(QueryBean.class);
     private String dataSourceName;
 
-    public void createQuery(String text, String name, int ranking, int columnIndex)
+    public void createQuery(String text, String name, int ranking)
             throws RemoteException, EJBException {
         log.debug("createQuery called...\ntext: " + text + "\nname: " +
-                name + " ranking: " + ranking + " columnIndex: " + columnIndex);
+                name + " ranking: " + ranking );
 
         PreparedStatement ps = null;
         Connection conn = null;
@@ -39,8 +39,8 @@ public class QueryBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" INSERT INTO query");
-            query.append(" (query_id, text, name, ranking, column_index)");
-            query.append(" VALUES (?, ?, ?, ?, ?)");
+            query.append(" (query_id, text, name, ranking)");
+            query.append(" VALUES (?, ?, ?, ?)");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -50,20 +50,19 @@ public class QueryBean extends BaseEJB {
             ps.setBytes(2, DBMS.serializeTextString(text));
             ps.setString(3, name);
             ps.setInt(4, ranking);
-            ps.setInt(5, columnIndex);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
                     " \ntext: " + text + "\nname: " +
-                    name + " ranking: " + ranking + " columnIndex: " + columnIndex);
+                    name + " ranking: " + ranking);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating query, \ntext: " + text + "\nname: " +
-                    name + " ranking: " + ranking + " columnIndex: " + columnIndex);
+                    name + " ranking: " + ranking);
         } catch (NamingException e) {
             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception creating query, \ntext: " + text + "\nname: " +
-                    name + " ranking: " + ranking + " columnIndex: " + columnIndex + "\n " + e.getMessage());
+                    name + " ranking: " + ranking + "\n " + e.getMessage());
         } finally {
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
