@@ -51,46 +51,46 @@
                     <td class="bodyText">Level: <rsc:item set="<%=projectDetail%>" name="level"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Submission Start: <rsc:item set="<%=projectDetail%>" name="submission_start"/></td>
+                    <td class="bodyText">Submission Start: <rsc:item set="<%=projectDetail%>" name="submission_start" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Submission End: <rsc:item set="<%=projectDetail%>" name="submission_end"/></td>
+                    <td class="bodyText">Submission End: <rsc:item set="<%=projectDetail%>" name="submission_end" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Screening Start: <rsc:item set="<%=projectDetail%>" name="screening_start"/></td>
+                    <td class="bodyText">Screening Start: <rsc:item set="<%=projectDetail%>" name="screening_start" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Screening End: <rsc:item set="<%=projectDetail%>" name="screening_end"/></td>
+                    <td class="bodyText">Screening End: <rsc:item set="<%=projectDetail%>" name="screening_end" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Review Start: <rsc:item set="<%=projectDetail%>" name="review_start"/></td>
+                    <td class="bodyText">Review Start: <rsc:item set="<%=projectDetail%>" name="review_start" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Review End: <rsc:item set="<%=projectDetail%>" name="review_end"/></td>
+                    <td class="bodyText">Review End: <rsc:item set="<%=projectDetail%>" name="review_end" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Aggregation Start: <rsc:item set="<%=projectDetail%>" name="aggregation_start"/></td>
+                    <td class="bodyText">Aggregation Start: <rsc:item set="<%=projectDetail%>" name="aggregation_start" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Aggregation End: <rsc:item set="<%=projectDetail%>" name="aggregation_end"/></td>
+                    <td class="bodyText">Aggregation End: <rsc:item set="<%=projectDetail%>" name="aggregation_end" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Aggregation Review Start: <rsc:item set="<%=projectDetail%>" name="agg_review_start"/></td>
+                    <td class="bodyText">Aggregation Review Start: <rsc:item set="<%=projectDetail%>" name="agg_review_start" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Aggregation Review End: <rsc:item set="<%=projectDetail%>" name="agg_review_end"/></td>
+                    <td class="bodyText">Aggregation Review End: <rsc:item set="<%=projectDetail%>" name="agg_review_end" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Final Fixes Start: <rsc:item set="<%=projectDetail%>" name="final_fix_start"/></td>
+                    <td class="bodyText">Final Fixes Start: <rsc:item set="<%=projectDetail%>" name="final_fix_start" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Final Fixes End: <rsc:item set="<%=projectDetail%>" name="final_fix_end"/></td>
+                    <td class="bodyText">Final Fixes End: <rsc:item set="<%=projectDetail%>" name="final_fix_end" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Final Review Start: <rsc:item set="<%=projectDetail%>" name="final_review_start"/></td>
+                    <td class="bodyText">Final Review Start: <rsc:item set="<%=projectDetail%>" name="final_review_start" format="MM.dd.yyyy"/></td>
                 </tr>
                 <tr>
-                    <td class="bodyText">Final Review End: <rsc:item set="<%=projectDetail%>" name="final_review_end"/></td>
+                    <td class="bodyText">Final Review End: <rsc:item set="<%=projectDetail%>" name="final_review_end" format="MM.dd.yyyy"/></td>
                 </tr>
 
 

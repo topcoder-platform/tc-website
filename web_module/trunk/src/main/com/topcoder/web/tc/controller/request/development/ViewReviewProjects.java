@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
  * @author dok
