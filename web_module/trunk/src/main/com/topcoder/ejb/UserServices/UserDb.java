@@ -9,8 +9,12 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.password.PasswordRemoteHome;
 import com.topcoder.web.ejb.password.PasswordRemote;
+import com.topcoder.web.ejb.user.UserHome;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +73,21 @@ final class UserDb {
             if (userTypeDetails.containsKey("Coder")) {
                 CoderRegistration coder = (CoderRegistration) userTypeDetails.get("Coder");
                 coder.setCoderId(user.getUserId());
+
+                /* make inserts for common db */
+                InitialContext ctx = new InitialContext();
+                com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
+                Email emailEJB = ((EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME)).create();
+                userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0));
+                userEJB.setFirstName(user.getUserId(), coder.getFirstName());
+                userEJB.setLastName(user.getUserId(), coder.getLastName());
+
+                long emailId = emailEJB.createEmail(coder.getCoderId());
+                emailEJB.setAddress(emailId, user.getEmail());
+                emailEJB.setPrimaryEmailId(user.getUserId(), emailId);
+
                 UserDbCoder.insertCoder(conn, coder);
+
                 coder.setAllModifiedStable();
             }
 
@@ -189,7 +207,6 @@ final class UserDb {
                     log.error("updateUser():did not update security user record:\n");
                 }
                 user.setModified("S");
-
             }
             updateDefaultUserType(conn, user);
             updateGroupUsers(conn, user);
@@ -197,8 +214,20 @@ final class UserDb {
             if (userTypeDetails.containsKey("Coder")) {
                 CoderRegistration coder = (CoderRegistration) userTypeDetails.get("Coder");
                 UserDbCoder.updateCoder(conn, coder);
+
+                InitialContext ctx = new InitialContext();
+                com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
+                Email emailEJB = ((EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME)).create();
+                userEJB.setFirstName(user.getUserId(), coder.getFirstName());
+                userEJB.setLastName(user.getUserId(), coder.getLastName());
+
+                long emailId = emailEJB.getPrimaryEmailId(coder.getCoderId());
+                emailEJB.setAddress(emailId, user.getEmail());
+                emailEJB.setPrimaryEmailId(user.getUserId(), emailId);
+
                 coder.setAllModifiedStable();
             }
+
 
         } catch (Exception ex) {
             ex.printStackTrace();

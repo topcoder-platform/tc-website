@@ -7,13 +7,25 @@ import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.ejb.user.UserHome;
+import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.user.UserAddressHome;
+import com.topcoder.web.ejb.address.AddressHome;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.phone.PhoneHome;
+import com.topcoder.web.ejb.phone.Phone;
+import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.web.ejb.email.Email;
 
+import javax.naming.InitialContext;
 import java.sql.*;
 import java.util.*;
 
 
 final class UserDbCoder {
     private static Logger log = Logger.getLogger(UserDbCoder.class);
+    private static final int ADDRESS_TYPE_ID = 2; //home
 
 //                                 INSERT
 
@@ -152,6 +164,28 @@ final class UserDbCoder {
                 cc.setCoderId(coder.getCoderId());
                 insertCoderConfirmation(conn, (CoderConfirmation) coderConfirmations.get(i));
             }
+
+            InitialContext ctx = new InitialContext();
+            com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
+            Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
+            Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
+            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
+
+            long addressId = addressEJB.createAddress();
+            addressEJB.setAddress1(addressId, coder.getHomeAddress1());
+            addressEJB.setAddress2(addressId, coder.getHomeAddress2());
+            addressEJB.setCity(addressId, coder.getHomeCity());
+            addressEJB.setStateCode(addressId, coder.getHomeState().getStateCode());
+            addressEJB.setCountryCode(addressId, coder.getHomeCountry().getCountryCode());
+            addressEJB.setZip(addressId, coder.getHomeZip());
+            addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID);
+
+            userAddressEJB.createUserAddress(coder.getCoderId(), addressId);
+
+            long phoneId = phoneEJB.createPhone(coder.getCoderId());
+            phoneEJB.setNumber(phoneId, coder.getHomePhone());
+            phoneEJB.setPrimaryPhoneId(coder.getCoderId(), phoneId);
+
             //if ( inserted != qIdsForCoderType.size() ) throw new TCException ( "INCORRECT NUMBER OF DEMOG INFO INSERTED!!!" );
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -556,6 +590,32 @@ final class UserDbCoder {
                 ArrayList demographicResponses = coder.getDemographicResponses();
                 updateDemographicResponses(conn, coder.getCoderType().getCoderTypeId(), demographicResponses);
                 updateCoderConfirmations(conn, coder.getCoderConfirmations());
+
+                InitialContext ctx = new InitialContext();
+                com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
+                Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
+                Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
+                UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
+
+                ResultSetContainer addresses = userAddressEJB.getUserAddresses(coder.getCoderId());
+
+                if (addresses.size()!=1) {
+                    log.warn("Not sure what to do, user: " + coder.getCoderId() +
+                            " does not have one address, they have " + addresses.size());
+                } else {
+                    long addressId = ((Long)addresses.getItem(0, "address_id").getResultData()).longValue();
+                    addressEJB.setAddress1(addressId, coder.getHomeAddress1());
+                    addressEJB.setAddress2(addressId, coder.getHomeAddress2());
+                    addressEJB.setCity(addressId, coder.getHomeCity());
+                    addressEJB.setStateCode(addressId, coder.getHomeState().getStateCode());
+                    addressEJB.setCountryCode(addressId, coder.getHomeCountry().getCountryCode());
+                    addressEJB.setZip(addressId, coder.getHomeZip());
+                    addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID);
+                }
+
+                long phoneId = phoneEJB.getPrimaryPhoneId(coder.getCoderId());
+                phoneEJB.setNumber(phoneId, coder.getHomePhone());
+
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
