@@ -47,6 +47,7 @@
 
                             <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
                             <tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>November</strong></td></tr>
+                            <tr><td class="bodyText">&#160;11.20.04</td><td class="bodyText" nowrap="0">&#160;SRM 219- <a href="/index?t=statistics&amp;c=srm219_prob">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;11.12.04</td><td class="bodyText" nowrap="0">&#160;TCO04 - Finals - <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_finals_analysis">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;11.12.04</td><td class="bodyText" nowrap="0">&#160;TCO04 - WildCard Round - <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_wildcard_analysis">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;11.11.04</td><td class="bodyText" nowrap="0">&#160;TCO04 - Semifinals Room 3 - <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_room3_analysis">Problem Set &amp; Analysis</a></td></tr>
