@@ -142,51 +142,51 @@
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q18" VALUE="School"/>Employer (if applicable):</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a18" size="30"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q7" VALUE="Employer"/>Employer (if applicable):</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a7" size="30"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q7" VALUE="School"/>School (if applicable):</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a7" size="30"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="School"/>School (if applicable):</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a8" size="30"/></TD>
             </TR>
             <BR/>
             <TR><TD COLSPAN="2"><U><B>Mailing address:</B></U></TD></TR>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="Street Address"/>Street Address:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a8" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q9" VALUE="Street Address"/>Street Address:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a9" size="50"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q9" VALUE="City"/>City:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a9" size="25"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q10" VALUE="City"/>City:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a10" size="25"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q10" VALUE="State"/>State:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a10" size="2"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q11" VALUE="State"/>State:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a11" size="2"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q11" VALUE="Zip"/>Zip:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a11" size="15"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q12" VALUE="Zip"/>Zip:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a12" size="15"/></TD>
             </TR>
 
             <BR/>
             <TR><TD COLSPAN="2"><U><B>Emergency contact:</B></U></TD></TR>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q12" VALUE="Emergency contact Name"/>Name:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a12" size="30"/><BR/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q13" VALUE="Emergency contact Name"/>Name:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a13" size="30"/><BR/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q13" VALUE="Emergency contact Phone"/>Phone:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a13" size="15"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q14" VALUE="Emergency contact Phone"/>Phone:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a14" size="15"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q14" VALUE="Emergency contact Relationship"/>Relationship:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a14" size="30"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="Emergency contact Relationship"/>Relationship:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a15" size="30"/></TD>
             </TR>
 
             <BR/>
@@ -201,18 +201,18 @@
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="Newspapers"/>Newspapers:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a15" size="50"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q16" VALUE="Radio"/>Radio:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q16" VALUE="Newspapers"/>Newspapers:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a16" size="50"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q17" VALUE="TV"/>TV:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q17" VALUE="Radio"/>Radio:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a17" size="50"/></TD>
+            </TR>
+
+            <TR>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q18" VALUE="TV"/>TV:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a18" size="50"/></TD>
             </TR>
 
             <BR/>
