@@ -5,27 +5,12 @@
   <xsl:param name="selectedTab"></xsl:param>
 
 <xsl:choose>
-    <xsl:when test="$selectedList='summary'">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tcoSubNav">
-                <tr>
-                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_champ" class="statTextBig">Championship</a></td>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_semiroom4" class="statTextBig">Room 4</a></td>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_semiroom3" class="statTextBig">Room 3</a></td>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_semiroom2" class="statTextBig">Room 2</a></td>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_semiroom1" class="statTextBig">Room 1</a></td>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_reception" class="statTextBig">Reception</a></td>
-                    <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-            </table>
-    </xsl:when>
-
     <xsl:when test="$selectedList='coding_rules'">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tcoSubNav">
-                <tr>
-                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+            <table width="100%" border="0" cellpadding="10" cellspacing="0" class="tcoSubNav">
+                <tr valign="middle">
+                    <td class="tcoSubNav" width="49%"></td>
                 <xsl:choose>
-                <xsl:when test="$selectedTab='overview'">
+                     <xsl:when test="$selectedTab='overview'">
                     <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_overview" class="topLink">Overview</a></td>
                 </xsl:when>
                 <xsl:otherwise>
@@ -69,7 +54,7 @@
                 </xsl:otherwise>
                 </xsl:choose>
 
-                    <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statTextBig" width="49%"></td>
                 </tr>
             </table>
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
@@ -78,9 +63,9 @@
     </xsl:when>
 
     <xsl:when test="$selectedList='component_rules'">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tcoSubNav">
+            <table width="100%" border="0" cellpadding="10" cellspacing="0" class="tcoSubNav">
                 <tr>
-                    <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="tcoSubNav" width="49%"></td>
                 <xsl:choose>
                 <xsl:when test="$selectedTab='overview'">
                     <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_overview" class="topLink">Overview</a></td>
@@ -126,7 +111,7 @@
                 </xsl:otherwise>
                 </xsl:choose>
 
-                    <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statTextBig" width="49%"></td>
                 </tr>
             </table>
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
