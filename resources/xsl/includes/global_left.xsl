@@ -15,15 +15,15 @@
         <xsl:when test="/TC/Task='public_home'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -39,15 +39,15 @@
         <xsl:when test="/TC/Task='home'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -64,7 +64,8 @@
         <xsl:when test="/TC/Task='schedule'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 
                 <tr>
                     <td id="leftNavOn">
@@ -80,11 +81,10 @@
 
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -100,7 +100,8 @@
             <xsl:call-template name="left_nav_top_row" />
             
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
 
                 <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Statistics</A></td></tr>
@@ -152,11 +153,10 @@
                 </tr>
 
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -172,7 +172,8 @@
             <xsl:call-template name="left_nav_top_row" />
             
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
 
                 <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Statistics</A></td></tr>
@@ -224,11 +225,10 @@
                 </tr>
 
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -243,7 +243,8 @@
         <xsl:when test="/TC/Task='features'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 
@@ -271,11 +272,10 @@
                     </td>
                 </tr>
                 
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -290,12 +290,8 @@
         <xsl:when test="/TC/Task='development'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
-                <xsl:call-template name="sched_row"/>
-                <xsl:call-template name="stats_row"/>
-                <xsl:call-template name="feat_row"/>
-
-                <tr><td id="leftNavOn"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Development</td></tr>
+                <xsl:call-template name="development_row"/>
+                <xsl:call-template name="applet_row"/>
 
 <!-- Overview -->
                 <tr>
@@ -453,10 +449,7 @@
                     </td>
                 </tr>
 
-                <xsl:call-template name="tourney_row"/>
-                <xsl:call-template name="rtables_row"/>
-                <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -470,11 +463,11 @@
         <xsl:when test="/TC/Task='tournaments'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
             
                 <tr>
                     <td id="leftNavOn">
@@ -568,7 +561,7 @@
                 
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -583,11 +576,11 @@
       <xsl:when test="/TC/Task='support'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 
@@ -775,7 +768,7 @@
                     </td>
                 </tr>
               
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -790,15 +783,15 @@
         <xsl:when test="/TC/Task='about_tc'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
 
                 <tr>
                     <td id="leftNavOn">
@@ -903,15 +896,15 @@
         <xsl:when test="/TC/Task='news_events'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 
 <!-- Press Releases -->
@@ -953,15 +946,15 @@
         <xsl:when test="/TC/Task='contacts'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
 
@@ -987,6 +980,8 @@
       <xsl:when test="/TC/Task='tces'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <xsl:call-template name="jobs_row"/>
+                <xsl:call-template name="applet_row"/>
                 
                 <tr>
                     <td id="leftNavOn">
@@ -996,36 +991,22 @@
                         <xsl:otherwise>leftNavOn</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Employment Services</A></td>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Jobs for Members</A></td>
                 </tr>
 
                 <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                        <xsl:when test="/TC/Command='hiring'">leftSubnavOn</xsl:when>
-                        <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=hiring</xsl:attribute>Hiring for Employers</A>
+                    <td id="leftNav">
+                        <A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=recruiting&amp;d3=index" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Hiring for Employers</A>
                     </td>
                 </tr>
             
                 <tr>
-                    <td id="leftSubnav">
-                        <A href="http://corporate.topcoder.com/tces/?task=MainTask" class="leftOn">TCES Reporting</A>
+                    <td id="leftNav">
+                        <A href="http://corporate.topcoder.com/tces/?task=MainTask" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TCES Reporting</A><br /><div style="font-size:11px; font-weight:normal; margin-left:10;">Employers log in to access Recruiting Reports</div>
                     </td>
                 </tr>
                 
-                <xsl:call-template name="label_row"/>
-                <xsl:call-template name="sched_row"/>
-                <xsl:call-template name="stats_row"/>
-                <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
-                <xsl:call-template name="tourney_row"/>
-                <xsl:call-template name="rtables_row"/>
-                <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -1048,15 +1029,15 @@
             
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="label_row"/>
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="dev_row"/>
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
-                <xsl:call-template name="corp_label_row"/>
+                <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
@@ -1091,36 +1072,52 @@
                 </xsl:choose>
 </xsl:template>
 
-<xsl:template name="label_row">
-                <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+<xsl:template name="competition_row">
+                <tr><td id="leftNavTitle" >Competition:</td></tr>
+</xsl:template>
+
+<xsl:template name="jobs_row">
+                <tr><td id="leftNavTitle" >Job Listings:</td></tr>
+</xsl:template>
+
+<xsl:template name="development_row">
+                <tr><td id="leftNavTitle" >Development:</td></tr>
 </xsl:template>
 
 <xsl:template name="read_row">
                 <tr><td id="leftNavTitle" >Please Read:</td></tr>
 </xsl:template>
 
+<xsl:template name="applet_row">
+                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A href="Javascript:arena()" class="left">Launch Arena Applet</A></td></tr>
+</xsl:template>
+
 <xsl:template name="sched_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Schedule</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Schedule</A></td></tr>
 </xsl:template>
 
 <xsl:template name="stats_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>Statistics</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>Statistics</A></td></tr>
 </xsl:template>
 
 <xsl:template name="feat_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>Features</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>Features</A></td></tr>
 </xsl:template>
 
 <xsl:template name="dev_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</A></td></tr>
 </xsl:template>
 
 <xsl:template name="tourney_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Tournaments</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Tournaments</A></td></tr>
 </xsl:template>
 
 <xsl:template name="rtables_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>Round Tables</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>Round Tables</A></td></tr>
+</xsl:template>
+
+<xsl:template name="listings_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tces&amp;c=index</xsl:attribute>Job Listings</A></td></tr>
 </xsl:template>
 
 <xsl:template name="rules_row">
@@ -1136,7 +1133,7 @@
 </xsl:template>
 
 <!-- TopCoder Info begins -->
-<xsl:template name="corp_label_row">
+<xsl:template name="tc_info_row">
                 <tr><td id="leftNavTitle" >TopCoder Info:</td></tr>
 </xsl:template>
 

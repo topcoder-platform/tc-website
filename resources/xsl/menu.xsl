@@ -10,7 +10,15 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-        <td class="topNav" nowrap="0"><A href="Javascript:arena()" class="topLink">Competition Applet</A></td> 
+        <td nowrap="0">
+            <xsl:attribute name="class">
+            <xsl:choose>
+                <xsl:when test="/TC/Task='home'">topNavOn</xsl:when>
+                <xsl:otherwise>topNav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="topLink" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=home&amp;c=public_home</xsl:attribute>Competition</A>
+        </td>
 
         <td nowrap="0">
             <xsl:attribute name="class">
@@ -34,7 +42,7 @@
 
         <td class="topNav" nowrap="0"><A href="http://software.topcoder.com" class="topLink" target="_blank">Software</A></td>
 
-        <td class="topNav" nowrap="0"><A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=tces_home" class="topLink" target="_blank">Employment Services</A></td>
+        <td class="topNav" nowrap="0"><A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=recruiting&amp;d3=index" class="topLink" target="_blank">Employment Services</A></td>
 
         <td class="topNav" nowrap="0"><A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index" class="topLink" target="_blank">Sponsorship</A></td>
 

@@ -19,11 +19,11 @@
                 <tr><td id="leftSubnav"><a class="leftOn" href="/?&amp;t=tces&amp;c=hiring">Hiring for Employers</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="http://corporate.topcoder.com/tces/?task=MainTask">TCES Reporting</a></td></tr>
 
-                <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Statistics</a></td><td valign="top" class="statText" ></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Development</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp">Round Tables</a><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/></td></tr>
 <!-- TCES ends -->
@@ -33,7 +33,8 @@
      String task = request.getParameter("c")==null?"":request.getParameter("c");
    if (task.equals("round_overview")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnavOn"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -45,7 +46,8 @@
 
 <%  } else if (task.equals("ratings_history")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -57,7 +59,8 @@
 
 <%  } else if (task.equals("earnings_history")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -69,7 +72,8 @@
     
 <%  } else if (task.equals("coder_room_stats")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -81,7 +85,8 @@
 
 <%  } else if (task.startsWith("round_stats")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -93,7 +98,8 @@
 
 <%  } else if (task.equals("room_stats")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -105,7 +111,8 @@
 
 <%  } else if (task.equals("last_match") || task.equals("last_match_sorted")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -117,7 +124,8 @@
 
 <%  } else if (task.equals("coder_ratings")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -129,7 +137,8 @@
 
 <%  } else if (task.equals("search")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -141,7 +150,8 @@
 
 <%  } else if (task.equals("member_profile")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -153,7 +163,8 @@
 
 <%  } else if (task.equals("coder_room_stats")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -165,7 +176,8 @@
 
 <%  } else if (task.equals("problem_solution") || task.equals("problem_statement") ) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -177,7 +189,8 @@
 
 <%  } else if (task.equals("all_time_wins") || task.equals("all_time_wins_by_div") || task.equals("winning_debuts") || task.equals("impressive_debuts") || task.equals("highest_totals") || task.equals("biggest_rating_gains") || task.equals("most_consecutive_wins") || task.equals("highest_accuracy") || task.equals("best_challengers")) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>  
@@ -188,7 +201,8 @@
                 <tr><td id="leftSubnav"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>  
 
 <%  } else if (task.equals("school_avg_rating") || task.equals("state_avg_rating") || task.equals("country_avg_rating")) { %>
-                <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+                <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>
@@ -201,17 +215,16 @@
 <%  } %>
 
                 <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Development</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Round Tables</a></td></tr>
 
 <%} else if (request.getServletPath().indexOf("rtables")>-1) { %>
  
-               <tr><td id="leftNavTitle" >What's Inside:</td></tr>
+               <tr><td id="leftNavTitle" >Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Development</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
                 <tr><td id="leftNavSelect"><a class="leftOn" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Round Tables</a></td></tr>
 <%
@@ -269,11 +282,11 @@
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
 
-                <tr><td id="leftNavTitle">What's Inside:</td></tr>
+                <tr><td id="leftNavTitle">Competition:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Features</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=development&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Development</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Tournaments</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Round Tables</a></td></tr>
 
