@@ -25,6 +25,6 @@
                      <!-- Quick Stat Pulldown Ends -->
                       </TD>
                     </TR>
-          <TR><TD COLSPAN="3" CLASS="statText" BACKGROUND="/i/steel_darkblue_bg.gif"><br><%@include file="/coderLegend.html" %>
+          <TR><TD COLSPAN="3" CLASS="statText" BACKGROUND="/i/steel_darkblue_bg.gif"><br><%@include file="coderLegend.html" %>
           </TD></TR>
                   </TABLE>

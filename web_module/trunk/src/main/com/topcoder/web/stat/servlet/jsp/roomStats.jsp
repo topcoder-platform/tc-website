@@ -121,7 +121,7 @@ else {
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="20"><%@include file="/coderLegend.html" %><BR><BR>    
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="20"><%@include file="coderLegend.html" %><BR><BR>    
       Click the <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"> icon to view problem information.</TD>    
                  </TR>    
                  <TR>
