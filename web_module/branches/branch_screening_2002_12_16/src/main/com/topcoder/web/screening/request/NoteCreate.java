@@ -7,10 +7,12 @@ import com.topcoder.web.ejb.user.UserNoteHome;
 import com.topcoder.web.screening.common.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.screening.model.CandidateInfo;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+import javax.transaction.UserTransaction;
 import java.util.Map;
 
 /**
@@ -23,7 +25,7 @@ public class NoteCreate extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
-        doStrongAuthorization();
+        requireLogin();
         
         String candId = getRequest().getParameter(Constants.CANDIDATE_ID);
 
@@ -70,16 +72,25 @@ public class NoteCreate extends BaseProcessor {
             return;
         }
 
-        NoteHome nHome = (NoteHome)context.lookup(NoteHome.class.getName());
-        Note note = nHome.create();
-        
-        long noteId = note.createNote(noteText, getAuthentication().getUser().getId(), 1);
+        UserTransaction ut = Transaction.get(context);
+        ut.begin();
 
-        UserNoteHome uHome = (UserNoteHome)context.lookup(UserNoteHome.class.getName());
-        UserNote unote = uHome.create();
-        
-        unote.createUserNote(Long.parseLong(candId), noteId);
-
+        try {
+            NoteHome nHome = (NoteHome)context.lookup(NoteHome.class.getName());
+            Note note = nHome.create();
+            
+            long noteId = note.createNote(noteText, getAuthentication().getUser().getId(), 1);
+            
+            UserNoteHome uHome = (UserNoteHome)context.lookup(UserNoteHome.class.getName());
+            UserNote unote = uHome.create();
+            
+            unote.createUserNote(Long.parseLong(candId), noteId);
+        } catch(Exception e) {
+            ut.rollback();
+            throw e;
+        }
+        ut.commit();
+            
         setNextPage(Constants.CONTROLLER_URL + '?' +
                     Constants.REQUEST_PROCESSOR + '=' + "NoteList" + '&' +
                     Constants.CANDIDATE_ID + '=' + candId);
