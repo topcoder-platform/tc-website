@@ -148,7 +148,7 @@
                             Glastonbury, CT 06033
                         </div>
                         
-                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Monday, March 17th at 12:00PM EST.  Any
+                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Friday, March 28th at 12:00PM EST.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
