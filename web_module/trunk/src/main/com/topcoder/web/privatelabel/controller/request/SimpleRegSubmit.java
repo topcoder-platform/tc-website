@@ -32,6 +32,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
     private static final long ADDRESS_TYPE = 2; //2 is home address
     private static final long EMAIL_TYPE = 1; //1 is "primary"
     private static final int HIT_TYPE = 3; //private label reg hit type
+    private static final int DEFAULT_EDITOR = 0;  //standard editor
+    private static final int DEFAULT_LANGUAGE = 1;  //java
     private static final String US = "840";
 
     protected void registrationProcessing() throws TCWebException {
@@ -151,6 +153,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
         //create coder
         coder.createCoder(newUser.getId(), transDb);
+        coder.setEditorId(newUser.getId(), DEFAULT_EDITOR, transDb);
+        coder.setLanguageId(newUser.getId(), DEFAULT_LANGUAGE, transDb);
 
         //create rating
         rating.createRating(newUser.getId(), transDb);
