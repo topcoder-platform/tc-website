@@ -32,16 +32,12 @@ function openWnd(pageUrl) {
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <jsp:include page="../script.jsp"/>
   </HEAD>
-  <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+  <BODY BGCOLOR="#001935" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
   <jsp:include page="../top_tces.jsp" />             
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
     <!-- Left Column Begins -->
       <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
@@ -275,7 +271,6 @@ function openWnd(pageUrl) {
       <!-- Right Column Begins -->
       <TD WIDTH="10" bgcolor="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
         <!-- Right Column Include Begins -->
-        <!--include virtual="/includes/public_right_col.shtml"-->
         <!-- Right Column Include Ends -->
       </TD>
       <!-- Right Column Ends -->
