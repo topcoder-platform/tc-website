@@ -5,8 +5,13 @@
                  com.topcoder.web.common.security.SessionPersistor,
                  com.topcoder.web.common.security.BasicAuthentication,
                  com.topcoder.web.corp.model.SessionInfo,
-                 com.topcoder.shared.util.ApplicationServer"
-         %>
+                 com.topcoder.shared.util.ApplicationServer" 
+        %>
+
+<%
+   DataCache dcHome = com.topcoder.common.web.util.Cache.get();
+%>
+
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <a name="top"></a>
