@@ -87,7 +87,7 @@ public class Authentication implements Serializable {
         return auth;
     }
 
-    private void setErrorMessage(String errorMessage) {
+    public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }
 
