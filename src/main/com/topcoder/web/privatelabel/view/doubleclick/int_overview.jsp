@@ -35,12 +35,11 @@
          <p><span class="dc_subTitle">What language do you speak?</span><br/>
          Participants will have their choice of using Java, C++, C# or VB.Net - the most relevant of current software development technologies - to solve complex algorithmic problems. </p>
 
-<%--
          <p><span class="dc_subTitle">Here's what you do</span><br/>
+<%--
          Download the DoubleClick 2004 Coding Challenge Competition Manual</p>
 --%>
-
-         <p>The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.  Here's how it works:</p>
+         The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.  Here's how it works:</p>
 
          <ul>
          <li><span class="dc_subTitle">Download the Arena</span><br/>
