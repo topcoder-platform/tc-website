@@ -62,14 +62,14 @@
 
 
 
-<P><B>SOFTWARE QA ENGINEER</B><BR/><BR/> 
-NVWHQL serves NVIDIA as the resident authority on Microsoft's Windows Logo Program (WLP).  The Windows Logo Program revolves around Windows Hardware Quality Labs (WHQL).  Examine Microsoft's WHQL site <A href="www.microsoft.com/hwtest" target="_blank">www.microsoft.com/hwtest</A> for more information.  NVWHQL has three main objectives.  The first objective is to ensure that NVIDIA products comply with current WLP requirements and industry specifications, which in turn makes them available for shipment in systems designed by major OEMs.  The second objective of NVWHQL is to field customers' questions surrounding the application of requirements to their specific configurations.  The third objective is to monitor industry trends and understand how they will influence pending specifications and impact NVIDIA, our customers, and the Windows Logo Program.
-<BR/><br/>
-Minimum GPA:  3.0
-<BR/><br/>
-Expert trouble-shooting ability, where a problem can be isolated down to the root cause software or hardware component.  Ability to maintain multiple systems in lab environment, keeping them continually in operation, updated with current software, and problem free.  Experience at Power-User level with the Windows Family of Operating Systems including Windows XP, Windows Me, Windows 2000, Windows 98 SE, and Windows NT4, including how they interact with Applications and Hardware.  Understanding of QA theory, bug tracking to resolution, and software development support desired.  The ability to research and comprehend technically complex specifications concerning the development of PC architecture and sub-systems is required.  Knowledgeable of current industry standards such as DirectX, OpenGL, EDID &amp; DDC, DVD, ACPI, and PC Design Guides is a plus.</P>
+<P><B>CAD ENGINEER (INTERN/CO-OP POSITIONS ONLY)</B><BR/><BR/> 
+Writing reports in Perl and interfacing with databases 
+<BR/><BR/>
+Minimum GPA:  3.5
+<BR/><BR/>
+Pursuing BS in Computer Science.  Excellent programming skills with familiarity in Perl and databases highly desired.  Excellent problem solving capability and able to work independently with keen learning ability.  <B>THIS POSITION REPORTS TO HARDWARE ENGINEERING</B>.</P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=194&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=198&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
