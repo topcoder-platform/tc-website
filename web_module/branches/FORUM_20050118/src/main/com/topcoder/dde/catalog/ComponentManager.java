@@ -12,10 +12,6 @@ package com.topcoder.dde.catalog;
 
 import com.topcoder.dde.catalog.*;
 import com.topcoder.security.*;
-
-import com.topcoder.apps.review.projecttracker.Project;
-
-
 import java.rmi.RemoteException;
 import java.util.Collection;
 

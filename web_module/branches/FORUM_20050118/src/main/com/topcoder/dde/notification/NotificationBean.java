@@ -1,7 +1,7 @@
 /*
  * NotificationBean.java
  *
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+ * Copyright 2005, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.dde.notification;
@@ -61,8 +61,9 @@ import java.io.InputStream;
 
 /**
  * This is the concrete implementation of the Notification interface.
+ * The bean is used to send email notifications when some events occur.
  *
- * @author TCSDeveloper
+ * @author cucu
  */
 public class NotificationBean implements SessionBean {
     private Log log;
@@ -94,6 +95,14 @@ public class NotificationBean implements SessionBean {
         }
     }
 
+    /**
+     * Store a new event in the database.
+     *
+     * @event the event name
+     * @typeId type of event, as defined in table notification_mail_type_lu.
+     *
+     * @return the primary key for the inserted event.
+     */
     public long createEvent(String event, long typeId) {
         info("Notification.createEvent " + event + " with type " + typeId);
         Connection conn = null;
@@ -107,23 +116,16 @@ public class NotificationBean implements SessionBean {
                                        "VALUES (?,?,?)");
 
             id = idGen.nextId("NOTIFICATION_EVENT_SEQ");
-            info("using id=" + id);
+
             ps.setLong(1, id);
             ps.setString(2, event);
             ps.setLong(3,typeId);
+
             int nr = ps.executeUpdate();
 
             if (nr != 1) {
-                String errorMsg = "Notification.createEvent(): Could not create Event!";
-                error(errorMsg);
-                ejbContext.setRollbackOnly();
-//qq ver                throw new InvalidEditException(errorMsg);
-                throw new Exception(errorMsg);
+                throw new Exception("Could not create Event!");
             }
-            Common.close(ps);
-        } catch (SQLException e) {
-            ejbContext.setRollbackOnly();
-// qq ver            throw new InvalidEditException("SQL Exception: " + e.getMessage());
 
         } catch (Exception e) {
             info("error in createEvent: " + e.toString());
@@ -136,6 +138,14 @@ public class NotificationBean implements SessionBean {
         return id;
     }
 
+    /**
+     * Make a user be notified for an event.  If the event doesn't exist, it will be created with the type "typeId".
+     * If the user is already notified for that event, nothing happens.
+     *
+     * @param the name of the event
+     * @userId the id of the user that be notified for the event
+     * @typeId it will be used in the case that the event must be created.
+     */
     public void createNotification(String event, long userId, long typeId) {
         info("Notification.createNotification for event " + event + ", user "+ userId + " with type " + typeId);
         Connection conn = null;
@@ -154,6 +164,7 @@ public class NotificationBean implements SessionBean {
 
             rs = ps.executeQuery();
 
+            // If the event doens't exist, create it.
             if (!rs.next()) {
                 id = createEvent(event, typeId);
             } else {
@@ -178,7 +189,7 @@ public class NotificationBean implements SessionBean {
 
             rs = ps.executeQuery();
 
-            // if no record found, create it
+            // if no record was found, create it
             if (!rs.next()) {
                 Common.close(ps);
                 Common.close(rs);
@@ -198,6 +209,13 @@ public class NotificationBean implements SessionBean {
         }
     }
 
+    /**
+     * Sends mail for notifying that an event has happened. The properties are used to store additional data
+     * for the mail template.
+     *
+     * @param event the event name
+     * @param prop the additional name-values to be used for the mail template.
+     */
     public void notifyEvent(String event, Properties prop) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -207,6 +225,7 @@ public class NotificationBean implements SessionBean {
 
             XMLDocument xmlDocument = new XMLDocument("MAILDATA");
 
+            // Generate the XML document with the tags contained in prop
             for (Iterator it = prop.entrySet().iterator(); it.hasNext();) {
                 Map.Entry entry = (Map.Entry) it.next();
                 xmlDocument.addTag(new ValueTag((String) entry.getKey(), (String) entry.getValue()));
@@ -235,6 +254,7 @@ public class NotificationBean implements SessionBean {
 
 
             while (rs.next()) {
+                // the first time, the email body is built.  Then, the same body is used for all the destinations.
                 if (first) {
                     first = false;
 
@@ -320,7 +340,7 @@ public class NotificationBean implements SessionBean {
     }
 
     /**
-     * This method is required by the EJB Specification. Used to get the context ... for dynamic connection pools.
+     * This method is required by the EJB Specification.
      *
      * @throws CreateException DOCUMENT ME!
      */

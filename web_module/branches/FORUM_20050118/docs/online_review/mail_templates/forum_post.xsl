@@ -7,7 +7,7 @@
 <xsl:for-each select="MAILDATA">
 Hello,
 
-<xsl:if test="IS_NEW_THREAD = 0">A new message was posted in the thread <xsl:value-of select="THREAD_NAME"/></xsl:if><xsl:if test="IS_NEW_THREAD = 1">The thread <xsl:value-of select="THREAD_NAME"/> was created </xsl:if> for the component <xsl:value-of select="COMPONENT_NAME"/> by <xsl:value-of select="WRITER_NAME"/>.
+<xsl:if test="IS_NEW_THREAD = 0">A new message was posted in the thread "<xsl:value-of select="THREAD_NAME"/>"</xsl:if><xsl:if test="IS_NEW_THREAD = 1">The thread "<xsl:value-of select="THREAD_NAME"/>" was created </xsl:if> for the component <xsl:value-of select="COMPONENT_NAME"/> by <xsl:value-of select="WRITER_NAME"/>.
 
 Please see https://software.topcoder.com<xsl:value-of select="LINK"/>
 
