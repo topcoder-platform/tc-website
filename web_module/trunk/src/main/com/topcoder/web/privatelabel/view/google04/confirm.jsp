@@ -245,6 +245,7 @@ function submitEnter(e) {
          </form>
          </table>
 
+
 			<br/><br/>
 			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>

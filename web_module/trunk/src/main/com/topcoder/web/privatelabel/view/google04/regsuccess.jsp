@@ -74,23 +74,14 @@ Spend time in the Practice Rooms prior to the Qualification Round by clicking th
 
 Good luck to you in the Arena!
 </font></p>
-			<br/><br/>
 			
+			<br/><br/>
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
+			</div>
 		</td>
 		<td width="49%">&#160;</td>
 	<tr>
 </table>
-
-<p>
-<div class=footerHolder> 
-<small> &copy;2004 Google - 
-<a href="http://www.google.com/">Home</a> - 
-<a href="http://www.google.com/about.html">All About Google</a> - 
-<a href="/?t=about_tc&c=index">About TopCoder</a> -
-<a href="http://www.google.com/jobs/">We're Hiring</a> 
-</small>
-</div>
-</p>
-
+<jsp:include page="foot.jsp" />
 </body>
 </html>
