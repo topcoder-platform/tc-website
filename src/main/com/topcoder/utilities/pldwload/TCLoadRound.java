@@ -488,6 +488,12 @@ public class TCLoadRound extends TCLoad {
             query.append(" LEFT OUTER JOIN compilation c ");
             query.append(" ON cs.component_state_id = c.component_state_id");
             query.append(" WHERE cs.round_id = ?");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT 'pops' ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = cs.coder_id ");
+            query.append("           AND gu.group_id in (13,14))");
+
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -698,6 +704,12 @@ public class TCLoadRound extends TCLoad {
             query.append("  FROM system_test_result str, component comp ");
             query.append(" WHERE str.round_id = ?");
             query.append(" AND comp.component_id = str.component_id");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT 'pops' ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = str.coder_id ");
+            query.append("           AND gu.group_id IN (13,14))");
+
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1557,6 +1569,11 @@ if students change schools, reloading an old round will lose historical data
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
             query.append("   AND rr.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT 'pops' ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rr.coder_id ");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
