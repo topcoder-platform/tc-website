@@ -10,16 +10,14 @@
         <td class="login" nowrap>
 <% if(requestInfo.isLoggedIn()) { %>
              <strong>Hello, <jsp:getproperty name="requestInfo" property="Handle" />.</strong>
-            &#160;&#160;|&#160;&#160;<screen:servletLink processor="Logout" target="_top" styleclass="loginLinks">Logout</screen:servletLink>
-<%} else {%>
-            &#160;&#160;|&#160;&#160;<screen:servletLink processor="Login" target="_top" styleclass="loginLinks">Login</screen:servletLink>
-<%}%>
+            &#160;&#160;|&#160;&#160;<a href="/?module=Logout" class="loginLinks" target="_parent">Logout</a>
+<%} %>
             <screen:servletLink target="_top" styleclass="globalNavSmall">Home</screen:servletLink><img src="/i/clear.gif" width="20" height="1" border="0"/>
         </td>
         <td class="login" width="10">&nbsp;</td>
     </tr>
 </table>
-    
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr>
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
