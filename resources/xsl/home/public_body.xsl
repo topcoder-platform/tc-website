@@ -252,7 +252,7 @@
 <!--SRM Sponsor Ends-->
 
 <!-- Coder of the Month Begins -->
-            <a href="/stat?c=member_profile&amp;cr=285916"><img src="/i/codermonth_mar03.gif" alt="Coder of the Month" width="244" height="119" border="0" /></a><br />
+            <a href="/stat?c=member_profile&amp;cr=2058672"><img src="/i/codermonth.gif" alt="Coder of the Month" width="244" height="119" border="0" /></a><br />
 <!-- Coder of the Month ends -->
 
 <!-- TCES Quote Begins
