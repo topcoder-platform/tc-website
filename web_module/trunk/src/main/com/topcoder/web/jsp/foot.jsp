@@ -4,33 +4,30 @@
 <!-- Footer Include Begins -->
 
 <!-- Footer Include Begins -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666">
-    <tr>
-        <td height="15" background="/i/footer_graphic_tile.gif" align="left"><img src="/i/footer_graphic.gif" width="710" height="16" border="0"/></td>
-    </tr>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<!-- TopCoder Links Begins -->
+    <tr><td width="100%" class="footer">
+            <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=about_tc&c=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?d1=review_board&d2=competition" class="footerLinks">Review Boards</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=news_events&c=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=about_tc&c=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=about_tc&c=terms" class="footerLinks">Terms</A></td></tr>
+<!-- TopCoder Links Ends -->
 
-    <tr valign="top">
-        <td width="100%" align="center" bgcolor="#43515E"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
-            <div class="smallFoot">
-            <A href="/" class="smallFoot">Home</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=about_tc&c=index" class="smallFoot">About TopCoder</A>&#160;&#160;|&#160;&#160;
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?d1=review_board&d2=competition" class="smallFoot">Review Boards</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=news_events&c=index" class="smallFoot">Press Room</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=contacts&c=index" class="smallFoot">Contact Us</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=about_tc&c=privacy" class="smallFoot">Privacy</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=about_tc&c=terms" class="smallFoot">Terms</A><br /><br />
+<!-- Member Sites Begins -->
+    <tr><td width="100%" class="footer">
+            <A href="/" class="footerLinks">Competition</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=development&c=index" class="footerLinks">Development</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=tces&c=index" class="footerLinks">Job Listings</A>&#160;&#160;|&#160;&#160;
+            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="footerLinks">Software</A>&#160;&#160;|&#160;&#160;
+            <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corpd2=tces_home" class="footerLinks">Employment Services</A>&#160;&#160;|&#160;&#160;
+            <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="footerLinks">Sponsorship</A></td></tr>
+<!-- Member Sites Ends -->
 
-            <A href="/" class="smallFoot">Competition</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=development&c=index" class="smallFoot">Development</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=tces&c=index" class="smallFoot">Job Listings</A>&#160;&#160;|&#160;&#160;
-            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="smallFoot">Software</A>&#160;&#160;|&#160;&#160;
-            <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corpd2=tces_home" class="smallFoot">Employment Services</A>&#160;&#160;|&#160;&#160;
-            <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="smallFoot">Sponsorship</A><br /><br />
+    <tr><td height="4" class="footerStripe"><img src="/i/corp/clear.gif" width="10" height="4" border="0"/></td></tr>
 
-            Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved.
-            </div>
-            <br/><br/>
-        </td>
-    </tr>
-</table>
+    <tr><td width="100%" class="copyright">Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved.</td></tr>
+</table>    
 <!-- Footer Include Ends -->
