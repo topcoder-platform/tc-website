@@ -245,22 +245,6 @@
             
              <hr width="100%" size="1px" noshade>
              
-<!-- Thomson begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/thomson.gif" alt="Thomson Prometric" width="170" height="42" border="0" /></td>
-                    
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    
-                    <td width="99%" class="bodyText">
-                        <p>Providing superior value to clients, candidates, and channel partners through indispensable e-testing solutions.</p>
-                    </td>
-                </tr>
-            </table>
-<!-- Thomson ends -->
-            
-             <hr width="100%" size="1px" noshade>
-            
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <td colspan="2" class="bodyText" align="center">
