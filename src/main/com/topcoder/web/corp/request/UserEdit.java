@@ -299,7 +299,8 @@ public class UserEdit extends BaseProcessor {
             targetUserID = Integer.parseInt(
                     request.getParameter(KEY_TARGET_USER_ID)
             );
-        } catch (Exception ignore) {
+        } catch (Exception e) {
+			e.printStackTrace();
         }
         return targetUserID < 0;
     }
