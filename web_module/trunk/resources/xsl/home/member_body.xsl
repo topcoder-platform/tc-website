@@ -394,14 +394,14 @@
   </tr>
 </table>
 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-					<tr>
-						<td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
-						<td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-							<xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 132</strong></a><br />
-							Saturday, February 1, 2003<br /><br />
-						</td>
-						<td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
-					</tr>
+                    <tr>
+                        <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
+                        <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 132</strong></a><br />
+                            Saturday, February 1, 2003<br /><br />
+                        </td>
+                        <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
+                    </tr>
   <tr>
     <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
     <td valign="middle" align="center" bgcolor="#CCCCCC" width="33%" nowrap="0" height="15">
@@ -533,12 +533,11 @@ almost everyone submitting the first two problems.
     <td valign="top" class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br />
 
 <!--SRM Sponsor Starts-->
-      <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br />
-
-      <map name="srmanimation_home">
-        <area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
-        <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4456&amp;t=schedule&amp;c=srm"/>
-      </map>
+            <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br />
+            <map name="srmanimation_home">
+                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" />
+                <area shape="poly" alt="SRM Match 133" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4455&amp;t=schedule&amp;c=srm" />
+            </map>
 <!--SRM Sponsor Ends-->
 
 <!-- TCES Quote Begins -->
@@ -554,90 +553,90 @@ almost everyone submitting the first two problems.
 <!-- Software Promo Ends -->
 
 <!-- Software Leader Board Begins -->
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333333">
-				<tr><td height="20" class="moduleTitle"><img src="/i/module_labels_tcs_coders.gif" alt="TopCoder Software Leaders" width="244" height="20" border="0"/></td></tr>
-			</table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333333">
+                <tr><td height="20" class="moduleTitle"><img src="/i/module_labels_tcs_coders.gif" alt="TopCoder Software Leaders" width="244" height="20" border="0"/></td></tr>
+            </table>
 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
-				<tr valign="middle">
-					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
-					<td class="statTextBig" background="/i/steel_bluebv_bg.gif">Handle</td>
-					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Average Score</td>
-					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
-				</tr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
+                <tr valign="middle">
+                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+                    <td class="statTextBig" background="/i/steel_bluebv_bg.gif">Handle</td>
+                    <td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Average Score</td>
+                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
-					<td class="statText" align="right">97.98</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
+                    <td class="statText" align="right">97.98</td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-					<td class="statText" align="right">88.49</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+                    <td class="statText" align="right">88.49</td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
-					<td class="statText" align="right">85.48</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+                    <td class="statText" align="right">85.48</td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=251162">SamBob</a></td>
-					<td class="statText" align="right">84.12</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=251162">SamBob</a></td>
+                    <td class="statText" align="right">84.12</td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">orb</a></td>
-					<td class="statText" align="right">83.78</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">orb</a></td>
+                    <td class="statText" align="right">83.78</td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                </tr>
 
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
-					<td width="59%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
-					<td width="39%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
-				</tr>
-			</table>
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
+                    <td width="59%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
+                    <td width="39%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
+                </tr>
+            </table>
 <!-- Software Leader Board Ends -->
 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
-			</table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+            </table>
 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935">
-				<tr><td height="17" class="moduleTitle" bgcolor="#333333"><img src="/i/module_labels_10_coders.gif" alt="Competition Leaders" width="244" height="20" border="0"/></td></tr>
-				<tr><td><img src="/i/clear.gif" width="1" height="3" border="0"/></td></tr>
-			</table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935">
+                <tr><td height="17" class="moduleTitle" bgcolor="#333333"><img src="/i/module_labels_10_coders.gif" alt="Competition Leaders" width="244" height="20" border="0"/></td></tr>
+                <tr><td><img src="/i/clear.gif" width="1" height="3" border="0"/></td></tr>
+            </table>
 
       <xsl:choose>
         <xsl:when test="number(/TC/Rating)&lt;1200">
@@ -650,42 +649,42 @@ almost everyone submitting the first two problems.
         </xsl:otherwise>
       </xsl:choose>
 
-			<table border="0" cellspacing="0" cellpadding="0" width="100%">
-				<tr>
-					<td align="left" class="statText"><img src="/i/clear.gif" width="20" height="10" border="0"/></td>
-					<td></td>
-					<td></td>
-					<td align="left" class="statText"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
-				</tr>
-			</table>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td align="left" class="statText"><img src="/i/clear.gif" width="20" height="10" border="0"/></td>
+                    <td></td>
+                    <td></td>
+                    <td align="left" class="statText"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
+                </tr>
+            </table>
 
 <!-- Statistics Begins -->
-			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
-				<tr><td colspan="3" bgcolor="#333333"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
-				<tr>
-					<td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
-					<td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td>
-					<td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
-				</tr>
-				<tr><td class="statText">Select a Statistic from the menu below.</td></tr>
-				<tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
-				<tr><td class="quickstatText" valign="top">
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
+                <tr><td colspan="3" bgcolor="#333333"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
+                <tr>
+                    <td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+                    <td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td>
+                    <td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+                </tr>
+                <tr><td class="statText">Select a Statistic from the menu below.</td></tr>
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+                <tr><td class="quickstatText" valign="top">
 
-				<xsl:call-template name="quick_stats_pulldown"/>
+                <xsl:call-template name="quick_stats_pulldown"/>
 
-					</td>
-				</tr>
-				<tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
-			</table>
+                    </td>
+                </tr>
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+            </table>
 <!-- Statistics Ends -->
 
 <!-- Coder of the Month Begins -->
-			<table border="0" cellspacing="0" cellpadding="0" width="100%">
-				<tr><td><a href="/stat?c=member_profile&amp;cr=304168"><img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0" /></a></td></tr>
-			</table>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr><td><a href="/stat?c=member_profile&amp;cr=304168"><img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0" /></a></td></tr>
+            </table>
 <!-- Coder of the Month ends -->
-		</td>
-	</tr>
+        </td>
+    </tr>
 </table>
 
 </xsl:template>
