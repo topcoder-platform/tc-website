@@ -24,6 +24,7 @@ public class EmailInfo extends BaseModel {
 
     private SessionInfo sessionInfo;
     private String subject;
+    private String repSubject;
     private String candidateAddress;
     private String candidatePassword;
     private String candidateHandle;
@@ -31,6 +32,8 @@ public class EmailInfo extends BaseModel {
     private String companyName;
     private String repName;
     private String repAddress;
+
+    private static final String REP_FROM_ADDRESS = "tct@topcoder.com";
 
     public EmailInfo() {
         subject = "Example Email";
@@ -54,7 +57,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>sessionInfo</code>.
      *
-     * @return 
+     * @return
      */
     public SessionInfo getSessionInfo() {
         return sessionInfo;
@@ -72,7 +75,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>subject</code>.
      *
-     * @return 
+     * @return
      */
     public String getSubject() {
         return subject;
@@ -81,7 +84,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>msgText</code>.
      *
-     * @return 
+     * @return
      */
     public String getMsgText() {
         if(sessionInfo == null) return null;
@@ -122,10 +125,31 @@ public class EmailInfo extends BaseModel {
         return msgText.toString();
     }
 
+    private String getRepMsgText() {
+        if(sessionInfo == null) return null;
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
+        StringBuffer msgText = new StringBuffer(1000);
+        msgText.append(candidateHandle);
+        msgText.append(" has been scheduled to participate in the Testing ");
+        msgText.append("Application powered by TopCoder during the following times:");
+        msgText.append("\n");
+        msgText.append("Begin: ");
+        msgText.append(sdf.format(sessionInfo.getBeginDate()));
+        msgText.append("\n");
+        msgText.append("End: ");
+        msgText.append(sdf.format(sessionInfo.getEndDate()));
+        msgText.append("\n");
+        msgText.append("Access their information by logging into the Testing Application ");
+        msgText.append("Management Tool http://corporate.topcoder.com/testing and clicking on Candidates.");
+        msgText.append("\n");
+        msgText.append("Thank you,");
+        msgText.append("The TopCoder Employment Services Team");
+        return msgText.toString();
+    }
 
     /**
      * Gets the value of <code>msgText</code> with changes made
-     * so that it will be formatting appropriately in html.
+     * so that it will be formatted appropriately in html.
      *
      * @return
      */
@@ -175,7 +199,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>candidateAddress</code>.
      *
-     * @return 
+     * @return
      */
     public String getCandidateAddress() {
         return candidateAddress;
@@ -193,7 +217,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>candidatePassword</code>.
      *
-     * @return 
+     * @return
      */
     public String getCandidatePassword() {
         return candidatePassword;
@@ -211,7 +235,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>candidateHandle</code>.
      *
-     * @return 
+     * @return
      */
     public String getCandidateHandle() {
         return candidateHandle;
@@ -229,7 +253,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>companyId</code>.
      *
-     * @return 
+     * @return
      */
     public long getCompanyId() {
         return companyId;
@@ -247,7 +271,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>companyName</code>.
      *
-     * @return 
+     * @return
      */
     public String getCompanyName() {
         return companyName;
@@ -265,7 +289,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>repName</code>.
      *
-     * @return 
+     * @return
      */
     public String getRepName() {
         return repName;
@@ -283,19 +307,25 @@ public class EmailInfo extends BaseModel {
     /**
      * Gets the value of <code>repAddress</code>.
      *
-     * @return 
+     * @return
      */
     public String getRepAddress() {
         return repAddress;
     }
 
+    public String getRepSubject() {
+        return repSubject;
+    }
+
+    public void setRepSubject(String repSubject) {
+        this.repSubject = repSubject;
+    }
+
     public void sendEmail() throws Exception {
-        String subject = getSubject();
-        String text = getMsgText();
         if(sessionInfo.useCandidateEmail()) {
             TCSEmailMessage mail = new TCSEmailMessage();
-            mail.setSubject(subject);
-            mail.setBody(text);
+            mail.setSubject(getSubject());
+            mail.setBody(getMsgText());
             mail.addToAddress(candidateAddress, TCSEmailMessage.TO);
             mail.setFromAddress(repAddress);
             EmailEngine.send(mail);
@@ -303,16 +333,16 @@ public class EmailInfo extends BaseModel {
 
         if(sessionInfo.useRepEmail()) {
             TCSEmailMessage mail = new TCSEmailMessage();
-            mail.setSubject(subject);
-            mail.setBody(text);
+            mail.setSubject(getRepSubject());
+            mail.setBody(getRepMsgText());
             mail.addToAddress(repAddress, TCSEmailMessage.TO);
-            mail.setFromAddress(repAddress);
+            mail.setFromAddress(REP_FROM_ADDRESS);
             EmailEngine.send(mail);
         }
 
     }
 
-    public static EmailInfo createEmailInfo(SessionInfo info, User repInfo) 
+    public static EmailInfo createEmailInfo(SessionInfo info, User repInfo)
         throws Exception {
         EmailInfo emailInfo = new EmailInfo();
         emailInfo.setSessionInfo(info);
@@ -341,7 +371,7 @@ public class EmailInfo extends BaseModel {
                     map.get(Constants.REP_EMAIL_INFO_QUERY_KEY);
         if(rsc.size() == 0) {
             throw new ScreeningException(
-                    "Data Error, Rep Email info not found - uid " + 
+                    "Data Error, Rep Email info not found - uid " +
                     repInfo.getId());
         }
         if(rsc.size() > 1) {
@@ -350,7 +380,7 @@ public class EmailInfo extends BaseModel {
                     rsc.size() + ") - uid " + repInfo.getId());
         }
 
-        ResultSetContainer.ResultSetRow row = 
+        ResultSetContainer.ResultSetRow row =
             (ResultSetContainer.ResultSetRow)rsc.get(0);
         emailInfo.setCompanyId(
                 Long.parseLong(row.getItem("company_id").toString()));
@@ -362,7 +392,7 @@ public class EmailInfo extends BaseModel {
             map.get(Constants.CANDIDATE_EMAIL_INFO_QUERY_KEY);
         if(rsc.size() == 0) {
             throw new ScreeningException(
-                    "Data Error, Candidate Email info not found - cid " + 
+                    "Data Error, Candidate Email info not found - cid " +
                     info.getCandidateId());
         }
         if(rsc.size() > 1) {
@@ -376,6 +406,7 @@ public class EmailInfo extends BaseModel {
         emailInfo.setCandidateHandle(row.getItem("handle").toString());
 
         emailInfo.setSubject("Invitation to Private Candidate Testing Application");
+        emailInfo.setRepSubject("Testing Application scheduled for " + emailInfo.getCandidateHandle());
 
         return emailInfo;
     }
