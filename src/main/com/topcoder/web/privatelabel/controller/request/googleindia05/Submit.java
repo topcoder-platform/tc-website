@@ -80,9 +80,8 @@ public class Submit extends FullRegSubmit {
     }
 
     protected void setNextPage() {
-        //reg closed
         setNextPage(Constants.GOOGLE_INDIA_05_REG_SUCCESS_PAGE);
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(false);
     }
 
     protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
