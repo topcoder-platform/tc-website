@@ -225,6 +225,11 @@ public class Legacy extends Base {
         request.setAttribute(Constants.REPORT_PROFILE_DETAIL_KEY, resultMap);
     }
     private void getProfileSearch(TCRequest request) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("profile_search");
+        DataAccessInt dataAccess = getDataAccess(true);
+        Map qMap = dataAccess.getData(r);
+        request.setAttribute(Constants.REPORT_PROFILE_SEARCH_KEY, qMap);
     }
 
     private void getProfileList(TCRequest request) throws Exception {
