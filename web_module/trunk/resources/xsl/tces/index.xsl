@@ -147,9 +147,9 @@ Microsoft ends -->
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
  Solipsys ends -->
 
-<!-- Nvidia begins -->
+<!-- Nvidia begins
                             <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/nvidia/nvidia_logo.gif" width="120" height="83" border="0"/></a></td>
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=nvidia"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="120" height="83" border="0"/></a></td>
                                 <td width="99%" class="bodyText"><strong>NVIDIA&#174; Corporation (Nasdaq: NVDA)</strong> is the worldwide leader in 
                                     graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We 
                                     define the cutting-edge. We deliver to the nth degree. <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> 

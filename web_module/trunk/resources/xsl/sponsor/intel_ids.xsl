@@ -92,7 +92,7 @@
 
                             <tr valign="top">
                                 <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><A href="http://www.intel.com/software/products/" target="_blank"><strong>Software Developer Tools:</strong></A> 
+                                <td valign="top" width="99%" class="bodyText"><A href="http://www.intel.com/software/products/index.htm?iid=ids_topcoder+spd" target="_blank"><strong>Software Developer Tools:</strong></A> 
                                 Download free trial versions and discover just how much performance matters<br />
                                     <li>Compilers</li>
                                     <li>Performance Analyzers</li>
