@@ -35,9 +35,11 @@
         </jsp:include>
 
             <table border=0 cellpadding=2 cellspacing=0 width="100%">
-            <tr class="bodyText"><td nowrap="nowrap">02.07.05 1:15 PM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/reid.mov">reid, on going to an onsite event</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">01.25.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/Nvidia2.mov">NVIDIA Chief Software Architect, Nick Trientos</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">01.25.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/DaveOBrien.mov">TopCoder VP of Sales, Dave O'Brien</A></td></tr>
+            <tr class="bodyText" valign="top"><td nowrap="nowrap">02.07.05 1:15 PM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/reid.mov">reid, on going to an onsite event</A></td></tr>
+            <tr class="bodyText" valign="top"><td nowrap="nowrap">01.25.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/Nvidia2.mov">NVIDIA's Nick Trientos on the TopCoder community</A></td></tr>
+            <tr class="bodyText" valign="top"><td nowrap="nowrap">01.25.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/DaveOBrien.mov">TopCoder VP of Sales Dave O'Brien on TopCoder's Component Methodology</A></td></tr>
+            <tr class="bodyText" valign="top"><td nowrap="nowrap">01.04.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/rhughes.mov">President/COO Rob Hughes discusses "Performance & Credibility"</A></td></tr>
+            <tr class="bodyText" valign="top"><td nowrap="nowrap">12.21.04 5:00 PM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/MikeMorris.mov">TopCoder VP of Software Development Mike Morris on TopCoder's Component Methodology</A></td></tr>
             </table>
 
         </div>
