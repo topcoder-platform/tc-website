@@ -80,10 +80,15 @@ abstract public class PRBase extends Base {
             questions.add(prq);
         }
         getRequest().setAttribute("problemRatingQuestions",questions);
+
         if(problemName.size()==0){
             throw new Exception("Problem not yet used, or non-existent.");
         }
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
+
+        ResultSetContainer ratedCount = (ResultSetContainer) qMap.get("rated count");
+        getRequest().setAttribute("showResults", ratedCount.getIntItem(0, "count")>0?"true":"false");
+
         setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
         setIsNextPageInContext(true);
     }
