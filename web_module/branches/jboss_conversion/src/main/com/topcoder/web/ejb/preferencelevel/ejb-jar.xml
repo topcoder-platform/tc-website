@@ -5,8 +5,8 @@
       "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
-    <description>preferencelevel.PreferenceLevel Jar</description>
-    <display-name>preferencelevel.PreferenceLevel Jar</display-name>
+    <description>PreferenceLevel Jar</description>
+    <display-name>PreferenceLevel Jar</display-name>
     <enterprise-beans>
         <session>
             <description>Preference Level EJB</description>
