@@ -5,7 +5,7 @@
 <ejb-jar>
     <enterprise-beans>
       <session>
-  <ejb-name>Search</ejb-name>
+  <ejb-name>ResumeServices</ejb-name>
   <home>com.topcoder.ejb.ResumeServices.ResumeServicesHome</home>
   <remote>com.topcoder.ejb.ResumeServices.ResumeServices</remote>
   <ejb-class>com.topcoder.ejb.ResumeServices.ResumeServicesBean</ejb-class>
