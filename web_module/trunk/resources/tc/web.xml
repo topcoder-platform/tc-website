@@ -120,6 +120,12 @@
         </init-param>
 
         <init-param>
+            <param-name>ProblemRatingQuestions</param-name>
+            <param-value>problemRating.Questions</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>ProblemRatingResults</param-name>
             <param-value>problemRating.Results</param-value>
             <description></description>
