@@ -82,9 +82,6 @@
 					        <li>J2EE</li>
 						</ul>
 
-<!-- Documentation -->
-						<p><strong>Documentation</strong><br />
-						All <a href="/index?&amp;t=development&amp;c=app_projects">documentation</a> for this project is available on the TopCoder web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br /></p>
@@ -138,12 +135,12 @@
 
 <!-- Register at TCS -->
 						   <p>
-        						<strong>View the Requirement Specification for this application project &gt;&gt;</strong>
+        						<strong>View the <a class="statText" href="/index?&amp;t=development&amp;c=app_meth">Requirement Specification</a> for this application project &gt;&gt;</strong>
                             </p>
 						
 
 						   <p>
-						        <strong>Register for the Application Project to get information necessary to submit a solution &gt;&gt;</strong>
+						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_inquire">Register for the Application Project</a> to get information necessary to submit a solution &gt;&gt;</strong>
                             </p>
                             <p>
                                  To submit a solution, email your submissions to <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.
