@@ -459,7 +459,7 @@ If you have ever played a video game, gone to a movie, or just watched a bit of 
 <MAP NAME="artifact_home">
 <AREA ALT="Artifact Software" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>
 <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4365&amp;t=schedule&amp;c=srm"/>
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
+<AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
 </MAP>
 
 <A HREF="/?&amp;t=development&amp;c=index">
