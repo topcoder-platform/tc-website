@@ -60,7 +60,7 @@
                                         </h1>
                                         <p>
                                             <font size="-2">&#160;&#160;&#160;&#160;
-                                                <a href="#Overview">Overview</a> |
+                                                <a href="#overview">Overview</a> |
                                                 <a href="#about">Project Type</a> |
                                                 <a href="#prizes">Payment</a> |
                                                 <a href="#conditions">Eligibility</a> |
@@ -70,7 +70,7 @@
                                         </p>
                                         <!-- Overview -->
                                         <p>
-                                            <strong><a href="#Overview">Overview</a></strong>
+                                            <strong><a href="#overview">Overview</a></strong>
                                             <br/>
                                             The Admin Tool Enhancements project has one major goal in mind; allow users to
                                             administer TopCoder competitions over the Internet without requiring any access
