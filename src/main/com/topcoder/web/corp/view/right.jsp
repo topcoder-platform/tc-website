@@ -1,8 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.corp.Constants,
                  com.topcoder.web.corp.controller.TransactionServlet,
-                 com.topcoder.shared.util.ApplicationServer"
-         autoFlush="false" %>
+                 com.topcoder.shared.util.ApplicationServer" %>
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
