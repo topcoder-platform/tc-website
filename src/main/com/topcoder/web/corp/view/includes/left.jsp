@@ -21,7 +21,7 @@
             <% if (level1.equals("recruiting")) { %>
                 <tr><td id="<%=level2.equals("reporting")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=recruiting&d3=reporting" target="_parent" class="leftOn">Reporting Tool</a></td></tr>
                 <tr><td id="<%=level2.equals("pricing")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=recruiting&d3=pricing" target="_parent" class="leftOn">Pricing</a></td></tr>
-                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/corp/clear.gif" border="0"/><A href="/tces/?task=MainTask" class="left">Launch Recruiting Reports</A></td></tr>
+                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/corp/clear.gif" border="0"/><A href="/corp/tces/?task=MainTask" class="left">Launch Recruiting Reports</A></td></tr>
             <% } %>
 <!-- Recruiting ends -->
 

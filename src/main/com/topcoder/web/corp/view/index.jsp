@@ -64,7 +64,7 @@
                         12,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including code samples and statistics, that is not 
                         found elsewhere.</p>
                         
-                        <p><a href="/tces/?task=MainTask">Go to Recruiting Reporting Tool now</a></p>
+                        <p><a href="/corp/tces/?task=MainTask">Go to Recruiting Reporting Tool now</a></p>
                     </td>
                        
                     <td><img src="/i/corp/clear.gif" width="8" height="1" alt="" border="0"></td>
