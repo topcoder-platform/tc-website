@@ -105,12 +105,22 @@ public class RequestTracker {
     }
 
 
-
+    /**
+     * An object that contains all the useful data that we will be
+     * adding to the database.
+     */
     private static class UserRequest {
         private User u;
         private String  url;
         private long time;
 
+        /**
+         * We parse out the request here so that
+         * we don't have to maintain a reference after the request has
+         * been serviced.
+         * @param u
+         * @param r
+         */
         private UserRequest(User u, TCRequest r) {
             this.u = u;
             StringBuffer buf = new StringBuffer(254);

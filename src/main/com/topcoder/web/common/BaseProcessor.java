@@ -87,7 +87,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     protected void baseProcessing() throws TCWebException {
         getRequest().setAttribute(ERRORS_KEY, errors);
         getRequest().setAttribute(DEFAULTS_KEY, defaults);
-        RequestTracker.trackRequest(request);
+        RequestTracker.trackRequest(user, request);
     }
 
     /**
