@@ -85,16 +85,9 @@ public class Preferences extends ContractingBase {
         }
     }
 
-    protected void setDefaults(ContractingInfo info) {
-    }
-
     protected void setNextPage() {
         setNextPage(Constants.CONTRACTING_PREFERENCES_PAGE); 
         setIsNextPageInContext(true);
-    }
-
-    protected ContractingInfo updateContractingInfo(ContractingInfo info) {
-        return info;
     }
     
     
