@@ -71,8 +71,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 137</strong></a><br />
-                            Thursday, March 6, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 138</strong></a><br />
+                            Monday, March 10, 2003<br /><br />
                         </td>
                     </tr>
 
