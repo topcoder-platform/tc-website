@@ -57,6 +57,9 @@
 
 
               <form name="problemListForm" method="get">
+               <input type="hidden" name="module" value="ProblemArchive"/>
+               <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+               <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="9"><%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bodyText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
