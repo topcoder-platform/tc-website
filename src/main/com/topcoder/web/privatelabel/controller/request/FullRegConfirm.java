@@ -34,7 +34,7 @@ public abstract class FullRegConfirm extends FullRegBase {
 
         try {
             if (hasErrors()) {
-                List l = getQuestionList(((FullRegInfo)regInfo).getCoderType());
+                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType());
                 Collections.sort(l);
                 getRequest().setAttribute("questionList", l);
                 setDefaults(regInfo);
@@ -110,7 +110,7 @@ public abstract class FullRegConfirm extends FullRegBase {
         FullRegInfo info = null;
         if (getRegInfoFromPersistor() == null) {
             //perhaps we should load it up from the db...in the case of updates...
-            SessionInfo sessInfo = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            SessionInfo sessInfo = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
             throw new NavigationException("Sorry, your session has expired.", sessInfo.getServletPath());
         } else {
             info = (FullRegInfo) super.makeRegInfo();

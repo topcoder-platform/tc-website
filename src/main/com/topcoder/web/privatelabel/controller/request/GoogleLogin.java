@@ -168,24 +168,24 @@ public class GoogleLogin extends FullLogin {
                 row = (ResultSetContainer.ResultSetRow) it.next();
                 long tcQuestionId = row.getLongItem("demographic_question_id");
                 //only add the response if we have a mapping for it
-                    if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                        question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions());
-                        DemographicResponse r = new DemographicResponse();
-                        r.setQuestionId(question.getId());
-                        r.setSort(row.getIntItem("sort"));
-                        if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                                question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                            long answerId = row.getLongItem("demographic_answer_id");
-                            //check if we have a mapping for the answer, if so, add the response
-                            if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
-                                r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
-                                info.addResponse(r);
-                            }
-                        } else {
-                            r.setText(row.getStringItem("demographic_response"));
+                if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
+                    question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions());
+                    DemographicResponse r = new DemographicResponse();
+                    r.setQuestionId(question.getId());
+                    r.setSort(row.getIntItem("sort"));
+                    if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                            question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                        long answerId = row.getLongItem("demographic_answer_id");
+                        //check if we have a mapping for the answer, if so, add the response
+                        if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
+                            r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
                             info.addResponse(r);
                         }
+                    } else {
+                        r.setText(row.getStringItem("demographic_response"));
+                        info.addResponse(r);
                     }
+                }
             }
         }
         //returning null if they don't have an account in either system
@@ -194,7 +194,7 @@ public class GoogleLogin extends FullLogin {
     }
 
     private FullRegInfo getCommonInfo(long userId, String db) throws Exception {
-        log.debug("getCommonInfo("+userId+","+db+")");
+        log.debug("getCommonInfo(" + userId + "," + db + ")");
         FullRegInfo info = new FullRegInfo();
         info.setNew(false);
         User user = (User) createEJB(getInitialContext(), User.class);
@@ -203,7 +203,8 @@ public class GoogleLogin extends FullLogin {
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
         info.setHandle(getAuthentication().getActiveUser().getUserName());
-        info.setPassword("");;
+        info.setPassword("");
+        ;
         info.setPasswordConfirm("");
         info.setEmail(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setEmailConfirm(email.getAddress(email.getPrimaryEmailId(userId, db), db));

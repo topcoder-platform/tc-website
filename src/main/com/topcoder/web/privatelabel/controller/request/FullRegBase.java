@@ -57,20 +57,16 @@ public abstract class FullRegBase extends SimpleRegBase {
         HashMap multiAnswerMap = new HashMap();
         for (Iterator it = responses.iterator(); it.hasNext();) {
             response = (DemographicResponse) it.next();
-            if(questions == null)
-            {
+            if (questions == null) {
                 log.debug("GETTING QUESTIONS");
-                try
-                {
-                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt( getRequestParameter(Constants.COMPANY_ID)));
-                }
-                catch(Exception e)
-                {
+                try {
+                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
+                } catch (Exception e) {
                     log.error("COULD NOT GET QUESTIONS", e);
                 }
             }
             question = findQuestion(response.getQuestionId(), questions);
-            if(question != null) {
+            if (question != null) {
                 if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
                     setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
                 } else if (question.getAnswerType() == DemographicQuestion.FREE_FORM) {
@@ -78,9 +74,8 @@ public abstract class FullRegBase extends SimpleRegBase {
                 } else if (question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                     //todo handle multiple select
                     ArrayList al = new ArrayList();
-                    if(multiAnswerMap.containsKey(new Long(response.getQuestionId())))
-                    {
-                        al = (ArrayList)multiAnswerMap.get(new Long(response.getQuestionId()));
+                    if (multiAnswerMap.containsKey(new Long(response.getQuestionId()))) {
+                        al = (ArrayList) multiAnswerMap.get(new Long(response.getQuestionId()));
                     }
                     al.add(String.valueOf(response.getAnswerId()));
                     multiAnswerMap.put(new Long(response.getQuestionId()), al);
@@ -90,8 +85,8 @@ public abstract class FullRegBase extends SimpleRegBase {
                 }
             }
         }
-        for(Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
-            String s = String.valueOf(((Long)it.next()).longValue());
+        for (Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
+            String s = String.valueOf(((Long) it.next()).longValue());
             log.debug("ADDING MULTIANSWER " + s);
             setDefault(Constants.DEMOG_PREFIX + s, multiAnswerMap.get(new Long(s)));
         }
@@ -120,7 +115,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         }
 
         if (hasRequestParameter(Constants.CODER_TYPE))
-            ((FullRegInfo)ret).setCoderType(Integer.parseInt(StringUtils.checkNull(getRequestParameter(Constants.CODER_TYPE))));
+            ((FullRegInfo) ret).setCoderType(Integer.parseInt(StringUtils.checkNull(getRequestParameter(Constants.CODER_TYPE))));
         return ret;
     }
 
@@ -135,7 +130,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         Request r = new Request();
         r.setContentHandle("demographic_question_list");
         r.setProperty("ct", String.valueOf(coderTypeId));
-        r.setProperty("cm", String.valueOf( companyId ));
+        r.setProperty("cm", String.valueOf(companyId));
         Map qMap = getDataAccess(db, true).getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list");
         ResultSetContainer.ResultSetRow row = null;
@@ -152,8 +147,8 @@ public abstract class FullRegBase extends SimpleRegBase {
 
     protected Map getQuestions() {
         try {
-            if (questions==null)
-                questions=getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
+            if (questions == null)
+                questions = getQuestions(transDb, ((FullRegInfo) regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
         } catch (Exception e) {
 
             throw new RuntimeException("failed to get the questions \n" + e.getMessage());
@@ -175,7 +170,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(ret.getId()));
-        r.setProperty("db", String.valueOf( db ));
+        r.setProperty("db", String.valueOf(db));
         Map aMap = dataAccess.getData(r);
         ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
 
@@ -201,8 +196,8 @@ public abstract class FullRegBase extends SimpleRegBase {
     protected final List getQuestionList(int coderTypeId) throws Exception {
         //in case we need the list before we've populated it.  this is most
         //likely to happen in makeRegInfo()
-        if (questions==null)
-            questions = getQuestions(transDb, coderTypeId, Integer.parseInt( getRequestParameter(Constants.COMPANY_ID)));
+        if (questions == null)
+            questions = getQuestions(transDb, coderTypeId, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
         List ret = new ArrayList(questions.size());
         DemographicQuestion q = null;
         for (Iterator it = questions.values().iterator(); it.hasNext();) {

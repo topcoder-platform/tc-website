@@ -226,10 +226,11 @@ public class SimpleRegSubmit extends SimpleRegBase {
      */
     protected char getNewUserStatus() throws Exception {
         ResultSetContainer rsc = getConfigInfo();
-        if (rsc.getRow(0).getItem("status").getResultData()==null)
-            throw new Exception ("Missing new user status for company: " +
+        if (rsc.getRow(0).getItem("status").getResultData() == null)
+            throw new Exception("Missing new user status for company: " +
                     regInfo.getCompanyId() + " event_id " + regInfo.getEventId());
-        else return rsc.getStringItem(0, "status").charAt(0);
+        else
+            return rsc.getStringItem(0, "status").charAt(0);
     }
 
     /**
@@ -240,9 +241,10 @@ public class SimpleRegSubmit extends SimpleRegBase {
      */
     protected long getJobId() throws Exception {
         ResultSetContainer rsc = getConfigInfo();
-        if (rsc.getRow(0).getItem("job_id").getResultData()==null)
+        if (rsc.getRow(0).getItem("job_id").getResultData() == null)
             return -1;
-        else return rsc.getLongItem(0, "job_id");
+        else
+            return rsc.getLongItem(0, "job_id");
     }
 
     /**
@@ -255,9 +257,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
         r.setContentHandle("config_info");
         r.setProperty("eid", String.valueOf(regInfo.getEventId()));
         r.setProperty("cm", String.valueOf(regInfo.getCompanyId()));
-        ResultSetContainer ret = (ResultSetContainer)getDataAccess(transDb, true).getData(r).get("config_info");
-        if (ret==null || ret.isEmpty())
-            throw new Exception ("Missing config info for company: " +
+        ResultSetContainer ret = (ResultSetContainer) getDataAccess(transDb, true).getData(r).get("config_info");
+        if (ret == null || ret.isEmpty())
+            throw new Exception("Missing config info for company: " +
                     regInfo.getCompanyId() + " event_id " + regInfo.getEventId());
         return ret;
     }

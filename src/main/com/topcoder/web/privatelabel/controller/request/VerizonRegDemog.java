@@ -23,9 +23,9 @@ public class VerizonRegDemog extends FullRegDemog {
             ret = new VerizonRegInfo(ret);
         }
         return ret;
-   }
+    }
 
-   protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
+    protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
         //in case the person chose the US, the basic registration
         //requires them to choose a state, but we don't have

@@ -58,36 +58,36 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
     }
 
     public void storeQuestions(SimpleRegInfo regInfo, long userId) throws Exception {
-        Response response = (Response)createEJB(getInitialContext(), Response.class);
+        Response response = (Response) createEJB(getInitialContext(), Response.class);
 
         DemographicResponse r = null;
         DemographicQuestion q = null;
-        Map questions = FullRegBase.getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType(), Integer.parseInt( getRequestParameter(Constants.COMPANY_ID)));
+        Map questions = FullRegBase.getQuestions(transDb, ((FullRegInfo) regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
 
         //remove the current response for questions they have answered
-        for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {
+        for (Iterator it = ((FullRegInfo) regInfo).getResponses().iterator(); it.hasNext();) {
             r = (DemographicResponse) it.next();
             int numWacked = response.remove(userId, r.getQuestionId(), transDb);
             log.debug(numWacked + " response items removed");
         }
 
-        for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {
+        for (Iterator it = ((FullRegInfo) regInfo).getResponses().iterator(); it.hasNext();) {
             r = (DemographicResponse) it.next();
             q = (DemographicQuestion) questions.get(new Long(r.getQuestionId()));
-            if (q.getAnswerType()==DemographicQuestion.SINGLE_SELECT ||
-                    q.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT ) {
+            if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                    q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                 response.createResponse(userId, r.getQuestionId(), r.getAnswerId(), transDb);
             } else {
                 response.createResponse(userId, r.getQuestionId(), r.getText(), transDb);
             }
             //if this is the "what school did you go to" question, add a record to the current school table for TCES
-            if (q.getId()==Constants.SCHOOL_QUESTION && ((FullRegInfo)regInfo).isStudent()) {
+            if (q.getId() == Constants.SCHOOL_QUESTION && ((FullRegInfo) regInfo).isStudent()) {
                 CurrentSchool cs = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
                 School s = (School) createEJB(getInitialContext(), School.class);
                 long schoolId = s.createSchool(transDb, db);
                 String schoolName = null;
-                if (q.getAnswerType()==DemographicQuestion.SINGLE_SELECT ||
-                        q.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT ) {
+                if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                        q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                     schoolName = q.getAnswer(r.getAnswerId()).getText();
                 } else {
                     schoolName = r.getText();
@@ -102,27 +102,26 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
         }
 
 //        if (isEligible()) {
-            long jobId = getJobId();
-            if (jobId > 0) {
-                JobPostingServices jp = (JobPostingServices)createEJB(getInitialContext(), JobPostingServices.class);
-                if (jp.jobExists(jobId, transDb)) {
-                    jp.addJobHit(userId, jobId, HIT_TYPE, transDb);
-                } else {
-                    throw new Exception ("Invalid or inactive job " + jobId);
-                }
+        long jobId = getJobId();
+        if (jobId > 0) {
+            JobPostingServices jp = (JobPostingServices) createEJB(getInitialContext(), JobPostingServices.class);
+            if (jp.jobExists(jobId, transDb)) {
+                jp.addJobHit(userId, jobId, HIT_TYPE, transDb);
+            } else {
+                throw new Exception("Invalid or inactive job " + jobId);
             }
-            //put their user id in the session so that they can upload a resume
+        }
+        //put their user id in the session so that they can upload a resume
 //        } else {
 //            User user = (User) createEJB(getInitialContext(), User.class);
-            //they're not eligible so override whatever we had set their status to be private label ineligible
+        //they're not eligible so override whatever we had set their status to be private label ineligible
 //            user.setStatus(ret.getId(), '3', transDb);
 //        }
 
     }
 
-    protected void setCoderType(long coderId, int coderType) throws Exception
-    {
-        Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+    protected void setCoderType(long coderId, int coderType) throws Exception {
+        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
 
         coder.setCoderTypeId(coderId, coderType, transDb);
 
@@ -131,13 +130,13 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
     protected long store(SimpleRegInfo regInfo) throws Exception {
         long userId = super.store(regInfo);
-        Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
 
-        coder.setCoderTypeId(userId, ((FullRegInfo)regInfo).getCoderType(), transDb);
+        coder.setCoderTypeId(userId, ((FullRegInfo) regInfo).getCoderType(), transDb);
 
         this.storeQuestions(regInfo, userId);
 
-            //put their user id in the session so that they can upload a resume
+        //put their user id in the session so that they can upload a resume
 /*
         getRequest().getSession(true).setAttribute(Constants.USER_ID, new Long(ret.getId()));
 */
@@ -163,17 +162,14 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         //get all reg info from the session, no changes should have been made at this point
-        FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
-        if (info==null) {
-            SessionInfo sessInfo = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        FullRegInfo info = (FullRegInfo) getRegInfoFromPersistor();
+        if (info == null) {
+            SessionInfo sessInfo = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
             throw new NavigationException("Sorry, your session has expired.", sessInfo.getServletPath());
         }
 
         return info;
     }
-
-
-
 
 
 }

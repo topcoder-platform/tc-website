@@ -18,8 +18,8 @@ import java.io.PrintWriter;
 public class ResumeServlet extends BaseServlet {
     private static Logger log = Logger.getLogger(ResumeServlet.class);
 
-    protected void process(HttpServletRequest request, HttpServletResponse response )
-            throws IOException  {
+    protected void process(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
         Base rp = null;
 
         try {
@@ -44,9 +44,9 @@ public class ResumeServlet extends BaseServlet {
                     }
                     String cmd = null;
                     cmd = StringUtils.checkNull((String) request.getAttribute(MODULE));
-                    if (cmd.equals("") && fu==null)
+                    if (cmd.equals("") && fu == null)
                         cmd = StringUtils.checkNull(getParameter(request, MODULE));
-                    if (cmd.equals("") && fu!=null)
+                    if (cmd.equals("") && fu != null)
                         cmd = StringUtils.checkNull(fu.getParameter(MODULE));
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
@@ -57,7 +57,7 @@ public class ResumeServlet extends BaseServlet {
 
                     log.debug("creating request processor for " + processorName);
                     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-                    TCResponse tcResponse= HttpObjectFactory.createResponse(response);
+                    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
                         if (hasPermission(null, resource)) { //not handing over an authentication object

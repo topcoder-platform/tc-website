@@ -28,5 +28,10 @@ public class Demog extends FullRegDemog {
         if (((FullRegInfo) info).getCoderType() == 0) {
             addError(Constants.CODER_TYPE, "Please select your Student/Professional status.");
         }
+
+        //make a bunch of fields not required
+        removeError(Constants.STATE_CODE);
+        removeError(Constants.EMAIL_CONFIRM);
+
     }
 }

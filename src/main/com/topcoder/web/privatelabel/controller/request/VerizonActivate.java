@@ -18,11 +18,11 @@ import java.util.Map;
 
 public class VerizonActivate extends BaseActivate {
     protected void setNextPage() {
-        VerizonRegInfo info = (VerizonRegInfo)regInfo;
+        VerizonRegInfo info = (VerizonRegInfo) regInfo;
 
-        if (!info.isRegFull()&&info.isEligible()) {
+        if (!info.isRegFull() && info.isEligible()) {
             setNextPage(Constants.VERIZON_ACTIVATION_PAGE);
-        } else if (info.isRegFull()&&info.isEligible()) {
+        } else if (info.isRegFull() && info.isEligible()) {
             setNextPage(Constants.VERIZON_ACTIVATION_REG_FULL_PAGE);
         } else {
             setNextPage(Constants.VERIZON_ACTIVATION_INELIGIBLE_PAGE);
@@ -65,9 +65,9 @@ public class VerizonActivate extends BaseActivate {
         ResultSetContainer.ResultSetRow row = null;
         DemographicQuestion question = null;
 
-       Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
 
-        Map questions = VerizonReg.getQuestions(transDb, coder.getCoderTypeId(userId, transDb),Integer.parseInt( getRequestParameter(Constants.COMPANY_ID)));
+        Map questions = VerizonReg.getQuestions(transDb, coder.getCoderTypeId(userId, transDb), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
         for (Iterator it = responses.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
             question = VerizonReg.findQuestion(row.getLongItem("demographic_question_id"), questions);
