@@ -173,8 +173,8 @@
 
                                     <BR/>
 
-      Actually, it's the other way around. There are two divisions of rooms: those with ratings 1500 and above, and
-      those will ratings below 1500. All rooms in a division will have roughly the same average room rating. <BR/>
+      Actually, it's the other way around. There are two divisions of rooms: those with ratings 1200 and above, and
+      those will ratings below 1200. All rooms in a division will have roughly the same average room rating. <BR/>
                                     <A HREF="#top" CLASS="bodyText">[back to top]</A>
                                     <BR/>
                                     <BR/>
@@ -284,15 +284,15 @@ where your result must be correct only to a certain degree of precision.  To det
 
                                     <BR/>
 
-Using any form of output to the console (cout in C++, System.println in Java, 
-Console.WriteLine in C# / VB) will add to your memory use.  The system has to 
-redirect the standard out to memory so that it can trap the results.  This 
-means that if you have a lot of output in your code, it will likely fail 
+Using any form of output to the console (cout in C++, System.println in Java,
+Console.WriteLine in C# / VB) will add to your memory use.  The system has to
+redirect the standard out to memory so that it can trap the results.  This
+means that if you have a lot of output in your code, it will likely fail
 testing.
 
 <br/><br/>
 
-We recommend that you remove all output statements before submitting your code 
+We recommend that you remove all output statements before submitting your code
 to avoid this situation.
 
       <BR/>
