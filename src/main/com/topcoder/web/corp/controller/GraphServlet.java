@@ -44,12 +44,12 @@ public final class GraphServlet extends HttpServlet {
 
     private static final int DW_DB_TYPE = 3;
 
-    private static final Color GREEN = new Color(0x99, 0xff, 0x33);
+    private static final Color GREEN = new Color(0x00, 0xa9, 0x00);
     private static final Color YELLOW = new Color(0xff, 0xcc, 0x00);
-    private static final Color RED = new Color(0xff, 0x00, 0x00);
-    private static final Color GOLD = new Color(0xff, 0xff, 0x00);
-    private static final Color BLUE = new Color(0x66, 0xcc, 0xcc);
-    private static final Color GRAY = new Color(0xcc, 0xcc, 0xcc);
+    private static final Color RED = new Color(0xee, 0x00, 0x00);
+    private static final Color GOLD = new Color(0xdd, 0xcc, 0x00);
+    private static final Color BLUE = new Color(0x66, 0x66, 0xff);
+    private static final Color GRAY = new Color(0x99, 0x99, 0x99);
     private static final String[] rating_segments = {"0-99", "100-199", "200-299", "300-399",
                                                      "400-499", "500-599", "600-699", "700-799", "800-899", "900-999",
                                                      "1000-1099", "1100-1199", "1200-1299", "1300-1399", "1400-1499", "1500-1599",

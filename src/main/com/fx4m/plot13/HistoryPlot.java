@@ -114,12 +114,12 @@ public class HistoryPlot
     Graphics2D g;
     DataBuffer db;
     int datapoints;
-    static final int[] TCcolors = {204, 204, 204, 900, // topcoder gray  <900
-                                   153, 255, 51, 1200, // topcoder green <1200
-                                   132, 204, 204, 1500, // topcoder blue  <1500
-                                   255, 255, 0, 2200, // topcoder yellow<2200
-                                   255, 0, 0, 3000, // topcoder red   <3000
-                                   255, 40, 40, 9999};//   pink
+    static final int[] TCcolors = {0x99, 0x99, 0x99, 900, // topcoder gray  <900
+                                   0x00, 0xa9, 0x00, 1200, // topcoder green <1200
+                                   0x66, 0x66, 0xff, 1500, // topcoder blue  <1500
+                                   0xdd, 0xcc, 0x00, 2200, // topcoder yellow<2200
+                                   0xee, 0x00, 0x00, 3000, // topcoder red   <3000
+                                   0xee, 0x28, 0x28, 9999};//   pink
 //static int tcf  = 32 ;
 //static int tcfl = 24 ;
 //static int tcfd = 28 ;
