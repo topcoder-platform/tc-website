@@ -172,7 +172,7 @@ public class RegistrationHelper {
 
     Context ctx=TCContext.getInitial();
     DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-    DataAccessInt dai=new CachedDataAccess(ds);
+    DataAccessInt dai=new DataAccess(ds);
     Map map=new HashMap();
 
     map.put(DataAccessConstants.COMMAND,"student_data");
