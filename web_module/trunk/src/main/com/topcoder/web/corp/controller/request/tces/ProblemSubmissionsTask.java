@@ -35,7 +35,6 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
     private int jid;
     private int mid;
     private long companyId;
-    private long roundId;
 
     /** Holds value of property handle. */
     private String handle;
@@ -122,7 +121,6 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
         dataRequest.setProperty("jid", Integer.toString(getJobID()));
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
-        dataRequest.setProperty("rd", String.valueOf(getRoundId()));
 
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
@@ -140,15 +138,6 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
                     " cid=" + Integer.toString(getCampaignID()) +
                     " does not belong to uid=" + Long.toString(uid));
         }
-
-        if (isRestrictedCampaign(getCampaignID())) {
-            if (!getRoundIds(getCampaignID()).contains(new Long(getRoundId()))) {
-                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
-                        " rd=" + getRoundId() +
-                        " does not belong to uid=" + Long.toString(uid));
-            }
-        }
-
 
         setMemberInfo((ResultSetContainer) resultMap.get("TCES_Member_Profile"));
         setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
@@ -189,8 +178,6 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
             setJobID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.MEMBER_ID_PARAM))
             setMemberID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.ROUND_ID_PARAM))
-            setRoundId(Long.parseLong(value));
     }
 
 
@@ -298,14 +285,6 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
 
     public boolean isRestrictedCampaign() {
         return restricted;
-    }
-
-    public long getRoundId() {
-        return roundId;
-    }
-
-    public void setRoundId(long roundId) {
-        this.roundId = roundId;
     }
 
 }
