@@ -506,11 +506,9 @@ function checkInputs(){
                 <tr>
                     <td colspan="2" class="errorText" align="center" valign="middle">
                         <textarea name="TermDesc" rows="10" cols="70" readonly class="bodyText">
-                            <%@include file="../includes/terms_top.txt" %>
+                            <jsp:include page="privacy.jsp" />
 
-                            <%@include file="../includes/privacy.txt" %>
-
-                            <%@include file="../includes/terms_bottom.txt" %>
+                            <jsp:include page="terms_bottom.jsp" />
                         </textarea>
                     </td>
                 </tr>
