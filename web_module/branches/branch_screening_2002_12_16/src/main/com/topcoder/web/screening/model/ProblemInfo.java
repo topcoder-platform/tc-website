@@ -321,7 +321,7 @@ public class ProblemInfo extends BaseModel {
         checkAccess.setProperty("rid", String.valueOf(roundId));
         Map map = nonCached.getData(checkAccess);
         ResultSetContainer rsc = (ResultSetContainer)
-                    map.get(Constants.PROBLEM_INFO_QUERY_KEY);
+                    map.get(Constants.CHECK_ACCESS_QUERY_KEY);
         if(rsc.size() == 0) {
             throw new PermissionDeniedException("User cannot access this problem");
         }
