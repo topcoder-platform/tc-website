@@ -76,6 +76,10 @@
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
 		</TR>
+		<TR>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
+			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
+		</TR>		
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
 		</TABLE>
 		</TD>
@@ -156,7 +160,7 @@ to our running sum of factors.  Then all that is needed are a few simple conditi
 statements to compare this sum to <tt>n</tt> and return the appropriate string.
 This can be made more efficient by noting that in most cases two divisors can be found
 at once, and one only needs to iterate up to <tt>floor(sqrt(n))</tt>.  If
-<tt>n % i = 0</tt>, then <tt>i</tt> <em>and</em> <tt>n / i</tt> are factors of <tt>n</tt>.
+<tt>n % i = 0</tt>, then <tt>i</tt> &#160;<em>and</em> &#160;<tt>n / i</tt> are factors of <tt>n</tt>.
 However, if one is using this method one must be careful not to count <tt>sqrt(n)</tt>
 twice if <tt>n</tt> is a perfect square.
 </P>
@@ -250,7 +254,7 @@ only minimum value that passes the simulation, which is our answer.
 </P>
 
 <P>
-If we had used our na&#168;ve linear search, we would have had to perform up to <tt>2584</tt>
+If we had used our simple linear search, we would have had to perform up to <tt>2584</tt>
 simulations, which might take on order of minutes to complete for most solutions.
 If we use binary search, we halve our search space at each step, thus reducing the number
 of simulations to <tt>ceil(log<sub>2</sub> 2584) = 12</tt> steps.  Binary search is a simple
@@ -405,17 +409,63 @@ Therefore, by combining binary search, which is <tt>O(log n)</tt>, with <tt>occu
 the overall runtime complexity of this algorithm is the product, which is <tt>O(log<sup>2</sup> n)</tt>.  That's pretty fast.
 </P>
 
-
-
-
-
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
           
-<!-- <P><B>Member Comments</B></P> 
+<P><B>Member Comments</B></P> 
+<P>
+Logan,
+</P>
 
-          <P><BR/></P>-->
+<P>
+I think you do a *very* good job in analyzing the problems in such a way
+that even I can understand them.  However, I think you over-analyzed the
+Rumba problem.  There is no need to build a state machine nor walk any
+graphs.  All you need to do is step through the steps and evaluate
+whether the opening position is a possible outcome of the prior step's
+closing position (or recursively prior on the backward step).
+</P>
+
+<P><A HREF="/stat?c=member_profile&amp;cr=119676" CLASS="bodyGeneric">Pops</A></P>
+<HR/>
+
+<P>
+Another very nice analysis, thanks a lot. However, some comments:
+</P>
+
+<P>
+Div-II easy problem: I'd say the real most basic iteration is for ( i=1;
+i&#60;n; ++i ), not to the floor of n/2.
+</P>
+
+<P>
+One thing that should be mentioned for the binary search is that the
+functions are monotone, otherwise we couldn't apply it.
+</P>
+
+<P>
+Div-I hard problem: It suffices to check the 1-digit, since this is
+always the first we run out of. No need to check the other digits.
+</P>
+
+<P><A HREF="/stat?c=member_profile&amp;cr=263379" CLASS="bodyGeneric">pochmann</A></P>
+<HR/>
+
+<P>
+Hi Logan,
+</P>
+
+<P>
+Once again, a very nice problem set analysis.  I'm a little confused on
+how your state machine implementation of the div. 2 hard would look though 
+(codewise).  If you have time, could you possibly post a solution using
+this state machine idea?
+</P>
+
+<P><A HREF="/stat?c=member_profile&amp;cr=101459" CLASS="bodyGeneric">Steven</A></P>
+
+          <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
@@ -443,8 +493,7 @@ By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/st
     <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<center><A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm91_prob','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A></center><BR/>
+    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
 <!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        

@@ -86,171 +86,144 @@
 	</TR>
  	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
-<!--end contextual links-->
+<!--end contextual links <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">NDBronson</A> -->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
-<!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
 <P><B>Single Round Match 91</B><BR/>
 May 22, 2002</P>
-<P><B>Rookie Review</B></P>
+<P><B>Lessons Learned the Hard Way</B></P>
 
 <P>
-There was relatively low rookie turnout tonight, resulting in only four rookie 
-rooms. 
-</P>
-
-<P>At the end of the Coding Phase, the rookie high scorers were: 
-<UL>
-	<LI><B>Room 64</B></LI> 
-<UL>
-	<LI>JuanitoBandito - 1046.95</LI> 
-	<LI>rumil - 1031.70</LI> 
-	<LI>Fuzz - 1024.82</LI>
-</UL>
-	<LI><B>Room 65</B></LI> 
-<UL>
-	<LI>lolbrish - 1032.28</LI> 
-	<LI>ttilling - 1030.89</LI> 
-</UL>
-	<LI><B>Room 66</B></LI> 
-<UL>
-	<LI>jinling - 1068.25</LI> 
-	<LI>Partorg - 1049.35</LI>
-</UL>
-	<LI><B>Room 67</B></LI> 
-<UL>
-	<LI>StevoD - 1255.72</LI> 
-	<LI>manaswini - 1160.82</LI>
-</UL>
-</UL>
-</P>
-
- 
-<P>
-<B>Challenge Phase</B>
+SRM 91 was a wednesday night contest.  As a landmark, it was the 
+first contest sponsored by Citrix.  In all, 654 coders took part.
+There were 43 rooms in Division-II, of which 4 rooms were in the 
+rookie section.
 </P>
 
 <P>
-In Room 64, <A HREF="/stat?c=member_profile&amp;cr=284062" CLASS="bodyGeneric">JuanitoBandito</A>
- had submitted an empty class for the Level 3 problem. 
-Within a minute this was found by <A HREF="/stat?c=member_profile&amp;cr=106370" CLASS="bodyGeneric">rumil</A>
-, who successfully challenged it. <B>JuanitoBandito</B> 
-then attempted to challenge <A HREF="/stat?c=member_profile&amp;cr=284101" CLASS="bodyGeneric">Fuzz's</A>
- Level 2 submission, but failed, losing an additional 50 
-points. <B>Fuzz</B> then retaliated by successfully challenging <B>JuanitoBandito's</B> Level 2 submission.
- <B>JuanitoBandito</B> made the simple mistake of assuming the scores were sorted, thus leading to 
- incorrect output for unsorted inputs. 
+The first two problems appear to have been quite easy: both had
+solution rates above 70%.  In contrast, the level 3 problem caused a
+lot of problems: the solution rate was 31.9%, and approximately 14% of
+the coders solved it successfully.
 </P>
 
 <P>
-The only successful challenge in Room 65 was by <A HREF="/stat?c=member_profile&amp;cr=282137" CLASS="bodyGeneric">ttilling</A>
-, who successfully challenged 
-<A HREF="/stat?c=member_profile&amp;cr=279388" CLASS="bodyGeneric">limer619's</A>
- Level 1 submission, a solution that was so incorrect that it never could have 
-passed the sample test cases. There were also two unsuccessful challenges, one of which 
-were by <A HREF="/stat?c=member_profile&amp;cr=285601" CLASS="bodyGeneric">lolbrish</A>
-, giving <B>ttilling</B> the lead in Room 65. 
+<B>250 (Perfect):</B>
 </P>
 
 <P>
-In Room 66, <A HREF="/stat?c=member_profile&amp;cr=285577" CLASS="bodyGeneric">Partorg</A>
- unsuccessfully challenged gmud's Level 2 submission. <B>Partorg's</B> 
-Level 3 submission was later annihilated by <A HREF="/stat?c=member_profile&amp;cr=285308" CLASS="bodyGeneric">SushiK</A>
- (who I presume is a Neal Stephenson fan). 
+Take an integer, sum its divisors (not including the number, and check
+whether the result is equal to, less than, or greater than the initial
+number.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=285479" CLASS="bodyGeneric">StevoD</A>
- racked up two successful challenges in Room 67, defeating 
- <A HREF="/stat?c=member_profile&amp;cr=281252" CLASS="bodyGeneric">dilipdalton</A>
- and <A HREF="/stat?c=member_profile&amp;cr=260618" CLASS="bodyGeneric">jake's</A>
-Level 3 submissions, both with the same test case. <B>jake's</B> solution exhibited the dubious 
-practice of using reference equality for string comparisons in Java (e.g., str == "abc", 
-as opposed to the safer and more likely to be correct str.equals("abc")), though I'm not 
-certain this was what caused his problem to fail. <B>dilipdalton's</B> solution, on the other 
-hand, generated a runtime exception for the same case. 
+The solution is quite simple.  Code based on the following should be
+quite sufficient:
 </P>
 
 <P>
-At the end of the Challenge Phase, the scores were: 
-<UL>
-	<LI><B>Room 64</B></LI>
-	   <UL>
-	    	<LI>rumil - 1081.70</LI> 
-	    	<LI>Fuzz - 1074.82</LI> 
-	    	<LI>JuanitoBandito - 157.55</LI>
-	   </UL>
-	<LI><B>Room 65</B></LI> 
-	   <UL>
-	    	<LI>ttilling - 1080.89</LI> 
-	    	<LI>lolbrish - 982.28</LI> 
-	   </UL>
-	<LI><B>Room 66</B></LI> 
-	   <UL>
-	    	<LI>jinling - 1068.25</LI> 
-	    	<LI>Partorg - 534.13</LI>
-	   </UL>
-	<LI><B>Room 67</B></LI> 
-	   <UL>
-	    	<LI>manaswini - 1110.82</LI> 
-	    	<LI>StevoD - 765.12</LI>
-	  </UL>
-</UL>
+<pre>
+sum = 1;
+for (i=2; i&#60;sqrt(n+!); i++) {
+    if (n % i == 0) {
+	sum+= i;
+	if (i &#60; n/i) {
+	    sum+= n/i;
+        }
+    }
+}
+</pre>
 </P>
 
 <P>
-<B>System Test Phase</B>
+Problems:
+<OL>
+	<LI>Only checking up to sqrt(n), without adding the second of a pair of 
+	divisors.</LI>    
+	<LI>Using (sum &#60; n) as a loop guard.</LI>
+	<LI>Including sqrt of n twice when counting factors.</LI>
+</OL>
+</P>
+
+
+<P>
+<B>500 (ChallengePhase):</B>
 </P>
 
 <P>
-Very few rookies came through the system tests unscathed. While <B>Fuzz's</B> Level 3 
-submission failed, both of <B>rumil's</B> Level 2 and Level 3 submissions failed as well, 
-giving <B>Fuzz</B> a strong lead in Room 64. In Room 65, <B>lolbrish</B> also lost his Level 2 and 
-Level 3 submissions. <B>ttilling</B> performed exceptionally well, being one of the two rookies 
-to get all three problems correct. The Level 3 submission of 
-<A HREF="/stat?c=member_profile&amp;cr=285611" CLASS="bodyGeneric">jinling</A>
- failed in Room 66, but 
-due to <B>Partorg's</B> lack of success during the challenge phase, <B>jinling</B> was able to hold on to 
-a slim lead of 52 points. <A HREF="/stat?c=member_profile&amp;cr=277563" CLASS="bodyGeneric">manaswini</A>
- in Room 67 was the only other rookie to get all three problems correct. 
+In challenge phase of an SRM, a problem is submitted which uses a
+random number generator.  The result is that it is likely to be
+correct 50% of the time.  Given the scores within the room, the prize
+for the first three places, and the assumption that all submissions
+are correct, return the difference between the gain from a successful
+challenge (ie ev(success) - ev(current) and the loss from an unsuccessful
+challenge.
 </P>
 
 <P>
-The final results showed <B>manaswini</B> and <B>ttilling</B> to have commanding leads over the rest of 
-the rookies, with the third highest rookie score being <B>Fuzz's</B> 656.51 points. Despite <B>ttilling's</B> 
-successful challenge and <B>manaswini's</B> failed challenge in the Challenge Phase, <B>manaswini</B> still 
-earned enough points in the Coding Phase to maintain a very slight 30 point lead over <B>ttilling</B> 
-at the end of the contest. 
+Problems:
+<OL>
+	<LI>Assuming that the scores table was sorted.  (All the examples were
+	sorted)</LI>    
+	<LI>In a solution which created three ArrayLists to contain the scores
+in each case, adding the "success" score, to the "fail" List.</LI>
+	<LI>Divide by zero exception.</LI>
+	<LI>Errors in indexing into the array.  This cropped up in a solution
+which counted how many results were less than a particular score. Had the coder counted the number greater, it is likely the error 
+would not have occurred.</LI>
+</OL>
+</P>
+
+
+<P>
+<B>1000 (Rumba):</B>
 </P>
 
 <P>
-The final scores were: 
-<UL>
-	<LI><B>Room 64</B></LI> 
-	    <UL>
-	    	<LI>Fuzz - 656.51</LI> 
-	    	<LI>sgiribabu - 529.97</LI>
-	    </UL>
-	<LI><B>Room 65</B></LI> 
-	    <UL>
-	    	<LI>ttilling - 1080.89</LI> 
-	    	<LI>lolbrish - 178.36</LI> 
-	    </UL>
-	<LI><B>Room 66</B></LI> 
-	    <UL>
-	    	<LI>jinling - 586.35</LI> 
-	    	<LI>Partorg - 534.13</LI>
-	    </UL> 
-	<LI><B>Room 67</B></LI> 
-	    <UL>
-	    	<LI>manaswini - 1110.82</LI> 
-	    	<LI>pv - 600.3</LI>
-	    </UL>
-</UL>
+The task is to simulate a Rumba dance, and check that each of 5 steps
+are included.  There are 3 different positions allowed, and some steps
+are not allowed to begin from some positions.  Each step ends in a
+particular position.  The return is an int array, the first element of
+which is the number of steps not included in the dance steps list.
+The second element is either -1 if the dance is legal, or else the
+index of the first step which cannot be danced.
+</P>
+
+<P>
+The problem is might effectively tackled as a State Transition Machine.
+Internal to the program, the coder needs to write a function which
+takes the current state and next step, and returns the new state or
+invalid.  The submission would then loop over the steps input.
+</P>
+
+<P>
+As an additional complication, the "BASIC" step could have more than one
+output, and the BACKWARD WALK step output depended on its input to determine
+its output.
+</P>
+
+<P>
+Problems:
+<OL>
+	<LI>Trying to use if-then-else to handle the logic.  Since some steps
+	        output state depended on their input state, this could not work.</LI>    
+	<LI>Mis-understanding the problem description.  This was definitely a 
+   problem worth reading more than once.  Some people simply coded the
+   wrong rules.</LI>
+	<LI>Not realising that input state was inportant for some steps.</LI>
+</OL>
 </P>
 
 
-<IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+<P>
+As in most simulation problems, it's hard to point to a general problem.
+The difficulty is in translating the problem into code, and that's where
+the errors crop up.
+</P>
+
+
+<IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -279,7 +252,7 @@ By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/st
     <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
 <center><A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm91_rookie','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A></center><BR/>
 <!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
