@@ -62,6 +62,31 @@ public class TransactionServlet extends HttpServlet {
     
     private static final String TX_PAGE_ACCEPT = "/Tx/Accepted.jsp"; 
     private static final String TX_PAGE_REJECT = "/Tx/Rejected.jsp";
+
+
+    /**
+     * op=status will show transaction status page
+     *
+     * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     */
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException
+    {
+        String op = req.getParameter(KEY_OPERATION);
+        if( OP_TX_STATUS.equals(op) ) {
+            try {
+                String retPage = txStatus(req, resp);
+                req.getRequestDispatcher(retPage).forward(req, resp);
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+                req.setAttribute(KEY_EXCEPTION, e);
+                req.getRequestDispatcher(TX_PAGE_REJECT).forward(req, resp);
+            }
+            return;
+        }
+        throw new ServletException("get op "+op+" not supported");
+    }
     
     /**
      * op=begin&prod-id=IDNUM&utype-id=UTID will start transaction
