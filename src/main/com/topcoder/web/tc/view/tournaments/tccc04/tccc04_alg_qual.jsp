@@ -55,7 +55,7 @@
 
             <p>Click a column name to sort the list of advancers by that column.</p>
 
-            <table width="510" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="header" width="100%" colspan="5">Qualification Round</td>
                </tr>
@@ -70,17 +70,17 @@
                            Handle
                        </a>
                    </td>
-                   <td class="testTableTitle_off" width="20%" align="center">
+                   <td class="testTableTitle_off" width="30%" align="center">
                        <a class="statTextBig" href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Problem Set
                        </a>
                    </td>
-                   <td class="testTableTitle_off" width="20%" align="right">
+                   <td class="testTableTitle_off" width="15%" align="right">
                        <a class="statTextBig" href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
                    </td>
-                   <td class="testTableTitle_off" width="20%" align="right">
+                   <td class="testTableTitle_off" width="15%" align="right">
                        <a class="statTextBig" href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Points
                        </a>
@@ -88,14 +88,13 @@
                 </tr>
 
                 <%boolean even = false;%>
-                <rsc:iterator list="<%=rsc%>" id="resultRow">
-                    <tr class="formHandleOdd">
-                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
-                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="center"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
-                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
-                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
-                   </tr>
+                <rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="formHandleOdd">
+<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="center" nowrap="0"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
+<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
+</tr>
                    <%even=!even;%>
                 </rsc:iterator>
 
