@@ -21,7 +21,7 @@ public class SimpleSearch extends Base {
             getRequest().setAttribute("memberSearch", results);
             if (results.getTotal()==1) {
                 long userId = results.getResults().getLongItem(0, "user_id");
-                setNextPage("/stats?c=member_profile&cr="+userId);
+                setNextPage("/stat?c=member_profile&cr="+userId);
                 setIsNextPageInContext(true);
             } else {
                 setNextPage(Constants.SIMPLE_SEARCH_RESULTS);
