@@ -181,7 +181,7 @@ public class <class-name> {
                         this may seem extraneous, given the <strong>++</strong> button, it has the advantage that it will parse String arrays that use double 
                         quotes, so that you can copy and paste the example test cases directly from the problem statement.  For example, to enter 
                         the String[], {"a","b","c"}, you would simply have to enter {"a","b","c"} and press <strong>{}</strong>.  If you want to use the 
-                        characters “ or \ in a String[], you have to escape them with a \.  Thus, \" represents a double quote, and \\ represents a 
+                        characters " or \ in a String[], you have to escape them with a \.  Thus, \" represents a double quote, and \\ represents a 
                         single backslash.  For example {"\"\\\""} represents a String[] with the single element: "\".  The advantage to the <strong>{}</strong> 
                         button is that any array sample input can be copied directly from the problem statement, and created by pasting and 
                         clicking <strong>{}</strong>.  A couple of notes about the <strong>{}</strong> button are that the curly brackets at the front and end are optional, and the 
@@ -193,7 +193,7 @@ public class <class-name> {
                         <p>At any point after a successful compilation, you have the option to submit your code.  It is important to realize that 
                         submission can be made regardless of whether or not your submission is correct. </p>
                         
-                        <p>You do have the option of submitting a problem multiple times.  If, after you’ve already submitted a problem, you 
+                        <p>You do have the option of submitting a problem multiple times.  If, after you've already submitted a problem, you 
                         discover an error in your submission, you may submit that problem again.  However, the additional time elapsed between 
                         the previous submission and the most recent will be included in your time.</p>
                     </td>

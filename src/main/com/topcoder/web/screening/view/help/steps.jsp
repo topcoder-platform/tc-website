@@ -75,7 +75,7 @@
                         <h1 class="bodyTitle">Perform the Following Steps</h1>
                         
                         <p>This section outlines the steps that you need to perform in order to access and use the Testing Application.  Please use these 
-                        steps to guide you through the process.  Additional information about specific area in the Testing Application can be found later 
+                        steps to guide you through the process.  Additional information about specific areas in the Testing Application can be found later 
                         in the manual.</p>
 
                         <p class="bodySubtitle"><strong>Step 1 - Loading the Application</strong></p>
@@ -113,7 +113,7 @@
                                 <ul>
                                     <li>Once you click the <strong>Open</strong> button, a <a href="codingWindow.jsp">coding window</a> will pop up on your screen.</li>
                                     <li>Solving the example problem will provide you with an opportunity to acclimate yourself with how the Application works 
-                                    and what you’ll be asked to do during the two testing phases.</li>
+                                    and what you'll be asked to do during the two testing phases.</li>
                                 </ul>
                             </li>
                             <li>Once you are comfortable with the system functionality, click the <strong>Continue</strong> button at the bottom of the screen.
@@ -136,7 +136,7 @@
                             <li>Once you open one of the problems the <a href="timer.jsp">Timer</a> will start counting down.</li>
                             <li>Proceed to Test Set B by clicking the <strong>Continue</strong> button when one of the following is true:
                                 <ul>
-                                    <li>You have submitted solution to all 3 problems in Test Set A.</li>
+                                    <li>You have submitted solutions to all 3 problems in Test Set A.</li>
                                     <li>You feel as though you have solved as many problems as possible.</li>
                                     <li>Your 75 minutes have expired.</li>
                                 </ul>
@@ -155,7 +155,7 @@
                             </li>
                             <li>Click the <strong>Continue</strong> button when one of the following is true:
                                 <ul>
-                                    <li>You have submitted all of the problems presented in Test Set B.</li>
+                                    <li>You have submitted solutions to all of the problems presented in Test Set B.</li>
                                     <li>You feel as though you have solved as many problems as possible.</li>
                                     <li>Your allotted time has expired.</li>
                                 </ul>
