@@ -2,8 +2,6 @@ package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCO04ComponentTerms;
-import com.topcoder.web.tc.controller.request.util.TCO04AlgorithmTerms;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
