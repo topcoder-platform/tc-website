@@ -28,8 +28,8 @@
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="70%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+        <td width="50%"></td>
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
             <p class="testHead">Problem Detail</p>
@@ -38,7 +38,7 @@
             </table>
             <p></p>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
             <jsp:useBean id="problemInfo" type="com.topcoder.web.corp.model.ProblemInfo" scope="request" />
             <TR>
               <TD COLSPAN="6" CLASS="screeningTitle"><jsp:getProperty name="problemInfo" property="problemName" /></TD>
@@ -63,7 +63,7 @@
 
          <p></p>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
            <TR>
               <TD CLASS="screeningTitle">Problem Statement:</TD>
            </TR>
@@ -76,6 +76,7 @@
 
             <p><br></p>
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends -->
 
 <!-- Gutter -->

@@ -85,8 +85,9 @@ if ( plugin ) {
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
             <p class="testHead">Problem Results</p>                
@@ -98,7 +99,7 @@ if ( plugin ) {
 
 
             <FORM>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
 	        <TR>
 		       <TD VALIGN="top" CLASS="bodyText">
                            <B>Candidate:</B> <screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink>
@@ -164,7 +165,7 @@ if ( plugin ) {
 	        </TR>
          </TABLE>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
            <TR>
               <TD align="left" CLASS="screeningTitle">&#160;Code:</TD>
            </TR>
@@ -177,7 +178,7 @@ if ( plugin ) {
 
          <p></p>
 
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
            <TR>
               <TD COLSPAN="4" CLASS="screeningTitle"><B>System Test</B></TD>
            </TR>
@@ -208,7 +209,7 @@ if ( plugin ) {
 
          <p></p>
          <% if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
-            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
            <TR>
               <TD COLSPAN="4" CLASS="screeningTitle">Top TopCoder Solutions</TD>
            </TR>	        
@@ -242,6 +243,7 @@ if ( plugin ) {
 </FORM>         
             <p><br></p>
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends -->
 
 <!-- Gutter -->

@@ -32,7 +32,8 @@
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="70%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="50%"></td>
+        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="50%">
                 <tr valign="top">
                     <td class="bodyText">
@@ -81,6 +82,7 @@
          </table>
             <p><br></p>
         </td>
+        <td width="50%"></td>
 <!-- Middle Column ends -->
 
 <!-- Gutter -->
