@@ -110,7 +110,7 @@ public class FullRegConfirm extends FullRegBase {
         FullRegInfo info = null;
         if (getRegInfoFromPersistor() == null) {
             //perhaps we should load it up from the db...in the case of updates...
-            throw new NavigationException("Sorry, your session has expired, you'll have to begin again.");
+            throw new NavigationException("Sorry, your session has expired.");
         } else {
             info = (FullRegInfo) super.makeRegInfo();
 
