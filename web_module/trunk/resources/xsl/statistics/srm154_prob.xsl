@@ -68,7 +68,7 @@
                             </tr>
 
                             <tr valign="middle">
-                                <td class="bodyText">Wednesday, June 9, 2003</td>
+                                <td class="bodyText">Wednesday, July 9, 2003</td>
                                 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
                             </tr>
                         </table>
