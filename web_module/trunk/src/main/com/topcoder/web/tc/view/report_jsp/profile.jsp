@@ -304,7 +304,7 @@
       <td><b>Date</b></td>
       <td><b>Violation</b></td>
       </tr>
-       <rsc:iterator list="<%=addressList%>" id="resultRow">
+       <rsc:iterator list="<%=violationList%>" id="resultRow">
     <tr>
       <td><rsc:item name="date" row="<%=resultRow%>" format="MM/dd/yyyy"/></td>
       <td><rsc:item name="description" row="<%=resultRow%>"/></td>
