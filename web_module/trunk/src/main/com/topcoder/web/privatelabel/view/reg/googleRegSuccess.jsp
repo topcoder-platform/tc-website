@@ -34,7 +34,7 @@ function openWin(url, name, w, h) {
 
 <!-- Header -->
          <td width="100%" valign="top" class="bodyText" colspan="3">
-       
+
          <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
             <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
             <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="10"></td></tr>
@@ -72,11 +72,11 @@ function openWin(url, name, w, h) {
 <!-- Gutter Ends -->
 
 <!-- Left Column Begins -->
-        <td width="150" valign="top">      
+        <td width="150" valign="top">
             <img src="/i/clear.gif" width="150" height="10" border="0"/><br />
             <img src="/i/events/google2003/left.gif" width="150" height="450" border="0" usemap="#tchome"/>
             <map name="tchome"><area shape="rect" alt="TC" coords="1,1,149,49" href="/" /></map>
-         </td>         
+         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -85,13 +85,17 @@ function openWin(url, name, w, h) {
 
 <!-- Center Column Begins-->
          <td width="100%" class="bodyText" valign="top">
-            <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
+            <img src="/i/clear.gif" width="10" height="10" border="0"/><br />
 
-<h2>Registration</h2>
+<h2>Registration Successful!</h2>
 <p>
-Registration Successful!<br/><br/>
+<br/><br/>
 
-Thank you for registering for the Google Extreme Coding Challenge.<br/><br/>
+<b>In order to be eligible to compete in the Google Extreme Coding Challenge,
+you must activate your account by follwoing the directions sent to you via
+email to the email address provided during registration.  You <u>will not</u> be
+able to compete if you do not activate your account.</b>
+<br/><br/>
 
 If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a><br/><br/>
 
