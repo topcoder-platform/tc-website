@@ -7,9 +7,6 @@
  */
 package com.topcoder.web.ejb.preferencelevel;
 
-import com.topcoder.web.corp.common.DuplicatePreferenceLevelException;
-import com.topcoder.web.corp.common.NoSuchPreferenceLevelException;
-
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
@@ -43,7 +40,7 @@ public interface PreferenceLevel extends EJBObject {
      * @param  level an <code>int</code> preference level for specified candidate.
      * @param  modifyUserId a <code>long</code> containing the ID of a user attempting to create a preference level.
      * @throws RemoteException as required by the <code>EJB Specification</code>.
-     * @throws DuplicatePreferenceLevelException if a preference level relevant to specified company is already set for
+     * @throws com.topcoder.web.ejb.preferencelevel.DuplicatePreferenceLevelException if a preference level relevant to specified company is already set for
      *         specified candidate.
      * @see    #update(String, long, long, int, long)
      */
@@ -63,7 +60,7 @@ public interface PreferenceLevel extends EJBObject {
      * @param  level an <code>int</code> representing the new preference levele for specified candidate.
      * @param  modifyUserId a <code>long</code> containing the ID of a user attempting to update a preference level.
      * @throws RemoteException as required by the <code>EJB Specification</code>.
-     * @throws NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
+     * @throws com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
      *         company hasn't been specified yet.
      * @see    #createUserPreference(String, long, long, int, long)
      */
@@ -80,7 +77,7 @@ public interface PreferenceLevel extends EJBObject {
      * @param  userId a <code>long</code> containing the ID of a candidate to get the preference level for.
      * @return an <code>int</code> representing the candidate's preference level relevant to specified company.
      * @throws RemoteException as required by the <code>EJB Specification</code>.
-     * @throws NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
+     * @throws com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
      *         company hasn't been specified yet.
      */
     int getLevel(String dataSource, long companyId, long userId) throws RemoteException, NoSuchPreferenceLevelException;
@@ -94,7 +91,7 @@ public interface PreferenceLevel extends EJBObject {
      * @param  userId a <code>long</code> containing the ID of a candidate to get the last "modify" user for.
      * @return a <code>long</code> ID of a user modified the preference level for specified candidate last time.
      * @throws RemoteException as required by the <code>EJB Specification</code>.
-     * @throws NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
+     * @throws com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
      *         company hasn't been specified yet.
      */
     long getModifyUserId(String dataSource, long companyId, long userId) throws RemoteException,

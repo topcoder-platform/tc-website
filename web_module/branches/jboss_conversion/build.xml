@@ -590,8 +590,6 @@
          <jar jarfile="${ejb_jars}/PreferenceLevel.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/corp/common/NoSuchPreferenceLevelException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/corp/common/DuplicatePreferenceLevelException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/preferencelevel/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/preferencelevel" includes="*.xml"/>
          </jar>
