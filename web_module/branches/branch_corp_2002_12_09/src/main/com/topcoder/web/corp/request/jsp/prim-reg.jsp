@@ -1,8 +1,6 @@
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag";
-    page
-    	import="com.topcoder.web.corp.request.Registration" 
-%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<@page import="com.topcoder.web.corp.request.Registration" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
