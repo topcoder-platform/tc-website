@@ -48,7 +48,7 @@
 
 <!-- Design Winners Begins -->
 
-            <table border="0" cellspacing="0" cellpadding="3" width="500" align="center" class="formFrame">
+            <table border="0" cellspacing="0" cellpadding="3" width="450" align="center" class="formFrame">
                 <tr valign="middle">
                     <td class="advTitle" colspan="3">Design Participants</td>
                 </tr>
@@ -131,7 +131,7 @@
 
            <br/><br/>
 
-            <table border="0" cellspacing="0" cellpadding="3" width="500" align="center" class="formFrame">
+            <table border="0" cellspacing="0" cellpadding="3" width="450" align="center" class="formFrame">
                 <tr valign="middle">
                     <td class="projectTitles"colspan="6">Project Submissions</td>
                 </tr>
@@ -140,7 +140,7 @@
                     <td class="advHeader" width="15" align="center">Total<br/>Submissions</td>
                     <td class="advHeader" width="15%" align="center">Place</td>
                     <td class="advHeader" width="20%">Submitter(s)</td>
-                    <td class="advHeader" width="15%" align="center">Board&#160;Score</td>
+                    <td class="advHeader" width="15%" align="center">Board<br/>Score</td>
                     <td class="advHeader" width="10%" align="right">Multiplier</td>
                 </tr>
 
