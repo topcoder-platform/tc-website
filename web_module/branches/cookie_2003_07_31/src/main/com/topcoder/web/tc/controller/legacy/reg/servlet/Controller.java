@@ -51,7 +51,9 @@ public class Controller
                 }
                 session = request.getSession(true); // for now create a new session, later this'll be done in the front page
                 Navigation nav = (Navigation)session.getAttribute("navigation");
-                if (!nav.isLoggedIn()) throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
+                if (nav == null) nav = new Navigation(request, response);
+                if (!nav.isLoggedIn())
+                    throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
                 Object taskObject = session.getAttribute(taskName);
                 Task task = null;
                 Class taskClass = null;
