@@ -28,19 +28,22 @@
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
 <!-- Application Projects begins -->
+        <script>
+        <!--
+
             <A href="/?t=development&amp;c=app_projects"><img src="/i/header_app_projects.gif" alt="Application Projects" width="238" height="20" border="0" /></A>
             <table width="238" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open Application projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$10,555</span> in payments. 
+                                <td class="devProjectText">Currently open Application projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$10,555</span> in payments.
                                     <strong><A href="/?t=development&amp;c=app_projects">Inquire today</A></strong></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
@@ -86,7 +89,7 @@
                         </table>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
@@ -113,13 +116,15 @@
                     </td>
                 </tr>
             </table>
-            
+
             <table width="238" border="0" cellspacing="0" cellpadding="0">
                 <tr valign="middle">
                     <td class="statText" width="21" height="20"><img src="/i/development/dev_right_bottom.gif" width="21" height="20" border="0" /></td>
                     <td class="statText" width="99%" height="20" bgcolor="#838383" align="right"><A href="/?t=development&amp;c=app_projects"><strong>View all projects</strong></A>&#160;</td>
                 </tr>
             </table>
+        -->
+        </script>
 <!-- Application Projects ends -->
 
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
