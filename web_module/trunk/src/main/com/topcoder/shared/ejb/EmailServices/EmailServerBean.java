@@ -391,7 +391,7 @@ public class EmailServerBean extends BaseEJB {
             sqlStmt.append(" sched_job_detail_id = ?");
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, status);
-            ps.setBytes(2, reason.getBytes());
+            ps.setString(2, reason);
             ps.setInt(3, jobId);
             ps.setInt(4, detailId);
             rows = ps.executeUpdate();
