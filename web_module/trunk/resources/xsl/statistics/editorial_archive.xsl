@@ -47,6 +47,7 @@
 
                             <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
                             <tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>January</strong></td></tr>
+                            <tr><td class="bodyText">&#160;01.15.05</td><td class="bodyText" nowrap="0">&#160;TCCC05 - Online Round 1 - <a href="/index?t=statistics&amp;c=tccc05_online_rd_1">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;01.12.05</td><td class="bodyText" nowrap="0">&#160;TCCC05 - Qualification 5 - <a href="/index?t=statistics&amp;c=tccc05_qual_5">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;01.12.05</td><td class="bodyText" nowrap="0">&#160;TCCC05 - Qualification 4 - <a href="/index?t=statistics&amp;c=tccc05_qual_4">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;01.12.05</td><td class="bodyText" nowrap="0">&#160;TCCC05 - Qualification 3 - <a href="/index?t=statistics&amp;c=tccc05_qual_3">Problem Set &amp; Analysis</a></td></tr>
