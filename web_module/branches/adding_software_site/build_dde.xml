@@ -102,16 +102,15 @@
     <property name="jboss.deploy.dir" value="${jboss.default.dir}/deploy"/>
     <property name="jboss.conf.dir" value="${jboss.default.dir}/conf"/>
     <property name="jboss.lib.dir" value="${jboss.default.dir}/lib"/>
-    <property name="tcs.jboss.lib.dir" value="${jardir}/jboss"/>
 
     <!-- Dependencies -->
     <property name="idgenerator.jar" value="${jardir}/idgenerator.jar"/>
     <property name="searchengine.jar" value="${jardir}/searchengine.jar"/>
     <property name="configmanager.jar" value="${jardir}/tcs/configuration_manager.jar"/>
-    <property name="emailengine.jar" value="${jardir}/emailengine.jar"/>
+    <property name="emailengine.jar" value="${jardir}/tcs/email_engine.jar"/>
     <property name="render.jar" value="${jardir}/render.jar"/>
     <property name="security.jar" value="${jardir}/security.jar" />
-    <property name="forum.jar" value="${jardir}/forum.jar"/>
+    <property name="forum.jar" value="${jardir}/tcs/forum.jar"/>
     <property name="tcsutil.jar" value="${jardir}/tcsUtil.jar"/>
 
     <property name="emailaddressvalidator.jar" value="${tcslibdir}/tcs/email_address_validator/1.0/email_address_validator.jar"/>
@@ -132,9 +131,9 @@
     <property name="jce1_2-do.jar" value="${tcslibdir}/jce1_2-do.jar"/>
     <property name="xerces.jar" value="${tcslibdir}/xerces.jar"/>
     <property name="javamail.jar" value="${jardir}/mail.jar"/>
-    <property name="jboss-j2ee.jar" value="${tcs.jboss.lib.dir}/jboss-j2ee.jar"/>
-    <property name="jboss-system.jar" value="${tcs.jboss.lib.dir}/jboss-system.jar"/>
-    <property name="jboss-jmx.jar" value="${tcs.jboss.lib.dir}/jboss-jmx.jar"/>
+    <property name="jboss-j2ee.jar" value="${tcslibdir}/jboss/jboss-j2ee.jar"/>
+    <property name="jboss-system.jar" value="${tcslibdir}/jboss/jboss-system.jar"/>
+    <property name="jboss-jmx.jar" value="${tcslibdir}/jboss/jboss-jmx.jar"/>
     <property name="servlet.jar" value="${tcslibdir}/servlet.jar"/>
     <property name="junit.jar" value="${jardir}/junit.jar"/>
     <property name="junitejb.jar" value="${tcslibdir}/junitejb.jar"/>
@@ -187,6 +186,7 @@
     <path id="runtime.classpath">
         <path refid="test.build.classpath"/>
         <pathelement location="${jdbc.jar}"/>
+<!--
         <fileset dir="${tcs.jboss.lib.dir}">
             <include name="jnp-client.jar"/>
             <include name="jnet.jar"/>
@@ -194,6 +194,7 @@
             <include name="jbosssx-client.jar"/>
             <include name="jboss-common-client.jar"/>
         </fileset>
+-->
     </path>
 
     <target name="compile">
