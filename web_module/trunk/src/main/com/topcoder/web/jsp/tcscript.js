@@ -1,12 +1,6 @@
-if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
-  document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle_linux.css"/>');
-} else {
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>');
-}
 
   function getGraph(url,wd,ht) {
     var last=0;
