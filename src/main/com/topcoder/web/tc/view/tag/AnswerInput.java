@@ -18,15 +18,10 @@ public class AnswerInput extends BaseTag {
     private String cssclass;
     private Question question;
     private Iterator answers;
-    private String id;
 
     public AnswerInput() {
         super();
         cssclass = null;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public void setClass(String cssclass) {
