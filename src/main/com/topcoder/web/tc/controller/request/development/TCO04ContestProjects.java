@@ -22,7 +22,7 @@ public class TCO04ContestProjects extends StatBase {
     }
     
     String getPageName() {
-        return "/tournament/tco04/contest_projects.jsp";
+        return "/tournaments/tco04/contest_projects.jsp";
     }
     
     void statProcessing() throws com.topcoder.web.common.TCWebException {
