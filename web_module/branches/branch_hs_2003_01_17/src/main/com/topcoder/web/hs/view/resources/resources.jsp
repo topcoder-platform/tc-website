@@ -52,20 +52,20 @@ JavaWorld.com, an IDG Communications company </P>
 
 <P><B><A HREF="http://java.sun.com/docs/books/tutorial/" TARGET="_blank">http://java.sun.com/docs/books/tutorial/</A></B><BR/>
 The Java Tutorial
-A practical guide for programmers, with hundreds of complete, working examples and 
+A practical guide for programmers, with hundreds of complete, working examples and
 dozens of trails--groups of lessons on a particular subject.</P>
 
 <P><B><A HREF="http://java.sun.com/docs/books/tutorial/java/" TARGET="_blank">http://java.sun.com/docs/books/tutorial/java/</A></B><BR/>
-Trail: Learning the Java Language 
-This trail covers the fundamentals of programming in the Java programming language.</P> 
+Trail: Learning the Java Language
+This trail covers the fundamentals of programming in the Java programming language.</P>
 
 <P><B><A HREF="http://www.jguru.com/" TARGET="_blank">http://www.jguru.com/</A></B><BR/>
 Your view of the Java universe </P>
 
 <P><B><A HREF="http://www.javacoffeebreak.com/" TARGET="_blank">http://www.javacoffeebreak.com/</A></B><BR/>
-The Coffee Break  
+The Coffee Break
 Your free guide to learning the Java™ programming language</P>
- 
+
 
 <P><B>C++</B></P>
 
@@ -83,7 +83,7 @@ Standard Template Library Programmer's Guide</P>
 Master C#, the easy way</P>
 
 <P><B><A HREF="http://www.c-sharpcorner.com/" TARGET="_blank">http://www.c-sharpcorner.com/</A></B><BR/>
-The C-sharpcorner.com was formed and maintained by professionals, who strongly believe 
+The C-sharpcorner.com was formed and maintained by professionals, who strongly believe
 in sharing their piece of code with other developers.</P>
 
 <P><B>Books</B></P>
@@ -111,7 +111,7 @@ in sharing their piece of code with other developers.</P>
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -126,7 +126,7 @@ in sharing their piece of code with other developers.</P>
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
 <jsp:include page="../includes/right_resources.jsp" />
-</TD>		
+</TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

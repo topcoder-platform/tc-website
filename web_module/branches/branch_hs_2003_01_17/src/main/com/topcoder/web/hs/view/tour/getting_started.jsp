@@ -41,7 +41,7 @@
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body Starts-->
-            <P><A HREF="?module=Static&d1=tour&d2=getting_started">Getting Started</A>  |  <A HREF="?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</A> 
+            <P><A HREF="?module=Static&d1=tour&d2=getting_started">Getting Started</A>  |  <A HREF="?module=Static&d1=tour&d2=general_usage">General TopCoder Arena Usage</A>
 
 
 
@@ -68,17 +68,17 @@ The following port access will be necessary in order to run the TopCoder Arena:<
 
 <P><B>HTTP Tunneling</B><BR/>
 Without using HTTP tunneling the TopCoder Arena creates a direct socket connection to the TopCoder competition server.  In order to function, your local networking environment must allow outbound TCP connections to www.topcoder.com on port 5001.  Since port 5001 is a non-standard port, many firewalls will not allow this access.  If you do not have control over allowing this access, you do have the option to run the Arena utilizing HTTP tunneling.  By checking the HTTP Tunneling option on the Arena login screen, all network traffic to and from the TopCoder competition server will be wrapped as if it were standard HTTP traffic on a standard port (port 80).  This should resolve most firewall issues.  However, you should only utilize the tunneling option if it is necessary since the performance of the Arena will be significantly slower while the tunneling option is being utilized.</P>
-         
+
 <P><BR/></P>
-                        
-            <!--Body Ends-->            
+
+            <!--Body Ends-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -89,10 +89,10 @@ Without using HTTP tunneling the TopCoder Arena creates a direct socket connecti
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

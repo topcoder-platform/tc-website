@@ -52,11 +52,11 @@ The more a coder competes, the better their rating can become. Ratings are the k
 As you look through the site, you will see color coding with member's handles. These colors indicate the rating level of that member. Participating members (those who compete versus spectate) are able to view each other's profiles, past code submissions, statistics and more.</p>
 <P>
 -<B> There is no cost to <A HREF="?module=Static&d1=registration&d2=registration">register</A> or participate in TopCoder High School</B> -</P>
-                        
-                        
-             <P><BR/></P>           
-                        
-                        
+
+
+             <P><BR/></P>
+
+
                         <!--TopCoder HighSchool is fast becoming the major league for programming competitions. TopCoder brings members together once a week to compete online (Single Round Match) and twice a year both online and on location (Tournaments).</P>
 
 <P><B>Why Online Competitions</B><BR/>
@@ -78,7 +78,7 @@ Reaching the developer community is a difficult task at best. Marketing budgets 
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -89,10 +89,10 @@ Reaching the developer community is a difficult task at best. Marketing budgets 
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

@@ -17,8 +17,8 @@ public class SessionInfoBean implements Serializable {
     private static Logger log = Logger.getLogger(SessionInfoBean.class);
 
     private String handle = null;
-    private int userid = -1;  //@@@ should be long
-    private int schoolid = -1;  //@@@ should be long
+    private long userid = -1;
+    private long schoolid = -1;
     /** group may be:
      * 'G' guest
      * 'S' student
@@ -32,10 +32,10 @@ public class SessionInfoBean implements Serializable {
 
     public String getHandle() { return handle; }
     public void   setHandle(String handle) { this.handle = handle; }
-    public int    getUserId() { return userid; }
-    public void   setUserId(int userid) { this.userid = userid; }
-    public int    getSchoolId() { return schoolid; }
-    public void   setSchoolId(int schoolid) { this.schoolid = schoolid; }
+    public long    getUserId() { return userid; }
+    public void   setUserId(long userid) { this.userid = userid; }
+    public long    getSchoolId() { return schoolid; }
+    public void   setSchoolId(long schoolid) { this.schoolid = schoolid; }
     public char   getGroup() { return group; }
     public void   setGroup(char group) {
         if(0>"GSCA".indexOf(group))
@@ -60,7 +60,7 @@ public class SessionInfoBean implements Serializable {
      */
     public void setAll(User user, Set groups) {
 
-        setUserId((int)user.getId());
+        setUserId(user.getId());
         setHandle(user.getUserName());
 
         if(groups.contains("Admin")) setGroup('A');

@@ -32,7 +32,7 @@
    }
 </script>
 
-<%@ include file="body.inc" %> 
+<%@ include file="body.inc" %>
 
          <!-- BEGIN BODY -->
 
@@ -44,7 +44,7 @@
              <TD COLSPAN="2" VALIGN="top" BGCOLOR="#001934" WIDTH="100%"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDE
 R="0"/><BR/>
 
-<% 
+<%
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Coder_Ratings");
 pageContext.setAttribute("resultSet", rsc);
 
@@ -56,7 +56,7 @@ int iFirst = 1;
 try{
   iCurrentPage = Integer.parseInt(srb.getProperty("pg","1"));
   iLast = Integer.parseInt(srb.getProperty("Last","150"));
-  iFirst = Integer.parseInt(srb.getProperty("First","1"));  
+  iFirst = Integer.parseInt(srb.getProperty("First","1"));
   iEndRow = Integer.parseInt(srb.getProperty("er","50"));
 }catch(Exception e){
 //ignore
@@ -82,12 +82,12 @@ try{
 				   <% } else {%>
 				     &lt;&lt; previous
 				   <% } %>
-                     |   
+                     |
 				 <% if (iEndRow < iLast) {%>
                      <A HREF="javascript:submitForm(<%= iCurrentPage + 1 %>);" CLASS="statText">next &gt;&gt;</A>
 				   <% } else {%>
 				     next &gt;&gt;
-				   <% } %>					 
+				   <% } %>
                    </TD>
                  </TR>
                  <TR>
@@ -135,12 +135,12 @@ try{
 				   <% } else {%>
 				     &lt;&lt; previous
 				   <% } %>
-                     |   
+                     |
 				 <% if (iEndRow < iLast) {%>
                      <A HREF="javascript:submitForm(<%= iCurrentPage + 1 %>);" CLASS="statText">next &gt;&gt;</A>
 				   <% } else {%>
 				     next &gt;&gt;
-				   <% } %>			
+				   <% } %>
                    </TD>
                  </TR>
                  <TR>

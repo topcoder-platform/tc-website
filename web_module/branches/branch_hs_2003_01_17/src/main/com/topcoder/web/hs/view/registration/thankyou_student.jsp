@@ -6,5 +6,5 @@
 <P><B>Your school does not currently have a coach. We require that each school have a coach in order to participate. Please encourage your school administration to get involved with TopCoder High School.</B></P>
 <% } %>
 <P><B>Best of luck to you in the High School Arena!</B></P>
-<%@ include file="tail.inc" %>        
+<%@ include file="tail.inc" %>
 

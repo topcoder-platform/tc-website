@@ -55,7 +55,7 @@ Host of Computer Programming Contests Offer Team Competitions at Connecticut Hig
 
 <P>Competing students will receive a rating based upon their performance in the competitions. This rating is a true indicator of programming talent and problem solving skills. This competitive experience offers students a way to differentiate themselves in the college admission process, and enables colleges to determine the most proficient programmers at a high school level for admission to their computer science and/or engineering programs. </P>
 
-<P>There is no sign-up fee for schools or students. The program will be funded through corporate sponsorship. Interested companies should contact Drew Vaughn at (860) 633-5540 or <A HREF="mailto:dvaughn@topcoder.com">dvaughn@topcoder.com.</A></P> 
+<P>There is no sign-up fee for schools or students. The program will be funded through corporate sponsorship. Interested companies should contact Drew Vaughn at (860) 633-5540 or <A HREF="mailto:dvaughn@topcoder.com">dvaughn@topcoder.com.</A></P>
 
 
 
@@ -66,15 +66,15 @@ TopCoder, Inc. organizes and hosts online and onsite programming competitions fo
 <P><B>About the Connecticut Association of Schools</B><BR/>
 The Connecticut Association of Schools (CAS) is chartered by the State of Connecticut as a non-profit, tax-exempt educational organization serving schools, their students and staff, in all areas of operation. CAS has emerged as an informed leader within Connecticut's education system, providing services to well over 1,100 member schools in areas ranging from academics to athletics. CAS's mission is to serve as advocates for children while striving to strengthen the professional skills and talents of the school leaders of Connecticut. </P>
 
-<P><BR/></P>                        
-            <!-- Body Ends Here-->            
+<P><BR/></P>
+            <!-- Body Ends Here-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -85,10 +85,10 @@ The Connecticut Association of Schools (CAS) is chartered by the State of Connec
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

@@ -32,7 +32,7 @@ A.registerToday:visited { font-family:tahoma, arial, sans-serif; color:#FFFFFF; 
 A.registerToday:hover { font-family:tahoma, arial, sans-serif; color:#999999; font-size:10px; font-weight:bold; text-decoration:none }
 A.registerToday:active { font-family:tahoma, arial, sans-serif; color:#999999; font-size:10px; font-weight:bold; text-decoration:none }
 
-.memberhandle { font-family:verdana, arial, helvetica, sans-serif; font-size:10px; font-weight:bold; color:#FFFFFF } 
+.memberhandle { font-family:verdana, arial, helvetica, sans-serif; font-size:10px; font-weight:bold; color:#FFFFFF }
 
 .dropdown { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; color:#666666; background-color:#FFFFFF }
 
@@ -103,7 +103,7 @@ A.coderTextBlue:visited { font-family:tahoma, arial, verdana, helvetica, sans-se
 A.coderTextBlue:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#66CCCC; font-size:10px; font-weight:normal; text-decoration:none }
 A.coderTextBlue:active { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#66CCCC; font-size:10px; font-weight:normal; text-decoration:none }
 
-.coderTextGreen { font-family:arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px }  
+.coderTextGreen { font-family:arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px }
 A.coderTextGreen:link { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px; font-weight:normal; text-decoration:none }
 A.coderTextGreen:visited { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px; font-weight:normal; text-decoration:none }
 A.coderTextGreen:hover { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#99FF33; font-size:10px; font-weight:normal; text-decoration:none }

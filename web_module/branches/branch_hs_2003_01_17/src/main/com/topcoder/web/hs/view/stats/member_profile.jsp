@@ -25,13 +25,13 @@ if (!bEmpty) {
          <% if (!bEmpty) { %>
                  <TR>
                    <TD COLSPAN="5" CLASS="statText">
-          <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>           
+          <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>
                      <B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
                    </TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="5" CLASS="statText">
-          <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>           
+          <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>
                      <B>School:</B>&#160;<B><bean:write name="resultRow" property='<%= "item[" + 3 /* school full_name */ + "]" %>'/></B>
                    </TD>
                  </TR>
@@ -88,15 +88,7 @@ if (!bEmpty) {
                   <TD CLASS="statText" ALIGN="left">&#160;</TD>
                 </TR>
                 <TR>
-                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                </TR>                
-                <TR>
-                  <TD COLSPAN="4" CLASS="statText">
-                  <% if ( SessionInfo.isLoggedIn() && Integer.parseInt(rsr.getItem(1).toString())==SessionInfo.getUserId() ) { %><A HREF="?module=UpdateStudent"%>" CLASS="statText" TARGET="_parent">Update your profile</A>
-<% } else { %>&#160;<% } %>
-                  </TD>
-                </TR>                
-                  <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
+                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
                 </TR>
         <% } else { %>
         <TR>
@@ -115,7 +107,7 @@ if (!bEmpty) {
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Coder_Submission_Summary");
 pageContext.setAttribute("resultSet", rsc2);
 %>
-        
+
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
                   <TD BGCOLOR="#1B2E5D" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&#160;&#160;Submission Information</TD>
@@ -163,7 +155,7 @@ pageContext.setAttribute("resultSet", rsc2);
 <% ResultSetContainer rsc3 = (ResultSetContainer) queryEntries.get("Coder_Challenge_Summary");
 pageContext.setAttribute("resultSet", rsc3);
 %>
-        
+
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
                   <TD BGCOLOR="#1B2E5D" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&#160;&#160;Challenge Information</TD>

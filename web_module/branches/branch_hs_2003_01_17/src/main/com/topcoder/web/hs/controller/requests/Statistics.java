@@ -2,6 +2,7 @@ package com.topcoder.web.hs.controller.requests;
 
 import java.util.*;
 import javax.servlet.*;
+import javax.servlet.http.*;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.util.*;
@@ -25,8 +26,7 @@ public class Statistics extends Base {
 
         Data.initializeDataTypes();
 
-        Map map = getParameterMap(request);
-        Request dataRequest = new Request(map);
+        Request dataRequest = new Request(HttpUtils.parseQueryString(((HttpServletRequest)request).getQueryString()));
         request.setAttribute("REQUEST_BEAN", dataRequest);
 
         DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
@@ -35,16 +35,5 @@ public class Statistics extends Base {
 
         setNextPage("/stats/"+cmd+".jsp");
         setIsNextPageInContext(true);
-    }
-
-    /** This exists as a request method, but only in version 2.3 or later of the servlet API. */
-    private static Map getParameterMap(ServletRequest r) {
-        Map m = new HashMap();
-        Enumeration e = r.getParameterNames();
-        while(e.hasMoreElements()) {
-            String s = (String)e.nextElement();
-            m.put(s, r.getParameter(s));
-        }
-        return m;
     }
 }

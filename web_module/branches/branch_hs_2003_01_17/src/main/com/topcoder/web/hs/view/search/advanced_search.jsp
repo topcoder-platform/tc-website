@@ -40,7 +40,7 @@
                 </TABLE>
             </TD>
             <TD HEIGHT="100%"><BR><BR>
-                        <P CLASS="bodyText">&nbsp;</P>   
+                        <P CLASS="bodyText">&nbsp;</P>
 <P CLASS="bodyText">
          Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle to view information about the Coder.
       </P><TABLE WIDTH="100%"   CELLPADDING="0" CELLSPACING="0" BORDER="0"><FORM METHOD="get" name="searchForm"><INPUT VALUE="search" NAME="t" TYPE="hidden"><INPUT VALUE="member_search" NAME="c" TYPE="hidden"><INPUT VALUE="" NAME="Next" TYPE="hidden"><SCRIPT type="text/javascript">
@@ -134,7 +134,7 @@
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -145,10 +145,10 @@
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

@@ -1,4 +1,4 @@
-        
+
         <A HREF="?module=Static&d1=about&d2=about_sponsor"><IMG SRC="/i/hs/tchs_sidebar.gif" WIDTH="200" HEIGHT="95" ALT="" BORDER="0"></A>
         <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="200">
             <TR>
@@ -36,4 +36,4 @@
                 <IMG SRC="/i/hs/right_bottom_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0">
                  </TD>
             </TR>
-        </TABLE> 
+        </TABLE>

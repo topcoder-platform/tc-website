@@ -47,7 +47,7 @@
 
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;10.30.02</TD><TD VALIGN="middle" CLASS="bodyText">&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=press&d2=pr_10_30_02" >TopCoder Competitions Expand to High Schools</A></TD></TR>
 		</TABLE>
-        
+
 <P><BR/></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&#160;<B>Articles</B> - 2002&#160;&#160;&#160;</TD></TR>
@@ -76,15 +76,15 @@
 <TR><TD COLSPAN="3" CLASS="bodyText" VALIGN="top"><IMG BORDER="0" HEIGHT="15" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR>
 
 		</TABLE>
-<P><BR/></P>                         
-            <!-- Body Ends Here-->            
+<P><BR/></P>
+            <!-- Body Ends Here-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -99,7 +99,7 @@
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
 <jsp:include page="../includes/right_resources.jsp" />
-     </TD>		
+     </TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

@@ -91,9 +91,9 @@ The "Active Users" menu option under the "Main Menu" will provide you with a lis
 You may move around the Arena by using the menus at the top of the Arena.  The "Lobbies" menu will allow you to switch between the various lobbies, the "Practice Rooms" menu provides navigation between the many practice rooms that are available, and the "Active Contests" menu will allow you to move to the various rooms of a specific match or tournament that is being run.  When you first log in, you will automatically be placed into the "Chat Room 1" lobby.  From there you can move to any of the other rooms in the Arena.</P>
 
 <P><B>The Leader Board</B><BR/>
-During times when there is at least one TopCoder event taking place in the Arena, you can get an overview of the action by clicking on the "Leader Board" button on the left side of the Arena.  The leader board window contains a list of all rooms for a given event along with the current leader in each room.  Additional information for each room includes 1) the room number, 2) the seed (expected room placement) of the current leader, and 3) the current point total for the leader.  If there are multiple events taking place, you can switch the leader board to a different event using the "Rounds" drop-down list at the bottom of the leader board window.  Clicking on any of the column headings in the leader board will sort the list by the information in the column that was clicked.</P>  
+During times when there is at least one TopCoder event taking place in the Arena, you can get an overview of the action by clicking on the "Leader Board" button on the left side of the Arena.  The leader board window contains a list of all rooms for a given event along with the current leader in each room.  Additional information for each room includes 1) the room number, 2) the seed (expected room placement) of the current leader, and 3) the current point total for the leader.  If there are multiple events taking place, you can switch the leader board to a different event using the "Rounds" drop-down list at the bottom of the leader board window.  Clicking on any of the column headings in the leader board will sort the list by the information in the column that was clicked.</P>
 
-<P>In addition, you have the option of "drilling in" to any of the rooms by double clicking on any of the individual rooms listed in the leader board.  Drilling into a room will open the "Room Summary" window, which will display each member who is competing in that room, along with their current point totals and status for each of the problems. </P> 
+<P>In addition, you have the option of "drilling in" to any of the rooms by double clicking on any of the individual rooms listed in the leader board.  Drilling into a room will open the "Room Summary" window, which will display each member who is competing in that room, along with their current point totals and status for each of the problems. </P>
 
 <!--<P><B>Click here for additional information on the functionality in the room summary window.</B></P>-->
 
@@ -101,17 +101,17 @@ During times when there is at least one TopCoder event taking place in the Arena
 On occasion, during a TopCoder rated event, we will need to provide some of the participants with additional information about the problem statements.  These types of announcements usually come in the form of problem statement clarifications.  There are three types of administrative messages: General messages, round messages, and problem messages.  The general messages will be sent to all members who are logged in to the Arena at the time of the message, round messages will go to all members who are registered for a given match (or tournament round), and the problem messages (specific to a given problem) will be sent to those who are affected by that problem.  By default, a message will immediately show up on your screen as a pop-up window when it is sent.  However, if you have configured the Arena to disable broadcast pop-ups, the "Messages" button will blink upon receipt of a new message.  Clicking the "Messages" button will open the messages window that contains all of the recent messages that have been sent.  Double clicking on an individual message will allow you to read the full text of the message.  It is a good idea to check the messages each time you log in, especially if you are in the middle of a competition, to make sure that you did not miss any important messages while you were logged out.</P>
 
 
-         
+
 <P><BR/></P>
-                        
-            <!--Body Ends-->            
+
+            <!--Body Ends-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -122,10 +122,10 @@ On occasion, during a TopCoder rated event, we will need to provide some of the 
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

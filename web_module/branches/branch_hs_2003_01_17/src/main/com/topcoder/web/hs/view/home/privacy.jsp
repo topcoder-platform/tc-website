@@ -42,7 +42,7 @@
             <TD HEIGHT="100%" CLASS="bodyText">
             <!-- Start Body-->
             <P><B>PRIVACY POLICY</B></P>
-            
+
 <P>Because we value privacy as much as we value programmers, TopCoder is committed to protecting the privacy of our users.  We want to provide a safe, secure user experience.  We will use reasonable commercial efforts to ensure that the information you submit to us remains private.  Your personal information is immediately transferred from our web server to behind our firewall, where it remains isolated from a direct connection to the Internet.</P>
 
 <P>Our security and Privacy Commitment are periodically reviewed and enhanced as necessary.  However, you should understand that "perfect security" does not exist on the Internet.  The information that you submit to us is used only for the purposes as set forth herein, as required by law, or when we believe in good faith that disclosure is legally required to protect our rights.  We will not use your personal information for any other purpose other than as set out here without first obtaining your permission.  The following reflects our commitment to you.</P>
@@ -74,14 +74,14 @@ TopCoder will provide you with an opportunity to review at any time the informat
 <P><B>Privacy Commitment Changes</B><BR/>
 If we decide to change our privacy commitment for TopCoder High School, we will post those changes here so that you will always know what information we gather, how we might use that information, and whether we will disclose it to anyone.  In the event that we make any significant changes to our Privacy Statement, we will also provide you with the opportunity to consent to different uses of your personal information.  If, at any time, you have questions or concerns about TopCoder High School's privacy commitment, please feel free to e-mail us at <A HREF="mailto:service@topcoder.com">service@topcoder.com</A>.</P>
         <P><BR/></P>
-            <!-- End Body-->            
+            <!-- End Body-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -92,10 +92,10 @@ If we decide to change our privacy commitment for TopCoder High School, we will 
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

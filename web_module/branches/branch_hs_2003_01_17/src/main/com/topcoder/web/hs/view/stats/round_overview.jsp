@@ -1,15 +1,16 @@
 <%@ include file="head.inc" %>
 
 <script language="JavaScript">
-   function submitForm(){
- 	var frm = document.coderRankForm;
-    if (isNaN(parseInt(frm.er.value)))
-      alert(frm.er.value+" is not a valid integer");
-    else{
-      frm.er.value = parseInt(frm.er.value);
-      frm.submit();
+function submitForm(){
+    var frm = document.coderRankForm;
+    var v = parseInt(frm.er.value);
+    if(isNaN(v) || v<=0) {
+        alert(frm.er.value+" is not a positive integer");
+    } else {
+        frm.er.value = v;
+        frm.submit();
     }
-   }
+}
 </script>
 
 <%@ include file="body.inc" %>
@@ -25,7 +26,7 @@
     ResultSetContainer.ResultSetRow currentRow = null;
     int topN = 5;
     try{
-    	topN = Integer.parseInt(srb.getProperty("er","5"));
+        topN = Integer.parseInt(srb.getProperty("er","5"));
     }catch(Exception e){}
     boolean lastMatch = request.getParameter("rd") == null;
 //    if(!lastMatch)lastMatch = request.getAttribute("rd").toString().length()==0;
@@ -87,7 +88,7 @@ pageContext.setAttribute("resultSetDates", rsc);
     </TD>
   </TR>
   <TR>
-  
+
     <TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0" HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;<B>Handle</B></TD>
 <TD VALIGN="middle" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP="0" HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif">&#160;&#160;<B>School</B></TD>
     <TD VALIGN="middle" ALIGN="right" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP="0" HEIGHT="16" class="statText" BACKGROUND="/i/hs/blue_heading_bg.gif"><B>Points&#160;&#160;</B></TD>
@@ -177,7 +178,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 <INPUT TYPE="HIDDEN" NAME="c" VALUE="round_overview">
       Viewing top&#160;&#160;
 <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;
-      <A HREF="javaScript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
+      <A HREF="javascript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
 <INPUT TYPE="HIDDEN" NAME="module" VALUE="Statistics">
 </FORM>
     </TD>

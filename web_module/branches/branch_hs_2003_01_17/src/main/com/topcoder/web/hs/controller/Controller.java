@@ -81,7 +81,7 @@ public class Controller extends HttpServlet {
 
                     /* forward to the login page, with a message and a way back */
                     request.setAttribute("message", "You must login to view this page.");
-                    request.setAttribute("nextpage", canonpath + qtail);
+                    request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + qtail);
 
                     rp = new com.topcoder.web.hs.controller.requests.Login();
                     callProcess(rp, request, response);
