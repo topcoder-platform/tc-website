@@ -11,6 +11,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.corp.controller.request.tces.BaseTask;
@@ -33,6 +34,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
     private int cid;
     private int jid;
     private int mid;
+    private long companyId;
 
     /** Holds value of property handle. */
     private String handle;
@@ -101,6 +103,8 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         try {
             rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             setHasResume(rServices.hasResume(mid, getOltp()));
+            Contact contact = (Contact)BaseProcessor.createEJB(getInitialContext(), Contact.class);
+            setCompanyId(contact.getCompanyId(uid, getOltp()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
             e.printStackTrace();
@@ -254,6 +258,14 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
 
     public void setHasResume(boolean hasResume) {
         this.hasResume = hasResume;
+    }
+
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
     }
 
 }
