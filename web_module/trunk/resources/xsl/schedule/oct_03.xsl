@@ -162,7 +162,7 @@
                                     <A href="/?RoundId=4640&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">15</span><br />
-                                    <strong>2003 TCO</strong><br />
+                                    <strong>2003 TCO: Coding</strong><br />
                                     Online Round #1<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
