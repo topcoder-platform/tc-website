@@ -216,6 +216,12 @@
         <servlet-class>com.topcoder.web.tc.controller.legacy.reg.servlet.Controller</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>jobposting</servlet-name>
+        <display-name>jobposting</display-name>
+        <description>The jobposting controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.jobposting.servlet.Controller</servlet-class>
+    </servlet>
 
     <servlet-mapping>
       <servlet-name>stat</servlet-name>
@@ -235,6 +241,11 @@
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
         <url-pattern>/Registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>jobposting</servlet-name>
+        <url-pattern>/jp</url-pattern>
     </servlet-mapping>
 
 </web-app>
