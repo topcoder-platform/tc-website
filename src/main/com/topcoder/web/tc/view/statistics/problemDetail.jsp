@@ -43,7 +43,7 @@
 
 <!-- BEGIN BODY -->
    <td CLASS="bodyText" WIDTH="100%" VALIGN="top" align="center"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" border="0"><BR/>
-         <table border="0" CELLSPACING="0" CELLPADDING="0" width="700" align="center">
+         <table border="0" CELLSPACING="0" CELLPADDING="0" width="100%" align="center">
            <tr>
              <td WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" border="0" SRC="/i/steelblue_top_left1.gif"></TD>
              <td VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" border="0" SRC="/i/header_statistics.gif"></TD>
