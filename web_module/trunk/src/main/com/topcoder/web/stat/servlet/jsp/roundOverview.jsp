@@ -142,6 +142,7 @@ DATE<BR/>
       double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
       String perCor = df.format((((double)correct)/submissions));
       String avgPoints = df.format(total/correct);
+      currentRow = percents.getRow(++currentRowPtr);
   %>
 
   <TR>
