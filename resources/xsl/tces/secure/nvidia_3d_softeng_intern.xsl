@@ -58,7 +58,7 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<IMG SRC="/i/es/nvidia/intern_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" ALIGN="CENTER" />    
+ <DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
 
 
 
@@ -73,7 +73,7 @@ Additionally, experience with PC hardware performance analysis is desired.</P>
 <P>BS in Computer Science or equivalent.  Experience with graphics application development experience and familiarity with PC development 
 environments.</P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=151&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
