@@ -65,19 +65,21 @@
             <tr><td colpsn="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
             <tr>
                <td width=15>&nbsp;</td>
-               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Overview</b></font></td>
+               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_overview"><font size=-1>Overview</font></a></td>
                <td width=15>&nbsp;</td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_sched"><font size=-1>Schedule</font></a></td>
                <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Rules</font></a></td>
+               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Rules</b></font></td>
                <td width=15>&nbsp;</td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Register Now</font></a></td>
                <td width=15>&nbsp;</td>
             </tr>
-            <tr>
-               <td colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
-            </tr>
          </table>
+
+<jsp:include page="googleSublinks.jsp" >
+   <jsp:param name="selectedList" value="rules"/>
+   <jsp:param name="selectedTab" value="prizes"/>
+</jsp:include>
        
             <h2>Overview</h2>
             
