@@ -26,7 +26,6 @@
   <xsl:import href="../includes/modules/srm_best_worst.xsl"/>
   <xsl:import href="../includes/modules/coder_pov.xsl"/>
   <xsl:import href="../includes/modules/big_promo.xsl"/>
-  <xsl:import href="../includes/modules/small_promo.xsl"/>
   <xsl:import href="../includes/modules/feature_home.xsl"/>
   <xsl:import href="../includes/modules/tcs_promo.xsl"/>
   <xsl:import href="../includes/modules/right_promo.xsl"/>
