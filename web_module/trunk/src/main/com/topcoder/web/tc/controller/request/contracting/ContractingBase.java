@@ -133,9 +133,10 @@ abstract public class ContractingBase extends BaseProcessor {
                 addError(Constants.PREFERENCE_PREFIX + Constants.PREFERENCE_CONTRACTING, "Please indicate interest in either contract or permanent positions.");
             }
             
-            if(hasErrors())
-                return true;
         }
+        
+        if(hasErrors())
+                return true;
         return false; 
     }
     
@@ -219,7 +220,7 @@ abstract public class ContractingBase extends BaseProcessor {
                         
                     String val = getRequestParameter(param);
                     
-                    if(!val.equals("")) {
+                    if(!val.equals("") && Integer.parseInt(val) != 0) {
                         info.setSkill(skillId, val);
                         log.debug("SET SKILL " + skillId + " TO " + val);
                     }
