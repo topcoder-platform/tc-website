@@ -181,7 +181,6 @@ public class ProjectBean extends BaseEJB {
             query.append("and pi1.project_id = p.project_id ");
             query.append("and pi1.phase_id = 1 ");
             query.append("and pi1.cur_version = 1 ");
-            query.append("and cd.document_type_id = 0 ");
             query.append("and EXTEND(pi1.start_date, YEAR to HOUR) + 2 units day + 9 units hour < current");
 
             ps = conn.prepareStatement(query.toString());
