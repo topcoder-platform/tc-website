@@ -30,7 +30,7 @@ public class UpdateTerms {
 
         try {
             ctx = TCContext.getInitial();
-            DataSource ds = (DataSource)ctx.lookup("DS");
+            DataSource ds = (DataSource)ctx.lookup("SCREENING_OLTP");
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(200);
@@ -53,6 +53,7 @@ public class UpdateTerms {
                 ps = conn.prepareStatement(query.toString());
                 ps.setBytes(1, DBMS.serializeTextString(text));
                 ps.setInt(2, typeId);
+                ps.setInt(3, termsId);
             } else {
                 query.append("INSERT INTO terms_of_use (terms_of_use_id, terms_of_use_type_id, terms_text)");
                 query.append(" VALUES (?, ?, ?)");
