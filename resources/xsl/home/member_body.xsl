@@ -638,13 +638,10 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                         <p><font size="4"><strong>Single Round Match 142</strong></font><br />
                         <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm142_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
 
-                        <p>Since the area of the rectangular area must match crops exactly, we will have to loop through all possible rectangles of 
-                        integral size. We only need to loop one side of the rectangle; the other side can be calculated by taking crops/first_side, 
-                        assuming this value is an integer. This is true if crops%first_side==0 (if you're unsure about the % operator, you should 
-                        check this out more carefully as it's a very useful operator!).</p>
-                        
-                        <p>It's possible to loop first_side from 1 to crops, but we actually only have to loop it to sqrt(crops). The reason is that once first_side is greater
-                        than sqrt(crops), the second side of the rectangle will be less than the first_side, and those rectangles we have already checked! 
+                        <p>The top two scorers in Division-I, <strong>Yarin</strong> and <strong>dgarthur</strong> were the same as in the recent TCCC final, but 
+                        this time with <strong>Yarin</strong> as the winner. In third place came <strong>dary</strong> after a very impressive performance in only 
+                        his second SRM! In Division-II, <strong>PJYelton</strong> took a comfortable win after delivering 5 successful challenges. The 
+                        difficulty level of the problem set was very good, with a good distribution of scores and submits. 
                         <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm142_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
