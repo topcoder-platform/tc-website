@@ -102,14 +102,14 @@
 							<td class=projectCells valign=top>
 								<p>NAnt is a utility that executes custom, extensible build scripts.  
 									You will need this tool to compile your project and submit your code 
-									to TopCoder.  Build scripts are covered in more detail in <a href="#setupenv">Section III</a>.</p>
+									to TopCoder.  Build scripts are covered in more detail in <a href="#sectionIII">Section III</a>.</p>
 							</td>
 						</tr>
 						<tr>
 							<td class=projectCells valign=top nowrap=nowrap>NUnit</td>
 							<td class=projectCells valign=top nowrap=nowrap><a href="http://www.nunit.org/" target="_blank">Homepage</a></td>
 							<td class=projectCells valign=top>NUnit is a framework that will allow you to quickly and concisely test your 
-								code. Unit testing is covered in more detail in <a href="#unittests">Section VI</a>.</td>
+								code. Unit testing is covered in more detail in <a href="#sectionVI">Section VI</a>.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -139,14 +139,14 @@
 						<td class=projectCells valign=top>
 							<p>Ant is a utility that executes custom, extensible build scripts.  
 								You will need this tool to compile your project and submit your code 
-								to TopCoder.  Build scripts are covered in more detail in <a href="#setupenv">Section III</a>.</p>
+								to TopCoder.  Build scripts are covered in more detail in <a href="#sectionIII">Section III</a>.</p>
 						</td>
 					</tr>
 					<tr>
 						<td class=projectCells valign=top nowrap=nowrap>JUnit</td>
 						<td class=projectCells valign=top nowrap=nowrap><a href="http://www.junit.org/" target="_blank">Homepage</a></td>
 						<td class=projectCells valign=top>JUnit is a framework that will allow you to quickly and concisely test your 
-							code. Unit testing is covered in more detail in <a href="#unittests">Section VI</a>.</td>
+							code. Unit testing is covered in more detail in <a href="#sectionVI">Section VI</a>.</td>
 					</tr>
 					<tr>
 						<td class=projectCells valign=top nowrap=nowrap>Sun J2SE JRE 1.3</td>
@@ -281,7 +281,7 @@
 			<p><font face="Courier New">/docs - </font>This directory contains all current 
 				documentation for your component.  This includes a .zargo or .zuml UML 
 				design specification, as well as the requirements and component specification. 
-				The design documents are covered in more detail in <a href="#startdev">Section IV</a>.</p>
+				The design documents are covered in more detail in <a href="#sectionIV">Section IV</a>.</p>
 			<font face="Courier New">
 				<p><font face="Courier New">/lib - </font><font face="Times New Roman">Here you 
 						will find all required components level libraries that your component will 
@@ -293,25 +293,17 @@
 			<p><font face="Courier New">/src - </font>This directory will contain all your 
 				source, when you complete your project.  In the distribution, normally 
 				only a directory skeleton will be created here.  Developers are 
-				responsible for source file generation, covered in more detail in <a href="#stubs">Section IV</a>.</p>
+				responsible for source file generation, covered in more detail in <a href="#sectionIV">Section IV</a>.</p>
 			<p><font face="Courier New">/test_files - </font> This directory contains 
 				all files used by your component during testing.  This can include special 
 				or extreme configuration files, input and output samples, database schema, and 
 				anything else non-compilable your testing needs.  The distribution will 
 				often contain some sample testing data that the designer has created.</p>
 			<h4>Java</h4>
-			<font face="Courier New">
-				<p><font face="Courier New">/META-INF - </font><font face="Times New Roman">This 
-						directory is created by the jar packager, and can be ignored.</font></p>
-			</font>
-			<p><font face="Courier New">/build.xml - </font><font face="Times New Roman">This 
-					is a default, possibly unconfigured build script.  Build scripts are 
-					covered in more detail in <a href="#setupenv">Section III</a>.</font></p>
-			<h4></h4>
+			<p><font face="Courier New">/META-INF - </font>This directory is created by the jar packager, and can be ignored.</p>
+			<p><font face="Courier New">/build.xml - </font>This is a default, possibly unconfigured build script.  Build scripts are covered in more detail in <a href="#sectionIII">Section III</a>.</p>
 			<h4>C#</h4>
-			<p><font face="Courier New">/default.build - </font><font face="Times New Roman">This 
-					is a default, possibly unconfigured build script.  Build scripts are 
-					covered in more detail in <a href="#setupenv">Section III</a>.</font></p>
+			<p><font face="Courier New">/default.build - </font>This is a default, possibly unconfigured build script.  Build scripts are covered in more detail in <a href="#sectionIII">Section III</a>.</p>
 			<span class=bodySubtitle><a name="#setupenv">Setting Up Your Environment</a></span>
 			<p>First off, you'll need to decide on a working directory.  Appropriate 
 				examples include <font face="Courier New"><font size="2">C:\working\</font><font face="Times New Roman">,</font>
@@ -460,7 +452,7 @@
 						and can be disregarded.  All information here will be more easily 
 						accessible in the UML document.</font></font></p>
 			<span class=bodySubtitle>Development Process</span>
-			<p>As explained in <a href="#intro">Section I</a>, your part in the development process is to implement the 
+			<p>As explained in <a href="#sectionI">Section I</a>, your part in the development process is to implement the 
 				a design which has already been created and reviewed.  To this end, <strong>you 
 					should consider the public API in the design document as canon</strong>.  
 				You are not allowed to deviate from the public API without approval from the 
@@ -685,8 +677,8 @@
 							properly configured [N]Ant to allow execution at the command line, or this step 
 							simply won't work!</font></font></font>
 			</p>
-			<p><a href="http://www.desult.com/tcs/nantbuild.html" target="_blank">Example NAnt Build</a></p>
-			<p><a href="http://www.desult.com/tcs/antbuild.html" target="_blank">Example Ant Build</a></p>
+			<p><a href="/i/development/nantbuild.html" target="_blank">Example NAnt Build</a></p>
+			<p><a href="/i/development/antbuild.html" target="_blank">Example Ant Build</a></p>
 			<p>Your component should almost always build cleanly against the stubs.  If 
 				they do not compile, you probably have an API problem, or a library 
 				configuration issue. It is far easier to fix these issues now, before you have 
@@ -945,7 +937,7 @@
 			<p>The hard work is over, and you've got 150 successful unit tests.  You're 
 				ready to submit your solution!</p>
 			<p>First, you should review your code.  Make sure that your submission meets 
-				the review guidelines (<a href="#review">Section IX</a>) as fully as possible.  <span style="font-size: 12pt; font-family: 'Times New Roman';">
+				the review guidelines (<a href="#sectionIX">Section IX</a>) as fully as possible.  <span style="font-size: 12pt; font-family: 'Times New Roman';">
 					Finding small issues now will save you points later in the review 
 					process.  Make sure that your directory structure is appropriate as above.</span></p>
 			<p>Secondly, make sure your code compiles.  If you're writing a Java solution, 
