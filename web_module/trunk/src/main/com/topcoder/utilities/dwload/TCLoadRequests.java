@@ -174,7 +174,7 @@ public class TCLoadRequests extends TCLoad {
                             " session " + rs.getString("session_id") + " modified " + retVal + " rows, not one.");
                 }
 
-                printLoadProgress(count, "site _it");
+                printLoadProgress(count, "site_hit");
             }
 
             log.info("Records loaded for site_hit: " + count);
