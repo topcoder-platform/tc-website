@@ -79,7 +79,7 @@ public class UserBean implements SessionBean {
                 "INSERT INTO user (user_id, handle, status) VALUES (?,?,?)");
             ps.setLong(1, userId);
             ps.setString(2, handle);
-            ps.setString(3, Character.toString(status));
+            ps.setString(3, (new Character(status)).toString());
 
             int rows = ps.executeUpdate();
 
