@@ -9,7 +9,8 @@
           com.topcoder.web.tc.model.CoderSessionInfo" %>
 <%
    Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-   if (nav==null) nav = new Navigation();
+   if (nav==null) nav = new Navigation(request, response);
+   request.getSession(true).setAttribute("navigation", nav);
    CoderSessionInfo sessionInfo = nav.getSessionInfo();
    String styleClass = "coderTextWhite";
    DataCache dcHome = com.topcoder.common.web.util.Cache.get();
