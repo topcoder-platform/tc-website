@@ -163,8 +163,6 @@ public class TCLoadAggregate extends TCLoad {
 
             loadRoomResult3();
 
-            loadRRschool_points();
-
             loadCoderProblemSummary();
 
             loadCoderLevel();
@@ -1161,91 +1159,6 @@ public class TCLoadAggregate extends TCLoad {
             close(psSel2);
             close(psUpd);
             close(psDel);
-        }
-    }
-
-    /**
-     * This method loads the 'room_result' table with column school_points.
-     * It would be nice to use overall_rank instead of division_placed, but that's not populated.
-     */
-    private void loadRRschool_points() throws Exception {
-        int retVal = 0;
-        int count = 0;
-        PreparedStatement psSel = null;
-        PreparedStatement psUpd = null;
-        ResultSet rs = null;
-        StringBuffer query = null;
-
-        try {
-            query = new StringBuffer(100);
-            query.append("SELECT rr.round_id ");               // 1
-            query.append("      ,rr.school_id ");              // 2
-            query.append("      ,rr.coder_id ");               // 3
-            query.append("      ,rr.division_placed ");        // 4
-            query.append("      ,(SELECT COUNT(*) ");          // 5
-            query.append("          FROM room_result rr3 ");
-            query.append("         WHERE rr3.school_id = rr.school_id ");
-            query.append("           AND rr3.round_id = rr.round_id ");
-            query.append("           AND rr3.division_placed < rr.division_placed) ");
-            query.append("       ,(SELECT COUNT(*) ");         // 6
-            query.append("           FROM room_result rr2 ");
-            query.append("          WHERE rr2.school_id = rr.school_id ");
-            query.append("            AND rr2.round_id = rr.round_id) ");
-            query.append("  FROM room_result rr");
-            query.append(" WHERE attended = 'Y'");
-            query.append(" AND round_id = " + fRoundId);
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-
-            query = new StringBuffer(100);
-            query.append("UPDATE room_result ");
-            query.append("   SET school_points = ? ");  // 1
-            query.append(" WHERE round_id = ? ");       // 2
-            query.append("   AND coder_id = ? ");       // 3
-            psUpd = prepareStatement(query.toString(), TARGET_DB);
-
-            // On to the load
-            rs = psSel.executeQuery();
-
-            while (rs.next()) {
-                int round_id = rs.getInt(1);
-                int school_id = rs.getInt(2);
-                int coder_id = rs.getInt(3);
-                int division_placed = rs.getInt(4);
-                int place_within_school = rs.getInt(5);
-                int num_attended_school = rs.getInt(6);
-
-                int school_points = 0;
-                if (num_attended_school >= 3 && place_within_school < 3)
-                    school_points = division_placed;
-
-                psUpd.clearParameters();
-                psUpd.setInt(1, school_points);
-                psUpd.setInt(2, round_id);
-                psUpd.setInt(3, coder_id);
-
-                retVal = psUpd.executeUpdate();
-                count += retVal;
-                if (retVal > 1) {
-                    throw new SQLException("TCLoadAggregate: Update for " +
-                            "round_id " + round_id +
-                            " coder_id " + coder_id +
-                            " modified more than one row.");
-                }
-
-                printLoadProgress(count, "room_result.school_points");
-            }
-
-            log.info("Records loaded for room_result " +
-                    "(school_points): " + count);
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of aggregate 'room_result' for " +
-                    "school_points failed.\n" +
-                    sqle.getMessage());
-        } finally {
-            close(rs);
-            close(psSel);
-            close(psUpd);
         }
     }
 
