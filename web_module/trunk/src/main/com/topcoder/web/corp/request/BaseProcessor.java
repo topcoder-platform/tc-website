@@ -77,6 +77,10 @@ public abstract class BaseProcessor implements RequestProcessor {
         return nextPage;
     }
 
+    public void setNextPage(String nextPage) {
+        this.nextPage = nextPage;
+    }
+
     /**
      * The only subclass responsibility is to set explicitely protected variable
      * pageInContext
@@ -84,6 +88,10 @@ public abstract class BaseProcessor implements RequestProcessor {
      */
     public final boolean isNextPageInContext() {
         return pageInContext;
+    }
+
+    public void setIsNextPageInContext(boolean pageInContext) {
+        this.pageInContext = pageInContext;
     }
 
     /**
