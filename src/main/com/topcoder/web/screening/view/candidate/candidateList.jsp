@@ -34,13 +34,14 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="10" cellpadding="0" width="70%">
+            <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr>
                     <td><div align="center"><p class="button"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="button">Add Candidate</screen:servletLink></p></div></td>
                 </tr>
             </table>
 
-                <tr>
+          <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+                 <tr>
                    <td colspan="2" align="center" class="testTableTitleSmall">Candidate</td>
                    <td align="center" class="testTableTitleSmall">Profile</td>               
                    <td align="center" class="testTableTitleSmall">Begin</td>               
@@ -62,13 +63,13 @@
                 %>
 
                 <tr>
-                   <td class="testFormOdd">&#160;</TD>
-                   <td class="testFormOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>               
-                   <td align="center" class="testFormOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></td> 
-                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
-                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
-                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="status" /></td> 
-                   <td align="center" class="testFormOdd"><screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></td> 
+                   <td width="1" class="testFormOdd">&#160;</TD>
+                   <td width="30%" class="testFormOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>               
+                   <td width="10%" align="center" class="testFormOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></td> 
+                   <td width="20%" align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
+                   <td width="20%" align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
+                   <td width="10%" align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="status" /></td> 
+                   <td width="10%" align="center" class="testFormOdd"><screen:servletLink processor="NoteList" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td> 
                 </tr>
 
             </screen:resultSetRowIterator>
