@@ -21,6 +21,7 @@ if (o!=null) {
         %>
 
                 var endTimes= new Array(<%=problems.size()%>);
+                var times = new Array(<%=problems.size()%>);
                 var ids = new Array(<%=problems.size()%>);
                 var types = new Array(<%=problems.size()%>);
                 var startTimes = new Array(<%=problems.size()%>);
@@ -28,6 +29,7 @@ if (o!=null) {
         <%
                 for (int i=0; i<problems.size(); i++) {
                     %> endTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getTime()+((ProblemInfo)problems.get(i)).getStartTime()%>; <%
+                    %> times[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getTime()%>; <%
                     %> ids[<%=i%>] = 'problemTimer<%=((ProblemInfo)problems.get(i)).getComponentId()%>'; <%
                     %> types[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getProblemTypeId()%>; <%
                     %> startTimes[<%=i%>] = <%=((ProblemInfo)problems.get(i)).getStartTime()%>; <%
@@ -69,8 +71,10 @@ if (o!=null) {
                     } else {
                       if (countDown=='true')
                         time = correctedLocalTime.getTime()-startTimes[i];
-                      else
+                      else {
                         time = endTimes[i] - correctedLocalTime.getTime();
+                        if (time > times[i]) time = times[i];
+                      }
                     }
                     text = convertToTimeString(time);
                 }
