@@ -53,7 +53,7 @@
           (*Including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin Islands.)
           <br/>
           <br/>
-          I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 Charity Challenge, Sponsored by AT&amp;T, Benefiting the Christopher Reeve Paralysis Foundation , sponsored by Intel&#174; Coding Tournament (the "Contest").
+          I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 Charity Challenge, Sponsored by AT&amp;T, Benefiting the Christopher Reeve Paralysis Foundation (the "Contest").
           <br/>
           <br/>
           I hereby represent that I am 18 years of age or older and I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me. I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone.
@@ -132,50 +132,6 @@
       <TD>(Signature of <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/>)</TD>
     </TR>
   </TABLE>
-
-  <xsl:if test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    <BR/>
-    STATE OF&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;)
-    <BR/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;)
-    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ss.:
-    <BR/>
-    COUNTY OF&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;)
-    <BR/>
-    <BR/>
-    On this ___ day of ________, 2003, before me, ____________________, (notary name) personally appeared ____________________ (name of contestant) to me personally known, who, being by me duly sworn, did depose and say that he/she signed the foregoing instrument and he/she acknowledged the same to be his/her free act and deed.
-    <BR/>
-    <BR/>
-    <BR/>
-
-
-    <TABLE WIDTH="80%">
-      <TR>
-        <TD ALIGN="right">
-          _____________________________
-        </TD>
-      </TR>
-      <TR>
-        <TD ALIGN="right">
-          NOTARY PUBLIC&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-        </TD>
-      </TR>
-    </TABLE>
-  </xsl:if>
 
   </P>
 
@@ -307,169 +263,43 @@
   And I make this solemn declaration conscientiously believing the statements contained in this declaration to be true.
   <BR/>
   <BR/>
-  <xsl:choose>
-  <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
-    <TABLE WIDTH="500" BORDER="0">
-      <TR>
-        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
-        <TD>)<BR/>)<BR/>)<BR/></TD>
-        <TD></TD>
-      </TR>
-      <TR>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Public Notary<BR/><BR/>__________________________________<BR/>Print Name</TD>
-        <TD></TD>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
-      </TR>
-    </TABLE>
-  </xsl:when>
-  <xsl:otherwise>
     <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
-  </xsl:otherwise>
-  </xsl:choose>
 </xsl:when>
 <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='Australia'">
   And I make this solemn declaration by virtue of the Statutory Declarations Act 1959, and subject to the penalties provided by that Act for the making of false statements in statutory declarations, conscientiously believing the statements contained in this declaration to be true in every particular.
   <BR/>
   <BR/>
-  <xsl:choose>
-  <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
-    <TABLE WIDTH="500" BORDER="0">
-      <TR>
-        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
-        <TD>)<BR/>)<BR/>)<BR/></TD>
-        <TD></TD>
-      </TR>
-      <TR>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Solicitor/Justice of the Peace<BR/><BR/>__________________________________<BR/>Print Name</TD>
-        <TD></TD>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
-      </TR>
-    </TABLE>
-  </xsl:when>
-  <xsl:otherwise>
     <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
-  </xsl:otherwise>
-  </xsl:choose>
 </xsl:when>
 <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='Canada'">
   And I make this solemn declaration conscientiously believing the statements contained in this declaration to be true in every particular, and knowing that it is of the same force and effect as if made under oath.
   <BR/>
   <BR/>
-  <xsl:choose>
-  <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
-    <TABLE WIDTH="500" BORDER="0">
-      <TR>
-        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
-        <TD>)<BR/>)<BR/>)<BR/></TD>
-        <TD></TD>
-      </TR>
-      <TR>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Commissioner for Taking Affidavits / Oaths <BR/><BR/>__________________________________<BR/>Print Name</TD>
-        <TD></TD>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
-      </TR>
-    </TABLE>
-  </xsl:when>
-  <xsl:otherwise>
     <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
-  </xsl:otherwise>
-  </xsl:choose>
 </xsl:when>
 <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='Sweden'">
   And I make this solemn declaration conscientiously believing the statements contained in this declaration to be true.
   <BR/>
   <BR/>
-  <xsl:choose>
-  <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
-    <TABLE WIDTH="500" BORDER="0">
-      <TR>
-        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
-        <TD>)<BR/>)<BR/>)<BR/></TD>
-        <TD></TD>
-      </TR>
-      <TR>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Notaris Publicus <BR/><BR/>__________________________________<BR/>Print Name</TD>
-        <TD></TD>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
-      </TR>
-    </TABLE>
-  </xsl:when>
-  <xsl:otherwise>
     <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
-  </xsl:otherwise>
-  </xsl:choose>
 </xsl:when>
     <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='New Zealand'">
       And I make this solemn declaration conscientiously believing the same to be true and by virtue of the Oaths and Declarations Act 1957.
       <BR/>
       <BR/>
-      <xsl:choose>
-      <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
-        <TABLE WIDTH="500" BORDER="0">
-          <TR>
-            <TD>Declared before me at the _______________  this ___________ day of _____________ 20__    before me:</TD>
-            <TD>)<BR/>)<BR/>)<BR/></TD>
-            <TD></TD>
-          </TR>
-          <TR>
-            <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Solicitor/Justice of the Peace <BR/><BR/>__________________________________<BR/>Print Name</TD>
-            <TD></TD>
-            <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
-          </TR>
-        </TABLE>
-      </xsl:when>
-      <xsl:otherwise>
         <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
-      </xsl:otherwise>
-      </xsl:choose>
     </xsl:when>
     <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='India'">
       All that is stated above is true to the best of my knowledge, information and belief.
       <BR/>
       <BR/>
-      <xsl:choose>
-      <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
-        <TABLE WIDTH="500" BORDER="0">
-          <TR>
-            <TD>Declared before me at the _______________  this ___________ day of _____________ 20__    before me:</TD>
-            <TD>)<BR/>)<BR/>)<BR/></TD>
-            <TD></TD>
-          </TR>
-          <TR>
-            <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Notary <BR/><BR/>__________________________________<BR/>Print Name</TD>
-            <TD></TD>
-            <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
-          </TR>
-        </TABLE>
-      </xsl:when>
-      <xsl:otherwise>
         <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
-      </xsl:otherwise>
-      </xsl:choose>
     </xsl:when>
 <xsl:otherwise>
   And I make this solemn declaration conscientiously believing the statements contained in this declaration to be true.
   <BR/>
   <BR/>
-  <xsl:choose>
-  <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
-    <TABLE WIDTH="500" BORDER="0">
-      <TR>
-        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
-        <TD>)<BR/>)<BR/>)<BR/></TD>
-        <TD></TD>
-      </TR>
-      <TR>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Notary Public (or its equivalent) <BR/><BR/>__________________________________<BR/>Print Name</TD>
-        <TD></TD>
-        <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
-      </TR>
-    </TABLE>
-  </xsl:when>
-  <xsl:otherwise>
     <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
-  </xsl:otherwise>
-  </xsl:choose>
 
   </xsl:otherwise>
 </xsl:choose>
