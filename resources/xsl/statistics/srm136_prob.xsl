@@ -316,13 +316,13 @@ string tos(long n, int len){
 
 
 
-                                        <IMG SRC="/i/m/brett1479_mug.jpg" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-                                        By&#160;brett1479
+                                        <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+                                        By&#160;lbackstrom
                                         <BR/>
                                         <DIV CLASS="smallText">
                                             <I>TopCoder Member</I>
                                             <BR/>
-                                            <A HREF="/stat?c=member_profile&amp;cr=251317" CLASS="smallText">Author Profile</A>
+                                            <A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A>
                                         </DIV>
                                         <BR CLEAR="all"/>
                                         <P>
