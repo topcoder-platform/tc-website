@@ -74,32 +74,32 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Online Rounds begins -->
 
             <a name="sched"></a>
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="3" bgcolor="#4E9DD5">Round 1</td>
                </tr>
                 <tr>
-                    <td class="sidebarTitle" width="25%">Handle</td>
-                    <td class="sidebarTitle" width="25%" align="right">Rating</td>
-                    <td class="sidebarTitle" width="50%" align="Right">Score</td>
-                </tr>
+                    <td class="crpfAdvancersSort" width="25%" align="left" nowrap="nowrap"><a href="/" class="topLink">Handle</a></td>
+                    <td class="crpfAdvancersSort" width="25%" align="right" nowrap="nowrap"><a href="/" class="topLink">Rating</a></td>
+                    <td class="crpfAdvancersSort" width="50%" align="right" nowrap="nowrap"><a href="/" class="topLink">Score</a></td>
+               </tr>
                 <tr valign="top">
-                    <td class="sidebarText" align="left">richard head</td>
+                    <td class="sidebarText" align="left">somedude</td>
                     <td class="sidebarText" align="right">2000</td>
                     <td class="sidebarText" align="right">1000</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText" align="left">richard bag</td>
+                    <td class="sidebarText" align="left">somedude2</td>
                     <td class="sidebarText" align="right">2000</td>
                     <td class="sidebarText" align="right">1000</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText" align="left">richard face</td>
+                    <td class="sidebarText" align="left">somedude3</td>
                     <td class="sidebarText" align="right">2000</td>
                     <td class="sidebarText" align="right">1000</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText" align="left">jerkass</td>
+                    <td class="sidebarText" align="left">somedude4</td>
                     <td class="sidebarText" align="right">2000</td>
                     <td class="sidebarText" align="right">1000</td>
                 </tr>
