@@ -109,6 +109,16 @@
                 </TR>
                       <TR>
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">09.20.02</TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom" WIDTH="100%">
+                        <A HREF="http://sunnetwork.sun.com/sf2002/info/features/winners.jsp" CLASS="bodyGeneric" TARGET="_blank">And the Winner Is...<BR/>Results of the 2002 SunNetwork<SUP>SM</SUP> Conference Coding Challenge</A>
+                        </TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                      </TR>                
+                
+ <!--                       <TR>
+                          <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">08.13.02</TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom">
@@ -116,7 +126,7 @@
                         </TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                       </TR>                 
- <!--                     <TR> 
+                    <TR> 
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.29.02</TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
