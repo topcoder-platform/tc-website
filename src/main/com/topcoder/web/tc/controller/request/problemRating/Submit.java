@@ -39,7 +39,7 @@ public class Submit extends Base {
                 if(next.charAt(0) == 'q'){
                     try{
                         Integer question_id = new Integer(next.substring(1));
-                        Integer rating = new Integer(request.getParameterValues(next)[0]);
+                        Integer rating = new Integer(request.getParameter(next));
                         al.add(question_id);
                         al.add(rating);
                     }catch(Exception e){
@@ -53,7 +53,7 @@ public class Submit extends Base {
                 qs[i] = Integer.parseInt(al.get(ptr++).toString());
                 rs[i] = Integer.parseInt(al.get(ptr++).toString());
             }
-            prs.submitAnswers(qs,rs,userID,Integer.parseInt(request.getParameterValues("pid")[0]));
+            prs.submitAnswers(qs,rs,userID,Integer.parseInt(request.getParameter("pid")));
             setNextPage(Constants.PROBLEM_RATING_RESULTS);
             setIsNextPageInContext(true);
         }catch(Exception e){
