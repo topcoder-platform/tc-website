@@ -12,14 +12,7 @@
   
 <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
+
       <!-- Gutter Begins -->
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
     <!-- Gutter Ends -->
@@ -75,7 +68,7 @@
 		  <!-- Gutter -->
 		  <TD WIDTH="10"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
 		  <!-- Gutter Ends -->
-		<TR><TD>
+		<TR>	  <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD><TD>
 		<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
@@ -84,6 +77,7 @@
               <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               <P><BR></P>
 		</TABLE>
+				  <TD WIDTH="10"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
 </TABLE>
   <!-- Body Ends -->
 </BODY>
