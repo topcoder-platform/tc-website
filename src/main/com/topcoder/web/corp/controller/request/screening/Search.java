@@ -116,6 +116,7 @@ public class Search extends BaseScreeningProcessor {
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(ret.getId()));
+        r.setProperty("db", String.valueOf("SCREENING_OLTP"));
         Map aMap = dataAccess.getData(r);
         ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
 
