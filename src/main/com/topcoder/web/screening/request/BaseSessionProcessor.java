@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 
@@ -63,24 +64,24 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
         SessionInfo info = getSessionInfo();
         HashMap errorMap = new HashMap(10);
 
-        boolean beginSuccess = 
-            validateDate(BEGIN, 
-                         errorMap, 
-                         info.getBeginMonth(), 
-                         info.getBeginDay(), 
+        boolean beginSuccess =
+            validateDate(BEGIN,
+                         errorMap,
+                         info.getBeginMonth(),
+                         info.getBeginDay(),
                          info.getBeginYear());
 
-        boolean endSuccess = 
-            validateDate(END, 
-                         errorMap, 
-                         info.getEndMonth(), 
-                         info.getEndDay(), 
+        boolean endSuccess =
+            validateDate(END,
+                         errorMap,
+                         info.getEndMonth(),
+                         info.getEndDay(),
                          info.getEndYear());
 
         boolean success = (beginSuccess && endSuccess);
 
         if(info.getBeginDate().compareTo(info.getEndDate()) >= 0) {
-            errorMap.put("dateCompare", 
+            errorMap.put("dateCompare",
                     "Begin Time must be earlier than End Time");
             success = false;
         }
@@ -88,16 +89,16 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
         //check dates in db to see if we need to have them pick new ones
         if(success) {
             SimpleDateFormat sdf = new SimpleDateFormat(DBMS.INFORMIX_DATETIME_FORMAT);
-            Request dRequest = new Request(); 
-            dRequest.setProperty(DataAccessConstants.COMMAND, 
+            Request dRequest = new Request();
+            dRequest.setProperty(DataAccessConstants.COMMAND,
                     Constants.SESSION_CHECK_COMMAND);
             dRequest.setProperty("spid", info.getProfileId());
             dRequest.setProperty("cid", info.getCandidateId());
-            dRequest.setProperty("uid", 
+            dRequest.setProperty("uid",
                String.valueOf(getAuthentication().getUser().getId()));
             dRequest.setProperty("start", sdf.format(info.getBeginDate()));
             dRequest.setProperty("end", sdf.format(info.getEndDate()));
-            DataAccess dataAccess = getDataAccess();
+            DataAccessInt dataAccess = getDataAccess();
             Map map = dataAccess.getData(dRequest);
 
             //first check to see if it is a dupe
@@ -113,7 +114,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                     map.get(Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
                 if(rsc.size() > 0) {
                     success = false;
-                    errorMap.put("dateCompare", 
+                    errorMap.put("dateCompare",
                         "The candidate is already scheduled during selected time period");
                 }
             }
@@ -126,17 +127,17 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
         return success;
     }
 
-    protected boolean validateDate(int type, 
+    protected boolean validateDate(int type,
                                    HashMap errorMap,
-                                   String month, 
-                                   String day, 
+                                   String month,
+                                   String day,
                                    String year) {
         boolean success = true;
-        String monthKey = 
+        String monthKey =
             type == BEGIN?Constants.BEGIN_MONTH:Constants.END_MONTH;
-        String dayKey = 
+        String dayKey =
             type == BEGIN?Constants.BEGIN_DAY:Constants.END_DAY;
-        String yearKey = 
+        String yearKey =
             type == BEGIN?Constants.BEGIN_YEAR:Constants.END_YEAR;
 
         if(month == null) {
@@ -174,10 +175,10 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                     }
 
                     int yearInt = Integer.parseInt(year);
-                    //algorithm for leap year is, if divisible by 4 and 
+                    //algorithm for leap year is, if divisible by 4 and
                     //not 100 unless also divisible by 400)
-                    if(dayInt == 29 && 
-                       !((yearInt % 4 == 0) && 
+                    if(dayInt == 29 &&
+                       !((yearInt % 4 == 0) &&
                            ((yearInt % 100 != 0) || (yearInt % 400 == 0)))) {
                         success = false;
                         errorMap.put(dayKey, "Given year is not a leap year");

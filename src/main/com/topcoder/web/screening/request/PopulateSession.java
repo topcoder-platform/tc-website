@@ -5,6 +5,7 @@ import java.util.Map;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import com.topcoder.web.screening.common.Constants;
@@ -19,7 +20,7 @@ public class PopulateSession extends BaseSessionProcessor {
         sessionInfo.setProperty("uid", 
                 String.valueOf(getAuthentication().getUser().getId()));
 
-        DataAccess access = getDataAccess();
+        DataAccessInt access = getDataAccess();
 
         Map map = access.getData(sessionInfo);
         SessionInfo info = getSessionInfo();

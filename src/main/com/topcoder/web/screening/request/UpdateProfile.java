@@ -12,6 +12,7 @@ import javax.transaction.UserTransaction;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.Transaction;
@@ -33,7 +34,7 @@ public class UpdateProfile extends BaseProfileProcessor {
     public void process() throws Exception {
         synchronized(UpdateProfile.class) {
         requireLogin();
-        
+
         //validate the info
         if(!validateProfileInfo()) {
             setNextPage(Constants.PROFILE_SETUP_PAGE);
@@ -46,17 +47,17 @@ public class UpdateProfile extends BaseProfileProcessor {
         InitialContext context = new InitialContext();
         SessionProfileHome spHome = (SessionProfileHome)
             PortableRemoteObject.narrow(
-                    context.lookup(SessionProfileHome.class.getName()), 
+                    context.lookup(SessionProfileHome.class.getName()),
                                    SessionProfileHome.class);
         SessionProfile profile = spHome.create();
         SessionProfileLanguageHome splHome = (SessionProfileLanguageHome)
             PortableRemoteObject.narrow(
-                    context.lookup(SessionProfileLanguageHome.class.getName()), 
+                    context.lookup(SessionProfileLanguageHome.class.getName()),
                                    SessionProfileLanguageHome.class);
         SessionProfileLanguage language = splHome.create();
         SessionProfileProblemHome sppHome = (SessionProfileProblemHome)
             PortableRemoteObject.narrow(
-                    context.lookup(SessionProfileProblemHome.class.getName()), 
+                    context.lookup(SessionProfileProblemHome.class.getName()),
                                    SessionProfileProblemHome.class);
         SessionProfileProblem problem = sppHome.create();
         User user = getAuthentication().getUser();
@@ -66,7 +67,7 @@ public class UpdateProfile extends BaseProfileProcessor {
 
         try {
             if(info.isNew()) {
-                DataAccess access = getDataAccess();
+                DataAccessInt access = getDataAccess();
                 Request dataRequest = new Request();
                 dataRequest.setProperty(DataAccessConstants.COMMAND,
                                     Constants.CONTACT_INFO_QUERY_KEY);
@@ -78,9 +79,9 @@ public class UpdateProfile extends BaseProfileProcessor {
                     throw new ScreeningException(
                             "Contact result set size wrong(" + rsc.size() + ")");
                 }
-                ResultSetContainer.ResultSetRow row = 
+                ResultSetContainer.ResultSetRow row =
                     (ResultSetContainer.ResultSetRow)rsc.get(0);
-                long companyId = 
+                long companyId =
                     Long.parseLong(row.getItem("company_id").toString());
     //            create a session somehow
                 long spid = profile.createSessionProfile(info.getProfileName(),
@@ -92,11 +93,11 @@ public class UpdateProfile extends BaseProfileProcessor {
             //everything should be new right now, if it is not, there is a bug
             /*
             else {
-                profile.setSessionRoundId(info.getProfileId().longValue(), 
+                profile.setSessionRoundId(info.getProfileId().longValue(),
                                           info.getTestSetA().longValue());
-                profile.setSessionProfileDesc(info.getProfileId().longValue(), 
+                profile.setSessionProfileDesc(info.getProfileId().longValue(),
                                               info.getProfileName());
-                
+
                 //delete all old ones from problem and language
             }
             */
@@ -109,13 +110,13 @@ public class UpdateProfile extends BaseProfileProcessor {
             long problemId = Long.parseLong(
                     Constants.EXAMPLE_PROBLEM_ID.substring(index+1));
             int problemTypeId = Integer.parseInt(Constants.PROBLEM_TYPE_EXAMPLE_ID);
-            problem.createSessionProfileProblem(sessionProfileId, 
+            problem.createSessionProfileProblem(sessionProfileId,
                                                 problemId,
                                                 problemTypeId,
                                                 1,
                                                 roundId);
             //now do the test set b problems
-            problemTypeId = 
+            problemTypeId =
                 Integer.parseInt(Constants.PROBLEM_TYPE_TEST_SET_B_ID);
             String [] testSetBArr = info.getTestSetB();
             for(int i = 0; i < testSetBArr.length; ++i) {
@@ -125,18 +126,18 @@ public class UpdateProfile extends BaseProfileProcessor {
                 }
                 roundId = Long.parseLong(testSetBArr[i].substring(0, index));
                 problemId = Long.parseLong(testSetBArr[i].substring(index+1));
-                problem.createSessionProfileProblem(sessionProfileId, 
+                problem.createSessionProfileProblem(sessionProfileId,
                                                     problemId,
                                                     problemTypeId,
                                                     i+1,
                                                     roundId);
             }
 
-            
+
 
             Long [] languages = info.getLanguage();
             for(int i = 0; i < languages.length; ++i) {
-                language.createProfileLanguage(sessionProfileId, 
+                language.createProfileLanguage(sessionProfileId,
                                                languages[i].intValue());
             }
 
@@ -155,7 +156,7 @@ public class UpdateProfile extends BaseProfileProcessor {
         }
     }
 
-    /** 
+    /**
      * Updates the sessionInfo object if there is one with the newly created
      * profile id
      *

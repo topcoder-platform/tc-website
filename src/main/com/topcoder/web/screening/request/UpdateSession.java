@@ -10,6 +10,7 @@ import javax.transaction.UserTransaction;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.Transaction;
@@ -77,7 +78,7 @@ public class UpdateSession extends BaseSessionProcessor {
                 Constants.SESSION_SEGMENT_COMMAND);
         dataRequest.setProperty("sid", String.valueOf(sessionId));
 
-        DataAccess access = getDataAccess();
+        DataAccessInt access = getDataAccess();
 
         Map map = access.getData(dataRequest);
 
