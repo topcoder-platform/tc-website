@@ -39,12 +39,12 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4"><img src="/i/clear.gif" width="4" height="26" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
-            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%"> 
                     
@@ -59,17 +59,18 @@
                         who otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the competition calendar 
                         for the <a class="bodyText"><xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=srm&amp;RoundId=<xsl:value-of select="/TC/TCES/NextSRM/Info/round_id"/></xsl:attribute>next Single Round Match</a> 
                         or <a href="/?&amp;t=schedule&amp;c=index" class="bodyText">click here</a> for a complete list of upcoming Single 
-                        Round Matches.</p> 
+                        Round Matches.<br/><br/></p>
                     </td>
                 </tr>
                             
                 <tr valign="top">
-                    <td class="bodayText" width="100">
+                    <td class="bodyText" width="100%">
                         <table border="0" cellspacing="0" cellpadding="3" width="100%">
                             <tr valign="middle"><td bgcolor="#999999" class="statText"><font size="3"><strong>Employers</strong></font></td></tr>
                         </table>
 
-                        <table border="0" cellspacing="5" cellpadding="0" width="100%">
+                        <table border="0" cellspacing="10" cellpadding="0" width="100%">
+
 <!-- AlphaSimplex begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=alphasimplex" target="_top"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></a></td>
@@ -80,9 +81,9 @@
                                 span many diverse disciplines, and you are at the top of your field, we want to hear from you.  
                                 <A href="/?&amp;t=tces&amp;c=alphasimplex" class="bodyText" target="_top"> Click here</A><br/><br/></td>
                             </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- AlphaSimplex ends -->
+                            
+                            <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 
 <!-- Appian begins -->
                             <tr valign="top">
@@ -93,9 +94,9 @@
                                 <A href="/?&amp;t=tces&amp;c=appian" class="bodyText" target="_top">Software Engineers</A> with a passion for 
                                 coding and designing non-trivial applications.<br/><br/></td>
                             </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- Appian ends -->
+                            
+                            <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 
 <!-- Cryptic begins-->
                             <tr valign="top">
@@ -104,9 +105,9 @@
                               Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We have several open positions.            
                               <a href="/?&amp;t=tces&amp;c=cryptic" class="bodyText">Click here</a> for more information.<br/><br/></td>
                               </tr>
-
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- Cryptic ends -->
+
+                            <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 
 <!-- DiversifiedData begins -->
                             <tr valign="top">
@@ -116,10 +117,9 @@
                                 architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
                                 <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
                             </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-
 <!-- DiversifiedData ends -->
+                            
+                            <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 
 <!-- FBI begins -->
                             <tr valign="top">
@@ -129,9 +129,9 @@
                                     rewarding. Because the work you perform will have a daily impact on the nation's security and the quality-of-life 
                                     for all U.S. citizens.  <a href="/?&amp;t=tces&amp;c=fbi" class="bodyText">Are you ready?</a><br /><br /></td>
                             </tr>
+<!-- FBI ends -->
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-<!-- FBI ends -->
 
 <!-- Google begins -->
                             <tr valign="top">
@@ -141,18 +141,9 @@
                                     <a href="/?&amp;t=tces&amp;c=google" class="bodyText">Click here</a> to view current 
                                     positions available at Google.<br /><br /></td>
                             </tr>
-                        
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 <!-- Google ends -->
-
-<!-- Microsoft begins
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=ms"><img src="/i/es/ms/ms_logo.gif" width="160" height="40" alt="" border="0" /></a></td>
-                                <td width="99%" class="bodyText">At Microsoft, we see no limits to the potential we all might reach because we see no limits to human imagination.  That is what inspires us.  And that is why we create software that helps people and businesses reach their potential.  It's not just our purpose. It's our passion. <a href="/?&amp;t=tces&amp;c=ms" class="bodyText">How far will you GO?</a><br /><br /></td>
-                            </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-Microsoft ends -->
 
 <!-- Nvidia begins-->
                             <tr valign="top">
@@ -162,75 +153,9 @@ Microsoft ends -->
                                     define the cutting-edge. We deliver to the nth degree. <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> 
                                     to check out our open Software Engineering positions.<br /><br /></td>
                             </tr>
-                        
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 <!-- Nvidia ends -->
-
-
-<!-- Solipsys begins  ### Solipsys' contract has expired 6/13/03 ###
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=solipsys"><img src="/i/es/solipsys/solipsys_logo.gif" width="135" height="60" border="0"/></a></td>
-                                <td width="99%" class="bodyText">Solipsys Corporation is a small, high technology business specializing in products 
-                                    for defense application.  Our primary corporate focus is the development of products designed to address the 
-                                    multi-faceted problem of Joint and Coalition Forces information networking.  We are constantly scanning the horizon 
-                                    for motivated, team-oriented management, technology, and engineering professionals to lead our company into the 
-                                    21st century.  <a href="/?&amp;t=tces&amp;c=solipsys" class="bodyText">Check out</a> our open Software 
-                                    Developer and Systems Engineer positions.<br /><br /></td>
-                            </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
- Solipsys ends -->
-
-<!-- Vertex begins 
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" /></a></td>
-                                <td width="99%" class="bodyText">Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX) is a global biotechnology 
-                                company. Vertex seeks to discover, develop, and commercialize major pharmaceutical products independently and with 
-                                partners. Vertex has more than 12 drug candidates in clinical and preclinical development to treat viral diseases, 
-                                inflammation, cancer, autoimmune diseases, neurological disorders and genetic disorders. They have an 
-                                <A href="/?&amp;t=tces&amp;c=vertex" class="bodyText" target="_top">open contract position.</A><br/><br/></td>
-                            </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
- Vertex ends -->
-
-
-<!-- GE begins
- <TR>
-        <TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=ge"><IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/></A></TD>
-        <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-        <TD VALIGN="middle" CLASS="bodyText">
-<A HREF="/?&amp;t=tces&amp;c=ge" CLASS="bodyText">Click here</A> for information about GE's premier entry-level Information Management Leadership Program (IMLP).  
-IMLP puts information management careers on the fast track. Program graduates are in tremendous demand throughout GE.<BR/><BR/>        
-       </TD>
-    </TR>
-    <tr>
-        <td colspan="3" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-    </tr>
- GE ends -->
-
-<!-- Apex begins ### Contract expired 6/9/03 ###
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=apex"><img src="/i/es/apex/apexlogo.gif" width="82" height="71" alt="Apex" border="0"/></a></td>
-                                <td class="bodyText" width="99%">Apex is a company built upon a set of core values that guide their every action - excellence, human 
-                                    dignity and integrity.  They consider themselves "the best place for the best people to work."  
-                                    <a href="/?&amp;t=tces&amp;c=apex" class="bodyText">Click here</a> to view current job opportunities available at Apex.<br /><br /></td>
-                            </tr>
-                        
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
- Apex ends -->
-
-<!-- TopCoder Software 
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><A href="/?&amp;t=tces&amp;c=tcs_project_mgr&amp;a=secure" class="bodyText"><img src="/i/es/topcoder/tcs_logo.gif" width="170" height="49" alt="TopCoder Software" border="0" vspace="10" /></A></td>
-                                <td width="99%" class="bodyText">TopCoder Software is in need of a project manager to work with our 
-                                Applications Manager and Implementation Team to develop and deploy applications at client sites. Candidates should be located 
-                                near Hartford, Boston, NYC, Richmond or Detroit.  Check out more of the details <A href="/?&amp;t=tces&amp;c=tcs_project_mgr&amp;a=secure" class="bodyText">here.</A><br/><br/></td>
-                            </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-TopCoder Software ends -->
-            
                         </table>
 
                         <p><br /></p>
@@ -247,7 +172,6 @@ TopCoder Software ends -->
                             appropriate if we believe it may cause us to suffer any loss, liability or commercial damage.</p>
 
                         <p><br /></p>
-                    
                     </td>
                 </tr>
             </table>
@@ -255,7 +179,7 @@ TopCoder Software ends -->
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
