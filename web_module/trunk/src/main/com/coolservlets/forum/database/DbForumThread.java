@@ -158,7 +158,7 @@ public class DbForumThread implements ForumThread {
      * subject of the root message.
      */
     public String getName() {
-        return name;
+        return StringUtils.escapeHTMLTags(name);
     }
 
     /**
