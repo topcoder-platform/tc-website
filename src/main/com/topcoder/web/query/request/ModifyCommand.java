@@ -120,7 +120,7 @@ public class ModifyCommand extends BaseProcessor {
                 row = (ResultSetContainer.ResultSetRow) it.next();
                 found = row.getItem("command_desc").toString().equals(command);
             }
-            if (found) {
+            if (found && isNewCommand()) {
                 addError(Constants.COMMAND_DESC_PARAM, "Command already exists.");
             }
         }
