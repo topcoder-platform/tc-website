@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class View extends SurveyData {
     protected void businessProcessing() throws TCWebException {
         super.businessProcessing();
+        getRequest().setAttribute(Constants.SURVEY_ID, new Long(surveyId));
         setNextPage(Constants.SURVEY_VIEW);
         setIsNextPageInContext(true);
     }
@@ -27,6 +28,7 @@ public class View extends SurveyData {
         ResultSetContainer rsc = (ResultSetContainer)dataAccess.getData(req).get("answer_info");
         List ret = null;
         if (rsc==null) {
+            ret = new ArrayList(0);
         } else {
             ret = new ArrayList(rsc.size());
             ResultSetContainer.ResultSetRow row = null;
