@@ -93,10 +93,62 @@
     </tr>
     <tr  valign="middle">
         <td colspan="2" align="center" valign="middle" class="bodyText" ALIGN="center">
-        <input type="button" onClick="submit" name="submit" value="Submit">
+        <input type="button" onClick="Javascript:submitForm();" name="submit" value="Submit">
         </td>
     </tr>
   </table>
+             <SCRIPT type="text/javascript">
+                function submitForm() {
+                  if (checkEmail() &&
+                      checkFirst() &&
+                      checkLast() ) {
+                         document.regForm.submit();
+                         return;
+                  }
+                }
+                function checkEmail() {
+                  var email = document.regForm.email.value;
+                  if (email.length < 5 || email.indexOf('@')<0 || email.indexOf('.')<0) {
+                      alert("Please enter a valid email address.");
+                      document.regForm.email.focus();
+                      return false;
+                  } else if (document.regForm.email.value != document.regForm.confirmEmail.value) {
+                      alert("Your email address does not match it's confirmation");
+                      document.regForm.email.focus();
+                      return false;
+                  } else {
+                      return true;
+                  }
+                }
+                function checkFirst() {
+                  if (document.regForm.firstName.value.length==0) {
+                      alert("You must enter your first name");
+                      document.regForm.firstName.focus();
+                      return false;
+                  } else {
+                      return true;
+                  }
+                }
+                function checkLast() {
+                  if (document.regForm.lastName.value.length==0) {
+                      alert("You must enter your last name");
+                      document.regForm.lastName.focus();
+                      return false;
+                  } else {
+                      return true;
+                  }
+                }
+                function checkSchool() {
+                  if (document.regForm.school.value.length==0) {
+                      alert("You must enter your school");
+                      document.regForm.school.focus();
+                      return false;
+                  } else {
+                      return true;
+                  }
+                }
+              </SCRIPT>
+
   </FORM>
 <P ALIGN="center"><B>You will be contacted by TopCoder when the full registration becomes available.</B></P>
 <P><BR></P>
