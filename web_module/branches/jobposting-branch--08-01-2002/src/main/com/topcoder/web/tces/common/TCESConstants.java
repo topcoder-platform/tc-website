@@ -51,10 +51,11 @@ public class TCESConstants {
 
     public static String SORT_HANDLE = "ha";
     public static String SORT_RATING = "ra";
-    public static String SORT_STATE = "state";
+    public static String SORT_STATE = "st";
     public static String SORT_TYPE = "type";
     public static String SORT_SCHOOL = "sc";
     public static String SORT_HITDATE = "hd";
+    public static String SORT_COUNTRY = "country";
 
     public static String SORT_ORDER_ASC = "a";
     public static String SORT_ORDER_DES = "d";

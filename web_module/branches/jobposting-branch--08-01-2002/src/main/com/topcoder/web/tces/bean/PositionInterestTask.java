@@ -185,8 +185,8 @@ log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
             hit.put("state",
                     hitListRow.getItem("state_code").toString().trim() );
 
-            if (hit.get("state").trim().length()>0)
-                hit.put("st",hit.get("state").trim().toUpperCase());
+            if ( ((String)hit.get("state")).trim().length()>0)
+                hit.put("st",((String)hit.get("state")).trim().toUpperCase());
             else
                 hit.put("st","ZZZ");
 
@@ -197,8 +197,8 @@ log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
             hit.put("school",
                     hitListRow.getItem("school_name").toString().trim() );
 
-            if (hit.get("school").trim().length() > 0 &&
-                hit.get("school").indexOf("N/A") < 0) {
+            if (((String)hit.get("school")).trim().length() > 0 &&
+                ((String)hit.get("school")).indexOf("N/A") < 0) {
                 hit.put("sc",
                         hitListRow.getItem("school_name").toString().trim().toLowerCase() );
             }
