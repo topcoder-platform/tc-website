@@ -41,6 +41,8 @@ public class Submit extends FullRegSubmit {
             throw new TCWebException(e);
         }
 
+        //handleActivation(regInfo, regInfo.getUserId());
+        
         return userId;
     }
 
