@@ -40,7 +40,9 @@ public abstract class Base implements RequestProcessor {
        request.setAttribute("SessionInfo", si);
     }
 
-    public abstract void process();
+    public void process() {
+      buildSessionInfo();
+    }
 
     public String getNextPage() {
         return nextPage;

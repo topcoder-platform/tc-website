@@ -14,6 +14,7 @@ import java.util.*;
 public class Static extends Base {
 
     public void process() {
+        super.process();
         String path = "";
         for(int i=1; ; i++) {
             String p = request.getParameter("d_"+i);
