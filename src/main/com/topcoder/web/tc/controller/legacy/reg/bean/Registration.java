@@ -533,9 +533,10 @@ public class Registration
                 ArrayList answerList = (ArrayList) demographics.get(strQuestionId);
                 for (int i = 0; i < answerList.size(); i++) {
                     String strAnswerId = (String) answerList.get(i);
+                    log.debug("process school is " + school);
                     if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES)) {
                         employed = true;
-                    } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
+                    } else if (!isNumber(school)&&strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
                         this.schoolName = strAnswerId;
                         this.school = "-1";
                     }
