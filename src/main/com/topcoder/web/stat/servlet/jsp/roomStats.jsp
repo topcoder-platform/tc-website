@@ -82,6 +82,7 @@ pageContext.setAttribute("rd", currRound);
 pageContext.setAttribute("rm", currRoom);
 
 %>           
+                    <FORM name="">
                 <TR>
                   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
                     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
@@ -110,6 +111,7 @@ pageContext.setAttribute("rm", currRoom);
                      </SELECT>
                    </TD>
                  </TR>  
+                    </FORM>
                  <TR>
                    <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                  </TR>      
