@@ -56,8 +56,8 @@
 <p class="bodyText"><span class="bodySubtitle">Component Development</span><br/>
 
 <ul>
-<li>"The implementation has not modified the public API as defined in the design.</li>
-<li>This includes no additional public classes, methods or variables."</li>
+<li>"The implementation has not modified the public API as defined in the design.<br/>
+    This includes no additional public classes, methods or variables."</li>
 </ul>
 
 <p class="bodyText"><span class="bodySubtitle">Class Definition</span><br/>
