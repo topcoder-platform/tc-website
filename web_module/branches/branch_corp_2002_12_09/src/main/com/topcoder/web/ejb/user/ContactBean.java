@@ -64,8 +64,8 @@ public class ContactBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO contact (contact_id, company_id, create_date, modify_date) VALUES (");
-            query.append(Long.toString(contactId) + "," + Long.toString(companyId) + ",'now','now')");
+            query.append("INSERT INTO contact (contact_id, company_id) VALUES (");
+            query.append(Long.toString(contactId) + "," + Long.toString(companyId) + ")");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -100,7 +100,7 @@ public class ContactBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE contact SET company_id = " + companyId + ", modify_date = 'now' WHERE contact_id = ");
+            query.append("UPDATE contact SET company_id = " + companyId + " WHERE contact_id = ");
             query.append(Long.toString(contactId));
 
             ctx = new InitialContext();
@@ -213,7 +213,7 @@ public class ContactBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE contact SET title = '" + title + "', modify_date = 'now' WHERE contact_id = ");
+            query.append("UPDATE contact SET title = '" + title + "' WHERE contact_id = ");
             query.append(Long.toString(contactId));
 
             ctx = new InitialContext();

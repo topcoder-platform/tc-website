@@ -64,9 +64,9 @@ public class UserAddressBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO user_address_xref (user_id, address_id, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO user_address_xref (user_id, address_id) VALUES (");
             query.append(Long.toString(userId) + "," + Long.toString(addressId));
-            query.append(",'now','now')");
+            query.append(")");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);

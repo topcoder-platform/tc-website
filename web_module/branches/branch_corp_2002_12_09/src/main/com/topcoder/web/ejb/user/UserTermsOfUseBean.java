@@ -64,9 +64,9 @@ public class UserTermsOfUseBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO user_terms_of_use_xref (user_id, terms_of_use_id, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO user_terms_of_use_xref (user_id, terms_of_use_id) VALUES (");
             query.append(Long.toString(userId) + "," + Long.toString(termsOfUseId));
-            query.append(",'now','now')");
+            query.append(")");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
