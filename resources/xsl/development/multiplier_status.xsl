@@ -85,7 +85,7 @@
                          
                         <ul><strong>Multiplier Rules</strong>
                         <li>
-                            The multiplier is in active only for the TopCoder Collegiate Challenge Component Competition.
+                            The multiplier is active only for the TopCoder Collegiate Challenge Component Competition.
                         </li>
                         <li>
                             The multiplier will only be active during the online rounds.  <br />
