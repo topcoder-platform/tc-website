@@ -1,10 +1,12 @@
 package com.topcoder.web.query.common;
 
+import java.io.Serializable;
+
 /**
  * Class to hold info about a link.
  * @author Greg Paul
  */
-public class LinkBean {
+public class LinkBean implements Serializable {
     private String href;
     private String name;
 

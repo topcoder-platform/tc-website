@@ -1,6 +1,8 @@
 package com.topcoder.web.query.common;
 
-public class DatabaseBean {
+import java.io.Serializable;
+
+public class DatabaseBean implements Serializable {
     private String value;
     private String displayName;
 

@@ -1,6 +1,8 @@
 package com.topcoder.web.query.common;
 
-public class QueryBean {
+import java.io.Serializable;
+
+public class QueryBean implements Serializable {
     private long queryId;
     private String name;
     private String text;
