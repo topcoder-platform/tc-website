@@ -1,6 +1,6 @@
 p {
   color: #333333;
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: sans-serif,Arial,Helvetica;
   font-size: 15px;
   display: inline;
 }
@@ -15,7 +15,7 @@ a:hover{
 
 .headline {
   color: #990000;
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: sans-serif,Arial,Helvetica;
   font-size: 24px;
   font-weight: bold;
   display: block;
@@ -24,8 +24,17 @@ a:hover{
 .subTitle {
   color: #990000;
   font-size: 18px;
+  font-family: sans-serif,Arial,Helvetica;
   font-style: italic;
   font-weight: bold;
+  display: inline;
+}
+
+.smallText {
+  color: #000000;
+  font-family: sans-serif,Arial,Helvetica;
+  font-size: 14px;
+  font-style: none;
   display: inline;
 }
 
