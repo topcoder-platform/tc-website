@@ -1,7 +1,5 @@
 <%@  page 
   language="java"
-  autoFlush="false"
-  buffer="64kb"
   import="java.util.*,
           com.topcoder.web.corp.common.*,
           com.topcoder.web.corp.controller.request.tces.*,
