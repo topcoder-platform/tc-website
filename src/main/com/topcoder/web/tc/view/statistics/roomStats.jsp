@@ -153,7 +153,7 @@ else {
                    <TD COLSPAN="21"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>  
               <TR>
-                   <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="21" HEIGHT="18">&#160;Statistics for
+                   <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="20" HEIGHT="18">&#160;Statistics for
                      <%= pageContext.getAttribute("contestName").toString() %>&nbsp;>&nbsp;<%= pageContext.getAttribute("roundName").toString() %>&nbsp;>&nbsp;<%= pageContext.getAttribute("roomName").toString() %>
                    </TD>
                  </TR>
@@ -301,10 +301,10 @@ else {
       </logic:iterate>
 
                  <TR>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="21"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD CLASS="statText" COLSPAN="21"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
+                   <TD CLASS="statText" COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
                  </TR> 
                </TABLE>
 
