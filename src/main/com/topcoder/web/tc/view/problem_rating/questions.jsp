@@ -25,12 +25,12 @@
         </tr>
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <tc:problemRatingInput question="<%=quest%>">
+            <tc:counter min="1" max="10" inc="1">
             <td class="statText">
-                <%= question %>
+                <jsp:getProperty name="<%=quest%>" property="question"/>
             </td>
             <td>
-                        <input type="radio" name="<%= questionID %>" value="<%= counter %>">
+                        <input type="radio" name="<jsp:getProperty name="<%=quest%>" property="questionID"/>" value="<%= counter %>">
             </td>
             </tc:problemRatingInput>
         </tr>
