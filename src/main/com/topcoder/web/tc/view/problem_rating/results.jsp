@@ -44,9 +44,9 @@
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
     <table BORDER="0" CELLSPACING="0" CELLPADDING="5" WIDTH="100%">
         <tr>
-           <td class="bodyTextBig">Question</td>
-           <td class="bodyTextBig" align="right">Overall Average Rating</td>
-           <td class="bodyTextBig" align="right">Average Rating for Competitors</td>
+           <td class="bodyTextBig" align="left" valign="bottom">Question</td>
+           <td class="bodyTextBig" align="right" valign="bottom">Overall Average Rating</td>
+           <td class="bodyTextBig" align="right" valign="bottom">Average Rating for Competitors</td>
         </tr>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
         <% count = result.getIntItem("count");
@@ -65,23 +65,35 @@
         </tr>
         </rsc:iterator>
         <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes <%=compCount%> Competitor Votes</td></tr>
-    </table>
-    <table BORDER="0" CELLSPACING="0" CELLPADDING="5" WIDTH="100%">
-      <tr>
-         <td>
-         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+    </table><br/>
+         <center>
+         <OBJECT 
+         classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
          codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-         WIDTH="450" HEIGHT="300" id="problem_rating" ALIGN="">
+         WIDTH="100%"
+         HEIGHT="400"
+         id="problem_rating"
+         ALIGN="Top"
+         SALIGN="Top">
          <PARAM NAME=movie VALUE="/i/problem_rating.swf"> 
-         <PARAM NAME=quality VALUE=medium> 
-         <PARAM NAME=bgcolor VALUE=#FFFFFF> 
-         <EMBED src="/i/problem_rating.swf" quality=medium bgcolor=#FFFFFF  WIDTH="300" HEIGHT="200" NAME="problem_rating" ALIGN=""
-         TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+         <PARAM NAME=quality VALUE=medium >
+         <PARAM NAME=salign VALUE=T>
+         <PARAM NAME=bgcolor VALUE="#FFFFFF"> 
+         <EMBED
+         src="/i/problem_rating.swf" 
+         quality=medium 
+         bgcolor="#FFFFFF" 
+         WIDTH="100%"
+         HEIGHT="400"
+         NAME="problem_rating"
+         ALIGN="Top"
+         SALIGN="Top"
+         TYPE="application/x-shockwave-flash"
+         PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
          </EMBED>
          </OBJECT>
-         </td>
-      </tr>
-   </table>
+         </center>
+         <br/><br/>
       </td>
 <!-- Center Column Ends -->
 
