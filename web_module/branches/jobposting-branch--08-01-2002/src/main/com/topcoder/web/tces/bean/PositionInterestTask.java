@@ -184,14 +184,27 @@ log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
             }
             hit.put("state",
                     hitListRow.getItem("state_code").toString().trim() );
+
+            if (hit.get("state").trim().length()>0)
+                hit.put("st",hit.get("state").trim().toUpperCase());
+            else
+                hit.put("st","ZZZ");
+
             hit.put("country",
                     hitListRow.getItem("country_code").toString().trim() );
             hit.put("type",
                     hitListRow.getItem("coder_type_desc").toString().trim() );
             hit.put("school",
                     hitListRow.getItem("school_name").toString().trim() );
-            hit.put("sc",
-                    hitListRow.getItem("school_name").toString().trim().toLowerCase() );
+
+            if (hit.get("school").trim().length() > 0 &&
+                hit.get("school").indexOf("N/A") < 0) {
+                hit.put("sc",
+                        hitListRow.getItem("school_name").toString().trim().toLowerCase() );
+            }
+            else
+                hit.put("sc", "zzz"); // to ensure last in sortlist.
+
             hit.put("hit_date",
                     getDate(hitListRow, "timestamp"));
             hit.put("hd",
