@@ -43,6 +43,9 @@
     <% } else if ((level1.equals("tourny"))) { %>
                 <tr><td id="leftNavTitle">Marketing Services:</td></tr>
                 <tr><td id="<%=level1.equals("tourny")?(level2.equals("index")?"leftNavSelect":"leftNavOn"):"leftNav"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("tourny")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny" target="_parent" class="<%=level1.equals("tourny")?"leftOn":"left"%>">Tournaments</a></td></tr>
+	            <% if (level1.equals("tourny")) { %>
+                    <tr><td id="leftSubnav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>/corp/tces/" target="_parent" class="leftOn">Reports</a></td></tr>
+	            <% } %>
                 <tr><td id="leftNav"><img src="/i/corp/nav_arrow_right.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_conference" target="_parent" class="left">Conference Events</a></td></tr>
     <% } else if ((level1.equals("pbtc"))) { %>
                 <tr><td id="leftNavTitle">Sponsorship:</td></tr>
