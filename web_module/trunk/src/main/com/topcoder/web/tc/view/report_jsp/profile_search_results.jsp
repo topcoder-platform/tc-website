@@ -25,9 +25,10 @@
 <style type="text/css">
     TABLE.entry TD{ 
         BORDER-BOTTOM: #777777 1px solid ;
-	    padding: 5px;
+	    padding: 1px;
 	    font-size: 12px;
-	    font-weight: normal;
+        font-weight: normal;
+        padding-right:1px;
     }
     A:link {
 	    FONT-WEIGHT: bold; COLOR: #7777FF; TEXT-DECORATION: none
@@ -71,7 +72,7 @@
     <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
         <td>
             <a href="JavaScript:sort(<%=i%>)">
-                <%=headers.get(Integer.parseInt(i))%>&nbsp;
+                <%=headers.get(Integer.parseInt(i))%>&nbsp;&nbsp;&nbsp;
             </a>
         </td>
     </tc:counter>
