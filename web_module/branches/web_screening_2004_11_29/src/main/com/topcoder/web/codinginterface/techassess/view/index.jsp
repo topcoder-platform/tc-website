@@ -6,6 +6,6 @@
   </head>
   <frameset cols="0,*">
     <frame name="clockFrame" src="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=CurrentTime" frameborder=0 noresize>
-    <frame name="mainFrame" src="indexInner.jsp" frameborder=0 noresize>
+    <frame name="mainFrame" src="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=IndexInner" frameborder=0 noresize>
   </frameset>
 </html>

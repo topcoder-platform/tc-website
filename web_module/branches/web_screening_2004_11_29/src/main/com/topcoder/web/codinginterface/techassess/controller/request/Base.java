@@ -25,6 +25,7 @@ public abstract class Base extends BaseProcessor {
     private WebQueueResponseManager receiver = null;
     private String messageId = null;
     private long sessionId=-1;
+    private long companyId=-1;
 
 
     public void setReceiver(WebQueueResponseManager receiver) {
@@ -68,8 +69,26 @@ public abstract class Base extends BaseProcessor {
             }
         }
         return sessionId;
-
     }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
+        getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
+    }
+
+    public long getCompanyId() {
+        if (companyId<0) {
+            Long temp = (Long)getRequest().getSession().getAttribute(Constants.COMPANY_ID);
+            if (temp == null)
+                throw new RuntimeException("company id has not be set");
+            else {
+                companyId = temp.longValue();
+            }
+        }
+        return companyId;
+    }
+
+
 
     protected void clearSessionErrors(String messageId) {
         getRequest().getSession().removeAttribute(ERRORS_KEY+messageId);

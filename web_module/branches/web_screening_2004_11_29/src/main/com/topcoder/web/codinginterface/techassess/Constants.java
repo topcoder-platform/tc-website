@@ -24,6 +24,7 @@ public class Constants {
     public static String PAGE_INDEX;
     public static String PAGE_LOGIN;
     public static String PAGE_CURRENT_TIME;
+    public static String PAGE_INDEX_INNER;
 
     //parameters
     public static String HANDLE;

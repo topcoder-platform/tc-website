@@ -26,9 +26,8 @@ public class Logout extends Base {
         ScreeningLogoutResponse response = (ScreeningLogoutResponse)receive(5000);
 
 
-        Long companyId = (Long)getRequest().getSession().getAttribute(Constants.COMPANY_ID);
         setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
-                new String[] {Constants.COMPANY_ID}, new String[]{companyId.toString()}));
+                new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
         setIsNextPageInContext(false);
 
         getRequest().getSession().invalidate();
