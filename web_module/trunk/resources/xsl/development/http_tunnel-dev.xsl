@@ -57,18 +57,18 @@
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-						<h1 class="devSubhead"><strong>Spell Check: Development</strong></h1>
+						<h1 class="devSubhead"><strong>HTTP Tunneling: Development</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Spell Check: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=HTTP Tunneling: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Spell Check component provides spelling validation to Java applications. The notion of spell checking is not new, however providing a low-level, spell checking component available through an API has numberous uses. On most websites and custom applications, spell checking is not available. For example, the www.topcodersoftware.com forums allow members to post comments, but there is no utility to run spell check before posting. This component would integrate with those offerings to provide this functionality.
+						The HTTP Tunneling component serves as a conduit between proprietary web protocols and HTTP. It wraps and unwraps proprietary calls in HTTP and sends it to the proper destination. The purpose is to allow proprietary communication via HTTP through proxy servers and firewalls.
 						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Component Development Project: Provide a complete development solution for the Spell Check component.<br />
+						Component Development Project: Provide a complete development solution for the HTTP Tunneling component.<br />
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -81,7 +81,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2806547">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2809381">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -125,7 +125,7 @@
 <!-- Register at TCS -->
 						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Spell Check: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=HTTP Tunneling: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
