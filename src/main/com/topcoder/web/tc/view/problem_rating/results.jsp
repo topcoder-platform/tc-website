@@ -97,10 +97,10 @@
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
     <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="5"align="center" class="formFrame">
         <tr>
-           <td class="bodyTextBig" align="left" valign="bottom" nowrap>Question</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Total Avg.<br/>Rating</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div I Avg.<br/>Rating</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div II Avg.<br/>Rating</td>
+           <td class="sidebarTitle" align="left" valign="bottom" nowrap>Question</td>
+           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Total Avg.<br/>Rating</td>
+           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Div I Avg.<br/>Rating</td>
+           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Div II Avg.<br/>Rating</td>
         </tr>
         <%  if (!problemRatingResults.isEmpty()) {
                 count = ((ProblemRatingResult)problemRatingResults.get(0)).getOverallCount().intValue();
@@ -110,16 +110,16 @@
         %>
         <tc:problemRatingResultIterator list="<%=problemRatingResults%>" id="result">
         <tr>
-            <td class="bodyText">
+            <td class="sidebarText">
                 <jsp:getProperty name="result" property="Question"/>
             </td>
-            <td class="bodyText" align="right">
+            <td class="sidebarText" align="right">
                 <tc-tags:format object="<%=result.getOverallAverage()%>" format="0.00"/>
             </td>
-            <td class="bodyText" align="right">
+            <td class="sidebarText" align="right">
                 <tc-tags:format object="<%=result.getDiv1Average()%>" format="0.00"/>
             </td>
-            <td class="bodyText" align="right">
+            <td class="sidebarText" align="right">
                 <tc-tags:format object="<%=result.getDiv2Average()%>" format="0.00"/>
             </td>
         </tr>
