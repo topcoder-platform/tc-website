@@ -34,7 +34,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open Application projects total <span style="font-size:130%; font-weight:bold;">$10,555</span> in payments. 
+                                <td class="devProjectText">Currently open Application projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$10,555</span> in payments. 
                                     <strong><A href="/?t=development&amp;c=app_projects">Inquire today</A></strong></td>
                             </tr>
                         </table>
@@ -43,45 +43,45 @@
                 
                 <tr>
                     <td class="devProjectText">
-                        <table width="100%" border="0" cellspacing="3" cellpadding="0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
                                 <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=admin_tool_enhancements_dev"><strong>Admin Tool Enhancements: Development</strong></A><br/>
                                     Requirements for this project have been broken down into three groups...</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Winning Developer Group 1:</td>
-                                <td class="devProjectWinner">$2,200</td>
+                                <td class="devProjectWinner">Winning Developer Group 1:</td>
+                                <td class="devProjectWinnerMoney">$2,200</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Second Place Group 1:</td>
-                                <td class="devProjectPlace">$665</td>
+                                <td class="devProjectSecond">Second Place Group 1:</td>
+                                <td class="devProjectSecondMoney">$665</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Winning Developer Group 2:</td>
-                                <td class="devProjectWinner">$2,200</td>
+                                <td class="devProjectWinner">Winning Developer Group 2:</td>
+                                <td class="devProjectWinnerMoney">$2,200</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Second Place Group 2:</td>
-                                <td class="devProjectPlace">$665</td>
+                                <td class="devProjectSecond">Second Place Group 2:</td>
+                                <td class="devProjectSecondMoney">$665</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Winning Developer Group 3:</td>
-                                <td class="devProjectWinner">$2,200</td>
+                                <td class="devProjectWinner">Winning Developer Group 3:</td>
+                                <td class="devProjectWinnerMoney">$2,200</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Second Place Group 3:</td>
-                                <td class="devProjectPlace">$665</td>
+                                <td class="devProjectSecond">Second Place Group 3:</td>
+                                <td class="devProjectSecondMoney">$665</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Inquire By:</td>
-                                <td class="devProjectPlace">10.20.2003</td>
+                                <td class="devProjectInquire">Inquire By:</td>
+                                <td class="devProjectDate">10.20.2003</td>
                             </tr>
                         </table>
                     </td>
@@ -89,25 +89,25 @@
                 
                 <tr>
                     <td class="devProjectText">
-                        <table width="100%" border="0" cellspacing="3" cellpadding="0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
                                 <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=email_tool_enhancements"><strong>Email Tool Enhancements: Design</strong></A><br/>
                                     The main goals of this project include adding support for HTML emails, and improving the user interface....</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Winning Designer:</td>
-                                <td class="devProjectWinner">$1,290</td>
+                                <td class="devProjectWinner">Winning Designer:</td>
+                                <td class="devProjectWinnerMoney">$1,290</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Second Place:</td>
-                                <td class="devProjectPlace">$420</td>
+                                <td class="devProjectSecond">Second Place:</td>
+                                <td class="devProjectSecondMoney">$420</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectMember">Inquire By:</td>
-                                <td class="devProjectPlace">10.20.2003</td>
+                                <td class="devProjectInquire">Inquire By:</td>
+                                <td class="devProjectDate">10.20.2003</td>
                             </tr>
                         </table>
                     </td>
