@@ -38,7 +38,7 @@ import java.rmi.RemoteException;
  * @version 1.0 07/14/2004
  * @since   Screening Tool 1.1
  */
-public class UpdatePreference extends BaseProcessor {
+public class UpdatePreference extends BaseScreeningProcessor {
 
     /**
      * A <code>String</code> name of the attribute of an incoming request to be set to <code>"true"</code> to indicate
@@ -65,7 +65,7 @@ public class UpdatePreference extends BaseProcessor {
      * @throws TCWebException if any other error preventing the successful fulfillment of request. This exception will
      *         wrap the original exception (for example, <code>NamingException</code>, <code>RemoteException</code>).
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
 
         TCRequest request = getRequest();
 

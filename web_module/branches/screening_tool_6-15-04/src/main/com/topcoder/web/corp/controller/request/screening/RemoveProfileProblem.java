@@ -12,7 +12,7 @@ import com.topcoder.shared.security.ClassResource;
 import javax.servlet.ServletRequest;
 
 public class RemoveProfileProblem extends BaseProfileProcessor {
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }

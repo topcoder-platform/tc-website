@@ -39,7 +39,7 @@ import java.util.Map;
  * @author  isv
  * @version 1.1 07/14/2004
  */
-public class PopulateCandidate extends BaseProcessor {
+public class PopulateCandidate extends BaseScreeningProcessor {
 
     /**
      * A main method of <code>PopulateCandidate</code> processor. Depending on the <code>Screening Tool</code>
@@ -50,7 +50,7 @@ public class PopulateCandidate extends BaseProcessor {
      *
      * @throws TCWebException if any error prevents the normal process flow.
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
 
         // First, determine the company usage type
         int usageType = 0;

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  * @author rfairfax
  */
 public abstract class BaseScreeningProcessor extends BaseProcessor {
-    private final static Logger log = Logger.getLogger(TestResults.class);
+    protected final static Logger log = Logger.getLogger(TestResults.class);
 
     private long usage;
     public long getUsageType()
