@@ -85,7 +85,7 @@
                      <td>
                         <ul><li>
                         Check:
-                        <ol><li>Please complete the this donation form:</li>
+                        <ol><li>Please complete this donation form:</li>
                         <li>Make your check payable to the Christopher Reeve Paralysis Foundation</li>
                         <li>Mail the form and check, <b>postmarked no later than November 10</b>, to:<br />
                         TopCoder<br />
