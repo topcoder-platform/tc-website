@@ -246,6 +246,7 @@ public final class MainServlet extends HttpServlet {
             //************************ xsl cache refresh ************************
             else if (requestTask.equals("refresh_xsl")) {
                 htmlMaker.refresh();
+                HTMLString = "home";
             }
             //************************ statistics ************************
             else if (requestTask.equals("statistics") && requestCommand.equals("member_profile")) {
