@@ -102,9 +102,9 @@ function submitSession() {
                         <select name ="profileId">
                         <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
                         <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
-                            <option class="dropdownvalue="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
+                            <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
                         <% } else { %>
-                            <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
+                            <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
                         <% } %>
                         </screen:resultSetRowIterator>
                         </select>
@@ -124,14 +124,14 @@ function submitSession() {
                         <select name="cid">
                         <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
                         <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
-                            <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
+                            <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                         <% } else { %>
-                            <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
+                            <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                         <% } %>
                         </screen:resultSetRowIterator>
                         </select>
                     </td>
-                    <td class="testTableOdd">&#160;<a name="profile"></a><a href="JavaScript:submitCandidate()">Add a Candidate</a></td>
+                    <td class="testTableOdd">&#160;<a href="JavaScript:submitCandidate()">Add a Candidate</a></td>
                 </tr>
 
                 <tr>
