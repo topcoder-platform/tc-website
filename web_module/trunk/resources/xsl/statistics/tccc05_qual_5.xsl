@@ -84,6 +84,7 @@ function openWin(url, name, w, h) {
 
 <h2>Match summary</h2>
 
+
 <p>
 The results for this set were close. Im2Good got the top score, but 16 other competitors had scores within 100 of his.
 <br /><br />
