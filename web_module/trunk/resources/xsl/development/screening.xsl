@@ -55,7 +55,7 @@
                                     </FORM>
                                     <b>Candidate Screening Tool</b>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Candidate Screening Tool';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <a href="/?&amp;t=development&amp;c=inquire&amp;Candidate Screening Tool" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a>
                                     <BR/>
 <P>
 <B>Purpose</B>
