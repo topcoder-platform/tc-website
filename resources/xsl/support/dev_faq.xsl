@@ -29,7 +29,7 @@
 <xsl:call-template name="Top" />
 
 <table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
-	<tr>
+	<tr valign="top">
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC" valign="top">
 			<xsl:call-template name="public_support_left" />
@@ -51,25 +51,30 @@
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
 				<tr valign="top">
 					<td width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0" /></td>
-					<td class="bodyText" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br /><br />
+					<td class="bodyText" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="240" height="8" border="0" />
                     		<table width="100%" cellspacing="5" cellpadding="0" border="0">
-							<tr valign="middle"><td class="bodyText" align="left"><a href="#1" class="bodyText">How are point values for code submissions determined?</a></td></tr>
+							<tr valign="top">
+								<td class="bodyText" width="100%">
+									<p><a href="#1" class="bodyText">How are point values for code submissions determined?</a></p>
                         		
-                        		<tr valign="middle"><td class="bodyText" align="left"><a href="#2" class="bodyText">How do I advance?</a></td></tr>
+                        				<p><a href="#2" class="bodyText">How do I advance?</a></p>
 							
-							<tr valign="middle"><td align="left" width="490"><a href="#3" class="bodyText">It seems like I have the same points as someone else in my room. Who advances?</a></td></tr>
+									<p><a href="#3" class="bodyText">It seems like I have the same points as someone else in my room. Who advances?</a></p>
 
-							<tr><td align="left" valign="middle" width="490"><a href="#4" class="bodyText">How does rating work?</a></td></tr>
+									<p><a href="#4" class="bodyText">How does rating work?</a></p>
 
-							<tr><td class="bodyText" align="left" valign="middle"><a href="#5" class="bodyText">Why is the point system so complicated?  Are you saying that at the time I submit a solution, I have no idea how many points I will receive for my submission?</a></td></tr>
+									<p><a href="#5" class="bodyText">Why is the point system so complicated?  Are you saying that at the time I submit a solution, I have no idea how many points I will receive for my submission?</a></p>
 
-                        		<tr><td class="bodyText" align="left" valign="middle"><a href="#7" class="bodyText">How are room assignments done? Will people with similar ratings be assigned to the same room?</a></td></tr>
+                        				<p><a href="#7" class="bodyText">How are room assignments done? Will people with similar ratings be assigned to the same room?</a></p>
 
-							<tr><td class="bodyText"><strong>More Questions? <a href="/?t=contacts&amp;c=index" class="bodyText">Contact Us</a></strong></td></tr>
+									<p><strong>More Questions? </strong><a href="/?t=contacts&amp;c=index" class="bodyText"><strong>Contact Us</strong></a></p>
+								</td>
+							</tr>
                         		
-                        		<tr><td height="10" valign="top"><img alt="" src="/images/spacer.gif" width="1" height="10" border="0" /></td></tr>
+                        		<tr valign="top"><td height="10"><img alt="" src="/images/spacer.gif" width="1" height="10" border="0" /></td></tr>
 
-							<tr><td class="bodyText" valign="top">
+							<tr valign="top">
+								<td class="bodyText" width="100%">
 									<p><a name="1" class="bodyText"><strong>How are point values for code submissions determined?</strong></a><br />
 									Points are determined based on two factors: the difficulty of the problem and time it took to code once it was opened. 
 									The longer it takes to code, the fewer points will be awarded upon submission, and vice versa.<br />
@@ -107,28 +112,31 @@
 									<a href="#top" class="bodyText">[back to top]</a></p>
 								</td>
 							</tr>
-							<tr><td height="5"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td></tr>
+							
+							<tr><td width="5"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td></tr>
 						</table>
 					</td>
 					<td valign="top" width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 				</tr>
 				
 				<tr valign="top">
-					<td colspan="4" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td>
-				</tr>   	
+					<td colspan="3" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td>
+				</tr>
+			</table>   	
 				
+			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
 				<tr valign="top">
 					<td bgcolor="#CCCCCC" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
 					<td width="75"><img src="/i/table_mid_left2.gif" alt="" width="14" height="8" border="0" /></td>
 					<td bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-					<td bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+					<td bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>	
 				
 				<tr valign="top">
 					<td bgcolor="#CCCCCC" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>
 					<td bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
 					<td bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-					<td bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+					<td bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 			</table>
 		</td>
