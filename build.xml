@@ -927,5 +927,18 @@
         </java>
     </target>
 
+    <target name="userMover" depends="compile">
+        <java classname="com.topcoder.utilities.UserMover" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
 </project>
 
