@@ -117,8 +117,6 @@ DATE<BR/>
   <%}%>
 <%  int currentRowPtr = 0;
     for(int i = 0; i<divisions;i++){
-        currentRow = percents.getRow(currentRowPtr);
-        int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
     %>
 </TABLE>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="problem_stats"></A>
@@ -134,15 +132,19 @@ DATE<BR/>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><B>Average Pts.</B></TD>
   </TR>
-  <%do{
-      currentRow = percents.getRow(currentRowPtr++);
-      String problemLevel = currentRow.getItem("problem_level").toString();
-      String problemName = currentRow.getItem("problem_name").toString();
-      int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
-      int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
-      double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
-      String perCor = df.format((((double)correct)/submissions));
-      String avgPoints = df.format(total/correct);
+  <%
+      currentRow = percents.getRow(currentRowPtr);
+      int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
+      for(;currentRowPtr<percents.size()&&Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID;
+          currentRow = percents.getRow(currentRowPtr++)){
+        currentRow = percents.getRow(currentRowPtr++);
+        String problemLevel = currentRow.getItem("problem_level").toString();
+        String problemName = currentRow.getItem("problem_name").toString();
+        int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
+        int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
+        double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
+        String perCor = df.format((((double)correct)/submissions));
+        String avgPoints = df.format(total/correct);
   %>
 
   <TR>
@@ -153,8 +155,8 @@ DATE<BR/>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=avgPoints%></TD>
   </TR>
   <%
-    }while(Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID&&currentRowPtr<percents.size());
-  }%>
+      }
+    }%>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
     <TD VALIGN="middle" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></TD>
