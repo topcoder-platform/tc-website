@@ -4,7 +4,7 @@
 <TR><TD>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#6C6D71" WIDTH="100%">
     <TR VALIGN="top" >
-		<TD WIDTH="100%" BGCOLOR="#6C6D71" ALIGN="right" BACKGROUND="/i/hs/top_gray_1pix_bg">
+		<TD WIDTH="100%" BGCOLOR="#6C6D71" ALIGN="right" BACKGROUND="/i/hs/top_gray_1pix_bg.gif">
 <SPAN CLASS="smallFoot">        
         &nbsp;&nbsp;<A HREF="/hs/about/about.jsp" CLASS="globalNavSmall">about [TCHS]</A>   
 <!--        &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="/hs/login/login.jsp" CLASS="globalNavSmall">Log in</A>   -->
