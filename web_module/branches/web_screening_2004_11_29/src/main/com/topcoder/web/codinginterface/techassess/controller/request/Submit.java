@@ -85,6 +85,7 @@ public class Submit extends Base {
                 setDefault(Constants.PROBLEM_TYPE_ID, String.valueOf(problemTypeId));
                 setDefault(Constants.COMPONENT_ID, String.valueOf(componentId));
                 setDefault(Constants.SUBMIT_FLAG, String.valueOf(resubmit));
+                log.debug("defaults: " + defaults);
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_SUBMIT_RESPONSE,
                         new String[] {Constants.MESSAGE_ID},
                         new String[] {String.valueOf(getMessageId())}));
