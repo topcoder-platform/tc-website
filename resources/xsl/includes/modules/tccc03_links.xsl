@@ -13,15 +13,6 @@
                         purse for this tournament is $100,000 and the winner will receive $50,000.</p>
                         
                         <p>
-                        <xsl:choose>
-                            <xsl:when test="/TC/LoggedIn='true'">
-                                <strong>Sign up</strong> by clicking on the sign-up link on your <a href="/?&amp;t=home&amp;c=home" class="statText">member home page.</a>  
-                            </xsl:when>
-                        
-                            <xsl:otherwise>
-                                <strong>Sign up</strong> by clicking on the sign-up link on your <a href="/?&amp;t=authentication&amp;c=login" class="statText">member home page.</a>  
-                            </xsl:otherwise>
-                        </xsl:choose><br />
                         <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
                     </td>
                     <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
