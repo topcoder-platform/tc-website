@@ -119,6 +119,11 @@
       <td>&#160;&#160;&#160;</td>
       <td><%=p.getNotify()%></td>
     </tr>
+    <tr>
+      <td>Status</td>
+      <td>&#160;&#160;&#160;</td>
+      <td><%=p.getStatus()%></td>
+    </tr>
     <tr><td><br/></td></tr>
     <br/><br/>
     <tr>

@@ -19,7 +19,7 @@ public class Profile implements Serializable {
   private String firstName;
   private String lastName;
 
-  private static final int[] GENERAL_QUERY_TYPES = {ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.DATE, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.DATE, ResultItem.STRING, ResultItem.STRING}; 
+  private static final int[] GENERAL_QUERY_TYPES = {ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.DATE, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.DATE, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING}; 
    private static final String GENERAL_QUERY = 
      " SELECT u.user_id" +
             " ,r.rating" +
@@ -49,6 +49,7 @@ public class Profile implements Serializable {
                                                      " FROM user" +
                                                     " WHERE user_id = cref.reference_id)" +
                   " ELSE '' END" +
+            " ,us.user_status_desc" +
        " FROM user u" +
        " JOIN coder c ON u.user_id = c.coder_id" +
         " AND LOWER(u.handle) like LOWER('?')" +
@@ -57,7 +58,8 @@ public class Profile implements Serializable {
        " JOIN rating r ON r.coder_id = c.coder_id  " +
        " JOIN coder_referral cref ON cref.coder_id = c.coder_id" +
        " JOIN referral re ON re.referral_id = cref.referral_id" +
-       " JOIN coder_type ct ON c.coder_type_id = ct.coder_type_id";
+       " JOIN coder_type ct ON c.coder_type_id = ct.coder_type_id" +
+       " JOIN user_status_lu us ON u.status = us.user_status_id";
 
  
   private static final int[] EDUCATION_QUERY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT};
@@ -199,6 +201,10 @@ public class Profile implements Serializable {
     if (generalInfo==null) return "";
     else if (generalInfo[20].toString() == null) return "";
     else return generalInfo[20].toString();
+  }
+  public String getStatus() {
+    if (generalInfo==null) return "";
+    return generalInfo[21].toString();
   }
 
 
