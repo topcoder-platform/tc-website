@@ -121,19 +121,19 @@
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= hit.getItem("state").toString() %>
+                    <%= hit.getItem("state_code").toString() %>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= hit.getItem("country").toString() %>
+                    <%= hit.getItem("country_code").toString() %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= hit.getItem("type").toString() %>
+                    <%= hit.getItem("coder_type_desc").toString() %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= hit.getItem("school").toString() %>
+                    <%= hit.getItem("school_name").toString() %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
