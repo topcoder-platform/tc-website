@@ -104,7 +104,7 @@ public class ProblemStatementTag extends TagSupport {
         try {
             pageContext.getOut().println(pr.toHTML(language));
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             throw new JspException(e.getMessage());
         }
 
