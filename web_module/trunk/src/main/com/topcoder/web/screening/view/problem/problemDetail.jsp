@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.tces.common.JSPUtils"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
@@ -82,7 +82,7 @@
            </TR>
            <TR>
               <TD CLASS="bodyText" VALIGN="top">
-<screen:problemStatement text="<%=JSPUtils.htmlEncode(problemInfo.getProblemStatement())%>" language="Java" />
+<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="Java" />
               </TD>
            </TR>
            <TR>
