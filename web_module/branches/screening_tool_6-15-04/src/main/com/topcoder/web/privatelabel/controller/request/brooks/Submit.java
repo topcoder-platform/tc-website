@@ -409,7 +409,7 @@ public class Submit extends FullRegSubmit {
         Date ret = new Date(d.getTime());
         
         //bring to GMT
-        lof.info("TIME: " + ret);
+        log.info("TIME: " + ret);
         log.info("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), ret.getSeconds() * 1000));
         log.info("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), ret.getSeconds() * 1000));
         ret = new Date( ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), ret.getSeconds() * 1000));
