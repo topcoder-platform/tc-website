@@ -229,7 +229,7 @@ public class Search extends Base {
      * Check for valid state code
      */
     private boolean checkValidState(Map errors, String stateCode, ResultSetContainer list) {
-        if (!isValidListValue(stateCode, list, "state_code")) {
+        if (stateCode.equals("") || !isValidListValue(stateCode, list, "state_code")) {
             addErrorMessage(errors, "StateCode", INVALID_STATE_CODE);
             return (false);
         }
@@ -241,7 +241,7 @@ public class Search extends Base {
      * Check for valid school
      */
     private boolean checkValidSchool(Map errors, Long schoolId, ResultSetContainer list) {
-        if (!isValidListValue(schoolId, list, "school_id")) {
+        if (schoolId.equals(new Long(-1)) || !isValidListValue(schoolId, list, "school_id")) {
             addErrorMessage(errors, "SchoolId", INVALID_SCHOOL_ID);
             return (false);
         }
