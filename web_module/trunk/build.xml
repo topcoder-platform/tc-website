@@ -834,6 +834,8 @@
 
 
 
+    <!-- begin corp targets -->
+
     <target name="war_tces" depends="compile">
         <war warfile="${war.dir}/${tces.war.name}.war" webxml="${resources}/tces/web.xml">
             <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
@@ -850,7 +852,6 @@
 
 
 
-    <!-- begin corp targets -->
     <target name="war_corp" depends="compile,corp-ejb-all">
         <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
             <classes dir="${classes}">
@@ -861,62 +862,35 @@
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
             </classes>
-            <!-- libraries to be included in servlet classpath -->
-<!--
-            <lib dir="${jars.dir}">
-            </lib>
--->
+
             <webinf dir="${resources}/${corp.war.name}">
                 <include name="tc-webtags.tld"/>
             </webinf>
+
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix=""/>
             <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
         </war>
     </target>
 
-    <target name="dev_war_corp" depends="compile">
-        <!--      <delete dir="${public_html}/${corp.war.name}"/>
--->
-        <mkdir dir="${public_html}/${corp.war.name}"/>
-        <copy todir="${public_html}/${corp.war.name}">
-            <fileset dir="${java}/com/topcoder/web/corp/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-        </copy>
-        <copy todir="${public_html}/${corp.war.name}/WEB-INF">
-            <fileset dir="${resources}/${corp.war.name}">
-                <include name="*.tld"/>
-                <include name="*.xml"/>
-            </fileset>
-        </copy>
-        <copy todir="${public_html}/${corp.war.name}/classes">
-            <fileset dir="${classes}">
-                <include name="com/topcoder/web/corp/**"/>
-                <include name="com/topcoder/web/common/**"/>
-                <include name="com/topcoder/shared/**"/>
-            </fileset>
-        </copy>
-    </target>
-
-
-    <target name="deploy-corp" depends="war_corp">
-        <copy todir="${public_html}" file="${war.dir}/${corp.war.name}.war"/>
+    <target name="deploy-corp" depends="war_corp,war_query,war_tces">
         <unwar src="${public_html}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
-        <delete file="${public_html}/${corp.war.name}.war"/>
         <delete dir="${public_html}/${corp.war.name}/META-INF"/>
-        <!-- libraries to be included in weblogic classpath -->
-        <copy todir="${public_html}/../ext-lib">
-            <fileset dir="${jars.dir}">
-                <include name="idgenerator.jar"/>
-                <include name="security.jar"/>
-                <include name="jbossall-client.jar"/>
-                <include name="log4j-boot.jar"/>
-                <include name="jdom.jar"/>
-            </fileset>
-        </copy>
+
+        <unwar src="${war.dar}/${query.war.name}.war" dest="${public_html}/${query.war.name}/" overwrite="yes"/>
+        <delete dir="${public_html}/${query.war.name}/META-INF"/>
+
+        <unwar src="${war.dar}/${tces.war.name}.war" dest="${public_html}/${tces.war.name}/" overwrite="yes"/>
+        <delete dir="${public_html}/${tces.war.name}/META-INF"/>
     </target>
 
     <target name="corp-ejb-all" depends="compile">
+        
+        <!-- Resume ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ResumeServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/ResumeServices"/>
+        </antcall>
+
         <!-- Address ejb -->
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="address"/>
@@ -976,7 +950,7 @@
         <delete dir="${tmp-dir}" />
         <mkdir dir="${tmp-dir}"/>
         <!-- zip 'sources' -->
-        <jar jarfile="${tmp-dir}/${unit-jar-name}-ejb.jar">
+        <jar jarfile="${tmp-dir}/${unit-jar-name}.jar">
             <zipfileset dir="${classes}" includes="${unit-class-path}/**/*.class"/>
             <zipfileset dir="${java}/${unit-class-path}" includes="*.xml" prefix="META-INF"/>
         </jar>
@@ -984,9 +958,9 @@
         <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
             <sysproperty value="-compiler" key="javac"/>
             <sysproperty value="-classpath" key="${class.path}"/>
-            <arg line="${tmp-dir}/${unit-jar-name}-ejb.jar ${ejb_jars}/${unit-jar-name}-ejb.jar"/>
+            <arg line="${tmp-dir}/${unit-jar-name}.jar ${ejb_jars}/${unit-jar-name}.jar"/>
         </java>
-        <echo message="${unit-jar-name}-ejb.jar done"/>
+        <echo message="${unit-jar-name}.jar done"/>
     </target>
 
     <!-- end corp targets -->
