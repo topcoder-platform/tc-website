@@ -2,6 +2,7 @@ package com.topcoder.shared.dataAccess;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.sql.*;
 import java.util.*;
@@ -21,6 +22,8 @@ public class QueryRunner implements DataRetrieverInt {
     private Connection conn;
     private PreparedStatement ps;
     private ResultSet rs;
+
+    private static Logger log = Logger.getLogger(QueryRunner.class);
 
     /**
      * Constructor that takes a connection object
@@ -106,6 +109,8 @@ public class QueryRunner implements DataRetrieverInt {
                     Integer.parseInt((String)inputs.get(DataAccessConstants.START_RANK)):1;
             int endRank =inputs.containsKey(DataAccessConstants.END_RANK)?
                     Integer.parseInt((String)inputs.get(DataAccessConstants.END_RANK)):Integer.MAX_VALUE;
+
+            log.debug("start: " + startRank + " end: " + endRank);
 
             resultMap = new HashMap();
             queryMap = (Map) inputs.get(DataAccessConstants.QUERY_KEY);
