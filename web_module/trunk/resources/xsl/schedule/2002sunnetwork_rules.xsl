@@ -365,7 +365,7 @@ The dates and times of the Quarterfinal, Semifinal and Championship rounds are a
 
 <P>
 <B>The Quarterfinal Round</B> will consist of one group of 32 coders, grouped into 8 rooms of 4 coders each.  
-The top 8 scorers across all rooms in the Quarterfinal Round will advance to the Semifinal Round.
+The top 16 scorers across all rooms in the Quarterfinal Round will advance to the Semifinal Round.
 </P>
 
 <P>
