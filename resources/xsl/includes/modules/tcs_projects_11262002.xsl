@@ -6,8 +6,8 @@
 				
 				<tr><td colspan="4" background="" height="10"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 				
-<!-- NEW Component Projects begins -->
-				<tr valign="middle"><td height="28"><img src="/i/development/head_new_components.gif" alt="NEW Component Projects" width="244" height="28" border="0" /></td></tr>
+<!-- NEW Component Design Projects begins -->
+				<tr valign="middle"><td height="28"><img src="/i/development/head_new_comp_design.gif" alt="NEW Component Design Projects" width="244" height="28" border="0" /></td></tr>
 				
 				<tr valign="top">
 					<td bgcolor="#000000"> 
@@ -23,8 +23,8 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.11.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=spell_check">Spell Check</a></td>
+								<td background="" class="statText" align="center">12.04.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							
@@ -32,26 +32,8 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.11.2002</td>
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
-
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-							<tr valign="top">
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=db_abstract-design">Database Abstraction:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.11.2002</td>
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
-
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-							<tr valign="top">
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=encrypt-design">Encryption:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.11.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=math_eval">Math Evaluator</a></td>
+								<td background="" class="statText" align="center">12.04.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 
@@ -59,7 +41,7 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td colspan="2" background="" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=comp_projects">::&#160;See all open Component Projects</a></td>
+								<td colspan="2" background="" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=comp_des_projects">::&#160;See all open Component Design Projects</a></td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							
@@ -67,7 +49,52 @@
 						</table>
 					</td>
 				</tr>
-<!-- NEW Component Projects ends -->
+<!-- NEW Component Design Projects ends -->
+
+<!-- NEW Component Development Projects begins -->
+				<tr valign="middle"><td height="28"><img src="/i/development/head_new_comp_dev.gif" alt="NEW Component Dev Projects" width="244" height="28" border="0" /></td></tr>
+
+				<tr valign="top">
+					<td bgcolor="#000000"> 
+						<table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
+							<tr valign="middle">
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project Title</td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+							</tr>
+							
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=timer_dev">Timer</a></td>
+								<td background="" class="statText" align="center">12.05.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+							
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=utg_dev">Unit Test Generator</a></td>
+								<td background="" class="statText" align="center">12.05.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td colspan="2" background="" class="openProjects"><a class="openProjects" href="/index?t=development&amp;c=comp_dev_projects">::&#160;See all open Component Dev Projects</a></td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+							
+							<tr><td colspan="4" background="" height="15"><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
+						</table>
+					</td>
+				</tr>
+<!-- NEW Component Development Projects ends -->
 
 <!-- NEW Application Projects begins -->
 				<tr valign="middle"><td height="28"><img src="/i/development/head_new_app.gif" alt="NEW Application Projects" width="244" height="28" border="0" /></td></tr>
@@ -84,20 +111,20 @@
 							
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-							<tr valign="top">
+							<!-- <tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td background="" class="statText" colspan="2">There are no new Application Projects this week.</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
+							</tr> -->
 							
-							<!-- <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=tchs">TopCoder High School</a></td>
 								<td background="" class="statText" align="center">11.22.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr> -->
+							</tr>
 							
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
@@ -118,7 +145,7 @@
 				<tr valign="top">
 					<td width="100%" bgcolor="#000000"> 
 						<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#003366">                
-							<tr valign="top"><td width="100%" background="/i/steel_blue_bg.gif" bgcolor="#003366" class="statTextSmall">The <a class="statTextSmall" href="/index?t=development&amp;c=comp_meth">methodology</a> for Component Projects has changed. Please read it before submitting a Component Design or Component Development solution.</td></tr>
+							<tr valign="top"><td width="100%" background="/i/steel_blue_bg.gif" bgcolor="#003366" class="statTextSmall">The <a class="statTextSmall" href="/index?t=development&amp;c=comp_meth">methodology</a> for Component Development has changed. Please read it before submitting a Component Design or Component Development Solution.</td></tr>
 						</table>
 					</td>
 				</tr>
