@@ -9,6 +9,7 @@
         <td colspan="3" width="100%" align="right" height="15" class="globalNavSmall"><a name="top"></a>
 
 <% if(requestInfo.isLoggedIn()) { %>
+            <jsp:getproperty name="requestInfo" property="Handle" /> is logged in.
             <screen:servletLink processor="Logout" target="_top" styleclass="globalNavSmall">Logout</screen:servletLink>&#160;&#160;|&#160;&#160;
 <%} else {%>
             <screen:servletLink processor="Login" target="_top" styleclass="globalNavSmall">Login</screen:servletLink>&#160;&#160;|&#160;&#160;
