@@ -72,31 +72,32 @@
                         <p><strong>Loading the Competition Arena</strong><br/>
                         The Competition Arena is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the application by clicking the 
                         Compete Now button at <a href="http://www.topcoder.com">www.topcoder.com/verizon</a>.  Once you click the button, you will be notified if 
-                        you need to upgrade your Java runtime.  
-                        If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade is not required, the application will load automatically 
-                        and present you with a red "Launch Competition Arena" button.</p>
+                        you need to upgrade your Java runtime. If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade is not 
+                        required, the application will load automatically and present you with a red "Launch Competition Arena" button.</p>
                         
                         <p><strong>Logging in to the Competition Arena</strong><br/>
                         Once the Competition Arena launches, you will be presented with a login screen.  From here, you need simply type in your handle and the password that 
-                        you chose during the registration process.  Once you log in, you will initially be placed in the main chat lobby.  Move to your assigned competition room as follows:
+                        you chose during the registration process.  Once you log in, you will initially be placed in the main chat lobby.  Move to your assigned competition 
+                        room as follows:</p>
+                        
                         <ul>
-                        <li>Click on the "Active Contests" menu item.</li>
-                        <li>Select Verizon Coding Contest.</li></ul>
-                        </p>
-
+                            <li>Click on the "Active Contests" menu item.</li>
+                            <li>Select Verizon Coding Contest.</li>
+                        </ul>
                         
                         <p><strong>The Competition Room</strong><br/>
-                        From within the competition room, you will access the problem statements that you will attempt to solve during the Coding Phase. </p>
+                        From within the competition room, you will access the problem statements that you will attempt to solve during the Coding Phase.</p>
                         
                         
                         <p><strong>Coding Phase</strong><br/>
                         The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements.  
-                        In all rounds of the Verizon Coding Challenge, the Coding Phase will last 75 minutes.  When the competition begins, you may view the problem statements as follows:
+                        In all rounds of the Verizon Coding Challenge, the Coding Phase will last 75 minutes.  When the competition begins, you may view the 
+                        problem statements as follows: </p>
+                        
                         <ul>
-                        <li> Click on the drop-down box labeled "Select one"</li>
-                        <li>Select the point value of the problem that you wish to solve</li></ul>
-                        </p>
-       
+                            <li> Click on the drop-down box labeled "Select one"</li>
+                            <li>Select the point value of the problem that you wish to solve</li>
+                        </ul>
                         
                         <p>The higher the point value assigned, the more difficult the problem will be.  You may open the problems in any order.  You may have all 
                         problems open at the same time - but keep in mind that the timers for each problem will be counting down independent of other problems that 
@@ -114,65 +115,61 @@
                         solutions are coded, compiled, tested, and submitted.</p>
                         
                         <dl>
-                        <dd><strong>The Problem Statement</strong><br/>
-                        The top pane of the coding window contains the problem statement in its entirety.  The problem statement explains exactly what it is that you are 
-                        attempting to accomplish.  It includes an explanation of the task, the class and method definitions that your solution must adhere to, all of the constraints 
-                        for any input parameters, and examples to help clarify the statement. </dd><br/>
+                            <dd><strong>The Problem Statement</strong><br/>
+                            The top pane of the coding window contains the problem statement in its entirety.  The problem statement explains exactly what it is that you are 
+                            attempting to accomplish.  It includes an explanation of the task, the class and method definitions that your solution must adhere to, all of the constraints 
+                            for any input parameters, and examples to help clarify the statement. <br/><br/>
                         
-                        <dd><strong>Choosing a Language</strong><br/>
-                        The Verizon Coding Challenge allows coders to utilize Java, C++, C#, or VB.NET as a competition programming language.  You have the option to 
-                        choose a programming language on a problem-by-problem basis.  It is legal for you to use two different programming languages to solve different 
-                        problems in a single competition.  For this reason, you have the option of choosing the programming language from within the coding window.  You can 
-                        find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language 
-                        before you attempt to compile your code.  Strange compilation results can be a symptom of having the wrong language selected.</dd><br/>
+                            <dd><strong>Choosing a Language</strong><br/>
+                            The Verizon Coding Challenge allows coders to utilize Java, C++, C#, or VB.NET as a competition programming language.  You have the option to 
+                            choose a programming language on a problem-by-problem basis.  It is legal for you to use two different programming languages to solve different 
+                            problems in a single competition.  For this reason, you have the option of choosing the programming language from within the coding window.  You can 
+                            find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language 
+                            before you attempt to compile your code.  Strange compilation results can be a symptom of having the wrong language selected.<br/><br/>
                         
-                        <dd><strong>Creating a Solution</strong><br/>
-                        The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members 
-                           and invoke the appropriate methods.  Below you will find code templates for Java, C++, C# and VB.NET:</dd><br/>
+                            <dd><strong>Creating a Solution</strong><br/>
+                            The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members 
+                            and invoke the appropriate methods.  Below you will find code templates for Java, C++, C# and VB.NET:<br/><br/>
                            
-                        <dd><strong>Java Code Template</strong><br/>
-                        
-                        <PRE>import &#60;necessary classes&#62;<br/><br/>
-                        public class &#60;class-name&#62; {<br/>
-                        public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
-                        //your source here<br/>
-                        return &#60;results&#62;;<br/>
-                        }<br/>
-                        }</PRE></dd><br/>
-                          
+                            <dd><strong>Java Code Template</strong><br/>
+                            <pre>import &#60;necessary classes&#62;<br/><br/>
+public class &#60;class-name&#62; {<br/>
+   public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
+   //your source here<br/>
+   return &#60;results&#62;;<br/>
+   }<br/>
+}</pre><br/><br/>
 
                           <dd><strong>C++ Code Template</strong><br/>
-                          <code>#include &#60;necessary classes&#62;<br/>
-                          using namespace std; //Required for TopCoder gcc compiler<br/>
-                          class &#60;class-name&#62;<br/>
-                          {<br/>
-                          public:
-                          &#60;return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1)<br/>
-                          {<br/>
-                          //your source here<br/>
-                          return &#60result&#62;;<br/>
-                          } ;<br/>
-                          } ; </code></dd><br/>
-                          
+                          <pre>#include &#60;necessary classes&#62;<br/>
+using namespace std; //Required for TopCoder gcc compiler<br/>
+class &#60;class-name&#62;<br/>
+{<br/>
+public:
+&#60;return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1)<br/>
+   {<br/>
+   //your source here<br/>
+   return &#60result&#62;;<br/>
+   } ;<br/>
+} ; </pre><br/><br/>
                           
                           <dd><strong>C# Code Template</strong><br/>
-                          <code>using &#60necessary classes&#62;;<br/><br/>
-                          public class &#60class-name&#62; { <br/>
-                          public &#60return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1) {<br/>
-                          //your source here<br/>
-                          return &#60result&#62;;</code><br/>
-                          }<br/>
-                          }</dd><br/>
+                          <pre>using &#60necessary classes&#62;;<br/><br/>
+public class &#60class-name&#62; { <br/>
+   public &#60return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1) {<br/>
+   //your source here<br/>
+   return &#60result&#62;;</code><br/>
+   }<br/>
+}</pre><br/><br/>
                           
                           <dd><strong>VB.NET Code Template</strong><br/>
-                          <code> Imports &#60necessary-classes&#62;<br/><br/>
-                          Public Class &#60class-name&#62;<br/><br/>
-                          public Function &#60method-name&#62; (arg1 as &#60argument-type&#62;) As &#60return-type&#62;<br/>
-                          --your source here<br/>
-                          Return &#60result&#62;<br/>
-                          End Function<br/><br/>
-                          End Class </code> </dd><br/>
-                          
+                          <pre>Imports &#60necessary-classes&#62;<br/><br/>
+Public Class &#60class-name&#62;<br/><br/>
+public Function &#60method-name&#62; (arg1 as &#60argument-type&#62;) As &#60return-type&#62;<br/>
+--your source here<br/>
+Return &#60result&#62;<br/>
+End Function<br/>
+End Class </pre><br/><br/>
                           
                           <dd><strong>Compiling</strong><br/>
                         Code compilations from within the coding window will take place on TopCoder servers.  The language that is chosen in the coding window at the time of the 
@@ -204,19 +201,19 @@
                             <dd><strong>The Problem Arguments Window</strong><br/>
                             When you click on the "Test" button from within the coding window, the "Problem Arguments Window" will appear.  The problem arguments window is 
                             where you will input the test case with which you wish to use to test your code.  Each argument to the problem statement will be represented by either 
-                            an input area (simple data type), or by a "Create" button if the argument is an array (complex data type).</dd><br/>
+                            an input area (simple data type), or by a "Create" button if the argument is an array (complex data type).<br/><br/>
                            
-                            <dd><strong>Simple Data Types</strong><br/>
+                           <dd><strong>Simple Data Types</strong><br/>
                            For all non-array data types - such as int, long, char and String - the test box input dialog will present you with a field to input the data.  The data 
                            should be input without any quotes or other extra characters.  So, if you want to test with the String "abc" you should just type abc into the 
                            input field, not "abc".</dd><br/>
                             
                             <dd><strong>Complex Data Types</strong><br/>
-                           When one of the inputs is an array such as int[] (vector &#60;int&#62; in C++), the test case dialog will present you with a button to create the array.  
+                           When one of the inputs is an array such as <tt>int[] (vector &#60;int&#62; in C++)</tt>, the test case dialog will present you with a button to create the array.  
                            Clicking this will bring up a new dialog box where you can enter the data elements.  There are a couple of ways to enter data here.  The most obvious 
                            is to enter the elements of the array one at a time and click the '+' button (or press enter) after each one.  You can move the elements up or down using the 
                            '^' and 'v' buttons, respectively.  You can also remove items either one at a time, with the '-' button, or all at once with the 'C' button.  If you want to modify 
-                           an element that is already entered, you can double click on the element in the panel above the entry field and modify it.</dd><br/>
+                           an element that is already entered, you can double click on the element in the panel above the entry field and modify it.<br/><br/>
                            
                            <dd>Adding elements one at a time can be slow, so there are also two buttons that allow batch adding of elements.  The simpler of the two is the "++" button.  
                            To use this button, you should enter all of the data elements as a comma delimited list, and then press the "++" button.  For example, typing 1,3,6,4 and 
@@ -229,21 +226,21 @@
                            button is that any array sample input can be copied directly from the problem statement, and created by pasting and clicking "{}".  A couple of notes 
                            about the "{}" button are that the curly brackets at the front and end are optional, and the button will work without them.  Also, whitespace that is not 
                            enclosed by double quotes is ignored.  Furthermore, the dialog works exactly the same with all types of arrays.  Thus, with the "{}" button {1,2,3} will 
-                           create an int[],{1,2,3}, if the data type is an int[], and will create a String[], {"1","2","3"}, if the data type is a String[]. </dd><br/>
+                           create an int[],{1,2,3}, if the data type is an int[], and will create a String[], {"1","2","3"}, if the data type is a String[]. <br/><br/>
                            
                             <dd><strong>Submitting</strong><br/>
-                          At any point after a successful compilation, you have the option to submit your code.  It is important to realize that submission can be made 
-                          regardless of whether or not your submission is correct.  <i>The faster you can submit a correct solution to the problem, the more points you will receive.</i> 
-                          Points will be assigned regardless of whether the submission is correct or not.  Any points for a submission that turns out to be wrong will be removed 
-                          when the submission is subjected to the system tests.  <i>Submit will not necessarily use the code that appears in the coding window.  You must compile first 
-                          before you submit.</i></dd><br/>
-                          
-                          <dd>You do have the option of submitting a problem multiple times.  If you’ve already submitted a problem and you choose to submit again, your score 
-                          for that submission will be adjusted to account for the additional lapsed time, as well as an additional penalty of 10% of the maximum point 
-                          value for the problem.</dd><br/>
+                            At any point after a successful compilation, you have the option to submit your code.  It is important to realize that submission can be made 
+                            regardless of whether or not your submission is correct.  <i>The faster you can submit a correct solution to the problem, the more points you will receive.</i> 
+                            Points will be assigned regardless of whether the submission is correct or not.  Any points for a submission that turns out to be wrong will be removed 
+                            when the submission is subjected to the system tests.  <i>Submit will not necessarily use the code that appears in the coding window.  You must compile first 
+                            before you submit.</i><br/><br/>
+                           
+                           <dd>You do have the option of submitting a problem multiple times.  If you’ve already submitted a problem and you choose to submit again, your score 
+                            for that submission will be adjusted to account for the additional lapsed time, as well as an additional penalty of 10% of the maximum point 
+                            value for the problem.<br/><br/>
                        </dl>
                       
-                      <p><strong>Saving</strong><br/>
+                        <p><strong>Saving</strong><br/>
                     At any time while coding, you may save your code.  Clicking the "Save" button will place the current version of your code on the TopCoder server.  
                     It is good to save every-so-often to ensure that a recent version of your code will be available in the event that something happens to your session 
                     (i.e., you lose your Internet connection).  Compiling your code also has the effect of saving it.</p>
