@@ -151,7 +151,9 @@
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
+                    <% if (hit.getItem("has_resume").toString().equals("1")) { %>
                     <A href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="PositionInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="PositionInterestTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id")%>" class="statText">Get Resume</A>
+                    <% } %>
                   </TD>
                 </TR>
                 
