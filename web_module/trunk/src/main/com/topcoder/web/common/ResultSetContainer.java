@@ -55,7 +55,7 @@ import com.topcoder.common.*;
  * @version 1.01, 02/14/2002
  */
 public class ResultSetContainer implements Serializable, List, Cloneable {
-    private static Category log = CommonLog.getInstance(ResultSetContainer.class.getName());
+    private static Category log = Category.getInstance(ResultSetContainer.class.getName());
 
     // Stores ArrayList of ResultSetRow
     private ArrayList data;

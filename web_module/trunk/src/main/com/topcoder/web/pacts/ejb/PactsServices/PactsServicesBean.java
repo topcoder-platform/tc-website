@@ -25,13 +25,9 @@ import org.apache.log4j.*;
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static Category log = Category.getInstance(PactsServicesBean.class.getName());
     private static QueueMessageSender pactsMsgSender = null;
-    private static ResourceBundle s_beanSettings;
 
     // Initialize the message queue
     static {
-        log.info("Initializing PACTS DBMS bundle ...");
-        s_beanSettings = ResourceBundle.getBundle( "DBMS" );
-
         log.info("Initializing PACTS message queue...");
         try {
             pactsMsgSender = new QueueMessageSender(ApplicationServer.JMS_FACTORY, DBMS.PACTS_QUEUE);
