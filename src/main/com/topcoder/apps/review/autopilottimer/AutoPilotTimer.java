@@ -24,6 +24,9 @@ import com.topcoder.apps.review.SuccessResult;
 
 import javax.naming.NameNotFoundException;
 
+import com.topcoder.message.email.EmailEngine;
+import com.topcoder.message.email.TCSEmailMessage;
+
 import java.util.*;
 /********************************************************************
  * This class creates a timer that will perform auto pilot logic.
@@ -148,25 +151,31 @@ public class AutoPilotTimer
                             
                             if(!good) continue;
                             
-                            form.fromProject(p);
-                            
-                            form.setScorecardTemplates(docManager.getScorecardTemplates());
-                            
-                            form.setCurrentPhase("Aggregation");
-                            
-                            form.setReason("auto pilot advancing to aggregation");
-                            
-                            //check for screening scorecard template
-                            if(form.getScreeningTemplateId() == -1 ) {
-                                String template = docManager.getDefaultScorecardTemplate(p.getProjectType().getId(), ScreeningScorecard.SCORECARD_TYPE).getName();
-                                form.setScreeningTemplate(template);
+                            //lookup pm
+                            String email = "";
+                            UserRole[] participants = p.getParticipants(); 
+                            for(int j = 0; j < participants.length;j++) {
+                                if( participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER ) { 
+                                    email = participants[j].getUser().getEmail();
+                                }
                             }
-                            
-                            ProjectData data = form.toActionData(orpd);
-                            ResultData result = new BusinessDelegate().projectAdmin(data); 
-                            if(!(result instanceof SuccessResult)) {
-                                logger.debug("ERROR " + result.toString() );
+
+                            if(email.equals("")) {
+                                continue;
                             }
+
+                            //override, change me
+                            //email = "rfairfax@topcoder.com";
+
+
+                            //check if nothing passed, send email
+
+                            StringBuffer mail = new StringBuffer();
+                            mail.append("The following project: \n\n");
+                            mail.append(p.getName());
+                            mail.append("\n\nhas completed appeals");
+
+                            sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
                         }
                     }
                 }
@@ -222,4 +231,13 @@ public class AutoPilotTimer
                   Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
                   Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
                   Calendar.NOVEMBER, Calendar.DECEMBER};
+                  
+  static void sendMail(String from, String to, String subject, String messageText) throws Exception {
+        TCSEmailMessage message = new TCSEmailMessage(); 
+        message.setFromAddress(from);
+        message.setToAddress(to, TCSEmailMessage.TO); 
+        message.setSubject(subject);
+        message.setBody(messageText);
+        EmailEngine.send(message); 
+    }
 }
