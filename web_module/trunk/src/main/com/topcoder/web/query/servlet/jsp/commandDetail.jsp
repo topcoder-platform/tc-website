@@ -17,12 +17,6 @@
   <BODY bgcolor="#000000" topmargin="0" marginheight="0" LEFTMARGIN="0" marginwidth="0"">
   <jsp:include page="top.jsp" />
 
-<!-- Menu begins -->
-<jsp:include page="menu.jsp">
-    <jsp:param name="level1" value=""/>
-</jsp:include>
-<!-- Menu ends -->
-
   <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></tr>
     <tr>
