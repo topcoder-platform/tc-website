@@ -911,25 +911,64 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             return mtcItems[iCol];
         }
 
-        public int getIntItem(int index) {
+        /**
+         *
+         * @param index
+         * @return
+         * @throws NullPointerException if the item is null
+         */
+        public int getIntItem(int index) throws NullPointerException {
             return ((Number)getItem(index).getResultData()).intValue();
         }
-        public int getIntItem(String col) {
+
+        /**
+         *
+         * @param col
+         * @return
+         * @throws NullPointerException if the item is null
+         */
+        public int getIntItem(String col) throws NullPointerException {
             return ((Number)getItem(col).getResultData()).intValue();
         }
 
-        public long getLongItem(int index) {
+        /**
+         *
+         * @param index
+         * @return
+         * @throws NullPointerException if the item is null
+         */
+        public long getLongItem(int index) throws NullPointerException {
             return ((Number)getItem(index).getResultData()).longValue();
         }
-        public long getLongItem(String col) {
+
+        /**
+         *
+         * @param col
+         * @return
+         * @throws NullPointerException if the item is null
+         */
+        public long getLongItem(String col) throws NullPointerException {
             return ((Number)getItem(col).getResultData()).longValue();
         }
 
+        /**
+         *
+         * @param index
+         * @return
+         */
         public String getStringItem(int index) {
-            return getItem(index).getResultData().toString();
+            Object ret = getItem(index).getResultData();
+            return ret==null?null:ret.toString();
         }
+
+        /**
+         *
+         * @param col
+         * @return
+         */
         public String getStringItem(String col) {
-            return getItem(col).getResultData().toString();
+            Object ret = getItem(col).getResultData();
+            return ret==null?null:ret.toString();
         }
 
         /**
