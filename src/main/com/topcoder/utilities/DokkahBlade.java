@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 public class DokkahBlade {
 
-    private static String _connectString = DBMS.INFORMIX_CONNECT_STRING;
-    private static String _informixDriver = DBMS.INFORMIX_DRIVER;
     private static java.sql.Connection conn = null;
 
     public static void main(String[] args) {
@@ -18,8 +16,7 @@ public class DokkahBlade {
       System.exit(1);
     }*/
         try {
-            Class.forName(_informixDriver);
-            conn = DriverManager.getConnection(_connectString);
+            conn = DBMS.getConnection();
 
             DokkahBlade db = new DokkahBlade();
             ArrayList a = db.find(conn, args);
