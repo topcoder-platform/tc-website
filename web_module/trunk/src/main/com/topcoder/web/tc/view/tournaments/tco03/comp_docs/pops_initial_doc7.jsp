@@ -32,7 +32,7 @@
         <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
     </tr>
 
-    <tr>
+    <tr valign="top">
         <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="pops" />
@@ -41,6 +41,8 @@
         </td>
     </tr>
 </table>
+
+<p class="compCopyright">Copyright © 2001-2003, TopCoder, Inc. All rights reserved.</p>
 
 </body>
 </html>
