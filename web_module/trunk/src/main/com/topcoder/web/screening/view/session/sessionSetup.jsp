@@ -220,7 +220,7 @@ function submitSession() {
 
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
                  <tr>
-                    <td><div align="center"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></div></td>
+                    <td><div align="center"><a href="JavaScript:submitSession()" class="button">Confirm</a></div></td>
                 </tr>
             </table>
             </screen:form>
