@@ -121,7 +121,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
         return newUser;
     }
     
-    protected void setCoderType(long coderId, long coderType)
+    protected void setCoderType(long coderId, int coderType)
     {
         Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
 

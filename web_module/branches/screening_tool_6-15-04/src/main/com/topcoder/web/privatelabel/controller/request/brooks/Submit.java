@@ -74,6 +74,7 @@ public class Submit extends FullRegSubmit {
         Coder coder = cHome.create();
         coder.createCoder(newUser.getId(), 1);
         
+        super.setCoderType(ret.getId(), ((FullRegInfo)regInfo).getCoderType());
         ret = super.storeQuestions(regInfo, ret);
         
         //check for resume save
