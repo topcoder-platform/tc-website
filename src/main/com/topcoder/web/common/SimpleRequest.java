@@ -22,7 +22,7 @@ public class SimpleRequest implements TCRequest {
     }
 
     public String getServletPath() {
-        return getServletPath();
+        return request.getServletPath();
     }
 
     public String getContextPath() {
