@@ -112,8 +112,6 @@ document.sessionConfirmForm.submit();
                                 <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="sessionInfo" property="repEmail" />" >
                                 <td colspan="3" class="testTableOdd">Send me email reminder:&#160;<strong><jsp:getProperty name="sessionInfo" property="repEmail" /></strong></td>
                             </tr>
-
-                            <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
                         </table>
                     </td>
                 </tr>
