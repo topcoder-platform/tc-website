@@ -43,7 +43,9 @@
    <jsp:param name="tabLev3" value="schedule"/>
 </jsp:include>
 
-<h3>Schedule of Onsite Events</h3>
+
+<h2>Schedule of Onsite Events</h2>
+<p class="smallText" align="center">Note: Times and scheduled events are subject to change.</p>
             
             <div align="center">
             <table border="0" cellpadding="5" cellspacing="0">
@@ -84,15 +86,11 @@
                     <td class="bodyText">4:00pm - 5:45pm</td>
                     <td class="bodyText">Semifinal Room 3</td>
                 </tr>
+
                 
                 <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE">5:45pm - 6:45pm</td>
-                    <td class="bodyText" bgcolor="#EEEEEE">TopCoder Software Presentation</td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText">7:00pm - 8:45pm</td>
-                    <td class="bodyText">Wildcard Round</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">7:00pm - 8:45pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Wildcard Round</td>
                 </tr>
     
                 <tr>
