@@ -9,13 +9,13 @@
 <head>
 <title>About TopCoder - Overview</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -24,9 +24,9 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="about"/>
-                <jsp:param name="level2" value="overview"/>
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="level1" value="management"/>
+                <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -103,7 +103,7 @@ Mike Lydon joined TopCoder in April of 2001 as the Chief Technology Officer.  Ly
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="about"/>
             </jsp:include>
          </td>
@@ -115,7 +115,7 @@ Mike Lydon joined TopCoder in April of 2001 as the Chief Technology Officer.  Ly
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

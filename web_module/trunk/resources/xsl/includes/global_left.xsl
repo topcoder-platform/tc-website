@@ -492,6 +492,7 @@
 
                 <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
+                <xsl:call-template name="management_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
 
@@ -512,6 +513,7 @@
                     <td id="leftNavSelect"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/clear.gif" border="0"/>Press Room</A></td>
                 </tr>
 
+                <xsl:call-template name="management_row"/>
                 <xsl:call-template name="contacts_row"/>
           </table>
 
@@ -528,6 +530,7 @@
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="reviewboard_row"/>
                 <xsl:call-template name="press_row"/>
+                <xsl:call-template name="management_row"/>
 
 <!-- Contact Us -->
                 <tr>
@@ -709,6 +712,10 @@
 
 <xsl:template name="press_row">
                 <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Room</A></td></tr>
+</xsl:template>
+
+<xsl:template name="management_row">
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=management</xsl:attribute>Management Team</A></td></tr>
 </xsl:template>
 
 <xsl:template name="contacts_row">
