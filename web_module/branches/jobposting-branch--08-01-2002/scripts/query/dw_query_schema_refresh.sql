@@ -252,4 +252,5 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1009, "N", null, 1000, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1009, "N", null, 4, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1010, "N", null, 1000, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1010, "N", null, 4, 2);
 
