@@ -48,7 +48,7 @@ public class View extends SurveyData {
         return ret;
     }
 
-    private boolean alreadyResponded() throws Exception {
+    protected final boolean alreadyResponded() throws Exception {
         boolean ret = false;
         Question q = null;
         InitialContext ctx = null;
