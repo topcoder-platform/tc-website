@@ -78,6 +78,11 @@
             <param-value>/survey/thanks.jsp</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>problem_rating_results</param-name>
+            <param-value>/problemRating/results.jsp</param-value>
+            <description></description>
+        </init-param>
 
         <!-- processor mappings -->
         <init-param>
@@ -101,6 +106,12 @@
         <init-param>
             <param-name>SurveyList</param-name>
             <param-value>survey.SurveyList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>SubmitRatings</param-name>
+            <param-value>problemRating.Submit</param-value>
             <description></description>
         </init-param>
 
