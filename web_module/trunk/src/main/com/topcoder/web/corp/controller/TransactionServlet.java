@@ -530,6 +530,7 @@ public class TransactionServlet extends HttpServlet {
             if (startsWithContextPath) {
                 dest = dest.substring(contextPrefix.length());
             }
+            log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
             getServletContext().getRequestDispatcher(resp.encodeURL(dest)).forward(req, resp);
         } else {
             resp.sendRedirect(resp.encodeRedirectURL(dest));
