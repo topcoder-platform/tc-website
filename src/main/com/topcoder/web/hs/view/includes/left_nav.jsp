@@ -66,52 +66,66 @@ sub = NavZone.getLevel1();
 
     <%=rootheader("High School")%>
     
+<!-- Competition Arena -->
     <%=rootitem("?module=Static&d1=arena&d2=arena_main", "Competition Arena", "arena_main", false)%>
 
+<!-- How to Compete -->
     <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How To Compete", "how_hs_compete", false)%>
     
+<!-- Schedule -->
     <%=rootitem("?module=Static&d1=schedule&d2=schedule", "Schedule", "schedule", false)%>
 
+<!-- Member Search -->
+    <%=rootitem("?module=Search&c=advanced_search", "Member Search", "advanced_search", false)%>
+
+<!-- Statistics -->
     <%=rootitem("?module=Statistics&c=round_overview", "Statistics", "stats", true)%>
     <% if(subopen("stats")) { %>
         <%=subitem("?module=Statistics&c=coder_ratings", "Coder Rankings", "coder_ratings")%>
         <%=subitem("?module=Statistics&c=school_round_rank", "High School Rankings", "school_round_rank")%>
-        <%=subitem("?module=Statistics&c=ratings_history&cr="+SessionInfo.getUserId(), "Rating History", "ratings_history")%>
-<%--        <%=subitem("?module=Static&d1=articles&d2=m_edi", "Match Editorials", "m_edi")%> --%>
         <%=subitem("?module=Statistics&c=school_round_stats&hs="+SessionInfo.getSchoolId(), "High School Round Stats", "school_round_stats")%>
+<%--        <%=subitem("?module=Static&d1=articles&d2=m_edi", "Match Editorials", "m_edi")%> --%>
+        <%=subitem("?module=Statistics&c=member_profile&cr="+SessionInfo.getUserId(), "My Profile", "member_profile")%>
+        <%=subitem("?module=Statistics&c=ratings_history&cr="+SessionInfo.getUserId(), "Rating History", "ratings_history")%>
+        <%=subitem("?module=Statistics&c=coder_room_stats&cr="+SessionInfo.getUserId(), "Room Stats", "room_stats")%>
         <%=subitem("?module=Statistics&c=round_overview", "Round Overview", "round_overview")%>
         <%=subitem("?module=Statistics&c=round_stats", "Round Stats", "round_stats")%>
-        <%=subitem("?module=Statistics&c=coder_room_stats&cr="+SessionInfo.getUserId(), "Room Stats", "room_stats")%>
-        <%=subitem("?module=Statistics&c=member_profile&cr="+SessionInfo.getUserId(), "Member Profile", "member_profile")%>
-        <%=subitem("?module=Search", "Member Search", "advanced_search")%>
     <% } %>
 
-    <%=rootitem("?module=Static&d1=tournaments&d2=tournaments", "Tournaments", "tournaments", false)%>
-
+<!-- Support -->
     <%=rootitem("?module=Static&d1=faq&d2=faq", "Support", "faq", true)%>
     <% if(subopen("faq")) { %>
         <%=subitem("?module=Static&d1=faq&d2=faq", "General FAQ ", "faq")%>
         <%=subitem("?module=Static&d1=faq&d2=compet_faq", "Competition FAQ ", "compet_faq")%>
+        <%=subitem("?module=Static&d1=faq&d2=editor_info", "Editor Information", "editor_info")%>
         <%=subitem("?module=Static&d1=faq&d2=compet_proc", "How Competitions Work", "compet_proc")%>
         <%=subitem("?module=Static&d1=faq&d2=ratings_ovrev", "How Ratings Work", "ratings_ovrev")%>
-        <%=subitem("?module=Static&d1=faq&d2=editor_info", "Editor Information", "editor_info")%>
-        <%=subitem("?module=Static&d1=faq&d2=soft_req", "Software Requirements", "soft_req")%>
         <%=subitem("?module=Static&d1=faq&d2=resources", "Resources", "resources")%>
         <%=subitem("?module=Static&d1=faq&d2=rules_quali", "Rules", "rules_quali")%>
+        <%=subitem("?module=Static&d1=faq&d2=soft_req", "Software Requirements", "soft_req")%>
     <% } %>
     
+<!-- Tournaments -->
+    <%=rootitem("?module=Static&d1=tournaments&d2=tournaments", "Tournaments", "tournaments", false)%>
+
 <!-- TopCoder Info begins -->
     <%=rootheader("TopCoder Info")%>
 
+<!-- About TCHS -->
     <%=bothitem("?module=Static&d1=about&d2=about", "About TCHS", "about", "about")%>
     <% if(subopen("about")) { %>
         <%=subitem("?module=Static&d1=about&d2=about_member", "Members", "about_member")%>
         <%=subitem("?module=Static&d1=about&d2=about_sponsor", "Sponsors", "about_sponsor")%>
+        <%=subitem("?module=Static&d1=about&d2=privacy", "Privacy Policy", "privacy")%>
+        <%=subitem("?module=Static&d1=about&d2=terms", "Terms", "terms")%>
     <% } %>
 
-    <%=rootitem("?module=Static&d1=press&d2=press_main", "News / Features", "press", false)%>
+<!-- Contact Us -->
+    <%=rootitem("http://www.topcoder.com/?&t=contacts&c=index", "Contact Us", "contacts", false)%>
+
+<!-- News / Features -->
+    <%=rootitem("http://www.topcoder.com/?t=news_events&c=index", "News / Features", "press", false)%>
     
-    <%=rootitem("?module=Static&d1=contacts&d2=contacts", "Contacts", "contacts", false)%>
 <!-- TopCoder Info ends -->
 
 </table>
