@@ -152,7 +152,7 @@
 
 <!-- Online Elimination Rounds begins -->
             <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
-            A total of 500 TopCoder members will compete in Online Round #1 of the TCO.  The field will be comprised of 100 automatic 
+            Up to 500 TopCoder members will compete in Online Round #1 of the Coding Tournament.  The field will be comprised of 100 automatic 
             berths and 400 qualification spots. Each room winner and the next highest scorers in each round will advance.</p>
             
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">

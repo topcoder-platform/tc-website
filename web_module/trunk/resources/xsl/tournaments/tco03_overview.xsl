@@ -97,7 +97,7 @@
             </xsl:call-template>
     
             <blockquote>
-            <h2>Overview of the Tournament</h2>
+            <h2>Overview of the Coding Tournament</h2>
             
             <ul>
                 <li><strong>Dates: </strong><br />
@@ -105,7 +105,7 @@
                 <li><strong>Rounds: </strong><br />
                     Two qualification rounds - online<br />
                     Four elimination rounds - online<br />
-                    The Semifinal and Championship rounds will be held at the Mohegan Sun Casino and Resort in Uncasville, CT on December 4th and 5th</li>
+                    The Semifinal and Championship rounds will be held at the Mohegan Sun Casino in Uncasville, CT on December 4th and 5th</li>
                 <li><strong>Prizes: </strong><br />
                     Total Prize Purse: $100,000 in cash<br />
                     Up to 500 competitors will receive a prize just for competing in Online Round #1<br />

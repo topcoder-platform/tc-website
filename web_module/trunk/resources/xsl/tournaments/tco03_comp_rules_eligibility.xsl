@@ -101,7 +101,7 @@
 
             <p>
            All rated TopCoder members who are 18 years of age or older (as of September 2nd) and who have not been permanently suspended 
-           from participating in TopCoder Component Development projects are eligible to compete in the TCO.
+           from participating in TopCoder Component Development projects are eligible to compete in the Component Tournament.
             </p>
             
             <p>
