@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <td align="right" width="50%" nowrap>
-                    <span class="errorText">*</span> Handle
+                    <span class="errorText">*</span> Login
                 </td>
                 <td align="left" width="50%">
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/>
