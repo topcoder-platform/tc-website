@@ -43,7 +43,7 @@
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 <%
-if(request.getParamter("ph") == 112)
+if(request.getParameter("ph") == 112)
 {
 %>
 <!-- Tab bar links-->
