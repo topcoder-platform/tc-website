@@ -20,6 +20,8 @@ public class ScheduledJobForm
 	protected int listId;
 	// commandID is 0 if a static list is used
 	protected int commandId;
+	// testID is only set if a list is needed for a test/report/reminder
+	protected int testId;
 	// listType is either EmailConstants.STATIC_LIST or EmailConstants.PREDEFINED_QUERY
 	protected String listType;
 	// maps input id -> value for each input of a predefined query
@@ -33,6 +35,10 @@ public class ScheduledJobForm
 	protected String fromAddress;
 	protected String fromPersonal;
 	protected String subject;
+
+	protected boolean sendTest;
+	protected boolean sendReport;
+	protected boolean sendReminder;
 
 	protected Calendar calendar;
 
@@ -107,6 +113,18 @@ public class ScheduledJobForm
 	public String getId()
 	{
 		return String.valueOf(id);
+	}
+
+	public void setTestId(String id) {
+		try {
+			testId = Integer.parseInt(id);
+		} catch (NumberFormatException e) {
+			testId = 0;
+		}
+	}
+
+	public String getTestId() {
+		return String.valueOf(testId);
 	}
 
 	public void setTemplateId(String id)
@@ -362,6 +380,39 @@ public class ScheduledJobForm
 	public Date getEndDate()
 	{
 		return endDate;
+	}
+
+	public boolean getSendTestState() { return sendTest; }
+
+	public String getSendTest() { 
+		if (sendTest) return "checked";
+		return "";
+	}
+
+	public void setSendTest(String value) {
+		sendTest = value!=null;
+	}
+
+	public boolean getSendReportState() { return sendReport; }
+
+	public String getSendReport() { 
+		if (sendReport) return "checked";
+		return "";
+	}
+
+	public void setSendReport(String value) {
+		sendReport = value!=null;
+	}
+
+	public boolean getSendReminderState() { return sendReminder; }
+
+	public String getSendReminder() { 
+		if (sendReminder) return "checked";
+		return "";
+	}
+
+	public void setSendReminder(String value) {
+		sendReminder = value!=null;
 	}
 
 

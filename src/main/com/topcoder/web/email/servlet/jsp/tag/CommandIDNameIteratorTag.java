@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Custom tag to iterate through a list of command id/description pairs.
@@ -22,6 +23,8 @@ import com.topcoder.web.email.bean.*;
 public class CommandIDNameIteratorTag
     extends IDNameIteratorTag
 {
+    private static Logger log = Logger.getLogger(CommandIDNameIteratorTag.class);
+
     Map getIdToNameMap()
         throws JspException
     {

@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Custom tag to iterate through all the member id's
@@ -23,6 +24,8 @@ import com.topcoder.web.email.bean.*;
 public class MemberIDIteratorTag
     extends IteratorTag
 {
+    private static Logger log = Logger.getLogger(MemberIDIteratorTag.class);
+    
     // id of address list
     protected int addressListID;
 

@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Custom tag to retrieve the name of an address list, given its id
@@ -21,6 +22,8 @@ import com.topcoder.web.email.bean.*;
 public class AddressListNameTag
     extends BodyTagSupport
 {
+    private static Logger log = Logger.getLogger(AddressListNameTag.class);
+
     // the list id
     protected int listId;
 

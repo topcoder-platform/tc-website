@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Custom tag to retrieve a job summary, given a job id
@@ -21,6 +22,7 @@ import com.topcoder.web.email.bean.*;
 public class ScheduledJobSummaryTag
     extends BodyTagSupport
 {
+    private static Logger log = Logger.getLogger(ScheduledJobSummaryTag.class);
 
     // the job id
     protected int jobId;

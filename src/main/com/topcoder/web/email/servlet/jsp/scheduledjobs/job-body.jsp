@@ -148,4 +148,25 @@ function validate()
 </td>
 </tr>
 
+<tr>
+<td class="bodyText"></td>
+<td class="bodyText"><input type="checkbox" name="sendTest" 
+value="x" <jsp:getProperty name="ScheduledJob" property="sendTest"/>/>
+Schedule Test Message</td>
+</tr>
+
+<tr>
+<td class="bodyText"></td>
+<td class="bodyText"><input type="checkbox" name="sendReminder" 
+value="x" <jsp:getProperty name="ScheduledJob" property="sendReminder"/>/>
+Schedule Reminder</td>
+</tr>
+
+<tr>
+<td class="bodyText"></td>
+<td class="bodyText"><input type="checkbox" name="sendReport" 
+value="x" <jsp:getProperty name="ScheduledJob" property="sendReport"/>/>
+Schedule Report</td>
+</tr>
+
 </table>

@@ -6,8 +6,11 @@ import javax.servlet.jsp.*;
 import javax.servlet.jsp.tagext.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
 /**
@@ -23,6 +26,8 @@ import com.topcoder.web.email.bean.*;
 public class MemberDataFieldValueIteratorTag
     extends IteratorTag
 {
+    private static Logger log = Logger.getLogger(MemberDataFieldValueIteratorTag.class);
+
     protected MemberData memberData;
     protected int index;
 

@@ -11,6 +11,7 @@ import javax.servlet.http.*;
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
 import com.topcoder.shared.ejb.EmailServices.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Custom tag to display member data for a specified
@@ -25,6 +26,7 @@ import com.topcoder.shared.ejb.EmailServices.*;
 public class MemberDataDisplayTag
     extends TagSupport
 {
+    private static Logger log = Logger.getLogger(MemberDataDisplayTag.class);
 
     protected int memberID;
     protected int addressListID;
