@@ -46,7 +46,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     public void process(String step) throws Exception {
 
-        if (step.equals(Constants.NEW_STEP)) {
+        if (step!=null && step.equals(Constants.NEW_STEP)) {
             if (!super.getAuthentication().isLoggedIn()) {
                 try {
                     super.getAuthentication().attemptLogin(getHandleInput(), getPasswordInput(), getInitialContext(), session);
