@@ -206,7 +206,7 @@ Used as: Division 1 - Level 2:
     already found, remove the previous one, and if a run is a subset of a run already found, don't add it.  A
     number of other methods will also work, including recursion, or brute forcing over all possible runs that a
     hand might have.  Flushes are pretty simple, as they always involve cards 1 through 4.  We just have to check if card 0 is also part of a flush, and add 1 if it is.  Last, and least, is his nobs.  Simply check all the cards to see if they are the same suit as the starter.
-</p><font size="+2"><b>Cribbage</b></font><BR/>
+</p><font size="+2"><b>PrefixSynchronization</b></font><BR/>
 Used as: Division 1 - Level 3:
 <blockquote>
     <table cellspacing="2">
