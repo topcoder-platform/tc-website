@@ -47,10 +47,10 @@
                             <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>
                             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
                                 <tr>
-                                    <td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11">
+                                    <td bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" valign="top" width="11">
                                         <img src="/i/clear.gif" alt="" width="11" height="1" border="0"/>
                                     </td>
-                                    <td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+                                    <td class="statText" colspan="2" valign="top" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
                                         <img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
                                         <br/>
 
@@ -183,10 +183,10 @@
                                     <td valign="top" background="" bgcolor="#FFFFFF" width="11" align="right">
                                         <img src="/i/clear.gif" alt="" width="11" height="8" border="0"/>
                                     </td>
-                                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="14">
+                                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#001B35" width="14">
                                         <img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0"/>
                                     </td>
-                                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="100%">
+                                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#001B35" width="100%">
                                         <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/>
                                     </td>
                                     <td valign="top" background="" bgcolor="#FFFFFF" width="10">
