@@ -105,7 +105,7 @@
 
 							<tr valign="top">
 								<td class="statText">Total Submissions for this Project:</td>
-								<td class="statText" align="right">1</td>
+								<td class="statText" align="right">4</td>
 								<td class="statText"></td>
 							</tr>
 
@@ -150,7 +150,7 @@
 				<tr valign="middle">
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3304435" class="statText">File System Search</a></td>
-					<td class="statText" height="15" align="center">1</td>
+					<td class="statText" height="15" align="center">2</td>
 					<td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=251162" class="coderTextGreen"><strong>SamBob</strong></a></td>
 					<td class="statText" height="15" align="center">84.12</td>
 					<td class="statText" height="15" align="right">$210.00&#160;&#160;&#160;&#160;</td>
@@ -160,7 +160,7 @@
 				<tr valign="middle">
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3501906" class="statText">String Class</a></td>
-					<td class="statText" height="15" align="center">1</td>
+					<td class="statText" height="15" align="center">4</td>
 					<td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=279551" class="coderTextGreen"><strong>scamp</strong></a></td>
 					<td class="statText" height="15" align="center">97.98</td>
 					<td class="statText" height="15" align="right">$140.00&#160;&#160;&#160;&#160;</td>
