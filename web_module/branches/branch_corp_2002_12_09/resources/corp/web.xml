@@ -71,7 +71,7 @@
             <param-value>/error.jsp</param-value>
             <description>all of the controller exceptions will return this to user</description>
         </init-param>
-		<init-param>
+        <init-param>
             <param-name>page-login</param-name>
             <param-value>/?module=Static&d1=LoginPage</param-value>
             <description>unauthorized anonymous users will go here</description>
