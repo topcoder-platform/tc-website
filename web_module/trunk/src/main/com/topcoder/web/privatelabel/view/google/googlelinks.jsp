@@ -56,9 +56,9 @@ function openWin(url, name, w, h) {
             <% } %>
 
 <!-- Practice Arena  tab -->
-            <% if (selectedTab.equals("practice")) {%>
-                 <font color="006633">Practice Arena</font>
+            <% if (selectedTab.equals("arena")) {%>
+                 <font color="006633">Competition Arena</font>
             <% } else { %>
-                  <a href="/pl/?&module=Static&d1=google&d2=google_practice">Practice Arena</a>
+                  <a href="/pl/?&module=Static&d1=google&d2=google_arena">Competition Arena</a>
             <% } %>
 </font>
