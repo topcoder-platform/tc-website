@@ -13,7 +13,7 @@
 <jsp:include page="../script.jsp" />
 </head>
 <body>
-<%System.out.println(donatinInfo.toString());%>
+<%System.out.println(donationInfo.toString());%>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td>
