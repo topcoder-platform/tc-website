@@ -248,12 +248,12 @@ public class ProfileSearch extends Base {
     private String stringMatcher(String val, String col, boolean cs){
         boolean like = false;;
         String rv;
-        if(cs && col.equals("u.handle")){
-            rv = "u.handle_lower";
-        }else if(cs){
-            rv = "lower('"+val+"')";
-        }else{
+        if(cs){
             rv = "'"+val+"'";
+        }else if(col.equals("u.handle")){
+            rv = "u.handle_lower";
+        }else{
+            rv = "lower('"+val+"')";
         }
         if(val.indexOf('%') != -1 || val.indexOf('_') != -1){
             return "    AND "+col+" LIKE "+rv+"\n";
