@@ -39,18 +39,20 @@
             <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
 							<% //@ include file="nocache.jsp" %>
 							<% //@ page errorPage="error.jsp" %>
+							<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 							<jsp:useBean id="TCES" scope="session" class="com.topcoder.web.tces.bean.TCES" />
 							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
-							<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 							<BR><BR><BR>
-
-							User is <%= user %><BR>
-							<%= user.getHandle() %> (<%= user.getUserId() %>)
+							<%
+								com.topcoder.common.web.User l_user = user;
+							%>
+							User is <%= l_user %><BR>
+							<%= l_user.getHandle() %> (<%= l_user.getUserId() %>)
 							<%
 									CoderBean beanHandle = new CoderBean();
 									CoderObject obj = new CoderObject();
-									obj.coder_id = new Long( (long)user.getUserId() );
+									obj.coder_id = new Long( (long)l_user.getUserId() );
 									obj = beanHandle.request( Coder.SELECT, obj );
 							%>
 							
