@@ -9,14 +9,14 @@
 		<TD CLASS="bodyText" VALIGN="top">
 <!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 93</SPAN><BR/>
-Thursday, May 30, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 94</SPAN><BR/>
+Monday, June 3, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/><BR/>
-<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Echo</A>
- won Room 2 by 1.12 points over 
-<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">KurtSteinkraus</A>, 689.93 to 688.81. 
-<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">xxfobxx</A>
- used two successful challenges for a come-from-behind win in Room 37...<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
+<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">SnapDragon</A>
+ won Room 1 with 1514.88 final points, and added 92 points 
+to his rating, making him TopCoder's new top-rated coder with an overall 
+rating of 3005. <A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">lars</A>
+ won Room 64 with a Division-II high 1629.07 final points...<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
 				
 <!-- <P><B>Division-I</B><BR/>
