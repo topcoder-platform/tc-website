@@ -457,7 +457,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map getNote(long noteId) throws SQLException {
         StringBuffer selectNoteHeader = new StringBuffer(300);
         selectNoteHeader.append("SELECT n.note_id, n.create_date, n.note_type_id, nt.note_type_desc, ");
-        selectNoteHeader.append("n.submitted_by, u.handle");
+        selectNoteHeader.append("n.submitted_by, u.handle ");
         selectNoteHeader.append("FROM note n, note_type_lu nt, user u ");
         selectNoteHeader.append("WHERE n.note_id = " + noteId + " ");
         selectNoteHeader.append("AND nt.note_type_id = n.note_type_id ");
