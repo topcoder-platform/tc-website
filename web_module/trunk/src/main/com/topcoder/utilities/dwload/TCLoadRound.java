@@ -23,6 +23,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/04/02 21:54:14  gpaul
+ *           moving the load over from 153 cvs
+ *
  *           Revision 1.1.2.11  2002/03/29 20:41:34  gpaul
  *           only load the coder_problem record if the coder attended
  *
@@ -106,6 +109,7 @@ public class TCLoadRound extends TCLoad {
   private int STATUS_FAILED_SYS_TEST = 160;  // failsystest
   private int CONTEST_ROOM           = 2;    // contestroom
   private int ROUND_LOG_TYPE         = 1;    // round load log type id
+  private int CHALLENGE_NULLIFIED    = 92;   //
 
   /**
    * This Hashtable stores the start date of a particular round so
@@ -500,26 +504,28 @@ public class TCLoadRound extends TCLoad {
 
     try {
       fSql.setLength(0);
-      fSql.append("SELECT ps.round_id ");                                 // 1
-      fSql.append("       ,ps.coder_id ");                                // 2
-      fSql.append("       ,ps.problem_id ");                              // 3
-      fSql.append("       ,ps.points ");                                  // 4
-      fSql.append("       ,ps.status_id ");                               // 5
-      fSql.append("       ,ps.language_id ");                             // 6
-      fSql.append("       ,s.open_time ");                                // 7
-      fSql.append("       ,ps.submission_number ");                       // 8
-      fSql.append("       ,s.submission_text ");                          // 9
-      fSql.append("       ,s.submit_time ");                              // 10
-      fSql.append("       ,s.submission_points ");                        // 11
-      fSql.append("       ,(SELECT status_desc FROM problem_status ");    // 12
-      fSql.append("          WHERE problem_status_id = ps.status_id) ");
-      fSql.append("       ,c.compilation_text");                          // 13
-      fSql.append(" FROM problem_state ps ");
-      fSql.append("      ,OUTER submission s ");
-      fSql.append("      ,OUTER compilation c ");
-      fSql.append("WHERE ps.problem_state_id = s.problem_state_id ");
-      fSql.append("  AND ps.problem_state_id = c.problem_state_id ");
-      fSql.append("  AND ps.round_id = ? ");
+      fSql.append(" SELECT ps.round_id");
+      fSql.append(       " ,ps.coder_id ");
+      fSql.append(       " ,ps.problem_id ");
+      fSql.append(       " ,ps.points ");
+      fSql.append(       " ,ps.status_id ");
+      fSql.append(       " ,ps.language_id ");
+      fSql.append(       " ,s.open_time ");
+      fSql.append(       " ,ps.submission_number ");
+      fSql.append(       " ,s.submission_text ");
+      fSql.append(       " ,s.submit_time ");
+      fSql.append(       " ,s.submission_points ");
+      fSql.append(       "  ,(SELECT status_desc ");
+      fSql.append(            " FROM problem_status ");
+      fSql.append(            " WHERE problem_status_id = ps.status_id) ");
+      fSql.append(       " ,c.compilation_text");
+      fSql.append(  " FROM problem_state ps ");
+      fSql.append(  " LEFT OUTER JOIN submission s ");
+      fSql.append(    " ON ps.problem_state_id = s.problem_state_id");
+      fSql.append(   " AND s.submission_number = ps.submission_number");
+      fSql.append(  " LEFT OUTER JOIN compilation c ");
+      fSql.append(    " ON ps.problem_state_id = c.problem_state_id");
+      fSql.append( " WHERE ps.round_id = ?");
 
       // Need to exclude Admins from this query! Make sure there is no row
       // in the group_user table where this coder is in group 13
@@ -1530,6 +1536,7 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,(SELECT sum(c.challenger_points) ");        // 12
       fSql.append("           FROM challenge c ");
       fSql.append("          WHERE c.round_id = rr.round_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("          AND c.challenger_id = rr.coder_id) ");
       // 13: system_test_points
       fSql.append("       ,(SELECT sum(deduction_amount) ");           // 13
@@ -1559,6 +1566,7 @@ public class TCLoadRound extends TCLoad {
       // 18: problems_failed_by_challenge
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 18
       fSql.append("          WHERE c.round_id = rr.round_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.defendant_id = rr.coder_id ");
       fSql.append("            AND succeeded = "+ STATUS_SUCCEEDED +") ");
       // 19: problems_opened
@@ -1573,35 +1581,42 @@ public class TCLoadRound extends TCLoad {
       // 21: challenge_attempts_made
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 21
       fSql.append("          WHERE c.challenger_id = rr.coder_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id) ");
       // 22: challenges_made_successful
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 22
       fSql.append("          WHERE c.challenger_id = rr.coder_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id ");
       fSql.append("            AND succeeded = "+ STATUS_SUCCEEDED +") ");
       // 23: challenges_made_failed
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 23
       fSql.append("          WHERE c.challenger_id = rr.coder_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id ");
       fSql.append("            AND succeeded = "+ STATUS_FAILED + ") ");
       // 24: challenge_attempts_received
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 24
       fSql.append("          WHERE c.defendant_id = rr.coder_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id) ");
       // 25: challenges_received_successful
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 25
       fSql.append("          WHERE c.defendant_id = rr.coder_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id ");
       fSql.append("            AND succeeded = "+ STATUS_SUCCEEDED +") ");
       // 26: challenges_received_failed
       fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 26
       fSql.append("          WHERE c.defendant_id = rr.coder_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.round_id = rr.round_id ");
       fSql.append("            AND succeeded = "+ STATUS_FAILED +") ");
       // 27: defense_points
       fSql.append("       ,(SELECT sum(defendant_points) ");           // 27
       fSql.append("           FROM challenge c ");
       fSql.append("          WHERE c.round_id = rr.round_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.defendant_id = rr.coder_id) ");
       fSql.append("       ,rr.overall_rank ");                        // 28
       fSql.append("       ,rr.division_placed ");                     // 29
@@ -1790,6 +1805,7 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,(SELECT sum(c.challenger_points) ");           // 13
       fSql.append("           FROM challenge c ");
       fSql.append("          WHERE c.round_id = ps.round_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.challenger_id = ps.coder_id ");
       fSql.append("            AND c.problem_id = ps.problem_id) ");
       // 14: system_test_points
@@ -1802,22 +1818,24 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,(SELECT sum(defendant_points) ");              // 15
       fSql.append("           FROM challenge c ");
       fSql.append("          WHERE c.round_id = ps.round_id ");
+      fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
       fSql.append("            AND c.defendant_id = ps.coder_id ");
       fSql.append("            AND c.problem_id = ps.problem_id) ");
       fSql.append("       ,(SELECT rs.end_time");                         // 16
       fSql.append("           FROM round_segment rs");
       fSql.append("          WHERE rs.round_id = ps.round_id");
       fSql.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
-      fSql.append("  FROM problem_state ps ");
-      fSql.append("       ,OUTER submission s ");
-      fSql.append("       ,OUTER compilation c ");
-      fSql.append("       ,room_result rr ");
-      fSql.append(" WHERE ps.problem_state_id = s.problem_state_id ");
-      fSql.append("   AND ps.problem_state_id = c.problem_state_id ");
-      fSql.append("   AND ps.round_id = rr.round_id");
-      fSql.append("   AND ps.coder_id = rr.coder_id");
-      fSql.append("   AND rr.attended = 'Y'");
-      fSql.append("   AND ps.round_id = ? ");
+      fSql.append( " FROM problem_state ps ");
+      fSql.append( " LEFT OUTER JOIN submission s ");
+      fSql.append(   " ON ps.problem_state_id = s.problem_state_id");
+      fSql.append(  " AND s.submission_number = ps.submission_number");
+      fSql.append( " LEFT OUTER JOIN compilation c ");
+      fSql.append(   " ON ps.problem_state_id = c.problem_state_id");
+      fSql.append( " JOIN room_result rr ");
+      fSql.append(   " ON rr.round_id = ps.round_id");
+      fSql.append(  " AND rr.coder_id = ps.coder_id");
+      fSql.append(  " AND rr.attended = 'Y'");
+      fSql.append(  " AND ps.round_id = ?");
 
       // Need to exclude Admins from this query! Make sure there is no row
       // in the group_user table where this coder is in group 13
@@ -2029,6 +2047,7 @@ public class TCLoadRound extends TCLoad {
       fSql.append("       ,received ");           // 13
       fSql.append("  FROM challenge ");
       fSql.append(" WHERE round_id = ? ");
+      fSql.append("   AND status_id <> " + CHALLENGE_NULLIFIED);
 
       // Need to exclude Admins from this query! Make sure there is no row
       // in the group_user table where this coder is in group 13. We need to
