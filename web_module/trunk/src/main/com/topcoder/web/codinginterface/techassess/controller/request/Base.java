@@ -38,8 +38,8 @@ public abstract class Base extends BaseProcessor {
     private static final ImageInfo BLANK = new ImageInfo();
 
     static {
-        BLANK.setHeight(325);
-        BLANK.setWidth(85);
+        BLANK.setHeight(85);
+        BLANK.setWidth(325);
         BLANK.setSrc("/i/corp/screening/emptyClientLogo.gif");
     }
 
