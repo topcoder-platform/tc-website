@@ -10,7 +10,7 @@
 
 var imageDir = "/i/tournament/tco04/onsite_photos/";
 var imageNum = 1;
-var totalImages = 6;
+var totalImages = 21;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
