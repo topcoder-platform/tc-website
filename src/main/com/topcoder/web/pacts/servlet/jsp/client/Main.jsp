@@ -139,6 +139,14 @@ The payment for the affidavit is then marked with a status of "owed" and payment
 <br/>
 <br/>
 <br/>
+<i>Why are all of my past affidavits marked as expired and all of my payments past marked as canceled?</i>
+<br/>
+<br/>
+The P.A.C.T.s system went online on Wednesday, May 15, 2002.  Affidavits, payments and other pertinent member information generated prior to May 15 was migrated into the P.A.C.T.s system to give members the ability to view historical data.  The affidavits and payments are marked as expired and canceled respectively because members do not have the ability to affirm affidavits online that were created prior to May 15, 2002 (all affidavits prior to SRM 88).  Members are still responsible for mailing in affidavits for competitions that took place prior to SRM 88.
+<br/>
+<br/>
+
+
 
 If you have any questions, comments or concerns about the P.A.C.T.s system, please email <A CLASS="statText" HREF="mailto:service@topcoder.com">service@topcoder.com</A>.
 
