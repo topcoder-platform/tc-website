@@ -37,6 +37,8 @@ public class JavaDocServicesBean extends BaseEJB {
         String errors = "";
 
         try {
+            conn = DBMS.getConnection();
+
             //First, is this a user?
             sql = new StringBuffer("SELECT user_id FROM user WHERE handle = ? AND password = ? AND active = 'A'");
             ps = conn.prepareStatement(sql.toString());
