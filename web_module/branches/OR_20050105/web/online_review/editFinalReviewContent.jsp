@@ -167,8 +167,8 @@
 				</logic>
 				<tr>
 					<td class="forumTextOdd" align="center">
-						<html:radio property="approved" value="true">Accepted</input>
-						<html:radio property="approved" value="false">Rejected</input>
+						<html:radio property="approved" value="true" title="Accepted">
+						<html:radio property="approved" value="false" title="Rejected">
 					</td>
 				</tr>
 
