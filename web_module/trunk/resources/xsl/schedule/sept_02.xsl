@@ -86,15 +86,6 @@
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">15</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">16</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">17</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">18</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">19</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">20</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">21</TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">15</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">16</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">17</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>18</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Qualification Round &amp; Qualification Period<BR/>11:30&#160;AM - 7:00&#160;PM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>19</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Quarterfinal, Semifinals and Championship Rounds<BR/>11:30&#160;AM - 6:00&#160;PM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>20</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Keynote Presentation<BR/>9:00&#160;AM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
