@@ -114,7 +114,7 @@
                 </TR>                    
                 <tces:mapIterator id="level" MapList="<%=MemberProfileTask.getStatsByLevel()%>">
         
-                <TR>
+                <TR> 
                   <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS.length;i++) { %>
                       <TD class="statText" HEIGHT="18">
                         <%= level.get(TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[i]) %>

@@ -260,6 +260,10 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                        pctFmt.format( Double.parseDouble(memStatLvlRow.getItem("submit_percent").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4],
                        memStatLvlRow.getItem("correct").toString() );
+
+log.debug(memStatLvlRow.getItem("submission_accuracy").toString() );
+log.debug(decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) ));
+
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
                        pctFmt.format( Double.parseDouble(memStatLvlRow.getItem("submission_accuracy").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
