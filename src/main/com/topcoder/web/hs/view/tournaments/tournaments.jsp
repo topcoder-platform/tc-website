@@ -34,7 +34,7 @@
                 
                 <tr>
                     <td height="100%" class="statTextBig">
-                        <h2>2003 High School Challenge</h2>
+                        <h3>2003 High School Challenge</h3>
 
                         <p>Date: May 20, 2003<br>
                         Time: 3:00pm<br>

@@ -1,7 +1,7 @@
 <%@ taglib uri="/registration-taglib.tld" prefix="reg" %>
 <jsp:useBean id="student" type="com.topcoder.web.hs.model.StudentRegistrationBean" scope="request"/>
 <%@ include file="head.inc" %>
-<h2>Update Student Profile</h2>
+<h3>Update Student Profile</h3>
 <P><BR></P>
 <FORM ACTION="" METHOD="post" NAME="regForm">
  <INPUT TYPE="hidden" NAME="module" VALUE="UpdateStudent">

@@ -34,7 +34,7 @@
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
-                        <h2>How Ratings Work</h2><a name="top"></a>
+                        <h3>How Ratings Work</h3><a name="top"></a>
                         
                         <table cellspacing="0" cellpadding="0" border="0">
                             <tr valign="top">

@@ -34,7 +34,7 @@
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
-                        <h2>How Ratings Work (continued)</h2><a name="top"></a>
+                        <h3>How Ratings Work (continued)</h3><a name="top"></a>
                         
                         <b>New ratings are calculated as follows:</b><br><br>
                 After each competition, each coder who attended the competition is re-rated according

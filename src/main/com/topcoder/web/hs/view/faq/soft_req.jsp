@@ -34,7 +34,7 @@
                 
                 <tr valign="top">
                     <td width="100%">
-                        <h2>Software Requirements</h2><a name="top"></a>
+                        <h3>Software Requirements</h3><a name="top"></a>
                         
                         <p class="bodyTextBold">What do I need to install to run the TopCoder Competition Arena?</p>
                         

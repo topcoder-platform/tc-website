@@ -34,7 +34,7 @@
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
-                        <h2>Rules</h2><a name="top"></a>
+                        <h3>Rules</h3><a name="top"></a>
 
                         No purchase necessary to enter or win.<br><br>
                         

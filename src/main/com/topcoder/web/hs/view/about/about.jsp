@@ -34,12 +34,12 @@
                 
                 <tr>
                     <td width="100%" class="bodyText">
-                        <p><font size="3">TopCoder, Inc., the leader in online programming competition, launched TopCoder High School in December 2002.  
+                        <p>TopCoder, Inc., the leader in online programming competition, launched TopCoder High School in December 2002.  
                         Through its partnership with the Connecticut Association of Schools (CAS), TopCoder hosts competitions for 
                         Connecticut high schools students and provides the means for these academically inclined students to showcase their 
                         skills alongside classmates during statewide team competition.  The TopCoder High School regular season will 
                         commence in March 2003 and will culminate in May 2003 with a statewide championship competition between the 
-                        best computer science high schools in Connecticut.</font></p>
+                        best computer science high schools in Connecticut.</p>
 
                         <p><strong>FOR MEMBERS</strong><br>
                         TopCoder High School competitions are designed for those academically inclined students already interested in 

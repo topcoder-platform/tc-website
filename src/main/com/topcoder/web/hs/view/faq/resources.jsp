@@ -34,7 +34,7 @@
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
-                        <h2>Resources</h2><a name="top"></a>
+                        <h3>Resources</h3><a name="top"></a>
                         
                         <p><b>Web Sites</b></p>
 

@@ -34,7 +34,7 @@
                 
                 <tr>
                     <td width="100%" class="bodyText">
-                        <h2>Sponsors</h2>
+                        <h3>Sponsors</h3>
                         
                         <p>TopCoder High School provides sponsoring companies the ability to proactively and directly support and 
                         promote high school math and science programs within their communities.  It also allows companies to reach a 

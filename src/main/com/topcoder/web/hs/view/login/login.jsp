@@ -67,7 +67,7 @@ if(username==null) username = "";
                         <input type="hidden" name="nextpage" value="<%= nextpage %>">
                         
                         <table cellspacing="10" cellpadding="0" border="0" align="center">
-                            <tr><td class="statText"><h2><%= message %></h2></td></tr>
+                            <tr><td class="statText"><h3><%= message %></h3></td></tr>
                         </table>
 
                         <table cellspacing="10" cellpadding="0" border="0" align="center">
