@@ -100,15 +100,14 @@
                                                     </p>
 
                                                     <p>
-                                                        <strong>View the
-                                                            <a target="_new" class="bodyText" href="/i/development/downloads/GentivaOrderProcessingApplicationSpec.pdf">Business Requirement Specification</a> for this application project.
-                                                        </strong>
+                                                        <strong>Business Requirement Specification </strong>
+                                                            View the <a target="_new" class="bodyText" href="/i/development/downloads/GentivaOrderProcessingApplicationSpec.pdf">Business Requirement Specification</a> for this application project.
                                                     </p>
 
 
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
-                                                        <strong>Technical Architecture Requirementsi</strong>
+                                                        <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
                                                         <li>MVC</li>
