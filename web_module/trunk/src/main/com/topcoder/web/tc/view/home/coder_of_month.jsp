@@ -10,41 +10,37 @@
 
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">August: <a href="/stat?c=member_profile&cr=286907" class="coderTextRed">WishingBone</a></td>
+        <td class="statTextBig" bgcolor="#333333">September: <a href="/stat?c=member_profile&cr=8365685" class="coderTextRed">pparys</a></td>
     </tr>
 </table>
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#222222">
-<%--
     <tr>
         <td align="left" background="/i/graybv_lite_bg.gif" class="statText">Contest</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText">Rating</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText"></td>
     </tr>
---%>
     <tr>
-        <td align="left" background="/i/graybv_lite_bg.gif" class="statText" colspan=2>Details</td>
-    </tr>
-
-    <tr>
-        <td class="formHandleEven">WishingBone has done 130 reviews for TopCoder Software, earning him over $20,000.</td>
-        <td rowspan="3" align="center" valign="middle"><img src="/i/m/WishingBone_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
-    </tr>
-<%--
-    <tr>
-        <td class="formHandleEven">SRM 205</td>
-        <td class="formHandleEven" align="right">2031</td>
-        <td rowspan="3" align="center" valign="middle"><img src="/i/m/WishingBone_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
+        <td class="formHandleEven">TCO Rd 4</td>
+        <td class="formHandleEven" align="right">2608</td>
+        <td rowspan="5" align="center" valign="middle"><img src="/i/m/pparys_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 204</td>
-        <td class="formHandleEven" align="right">1847</td>
+        <td class="formHandleOdd">TCO Rd 3</td>
+        <td class="formHandleOdd" align="right">2423</td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 203</td>
-        <td class="formHandleEven" align="right">1804</td>
+        <td class="formHandleEven">TCO Rd 2</td>
+        <td class="formHandleEven" align="right">2240</td>
     </tr>
---%>
+    <tr>
+        <td class="formHandleOdd">TCO Rd 1</td>
+        <td class="formHandleOdd" align="right">2104</td>
+    </tr>
+    <tr>
+        <td class="formHandleEven">TCO Qual</td>
+        <td class="formHandleEven" align="right">2077</td>
+    </tr>
 </table>
 
 <table width="180" border="0" cellspacing="0" cellpadding="0">
