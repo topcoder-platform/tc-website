@@ -3,7 +3,8 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
-                 java.util.List"%>
+                 java.util.List,
+                 com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer projectDetail= (ResultSetContainer)request.getAttribute("projectDetail");%>
@@ -113,7 +114,7 @@
                             <% if (((ReviewBoardApplication)reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
                             <% } else { %>
-                                link here
+                                <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<tc:beanWrite name="reviewer" property="primary"/>">Apply Now</a>
                             <% } %>
                         </td>
                         <td class="bodyText">
