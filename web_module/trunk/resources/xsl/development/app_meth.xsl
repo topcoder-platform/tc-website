@@ -274,7 +274,7 @@
                                             <li>Developers must submit the following documents by the Due Date as stated in the Application Project Posting page:
                                                 <ul>
                                                     <li>A working solution as defined by the Application Requirements and Design Specifications</li>
-                                                    <li>Unit Test Cases</li>
+                                                    <li>Unit Test Cases:</li>
                                                     <ul>
                                                         <li>Checking methods for handling of valid and invalid arguments.</li>
                                                         <li>Testing constructors for accessibility.</li>
