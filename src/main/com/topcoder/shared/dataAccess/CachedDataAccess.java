@@ -1,7 +1,6 @@
 package com.topcoder.shared.dataAccess;
 
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.distCache.CacheClientPool;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.sql.DataSource;
@@ -18,7 +17,6 @@ import java.util.Map;
  */
 public class CachedDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(CachedDataAccess.class);
-    private static CacheClient client;
     private long expireTime;
     private DataSource dataSource;
     private static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 7;
@@ -39,14 +37,7 @@ public class CachedDataAccess implements DataAccessInt {
      */
     public CachedDataAccess(long expireTime) {
         super();
-        try {
-            if (client == null)
-                client = CacheClientFactory.createCacheClient();
-            this.expireTime = expireTime;
-        } catch (Exception e) {
-            System.out.println("ERROR INITIALIZING CACHE CLIENT");
-            e.printStackTrace();
-        }
+        this.expireTime = expireTime;
     }
 
     /**
@@ -88,7 +79,7 @@ public class CachedDataAccess implements DataAccessInt {
             Map map = null;
             DataRetriever dr = null;
             try {
-                map = (Map) (client.get(key));
+                map = (Map) (CacheClientPool.getPool().getClient().get(key));
             } catch (Exception e) {
                 System.out.println("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 cached = false;
@@ -102,7 +93,7 @@ public class CachedDataAccess implements DataAccessInt {
             /* attempt to add this object to the cache */
             if (cached) {
                 try {
-                    client.set(key, map, expireTime);
+                    CacheClientPool.getPool().getClient().set(key, map, expireTime);
                 } catch (Exception e) {
                     System.out.println("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                 }
