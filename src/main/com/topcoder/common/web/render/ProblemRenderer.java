@@ -18,7 +18,7 @@ public class ProblemRenderer extends BaseRenderer implements ElementRenderer {
     private Color backgroundColor = null;
     private Color foregroundColor = null;
 
-    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  ";
+    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2005, TopCoder, Inc.  All rights reserved.  ";
 
     public ProblemRenderer() {
         this.problem = null;
