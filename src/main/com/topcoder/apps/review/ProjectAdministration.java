@@ -418,7 +418,7 @@ public class ProjectAdministration implements Model {
                         }*/
 
                         // update winner
-                        if (sum / count > max) {
+                        if ((sum / count) > max) {
                             max = sum / count;
                             winner = submissions[i].getSubmitter();
                         }
@@ -444,8 +444,8 @@ public class ProjectAdministration implements Model {
 
                 Arrays.sort(items, new Comparator() {
                             public int compare(Object obj1, Object obj2) {
-                                if(Double.compare(((Item) obj2).getSubmission().getFinalScore(),
-                                        ((Item) obj1).getSubmission().getFinalScore()) == 0)
+                                if(Double.compare(((Item) obj2).getScore(),
+                                        ((Item) obj1).getScore()) == 0)
                                 {
                                     //break ties
                                     int[] vals = new int[2];
@@ -489,8 +489,8 @@ public class ProjectAdministration implements Model {
                                     System.out.println(((Item)obj2).getSubmission().getSubmitter().getHandle() + "=" + vals[1]);
                                     return vals[1] - vals[0];
                                 }
-                                return Double.compare(((Item) obj2).getSubmission().getFinalScore(),
-                                        ((Item) obj1).getSubmission().getFinalScore());
+                                return Double.compare(((Item) obj2).getScore(),
+                                        ((Item) obj1).getScore());
                             }});
                
 
