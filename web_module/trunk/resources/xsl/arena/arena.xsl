@@ -51,7 +51,7 @@
           <xsl:call-template name="ArenaApplet">
             <xsl:with-param name="host">www.topcoder.com</xsl:with-param>
             <xsl:with-param name="port">5001</xsl:with-param>
-            <xsl:with-param name="tunnel">http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=5001</xsl:with-param>
+            <xsl:with-param name="tunnel">http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5001</xsl:with-param>
             <xsl:with-param name="companyName">TopCoder</xsl:with-param>
           </xsl:call-template><br/><br/>
           <b>You may minimize this browser window, but do not close it.</b>
