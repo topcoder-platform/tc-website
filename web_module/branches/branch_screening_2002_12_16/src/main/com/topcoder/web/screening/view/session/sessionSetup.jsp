@@ -81,10 +81,10 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="userId">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
-                <% if(sessionInfo.isSelectedCandidate(row.getItem("user_id").toString())) { %>
-              	<option value="<screen:resultSetItem row="<%=row%>" name="user_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
+                <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
+              	<option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                 <% } else { %>
-              	<option value="<screen:resultSetItem row="<%=row%>" name="user_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
+              	<option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                 <% } %>
                 </screen:resultSetRowIterator>
               </select>
