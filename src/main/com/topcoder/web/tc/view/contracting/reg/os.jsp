@@ -121,7 +121,7 @@ return false;
 			<tr>
 	            <td class=bodyText valign=middle nowrap=nowrap>Additional Comments:</td>
 				<td class=bodyText align=right>
-				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_OS%>" rows="3" cols="40"/>
+				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.OS_NOTE_TYPE_ID%>" rows="3" cols="40"/>
 				</td>
 			</tr>
 			<tr><td class=bodyText colspan=2 align=center><br/><br/><a href="javascript:goToPage('ContractingDatabases');"><img src="/i/submit.jpg" border=0/></a>
