@@ -45,17 +45,141 @@
 
             <h2>Schedule</h2>
 
-            <p>
-            The 2004 Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.</p>
-            <ul>
-                <li><strong>Elimination Starts</strong><br />
-                    January 2004 - Component<br />
-                    February 2004 - Algorithm<br /></li>
-                <li><strong>Onsite Finals</strong><br />
-                    April 2004 in Boston, MA</li>
-                <li><strong>Free Competition</strong></li>
-                <li><strong>Open to all college students</strong></li>
-            </ul>
+            <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
+            Everyone who competes in an online round must login to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round. (See below for competition dates and times.) TopCoder members from around the world may be participating in these rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round they have advanced to, it will be treated as an automatic loss in that round of competition.</p>
+
+            <a name="sched"></a>
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="50%">Round</td>
+                    <td class="sidebarTitle" width="50%">Date and Time*</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">Qualification Round</td>
+                    <td class="sidebarText">
+                        START: Monday, February 23<br />
+                        12:00 PM (noon)<br /><br/>
+                        END: Tuesday, February 24<br />
+                        12:00 PM (noon)
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate"
+                        will be the following day at the same time.<br/>
+                    </td>
+                </tr>
+            </table><br />
+
+            <p><span class="bodySubtitle">Scoring and Advancing during Online Rounds</span><br/>
+            After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:</p>
+
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="50%">Round</td>
+                    <td class="sidebarTitle" width="50%">Date and Time*</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Online Round #1</td>
+                    <td class="sidebarText">
+                        Saturday, February28th<br />
+                        Registration:  9:30 AM - 11:55 AM<br />
+                        Compete: 12:00 PM (noon)<br />
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Online Round #2</td>
+                    <td class="sidebarText">
+                        Wednesday, March 3rd<br />
+                        Login by:  9:20 PM<br />
+                        Compete: 9:30 PM<br />
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Online Round #3</td>
+                    <td class="sidebarText">
+                        Wednesday, March 10th<br />
+                        Login by:  9:20 PM<br />
+                        Compete: 9:30 PM<br />
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Online Round #4</td>
+                    <td class="sidebarText">
+                        Wednesday, March 17th<br />
+                        Login by:  9:20 PM<br />
+                        Compete: 9:30 PM<br />
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate"
+                        will be the following day at the same time.
+                    </td>
+                </tr>
+            </table><br/>
+            
+            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
+            The twenty-four (24) advancers from Online Round #4 will travel to the Boston Park Plaza Hotel & Towers on Wednesday, April 14th to compete in the Semifinal round of the tournament being held on Thursday, April 15th.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 PM on Wednesday, April 14th.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.</p>
+
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="50%">Round</td>
+                    <td class="sidebarTitle" width="50%">Date and Time*</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">Semifinal Room #1</td>
+                    <td class="sidebarText">
+                        Thursday, April 15th<br />
+                        Compete: 10:00 AM<br />
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Semifinal Room #2</td>
+                    <td class="sidebarText">
+                        Thursday, April 15th<br />
+                        Compete: 1:00 PM<br />
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Semifinal Room #3</td>
+                    <td class="sidebarText">
+                        Thursday, April 15th<br />
+                        Compete: 4:00 PM<br />
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Semifinal Room #4</td>
+                    <td class="sidebarText">
+                        Thursday, April 15th<br />
+                        Compete: 7:00 PM<br />
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText"><strong>Championship Round</strong></td>
+                    <td class="sidebarText">
+                        <strong>Friday, April 16th<br />
+                        Compete: 3:00 PM<br /></strong>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
+                    </td>
+                </tr>
+            </table><br />
+            
 
          <p><br/></p>
          </td>
