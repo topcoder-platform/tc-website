@@ -55,28 +55,45 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br />
                        
-                       <h3>Salesperson</h3>
+                       <h3>Sales Director</h3>
+                       
+                       
+                       Job Description: 
                         
-                        <p>We are currently looking for a salesperson to join TopCoder Employment Services. Candidates must work well under pressure in a 
-                        high-risk environment and must have excellent  communication skills. We currently offer two programs for clients&#151;the TopCoder 
-                        Recruiting Program, whereby clients post jobs on our web site and are given access to detailed statistical information about interested 
-                        candidates, and the TopCoder Testing Program, whereby clients have the ability to test a developer's programming skills prior to making 
-                        a hiring decision. The salesperson will be calling on qualified companies to identify and contact appropriate professionals interested in 
-                        finding quality candidates through TopCoder. The salesperson will build a relationship with these professionals and set up phone calls 
-                        and meetings for themselves and TopCoder executives.  Only qualified applicants with in-demand skills will be contacted. Salary and 
-                        commission is based on experience.</p>
+                        <p>TopCoder Software, a division of TopCoder, Inc. is a progressive software company looking to hire a motivated, hard 
+                        working salesperson to develop the New York City/Northern New Jersey area. TopCoder Software markets application 
+                        development services to companies in multiple industries using a unique combination of competition qualified software 
+                        developers, a rigorous development methodology and catalogs of re-usable software components. TopCoder Software also 
+                        sells subscriptions to the component catalogs.</p>
                         
-                        Responsibilities: 
+                        Responsibilities include: 
                         <ul>
-                            <li>Identify companies with sales potential for TopCoder Employment Services.</li>
-                            <li>Identify appropriate professionals within the companies. </li>
-                            <li>Contact appropriate professionals and describe our company and programs. </li>
-                            <li>Build a relationship with appropriate professionals. </li>
-                            <li>Set up phone calls and meetings between appropriate professionals and TopCoder Executives. </li>
-                            <li>Negotiate contracts and agreements with interested parties.</li>
-                            <li>Ensure the collection of any outstanding payments due to TopCoder.</li>
+                            <li>Exceed all revenue targets - Following a six-month period to build a sales pipeline, we expect our 
+                            sales representatives to exceed quarterly revenue goals.</li>                            
+                            <li>Build sales pipeline - Identify new customer prospects via professional networks, cold calling and any 
+                            other means necessary to build a sales pipeline.</li>                 
+                            <li>Schedule meetings - Set up meetings for TopCoder executives at qualified prospects with identified needs.</li>
+                            <li>Build business plan - Build a plan for developing the assigned business including specific customers and timeframes.</li>
                         </ul>
-                        This position is at our Glastonbury, CT offices. No telecommuting options are available. <a class="bodyText" href="mailto:tces@topcoder.com?subject=TopCoder Employment Services Salesperson">Apply for this job</a> by email.
+                        
+                        Qualifications include: 
+                        <ul>
+                            <li>Business development experience Ð Ideal candidates should have at least three years of prior technical sales experience 
+                            in the New York/Northern New Jersey area.</li>                 
+                            <li>Strong selling skills Ð Ideal candidates should have experience identifying, qualifying and closing 
+                            software or services deals.</li>                            
+                            <li>Prior success - Ideal candidates should have a demonstrated ability to consistently exceed quota.</li> 
+                            <li>Strong work ethic - Ideal candidates should be able to grow a pipeline two to four times the size of quota targets and prioritize likely prospects.</li>
+                            <li>College Degree - Four year degree preferred.</li>                       
+                        </ul>
+                        
+                 <p> <strong>Contact Information</strong><br/>
+                        Company: TopCoder Software<br/>
+                        Contact: Dave Tanacea<br/>
+                        Email: <a class="bodyText" href="mailto:dtanacea@topcoder.com?subject=TopCoder Software Sales Director">dtanacea@topcoder.com</a><br/>
+                        Address: 703 Hebron Ave<br/>
+	               Glastonbury, CT  06033<br/>
+                        Phone: 860.633.5540</p>
                         <p><br /></p>
                     </td>
                 </tr>
