@@ -832,6 +832,12 @@
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.jsp"/>
             </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="top.jsp"/>
+                <include name="foot.jsp"/>
+                <include name="date_time.jsp"/>
+            </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/shared/util/"/>
                 <include name="com/topcoder/shared/dataAccess/"/>
