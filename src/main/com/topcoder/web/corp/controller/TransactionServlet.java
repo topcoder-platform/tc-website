@@ -110,6 +110,7 @@ public class TransactionServlet extends HttpServlet {
     private String defaultPageBadCountry = null;
     private String errorPageSecurity = null;
     private String loginApplicationPage = null;
+    private TransactionInfo txInfo = null;
 
 
     /**
@@ -169,8 +170,8 @@ public class TransactionServlet extends HttpServlet {
                     throw new NotAuthorizedException("Not enough permissions to work with requested module");
                 }
 
-                TransactionInfo txInfo = buildTermsTransactionInfo(req, resp);
-                if (userCountryEligible(txInfo.getBuyerID(), txInfo.getProductID())) {
+                txInfo = buildTermsTransactionInfo(req, resp);
+                if (txInfo.isFromEligibleCountry()) {
                     req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
                     req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
                 } else {
@@ -236,7 +237,6 @@ public class TransactionServlet extends HttpServlet {
         if (OP_TX_STATUS.equals(op)) {
             try {
                 String retPage = txStatus(req);
-//                req.getRequestDispatcher(retPage).forward(req, resp);
                 resp.sendRedirect(retPage);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -260,17 +260,34 @@ public class TransactionServlet extends HttpServlet {
                 }
                 //only begin if they have agreed to terms.
                 if ("on".equalsIgnoreCase(req.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
-                    txBegin(req, resp);
-                    req.getRequestDispatcher(defaultPageIntForm).forward(req, resp);
+                    txInfo = buildTransactionInfo(req, resp);
+                    if (txInfo.isFromEligibleCountry()) {
+                        InitialContext ic = (InitialContext) TCContext.getInitial();
+                        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
+                        //they must have agreeded to terms, since the purchase is beginning.  should probably be done outside
+                        //but then we don't have access to the transaction info object
+                        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId())) {
+                            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId());
+                        }
+                        txInfo.setAgreed(true);
+                        txBegin(req);
+                        req.getRequestDispatcher(defaultPageIntForm).forward(req, resp);
+                    } else {
+                        req.getRequestDispatcher(defaultPageBadCountry).forward(req, resp);
+                    }
                 } else {
-                    TransactionInfo txInfo = buildTermsTransactionInfo(req, resp);
-                    req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
-                    HashMap formErrors = new HashMap();
-                    Vector v = new Vector();
-                    v.add("You must agree to terms in order to make a purchase.");
-                    formErrors.put(Constants.KEY_AGREE_TO_TERMS, v);
-                    req.setAttribute(BaseTag.CONTAINER_NAME_FOR_ERRORS, formErrors);
-                    req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+                    txInfo = buildTermsTransactionInfo(req, resp);
+                    if (txInfo.isFromEligibleCountry()) {
+                        req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
+                        HashMap formErrors = new HashMap();
+                        Vector v = new Vector();
+                        v.add("You must agree to terms in order to make a purchase.");
+                        formErrors.put(Constants.KEY_AGREE_TO_TERMS, v);
+                        req.setAttribute(BaseTag.CONTAINER_NAME_FOR_ERRORS, formErrors);
+                        req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+                    } else {
+                        req.getRequestDispatcher(defaultPageBadCountry).forward(req, resp);
+                    }
                 }
             } catch (NotAuthorizedException nae) {
                 if (auth.getUser().isAnonymous()) {
@@ -321,13 +338,9 @@ public class TransactionServlet extends HttpServlet {
      */
     private String txStatus(HttpServletRequest req)
             throws Exception {
-        // VeriSign has returned after transaction copletion
-//        String txRc = req.getParameter(KEY_RC);
-        TransactionInfo txInfo = (
-                (TransactionInfo) currentTransactions.get(transactionKey(req))
-                );
+        TransactionInfo txInfo = ((TransactionInfo) currentTransactions.get(transactionKey(req)));
         if (txInfo == null) {
-            throw new Exception("there is not transaction in progress");
+            throw new Exception("there is no transaction in progress");
         }
         if (!refreshRetCode(req, txInfo)) {
             throw new Exception("Rejected by VeriSign [" + txInfo.getRcVeriSign() + "]");
@@ -353,31 +366,17 @@ public class TransactionServlet extends HttpServlet {
      * that is eliminated by approach used.
      *
      * @param req user request
-     * @param resp used to build auth token (to identify buyer user and
-     * his company)
      *
      * @throws Exception transaction parameters are invalid or there was an
      * errors when trying to fetch product and / or user information from the DB
      */
-    private void txBegin(HttpServletRequest req, HttpServletResponse resp)
+    private void txBegin(HttpServletRequest req)
             throws Exception {
-        TransactionInfo txInfo = buildTransactionInfo(req, resp);
-        InitialContext ic = (InitialContext) TCContext.getInitial();
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-        Product product = ((ProductHome) ic.lookup(ProductHome.EJB_REF_NAME)).create();
-        long termsId = product.getTermsOfUseId(txInfo.getProductID());
-        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), termsId)) {
-            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), termsId);
-        }
-        txInfo.setAgreed(true);
+        currentTransactions.put(transactionKey(req), txInfo);
+        log.debug("CcTx started");
         DecimalFormat formater = new DecimalFormat("#.##");
         log.debug("purchase being made for: " + txInfo.getCost() + " formmatted: " + formater.format(txInfo.getCost()));
         req.setAttribute(Constants.KEY_CCTX_SUM, formater.format(txInfo.getCost()));
-//        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
-//        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
-//        req.setAttribute(Constants.KEY_CCTX_CONFIRM, Constants.CCTX_CONFIRM);
-//        req.setAttribute(Constants.KEY_CCTX_URL, Constants.CCTX_URL);
-//        req.setAttribute(Constants.KEY_CCTX_TYPE, Constants.CCTX_TYPE);
         return;
     }
 
@@ -426,10 +425,9 @@ public class TransactionServlet extends HttpServlet {
      * DB errors occured, etc.
      */
     private boolean txCommit(HttpServletRequest req) throws Exception {
-        TransactionInfo txInfo;
-        txInfo = (TransactionInfo) currentTransactions.get(transactionKey(req));
+        TransactionInfo txInfo = (TransactionInfo) currentTransactions.get(transactionKey(req));
         if (txInfo == null) {
-            throw new Exception("there is not transaction in progress");
+            throw new Exception("there is no transaction in progress");
         }
 
         if (!refreshRetCode(req, txInfo)) {
@@ -484,31 +482,35 @@ public class TransactionServlet extends HttpServlet {
      * include invalid product ID, unit type ID, user identifying errors, errors
      * in DB retrieval procedures
      */
-    private TransactionInfo buildTransactionInfo(
-            HttpServletRequest req,
-            HttpServletResponse resp
-            )
+    private TransactionInfo buildTransactionInfo(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
         TransactionInfo txInfo = new TransactionInfo(req, resp);
-        currentTransactions.put(transactionKey(req), txInfo);
-        log.debug("CcTx started");
-        return txInfo;
-    }
-
-    private TransactionInfo buildTermsTransactionInfo(HttpServletRequest req, HttpServletResponse resp)
-            throws Exception {
-        TransactionInfo txInfo = new TransactionInfo(req, resp);
+        txInfo.setFromEligibleCountry(userCountryEligible(txInfo.getBuyerID(), txInfo.getProductID()));
         InitialContext ic = (InitialContext) TCContext.getInitial();
-        TermsOfUse terms = ((TermsOfUseHome) ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
         Product product = ((ProductHome) ic.lookup(ProductHome.EJB_REF_NAME)).create();
         long termsId = product.getTermsOfUseId(txInfo.getProductID());
-        txInfo.setTerms(terms.getText(termsId));
         UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (userTerms.hasTermsOfUse(txInfo.getBuyerID(), termsId)) {
             txInfo.setAgreed(true);
         } else {
             txInfo.setAgreed(false);
         }
+        return txInfo;
+    }
+
+    /**
+     * similar to buildTransactionInfo, but includes the actual terms text.
+     * @param req
+     * @param resp
+     * @return
+     * @throws Exception
+     */
+    private TransactionInfo buildTermsTransactionInfo(HttpServletRequest req, HttpServletResponse resp)
+            throws Exception {
+        TransactionInfo txInfo = buildTransactionInfo(req, resp);
+        InitialContext ic = (InitialContext) TCContext.getInitial();
+        TermsOfUse terms = ((TermsOfUseHome) ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
+        txInfo.setTerms(terms.getText(txInfo.getTermsId()));
         return txInfo;
     }
 
