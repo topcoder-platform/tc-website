@@ -60,7 +60,7 @@
             
             <table cellspacing="0" width="530" class="formFrame">
                 <tr>
-                    <td class="header" colspan="3">Component Info</td>
+                    <td class="projectTitles" colspan="3">Component Info</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" align="left" width="50%">Catalog</td>
@@ -78,7 +78,7 @@
 
             <table cellspacing="0" width="530" class="formFrame">
                 <tr>
-                    <td class="header" colspan="3">Timeline</td>
+                    <td class="projectTitles" colspan="3">Timeline</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" width="50%">Phase</td>
@@ -125,7 +125,7 @@
 
             <table cellspacing="0" width="530" class="formFrame">
                 <tr>
-                    <td class="header" colspan="3">Positions Available</td>
+                    <td class="projectTitles" colspan="3">Positions Available</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" width="50%">Position</td>
