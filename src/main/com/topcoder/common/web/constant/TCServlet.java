@@ -4,7 +4,7 @@ import java.util.*;
 
 public class TCServlet {
 
-  public static String XSL_ROOT                  = "file:/export/home/apps/xsl/";
+  public static String XSL_ROOT                  = "file:/export/home/apps/web/resources/xsl/";
   public static String HOME_PAGE                 = XSL_ROOT + "home/home.xsl";
   public static String NAVIGATION_ERROR_PAGE     = XSL_ROOT + "error/navigation.xsl";
   public static String INTERNAL_ERROR_PAGE       = XSL_ROOT + "error/internal.xsl";
