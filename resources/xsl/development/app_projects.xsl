@@ -74,7 +74,7 @@
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=tchs">TopCoder High School</a><br/>
 						Posted: 11.18.2002<br/>
-						Submission Deadline: 11.24.2002<br/>
+						Inquiry Deadline: 11.22.2002<br/>
 						</p>   
                         <P><BR/></P>
 					</td>
