@@ -3,7 +3,7 @@ package com.topcoder.web.ejb.product;
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import java.sql.Date;
+//import java.sql.Date;
 
 
 /**
@@ -40,5 +40,23 @@ public interface Product extends EJBObject {
      */
     void setCost(long productId, float cost) throws RemoteException, EJBException;
 
+    /**
+     * by djFD 19/03/2002
+     * @param productId
+     * @return String
+     * @throws RemoteException
+     * @throws EJBException
+     */
+    public String getRedirectionURL( long productId )
+    throws RemoteException, EJBException;
 
+    /**
+     * by djFD 19/03/2002
+     * @param productId
+     * @param redirectURL
+     * @throws RemoteException
+     * @throws EJBException
+     */    
+    public void setProductRedirectionURL(long productId, String redirectURL)
+    throws RemoteException, EJBException;
 }
