@@ -9,7 +9,7 @@ public abstract class Logger {
     private static final LoggerFactory LOGGER_FACTORY;
 
     static {
-        LOGGER_FACTORY = new LoggerFactoryLog4j11();
+        LOGGER_FACTORY = new LoggerFactoryLog4j127();
     }
 
     /**
