@@ -29,7 +29,6 @@
       <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <%@ include file="/left.jsp" %>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -231,7 +230,6 @@
       <!-- Right Column Begins -->
       <TD WIDTH="10" bgcolor="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
         <!-- Right Column Include Begins -->
-         <%@ include file="/right.jsp" %> 
         <!--include virtual="/includes/public_right_col.shtml"-->
         <!-- Right Column Include Ends -->
       </TD>
@@ -242,8 +240,6 @@
     </TR>
   </TABLE>
   <!-- Body Ends -->
-
-  <%@ include file="/foot_tces.jsp" %>
 
   </BODY>
 </HTML>
