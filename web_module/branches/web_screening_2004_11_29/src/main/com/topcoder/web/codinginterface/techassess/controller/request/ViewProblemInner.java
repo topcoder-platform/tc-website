@@ -25,7 +25,7 @@ public class ViewProblemInner extends Base {
                 log.debug("defaults: " + defaults);
                 if (hasDefault(Constants.PROBLEM)) {
                     log.debug("has defaults");
-                    getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEMS));
+                    getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_INNER);
                     setIsNextPageInContext(true);
                 }
