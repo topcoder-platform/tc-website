@@ -130,8 +130,18 @@ public class MainServlet extends HttpServlet {
         if (forward) {
             getServletContext().getRequestDispatcher(
                     response.encodeURL(page)).forward(request, response);
-        } else {
-            response.sendRedirect(response.encodeRedirectURL(page));
+        } 
+        else {
+            String redirectPage = null;
+            //do this so people can redirect to internal pages as well
+            //as external
+            if (page.startsWith("http")) {
+                redirectPage = page;
+            }
+            else {
+                redirectPage = request.getContextPath() + page;
+            }
+            response.sendRedirect(response.encodeRedirectURL(redirectPage));
         }
     }
 
