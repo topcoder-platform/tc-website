@@ -72,8 +72,12 @@
                 unless="jdk1.4+"
             />
       </javac>
+
    </target>
-   <target name="deploy" depends="compile">
+   <target name="deploy" depends="servlets,jsp,moveStruts">
+   </target>
+
+   <target name="servlets" depends="compile">
       <move todir="${servlets}/${statservlets}">
          <fileset dir="${classes}/${statservlets}" >
                  <include name="*.class" />
@@ -90,6 +94,15 @@
          </fileset>
       </move>
    </target>
+
+   <target name="moveStruts" depends="check_java_version">
+      <move todir="${public_html}/WEB-INF">
+         <fileset dir="${web}/resources" >
+                 <include name="*.tld" />
+         </fileset>
+      </move>
+   </target>
+
    <target name="jsp" depends="check_java_version">
       <property name="stat.trgt"     value="${public_html}/stat_jsp" />
       <property name="stat.src"      value="${web}/stat/servlet/jsp" />
