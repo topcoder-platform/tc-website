@@ -847,9 +847,9 @@
              </classes>
              <webinf dir="${resources}/taglib">
                  <include name="tc-webtags.tld"/>
-                 <include name="tc.tld"/>
                  <!--
                  <include name="screening.tld"/>
+                 <include name="tc.tld"/>
                  <include name="tces-taglib.tld"/>
                  <include name="tc-taglib.tld"/>
                  <include name="rsc-taglib.tld"/>
