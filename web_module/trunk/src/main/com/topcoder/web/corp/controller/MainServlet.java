@@ -75,9 +75,7 @@ public class MainServlet extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        log.debug("URI: " +
-                request.getRequestURI() + "[" + request.getQueryString() + "]"
-        );
+        log.debug("URI: " + request.getRequestURI() + "[" + request.getQueryString() + "]");
 
         // put prefix of the url into request
         request.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage(request));
