@@ -1,7 +1,7 @@
 /*
  * ScorecardTemplate.java
  *
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ * Copyright ? 2004, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.document;
@@ -17,6 +17,7 @@ public class ScorecardTemplate {
     private int projectType;
     private int scorecardType;
     private int status;
+    private boolean isDefault;
 
     private TGroup[] groups;
 
@@ -33,13 +34,23 @@ public class ScorecardTemplate {
             int status,
             int projectType,
             int scorecardType,
-            TGroup[] groups) {
+            TGroup[] groups,
+            boolean isDefault) {
         this.id = id;
         this.name = name;
         this.projectType = projectType;
         this.scorecardType = scorecardType;
         this.status = status;
         this.groups = groups;
+        this.isDefault = isDefault;
+    }
+    
+    public boolean isDefault() {
+        return isDefault;
+    }
+    
+    public boolean setDefault(boolean b) {
+        this.isDefault = b;
     }
     
     /**
