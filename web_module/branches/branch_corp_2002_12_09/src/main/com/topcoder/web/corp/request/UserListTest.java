@@ -52,6 +52,7 @@ class UserList extends BaseProcessor {
             nextPage = ("/acc_admin/usr_list.jsp");
         }
         catch (Exception e) {
+            log.error("ERROR while setting up users list: "+e);
             nextPage = ("/error.jsp?message=" + e);
         }
     }
@@ -71,7 +72,7 @@ class UserList extends BaseProcessor {
                    + companyID);
         String companyId = request.getAttribute("companyId");
         if (companyId == null || companyId.length() == 0) { 
-            throw new Exception("Error getting company attribute")
+            throw new Exception("Error getting company attribute");
         }
         final String dataSourceName = "CORP_OLTP";
         Context ctx = null;
