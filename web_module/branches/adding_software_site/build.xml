@@ -51,6 +51,10 @@
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/upload.jar"/>
         <pathelement location="${jars.dir}/tcsUtil.jar"/>
+     
+        <!-- TCS Other -->
+        <pathelement location="${jars.dir}/tcs/catalog.jar"/>
+        <pathelement location="${jars.dir}/tcs/user.jar"/>
     </path>
 
     <target name="init">
