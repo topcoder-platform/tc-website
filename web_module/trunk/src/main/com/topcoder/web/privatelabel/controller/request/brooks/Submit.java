@@ -304,7 +304,7 @@ public class Submit extends FullRegSubmit {
                 buf.append("Please review the Help Manual before getting started:\n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("www.topcoder.com/corp/testing/help/index.jsp");
+                buf.append("/corp/testing/help/index.jsp");
                 buf.append("\n\n");
                 buf.append("The following session has been scheduled for you:\n\n");
                 buf.append("Begin: ");
