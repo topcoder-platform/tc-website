@@ -20,13 +20,14 @@ import javax.servlet.http.*;
  * History:
  * version 1.0.0 -- 27-Dec-2002 -- created.
  * version 1.0.1 -- 27-Dec-2002 -- looks up constant changes in web.xml upon initialization.
+ * version 1.0.2 -- 29-Dec-2002 -- fixed RequestProcessor usage. - Porgery
  */
  
 public class MainServlet
     extends HttpServlet {
         //defaults seeded for missing config params in web.xml
     static String ERROR_PAGE         = "error.jsp";
-    static String PROCESSORS_PACKAGE = "com.topcoder.web.screening.controller.request";
+    static String PROCESSORS_PACKAGE = "com.topcoder.web.screening.request";
     static String PROCESSORS_PARAM   = "rp";
 
     /**
@@ -72,7 +73,7 @@ public class MainServlet
         try {
             String proc_param = request.getParameter(PROCESSORS_PARAM);
 
-            if (proc_param == null)
+            if (proc_param == null || proc_param.length() == 0)
                 throw new Exception("No Request Processor Set.");
             if (!isLegal(proc_param))
                 throw new Exception("Request Processor in illegal format.");
@@ -80,10 +81,12 @@ public class MainServlet
             RequestProcessor rp = (RequestProcessor)proc_class.newInstance();
 
             rp.setRequest(request);
+            rp.setResponse(response);
             rp.process();
             String wherenow = rp.getNextPage();
+            boolean forward = rp.isNextPageInContext();
 
-            sendToPage(request, response, wherenow, true);
+            sendToPage(request, response, wherenow, forward);
         } catch (Exception e) {
             sendToErrorPage(request, response, e);
         }
