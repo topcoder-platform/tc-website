@@ -380,6 +380,7 @@ public class TCLoadRequests extends TCLoad {
         pageNameMap.put("", "Home Page");
         pageNameMap.put("/", "Home Page");
         pageNameMap.put("/tc", "Member Home Page");
+        pageNameMap.put("LegacyReport", "TopCoder Reporting");
     }
 
 
