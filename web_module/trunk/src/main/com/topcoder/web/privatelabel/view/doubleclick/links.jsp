@@ -10,7 +10,7 @@
 </table>
 
 <% if (tl1.equals("collegiate")) {%>
-    <table width="750" align="center" border="0" cellpadding="2" cellspacing="1" class="dc_subnav_box">
+    <table width="750" align="center" border="0" cellpadding="2" cellspacing="1" class="dc_lvl2_box">
         <tr valign="top">
             <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
             <td align="center" class="<%=tl2.equals("overview")?"dc_subnav_on":"dc_subnav"%>">
@@ -32,7 +32,7 @@
         </tr>
     </table>
 <% } else if(tl1.equals("internal")){ %>
-    <table width="750" align="center" border="0" cellpadding="2" cellspacing="1" class="dc_subnav_box">
+    <table width="750" align="center" border="0" cellpadding="2" cellspacing="1" class="dc_lvl2_box">
         <tr valign="top">
             <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
             <td align="center" class="<%=tl2.equals("overview")?"dc_subnav_on":"dc_subnav"%>">
@@ -51,6 +51,21 @@
                 <a class="<%=tl2.equals("arena")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=int_arena">Practice Arena</a>
             </td>
             <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
+        </tr>
+    </table>
+<% } %>
+
+<% if (tl2.equals("rules")) {%>
+    <table width="750" align="center" cellpadding="1" cellspacing="0" class="dc_lvl3_box">	
+        <tr>
+            <td class="dc_lvl3Text" width="49%">&nbsp;</td>
+				<td class="dc_lvl3Text" align="center">
+                        <a class="bodyText_link" href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a class="bodyText_link" href="#about">About the Tournament</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a class="bodyText_link" href="#prizes">About the Prizes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a class="bodyText_link" href="#conditions">Conditions of Participation</a>
+            </td>
+            <td class="dc_lvl3Text" width="50%">&nbsp;</td>
         </tr>
     </table>
 <% } %>

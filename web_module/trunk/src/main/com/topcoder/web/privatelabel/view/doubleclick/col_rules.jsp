@@ -24,12 +24,7 @@
 	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-            <p>
-                        <a class="bodyText_link" href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a class="bodyText_link" href="#about">About the Tournament</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a class="bodyText_link" href="#prizes">About the Prizes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a class="bodyText_link" href="#conditions">Conditions of Participation</a></p>
-
+            
 	         <p class="pageTitle">Rules</p>
          
             <h3>No purchase necessary to enter or win. The tournament is void where prohibited.</h3>
