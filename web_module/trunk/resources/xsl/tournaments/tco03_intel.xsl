@@ -59,22 +59,23 @@
                           </tr>
                           
                             <tr>
-                                  <td align="left" class="bodyText">
-                                
-                                 <p class="promoText"> Technology complexity is increasing at a blistering pace. In both the business and consumer markets, products that were once considered nice-to-haves 
-                        are rapidly becoming expectations, challenging software developers to create and optimize solutions that fulfill their customers' growing demands.</p>
+                                 	 <td align="left" class="bodyText">
+                                	<br/>
+                        			<p class="promoText"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel&#174; Developer Services </strong></A>offers the resources and 
+                        			opportunities you need to keep stride with industry innovations, take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
                         
-                        <p class="promoText"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel&#174; Developer Services </strong></A>offers the resources and 
-                        opportunities you need to keep stride with industry innovations, take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
+                        			<p class="promoText">With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
+                        			<A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel Developer Services</strong></A> gives you <strong>FREE</strong> access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p>
                         
-                        <p class="promoText">With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
-                        <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel Developer Services</strong></A> gives you <strong>FREE</strong> access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p>
+                        </td>
                         
-                        
-                        <p class="promoCallout">Register at <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">www.intel.com/IDS</A> today and get FREE 
-                        technical resources designed to help you capitalize on today's technology trends&#58;</p></td>
-                        
-                            <td valign="top"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><img src="/i/sponsor/intel_ids/intel_centrino_vertical.gif" width="268" height="235" /> </A> </td>
+                            	<td valign="top"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><img src="/i/sponsor/intel_ids/intel_centrino_vertical.gif" width="268" height="235" /> </A> </td>
+                            </tr>
+                            <tr>
+                            	<td align="left" colspan="2">
+                        			<p class="promoCallout">Register at <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">www.intel.com/IDS</A> today and get FREE 
+                        			technical resources designed to help you capitalize on today's technology trends&#58;</p>
+                            	</td>
                             </tr>
                             
                         </table>
