@@ -52,11 +52,29 @@
                   <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
                 </tces:trailIterator>
               </P>
-        <p>
-        <b>
-        <FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Member Profile: <jsp:getProperty name="CompetitionHistoryTask" property="Handle"/></FONT>
-        </b>
-        </p>                                    
+            <TABLE WIDTH="100%" BORDER="0">
+            <TR>
+            <TD class="statText" ALIGN="right">
+              <IMG SRC="/i/clear.gif" ALT="" WIDTH="126" HEIGHT="140" BORDER="0">
+            </TD>
+            <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+            <TD class="statText" ALIGN="left">
+
+              <B>Member Profile: <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "handle").toString()%> </B> <BR/>
+              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "last_name").toString()%> <BR/>
+              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "address1").toString()%>
+              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "address1").toString().equals("")?"":"<BR/>"+CompetitionHistoryTask.getMemberInfo().getItem(0, "address2").toString()+"<BR/>"%>
+              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "city").toString()%>,
+              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "state_code").toString()%>
+              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "zip").toString()%> <BR/>
+              <A HREF="mailto:<%=CompetitionHistoryTask.getMemberInfo().getItem(0, "email").toString() %>" CLASS="statText"><%= CompetitionHistoryTask.getMemberInfo().getItem(0, "email").toString() %></A> | <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "home_phone").toString()%> <BR/>
+              <B>Interested in:</B> <jsp:getProperty name="CoderDemographicsTask" property="JobName"/><BR/>
+              <% if (CompetitionHistoryTask.hasResume()) { %>
+                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>" class="statText"><B>Resume</B></a>
+              <% } %>
+              </TD>
+              </TR>
+              </TABLE>
                   <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
                     <TR>
                         <TD class="statText" ALIGN="center" WIDTH="33%">
