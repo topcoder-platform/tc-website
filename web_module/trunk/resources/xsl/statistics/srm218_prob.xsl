@@ -217,48 +217,48 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
 </table></blockquote> 
 
 
-Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Value</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      200 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Submission Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      117 / 121 (96.69%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Success Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      90 / 117 (76.92%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>High Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>carp</b> for 199.93 points (0 mins 33 secs) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Average Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      183.82 (for 90 correct submissions) 
-    </td> 
-  </tr> 
-</table></blockquote> 
+Used as: Division One - Level One: <blockquote><table cellspacing="2">
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      200
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      116 / 120 (96.67%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      89 / 116 (76.72%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>Im2Good</b> for 198.12 points (2 mins 46 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      183.64 (for 89 correct submissions)
+    </td>
+  </tr>
+</table></blockquote>
 
 <p>This problem was a plentiful source of either joy or frustration, depending
 on which side of the challenge you sat.  The basic algorithm was to initialize your
