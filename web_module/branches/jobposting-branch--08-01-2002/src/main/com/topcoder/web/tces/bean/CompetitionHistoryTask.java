@@ -61,6 +61,27 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
         uid = Authentication.userLoggedIn(session);
     }
 
+    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
+        throws Exception {
+
+        ArrayList a = new ArrayList();
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+            TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
+        setTrail(a);
+
+    }
+
     /** Processes the given step or phase of the task.
      * @param step The step to be processed.
      * @throws Exception
