@@ -14,6 +14,7 @@ public class ViewReviewProjects extends Base {
         r.setContentHandle("review_projects");
         try {
             getRequest().setAttribute("projectList", getDataAccess().getData(r).get("review_projects"));
+            getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).get("tournament_review_projects"));
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
