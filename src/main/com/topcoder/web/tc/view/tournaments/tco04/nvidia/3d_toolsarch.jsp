@@ -22,7 +22,7 @@
 			<table width="510" border=0 cellpadding=20 cellspacing=0>
 				<tr>
 					<td class="bodyText">
-                    <A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
+                    <A href="/?t=sponsor&c=link&link=http://www.nvidia.com/page/home&refer=tco_minisite" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
                     <p class=pageTitle>3D TOOLS ARCHITECT #556817</p>
                     
                     <p>As a member of the nVidia architecture team (the hottest team in 3D graphics!) you will be developing 
