@@ -65,14 +65,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </jsp:include>
 
                <blockquote>
-               <table width="500" border="0" cellpadding="0" cellspacing="10">
-                  <tr>
-                      <td class="bodyText" colspan="2">
-                        <p>Donating to the TopCoder Charity Challenge for the CRPF is easy! Just follow the directions below. 
-                        <A href="#downloads">Download</A> our handy forms to help collect donations on your behalf.</p>
-                     </td>
-                  </tr>
-                  
+               <p>Donating to the TopCoder Charity Challenge for the CRPF is easy! Just follow the directions below. 
+               <A href="#downloads">Download</A> our handy forms to help collect donations on your behalf.</p>
+ 
+               <table width="500" border="0" cellpadding="0" cellspacing="10" align="center">
                   <tr valign="top">
                      <td width="150" align="center"><img src="/i/tournament/crpf03/creditcard.gif" width="89" height="63" alt="Pay by credit card" border="0"></td>
                      <td class="bodyText">
