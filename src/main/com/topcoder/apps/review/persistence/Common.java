@@ -96,7 +96,7 @@ public class Common {
             }
 
             try {
-                System.out.println("Common.addManager, class: " + newManager.getClass().getName());
+                //System.out.println("Common.addManager, class: " + newManager.getClass().getName());
                 newManager.refresh();
             } catch (RefreshException e) {
                 throw new RuntimeException(e);
