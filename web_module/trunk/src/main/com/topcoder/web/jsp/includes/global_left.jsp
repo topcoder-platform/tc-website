@@ -166,6 +166,10 @@
                     <% } %>
             <% } %>
     <%-- Round Tables ends --%>
+    
+ <%-- TopCoder Gear begins --%>
+                    <tr><td id="<%=level1.equals("store")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=store&d2=store_home" class="<%=level1.equals("store")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("store")?"bottom":"right"%>.gif" border="0"/>TopCoder Gear</a></td></tr>
+    <%-- TopCoder Gear ends --%>
 
     <%-- Support/FAQs begins --%>
                     <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?&t=support&c=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support/FAQs</a></td></tr>
