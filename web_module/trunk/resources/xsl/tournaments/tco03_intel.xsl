@@ -60,7 +60,7 @@
                       </tr>
                       <tr>
                             <td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
-                            technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>IntelDeveloper 
+                            technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer 
                             Services</strong> </a> gives you FREE access to tools and resources that can maximize your code's performance, give you 
                             time-to-market advantage and make your software sing. Fast.</p></td>
                             
@@ -79,7 +79,7 @@
                         
                         <tr>
                         	<td colspan="2">
-                    <p class="promoCallout"><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Checkout a sample</strong> </a> of what Intel Developer 
+                    <p class="promoCallout"><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Check out a sample</strong> </a> of what Intel Developer 
                     Services offers you.  Then join <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer Services</strong> </a> today and get FREE technical resources designed to help you capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. <br/>
                     <br/>Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
                         
