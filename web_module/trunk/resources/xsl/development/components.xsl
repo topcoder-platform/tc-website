@@ -57,7 +57,7 @@
 				<tr valign="top">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" class="statText" width="100%" colspan="4"><strong><img src="/i/development/title_weekly_comp_winners.gif" alt="This Week's Component Project Winners" width="346" height="26" border="0" /></strong><br />
-						<span class="statTextSmall">Week Ending November 15, 2002</span></td>
+						<span class="statTextSmall">Week Ending November 22, 2002</span></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
@@ -75,32 +75,32 @@
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
-							<tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: </strong><span class="coderTextGreen"><a href="/stat?c=member_profile&amp;cr=280167" class="coderTextGreen"><strong>ttsuchi</strong></a></span></td></tr>
+							<tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: </strong><span class="coderTextYellow"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a></span></td></tr>
 
 							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
 							<tr valign="top">
-								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=280167" class="coderTextGreen"><img src="/i/m/ttsuchi_small.jpg" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
+								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><img src="/i/m/nophoto_dev.gif" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
 								<td class="statText" width="60%">Developer Level:</td>
 								<td class="statText" align="right" width="15%">II</td>
 								<td class="statText" width="25%"></td>
 							</tr>
 
 							<tr valign="top">
-								<td class="statText">Review Board Score for This Project:</td>
-								<td class="statText" align="right">75.85</td>
+								<td class="statText">Component Review Board Score for This Project:</td>
+								<td class="statText" align="right">84.23</td>
 								<td class="statText"></td>
 							</tr>
 
 							<tr valign="top">
 								<td class="statText">Rating:</td>
-								<td class="statText" align="right">1100</td>
-								<td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=280167" class="statText">[ ratings history ]</a></td>
+								<td class="statText" align="right">1682</td>
+								<td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=296145" class="statText">[ ratings history ]</a></td>
 							</tr>
 
 							<tr valign="top">
 								<td class="statText">Total Earnings for All Component Projects*:</td>
-								<td class="statText" align="right">$150.00</td>
+								<td class="statText" align="right">$180.00</td>
 								<td class="statText"></td>
 							</tr>
 
@@ -118,8 +118,8 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" colspan="4">
 						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statText"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText"><strong>Logging Wrapper Component</strong></a><br />
-									The Logging Wrapper component provides a standard logging API with a pluggable back-end logging implementation. For more details, check out the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText">Logging Wrapper Component</a> at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</td></tr>
+							<tr><td class="statText"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028" class="statText"><strong>Timer component</strong></a><br />
+									The Timer component allows for "stopwatch" type functionality to be integrated into existing and new software. For more details, check out the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028" class="statText">Timer component</a> at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</td></tr>
 						</table></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
@@ -128,7 +128,7 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" height="18" colspan="4">&#160;&#160;Architecture Board Comments</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" height="18" colspan="4">&#160;&#160;Component Review Board Comments</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
@@ -136,7 +136,7 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" colspan="4">
 						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statText">"This is a good design attempt that does not introduce unnecessarily complex overhead to a simple project." &#151;<a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271008"><strong>ilya</strong></a></td></tr>
+							<tr><td class="statText">"Good, simple design. This would be very easy to implement and maintain." &#151;<a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278595"><strong>seaniswise</strong></a></td></tr>
 						</table></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
@@ -162,19 +162,19 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextGreen" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=280167" class="coderTextGreen">ttsuchi</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText">Logging Wrapper Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">75.85</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$150.00</td>
+					<td background="/i/steel_darkblue_bg.gif" class="coderTextYellow" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow">srowen</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028" class="statText">Timer Design</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">84.23</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$180.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextYellow" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=278595" class="coderTextYellow">seaniswise</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056" class="statText">Email Engine Enhancement Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">78.33</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$120.00</td>
+					<td background="/i/steel_darkblue_bg.gif" class="coderTextGreen" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=285960" class="coderTextGreen">jkang</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2100060" class="statText">Unit Test Generator Design</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">82.40</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$150.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
