@@ -66,9 +66,17 @@ abstract class RegistrationBase extends BaseProcessor {
      */
     protected abstract void registrationProcessing() throws TCWebException;
 
-    private String getCompanyDb(long companyId) {
-        //TODO dynamicize when we have db support
-        return "OLTP";
+    private String getCompanyDb(long companyId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("company_datasource");
+        r.setProperty("cm", String.valueOf(companyId));
+        Map m = getDataAccess(true).getData(r);
+        ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");
+        if (rsc==null || rsc.isEmpty()) {
+            throw new Exception("Could not find datasource for company: " + companyId);
+        } else {
+            return rsc.getStringItem(0, "datasource_name");
+        }
     }
 
     public DataAccessInt getDataAccess() throws Exception {

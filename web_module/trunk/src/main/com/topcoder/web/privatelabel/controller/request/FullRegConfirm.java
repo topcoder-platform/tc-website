@@ -5,7 +5,9 @@ import com.topcoder.web.privatelabel.view.tag.DemographicInput;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -14,6 +16,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 
 /**
  *
@@ -43,20 +46,21 @@ public class FullRegConfirm extends FullRegBase {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         //get the main reg info from the session
-        FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
-        if (info==null) {
+        FullRegInfo info = (FullRegInfo) getRegInfoFromPersistor();
+        if (info == null) {
+            //perhaps we should load it up from the db...in the case of updates...
             throw new Exception("Registration info not found in persistor");
         }
 
-        if (fu!=null) {
+        if (fu != null) {
             Iterator it = fu.getAllUploadedFiles();
             //only need to worry about a single resume
             UploadedFile uf = null;
             byte[] fileBytes = null;
             if (it.hasNext()) { //should only be one file
-                uf = (UploadedFile)it.next();
+                uf = (UploadedFile) it.next();
                 if (uf != null) {
-                    fileBytes = new byte[(int)uf.getSize()];
+                    fileBytes = new byte[(int) uf.getSize()];
                     uf.getInputStream().read(fileBytes);
                     info.setFileType(Integer.parseInt(fu.getParameter(Constants.FILE_TYPE)));
                     info.setFileName(uf.getRemoteFileName());
@@ -67,7 +71,36 @@ public class FullRegConfirm extends FullRegBase {
 
         //get the rest from the request
         String sCoderType = getRequestParameter(Constants.CODER_TYPE);
-        info.setCoderType(Integer.parseInt(sCoderType==null?"-1":sCoderType));
+        info.setCoderType(Integer.parseInt(sCoderType == null ? "-1" : sCoderType));
+
+        //get the demographic responses
+        DemographicQuestion q = null;
+        String value = null;
+        DemographicResponse r = null;
+        String key = null;
+        List responses = new ArrayList(getQuestions().size());
+        for (Iterator it = getQuestions().iterator(); it.hasNext();) {
+            key = DemographicInput.PREFIX + q.getId();
+            q = (DemographicQuestion) it.next();
+            value = StringUtils.checkNull(getRequest().getParameter(key));
+            r = new DemographicResponse();
+            r.setQuestionId(q.getId());
+            if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                r.setText(value);
+            } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
+                try {
+                    r.setAnswerId(Long.parseLong(value));
+                } catch (NumberFormatException e) {
+                    addError(key, "Please enter a valid answer.");
+                }
+            } else if (q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                log.debug("don't know what to do with multiselect yet");
+            } else {
+                //todo error handling here, not a valid question
+            }
+            responses.add(r);
+        }
+        info.setResponses(responses);
 
         return info;
     }
@@ -78,14 +111,47 @@ public class FullRegConfirm extends FullRegBase {
      * @throws TCWebException
      */
     protected void checkRegInfo(FullRegInfo info) throws TCWebException {
-        //TODO check the demo and other input
+        //TODO check the demog and other input
         if (info.getCoderType() != Constants.STUDENT || info.getCoderType() != Constants.PROFESSIONAL) {
             addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
         }
-        if (info.getResume()==null) {
-            addError(Constants.RESUME, "Please provide a resume.");
+        //no need to check resume, it's not required
+
+        //check demographic answers
+        DemographicResponse r = null;
+        DemographicQuestion q = null;
+        try {
+            for (Iterator it = info.getResponses().iterator(); it.hasNext();) {
+                r = (DemographicResponse) it.next();
+                q = findQuestion(getQuestions(), r.getQuestionId());
+                if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
+                    if (!validResponse(r) && q.isRequired()) {
+                        addError(DemographicInput.PREFIX + r.getQuestionId(), "Please choose an answer from the list.");
+                    }
+                } else if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                    if (r.getText().length() > 255) {
+                        addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a shorter answer.");
+                    } else if (q.isRequired() && r.getText().length() < 1) {
+                        addError(DemographicInput.PREFIX + r.getQuestionId(), "Please valid answer.");
+                    }
+                } else if (q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                    //todo handle these
+                }
+            }
+        } catch (Exception e) {
+            throw new TCWebException(e);
         }
 
+    }
+
+    private DemographicQuestion findQuestion(List questions, long questionId) {
+        DemographicQuestion q = null;
+        boolean found = false;
+        for (Iterator it = questions.iterator(); it.hasNext() && !found;) {
+            q = (DemographicQuestion) it.next();
+            found = (q.getId() == questionId);
+        }
+        return found ? q : null;
     }
 
     protected void setDefaults(FullRegInfo info) {
@@ -94,8 +160,8 @@ public class FullRegConfirm extends FullRegBase {
         List responses = info.getResponses();
         DemographicResponse response = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
-            response = (DemographicResponse)it.next();
-            setDefault(DemographicInput.PREFIX+response.getQuestionId(), String.valueOf(response.getAnswerId()));
+            response = (DemographicResponse) it.next();
+            setDefault(DemographicInput.PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
         }
     }
 
@@ -105,13 +171,13 @@ public class FullRegConfirm extends FullRegBase {
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(response.getQuestionId()));
         Map aMap = dataAccess.getData(r);
-        ResultSetContainer answers = (ResultSetContainer)aMap.get("demographic_answer_list");
+        ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
 
         ResultSetContainer.ResultSetRow aRow = null;
         boolean found = false;
-        for (Iterator it = answers.iterator(); it.hasNext()&&!found;) {
-            aRow = (ResultSetContainer.ResultSetRow)it.next();
-            found |= (aRow.getIntItem("demographic_answer_id")==response.getAnswerId());
+        for (Iterator it = answers.iterator(); it.hasNext() && !found;) {
+            aRow = (ResultSetContainer.ResultSetRow) it.next();
+            found = (aRow.getIntItem("demographic_answer_id") == response.getAnswerId());
         }
         return found;
     }

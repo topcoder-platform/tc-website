@@ -57,52 +57,5 @@ public class FullRegDemog extends FullRegBase {
         return ret;
     }
 
-    private List getQuestions() throws Exception {
-        DataAccessInt dataAccess = getDataAccess(true);
-        Request r = new Request();
-        r.setContentHandle("demographic_question_list");
-        Map qMap = dataAccess.getData(r);
-        ResultSetContainer questions = (ResultSetContainer)qMap.get("demographic_question_list");
-        ResultSetContainer.ResultSetRow row = null;
-
-        List ret = new ArrayList(questions.size());
-        for (Iterator it = questions.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
-            ret.add(makeQuestion(row));
-        }
-        return ret;
-    }
-
-    private DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
-        DemographicQuestion ret = new DemographicQuestion();
-        ret.setQuestionId(row.getLongItem("demographic_question_id"));
-        ret.setDesc(row.getStringItem("demographic_question_desc"));
-        ret.setText(row.getStringItem("demographic_question_text"));
-        ret.setSelectable(row.getStringItem("selectable"));
-
-        DataAccessInt dataAccess = getDataAccess(true);
-        Request r = new Request();
-        r.setContentHandle("demographic_answer_list");
-        r.setProperty("dq", String.valueOf(ret.getQuestionId()));
-        Map aMap = dataAccess.getData(r);
-        ResultSetContainer answers = (ResultSetContainer)aMap.get("demographic_answer_list");
-
-        ResultSetContainer.ResultSetRow aRow = null;
-        List answerList = new ArrayList(answers.size());
-        for (Iterator it = answers.iterator(); it.hasNext();) {
-            aRow = (ResultSetContainer.ResultSetRow)it.next();
-            answerList.add(makeAnswer(aRow));
-        }
-        ret.setAnswers(answerList);
-        return ret;
-    }
-
-    private DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
-        DemographicAnswer ret = new DemographicAnswer();
-        ret.setAnswerId(row.getLongItem("demographic_answer_id"));
-        ret.setText(row.getStringItem("demographic_answer_text"));
-        ret.setQuestionId(row.getLongItem("demographic_question_id"));
-        return ret;
-    }
 }
 
