@@ -4,11 +4,14 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
 <head>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+
+<title>Topcoder | Testing Application Management Tool</title>
+
 <jsp:include page="script.jsp" />
+
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body>
 
 <jsp:include page="includes/top.jsp" >
   <jsp:param name="isHomePage" value="true" />
@@ -17,18 +20,18 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
     <!-- Left Column Begins -->
-        <td width="22" bgcolor="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
+        <td width="22">
+
             <jsp:include page="includes/left.jsp" />
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
+
         </td>
       <!-- Left Column Ends -->
+
       <!-- Gutter Begins -->
         <td><img src="/i/clear.gif" width="10" height="1"></td>
         <!-- Gutter Ends -->
-        <!-- Body Area -->
+
+        <!-- Center Column begins -->
         <td class="bodyText" width="100%"><img src="/i/clear.gif" width="400" height="11" border="0"><br />
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr valign="top">
@@ -42,8 +45,8 @@
             </table>
                             
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
-                <tr><td colspan="3" valign="top"><font size="3" color="#666666"><b>Create a New Session:</b></font></td></tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10"></td></tr>
+                <tr><td colspan="3"><h3 class="testSubhead">Create a New Session:</h3></td></tr>
                 <tr>
                     <td valign="top" class="bodyText" nowrap="nowrap"><strong>Step 1:</strong></td>
                     <td><img src="/i/clear.gif" width="5" height="1"></td>
@@ -60,7 +63,7 @@
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10"></td></tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10"></td></tr>
-                <tr><td colspan="3" class="bodyText" align="center"><screen:servletLink processor="PopulateSession" styleclass="testButton">Create a New Session</screen:servletLink></td></tr>                                                       
+                <tr><td colspan="3" align="center"><screen:servletLink processor="PopulateSession" styleclass="button">Create a New Session</screen:servletLink></td></tr>                                                       
             </table>
             <p><br/></p>    
         </td> 
