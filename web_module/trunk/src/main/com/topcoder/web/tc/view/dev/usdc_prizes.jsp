@@ -43,7 +43,7 @@
 <h2>Prizes</h2>
 			
 
-			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td colspan="2" class="sidebarTitle"><strong>Design Contest</strong> - The Design contest will award the following prizes:</td>
                 </tr>
@@ -88,7 +88,7 @@
             
             <img src="/i/clear.gif" width="400" height="10" vspace="5" border="0">
 
-			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td colspan="2" class="sidebarTitle"><strong>Development Contest</strong> - The Development contest will award the following prizes:</td>
                    
