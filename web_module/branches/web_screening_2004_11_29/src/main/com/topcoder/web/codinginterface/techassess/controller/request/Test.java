@@ -53,8 +53,9 @@ public class Test extends Base {
                 } else {
                     arguments.add(arg);
                 }
-
             }
+
+            log.debug("args" + arguments);
 
             ScreeningTestRequest request = new ScreeningTestRequest(arguments, componentId, problemTypeId);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
