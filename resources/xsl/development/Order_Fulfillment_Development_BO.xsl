@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Order Fulfillment - Business Object Layer Development Project at TopCoder</title>
+                <title>Order Fulfillment - Data Access Layer Development Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Order Fulfillment - Business Object Layer</td>
+                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Order Fulfillment - Data Access Layer</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -110,11 +110,12 @@
                                                         Communication between the system and the factories is not in scope for this application.
                                                         <br/>
                                                         <br/>
-                                                        The developer of this project is responsible for creating all of the ASP.NET pages 
-                                                        and validation controls for the front end.  This layer will call the business object 
-                                                        to perform all logic.  
+                                                        The developer of this project is responsible for creating all of the business objects.  The
+                                                        business objects handle all of the rules and logic of the system.  This layer will be utilized 
+                                                        by the front end and will call the data access layer to handle all persistence.
                                                         <br/>
                                                         <br/>
+                                                        
                                                     </p>
                                                     <p class="noSpListTitle">
                                                         <strong>Objectives</strong>
@@ -137,7 +138,6 @@
                                                         <li>Windows Server 2003</li>
                                                         <li>SQL Server 2000</li>
                                                         <li>Microsoft .NET Framework Version 1.1</li>
-                                                        <li>ASP.NET</li>
                                                     </ul>
 
                                                     <!-- Payment -->
@@ -296,6 +296,7 @@
                                                             <td class="bodyText" nowrap="nowrap">Project Checkpoint Submission Due:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">06.21.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
+
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Due:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">06.28.2004 &#160;&#160;9:00 AM ET</td>
@@ -310,7 +311,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.12.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.11.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Integration Start:</td>
@@ -344,7 +345,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Order%20Fulfillment%20BO%20Development">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Order%20Fulfillment%20DAO%20Development">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
