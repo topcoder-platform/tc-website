@@ -11,8 +11,8 @@
 
   <tag>
     <name>iterator</name>
-    <tagclass>com.topcoder.web.jsp.tag.ListIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.jsp.tag.ResultSetRowIteratorTagInfo</teiclass>
+    <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to iterate through a ResultSetContainer
@@ -31,7 +31,7 @@
 
   <tag>
     <name>item</name>
-    <tagclass>com.topcoder.web.jsp.tag.ResultSetItemTag</tagclass>
+    <tagclass>com.topcoder.web.common.tag.ResultSetItemTag</tagclass>
     <bodycontent>empty</bodycontent>
     <info>
       Tag to get the value of a TCResultItem
