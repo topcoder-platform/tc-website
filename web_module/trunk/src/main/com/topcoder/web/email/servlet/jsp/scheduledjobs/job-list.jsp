@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.email.servlet.*" %>
 <jsp:useBean id="JobList" scope="session" class="java.util.ArrayList"/>
 
 
