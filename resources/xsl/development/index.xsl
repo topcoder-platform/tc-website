@@ -62,6 +62,15 @@ We will choose the project participants based upon TopCoder rating, historical T
 Keep in mind, TopCoder is paying significant money for these projects, and we expect a significant commitment from the project participants. You must feel confident that you can meet the deadlines specified in the project description.
 </P>
 
+
+<P>
+Project: <A HREF="/index?t=development&amp;c=web_services_proto" CLASS="statText">Web Services Proof of Concept</A><BR/>
+Start Date: Apr 16, 2002<BR/>
+Length: 2 weeks<BR/>
+Member Selection: Open<BR/>
+Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
+</P>
+
 <P>
 Project: <A HREF="/index?t=development&amp;c=client_impl" CLASS="statText">Client and Communication Protocol Implementation</A><BR/>
 Start Date: Mar 25, 2002<BR/>
