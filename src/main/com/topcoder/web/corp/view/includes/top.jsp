@@ -7,8 +7,11 @@
                  com.topcoder.web.corp.model.SessionInfo"
          autoFlush="false" %>
 <jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
+
 <%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
+   boolean isTCESPage = "true".equals(request.getParameter("isTCESPage"));
+   boolean isSponsorPage = "true".equals(request.getParameter("isSponsorPage"));
 %>
 
 <a name="top"></a>
@@ -54,19 +57,38 @@
 <!-- Header ends -->
 
 <!-- Main Navigation bar begins -->
-<table width="100%" border="0" cellpadding="3" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
+<!-- Do not use until new topcoder.com home page launches
 <% if (isHomePage) { %>
-        <td class="topNavOn" nowrap>&nbsp;&nbsp;Home&nbsp;&nbsp;</td>
+        <td class="topNavOn" nowrap>Home</td>
 <% } else { %>
-        <td class="topNav" nowrap>&nbsp;&nbsp;<a href="/" class="topLink">Home</a>&nbsp;&nbsp;</td>
+        <td class="topNav" nowrap><a href="/" class="topLink">Home</a></td>
+<%  } %>
+ -->
+
+<!-- Member sites -->
+        <td class="topNav" nowrap><a href="http://www.topcoder.com" class="topLink">Competition</a></td>
+        <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=development&c=index" class="topLink">Development</a></td>
+        <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=tces&c=index" class="topLink">Job Listings</a></td>
+
+<!-- Corporate sites -->
+        <td class="topNav" nowrap><a href="http://software.topcoder.com" class="topLink">Software</a></td>
+
+<% if (isTCESPage) { %>
+        <td class="topNavOn" nowrap><a href="/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
+<% } else { %>
+        <td class="topNav" nowrap><a href="/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
 <%  } %>
 
-        <td class="topNav" nowrap>&nbsp;&nbsp;<a href="/testing/" class="topLink">Testing Management Tool</a>&nbsp;&nbsp;</td>
-        <td class="topNav" nowrap>&nbsp;&nbsp;<a href="/tces/?task=MainTask" class="topLink">Recruiting Reports Tool</a>&nbsp;&nbsp;</td>
-        <td class="topNav" nowrap>&nbsp;&nbsp;<a href="http://www.topcodersoftware.com" class="topLink">TopCoder Software</a>&nbsp;&nbsp;</td>
+<% if (isSponsorPage) { %>
+        <td class="topNavOn" nowrap><a href="/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Sponsorship</a></td>
+<% } else { %>
+        <td class="topNav" nowrap><a href="/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Sponsorship</a></td>
+<%  } %>
+
         <td class="topNav" width="49%">&#160;</td> 
     </tr>
 </table>
