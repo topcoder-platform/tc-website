@@ -43,10 +43,13 @@
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr>
                     <td width="100%" class="bodyText"><br>
-                        <% if(exception != null && Constants.DEBUG.equals("true")) {
-                            exception.printStackTrace(new java.io.PrintWriter(out));
-                        }
+                        <% if(exception != null) {
+                            if (Constants.DEBUG.equals("true")) {
+                              exception.printStackTrace(new java.io.PrintWriter(out));
+                            } else {
                              exception.printStackTrace();
+                            }
+                        }
                         %>
                         <div class="header"><%=message==null?"Navigation Error":message%></div>
                     </td>
