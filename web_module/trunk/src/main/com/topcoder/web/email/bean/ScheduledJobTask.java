@@ -1197,7 +1197,7 @@ public class ScheduledJobTask
 
                 log.debug("Searching by date - start date: " + calendar.getTime());
 
-                inputMap.put("sd", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
+                inputMap.put("sda", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
 
                 int endYear = Integer.parseInt(request.getParameter("endYear"));
                 int endMonth = Integer.parseInt(request.getParameter("endMonth"));
@@ -1310,7 +1310,7 @@ public class ScheduledJobTask
 
             Calendar calendar = new GregorianCalendar();
             calendar.add(Calendar.DAY_OF_MONTH, -1 * numDaysBack);
-            m.put("sd", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
+            m.put("sda", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
 
             Map recentJobsMap = StatisticsUtilities.runStatsQuery(EmailConstants.RECENT_JOBS_COMMAND, m);
             resultSetContainer = (ResultSetContainer) recentJobsMap.get(EmailConstants.RECENT_JOBS_RESULT);
