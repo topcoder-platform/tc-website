@@ -296,7 +296,7 @@ Based on these observations, you can break the problem into several cases, each 
 dealt with easily:
 <pre>
 if (fs+ff &gt; 0) {
-    if (ff == 0) return ff;
+    if (fs == 0) return ff;
     else if (sf &gt;= fs) return ff + ss + 2*fs;
     else return ff + ss + 2*sf+1;    
 } else
