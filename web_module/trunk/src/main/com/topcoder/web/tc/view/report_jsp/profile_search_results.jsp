@@ -25,9 +25,9 @@
         i++;
         document.revise['module'].value = 'ProfileSearch';
         if(i == parseInt(document.revise['order'].value)){
-            document.revise['sort'].sort = ''+(-parseInt(document.revise['sort'].sort));
+            document.revise['sort'].value = ''+(-parseInt(document.revise['sort'].sort));
         }else{
-            document.revise['sort'].sort = '1';
+            document.revise['sort'].value = '1';
         }
         document.revise['order'].value = i+'';
         document.revise.submit();
