@@ -5,7 +5,7 @@
            com.topcoder.web.query.bean.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="ModifyCommandTask" scope="request" class="com.topcoder.web.query.bean.ModifyCommandTask" />
+<jsp:useBean id="ModifyQueryTask" scope="request" class="com.topcoder.web.query.bean.ModifyQueryTask" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -20,7 +20,7 @@
     <TR>
       <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <query:linkIterator id="link" list="<%=ModifyCommandTask.getNavLinks()%>">
+          <query:linkIterator id="link" list="<%=ModifyQueryTask.getNavLinks()%>">
             <TR>
               <TD CLASS="statText">
                   <A HREF="<jsp:getProperty name="link" property="href"/>" class="statText"><jsp:getProperty name="link" property="name"/></A>
@@ -32,32 +32,44 @@
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <FORM ACTION="<jsp:getProperty name="ModifyCommandTask" property="ServletPath"/>" method="post" name="ModCommandForm" >
-            <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_COMMAND_TASK%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandTask" property="CommandId"/>">
+          <FORM ACTION="<jsp:getProperty name="ModifyQueryTask" property="ServletPath"/>" method="post" name="ModQueryForm" >
+            <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_QUERY_TASK%>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.QUERY_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryTask" property="QueryId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
-            <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_NAME%></TD></TR>
+            <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_NAME%></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
-                <input type="text" name="<%=Constants.COMMAND_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyCommandTask" property="CommandDesc" />" size="30" maxlength="100">
+                <input type="text" name="<%=Constants.QUERY_NAME_PARAM%>" value ="<jsp:getProperty name="ModifyQueryTask" property="Name" />" size="30" maxlength="100">
               </TD>
             </TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">Group: </TD>
               <TD CLASS="statText" ALIGN="left">
-                <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue='<%=""+ModifyCommandTask.getGroupId()%>'/>
+                <input type="checkbox" name="<%=Constants.RANKING_PARAM%>" class="bodyText" <%=ModifyQueryTask.isRanking()?"checked":""%>/>
               </TD>
             </TR>
             <TR>
+              <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
+              <TD CLASS="statText" ALIGN="left" WIDTH="50%">
+                <input type="text" name="<%=Constants.COLUMN_INDEX_PARAM%>" value ="<jsp:getProperty name="ModifyQueryTask" property="ColumnIndex" />" size="3" maxlength="3">
+              </TD>
+            </TR>
+           <TR>
               <TD CLASS="statText" ALIGN="right">DB: </TD>
               <TD CLASS="statText" ALIGN="left">
-                <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyCommandTask.getDb()%>"/>
+                <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyQueryTask.getDb()%>"/>
+              </TD>
+            </TR>
+           <TR>
+              <TD CLASS="statText" ALIGN="right">DB: </TD>
+              <TD CLASS="statText" ALIGN="left">
+                <input type="textarea" cols="120" rows="30" name="<%=Constants.QUERY_TEXT_PARAM%> value="<jsp:getProperty name="ModifyQueryTask" property="Text"/>"/>
               </TD>
             </TR>
             <TR>
               <TD CLASS="statText" ALIGN="center" COLSPAN="2">
-                <A HREF="javascript:void document.ModCommandForm.submit()" CLASS="statText">
+                <A HREF="javascript:void document.ModQueryForm.submit()" CLASS="statText">
                   [save]
                 </A>
               </TD>

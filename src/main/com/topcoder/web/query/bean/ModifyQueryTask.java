@@ -4,6 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Authentication;
+import com.topcoder.web.query.common.LinkBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.shared.util.ApplicationServer;
 
@@ -48,7 +49,32 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
 	}
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    }
+        String begin = getServletPath()+"?"+Constants.TASK_PARAM+"=";
+        String end = "&"+Constants.DB_PARAM+"="+getDb();
+        StringBuffer buf = new StringBuffer();
+        buf.append(begin);
+        buf.append(Constants.DB_SELECTION_TASK);
+        super.getNavLinks().add(new LinkBean(buf.toString(), Constants.DB_SELECTION_NAME));
+        buf.setLength(0);
+        buf.append(begin);
+        buf.append(Constants.COMMAND_LIST_TASK);
+        buf.append(end);
+        super.getNavLinks().add(new LinkBean(buf.toString(), Constants.COMMAND_LIST_NAME));
+        buf.setLength(0);
+        buf.append(begin);
+        buf.append(Constants.MODIFY_COMMAND_TASK);
+        buf.append(end);
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Command"));
+        buf.setLength(0);
+        buf.append(begin);
+        buf.append(Constants.MODIFY_QUERY_TASK);
+        buf.append(end);
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Query"));
+        buf.setLength(0);
+        buf.append(begin);
+        buf.append(Constants.MODIFY_INPUT_TASK);
+        buf.append(end);
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Input"));    }
 
     public void process(String step) throws Exception {
         QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
