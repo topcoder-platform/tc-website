@@ -10,5 +10,5 @@ package com.topcoder.shared.security;
 public interface Authorization {
 
     /** Can the user represented by this object access the specified resource? */
-    public boolean hasPermission(Resource r); 
+    public boolean hasPermission(Resource r) throws Exception;
 }
