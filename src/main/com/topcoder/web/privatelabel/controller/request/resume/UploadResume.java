@@ -21,8 +21,8 @@ public class UploadResume extends Base {
             if (file == null)
                 throw new TCWebException("FileUpload object was null.");
 
-            Long userIdObj = (Long)getRequest().getSession(true).getAttribute(Constants.USER_ID);
-            if (userIdObj==null) {
+            Long userIdObj = (Long) getRequest().getSession(true).getAttribute(Constants.USER_ID);
+            if (userIdObj == null) {
                 throw new NavigationException("Sorry, missing required information.  Session may have expired.");
             } else {
                 userId = userIdObj.longValue();
@@ -31,36 +31,41 @@ public class UploadResume extends Base {
             Iterator it = file.getAllUploadedFiles();
             //only need to worry about a single resume
             if (it.hasNext()) {
-                uf = (UploadedFile)it.next();
+                uf = (UploadedFile) it.next();
                 log.debug(uf.getContentType());
                 if (uf == null) {
                     addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
                 } else {
-                    fileBytes = new byte[(int)uf.getSize()];
+                    fileBytes = new byte[(int) uf.getSize()];
                     uf.getInputStream().read(fileBytes);
-                    if (fileBytes==null||fileBytes.length==0)
+                    if (fileBytes == null || fileBytes.length == 0)
                         addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
                     else {
                         fileType = Integer.parseInt(file.getParameter("fileType"));
                         fileName = uf.getRemoteFileName();
-                        ResumeServices resumeServices = (ResumeServices)createEJB(getInitialContext(), ResumeServices.class);
+                        ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
                         resumeServices.putResume(userId, fileType, fileName, fileBytes, getDb());
                     }
                 }
-            }else{
+            } else {
                 throw new Exception("No files uploaded");
             }
             if (hasErrors()) {
                 setNextPage(Constants.RESUME_PAGE);
+                try {
+                    ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
+                    getRequest().setAttribute("fileTypes", resumeServices.getFileTypes(getDb()));
+                } catch (Exception e) {
+                    throw new TCWebException(e);
+                }
             } else {
                 setNextPage(Constants.RESUME_THANK_YOU_PAGE);
             }
             setIsNextPageInContext(true);
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new TCWebException(e);
         }
     }
-
 
 
 }
