@@ -1952,11 +1952,10 @@ public class ProjectTrackerBean implements SessionBean {
         Date[] result = new Date [11];
 
         for (int i=0; i < 10; i++) {
-            result [i] = new java.util.Date();
-            result[i].setTime(phases[i].getStartDate().getTime());
+            result [i] = new Date(phases[i].getStartDate().getTime());
 
         }
-        result[10].setTime(phases [10].calcEndDate().getTime());
+        result[10] = new Date (phases [10].calcEndDate().getTime());
         return result;
 
 
