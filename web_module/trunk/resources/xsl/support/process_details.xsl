@@ -90,17 +90,28 @@ Within the coding window, the coder will have the option to compile code, test c
 A note on testing code:  
 <UL>
 <LI>
-Code that runs for six seconds or more in the system tester will be halted.  The error message
+Code that runs for eight seconds or more in the system tester will be halted.  The error message
 from the system tester will read, "Your code submission caused the system tester to fail."  If code 
-with a runtime in excess of six seconds is submitted, it will fail any challenges or system tests 
+with a runtime in excess of eight seconds is submitted, it will fail any challenges or system tests 
 (<A HREF="#cphase" CLASS="bodyText">Challenge Phase</A> and <A HREF="#sphase" CLASS="bodyText">System-Testing Phase</A> details are listed below).
 </LI>
 </UL>
-
-Once a solution has been submitted, the coder can 
-either select another problem to implement or wait until the coding phase is over and the challenge phase begins. 
-If all three of the problems have already been submitted, the coder must wait until the 
-beginning of the challenge phase in order to further participate <BR/>
+TopCoder allows multiple submissions during the coding phase.<BR/>
+Here are the rules:
+<ul>
+<li>You can submit the same problem as many times as you like.</li>
+<li>For every submission past the first one you will incur a 10% penalty of the problem point total potential.<br/>
+Example:<br/>
+Coder A's 1st submission of the 500pt problem results in 400pts because they took approximately 15 minutes to solve it.<br/>
+Coder A's 2nd submission of the 500pt problem results in 280pts because they took an additional 8 minutes to solve (a total of 23) and we pena
+lized 50pts (50 = 500*.10)</li>
+<li>You can never go below 3/10 of the problems point total potential.<br/>
+Example:<br/>
+Coder B's 29th submission of the 500pt problem will result in 150pts<br/>
+Coder B's 55th submission of the 500pt problem will result in 150pts</li>
+</ul>
+**Some of the numbers in the examples above are rounded.
+<BR/>
 <BR/>
 <B>Scoring</B>
 <BR/>
