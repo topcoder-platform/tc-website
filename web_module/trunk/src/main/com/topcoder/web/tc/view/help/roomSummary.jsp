@@ -51,7 +51,7 @@
 		<p><span class="bodySubtitle">1 Spectating</span><br/>
 		The Room Summary Window contains a row for each competitor in the competition room that you are viewing.  Each row contains columns for room place (rank), handle, received points for each of the problems, and a current score.
 		<br/><br/>
-		The received points for a problem submission will appear in different colors, depending upon the language that was used to compile the submission.  The color-coding is as follows:
+		The received points for a problem submission will appear in different colors, depending upon the language that was used to compile the submission.  The default color-coding is as follows:
 		<br/>
 		<i>Java</i> - Green<br/>
 		<i>C++</i> - White<br/>
