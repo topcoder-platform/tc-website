@@ -51,7 +51,7 @@ public class SessionInfo implements Serializable {
     }
 
     public void setGroup(char group) {
-        if (0 > "GA".indexOf(group))
+        if (0 > "GAU".indexOf(group))
             throw new IllegalArgumentException("no group class '" + group + "'");
         this.group = group;
     }
@@ -82,6 +82,8 @@ public class SessionInfo implements Serializable {
 
         if (groups.contains("Admin"))
             setGroup('A');
+        else if (groups.contains("Corp User"))
+            setGroup('U');
         else {
             setGroup('G');
             setHandle("");  // anonymous looks nameless to the jsps
