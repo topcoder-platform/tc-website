@@ -33,7 +33,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
     public MainTask() {
         super();
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
+        setNextPage(TCESConstants.MAIN_PAGE);
 
         uid=-1;
     }

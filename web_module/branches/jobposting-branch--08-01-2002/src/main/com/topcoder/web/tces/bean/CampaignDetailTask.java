@@ -38,7 +38,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
 
     public CampaignDetailTask() {
         super();
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.CAMPAIGN_DETAIL_PAGE);
+        setNextPage(TCESConstants.CAMPAIGN_DETAIL_PAGE);
 
         uid=-1;
     }

@@ -11,10 +11,10 @@ public class TCESConstants {
             // com.topcoder.web.tces.bean
     public static String ERROR_PAGE = null;
     public static String LOGIN_PAGE = null;
-    public static String LOGIN_OK_PAGE = "/tces?task=MainTask&st=v";
-    public static String MAIN_PAGE = null;
-    public static String CAMPAIGN_DETAIL_PAGE = "/tces?task=CampaignDetailTask";
-    public static String CAMPAIGN_INTEREST_PAGE = "/tces?task=CampaignInterestTask";
+    public static String LOGIN_OK_PAGE = "/tces/tces?task=MainTask&st=v";
+    public static String MAIN_PAGE = "/tces/tces?task=MainTask&st=v";
+    public static String CAMPAIGN_DETAIL_PAGE = "/tces/tces?task=CampaignDetailTask";
+    public static String CAMPAIGN_INTEREST_PAGE = "/tces/tces?task=CampaignInterestTask";
 
     public static String LOGIN_TASK = "LoginTask";
     public static String LOGIN_TASK_STEP_VIEW = "v";

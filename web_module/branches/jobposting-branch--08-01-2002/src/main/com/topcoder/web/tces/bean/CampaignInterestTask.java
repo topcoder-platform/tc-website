@@ -36,7 +36,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
 
     public CampaignInterestTask() {
         super();
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.CAMPAIGN_INTEREST_PAGE);
+        setNextPage(TCESConstants.CAMPAIGN_INTEREST_PAGE);
 
         uid=-1;
     }

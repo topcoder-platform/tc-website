@@ -94,6 +94,8 @@ log.debug("task = "+taskName);
 
                 request.setAttribute( taskName, task );
 
+log.debug(task.getNextPage());
+
                 getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
 
             }
