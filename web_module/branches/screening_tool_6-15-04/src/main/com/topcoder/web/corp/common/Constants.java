@@ -61,6 +61,7 @@ public class Constants
     public static String NOTE_TEXT;
     public static String ROUND_PROBLEM_ID;
     public static String SESSION_ID;
+    public static String SEARCH_PAGE;
 
     //Candidate constants
     public static String CANDIDATE_INFO;
