@@ -381,7 +381,7 @@
 <!-- TCCC03 Championship begins-->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
-                <tr><td class="tourney_subnav"><strong>Championship Summary</strong></td></tr>
+                <tr><td class="tourney_subnav"><font size="3"><strong>Championship Summary</strong></font></td></tr>
                 <tr valign="top">
                     <td width="99%" class="bodyText">
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
@@ -473,7 +473,7 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%">            
                 <tr><td valign="middle"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/><a name="photo"></a></td></tr>          
             
-                <tr><td class="tourney_subnav"><strong>Championship Photos</strong></td></tr>
+                <tr><td class="tourney_subnav"><font size="3"><strong>Championship Photos</strong></font></td></tr>
 
                 <tr>
                     <td class="bodyText" align="center">
@@ -517,6 +517,8 @@
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_19.jpg');"><img src="/i/tournament/tccc03/champ_19_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
+
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
 <!-- TCCC03 Championship ends -->            
             
@@ -633,9 +635,8 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
             </table>
  End of Point of View -->
 
-            <hr width="100%" size="1" color="#43515E" />
-
-      <xsl:call-template name="arena"/>
+<!-- Java Web Start Include -->
+            <xsl:call-template name="arena"/>
 
             <p><br /></p>
         </td>
