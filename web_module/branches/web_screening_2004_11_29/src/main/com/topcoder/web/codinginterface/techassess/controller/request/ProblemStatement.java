@@ -15,6 +15,9 @@ public class ProblemStatement extends Base {
                     new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
+            setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
+            setIsNextPageInContext(false);
+
             if (hasParameter(Constants.MESSAGE_ID)) {
                 log.debug("has message id");
                 String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
@@ -28,6 +31,7 @@ public class ProblemStatement extends Base {
                     setIsNextPageInContext(true);
                 }
             }
+
         }
     }
 
