@@ -29,7 +29,7 @@
          <span class="bigRed">No purchase necessary to enter or win.  Void where prohibited.</span>
          <br><br>
          <span class="dc_subTitle">Summary of the Tournament</span><br>
-         The DoubleClick&#153; 2005 Coding Challenge ("DCCC") is being offered by DoubleClick Inc. ("DoubleClick") and TopCoder, Inc. ("TopCoder").  The DCCC will take place between Tuesday, February 22 and Wednesday, March 2, 2005.  It begins with a nine day online registration, after which all registered employees will be eligible to participate in the programming tournament.  The tournament takes place online and consists of one (1) competition round.  All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge, Powered by TopCoder T-shirt and a personally engraved trophy.  In addition, DoubleClick will award prizes worth over $20,000 in a combination of prizes for overall finalists and for the top 10% of finishers by region in the tournament.
+         The DoubleClick&#153; 2005 Coding Challenge ("DCCC") is being offered by DoubleClick Inc. ("DoubleClick") and TopCoder, Inc. ("TopCoder").  The DCCC will take place between Tuesday, February 22 and Wednesday, March 2, 2005.  It begins with an eight day online registration, after which all registered employees will be eligible to participate in the programming tournament.  The tournament takes place online and consists of one (1) competition round.  All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge, Powered by TopCoder T-shirt and a personally engraved memento.  In addition, DoubleClick will award prizes worth over $20,000 in a combination of prizes for overall finalists and for the top 10% of finishers by region in the tournament.
          <br><br>
          <a name="eligibility"></a>
          <span class="dc_subTitle">Eligibility</span><br>
@@ -84,7 +84,7 @@
          <br><br>
          <a name="prizes"></a>
          <span class="dc_subTitle">About the Prizes</span><br>
-         All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge T-shirt and a personally engraved trophy.  In addition, the top five scorers overall will win grand prizes, and the remaining top 10% of finishers in each region will win prizes.  For example, if there are 50 participants in a given region, the top five finishers in that region who did not receive a grand prize will receive a prize.  If a region has less than 10 participants, the top finisher in that region will still receive a prize, provided he/she did not win a grand prize. DoubleClick will pay all applicable taxes on prizes.  Prizes will be distributed as described here.
+         All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge T-shirt and a personally engraved memento.  In addition, the top five scorers overall will win grand prizes, and the remaining top 10% of finishers in each region will win prizes.  For example, if there are 50 participants in a given region, the top five finishers in that region who did not receive a grand prize will receive a prize.  If a region has less than 10 participants, the top finisher in that region will still receive a prize, provided he/she did not win a grand prize. DoubleClick will pay all applicable taxes on prizes.  Prizes will be distributed as described here.
          
          <br><br>
                      <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -118,7 +118,7 @@
                          </tr>
                          <tr>
                              <td class="sidebarText">All participants</td>
-                             <td class="sidebarText">DoubleClick 2005 Coding Challenge T-shirt and personally engraved trophy</td>
+                             <td class="sidebarText">DoubleClick 2005 Coding Challenge T-shirt and personally engraved memento</td>
                          </tr>
                          <tr>
                              <td class="sidebarText" colspan="2">Note: The values of all prizes are expressed in US Dollars.  If the 1st or 5th place grand prize winners are in EMEA or APAC, an equivalent model to those referenced here will be chosen by the Coding Challenge Committee.  There are absolutely NO substitutions allowed.</td>

@@ -36,15 +36,15 @@ The DoubleClick&#153; 2005 Coding Challenge, Powered by TopCoder&#174;, is your 
 Participants will have their choice of using Java, C++, C# or VB.Net to solve complex algorithmic problems. 
 <br><br>         
 <span class="dc_subTitle">Here's what you do</span><br>
-Download the DoubleClick 2005 Coding Challenge Qualification Round <A href="/i/events/doubleclick05/CompetitionManual.pdf">Competition Manual</A>.
+Download the DoubleClick 2005 Coding Challenge <A href="/i/events/doubleclick05/CompetitionManual.pdf">Competition Manual</A>.
 <br><br>         
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. Here's how it works:
 
 <ul>
 <li><strong>Download the Arena</strong><br>
-The TopCoder Competition Arena (a Java Applet) is where the action takes place. Download the applet, read the problem statements, then code solutions, compile and test those solutions and submit your code for points. To get acquainted with the environment, you can download the arena to work on sample problems prior to the competition. </li>
+The TopCoder Competition Arena (a Java Applet) is where the action takes place. Download the applet, read the problem statements, then code solutions, and compile and test those solutions before you submit your code for points. To get acquainted with the environment, you can download the arena to work on sample problems prior to the competition. </li>
 <li><strong>Coding Phase</strong><br>
-At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. Beat your co-workers by creating an accurate solution in the shortest amount of time. A leader board will track the points along the way. </li>
+At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of increasing difficulty. Beat your co-workers by creating an accurate solution in the shortest amount of time. A leader board will track the points along the way. </li>
 <li><strong>Challenge Phase</strong><br>
 The Challenge Phase allows competitors to view each other's code and try to "break'" that code. You challenge another competitor's code by passing test cases against it, with the hope that you can make it fail. Breaking another's code is the most direct form of competition for a programmer. In this phase, precious points are awarded or taken away based on the success of the challenges. </li>
 <li><strong>System Tests</strong><br>
@@ -55,7 +55,7 @@ Within minutes of the end of the Challenge Phase, TopCoder's automated, objectiv
 Registration for the DoubleClick 2005 Coding Challenge opens on February 22nd and closes on March 1st. All employees who register will be eligible to compete in the competition.
 <br><br>         
 <span class="dc_subTitle">Prizes</span><br>
-All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge T-shirt and a personally engraved trophy.  In addition, the top five scorers overall will win grand prizes, and the remaining top 10% of finishers in each region will win prizes.  For example, if there are 50 participants in a given region, the top five finishers in that region who did not receive a grand prize will receive a prize.  If a region has less than 10 participants, the top finisher in that region will still receive a prize, provided he/she did not win a grand prize. DoubleClick will pay all applicable taxes on prizes.  Prizes will be distributed as described here.
+All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge T-shirt and a personally engraved memento.  In addition, the top five scorers overall will win grand prizes, and the remaining top 10% of finishers in each region will win prizes.  For example, if there are 50 participants in a given region, the top five finishers in that region who did not receive a grand prize will receive a prize.  If a region has less than 10 participants, the top finisher in that region will still receive a prize, provided he/she did not win a grand prize. DoubleClick will pay all applicable taxes on prizes.  Prizes will be distributed as described here.
 <br><br>         
 
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -89,7 +89,7 @@ All participants who compete in the competition round will receive a DoubleClick
                 </tr>
                 <tr>
                     <td class="sidebarText">All participants</td>
-                    <td class="sidebarText">DoubleClick 2005 Coding Challenge T-shirt and personally engraved trophy</td>
+                    <td class="sidebarText">DoubleClick 2005 Coding Challenge T-shirt and personally engraved memento</td>
                 </tr>
                 <tr>
                     <td class="sidebarText" colspan="2">Note: The values of all prizes are expressed in US Dollars.  If the 1st or 5th place grand prize winners are in EMEA or APAC, an equivalent model to those referenced here will be chosen by the Coding Challenge Committee.  There are absolutely NO substitutions allowed.</td>
