@@ -77,30 +77,50 @@
             </TR>                                             
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
-<P><IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
-<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Title goes here</B></FONT><BR/>
-<I>Well rested derkuci advances to finals.</I><BR/><BR/>
-Friday, April 19, 2002<BR/>
+<P><IMG SRC="/i/tournament/invit02/tourney_photo_SFR2.jpg" ALT="" WIDTH="200" HEIGHT="435" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>A Nail Biter, Indeed</B></FONT><BR/>
+by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
+Friday, November 22, 2002<BR/>
 </P>
 
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
+<P>
+The morning's second competition brought a few more spectators onsite, but lots more online.  
+Nearly 50 members logged in to cheer on their fellow coders in a tightly contested match, which
+ pitted <B>dmwright</B>'s tournament experience against <B>reid</B>'s speed.  <B>dgarthur</B> and <B>lars</B>, in some 
+ people's minds, may have only been along for the experience.
+</P>
 
-<P>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut 
-laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud exerci tation 
-ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor 
-in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis 
-at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue 
-duis dolore te feugait nulla facilisi.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed 
-diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad 
-minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</P>
+<P>
+Once again, everyone opened and submitted the 200-point problem first.  <B>reid</B> submitted his 
+first for 193.47.  Seconds later, <B>dgarthur</B> was awarded 190.40 points for his submission.  
+<B>dmwright</B> and <B>lars</B> submitted 11 and 13 minutes into the contest for 172.39 and 167.75 points,
+ respectively.  Everyone except <B>dmwright</B> moved on to the 550-point problem next.  In a move 
+ that may have been part of his downfall, <B>dmwright</B> chose to open the 1000-pointer next.
+</P>
 
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
+<P>
+<B>lars</B> pulled into the lead with the fastest submission of the 550-point problem for 415.89
+ points.  Once again, <B>dgarthur</B> and <B>reid</B> submitted within seconds of each other, receiving
+  353.69 and 352.56 points.  It would be another 43 minutes before <B>reid</B>  and <B>dgarthur</B> 
+  made the last two submissions of the contest for 461.94 and 465.73 on the 1000-point 
+  problem.  Neither <B>dmwright</B> nor <B>lars</B> was able to submit solutions.  Surprisingly, the 
+  scores at the end of the coding phase saw <B>dgarthur</B> in first (1009.82), <B>reid</B> in second 
+  (1007.97), <B>lars</B> in third (583.64), and <B>dmwright</B> last (172.39).  It appeared as though
+   <B>dmwright</B>'s previous experience had not been enough to advance him to the finals.
+</P>
+
+<P>
+Much to the crowd's dismay, the 15 minute challenge phase went by without any action.  
+Competitors and spectators gathered around the scoreboard as the system test results
+ were revealed.  The day's first upset had arrived, with <B>dgarthur</B>'s code passing all 
+ system tests.  <B>reid</B> saw his 1000-point problem, and <B>lars</B> his 550-point problem, each 
+ fail systests, while <B>dmwright</B>'s 200-point solution survived.
+</P>
+
+<P>
+As we move into the afternoon contests, we have to wonder - will <B>dgarthur</B> meet fellow 
+North Carolinian NDBronson in the finals, or will there be more surprise finishes?
+</P>
 
           </TD>
             </TR>
@@ -118,38 +138,37 @@ eleifend option congue nihil imperdiet doming id quod mazim placerat facer possi
             </TR>                                             
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR101.jpg');"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR102.jpg');"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR103.jpg');"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR104.jpg');"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR105.jpg');"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR201.jpg');"><IMG SRC="/i/tournament/invit02/SFR201_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR202.jpg');"><IMG SRC="/i/tournament/invit02/SFR202_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR203.jpg');"><IMG SRC="/i/tournament/invit02/SFR203_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR204.jpg');"><IMG SRC="/i/tournament/invit02/SFR204_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR205.jpg');"><IMG SRC="/i/tournament/invit02/SFR205_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
               </TD>
             </TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="#000000">
 	<TR>
-		<TD><IMG SRC="/i/2002tccc/SFR101.jpg" NAME="bigVersion" WIDTH="432" HEIGHT="288" BORDER="0"/></TD>
+		<TD><IMG SRC="/i/tournament/invit02/SFR201.jpg" NAME="bigVersion" WIDTH="432" HEIGHT="288" BORDER="0"/></TD>
 	</TR>
 </TABLE>
               <BR/></TD>
             </TR>            
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR106.jpg');"><IMG SRC="/i/2002tccc/SFR106_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR107.jpg');"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR108.jpg');"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR107.jpg');"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR108.jpg');"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>              
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR206.jpg');"><IMG SRC="/i/tournament/invit02/SFR206_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR207.jpg');"><IMG SRC="/i/tournament/invit02/SFR207_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR208.jpg');"><IMG SRC="/i/tournament/invit02/SFR208_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR209.jpg');"><IMG SRC="/i/tournament/invit02/SFR209_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR210.jpg');"><IMG SRC="/i/tournament/invit02/SFR210_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>              
               </TD>
             </TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR101.jpg');"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR102.jpg');"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR103.jpg');"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR104.jpg');"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR105.jpg');"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR211.jpg');"><IMG SRC="/i/tournament/invit02/SFR211_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR212.jpg');"><IMG SRC="/i/tournament/invit02/SFR212_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR213.jpg');"><IMG SRC="/i/tournament/invit02/SFR213_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR214.jpg');"><IMG SRC="/i/tournament/invit02/SFR214_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
               </TD>
             </TR>              
           </TABLE>
