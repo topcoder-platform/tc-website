@@ -442,7 +442,7 @@ public class UserBean extends BaseEJB {
     public String getActivationCode(long userId, String dataSource)
             throws EJBException {
 
-        log.debug("getActivationCode called. user_id=" + userId);
+        log.debug("getActivationCode called. user_id=" + userId + " db=" + dataSource);
 
         String code = null;
 
