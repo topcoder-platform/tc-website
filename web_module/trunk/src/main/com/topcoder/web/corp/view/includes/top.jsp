@@ -69,8 +69,8 @@
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="topNavBar">
     <tr valign="middle">
         <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="topNav"><%=activeUser.isAnonymous()?"Registration":"Update"%></a></td>
-        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="/testing" class="topNav">Testing Application Management Tool</a></td>
-        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="/tces?task=MainTask" class="topNav">Recruiting Reporting Tool</a></td>
+        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="/testing/" class="topNav">Testing Application Management Tool</a></td>
+        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="/tces/?task=MainTask" class="topNav">Recruiting Reporting Tool</a></td>
         <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="http://www.topcodersoftware.com" class="topNav">TopCoder Software</a></td>
         <td class="topNav" width="99%">&#160;</td>  
     </tr>
