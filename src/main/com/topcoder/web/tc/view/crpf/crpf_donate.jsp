@@ -80,11 +80,14 @@
                      </td>
                      <td>
                         <ul><li>
-                        Check.  Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A> and submit the form. Make checks out to the Christopher Reeve Paralysis Foundation and send them to:<br />
+                        Check:
+                        <ol><li>Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A></li>
+                        <li>Make out the check to the Christopher Reeve Paralysis Foundation</li>
+                        <li>Mail the form and check, postmarked no later than November 10, to:<br />
                         TopCoder<br />
                         703 Hebron Ave<br />
                         Glastonbury,CT 06033<br />
-                        ATTN:  CRPF DONATIONS</li></ul>
+                        ATTN:  CRPF DONATIONS</li></ol></li></ul>
                      </td>
                   </tr>
                </table>
