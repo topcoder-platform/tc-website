@@ -85,7 +85,12 @@
 
 			The placement points outlined are for both Level One and Level Two components.
 			<br/><br/>
+            <a name="registration"></a>
+            <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>Registration</h3>
+			Registration for the 2004 TopCoder Open Component Competition will open at 9:00AM ET on Monday, December 20, 2004, and will close at 6:00PM ET on Monday, January 3, 2004.
 
+			<br/><br/>
             <a name="schedule"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Schedule</h3>
@@ -93,47 +98,6 @@
 			<b>TopCoder members from around the world may be participating in the online rounds, but all start times, registration deadlines and submission deadlines will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly.</b>
 
 			<br/><br/>
-			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle">Development Contest</td>
-                    <td class="sidebarTitle">Start Date/Projects Posted
-                    <td class="sidebarTitle">Registration Deadline
-                    <td class="sidebarTitle">End Date / Submission Deadline
-				</tr>
-				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Week 1
-                    <td class="sidebarText" nowrap=nowrap>01.04.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.06.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.11.2005 9:00AM
-				</tr>
-				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Week 2
-                    <td class="sidebarText" nowrap=nowrap>01.11.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.13.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.18.2005 9:00AM
-				</tr>
-				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Week 3
-                    <td class="sidebarText" nowrap=nowrap>01.18.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.20.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.25.2005 9:00AM
-				</tr>
-				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Week 4
-                    <td class="sidebarText" nowrap=nowrap>01.25.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.27.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>02.01.2005 9:00AM
-				</tr>
-				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Championship round
-                    <td class="sidebarText" nowrap=nowrap>N/A
-                    <td class="sidebarText" nowrap=nowrap>N/A
-                    <td class="sidebarText" nowrap=nowrap>03.10.2005
-				</tr>
-			</table>
-
-			<br/><br/>
-
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle">Design Contest</td>
@@ -170,6 +134,47 @@
                     <td class="sidebarText" nowrap=nowrap>N/A</td>
                     <td class="sidebarText" nowrap=nowrap>N/A</td>
                     <td class="sidebarText" nowrap=nowrap>03.10.2005</td>
+				</tr>
+			</table>
+
+			<br/><br/>
+
+			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle">Development Contest</td>
+                    <td class="sidebarTitle">Start Date/Projects Posted
+                    <td class="sidebarTitle">Registration Deadline
+                    <td class="sidebarTitle">End Date / Submission Deadline
+				</tr>
+				<tr>
+                    <td class="sidebarText" nowrap=nowrap>Week 1
+                    <td class="sidebarText" nowrap=nowrap>01.04.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>01.06.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>01.11.2005 9:00AM
+				</tr>
+				<tr>
+                    <td class="sidebarText" nowrap=nowrap>Week 2
+                    <td class="sidebarText" nowrap=nowrap>01.11.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>01.13.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>01.18.2005 9:00AM
+				</tr>
+				<tr>
+                    <td class="sidebarText" nowrap=nowrap>Week 3
+                    <td class="sidebarText" nowrap=nowrap>01.18.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>01.20.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>01.25.2005 9:00AM
+				</tr>
+				<tr>
+                    <td class="sidebarText" nowrap=nowrap>Week 4
+                    <td class="sidebarText" nowrap=nowrap>01.25.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>01.27.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>02.01.2005 9:00AM
+				</tr>
+				<tr>
+                    <td class="sidebarText" nowrap=nowrap>Championship round
+                    <td class="sidebarText" nowrap=nowrap>N/A
+                    <td class="sidebarText" nowrap=nowrap>N/A
+                    <td class="sidebarText" nowrap=nowrap>03.10.2005
 				</tr>
 			</table>
 
