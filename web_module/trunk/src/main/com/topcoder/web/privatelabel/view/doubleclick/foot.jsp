@@ -1,18 +1,7 @@
-<%
-    String contest = request.getParameter("contest")==null?"":request.getParameter("contest");
-%>
-
-
 <table width="750" cellpadding="5" cellspacing="0" border="0" align="center">
    <tr>
       <td valign="middle" align="center" CLASS="footBox_BG">
-
-    	<% if (contest.equals("collegiate")) {%>
-			<a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_overview"><b>Home</b></a>
-		<% } else { %>
-			<a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_overview"><b>Home</b></a>
-		<% } %>
-
+		<a class="bodyText_link" href="http://www.doubleclick.com"><b>Home</b></a>
 		&nbsp; &nbsp; | &nbsp; &nbsp; 
       <a class="bodyText_link" href="http://www.doubleclick.com/us/about_doubleclick/"><b>About DoubleClick</b></a>
       &nbsp; &nbsp; | &nbsp; &nbsp; 
