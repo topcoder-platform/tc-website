@@ -45,7 +45,7 @@ public class Login extends Base {
                         long userId = getUserId(username);
                         if (userId < 0)
                             throw new LoginException("Incorrect handle");
-                        char status = getStatus(getUserId(username));
+                        char status = getStatus(userId);
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)>0) {
                             log.debug("user active");
@@ -94,6 +94,7 @@ public class Login extends Base {
 
 
     /**
+     * shouldn't use ejb slooooooooow
      * @param userId
      * @return
      * @throws Exception if user doesn't exist or some other ejb problem
