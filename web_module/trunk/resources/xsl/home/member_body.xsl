@@ -88,6 +88,35 @@
 
   <!-- Center Column Begins -->
     <td width="100%" valign="top" align="center" bgcolor="#FFFFFF">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+  <tr>
+    <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
+    <td VALIGN="top" WIDTH="1" bgcolor="#000000"><A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched"><IMG SRC="/i/tournament/tccc03/tccc03_home.gif" ALT="" WIDTH="138" HEIGHT="90" BORDER="0"/></A></td>
+    <td VALIGN="top" bgcolor="#000000" CLASS="statText"><BR/>
+    <B>When:</B> Feb. 18th - April 5th, 2003<BR/>
+    <B>Where:</B> the University Park Hotel @ MIT in Cambridge, MA<BR/>
+    <B>Total Purse:</B> $100,000<BR/><BR/>
+    <FONT COLOR="#CC0000"><B>200 TopCoder Members will win money!</B></FONT><BR/>
+<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Click here</A>
+for more information.<BR/><BR/>
+    </td>
+    <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
+  </tr>
+
+  <!-- <tr>
+    <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
+    <td VALIGN="top" bgcolor="#000000" COLSPAN="2" CLASS="statText">&#160;&#160;
+      <xsl:for-each select="/TC/HOME/CollegiateInfo/reasons/reason">
+        <xsl:value-of select="reason_text"/><BR/>  
+      </xsl:for-each>
+      <xsl:if test="/TC/HOME/CollegiateInfo/showLink='true'">
+        <BR/>
+        Click <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462" CLASS="statText">here</A> to register.
+      </xsl:if><BR/>
+    </td>
+    <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
+  </tr> -->
+</table>    
      <!-- My Stats Begins -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr>
@@ -384,35 +413,6 @@
 
     <!-- My Stats Ends -->
 <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/><br/>
-<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-  <tr>
-    <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
-    <td VALIGN="top" WIDTH="1" bgcolor="#000000"><A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched"><IMG SRC="/i/tournament/tccc03/tccc03_home.gif" ALT="" WIDTH="138" HEIGHT="90" BORDER="0"/></A></td>
-    <td VALIGN="top" bgcolor="#000000" CLASS="statText"><BR/>
-    <B>When:</B> Feb. 18th - April 5th, 2003<BR/>
-    <B>Where:</B> the University Park Hotel @ MIT in Cambridge, MA<BR/>
-    <B>Total Purse:</B> $100,000<BR/><BR/>
-    <FONT COLOR="#CC0000"><B>200 TopCoder Members will win money!</B></FONT><BR/>
-<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Click here</A>
-for more information.<BR/><BR/>
-    </td>
-    <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
-  </tr>
-
-<!--
-  <tr>
-    <td VALIGN="top" COLSPAN="4">
-      <xsl:for-each select="/TC/HOME/CollegiateInfo/reasons/reason">
-        <xsl:value-of select="reason_text"/><BR/>  
-      </xsl:for-each>
-      <xsl:if test="/TC/HOME/CollegiateInfo/showLink='true'">
-        <BR/>
-        Click <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462">here</A> to register.
-      </xsl:if>
-    </td>
-  </tr>
--->
-</table>
 
 <!-- Summary/Best/Worst Begins -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
