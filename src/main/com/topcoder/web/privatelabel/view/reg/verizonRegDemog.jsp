@@ -135,7 +135,7 @@
 </tr>
 </table>
 
-<jsp:include page=".../verizon/verizon_foot.jsp" />
+<jsp:include page="../verizon/verizon_foot.jsp" />
 
 </body>
 
