@@ -174,7 +174,7 @@ public class StudentRegistration extends Base {
     try {
       value=new Integer(request.getParameter(_param));
     }
-    catch (Exception _e)
+    catch (Exception _e) {
       /* do nothing */
     }
     return(value);
