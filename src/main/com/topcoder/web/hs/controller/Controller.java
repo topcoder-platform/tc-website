@@ -73,7 +73,7 @@ public class Controller extends HttpServlet {
                 } catch(PermissionException pe) {
                     log.info("caught PermissionException");  // no stack trace to the logs
 
-                    if(pe.getUser()!=null && !pe.getUser().isGuest()) {
+                    if(pe.getUser()!=null && !pe.getUser().isAnonymous()) {
                         log.info("already logged in, rethrowing");
                         throw pe;
                     }
