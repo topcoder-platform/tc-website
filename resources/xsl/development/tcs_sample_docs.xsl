@@ -122,7 +122,7 @@
                             <tr valign="top">
                                 <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Component_Development_Tutorial.pdf" class="bodyText">Component Development Tutorial.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devTutorial" class="bodyText">Component Development Tutorial.pdf</a></td>
                             </tr>
                         </table>
                     </td>
