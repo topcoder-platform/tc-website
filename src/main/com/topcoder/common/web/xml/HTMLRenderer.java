@@ -35,7 +35,26 @@ public class HTMLRenderer {
             return baos.toString();
 
         } catch (Exception e) {
-            e.printStackTrace();
+
+            /* try and read through the file looking for suspicious characters. */
+            try {
+            
+                FileReader fr = new FileReader(xsldocURLString);
+           
+                int lineCount = 1;
+                char ch = 0;
+                while (fr.ready()) {
+                    ch=(char)fr.read();
+                    if (ch=='\n') lineCount++;
+                    if (!(ch > 0 && ch < 128)) {
+                        System.out.println("possible bad char: " ch + " found on line " + lineCount);
+                    }
+                }
+                fr.close();
+                return;
+            } catch (Exception e) {
+                log.error("failed to read through file looking for bad characters: " + e.getMessage());
+            }
             throw new TCException("ejb.HTMLRenderer.HTMLRendererBean:render:ERROR:\n" + e);
         }
     }
