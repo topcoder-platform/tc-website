@@ -26,12 +26,6 @@
                 <type-version>5.1.0</type-version>
             </persistence-use>
         </persistence-descriptor>
-        <reference-descriptor>
-            <resource-description>
-                <res-ref-name>security_datasource</res-ref-name>
-                <jndi-name>JTS_OLTP</jndi-name>
-            </resource-description>
-        </reference-descriptor>
         <jndi-name>com.topcoder.ejb.UserServicesHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
