@@ -93,7 +93,10 @@ public class TCCC05ProjectDetails extends StatBase {
             TCCC05ProjectDetail a2 = (TCCC05ProjectDetail)o2;
             
             if(a1.getPoints() == a2.getPoints() ) {
-                return a1.getHandle().compareToIgnoreCase(a2.getHandle());
+                if(a1.getScoreDouble() == a2.getScoreDouble()) {
+                    return a1.getHandle().compareToIgnoreCase(a2.getHandle());
+                }
+                return a2.getScoreDouble() - a1.getScoreDouble();
             }
             
             return a2.getPoints() - a1.getPoints();
