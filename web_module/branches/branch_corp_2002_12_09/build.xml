@@ -546,7 +546,6 @@
 
             <!-- libraries to be included in servlet classpath -->
             <lib dir="${jars.dir}">
-                <include name="jdom.jar"/>
             </lib>
 
             <webinf dir="${resources}/corp">
@@ -606,6 +605,7 @@
                <include name="security.jar"/>
                <include name="jbossall-client.jar"/>
                <include name="log4j-boot.jar"/>
+               <include name="jdom.jar"/>
            </fileset>
         </copy>
     </target>
