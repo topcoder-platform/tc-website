@@ -23,21 +23,21 @@
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><img src="/i/ev/clear.gif" width="10" height="1" /></TD>
+      <TD VALIGN="top"><img src="/i/clear.gif" width="10" height="1" /></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
             <h1 class="testHead">Candidate List</h1>               
             <P>Below is a list of all candidates.  Clicking on a candidate's email address will bring you to the Candidate Info page.</P>  
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">                   
            <TR>
-              <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="7"><img src="/i/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
               <TD COLSPAN="7" ALIGN="center"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:servletLink></TD>
            </TR>
            <TR>
-              <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="7"><img src="/i/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>                       
             <TR>
                <TD VALIGN="middle" COLSPAN="2" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#999999"><B>&#160;Candidate</B></TD>
@@ -48,7 +48,7 @@
                <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Notes</B></TD>                                          
             </TR>
            <TR>
-              <TD COLSPAN="8"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="8"><img src="/i/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>            
             <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
             <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
@@ -70,7 +70,7 @@
             </TR>
             </screen:resultSetRowIterator>
            <TR>
-              <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="7"><img src="/i/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
               <TD COLSPAN="7" ALIGN="center"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:servletLink></TD>
@@ -80,7 +80,7 @@
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><img src="/i/ev/clear.gif" width="10" height="1" border="0" /></TD>
+      <TD WIDTH="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

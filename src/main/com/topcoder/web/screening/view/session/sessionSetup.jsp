@@ -67,11 +67,11 @@ function submitSession() {
 <!-- left column ends -->
 
 <!-- gutter begins -->
-        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td class="bodyText" width="100%"><img src="/i/ev/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td class="bodyText" width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr valign="top">
                     <td class="bodyText">
@@ -87,7 +87,7 @@ function submitSession() {
             </table>
 
              <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td width="100%"><img src="/i/ev/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+                <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>
  
             <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
@@ -97,7 +97,7 @@ function submitSession() {
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/ev/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableOdd">
                         <select name ="profileId">
                         <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
@@ -113,7 +113,7 @@ function submitSession() {
                 </tr>
 
                 <tr>
-                    <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
+                    <td><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
                     <td colspan="2" class="errortextOdd"></td>
                 </tr>
 
@@ -135,7 +135,7 @@ function submitSession() {
                 </tr>
 
                 <tr>
-                    <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
+                    <td><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
                     <td colspan="2" class="errorTextOdd"></td>
                 </tr>
 
@@ -169,7 +169,7 @@ function submitSession() {
                 </tr>
 
                 <tr>
-                    <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
+                    <td><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
                     <td colspan="2" class="errorTextOdd"></td>
                 </tr>
 
@@ -203,7 +203,7 @@ function submitSession() {
                 </tr>
 
                 <tr>
-                    <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
+                    <td><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
                     <td colspan="2" class="errortextOdd"><screen:errors name="dateCompare" /></td>
                 </tr>
 
@@ -212,15 +212,15 @@ function submitSession() {
                 </tr>
                     
                 <tr valign="middle">
-                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" /><img src="/i/ev/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" /><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
                 
                 <tr valign="middle">
-                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" /><img src="/i/ev/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" /><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
                 
                 <tr valign="middle">
-                    <td class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()">click here</a><img src="/i/ev/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()">click here</a><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
             </table>
 
@@ -235,7 +235,7 @@ function submitSession() {
 <!-- Middle Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
     </tr>

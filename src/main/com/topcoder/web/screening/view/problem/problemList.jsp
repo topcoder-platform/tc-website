@@ -36,10 +36,10 @@ function getProblemDetail(id) {
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
             <h1 class="testHead">Problem Sets</h1>
             <P>Below is a list of Problem Sets available for use in the Testing Application.  Clicking on a Problem Name opens a window that 
             displays statistical information about the Problem, as well as the Problem Statement.</P>
@@ -79,7 +79,7 @@ function getProblemDetail(id) {
 	        </TR>
             </screen:problemInfoIterator>
             <TR>
-                <TD COLSPAN="7"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                <TD COLSPAN="7"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
             </TR>
         </screen:nestedListIterator>
         </TABLE>                 
@@ -88,7 +88,7 @@ function getProblemDetail(id) {
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

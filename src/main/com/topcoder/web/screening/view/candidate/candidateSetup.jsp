@@ -28,10 +28,10 @@ function back() {
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><img src="/i/ev/clear.gif" width="10" height="1" /></TD>
+      <TD VALIGN="top"><img src="/i/clear.gif" width="10" height="1" /></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" scope="request" />
 <% if("PopulateSession".equals(candidateInfo.getReferrer())) { %><h1 class="testHead">Create a New Session - <%} else if("BuildCandidateList".equals(candidateInfo.getReferrer())) {%><h1 class="testHead">Candidate List - <%}%><FONT COLOR="#000000"><%if(candidateInfo.isNew()) { %>Set up a Candidate<%} else {%>Candidate Info<%}%></h1>
 
@@ -63,7 +63,7 @@ function back() {
            </TR>
            <% } %>
             <TR>
-              <TD COLSPAN="2"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="2"><img src="/i/clear.gif" width="1" height="10" border="0" /></TD>
            </TR> 
 <% if(candidateInfo.isNew()) { %>
            <TR>
@@ -90,7 +90,7 @@ function back() {
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><img src="/i/ev/clear.gif" width="10" height="1" border="0" /></TD>
+      <TD WIDTH="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>
