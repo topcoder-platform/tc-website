@@ -83,11 +83,10 @@ Inquiry Deadline: May 3, 2002 12:00 PM EDT<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=notify" CLASS="statTextBig">Notification Component</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=notify" CLASS="statText">Notification Component</A><BR/>
 Start Date: May 3, 2002<BR/>
 End Date: May 28, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: May 1, 2002 12:00 PM EDT<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
