@@ -61,14 +61,13 @@ public class UserBean implements SessionBean {
      *
      * @param userId user ID to insert into table
      */
-    public void createUser(long userId, String handle) {
+    public void createUser(long userId, String handle, char status) {
         log.debug("createUser called...userId: " + userId);
 
         Context ctx = null;
         PreparedStatement ps = null; // could just use Statement
         Connection conn = null;
         DataSource ds = null;
-        long ret = 0;
 
         try {
             ctx = new InitialContext();
@@ -80,7 +79,7 @@ public class UserBean implements SessionBean {
                 "INSERT INTO user (user_id, handle, status) VALUES (?,?,?)");
             ps.setLong(1, userId);
             ps.setString(2, handle);
-            ps.setString(3, "A");
+            ps.setString(3, Character.toString(status));
 
             int rows = ps.executeUpdate();
 

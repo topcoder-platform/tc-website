@@ -17,7 +17,8 @@ public interface User extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.UserBean#createUser
      */
-    void createUser(long userId, String handle) throws RemoteException, EJBException;
+    void createUser(long userId, String handle, char status)
+               throws RemoteException, EJBException;
 
     /**
      *
