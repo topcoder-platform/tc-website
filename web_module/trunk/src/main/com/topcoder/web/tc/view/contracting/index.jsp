@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Contract</title>
+<title>TopCoder Employment Opportunities</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -49,8 +49,23 @@ return false;
         <div class="myTCBody">
 		<br/>
 		<div align=center>
-		<A href="/tc?module=ContractingPreferences"><img src="/i/empOppsBanner.jpg" border=0/></A>
+		<A href="/tc?module=ContractingPreferences"><img src="/i/contracting/empOppsBanner.jpg" border=0/></A>
 		</div>
+
+			<span valign=top>
+         <table border="0" cellpadding="10" cellspacing="0" align="left">
+            <tr>
+               <td align="center" class="bodyText">
+               <i>Click one of the<br>companies below for more info<br>on their job openings</i>
+               <hr noshade="noshade" size="1" />
+               <A href="/tc?module=Static&d1=contracting&d2=jumptrading"><img src="/i/contracting/jumptrading_logo.gif" border=0/></A>
+               <hr noshade="noshade" size="1" />
+               <A href="/tc?module=Static&d1=contracting&d2=oreilly"><img src="/i/contracting/oreilly_logo.gif" border=0/></A>
+               <hr noshade="noshade" size="1" />
+               </td>
+            </tr>
+         </table>
+			</span>
 
 		<p>
 		Welcome to TopCoder Employment Opportunities, your source for full time and contract programming work. In today's world, all major artists and professional athletes are represented by agents who find them the best opportunities.  Finally, the time has come for top programmers of the world reap the same benefits.  
@@ -58,7 +73,30 @@ return false;
 		We are aggressively seeking out companies that have a strong need for the level of talent that only TopCoder members can provide.  TopCoder does all of the leg work for you - we find the companies, look for the right positions and when we find a match, we present you with the opportunity. Only after you confirm your interest in a particular position will TopCoder pass on your information to the appropriate hiring manager.  Before you even talk to the company's representative, TopCoder will make sure your salary requirements, job requirements, and relocation requests are met.  Best of all, TopCoder provides this service for full time and contract work, at no cost to you.
 		<br/><br/>
 		Registering <a href="/tc?module=ContractingPreferences">here</a> is the first step. Give us your salary and travel requirements and rate your experience with a variety of programming languages, database platforms and relevant Industry experience.  Then, let TopCoder work for you!
+		<br/><br/>
+      While the program is open to all members, regardless of rating status, rated members will have a distinct advantage over non-rated members since potential employers will be able to view their competition statistics and code samples, in addition to any uploaded resume information. In line with TopCoder's overall philosophy, this will allow companies to differentiate coders who would otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the <A href="/?t=schedule&c=index">competition calendar</A> for the next Single Round Match date. 
+		<br/><br/>
 		</p>
+
+      <%--
+      <hr noshade="noshade" size="1" width="100%">
+
+      <table border="0" cellpadding="6" cellspacing="0" width="100%">
+         <tr>
+            <td><A href="/tc?module=Static&d1=contracting&d2=jumptrading"><img src="/i/contracting/jumptrading_logo.gif" border=0/></A></td>
+         </tr>
+      </table>
+
+      <hr noshade="noshade" size="1" width="100%">
+
+      <table border="0" cellpadding="6" cellspacing="0" width="100%">
+         <tr>
+            <td><A href="/tc?module=Static&d1=contracting&d2=oreilly"><img src="/i/contracting/oreilly_logo.gif" border=0/></A></td>
+         </tr>
+      </table>
+
+      <hr noshade="noshade" size="1" width="100%">
+      --%>
 
         </div>
         <p><br/></p>
