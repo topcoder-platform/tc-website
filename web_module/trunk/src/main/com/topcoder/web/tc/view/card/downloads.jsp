@@ -63,7 +63,7 @@
             </tr>
          </table>
 
-         <p>If you would like to post this image with a link on your site or resume, please use this to send a recruiter to the appropriate site:</p>
+         <p>If you would like your badge to link to more info about your TopCoder experience, please insert the following HTML:</p>
          <p align=center class="cardCode">&lt;a href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="UserId"/>"&gt;(image / text goes here)&lt;a&gt;</p>
 
 
