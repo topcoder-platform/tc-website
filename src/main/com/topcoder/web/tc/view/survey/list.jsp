@@ -67,8 +67,8 @@
                         <a href="?&module=ViewSurvey&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/answer.gif" width="60" height="18" border="0"></a>
                      <% } %>
                   </td>
-                  <td>
-                     <tc:sponsorImage src='<%=survey.getStringItem("image")%>' href='<%=survey.getStringItem("link")%>' alt="survey logo" width="100" height="70" align="left" border="0"/>
+                  <td valign="top">
+                     <tc:sponsorImage src='<%=survey.getStringItem("image")%>' href='<%=survey.getStringItem("link")%>' alt="survey logo" width="100" height="53" align="left" border="0"/>
                   </td>
                </tr>
                <% even = !even; %>
