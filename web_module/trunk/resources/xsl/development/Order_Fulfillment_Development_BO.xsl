@@ -228,7 +228,7 @@
                                                             <td class="bodyText" align="right">$3,200.00</td>
                                                         </tr>
                                                     </table>
-o
+
 
                                                     <!-- Definition of Completion -->
 
