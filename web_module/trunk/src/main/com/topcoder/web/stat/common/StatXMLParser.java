@@ -23,6 +23,9 @@ public class StatXMLParser {
         } catch (SAXException e) {
             e.printStackTrace();
             throw new IOException("ERROR GETTING XML DOCUMENT: " + e);
+        } catch (Exception ex) {
+            e.printStackTrace();
+            throw new IOException("ERROR GETTING XML DOCUMENT: " + e);
         }
         return doc;
     }
