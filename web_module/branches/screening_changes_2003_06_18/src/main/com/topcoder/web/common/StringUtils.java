@@ -9,9 +9,9 @@ package com.topcoder.web.common;
  *
  */
 public final class StringUtils {
-    public static final String ALPHABET_ALPHA_UPPER_EN = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String ALPHABET_ALPHA_UPPER_EN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public static final String ALPHABET_ALPHA_LOWER_EN = "@abcdefghijklmnopqrstuvwxyz";
+    public static final String ALPHABET_ALPHA_LOWER_EN = "abcdefghijklmnopqrstuvwxyz";
 
     public static final String ALPHABET_ALPHA_EN =
             ALPHABET_ALPHA_LOWER_EN +
@@ -47,15 +47,15 @@ public final class StringUtils {
     public static final String ALPHABET_USERNAME_EN = ALPHABET_ALPHA_NUM_EN;
 
     /**
-     * Checks if string has all its charachters in alphabet given.
+     * Checks if string has all its characters in alphabet given.
      *
      * @param string String to be tested
      * @param alphabet Alphabet to match
-     * @param wsAllowed specifies if whitespaces is allowed or not
+     * @param wsAllowed specifies if whitespaces are allowed or not
      * @return boolean true if string supplied matches the rules and false
      * otherwise
      */
-    public static boolean consistsOf(String string, String alphabet, boolean wsAllowed) {
+    public static boolean containsOnly(String string, String alphabet, boolean wsAllowed) {
         int n = string.length();
         for (int i = 0; i < n; ++i) {
             char ch = string.charAt(i);
@@ -160,12 +160,16 @@ public final class StringUtils {
 
     public static void main(String[] args) {
         String blabla = "bla bla";
-        System.out.println(consistsOf(blabla, ALPHABET_ALPHA_EN, true));
+        System.out.println(containsOnly(blabla, ALPHABET_ALPHA_EN, true));
         System.out.println(hasNotMoreWords(blabla, 1));
     }
 
     /** Replaces null strings with "", others are returned untouched. */
     public static String checkNull(String s) {
         return s==null?"":s;
+    }
+
+    public static boolean contains(String s, char c) {
+        return s.indexOf(c)>-1;
     }
 }

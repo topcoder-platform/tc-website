@@ -4,6 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.web.common.security.*;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -84,7 +85,6 @@ public abstract class BaseServlet extends HttpServlet {
 
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
-        Authorization authorization = null;
         SessionInfo info = null;
 
         try {
@@ -94,7 +94,6 @@ public abstract class BaseServlet extends HttpServlet {
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             info = createSessionInfo(request, authentication, user.getPrincipals());
             request.setAttribute(SESSION_INFO_KEY, info);
-            authorization = createAuthorization(authentication.getActiveUser());
 
             StringBuffer loginfo = new StringBuffer(100);
             loginfo.append("[**** ");
@@ -120,11 +119,10 @@ public abstract class BaseServlet extends HttpServlet {
 
                     String processorName = PATH + (PATH.endsWith(".")?"":".") + cmd;
 
-                    //TODO add init parameter to turn off security check
                     log.debug("creating request processor for " + processorName);
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
-                        if (authorization.hasPermission(resource)) {
+                        if (hasPermission(authentication, resource)) {
                             rp = callProcess(processorName, request, authentication);
                         } else {
                             throw new PermissionException(authentication.getActiveUser(), resource);
@@ -247,5 +245,8 @@ public abstract class BaseServlet extends HttpServlet {
         fetchRegularPage(request, response, ERROR_PAGE, true);
     }
 
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+        return createAuthorization(auth.getActiveUser()).hasPermission(r);
+    }
 
 }

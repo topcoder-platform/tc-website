@@ -23,6 +23,8 @@ public abstract class BaseProcessor implements RequestProcessor {
     private HashMap errors;
     private HashMap defaults;
 
+    private User user;
+
     public static final String ERRORS_KEY = "processor_errors";
     public static final String DEFAULTS_KEY = "processor_defaults";
 
@@ -45,11 +47,17 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     /**
-     *  subclasses may override this to demand a login this session
-     * @return
+     * Return the identified user.  We do it here so that we can
+     * "cache" the user for the life of the processor and not
+     * continuously retrieve it.  subclasses may override this
+     * to demand a login this session etc.
+     *
+     * @return the user
      */
     protected User getUser() {
-        return auth.getActiveUser();
+        if (user==null)
+            user=auth.getActiveUser();
+        return user;
     }
 
     /**
