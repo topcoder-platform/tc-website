@@ -572,7 +572,7 @@ public class Registration
     }
 
     public String getNextPage() {
-        log.debug("Registration.getNextPage()");
+        log.debug("Registration.getNextPage() step = : " + step);
         if (step==null) {
             return PAGE_1;
         }
