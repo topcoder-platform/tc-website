@@ -2,7 +2,7 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="registrationInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="request" />
+<jsp:usebean id="registrationInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>

@@ -151,6 +151,12 @@
             <param-value>cid</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>registration_info</param-name>
+            <param-value>registrationInfo</param-value>
+            <description></description>
+        </init-param>
+
 
         <!-- reg rules -->
         <init-param>
