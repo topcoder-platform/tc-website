@@ -74,7 +74,7 @@
             using the results of the Coding Challenge to identify possible employees for their Chennai VDSI center.  The Coding Challenge will take place between 
             Monday, August 4 and Friday, August 29, 2003.  It begins with a 2-week online registration, after which up to 500 eligible individuals will be 
             invited to compete in the programming tournament.  The tournament consists of two (2) online elimination rounds and one (1) onsite final round.  
-            All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, Verizon will award US$1,900 in cash prizes 
+            All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, Verizon will award $1,900 USD in cash prizes 
             to the top 4 finalists in the tournament.</p>
             </blockquote>
 
