@@ -6,17 +6,20 @@ import javax.servlet.ServletRequest;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.NoSuchUserException;
 
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
-import com.topcoder.web.screening.ejb.coder.Coder;
-import com.topcoder.web.screening.ejb.coder.CoderHome;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserHome;
 
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.ejb.coder.Coder;
+import com.topcoder.web.screening.ejb.coder.CoderHome;
 import com.topcoder.web.screening.model.CandidateInfo;
 import com.topcoder.web.common.security.PrincipalMgr;
+import com.topcoder.web.common.security.PrincipalMgrException;
 
 /** 
  * <p>
@@ -31,6 +34,7 @@ public class UpdateCandidate extends BaseProcessor
 {
     /** String with the total list of character able to be used in a password */
     private final int createCoderStatusId;
+    private final int maxPasswordSize;
 
     /** The request variable for this particular processor */
     private ServletRequest request;
@@ -38,6 +42,7 @@ public class UpdateCandidate extends BaseProcessor
     public UpdateCandidate() {
         createCoderStatusId = 
             Integer.parseInt(Constants.UC_CREATE_CODER_STATUS_ID);
+        maxPasswordSize = Integer.parseInt(Constants.MAX_PASSWORD_SIZE);
     }
 
     /** 
@@ -63,42 +68,44 @@ public class UpdateCandidate extends BaseProcessor
         TCSubject requestor = 
             principalMgr.getUserSubject(getAuthentication().getUser().getId());
 
-        if(info.getUserId() == null) {
-            //create new user
-            UserPrincipal userPrincipal = 
-                principalMgr.createUser(info.getEmailAddress(), 
-                                        info.getPassword(),
-                                        requestor);
-            long userId = userPrincipal.getId();
-            
-            UserHome uHome = (UserHome)
-                PortableRemoteObject.narrow(
-                    context.lookup(UserHome.class.getName()), UserHome.class);
-            User user = uHome.create();
-            user.createUser(userId);
+        try {
+            principalMgr.getUser(info.getEmailAddress());
 
-            CoderHome cHome = (CoderHome)
-                PortableRemoteObject.narrow(
-                    context.lookup(CoderHome.class.getName()), CoderHome.class);
-            Coder coder = cHome.create();
-            coder.createCoder(userId, createCoderStatusId);
-
-            long emailId = email.createEmail(userId);
-            email.setAddress(emailId, userId, info.getEmailAddress());
-            email.setPrimary(emailId, userId, true);
+            //if we get here, then that user exists already and we should
+            //give error to page
+            throw new ScreeningException("User already exists");
         }
-        else
-        {
-            long userId = info.getUserId().longValue();
-            long emailId = email.getPrimaryForUser(userId);
-            email.setAddress(emailId, userId, info.getEmailAddress());
-
-            UserPrincipal userPrincipal = 
-                principalMgr.getUser(userId);
-            principalMgr.editPassword(userPrincipal, 
-                                      info.getPassword(), 
-                                      requestor);
+        catch(PrincipalMgrException e) {
+            Throwable nested = e.getNestedException();
+            if(nested == null ||
+               !(nested instanceof NoSuchUserException)) {
+                   throw e;
+            }
+            //do nothing, we want to get here
         }
+
+        //create new user
+        UserPrincipal userPrincipal = 
+            principalMgr.createUser(info.getEmailAddress(), 
+                                    info.getPassword(),
+                                    requestor);
+        long userId = userPrincipal.getId();
+        
+        UserHome uHome = (UserHome)
+            PortableRemoteObject.narrow(
+                context.lookup(UserHome.class.getName()), UserHome.class);
+        User user = uHome.create();
+        user.createUser(userId);
+
+        CoderHome cHome = (CoderHome)
+            PortableRemoteObject.narrow(
+                context.lookup(CoderHome.class.getName()), CoderHome.class);
+        Coder coder = cHome.create();
+        coder.createCoder(userId, createCoderStatusId);
+
+        long emailId = email.createEmail(userId);
+        email.setAddress(emailId, userId, info.getEmailAddress());
+        email.setPrimary(emailId, userId, true);
         
         determineNextPage();
     }
@@ -126,9 +133,10 @@ public class UpdateCandidate extends BaseProcessor
         info.setEmailAddress(email);
         String password = request.getParameter(Constants.PASSWORD);
         if(password == null) {
-            throw new Exception("Password is not set.");
+            password = generatePassword();
         }
-        validatePassword(password);
+        //validatePassword(password);  don't need anymore cuz we always
+        //make the password
         info.setPassword(password);
         return info;
     }
@@ -219,6 +227,21 @@ public class UpdateCandidate extends BaseProcessor
                     Constants.REQUEST_PROCESSOR + "=" + referrer);
         //redirect because we are done
         setNextPageInContext(false);
+    }
+
+    private String generatePassword() {
+        StringBuffer newPass = new StringBuffer();
+        for(int i = 0; i < maxPasswordSize; ++i) {
+            newPass.append(
+                Constants.VALID_CHAR_LIST.charAt(
+                    rand(Constants.VALID_CHAR_LIST.length())));
+        }
+        
+        return newPass.toString();
+    }
+
+    private int rand(int max) {
+        return (int)Math.floor(Math.random()*max);
     }
 }
 
