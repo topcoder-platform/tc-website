@@ -71,7 +71,7 @@ position, you'll focus on building Northbridge functions &#40;such as clocking, 
 <P><B>Qualifications: GPA: 3.5</B></P>
 <P>BS/MSEE, PhD preferred.  Requires fluency in Verilog and C or Perl. Should be familiar with Standard Design/Synthesis and Timing Tools.  Must have good communication skills and the ability and desire to work as a team.  Previous internship experience in ASIC or systems design a plus.</P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_hard&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           

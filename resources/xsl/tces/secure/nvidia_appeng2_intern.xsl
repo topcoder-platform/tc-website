@@ -79,7 +79,7 @@ line effects, are explored.</P>
 <P><B>Qualifications: GPA: 3.5</B></P>
 <P>Senior and junior level positions available.  The ideal candidate will be working towards a degree in EE, CE, CS, Systems Engineering or Engineering Science/Physics, with an emphasis in computer architecture, digital design, circuit analysis, and device physics.  Knowledge of PC architecture and high-speed digital design concepts a must.  Knowledge of graphics system preferred.  Experience in hardware development or testing is highly desirable.   </P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern_hard&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
