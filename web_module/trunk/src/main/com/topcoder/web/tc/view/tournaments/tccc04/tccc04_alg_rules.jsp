@@ -45,7 +45,7 @@
 
             <p class="terciary">
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="#overview">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="#conditions">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#structure">Competition Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#prizes">About the Prizes</a></p>
                         
