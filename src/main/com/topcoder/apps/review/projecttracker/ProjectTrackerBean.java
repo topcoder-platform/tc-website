@@ -2151,6 +2151,9 @@ public class ProjectTrackerBean implements SessionBean {
 
                 String roleName = prefix + "View Project";
                 long roleId = getRoleId(roleName);
+                if (roleId == -1) {
+                    throw new RuntimeException("Can't find roleName: " + roleName);
+                }
                 RolePrincipal rolePrincipal = principalMgr.getRole(roleId);
                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, requestor);
                 principalMgr.assignRole(userPrincipal, rolePrincipal, requestor);
