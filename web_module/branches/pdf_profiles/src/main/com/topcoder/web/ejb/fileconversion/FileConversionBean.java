@@ -98,6 +98,7 @@ public class FileConversionBean implements SessionBean {
             }
           } catch (ConversionException ce) {
             // something went wrong
+              ce.printStackTrace();
           } catch (IOException io) {
               //io exception
               io.printStackTrace();

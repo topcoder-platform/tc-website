@@ -56,7 +56,7 @@ public class DOCConversionProcessing extends BaseProcessor {
                     PrintWriter out = getResponse().getWriter();
                     getResponse().setContentType("application/x-pdf");
                     for(int i = 0; i < b.length; i++) {
-                        out.print(b[i]);
+                        out.print((char)b[i]);
                     }
                     
                     
