@@ -1261,6 +1261,21 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.canAffirmAffidavit(userId, affidavitTypeId);
     }
 
+    public boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.canAffirmAffidavit(userId, affidavitTypeId);
+    }
+    public boolean hasAllDemographicAnswers(long userId) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.hasAllDemographicAnswers(userId);
+    }
+    public boolean hasTaxForm(long userId) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.hasTaxForm(userId);
+    }
+
+
+
     /**
      * Prints the payments that have status of "Ready to Print" to an external location.
      * For each payment, updates the status to "Printed", updates the print count, sets
