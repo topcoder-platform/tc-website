@@ -86,10 +86,10 @@
                 </tr>
 
 <!-- Problem Archive -->
-<!--                <tr>
+                <tr>
                     <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ProblemArchive</xsl:attribute>Problem Archive</A></td>
                 </tr>
--->
+
 
 <!-- Match Editorials -->
                 <tr>
