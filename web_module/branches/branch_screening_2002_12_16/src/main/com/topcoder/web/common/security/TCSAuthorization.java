@@ -57,9 +57,7 @@ public class TCSAuthorization implements Authorization {
             ctx = new InitialContext(env);
 
             PolicyRemoteHome pHome = (PolicyRemoteHome)
-                PortableRemoteObject.narrow(
-                    ctx.lookup(PolicyRemoteHome.class.getName()),
-                    PolicyRemoteHome.class);
+                    ctx.lookup(PolicyRemoteHome.EJB_REF_NAME);
             PolicyRemote policy = pHome.create();
 
             GenericPermission permission = new GenericPermission(r.getName());
