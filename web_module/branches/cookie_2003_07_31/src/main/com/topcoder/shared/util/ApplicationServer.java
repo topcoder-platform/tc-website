@@ -35,20 +35,7 @@ public class ApplicationServer {
 
     public static String TCS_APP_SERVER_URL = bundle.getProperty("TCS_APP_SERVER_URL", "172.16.20.222:1099");
 
-    public static String AUTHENTICATION_SERVICES = bundle.getProperty("AUTHENTICATION_SERVICES", "com.topcoder.ejb.AuthenticationServicesHome");
-    public static String CODER_STATISTICS = bundle.getProperty("CODER_STATISTICS", "com.topcoder.ejb.CoderStatisticsHome");
-    public static String DATA_CACHE = bundle.getProperty("DATA_CACHE", "com.topcoder.ejb.DataCacheHome");
-    public static String REPORTING = bundle.getProperty("REPORTING", "com.topcoder.ejb.ReportingHome");
-    public static String SEARCH = bundle.getProperty("SEARCH", "com.topcoder.ejb.SearchHome");
     public static String USER_SERVICES = bundle.getProperty("USER_SERVICES", "com.topcoder.ejb.UserServicesHome");
-    public static String UTIL = bundle.getProperty("UTIL", "com.topcoder.ejb.UtilHome");
-    public static String MPSQAS_SERVICES = bundle.getProperty("MPSQAS_SERVICES", "jma.MPSQASServicesHome");
-    public static String CONTEST_ADMIN_SERVICES = bundle.getProperty("CONTEST_ADMIN_SERVICES", "jma.ContestAdminServicesHome");
-    public static String PACTS_SERVICES = bundle.getProperty("PACTS_SERVICES", "com.topcoder.web.pacts.ejb.PactsServicesHome");
-    public static String PROJECT_SERVICES = bundle.getProperty("PROJECT_SERVICES", "tc.ProjectServicesHome");
-    public static String JOB_POSTING_SERVICES = bundle.getProperty("JOB_POSTING_SERVICES", "com.topcoder.web.tces.ejb.JobPostingServicesHome");
-    public static String JAVA_DOC_SERVICES = bundle.getProperty("JAVA_DOC_SERVICES", "jma.JavaDocServicesHome");
-
 
     private static String[] getClusterArray(String s) {
         StringTokenizer st = new StringTokenizer(s, ",");

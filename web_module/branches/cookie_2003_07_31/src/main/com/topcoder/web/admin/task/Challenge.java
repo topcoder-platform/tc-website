@@ -16,8 +16,10 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.admin.XSLConstants;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -98,14 +100,12 @@ public final class Challenge {
         ArrayList roomList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = Integer.parseInt(request.getParameter("roundid"));
                 int filter = Integer.parseInt(request.getParameter("filter"));
                 roomList = contestEJB.getRoomList(roundId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getRoomList error retrieving room list .");
                 e.printStackTrace();
@@ -151,10 +151,9 @@ public final class Challenge {
         int constraintId = 3;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -251,10 +250,9 @@ public final class Challenge {
         int constraintId = 2;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -351,10 +349,9 @@ public final class Challenge {
         int constraintId = 1;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -445,10 +442,9 @@ public final class Challenge {
         ContestAdminServices contestEJB = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int challengeId = Integer.parseInt(request.getParameter("remove"));
                 contestEJB.nullifyChallenge(challengeId);
                 contestHome = null;
@@ -478,7 +474,7 @@ public final class Challenge {
         ContestAdminServices contestEJB = null;
 
         try {
-            Context ctx = TCContext.getInitial();
+            InitialContext ctx = TCContext.getInitial();
             ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
             try {
                 contestEJB = contestHome.create();
@@ -514,10 +510,9 @@ public final class Challenge {
         ArrayList problemList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 try {
                     roundId = Integer.parseInt(request.getParameter("roundid"));
@@ -592,10 +587,9 @@ public final class Challenge {
         int coderId = 0;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 try {
                     roundId = Integer.parseInt(request.getParameter("roundid"));
                 } catch (Exception ignore) {
@@ -681,12 +675,10 @@ public final class Challenge {
         ArrayList roundList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 roundList = contestEJB.getRoundList();
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getRoundMenuScreen error retrieving contest list .");
                 e.printStackTrace();
