@@ -163,7 +163,6 @@ public abstract class BaseServlet extends HttpServlet {
 
     private void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
                                   boolean forward) throws Exception {
-        log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
 
         String contextPrefix = request.getContextPath();
         boolean startsWithContextPath = dest.startsWith(contextPrefix);
@@ -175,8 +174,10 @@ public abstract class BaseServlet extends HttpServlet {
             if (!dest.startsWith("/")) {
                 dest = "/"+dest;
             }
+            log.debug("forwarding to " + dest);
             getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
         } else {
+            log.debug("redirecting to " + dest);
             response.sendRedirect(response.encodeRedirectURL(dest));
         }
     }
