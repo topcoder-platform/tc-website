@@ -103,7 +103,7 @@
               <% } %>
 
               <% if (MemberProfileTask.hasResume()) { %>
-                <a href="/Resume?&t=CorporateDownloadTask" class="statText">Click here to download resume.</a>
+                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">Click here to download resume.</a>
               <% } %>
 
               </P>

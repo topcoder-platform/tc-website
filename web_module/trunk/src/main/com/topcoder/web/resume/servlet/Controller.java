@@ -10,6 +10,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.naming.InitialContext;
 import java.io.IOException;
+import java.util.Enumeration;
 
 public class Controller
         extends HttpServlet {
@@ -54,9 +55,21 @@ public class Controller
             if (taskName != null && taskName.trim().length() > 0) {
                 // process a task
                 taskClass = Class.forName(Constants.TASK_PACKAGE + "." + taskName);
+
                 task = (ResumeTask)taskClass.newInstance();
 
                 task.setInitialContext(ctx);
+       
+                if (fu==null) {
+                    Enumeration parameterNames = request.getParameterNames();
+                    while (parameterNames.hasMoreElements()) {
+                        String parameterName = parameterNames.nextElement().toString();
+                        String[] parameterValues = request.getParameterValues(parameterName);
+                        if (parameterValues != null) {
+                            task.setAttributes(parameterName, parameterValues);
+                        }
+                    }
+                }
 
                 task.setFileUpload(fu);
 
