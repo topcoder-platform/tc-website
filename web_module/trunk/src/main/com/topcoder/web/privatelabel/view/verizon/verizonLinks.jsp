@@ -59,8 +59,8 @@ function openWin(url, name, w, h) {
 <!-- Practice Arena tab -->
                         <table border="0" cellpadding="0" cellspacing="0" >
                             <tr valign="middle">
-                                <td align="right" width="99%" class="leftnav"><a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,225);"class="leftnav">Practice Arena</a></td>
-                                <td align="right" width="18" class="leftnav"><a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,225);"class="leftnav"><img src="/i/events/verizon2003/icn_go.gif" alt="&gt;" width="18" height="18" border="0" hspace="5"></a></td>
+                                <td align="right" width="99%" class="leftnav"><a href="/pl/?&module=Static&d1=verizon&d2=vcc03_practice">Practice Arena</a></td>
+                                <td align="right" width="18" class="leftnav"><a href="/pl/?&module=Static&d1=verizon&d2=vcc03_practice"><img src="/i/events/verizon2003/icn_go.gif" alt="&gt;" width="18" height="18" border="0" hspace="5"></a></td>
                             </tr>
                         </table>
 
