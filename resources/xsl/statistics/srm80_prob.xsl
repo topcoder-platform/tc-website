@@ -151,8 +151,8 @@ the nearest competitor.
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 1 - Sketch</TD>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
-	<TD CLASS="bodyText" ALIGN="right">95.27897%</TD>
-	<TD CLASS="bodyText" ALIGN="right">80.25751%</TD>
+	<TD CLASS="bodyText" ALIGN="right">95.28%</TD>
+	<TD CLASS="bodyText" ALIGN="right">80.26%</TD>
 	<TD CLASS="bodyText" ALIGN="right">185.33156</TD>
 	<TD CLASS="bodyText" ALIGN="center">ZorbaTHut<BR/>239.67</TD> 
 </TR>
@@ -160,8 +160,8 @@ the nearest competitor.
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 2 - Integrate</TD>
 	<TD CLASS="bodyText" ALIGN="right">500</TD>
-	<TD CLASS="bodyText" ALIGN="right">78.11159%</TD>
-	<TD CLASS="bodyText" ALIGN="right">32.188843%</TD>
+	<TD CLASS="bodyText" ALIGN="right">78.11%</TD>
+	<TD CLASS="bodyText" ALIGN="right">32.19%</TD>
 	<TD CLASS="bodyText" ALIGN="right">302.54666</TD>
 	<TD CLASS="bodyText" ALIGN="center">Garzahd<BR/>446.88</TD> 
 </TR>
@@ -169,8 +169,8 @@ the nearest competitor.
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 3 - Simulate</TD>
 	<TD CLASS="bodyText" ALIGN="right">1100</TD>
-	<TD CLASS="bodyText" ALIGN="right">16.738197%%</TD>
-	<TD CLASS="bodyText" ALIGN="right">3.4334764%</TD>
+	<TD CLASS="bodyText" ALIGN="right">16.74%</TD>
+	<TD CLASS="bodyText" ALIGN="right">3.43%</TD>
 	<TD CLASS="bodyText" ALIGN="right">540.5</TD>
 	<TD CLASS="bodyText" ALIGN="center">NDBronson<BR/>748.43</TD>
 </TR>
@@ -182,27 +182,27 @@ the nearest competitor.
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 1 - Rain</TD>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
-	<TD CLASS="bodyText" ALIGN="right">96.8661%</TD>
-	<TD CLASS="bodyText" ALIGN="right">993.447296%</TD>
-	<TD CLASS="bodyText" ALIGN="right">235.21341</TD>
+	<TD CLASS="bodyText" ALIGN="right">96.87%</TD>
+	<TD CLASS="bodyText" ALIGN="right">93.45%</TD>
+	<TD CLASS="bodyText" ALIGN="right">235.21</TD>
 	<TD CLASS="bodyText" ALIGN="center">stimpi<BR/>248.73</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 2 - StringOps</TD>
 	<TD CLASS="bodyText" ALIGN="right">600</TD>
-	<TD CLASS="bodyText" ALIGN="right">64.38747%</TD>
-	<TD CLASS="bodyText" ALIGN="right">25.641026%</TD>
-	<TD CLASS="bodyText" ALIGN="right">326.0778</TD>
+	<TD CLASS="bodyText" ALIGN="right">64.39%</TD>
+	<TD CLASS="bodyText" ALIGN="right">25.64%</TD>
+	<TD CLASS="bodyText" ALIGN="right">326.08</TD>
 	<TD CLASS="bodyText" ALIGN="center">b0b0b0b<BR/>543.28</TD> 
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 3 - Sketch</TD>
 	<TD CLASS="bodyText" ALIGN="right">900</TD>
-	<TD CLASS="bodyText" ALIGN="right">45.584045%</TD>
-	<TD CLASS="bodyText" ALIGN="right">30.19943%</TD>
-	<TD CLASS="bodyText" ALIGN="right">569.5755</TD>
+	<TD CLASS="bodyText" ALIGN="right">45.58%</TD>
+	<TD CLASS="bodyText" ALIGN="right">30.20%</TD>
+	<TD CLASS="bodyText" ALIGN="right">569.58</TD>
 	<TD CLASS="bodyText" ALIGN="center">tenken<BR/>771.33</TD> 
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
