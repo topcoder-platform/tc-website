@@ -7,7 +7,6 @@ import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 
 import java.util.HashMap;
-import java.io.Serializable;
 
 /**
  * User: dok
@@ -33,8 +32,8 @@ public abstract class Base extends BaseProcessor {
         return messageId;
     }
 
-    protected Serializable receive(int waitTime, String correlationId) throws TimeOutException {
-        return receiver.receive(waitTime, correlationId);
+    protected Message receive(int waitTime, String correlationId) throws TimeOutException {
+        return (Message)receiver.receive(waitTime, correlationId);
     }
 
 
