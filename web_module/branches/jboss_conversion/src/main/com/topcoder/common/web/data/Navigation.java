@@ -58,7 +58,7 @@ public final class Navigation
             try {
                 ctx = TCContext.getInitial();
                 UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-                UserServices userEJB = userHome.findByPrimaryKey(new Integer(getUser().getUserId()));
+                UserServices userEJB = userHome.findByPrimaryKey(new Long(getUser().getUserId()));
                 setUser(userEJB.getUser());
                 getUser().setLoggedIn("N");
                 getUser().setModified("U");

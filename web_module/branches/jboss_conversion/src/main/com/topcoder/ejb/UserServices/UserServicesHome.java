@@ -19,6 +19,6 @@ public interface UserServicesHome extends EJBHome {
     /**
      *  Finds an applicant by their primary Key (User userId)
      */
-    public UserServices findByPrimaryKey(Integer userId) throws FinderException, RemoteException;
+    public UserServices findByPrimaryKey(Long userId) throws FinderException, RemoteException;
 
 }

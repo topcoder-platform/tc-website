@@ -56,7 +56,7 @@ public final class Data {
         try {
             ctx = TCContext.getInitial();
             UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-            Integer key = new Integer(nav.getUser().getUserId());
+            Long key = new Long(nav.getUser().getUserId());
             UserServices userEJB = userHome.findByPrimaryKey(key);
             uTx = Transaction.get();
             uTx.begin();
@@ -103,7 +103,7 @@ public final class Data {
             try {
                 ctx = TCContext.getInitial();
                 UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-                UserServices userEJB = userHome.findByPrimaryKey(new Integer(nav.getUserId()));
+                UserServices userEJB = userHome.findByPrimaryKey(new Long(nav.getUserId()));
                 user = userEJB.getUser();
                 nav.setUser(user);
                 log.debug("tc: user loaded from entity bean");

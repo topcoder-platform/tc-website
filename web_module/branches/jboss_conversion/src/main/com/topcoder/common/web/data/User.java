@@ -65,7 +65,7 @@ public class User extends SecureObject implements java.io.Serializable, Permissi
     /**
      * Set the user id (secure object id).
      */
-    public void setUserId(int UserId) {
+    public void setUserId(long UserId) {
         super.setSId(UserId);
     }
 

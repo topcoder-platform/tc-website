@@ -86,9 +86,9 @@ public class UserServicesBean implements EntityBean {
      *   Sets coder to inactive based on a status flag.
      */
     public void ejbRemove() throws RemoteException {
-        Integer pk = new Integer(0);
+        Long pk = new Long(0);
         try {
-            pk = (Integer) ctx.getPrimaryKey();
+            pk = (Long) ctx.getPrimaryKey();
             UserDb.inactivateUser(pk.intValue());
         } catch (Exception ex) {
             throw new RemoteException("ejb.User.UserServicesBean:ejbRemove:" + pk.intValue() + ":failed:\n", ex);
@@ -103,9 +103,9 @@ public class UserServicesBean implements EntityBean {
     public void ejbLoad() throws RemoteException {
         try {
             log.debug("UserServicesBean.ejbLoad called...");
-            Integer pk = (Integer) ctx.getPrimaryKey();
+            Long pk = (Long) ctx.getPrimaryKey();
             User newUser = new User();
-            newUser.setUserId(pk.intValue());
+            newUser.setUserId(pk.longValue());
             UserDb.loadUser(newUser);
             setUser(newUser);
         } catch (Exception ex) {
@@ -153,12 +153,12 @@ public class UserServicesBean implements EntityBean {
     }
 
 
-    public Integer ejbCreate(User newUser) throws CreateException, RemoteException {
-        Integer result = null;
+    public Long ejbCreate(User newUser) throws CreateException, RemoteException {
+        Long result = null;
         try {
             UserDb.insertUser(newUser);
             setUser(newUser);
-            result = new Integer(newUser.getUserId());
+            result = new Long(newUser.getUserId());
         } catch (Exception ex) {
             throw new CreateException("ejb.User.UserServicesBean:ejbCreate():failed:\n" + ex);
         }
@@ -166,7 +166,7 @@ public class UserServicesBean implements EntityBean {
     }
 
 
-    public Integer ejbFindByPrimaryKey(Integer key) throws FinderException, RemoteException {
+    public Long ejbFindByPrimaryKey(Long key) throws FinderException, RemoteException {
         try {
             UserDb.getExistingUserId(key);
         } catch (Exception ex) {
