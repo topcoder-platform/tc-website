@@ -1660,14 +1660,11 @@ public class Registration
                 InitialContext ctx = TCContext.getInitial();
                 com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
                 char status = userbean.getStatus(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
-                    log.debug("HERE WITH CODER " + coder.getCoderId());
-                    doLegacyCrap((int)coder.getCoderId());
-                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
-                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
-                } 
+                doLegacyCrap((int)coder.getCoderId());
+                Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                        1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
             }
         } catch (Exception e) {
             try {
