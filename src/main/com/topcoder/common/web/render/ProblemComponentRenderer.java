@@ -34,6 +34,8 @@ public class ProblemComponentRenderer implements ElementRenderer {
             buf.append(  "</td>");
             buf.append("</tr>");
         }
+        
+        buf.append(  "<tr><td colspan=\"2\">&#160;</td></tr>");
 
         /* Signature */
         buf.append("<tr>");
