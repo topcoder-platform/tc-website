@@ -37,8 +37,7 @@ public class StatXMLParser {
     }
 
     public static Document getXMLDocument(String sFileName) throws IOException {
-        InputStream in = new Object().getClass().getResource(sFileName).openStream();
-
+        InputStream in = StatXMLParser.class.getClassLoader().getResource(sFileName).openStream();
         return getXMLDocument(in);
     }
 
