@@ -425,6 +425,7 @@ SELECT c.campaign_id,
  WHERE con.contact_id = @uid@
    AND c.company_id = con.company_id
    AND slu.status_id = c.status_id
+ ORDER BY 1
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1002 "TCES_Campaign_Info" 0 0 "
@@ -457,6 +458,7 @@ SELECT j.job_id,
    AND j.job_id = cjx.job_id
    AND jh.job_id = j.job_id
  GROUP BY j.job_id, j.job_desc
+ ORDER BY 1
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1005 "TCES_Campaign_Hit_List" 0 0 "
@@ -488,6 +490,7 @@ SELECT c.coder_id,
    AND c.coder_id = jh.user_id
    AND ct.coder_type_id = c.coder_type_id
    AND country.country_code = c.country_code
+ ORDER BY jh.timestamp DESC
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1006 "TCES_Position_Name" 0 0 "
@@ -520,6 +523,7 @@ SELECT c.coder_id,
    AND c.coder_id = jh.user_id
    AND ct.coder_type_id = c.coder_type_id
    AND country.country_code = c.country_code
+ ORDER BY jh.timestamp DESC
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1008 "TCES_Campaign_Coders_By_Type" 0 0 "
