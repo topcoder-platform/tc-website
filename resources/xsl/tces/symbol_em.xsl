@@ -31,7 +31,7 @@ partnerships and global services and support to make it a vision without boundar
 in the integrated data management industry, the company gives its associates the resources they need, the freedom they crave and the 
 encouragement they deserve.</p>
 
-<p>Check out the open Software Engineering positions at <a href="http://www.symbol.com" target="_blank">Symbol</a></p>
+<p>Check out the open Software Engineering positions at <A href="/?&amp;t=tces&amp;c=symbol" target="_blank">Symbol</A></p>
 
 <p>Thank you, and as always, good luck in the Arena!<br />
 The TopCoder Employment Services Team</p>
