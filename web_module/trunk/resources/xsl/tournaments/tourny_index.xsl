@@ -78,9 +78,9 @@
                         Mohegan Sun Casino<br />
                         Uncasville, Connecticut</p>
                         
-                        <p><em>Coding Tournament</em><br/><font color="#CC0000"><strong>Qualification rounds start online October 7</strong></font></p>
+                        <p><em>Coding Tournament</em><br/><font color="#CC0000"><strong>Round 3 on October 29</strong></font></p>
                         
-                        <p><em>Component Competition</em><br/><font color="#CC0000"><strong>Round 2 starts online October 7</strong></font></p>
+                        <p><em>Component Competition</em><br/><font color="#CC0000"><strong>Round 2 winners announced November 6</strong></font></p>
 
                         <p><A href="/?t=tournaments&amp;c=tco03_rules_overview">Official Rules and Regulations</A></p><br />
                     </td>
