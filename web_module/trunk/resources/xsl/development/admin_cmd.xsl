@@ -203,7 +203,8 @@ The command is used to search text fields based on a phrase. This command should
                                         <li>$900.00 on June 5th.</li>
                                         <li>$720.00 at the completion of the project.* </li>
                                     </ul>
-                                    Developer will get paid a total of $2,400.00 each:
+                                    There will be a total of two developers.<br/>
+                                    Each developer will get paid a total of $2,400.00:
                                     <ul>
                                         <li>$240.00 at the start of the project.</li>
                                         <li>$1200.00 on June 5th.</li>
