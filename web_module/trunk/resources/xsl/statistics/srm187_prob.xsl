@@ -95,9 +95,7 @@ solution more than 50 points ahead of the next competitor,  <b>venco</b>, in sec
 only 12 points back in third. Twenty-two coders got the hard problem correct this time.
 </p>
 <p>
-In Division-II, rookie <b>joegunrok</b> finishes in 12<sup>th</sup> place with 776 points in his first SRM
-which is good enough for him to jump to yellow. The top five finishers <b>kraju, nikal, ggoprea, kolodrub</b>,
-and <b>Ragnarok</b> all made the jump to Division-I as did thirteen other Division-II coders. Nine coders
+The top five Division-II finishers kraju, nikal, ggoprea, kolodrub, and Ragnarok all made the jump to Division-I as did thirteen other Division-II coders. Nine coders
 got the hard problem correct this time in Division-II this time, which is a little better than last SRM's zero.
 There would have probably been several more good solutions, but there was an unfortunately timed system
 security modification which disabled java.awt.* including the Polygon class (which happens to have a
