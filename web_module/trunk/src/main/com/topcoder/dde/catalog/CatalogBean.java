@@ -997,36 +997,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return new ComponentDetail(info, summary, versionInfo, docs, techs, forums, members, dependencies);
     }
 
-    public Collection getComponentsByStatus(long status)
-           throws CatalogException {
-        List summaries = new ArrayList();
-        Iterator compIterator;
-        try {
-            compIterator = catalogHome.findByStatusId(status).iterator();
-        } catch(FinderException exception) {
-            throw new CatalogException(exception.toString());
-        }
-        while (compIterator.hasNext()) {
-            LocalDDECompCatalog comp =
-                (LocalDDECompCatalog) compIterator.next();
-            LocalDDECompVersions ver;
-            try {
-                ver = versionsHome.findByComponentIdAndVersion(
-                    ((Long) comp.getPrimaryKey()).longValue(),
-                    comp.getCurrentVersion());
-            } catch(FinderException exception) {
-                throw new CatalogException(
-                "Failed to retrieve current version information for component "
-                + comp.getPrimaryKey() + ": " + exception.toString());
-            }
-            summaries.add(generateSummary(comp, ver));
-        }
-        Collections.sort(summaries, new Comparators.ComponentSummarySorter());
-        return summaries;
-    }
 
-
-    private final static String COMPONENTS_BY_STATUS_AND_CATALOG =
+    private final static String COMPONENTS_BY_STATUS =
         " select cc.component_id " +
              " , cv.comp_vers_id " +
              " , cc.current_version as version " +
@@ -1042,22 +1014,21 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
              " , cc.root_category_id " +
           " from comp_catalog cc " +
              " , comp_versions cv " +
-         " where cc.root_category_id = ? " +
-           " and cc.status_id = ? " +
+         " where cc.status_id = ? " +
            " and cv.component_id = cc.component_id " +
            " and cc.current_version = cv.version ";
 
-    public Collection getComponentsByStatusAndCatalog(long status, long catalogId)
-           throws CatalogException, NamingException, SQLException {
+
+    public Collection getComponentsByStatus(long status)
+           throws CatalogException, SQLException, NamingException {
 
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         try {
             conn = getConnection();
-            ps = conn.prepareStatement(COMPONENTS_BY_STATUS_AND_CATALOG);
-            ps.setLong(1, catalogId);
-            ps.setLong(2, status);
+            ps = conn.prepareStatement(COMPONENTS_BY_STATUS);
+            ps.setLong(1, status);
             rs = ps.executeQuery();
 
             ArrayList ret = new ArrayList();;
@@ -1085,6 +1056,24 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
             try { if (conn  != null) {  conn.close();  conn = null; } } catch (SQLException e) {}
         }
+    }
+
+
+
+    public Collection getComponentsByStatusAndCatalog(long status, long catalogId)
+           throws CatalogException, NamingException, SQLException {
+
+
+        Collection ret = getComponentsByStatus(status);
+        ComponentSummary cs = null;
+        for (Iterator it = ret.iterator(); it.hasNext();) {
+            cs = (ComponentSummary)it.next();
+            if (cs.getRootCategory()!=catalogId)
+                it.remove();
+        }
+
+        Collections.sort((List)ret, new Comparators.ComponentSummarySorter());
+        return ret;
 
     }
 
