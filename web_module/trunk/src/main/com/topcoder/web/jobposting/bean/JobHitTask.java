@@ -5,7 +5,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.jobposting.common.Constants;
-import com.topcoder.web.ejb.jobposting.JobPostingServicesHome;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
@@ -108,14 +107,12 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     }
 
     public void processStep(String step) throws Exception {
-        JobPostingServicesHome jpHome = null;
         JobPostingServices jpServices = null;
         try {
             log.debug("user rating: " + getRating());
             if (getRating() > 0) {
                 if (hasResume()) {
-                    jpHome = (JobPostingServicesHome) getInitialContext().lookup(ApplicationServer.JOB_POSTING_SERVICES);
-                    jpServices = jpHome.create();
+                    jpServices = (JobPostingServices) BaseProcessor.createEJB(getInitialContext(), JobPostingServices.class);
                     if (jobHits.size() > 0) {
                         for (int i = 0; i < jobHits.size(); i++) {
                             long currJob = ((Long) jobHits.get(i)).intValue();
