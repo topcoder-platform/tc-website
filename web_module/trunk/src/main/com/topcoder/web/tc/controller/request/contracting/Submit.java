@@ -43,28 +43,27 @@ public class Submit  extends ContractingBase {
                 InitialContext ctx = TCContext.getInitial();
                 UserPreference prefbean = (UserPreference)createEJB(ctx, UserPreference.class);
                 
-                if(info.isEdit()) {
-                    //load pref group list, iterate through each one, deleting, updating
-                    Request r = new Request();
-                    r.setContentHandle("preference_groups");
+                //load pref group list, iterate through each one, deleting, updating
+                Request r = new Request();
+                r.setContentHandle("preference_groups");
 
-                    ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("preference_groups");
-                    for(int i = 0; i < rsc.size(); i++) {
-                        ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(info.getUserID(), rsc.getIntItem(i, "preference_group_id"),DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                        for(int j = 0; j < rscPrefs.size(); j++) {
-                            //check if info object has this preference
-                            if(info.getPreference(rscPrefs.getStringItem(j, "preference_id")) == null) {
-                                //delete
-                                prefbean.removeUserPreference(info.getUserID(), rscPrefs.getIntItem(j, "preference_id"), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                            } else {
-                                //update
-                                prefbean.setPreferenceValueID(info.getUserID(), rscPrefs.getIntItem(j, "preference_id"),
-                                    Integer.parseInt(info.getPreference(rscPrefs.getStringItem(j, "preference_id"))), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                                info.removePref(rscPrefs.getStringItem(j, "preference_id"));
-                            }
+                ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("preference_groups");
+                for(int i = 0; i < rsc.size(); i++) {
+                    ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(info.getUserID(), rsc.getIntItem(i, "preference_group_id"),DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    for(int j = 0; j < rscPrefs.size(); j++) {
+                        //check if info object has this preference
+                        if(info.getPreference(rscPrefs.getStringItem(j, "preference_id")) == null) {
+                            //delete
+                            prefbean.removeUserPreference(info.getUserID(), rscPrefs.getIntItem(j, "preference_id"), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        } else {
+                            //update
+                            prefbean.setPreferenceValueID(info.getUserID(), rscPrefs.getIntItem(j, "preference_id"),
+                                Integer.parseInt(info.getPreference(rscPrefs.getStringItem(j, "preference_id"))), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                            info.removePref(rscPrefs.getStringItem(j, "preference_id"));
                         }
                     }
                 }
+
                 //insert
                 Iterator it = info.getPreferenceNames();
                 while(it.hasNext()) {
@@ -106,47 +105,45 @@ public class Submit  extends ContractingBase {
                 //skills
                 CoderSkill skillbean = (CoderSkill)createEJB(ctx, CoderSkill.class);
                 
-                if(info.isEdit()) {
-                    Hashtable edits = new Hashtable();
-                    ArrayList deletes = new ArrayList();
-                    
-                    //load skill type list, iterate through each one, deleting, updating
-                    Request r = new Request();
-                    r.setContentHandle("skill_types");
+                Hashtable edits = new Hashtable();
+                ArrayList deletes = new ArrayList();
 
-                    ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_types");
-                    for(int i = 0; i < rsc.size(); i++) {
-                        ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
-                        for(int j = 0; j < rscSkills.size(); j++) {
-                            //check if info object has this skill
-                            if(info.getSkill(rscSkills.getStringItem(j, "skill_id")) == null) {
-                                //delete
-                                deletes.add(rscSkills.getStringItem(j, "skill_id"));
-                            } else {
-                                //update
-                                edits.put(rscSkills.getStringItem(j, "skill_id"), info.getSkill(rscSkills.getStringItem(j, "skill_id")));
-                                info.removeSkill(rscSkills.getStringItem(j, "skill_id"));
-                            }
+                //load skill type list, iterate through each one, deleting, updating
+                r = new Request();
+                r.setContentHandle("skill_types");
+
+                rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_types");
+                for(int i = 0; i < rsc.size(); i++) {
+                    ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
+                    for(int j = 0; j < rscSkills.size(); j++) {
+                        //check if info object has this skill
+                        if(info.getSkill(rscSkills.getStringItem(j, "skill_id")) == null) {
+                            //delete
+                            deletes.add(rscSkills.getStringItem(j, "skill_id"));
+                        } else {
+                            //update
+                            edits.put(rscSkills.getStringItem(j, "skill_id"), info.getSkill(rscSkills.getStringItem(j, "skill_id")));
+                            info.removeSkill(rscSkills.getStringItem(j, "skill_id"));
                         }
                     }
-                    
-                    //process bulk deletes / updates
-                    int[] deleteArray = new int[deletes.size()];
-                    for(int i = 0; i < deletes.size(); i++) {
-                        deleteArray[i] = Integer.parseInt((String)deletes.get(i));
-                    }
-                    skillbean.bulkRemoveCoderSkill(info.getUserID(), deleteArray, DBMS.OLTP_DATASOURCE_NAME);
-                    
-                    int[] updateSkillIdArray = new int[edits.keySet().size()];
-                    int[] updateRankingArray = new int[edits.keySet().size()];
-                    Iterator t = edits.keySet().iterator();
-                    for(int i = 0; i < edits.keySet().size(); i++) {
-                        String s = (String)t.next();
-                        updateSkillIdArray[i] = Integer.parseInt(s);
-                        updateRankingArray[i] = Integer.parseInt((String)edits.get(s));
-                    }
-                    skillbean.bulkSetRanking(info.getUserID(), updateSkillIdArray, updateRankingArray, DBMS.OLTP_DATASOURCE_NAME);
                 }
+
+                //process bulk deletes / updates
+                int[] deleteArray = new int[deletes.size()];
+                for(int i = 0; i < deletes.size(); i++) {
+                    deleteArray[i] = Integer.parseInt((String)deletes.get(i));
+                }
+                skillbean.bulkRemoveCoderSkill(info.getUserID(), deleteArray, DBMS.OLTP_DATASOURCE_NAME);
+
+                int[] updateSkillIdArray = new int[edits.keySet().size()];
+                int[] updateRankingArray = new int[edits.keySet().size()];
+                Iterator t = edits.keySet().iterator();
+                for(int i = 0; i < edits.keySet().size(); i++) {
+                    String s = (String)t.next();
+                    updateSkillIdArray[i] = Integer.parseInt(s);
+                    updateRankingArray[i] = Integer.parseInt((String)edits.get(s));
+                }
+                skillbean.bulkSetRanking(info.getUserID(), updateSkillIdArray, updateRankingArray, DBMS.OLTP_DATASOURCE_NAME);
                 
                 //inserts
                 int[] insertSkillIdArray = new int[info.getSkillCount()];
@@ -163,23 +160,21 @@ public class Submit  extends ContractingBase {
                 Note notebean = (Note)createEJB(ctx, Note.class);
                 UserNote usernotebean = (UserNote)createEJB(ctx, UserNote.class);
                 
-                if(info.isEdit()) {
-                    //get user's notes for contracting, add update where appropriate
-                    Request r = new Request();
-                    r.setContentHandle("contracting_user_notes");
-                    r.setProperty("uid", String.valueOf(info.getUserID()));
+                //get user's notes for contracting, add update where appropriate
+                r = new Request();
+                r.setContentHandle("contracting_user_notes");
+                r.setProperty("uid", String.valueOf(info.getUserID()));
 
-                    ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
-                    for(int i = 0; i < rsc.size(); i++) {
-                        
-                        if(info.getNote(rsc.getStringItem(i, "note_type_id")) == null) {
-                            //delete
-                            usernotebean.removeUserNote(info.getUserID(), rsc.getLongItem(i, "note_id"), DBMS.OLTP_DATASOURCE_NAME);
-                        } else {
-                            //update
-                            notebean.setText(rsc.getLongItem(i, "note_id"), info.getNote(rsc.getStringItem(i, "note_type_id")), DBMS.OLTP_DATASOURCE_NAME);
-                            info.removeNote(rsc.getStringItem(i, "note_type_id"));
-                        }
+                rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
+                for(int i = 0; i < rsc.size(); i++) {
+
+                    if(info.getNote(rsc.getStringItem(i, "note_type_id")) == null) {
+                        //delete
+                        usernotebean.removeUserNote(info.getUserID(), rsc.getLongItem(i, "note_id"), DBMS.OLTP_DATASOURCE_NAME);
+                    } else {
+                        //update
+                        notebean.setText(rsc.getLongItem(i, "note_id"), info.getNote(rsc.getStringItem(i, "note_type_id")), DBMS.OLTP_DATASOURCE_NAME);
+                        info.removeNote(rsc.getStringItem(i, "note_type_id"));
                     }
                 }
                 
