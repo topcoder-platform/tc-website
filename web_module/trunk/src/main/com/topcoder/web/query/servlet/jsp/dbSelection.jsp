@@ -40,7 +40,7 @@
                 <jsp:getProperty name="db" property="DisplayName"/>
               </A>
             </TD></TR>
-          </query:listIterator>
+          </query:DBIterator>
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
