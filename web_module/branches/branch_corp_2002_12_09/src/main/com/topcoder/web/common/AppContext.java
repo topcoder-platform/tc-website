@@ -72,7 +72,9 @@ public class AppContext {
     throws NamingException, CreateException, RemoteException
     {
         InitialContext ic = getSecurityContext(); 
+        log.debug("initial security context: "+ic);
         Object  l = ic.lookup(LoginRemoteHome.EJB_REF_NAME);
+        log.debug("LoginRemoteHome: "+l);
 //        ic.close();
         return ((LoginRemoteHome) l).create();
     }
