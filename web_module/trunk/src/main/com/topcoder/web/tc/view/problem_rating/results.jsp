@@ -97,9 +97,9 @@
     <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="5"align="center">
         <tr>
            <td class="bodyTextBig" align="left" valign="bottom" nowrap>Question</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Overall Average Rating</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Average Rating for Division I Competitors</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Average Rating for Division II Competitors</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Total Avg. Rating</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div I Avg. Rating</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div II Avg. Rating</td>
         </tr>
         <%  if (!problemRatingResults.isEmpty()) {
                 count = problemRatingResults.getIntItem(0,"count");
@@ -123,7 +123,7 @@
             </td>
         </tr>
         </rsc:iterator>
-        <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes | <%=div1Count%> Division I Competitor Votes | <%=div2Count%> Division II Competitor Votes</td></tr>
+        <tr><td class="bodyTextBig" colspan="4" align="center"><%=count%> Total votes | <%=div1Count%> Div I Votes | <%=div2Count%> Div II Votes</td></tr>
     </table><br/>
          <center>
 <SCRIPT language="JavaScript">
