@@ -27,9 +27,8 @@
                 <TR BGCOLOR="#000033">
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right" HEIGHT="12"><xsl:value-of select="Rank"/>.&#160;</TD>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="coderTextRed">
-                    <A>
-                      <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
-                      <xsl:attribute name="CLASS">statText</xsl:attribute>
+                    <A CLASS="statText">
+                      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
                       <FONT>
                         <xsl:attribute name="color">
                           <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="Rating"/></xsl:with-param></xsl:call-template>
@@ -45,7 +44,11 @@
                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
               </TR>                       
               <TR BGCOLOR="#000033"> 
-                <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="3" HEIGHT="12" ALIGN="right"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE="3"/><A HREF="/stat?c=coder_ratings" CLASS="statText">all ranked coders</A>&#160;&#160;</TD>
+                <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="3" HEIGHT="12" ALIGN="right"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE="3"/>
+                  <A CLASS="statText">
+                    <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_ratings</xsl:attribute>
+                    all ranked coders
+                  </A>&#160;&#160;</TD>
               </TR>                      
               <TR BGCOLOR="#000033"> 
                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>

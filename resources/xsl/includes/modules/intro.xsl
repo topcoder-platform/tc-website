@@ -13,7 +13,11 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/index?t=about_tc&amp;c=membr_whyjoin" CLASS="statText">- Why membership</A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_whyjoin</xsl:attribute>
+            - Why membership
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
@@ -23,7 +27,11 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/index?t=about_tc&amp;c=membr_ratings" CLASS="statText">- Ratings</A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_ratings</xsl:attribute>
+            - Ratings
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
@@ -33,7 +41,11 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/index?t=about_tc&amp;c=membr_divisions" CLASS="statText">- Divisions</A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_divisions</xsl:attribute>
+            - Divisions
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
@@ -43,7 +55,11 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/index?t=about_tc&amp;c=membr_teams" CLASS="statText">- Teams</A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_teams</xsl:attribute>
+            - Teams
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
@@ -53,7 +69,11 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/reg/index.jsp" CLASS="statText">- <B>Register Now</B></A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+            - <B>Register Now</B>
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
@@ -71,7 +91,11 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/index?t=about_tc&amp;c=spons_target" CLASS="statText">- Overview</A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_target</xsl:attribute>
+            - Overview
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
@@ -81,7 +105,11 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/index?t=about_tc&amp;c=spons_srm" CLASS="statText">- Single Round Matches</A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_srm</xsl:attribute>
+            - Single Round Matches
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
@@ -91,7 +119,11 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/index?t=about_tc&amp;c=spons_tourny" CLASS="statText">- Tournaments</A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_tourny</xsl:attribute>
+            - Tournaments
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
@@ -109,27 +141,17 @@
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
-&#160;<A HREF="/index?t=about_tc&amp;c=empl_tces" CLASS="statText">- Why TopCoder</A>
+          &#160;
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=empl_tces</xsl:attribute>
+            - Why TopCoder
+          </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
       <TR> 
         <TD VALIGN="top" COLSPAN="3"><IMG ALT="" WIDTH="1" HEIGHT="3" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>            
-
-<!-- &#160;<A HREF="/index?t=about_tc&amp;c=membr_ratings" CLASS="statText">- Ratings</A><BR/>
-&#160;<A HREF="/index?t=about_tc&amp;c=membr_divisions" CLASS="statText">- Divisions</A><BR/>
-&#160;<A HREF="/index?t=about_tc&amp;c=membr_teams" CLASS="statText">- Teams</A><BR/>
-&#160;<A HREF="/reg/index.jsp" CLASS="statText">- <B>Register Now</B></A><BR/><BR/>
-Links for Sponsors<BR/>
-&#160;<A HREF="/index?t=about_tc&amp;c=spons_target" CLASS="statText">- Overview</A><BR/>
-&#160;<A HREF="/index?t=about_tc&amp;c=spons_srm" CLASS="statText">- Single Round Matches</A><BR/>
-&#160;<A HREF="/index?t=about_tc&amp;c=spons_tourny" CLASS="statText">- Tournaments</A><BR/><BR/>
-Links for Employers<BR/>
-&#160;<A HREF="/index?t=about_tc&amp;c=empl_tces" CLASS="statText">- Why TopCoder</A><BR/><BR/>
-        </TD>
-        <TD VALIGN="top"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      </TR> -->
      </TABLE>
   </xsl:template>
 </xsl:stylesheet>
