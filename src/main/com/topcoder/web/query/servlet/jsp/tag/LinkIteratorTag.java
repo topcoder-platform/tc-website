@@ -11,9 +11,7 @@ import java.util.List;
  */
 public class LinkIteratorTag extends IteratorTag {
     
-    private static Logger log = Logger.getLogger(RowIteratorTag.class);
-
-    List linkList;
+     List linkList;
 
     public void setLinkList(List linkList) {
         this.linkList = linkList;
