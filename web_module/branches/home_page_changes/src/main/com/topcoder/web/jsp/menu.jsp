@@ -23,13 +23,9 @@
 
         <td class="<%=level1.equals("competition")?"topNavOn":"topNav"%>" nowrap><A href="/" class="topLink">Competition</A></td>
 
-        <td class="<%=level1.equals("development")?"topNavOn":"topNav"%>" nowrap><A href="/?t=development&c=index" class="topLink" target="_parent">Development</A></td>
+        <td class="<%=level1.equals("development")?"topNavOn":"topNav"%>" nowrap><A href="/?t=development&c=index" class="topLink">Development</A></td>
 
-        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="topLink" target="_parent">Software</A></td>
-
-        <td class="<%=level1.equals("employment_services")?"topNavOn":"topNav"%>" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home" class="topLink" target="_parent">Employment Services</A></td>
-
-        <td class="<%=level1.equals("sponsorship")?"topNavOn":"topNav"%>" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink" target="_parent">Marketing Services</A></td>
+        <td class="<%=level1.equals("development")?"topNavOn":"topNav"%>" nowrap><A href="/corp/?module=Static&d1=corp&d2=index" class="topLink">Corporate Services</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>
