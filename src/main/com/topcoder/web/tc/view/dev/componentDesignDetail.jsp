@@ -86,6 +86,10 @@
                         All <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">documentation</a>
                         for this project is available on the TopCoder Software web site.</p>
 
+                        <p><strong>Requirement Specification</strong><br />
+                           <p>View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project
+                            </p>
+
 <%-- Payment --%>
                         <p><strong>Payment</strong><br />
                         TopCoder will compensate members with first and second place submissions that have scored a
@@ -140,10 +144,6 @@
                         <p><br /></p>
 
 <%-- Register at TCS --%>
-
-                           <p><strong>View the <A target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project</strong>
-                            </p>
-
 
                            <p>
                            <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
