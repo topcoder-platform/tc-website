@@ -61,12 +61,13 @@
         document.revise.submit();
     }
     function revise(){
-        document.revise['module'].value = 'LegacyReport';
+        document.revise['module'].value = 'ProfileSearch';
         document.revise['t'].value = 'profile_search';
         document.revise.submit();
     }
     function viewList(){
         document.revise['module'].value = 'ProfileSearch';
+        document.revise['t'].value = '';
         document.revise['count'].value = 'off';
         document.revise.submit();
     }
