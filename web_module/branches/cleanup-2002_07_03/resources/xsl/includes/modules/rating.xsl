@@ -13,7 +13,7 @@
   </xsl:template>
 
   <xsl:template name="GetRatingToDisplay">
-    <xsl:param name="rating></xsl:param>
+    <xsl:param name="rating"></xsl:param>
     <xsl:choose>
       <xsl:when test="number($rating)=0">NR</xsl:when>
       <xsl:otherwise><xsl:value-of select="$rating"/></xsl:otherwise>
