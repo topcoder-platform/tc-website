@@ -237,9 +237,9 @@
               <% for (int j=0; j<statementsA.size(); j++) { %>
                   <% problem = (ProblemInfo)statementsA.get(j); %>
                   <% solution = (SubmissionInfo)solutionA.get(j); %>
-                  <% if (!solution.isSubmitted()) continue; %>
+                  <% if (!(solution.isSubmitted()||solution.isCompiled())) continue; %>
                   <div style="page-break-before:always"/>
-                  <%=j==0&&solution.isSubmitted()?"<h3>Test Set A</h3>":""%>
+                  <%=j==0&&(solution.isSubmitted()||solution.isCompiled())?"<h3>Test Set A</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="bodyText"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
@@ -262,9 +262,9 @@
               <% for (int j=0; j<statementsB.size(); j++) { %>
                   <% problem = (ProblemInfo)statementsB.get(j); %>
                   <% solution = (SubmissionInfo)solutionB.get(j); %>
-                  <% if (!solution.isSubmitted()) continue; %>
+                  <% if (!(solution.isSubmitted()||solution.isCompiled())) continue; %>
                   <div style="page-break-before:always"/>
-                  <%=j==0&&solution.isSubmitted()?"<h3>Test Set B</h3>":""%>
+                  <%=j==0&&(solution.isSubmitted()||solution.isCompiled())?"<h3>Test Set B</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="bodyText"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>

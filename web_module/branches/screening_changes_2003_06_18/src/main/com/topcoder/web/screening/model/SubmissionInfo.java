@@ -27,6 +27,7 @@ public class SubmissionInfo implements java.io.Serializable {
     private static Logger log = Logger.getLogger(SubmissionInfo.class);
 
     private static final int[] DONE_STATUSES = {130, 150, 160};
+    private static final int COMPILED = 121;
     static { Arrays.sort(DONE_STATUSES); }
     private static DataAccessInt cached;
     private static DataAccessInt dwAccess;
@@ -125,6 +126,10 @@ public class SubmissionInfo implements java.io.Serializable {
 
     public boolean isSubmitted() {
         return Arrays.binarySearch(DONE_STATUSES, getStatusId())>=0;
+    }
+
+    public boolean isCompiled() {
+        return getStatusId() == COMPILED;
     }
 
     /** Getter for property code.
