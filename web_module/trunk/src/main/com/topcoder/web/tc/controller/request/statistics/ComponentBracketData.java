@@ -66,7 +66,7 @@ public class ComponentBracketData extends Base {
             hd.startElement("", "", "finalists", emptyAtts);
             
             SimpleDateFormat sdf = new SimpleDateFormat("MM.dd.yyyy");
-            DecimalFormat df = new DecimalFormat("0.00");
+            DecimalFormat df = new DecimalFormat("0");
             
             String[] arr;
             if(type.equals("tco04_design")) {
@@ -101,8 +101,8 @@ public class ComponentBracketData extends Base {
                 }
                 addElement(hd, "photo", img, emptyAtts);
                 addElement(hd, "AlgRating", profileRsc.getStringItem(0, "rating"), emptyAtts);
-                addElement(hd, "DesRating", String.valueOf(Integer.parseInt(profileRsc.getStringItem(0, "design_rating"))), emptyAtts);
-                addElement(hd, "DevRating", String.valueOf(Integer.parseInt(profileRsc.getStringItem(0, "development_rating"))), emptyAtts);
+                addElement(hd, "DesRating", df.format(profileRsc.getItem(0, "design_rating")), emptyAtts);
+                addElement(hd, "DevRating", df.format(profileRsc.getItem(0, "development_rating")), emptyAtts);
                 addElement(hd, "memberSince", sdf.format(profileRsc.getItem(0, "member_since").getResultData()), emptyAtts);
                 
                 hd.endElement("", "", "competitor");
