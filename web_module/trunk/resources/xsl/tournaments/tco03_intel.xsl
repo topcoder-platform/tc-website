@@ -56,7 +56,8 @@
                             	Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
                              	take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p></td>
                              
-                            <td align="center"><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /></td>
+                            <td align="center"><img src="/i/spacer.gif" height="117" width="20"/><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" />
+                            <img src="/i/spacer.gif" height="117" width="20"/></td>
                       </tr>
                       <tr>
                             <td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
@@ -70,9 +71,9 @@
                             			<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
                             			<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
                             			mobile-technology-based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
-                            			<br/><br/>Register Now! Use promotion code TCO2003. </p></td>
+                            			<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
                             		</tr>
-                            		<tr><td></td></tr>
+                            		<tr><td><img src="/i/spacer.gif" height="13" width="13"/></td></tr>
                             	</table>
                           </td>
                         </tr>
