@@ -26,9 +26,8 @@
             rs = (ResultSetContainer)me.getValue();
             ResultColumn[] columns = rs.getColumns();
 %>
-    <B><%=me.getKey().toString()%></B><BR/>
-    <TABLE WIDTH="60%" HEIGHT="100%" BORDER="1" CELLPADDING="0" CELLSPACING="0">
-      <TR><TD><FONT size="4"><b>Results</b></FONT></TD></TR>
+    <TABLE WIDTH="100%" BORDER="1" CELLPADDING="0" CELLSPACING="0">
+      <TR><TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=me.getKey().toString()%> Results</b></FONT></TD></TR>
       <TR>
         <TD></TD>
 <%      for (int i=0; i<columns.length; i++) { %>
