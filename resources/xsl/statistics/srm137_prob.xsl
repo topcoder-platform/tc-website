@@ -187,7 +187,7 @@
                                                 <font size="+2">
                                                     <b>ViscoverExpress</b>
                                                 </font>
-                                                <BR>
+                                                <BR></BR>
                                                 </blockquote>Used as: Division 2 - Level 3:
                                                 <blockquote>
                                                     <table cellspacing="2">
@@ -301,7 +301,7 @@
                                                 <font size="+2">
                                                     <b>TextileDetective</b>
                                                 </font>
-                                                <BR>
+                                                <BR></BR>
                                                     Used as: Division 1 - Level 3:
                                                     <blockquote>
                                                         <table cellspacing="2">
