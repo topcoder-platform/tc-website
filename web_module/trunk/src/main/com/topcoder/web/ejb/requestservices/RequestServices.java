@@ -10,6 +10,7 @@ import java.rmi.RemoteException;
  */
 public interface RequestServices extends EJBObject {
 
-    void createRequest(long userId, String url) throws RemoteException;
+    void createRequest(long userId, String url, String dataSource) throws RemoteException;
+    void createRequest(String url, String dataSource) throws RemoteException;
 
 }
