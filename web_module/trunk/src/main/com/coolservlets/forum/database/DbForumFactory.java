@@ -78,7 +78,7 @@ public class DbForumFactory extends ForumFactory {
          "SELECT DISTINCT permission FROM jiveUserPerm WHERE forumID=? " +
          "AND userID=?";
     //By default, cache is enabled.
-    private boolean cacheEnabled = false;
+    private boolean cacheEnabled = true;
     private boolean userPermCacheEnabled = true;
     //Cache forum objects for faster access.
     protected Cache forumCache;
