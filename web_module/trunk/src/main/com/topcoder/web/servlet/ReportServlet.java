@@ -1160,12 +1160,13 @@ public final class ReportServlet extends HttpServlet {
 
     private static final int[] PROFILE_LIST_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
     private static final String PROFILE_LIST =
-            " SELECT u.handle, c.first_name, c.last_name" +
+            " SELECT u.handle, c.first_name, c.last_name, u.email" +
             " FROM user u" +
             " ,coder c" +
             " WHERE LOWER(u.handle) like LOWER('?')" +
             " AND LOWER(c.first_name) like LOWER('?')" +
             " AND LOWER(c.last_name) like LOWER('?')" +
+            " AND LOWER(u.email) like LOWER('?')" +
             " AND u.user_id = c.coder_id" +
             " ORDER BY u.handle ASC";
 
