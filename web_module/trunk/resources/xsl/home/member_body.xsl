@@ -516,9 +516,23 @@
                
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="right">98.75</td>
+                </tr>
+                
+                <tr valign="top">
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="right">87.31</td>
+                </tr>
+                
+                <tr valign="top">
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="right">87.14</td>
                 </tr>
                 
 
@@ -527,6 +541,13 @@
                     <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570">Saxophonist</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="right">74.78</td>
+                </tr>
+                
+                <tr valign="top">
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="right">68.70</td>
                 </tr>
 
 
