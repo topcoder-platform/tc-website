@@ -56,11 +56,11 @@
 				
 				
 			<P><STRONG><font size="4">How it works</font></STRONG><BR/>
-			On the member registration page, there is a "Referring Member" field. If you convince a fellow coder to register with TopCoder, 
+			On the member registration page, there is a "Referring Member" field. If you tell a fellow coder to register with TopCoder, 
 			ask him or her to provide your handle in the "Referring Member" field.</P>
 
 			<P>The referring member (you) will receive a referral commission equal to 10% of any 
-			cash prize that the referred member wins during the 12 months following registration.</P>
+			amounts earned or won by the referred member during the 12 months following registration.</P>
 
 
 			<P>TopCoder will keep track of all member commissions earned and will pay them out at the end of each quarter. </P>
@@ -94,9 +94,10 @@
 			<P>Any eligible TopCoder member whose TopCoder handle was provided in the "Referring Member" field of the TopCoder 
 			registration process on or after April 29, 2004 will be placed into the Referral Program.</P>
 
-			<P>TopCoder will pay a referral commission equal to 10% of any cash prize won by a referred member during the 365-day 
+			<P>TopCoder will pay a referral commission equal to 10% of any amount earned or won by a referred member during the 365-day 
 			period following the initial registration date of the referred member. No additional referral compensation will be paid 
-			for a referred member's winnings following the one-year anniversary of the referred member's registration. </P>
+			for a referred member's winnings following the one-year anniversary of the referred member's registration.  This includes amounts 
+			won during algorithm and component competitions and amounts earned by referred members as Review Board members.</P>
 
 			<P>To receive a referral commission, the TopCoder member must be 18 years of age or older and must not have been permanently 
 			suspended from participating in TopCoder competitions.  Payment is contingent upon TopCoder receiving a completed affidavit 
