@@ -137,8 +137,8 @@ You must be a rated TopCoder member, at least 18 years of age, meeting all of th
 <P>
 Component Posting: 10/25/2002<BR/>
 Initial Submission Due Date: 11/6/2002<BR/>
-Final Submission Due Date: 11/12/2002<BR/>
-Estimated Development End Date: 12/3/2002<BR/>
+Final Submission Due Date: 11/14/2002<BR/>
+Estimated Development End Date: 12/9/2002<BR/>
 
 </P>
 
