@@ -92,14 +92,14 @@
                             <option value="/index?t=tces&amp;c=index">TCES (jobs)</option> 
                         </select>
                     </td>                                   
-                    <td width="10" bgcolor="#333333"><img src="/i/clear.gif" width="10" height="1" border="0"/></td></form>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="75" border="0"/></td></form>
                 </tr>             
             </table>
 
 <% } else { %>
 
             <table width="99%" border="0" cellpadding="0" cellspacing="0">            
-                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>           
+                <tr><td><img src="/i/clear.gif" width="1" height="75" border="0"/></td></tr>           
             </table>                    
 
 <% }%>

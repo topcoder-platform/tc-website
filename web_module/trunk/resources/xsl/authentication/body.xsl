@@ -10,115 +10,102 @@
 
   <xsl:param name="activate"></xsl:param>
   <xsl:param name="valid"></xsl:param>
-  <!-- Body Begins -->
-  <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-    <TR>
-      <!-- Left Column Begins -->
-      <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Begins -->
-        <xsl:call-template name="BodyLeft"/>
-        <!-- Left Column Include Ends -->
-        <!-- Global Seconday Nav Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"/></TD>
-      <!-- Gutter Ends -->
-      <!-- Body Area -->
-      <!-- Center Column Begins -->
-      <TD class="statTextBig" width="100%" bgcolor="#CCCCCC" valign="top">
-        <IMG src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"/><BR/>
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">steelblue</xsl:with-param>
-  <xsl:with-param name="image">login</xsl:with-param>
-  <xsl:with-param name="title">&#160;</xsl:with-param>
-</xsl:call-template>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-          <xsl:if test="not(/TC/ErrorMsg='')">
-            <TR>
-              <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-              <TD COLSPAN="2" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-                <IMG SRC="/i/clear.gif" ALT="" WIDTH="380" HEIGHT="1" BORDER="0"/><BR/>
-                <xsl:choose>
-                  <xsl:when test="$activate='true'">
-                    <xsl:call-template name="ActivateForm"/>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <P CLASS="registerNav"><b><xsl:value-of select="/TC/ErrorMsg"/></b></P>
-                  </xsl:otherwise>
-                </xsl:choose>
-              </TD>
-              <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-            </TR>
-          </xsl:if>
-          <TR>
-            <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-              <IMG SRC="/i/clear.gif" ALT="" WIDTH="380" HEIGHT="1" BORDER="0"/><BR/>
-              <P CLASS="statText">
-                <SPAN CLASS="statTextBig">Forgot your password?</SPAN><BR/>
-                If you cannot remember your password <A HREF="index?t=authentication&amp;c=recover_password" CLASS="statText">click here</A> and we can send it to you via email.
-              </P>
-              <P CLASS="statText"><SPAN CLASS="statTextBig">New to TopCoder?</SPAN><BR/>
-                Click here to 
-		<A CLASS="statText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>register now</A>. 
-                After you complete the registration process, we will
-                send your account activation code via email.
-              </P>
-              <xsl:choose>
-                <xsl:when test="$valid='false'">
-                  <DIV CLASS="statTextBig"><CENTER><SPAN CLASS="statTextBig">* Invalid Login *</SPAN></CENTER></DIV>
-                </xsl:when>
-                <xsl:otherwise>
-                  <BR/><BR/>
-                </xsl:otherwise>
-              </xsl:choose>
-              <xsl:call-template name="Form"/>
-              <P><BR/></P>
-            </TD>
-            <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-          </TR>
-	<TR>
-		<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-	</TR>   	
-	<TR>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>	
-	<TR>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-        </TABLE>
-      </TD>
-      <!-- Center Column Ends -->
-      <!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-      <!-- Gutter Ends -->
-      <!-- Right Column Begins -->
-      <TD WIDTH="10" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/><BR/></TD>
-      <!-- Right Column Include Begins -->
-      <!-- Gutter -->
-        <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"/></TD>
-        <!-- Gutter Ends -->
-      <!-- Right Column Begins -->
-      <TD WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1"/><BR/>
-      <!-- Right Column Include Begins -->
-      <xsl:call-template name="BodyRight"/>
-      <!-- Right Column Include Ends -->
-      </TD>
-      <!-- Right Column Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-      <!-- Gutter Ends -->
-    </TR>
-  </TABLE>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
+<!-- Left Column Begins -->
+        <td width="180">
+            <xsl:call-template name="BodyLeft" />
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+      <td width="10"><IMG src="/i/clear.gif" width="10" height="1" alt="" border="0" /></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->
+        <td class="statText" width="99%">
+            <IMG src="/i/clear.gif" width="400" height="5" alt="" border="0" /><br />
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">steelblue</xsl:with-param>
+                <xsl:with-param name="image">login</xsl:with-param>
+                <xsl:with-param name="title">&#160;</xsl:with-param>
+            </xsl:call-template>
+
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+        
+            <xsl:if test="not(/TC/ErrorMsg='')">
+                <tr valign="top">
+                    <td width="100%">
+                        <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br />
+                        
+                        <xsl:choose>
+                            <xsl:when test="$activate='true'">
+                                <xsl:call-template name="ActivateForm"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <p class="registerNav"><strong><xsl:value-of select="/TC/ErrorMsg"/></strong></p>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </td>
+                </tr>
+            </xsl:if>
+                
+                <tr valign="top">
+                    <td class="statText" width="100%">
+                        <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
+                        <p><span class="statTextBig">Forgot your password?</span><br/>
+                        If you cannot remember your password <A href="index?t=authentication&amp;c=recover_password" class="statText">click here</A> 
+                        and we can send it to you via email.</p>
+                        
+                        <p><span class="statTextBig">New to TopCoder?</span><br/>
+                        <A class="statText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register now.</A> 
+                        After you complete the registration process, we will send your account activation code via email.</p>
+                        
+                        <xsl:choose>
+                            <xsl:when test="$valid='false'">
+                                <div class="statTextBig"><center><span class="statTextBig">* Invalid Login *</span></center></div>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <br/><br/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+              
+                        <div align="center">
+                        <xsl:call-template name="Form"/>
+                        </div>
+                        
+                        <p><br/></p>
+              
+                    </td>
+                </tr>
+	
+	        <tr><td width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>   	
+            </table>
+                        
+            <img src="/i/clear.gif" alt="" width="1" height="150" border="0"/><br />
+
+            <p><br/></p>
+              
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Gutter -->
+        <td width="10"><IMG src="/i/clear.gif" width="10" height="1" alt="" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Right Column Begins -->
+        <td width="170"><IMG src="/i/clear.gif" width="170" height="1" alt="" border="0"/><br />
+            <xsl:call-template name="BodyRight"/>
+        </td>
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1"/></td>
+<!-- Gutter Ends -->
+
+    </tr>
+  </table>
   <!-- Body Ends -->
 
 </xsl:template>
