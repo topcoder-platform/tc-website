@@ -35,19 +35,19 @@
 
 <!-- Gutter Begins -->
         <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
-        <td valign="top" width="7"><img src="/i/corp/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
+        
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_topcoder_testing.gif" alt="" width="546" height="41" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="7" alt="" border="0"><br>
 
-                        <h2 class="corpHead">Testing Attributes</h2>
+                        <h1 class="testHead">Testing Attributes</h1>
+                        
                         
                         <p>At the highest level, the TopCoder Application tests candidates in the following areas:</p>
                         
@@ -63,8 +63,8 @@
                         
                         <div align="center"><img src="/i/corp/testing_screen_2.gif" alt="Coding Environment and Problem Statement" width="418" height="289" border="0"></div>
 
-                        <h2 class="corpHead">Private Candidate Testing Application</h2>
-
+                        <h1 class="testHead">Private Candidate Testing Application</h1>
+            
                         <ul>
                             <li>Web-based application used during interview process</li>
                             <li>Candidates solve complex algorithmic problems</li>

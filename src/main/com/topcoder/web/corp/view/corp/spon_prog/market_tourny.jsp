@@ -17,7 +17,7 @@
 
 <!-- Top begins -->
 <jsp:include page="../includes/top.jsp" >
-    <jsp:param name="level1" value="employment_services"/>
+    <jsp:param name="level1" value="sponsorship"/>
 </jsp:include>
 <!-- Top ends -->
 
@@ -27,7 +27,7 @@
 <!-- Left Column Begins -->
         <td width="170">
             <jsp:include page="../includes/left.jsp">
-                <jsp:param name="level1" value="tournament"/>
+                <jsp:param name="level1" value="tourny"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -44,7 +44,7 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h1 class="testHead">Tournament Sponsorship</h1>
+                        <h1 class="testHead">Marketing through Tournament Sponsorship</h1>
 
                         <p>TopCoder is the X-Games of software development. Our tournaments are known worldwide as the 
                         most grueling, comprehensive sport in programming.  The events allow competitors to solve complex 
@@ -56,7 +56,7 @@
                         enjoys heavy participation and spectatorship from developers of all levels.  Our flagship event, 
                         the TCO routinely draws substantial press in the US and abroad.</p>
                         
-                        <p><img src="/i/corp/TCCC04.jpg" width="200" height="200" alt="" border="0" align="right" ><strong>The TopCoder Collegiate Challenge (TCCC)</strong>, our spring event, involves thousands 
+                        <p><img src="/i/corp/spectators.jpg" width="200" height="174" alt="" border="0" align="right"><strong>The TopCoder Collegiate Challenge (TCCC)</strong>, our spring event, involves thousands 
                         of university-level students majoring in everything from computer science to mathematics to 
                         applied physics.  The students compete head-to-head over several online elimination rounds until 
                         the best are flown in to compete in person at the onsite finals.  As with the TCO, the destination 
@@ -77,13 +77,11 @@
 
                         
 
-                        <p>TopCoder tournaments draw a global participation base from among the top collegiate and professional 
-                        developers.  All participants are ranked and rated based on their performance.  TopCoder also gathers 
-                        a wealth of data for each participant in order to demonstrate their ability to comprehend complex 
-                        problems, form a logical solution to the problem and use a relevant programming language to solve 
-                        the problem.  We also capture details on design and development skills in the form of code samples 
-                        and working software the candidates build.  If you have ever thought that there must be a better way 
-                        to recruit programmers, you were right.  TopCoder is the answer.</p>
+                        <p>Component software development competitions as well as algorithm competitions attract a targeted group 
+                        of influencers and decision makers. TopCoder offers custom programs for technology vendors to increase 
+                        awareness and adoption through our tournaments. If you are looking to sign up developers to your developer 
+                        network, put your technology in the hands of developers, or launch a new product line, TopCoder tournaments 
+                        provide the venue.</p>
                         
                         <p><strong>Past TopCoder Tournaments</strong></p>
                         
@@ -98,7 +96,7 @@
                         	</tr>
                        </table>
                        
-                       <p>For more information, contact Paul Moriarty at <a href="mailto:tces@topcoder.com?subject=Request For Information - Tournament Sponsorship">tces@topcoder.com</a> or 866.TOP.CODE</p>
+                       <p>For more information contact Paul Moriarty at <a href="mailto:sponsorships@topcoder.com">sponsorships@topcoder.com</a> or 866.TOP.CODE</p>
                         
                         <p><br/></p>
                     </td>
@@ -109,7 +107,8 @@
 
 <!-- Right Column begins -->
                     <jsp:include page="../../right.jsp">
-                        <jsp:param name="level1" value="tces_home"/>
+                        <jsp:param name="level1" value="tourny"/>
+                        <jsp:param name="level2" value="index"/> 
                     </jsp:include>
 <!-- Right Column ends -->
 
