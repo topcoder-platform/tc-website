@@ -8,19 +8,18 @@ public class ChkBoxTag extends BaseTag {
         try {
             ret.append("<input type=\"checkbox\" name=\"").append(name).append("\" ");
 
-            if(value == null) {
+            if (value == null) {
                 value = (String) getDefaultValue();
             }
-            if( value != null ) {
+            if (value != null) {
                 boolean checked = "true".equalsIgnoreCase(value);
-                if( checked ) {
+                if (checked) {
                     ret.append("checked=\"").append(value).append("\" ");
                 }
             }
             ret.append("/>");
             pageContext.getOut().print(ret.toString());
-        }
-        catch (java.io.IOException ioe) {
+        } catch (java.io.IOException ioe) {
         }
         return SKIP_BODY;
     }

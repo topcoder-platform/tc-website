@@ -11,7 +11,7 @@ public class PathResource implements Resource {
 
     public PathResource(String path) {
         int i = path.lastIndexOf('/');
-        if(i>=0) path = path.substring(0,i);
+        if (i >= 0) path = path.substring(0, i);
         this.name = path;
     }
 

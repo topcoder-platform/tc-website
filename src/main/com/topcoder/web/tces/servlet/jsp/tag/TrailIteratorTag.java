@@ -10,7 +10,7 @@ import java.util.List;
  * @author  Greg Paul
  */
 public class TrailIteratorTag extends IteratorTag {
-    
+
     private static Logger log = Logger.getLogger(RowIteratorTag.class);
 
     List trailList;
@@ -25,5 +25,5 @@ public class TrailIteratorTag extends IteratorTag {
 
         return super.doStartTag();
     }
-    
+
 }

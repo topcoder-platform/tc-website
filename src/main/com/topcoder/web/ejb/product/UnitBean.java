@@ -1,18 +1,19 @@
 package com.topcoder.web.ejb.product;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+
+import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.ejb.EJBException;
-import javax.naming.NamingException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 
@@ -27,12 +28,14 @@ public class UnitBean implements SessionBean {
     private SessionContext ctx;
 
     //required ejb methods
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     /**
      *
      */
-    public void ejbPassivate() {}
+    public void ejbPassivate() {
+    }
 
     /**
      *
@@ -44,7 +47,8 @@ public class UnitBean implements SessionBean {
     /**
      *
      */
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     /**
      *
@@ -73,13 +77,13 @@ public class UnitBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO unit (product_id, " +
-                                       "unit_type_id, num_units) " +
-                                       "VALUES (?,?,?)");
+                    "unit_type_id, num_units) " +
+                    "VALUES (?,?,?)");
             ps.setLong(1, productId);
             ps.setLong(2, unitTypeId);
             ps.setInt(3, numUnits);
@@ -88,24 +92,24 @@ public class UnitBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException creating unit");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating unit");
         } catch (Exception e) {
             throw new EJBException("Exception creating unit:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "createUnit");
+                            "createUnit");
                 }
             }
 
@@ -137,7 +141,7 @@ public class UnitBean implements SessionBean {
      */
     public int getNumUnits(long productId, long unitTypeId) {
         log.debug("getNumUnits called...product_id: " + productId +
-                  " unitTypeId: " + unitTypeId);
+                " unitTypeId: " + unitTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -148,12 +152,12 @@ public class UnitBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT num_units FROM unit WHERE " +
-                                       "product_id = ? AND unit_type_id = ?");
+                    "product_id = ? AND unit_type_id = ?");
             ps.setLong(1, productId);
             ps.setLong(2, unitTypeId);
 
@@ -163,14 +167,14 @@ public class UnitBean implements SessionBean {
                 ret = rs.getInt("num_units");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting unit_type_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting unit_type_id");
         } catch (Exception e) {
             throw new EJBException("Exception getting unit_type_id\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -185,7 +189,7 @@ public class UnitBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getNumUnits");
+                            "getNumUnits");
                 }
             }
 
@@ -218,7 +222,7 @@ public class UnitBean implements SessionBean {
      */
     public void setNumUnits(long productId, long unitTypeId, int numUnits) {
         log.debug("setNumUnits called...productId: " + productId +
-                  " unitTypeId: " + unitTypeId + " numUnits: " + numUnits);
+                " unitTypeId: " + unitTypeId + " numUnits: " + numUnits);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -227,13 +231,13 @@ public class UnitBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE unit SET num_units = ? " +
-                                       "WHERE product_id = ? AND " +
-                                       "unit_type_id = ?");
+                    "WHERE product_id = ? AND " +
+                    "unit_type_id = ?");
             ps.setInt(1, numUnits);
             ps.setLong(2, productId);
             ps.setLong(3, unitTypeId);
@@ -242,24 +246,24 @@ public class UnitBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong cost of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating num_units");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating num_units");
         } catch (Exception e) {
             throw new EJBException("Exception updating num_units\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setNumUnits");
+                            "setNumUnits");
                 }
             }
 
@@ -289,10 +293,9 @@ public class UnitBean implements SessionBean {
      * @throws EJBException
      */
     public String getUnitDescription(long productId, long unitTypeId)
-    throws RemoteException, EJBException
-    {
+            throws RemoteException, EJBException {
         log.debug("getUnitDescription called... productId: " + productId +
-                  "unitTypeId: " + unitTypeId);
+                "unitTypeId: " + unitTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -303,14 +306,14 @@ public class UnitBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(
-                (String)ctx.lookup("java:comp/env/datasource_name")
+            ds = (DataSource) ctx.lookup(
+                    (String) ctx.lookup("java:comp/env/datasource_name")
             );
             conn = ds.getConnection();
 
             ps = conn.prepareStatement(
-                "SELECT unit_type_desc FROM unit_type_lu WHERE " +
-                "unit_type_id = ?"
+                    "SELECT unit_type_desc FROM unit_type_lu WHERE " +
+                    "unit_type_id = ?"
             );
             ps.setLong(1, unitTypeId);
             rs = ps.executeQuery();
@@ -318,44 +321,48 @@ public class UnitBean implements SessionBean {
             if (rs.next()) {
                 ret = rs.getString("unit_type_desc");
             }
-        }
-        catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting unit_type_desc");
-        }
-        catch (NamingException e) {
+        } catch (NamingException e) {
             throw new EJBException("NamingException getting unit_type_desc");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new EJBException("Exception getting unit_type_desc\n" +
-                                   e.getMessage());
-        }
-        finally {
+                    e.getMessage());
+        } finally {
             if (rs != null) {
-                try { rs.close(); } catch (Exception ignore) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
                     log.error("FAILED to close ResultSet in " +
-                              "getUnitDescription");
+                            "getUnitDescription");
                 }
             }
 
             if (ps != null) {
-                try { ps.close(); } catch (Exception ignore) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
                     log.error(
-                        "FAILED to close PreparedStatement in " +
-                        "getUnitDescription"
+                            "FAILED to close PreparedStatement in " +
+                            "getUnitDescription"
                     );
                 }
             }
 
             if (conn != null) {
-                try { conn.close(); } catch (Exception ignore) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "getUnitDescription");
+                            "getUnitDescription");
                 }
             }
 
             if (ctx != null) {
-                try { ctx.close(); } catch (Exception ignore) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
                     log.error("FAILED to close Context in getUnitDescription");
                 }
             }

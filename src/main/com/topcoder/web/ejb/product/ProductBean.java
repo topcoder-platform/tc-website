@@ -1,20 +1,20 @@
 package com.topcoder.web.ejb.product;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
-import com.topcoder.shared.util.DBMS;
+
+import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.ejb.EJBException;
-import javax.naming.NamingException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 
@@ -29,12 +29,14 @@ public class ProductBean implements SessionBean {
     private SessionContext ctx;
 
     //required ejb methods
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     /**
      *
      */
-    public void ejbPassivate() {}
+    public void ejbPassivate() {
+    }
 
     /**
      *
@@ -46,7 +48,8 @@ public class ProductBean implements SessionBean {
     /**
      *
      */
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     /**
      *
@@ -79,27 +82,27 @@ public class ProductBean implements SessionBean {
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
-                                 new SimpleDB(),
-                                 (DataSource)ctx.lookup((String)
-                                 ctx.lookup(
-                                     "java:comp/env/idgen_datasource_name")),
-                                     "sequence_object",
-                                     "name",
-                                     "current_value",
-                                     9999999999L,
-                                     1,
-                                     true
-                                 );
+                        new SimpleDB(),
+                        (DataSource) ctx.lookup((String)
+                        ctx.lookup(
+                                "java:comp/env/idgen_datasource_name")),
+                        "sequence_object",
+                        "name",
+                        "current_value",
+                        9999999999L,
+                        1,
+                        true
+                );
             }
 
             ret = IdGenerator.nextId("PRODUCT_SEQ");
 
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO product (product_id, " +
-                                       "cost) VALUES (?,?)");
+                    "cost) VALUES (?,?)");
             ps.setLong(1, ret);
             ps.setFloat(2, cost);
 
@@ -107,24 +110,24 @@ public class ProductBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException creating product");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating product");
         } catch (Exception e) {
             throw new EJBException("Exception creating product:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "createProduct");
+                            "createProduct");
                 }
             }
 
@@ -167,12 +170,12 @@ public class ProductBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT product_desc FROM product " +
-                                       "WHERE product_id = ?");
+                    "WHERE product_id = ?");
             ps.setLong(1, productId);
 
             rs = ps.executeQuery();
@@ -181,14 +184,14 @@ public class ProductBean implements SessionBean {
                 ret = rs.getString("product_desc");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting product_desc");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting product_desc");
         } catch (Exception e) {
             throw new EJBException("Exception getting product_desc\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -203,7 +206,7 @@ public class ProductBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getProductDesc");
+                            "getProductDesc");
                 }
             }
 
@@ -246,12 +249,12 @@ public class ProductBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT cost FROM product " +
-                                       "WHERE product_id = ?");
+                    "WHERE product_id = ?");
             ps.setLong(1, productId);
 
             rs = ps.executeQuery();
@@ -260,14 +263,14 @@ public class ProductBean implements SessionBean {
                 ret = rs.getFloat("cost");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting cost");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting cost");
         } catch (Exception e) {
             throw new EJBException("Exception getting cost\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -313,7 +316,7 @@ public class ProductBean implements SessionBean {
      */
     public void setProductDesc(long productId, String productDesc) {
         log.debug("setProductDesc called...productId: " + productId +
-                  " productDesc: " + productDesc);
+                " productDesc: " + productDesc);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -322,12 +325,12 @@ public class ProductBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE product SET product_desc = ?" +
-                         "WHERE product_id = ?");
+                    "WHERE product_id = ?");
             ps.setString(1, productDesc);
             ps.setLong(2, productId);
 
@@ -335,24 +338,24 @@ public class ProductBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating productDesc");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating productDesc");
         } catch (Exception e) {
             throw new EJBException("Exception updating productDesc\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setProductDesc");
+                            "setProductDesc");
                 }
             }
 
@@ -382,7 +385,7 @@ public class ProductBean implements SessionBean {
      */
     public void setCost(long productId, float cost) {
         log.debug("setCost called...productId: " + productId + "cost: " +
-                  cost);
+                cost);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -391,12 +394,12 @@ public class ProductBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE product SET cost = ? " +
-                         "WHERE product_id = ?");
+                    "WHERE product_id = ?");
             ps.setFloat(1, cost);
             ps.setLong(2, productId);
 
@@ -404,17 +407,17 @@ public class ProductBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong cost of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating cost");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating cost");
         } catch (Exception e) {
             throw new EJBException("Exception updating cost\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {

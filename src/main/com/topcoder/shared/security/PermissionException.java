@@ -4,7 +4,7 @@ package com.topcoder.shared.security;
  * Indicates a permission test was failed.
  *
  * @author Ambrose Feinstein
- */ 
+ */
 public class PermissionException extends AuthenticationException {
 
     private User user;

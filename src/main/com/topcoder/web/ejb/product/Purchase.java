@@ -1,9 +1,9 @@
 package com.topcoder.web.ejb.product;
 
-import javax.ejb.EJBObject;
-import java.sql.Date;
-import java.rmi.RemoteException;
 import javax.ejb.EJBException;
+import javax.ejb.EJBObject;
+import java.rmi.RemoteException;
+import java.sql.Date;
 
 
 /**
@@ -20,7 +20,7 @@ public interface Purchase extends EJBObject {
      */
     long createPurchase(long companyId, long productId, long contactId,
                         double paid)
-                 throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -28,7 +28,7 @@ public interface Purchase extends EJBObject {
      * @see com.topcoder.web.ejb.product.PurchaseBean#setCompanyId
      */
     void setCompanyId(long purchaseId, long companyId)
-               throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -36,7 +36,7 @@ public interface Purchase extends EJBObject {
      * @see com.topcoder.web.ejb.product.PurchaseBean#setProductId
      */
     void setProductId(long purchaseId, long productId)
-               throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -44,7 +44,7 @@ public interface Purchase extends EJBObject {
      * @see com.topcoder.web.ejb.product.PurchaseBean#setContactId
      */
     void setContactId(long purchaseId, long contactId)
-               throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -52,7 +52,7 @@ public interface Purchase extends EJBObject {
      * @see com.topcoder.web.ejb.product.PurchaseBean#setStartDate
      */
     void setStartDate(long purchaseId, Date startDate)
-               throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -60,7 +60,7 @@ public interface Purchase extends EJBObject {
      * @see com.topcoder.web.ejb.product.PurchaseBean#setEndDate
      */
     void setEndDate(long purchaseId, Date endDate)
-             throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *

@@ -4,12 +4,11 @@
  * value to use if you are excepted.
  */
 
- // bigjake: copied from com.topcoder.web.pacts.common
+// bigjake: copied from com.topcoder.web.pacts.common
 
 package com.topcoder.web.tces.common;
 
 import com.topcoder.shared.dataAccess.resultSet.*;
-
 import com.topcoder.shared.util.logging.Logger;
 
 import java.util.StringTokenizer;

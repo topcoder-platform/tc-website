@@ -1,16 +1,19 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tces.common.*;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.web.tces.common.TCESConstants;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Processes the position interest task.
@@ -63,16 +66,16 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         super();
         setNextPage(TCESConstants.POSITION_INTEREST_PAGE);
 
-        uid=-1;
-        sortBy="";
-        sortOrder="";
+        uid = -1;
+        sortBy = "";
+        sortOrder = "";
     }
 
 
     /** Setter for property campaignName.
      * @param campaignName New value of property campaignName.
      */
-    public void setCampaignName( String campaignName ) {
+    public void setCampaignName(String campaignName) {
         this.campaignName = campaignName;
     }
 
@@ -86,7 +89,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     /** Setter for property campaignStatus.
      * @param campaignStatus New value of property campaignStatus.
      */
-    public void setCampaignStatus( String campaignStatus ) {
+    public void setCampaignStatus(String campaignStatus) {
         this.campaignStatus = campaignStatus;
     }
 
@@ -100,7 +103,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     /** Setter for property positionName.
      * @param positionName New value of property positionName.
      */
-    public void setPositionName( String positionName ) {
+    public void setPositionName(String positionName) {
         this.positionName = positionName;
     }
 
@@ -114,8 +117,8 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     /** Setter for property hitList.
      * @param hitList New value of property hitList.
      */
-    public void setHitList( ResultSetContainer hitList ) {
-        this.hitList=hitList;
+    public void setHitList(ResultSetContainer hitList) {
+        this.hitList = hitList;
     }
 
     /** Getter for property hitList
@@ -143,7 +146,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
      * @param jid New value of property jobID.
      */
     public void setJobID(int jid) {
-        this.jid=jid;
+        this.jid = jid;
     }
 
     /** Getter for property jobID
@@ -178,96 +181,93 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 //    }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception {
+            throws Exception {
 
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
         setTrail(a);
 
     }
 
     public void processStep(String step)
-        throws Exception
-    {
+            throws Exception {
         viewPositionInterest();
     }
 
-    private void viewPositionInterest() throws Exception
-    {
+    private void viewPositionInterest() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_position_interest");
 
-        dataRequest.setProperty("uid", Long.toString(uid) );
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-        dataRequest.setProperty("jid", Integer.toString(getJobID()) );
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        dataRequest.setProperty("uid", Long.toString(uid));
+        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
+        dataRequest.setProperty("jid", Integer.toString(getJobID()));
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No company name!");
+            throw new Exception("No company name!");
         }
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-        setCompanyName( cmpyNameRow.getItem("company_name").toString() );
+        setCompanyName(cmpyNameRow.getItem("company_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No position name!");
+            throw new Exception("No position name!");
         }
         ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
-        setPositionName( posNameRow.getItem("job_desc").toString() );
+        setPositionName(posNameRow.getItem("job_desc").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
-            throw new TCESAuthenticationException ("Bad campaign ID or campaign does not belong to user.");
+            throw new TCESAuthenticationException("Bad campaign ID or campaign does not belong to user.");
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
-        setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
+        setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
         if (rsc.getRowCount() == 0) {
-            throw new TCESAuthenticationException ("jid="+Integer.toString(getJobID())+
-                                 " cid="+Integer.toString(getCampaignID())+
-                                 "does not belong to uid="+Long.toString(uid) );
+            throw new TCESAuthenticationException("jid=" + Integer.toString(getJobID()) +
+                    " cid=" + Integer.toString(getCampaignID()) +
+                    "does not belong to uid=" + Long.toString(uid));
         }
 
-        setHitList((ResultSetContainer)resultMap.get("TCES_Position_Hit_List"));
+        setHitList((ResultSetContainer) resultMap.get("TCES_Position_Hit_List"));
 
-        if (sortBy!=null&&sortBy.length()>0) {
-            if (sortOrder.length()>0) {
-                if (backSortBy!=null&&backSortBy.length()>0) {
-                    if (backSortOrder.length()>0) {
+        if (sortBy != null && sortBy.length() > 0) {
+            if (sortOrder.length() > 0) {
+                if (backSortBy != null && backSortBy.length() > 0) {
+                    if (backSortOrder.length() > 0) {
                         getHitList().sortByColumn(sortBy, backSortBy,
-                            sortOrder.equals(TCESConstants.SORT_ORDER_ASC),
-                            backSortOrder.equals(TCESConstants.SORT_ORDER_ASC));
+                                sortOrder.equals(TCESConstants.SORT_ORDER_ASC),
+                                backSortOrder.equals(TCESConstants.SORT_ORDER_ASC));
                     } else {
                         getHitList().sortByColumn(sortBy, backSortBy,
-                            sortOrder.equals(TCESConstants.SORT_ORDER_ASC),
-                            true);
+                                sortOrder.equals(TCESConstants.SORT_ORDER_ASC),
+                                true);
                     }
                 } else {
-                    getHitList().sortByColumn(sortBy,sortOrder.equals(TCESConstants.SORT_ORDER_ASC));
+                    getHitList().sortByColumn(sortBy, sortOrder.equals(TCESConstants.SORT_ORDER_ASC));
                 }
-            }
-            else {
-                getHitList().sortByColumn(sortBy,true);
+            } else {
+                getHitList().sortByColumn(sortBy, true);
             }
         }
 
-        setNextPage( TCESConstants.POSITION_INTEREST_PAGE );
+        setNextPage(TCESConstants.POSITION_INTEREST_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
         log.debug("setAttributes name: " + paramName + " value: " + value);
 
         if (paramName.equalsIgnoreCase(TCESConstants.SORT_PARAM))

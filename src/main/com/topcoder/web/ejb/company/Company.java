@@ -1,8 +1,8 @@
 package com.topcoder.web.ejb.company;
 
+import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import javax.ejb.EJBException;
 
 
 /**
@@ -32,7 +32,7 @@ public interface Company extends EJBObject {
      * @see com.topcoder.web.ejb.company.CompanyBean#getPrimaryContactId
      */
     long getPrimaryContactId(long companyId)
-                      throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -40,7 +40,7 @@ public interface Company extends EJBObject {
      * @see com.topcoder.web.ejb.company.CompanyBean#setName
      */
     void setName(long companyId, String name)
-          throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -48,5 +48,5 @@ public interface Company extends EJBObject {
      * @see com.topcoder.web.ejb.company.CompanyBean#setPrimaryContactId
      */
     void setPrimaryContactId(long companyId, long primaryContactId)
-                      throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 }

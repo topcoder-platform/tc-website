@@ -1,6 +1,8 @@
 package com.topcoder.web.common.tag;
 
-import javax.servlet.jsp.tagext.*;
+import javax.servlet.jsp.tagext.TagData;
+import javax.servlet.jsp.tagext.TagExtraInfo;
+import javax.servlet.jsp.tagext.VariableInfo;
 
 public class IteratorTagInfo extends TagExtraInfo {
     public VariableInfo[] getVariableInfo(TagData data) {

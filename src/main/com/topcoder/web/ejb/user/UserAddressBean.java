@@ -1,19 +1,19 @@
 package com.topcoder.web.ejb.user;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+
+import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.ejb.EJBException;
-import javax.naming.NamingException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 
@@ -28,12 +28,14 @@ public class UserAddressBean implements SessionBean {
     private SessionContext ctx;
 
     //required ejb methods
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     /**
      *
      */
-    public void ejbPassivate() {}
+    public void ejbPassivate() {
+    }
 
     /**
      *
@@ -45,7 +47,8 @@ public class UserAddressBean implements SessionBean {
     /**
      *
      */
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     /**
      *
@@ -73,12 +76,12 @@ public class UserAddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO user_address_xref " +
-                                       "(user_id, address_id) VALUES (?,?)");
+                    "(user_id, address_id) VALUES (?,?)");
             ps.setLong(1, userId);
             ps.setLong(2, addressId);
 
@@ -86,24 +89,24 @@ public class UserAddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException creating user address");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating user address");
         } catch (Exception e) {
             throw new EJBException("Exception creating user address:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "createUserAddress");
+                            "createUserAddress");
                 }
             }
 
@@ -112,7 +115,7 @@ public class UserAddressBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "createUserAddress");
+                            "createUserAddress");
                 }
             }
 
@@ -142,12 +145,12 @@ public class UserAddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("DELETE FROM user_address_xref " +
-                                       "WHERE user_id = ? AND address_id = ?");
+                    "WHERE user_id = ? AND address_id = ?");
             ps.setLong(1, userId);
             ps.setLong(2, addressId);
 
@@ -155,24 +158,24 @@ public class UserAddressBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in remove: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException removing user address");
         } catch (NamingException e) {
             throw new EJBException("NamingException removing user address");
         } catch (Exception e) {
             throw new EJBException("Exception removing user address:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "removeUserAddress");
+                            "removeUserAddress");
                 }
             }
 
@@ -181,7 +184,7 @@ public class UserAddressBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "removeUserAddress");
+                            "removeUserAddress");
                 }
             }
 
@@ -207,12 +210,12 @@ public class UserAddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT * FROM user_address_xref " +
-                                       "WHERE user_id = ?");
+                    "WHERE user_id = ?");
             ps.setLong(1, userId);
 
             rs = ps.executeQuery();
@@ -220,14 +223,14 @@ public class UserAddressBean implements SessionBean {
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting user addresses");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting user addresses");
         } catch (Exception e) {
             throw new EJBException("Exception getting user addresses:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -242,7 +245,7 @@ public class UserAddressBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getUserAddresses");
+                            "getUserAddresses");
                 }
             }
 
@@ -251,7 +254,7 @@ public class UserAddressBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "createUserAddress");
+                            "createUserAddress");
                 }
             }
 
@@ -263,6 +266,6 @@ public class UserAddressBean implements SessionBean {
                 }
             }
         }
-        return(rsc);
+        return (rsc);
     }
 }

@@ -1,9 +1,11 @@
 package com.topcoder.web.common.security;
 
-import java.lang.reflect.*;
-import javax.naming.*;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+
+import javax.naming.Context;
+import java.lang.reflect.Method;
 
 /**
  * Houses a convenience method for getting EJB interfaces.
@@ -27,13 +29,13 @@ class Constants {
             /* create the context anew each time in case the JNDI provider is restarted. */
             Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
 
-            Class remotehomeclass = Class.forName(remoteclass.getName()+"Home");
-            String refname = (String)remotehomeclass.getField("EJB_REF_NAME").get(null);
+            Class remotehomeclass = Class.forName(remoteclass.getName() + "Home");
+            String refname = (String) remotehomeclass.getField("EJB_REF_NAME").get(null);
             Object remotehome = ctx.lookup(refname);
             Method createmethod = remotehome.getClass().getMethod("create", null);
             return createmethod.invoke(remotehome, null);
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error("caught exception in createEJB, rethrowing it", e);
             throw e;
         }

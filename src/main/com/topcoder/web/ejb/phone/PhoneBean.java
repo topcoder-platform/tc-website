@@ -1,20 +1,20 @@
 package com.topcoder.web.ejb.phone;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
-import com.topcoder.shared.util.DBMS;
+
+import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.ejb.EJBException;
-import javax.naming.NamingException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 
@@ -29,12 +29,14 @@ public class PhoneBean implements SessionBean {
     private SessionContext ctx;
 
     //required ejb methods
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     /**
      *
      */
-    public void ejbPassivate() {}
+    public void ejbPassivate() {
+    }
 
     /**
      *
@@ -46,7 +48,8 @@ public class PhoneBean implements SessionBean {
     /**
      *
      */
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     /**
      *
@@ -78,27 +81,27 @@ public class PhoneBean implements SessionBean {
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
-                                 new SimpleDB(),
-                                 (DataSource)ctx.lookup((String)
-                                 ctx.lookup(
-                                    "java:comp/env/idgen_datasource_name")),
-                                    "sequence_object",
-                                    "name",
-                                    "current_value",
-                                    9999999999L,
-                                    1,
-                                    true
-                                 );
+                        new SimpleDB(),
+                        (DataSource) ctx.lookup((String)
+                        ctx.lookup(
+                                "java:comp/env/idgen_datasource_name")),
+                        "sequence_object",
+                        "name",
+                        "current_value",
+                        9999999999L,
+                        1,
+                        true
+                );
             }
 
             ret = IdGenerator.nextId("PHONE_SEQ");
 
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO phone (user_id, " +
-                                       "phone_id) VALUES (?,?)");
+                    "phone_id) VALUES (?,?)");
             ps.setLong(1, userId);
             ps.setLong(2, ret);
 
@@ -106,24 +109,24 @@ public class PhoneBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException creating phone");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating phone");
         } catch (Exception e) {
             throw new EJBException("Exception creating phone:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "createPhone");
+                            "createPhone");
                 }
             }
 
@@ -167,12 +170,12 @@ public class PhoneBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT phone_type_id FROM phone " +
-                                       "WHERE phone_id = ?");
+                    "WHERE phone_id = ?");
             ps.setLong(1, phoneId);
 
             rs = ps.executeQuery();
@@ -181,14 +184,14 @@ public class PhoneBean implements SessionBean {
                 ret = rs.getLong("phone_type_id");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting phone_type_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting phone_type_id");
         } catch (Exception e) {
             throw new EJBException("Exception getting phone_type_id\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -203,7 +206,7 @@ public class PhoneBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getPhoneTypeId");
+                            "getPhoneTypeId");
                 }
             }
 
@@ -247,12 +250,12 @@ public class PhoneBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT phone_number FROM phone " +
-                                       "WHERE phone_id = ?");
+                    "WHERE phone_id = ?");
             ps.setLong(1, phoneId);
 
             rs = ps.executeQuery();
@@ -261,14 +264,14 @@ public class PhoneBean implements SessionBean {
                 ret = rs.getString("phone_number");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting phone number");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting phone number");
         } catch (Exception e) {
             throw new EJBException("Exception getting phone number\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -283,7 +286,7 @@ public class PhoneBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getNumber");
+                            "getNumber");
                 }
             }
 
@@ -316,7 +319,7 @@ public class PhoneBean implements SessionBean {
      */
     public void setPhoneTypeId(long phoneId, long phoneTypeId) {
         log.debug("setPhoneTypeId called...phoneId: " +
-                  phoneId + " phoneTypeId: " + phoneTypeId);
+                phoneId + " phoneTypeId: " + phoneTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -325,12 +328,12 @@ public class PhoneBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE phone SET phone_type_id = ? " +
-                                       "WHERE phone_id = ?");
+                    "WHERE phone_id = ?");
             ps.setLong(1, phoneTypeId);
             ps.setLong(2, phoneId);
 
@@ -338,24 +341,24 @@ public class PhoneBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating phoneTypeId");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating phoneTypeId");
         } catch (Exception e) {
             throw new EJBException("Exception updating phoneTypeId\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setPhoneTypeId");
+                            "setPhoneTypeId");
                 }
             }
 
@@ -386,7 +389,7 @@ public class PhoneBean implements SessionBean {
      */
     public void setNumber(long phoneId, String number) {
         log.debug("setNumber called...phoneId: " +
-                  phoneId + " number: " + number);
+                phoneId + " number: " + number);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -395,12 +398,12 @@ public class PhoneBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE phone SET phone_number = ? " +
-                                       "WHERE phone_id = ?");
+                    "WHERE phone_id = ?");
             ps.setString(1, number);
             ps.setLong(2, phoneId);
 
@@ -408,24 +411,24 @@ public class PhoneBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating phone_number");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating phone_number");
         } catch (Exception e) {
             throw new EJBException("Exception updating phone_number\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setNumber");
+                            "setNumber");
                 }
             }
 
@@ -465,12 +468,12 @@ public class PhoneBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT phone_id FROM phone " +
-                                       "WHERE user_id = ? AND primary = 1");
+                    "WHERE user_id = ? AND primary = 1");
             ps.setLong(1, userId);
             rs = ps.executeQuery();
 
@@ -478,21 +481,21 @@ public class PhoneBean implements SessionBean {
                 ret = rs.getLong("phone_id");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting primary phone_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting primary phone_id");
         } catch (Exception e) {
             throw new EJBException("Exception getting primary phone_id\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close ResultSet in " +
-                              "getPrimaryPhoneId");
+                            "getPrimaryPhoneId");
                 }
             }
 
@@ -501,7 +504,7 @@ public class PhoneBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getPrimaryPhoneId");
+                            "getPrimaryPhoneId");
                 }
             }
 
@@ -510,7 +513,7 @@ public class PhoneBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "getPrimaryPhoneId");
+                            "getPrimaryPhoneId");
                 }
             }
 
@@ -533,7 +536,7 @@ public class PhoneBean implements SessionBean {
      */
     public void setPrimaryPhoneId(long userId, long phoneId) {
         log.debug("setPrimaryEmailId called...userId: " + userId +
-                  " phoneId: " + phoneId);
+                " phoneId: " + phoneId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -542,19 +545,19 @@ public class PhoneBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE phone SET primary = 0 " +
-                                       "WHERE user_id = ?");
+                    "WHERE user_id = ?");
 
             ps.setLong(1, userId);
 
             int rows = ps.executeUpdate();
 
             ps = conn.prepareStatement("UPDATE phone SET primary = 1 " +
-                                       "WHERE user_id = ? AND phone_id = ?");
+                    "WHERE user_id = ? AND phone_id = ?");
 
             ps.setLong(1, userId);
             ps.setLong(2, phoneId);
@@ -563,24 +566,24 @@ public class PhoneBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating primary phone");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating primary phone");
         } catch (Exception e) {
             throw new EJBException("Exception updating primary phone\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setPrimaryPhoneId");
+                            "setPrimaryPhoneId");
                 }
             }
 
@@ -589,7 +592,7 @@ public class PhoneBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "setPrimaryPhoneId");
+                            "setPrimaryPhoneId");
                 }
             }
 
@@ -612,7 +615,7 @@ public class PhoneBean implements SessionBean {
      */
     public boolean isPrimaryPhoneId(long userId, long phoneId) {
         log.debug("isPrimaryPhoneId called...user_id: " + userId +
-                  " phone_id: " + phoneId);
+                " phone_id: " + phoneId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -623,12 +626,12 @@ public class PhoneBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT primary FROM phone " +
-                                       "WHERE user_id = ? AND phone_id = ?");
+                    "WHERE user_id = ? AND phone_id = ?");
             ps.setLong(1, userId);
             ps.setLong(2, phoneId);
 
@@ -638,22 +641,22 @@ public class PhoneBean implements SessionBean {
                 ret = rs.getInt("primary");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException checking primary phone_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException checking primary " +
-                                   "phone_id");
+                    "phone_id");
         } catch (Exception e) {
             throw new EJBException("Exception checking primary phone_id\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close ResultSet in " +
-                              "isPrimaryPhoneId");
+                            "isPrimaryPhoneId");
                 }
             }
 
@@ -662,7 +665,7 @@ public class PhoneBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "isPrimaryPhoneId");
+                            "isPrimaryPhoneId");
                 }
             }
 
@@ -671,7 +674,7 @@ public class PhoneBean implements SessionBean {
                     conn.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close Connection in " +
-                              "isPrimaryPhoneId");
+                            "isPrimaryPhoneId");
                 }
             }
 
@@ -683,6 +686,6 @@ public class PhoneBean implements SessionBean {
                 }
             }
         }
-        return (ret==1);
+        return (ret == 1);
     }
 }

@@ -1,8 +1,8 @@
 package com.topcoder.web.ejb.phone;
 
+import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import javax.ejb.EJBException;
 
 
 /**
@@ -25,7 +25,7 @@ public interface Phone extends EJBObject {
      * @see com.topcoder.web.ejb.phone.PhoneBean#getPhoneTypeId
      */
     long getPhoneTypeId(long phoneId)
-                 throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -33,7 +33,7 @@ public interface Phone extends EJBObject {
      * @see com.topcoder.web.ejb.phone.PhoneBean#getNumber
      */
     String getNumber(long phoneId)
-              throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -41,7 +41,7 @@ public interface Phone extends EJBObject {
      * @see com.topcoder.web.ejb.phone.PhoneBean#setPhoneTypeId
      */
     void setPhoneTypeId(long phoneId, long phoneTypeId)
-                 throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -57,7 +57,7 @@ public interface Phone extends EJBObject {
      * @see com.topcoder.web.ejb.phone.PhoneBean#getPrimaryPhoneId
      */
     long getPrimaryPhoneId(long userId)
-             throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -65,7 +65,7 @@ public interface Phone extends EJBObject {
      * @see com.topcoder.web.ejb.phone.PhoneBean#setPrimaryPhoneId
      */
     void setPrimaryPhoneId(long userId, long phoneId)
-             throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
     /**
      *
@@ -73,6 +73,6 @@ public interface Phone extends EJBObject {
      * @see com.topcoder.web.ejb.phone.PhoneBean#isPrimaryPhoneId
      */
     boolean isPrimaryPhoneId(long userId, long phoneId)
-             throws RemoteException, EJBException;
+            throws RemoteException, EJBException;
 
 }

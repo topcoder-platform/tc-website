@@ -1,6 +1,8 @@
 package com.topcoder.web.tces.servlet.jsp.tag;
 
-import javax.servlet.jsp.tagext.*;
+import javax.servlet.jsp.tagext.TagData;
+import javax.servlet.jsp.tagext.TagExtraInfo;
+import javax.servlet.jsp.tagext.VariableInfo;
 
 public class RowIteratorTagInfo extends TagExtraInfo {
 

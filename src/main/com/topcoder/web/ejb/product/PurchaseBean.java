@@ -1,22 +1,18 @@
 package com.topcoder.web.ejb.product;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
-import com.topcoder.shared.util.DBMS;
+
+import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Date;
-import javax.ejb.EJBException;
 import javax.naming.NamingException;
-import java.rmi.RemoteException;
-import java.sql.SQLException;
+import javax.sql.DataSource;
+import java.sql.*;
 
 
 /**
@@ -30,12 +26,14 @@ public class PurchaseBean implements SessionBean {
     private SessionContext ctx;
 
     //required ejb methods
-    public void ejbActivate() {}
+    public void ejbActivate() {
+    }
 
     /**
      *
      */
-    public void ejbPassivate() {}
+    public void ejbPassivate() {
+    }
 
     /**
      *
@@ -47,7 +45,8 @@ public class PurchaseBean implements SessionBean {
     /**
      *
      */
-    public void ejbRemove() {}
+    public void ejbRemove() {
+    }
 
     /**
      *
@@ -84,28 +83,28 @@ public class PurchaseBean implements SessionBean {
 
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
-                                 new SimpleDB(),
-                                 (DataSource)ctx.lookup((String)
-                                 ctx.lookup(
-                                     "java:comp/env/idgen_datasource_name")),
-                                     "sequence_object",
-                                     "name",
-                                     "current_value",
-                                     9999999999L,
-                                     1,
-                                     true
-                                 );
+                        new SimpleDB(),
+                        (DataSource) ctx.lookup((String)
+                        ctx.lookup(
+                                "java:comp/env/idgen_datasource_name")),
+                        "sequence_object",
+                        "name",
+                        "current_value",
+                        9999999999L,
+                        1,
+                        true
+                );
             }
 
             ret = IdGenerator.nextId("PURCHASE_SEQ");
 
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement(
-                "INSERT INTO purchase (purchase_id, company_id, product_id, "+
-                "contact_id, paid) VALUES (?,?,?,?,?)"
+                    "INSERT INTO purchase (purchase_id, company_id, product_id, " +
+                    "contact_id, paid) VALUES (?,?,?,?,?)"
             );
             ps.setLong(1, ret);
             ps.setLong(2, companyId);
@@ -117,24 +116,24 @@ public class PurchaseBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException creating purchase");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating purchase");
         } catch (Exception e) {
             throw new EJBException("Exception creating purchase:\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "createPurchase");
+                            "createPurchase");
                 }
             }
 
@@ -166,7 +165,7 @@ public class PurchaseBean implements SessionBean {
      */
     public void setCompanyId(long purchaseId, long companyId) {
         log.debug("setCompanyId called...purchaseId: " + purchaseId +
-                  " companyId: " + companyId);
+                " companyId: " + companyId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -175,12 +174,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET company_id = ? " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, companyId);
             ps.setLong(2, purchaseId);
 
@@ -188,24 +187,24 @@ public class PurchaseBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating company_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating company_id");
         } catch (Exception e) {
             throw new EJBException("Exception updating company_id\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setCompanyId");
+                            "setCompanyId");
                 }
             }
 
@@ -235,7 +234,7 @@ public class PurchaseBean implements SessionBean {
      */
     public void setProductId(long purchaseId, long productId) {
         log.debug("setProductId called...purchaseId: " + purchaseId +
-                  " productId: " + productId);
+                " productId: " + productId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -244,12 +243,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET product_id = ? " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, productId);
             ps.setLong(2, purchaseId);
 
@@ -257,24 +256,24 @@ public class PurchaseBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating product_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating product_id");
         } catch (Exception e) {
             throw new EJBException("Exception updating product_id\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setProductId");
+                            "setProductId");
                 }
             }
 
@@ -304,7 +303,7 @@ public class PurchaseBean implements SessionBean {
      */
     public void setContactId(long purchaseId, long contactId) {
         log.debug("setContactId called...purchaseId: " + purchaseId +
-                  " contactId: " + contactId);
+                " contactId: " + contactId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -313,12 +312,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET contact_id = ? " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, contactId);
             ps.setLong(2, purchaseId);
 
@@ -326,24 +325,24 @@ public class PurchaseBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating contact_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating contact_id");
         } catch (Exception e) {
             throw new EJBException("Exception updating contact_id\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setContactId");
+                            "setContactId");
                 }
             }
 
@@ -373,7 +372,7 @@ public class PurchaseBean implements SessionBean {
      */
     public void setStartDate(long purchaseId, Date startDate) {
         log.debug("setStartDate called...purchaseId: " + purchaseId +
-                  " startDate: " + startDate);
+                " startDate: " + startDate);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -382,12 +381,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET start_date = ? " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setDate(1, startDate);
             ps.setLong(2, purchaseId);
 
@@ -395,24 +394,24 @@ public class PurchaseBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating start_date");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating start_date");
         } catch (Exception e) {
             throw new EJBException("Exception updating start_date\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setStartDate");
+                            "setStartDate");
                 }
             }
 
@@ -442,7 +441,7 @@ public class PurchaseBean implements SessionBean {
      */
     public void setEndDate(long purchaseId, Date endDate) {
         log.debug("setEndDate called...purchaseId: " + purchaseId +
-                  " endDate: " + endDate);
+                " endDate: " + endDate);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -451,12 +450,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET end_date = ? " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setDate(1, endDate);
             ps.setLong(2, purchaseId);
 
@@ -464,24 +463,24 @@ public class PurchaseBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating end_date");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating end_date");
         } catch (Exception e) {
             throw new EJBException("Exception updating end_date\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setEndDate");
+                            "setEndDate");
                 }
             }
 
@@ -522,12 +521,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT company_id FROM purchase " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, purchaseId);
 
             rs = ps.executeQuery();
@@ -536,14 +535,14 @@ public class PurchaseBean implements SessionBean {
                 ret = rs.getLong("company_id");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting companyId");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting companyId");
         } catch (Exception e) {
             throw new EJBException("Exception getting companyId\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -558,7 +557,7 @@ public class PurchaseBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getCompanyId");
+                            "getCompanyId");
                 }
             }
 
@@ -601,12 +600,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT product_id FROM purchase " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, purchaseId);
 
             rs = ps.executeQuery();
@@ -615,14 +614,14 @@ public class PurchaseBean implements SessionBean {
                 ret = rs.getLong("product_id");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting productId");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting productId");
         } catch (Exception e) {
             throw new EJBException("Exception getting productId\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -637,7 +636,7 @@ public class PurchaseBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getProductId");
+                            "getProductId");
                 }
             }
 
@@ -680,12 +679,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT contact_id FROM purchase " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, purchaseId);
 
             rs = ps.executeQuery();
@@ -694,14 +693,14 @@ public class PurchaseBean implements SessionBean {
                 ret = rs.getLong("contact_id");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting contactId");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting contactId");
         } catch (Exception e) {
             throw new EJBException("Exception getting contactId\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -716,7 +715,7 @@ public class PurchaseBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getContactId");
+                            "getContactId");
                 }
             }
 
@@ -759,12 +758,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT start_date FROM purchase " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, purchaseId);
 
             rs = ps.executeQuery();
@@ -773,14 +772,14 @@ public class PurchaseBean implements SessionBean {
                 ret = rs.getDate("start_date");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting startDate");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting startDate");
         } catch (Exception e) {
             throw new EJBException("Exception getting startDate\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -795,7 +794,7 @@ public class PurchaseBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getStartDate");
+                            "getStartDate");
                 }
             }
 
@@ -838,12 +837,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT end_date FROM purchase " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, purchaseId);
 
             rs = ps.executeQuery();
@@ -852,14 +851,14 @@ public class PurchaseBean implements SessionBean {
                 ret = rs.getDate("end_date");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting endDate");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting endDate");
         } catch (Exception e) {
             throw new EJBException("Exception getting endDate\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -874,7 +873,7 @@ public class PurchaseBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getEndDate");
+                            "getEndDate");
                 }
             }
 
@@ -910,12 +909,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT paid FROM purchase " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setLong(1, purchaseId);
 
             rs = ps.executeQuery();
@@ -924,14 +923,14 @@ public class PurchaseBean implements SessionBean {
                 ret = rs.getDouble("paid");
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException getting paid");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting paid");
         } catch (Exception e) {
             throw new EJBException("Exception getting paid\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (rs != null) {
                 try {
@@ -946,7 +945,7 @@ public class PurchaseBean implements SessionBean {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "getPaid");
+                            "getPaid");
                 }
             }
 
@@ -978,7 +977,7 @@ public class PurchaseBean implements SessionBean {
      */
     public void setPaid(long purchaseId, double paid) {
         log.debug("setPaid called...purchaseId: " + purchaseId +
-                  " paid: " + paid);
+                " paid: " + paid);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -987,12 +986,12 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup((String)ctx.lookup(
-                "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET paid = ? " +
-                                       "WHERE purchase_id = ?");
+                    "WHERE purchase_id = ?");
             ps.setDouble(1, paid);
             ps.setLong(2, purchaseId);
 
@@ -1000,24 +999,24 @@ public class PurchaseBean implements SessionBean {
 
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in update: " +
-                                       rows);
+                        rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(
-                                   true,
-                                   sqe);
+                    true,
+                    sqe);
             throw new EJBException("SQLException updating paid");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating paid");
         } catch (Exception e) {
             throw new EJBException("Exception updating paid\n" +
-                                   e.getMessage());
+                    e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement in " +
-                              "setPaid");
+                            "setPaid");
                 }
             }
 

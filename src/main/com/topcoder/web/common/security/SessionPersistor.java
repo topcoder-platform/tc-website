@@ -1,26 +1,26 @@
 package com.topcoder.web.common.security;
 
-import javax.servlet.http.*;
-import com.topcoder.shared.security.*;
+import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.Stack;
+import javax.servlet.http.HttpSession;
 import java.util.EmptyStackException;
+import java.util.Stack;
 
 /**
- * implementation of Persistor that will use an HttpSession object for persistence 
+ * implementation of Persistor that will use an HttpSession object for persistence
  * we'll be using this for authorization.
  */
 public class SessionPersistor implements Persistor {
     private final static Logger log = Logger.getLogger(SessionPersistor.class);
-    private static final String KEY_PREVPAGE     = "last-accessed-page";
+    private static final String KEY_PREVPAGE = "last-accessed-page";
     private HttpSession session;
 
     /** create a new instance bound to the given session */
     public SessionPersistor(HttpSession session) {
         this.session = session;
     }
-    
+
     public Object getObject(String key) {
         return session.getAttribute(key);
     }
@@ -38,15 +38,15 @@ public class SessionPersistor implements Persistor {
      * @param page
      */
     public void pushLastPage(String page) {
-        Stack pages = (Stack)session.getAttribute(KEY_PREVPAGE);
+        Stack pages = (Stack) session.getAttribute(KEY_PREVPAGE);
         String top = null;
         try {
-            top = (String)pages.peek();
+            top = (String) pages.peek();
+        } catch (EmptyStackException ee) {
         }
-        catch(EmptyStackException ee) {}
-        if( !page.equals(top) ) {
+        if (!page.equals(top)) {
             pages.push(page);
-            log.debug("last page set as "+page);
+            log.debug("last page set as " + page);
         }
     }
 
@@ -57,10 +57,9 @@ public class SessionPersistor implements Persistor {
      */
     public String popLastPage() {
         try {
-            Stack pages = (Stack)session.getAttribute(KEY_PREVPAGE);
-            return (String)pages.pop();
-        }
-        catch(EmptyStackException e) {
+            Stack pages = (Stack) session.getAttribute(KEY_PREVPAGE);
+            return (String) pages.pop();
+        } catch (EmptyStackException e) {
             return null;
         }
     }

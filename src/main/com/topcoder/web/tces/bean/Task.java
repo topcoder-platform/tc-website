@@ -1,26 +1,25 @@
 package com.topcoder.web.tces.bean;
 
+import com.topcoder.web.common.security.WebAuthentication;
+
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
-
-import com.topcoder.web.common.security.WebAuthentication;
 
 /**
  * A base interface for task processors called by the TCES controller.
  * @author bigjake <kitz@mit.edu>
- * 
+ *
  */
 
 public interface Task {
 
     /** Processes the given step of a task
-     * @param step Token identifying the step to process, null or empty 
+     * @param step Token identifying the step to process, null or empty
      *             for the default step.
      */
     void processStep(String step)
-        throws Exception;
+            throws Exception;
 
     /** Setter for property initialContext.
      * @param ctx New value of property initialContext.
@@ -45,27 +44,27 @@ public interface Task {
 
     /**
      * Sets up authentication token for current http session.
-     * 
+     *
      * @param auth
      */
     void setAuthToken(WebAuthentication auth);
 
 
-    /** Performs pre-task processing operations on the request and response 
+    /** Performs pre-task processing operations on the request and response
      *  from the Controller
      * @param request HttpServletRequest from a Controller
      * @param response HttpServletResponse from a Controller
      */
-    void servletPreAction(HttpServletRequest request, 
-            HttpServletResponse response) throws Exception;
+    void servletPreAction(HttpServletRequest request,
+                          HttpServletResponse response) throws Exception;
 
-    /** Performs post-task processing operations on the request and response 
+    /** Performs post-task processing operations on the request and response
      *  from the Controller
      * @param request HttpServletRequest from a Controller
      * @param response HttpServletResponse from a Controller
      */
-    void servletPostAction(HttpServletRequest request, 
-            HttpServletResponse response) throws Exception;
+    void servletPostAction(HttpServletRequest request,
+                           HttpServletResponse response) throws Exception;
 
     /** Initial setter for task-processing attributes
      * @param paramName Name of the attribute to set

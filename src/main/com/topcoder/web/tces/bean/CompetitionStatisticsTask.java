@@ -6,20 +6,22 @@
 
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.JSPUtils;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.web.tces.common.TCESConstants;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /** Processes the competition statistics task.
  * @author George Dean
@@ -52,13 +54,13 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
      * @param name The name of the statistic to be retrieved.
      * @return The value of the requested statistic, or an empty
      * string if the requested item is not available.
-     */    
-    public String getStatistic(String name){
-        try{
+     */
+    public String getStatistic(String name) {
+        try {
             return JSPUtils.autoFormat(getCompetitionStats().getItem(name));
-        }catch(NullPointerException npe){
+        } catch (NullPointerException npe) {
             log.debug("Null pointer exception in CompetitionStatisticsTask.getStatistic(\""
-                      + name + "\")");
+                    + name + "\")");
             return "";
         }
     }
@@ -68,14 +70,14 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         super();
         setNextPage(TCESConstants.COMPETITION_STATISTICS_PAGE);
 
-        uid=-1;
+        uid = -1;
     }
 
     /** Performs pre-processing for the task.
      * @param request The servlet request object.
      * @param response The servlet response object.
      * @throws Exception
-     */    
+     */
 //    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
 //        throws Exception
 //    {
@@ -84,27 +86,27 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
 //    }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception {
+            throws Exception {
 
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-            TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-            TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM + 
-            "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+                TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+                TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM +
+                "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
 
     }
@@ -112,7 +114,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     /** Processes the given step or phase of the task.
      * @param step The step to be processed.
      * @throws Exception
-     */    
+     */
     public void processStep(String step) throws Exception {
         viewCompetitionStatistics();
     }
@@ -121,55 +123,55 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_competition_statistics");
 
-        dataRequest.setProperty("uid", Long.toString(uid) );
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-        dataRequest.setProperty("jid", Integer.toString(getJobID()) );
-        dataRequest.setProperty("mid", Integer.toString(getMemberID()) );
-        dataRequest.setProperty("rd", Integer.toString(getRoundID()) );
+        dataRequest.setProperty("uid", Long.toString(uid));
+        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
+        dataRequest.setProperty("jid", Integer.toString(getJobID()));
+        dataRequest.setProperty("mid", Integer.toString(getMemberID()));
+        dataRequest.setProperty("rd", Integer.toString(getRoundID()));
 
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No member handle!");
+            throw new Exception("No member handle!");
         }
         ResultSetContainer.ResultSetRow handleRow = rsc.getRow(0);
-        setHandle( handleRow.getItem("handle").toString() );
+        setHandle(handleRow.getItem("handle").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0) {
-            throw new TCESAuthenticationException ("mid="+Integer.toString(getMemberID())+
-                                 " jid="+Integer.toString(getJobID())+
-                                 " cid="+Integer.toString(getCampaignID())+
-                                 " does not belong to uid="+Long.toString(uid) );
+            throw new TCESAuthenticationException("mid=" + Integer.toString(getMemberID()) +
+                    " jid=" + Integer.toString(getJobID()) +
+                    " cid=" + Integer.toString(getCampaignID()) +
+                    " does not belong to uid=" + Long.toString(uid));
         }
 
-        dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
+        dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         resultMap = dai.getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Comp_Stats");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No competition data!");
+            throw new Exception("No competition data!");
         }
-        setCompetitionStats( rsc.getRow(0) );
+        setCompetitionStats(rsc.getRow(0));
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Comp_Stats_by_Level");
-        setCoderStatsByLevel( (List)rsc );
+        setCoderStatsByLevel((List) rsc);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Overall_Comp_Stats_by_Level");
-        setOverallStatsByLevel( (List)rsc );
+        setOverallStatsByLevel((List) rsc);
 
-        setNextPage( TCESConstants.COMPETITION_STATISTICS_PAGE );
+        setNextPage(TCESConstants.COMPETITION_STATISTICS_PAGE);
     }
 
     /** Sets attributes for the task.
      * @param paramName The name of the attribute being set.
      * @param paramValues The values to be associated with the given attribute.
-     */    
+     */
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));

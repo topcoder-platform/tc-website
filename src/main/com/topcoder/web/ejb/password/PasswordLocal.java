@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.password;
 
-import com.topcoder.security.*;
+import com.topcoder.security.GeneralSecurityException;
 
 public interface PasswordLocal extends javax.ejb.EJBLocalObject {
 
