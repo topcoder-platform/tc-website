@@ -98,7 +98,7 @@ submission rate, but only a 52% success rate.  The key points to remember were t
 a game until a new game starts.  Other than that, it was just a matter of looping through all the characters in the input and performing the appropriate operations.  See <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge's</A> 
 solution for a good, short implementation.</P>
 <P>CleanupCrew - 1050<BR/>
-No matter how many toys your opponent picks up, you can always pick up a number of toys such that there are k+1 less toys in that pile than there were in the pile before your opponent's turn.  
+No matter how many toys your opponent picks up, you can always pick up a number of toys such that there are k+1 less toys in that pile than there were in the pile before your opponents turn.  
 This can easily be seen by noting that player A must first pick up k+1-n toys, for some n between 1 and k.  Player B may then pick up n toys so that a total of k+1 toys have been picked up.  
 If player B does not pick up n toys, but picks up m toys instead, then player A can pick up k+1-n-m or 2k+2-n-m toys (whichever one is between 1 and k).  Thus either player can force the game 
 to come down to the point where the sizes of the piles are all the input size modulo k + 1.  At this point the problem can be solved easily with dynamic programming by working backwards 
@@ -122,7 +122,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">99.07%</TD>
 	<TD CLASS="bodyText" ALIGN="right">96.28%</TD>
 	<TD CLASS="bodyText" ALIGN="right">221</TD>
-	<TD CLASS="bodyText" ALIGN="center">NDBronson<BR/>244.20</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson<BR/>244.20</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
@@ -131,7 +131,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">95.81%</TD>
 	<TD CLASS="bodyText" ALIGN="right">51.63%</TD>
 	<TD CLASS="bodyText" ALIGN="right">326</TD>
-	<TD CLASS="bodyText" ALIGN="center">Logan<BR/>412.42</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">Logan<BR/>412.42</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
@@ -140,7 +140,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">30.23%</TD>
 	<TD CLASS="bodyText" ALIGN="right">11.16%</TD>
 	<TD CLASS="bodyText" ALIGN="right">631</TD>
-	<TD CLASS="bodyText" ALIGN="center">thekcc<BR/>981.45</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">thekcc<BR/>981.45</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
@@ -153,7 +153,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">97.65%</TD>
 	<TD CLASS="bodyText" ALIGN="right">97.07%</TD>
 	<TD CLASS="bodyText" ALIGN="right">240</TD>
-	<TD CLASS="bodyText" ALIGN="center">kokon<BR/>249.16</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">kokon<BR/>249.16</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
@@ -162,7 +162,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">91.79%</TD>
 	<TD CLASS="bodyText" ALIGN="right">79.47%</TD>
 	<TD CLASS="bodyText" ALIGN="right">372</TD>
-	<TD CLASS="bodyText" ALIGN="center">WhiteShadow<BR/>478.40</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">WhiteShadow<BR/>478.40</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
@@ -171,7 +171,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">47.80%</TD>
 	<TD CLASS="bodyText" ALIGN="right">3.23%</TD>
 	<TD CLASS="bodyText" ALIGN="right">601</TD>
-	<TD CLASS="bodyText" ALIGN="center">antimatter<BR/>742.48</TD>
+	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">antimatter<BR/>742.48</A></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 </TABLE></DIV></P>

@@ -23,8 +23,8 @@
 		<TD COLSPAN="2" HEIGHT="15" BACKGROUND="/i/footer_graphic_tile.gif" ALIGN="left"><IMG SRC="/i/footer_graphic.gif" WIDTH="710" HEIGHT="16" BORDER="0"/></TD>
 	</TR>
 	<TR>
-		<TD WIDTH="20" VALIGN="top" BGCOLOR="#666666" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
-		<TD WIDTH="100%" VALIGN="top" ALIGN="left" BGCOLOR="#666666" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
+		<TD WIDTH="20" VALIGN="top" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
+		<TD WIDTH="100%" VALIGN="top" ALIGN="left" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 		<SPAN CLASS="smallFoot"><A HREF="/reg/index.jsp" CLASS="smallFoot" TARGET="_parent">register</A>&#160;&#160;::&#160;&#160;<!-- <A HREF="#" CLASS="smallFoot">login</A>&#160;&#160;::&#160;&#160; --><A HREF="/?t=about_tc&amp;c=index" CLASS="smallFoot" TARGET="_parent">about [TC]</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=contacts&amp;c=index" CLASS="smallFoot" TARGET="_parent">contacts</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=&amp;c=privacy" CLASS="smallFoot" TARGET="_parent">privacy</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=&amp;c=terms" CLASS="smallFoot" TARGET="_parent">terms</A>&#160;&#160;::&#160;&#160;
 		<A HREF="/?t=home&amp;c=public_home" CLASS="smallFoot" TARGET="_parent">[TC] home</A></SPAN><BR/><SPAN CLASS="smallText">Copyright &#169; 2002, TopCoder Inc. All rights reserved.</SPAN><BR/><BR/><BR/></TD>
 	</TR>

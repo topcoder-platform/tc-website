@@ -75,7 +75,7 @@ Every competition has them.  The 1980 "Miracle on Ice" US Men's Ice Hockey Team,
             </TR> 
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="Logan"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Northeast Region</TD>
@@ -118,7 +118,7 @@ Every competition has them.  The 1980 "Miracle on Ice" US Men's Ice Hockey Team,
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="evd"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Northeast Region</TD>
@@ -161,7 +161,7 @@ Every competition has them.  The 1980 "Miracle on Ice" US Men's Ice Hockey Team,
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="bigg_nate"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Northeast Region</TD>
@@ -204,7 +204,7 @@ Every competition has them.  The 1980 "Miracle on Ice" US Men's Ice Hockey Team,
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="po"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;West Region</TD>
@@ -251,7 +251,7 @@ By finishing in sixth place of Room 4 with 427.01 final points during the Region
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="derkuci"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;West Region</TD>
@@ -294,7 +294,7 @@ By finishing in sixth place of Room 4 with 427.01 final points during the Region
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="ante"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;West Region</TD>

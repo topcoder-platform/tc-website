@@ -19,6 +19,17 @@
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+<script Language="JavaScript">
+
+
+function open_window(url) {
+mywin =
+window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=433,height=288');
+
+}
+
+
+</script>      
       </HEAD>
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <xsl:call-template name="Top"/>
@@ -45,7 +56,7 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">statisticsw</xsl:with-param>
-  <xsl:with-param name="title">&#160;2002&#160;TCCC&#160;Semifinal&#160;Room&#160;1</xsl:with-param>
+  <xsl:with-param name="title">&#160;Room&#160;1:&#160;Summary&#160;&amp;&#160;Photos</xsl:with-param>
 </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
   <TR>
@@ -69,43 +80,80 @@
             </TR>                                             
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
-<P><IMG SRC="/i/tourney_photo_comp.jpg" ALT="" WIDTH="200" HEIGHT="435" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
-<FONT SIZE="4" COLOR="#000000" FACE="tahoma, verdana"><B>Round One - NDBronson Looks Strong</B></FONT><BR/>
+<P><IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Room 1 - Upset City!</B></FONT><BR/>
+<I>Well rested derkuci advances to finals.</I><BR/><BR/>
 Friday, April 19, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 </P>
-
+<!-- <A HREF="/index?t=statistics&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A> -->
 
 <P>
-In the first round of the afternoon, <A HREF="#" CLASS="bodyGeneric">NDBronson</A> put on an impressive display as the only member in his
- round to complete all three problems in the "Coding Phase".  He earned 187.51 points on the Level One
-<IMG SRC="/i/coder_quote.gif" ALT="" WIDTH="140" HEIGHT="140" HSPACE="8" VSPACE="0" ALIGN="right" BORDER="0"/>
-Problem, 460.18 on the Level Two problem, and 497.10 on the Level Three problem for a total of 1144.79 points.  
+While they yawned and wiped the sleep out from their eyes, the four coders in the 8am round of the 2002 Sun 
+Microsystems and TopCoder Collegiate Challenge performed before a crowd reminiscent <IMG SRC="/i/2002tccc/coder_quote2.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/>of a Montreal Expos home 
+game, although the tension filled atmosphere provided as much passion as Game Seven of The World Series.
 </P>
 
 <P>
-"I was really happy with my performance in the Coding Phase," said <A HREF="#" CLASS="bodyGeneric">NDBronson</A>.  "I took my time and analyzed 
-the problem statement, but still had enough time to submit my code for a good number of points for 
-each problem."  
+At about 9:50 am, everyone's eyes had cleared enough to see that Cal Tech's <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> had pulled off a huge 
+
+upset and advanced to Saturday's final with 600.27 final points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, who began the competition as 
+the 13th Seed in the West region, defeated <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+ (466.07 final points), who was the top-seed in the 
+MidWest region and the Regional Champion, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> (180.11), the top-seed in Southeast region, and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> 
+(93.30), the MidWest's second seed.
 </P>
 
 <P>
-<A HREF="#" CLASS="bodyGeneric">Logan</A>, 605.28 points, and malpt, 588.88, submitted code for two of the problems, and found themselves 
-in second and third place, respectively after the coding phase.  <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A> submitted code for only 
-the Level One problem, and earned 155.41 points.  "I noticed the point total of <A HREF="#" CLASS="bodyGeneric">NDBronson</A> after the 
-Coding Phase, and knew it was going to be tough to catch him," said <A HREF="#" CLASS="bodyGeneric">Logan</A>.  
+The competition started with all four coders opening the Level One problem.  After compiling and testing 
+for over 20 minutes, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+, followed minutes after by <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, stopped coding the Level One problem 
+and opened the Level Two problem.  "It was just too tedious," said <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  "I had already spent plenty 
+of time on it, and needed to move on."  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the first to submit code for the Level One problem, 
+and earned 180.11 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> stuck with the problem for a long time and ended up earning 140.90.
 </P>
 
 <P>
-<A HREF="#" CLASS="bodyGeneric">NDBronson</A> was 1-for-2 in the "Challenge Phase", successfully challenging the Level Two submission of malpt, but failing in his attempt to challenge the Level Two submission of <A HREF="#" CLASS="bodyGeneric">Logan</A>.  <A HREF="#" CLASS="bodyGeneric">Logan</A> and <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A> didn't attempt any challenges, and so their point totals remained the same through the Challenge Phase, but besides losing the 398.91 points gained when <A HREF="#" CLASS="bodyGeneric">NDBronson</A> challenged his Level Two submission, malpt lost 100 additional points on two unsuccessful challenges - the Level Two submission of <A HREF="#" CLASS="bodyGeneric">Logan</A> and the Level One submission of <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A>.  
+Following suit, everyone next opened, compiled and submitted the Level Two problem.  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the 
+quickest to submit and earned 476.36 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> was the fourth to open the problem, but earned 
+the second highest point total, 459.37.  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+ earned 416.07 and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> earned 407.77.
 </P>
 
 <P>
-<A HREF="#" CLASS="bodyGeneric">NDBronson</A> watched all three of his codes pass the system test to win the round and advance to the finals.  Only the Level One submission of <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A> failed the system test, leaving him with zero points.  <A HREF="#" CLASS="bodyGeneric">Logan</A> finished second in the round, as both of his submissions passed the system test, while malpt and <A HREF="#" CLASS="bodyGeneric">ColinMacLeod</A> finished third and fourth, respectively.  
+All four coders had enough time to open the Level Three problem, but only <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>, 491.61 points, 
+and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 483.41, were able to submit their codes before the "Coding Phase" ended.  As a matter 
+of fact, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> submitted his Level Three code with just seconds remaining.
 </P>
 
 <P>
-"I'm really excited to be heading to the finals," added <A HREF="#" CLASS="bodyGeneric">NDBronson</A>.  "I know that <A HREF="#" CLASS="bodyGeneric">dmwright</A> and <A HREF="#" CLASS="bodyGeneric">jonmac</A> have already advanced, so I'm looking forward to a very tough battle.  Having the three top-rated members in the finals is what championship competitions are all about!"
+At the end of the "Coding Phase", <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> led with 1148.08 points.  He was followed by <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> 
+(984.48), <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> (600.27), and <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+ (416.07).  
+</P>
+
+<P>
+Although there was a lot of activity during the "Challenge Phase", the <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+ challenge of 
+the Level Two submission of <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the only success of the phase.  That challenge cost 
+<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> the 466.07 points he earned on that problem, and caused him to drop to second place.  
+<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> was the leader heading to the "System Test Phase".
+</P>
+
+<P>
+The Level One submissions of <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>, and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> all passed the system test.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> 
+also had his Level Two submission pass, as did <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+, but <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> failed.  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 
+the only two to submit code for the Level Three problem, saw their codes fail.  "I thought my Level 
+Two submission was right, but it ended up timing out," said <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  "I knew my Level Three submission was wrong."
+</P>
+
+<P>
+"I feel great," said <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>.  "I brought my lap-top with me and last night went to the library 
+and practiced two problems in the TopCoder practice rooms.  I then got a good nights rest to sleep 
+off the jet lag.  I usually go to bed at 3 or 4am, but last night was in bed at 11pm."
 </P>
 
           </TD>
@@ -122,13 +170,28 @@ Coding Phase, and knew it was going to be tough to catch him," said <A HREF="#" 
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
             </TR>                                             
             <TR>
-              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
-<DIV ALIGN="center"><IMG SRC="/i/2002tccc/photo_temp.jpg" ALT="" WIDTH="400" HEIGHT="265" BORDER="0"/></DIV><BR/>
-<DIV ALIGN="center"><IMG SRC="/i/2002tccc/photo_temp.jpg" ALT="" WIDTH="400" HEIGHT="265" BORDER="0"/></DIV><BR/>
-<DIV ALIGN="center"><IMG SRC="/i/2002tccc/photo_temp.jpg" ALT="" WIDTH="400" HEIGHT="265" BORDER="0"/></DIV><BR/>
-
-          </TD>
-            </TR>                       
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR101')"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR102')"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR103')"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR104')"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              </TD>
+            </TR>
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR105')"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR106')"><IMG SRC="/i/2002tccc/SFR106_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR107')"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR108')"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              </TD>
+            </TR>            
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR109')"><IMG SRC="/i/2002tccc/SFR109_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR110')"><IMG SRC="/i/2002tccc/SFR110_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=SFR111')"><IMG SRC="/i/2002tccc/SFR111_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              </TD>
+            </TR>                  
           </TABLE>
           <P><br/></P>
     </TD>

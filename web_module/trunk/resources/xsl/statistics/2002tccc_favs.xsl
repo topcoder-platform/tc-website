@@ -118,7 +118,7 @@ With top-seeded pl31415 being eliminated in the Regional Finals, <A HREF="/?t=st
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="ambrose"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Southeast Region</TD>
@@ -204,7 +204,7 @@ With top-seeded pl31415 being eliminated in the Regional Finals, <A HREF="/?t=st
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="dmwright"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;West Region</TD>

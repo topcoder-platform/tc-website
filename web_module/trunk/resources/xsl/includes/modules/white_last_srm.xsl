@@ -28,10 +28,12 @@
 <P>
 <SPAN CLASS="bodyTextBold">Single Round Match 80</SPAN><BR/>
 Monday, April 15, 2002<BR/>
-By Adam Loss, <I>TopCoder Staff Writer</I><BR CLEAR="all"/>
+By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
+<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Get the summary</A> or <A HREF="/stat?c=last_match" CLASS="bodyGeneric">View Match Results</A>
+<BR CLEAR="all"/>
 </P>
 					
-<P><B>Division-I</B><BR/>
+<!-- <P><B>Division-I</B><BR/>
 Four Division-I coders used two challenges for come-from-behind room wins.
 </P>
 <P>
@@ -44,18 +46,15 @@ In Room 12, <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
 	</TR>			
 	<TR>
-		<TD VALIGN="middle" CLASS="bodyTextBold">Division-II<!-- Southeast Region --> </TD>
+		<TD VALIGN="middle" CLASS="bodyTextBold">Division-II</TD>
 	</TR>
-	<!-- <TR>
-		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-	</TR> -->	
  	<TR>
 		<TD CLASS="bodyText" VALIGN="top">
 <P>
 <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">b0b0b0b</A> was the top-scorer in Division-II, earning 1522.93 final points to win Room 33.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">b0b0b0b</A> earned 248.17 points on the Level One problem, 543.28 on the Level Two problem, and 731.48 on the Level Three problem
 
 ...&#160;<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A>.
-</P>
+</P> -->
        </TD>
 	</TR>
 <!-- <P>

@@ -80,7 +80,7 @@ For additional questions regarding the Competition Arena, take a look at the <A 
                                     
                                     <UL CLASS="bodyText">
                                         <LI>
-                                            <B><A HREF="/index?t=support&amp;c=index" CLASS="bodyText">Competition Arena: General Information</A></B>
+                                            <B><A HREF="/support/index.shtml" CLASS="bodyText">Competition Arena: General Information</A></B>
                                             <UL>
                                                 <LI>Login</LI>
                                                 <LI>Lobby Area</LI>
@@ -90,7 +90,7 @@ For additional questions regarding the Competition Arena, take a look at the <A 
                                         </LI>
                                         <BR/>
                                         <LI>
-                                            <B><A HREF="/index?t=support&amp;c=comp_process" CLASS="bodyText">Competition Arena: Competition Process Overview</A></B>
+                                            <B><A HREF="/support/process.shtml" CLASS="bodyText">Competition Arena: Competition Process Overview</A></B>
                                             <UL CLASS="bodyText">
                                                 <LI>Beginning a Contest Round</LI>
                                                 <LI>Contest Phases
@@ -112,7 +112,7 @@ For additional questions regarding the Competition Arena, take a look at the <A 
                                         </LI>
                                         <BR/>
                                         <LI>
-                                            <B><A HREF="/index?t=support&amp;c=guide">Visual Guide</A></B>
+                                            <B><A HREF="/support/guide">Visual Guide</A></B>
                                             <UL CLASS="bodyText">
                                                 <LI>
                                                     <A HREF="/index?t=support&amp;c=guide" CLASS="bodyText"><B>Figure 1.</B> Login</A>
