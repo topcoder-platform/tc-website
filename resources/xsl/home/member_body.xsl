@@ -403,7 +403,7 @@
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
                             <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>2003 TCCC Round 1 NE/SE</strong></a><br />
-                            Tuesday, February 11, 2003<br /><br />
+                            Thursday, February 20, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -485,24 +485,24 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
                 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;lbackstrom<br /><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;Yarin<br /><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="tahoma, verdana"><strong>2003 TCCC Round 1 NE/SE</strong></font></td>
+                        <font size="2" color="#000000" face="tahoma, verdana"><strong>2003 TCCC Round 1 W/MW</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_nese_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_wmw_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>The first problem set of the collegiate challenge turned out to be a little bit trickier than previous first round
-    problem sets have been, though still easier than the average division 1 problem set.  Only 191 people competed
-    from the two regions, and of those only 113 ended up with positive points - 78 from the northeast, and 35 from the
-    southeast.  dgarthur was able to complete all three of the problems in an impressive 35 minutes, and with 50 points
-    from the challenge phase, he easily took first.  In second, 160 points behind, is insomnia, with 4 successful
-    challenges.  Good luck to everyone in the next round! <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_nese_prob</xsl:attribute>Get the analysis</a></p>
+                        <p>The first round for the students in the W/MW regions was maybe a little easier than for those competing two days
+    ago. The medium and the hard problem had low acceptance rate; the medium had several potential traps and special
+    cases that you could fall in, and the hard involved geometry, a topic that can scare any TopCoder. Luckily the
+    easy problem was easier, and since all that mattered was getting a positive score to advance to the next round
+    (due to the low number of competitors), you only had to solve this one to be safe. <b>bigg_nate</b> got the top
+    score, an impressive <b>1415.93</b> points, more than 200 points ahead of the runner-up.</p>
                     </td>
                 </tr>
             </table>
