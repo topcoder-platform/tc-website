@@ -60,6 +60,15 @@
                   <td class=tableTextOdd align=center><span class=bigRed>26:59</span></td>
                </tr>      
             </table>
+            <br>
+
+<%-- IF LAST PROBLEM SET, "CONTINUE" GOES TO MAIN, OTHERWISE IT GOES TO NEXT SET --%>
+            <table width="100%" cellspacing=0 cellpadding=0>
+               <tr>
+                  <td class=bodyCell100 align=right>Click the continue button to start &lt;NEXT SET NAME&gt;&#160;&#160;</td>
+                  <td align=right><img src="/i/corp/screening/buttonContinue.gif" alt=""/></td>
+               </tr>
+            </table>
 
             </td>
             <td class=bodyR>&#160;</td>
