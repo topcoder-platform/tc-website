@@ -36,7 +36,7 @@
                        <FONT SIZE="3" COLOR="#666666"><B>Candidate Evaluation Application</B></FONT><BR><BR>
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-                      <A HREF="#" CLASS="bodyText">Learn More &gt;</A>
+                      <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" CLASS="bodyText">Learn More &gt;</A>
                        </TD>
                        <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="8" HEIGHT="1"></TD>
                        <TD VALIGN="top" BGCOLOR="#CCCCCC"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1"></TD>
@@ -46,7 +46,7 @@
                        Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
                        tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, q
-                      <A HREF="/tces/tces?task=MainTask" CLASS="bodyText">Learn More &gt;</A>                 
+                      <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index" CLASS="bodyText">Learn More &gt;</A>                 
                        </TD>
                 </TR>
                 <TR>
@@ -77,7 +77,7 @@
                        tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, qt. Ut 
                        wisi enim adminim veniam, quis nostrud exerci. 
                        tuer adipiscing elit, sedsed dagna aliquam erat volu adminim veniam, qveniam, q
-                      <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=acc_admin&d2=index" CLASS="bodyText">Learn More &gt;</A>                      
+                      <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=acc_admin&d2=index" CLASS="bodyText">Manage Account&nbsp;&gt;</A>                      
                        </TD>
                 </TR>
                 <TR>
