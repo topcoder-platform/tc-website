@@ -192,29 +192,35 @@ The command is used to search blob objects based on a phrase. This command shoul
 The command is used to search text fields based on a phrase. This command should allow a user to choose a database table and a column and provide a phrase to search for.
                                     <BR/>
                                     <BR/>
+                                    <b>Verification</b>
+                                    <BR/>
+                                    <BR/>
+TopCoder would like an easy way to verify that competitions are setup correctly.  The command should display, in a nice format, relevant competition data. 
+                                    <BR/>
+                                    <BR/>
                                     <BR/>
                                     <BR/>
                                     <b>Payment</b>
                                     <BR/>
                                     <BR/>
-                                    Architect will get paid a total of $1,800.00:
+                                    Architect will get paid a total of $2,100.00:
+                                    <ul>
+                                        <li>$210.00 at the start of the project.</li>
+                                        <li>$1050.00 on June 5th.</li>
+                                        <li>$840.00 at the completion of the project.* </li>
+                                    </ul>
+                                    There will be a total of two developers.<br/>
+                                    Each developer will get paid a total of $3,600.00:
+                                    <ul>
+                                        <li>$360.00 at the start of the project.</li>
+                                        <li>$1800.00 on June 5th.</li>
+                                        <li>$1440.00 at the completion of the project.*</li>
+                                    </ul>
+                                    QA Developer will get paid a total of $1,800.00:
                                     <ul>
                                         <li>$180.00 at the start of the project.</li>
                                         <li>$900.00 on June 5th.</li>
                                         <li>$720.00 at the completion of the project.* </li>
-                                    </ul>
-                                    There will be a total of two developers.<br/>
-                                    Each developer will get paid a total of $2,400.00:
-                                    <ul>
-                                        <li>$240.00 at the start of the project.</li>
-                                        <li>$1200.00 on June 5th.</li>
-                                        <li>$960.00 at the completion of the project.*</li>
-                                    </ul>
-                                    QA Developer will get paid a total of $1,200.00:
-                                    <ul>
-                                        <li>$120.00 at the start of the project.</li>
-                                        <li>$600.00 on June 5th.</li>
-                                        <li>$480.00 at the completion of the project.* </li>
                                     </ul>
 *Completion of the project is defined as follows: 
                                     <ul>
