@@ -192,9 +192,9 @@
 
 <pre>                        
 for(int i = 0; i&lt;(1&lt;&lt;n); i++){
-        if(cardinality(i)==teamSize){
-                //i represents a set of the correct size, so figure out the score.
-        }
+   if(cardinality(i)==teamSize){
+      //i represents a set of the correct size, so figure out the score.
+   }
 } 
 </pre>
 
@@ -209,11 +209,11 @@ for(int i = 0; i&lt;(1&lt;&lt;n); i++){
 //i represents a set of the correct size, so figure out the score.
 int score = 0;
 for(int j = 0; j&lt;n; j++){
-      for(int k = 0; k&lt;n; k++){
-            if(((1&lt;&lt;j)&#38;i)&gt;0 &#38;&#38; ((1&lt;&lt;k)&#38;i)&gt;0){
-                  score += g[j][k];
-            }
+   for(int k = 0; k&lt;n; k++){
+      if(((1&lt;&lt;j)&#38;i)&gt;0 &#38;&#38; ((1&lt;&lt;k)&#38;i)&gt;0){
+         score += g[j][k];
       }
+   }
 }
 </pre>
                         
@@ -224,41 +224,41 @@ for(int j = 0; j&lt;n; j++){
 <pre>
 import java.util.*;
 public class PickTeam{
-        int cardinality(int n){return n==0?0:(n&#38;1)+cardinality(n&gt;&gt;1);}
-        public String[] pickPeople(int teamSize, String[] people){
-                String ret[] = new String[teamSize];
-                int max = -1000000;
-                int n = people.length;
-                int[][] g = new int[n][n];
-                for(int i = 0; i&lt;n; i++){
-                        for(int j = 0; j&lt;n; j++){
-                                g[i][j] = Integer.parseInt(people[i].split(" ")[j+1]);
-                        }
-                        people[i] = people[i].split(" ")[0];
-                }
-                for(int i = 0; i&lt;(1&lt;&lt;n); i++){
-                        if(cardinality(i)==teamSize){
-                                int score = 0;
-                                for(int j = 0; j&lt;n; j++){
-                                        for(int k = 0; k&lt;n; k++){
-                                                if(((1&lt;&lt;j)&#38;i)&gt;0 &#38;&#38; ((1&lt;&lt;k)&#38;i)&gt;0){
-                                                        score += g[j][k];
-                                                }
-                                        }
-                                }
-                                if(score&gt;max){
-                                        max = score;
-                                        for(int j = 0, ptr = 0; j&lt;n; j++){
-                                                if((i&#38;(1&lt;&lt;j))&gt;0){
-                                                        ret[ptr++] = people[j];
-                                                }
-                                        }
-                                }
-                        }
-                }
-                Arrays.sort(ret);
-                return ret;
-        }
+     int cardinality(int n){return n==0?0:(n&#38;1)+cardinality(n&gt;&gt;1);}
+     public String[] pickPeople(int teamSize, String[] people){
+         String ret[] = new String[teamSize];
+         int max = -1000000;
+         int n = people.length;
+         int[][] g = new int[n][n];
+         for(int i = 0; i&lt;n; i++){
+               for(int j = 0; j&lt;n; j++){
+                  g[i][j] = Integer.parseInt(people[i].split(" ")[j+1]);
+               }
+               people[i] = people[i].split(" ")[0];
+         }
+         for(int i = 0; i&lt;(1&lt;&lt;n); i++){
+            if(cardinality(i)==teamSize){
+               int score = 0;
+               for(int j = 0; j&lt;n; j++){
+                  for(int k = 0; k&lt;n; k++){
+                     if(((1&lt;&lt;j)&#38;i)&gt;0 &#38;&#38; ((1&lt;&lt;k)&#38;i)&gt;0){
+                        score += g[j][k];
+                     }
+                  }
+               }
+               if(score&gt;max){
+                  max = score;
+                  for(int j = 0, ptr = 0; j&lt;n; j++){
+                     if((i&#38;(1&lt;&lt;j))&gt;0){
+                        ret[ptr++] = people[j];
+                     }
+                  }
+               }
+            }
+         }
+         Arrays.sort(ret);
+         return ret;
+     }
 } 
 </pre>
 
@@ -274,12 +274,12 @@ public class PickTeam{
                         </p>
 <pre>
 void recurse(int subset, int ptr){
-        if(ptr==n){
-                //there are no more elements to cosider adding, so evaluated the subset as above
-        }else{
-                recurse(subset,ptr+1);
-                recurse(subset|(1&lt;&lt;ptr),ptr+1);
-        }
+   if(ptr==n){
+        //there are no more elements to cosider adding, so evaluated the subset as above
+   }else{
+      recurse(subset,ptr+1);
+      recurse(subset|(1&lt;&lt;ptr),ptr+1);
+   }
 }
 </pre>
 
@@ -296,7 +296,7 @@ void recurse(int subset, int ptr){
                         <tr><td style="background: #eee;" class="bodyText"><b>Value</b></td><td style="background: #eee;" class="bodyText">450</td></tr>
                         <tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td><td style="background: #eee;" class="bodyText">61 / 128 (47.66%)</td></tr>
                         <tr><td style="background: #eee;" class="bodyText"><b>Success Rate</b></td><td style="background: #eee;" class="bodyText">42 / 61 (68.85%)</td></tr>
-                        <tr><td style="background: #eee;" class="bodyText"><b>High Score</b></td><td style="background: #eee;" class="bodyText"><b>LunaticFringe</b> for 419.36 points</td></tr>
+                        <tr><td style="background: #eee;" class="bodyText"><b>High Score</b></td><td style="background: #eee;" class="bodyText"><b>antimatter</b> for 419.36 points</td></tr>
                         </table>
                         </blockquote>
                         
@@ -350,18 +350,18 @@ into code should go pretty quick:
 
 <pre>
 public double probability(int[] assignments, int ids){
-        double p1 = 1;
-        double p2 = 1;
-        double d = ids;
-        for(int i = 0; i&lt;assignments.length; i++){
-            if(assignments[i]&gt;ids)return 0;
-            int n = ids;
-            for(int j = 0; j&lt;assignments[i]; j++){
-                p1 *= d/ids;
-                p2 *= d--/n--;
-            }
-        }
-        return p2-p1;
+   double p1 = 1;
+   double p2 = 1;
+   double d = ids;
+   for(int i = 0; i&lt;assignments.length; i++){
+      if(assignments[i]&gt;ids)return 0;
+      int n = ids;
+      for(int j = 0; j&lt;assignments[i]; j++){
+         p1 *= d/ids;
+         p2 *= d--/n--;
+      }
+   }
+   return p2-p1;
 }
 </pre>
 
@@ -408,26 +408,30 @@ tank at this one.  So, in pseudocode, we have:
 </p>
 
 <pre>
-sort gas stations by distance; 
+   sort gas stations by distance; 
 //set currentGas to the amount of gas we have when 
 //we reach the first gas station currentGas = tankSize;
-        cost = 0;
-        foreach (gas station gs){
-             currentGas = currentGas - (distance from previous gas station)/mpg;
-             look down the road and find the closest gas station, gs', that is cheaper than gs;
-             if(gs' does not exist and tripLength &lt;= dist[gs] + tankSize * mpg){ 
-             //there are no cheaper gasStations along the way, 
-             //and we can get to the end of the trip add = max(0,(tripLength-dist[gs])/mpg - gas);
-                     currentGas = currentGas + add;
-                     cost = cost + price[gs]*add;
-             }else if(gs' does not exist or dist[gs'] - dist[gs] &gt; tankSize * mpg){ 
-             //There are no cheaper gas stations that 
-             //we can reach, so fill up the tank fill up tank;
-             }else if(currentGas*mpg &gt; dist[gs'] - dist[gs]){ 
-             //we already have enough gas to get to gs', so do nothing here }else{ 
-             //we need to get some gas to get to gs' add = (dist[gs']-dist[gs])/mpg - gas;
-                     currentGas = currentGas + add;
-                     cost = cost + price[gs]*add;
+   cost = 0;
+   foreach (gas station gs){
+      currentGas = currentGas - (distance from previous gas station)/mpg;
+      look down the road and find the closest gas station, gs', that is cheaper than gs;
+      if(gs' does not exist and tripLength &lt;= dist[gs] + tankSize * mpg){ 
+//there are no cheaper gasStations along the way, 
+//and we can get to the end of the trip 
+         add = max(0,(tripLength-dist[gs])/mpg - gas);
+         currentGas = currentGas + add;
+         cost = cost + price[gs]*add;
+      }else if(gs' does not exist or dist[gs'] - dist[gs] &gt; tankSize * mpg){ 
+//There are no cheaper gas stations that 
+//we can reach, so fill up the tank 
+         fill up tank;
+      }else if(currentGas*mpg &gt; dist[gs'] - dist[gs]){ 
+//we already have enough gas to get to gs', so do nothing here 
+      }else{ 
+//we need to get some gas to get to gs' 
+            add = (dist[gs']-dist[gs])/mpg - gas;
+            currentGas = currentGas + add;
+            cost = cost + price[gs]*add;
        }
 } 
 </pre>
@@ -436,25 +440,25 @@ Here is some real code in C++ (pardon my ugly XOR swapping):
 </p>
 <pre>
 double tripCost(vector &lt;int&gt; dist, vector &lt;int&gt; price, int mpg, int tankSize, int tripLength){
-                for(int i = 0; i&lt;dist.size(); i++)
-                        for(int j = 0; j&lt;i; j++)
-                                if(dist[i]&lt;dist[j]){
-                                        dist[i]^=dist[j]^=dist[i]^=dist[j];
-                                        price[i]^=price[j]^=price[i]^=price[j];
-                                }
-                double currentGas = tankSize;
-                double ret = 0;
-                for(int i = 0; i&lt;dist.size(); i++){
-                        int next = tripLength&lt;?dist[i]+mpg*tankSize;
-                        for(int j = i+1; j&lt;dist.size(); j++)
-                                if(dist[j] &lt; next &#38;#38; price[j] &lt; price[i])next = dist[j];
-                        currentGas -= ((double)dist[i] - (i?dist[i-1]:0))/mpg;
-                        double add = 0&gt;?((double)next-dist[i])/mpg - currentGas;
-                        currentGas += add;
-                        ret += add*price[i];
-                }
-                return ret;
-        } 
+   for(int i = 0; i&lt;dist.size(); i++)
+      for(int j = 0; j&lt;i; j++)
+         if(dist[i]&lt;dist[j]){
+            dist[i]^=dist[j]^=dist[i]^=dist[j];
+            price[i]^=price[j]^=price[i]^=price[j];
+         }
+   double currentGas = tankSize;
+   double ret = 0;
+   for(int i = 0; i&lt;dist.size(); i++){
+      int next = tripLength&lt;?dist[i]+mpg*tankSize;
+      for(int j = i+1; j&lt;dist.size(); j++)
+         if(dist[j] &lt; next &#38;#38; price[j] &lt; price[i])next = dist[j];
+      currentGas -= ((double)dist[i] - (i?dist[i-1]:0))/mpg;
+      double add = 0&gt;?((double)next-dist[i])/mpg - currentGas;
+      currentGas += add;
+      ret += add*price[i];
+   }
+   return ret;
+} 
 </pre>
 <p>
 Lastly, the easiest way to solve the problem is to initialize a large array, each of whose elements represents the price of gas for a single mile.  
@@ -469,16 +473,16 @@ on, and who would have passed with a larger array):
 
 <pre>
 double best[11000];
-        double tripCost(vector &lt;int&gt; dist, vector &lt;int&gt; prices, int mpg, int tankSize, int tripLength) {
-                for(int i = 0; i &lt; tripLength; i++) best[i] = 1000000;
-                for(int i = 0; i &lt; mpg * tankSize; i++) best[i] = 0.0;
-                for(int i = 0; i &lt; dist.size(); i++)
-                        for(int j = 0; j &lt; mpg*tankSize; j++)
-                                if(dist[i] + j &lt; tripLength)
-                                        best[dist[i]+j] &lt;?= prices[i]/(1.0*c);
-                double sum = 0;
-                for(int i = 0; i &lt; e; i++) sum += best[i];
-                return sum;
+   double tripCost(vector &lt;int&gt; dist, vector &lt;int&gt; prices, int mpg, int tankSize, int tripLength) {
+      for(int i = 0; i &lt; tripLength; i++) best[i] = 1000000;
+      for(int i = 0; i &lt; mpg * tankSize; i++) best[i] = 0.0;
+      for(int i = 0; i &lt; dist.size(); i++)
+         for(int j = 0; j &lt; mpg*tankSize; j++)
+            if(dist[i] + j &lt; tripLength)
+               best[dist[i]+j] &lt;?= prices[i]/(1.0*c);
+      double sum = 0;
+      for(int i = 0; i &lt; e; i++) sum += best[i];
+      return sum;
 } 
 </pre>
 
