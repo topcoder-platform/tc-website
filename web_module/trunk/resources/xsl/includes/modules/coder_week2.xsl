@@ -33,7 +33,7 @@
                					 <TD CLASS="bodyText" HEIGHT="53" WIDTH="50%" ALIGN="right" VALIGN="top" NOWRAP="">
 
                	  Minsk<BR/>
-               	  18888<BR/>
+               	  1888<BR/>
                   May &#160;9,&#160;2002<BR/>
                   1<BR/></TD>
               				</TR>
