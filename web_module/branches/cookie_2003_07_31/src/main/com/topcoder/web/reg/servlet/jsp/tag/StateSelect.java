@@ -1,12 +1,14 @@
 package com.topcoder.web.reg.servlet.jsp.tag;
 
 import com.topcoder.common.web.data.State;
+import com.topcoder.common.web.util.Cache;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.DataCache.DataCacheHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.jsp.JspException;
 import java.util.ArrayList;
 
@@ -44,13 +46,12 @@ public class StateSelect
     ArrayList getSelectOptions()
             throws JspException {
         ArrayList states = new ArrayList(100);
-        Context context = null;
+        InitialContext context = null;
         states.add(NOT_IN_US);
         //states.add ( SEPARATOR );
         try {
             context = TCContext.getInitial();
-            DataCacheHome dataCacheHome = (DataCacheHome) context.lookup(ApplicationServer.DATA_CACHE);
-            DataCache dataCache = dataCacheHome.create();
+            DataCache dataCache = Cache.get(context);
             ArrayList temp = new ArrayList(dataCache.getStates());
             for (int i = 0; i < temp.size(); i++) {
                 State state = (State) temp.get(i);

@@ -1297,13 +1297,12 @@ public class Registration
 
     protected boolean handleExists(String handle)
             throws TaskException {
-        Context context = null;
+        InitialContext context = null;
         boolean exists = false;
         boolean commonExists = false;
         try {
             context = TCContext.getInitial();
-            AuthenticationServicesHome authenticationServicesHome = (AuthenticationServicesHome) context.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-            AuthenticationServices authenticationServices = authenticationServicesHome.create();
+            AuthenticationServices authenticationServices = (AuthenticationServices)BaseProcessor.createEJB(context, AuthenticationServices.class);
 
             exists = !authenticationServices.validHandle(handle);
 
@@ -1326,13 +1325,7 @@ public class Registration
             log.error(e.toString());
             throw new TaskException(e);
         } finally {
-            if (context != null) {
-                try {
-                    context.close();
-                } catch (Exception e) {
-                    log.error(e.toString());
-                }
-            }
+            BaseProcessor.close(context);
         }
 
         return exists || commonExists;
@@ -1340,12 +1333,11 @@ public class Registration
 
     protected User getUser(String handle)
             throws TaskException {
-        Context context = null;
+        InitialContext context = null;
         Map users = null;
         try {
             context = TCContext.getInitial();
-            AuthenticationServicesHome authenticationServicesHome = (AuthenticationServicesHome) context.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-            AuthenticationServices authenticationServices = authenticationServicesHome.create();
+            AuthenticationServices authenticationServices = (AuthenticationServices)BaseProcessor.createEJB(context, AuthenticationServices.class);
             users = authenticationServices.getLikeUsers(handle);
         } catch (Exception e) {
             log.error(e.toString());
@@ -1884,11 +1876,10 @@ public class Registration
             throws TaskException {
         int coderId = getCoderId(this.code);
         if (coderId == 0) return false;
-        Context context = null;
+        InitialContext context = null;
         try {
             context = TCContext.getInitial();
-            AuthenticationServicesHome authenticationServicesHome = (AuthenticationServicesHome) context.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-            AuthenticationServices authenticationServices = authenticationServicesHome.create();
+            AuthenticationServices authenticationServices = (AuthenticationServices)BaseProcessor.createEJB(context, AuthenticationServices.class);
             Authentication authentication = authenticationServices.getActivation(coderId);
             if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code)) {
                 if (authentication.getStatus().equals("U")) {

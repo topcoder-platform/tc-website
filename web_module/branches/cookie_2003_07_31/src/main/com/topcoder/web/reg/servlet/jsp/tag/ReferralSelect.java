@@ -1,12 +1,14 @@
 package com.topcoder.web.reg.servlet.jsp.tag;
 
 import com.topcoder.common.web.data.Referral;
+import com.topcoder.common.web.util.Cache;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.DataCache.DataCacheHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.jsp.JspException;
 import java.util.ArrayList;
 
@@ -30,11 +32,10 @@ public class ReferralSelect
     ArrayList getSelectOptions()
             throws JspException {
         ArrayList referrals = new ArrayList();
-        Context context = null;
+        InitialContext context = null;
         try {
             context = TCContext.getInitial();
-            DataCacheHome dataCacheHome = (DataCacheHome) context.lookup(ApplicationServer.DATA_CACHE);
-            DataCache dataCache = dataCacheHome.create();
+            DataCache dataCache = Cache.get(context);
             referrals.addAll(dataCache.getReferrals());
             if (optional) {
                 Referral referral = new Referral();

@@ -26,8 +26,10 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.controller.legacy.ProcessAuthentication;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
@@ -178,7 +180,7 @@ public final class TaskSearch {
         log.debug("TaskSearch.search called...");
 
         String result = null;
-        Context ctx = null;
+        InitialContext ctx = null;
         RecordTag searchTag = null;
         String xsldocURLString = null;
         try {
@@ -223,8 +225,7 @@ public final class TaskSearch {
             DataCache cache = Cache.get(ctx);
             listTag.addTag(RecordTag.getListXML("States", cache.getStates()));
 
-            SearchHome sHome = (SearchHome) ctx.lookup(ApplicationServer.SEARCH);
-            Search s = sHome.create();
+            Search s = (Search)BaseProcessor.createEJB(ctx, Search.class);
             search = s.getCoders(search);
 
             search.setIsResult(true);
@@ -269,7 +270,7 @@ public final class TaskSearch {
         log.debug("TaskSearch.scroll called...");
 
         String result = null;
-        Context ctx = null;
+        InitialContext ctx = null;
         RecordTag searchTag = null;
         Scroll scroll = null;
         String xsldocURLString = null;
@@ -289,8 +290,7 @@ public final class TaskSearch {
             if ((scroll.getNext() && ((scroll.getRow() - 1 + scroll.getReturns()) < scroll.getSize())) ||
                     (!scroll.getNext() && ((scroll.getRow() - scroll.getReturns()) > 0))) {
 
-                SearchHome sHome = (SearchHome) ctx.lookup(ApplicationServer.SEARCH);
-                Search s = sHome.create();
+                Search s = (Search)BaseProcessor.createEJB(ctx, Search.class);
                 search = s.scroll(search);
             }
             search.setIsResult(true);
@@ -321,7 +321,7 @@ public final class TaskSearch {
                                            Navigation nav, XMLDocument document, MemberSearch search, RecordTag listTag)
             throws NavigationException {
         String result = null;
-        Context ctx = null;
+        InitialContext ctx = null;
         DataAccessInt dai = null;
         Request dataRequest = null;
         ResultSetContainer rsc = null;
@@ -334,8 +334,7 @@ public final class TaskSearch {
                 referrals = (ArrayList) sessionObjects.get("Referrals");
             } else {
                 ctx = TCContext.getInitial();
-                SearchHome sHome = (SearchHome) ctx.lookup(ApplicationServer.SEARCH);
-                Search s = sHome.create();
+                Search s = (Search)BaseProcessor.createEJB(ctx, Search.class);
                 referrals = s.getReferrals(nav.getUser().getUserId());
                 if (referrals != null) {
 

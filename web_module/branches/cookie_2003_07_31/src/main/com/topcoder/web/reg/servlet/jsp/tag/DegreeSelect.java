@@ -1,12 +1,14 @@
 package com.topcoder.web.reg.servlet.jsp.tag;
 
 import com.topcoder.common.web.data.Degree;
+import com.topcoder.common.web.util.Cache;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.DataCache.DataCacheHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.jsp.JspException;
 import java.util.ArrayList;
 
@@ -23,11 +25,10 @@ public class DegreeSelect
     ArrayList getSelectOptions()
             throws JspException {
         ArrayList degrees = new ArrayList();
-        Context context = null;
+        InitialContext context = null;
         try {
             context = TCContext.getInitial();
-            DataCacheHome dataCacheHome = (DataCacheHome) context.lookup(ApplicationServer.DATA_CACHE);
-            DataCache dataCache = dataCacheHome.create();
+            DataCache dataCache = Cache.get(context);
             degrees = dataCache.getDegrees();
         } catch (Exception e) {
             throw new JspException(e.toString());

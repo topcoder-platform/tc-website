@@ -8,6 +8,7 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.bean.Registration;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -33,12 +34,10 @@ public final class ProcessAuthentication {
         credentials.setHandle(handle);
         credentials.setPassword(password);
         if (!credentials.getLockout()) {
-            Context ctx = null;
+            InitialContext ctx = null;
             try {
                 ctx = new InitialContext();
-                AuthenticationServicesHome home =
-                        (AuthenticationServicesHome) ctx.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-                AuthenticationServices authServices = home.create();
+                AuthenticationServices authServices = (AuthenticationServices)BaseProcessor.createEJB(ctx, AuthenticationServices.class);
                 Authentication authentication = authServices.authenticate(handle, password);
                 credentials.setUserId(authentication.getUserId().intValue());
                 credentials.setStatus(authentication.getStatus());
@@ -72,13 +71,11 @@ public final class ProcessAuthentication {
 
     static int validateActivationCode(String activationCode) throws Exception {
         int result = INVALID;
-        Context ctx = null;
+        InitialContext ctx = null;
         try {
             int coderId = Registration.getCoderId(activationCode);
             ctx = new InitialContext();
-            AuthenticationServicesHome authHome =
-                    (AuthenticationServicesHome) ctx.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-            AuthenticationServices authEJB = authHome.create();
+            AuthenticationServices authEJB = (AuthenticationServices)BaseProcessor.createEJB(ctx, AuthenticationServices.class);
             Authentication authentication = authEJB.getActivation(coderId);
             if (authentication.getUserId().intValue() == coderId) {
                 log.debug("XXX activation code: " + activationCode);
@@ -111,12 +108,10 @@ public final class ProcessAuthentication {
 
     static void sendPasswordMail(String firstName, String lastName, String email)
             throws Exception {
-        Context ctx = null;
+        InitialContext ctx = null;
         try {
             ctx = new InitialContext();
-            AuthenticationServicesHome authHome =
-                    (AuthenticationServicesHome) ctx.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-            AuthenticationServices authEJB = authHome.create();
+            AuthenticationServices authEJB = (AuthenticationServices)BaseProcessor.createEJB(ctx, AuthenticationServices.class);
             Authentication authentication = authEJB.getCredentials(firstName, lastName, email);
             if (!authentication.getHandle().equals("")) {
                 TCSEmailMessage mail = new TCSEmailMessage();

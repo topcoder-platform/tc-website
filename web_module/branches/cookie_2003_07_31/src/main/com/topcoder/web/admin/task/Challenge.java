@@ -202,7 +202,6 @@ public final class Challenge {
                 log.debug("Challenge: getCoderChallengeList: roundId set to " + roundId);
                 log.debug("Challenge: getCoderChallengeList: coderId set to " + coderId);
                 challengeList = contestEJB.getChallengeList(roundId, coderId, filter, constraintId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getCoderChallengeList error retrieving challenge list .");
                 e.printStackTrace();
@@ -301,7 +300,6 @@ public final class Challenge {
                 log.debug("Challenge: getProblemChallengeList: roundId set to " + roundId);
                 log.debug("Challenge: getProblemChallengeList: problemId set to " + problemId);
                 challengeList = contestEJB.getChallengeList(roundId, problemId, filter, constraintId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getProblemChallengeList error retrieving challenge list .");
                 e.printStackTrace();
@@ -402,7 +400,6 @@ public final class Challenge {
                 log.debug("Challenge: getChallengeList: roundId set to " + roundId);
                 log.debug("Challenge: getChallengeList: roomId set to " + roomId);
                 challengeList = contestEJB.getChallengeList(roundId, roomId, filter, constraintId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getChallengeList error retrieving challenge list .");
                 e.printStackTrace();
@@ -447,7 +444,6 @@ public final class Challenge {
                 contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int challengeId = Integer.parseInt(request.getParameter("remove"));
                 contestEJB.nullifyChallenge(challengeId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: removeChallenge error removing challenge .");
                 e.printStackTrace();
@@ -533,7 +529,6 @@ public final class Challenge {
                 log.debug("Challenge: getChallengeList: roundId set to " + roundId);
                 problemList = contestEJB.getProblemList(roundId);
                 log.debug("problemList.size(): " + problemList.size());
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Servlet Challenge: getProblemMenuScreen error retrieving probelm list .");
                 e.printStackTrace();
@@ -624,7 +619,6 @@ public final class Challenge {
                 }
 
                 coderList = contestEJB.getCoderList(roundId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getCoderMenuScreen error retrieving coder list .");
                 e.printStackTrace();

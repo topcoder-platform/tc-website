@@ -7,10 +7,12 @@ import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.ejb.Util.Util;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.naming.InitialContext;
 
 
 public final class TaskSponsor {
@@ -28,7 +30,7 @@ public final class TaskSponsor {
         String command = null;
         String refer = null;
         String link = null;
-        javax.naming.Context ctx = null;
+        InitialContext ctx = null;
         try {
             command = Conversion.checkNull(request.getParameter("c"));
             link = Conversion.checkNull(request.getParameter("link"));
@@ -47,8 +49,7 @@ public final class TaskSponsor {
                     )
             ) {
                 ctx = new javax.naming.InitialContext();
-                com.topcoder.ejb.Util.UtilHome utilHome = (com.topcoder.ejb.Util.UtilHome) ctx.lookup(ApplicationServer.UTIL);
-                com.topcoder.ejb.Util.Util util = utilHome.create();
+                Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
                 util.incrementSponsorHitCount(link, refer);
             }
             result = TaskStatic.displayStatic(HTMLmaker, request, nav, document);

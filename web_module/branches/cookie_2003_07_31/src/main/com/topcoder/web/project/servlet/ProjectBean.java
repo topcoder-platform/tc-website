@@ -12,7 +12,6 @@ import java.util.*;
 
 public final class ProjectBean {
 
-    protected final static String PROJECTSERVICESHOME = ApplicationServer.PROJECT_SERVICES;
     protected static ProjectServices projectServices = null;
     protected static Exception exception = null;
 

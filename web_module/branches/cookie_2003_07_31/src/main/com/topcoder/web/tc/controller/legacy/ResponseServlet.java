@@ -8,6 +8,7 @@ import com.topcoder.ejb.Util.UtilHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
@@ -72,15 +73,12 @@ public final class ResponseServlet extends HttpServlet {
                         "Sorry, invalid request, it could not be processed.");
             }
 
-            ctx = (InitialContext) TCContext.getInitial();
-            AuthenticationServicesHome home =
-                    (AuthenticationServicesHome) ctx.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-            AuthenticationServices authServices = home.create();
+            ctx = TCContext.getInitial();
+            AuthenticationServices authServices = (AuthenticationServices)BaseProcessor.createEJB(ctx, AuthenticationServices.class);
             Authentication authentication = authServices.getActivation(coderId);
             if (authentication.getActivationCode().equals(activationCode)) {
                 try {
-                    UtilHome uHome = (UtilHome) ctx.lookup(ApplicationServer.UTIL);
-                    Util util = uHome.create();
+                    Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
                     util.addResponse(coderId, answerId, questionId);
                     //forward to success page
                     forwardToErrorPage(request, response, new Exception(), "Thank you for your response.");
@@ -105,8 +103,8 @@ public final class ResponseServlet extends HttpServlet {
     /**
      * Forwards to the navigation error page.
      *
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
+     * @param request the servlet request object
+     * @param response the servlet response object
      *
      * @throws javax.servlet.ServletException
      */

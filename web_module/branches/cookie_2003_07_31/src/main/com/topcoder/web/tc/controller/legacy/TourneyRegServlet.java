@@ -11,6 +11,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
@@ -97,8 +98,7 @@ public final class TourneyRegServlet extends HttpServlet {
 //                    rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
                     rsc = (ResultSetContainer) resultMap.get("Collegiate_Eligibility");
                     if (rsc.getItem(0, "is_eligible").toString().trim().equals("T")) {
-                        UtilHome uHome = (UtilHome) ctx.lookup(ApplicationServer.UTIL);
-                        Util util = uHome.create();
+                        Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
 //                        util.registerForTourny(nav.getUserId(), intContestId, intRoundId);
                         util.registerForTourny(nav.getUserId(), intContestId);
                     } else {
