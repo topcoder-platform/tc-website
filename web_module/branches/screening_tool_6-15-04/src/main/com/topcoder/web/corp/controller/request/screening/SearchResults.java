@@ -141,7 +141,7 @@ public class SearchResults extends BaseScreeningProcessor {
         r.setProperty("search"+DataAccessConstants.END_RANK, String.valueOf(ret.getEnd()));
 
         
-        DataAcess cda = Util.getDataAccess();
+        DataAccessInt cda = Util.getDataAccess();
         //CachedQueryDataAccess cda = new CachedQueryDataAccess(Constants.DATA_SOURCE);
         //cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
         Map res = cda.getData(r);
