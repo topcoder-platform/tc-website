@@ -24,12 +24,12 @@
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include>
 <!-- Header Ends -->
-<table width=700 border=0 cellpadding=0 cellspacing=0 align=center>
-    <tr valign="top">
+<table width=100% border=1 cellpadding=0 cellspacing=0 align=center>
+	<TR valign="top">
+		<td width="50%">&#160;</td>
 <!-- Center Column Begins -->
-        <td align=center valign=top>
-			<div class=recruitingBody>
-			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
+        <td class=recruitingBody>
+			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=1><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText colspan=2>
@@ -110,9 +110,9 @@
             </table>
                         
             <p><br></p>
-			</div>
         </td>
 <!-- Center Column Ends -->
+		<td width="50%">&#160;</td>
     </tr>
 </table>
 
