@@ -1,7 +1,7 @@
 /*
  * ProjectTrackerLocal.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -84,7 +84,8 @@ public interface ProjectTrackerLocal extends EJBLocalObject {
             long projectTypeId,
             String overview,
             Date[] dates,
-            TCSubject requestor) throws TCException;
+            TCSubject requestor,
+            long levelId) throws TCException;
 
     /**
      * @param userId
@@ -107,7 +108,7 @@ public interface ProjectTrackerLocal extends EJBLocalObject {
             String projectName, String version, long versionId,
             long componentId,
             long compVersId, long phaseId, long projectTypeId,
-            String overview, Date[] dates, TCSubject requestor)
+            String overview, Date[] dates, TCSubject requestor, long levelId)
             throws TCException;
 
     public void versionRename(long compVersId, String oldVersion, String newVersion);
