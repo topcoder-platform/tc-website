@@ -72,43 +72,16 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
-<!--
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Health_Care_Order_Processing">Health Care Order Processing</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,050 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">04/02/2004 12:00PM ET</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$810 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$225 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">closed</td>
-                                </tr>
 
                                 <tr valign="top">
-                                    <td class="projectCells" colspan="4">
-                                        <a href="?t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO)</a>
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_Common_Connectivity_Design ">Palm Common Connectivity Application</a>
                                     </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security Server</td>
-                                    <td class="projectCells" align="right">$3,306 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$1,005 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">closed</td>
+                                    <td class="projectCells" align="right">$0,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">05/10/2004 9:00AM ET</td>
                                 </tr>
 
-                                <tr valign="top">
-                                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Application Authentication</td>
-                                    <td class="projectCells" align="right">$2,826 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$855 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">closed</td>
-                                </tr>
--->
                             </table>
 
                             <br/>
@@ -122,8 +95,9 @@
                                     <td class="projectHeaders" nowrap="nowrap" width="75%">Project</td>
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Winning Developer</td>
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
-                                    <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Inquire By</td>
+                                    <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
+                                <!--
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Health_Care_Order_Processing_Front_End">Health Care Order Processing: Front End</a>
@@ -159,6 +133,7 @@
                                     <td class="projectCells" align="right">$125 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">closed</td>
                                 </tr>
+                                -->
 -->
                             </table>
 
