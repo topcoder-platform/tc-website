@@ -137,6 +137,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         // set up Data Warehouse query command.
         Request dwDataRequest = new Request();
+        dwDataRequest.setContentHandle("tces_member_profile");
         dwDataRequest.setProperty("mid", Integer.toString(getMemberID()) );
 
         DataAccessInt dw = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
@@ -145,6 +146,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         // set up OLTP query command.
         Request oltpDataRequest = new Request();
+        oltpDataRequest.setContentHandle("tces_member_profile");
         oltpDataRequest.setProperty("uid", Integer.toString(uid) );
         oltpDataRequest.setProperty("jid", Integer.toString(getJobID()) );
         oltpDataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
