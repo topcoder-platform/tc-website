@@ -21,7 +21,9 @@
         
         <TR><TD CLASS="smallText" VALIGN="top">&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;-&#160;Australia</TD></TR>
         <TR><TD CLASS="smallText" VALIGN="top">&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;-&#160;Canada (excluding Quebec)</TD></TR>
+        <TR><TD CLASS="smallText" VALIGN="top">&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;-&#160;China</TD></TR>        
         <TR><TD CLASS="smallText" VALIGN="top">&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;-&#160;India</TD></TR>
+        <TR><TD CLASS="smallText" VALIGN="top">&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;-&#160;New Zealand</TD></TR>        
         <TR><TD CLASS="smallText" VALIGN="top">&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;-&#160;United Kingdom</TD></TR>
         <TR><TD CLASS="smallText" VALIGN="top">&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;</TD><TD CLASS="smallText" VALIGN="top">&#160;&#160;-&#160;Ireland</TD></TR>
         <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
