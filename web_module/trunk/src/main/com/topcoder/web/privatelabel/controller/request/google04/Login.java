@@ -115,24 +115,22 @@ public class Login extends FullLogin {
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
+        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class); 
+        long userId = getAuthentication().getActiveUser().getId();  
 
-        boolean hasTCAccount = hasTopCoderAccount();
+        boolean hasTCAccount = hasTopCoderAccount() && coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME);
         boolean hasCompanyAccount = hasCompanyAccount();
 
         FullRegInfo info = null;
 
-        long userId = getAuthentication().getActiveUser().getId();
-
         if (hasCompanyAccount) {
             info = getCommonInfo(userId, db);
 
-            Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
             if(coder.exists(userId, db)) {
                 info.setCoderType(coder.getCoderTypeId(userId, db));
             } else if(coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
                 info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
             }
-
 
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
@@ -169,7 +167,7 @@ public class Login extends FullLogin {
                     long tcQuestionId = row.getLongItem("demographic_question_id");
                     //only add the response if we have a mapping for it
                         if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                            question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                            question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
                             if(question != null ) {
                                 DemographicResponse r = new DemographicResponse();
                                 r.setQuestionId(question.getId());
@@ -194,7 +192,6 @@ public class Login extends FullLogin {
 
             info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
-            Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
             info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
             log.error(info.getCoderType() + "");
 
@@ -234,10 +231,6 @@ public class Login extends FullLogin {
             }
         }
         //returning null if they don't have an account in either system
-	if(info == null)
-	{
-		addError(Constants.HANDLE, "Invalid Login");		
-	}
         return info;
 
     }
