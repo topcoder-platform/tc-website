@@ -30,7 +30,9 @@
 
 <body>
 
-<xsl:call-template name="Top"/>
+<xsl:call-template name="Top">
+    <xsl:with-param name="sectionName">home</xsl:with-param>
+</xsl:call-template>
 
         <xsl:choose>
           <xsl:when test="/TC/LoggedIn='true'">

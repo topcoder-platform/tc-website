@@ -9,6 +9,7 @@
     <xsl:call-template name="Top"/>
   </xsl:template>
   <xsl:template name="Top">
+  <xsl:param name="sectionName"></xsl:param>
 
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
     <tr valign="middle">
@@ -62,8 +63,16 @@
                     <td width="99%" align="right">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="number(/TC/Rating)&lt;1200">top_div2_badge</xsl:when>
-                        <xsl:otherwise>top_div1_badge</xsl:otherwise></xsl:choose>.jpg</xsl:attribute>                   
-                          <A href="/?t=tces&amp;c=tcs_project_mgr&amp;a=secure"><img src="/i/promos/hiring_pm_promo_head.gif" width="123" height="52" border="0" alt="Hiring Project Managers" hspace="10" /></A>
+                        <xsl:otherwise>top_div1_badge</xsl:otherwise></xsl:choose>.jpg</xsl:attribute>
+                        
+                        <xsl:choose>
+                            <xsl:when test="$sectionName='home'">
+                                <A href="/?t=tces&amp;c=tcs_project_mgr&amp;a=secure"><img src="/i/promos/hiring_pm_promo_head.gif" width="123" height="52" border="0" alt="Hiring Project Managers" hspace="10" /></A>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <img src="/i/clear.gif" alt="" width="10" height="75" border="0" /><br />
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </td>
                     
                     <td align="right">
@@ -90,7 +99,16 @@
     <xsl:otherwise>
             <table width="99%" border="0" cellpadding="0" cellspacing="0">            
                 <tr>
-                    <td align="right" width="99%"><A href="/?t=tces&amp;c=tcs_project_mgr&amp;a=secure"><img src="/i/promos/hiring_pm_promo_head.gif" width="123" height="52" border="0" alt="Hiring Project Managers" hspace="10" /></A></td>
+                    <td align="right" width="99%">
+                        <xsl:choose>
+                            <xsl:when test="$sectionName='home'">
+                                <A href="/?t=tces&amp;c=tcs_project_mgr&amp;a=secure"><img src="/i/promos/hiring_pm_promo_head.gif" width="123" height="52" border="0" alt="Hiring Project Managers" hspace="10" /></A>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <img src="/i/clear.gif" alt="" width="10" height="75" border="0" /><br />
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </td>
                     <td width="1"><img src="/i/clear.gif" width="1" height="75" border="0"/></td>
                 </tr>           
             </table>                    
