@@ -12,7 +12,6 @@
   import com.topcoder.ejb.ContestAdminServices.*;
   import com.topcoder.common.*;
   import com.topcoder.common.web.data.*;
-  import com.topcoder.common.web.data.admin.*;
   import com.topcoder.common.web.error.*;
   import com.topcoder.common.web.xml.*;
   import com.topcoder.common.web.util.*;
