@@ -24,36 +24,52 @@
         <td width="176" valign="top" colspan="2" bgcolor="#B8B8B8"><img src="/i/events/google2003/Logo_60gry.gif" width="176" height="77" border="0"/></td>
 
          <td width="100%" align="center" colspan="3">
-            <object 
-            type="application/x-shockwave-flash"
+         <OBJECT 
+            classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
             codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-            data="/i/events/google2003/google.swf"
-            width="100%"
-            height="80"
-            border="0">           
-            <param name="movie" value="/i/events/google2003/google.swf" />
-            <param name="quality" value="high" />
-            <param name="salign" value="t">
-            <EMBED src="google.swf" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
-            </object><br/>
+            WIDTH="100%" HEIGHT="80" id="google" ALIGN="">
+         <PARAM NAME=movie VALUE="google.swf">
+         <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T>
+         <PARAM NAME=bgcolor VALUE=#FFFFFF>
+         <EMBED 
+            src="/i/events/google2003/google.swf" 
+            quality="high" 
+            salign="T" 
+            bgcolor="#FFFFFF"  
+            WIDTH="100%" 
+            HEIGHT="80" 
+            NAME="google" 
+            ALIGN="" 
+            TYPE="application/x-shockwave-flash" 
+            PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+         </EMBED>
+         </OBJECT><br />
       </td>
         <td width="176" valign="top" colspan="2" bgcolor="#B8B8B8"><img src="/i/events/google2003/pbtc_gray.gif" width="176" height="77" border="0"/></td>
    </tr>
    
    <tr>
       <td colspan="7" width ="100%" align="center">
-            <object 
-            type="application/x-shockwave-flash"
-            data="/i/events/google2003/googletabs.swf"
+         <OBJECT 
+            classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
             codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-            width="100%"
-            height="150"
-            border="0">           
-            <param name="movie" value="/i/events/google2003/googletabs.swf" />
-            <param name="quality" value="high" />
-            <param name="salign" value="t">
-            <EMBED src="google.swf" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
-            </object><br/>
+            WIDTH="100%" HEIGHT="150" id="google" ALIGN="">
+         <PARAM NAME=movie VALUE="googletabs.swf">
+         <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T>
+         <PARAM NAME=bgcolor VALUE=#FFFFFF>
+         <EMBED 
+            src="/i/events/google2003/googletabs.swf" 
+            quality="high" 
+            salign="T" 
+            bgcolor="#FFFFFF"  
+            WIDTH="100%" 
+            HEIGHT="150" 
+            NAME="google" 
+            ALIGN="" 
+            TYPE="application/x-shockwave-flash" 
+            PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+         </EMBED>
+         </OBJECT><br />
         </td>
      </tr>
 
