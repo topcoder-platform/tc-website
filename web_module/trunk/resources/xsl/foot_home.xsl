@@ -23,13 +23,13 @@
 
     <tr valign="top">
         <td width="20" bgcolor="#43515E"><img src="/i/clear.gif" width="20" height="1" border="0"/></td>
-        <td width="100%" align="left" bgcolor="#43515E"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
+        <td width="100%" align="center" bgcolor="#43515E"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
             <div class="smallFoot">
-            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</a>&#160;&#160;|&#160;&#160;
-            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</a>&#160;&#160;|&#160;&#160;
-            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contacts</a>&#160;&#160;|&#160;&#160;
-            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>Privacy</a>&#160;&#160;|&#160;&#160;
-            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>Terms</a><br /><br />
+            <A class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>Home</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contacts</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>Privacy</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>Terms</A><br /><br />
             Copyright &#169; 2000-2003, TopCoder, Inc. All rights reserved.
             </div>
             <br/><br/>
