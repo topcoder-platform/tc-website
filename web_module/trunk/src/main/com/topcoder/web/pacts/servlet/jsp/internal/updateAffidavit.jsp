@@ -11,7 +11,7 @@
 <body>
 
 <%@ page import="com.topcoder.web.pacts.common.*" %>
-<%@ page import="com.topcoder.web.common.*" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 <%
 	Affidavit affidavit = (Affidavit)
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);

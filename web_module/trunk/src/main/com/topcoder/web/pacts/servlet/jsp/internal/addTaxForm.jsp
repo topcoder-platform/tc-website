@@ -11,7 +11,7 @@
 <body>
 
 <%@ page import="com.topcoder.web.pacts.common.*" %>
-<%@ page import="com.topcoder.web.common.*" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 <%
 	ResultSetContainer stati = (ResultSetContainer)
 		request.getAttribute(PactsConstants.STATUS_CODE_LIST);
