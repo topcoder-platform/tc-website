@@ -71,9 +71,10 @@ if (o!=null) {
                     } else {
                       if (countDown=='true')
                         time = correctedLocalTime.getTime()-startTimes[i];
+                        if (time>times[i]) time = times[i];
                       else {
                         time = endTimes[i] - correctedLocalTime.getTime();
-                        if (time > times[i]) time = times[i];
+                        if (time <= 0) time = 0;
                       }
                     }
                     text = convertToTimeString(time);
