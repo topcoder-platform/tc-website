@@ -44,8 +44,83 @@
 </jsp:include> 
 
          <h2>Collegiate Challenge Coaches</h2>
-         
-         <p>A list of available coaches will be posted soon.</p>
+
+         <p>Please note that coaches are only available for the Component Design Competition of the 2004 TCCC.  When requesting a coach, include your TopCoder handle in the email body.  Coaching slots will be assigned on a first-come-first-serve basis.  TopCoder asks that you only send a coaching request email if you are sure that you are eligible to participate, and you intend to participate in the Component Design Competition of the 2004 TCCC.</p>
+
+         <p>IMPORTANT:  By requesting a coach, you are agreeing to forgo 10% of all prize and component payments that you earn for the Component Design Competition of the 2004 TCCC</p>
+
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="25%">Coach</td>
+                    <td class="sidebarTitle" width="15%" align="center">View Stats</td>
+                    <td class="sidebarTitle" width="20%" align="center">Total Slots</td>
+                    <td class="sidebarTitle" width="20%" align="center">Available Slots</td>
+                    <td class="sidebarTitle" width="25%" align="center">Request</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">b0b0b0b</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=273206">View stats</a></td>
+                    <td class="sidebarText" align="center">2</td>
+                    <td class="sidebarText" align="center">2</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - b0b0b0b">request this coach</a></td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">bokbok</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=153434">View stats</a></td>
+                    <td class="sidebarText" align="center">2</td>
+                    <td class="sidebarText" align="center">2</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - bokbok">request this coach</a></td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">Farlox</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=252277">View stats</a></td>
+                    <td class="sidebarText" align="center">4</td>
+                    <td class="sidebarText" align="center">4</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - Farlox">request this coach</a></td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">giginim</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=304976">View stats</a></td>
+                    <td class="sidebarText" align="center">5</td>
+                    <td class="sidebarText" align="center">5</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - giginim">request this coach</a></td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">isv</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=299180">View stats</a></td>
+                    <td class="sidebarText" align="center">1</td>
+                    <td class="sidebarText" align="center">1</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - isv">request this coach</a></td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">kyky</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=152342">View stats</a></td>
+                    <td class="sidebarText" align="center">3</td>
+                    <td class="sidebarText" align="center">3</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - kyky">request this coach</a></td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">mishagam</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=299904">View stats</a></td>
+                    <td class="sidebarText" align="center">3</td>
+                    <td class="sidebarText" align="center">3</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - mishagam">request this coach</a></td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">Pops</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=119676">View stats</a></td>
+                    <td class="sidebarText" align="center">3</td>
+                    <td class="sidebarText" align="center">3</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - Pops">request this coach</a></td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">srowen</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=296145">View stats</a></td>
+                    <td class="sidebarText" align="center">3</td>
+                    <td class="sidebarText" align="center">3</td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - srowen">request this coach</a></td>
+                </tr>
+             </table>
                      
          <p><br/></p>
          </td>
