@@ -92,7 +92,6 @@ public class GoogleLogin extends FullLogin {
         } catch (LoginException e) {
             if (!hasError(Constants.HANDLE))
                 addError(Constants.HANDLE, e.getMessage());
-            return ret;
 
         }
         if (!getAuthentication().getUser().isAnonymous()) {
