@@ -24,8 +24,8 @@
           <TR><TD>DB Selection</TD></TR>
           <TR><TD>Select a Database</TD></TR>
 
-<%--         <query:listIterator id="db" rowList="<jsp:getProperty name="DBSelectionTask" property="dbList"/>">--%>
-          <query:listIterator id="db" rowList="<%=DBSelectionTask.getDbList()%>"/>">
+         <query:listIterator id="db" list='<jsp:getProperty name="DBSelectionTask" property="dbList"/>'>
+<%--          <query:listIterator id="db" list="<%=DBSelectionTask.getDbList()%>"/>">--%>
             <TR><TD>
               <A HREF="<jsp:getProperty name="DBSelectionTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<%=db%>" class="statText">
                 <%=db%>
