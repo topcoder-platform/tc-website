@@ -62,9 +62,9 @@ return false;
 
 		Welcome to TopCoder Opportunities, your source for programming contract work.  TopCoder Opportunities offers members the ability to sign up for freelance projects that fit their schedule as well as their experience.
 		<br/><br/>
-		Registering <a href="/tc?module=Static&d1=contracting&d2=reg&d3=preferences">here</a> is the first step.  You can give us your availability and rate your experience with a variety of programming languages or database platforms.
+		Registering <a href="/tc?module=ContractingPreferences">here</a> is the first step.  You can give us your availability and rate your experience with a variety of programming languages or database platforms.
 		<br/><br/>
-		<a href="/tc?module=Static&d1=contracting&d2=reg&d3=preferences">Sign up today</a>
+		<a href="/tc?module=ContractingPreferences">Sign up today</a>
 
         </div>
         <p><br/></p>

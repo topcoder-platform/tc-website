@@ -76,18 +76,18 @@ return false;
 			</tr>
 		</table>
 		
-		RYAN START
+		<FORM ACTION="" METHOD=POST onSubmit="">
 		
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
-                    <%=prefGroup.getName()%>
+                    <span class=bodySubtitle><%=prefGroup.getName()%></span>
+                    <br/>
+                    
 		</tc:preferenceGroupIterator>
 		
-		RYAN END
-
 		<span class=bodySubtitle>Contract Work</span>
 		<br/>
 
-		<FORM ACTION="" METHOD=POST onSubmit="">
+		
 		<input type="checkbox" name="contract" value="" checked>I am interested in being hired for temporary contract work.
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr>
