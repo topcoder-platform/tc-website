@@ -1,4 +1,4 @@
-package com.topcoder.web.pacts.ejb.PactsServices;
+package com.topcoder.web.ejb.pacts;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBHome;

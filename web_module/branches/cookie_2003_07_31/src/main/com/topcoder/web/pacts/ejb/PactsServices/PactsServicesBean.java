@@ -1,4 +1,4 @@
-package com.topcoder.web.pacts.ejb.PactsServices;
+package com.topcoder.web.ejb.pacts;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.messaging.QueueMessageSender;
@@ -6,7 +6,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.pacts.common.*;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.jms.JMSException;
 import java.rmi.RemoteException;

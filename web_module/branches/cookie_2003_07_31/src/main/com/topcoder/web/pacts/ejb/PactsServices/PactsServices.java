@@ -1,6 +1,6 @@
-package com.topcoder.web.pacts.ejb.PactsServices;
+package com.topcoder.web.ejb.pacts;
 
-import com.topcoder.web.pacts.common.*;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.ejb.EJBObject;
 import javax.jms.JMSException;
