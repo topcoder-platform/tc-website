@@ -12,6 +12,8 @@
 <html>
 <head>
 <title>TopCoder | Private Label Registration</title>
+
+<jsp:include page="../script.jsp" />
 </head>
 <body>
     <table cellpadding="1" cellspacing="3">
@@ -56,12 +58,14 @@
                     <a href="javascript: document.regForm.submit();">submit</a>
                 </td>
             </tr>
+         </form>
+         </table>
+      </blockquote>
+   </td>
+</tr>
+</table>
 
-
-        </form>
-
-    </table>
-
+<jsp:include page="/verizon/verizon_foot.jsp" />
 
 </body>
 
