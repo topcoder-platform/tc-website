@@ -44,10 +44,12 @@
 </jsp:include>
 
             <h2>Schedule</h2>
-
+            
             <p>Both the design and development competitions will have two (2) online rounds and one (1) onsite Championship round.</p>
             
-            <p>Each contestant in an online round must submit his/her design and/or development submissions for components as scheduled (see below).  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
+            <p>NOTE: All times are EST.</p>
+
+            <p>Each contestant in an online round must submit his/her design and/or development submissions as scheduled (see below).</p>
             
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -56,19 +58,18 @@
                     <td class="sidebarTitle" width="25%" align="center">Design</td>
                     <td class="sidebarTitle" width="25%" align="center">Development</td>
                 </tr>
-                <tr><td colspan="3" align="center" class="sidebarText">ALL TIMES ARE EASTERN TIME</td></tr>
                 <tr valign="top">
-                    <td class="sidebarText" colspan="3"><strong>Online Round 1</strong></td>
+                    <td class="sidebarText" colspan="3"><strong>Online Round #1</strong></td>
                  </tr>
                  <tr>
                      <td class="sidebarText">
                         Projects posted
                      </td>
                      <td class="sidebarText">
-                        01.27.04 12:00am
+                        01.27.04 12:00AM
                      </td>
                      <td class="sidebarText">
-                        02.17.04 12:00am
+                        02.17.04 12:00AM
                      </td>
                </tr>
                <tr>
@@ -76,10 +77,10 @@
                         Submission deadline
                      </td>
                      <td class="sidebarText">
-                        02.02.04 11:59pm
+                        02.02.04 11:59PM
                      </td>
                      <td class="sidebarText">
-                        02.23.04 11:59pm
+                        02.23.04 11:59PM
                      </td>
                 </tr>
                 <tr valign="top">
@@ -90,10 +91,10 @@
                         Screening due
                         </td>
                      <td class="sidebarText">
-                        02.03.04 6:00pm
+                        02.03.04 6:00PM
                         </td>
                      <td class="sidebarText">
-                        02.24.04 6:00pm
+                        02.24.04 6:00PM
                         </td>
                    </tr>
                  <tr>
@@ -101,10 +102,10 @@
                         Reviews due
                         </td>
                      <td class="sidebarText">
-                        02.05.04 6:00pm
+                        02.05.04 6:00PM
                         </td>
                      <td class="sidebarText">
-                        02.26.04 6:00pm
+                        02.26.04 6:00PM
                         </td>
                    </tr>
                  <tr>
@@ -112,10 +113,10 @@
                         Appeals due
                         </td>
                      <td class="sidebarText">
-                        02.08.04 11:00am
+                        02.08.04 11:00AM
                         </td>
                      <td class="sidebarText">
-                        02.29.04 11:00pm
+                        02.29.04 11:00PM
                         </td>
                    </tr>
                  <tr>
@@ -130,17 +131,17 @@
                         </td>
                    </tr>
                 <tr valign="top">
-                    <td class="sidebarText" colspan="3"><strong>Online Round 2</strong></td>
+                    <td class="sidebarText" colspan="3"><strong>Online Round #2</strong></td>
                  </tr>
                  <tr>
                      <td class="sidebarText">
                         Projects posted
                      </td>
                      <td class="sidebarText">
-                        02.17.04 12:00am
+                        02.17.04 12:00AM
                      </td>
                      <td class="sidebarText">
-                        03.09.04 12:00am
+                        03.09.04 12:00AM
                      </td>
                </tr>
                <tr>
@@ -148,10 +149,10 @@
                         Submission deadline
                      </td>
                      <td class="sidebarText">
-                        02.23.04 11:59pm
+                        02.23.04 11:59PM
                      </td>
                      <td class="sidebarText">
-                        03.15.04 11:59pm
+                        03.15.04 11:59PM
                      </td>
                 </tr>
                 <tr valign="top">
@@ -162,10 +163,10 @@
                         Screening due
                         </td>
                      <td class="sidebarText">
-                        02.24.04 6:00pm
+                        02.24.04 6:00PM
                         </td>
                      <td class="sidebarText">
-                        03.16.04 6:00pm
+                        03.16.04 6:00PM
                         </td>
                    </tr>
                  <tr>
@@ -173,10 +174,10 @@
                         Reviews due
                         </td>
                      <td class="sidebarText">
-                        02.26.04 6:00pm
+                        02.26.04 6:00PM
                         </td>
                      <td class="sidebarText">
-                        03.18.04 6:00pm
+                        03.18.04 6:00PM
                         </td>
                    </tr>
                  <tr>
@@ -184,10 +185,10 @@
                         Appeals due
                         </td>
                      <td class="sidebarText">
-                        02.29.04 11:00am
+                        02.29.04 11:00AM
                         </td>
                      <td class="sidebarText">
-                        03.21.04 11:00pm
+                        03.21.04 11:00PM
                         </td>
                    </tr>
                   <tr>
@@ -202,17 +203,17 @@
                         </td>
                    </tr>
                 <tr valign="top">
-                    <td class="sidebarText" colspan="3"><strong>Onsite Championship Round 3</strong></td>
+                    <td class="sidebarText" colspan="3"><strong>Onsite Championship Round #3</strong></td>
                  </tr>
                  <tr>
                      <td class="sidebarText">
                         Projects posted
                      </td>
                      <td class="sidebarText">
-                        03.30.04 12:00am
+                        03.30.04 12:00AM
                      </td>
                      <td class="sidebarText">
-                        03.30.04 12:00am
+                        03.30.04 12:00AM
                      </td>
                </tr>
                <tr>
@@ -220,10 +221,10 @@
                         Submission deadline
                      </td>
                      <td class="sidebarText">
-                        04.05.04 11:59pm
+                        04.05.04 11:59PM
                      </td>
                      <td class="sidebarText">
-                        04.05.04 11:59pm
+                        04.05.04 11:59PM
                      </td>
                 </tr>
                 <tr valign="top">
@@ -234,10 +235,10 @@
                         Screening due
                         </td>
                      <td class="sidebarText">
-                        04.06.04 6:00pm
+                        04.06.04 6:00PM
                         </td>
                      <td class="sidebarText">
-                        04.06.04 6:00pm
+                        04.06.04 6:00PM
                         </td>
                    </tr>
                  <tr>
@@ -245,10 +246,10 @@
                         Reviews due
                         </td>
                      <td class="sidebarText">
-                        04.09.04 6:00pm
+                        04.09.04 6:00PM
                         </td>
                      <td class="sidebarText">
-                        04.09.04 6:00pm
+                        04.09.04 6:00PM
                         </td>
                    </tr>
                  <tr>
@@ -267,10 +268,10 @@
                         Scorecards posted*
                         </td>
                      <td class="sidebarText">
-                        04.16.04 8:00am
+                        04.16.04 8:00AM
                         </td>
                      <td class="sidebarText">
-                        04.16.04 8:00am
+                        04.16.04 8:00AM
                         </td>
                    </tr>
                   <tr>
@@ -278,10 +279,10 @@
                         Final fixes*
                         </td>
                      <td class="sidebarText">
-                        04.16.04 8:00am - 12:00pm
+                        04.16.04 8:00AM - 12:00PM
                         </td>
                      <td class="sidebarText">
-                        04.16.04 8:00am - 12:00pm
+                        04.16.04 8:00AM - 12:00PM
                         </td>
                    </tr>
                   <tr>
@@ -289,10 +290,10 @@
                         Final reviews*
                         </td>
                      <td class="sidebarText">
-                        04.16.04 12:15pm - 3:30pm
+                        04.16.04 12:15PM - 3:30PM
                         </td>
                      <td class="sidebarText">
-                        04.16.04 12.15pm - 3:30pm
+                        04.16.04 12.15PM - 3:30PM
                         </td>
                    </tr>
                   <tr>
@@ -300,13 +301,13 @@
                         Winners announced*
                         </td>
                      <td class="sidebarText">
-                        04.16.04 4:20pm
+                        04.16.04 4:20PM
                         </td>
                      <td class="sidebarText">
-                        04.16.04 4:20pm
+                        04.16.04 4:20PM
                         </td>
                    </tr>
-                <tr><td colspan="3" class="sidebarText">*These times are subject to change</td></tr>
+                <tr><td colspan="3" class="sidebarText">*Phases of the tournament will be conducted onsite at the Championship Round. These times are subject to change</td></tr>
              </table>
 
          <p><br/></p>
