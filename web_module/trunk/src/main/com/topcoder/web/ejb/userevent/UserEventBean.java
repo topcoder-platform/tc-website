@@ -73,7 +73,7 @@ public class UserEventBean extends BaseEJB {
                 new String[] {String.valueOf(userEventId)}, dataSource);
     }
 
-    public void setEventId(long userEventId, long eventId, String dataSource) throws RemoteException {
+    public void setEventId(long userEventId, int eventId, String dataSource) throws RemoteException {
         update("user_event",
                 new String[] {"event_id"},
                 new String[] {String.valueOf(eventId)},

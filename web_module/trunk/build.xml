@@ -429,7 +429,7 @@
 
     <target name="package-EJB-UserEvent" depends="compile">
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Product"/>
+            <param name="unit-jar-name" value="UserEvent"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/userevent"/>
         </antcall>
         <jar jarfile="${ejb_jars}/UserEvent.jar" update="true">
