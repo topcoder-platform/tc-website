@@ -122,6 +122,18 @@ public class TCCC05MemberResults extends StatBase {
             TCCC05MemberResult a1 = (TCCC05MemberResult)o1;
             TCCC05MemberResult a2 = (TCCC05MemberResult)o2;
             
+            if(a1.getSubmitTimestampDate() == null && a2.getSubmitTimestampDate() == null) {
+                return 0;
+            }
+            
+            if(a1.getSubmitTimestampDate() == null) {
+                return 1;
+            }
+            
+            if(a2.getSubmitTimestampDate() == null) {
+                return -1;
+            }
+            
             Calendar c1 = new GregorianCalendar();
             c1.setTime(a1.getSubmitTimestampDate());
             
