@@ -45,7 +45,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     private ArrayList positionList;
 
     /* Holds the ID of the currently logged-in user */
-    private int uid;
+    private long uid;
 
     /* Creates a new CampaignDetailTask */
     public CampaignDetailTask() {
