@@ -139,7 +139,7 @@
                   <B>Most Recent Rated Event:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%><BR>
                   </P>    
 
-    <% if (MemberProfileTask.getHasDivisionI()) { %>
+    <% if (MemberProfileTask.hasDivisionI()) { %>
                   <P>
                   <B>Division I Performance</B>
                   </P>    
@@ -283,7 +283,7 @@
                   <tces:rowIterator id="language" rowList="<%=(List)MemberProfileTask.getDivIStatsByLang()%>">
                     <TR>
                       <TD class="statText" HEIGHT="18">
-                        <nobr>&#160;<b><%= level.getItem("language_name").toString() %></b></nobr>
+                        <nobr>&#160;<b><%= language.getItem("language_name").toString() %></b></nobr>
                       </TD>
                       <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                       <TD class="statText">

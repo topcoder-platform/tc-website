@@ -484,7 +484,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /** Getter for property hasDivisionI.
      * @return Value of property hasDivisionI.
      */
-    public boolean isHasDivisionI() {
+    public boolean hasDivisionI() {
         return this.hasDivisionI;
     }
     
@@ -498,7 +498,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /** Getter for property hasDivisionII.
      * @return Value of property hasDivisionII.
      */
-    public boolean isHasDivisionII() {
+    public boolean hasDivisionII() {
         return this.hasDivisionII;
     }
     
