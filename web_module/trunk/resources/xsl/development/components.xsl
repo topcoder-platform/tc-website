@@ -208,7 +208,7 @@
 
                             <tr valign="top">
                                 <td class="statText">Total Earnings for All Component Projects*:</td>
-                                <td class="statText" align="right">$1,371.25</td>
+                                <td class="statText" align="right">$0.00</td>
                                 <td class="statText"></td>
                             </tr>
 
@@ -276,14 +276,14 @@
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="middle">
                     <td class="statText">
-                        <p><strong>Lightweight Model View Controller</strong><br />
-                         Framework to facilitate the Model-View-Controller design paradigmn.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=3300831" target="parent" class="statText">Lightweight Model View controller</a> on the TopCoder Software web site.</p>
+                        <p><strong>HTTP Utility</strong><br />
+                         Simplifies interaction with any HTTP server including HTML pages, servlets, ASPs, JSPs and CGI scripts..  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=5501553" target="parent" class="statText">HTTP Utility</a> on the TopCoder Software web site.</p>
 
 
                         
                         <p><strong>Review Board Comments</strong><br />
-                        "Nice design that meets the requirements in an elegant way. Good documentation, especially the demo-tutorial. I can say that this work is worth the money."
-                        <a href="/stat?c=member_profile&amp;cr=299180" class="coderTextGreen">&#160;&#151;isv</a></p></td>
+                        "This is a high quality implementation.  Benchmarks show a minimal overhead to using this component with single digit millisecond counts per execution when utilizing all features of the component and next to zero overhead when strictly retrieving a page."
+                        <a href="/stat?c=member_profile&amp;cr=299761" class="coderTextYellow">&#160;&#151;techie1</a></p></td>
                 </tr>
             </table>
 
