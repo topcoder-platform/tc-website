@@ -6,7 +6,10 @@ import java.rmi.RemoteException;
 
 public interface User extends EJBObject {
 
-    void createUser(long userId, String _handle, char _status, String dataSource)
+    long createNewUser(String handle, char status, String dataSource)
+            throws EJBException, RemoteException;
+
+    void createUser(long userId, String _handle, char status, String dataSource)
             throws EJBException, RemoteException;
 
 
@@ -24,10 +27,10 @@ public interface User extends EJBObject {
 
     void setActivationCode(long userId, String code, String dataSource)
             throws EJBException, RemoteException;
-    
+
     public String getHandle(long userId, String dataSource)
             throws EJBException, RemoteException;
-    
+
     public void setHandle(long userId, String handle, String dataSource)
             throws EJBException, RemoteException;
 
