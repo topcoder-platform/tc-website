@@ -25,11 +25,11 @@ function getTCProblemResults(coderId, roundId, problemId) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=TCProblemResult"; %>
+    <% String tcurl = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=TCProblemResult"; %>
     var params = '&<%=Constants.USER_ID%>=' + coderId +
                  '&<%=Constants.ROUND_ID%>=' + roundId +
                  '&<%=Constants.PROBLEM_ID%>=' + problemId;
-    window.open('<screen:rewrite page="<%=url%>" />'+params,name,cmd);
+    window.open('<screen:rewrite page="<%=tcurl%>" />'+params,name,cmd);
     return;
   }
 </SCRIPT>
