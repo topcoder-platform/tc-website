@@ -74,7 +74,7 @@
             <blockquote>
             <h2>Advancers</h2>
 
-            <p>Click any of the column names to sort the list of advancers by that column.</p>
+            <p>Click a column name to sort the list of advancers by that column.</p>
 
             <a name="data"/>
             <table width="400" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
