@@ -80,7 +80,6 @@ public abstract class BaseTask implements Task, Serializable {
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
          throws Exception {
         setAuthentication(Authentication.getAuthentication(request.getSession(true)));
-        getAuthentication().setRequestedURL(request.getQueryString());
     }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
