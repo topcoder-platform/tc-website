@@ -6,9 +6,9 @@
          <tr>
              <td valign="middle" background="/i/surveyBorderLeft.gif"><img src="/i/clear.gif" width="10" height="1" border="0"/>
              </td>
-             <td><img src="/i/clear.gif" width="200" height="10" border="0"/>
-                  <font size="3"><b><xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/date"/> - </b></font>
-                  <font size="-1" color="#333333"><xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/question_text"/></font>
+             <td class="surveyText"><img src="/i/clear.gif" width="200" height="10" border="0"/>
+                  <span class="surveyTextBig"><xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/date"/> - </span>
+                  <xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/question_text"/>
               </td>
              <td valign="middle" background="/i/surveyBorderRight.gif"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/>
              </td>
