@@ -27,12 +27,6 @@
     </web-resource-collection>
   </security-constraint>
 
- <!-- The not-good File List -->
-  <error-page>
-    <exception-type>java.lang.Exception</exception-type>
-    <location>/errorPage.jsp</location>
-  </error-page> 
-
   <!-- Struts Tag Library Descriptors -->
   <taglib>
     <taglib-uri>/WEB-INF/struts-bean.tld</taglib-uri>
