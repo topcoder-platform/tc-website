@@ -69,25 +69,61 @@
 <P>
 Saturday, November 23, 2002
 </P>
-              
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
+<br />
+<font size="+2"><b>Choosers</b></font><br />
+<font size="-1">Used as: Level 1</font><h4>Implementation</h4>
+<p>
+With a limit of 15 choosers, there are at most 2<sup>15</sup> configurations of the choosers, and 
+15 possible locations for the ball.  This gives us a total of 15*2<sup>15</sup> possible states.  
+We can then move the ball around, according to the rules, and cache the states we reach.  Then, 
+if we ever reach the same state twice, there is a loop, since the sequence of states is totally 
+deterministic.  This can be simply implemented by representing each of the states as a bitmask 
+and using an array as a cache.
+</p>
+<p>
+If the input was larger, we might run into memory limits and would have to find a different 
+solution.  One other way to do this is to run the marble through twice, simultaneously, with 
+one marble moving through two choosers at a time, while the other only goes through one at time.  
+Then, if the one going twice as fast every gets to the same state as the slow one, there is a 
+loop somewhere.  However, this isn't neccessary.
+</p>
+<br />
+<font size="+2"><b>Comment</b></font><br />
+<font size="-1">Used as: Level 2</font><h4>Implementation</h4>
+<p>
+This is a classic string parsing problem.  You should start in a CODE state, and then scan the 
+strings, one at a time.  If you hit "//" then you simply ignore the rest of the line.  If you 
+hit "/*", then you ignore until you see "*/".  One thing to watch for is the case {"/*/*/"}, 
+where the output should be {}, not {"*/"}.  It was this case that caused SnapDragon to resubmit.</p>
+<p>
+The most difficult case to handle is probably that involving double quotes.  If you are in the 
+CODE state, and you see a double quote, you should then ignore all characters until you see 
+another double quote.  However, there is the possibility that there will be an escaped double 
+quote, which must not terminate the first double quote.  A few other things to watch out for 
+are slashes at the end of strings, and slashes at the end of one string, followed by an 
+asterisk at the beginning of the next.
+</p>
+<br />
+<font size="+2"><b>Mirrors</b></font><br />
+<font size="-1">Used as: Level 3</font><h4>Implementation</h4>
+<p>
+Computational geometry is always ugly, and tonight was certainly no exception.  This problem 
+combined three subtasks.  You have to be able to reflect a ray when it hits a segment, find the 
+intersection of a line and a ray, and find the distance from a line to a point.</p>
+<p>
+Once you solve all of these subproblems using some dot products and cross products and such, 
+its not too hard to combine then, but its certainly not trivial.  You should start with the ray 
+defined by the start input.  Then, you should find the intersection between this ray, and every 
+mirror.  Of all the mirrors that the ray intersects, you have to find the one closest to the start, 
+and pick it.  Then, you also have to check if the ray hits an object before it hits the mirror.  
+If it does, you are done, otherwise, you reflect the ray with the mirror you found, and repeat 
+the whole process until you either hit an object, yourself, or the hit no mirrors.</p>
+<p>
+One interesting note to add is that there are classes in java.awt which have methods for finding 
+the distance from a line to a point, and whether or not two lines intersect.  Using this can make 
+it much easier, but unfortunately for them, all the coders used C++.
+</p>             
 
-<P>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut 
-laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud exerci tation 
-ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor 
-in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis 
-at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue 
-duis dolore te feugait nulla facilisi.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed 
-diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad 
-minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</P>
-
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
 
 
 <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
