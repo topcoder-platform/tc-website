@@ -226,7 +226,7 @@ final class UserDbCoder {
 
 
     private static void insertCoderNotify(Connection conn, int coderId, int notifyId) throws TCException {
-        log.debug("ejb.User.UserDbCoder:insertCoderNotify():called.");
+        log.debug("ejb.User.UserDbCoder:insertCoderNotify():called. coder: " + coderId + " notify: " + notifyId);
         PreparedStatement ps = null;
         String query = "INSERT INTO coder_notify (coder_id, notify_id) VALUES (?, ?)";
         try {
@@ -414,7 +414,6 @@ final class UserDbCoder {
 
     /**
      * Method to add a confirmation codes for this coder.
-     * @author Greg Paul
      */
     private static void insertCoderConfirmation(Connection conn, CoderConfirmation coderConfirmation)
             throws TCException {
@@ -1312,7 +1311,6 @@ final class UserDbCoder {
      *********************************************************************************************
      * loadRanking()
      * Gets a particular coder's ranking
-     * @author Greg Paul
      *********************************************************************************************
      */
     private static void loadRanking(Connection conn, CoderRegistration coder) throws TCException {
@@ -1419,7 +1417,6 @@ final class UserDbCoder {
 
     /**
      * Load up information from coder_confirmation for this coder.
-     * @author Greg Paul
      */
     private static void loadCoderConfirmations(Connection conn, CoderRegistration coder)
             throws TCException {
