@@ -42,11 +42,11 @@
     ArrayList divisionNames = new ArrayList(5);
     ArrayList divisionIDs = new ArrayList(5);
 
-    Object last = "";
+    String last = "";
     int divisions = 0;
     for(int i = 0; i<percents.size();i++){
         ResultSetContainer.ResultSetRow currentRow = percents.getRow(i);
-        Object current = currentRow.getItem("division_desc");
+        String current = currentRow.getItem("division_desc").toString();
         if(!current.equals(last)){
             divisionNames.add(current);
             divisionIDs.add(currentRow.getItem("division_id"));
