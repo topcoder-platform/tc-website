@@ -244,7 +244,14 @@
                                 </a>
                             </td>
                             <td class="projectCells" align="center">
-                               <xsl:value-of select="./total_inquiries"/>
+                                <xsl:choose>
+                                    <xsl:when test="./total_inquiries&lt;number(/TC/DEVELOPMENT/MaxInquiries)">
+                                        <xsl:value-of select="./total_inquiries"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        Registration Full
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
@@ -334,7 +341,14 @@
                                 </a>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:value-of select="./total_inquiries"/>
+                                <xsl:choose>
+                                    <xsl:when test="./total_inquiries&lt;number(/TC/DEVELOPMENT/MaxInquiries)">
+                                        <xsl:value-of select="./total_inquiries"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        Registration Full
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
@@ -414,7 +428,14 @@
                                 </a>
                             </td>
                             <td class="projectCells" align="center">
-                               <xsl:value-of select="./total_inquiries"/>
+                                <xsl:choose>
+                                    <xsl:when test="./total_inquiries&lt;number(/TC/DEVELOPMENT/MaxInquiries)">
+                                        <xsl:value-of select="./total_inquiries"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        Registration Full
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
