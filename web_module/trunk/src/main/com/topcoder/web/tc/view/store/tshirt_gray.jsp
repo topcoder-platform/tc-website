@@ -33,12 +33,12 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" colspan="5" /></td></tr>
                 <tr><td align="center" colspan="5"><img src="/i/store/store_logo.gif" alt="TopCoder Gear Store" width="540" height="77" border="0" /></td></tr>
-                <tr>
+                <tr BGcolor="#CCCCCC">
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
                     <td><img src="/i/store/tshirt_gray.jpg" alt="Short Sleeve T-Shirt, Gray" width="328" height="326" border="0" /></td>
                     <td><img src="/i/clear.gif" alt="" width="5" height="15" border="0" /></td>
                     <td>
-                                <table>
+                                <table BGcolor="#CC0000">
                                     <tr><td class="bodyText" align="left">Short Sleeve T-Shirt, Gray</td></tr>
                                     <tr><td class="bodyText" align="left">Short Sleeve T-Shirt, Black</td></tr>
                                     <tr><td class="bodyText" align="left">Long Sleeve T-Shirt, Gray</td></tr>
@@ -51,7 +51,7 @@
                     </td>
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
                 </tr>
-                <tr>
+                <tr BGcolor="#CCCCCC">
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
                     <td class="bodyText">   
                                 <table>
