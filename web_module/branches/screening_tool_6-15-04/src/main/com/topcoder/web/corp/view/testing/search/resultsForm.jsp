@@ -58,12 +58,13 @@ function getProblemDetail(id) {
                   <td class="screeningHeader" valign="middle" align=center>Notes</td>
                   <td class="screeningHeader" valign="middle" align=center>Results</td>
               </tr>
-              <rsc:iterator list="<%=results%>" id="resultRow">
-              <%
+                <%
                     int counter = 0;
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                     String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
                 %>
+
+              <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
                   <td class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"><rsc:item row="<%=resultRow%>" name="name"/></A></td>
                   <td class="<%=cssClasses[counter % 2]%>"><A href="mailto:<rsc:item row="<%=resultRow%>" name="email_address"/>"><rsc:item row="<%=resultRow%>" name="email_address"/></A></td>
