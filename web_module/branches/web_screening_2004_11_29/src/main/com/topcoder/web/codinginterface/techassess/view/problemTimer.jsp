@@ -58,8 +58,8 @@ if (o!=null) {
 
 
         function problemUpdate() {
-            var d = new Date();
-            var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
+            var myDate = new Date();
+            var correctedLocalTime = new Date(myDate.getTime() - problemSyncedOffset);
 
             for (i=0; i<startTimes.length;i++) {
                 if (types[i]==EXAMPLE_SET) {
