@@ -1,14 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
-<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
-
-
-
-
-<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.web.tc.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java"  %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
