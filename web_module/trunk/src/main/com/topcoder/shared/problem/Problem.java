@@ -14,7 +14,7 @@ import java.io.*;
  * @author Hao Kung
  */
 public class Problem extends BaseElement implements Element, Serializable, CustomSerializable {
-    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2002, TopCoder, Inc.  All rights reserved.  ";
+    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  ";
 
     private ProblemComponent[] problemComponents = new ProblemComponent[0];
     private int problemId = -1;
