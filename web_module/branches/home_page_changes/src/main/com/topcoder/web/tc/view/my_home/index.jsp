@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Member Card</title>
+<title>TopCoder $HOME</title>
 
 <jsp:include page="../../script.jsp" />
 
@@ -56,6 +56,15 @@
                 <tr>
                     <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=card&d2=description"><img src="/i/my_home/c_and_b.gif" border=0/></A></td>
                     <td class="bodyText" valign=top>Ever wanted to show off your TopCoder skills? Want that ace in the hole at your next job interview? The TopCoder <A href="/tc?module=Static&d1=card&d2=description">Member Badges and Cards</A> are the answer!  Choose a badge from our selection and put it on your website, resume, or even make a giant poster!  Our member cards are an exciting way to post your stats on your own website and offer a great tool for recruiters to look at.</td>
+                </tr>
+            </table>
+
+            <br/>
+
+            <table border=0 cellpadding=5 cellspacing=0 width="100%">
+                <tr>
+                    <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/my_home/contracting.gif" border=0/></A></td>
+                    <td class="bodyText" valign=top><A href="/tc?module=Static&d1=contracting&d2=index">here</A></td>
                 </tr>
             </table>
 
