@@ -250,8 +250,10 @@ public class TCLoadRequests extends TCLoad {
         //log.debug("called getUrlId " + url.getUrl());
         long ret = -1;
         if (urlMap.containsKey(url)) {
+            log.debug("url " + url + " found");
             ret = ((Long) urlMap.get(url)).longValue();
         } else {
+            log.debug("url " + url + " not found");
             PreparedStatement psSel = null;
             ResultSet rs = null;
 
@@ -288,8 +290,10 @@ public class TCLoadRequests extends TCLoad {
         long ret = -1;
         Date d = new Date(time.getTime());
         if (calendarMap.containsKey(d)) {
+            log.debug("date " + d + " found");
             ret = ((Long)calendarMap.get(d)).longValue();
         } else {
+            log.debug("date " + d + " not found");
             ret = lookupCalendarId(time, TARGET_DB);
             calendarMap.put(d, new Long(ret));
         }
