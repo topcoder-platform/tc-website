@@ -4,7 +4,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <meta name="GENERATOR" content="Mozilla/4.77 [en] (X11; U; Linux 2.4.16 i686) [Netscape]">
 </head>
-<body text="#000000" bgcolor="#666666" link="#0000EF" vlink="#59188E" alink="#FF0000">
+<body>
 
 <jsp:include page="MemberHeader.jsp" flush="true" />
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
@@ -13,13 +13,13 @@
 
     AffidavitPayment aPay=null;
     try {
-        aPay = (AffidavitPayment) 
+        aPay = (AffidavitPayment)
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
     } catch (Exception e) {
 	out.println("We caught an exception " + e);
 	aPay = null;
     }
-    
+
     if(aPay!=null) {
 
 	// build the table
@@ -34,14 +34,14 @@
 	tableData.setElement(1,0,"Affidavit Affirmation");
 	Vector vec = new Vector();
 	vec.clear();
-	String str = (aPay._affidavit._header._affirmed) ? 
+	String str = (aPay._affidavit._header._affirmed) ?
 		  "click to see affidavit" : "click to affirm";
-	vec.add(new String(PactsConstants.AFFIDAVIT_ID + "=" + 
+	vec.add(new String(PactsConstants.AFFIDAVIT_ID + "=" +
 	            aPay._affidavit._header._id));
 
 	String href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
-	            vec, PactsConstants.AFFIDAVIT_TASK, 
+	            vec, PactsConstants.AFFIDAVIT_TASK,
 	            PactsConstants.AFFIDAVIT_DETAILS_CMD, str);
 	tableData.setElement(0,1,href);
 
@@ -80,7 +80,7 @@
 	//row 10
 	tableData.setElement(10,0,"Middle Name");
 	tableData.setElement(8,1,aPay._paymentAddress._middleName);
-	
+
 	//row 11
 	tableData.setElement(11,0,"Address 1");
 	tableData.setElement(11,1,aPay._paymentAddress._address1);
@@ -105,7 +105,7 @@
 	tableData.setElement(16,0,"Country");
 	tableData.setElement(16,1,aPay._paymentAddress._country);
 
-	
+
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
 	table.setBgcolor("\"#FFFFFF\"");
 	table.setCellSpacing("0");
@@ -114,7 +114,7 @@
 	table.setFontSize("+1");
 	out.print(table.getHtml());
     } else {
-	
+
 %>
 
 did not get affidavit

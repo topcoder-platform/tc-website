@@ -1,7 +1,6 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
-<%@ page 
+<%@ page
   language="java"
-  errorPage="/errorPage.jsp"
 %>
 
 <HTML>
@@ -19,9 +18,9 @@ function goTo(selection){
   }
 }
 // -->
-</script>   
+</script>
  </HEAD>
- <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+ <BODY>
    <jsp:include page="../../top.jsp" />
    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
      <TR>
@@ -30,10 +29,10 @@ function goTo(selection){
        </TD>
        <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-        <jsp:include page="/body_top.jsp" >  
-           <jsp:param name="image" value="pacts"/>  
-           <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value=""/>  
+        <jsp:include page="/body_top.jsp" >
+           <jsp:param name="image" value="pacts"/>
+           <jsp:param name="image1" value="steelblue"/>
+           <jsp:param name="title" value=""/>
         </jsp:include>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
   <TR>
@@ -46,13 +45,13 @@ function goTo(selection){
 <%
     UserProfileHeader header = null;
     try {
-        header = (UserProfileHeader) 
+        header = (UserProfileHeader)
     request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
     } catch (Exception e) {
   out.print("exception " + e);
   header = null;
     }
- 
+
     if( header != null) {
   //we got it
 
@@ -149,7 +148,7 @@ The PACTs system went online on Wednesday, May 15, 2002.  Affidavits, payments a
 <br/>
 - Click the "click here to see a complete list of affidavits" link towards the top of the Affidavit List screen
 <br/>
-- The Affidavit List screen should then be populated with a historical list of your affidavits.  Click the "expired, click here to view" link to view the affidavit you want to print 
+- The Affidavit List screen should then be populated with a historical list of your affidavits.  Click the "expired, click here to view" link to view the affidavit you want to print
 <br/>
 - Click the "click here for a printer friendly version of the affidavit" to bring up a printable version of the affidavit
 <br/>
@@ -170,13 +169,13 @@ If you have any questions, comments or concerns about the PACTs system, please e
       <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>     
+  </TR>
   <TR>
     <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
     <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
     <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>  
+  </TR>
   <TR>
     <TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
     <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -195,9 +194,9 @@ If you have any questions, comments or concerns about the PACTs system, please e
        </TD>
     <!-- Gutter -->
     <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+   <jsp:include page="/foot.jsp" />
  </BODY>
 </HTML>
