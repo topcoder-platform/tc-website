@@ -903,49 +903,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
                 members = (TeamMemberRole[]) list.toArray(new TeamMemberRole[0]);
 
-            /**************************
-             * remove the below (to the next comment) after move to production
-             * (on dev db, table security_user is actually called security_user_tmp)
-             */
-            } catch (SQLException sqle) {
-                try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
-
-                query = new StringBuffer(500);
-                query.append("SELECT ur.user_role_id, ur.login_id, s.user_id,                ");
-                query.append("       r.role_id, r.role_name, r.description, ur.tcs_rating    ");
-                query.append("       s.user_id                                               ");
-                query.append("  FROM user_role ur, roles r, comp_catalog c, comp_versions v, ");
-                query.append("       security_user_tmp s                                     ");
-                query.append(" WHERE r.role_id = ur.role_id                                  ");
-                query.append("   AND c.component_id = ? AND c.component_id = v.component_id  ");
-                query.append("   AND s.login_id = ur.login_id                                ");
-                if (version < 0) query.append("   AND c.current_version = v.version          ");
-                else query.append("   AND ? = v.version                          ");
-                query.append("   AND ur.comp_vers_id = v.comp_vers_id            ORDER BY 3 ");
-
-                try {
-
-                    ps = c.prepareStatement(query.toString());
-                    ps.setLong(1, componentId);
-                    if (version >= 0) ps.setLong(2, version);
-                    rs = ps.executeQuery();
-
-                    List list = new ArrayList();
-                    while (rs.next()) list.add(new TeamMemberRole(rs.getLong(1),
-                            rs.getLong(2), rs.getString(3), rs.getLong(4),
-                            rs.getString(5), rs.getString(6), rs.getInt(7)));
-
-                    members = (TeamMemberRole[]) list.toArray(new TeamMemberRole[0]);
-
-                } finally {
-                    try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
-                    try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
-                }
-            /**********************
-             * remove the above (to the pervious comment) after move to production
-             */
-
             } finally {
                 try { if (rs != null) { rs.close(); rs = null; } } catch (Exception e) {}
                 try { if (ps != null) { ps.close(); ps = null; } } catch (Exception e) {}
