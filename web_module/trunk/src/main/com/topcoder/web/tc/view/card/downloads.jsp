@@ -62,7 +62,7 @@
          </table>
 
          <p>If you would like your badge to link to more info about your TopCoder experience, please insert the following HTML:</p>
-         <p align=center class="cardCode">&lt;a href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="UserId"/>"&gt;(image / text goes here)&lt;a&gt;</p>
+         <p align=center class="bodyText"><span class="cardCode">&lt;a href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="UserId"/>"&gt;</span>(image / text goes here)<span class="cardCode">&lt;a&gt;</span></p>
 
          </div>
          <p><br/></p>
