@@ -90,6 +90,8 @@ public final class Registration extends UserEdit {
         return super.getFormFields();
     }
 
+
+
     /**
      * @see com.topcoder.web.corp.request.UserEdit#setFormFieldsDefaults()
      */
@@ -124,7 +126,7 @@ public final class Registration extends UserEdit {
             setFormFieldDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
             UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-            if (userTerms.hasTermsOfUse(secTok.loggedUserID, Constants.CORP_SITE_TERMS_ID)) {
+            if (userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID)) {
                 setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.TRUE.toString());
             } else {
                 setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.FALSE.toString());
@@ -143,7 +145,7 @@ public final class Registration extends UserEdit {
     private boolean isExtFieldsEditable() {
         return
                 (secTok.isAccountAdmin && !secTok.createNew) ||
-                (secTok.loggedUserID < 0 && secTok.createNew);
+                (getAuthentication().getUser().isAnonymous() && secTok.createNew);
     }
 
     /**
@@ -225,32 +227,25 @@ public final class Registration extends UserEdit {
      */
     protected void verifyAllowed()
             throws NotAuthorizedException, Exception {
-        if (secTok.createNew) { // every can register primary person
-            if (secTok.loggedUserID >= 0) { // user is logged in
-                // switch to editind mode
-                targetUserID = secTok.loggedUserID;
-                secTok.createNew = false;
-                secTok.renewTargetUser();
-            }
-        } else { // edit request
-            if (secTok.loggedUserID < 0) { // user is not logged in
-                throw new NotAuthorizedException(
-                        "You must be logged on, in order to continue"
-                );
-            }
-            // well, user is logged in
-            if (secTok.isAccountAdmin) {
-                if (secTok.loggedUserCompanyID != secTok.targetUserCompanyID) {
-                    throw new NotAuthorizedException(
-                            "You are not allowed edit foreign users"
-                    );
+        com.topcoder.shared.security.User loggedInUser = getAuthentication().getUser();
+        com.topcoder.shared.security.User knownUser = getAuthentication().getActiveUser();
+
+
+        if (secTok.createNew) {
+            if (!knownUser.isAnonymous()) {
+                if (loggedInUser.isAnonymous()) {
+                    throw new NotAuthorizedException("You must be logged on, in order to continue");
+                } else {
+                    targetUserID = loggedInUser.getId();
+                    secTok.createNew = false;
+                    secTok.renewTargetUser();
                 }
-            } else { // regular user tries edit foreign user. Force to edit himself
-                targetUserID = secTok.loggedUserID;
-                secTok.renewTargetUser();
+            }
+        } else {
+            if (loggedInUser.isAnonymous()) {
+                throw new NotAuthorizedException("You must be logged on, in order to continue");
             }
         }
-        return;
     }
 
 
@@ -345,10 +340,8 @@ public final class Registration extends UserEdit {
             companyID = contactTable.getCompanyId(targetUserID);
         }
         contactTable.setTitle(targetUserID, title);
-        if (secTok.isAccountAdmin || secTok.loggedUserID < 0) {
+        if (secTok.isAccountAdmin || getAuthentication().getUser().isAnonymous()) {
             companyTable.setName(companyID, company);
-        } else {
-            return;
         }
 
         // address items for user
@@ -388,7 +381,7 @@ public final class Registration extends UserEdit {
         addrTable.setZip(addressID, zip);
 
         UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-        if (!userTerms.hasTermsOfUse(secTok.loggedUserID, Constants.CORP_SITE_TERMS_ID)) {
+        if (!userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID)) {
             userTerms.createUserTermsOfUse(targetUserID, Constants.CORP_SITE_TERMS_ID);
         }
 
