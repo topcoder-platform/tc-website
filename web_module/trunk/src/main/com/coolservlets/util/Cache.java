@@ -58,6 +58,8 @@ package com.coolservlets.util;
 
 import com.topcoder.shared.distCache.CacheClientPool;
 import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.SimpleCacheClientImpl;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.*;
 import java.rmi.RemoteException;
@@ -68,19 +70,28 @@ public class Cache {
     private static final int MAX_SIZE = 10000;
     private int timeOut= 1000*24*60*60*1000;
     private boolean isDistributed = false;
+    private static Logger log = Logger.getLogger(Cache.class);
 
     public Cache() {
-        new Cache(MAX_SIZE, timeOut);
+        try {
+            cache = new SimpleCacheClientImpl(MAX_SIZE);
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        }
     }
 
     public Cache(int maxSize) {
-        new Cache(maxSize, timeOut);
+        try {
+            cache = new SimpleCacheClientImpl(maxSize);
+        } catch (RemoteException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        }
     }
 
     public Cache(int maxSize, int timeOut) {
         try {
             this.timeOut = timeOut;
-            cache = new com.topcoder.shared.distCache.SimpleCacheClientImpl(maxSize);
+            cache = new SimpleCacheClientImpl(maxSize);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -123,6 +134,8 @@ public class Cache {
     public boolean containsKey(int key) {
         boolean ret = false;
         try {
+            if (getCache()==null) log.debug("cache client is null");
+            else log.debug("cache client is not null");
             ret = (getCache().containsKey(String.valueOf(key)));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
