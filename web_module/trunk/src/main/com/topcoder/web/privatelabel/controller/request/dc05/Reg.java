@@ -5,10 +5,14 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullReg;
-
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+        
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.List;
+import java.util.Collections;
 
 /**
  * @author  rfairfax
@@ -34,7 +38,22 @@ public class Reg extends FullReg {
             setIsNextPageInContext(true);
         }
 
+        
+    }
+    
+    protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
+        super.checkRegInfo(info);
+        
+        ((FullRegInfo) info).setCoderType(1);
+        
         //need to load demographic questions here because of 1 page approach
+        try {
+            List l = getQuestionList(((FullRegInfo) info).getCoderType());
+            Collections.sort(l);
+            getRequest().setAttribute("questionList", l);
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
 }
