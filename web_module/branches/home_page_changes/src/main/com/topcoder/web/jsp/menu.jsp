@@ -21,7 +21,7 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-        <td class="<%=level1.equals("competition")?"topNavOn":"topNav"%>" nowrap><A href="/" class="topLink">Competition</A></td>
+        <td class="<%=level1.equals("competition")?"topNavOn":"topNav"%>" nowrap><A href="/tc" class="topLink">Competition</A></td>
 
         <td class="<%=level1.equals("development")?"topNavOn":"topNav"%>" nowrap><A href="/?t=development&c=index" class="topLink">Development</A></td>
 
