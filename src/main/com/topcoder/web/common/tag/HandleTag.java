@@ -10,7 +10,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import java.util.Map;
 
 public class HandleTag extends TagSupport {
-    private int coderId;
+    private long coderId;
     private String link = "";
     private String cssclass = "";
     private boolean darkBG = true;
@@ -31,7 +31,7 @@ public class HandleTag extends TagSupport {
             {"coderTextOrange", "coderTextWhite", "coderTextGray",
              "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
-    public void setCoderId(int coderId) {
+    public void setCoderId(long coderId) {
         this.coderId = coderId;
     }
 
