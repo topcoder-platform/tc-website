@@ -103,9 +103,14 @@
                                                         connectivity.
                                                         <br/>
                                                         <br/>
-                                                        The Palm Common Remote Connectivity Application module will contain the various
-                                                        common Palm utilities and functions to support the connectivity requirements that
-                                                        are common among the various Palm applications that will be modified/developed.
+                                                        The Palm Common Remote Connectivity Application module will contain the various common Palm
+                                                        utilities and functions to support the connectivity requirements that are common among the various Palm
+                                                        applications that will be modified/developed. The scope of this project DOES NOT include the design
+                                                        and/or development of the individual Palm applications that will utilize the Common Library. However, the
+                                                        full application requirements will be provided to the designer as a reference to understand what the
+                                                        ultimate usage of the Common Remote Connectivity will be and how it fits into the overall application
+                                                        architecture.
+architecture.
                                                         <br/>
                                                         <br/>
 
