@@ -20,7 +20,7 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class=bodySpacer>
-            
+
         <p class=bigTitle>Algorithm Competition Official Rules and Regulations</p>
 
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -42,8 +42,8 @@
             <a name="eligibility"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Eligibility</h3>
-			TopCoder members meeting the following criteria are eligible to compete in the Algorithm Competition: 
-			
+			TopCoder members meeting the following criteria are eligible to compete in the Algorithm Competition:
+
 			<ul>
 			<li>Must be at least 18 years of age (as of January 11, 2005); AND</li>
 			<li>Must be matriculated full-time at an accredited college or university.</li>
@@ -78,9 +78,9 @@
             <a name="structure"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Online Elimination Rounds</h3>
-			Everyone who competes in an online round must login to the TopCoder Competition Arena no later than ten (10) minutes prior to the start of the online round. (See the schedule for competition dates and times.) TopCoder members from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
+			Everyone who competes in an online round must login to the TopCoder Competition Arena no later than ten (10) minutes prior to the start of the online round. (See the schedule for competition dates and times.) TopCoder members from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.
 			<br/><br/>
-			All competitors who have qualified for an online round will be assigned to a specific room. <b>TopCoder will determine all room assignments prior to the start of each online round in the TopCoder Iron Man format, which assigns members to rooms according to tournament seed such that the higher seeded members are assigned to the lower numbered rooms</b>.  The dates and times of the online rounds of competition are as follows: 
+			All competitors who have qualified for an online round will be assigned to a specific room. <b>TopCoder will determine all room assignments prior to the start of each online round in the TopCoder Iron Man format, which assigns members to rooms according to tournament seed such that the higher seeded members are assigned to the lower numbered rooms</b>.  The dates and times of the online rounds of competition are as follows:
 
 			<br/><br/>
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -111,15 +111,15 @@
 			<br/><br/>
 
             <span class="bodySubtitle">Scoring and Advancing during Online Rounds</span><br/>
-			After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next online round.  Room winners are defined as the top three (3) scorers from each room.  To be considered a room winner, a participant must have positive (i.e., greater than zero) points.  Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
+			After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next online round. Room winners are defined as the top scorer from each room. To be considered a room winner, a participant must have positive (i.e., greater than zero) points. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
 
-			<ul><li><b>Online Round #1</b><br/>Up to 500 coders will compete in Round #1 and up to 200 will advance.  The room winners in each of up to 50 rooms will automatically advance to Online Round #2.  The remaining 50 spots will be "wildcards", and will be awarded based on total points across all rooms.  (In the event there are less than 150 room winners in Round #1, the total number of wildcard spots will be equal to 200 minus the actual number of room winners.)</li></ul>
+			<ul><li><b>Online Round #1</b><br/>Up to 500 coders will compete in Round #1 and up to 200 will advance. The room winners in each of up to 50 rooms will automatically advance to Online Round #2. The remaining 150 spots will be "wildcards", and will be awarded based on total points across all rooms. (In the event there are less than 50 room winners in Round #1, the total number of wildcard spots will be equal to 200 minus the actual number of room winners.)</li></ul>
 
-			<ul><li><b>Online Round #2</b><br/>Up to 200 coders will compete and up to 100 will advance.  The room winners in each of up to 20 rooms will automatically advance to Online Round #3.  The remaining 40 spots will be wildcards and will be awarded based on total points across all rooms.  (In the event there are less than 60 room winners in Round #2, the total number of wildcard spots will be equal to 100 minus the actual number of room winners.)</li></ul>
+			<ul><li><b>Online Round #2</b><br/>Up to 200 coders will compete and up to 100 will advance. The room winners in each of up to 20 rooms will automatically advance to Online Round #3. The remaining 80 spots will be wildcards and will be awarded based on total points across all rooms. (In the event there are less than 20 room winners in Round #2, the total number of wildcard spots will be equal to 100 minus the actual number of room winners.)</li></ul>
 
-			<ul><li><b>Online Round #3</b><br/>Up to 100 coders will compete and up to 50 will advance.  The room winners in each of the 10 rooms will automatically advance to Online Round #4.  The remaining 20 spots will be wildcards and will be awarded based on total points across all rooms.  (In the event there are less than 30 room winners in Round #3, the total number of wildcard spots will be equal to 50 minus the actual number of room winners.)</li></ul>
+			<ul><li><b>Online Round #3</b><br/>Up to 100 coders will compete and up to 50 will advance. The room winners in each of up to 10 rooms will automatically advance to Online Round #4. The remaining 40 spots will be wildcards and will be awarded based on total points across all rooms. (In the event there are less than 10 room winners in Round #3, the total number of wildcard spots will be equal to 50 minus the actual number of room winners.)</li></ul>
 
-			<ul><li><b>Online Round #4</b><br/>Up to 50 coders will compete and up to 24 will advance.  The room winners in each of up to 5 rooms will automatically advance to the field of Semifinalists.  The remaining 9 spots will be wildcards and will be awarded based on total points across all rooms.  (In the event there are less than 15 room winners in Round #4, the total number of wildcard spots will be equal to 24 minus the actual number of room winners.)</li></ul>
+			<ul><li><b>Online Round #4</b><br/>Up to 50 coders will compete and up to 24 will advance. The room winners in each of up to 5 rooms will automatically advance to the field of Semifinalists. The remaining 19 spots will be wildcards and will be awarded based on total points across all rooms. (In the event there are less than 5 room winners in Round #4, the total number of wildcard spots will be equal to 24 minus the actual number of room winners.)</li></ul>
 
 			NOTE:  In the event of a tie for any advancing position (i.e., room winner or wildcard spot), the tie will be resolved in the following manner:
 
@@ -128,7 +128,7 @@
 			<li>If a tie still remains, then by rating (higher is better) following the Qualification Round.</li>
 			<li>If a tie still remains, all tied coders will advance to the next round.</li>.
 			</ul>
-			
+
             <span class="bodySubtitle">Competition Round Structure</span><br/>
 			With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of the Single Round Matches.  The rules in place for the Single Round Matches as of January 11, 2005 will also apply to the online and onsite rounds of the TCCC.)
 
@@ -141,9 +141,9 @@
             <span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
 			The twenty-four (24) advancers from Online Round #4 will travel to the Santa Clara Marriott on Tuesday, March 8th or Wednesday, March 9th to compete in the Semifinal round of the tournament being held on Thursday, March 10.  All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM on Wednesday, March 9th.  All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM ET on Friday, February 18, 2005.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.
 			<br/><br/>
-			TopCoder will provide travel arrangements for each competitor, up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  TopCoder will also provide ground transportation to and from the airport, as well as hotel accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2005 TCCC.  
+			TopCoder will provide travel arrangements for each competitor, up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  TopCoder will also provide ground transportation to and from the airport, as well as hotel accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2005 TCCC.
 			<br/><br/>
-			TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a manner such that the average competitor rating (following the Qualification Round) for each room will be similar.  The dates and times of the onsite Semifinal and Championship rounds are as follows: 
+			TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a manner such that the average competitor rating (following the Qualification Round) for each room will be similar.  The dates and times of the onsite Semifinal and Championship rounds are as follows:
 
 			<br/><br/>
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -173,7 +173,7 @@
 				</tr>
 			</table>
 			<br/><br/>
-	
+
 			The Semifinal Round will consist of three (3) rooms of eight (8) coders each. The winner in each room will advance to the Championship Round.  The 2nd and 3rd place finishers in each round will participate in one (1) Wildcard Round.  The winner of the Wildcard Round will also advance to the Championship Round.
 			<br/><br/>
 			The Championship Round will be a single round of four (4) coders. First, second, third and fourth place in the Championship round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Semifinal and/or Championship rounds, the tie will be resolved in the following manner (in order):
@@ -188,7 +188,7 @@
             <a name="prizes"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>About the Prizes</h3>
-			The tournament will award prizes to up to 500 competitors and $60,000 in cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
+			The tournament will award prizes to up to 500 competitors and $60,000 in cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  In order to be eligible for prizes during the online rounds, coders must finish with positive (i.e., greater than zero) points.  Prizes will be distributed as follows:
 			<br/><br/>
 
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -221,15 +221,15 @@
                     <td width="50%" class="sidebarText">$95 each
 				</tr>
 				<tr>
-                    <td width="50%" class="sidebarText">Up to 30 Room Winners from Online Round #3
+                    <td width="50%" class="sidebarText">Up to the top three scoring competitors from each room in Online Round #3
                     <td width="50%" class="sidebarText">$75 each
 				</tr>
 				<tr>
-                    <td width="50%" class="sidebarText">Up to 60 Room Winners from Online Round #2
+                    <td width="50%" class="sidebarText">Up to the top three scoring competitors from each room in Online Round #2
                     <td width="50%" class="sidebarText">$50 each
 				</tr>
 				<tr>
-                    <td width="50%" class="sidebarText">Up to 150 Room Winners from Online Round #1
+                    <td width="50%" class="sidebarText">Up to the top three scoring competitors from each room in Online Round #1
                     <td width="50%" class="sidebarText">$30 each
 				</tr>
 				<tr>
@@ -250,7 +250,7 @@
 			<br/><br/>
 			Winners in each round of competition will be those competitors who win the most points in their respective rooms. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 			<br/><br/>
-			Prizewinners will be notified via e-mail within 10 days of the completion of each round that they have won a prize.  Room winners from Online Rounds #1, #2, and #3, as well as all contestants who advance to Online Round #4 must complete the following documents by 9:00 PM ET on Wednesday, February 2, 2005: 
+			Prizewinners will be notified via e-mail within 10 days of the completion of each round that they have won a prize.  Room winners from Online Rounds #1, #2, and #3, as well as all contestants who advance to Online Round #4 must complete the following documents by 9:00 PM ET on Wednesday, February 2, 2005:
 
 			<ul>
 			<li>Competitor questionnaire - the questions and responses may be published in the 2005 TopCoder Collegiate Challenge Program
@@ -283,20 +283,20 @@
 
 			</div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tccc05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />
