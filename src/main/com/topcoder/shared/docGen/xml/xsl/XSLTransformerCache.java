@@ -73,6 +73,7 @@ public class XSLTransformerCache {
                 log.debug("cache size is now: " + CacheClientPool.getPool().getClient().size());
             } catch (RemoteException e) {
                 log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+                e.printStackTrace();
             }
         } catch (RemoteException e) {
             log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
