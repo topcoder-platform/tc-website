@@ -33,7 +33,7 @@ public abstract class Base implements RequestProcessor {
         response = sr;
     }
 
-    protected bool isUserGuest() {
+    protected boolean isUserGuest() {
       return user.getId() == -1;  // hardcoded userid for anonymous user
     }
 
