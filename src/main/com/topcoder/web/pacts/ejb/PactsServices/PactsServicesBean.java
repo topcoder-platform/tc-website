@@ -3794,6 +3794,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             setLockTimeout(c);
 
+
+            // Get list of users with taxforms
+            StringBuffer getUsers = new StringBuffer(300);
+            getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
+            .append(" , room_result rr where u.user_id = utfx.user_id and u.user_id = rr.coder_id ")
+            .append(" and utfx.user_id = rr.coder_id and rr.round_id = " + roundId);
+            ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
+            HashSet userTaxFormSet = new HashSet();
+            for (i=0; i<rscUser.getRowCount();i++)
+            {
+                userTaxFormSet.add(new Long(rscUser.getItem(i,0).toString()));
+            }
+
             // Make sure we haven't done this before for this round.
             StringBuffer checkNew = new StringBuffer(300);
             checkNew.append("SELECT COUNT(*) FROM affidavit WHERE round_id = " + roundId);
@@ -3853,7 +3866,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                 Payment p = new Payment();
                 p._grossAmount = TCData.getTCDouble(winners.getRow(i), "paid");
-                p._statusId = PAYMENT_PENDING_STATUS;
+                p._statusId = userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS;
                 p._header._description = roundName + " winnings";
                 p._header._typeID = CONTEST_PAYMENT;
                 p._dueDate = dueDate;
