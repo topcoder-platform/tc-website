@@ -35,7 +35,7 @@
         <PARAM value="false" name="scriptable">
         <PARAM name="host" value="www.topcoder.com">
         <PARAM name="port" value="7011">
-        <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=7011">
+        <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7011">
         <PARAM name="companyName" value="DblClk">
         <PARAM name="poweredbyview" value="true">
         <PARAM name="com.topcoder.client.contestApplet.editors.NoPluginManager" value="true">
@@ -47,7 +47,7 @@
             archive="DblClkContestApplet.jar"
             host="www.topcoder.com"
             port="7011"
-            tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=7011"
+            tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7011"
             companyName="DblClk"
             poweredbyview="true"
             com.topcoder.client.contestApplet.editors.NoPluginManager="true"
