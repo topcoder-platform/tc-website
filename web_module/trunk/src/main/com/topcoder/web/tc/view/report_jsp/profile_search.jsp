@@ -85,30 +85,30 @@
       <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
         <tr><td>
         <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:
-        <? if(resultRow.getStringItem("selectable").equals('N')) { ?>
+        <% if(resultRow.getStringItem("selectable").equals('N')) { %>
           <input type="textfield" size="20" name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>"/>
-        <? } else if(resultRow.getStringItem("selectable").equals('Y')) { ?>
+        <% } else if(resultRow.getStringItem("selectable").equals('Y')) { %>
           <select name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
-        <? } else if(resultRow.getStringItem("selectable").equals('M')) { ?>
+        <% } else if(resultRow.getStringItem("selectable").equals('M')) { %>
           <select size="5" multiple name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
-        <? } 
+        <% } 
         while(idx < demographic_answers.getRowCount()){
             answer = demographic_answers.getRow(idx);
             if(answer.getIntItem("demographic_question_id") == resultRow.getIntItem("demographic_question_id")){
-              ?>
+              %>
                 <option value="<rsc:item name="demographic_answer_id" row="<%=answer%>"/>"><rsc:item name="demographic_answer_text" row="<%=answer%>"/></option>
-              <?
+              <%
               idx++;
             }else{
                 break;
             }
         }
         if(!resultRow.getStringItem("selectable").equals('N')) {
-        ?>
+        %>
           </select>
-        <?
+        <%
         }
-        ?>
+        %>
         </td></tr>
       </rsc:iterator>
     </table>
