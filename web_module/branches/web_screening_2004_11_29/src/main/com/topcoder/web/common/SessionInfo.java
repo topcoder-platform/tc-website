@@ -102,7 +102,7 @@ public class SessionInfo implements Serializable {
         return "http://"+absoluteServletPath;
     }
 
-    public String getSecureAbosoluteServletPath() {
+    public String getSecureAbsoluteServletPath() {
         return "https://"+absoluteServletPath;
     }
 
