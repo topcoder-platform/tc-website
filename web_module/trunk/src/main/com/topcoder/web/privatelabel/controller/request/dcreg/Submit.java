@@ -20,12 +20,12 @@ public class Submit extends FullRegSubmit {
 
 
     protected void setNextPage() {
-        if (isEligible((FullRegInfo)regInfo)) {
+        if (isEligible((FullRegInfo) regInfo)) {
             if (hasErrors()) {
                 setNextPage(Constants.DC_REG_PAGE);
                 setIsNextPageInContext(true);
             } else {
-                SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+                SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 StringBuffer buf = new StringBuffer(150);
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
@@ -34,9 +34,10 @@ public class Submit extends FullRegSubmit {
                 buf.append(Constants.MODULE_KEY);
                 buf.append("=");
                 buf.append(Constants.STATIC);
-                if (((FullRegInfo)regInfo).getCoderType()==Constants.PROFESSIONAL)
+                if (((FullRegInfo) regInfo).getCoderType() == Constants.PROFESSIONAL)
                     buf.append(Constants.DC_REG_PRO_SUCCESS_PAGE);
-                else buf.append(Constants.DC_REG_STUDENT_SUCCESS_PAGE);
+                else
+                    buf.append(Constants.DC_REG_STUDENT_SUCCESS_PAGE);
                 setNextPage(buf.toString());
                 setIsNextPageInContext(false);
             }
@@ -47,7 +48,7 @@ public class Submit extends FullRegSubmit {
 
     protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
         try {
-            if (((FullRegInfo)info).getCoderType()==Constants.STUDENT) {
+            if (((FullRegInfo) info).getCoderType() == Constants.STUDENT) {
                 StringBuffer buf = new StringBuffer(1000);
                 User user = (User) createEJB(getInitialContext(), User.class);
                 String code = user.getActivationCode(userId, db);

@@ -19,5 +19,4 @@ public class Confirm extends FullRegConfirm {
     }
 
 
-
 }

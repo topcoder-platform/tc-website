@@ -25,8 +25,7 @@ public class Demog extends FullRegDemog {
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
 
-        if(((FullRegInfo)info).getCoderType() == 0)
-        {
+        if (((FullRegInfo) info).getCoderType() == 0) {
             addError(Constants.CODER_TYPE, "Please select your Student/Professional status.");
         }
     }

@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.HashMap;
 
-public class Login extends FullLogin {  
+public class Login extends FullLogin {
 
     private static HashMap TC_TO_PL_ANSWER_MAP = new HashMap();
     private static HashMap TC_TO_PL_QUESTION_MAP = new HashMap();
@@ -115,8 +115,8 @@ public class Login extends FullLogin {
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class); 
-        long userId = getAuthentication().getActiveUser().getId();  
+        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+        long userId = getAuthentication().getActiveUser().getId();
 
         boolean hasTCAccount = hasTopCoderAccount() && coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME);
         boolean hasCompanyAccount = hasCompanyAccount();
@@ -126,9 +126,9 @@ public class Login extends FullLogin {
         if (hasCompanyAccount) {
             info = getCommonInfo(userId, db);
 
-            if(coder.exists(userId, db)) {
+            if (coder.exists(userId, db)) {
                 info.setCoderType(coder.getCoderTypeId(userId, db));
-            } else if(coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
+            } else if (coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
                 info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
             }
 
@@ -138,8 +138,8 @@ public class Login extends FullLogin {
 
             ResultSetContainer.ResultSetRow row = null;
             DemographicQuestion question = null;
-            
-            if(responses.getRowCount() > 0 ) {
+
+            if (responses.getRowCount() > 0) {
                 for (Iterator it = responses.iterator(); it.hasNext();) {
                     row = (ResultSetContainer.ResultSetRow) it.next();
                     question = findQuestion(row.getLongItem("demographic_question_id"), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
@@ -166,26 +166,26 @@ public class Login extends FullLogin {
                     row = (ResultSetContainer.ResultSetRow) it.next();
                     long tcQuestionId = row.getLongItem("demographic_question_id");
                     //only add the response if we have a mapping for it
-                        if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                            question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
-                            if(question != null ) {
-                                DemographicResponse r = new DemographicResponse();
-                                r.setQuestionId(question.getId());
-                                r.setSort(row.getIntItem("sort"));
-                                if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                                        question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                                    long answerId = row.getLongItem("demographic_answer_id");
-                                    //check if we have a mapping for the answer, if so, add the response
-                                    if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
-                                        r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
-                                        info.addResponse(r);
-                                    }
-                                } else {
-                                    r.setText(row.getStringItem("demographic_response"));
+                    if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
+                        question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                        if (question != null) {
+                            DemographicResponse r = new DemographicResponse();
+                            r.setQuestionId(question.getId());
+                            r.setSort(row.getIntItem("sort"));
+                            if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                    question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                                long answerId = row.getLongItem("demographic_answer_id");
+                                //check if we have a mapping for the answer, if so, add the response
+                                if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
+                                    r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
                                     info.addResponse(r);
                                 }
+                            } else {
+                                r.setText(row.getStringItem("demographic_response"));
+                                info.addResponse(r);
                             }
                         }
+                    }
                 }
             }
         } else if (hasTCAccount) {
@@ -208,33 +208,32 @@ public class Login extends FullLogin {
                 row = (ResultSetContainer.ResultSetRow) it.next();
                 long tcQuestionId = row.getLongItem("demographic_question_id");
                 //only add the response if we have a mapping for it
-                    if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                        question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
-                        if(question != null ) {
-                            DemographicResponse r = new DemographicResponse();
-                            r.setQuestionId(question.getId());
-                            r.setSort(row.getIntItem("sort"));
-                            if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                                    question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                                long answerId = row.getLongItem("demographic_answer_id");
-                                //check if we have a mapping for the answer, if so, add the response
-                                if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
-                                    r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
-                                    info.addResponse(r);
-                                }
-                            } else {
-                                r.setText(row.getStringItem("demographic_response"));
+                if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
+                    question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                    if (question != null) {
+                        DemographicResponse r = new DemographicResponse();
+                        r.setQuestionId(question.getId());
+                        r.setSort(row.getIntItem("sort"));
+                        if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                            long answerId = row.getLongItem("demographic_answer_id");
+                            //check if we have a mapping for the answer, if so, add the response
+                            if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
+                                r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
                                 info.addResponse(r);
                             }
+                        } else {
+                            r.setText(row.getStringItem("demographic_response"));
+                            info.addResponse(r);
                         }
                     }
+                }
             }
         }
-        
-       if(info == null)
-       {
-               addError(Constants.HANDLE, "Invalid Login");
-       }
+
+        if (info == null) {
+            addError(Constants.HANDLE, "Invalid Login");
+        }
 
         //returning null if they don't have an account in either system
         return info;
@@ -242,7 +241,7 @@ public class Login extends FullLogin {
     }
 
     private FullRegInfo getCommonInfo(long userId, String db) throws Exception {
-        log.debug("getCommonInfo("+userId+","+db+")");
+        log.debug("getCommonInfo(" + userId + "," + db + ")");
         FullRegInfo info = new FullRegInfo();
         info.setNew(false);
         User user = (User) createEJB(getInitialContext(), User.class);
@@ -251,7 +250,8 @@ public class Login extends FullLogin {
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
         info.setHandle(getAuthentication().getActiveUser().getUserName());
-        info.setPassword(getRequestParameter(Constants.PASSWORD));;
+        info.setPassword(getRequestParameter(Constants.PASSWORD));
+        ;
         info.setPasswordConfirm(getRequestParameter(Constants.PASSWORD));
         info.setEmail(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setEmailConfirm(email.getAddress(email.getPrimaryEmailId(userId, db), db));

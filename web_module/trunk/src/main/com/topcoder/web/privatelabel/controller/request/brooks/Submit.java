@@ -15,7 +15,9 @@ import com.topcoder.shared.util.*;
 import com.topcoder.web.corp.ejb.coder.*;
 import com.topcoder.web.ejb.sessionprofile.*;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+
 import java.sql.Timestamp;
+
 import com.topcoder.web.ejb.session.Session;
 import com.topcoder.web.ejb.session.SessionHome;
 import com.topcoder.web.ejb.session.SessionSegment;
@@ -39,12 +41,12 @@ public class Submit extends FullRegSubmit {
 
 
     protected void setNextPage() {
-        if (isEligible((FullRegInfo)regInfo)) {
+        if (isEligible((FullRegInfo) regInfo)) {
             if (hasErrors()) {
                 setNextPage(Constants.BROOKS_REG_PAGE);
                 setIsNextPageInContext(true);
             } else {
-                SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+                SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 StringBuffer buf = new StringBuffer(150);
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
@@ -72,13 +74,12 @@ public class Submit extends FullRegSubmit {
         Coder coder = cHome.create();
         coder.createCoder(newUser.getId(), 1);
 
-        super.setCoderType(ret, ((FullRegInfo)regInfo).getCoderType());
+        super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
         super.storeQuestions(regInfo, ret);
 
         //check for resume save
-        ResumeRegInfo info = (ResumeRegInfo)regInfo;
-        if(info.getUploadedFile() != null)
-        {
+        ResumeRegInfo info = (ResumeRegInfo) regInfo;
+        if (info.getUploadedFile() != null) {
             byte[] fileBytes = null;
             String fileName = "";
             int fileType = -1;
@@ -90,13 +91,10 @@ public class Submit extends FullRegSubmit {
             else {
                 //fileType = Integer.parseInt(file.getParameter("fileType"));
                 Map types = getFileTypes(transDb);
-                if(types.containsKey(info.getUploadedFile().getContentType()) )
-                {
+                if (types.containsKey(info.getUploadedFile().getContentType())) {
                     log.debug("FOUND TYPE");
                     fileType = ((Long) types.get(info.getUploadedFile().getContentType())).intValue();
-                }
-                else
-                {
+                } else {
                     log.debug("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
                 }
                 fileName = info.getUploadedFile().getRemoteFileName();
@@ -118,7 +116,7 @@ public class Submit extends FullRegSubmit {
         Map ret = new HashMap();
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            ret.put(row.getStringItem("mime_type"), new Long( row.getLongItem("file_type_id")) );
+            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
         }
         return ret;
     }
@@ -129,13 +127,12 @@ public class Submit extends FullRegSubmit {
             //UserTransaction ut = Transaction.get(getInitialContext());
             //ut.begin();
 
-            try
-            {
+            try {
                 //placed here to fix transaction woes.
                 CompanyCandidateHome ccHome = (CompanyCandidateHome)
-                    PortableRemoteObject.narrow(
-                            getInitialContext().lookup(CompanyCandidateHome.class.getName()),
-                            CompanyCandidateHome.class);
+                        PortableRemoteObject.narrow(
+                                getInitialContext().lookup(CompanyCandidateHome.class.getName()),
+                                CompanyCandidateHome.class);
                 CompanyCandidate candidate = ccHome.create();
 
                 long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
@@ -189,12 +186,9 @@ public class Submit extends FullRegSubmit {
                 rsc = (ResultSetContainer)
                         map.get("company_session_profile");
 
-                if(rsc.getRowCount() != 0)
-                {
+                if (rsc.getRowCount() != 0) {
                     spid = rsc.getIntItem(0, "session_profile_id");
-                }
-                else
-                {
+                } else {
                     //create a session somehow
                     spid = profile.createSessionProfile("Problem: " + problemId, companyId);
 
@@ -214,7 +208,7 @@ public class Submit extends FullRegSubmit {
                             roundId);
 
                     //all languages
-                    int[] languages = new int[] {1, 3, 4};
+                    int[] languages = new int[]{1, 3, 4};
                     for (int i = 0; i < languages.length; ++i) {
                         language.createProfileLanguage(spid, languages[i]);
                     }
@@ -339,9 +333,7 @@ public class Submit extends FullRegSubmit {
                 log.info("sent registration email to " + info.getEmail());
 
                 //ut.commit();
-            }
-            catch(Exception e)
-            {
+            } catch (Exception e) {
                 //ut.rollback();
                 throw e;
             }
@@ -373,37 +365,36 @@ public class Submit extends FullRegSubmit {
 
     private Date formDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
-        if(year == null || month == null || day == null || hour == null) {
+        if (year == null || month == null || day == null || hour == null) {
             return new Date(); //so we don't blow up in certain places
         }
         Calendar c = Calendar.getInstance();
         c.set(Integer.parseInt(year),
-               months[Integer.parseInt(month)],
-               Integer.parseInt(day),
-               Integer.parseInt(hour), 0, 0);
+                months[Integer.parseInt(month)],
+                Integer.parseInt(day),
+                Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
     }
 
     private Date formEndDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
-        if(year == null || month == null || day == null || hour == null) {
+        if (year == null || month == null || day == null || hour == null) {
             return new Date(); //so we don't blow up in certain places
         }
         Calendar c = Calendar.getInstance();
         c.set(Integer.parseInt(year),
-               months[Integer.parseInt(month)],
-               Integer.parseInt(day),
-               Integer.parseInt(hour), 0, 0);
+                months[Integer.parseInt(month)],
+                Integer.parseInt(day),
+                Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
 
         //96 hours
-        c.add(Calendar.DATE,4);
+        c.add(Calendar.DATE, 4);
         return c.getTime();
     }
 
-    private Date translateDate(Date d)
-    {
+    private Date translateDate(Date d) {
         log.debug("TIME1: " + d);
         log.debug("TIME1: " + d.getTime());
         Calendar c = new GregorianCalendar();
@@ -412,17 +403,17 @@ public class Submit extends FullRegSubmit {
 
         //bring to GMT
         log.debug("TIME: " + c.get(GregorianCalendar.YEAR));
-        log.debug("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
-        log.debug("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
-        ret = new Date( ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
-        ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        log.debug("EST: " + TimeZone.getTimeZone("EST").getOffset(1, 1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        log.debug("IST: " + TimeZone.getTimeZone("IST").getOffset(1, 1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        ret = new Date(ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1, 1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        ret = new Date(ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1, 1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
 
         return ret;
     }
 
     private static int[] months =
-        new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
-                  Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
-                  Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
-                  Calendar.NOVEMBER, Calendar.DECEMBER};
+            new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
+                      Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
+                      Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
+                      Calendar.NOVEMBER, Calendar.DECEMBER};
 }
