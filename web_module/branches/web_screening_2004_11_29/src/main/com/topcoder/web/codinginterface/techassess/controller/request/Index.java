@@ -11,8 +11,17 @@ public class Index extends Base {
 
 
     protected void businessProcessing() throws TCWebException {
-        setNextPage(Constants.PAGE_INDEX);
-        setIsNextPageInContext(true);
+
+        if (getUser().isAnonymous()) {
+            setNextPage(Constants.PAGE_LOGIN);
+            setIsNextPageInContext(true);
+        } else {
+            setNextPage(Constants.PAGE_INDEX);
+            setIsNextPageInContext(true);
+
+        }
+
+
     }
 
 }

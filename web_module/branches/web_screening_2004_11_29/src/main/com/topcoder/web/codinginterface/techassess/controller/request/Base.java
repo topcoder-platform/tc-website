@@ -1,11 +1,8 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
 import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.messaging.QueueResponseManager;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 
@@ -44,16 +41,15 @@ public abstract class Base extends BaseProcessor {
         getResponse().setContentType("text/html");
         try {
             PrintWriter out = getResponse().getWriter();
-            out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">");
+            out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Technical Assessment</title>");
             out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >");
             out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >");
             out.println("</head>");
-            SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
             out.print("<body onLoad=\"window.location=\'");
-            out.print(info.getServletPath());
+            out.print(getNextPage());
             out.print("\'\">");
             out.println("<table class=bodyCenter cellspacing=0 cellpadding=0>");
             out.println("<tr>");
