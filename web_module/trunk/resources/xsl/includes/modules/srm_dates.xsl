@@ -9,7 +9,7 @@
               <!-- BACKGROUND="/i/next_srm_bg.gif" -->
                 <TR> 
                   <TD COLSPAN="2" CLASS="moduleTitle" BGCOLOR="#333333" HEIGHT="19" VALIGN="middle">
-                    <IMG SRC="/i/module_labels_next_srm.gif" ALT="Next Match Dates" WIDTH="166" HEIGHT="17" BORDER="0"/>
+                    <IMG SRC="/i/module_labels_next_tourney.gif" ALT="Next Match Dates" WIDTH="166" HEIGHT="17" BORDER="0"/>
                   </TD>
                 </TR>
                 <TR> 
