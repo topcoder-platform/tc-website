@@ -33,6 +33,7 @@ public class Constants {
     public static String LANGUAGE_ID;
     public static String CODE;
     public static String MODULE;
+    public static String STATIC_PREFIX;
 
     //request processors
     public static String RP_LOGIN;

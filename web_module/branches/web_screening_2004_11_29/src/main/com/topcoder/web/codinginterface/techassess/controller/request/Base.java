@@ -55,7 +55,6 @@ public abstract class Base extends BaseProcessor {
             SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
             out.print("<body onLoad=\"window.location=");
             out.print(info.getServletPath());
-            out.print("?module=Index");
             out.print("\">");
             out.println("<table class=bodyCenter cellspacing=0 cellpadding=0>");
             out.println("<tr>");
