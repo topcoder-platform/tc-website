@@ -107,7 +107,16 @@
                             </tr>
 <!-- PayPal ends -->
                         
-                            
+                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+
+<!-- Yahoo begins-->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=yahoo"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></a></td>
+                                <td width="99%" class="bodyText">You know Yahoo! as an Internet media company, and the hottest guide to everything on the 
+                                World Wide Web, but what can you do at a company like this? How can you contribute to the "behind the scenes" action? 
+                                Yahoo! has openings for <a href="/?&amp;t=tces&amp;c=yahoo" class="bodyText">Software Engineers.</a><br /><br /></td>
+                            </tr>
+<!-- Yahoo ends -->                            
 
 
 
