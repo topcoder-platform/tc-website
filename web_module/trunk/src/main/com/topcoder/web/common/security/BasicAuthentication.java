@@ -226,6 +226,7 @@ public class BasicAuthentication implements WebAuthentication {
         Cookie c = new Cookie(USER_COOKIE_NAME, "" + uid + "|" + hash);
         c.setPath(defaultCookiePath.getName());
         c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
+        log.debug("cookie: " + c.toString());
         response.addCookie(c);
     }
 
