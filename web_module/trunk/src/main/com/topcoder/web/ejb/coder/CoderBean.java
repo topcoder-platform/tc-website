@@ -203,9 +203,45 @@ public class CoderBean extends BaseEJB {
         } finally {
             close(pstmt);
             close(conn);
-            close(ctx);        }
+            close(ctx);
+        }
     }
 
+    public void setCoderTypeId(long coderId, int coderTypeId, String dataSource) {
+        log.debug("setCoderTypeId called. coderId: "
+                + coderId + " coderTypeId: " + coderTypeId);
+
+        PreparedStatement pstmt = null;
+        Connection conn = null;
+        InitialContext ctx = null;
+
+        try {
+            StringBuffer query = new StringBuffer();
+
+            query.append(" UPDATE coder ");
+            query.append(   " SET coder_type_id = ?");
+            query.append( " WHERE coder_id = ?");
+
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
+            conn = ds.getConnection();
+            pstmt = conn.prepareStatement(query.toString());
+
+            pstmt.setInt(1, coderTypeId);
+            pstmt.setLong(2, coderId);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException sqe) {
+            throw new EJBException("SQLException in setCoderTypeId coderId: " + coderId + " coderTypeId: " + coderTypeId);
+        } catch (Exception e) {
+            throw new EJBException("Exception in setCoderTypeId coderId: " + coderId + " coderTypeId: " + coderTypeId);
+        } finally {
+            close(pstmt);
+            close(conn);
+            close(ctx);
+        }
+    }
 
 
 
@@ -391,6 +427,49 @@ public class CoderBean extends BaseEJB {
         return languageId;
     }
 
+    public int getCoderTypeId(long coderId, String dataSource) {
+        log.debug("getCoderTypeId called. coderId: " + coderId);
+
+        PreparedStatement stmt = null;
+        Connection conn = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        int languageId;
+
+        try {
+            StringBuffer query = new StringBuffer();
+
+            query.append(" SELECT coder_type_id ");
+            query.append( " FROM coder ");
+            query.append( " WHERE coder_id = ?");
+
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement(query.toString());
+
+            stmt.setLong(1, coderId);
+
+            rs = stmt.executeQuery(query.toString());
+            if (rs.next()) {
+                languageId= rs.getInt(1);
+            } else {
+                throw new EJBException("EJBException in getCoderTypeId"
+                        + " empty result set for query: " + query.toString());
+            }
+
+        } catch (SQLException sqe) {
+            throw new EJBException("SQLException in getCoderTypeId coderId: " + coderId);
+        } catch (Exception e) {
+            throw new EJBException("Exception in getCoderTypeId coderId: " + coderId);
+        } finally {
+            close(rs);
+            close(stmt);
+            close(conn);
+            close(ctx);
+        }
+        return languageId;
+    }
 
 
 }
