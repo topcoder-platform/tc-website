@@ -101,7 +101,9 @@ public class StringUtilities {
                         buf.append("\"");
                         buf.append(", ");
                     }
+                    buf.append("\"");
                     buf.append(temp[temp.length - 1]);
+                    buf.append("\"");
                 } else if (type.equals("float")) {
                     float[] temp = (float[]) result;
                     for (int i = 0; i < temp.length - 1; i++) {
