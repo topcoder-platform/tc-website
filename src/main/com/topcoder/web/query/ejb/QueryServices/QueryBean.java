@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.ejb.EJBException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
@@ -58,6 +59,8 @@ public class QueryBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating query, \ntext: " + text + "\nname: " +
                     name + " ranking: " + ranking + " columnIndex: " + columnIndex);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception creating query, \ntext: " + text + "\nname: " +
                     name + " ranking: " + ranking + " columnIndex: " + columnIndex + "\n " + e.getMessage());
@@ -93,6 +96,8 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating query: " + queryId + "\ntext: " + text);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating query: " + queryId + "\ntext: " + text +
                     "\n " + e.getMessage());
@@ -127,6 +132,8 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating query: " + queryId + " name: " + name);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating query: " + queryId + " name: " + name +
                     "\n " + e.getMessage());
@@ -161,6 +168,8 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating query: " + queryId + " ranking: " + ranking);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating query: " + queryId + " ranking: " + ranking +
                     "\n " + e.getMessage());
@@ -196,6 +205,8 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating query: " + queryId + " column index: " + columnIndex);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating query: " + queryId + " column index: " + columnIndex +
                     "\n " + e.getMessage());
@@ -232,6 +243,8 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting text for query: " + queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting text for query: " + queryId + "\n " + e.getMessage());
         } finally {
@@ -269,8 +282,9 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting name for query: " + queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new EJBException("Exception getting name for query: " + queryId + "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
@@ -307,6 +321,8 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting ranking for query: " + queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting ranking for query: " + queryId + "\n " + e.getMessage());
         } finally {
@@ -344,6 +360,8 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting column index for query: " + queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting column index for query: " + queryId + "\n " + e.getMessage());
         } finally {
@@ -384,6 +402,8 @@ public class QueryBean extends BaseEJB {
          } catch (SQLException sqe) {
              DBMS.printSqlException(true, sqe);
              throw new EJBException("SQLException getting all queries, include text: " + includeText);
+         } catch (NamingException e) {
+             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
          } catch (Exception e) {
              throw new EJBException("Exception getting all queries, include text: " + includeText + "\n " + e.getMessage());
          } finally {
@@ -422,6 +442,8 @@ public class QueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sequence");
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {

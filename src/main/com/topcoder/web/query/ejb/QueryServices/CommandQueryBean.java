@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.ejb.EJBException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
@@ -53,6 +54,8 @@ public class CommandQueryBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating command query: " + commandId + " query: " +
                     queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception creating command query: " + commandId + " query: " +
                     queryId + "\n " + e.getMessage());
@@ -91,6 +94,8 @@ public class CommandQueryBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating command query sort, command: " +
                     commandId + " query: " + queryId + " sort: " + sortOrder);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating command query sort, command: " +
                     commandId + " query: " + queryId + " sort: " + sortOrder + "\n " + e.getMessage());
@@ -130,6 +135,8 @@ public class CommandQueryBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting command query sort, command: " +
                     commandId + " query: " + queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting command query sort, command: " +
                     commandId + " query: " + queryId + "\n " + e.getMessage());
@@ -169,6 +176,8 @@ public class CommandQueryBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException deleting command query, command: " +
                     commandId + " query: " + queryId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception deleting command query, command: " +
                     commandId + " query: " + queryId + "\n " + e.getMessage());
@@ -209,6 +218,8 @@ public class CommandQueryBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting queries for command: " +commandId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting queries for command: " +
                     commandId + "\n " + e.getMessage());

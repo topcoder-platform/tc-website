@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.ejb.EJBException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
@@ -57,6 +58,8 @@ public class InputBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating input, code: " + inputCode +
                     " data type: " + dataTypeId + " desc: " + inputDesc);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception creating input, code: " + inputCode +
                     " data type: " + dataTypeId + " desc: " + inputDesc + "\n " + e.getMessage());
@@ -92,6 +95,8 @@ public class InputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating input: " + inputId + " code: " + inputCode);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating input: " + inputId + " code: " + inputCode +
                     "\n " + e.getMessage());
@@ -126,6 +131,8 @@ public class InputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating input: " + inputId + " data type: " + dataTypeId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating input: " + inputId + " data type: " + dataTypeId +
                     "\n " + e.getMessage());
@@ -160,6 +167,8 @@ public class InputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating input: " + inputId + " desc: " + inputDesc);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception updating input: " + inputId + " desc: " + inputDesc +
                     "\n " + e.getMessage());
@@ -197,6 +206,8 @@ public class InputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting input code for input: " + inputId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting input code for input: " + inputId + "\n " + e.getMessage());
         } finally {
@@ -235,6 +246,8 @@ public class InputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting data type for input: " + inputId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting data type for input: " + inputId + "\n " + e.getMessage());
         } finally {
@@ -273,6 +286,8 @@ public class InputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting input desc for input: " + inputId);
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting input desc for input: " + inputId + "\n " + e.getMessage());
         } finally {
@@ -310,6 +325,8 @@ public class InputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting all inputs");
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting all inputs \n " + e.getMessage());
         } finally {
@@ -348,6 +365,8 @@ public class InputBean extends BaseEJB {
          } catch (SQLException sqe) {
              DBMS.printSqlException(true, sqe);
              throw new EJBException("SQLException checking if input code exists: " + inputCode);
+         } catch (NamingException e) {
+             throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
          } catch (Exception e) {
              throw new EJBException("Exception checking if input code exists: " + inputCode + "\n " + e.getMessage());
          } finally {
@@ -383,6 +402,8 @@ public class InputBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sequence");
+        } catch (NamingException e) {
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {
