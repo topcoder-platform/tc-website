@@ -1,7 +1,8 @@
 <%@ page
   language="java"
   import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          java.text.DecimalFormat"
+          java.text.DecimalFormat,
+          java.util.ArrayList"
 
 %>
 
