@@ -947,18 +947,28 @@ public final class GraphServlet extends HttpServlet {
                         g.setColor(rating_segments[i], RED);
                 }
             }
+            
+            int rs = 4;
+            
             baos = new ByteArrayOutputStream();
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
-            out.setMargin(10, 10, 10, 10);
-            out.setColor(GREEN);
-            out.line(110+ (16*4),0,110+ (16*4),400);
-            out.line(126+ (16*4),0,126+ (16*4),400);
-            out.render(g);
             
-            Image img = out.getImage();
-            Graphics gr = img.getGraphics();
-            gr.setColor(Color.green);
-            gr.drawLine(10,10,10,300);
+            out.setMargin(10, 10, 10, 10);
+            
+            if (rs < 9)
+                out.setColor(GRAY);
+            else if (rs >= 9 && rs < 12)
+                out.setColor(GREEN);
+            else if (rs >= 12 && rs < 15)
+                out.setColor(BLUE);
+            else if (rs >= 15 && rs < 22)
+                out.setColor(GOLD);
+            else if (rs >= 22 && rs < 30)
+                out.setColor(RED);
+            
+            out.line(78+ (16*rs),0,110+ (16*rs),400);
+            //out.line(94+ (16*rs),0,126+ (16*rs),400);
+            out.render(g);
             return baos.toByteArray();
 
         } catch (Exception e) {
