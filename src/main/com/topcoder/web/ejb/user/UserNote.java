@@ -31,12 +31,4 @@ public interface UserNote extends EJBObject {
     public void removeUserNote(long userId, long noteId, String dataSource)
             throws RemoteException;
 
-    /**
-     *
-     * @param userId
-     * @param dataSource
-     * @return
-     * @throws RemoteException
-     */
-    public ResultSetContainer getNotes(long userId, String dataSource) throws RemoteException;
 }
