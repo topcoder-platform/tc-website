@@ -95,27 +95,10 @@
             will receive an automatic berth into Online Round 1.
             </p>
 
-
-            <p>All citizens and lawful permanent residents of the following countries (and all non-immigrants currently residing in
-            the United States with a valid Visa) are eligible to win cash prizes after completing the appropriate affidavit and tax form:</p>
-
-            <ul>
-                <li>Australia</li>
-                <li>Canada (excluding Qu&#233;b&#232;c)</li>
-                <li>China</li>
-                <li>India</li>
-                <li>Ireland</li>
-                <li>New Zealand</li>
-                <li>Sweden</li>
-                <li>United Kingdom</li>
-                <li>United States (including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands)</li>
-            </ul>
-
-            <p>TopCoder members who do not meet the citizenship requirements to win prize money are eligible to compete,
-            however will be required to donate any cash prizes to charity.  Members will choose a charity to receive their
-            winnings from the TopCoder approved list of charities.  A prize-winning member may request a new charity for
-            the list, however it shall remain in TopCoder's sole discretion to add that charity after reviewing the proposed
-            charity's credentials.</p>
+            <p><span class="bodySubtitle">Eligibility</span><br />
+            TopCoder members who are 18 years of age or older are eligible to win cash prizes.  The TopCoder Open is 
+            void in the Quebec province of Canada, and elsewhere where prohibited.  Cash prizes will not be paid to residents 
+            of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.</p>
 
             <p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation
             and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers,
