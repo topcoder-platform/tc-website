@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -5,6 +6,7 @@
 <title>TopCoder Member Card</title>
 
 <jsp:include page="../../script.jsp" />
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
@@ -29,13 +31,13 @@
          <td class="cardCell" WIDTH="100%" align="center">
 
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="cards"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Downloads"/>  
+           <jsp:param name="image" value="cards"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Downloads"/>
         </jsp:include>
 
          <div class="cardBody">
-         
+
          <p>You can download any of the badges listed below in various sizes.  Feel free to place them on your personal website or on your resume</p>
 
         <table cellpadding="0" cellspacing="15" border="0" class="bodyText" align="center">
@@ -60,12 +62,12 @@
                 <td class="bodyText" valign="middle" align="left"><a href="/i/card/badge4_300x40.gif">300px X 40px</a></td>
             </tr>
          </table>
-         
-         <p>If you would like to post this image with a link on your site or resume, please use this to send a recruiter to the appropriate site:</p>
-         <p align=center>link goes here automatically</p>
-        
 
-        <p><a href="/tc?module=Static&d1=card&d2=description">Back to description</a></p> 
+         <p>If you would like to post this image with a link on your site or resume, please use this to send a recruiter to the appropriate site:</p>
+         <p align=center>&lta href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="UserId"/>"&gt;Image Thing here&lt;a&gt;</p>
+
+
+        <p><a href="/tc?module=Static&d1=card&d2=description">Back to description</a></p>
 
          </div>
          <p><br/></p>
