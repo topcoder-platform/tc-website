@@ -18,6 +18,7 @@ public class Submit extends View {
             String paramName = null;
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String)params.nextElement();
+                log.debug("param: " + paramName);
                 Question q = validateAnswer(paramName, questionInfo);
                 if (hasErrors()) {
                     setNextPage(Constants.SURVEY_VIEW);

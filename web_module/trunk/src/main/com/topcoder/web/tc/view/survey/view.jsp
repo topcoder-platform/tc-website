@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.view.tag.AnswerInput"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
@@ -17,11 +18,16 @@
         <tc:questionIterator list="<%=questionInfo%>" id="question">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td colspan="3">
+                    <td>
                         <jsp:getProperty name="question" property="text"/>
                     </td>
                 </tr>
                 <tc:answerInput id="answerInput" question="<%=question%>">
+                <tr>
+                    <td>
+                        <tc-webtag:errorIterator id="err" name="<%=inputName%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <%=answerInput%>
@@ -32,7 +38,7 @@
         </tc:questionIterator>
         <table>
             <tr>
-                <td colspan="2">
+                <td>
                     <a href="javascript: document.surveyForm.submit();">submit</a>
                 </td>
             </tr>
