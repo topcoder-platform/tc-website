@@ -71,7 +71,7 @@
                 <tr>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" colspan="3">
-                        <p>Currently open projects total <span id="totalMoney">$5,598.00*</span> in payments to the winning designers and developers. Send us
+                        <p>Currently open projects total <span id="totalMoney">$5,511.00*</span> in payments to the winning designers and developers. Send us
                         your solutions today so you can start collecting your share.</p>
 
                         <p>*And that's before royalty payments. The more <a class="statText" href="http://www.topcodersoftware.com/pages/s_subscriptions.jsp">Component Subscriptions</a> we sell, the more royalties we pay out to our winners!</p></td>
@@ -142,6 +142,16 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion-1.1-ejb-design">File Conversion Enhancement - EJB</a></td>
+                    <td background="" class="statText" align="center">$105.00</td>
+                    <td background="" class="statText" align="center">1.15.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
@@ -352,16 +362,6 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_pool-dev">Object Pool</a></td>
                     <td background="" class="statText" align="center">$240.00</td>
-                    <td background="" class="statText" align="center">1.23.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=spell_check-dev">Spell Check</a></td>
-                    <td background="" class="statText" align="center">$192.00</td>
                     <td background="" class="statText" align="center">1.23.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>

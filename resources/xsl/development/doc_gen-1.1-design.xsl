@@ -56,20 +56,20 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>Document Generation Enhancement: Design: Design</strong></h1>
+							<h1 class="devSubhead"><strong>Document Generator Enhancement: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Document Generation Enhancement: Design: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Document Generator Enhancement: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Component Overview</strong><br />
-							The Document Generation component provides the functionality to enable the dynamic creation of customized documents. This component works much like a standard mail merge whereby a document template and a data source are merged together to create custom documents tailored to all parties listed in the data source. A simple example of a customized document is a form letter that has been modified to contain the recipient's name so that it can be titled "Dear John" instead of "To whom it may concern."
+							The Document Generator component provides the functionality to enable the dynamic creation of customized documents. This component works much like a standard mail merge whereby a document template and a data source are merged together to create custom documents tailored to all parties listed in the data source. A simple example of a customized document is a form letter that has been modified to contain the recipient's name so that it can be titled "Dear John" instead of "To whom it may concern."
 							</p>
 							
 							<p><strong>Project Overview</strong><br />
-							Extend the current design of the Document Generation component to include support for generating MS Word and StarOffice documents.
+							Extend the current design of the Document Generator component to include support for generating MS Word and StarOffice documents.
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Design Project: Enhance the existing design of the Document Generation component.<br />
+							Component Design Project: Enhance the existing design of the Document Generator component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -121,9 +121,9 @@
 							Final Submission Due Date: 1.27.2003<br/>
                             Estimated Development End Date: 3.3.2003</p>
 
-							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
+							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Document Generation Enhancement: Design: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Document Generator Enhancement: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
