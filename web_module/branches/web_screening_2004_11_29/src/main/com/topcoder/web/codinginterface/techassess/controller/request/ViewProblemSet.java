@@ -6,11 +6,9 @@ import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRe
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel;
-import com.topcoder.shared.netCommon.screening.ScreeningConstants;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 
-import java.util.Arrays;
 import java.util.ArrayList;
 
 /**
