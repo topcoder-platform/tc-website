@@ -78,29 +78,48 @@
             </TR>
    <TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE> -->
-<IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+	<TR>
+		<TD CLASS="statText" BGCOLOR="#43515E" HEIGHT="18" VALIGN="middle">&#160;&#160;<B>Great Jobs at Google</B></TD>
+	</TR>
+	<TR>
+		<TD CLASS="bodyText" HEIGHT="18" VALIGN="middle">&#160;&#160;<A HREF="/?t=jobs&amp;c=google_openings" CLASS="bodyText">Jobs</A>&#160;|&#160;
+		<A HREF="http://www.google.com/about.html" CLASS="bodyText" TARGET="_blank">About Google</A>&#160;|&#160;
+		<A HREF="http://www.google.com/jobs/culture.html" CLASS="bodyText" TARGET="_blank">Culture</A>&#160;|&#160;
+		<A HREF="http://www.google.com/jobs/benefits.html" CLASS="bodyText" TARGET="_blank">Benefits</A>&#160;|&#160;
+		<A HREF="http://www.google.com/jobs/inside.html" CLASS="bodyText" TARGET="_blank">Inside&#160;View</A>&#160;|&#160;	
+		</TD>
+	</TR>	
+</TABLE>
 
+<IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
+<FORM METHOD="" ACTION="">
 <P>
 <B>Positions currently available</B>
 </P>
 
-&#149;&#160;<a href="#sw_qem" class="bodyText">Software Quality Engineering Manager</a><BR/>
-&#149;&#160;<a href="#systems" class="bodyText">Software Engineers</a><BR/>
-&#149;&#160;<a href="#senior_sw" class="bodyText">Senior-level Software Engineers</a><BR/>
-&#149;&#160;<a href="#test_eng" class="bodyText">Senior Software Test Engineer</a><BR/>
-&#149;&#160;<a href="#java" class="bodyText">Software Engineers (Java)</a><BR/>
-&#149;&#160;<a href="#jk_search" class="bodyText">Software&#160;Engineer&#160;(Japanese/Korean&#160;Search)</a><BR/>
-&#149;&#160;<a href="#windows" class="bodyText">Software Engineer (Windows)</a><BR/>
-&#149;&#160;<a href="#cluster" class="bodyText">Software Engineer (Cluster Management)</a><BR/>
-&#149;&#160;<a href="#frontend" class="bodyText">Software Engineer (Frontend Production)</a><BR/>
-&#149;&#160;<a href="#int_web" class="bodyText">Internal Web Systems Engineer/Lead</a><BR/>
-&#149;&#160;<a href="#eng_enterprise" class="bodyText">Enterprise Systems Engineer</a><BR/>
-&#149;&#160;<a href="#usability" class="bodyText">Usability Analyst</a><BR/>
-&#149;&#160;<a href="#hardware_ee" class="bodyText">Computer Hardware Evaluation Engineer</a><BR/>
-&#149;&#160;<a href="#hardware_eng" class="bodyText">System Hardware Engineer</a><BR/>
-&#149;&#160;<a href="#deployment" class="bodyText">Deployment Support Engineer</a><BR/><BR/>
 
-<A HREF="mailto:tces@topcoder.com" CLASS="bodyText">Contact employment services</A><BR/><BR/>
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF">
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#sw_qem" class="bodyText">Software Quality Engineering Manager</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#systems" class="bodyText">Software Engineers</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#senior_sw" class="bodyText">Senior-level Software Engineers</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#test_eng" class="bodyText">Senior Software Test Engineer</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#java" class="bodyText">Software Engineers (Java)</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#jk_search" class="bodyText">Software&#160;Engineer&#160;(Japanese/Korean&#160;Search)</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#windows" class="bodyText">Software Engineer (Windows)</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#cluster" class="bodyText">Software Engineer (Cluster Management)</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#frontend" class="bodyText">Software Engineer (Frontend Production)</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#int_web" class="bodyText">Internal Web Systems Engineer/Lead</a></TD></TR>	
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#eng_enterprise" class="bodyText">Enterprise Systems Engineer</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#usability" class="bodyText">Usability Analyst</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#hardware_ee" class="bodyText">Computer Hardware Evaluation Engineer</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#hardware_eng" class="bodyText">System Hardware Engineer</a></TD></TR>
+	<TR><TD><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/></TD><TD><a href="#deployment" class="bodyText">Deployment Support Engineer</a></TD></TR>
+</TABLE>
+
+<P>
+<A HREF="mailto:tces@topcoder.com" CLASS="bodyText">Contact employment services</A>
+</P>
 
  <h4><a name="sw_qem"><font color="093158">Software Quality Engineering Manager</font></a></h4>
 <p>Google is looking for a special individual to drive software quality
@@ -125,7 +144,7 @@ the quality of the web experience of tens of millions of people.
 <li>Successful track record establishing and driving test processes and plans within a high technology software company.</li>
 <li>Extensive familiarity with test automation tools and techniques.</li> 
 </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Software Quality Engineering Manager" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="systems"><font color="093158">Software Engineers</font></a> </h4>
 <p> Google is growing! We need world-class engineers to develop 
@@ -146,7 +165,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Experience developing/designing large software systems.</li> 
                          <li>Experience programming in Python a plus.</li>
                     </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Software Engineers" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="senior_sw"><font color="093158">Senior-level Software Engineers</font></a> </h4>
 <p>Help architect and extend one of the world's largest repositories 
@@ -171,7 +190,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Extensive knowledge of Unix systems programming (especially Linux).</li>
                          <li>Experience developing/designing large software systems.</li> 
                     </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Senior-level Software Engineers" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="test_eng"><font color="093158">Senior Software Test Engineer</font></a> </h4>
 <p> Google is looking for a senior software test engineer 
@@ -191,7 +210,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Excellent communication skills. </li>
                          <li>BSCS or MSCS.</li> 
                     </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Senior Software Test Engineer" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="java"><font color="093158">Software Engineers (Java)</font></a></h4>
 <p>We are hiring Java software engineers to write server-side 
@@ -210,7 +229,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Previous experience with JSP and servlets is a plus. </li>
                          <li>Experience with Python and C++ desired.</li> 
                     </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Software Engineers (Java)" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="jk_search"><font color="093158">Software Engineer (Japanese/Korean Search)</font></a></h4>
 <p>Google is growing worldwide! More than half our traffic 
@@ -239,7 +258,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Experience programming in Python a plus.</li> 
                          <li>Knowledge of grammar/linguistics would be a significant plus. </li>
                     </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Software Engineer (Japanese/Korean Search)" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="windows"><font color="093158">Software Engineer (Windows)</font></a></h4>
 <p>We are looking for Windows developers to join our world-class 
@@ -257,7 +276,7 @@ the quality of the web experience of tens of millions of people.
                          <li>A strong desire to ship products and work in a small team is required.</li>
                          <li>A BS or MS in Computer Science or equivalent.</li>
 </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Software Engineer (Windows)" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="cluster"><font color="093158">Software Engineer (Cluster Management)</font></a> </h4>
 <p>Work with one of the world's largest Linux clusters! As 
@@ -275,7 +294,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Excellent knowledge of Linux and network programming.</li> 
                          <li>Experience developing/designing large software systems. </li>
                     </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Software Engineer (Cluster Management)" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="frontend"><font color="093158">Software Engineer (FrontEnd Production)</font></a> </h4>
 <p>Help shape the way Google looks and works! As part of the 
@@ -296,7 +315,7 @@ the quality of the web experience of tens of millions of people.
                               a demonstrated ability to self-motivate and follow-through 
                               on projects.</li>
 </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Software Engineer (FrontEnd Production)" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="int_web"><font color="093158">Internal Web Systems Engineer/Lead</font></a></h4>
 <p>We are looking for an enthusiastic engineer to join Google's 
@@ -317,7 +336,7 @@ the quality of the web experience of tens of millions of people.
 <li>Strong experience interfacing with various business systems.</li>
 <li>Fluent with Unix and Windows environments.</li>
 </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Internal Web Systems Engineer/Lead" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="eng_enterprise"><font color="093158">Enterprise Systems Engineer</font></a> </h4>
 <p>Google is the premier provider of Internet search and has 
@@ -355,7 +374,7 @@ harder" approach.
 <li>Solid H/W understanding of Intel-based PCs.</li>
 <li>Programming/scripting ability (Bourne, Perl, Python, C/C++).</li>
 </ul>
- <p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Enterprise Systems Engineer" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
                         
                         <h4><a name="usability"><font color="093158">Usability Analyst</font></a></h4>
 <p>Help us find out about our users! Google is looking for 
@@ -388,7 +407,7 @@ harder" approach.
 <li>Digital video recording or editing software.</li>
 </ul>
 </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Usability Analyst" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
                          
 <h4><a name="hardware_ee"><font color="093158">Computer Hardware Evaluation Engineer</font></a></h4>
 <p>Play a key role in the development of new Google products! 
@@ -428,7 +447,7 @@ harder" approach.
 <li>Ability to remain organized and effective in a fast-paced, 
                               start-up environment will ensure priority consideration.</li>
 </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Computer Hardware Evaluation Engineer" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
                          
                          
 <h4><a name="hardware_eng"><font color="093158">System Hardware Engineer</font></a></h4>
@@ -468,7 +487,7 @@ harder" approach.
 <li>Ability to remain organized and effective in a fast-paced, 
                               start-up environment will ensure priority consideration.</li>
 </ul>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=System Hardware Engineer" CLASS="bodyText">Inquire about this position</A></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="deployment"><font color="093158">Deployment Support Engineer</font></a></h4>
 <P>
@@ -491,8 +510,8 @@ This position in the Google Search Services Support Team will be responsible for
 	<LI> Able to handle ambiguity and generate detailed incident reports.</LI>
 	<LI> Must be self-motivated, self-learner, customer oriented, resourceful, enthusiastic and welcome a challenge.</LI>
 </UL>
-<p><a href="#top" class="bodyText">Back to List</a>&#160;&#160;|&#160;&#160;<A HREF="mailto:tces@topcoder.com?subject=Deployment Support Engineer" CLASS="bodyText">Inquire about this position</A></p><BR/>
-
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+</FORM>
 <!--end contextual links-->
           
           <P><BR/></P>
