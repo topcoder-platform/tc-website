@@ -151,6 +151,11 @@ public class CacheClientImpl
         return _cache.size();
     }
 
+    public int getSize(String key)
+            throws RemoteException {
+        return _cache.getSize(key);
+    }
+
     public boolean containsKey(String key)
             throws RemoteException {
         return _cache.exists(key);

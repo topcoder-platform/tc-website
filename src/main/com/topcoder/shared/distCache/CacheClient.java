@@ -131,6 +131,9 @@ public interface CacheClient
     public int size()
             throws RemoteException;
 
+    public int getSize(String key)
+            throws RemoteException;
+
     public boolean containsKey(String key)
             throws RemoteException;
 }
