@@ -9,7 +9,7 @@
 <html>
 <head>
 
-<title>Verizon Coding Challenge Powered by TopCoder - Schedule</title>
+<title>Verizon Coding Challenge Powered by TopCoder - Competition Arena</title>
 
 <jsp:include page="../script.jsp" />
 
