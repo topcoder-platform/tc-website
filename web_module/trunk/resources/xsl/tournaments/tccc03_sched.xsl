@@ -322,7 +322,7 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Date</td>
-                      <td align="center" colspan="4" class="tourney_subhead2">Sat, Apr 5, 12pm EST*</td>
+                      <td align="center" colspan="4" class="tourney_subhead2">Sat, Apr 5, 1pm EST*</td>
                     </tr>
                     
                     <tr><td colspan="5" valign="middle" height="13" class="statText">**Time is subject to change.</td></tr>

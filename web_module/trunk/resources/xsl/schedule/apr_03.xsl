@@ -84,14 +84,14 @@
                                     <span id="calendarSRMDate">4</span><br/>
                                     <strong>2003 TopCoder Collegiate Challenge</strong><br/>
                                     Semifinals<br/>
-                                    Compete: 8:00&#160;AM-6:00&#160;PM<br/>
+                                    Compete: 10:00&#160;AM-7:00&#160;PM<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?&amp;t=tournaments&amp;c=tccc03_sched" class="statText">Details</a></td>
                                 <td id="calendarTourney">
                                     <span id="calendarSRMDate">5</span><br/>
                                     <strong>2003 TopCoder Collegiate Challenge</strong><br/>
                                     Championship<br/>
-                                    Compete: 11:00&#160;AM<br/>
+                                    Compete: 1:00&#160;PM<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?&amp;t=tournaments&amp;c=tccc03_sched" class="statText">Details</a></td>
                             </tr>
