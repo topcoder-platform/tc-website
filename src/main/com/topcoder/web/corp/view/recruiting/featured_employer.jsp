@@ -27,7 +27,7 @@
         <td width="170" valign="top" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="recruiting"/>
-                <jsp:param name="level2" value="overview"/>
+                <jsp:param name="level2" value="featuredEmployer"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -41,10 +41,10 @@
             <table border="0" width="100%">
                 <tr>
                     <td class="bodyText" width="100%">
-                        <h1 class="testHead">Overview</h1>
-                        <p>TopCoder is a company with one major objective&#151;to identify the best programmers in the world. TopCoder has conducted 
-                        hundreds of online and offline contests to objectively and systematically quantify the skills of thousands of programmers. 
-                        Already our clients, including the FBI, NVIDIA and Microsoft, have experienced the difference in the quality of our candidates.</p>
+                        <h1 class="testHead">SRM Featured Employer</h1>
+                        <p>During the membership term, the employer receives time in the competition Arena as the Featured Employer.  As 
+                        part of the employment package, the employer will be promoted as the Featured Employer on the TC homepage, member 
+                        homepage, SRM summary page, and competition schedule page, as well as in the applet and practice rooms.</p>
                         
                         <p><br/></p>
                     </td>
