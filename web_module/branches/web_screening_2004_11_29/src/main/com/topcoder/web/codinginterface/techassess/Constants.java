@@ -25,6 +25,8 @@ public class Constants {
     public static String PAGE_LOGIN;
     public static String PAGE_CURRENT_TIME;
     public static String PAGE_INDEX_INNER;
+    public static String PAGE_VIEW_PROBLEM;
+    public static String PAGE_VIEW_PROBLEM_INNER;
 
     //parameters
     public static String HANDLE;
@@ -40,11 +42,15 @@ public class Constants {
     public static String SESSION_ID;
 
     //request processors
+    public static String RP_LOGOUT;
     public static String RP_LOGIN;
     public static String RP_LOGIN_RESPONSE;
     public static String RP_INDEX;
     public static String RP_INDEX_RESPONSE;
-    public static String RP_LOGOUT;
+    public static String RP_INDEX_INNER;
+    public static String RP_VIEW_PROBLEM;
+    public static String RP_VIEW_PROBLEM_RESPONSE;
+    public static String RP_VIEW_PROBLEM_INNER;
 
     //session keys
     public static String TEST_SET_A;
