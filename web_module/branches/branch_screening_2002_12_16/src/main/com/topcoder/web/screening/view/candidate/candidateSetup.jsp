@@ -63,7 +63,7 @@
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><strong>Password</strong>&#160;&#160;</TD>
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="password" value="<jsp:getProperty name="candidateInfo" property="password" />>" size="30" maxlength="30"></TD>
+              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="password" value="<jsp:getProperty name="candidateInfo" property="password" />" size="30" maxlength="30"></TD>
               <TD CLASS="bodyText" VALIGN="middle">&#160;<screen:link page="/screening?rp=GeneratePassword" class="bodyText">Generate a Password</screen:link></TD>
            </TR>
            <TR>
