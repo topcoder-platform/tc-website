@@ -26,7 +26,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "user_admin.jsp";
-    String action = request.getParameter("a");	
+    String action = request.getParameter("a");
 %>
 
 
@@ -133,7 +133,7 @@
 	<title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-  
+
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
 </script>
 
@@ -174,7 +174,7 @@
 	<% } %>
 
 			</table>
-				
+
 			<table width="100%" cellpadding="0" cellspacing="0" align="center" border="0">
 				<tr valign="top">
 					<td align="center">
@@ -195,7 +195,7 @@
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></form></td>
 							</tr>
 						</table>
-						
+
 						<table cellpadding="0" cellspacing="0" border="0" align="center" class="admin">
 							<tr><td width="500" height="11"><img src="/images/adminFoot.gif" alt="" width="500" height="11" border="0" /></td></tr>
 						</table>
@@ -211,7 +211,7 @@
 <!-- Spacer begins-->
  						<table cellpadding="0" cellspacing="0" border="0" align="center">
 							<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-						</table> 
+						</table>
 <!-- Spacer ends-->
 
 <!-- Set Password Begins -->
@@ -256,7 +256,7 @@
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></form></td>
 							</tr>
 						</table>
-						
+
 						<table cellpadding="0" cellspacing="0" border="0" align="center" class="admin">
 							<tr><td width="500" height="11"><img src="/images/adminFoot.gif" alt="" width="500" height="11" border="0" /></td></tr>
 						</table>
@@ -265,7 +265,7 @@
 <!-- Spacer begins-->
  						<table cellpadding="0" cellspacing="0" border="0" align="center">
 							<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-						</table> 
+						</table>
 <!-- Spacer ends-->
 <% } %>
 
@@ -315,7 +315,7 @@
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 						</table>
-						
+
 						<table cellpadding="0" cellspacing="0" border="0" align="center" class="admin">
 							<tr><td width="500" height="11"><img src="/images/adminFoot.gif" alt="" width="500" height="11" border="0" /></td></tr>
 						</table>
@@ -334,7 +334,7 @@
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr><td class="adminSubhead">User Roles</td></tr>
 			</table>
-				
+
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
 				<tr valign="top">
 					<td width="80%" class="adminTitle">Role Name</td>
@@ -348,7 +348,7 @@
                         return ((RolePrincipal)o1).getName().compareTo(((RolePrincipal)o2).getName());
                     }
                 });
-        for (int i=0; i < user_roles.length; i++) {        
+        for (int i=0; i < user_roles.length; i++) {
             String roleName = user_roles[i].getName();
             long associatedId = 0;
             String associatedLabel = "";
@@ -391,6 +391,9 @@
             long associatedId = 0;
             String associatedLabel = "";
             //debug.addMsg("user admin", "parsing " + roleName);
+/*
+   too slow!, might be nice to have one day though
+
             if (roleName.startsWith("DDEComponentDownload")) {
                 try {
                     associatedId = Long.parseLong(roleName.substring(roleName.indexOf(" ") + 1, roleName.length()));
@@ -407,6 +410,7 @@
                     debug.addMsg("user admin", "error parsing " + roleName);
                 }
             }
+*/
 	%>
                             	<option value="<%= roles[i].getId() %>"><%= roles[i].getName() %> <%= associatedLabel %></option>
 	<% } %>
@@ -442,7 +446,7 @@
 <!-- Gutter 3 ends -->
 	</tr>
 </table>
-	
+
 <!-- Footer begins -->
 <jsp:include page="/includes/footer.jsp" flush="true" />
 <!-- Footer ends -->
