@@ -3,7 +3,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Program Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
 
@@ -40,7 +40,7 @@
             <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='NoteCreate'/>
             <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
             <INPUT type="hidden" name='<%=Constants.CANDIDATE_ID%>' value='<%=candidateInfo.getUserId()%>'/>
-            
+
             <table cellspacing="1" cellpadding="3" width="70%">
                 <tr><td class="bodyText" align="center"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></td></tr>
 
@@ -57,8 +57,8 @@
                     <% } %>
                     </td>
                 </tr>
-                
-                <tr><td align="center"><textarea name="<%=Constants.NOTE_TEXT%>" COLS="80" rows="4"></textarea></td></tr>    
+
+                <tr><td align="center"><textarea name="<%=Constants.NOTE_TEXT%>" COLS="80" rows="4"></textarea></td></tr>
             </table>
 
             <table border="0" cellspacing="10" cellpadding="0" width="70%">

@@ -3,7 +3,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp" />
 
@@ -65,7 +65,7 @@ function submitUpdate() {
             </table>
 
             <jsp:useBean id="profile" class="com.topcoder.web.corp.model.ProfileInfo" scope="request" />
-            
+
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><screen:form name="profileConfirmForm" method="GET" action="<%=sessionInfo.getServletPath()%>">
                     <INPUT TYPE="HIDDEN" NAME="<%=Constants.MODULE_KEY%>" VALUE="" >
@@ -75,7 +75,7 @@ function submitUpdate() {
                     <td width="100%"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td>
                 </tr>
             </table>
- 
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
 
@@ -120,7 +120,7 @@ function submitUpdate() {
  <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
                     <td width="10" class="testFormHeader"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
-            
+
                 <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
                 <tr>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>

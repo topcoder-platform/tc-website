@@ -4,7 +4,7 @@
                         <table border="0" cellpadding="5" cellspacing="0" width="100%">
                             <tr><td><h3 class="bodySubtitle" nowrap>Contents</h3></td></tr>
                             <tr><td><h3 class="bodySubtitle" nowrap>Contents</h3></td></tr>
-                        
+
  <!-- Getting Started begins -->
                             <tr>
                             <% if (selected.equals("steps")) { %>
@@ -13,7 +13,7 @@
                                 <td class="helpTitle" nowrap><a href="steps.jsp">Perform the Following Steps</a></td>
                             <% } %>
                             </tr>
-                        
+
                             <tr>
                                 <td class="helpSubtitle" nowrap>
                                     Step 1 - Loading the Application<br>
@@ -27,17 +27,17 @@
                                 </td>
                             </tr>
 <!-- Getting Started ends -->
-                            
+
 <!-- Load Testing Application begins -->
                             <tr>
                             <% if (selected.equals("testingApp")) { %>
-                                <td class="helpTitleOn" nowrap><strong>Loading the Testing Applicaton</strong></td>
+                                <td class="helpTitleOn" nowrap><strong>Loading the Technical Assessment Applicaton</strong></td>
                             <% } else { %>
-                                <td class="helpTitle" nowrap><a href="testingApp.jsp">Loading the Testing Applicaton</a></td>
+                                <td class="helpTitle" nowrap><a href="testingApp.jsp">Loading the Technical Assessment  Applicaton</a></td>
                             <% } %>
                             </tr>
 <!-- Load Testing Application ends -->
-                        
+
 <!-- The Coding Window begins -->
                             <tr>
                             <% if (selected.equals("codingWindow")) { %>
@@ -46,7 +46,7 @@
                                 <td class="helpTitle" nowrap><a href="codingWindow.jsp">The Coding Window</a></td>
                             <% } %>
                             </tr>
-                        
+
                             <tr>
                                 <td class="helpSubtitle" nowrap>
                                     The Problem Statement<br>
@@ -64,7 +64,7 @@
                                 </td>
                             </tr>
 <!-- The Coding Window ends -->
-                            
+
 <!-- Saving begins -->
                             <tr>
                             <% if (selected.equals("saving")) { %>
@@ -74,7 +74,7 @@
                             <% } %>
                             </tr>
 <!-- Saving ends -->
-                        
+
 <!-- Clearing the Code begins -->
                             <tr>
                             <% if (selected.equals("clearingCode")) { %>
@@ -84,7 +84,7 @@
                             <% } %>
                             </tr>
 <!-- Clearing the Code ends -->
-                        
+
 <!-- The Timer begins -->
                             <tr>
                             <% if (selected.equals("timer")) { %>

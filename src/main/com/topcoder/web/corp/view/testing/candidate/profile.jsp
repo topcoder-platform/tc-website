@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Program Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
 
@@ -339,7 +339,7 @@ if ( MM_FlashCanPlay ) {
                     </td>
 
                     <td width="14%" align="center" class="<%=cssClasses[counter++ % 2]%>">
-                        
+
                         <A href="/corp/testing/?module=ProblemResult&sid=<screen:resultSetItem row="<%=row%>" name="session_id" />&rid=<screen:resultSetItem row="<%=row%>" name="session_round_id" />&pid=<screen:resultSetItem row="<%=row%>" name="problem_id" />&ptid=4">
                             view
                         </A>
@@ -352,7 +352,7 @@ if ( MM_FlashCanPlay ) {
             <p><br></p>
         </td>
         <td width="50%"></td>
-<!-- Middle Column ends --> 
+<!-- Middle Column ends -->
 
 <!-- Gutter -->
         <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>

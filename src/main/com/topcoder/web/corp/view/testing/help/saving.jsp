@@ -4,7 +4,7 @@
 
 <head>
 
-<title>Testing Environment</title>
+<title>Technical Assessment Environment</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
@@ -50,7 +50,7 @@
         <td background="/i/testBodyTop.gif" width="100%"><img src="/i/corp/clear.gif" alt="" width="10" height="10" alt="0" border="0"></td>
         <td><img src="/i/corp/testBodyTopRight.gif" alt="" width="10" height="10" alt="0" border="0"></td>
     </tr>
-      
+
     <tr>
         <td background="/i/testBodyLeft.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" align="center">
@@ -72,10 +72,10 @@
                 <tr>
                     <td class="bodyText">
                         <h1 class="bodyTitle">Saving</h1>
-                        
-                        <p>At any time while coding, you may save your code.  Clicking the <strong>Save</strong> button will place the current version of your code 
-                        on the TopCoder server.  It is good to save every-so-often to ensure that a recent version of your code will be available in the 
-                        event that something happens to your Testing Application session (i.e., you lose your Internet connection).  Compiling your 
+
+                        <p>At any time while coding, you may save your code.  Clicking the <strong>Save</strong> button will place the current version of your code
+                        on the TopCoder server.  It is good to save every-so-often to ensure that a recent version of your code will be available in the
+                        event that something happens to your Technical Assessment Application session (i.e., you lose your Internet connection).  Compiling your
                         code also has the effect of saving it.</p>
 
                     </td>
@@ -84,14 +84,14 @@
         </td>
         <td  background="/i/testBodyRight.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
-      
+
     <tr>
         <td width="10"><img src="/i/corp/testBodyBottomLeft.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" background="/i/testBodyBottom.gif"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="10"><img src="/i/corp/testBodyBottomRight.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
 </table>
-      
+
 </div>
 
 </body>

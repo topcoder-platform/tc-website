@@ -4,7 +4,7 @@
 
 <head>
 
-<title>Testing Environment</title>
+<title>Technical Assessment Environment</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
@@ -28,7 +28,7 @@
         <td align="right"><img src="/i/corp/clear.gif" height="18" width="171" alt="" border="0"></td>
     </tr>
 </table>
- 
+
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td background="/i/testTitleBkgd.gif"><img border="0" height="45" width="10" src="/i/corp/testTitleLeft.gif" alt=""></td>
@@ -50,7 +50,7 @@
         <td background="/i/testBodyTop.gif" width="100%"><img src="/i/corp/clear.gif" alt="" width="10" height="10" alt="0" border="0"></td>
         <td><img src="/i/corp/testBodyTopRight.gif" alt="" width="10" height="10" alt="0" border="0"></td>
     </tr>
-      
+
     <tr>
         <td background="/i/testBodyLeft.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" align="center">
@@ -72,9 +72,9 @@
                 <tr>
                     <td class="bodyText">
                         <h1 class="bodyTitle">Help Guide</h1>
-                        
-                        <p>Welcome to the help guide for the Testing Application powered by TopCoder. Please read through this document in its entirety to 
-                        familiarize yourself with the Testing Application process and features.</p>
+
+                        <p>Welcome to the help guide for the Technical Assessment Application powered by TopCoder. Please read through this document in its entirety to
+                        familiarize yourself with the Technical Assessment Application process and features.</p>
 
                     </td>
                 </tr>
@@ -82,14 +82,14 @@
         </td>
         <td  background="/i/testBodyRight.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
-      
+
     <tr>
         <td width="10"><img src="/i/corp/testBodyBottomLeft.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" background="/i/testBodyBottom.gif"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="10"><img src="/i/corp/testBodyBottomRight.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
 </table>
-      
+
 </div>
 
 </body>

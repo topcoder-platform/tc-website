@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="demographicInfo" scope="request" class="com.topcoder.web.corp.model.DemographicModel" />
@@ -13,10 +13,10 @@
 <jsp:include page="../includes/script.jsp"/>
 </HEAD>
 <body>
-<% 
+<%
 	Map StudentQuestionMap = demographicInfo.getStudentDemoInfo();
 	Iterator StudentQuestionIterator = demographicInfo.getStudentDemoList().iterator();
-	
+
 	Map ProQuestionMap = demographicInfo.getProDemoInfo();
 	Iterator ProQuestionIterator = demographicInfo.getProDemoList().iterator();
 %>
@@ -36,7 +36,7 @@
 		<td align="center">
 		<img src="/i/corp/clear.gif" width="700" height="11" alt="" border="0"><br>
 		<TABLE border="0" cellspacing="0" CELLPADDING="0" WIDTH="100%">
-			<TR>	
+			<TR>
 				<TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%" align="center">
 				<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
 					<tr valign="top">
@@ -49,9 +49,9 @@
 			  	<TABLE width="100%" cellspacing="0" CELLPADDING="0" border="0">
 					<TR valign='top'>
 						<TD width="50%">
-			
-			  		<% if (demographicInfo.getStudentCount() > 0) { %>	
-				
+
+			  		<% if (demographicInfo.getStudentCount() > 0) { %>
+
 						<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 							<TR>
 				  				<TD class="screeningTitle" COLSPAN="3"><b>Student (<jsp:getProperty name="demographicInfo" property="StudentCount"/>)</b></TD>
@@ -79,9 +79,9 @@
 							</TR>
 							<% odd = !odd; %>
 							</tces:mapIterator>
-							<%			
+							<%
 							  }
-							%> 
+							%>
 						</TABLE>
 			   		<% }else{ %>
 						<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
@@ -90,10 +90,10 @@
 							</TR>
 							<TR>
 								<TD class="bodyText" COLSPAN="3"><BR></TD>
-							</TR>				
+							</TR>
 							<TR>
 								<TD class="bodyText" COLSPAN="3" align="center">No data available.</TD>
-							</TR>				
+							</TR>
 					  	</TABLE>
 						<% } %>
 
@@ -104,7 +104,7 @@
 						<TD width="50%">
 
 					  	<% if (demographicInfo.getProCount() > 0) { %>
-					  
+
 						<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 							<TR>
 								<TD class="screeningTitle" COLSPAN="3"><b>Professional (<jsp:getProperty name="demographicInfo" property="ProCount"/>)</b></TD>
@@ -116,7 +116,7 @@
 							%>
 							<TR>
 						  		<TD class="screeningHeader" COLSPAN="3"><B><%=question%></B></TD>
-							</TR>				
+							</TR>
 							<% boolean odd = true; %>
 							<tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
 							<TR>
@@ -132,12 +132,12 @@
 							</TR>
 							<% odd = !odd; %>
 							</tces:mapIterator>
-								<%			
+								<%
 						  		}
-							%>  
+							%>
 
-					  	</TABLE>				  
-				  
+					  	</TABLE>
+
 						<% }else{ %>
 						<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 							<TR>
@@ -145,20 +145,20 @@
 							</TR>
 							<TR>
 						  		<TD class="bodyText" COLSPAN="3"><BR></TD>
-							</TR>				
+							</TR>
 							<TR>
 						  		<TD class="bodyText" COLSPAN="3" align="center">No data available.</TD>
-							</TR>				
+							</TR>
 					  	</TABLE>
 						<% } %>
-				   
+
 						</TD>
 					</TR>
 					</TABLE>
 					</TD>
 				</TR>
 			</TABLE>
-			  
+
 		<P><BR/></P>
 		</td>
 		<td width="50%"></td>

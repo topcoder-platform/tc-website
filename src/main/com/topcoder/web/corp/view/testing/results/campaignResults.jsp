@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
 
@@ -231,9 +231,9 @@ function getProblemDetail(id) {
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
                         <object
                         classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-                        codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"                      
+                        codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
                         width="80"
-                        height="12" 
+                        height="12"
                         id="tc_card"
                         align="middle">
                         <param name="allowScriptAccess" value="sameDomain" />

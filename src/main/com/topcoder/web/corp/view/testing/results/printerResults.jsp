@@ -8,7 +8,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp" />
 
@@ -93,7 +93,7 @@ if ( plugin ) {
 <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 	        <tr>
                     <td class="bodyText">
-                        <strong>Preference Level:</strong> 
+                        <strong>Preference Level:</strong>
                         <SCRIPT language="JavaScript">
                         <!--
                         if ( MM_FlashCanPlay ) {
@@ -129,7 +129,7 @@ if ( plugin ) {
                         </SCRIPT>
                     </td>
 	        </tr>
-	        <% } %>	 
+	        <% } %>
 	        <tr>
                     <td class="bodyText">
                         <strong>Test Profile:</strong> <jsp:getProperty name='profileInfo' property='profileName'/>
@@ -301,7 +301,7 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
 		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%</td>
-		       <% } %>		       
+		       <% } %>
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
@@ -332,7 +332,7 @@ if ( plugin ) {
                 <% even = !even; %>
                 </screen:resultSetRowIterator>
               </table>
-              
+
             <% } %>
 
 

@@ -6,7 +6,7 @@
 
 <HTML>
 <HEAD>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Program Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
 
@@ -41,7 +41,7 @@ function back() {
             <table border="0" cellspacing="0" cellpadding="0" width="50%">
                 <tr valign="top">
                     <td class="bodyText">
-                    
+
                         <% if("PopulateSession".equals(candidateInfo.getReferrer())) { %>
                           <h1 class="testHead">Create a New Session -
                         <%} else if("BuildCandidateList".equals(candidateInfo.getReferrer())) {%>
@@ -66,12 +66,12 @@ function back() {
                     <td width="100%"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td>
                 </tr>
             </table>
- 
+
             <table cellspacing="0" cellpadding="3" width="50%" class="testFrame">
                 <tr>
                     <td class="testTableTitle" colspan="3">Candidate</td>
                 </tr>
-                    
+
                 <tr>
                     <td class="testTableSubtitleOdd">Email Address:</td>
                         <% if (candidateInfo.isNew()) { %>
@@ -81,7 +81,7 @@ function back() {
                         <% } %>
                     <td class="errorTextOdd"><screen:errors id="err" name="emailAddress" ><%=err%></screen:errors></td>
                 </tr>
-                
+
                     <% if (!candidateInfo.isNew()) { %>
                 <tr>
                     <td class="testTableSubtitleEven">Password:</td>
@@ -89,17 +89,17 @@ function back() {
                     <td class="errorTextEven" align="left" valign="middle"></td>
                 </tr>
                     <% } %>
-                    
+
                 <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="10" border="0" /></td></tr>
             </table>
-                    
+
             <table border="0" cellspacing="10" cellpadding="0" width="50%">
 
                 <% if (candidateInfo.isNew()) { %>
                  <tr><td><div align="center"><p class="button"><a href="JavaScript:document.candidateSetupForm.submit()" class="button">Save</a></p></div></td></tr>
                     <% } %>
             </table>
-                            
+
             </screen:form>
 
             <p></p>

@@ -8,7 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Program Management Tool</title>
 
 <jsp:include page="../includes/script.jsp" />
 
@@ -82,12 +82,12 @@
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=14">
                             Profile
                         </A>
-                   </td>               
+                   </td>
                    <td align="center" class="screeningHeader">
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=3">
                             Begin
                         </a>
-                   </td>               
+                   </td>
                    <td align="center" class="screeningHeader">
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=4">
                             End
@@ -112,17 +112,17 @@
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=16">
                             Notes
                         </A>
-                   </td>                                          
+                   </td>
                 </tr>
 
                 <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
-            
+
                 <%
                     int counter = 0;
                     String[] cssClasses = {"screeningCellOdd", "screeningCellEven"};
                     String[] swfFiles = {"/i/corp/screeningRatingOdd.swf", "/i/corp/screeningRatingEven.swf"};
                 %>
-                
+
                 <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
 
                 <%
@@ -135,10 +135,10 @@
                 %>
 
                 <tr>
-                   <td width="30%" class="<%=cssClasses[counter % 2]%>"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>               
+                   <td width="30%" class="<%=cssClasses[counter % 2]%>"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink><% } %></td>
-                   <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
-                   <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
+                   <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td>
+                   <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:sessionStatus row="<%=row%>" /></td>
                    <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:servletLink processor="DownloadResume" param="<%=rparams%>"><screen:resultSetItem row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
@@ -147,9 +147,9 @@
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>
                     <object
                         classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-                        codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"                      
+                        codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
                         width="80"
-                        height="12" 
+                        height="12"
                         id="tc_card"
                         align="middle">
                         <param name="allowScriptAccess" value="sameDomain" />

@@ -49,11 +49,11 @@
             <table border="0" cellpadding="0" cellspacing="0" width="50%" align="center">
                 <tr>
                     <td class="bodyText">
-                        <h1 id="bodyTitle">Testing Environment</h1>
+                        <h1 id="bodyTitle">Technical Assessment Environment</h1>
 
                         <p>This page should present you with a button to start the applet.</p>
 
-                        <p><strong>NOTE:</strong> If an orange button to <strong>Load Testing Environment</strong> does <strong>not</strong> appear below, you may not have the
+                        <p><strong>NOTE:</strong> If an orange button to <strong>Load Technical Assessment Environment</strong> does <strong>not</strong> appear below, you may not have the
                         appropriate Plug-in software installed.
 
                         <script type="text/javascript">
