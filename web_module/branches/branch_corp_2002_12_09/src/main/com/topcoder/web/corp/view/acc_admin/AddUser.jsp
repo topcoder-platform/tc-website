@@ -140,7 +140,7 @@ function getPermissions(url,wd,ht) {
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&#160;</TD>
   </TR>  
   <TR>
-    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Current Permissions</B></FONT></TD>
+    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Additional Permissions</B></FONT></TD>
   </TR>
   <TR>
     <TD COLSPAN="4"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
