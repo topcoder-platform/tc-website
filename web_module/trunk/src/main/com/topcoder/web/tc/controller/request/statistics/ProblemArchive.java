@@ -40,6 +40,7 @@ public class ProblemArchive extends Base {
             ResultSetContainer rsc = (ResultSetContainer) result.get("problem_list");
 
             String className = StringUtils.checkNull(getRequest().getParameter(Constants.CLASS_NAME));
+            String category = StringUtils.checkNull(getRequest().getParameter(Constants.CATEGORY));
             String minDiv1Success = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_DIV1_SUCCESS));
             String minDiv2Success = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_DIV2_SUCCESS));
             String maxDiv1Success = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DIV1_SUCCESS));
@@ -52,6 +53,11 @@ public class ProblemArchive extends Base {
                 log.debug("add problem name filter");
                 filters.add(new Contains(className, "problem_name"));
                 setDefault(Constants.CLASS_NAME, className);
+            }
+            if (!className.equals("")) {
+                log.debug("add category filter");
+                filters.add(new Contains(category, "categories"));
+                setDefault(Constants.CATEGORY, category);
             }
             if (!minDiv1Success.equals("")) {
                 log.debug("add min div 1 success filter");
