@@ -219,11 +219,20 @@
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
+                               <xsl:when test="./catalog_name = 'Java Custom' ">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                                <xsl:when test="./catalog_name = '.NET' ">
+                                   <img src="/i/development/netSm.gif"/>
+                                </xsl:when>
+                                <xsl:when test="./catalog_name = '.NET Custom' ">
+                                   <img src="/i/development/netSm.gif"/>
+                                </xsl:when>
                                 <xsl:when test="./catalog_name = 'Flash' ">
                                    <img src="/i/development/flashSm.gif"/>
                                 </xsl:when>
                                <xsl:otherwise>
-                                  <img src="/i/development/netSm.gif"/>
+                                  <xsl:value-of select="./catalog_name"/>
                                </xsl:otherwise>
                             </xsl:choose>
                             </td>
