@@ -18,7 +18,8 @@
 <% ResultSetContainer div2Lang = (ResultSetContainer) ((Map)request.getAttribute("div2Results")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div1Overall = (ResultSetContainer) ((Map)request.getAttribute("div1Results")).get("problem_detail_overall"); %>
 <% ResultSetContainer div2Overall = (ResultSetContainer) ((Map)request.getAttribute("div2Results")).get("problem_detail_overall"); %>
-<% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S"); %>
+<% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S");
+   sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <html>
