@@ -65,7 +65,7 @@ sub = NavZone.getLevel1();
     <%=trsep_root%>
     <%=rootheader("What's inside")%>
     <%=trsep_root%>
-    <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How Schools Compete", "home/how_hs_compete", false)%>
+    <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How Schools Compete", "how_hs_compete", false)%>
     <%=trsep_root%>
     <%=rootitem("?module=Static&d1=schedule&d2=schedule", "Schedule", "schedule", false)%>
     <%=trsep_root%>
