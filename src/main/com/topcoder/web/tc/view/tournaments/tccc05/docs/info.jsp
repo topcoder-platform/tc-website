@@ -13,7 +13,7 @@
 <body>
 
 <!-- Tab barlinks-->
-<jsp:include page="links.jsp" >
+<jsp:include page="../links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
 <jsp:param name="tabLev2" value="details"/>
 <jsp:param name="tabLev3" value=""/>
@@ -125,7 +125,7 @@
 
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../../../public_right.jsp">
             <jsp:param name="level1" value="tccc05"/>
             </jsp:include>
          </td>
@@ -137,7 +137,7 @@
 
 
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../../../foot.jsp" />
 
 </body>
 
