@@ -42,7 +42,7 @@
     </rsc:iterator>
     </table>
     <form name="revise" action="tc" method="get">
-        <logic:iterate name="e" id="key">
+        <logic:iterate collection="<%=e%>" id="key">
             <logic:iterate collection="<%=Arrays.asList(request.getParameterValues(key.toString()))%>" id="val">
                 <input type="hidden" name="<%=key%>" value="<%=val%>">
             </logic:iterate>
