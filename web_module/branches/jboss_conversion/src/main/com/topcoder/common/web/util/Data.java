@@ -94,6 +94,7 @@ public final class Data {
     }
 
     public static void loadUser(Navigation nav) throws TCException {
+        log.debug("load user called");
 
         User user = null;
         if (nav.getUser() == null) {
@@ -106,6 +107,7 @@ public final class Data {
             Context ctx = null;
             try {
                 ctx = TCContext.getInitial();
+                log.debug("looking for " + UserServicesHome.class.getName() + " in jndi");
                 UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
                                 UserServicesHome.class.getName()),
                                 UserServicesHome.class);
