@@ -35,7 +35,7 @@ public class JobPostingServicesBean extends BaseEJB {
         ResultSet rs = null;
 
         query = new StringBuffer();
-        query.append(" SELECT *");
+        query.append(" SELECT 'dok'");
         query.append(" FROM job_hit");
         query.append(" WHERE job_id = ?");
         query.append(" AND user_id = ?");
