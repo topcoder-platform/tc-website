@@ -83,6 +83,9 @@
 
                         <TR><TD><A HREF="#c4" CLASS="bodyText">What do I need to import to use standard VB.NET functions?</A></TD></TR>
 
+                        <TR><TD><A HREF="#c5" CLASS="bodyText">Why is my stack trace reporting strange/incorrect line numbers?</A></TD></TR>
+
+
 
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C++</B></TD></TR>
@@ -145,12 +148,12 @@
                         <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="java1"><B>How is my submission judged?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText"><P>TopCoder submissions typically consist of a single class definition. For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments. Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc.</P>
-<P>Each Java test is performed in a separate thread. The process is forcibly terminated after consuming 8 seconds of System time. At most 64 megabytes of memory may be mapped.</P>
+<P>Each Java test is performed in a separate thread. The process is forcibly terminated after consuming 2 seconds of System time. At most 64 megabytes of memory may be mapped.</P>
 <P>If your method does return a value, that is the only basis for judging correctness.</P></TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
                         <TR><TD CLASS="bodyText"><A NAME="java2"><B>What hardware does TopCoder use?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">We use 3 4-way 700 Mhz Pentium III Xeon systems. Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</TD></TR>
+                        <TR><TD CLASS="bodyText">We use 6 2-way 3.6 Ghz Pentium IV Xeon systems.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
                         <TR><TD CLASS="bodyText"><A NAME="java3"><B>What software does TopCoder use?</B></A></TD></TR>
@@ -167,7 +170,7 @@
                         <TR><TD CLASS="bodyText"><A NAME="c1"><B>How is my submission judged?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>TopCoder submissions typically consist of a single class definition. For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments. Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc. </P>
-<P>Each Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174; .NET test is performed in a separate thread. The process is forcibly terminated after consuming 8 seconds of System time.</P>
+<P>Each Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174; .NET test is performed in a separate thread. The process is forcibly terminated after consuming 2 seconds of System time.</P>
 <P>If your method does return a value, that is the only basis for judging correctness.</P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
@@ -190,6 +193,12 @@
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
+                        <TR><TD CLASS="bodyText"><A NAME="c5"><B>Why is my stack trace reporting strange/incorrect line numbers?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>Because we compile with optimization on, the compiler will sometimes rearrange and optimize functions in such a way that line numbers no longer match the original source code.  We recommend you add Console.WriteLine() statements to help debug the problem if necessary.</P>
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+
 
 
                         <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C++</B></TD></TR>
@@ -198,14 +207,14 @@
                         <TR><TD CLASS="bodyText">
 <P>TopCoder submissions typically consist of a single class definition.  For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments.  Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc.</P>
 <P>C++ submissions may also define other classes and global variables or functions.  However, defining main() will prevent your submission from linking, and referring to library globals (stdout or cout for example) before your method is called is not guaranteed to work as expected.</P>
-<P>Each C++ test is performed in a separate process.  The instance of your class used by the tester is not guaranteed to be destroyed.  The process is forcibly terminated after consuming 8 seconds of CPU time.  At most 64 megabytes of memory may be mapped.  Stack space is limited to 8 megabytes (the Linux default).  Most system calls are emulated or ignored.  Note especially that fork() or use of threads (library or kernel) will fail, and use of temporary files is not permitted.</P>
+<P>Each C++ test is performed in a separate process.  The instance of your class used by the tester is not guaranteed to be destroyed.  The process is forcibly terminated after consuming 2 seconds of CPU time.  At most 64 megabytes of memory may be mapped.  Stack space is limited to 8 megabytes (the Linux default).  Most system calls are emulated or ignored.  Note especially that fork() or use of threads (library or kernel) will fail, and use of temporary files is not permitted.</P>
 <P>If your method does not return before the process exits (due to exceeding the time limit, an uncaught exception, segmentation fault, divide by zero, etc), it has failed the test.</P>
 <P>If your method does return a value, that is the only basis for judging correctness.  Anything printed to stdout or stderr is ignored, although you will see it when testing your own code.  Output may even return an IO error, and takes extra time during testing; you are advised not to leave unnecessary IO in your final submission. </P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
                         <TR><TD CLASS="bodyText"><A NAME="182"><B>What hardware does TopCoder use?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">We use 4-way 700 Mhz Pentium III Xeon systems.  Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</TD></TR>
+                        <TR><TD CLASS="bodyText">We use 2 2-way 3.6 Ghz Pentium IV Xeon systems.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
                         <TR><TD CLASS="bodyText"><A NAME="183"><B>What software does TopCoder use?</B></A></TD></TR>
