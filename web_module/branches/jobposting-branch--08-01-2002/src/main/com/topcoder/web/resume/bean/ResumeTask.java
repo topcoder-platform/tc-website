@@ -13,11 +13,13 @@ public abstract class ResumeTask {
     private InitialContext ctx;
     private String nextPage;
     private FileUpload fileUpload;
+    private boolean nextPageInternal;
 
     public ResumeTask() {
         setInitialContext(null);
         setNextPage(null);
         setFileUpload(null);
+        setNextPageInternal(true);
     }
 
     public abstract void processStep(String step) throws Exception;
@@ -54,6 +56,12 @@ public abstract class ResumeTask {
             throws Exception {
     }
 
+    public void setNextPageInternal(boolean nextPageInternal) {
+        this.nextPageInternal = nextPageInternal;
+    }
 
+    public boolean getNextPageInternal() {
+        return this.nextPageInternal;
+    }
 
 }

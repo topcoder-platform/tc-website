@@ -70,8 +70,12 @@ public class Controller
 
                 log.debug(task.getNextPage());
 
-                getServletContext().getRequestDispatcher(
+                if (task.getNextPageInternal()) {
+                    getServletContext().getRequestDispatcher(
                             response.encodeURL(task.getNextPage())).forward(request, response);
+                } else {
+                    response.sendRedirect(response.encodeURL(task.getNextPage()));
+                }
             }
             else {
                 forwardToError(request, response,

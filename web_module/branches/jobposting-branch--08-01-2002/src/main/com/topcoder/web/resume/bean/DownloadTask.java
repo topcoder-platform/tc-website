@@ -42,6 +42,7 @@ public class DownloadTask extends ResumeTask{
         log.debug("************************************************************\n"+new String(resume.getFile()));
         log.debug("************************************************************");
         response.setStatus(HttpServletResponse.SC_OK);
+        super.setNextPageInternal(false);
         super.setNextPage(Constants.SUCCESS_PAGE);
     }
 
