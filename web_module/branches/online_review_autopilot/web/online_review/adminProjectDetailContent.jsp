@@ -71,11 +71,11 @@
     <logic:iterate id="phaseInstance" name="project" property="timeline">
         <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
                     <td class="forumTextCenterEven">
-                        <strong><review:showDate name="phaseInstance" property="startDate" />  09:00 AM</strong></td>
+                        <strong><review:showDate name="phaseInstance" property="startDate" /></strong></td>
         </logic:equal>            
         <logic:notEqual name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
                     <td class="forumTextCenterOdd">
-                        <review:showDate name="phaseInstance" property="startDate" /> 09:00 AM</td>
+                        <review:showDate name="phaseInstance" property="startDate" /></td>
         </logic:notEqual>            
     </logic:iterate>
                 </tr>
