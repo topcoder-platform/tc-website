@@ -103,9 +103,9 @@
            <td class="bodyTextBig" align="right" valign="bottom" nowrap>Div II Avg.<br/>Rating</td>
         </tr>
         <%  if (!problemRatingResults.isEmpty()) {
-                count = problemRatingResults.getIntItem(0,"count");
-                div1Count = problemRatingResults.getIntItem(0,"div1_count");
-                div2Count = problemRatingResults.getIntItem(0,"div2_count");
+                count = ((ProblemRatingResult)problemRatingResults.get(0)).getOverallCount().intValue();
+                div1Count = ((ProblemRatingResult)problemRatingResults.get(0)).getDiv1Count().intValue();
+                div2Count = ((ProblemRatingResult)problemRatingResults.get(0)).getDiv2Count().intValue();
             }
         %>
         <tc:problemRatingResultIterator list="<%=problemRatingResults%>" id="result">
