@@ -4,7 +4,7 @@
 
 <HTML>
 <HEAD>
-	<TITLE>::TopCoder High School::</TITLE>
+	<title>TopCoder | High School</title>
     <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
     <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 <jsp:include page="../includes/css.jsp" />
