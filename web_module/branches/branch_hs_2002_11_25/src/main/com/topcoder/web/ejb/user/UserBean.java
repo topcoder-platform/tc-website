@@ -67,10 +67,6 @@ public class UserBean implements SessionBean {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
     }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
-    }
     finally {
       if (con!=null) {
         try {
@@ -119,10 +115,6 @@ public class UserBean implements SessionBean {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
     }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
-    }
     finally {
       if (con!=null) {
         try {
@@ -170,10 +162,6 @@ public class UserBean implements SessionBean {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
     }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
-    }
     finally {
       if (con!=null) {
         try {
@@ -220,10 +208,6 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -276,10 +260,6 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -334,10 +314,6 @@ public class UserBean implements SessionBean {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
     }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
-    }
     finally {
       if (con!=null) {
         try {
@@ -390,10 +366,6 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
