@@ -106,7 +106,9 @@
                                 <td id="calendar">16</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">17</span><br>
-                                    <strong><em>Spring Break</em></strong><br>
+                                    <strong>Match 5</strong><br>
+                                    Register: 2:00&nbsp;PM<br>
+                                    Compete: 3:00&nbsp;PM<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
@@ -119,7 +121,7 @@
                                 <td id="calendar">23</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">24</span><br>
-                                    <strong>Match 5</strong><br>
+                                    <strong>Match 6</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
