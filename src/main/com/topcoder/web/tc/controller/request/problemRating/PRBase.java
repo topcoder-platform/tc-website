@@ -178,9 +178,9 @@ abstract public class PRBase extends Base {
         overall.setDiv1Count(counts[1]);
         overall.setDiv2Count(counts[2]);
         //comparing to a float value, gasp!
-        overall.setOverallAverage(avgs[0]==0.0f?0:avgs[0]/counts[0]);
-        overall.setDiv1Average(avgs[1]==0.0f?0:avgs[1]/counts[1]);
-        overall.setDiv2Average(avgs[2]==0.0f?0:avgs[2]/counts[2]);
+        overall.setOverallAverage(avgs[0]==0.0f?0.0f:avgs[0]/counts[0]);
+        overall.setDiv1Average(avgs[1]==0.0f?0.0f:avgs[1]/counts[1]);
+        overall.setDiv2Average(avgs[2]==0.0f?0.0f:avgs[2]/counts[2]);
         overall.setQuestion("Overall");
         ret.add(overall);
         return ret;
