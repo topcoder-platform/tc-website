@@ -45,9 +45,9 @@
 			Santa Clara Marriott in Santa Clara, CA, USA</li>
 
 		<li><span class="bodySubtitle">When:</span><br/>	
+			Algorithm and Component registration opens August 9th<br/>
 			Component Development Competition starts August 10th<br/>
        		Component Design Competition starts August 12th	<br/>
-       		Algorithm Competition registration opens August 16th; competition starts September 7th
        	</li>
 
 		<li><span class="bodySubtitle">How Much:</span><br/>	

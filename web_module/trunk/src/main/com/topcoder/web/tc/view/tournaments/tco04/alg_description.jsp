@@ -27,7 +27,7 @@
             Once again, 24 of the world's best coders will be invited to compete live at the onsite finals in Santa Clara, CA, USA.</p>
             <ul>
                 <li><strong>Registration</strong><br />
-                    STARTS: Monday, August 16 at 9:00 AM ET<br/>
+                    STARTS: Monday, August 9 at 9:00 AM ET<br/>
                     ENDS: Tuesday, September 7 at 9:00 AM ET</li>
                     
                 <li><strong>Qualification Round</strong><br />
