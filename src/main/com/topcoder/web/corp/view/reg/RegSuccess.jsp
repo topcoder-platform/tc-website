@@ -2,7 +2,8 @@
          autoFlush="false"
          buffer="64kb"
          errorPage="../exc/InternalError.jsp"
-         import="com.topcoder.web.corp.request.Registration" %>
+         import="com.topcoder.web.corp.request.Registration,
+                 com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -51,19 +52,19 @@
                 
             <table width="500" border="0" cellpadding="0" cellspacing="10">
                 <tr valign=middle>
-                    <td class="bodyText" width="200"><a href="http://software.topcoder.com/pages/s_subscriptions.jsp" class="bodyText"><img src="/i/icon_software.gif" alt="TopCoder Software" width="200" height="75" border="0"></a></td>
-                    <td class="bodyText">Purchase a <a href="http://software.topcoder.com/pages/s_subscriptions.jsp" class="bodyText">Subscription</a> to download software from our Component 
+                    <td class="bodyText" width="200"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/pages/s_subscriptions.jsp" class="bodyText"><img src="/i/icon_software.gif" alt="TopCoder Software" width="200" height="75" border="0"></a></td>
+                    <td class="bodyText">Purchase a <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/pages/s_subscriptions.jsp" class="bodyText">Subscription</a> to download software from our Component
                     Catalog</td>
                 </tr>
 
                 <tr valign=middle>
-                     <td class="bodyText" width="200"><a href="http://software.topcoder.com/pages/c_active_collab.jsp" class="bodyText"><img src="/i/icon_forums.gif" alt="TopCoder Software Forums" width="200" height="75" border="0"></a></td>
-                   <td class="bodyText">Post messages to the TopCoder Software <a href="http://software.topcoder.com/pages/c_active_collab.jsp" class="bodyText">Forums</a></td>
+                     <td class="bodyText" width="200"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/pages/c_active_collab.jsp" class="bodyText"><img src="/i/icon_forums.gif" alt="TopCoder Software Forums" width="200" height="75" border="0"></a></td>
+                   <td class="bodyText">Post messages to the TopCoder Software <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/pages/c_active_collab.jsp" class="bodyText">Forums</a></td>
                 </tr>
 
                 <tr valign=middle>
-                    <td class="bodyText" width="200"><a href="http://corporate.topcoder.com" class="bodyText"><img src="/i/icon_corp_serv.gif" alt="Corporate Services" width="200" height="75" border="0"></a></td>
-                    <td class="bodyText">Take advantage of our <a href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=testing&d3=index" class="bodyText">Testing</a> and <a href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=recruiting&d3=index" class="bodyText">Recruiting</a> programs</td>
+                    <td class="bodyText" width="200"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="bodyText"><img src="/i/icon_corp_serv.gif" alt="Corporate Services" width="200" height="75" border="0"></a></td>
+                    <td class="bodyText">Take advantage of our <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/?module=Static&d1=corp&d2=testing&d3=index" class="bodyText">Testing</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/?module=Static&d1=corp&d2=recruiting&d3=index" class="bodyText">Recruiting</a> programs</td>
                 </tr>
 
                 <tr valign=middle>

@@ -2,7 +2,8 @@
          autoFlush="false"
          buffer="64kb"
          import="com.topcoder.web.corp.Constants,
-                 com.topcoder.web.corp.controller.TransactionServlet"
+                 com.topcoder.web.corp.controller.TransactionServlet,
+                 com.topcoder.shared.util.ApplicationServer"
          errorPage="../exc/InternalError.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -34,7 +35,7 @@
                         
                         <p>Hello Coders,<br/><br/>
                         Here are the winners from last night's match. Congratuluations to all. As always, results and a summary of events from the match 
-                        are posted on <a href="http://www.topcoder.com">www.topcoder.com</a>.</p>
+                        are posted on <a href="http://<%=ApplicationServer.SERVER_NAME%>">www.topcoder.com</a>.</p>
                         
                         <p>====================================<br/>
                         Thanks to the following sponsor(s):<br/>
