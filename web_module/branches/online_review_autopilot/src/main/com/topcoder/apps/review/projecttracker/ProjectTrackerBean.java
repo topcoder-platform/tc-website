@@ -160,7 +160,8 @@ public class ProjectTrackerBean implements SessionBean {
                     "p.project_v_id, " +
                     "cv.comp_vers_id, " +
                     "pcat.category_name catalog_name," +
-                    "p.level_id  " +
+                    "p.level_id, " +
+                    "p.auto_pilot_ind  " +
                     "FROM project p, comp_versions cv, " +
                     "comp_catalog cc, " +
                     "comp_categories ccat, categories cat, categories pcat " +
@@ -190,6 +191,7 @@ public class ProjectTrackerBean implements SessionBean {
                 long compVersId = rs.getLong(12);
                 String catalogName = rs.getString(13);
                 long levelId = rs.getLong(14);                
+                boolean autopilot = rs.getBoolean(15);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
@@ -267,7 +269,7 @@ public class ProjectTrackerBean implements SessionBean {
                         currentPhaseInstance, userRole, notes, overview, projectType,
                         projectStatus, notificationSent,
                         templateId[0], templateId[1],
-                        requestor.getUserId(), projectVersionId, levelId);
+                        requestor.getUserId(), projectVersionId, levelId, autopilot);
                 project.setCatalog(catalogName);
 /*
 // Old project ( no forumId )
@@ -645,9 +647,9 @@ public class ProjectTrackerBean implements SessionBean {
                         "(project_v_id, project_id, comp_vers_id, phase_instance_id, " +
                         "winner_id, overview, " +
                         "notes, project_type_id, project_stat_id, notification_sent, " +
-                        "modify_user, modify_reason, level_id, " +
+                        "modify_user, modify_reason, level_id, auto_pilot_ind, " +
                         "cur_version) VALUES " +
-                        "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                        "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
 
                 PhaseInstance[] piArr = project.getTimeline();
                 Phase currentPhase = project.getCurrentPhase();
@@ -704,6 +706,7 @@ public class ProjectTrackerBean implements SessionBean {
                 ps.setLong(10, project.getRequestorId());
                 ps.setString(11, reason);
                 ps.setLong(12, project.getLevelId());
+                ps.setBoolean(13, project.getAutoPilot());
                 nr = ps.executeUpdate();
 
                 Common.close(ps);
@@ -1617,9 +1620,9 @@ public class ProjectTrackerBean implements SessionBean {
                     + "winner_id, overview, "
                     + "notes, project_type_id, "
                     + "project_stat_id, notification_sent, "
-                    + "modify_user, modify_reason, level_id, "
+                    + "modify_user, modify_reason, level_id, auto_pilot_ind,  "
                     + "cur_version) VALUES "
-                    + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1)");
+                    + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1, 1)");
 
             String notes = "";
             long projectStatId = ProjectStatus.ID_PENDING_START;

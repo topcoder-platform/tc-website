@@ -95,11 +95,11 @@ public class Project implements Serializable {
         this.autopilot = autopilot;
     }
     
-    protected boolean getAutoPilot() {
+    public boolean getAutoPilot() {
         return autopilot;
     }
     
-    protected void setAutoPilot(boolean autopilot) {
+    public void setAutoPilot(boolean autopilot) {
         this.autopilot = autopilot;
     }
     
