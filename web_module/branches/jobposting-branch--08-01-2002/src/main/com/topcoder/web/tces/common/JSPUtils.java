@@ -96,4 +96,39 @@ public class JSPUtils {
         }
     }
 
+    public static List sortMapList(List mapList, String fieldName, boolean ascending) {
+        TreeMap mapsMap = new TreeMap();
+        ArrayList sortedMapList = new ArrayList();
+
+        Iterator maps = mapList.iterator();
+        while (maps.hasNext()) {
+            Map curMap = (Map)maps.next();
+
+            ArrayList keyDupList = null;
+            if (!mapsMap.containsKey(curMap.get(fieldName))) {
+                keyDupList = new ArrayList();
+                mapsMap.put(curMap.get(fieldName), keyDupList);
+            }
+            else {
+                keyDupList = (ArrayList)mapsMap.get( curMap.get(fieldName));
+            }
+
+            keyDupList.add(curMap);
+        }
+
+        while (mapsMap.size()>0) {
+            List keyDupList = (List)mapsMap.get(ascending?mapsMap.firstKey():mapsMap.lastKey() );
+
+            Iterator keyDups = keyDupList.iterator();
+            while (keyDups.hasNext()) {
+                sortedMapList.add( keyDups.next() );
+            }
+
+            mapsMap.remove( ascending?mapsMap.firstKey():mapsMap.lastKey() );
+        }
+
+        return sortedMapList;
+    }
+
+
 }

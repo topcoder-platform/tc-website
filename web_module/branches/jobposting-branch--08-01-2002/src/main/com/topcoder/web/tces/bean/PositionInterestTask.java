@@ -31,6 +31,8 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     private int uid;
     private int jid;
 
+    private String sortBy;
+
     public PositionInterestTask() {
         super();
         setNextPage(TCESConstants.POSITION_INTEREST_PAGE);
@@ -186,6 +188,10 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
             hitList.add(hit);
         }
 
+        if (sortBy.equals(TCESConstants.SORT_RATING)) {
+            hitList=JSPUtils.sortMapList(hitList,"rating",false);
+        }
+
         setHitList( hitList );
 
         setNextPage( TCESConstants.POSITION_INTEREST_PAGE );
@@ -195,6 +201,8 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         String value = paramValues[0];
         value = (value == null?"":value.trim());
 
+        if (paramName.equalsIgnoreCase(TCESConstants.SORT_PARAM))
+            sortBy = value;
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
