@@ -23,6 +23,22 @@
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
   <%@ include file="top.jsp" %>
+
+<script language="JavaScript">
+   function submitLogin() {
+ 	var frm = document.login;
+ 	frm.action = "/tces/tces";
+    if (frm.handle.value=="") {
+      alert("Please enter a handle.");
+      frm.handle.focus();
+    } else if (frm.password.value=="") {
+      alert("Please enter a password.");
+      frm.password.focus();
+    } else {
+      frm.submit();
+    }
+   }
+</script>
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
     <!-- Left Column Begins -->
@@ -56,7 +72,7 @@
 <jsp:getProperty name="LoginTask" property="Message" />
 </p>
 
-<FORM NAME="login" METHOD="POST" ACTION="/tces/tces" onSubmit="">
+<FORM NAME="login" METHOD="POST" ACTION="Javascript:submitLogin()" onSubmit="">
 <INPUT TYPE="HIDDEN" NAME="<%= TCESConstants.TASK_PARAM %>" VALUE="<%= TCESConstants.LOGIN_TASK %>">
 <INPUT TYPE="HIDDEN" NAME="<%= TCESConstants.STEP_PARAM %>" VALUE="<%= TCESConstants.LOGIN_TASK_STEP_AUTH %>">
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
@@ -78,7 +94,7 @@
                   </TR>
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top">
-                      <A HREF="Javascript:login.submit()" CLASS="statTextBig">Login &gt;&gt;</A> 
+                      <A HREF="Javascript:submitLogin();" CLASS="statTextBig">Login &gt;&gt;</A>
                     </TD>
                   </TR>
                 </TABLE>
