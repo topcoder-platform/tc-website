@@ -24,6 +24,10 @@ public class GoogleRegSubmit extends FullRegSubmit {
 
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
         try {
+            //todo if we ever allow them to update their account
+            //todo we'll need to figure out a way to not send
+            //todo them this email. but send it to people
+            //todo that are converting tc accounts
             StringBuffer buf = new StringBuffer(1000);
             User user = (User) createEJB(getInitialContext(), User.class);
             String code = user.getActivationCode(newUser.getId(), db);
