@@ -534,7 +534,7 @@ public class PhoneBean implements SessionBean {
      * @param userId user ID to look up
      * @return a long with the user's primary phone ID
      */
-    long getPrimaryPhoneId(long userId) {
+    public long getPrimaryPhoneId(long userId) {
         log.debug("getPrimaryPhoneId called...user_id: " + userId);
 
         Context ctx = null;
@@ -612,7 +612,7 @@ public class PhoneBean implements SessionBean {
      * @param userId the user ID to set
      * @param phoneId the user's phone ID to set to primary
      */
-    void setPrimaryPhoneId(long userId, long phoneId) {
+    public void setPrimaryPhoneId(long userId, long phoneId) {
         log.debug("setPrimaryEmailId called...userId: " + userId +
                   " phoneId: " + phoneId);
 
@@ -688,7 +688,7 @@ public class PhoneBean implements SessionBean {
      * @param phoneId the phone ID to check
      * @return a boolean with whether the phone ID is the user's primary
      */
-    boolean isPrimaryPhoneId(long userId, long phoneId) {
+    public boolean isPrimaryPhoneId(long userId, long phoneId) {
         log.debug("isPrimaryPhoneId called...user_id: " + userId +
                   " phone_id: " + phoneId);
 

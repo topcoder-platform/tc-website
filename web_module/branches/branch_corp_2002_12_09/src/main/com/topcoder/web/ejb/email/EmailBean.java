@@ -538,7 +538,7 @@ public class EmailBean implements SessionBean {
      * @param userId user ID to check for primary email
      * @return a long with the primary email ID
      */
-    long getPrimaryEmailId(long userId) {
+    public long getPrimaryEmailId(long userId) {
         log.debug("getPrimaryEmailId called...user_id: " + userId);
 
         Context ctx = null;
@@ -617,7 +617,7 @@ public class EmailBean implements SessionBean {
      * @param userId user ID to set
      * @param emailId user's email ID to set to primary
      */
-    void setPrimaryEmailId(long userId, long emailId) {
+    public void setPrimaryEmailId(long userId, long emailId) {
         log.debug("setPrimaryEmailId called...userId: " + userId +
                   " emailId: " + emailId);
 
@@ -693,7 +693,7 @@ public class EmailBean implements SessionBean {
      * @param emailId email ID to check
      * @return a boolean with whether the email ID is the user's primary
      */
-    boolean isPrimaryEmailId(long userId, long emailId) {
+    public boolean isPrimaryEmailId(long userId, long emailId) {
         log.debug("isPrimaryEmailId called...user_id: " + userId +
                   " email_id: " + emailId);
 
