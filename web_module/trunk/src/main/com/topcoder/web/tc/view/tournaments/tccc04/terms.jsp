@@ -33,7 +33,10 @@
 
 <!-- Center Column Begins -->
          <td class="bodyText" width="100%">
-         <p><textarea name="terms" rows="20" cols="80" readonly class="bodyText"><%=request.getAttribute("terms")%></textarea></p>
+         
+			<jsp:include page="tccc04Head.jsp" />
+         
+         <p align="center"><textarea name="terms" rows="20" cols="80" readonly class="bodyText"><%=request.getAttribute("terms")%></textarea></p>
 
          <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">Click here if you would like to participate in the tournament and make the implication that you agree to the rules as stated above</a>
 
