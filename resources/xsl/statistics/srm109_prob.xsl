@@ -135,8 +135,8 @@ One of the ways to solve this problem is to illuminate all duplicates from the l
 </P>
 
 <PRE>
-for (int i=0;i<num.size()-1;i++) {
-	for (int k=i+1;i<num.size();i++) {
+for (int i=0;i&lt;num.size()-1;i++) {
+	for (int k=i+1;i&lt;num.size();i++) {
 	int a = num[i];
 	int b = num[k];
 	....
@@ -154,7 +154,7 @@ There are two special cases in this problem: division by 0 and division with rem
 
 Here is a possible solution for a/b case:
 <PRE>
-if (b!=0 && a%b==0 && num.find(a/b)!=num.end() ) {
+if (b!=0 &amp;&amp; a%b==0 &amp;&amp; num.find(a/b)!=num.end() ) {
 	count++;
 	continue;
 }
@@ -268,10 +268,10 @@ struct node{
 ...
 node t,c;
 ...
-for(i=0;i<8;i++) {
+for(i=0;i&lt;8;i++) {
 	t=c;
 	t.x+=off[i][0]; t.y+=off[i][1]; t.d++;
-	if (t.x &gt;= 0 && t.x &lt; N && t.y &gt;= 0 && t.y &lt; N && t.d &lt; dis[t.x][t.y]) {
+	if (t.x &gt;= 0 &amp;&amp; t.x &lt; N &amp;&amp; t.y &gt;= 0 &amp;&amp; t.y &lt; N &amp;&amp; t.d &lt; dis[t.x][t.y]) {
 		dis[t.x][t.y]=t.d;
 		qu.push_back(t);
 	}
@@ -311,7 +311,7 @@ The hard part is to include all "friend of a friend" into the matrix. This task 
 for( k = 0; k &lt; a.size(); k++ ) 
 	for( i = 0; i &lt; a.size(); i++ ) 
 		for( j = 0; j &lt; a.size(); j++ ) 
-			adj[ i ][ j ] |= ( adj[ i ][ k ] && adj[ k ][ j ] ); 
+			adj[ i ][ j ] |= ( adj[ i ][ k ] &amp;&amp; adj[ k ][ j ] ); 
 </PRE>
 
 <P>
