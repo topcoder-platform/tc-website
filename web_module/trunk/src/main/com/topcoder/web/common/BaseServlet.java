@@ -94,12 +94,12 @@ public abstract class BaseServlet extends HttpServlet {
 
         try {
             //set up security objects and session info
+            log.debug("start");
             authentication = createAuthentication(request, response);
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            //todo perhaps find a better way to do this.  maybe we can beat min one ejb call per request
-            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(request, authentication, user.getPrincipals());
             request.setAttribute(SESSION_INFO_KEY, info);
+            log.debug("end");
 
             StringBuffer loginfo = new StringBuffer(100);
             loginfo.append("[**** ");
@@ -271,5 +271,11 @@ public abstract class BaseServlet extends HttpServlet {
 
         request.setAttribute(MODULE, LOGIN_PROCESSOR);
         fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
+    }
+
+    protected TCSubject getUser(long id) throws Exception {
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+        TCSubject user = pmgr.getUserSubject(id);
+        return user;
     }
 }
