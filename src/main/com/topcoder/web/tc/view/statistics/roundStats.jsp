@@ -148,7 +148,7 @@ pageContext.setAttribute("resultSetDates", rsc);
                      <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
                      <FORM name="">
 <%--attempting to reduce download size --%>
-<SELECT NAME="Contest" onchange="goTo(this)">
+<SELECT class="dropdown" NAME="Contest" onchange="goTo(this)">
 <OPTION value="#">Select a Round:</OPTION>
 <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
 <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
