@@ -108,7 +108,7 @@
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
                                 <td id="calendarTCCC05">
-                                    <span id="calendarTCCC05Date">11</span><br/>
+                                    <span id="calendarTCCC05Date">10</span><br/>
                                     <strong>2005 TopCoder Collegiate Challenge</strong><br/>
                                     Semifinals<br/>
                                     &#160;<br />
@@ -117,7 +117,7 @@
                                     <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=onsite_schedule">Details</A>
                                     </td>
                                 <td id="calendarTCCC05">
-                                    <span id="calendarTCCC05Date">12</span><br/>
+                                    <span id="calendarTCCC05Date">11</span><br/>
                                     <strong>2005 TopCoder Collegiate Challenge</strong><br/>
                                     Finals<br/>
                                     &#160;<br />
