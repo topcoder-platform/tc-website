@@ -131,8 +131,8 @@ public class NotificationBean implements SessionBean {
             info("error in createEvent: " + e.toString());
             id = -1;
         } finally {
-            Common.close(conn);
             Common.close(ps);
+            Common.close(conn);
         }
 
         return id;
@@ -175,8 +175,8 @@ public class NotificationBean implements SessionBean {
                 throw new Exception("Cannot create event");
             }
 
-            Common.close(ps);
             Common.close(rs);
+            Common.close(ps);
 
             // look if the notification for the event for that user is already in the table
             ps = conn.prepareStatement(
@@ -191,8 +191,8 @@ public class NotificationBean implements SessionBean {
 
             // if no record was found, create it
             if (!rs.next()) {
-                Common.close(ps);
                 Common.close(rs);
+                Common.close(ps);
                 ps = conn.prepareStatement(
                         "INSERT INTO user_notification_event_xref "+
                         "     (notification_event_id, user_id) "+
