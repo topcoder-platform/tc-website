@@ -40,7 +40,7 @@ public class ViewUploadTask extends ResumeTask{
         } else {
             if (navigation.getLoggedIn())
                 userId = navigation.getUserId();
-            else userId = (int)auth.getActiveUser().getId();
+            else userId = (int)auth.getUser().getId();
         }
         if (getRequestParameter(request, "compid")!=null) {
             companyId = Long.parseLong(getRequestParameter(request, "compid"));
