@@ -484,12 +484,12 @@ public class Registration
                
                 if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
                        (isEmpty(this.gpa) && !isEmpty(this.gpaScale)) ||
-                       (!isEmpty(this.gpa) && !isNumber(this.gpa, true) && Float.parseFloat(this.gpa)<0) {
+                       (!isEmpty(this.gpa) && !isNumber(this.gpa, true) && Float.parseFloat(this.gpa)<0)) {
                     addError(GPA, "Please enter a valid GPA.");
                 }
                 if ((!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true)) ||
                        (!isEmpty(this.gpa) && isEmpty(this.gpaScale)) {
-                       (!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true) && Float.parseFloat(this.gpaScale)<0) {
+                       (!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true) && Float.parseFloat(this.gpaScale)<0)) {
                     addError(GPA_SCALE, "Please enter a valid GPA Scale.");
                 }
                 if (!isEmpty(this.gpa) && isNumber(this.gpa, true) && 

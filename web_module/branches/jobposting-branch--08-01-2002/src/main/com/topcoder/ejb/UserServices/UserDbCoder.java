@@ -266,8 +266,13 @@ final class UserDbCoder {
             ps.setInt(1, currentSchool.getUserId());
             ps.setInt(2, currentSchool.getSchoolId());
             ps.setString(3, currentSchool.getName());
-            ps.setFloat(4, currentSchool.getGpa());
-            ps.setFloat(5, currentSchool.getGpaScale());
+            if (currentSchool.getGpa()>0 || currentSchool.getGpaScale()>0) {
+                ps.setFloat(4, currentSchool.getGpa());
+                ps.setFloat(5, currentSchool.getGpaScale());
+            } else {
+                ps.setFloat(4, Types.NULL);
+                ps.setFloat(5, Types.NULL);
+            }
             int RetVal = ps.executeUpdate();
             currentSchool.setModified("S");
         } catch (SQLException sqe) {
@@ -688,8 +693,13 @@ final class UserDbCoder {
                 ps.setInt(1, currentSchool.getSchoolId());
                 ps.setString(2, currentSchool.getName());
                 ps.setInt(3, currentSchool.getUserId());
-                ps.setFloat(4, currentSchool.getGpa());
-                ps.setFloat(5, currentSchool.getGpaScale());
+                if (currentSchool.getGpa()>0 || currentSchool.getGpaScale()>0) {
+                    ps.setFloat(4, currentSchool.getGpa());
+                    ps.setFloat(5, currentSchool.getGpaScale());
+                } else {
+                    ps.setFloat(4, Types.NULL);
+                    ps.setFloat(5, Types.NULL);
+                }
                 ps.executeUpdate();
                 currentSchool.setModified("S");
             } else {
