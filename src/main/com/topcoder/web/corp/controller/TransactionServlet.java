@@ -105,6 +105,7 @@ public class TransactionServlet extends HttpServlet {
     private String defaultPageFailure = null;
     private String defaultPageIntForm = null;
     private String defaultPageTerms = null;
+    private String defaultPageBadCountry = null;
     private String errorPageSecurity = null;
     private String loginApplicationPage = null;
 
