@@ -227,7 +227,10 @@
         <option>5</option>
         </select>
         <select multiple size=10 name="skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
-            <% List skillsList = Arrays.asList(request.getParameterValues("skillset"+resultRow.getStringItem("skill_type_id"))); %>
+            <% 
+                List skillsList = new ArrayList();
+                sa = request.getParameterValues("skillset"+resultRow.getStringItem("skill_type_id")); 
+                if(sa != null)skillsList.addAll(Arrays.asList(sa));%>
             <logic:iterate id="skill_selection" name="skillsList">
                 <option value="<%=skill_selection%>">
                     <%= skillNames.get(new Integer(skill_selection.toString().substring(0,skill_selection.toString().indexOf("_")))) %>
