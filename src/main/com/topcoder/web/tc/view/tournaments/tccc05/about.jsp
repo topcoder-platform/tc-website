@@ -58,7 +58,7 @@
 		</li>
 		</ul>
 
-		See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_rules">Algorithm</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_rules">Component</A> rules and regulations for full details.
+		See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_rules">Algorithm</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_rules">Component</A> rules and regulations for full details.
 		</p>
 
         </div>
