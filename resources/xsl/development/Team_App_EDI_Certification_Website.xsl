@@ -130,15 +130,21 @@
                                                         pass the minimum screening criteria.
                                                         <br/>
                                                         <br/>
-                                                        <strong>Winning Application Team</strong>
-                                                        <br/>
-                                                        Payment: $12,600
-                                                        <br/>
-                                                        <strong>Second Place Application Team</strong>
-                                                        <br/>
-                                                        Payment: $8,400
-                                                        <br/>
-                                                        Total: $21,000
+                                                        <p>
+                                                            <strong>Winning Application Team</strong>
+                                                            <br/>
+                                                            Payment: $12,600
+                                                            <br/>
+                                                        </p>
+                                                        <p>
+                                                            <strong>Second Place Application Team</strong>
+                                                            <br/>
+                                                            Payment: $8,400
+                                                            <br/>
+                                                        </p>
+                                                        <p>
+                                                            Total: $21,000
+                                                        </p>
                                                         <br/>
                                                         All payments will be subject to any prize penalties that were assessed by a team during the
                                                         application design and development process.  Any payments will be sent upon project completion.
