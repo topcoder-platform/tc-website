@@ -55,13 +55,13 @@
                 <BR/>
                                     <BR/>
                 After each competition, each coder who attended the competition is re-rated according
-                the following algorithm.  Keep in mind that only coders who shared the same problem set are rating against one another.  The average rating of everyone in the competition is calculated:
+                the following algorithm.  Keep in mind that only coders who shared the same problem set are rated against one another.  The average rating of everyone in the competition is calculated:
                 <BR/>
                                     <BR/>
                                     <IMG ALT="average rating" HEIGHT="58" WIDTH="167" SRC="/i/rating/avg.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where NumCoders is the number of coders in the competition and Ratingi is the 
-                rating without the volatility of theith coder in the competition before the competition.
+                Where NumCoders is the number of coders in the competition and Rating is the 
+                rating without the volatility of the coder in the competition before the competition.
                 <BR/>
                                     <BR/>
                 <B>The competition factor is calculated:</B>
@@ -69,7 +69,7 @@
                                     <BR/>
                                     <IMG ALT="competition factor" HEIGHT="62" WIDTH="356" SRC="/i/rating/cf.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where Volatilityi is the volatility of the ith coder in the competition before the competition.
+                Where Volatility is the volatility of the coder in the competition before the competition.
                 <BR/>
                                     <BR/>
                 <B>The skill of the coder is calculated:</B>
@@ -88,7 +88,7 @@
                 Where Volatility is the volatility of the coder before the competition.
                 <BR/>
                                     <BR/>
-                The probability of the coder getting a higher score than each other coder in the 
+                The probability of the coder getting a higher score than another coder in the 
                 competition (WPi for i from 1 to NumCoders) is estimated.  See below for the 'Estimation Algorithm'.
                 The expected rank of the coder is calculated:
                 <BR/>
