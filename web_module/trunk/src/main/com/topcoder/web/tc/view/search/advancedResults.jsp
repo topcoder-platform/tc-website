@@ -61,17 +61,11 @@
            <jsp:param name="title" value="Member Search Results"/>
          </jsp:include>
 
-            <table border="0" cellspacing="0" cellpadding="10" width="100%">
-              <tr valign="top">
-                  <td width="100%">
                       <form name="searchForm" method="get">
                           <jsp:include page="searchForm.jsp"/>
                           <br/>
                           <jsp:include page="results.jsp"/>
                       </form>
-                  </td>
-              </tr>
-            </table>
         </td> 
 
 
@@ -83,7 +77,7 @@
 
 <!-- Right Column Begins -->
         <td width="170">
-            <jsp:include page="../public_right.jsp"">
+            <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="search"/>
             </jsp:include>
         </td>
