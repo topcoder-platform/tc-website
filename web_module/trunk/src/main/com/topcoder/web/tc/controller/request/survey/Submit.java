@@ -7,11 +7,14 @@ import com.topcoder.web.tc.view.tag.AnswerInput;
 import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.tc.model.Answer;
 import com.topcoder.web.ejb.survey.Response;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.InitialContext;
 import java.util.*;
 
 public class Submit extends View {
+    protected static Logger log = Logger.getLogger(Submit.class);
+
     protected void surveyProcessing() throws TCWebException {
 
         try {
@@ -77,22 +80,27 @@ public class Submit extends View {
                 //this must be a multiple choice question
                 answerId = Long.parseLong(st.nextToken());
                 if (question.getStyleId() != Question.MULTIPLE_CHOICE) {
+                    log.debug("param has answerid but it's not multiple choice");
                     addError(paramName, "Invalid answer.");
                 } else if (findAnswer(answerId, question) == null) {
+                    log.debug("can't find multiple choice answer");
                     addError(paramName, "Invalid answer.");
                 }
             } else {
                 //only when it's a multiple choice question should there be multiple answers
                 if (answers.length > 1) {
+                    log.debug("not multiple choice, but there are multiple answers");
                     addError(paramName, "Invalid answer.");
                 }
                 if (question.getStyleId() == Question.SINGLE_CHOICE) {
                     try {
                         answerId = Long.parseLong(answers[i]);
                     } catch (NumberFormatException e) {
+                        log.debug("numberformat trying to get answer for single choice");
                         addError(paramName, "Invalid answer.");
                     }
                     if (findAnswer(answerId, question) == null) {
+                        log.debug("can't find single choice answer");
                         addError(paramName, "Invalid answer.");
                     }
                 }
