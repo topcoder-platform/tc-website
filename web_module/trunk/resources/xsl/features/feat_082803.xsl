@@ -58,7 +58,7 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%">         
-                        <p><font size="4"><strong>A crash course in the C++ Standard Template Library</strong></font><br />
+                        <p><font size="4"><strong>A Crash Course in the C++ Standard Template Library</strong></font><br />
                         Thursday, August 28, 2003</p>
 
                         <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br />
@@ -66,11 +66,11 @@
                         
                         <p>
 <b>Introduction</b><br />
-This course tries to quickly teach how to use STL for the most common tasks without having to rely on other sources. It tells very little how things work, but instead gives several code snippets from which it should be possible to figure out how to use some parts of STL. Since it's a crash course, a lot of things are left out and some things are simplified so much they're almost lies...
+This course tries to quickly teach how to use the Standard Template Library for the most common tasks without having to rely on other sources. It tells very little how things work, but instead gives several code snippets from which it should be possible to figure out how to use some parts of the STL. Since it's a crash course, a lot of things are left out and some things are simplified so much they're almost lies...
 </p>
 
 <p>
-STL is a collection of containers and simple algorithms. A container is something that holds several elements of the same type. The containers described in this course are <span class="code">vector</span>, <span class="code">set</span> and <span class="code">map</span>, but STL have several more containers. The STL header files required in this course are <span class="code">vector</span>, <span class="code">set</span>, <span class="code">map</span> and <span class="code">algorithm</span>. I also use <span class="code">iostream</span> and <span class="code">string</span> (the latter is not part of STL, even though it in many ways have the same functionality). All classes are declared in the namespace std, so having the following lines at the beginning of your code is a good idea:
+The STL is a collection of containers and simple algorithms. A container is something that holds several elements of the same type. The containers described in this course are <span class="code">vector</span>, <span class="code">set</span> and <span class="code">map</span>, but the STL have several more containers. The STL header files required in this course are <span class="code">vector</span>, <span class="code">set</span>, <span class="code">map</span> and <span class="code">algorithm</span>. I also use <span class="code">iostream</span> and <span class="code">string</span> (the latter is not part of the STL, even though it in many ways have the same functionality). All classes are declared in the namespace std, so having the following lines at the beginning of your code is a good idea:
 </p>
 
 <pre>
@@ -96,7 +96,7 @@ vector&lt;MyStruct&gt; b;  // Declare a vector of MyStruct
 </pre>
 
 <p>
-The vectors declared above both initially contain zero elements. This is no problem, since vectors (like all STL containers) can grow dynamically by inserting elements.
+The vectors declared above both initially contain zero elements. This is no problem, since vectors (like all the STL containers) can grow dynamically by inserting elements.
 </p>
 
 <p>
@@ -179,7 +179,7 @@ bool operator&lt;(const MyStruct &amp;a, const MyStruct &amp;b)
 </pre>
 
 <p>
-The two parameters to sort specify the range in the vector to be sorted, by pointing to the first element and the element after the last one. So <span class="code">sort(&amp;a[0],&amp;a[N])</span> sorts elements 0,1,...,N-1. This way of specifying a range is used throughout all STL, and is very practical.
+The two parameters to sort specify the range in the vector to be sorted, by pointing to the first element and the element after the last one. So <span class="code">sort(&amp;a[0],&amp;a[N])</span> sorts elements 0,1,...,N-1. This way of specifying a range is used throughout all the STL, and is very practical.
 </p>
 
 <p>
@@ -189,7 +189,7 @@ Since it's most common you want to perform an operation on the whole vector, the
 <h2>pair</h2>
 
 <p>
-A tiny class that is part of STL is pair, which basically just contains (as the name implies) two data members - <span class="code">first</span> and <span class="code">second</span>. However, it's practical to use, especially when sorting a vector of pairs. The members are, respectively, used as the first and second sort key, which means that both data types used must have a less-than operator defined. For instance, if you want to sort coordinates first according to their x value and then their y value, then we can use the pair class like this:
+A tiny class that is part of the STL is pair, which basically just contains (as the name implies) two data members - <span class="code">first</span> and <span class="code">second</span>. However, it's practical to use, especially when sorting a vector of pairs. The members are, respectively, used as the first and second sort key, which means that both data types used must have a less-than operator defined. For instance, if you want to sort coordinates first according to their x value and then their y value, then we can use the pair class like this:
 </p>
 
 <pre>
@@ -204,7 +204,7 @@ sort(a.begin(),a.end()); // Sorts first according to the x-coordinate, then the 
 </pre>
 
 <p>
-Note the use of <span class="code">make_pair</span> (also part of STL). Without it, we would have to type something like <span class="code">a.push_back(pair&lt;int,int&gt;(x,y))</span>
+Note the use of <span class="code">make_pair</span> (also part of the STL). Without it, we would have to type something like <span class="code">a.push_back(pair&lt;int,int&gt;(x,y))</span>
 </p>
 
 <h2>set</h2>
@@ -358,10 +358,10 @@ for_each(a.begin(),a.end(),doit);
 That is, for all elements in the range [<span class="code">a.begin()</span>,<span class="code">a.end()</span>), call the function <span class="code">doit</span>. The parameter in <span class="code">doit</span> must be a const reference of the data type in the container.
 </p>
 
-<h2>More about STL</h2>
+<h2>More about the STL</h2>
 
 <p>
-A complete reference to STL as well as a more technical introduction to it can be found at <a href="http://www.sgi.com/tech/stl/" target="_blank">http://www.sgi.com/tech/stl/</a>.
+A complete reference to the STL as well as a more technical introduction to it can be found at <a href="http://www.sgi.com/tech/stl/" target="_blank">http://www.sgi.com/tech/stl/</a>.
 </p>
                         <p><br/></p>
 
