@@ -1056,6 +1056,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         try {
             conn = getConnection();
             ps = conn.prepareStatement(COMPONENTS_BY_STATUS_AND_CATALOG);
+            ps.setLong(1, catalogId);
+            ps.setLong(2, status);
             rs = ps.executeQuery();
 
             ArrayList ret = new ArrayList();;
