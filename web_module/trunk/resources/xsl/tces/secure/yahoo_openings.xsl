@@ -63,14 +63,24 @@
 
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=yahoo" class="bodyText"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></A></p>
-
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_hotjobs_soft_eng&amp;a=secure" class="bodyText">HotJobs - Software Engineer</A></p>
+                        <p>Sunnyvale, CA</p>
                         
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_infra&amp;a=secure" class="bodyText">Technical Yahoo - Infrastructure (C/C++)</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_hotjobs_soft_eng&amp;a=secure" class="bodyText">Software Engineer</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_infra&amp;a=secure" class="bodyText">Technical Yahoo! AntiSpam Architect</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_photos_eng&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Data Reporting Team)</A></p> 
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Sr. Software Engineer</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Data Mining Software Engineer</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Web Search Crawling)</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Search Technologies)</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (AdSystems)</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Login/Registration Abuse Prevention)</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Sports Engineer</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Movies Engineer</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Photo Engineer</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Tiger Team</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (My Yahoo!)</A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo! Intern</A></p>
                         
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_photos_eng&amp;a=secure" class="bodyText">Technical Yahoo - Photos/Briefcase Backend Engineer</A></p>
-                        
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tech_senior_web&amp;a=secure" class="bodyText">Technical Yahoo - Senior Web Engineer</A></p>
 <!-- Client Job List ends -->
 
                         <p><br/></p>
