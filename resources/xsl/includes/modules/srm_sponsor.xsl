@@ -7,7 +7,7 @@
             <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?t=tournaments&amp;c=tco03_northface" />
 <!--            <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?t=tces&amp;c=index" /> -->
             <!-- <area shape="rect" alt="AlphaSimplex" coords="1,1,243,85" href="/?t=sponsor&amp;c=intel_ids" /> -->
-            <area shape="rect" alt="SRM Match 166" coords="0,93,243,141" href="/?RoundId=4635&amp;t=schedule&amp;c=srm" />
+            <area shape="rect" alt="SRM Match 167" coords="0,93,243,141" href="/?RoundId=4640&amp;t=schedule&amp;c=srm" />
             </map>
   </xsl:template>
 </xsl:stylesheet>
