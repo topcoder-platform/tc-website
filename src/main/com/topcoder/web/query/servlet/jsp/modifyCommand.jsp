@@ -32,26 +32,37 @@
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_NAME%></TD></TR>
-          <TR>
-            <TD CLASS="statText" ALIGN="right">Name: </TD>
-            <TD CLASS="statText" ALIGN="left">
-              <input type="text" name="<%=Constants.COMMAND_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyCommandTask" property="CommandDesc" />" size="30" maxlength="100">
-            </TD>
-          </TR>
-          <TR>
-            <TD CLASS="statText" ALIGN="right">Group: </TD>
-            <TD CLASS="statText" ALIGN="left">
-              <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue='<%=""+ModifyCommandTask.getGroupId()%>'/>
-            </TD>
-          </TR>
-          <TR>
-            <TD CLASS="statText" ALIGN="right">DB: </TD>
-            <TD CLASS="statText" ALIGN="left">
-              <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyCommandTask.getDb()%>"/>
-            </TD>
-          </TR>
-
+          <FORM ACTION="<jsp:getProperty name="ModifyCommandTask" property="ServletPath"/>" method="post" name="ModCommandForm" >
+            <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_COMMAND_TASK%>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandTask" property="CommandId"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
+            <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_NAME%></TD></TR>
+            <TR>
+              <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
+              <TD CLASS="statText" ALIGN="left" WIDTH="50%">
+                <input type="text" name="<%=Constants.COMMAND_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyCommandTask" property="CommandDesc" />" size="30" maxlength="100">
+              </TD>
+            </TR>
+            <TR>
+              <TD CLASS="statText" ALIGN="right">Group: </TD>
+              <TD CLASS="statText" ALIGN="left">
+                <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue='<%=""+ModifyCommandTask.getGroupId()%>'/>
+              </TD>
+            </TR>
+            <TR>
+              <TD CLASS="statText" ALIGN="right">DB: </TD>
+              <TD CLASS="statText" ALIGN="left">
+                <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyCommandTask.getDb()%>"/>
+              </TD>
+            </TR>
+            <TR>
+              <TD CLASS="statText" ALIGN="center" COLSPAN="2">
+                <A HREF="javascript:void document.ModCommandForm.submit()" CLASS="statText">
+                  [save]
+                </A>
+              </TD>
+            </TR>
+          <FORM>
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
