@@ -79,11 +79,10 @@
               <%= MemberInfo.getItem(0, "state_code").toString()%>
               <%= MemberInfo.getItem(0, "zip").toString()%> <BR/>
               <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" CLASS="statText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%> <BR/>
-              <B>Interested in </B>
-                <A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>" class="statText">
-                    <jsp:getProperty name="MemberProfileTask" property="JobName"/>
-                </A>
-              
+              <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
+              <% if (MemberProfileTask.hasResume()) { %>
+                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="statText"><FONT SIZE="4"><B>Resume</B></FONT></a>
+              <% } %>
               </TD>
               </TR>
               </TABLE>
@@ -100,14 +99,12 @@
                 <B>School:</B> <%=MemberInfo.getItem(0, "school_name").toString()%> <BR>
                 <B>Degree:</B> <%=MemberInfo.getItem(0, "degree").toString()%> <BR>
                 <B>Major:</B> <%=MemberInfo.getItem(0, "major").toString()%> <BR>
+                <B>GPA:</B> <%=MemberInfo.getItem(0, "gpa").toString()%> <BR>
                 <B>Graduation Date:</B> <%=MemberInfo.getItem(0, "grad_month").toString()%> 
                 <%=MemberInfo.getItem(0, "grad_month").toString().trim().length()==0?"":", "%>
                 <%=MemberInfo.getItem(0, "grad_year").toString()%><BR>
               <% } %>
 
-              <% if (MemberProfileTask.hasResume()) { %>
-                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="statText">Click here to download resume.</a>
-              <% } %>
 
               </P>
               
@@ -135,11 +132,11 @@
 
                   <P>
                   <B>Current Rating:</B> <%=MemberStats.getItem(0, "rating").toString()%><BR>
+                  <B>Current Ranking:</B> <%=MemberStats.getItem(0, "rank").toString()%><BR>
+                  <B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%><BR>
+                  <B>Number of Ratings:</B> <%=MemberStats.getItem(0, "num_ratings").toString()%><BR>
                   <B>Highest Rating:</B> <%=MemberStats.getItem(0, "highest_rating").toString()%><BR>
                   <B>Lowest Rating:</B> <%=MemberStats.getItem(0, "lowest_rating").toString()%><BR>
-                  <B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%><BR>
-                  <B>Ranking:</B> <%=MemberStats.getItem(0, "rank").toString()%><BR>
-                  <B>Number of Ratings:</B> <%=MemberStats.getItem(0, "num_ratings").toString()%><BR>
                   <B>Most Recent Rated Event:</B> <%=MemberStats.getItem(0, "last_rated_event").toString()%><BR>
                   </P>    
 
