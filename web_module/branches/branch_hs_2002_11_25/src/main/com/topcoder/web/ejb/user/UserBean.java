@@ -12,6 +12,8 @@ import javax.sql.*;
 
 public class UserBean implements SessionBean {
 
+  private final static String DATA_SOURCE="java:comp/env/datasource_name";
+
   private transient InitialContext init_ctx=null;
 
   private SessionContext ctx;
@@ -48,12 +50,15 @@ public class UserBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
       query.append("INTO user (user_id) ");
       query.append("VALUES (?)");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
 
@@ -66,6 +71,10 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -95,12 +104,15 @@ public class UserBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user ");
       query.append("SET first_name=? ");
       query.append("WHERE user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_first_name);
       ps.setLong(2,_user_id);
@@ -114,6 +126,10 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -142,12 +158,15 @@ public class UserBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user ");
       query.append("SET last_name=? ");
       query.append("WHERE user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_last_name);
       ps.setLong(2,_user_id);
@@ -161,6 +180,10 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -189,12 +212,15 @@ public class UserBean implements SessionBean {
 
     try {
       
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user ");
       query.append("SET user_status_id=? ");
       query.append("WHERE user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_status_id);
       ps.setLong(2,_user_id);
@@ -208,6 +234,10 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -239,12 +269,15 @@ public class UserBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT first_name ");
       query.append("FROM user ");
       query.append("WHERE user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
 
@@ -260,6 +293,10 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -292,12 +329,15 @@ public class UserBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT last_name ");
       query.append("FROM user ");
       query.append("WHERE user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
 
@@ -313,6 +353,10 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -345,12 +389,15 @@ public class UserBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT user_status_id ");
       query.append("FROM user ");
       query.append("WHERE user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
 
@@ -366,6 +413,10 @@ public class UserBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {

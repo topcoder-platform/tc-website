@@ -10,6 +10,8 @@ import javax.sql.*;
 
 public class UserTermsOfUseBean implements SessionBean {
 
+  private final static String DATA_SOURCE="java:comp/env/datasource_name";
+
   private transient InitialContext init_ctx=null;
 
   private SessionContext ctx;
@@ -47,12 +49,15 @@ public class UserTermsOfUseBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
       query.append("INTO user_terms_of_use_xref (user_id,terms_of_use_id) ");
       query.append("VALUES (?,?)");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_terms_of_use_id);
@@ -67,6 +72,10 @@ public class UserTermsOfUseBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -96,12 +105,15 @@ public class UserTermsOfUseBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("DELETE ");
       query.append("FROM user_terms_of_use_xref ");
       query.append("WHERE user_id=? AND terms_of_use_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_terms_of_use_id);
@@ -116,6 +128,10 @@ public class UserTermsOfUseBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {

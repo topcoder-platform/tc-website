@@ -10,6 +10,8 @@ import javax.sql.*;
 
 public class UserSchoolBean implements SessionBean {
 
+  private final static String DATA_SOURCE="java:comp/env/datasource_name";
+
   private transient InitialContext init_ctx=null;
 
   private SessionContext ctx;
@@ -47,12 +49,15 @@ public class UserSchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
       query.append("INTO user_school_xref (user_id,school_id) ");
       query.append("VALUES (?,?)");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);
@@ -67,6 +72,10 @@ public class UserSchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -99,12 +108,15 @@ public class UserSchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT current_ind ");
       query.append("FROM user_school_xref ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);
@@ -122,6 +134,10 @@ public class UserSchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -152,12 +168,15 @@ public class UserSchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user_school_xref ");
       query.append("SET current_ind=? ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setBoolean(1,_current);
       ps.setLong(2,_user_id);
@@ -172,6 +191,10 @@ public class UserSchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -201,12 +224,15 @@ public class UserSchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("DELETE ");
       query.append("FROM user_school_xref ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);
@@ -221,6 +247,10 @@ public class UserSchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
