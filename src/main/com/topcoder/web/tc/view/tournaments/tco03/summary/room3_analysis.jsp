@@ -235,9 +235,7 @@ level 3 problem, since usually it means there is more than meets the eye to
 solving it.  Indeed, once you see the limits, you are likely to claim
 impossibility.  Brute force cannot possibly solve this, as for a given
 set of n candy bars and p people, there are O(n^3) ways of dividing them, and
-O((n^3)^p) ways of distributing them.  Dynamic programming is going to be of no
-help either, since there aren't any ways to find subproblems which reduce the
-complexity enough.  However, we have one saving grace which makes a greedy
+O((n^3)^p) ways of distributing them. However, we have one saving grace which makes a greedy
 solution almost look trivial -- the ways you can divide candy are all
 relatively prime.  You'll see why this is important later, but first, let's
 review the greedy solution.
