@@ -46,7 +46,7 @@
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
                     <td class="bodyText" colspan="3">   
                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                                    <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy ash t-shirt has double needle hems, and is 
+                                    <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy black t-shirt has double needle hems, and is 
                                     taped shoulder to shoulder. The Topcoder logo is silkscreened on the left chest and on the upper back. </td></tr>
                                     <tr>
                                         <form name="sizeSelect">
