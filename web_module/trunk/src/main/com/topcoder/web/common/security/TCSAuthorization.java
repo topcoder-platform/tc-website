@@ -2,6 +2,7 @@ package com.topcoder.web.common.security;
 
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
@@ -15,6 +16,9 @@ import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * This will be using the TopCoder Software security component to determine if a
@@ -34,14 +38,28 @@ public class TCSAuthorization implements Authorization {
     );
 
     private TCSubject tcUser;
+    private PolicyRemote policy;
 
     /**
      * Creates Authorization token for given user.
      *
      * @param user
      */
-    public TCSAuthorization(TCSubject user) {
+    public TCSAuthorization(TCSubject user) throws NamingException, CreateException, RemoteException {
         tcUser = user;
+        InitialContext ic = null;
+        try {
+            ic = (InitialContext) TCContext.getContext(
+                    ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                    ApplicationServer.SECURITY_PROVIDER_URL
+            );
+            PolicyRemoteHome pHome;
+            pHome = (PolicyRemoteHome) ic.lookup(PolicyRemoteHome.EJB_REF_NAME);
+
+            policy = pHome.create();
+        } finally {
+            closeIC(ic);
+        }
     }
 
     /**
@@ -54,27 +72,10 @@ public class TCSAuthorization implements Authorization {
     public boolean hasPermission(Resource rc) throws Exception {
         InitialContext ic = null;
         try {
-            ic = (InitialContext) TCContext.getContext(
-                    ApplicationServer.SECURITY_CONTEXT_FACTORY,
-                    ApplicationServer.SECURITY_PROVIDER_URL
-            );
-            PolicyRemoteHome pHome;
-            pHome = (PolicyRemoteHome) ic.lookup(PolicyRemoteHome.EJB_REF_NAME);
-
-            PolicyRemote policy = pHome.create();
             return policy.checkPermission(
                     tcUser,
                     new GenericPermission(rc.getName())
             );
-        }
-                // catches are there with only goal - to show what exceptions
-                // are expected from underlying software
-        catch (NamingException ne) {
-            throw ne;
-        } catch (GeneralSecurityException gse) {
-            throw gse;
-        } catch (CreateException ce) {
-            throw ce;
         } catch (RemoteException re) {
             throw re;
         } finally {
@@ -93,5 +94,17 @@ public class TCSAuthorization implements Authorization {
         } catch (Exception e) {
             log.error("Can't close initial context " + ic);
         }
+    }
+
+        /** Hack to get the groups for the user by looking for specially named roles in their TCSubject. */
+    public Set getGroups() {
+        Set groupnames = new HashSet();
+        Iterator it = tcUser.getPrincipals().iterator();
+        while (it.hasNext()) {
+            String rolename = ((RolePrincipal) it.next()).getName();
+            if (rolename.startsWith("group_"))
+                groupnames.add(rolename.substring(6));
+        }
+        return groupnames;
     }
 }
