@@ -7,81 +7,22 @@
 	</TR>	
  	<TR>
 		<TD CLASS="bodyText" VALIGN="top">
-<!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
-<P>
-<SPAN CLASS="bodyTextBold">Single Round Match 95</SPAN><BR/>
-Wednesday, June 5, 2002<BR/>
-By Adam Loss, <I>TopCoder Staff Writer</I><BR/><BR/>
-<A CLASS="bodyGeneric">
+<!-- <A CLASS="bodyGeneric">
   <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>
   WishingBone
-</A>
- won Room 11 with 1038.64 final points, and had a rating point gain of 355, 
-which is the fourth highest ever in Division-I. 
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>
-  mike0625
-</A>
- won Room 33 with 1583.39 final points, which was the highest total 
-in Division-II...
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>
-  full&#160;story
-</A> 
+</A> -->	
+<P>
+<SPAN CLASS="bodyTextBold">Single Round Match 97</SPAN><BR/>
+Wednesday, June 12, 2002<BR/>
+By Adam Loss, <I>TopCoder Staff Writer</I><BR/><BR/>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>reid</A>
+ won Room One with 1510.98 final points, and added 89 points to his rating.  
+That increased his rating to 3064, which made him the third member to eclipse the 
+3000 rating point mark. <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>shelby</A>
+ won Room 35 with a Division-II high 1441.31 final points
+...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>full&#160;story</A> 
 </P>
 				
-<!-- <P><B>Division-I</B><BR/>
-Four Division-I coders used two challenges for come-from-behind room wins.
-</P>
-<P>
-In Room 12, 
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match&amp;rd=4125&amp;dn=1</xsl:attribute>
-  kdby
-</A> coded the Level One and Level Two problems during the "Coding Phase" for 423.85 points.  That total placed him seventh in the room.  In the "Challenge Phase", 
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match&amp;rd=4125&amp;dn=1</xsl:attribute>
-  kdby
-</A> successfully challenged the Level One submission of 
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match&amp;rd=4125&amp;dn=1</xsl:attribute>
-  turian
-</A>, who was the room leader with 1169.14 points, as well as the Level One submission of 
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match&amp;rd=4125&amp;dn=1</xsl:attribute>
-  mmsa
-</A>.  Those challenges added 100 points to the total of 
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match&amp;rd=4125&amp;dn=1</xsl:attribute>
-  kdby
-</A>, producing a final point total of 523.85. 
-</P>
-       
-       </TD>
-	</TR>
-	<TR>
-		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
-	</TR>			
-	<TR>
-		<TD VALIGN="middle" CLASS="bodyTextBold">Division-II</TD>
-	</TR>
- 	<TR>
-		<TD CLASS="bodyText" VALIGN="top">
-<P>
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match&amp;rd=4125&amp;dn=2</xsl:attribute>
-  b0b0b0b
-</A> was the top-scorer in Division-II, earning 1522.93 final points to win Room 33.  
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match&amp;rd=4125&amp;dn=2</xsl:attribute>
-  b0b0b0b
-</A> earned 248.17 points on the Level One problem, 543.28 on the Level Two problem, and 731.48 on the Level Three problem
-...&#160;
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>
-  full&#160;story
-</A>.
-</P> -->
        </TD>
 	</TR>
 <!-- <P>
