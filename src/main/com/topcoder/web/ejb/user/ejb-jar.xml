@@ -43,6 +43,32 @@
         <env-entry-value>JTS_HS_OLTP</env-entry-value>
       </env-entry>
     </session>
+    <session>
+        <ejb-name>Contact</ejb-name>
+        <home>com.topcoder.web.ejb.user.ContactHome</home>
+        <remote>com.topcoder.web.ejb.user.Contact</remote>
+        <ejb-class>com.topcoder.web.ejb.user.ContactBean</ejb-class>
+        <session-type>Stateless</session-type>
+        <transaction-type>Container</transaction-type>
+        <env-entry>
+          <env-entry-name>datasource_name</env-entry-name>
+          <env-entry-type>java.lang.String</env-entry-type>
+          <env-entry-value>JTS_CORP_OLTP</env-entry-value>
+        </env-entry>
+    </session>
+    <session>
+        <ejb-name>UserAddress</ejb-name>
+        <home>com.topcoder.web.ejb.user.UserAddressHome</home>
+        <remote>com.topcoder.web.ejb.user.UserAddress</remote>
+        <ejb-class>com.topcoder.web.ejb.user.UserAddressBean</ejb-class>
+        <session-type>Stateless</session-type>
+        <transaction-type>Container</transaction-type>
+        <env-entry>
+          <env-entry-name>datasource_name</env-entry-name>
+          <env-entry-type>java.lang.String</env-entry-type>
+          <env-entry-value>JTS_CORP_OLTP</env-entry-value>
+        </env-entry>
+    </session>
   </enterprise-beans>
   <assembly-descriptor>
     <container-transaction>
@@ -58,6 +84,16 @@
       </method>
       <method>
         <ejb-name>UserSchool</ejb-name>
+        <method-intf>Remote</method-intf>
+        <method-name>*</method-name>
+      </method>
+      <method>
+        <ejb-name>Contact</ejb-name>
+        <method-intf>Remote</method-intf>
+        <method-name>*</method-name>
+      </method>
+      <method>
+        <ejb-name>UserAddress</ejb-name>
         <method-intf>Remote</method-intf>
         <method-name>*</method-name>
       </method>
