@@ -679,7 +679,7 @@ public class UserEdit extends BaseProcessor {
         long targetUserCompanyID = -1;
         long loggedUserCompanyID = -1;
         UserPrincipal targetUser = null;
-        PrincipalMgrRemote man = null;
+        private PrincipalMgrRemote man = null;
         boolean createNew = false;
 
         private SecurityInfo(boolean createNew)

@@ -4,6 +4,7 @@ import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -462,19 +463,26 @@ public final class Registration extends UserEdit {
         UserPrincipal ret = super.createUserPrincipal();
 
         // because it is primary person, grant 'Account Admin' role
-        Iterator roles = secTok.man.getRoles(secTok.requestor).iterator();
-        RolePrincipal role = null;
-        while (roles.hasNext()) {
-            role = (RolePrincipal) roles.next();
-            if (role.getName().equalsIgnoreCase(Constants.CORP_ADMIN_ROLE)) {
-                break;
+        try {
+            PrincipalMgrRemote mgr = Util.getPrincipalManager();
+            Iterator roles = mgr.getRoles(secTok.requestor).iterator();
+            RolePrincipal role = null;
+            while (roles.hasNext()) {
+                role = (RolePrincipal) roles.next();
+                if (role.getName().equalsIgnoreCase(Constants.CORP_ADMIN_ROLE)) {
+                    break;
+                }
             }
+            if (role == null) {
+                throw new MisconfigurationException("Account Admin role was not found");
+            }
+            mgr.assignRole(ret, role, secTok.requestor);
+            log.debug("Assigned Account Admin role");
+        } catch (NamingException ne) {
+            throw new MisconfigurationException("Error getting principal manager" + ne.getMessage());
+        } catch (CreateException ce) {
+            throw new MisconfigurationException("Error getting principal manager" + ce.getMessage());
         }
-        if (role == null) {
-            throw new MisconfigurationException("Account Admin role was not found");
-        }
-        secTok.man.assignRole(ret, role, secTok.requestor);
-        log.debug("Assigned Account Admin role");
         return ret;
     }
 
