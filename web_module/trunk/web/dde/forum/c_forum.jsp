@@ -141,7 +141,7 @@
              public int compare (Object o1, Object o2 )  {
                  com.topcoder.forum.Thread t1 = (com.topcoder.forum.Thread)o1;
                  com.topcoder.forum.Thread t2 = (com.topcoder.forum.Thread)o2;
-                 return t1.getLastPostTime().compareTo(t2.getLastPostTime());
+                 return t2.getLastPostTime().compareTo(t1.getLastPostTime());
              }
           });
 
