@@ -28,6 +28,9 @@ public class Constants {
     private static final String KEY_JTA_TX_MANAGER =
         "jta-transaction-manager";
 
+    private static final String KEY_JTA_DATA_SOURCE =
+        "jta-data-source";
+
     private static final String KEY_EJB_CONTEXT_FACTORY =
         "ejb-context-factory";
 
@@ -49,6 +52,9 @@ public class Constants {
         
     private static final String DEF_JTA_TX_MANAGER =
         "weblogic/transaction/TransactionManager";
+
+    private static final String DEF_JTA_DATA_SOURCE =
+        "CORP_OLTP";
 
     private static final String DEF_EJB_CONTEXT_FACTORY =
         DEF_JTA_CONTEXT_FACTORY;
@@ -80,6 +86,11 @@ public class Constants {
      */
     public static final Hashtable EJB_CONTEXT_ENVIRONMENT =
         new Hashtable();
+        
+    /**
+     * Name of DataSourse to be used
+     */
+    public static String JTA_DATA_SOURCE = null;
 
     static {
         store = new TCResourceBundle("CorpConstants");
@@ -88,6 +99,10 @@ public class Constants {
                                            DEF_JTA_TX_MANAGER
         );
         
+        JTA_DATA_SOURCE = store.getProperty(KEY_JTA_DATA_SOURCE,
+                                            DEF_JTA_DATA_SOURCE
+        );
+
         String value;
         // jta environment
         value = store.getProperty(KEY_JTA_CONTEXT_FACTORY,

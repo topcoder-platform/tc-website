@@ -3,6 +3,15 @@ package com.topcoder.web.common.tag;
 import java.util.HashMap;
 import javax.servlet.jsp.tagext.TagSupport;
 
+/**
+ * 
+ * My comments/description/notes go here
+ * 
+ * 
+ * @author djFD molc@mail.ru
+ * @version 1.02
+ *
+ */
 public abstract class BaseTag extends TagSupport {
 	public static final String CONTAINER_NAME_FOR_ERRORS = "form-errors";
     public static final String CONTAINER_NAME_FOR_DEFAULTS = "form-defaults";
