@@ -158,7 +158,7 @@
 
 </TABLE> -->
 
-<IMG SRC="/i/es/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/>
+<IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/>
 
 <P>Apex Data Services (<A HREF="http://www.apexinc.com" CLASS="bodyText">http://www.apexinc.com</A>) is an international data conversion company headquartered in Herndon, VA.  We are an employee-owned company devoted to the growth of our staff as we solve interesting technical problems in a stimulating environment.</P>
 <P>We are looking for a small number of excellent software developers, and believe that our environment will challenge even the best and brightest.  Here's some of what makes us the best place for the best people to work:</P>
