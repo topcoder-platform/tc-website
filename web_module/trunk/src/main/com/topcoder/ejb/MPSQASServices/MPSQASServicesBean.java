@@ -208,12 +208,13 @@ public class MPSQASServicesBean extends BaseEJB {
         ps.setInt(2,userId);
         rs=ps.executeQuery();
 
-        TCSEmailMessage email=new TCSEmailMessage();
-        StringBuffer emailBody=new StringBuffer(256);
+        TCSEmailMessage email=null;
+        StringBuffer emailBody=null;
         while(rs.next())
         {
-          //send an email to the user
-          emailBody.replace(0,emailBody.length(),"Hi "+rs.getString(1)+",\n\n");
+          email=new TCSEmailMessage();
+          emailBody=new StringBuffer(256);
+          emailBody.append("Hi "+rs.getString(1)+",\n\n");
           emailBody.append("Correspondence has been added to ");
           emailBody.append(className);
           emailBody.append(", a problem with which you are associated.\n\n");
