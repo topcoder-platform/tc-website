@@ -16,8 +16,8 @@
 <FONT SIZE="3"><B>GE - TopCoder Employment Program</B></FONT><BR/>
 Please view the following links for review of the Google Employment program.<BR/><BR/>
 <B>Website</B><BR/>
-<A HREF="/i/es/ge/public_home.gif">Public Home Page</A><BR/>
-<A HREF="/i/es/ge/member_home.gif">Member Home Page</A><BR/>
+<A HREF="/i/es/ge/public_home.jpg">Public Home Page</A><BR/>
+<A HREF="/i/es/ge/member_home.jpg">Member Home Page</A><BR/>
 <A HREF="/?t=jobs&amp;c=ge">GE Main Page</A><BR/>
 <A HREF="/?t=jobs&amp;c=ge_faq">GE FAQ Page</A><BR/>
 <!-- <A HREF="statsindex.gif">Statistics Index Page</A><BR/>
