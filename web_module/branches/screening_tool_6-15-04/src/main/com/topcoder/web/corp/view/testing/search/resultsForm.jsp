@@ -33,9 +33,9 @@
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
                   <td class="screeningCellOdd" nowrap=nowrap><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"><rsc:item row="<%=resultRow%>" name="name"/></A></td>
-                  <td class="screeningCellOdd"><A href=""><rsc:item row="<%=resultRow%>" name="email_address"/></A></td>
-                  <td class="screeningCellOdd" align=center>CT</td>
-                  <td class="screeningCellOdd" align=center>USA</td>
+                  <td class="screeningCellOdd"><A href="mailto:<rsc:item row="<%=resultRow%>" name="email_address"/>"><rsc:item row="<%=resultRow%>" name="email_address"/></A></td>
+                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="state"/></td>
+                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="country_name"/></td>
                   <td class="screeningCellOdd" align=center>Pro</td>
                   <td class="screeningCellOdd" align=center>Architect</td>
                   <td class="screeningCellOdd" align=center><A href="">Rain</A></td>
