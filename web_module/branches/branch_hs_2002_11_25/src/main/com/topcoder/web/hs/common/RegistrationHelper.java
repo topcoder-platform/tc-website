@@ -425,30 +425,33 @@ public class RegistrationHelper {
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
       User user=uh.create();
-      user.setFirstName(_srb.getUserId().longValue(),_srb.getFirstName());
-      user.setLastName(_srb.getUserId().longValue(),_srb.getLastName());
+      long user_id=_srb.getUserId().longValue();
+      user.setFirstName(user_id,_srb.getFirstName());
+      user.setLastName(user_id,_srb.getLastName());
 
       UserSchoolHome ush=(UserSchoolHome)
                                         ctx.lookup(UserSchoolHome.EJB_REF_NAME);
       UserSchool user_school=ush.create();
-      user_school.createUserSchool(_srb.getUserId().longValue(),
-                                   _srb.getSchoolId().longValue());
-      user_school.setCurrentUserSchoolId(_srb.getUserId().longValue(),
-                                         _srb.getSchoolId().longValue());
+      long school_id=_srb.getSchoolId().longValue();
+      try {
+        user_school.setCurrentUserSchoolId(user_id,school_id);
+      }
+      catch (Exception _e) {
+        user_school.createUserSchool(user_id,school_id);
+        user_school.setCurrentUserSchoolId(user_id,school_id);
+      }
 
       EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
       Email email=eh.create();
-      long email_id=email.createEmail(_srb.getUserId().longValue());
-      email.setPrimaryEmailId(_srb.getUserId().longValue(),email_id);
+      long email_id=email.createEmail(user_id);
+      email.setPrimaryEmailId(user_id,email_id);
       email.setAddress(email_id,_srb.getEmail());
       email.setEmailTypeId(email_id,EMAIL_TYPE_ID_DEFAULT);
 
       CoderHome ch=(CoderHome)ctx.lookup(CoderHome.EJB_REF_NAME);
       Coder coder=ch.create();
-      coder.setEditorId(_srb.getUserId().longValue(),
-                        _srb.getEditorId().intValue());
-      coder.setLanguageId(_srb.getUserId().longValue(),
-                          _srb.getLanguageId().intValue());
+      coder.setEditorId(user_id,_srb.getEditorId().intValue());
+      coder.setLanguageId(user_id,_srb.getLanguageId().intValue());
 
       utx.commit();
     }
