@@ -1,6 +1,10 @@
 package com.topcoder.web.query.servlet;
 
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.query.common.Constants;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 
 
 /**
@@ -11,6 +15,10 @@ import com.topcoder.web.common.BaseServlet;
  */
 
 public class Controller extends BaseServlet {
+    public synchronized void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        Constants.init(config);
+    }
 
 }
 
