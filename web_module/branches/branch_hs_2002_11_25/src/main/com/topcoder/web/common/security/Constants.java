@@ -1,5 +1,6 @@
 package com.topcoder.web.common.security;
 
+import java.lang.reflect.*;
 import java.util.Hashtable;
 import javax.naming.*;
 
