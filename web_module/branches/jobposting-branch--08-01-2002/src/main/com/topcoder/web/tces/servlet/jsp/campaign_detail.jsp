@@ -46,21 +46,21 @@
         <jsp:include page="/body_top.jsp" >  
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="<%= TCESConstants.COMPANY_NAME_ATTR_KEY %>">"/>
+           <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CompanyName"/>"/>
         </jsp:include>
         
         <p>
         <b>
-        <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CompanyName">"/>
+        <jsp:getProperty name="CampaignDetailTask" property="CompanyName"/>
         </b>
         <br>
-        <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CampaignName">"/><br>
-        <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CampaignStatus">"/>        
+        <jsp:getProperty name="CampaignDetailTask" property="CampaignName"/>
+        <jsp:getProperty name="CampaignDetailTask" property="CampaignStatus"/>
         </p>
         
         <p>
-        Total Hits: <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="TotalHits">"/><br>
-        Most Recent Hit: <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="MostRecentHit">"/>
+        Total Hits: <jsp:getProperty name="CampaignDetailTask" property="TotalHits"/><br>
+        Most Recent Hit: <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit"/>
         </p>
         
         <p>

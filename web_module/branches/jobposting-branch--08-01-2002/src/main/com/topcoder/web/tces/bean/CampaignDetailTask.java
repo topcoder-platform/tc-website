@@ -59,11 +59,11 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         return campaignStatus;
     }
 
-    public void setCampaignHits( String campaignHits ) {
+    public void setTotalHits( String campaignHits ) {
         this.campaignHits = campaignHits;
     }
 
-    public String getCampaignHits() {
+    public String getTotalHits() {
         return campaignHits;
     }
 
@@ -147,7 +147,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_Info");
         ResultSetContainer.ResultSetRow cpgnHitsRow = rsc.getRow(0);
-        setCampaignHits( TCData.getTCString(cpgnHitsRow, "total_hits") );
+        setTotalHits( TCData.getTCString(cpgnHitsRow, "total_hits") );
         setMostRecentHit( TCData.getTCString(cpgnHitsRow, "most_recent") );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_List");
