@@ -40,7 +40,7 @@
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><PRE>
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><PRE>
 <strong>FROM:</strong><jsp:getProperty name="emailInfo" property="repAddress" /><%
 if(emailInfo.getSessionInfo() != null) {
 if(emailInfo.getSessionInfo().useCandidateEmail()) { %>
