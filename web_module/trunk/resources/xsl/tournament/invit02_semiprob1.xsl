@@ -187,31 +187,29 @@ Friday, November 22, 2002
                 Thus the priority queue is initially populated with the starting location with a cost of zero.
             </p>
 <p>
-                We then process this queue until it is either empty or a tuple representing the destination location reaches
-                the head of the queue.  If the queue ever becomes empty, then that means there is no path from the source
-                to the destination.  While the queue is not empty, we pull out the value at its head and process it to
-                obtain new values to add to the queue.
-            </p>
-<p>
-                Each value that we pull from the queue represents a location we can reach (and the minimal cost of reaching
+Each value that we pull from the queue represents a location we can reach (and the minimal cost of reaching
                 that location).  For each location we reach, we generate the locations of all its neighbors (which may include
                 neighbors reached directly through wormholes) and compute the costs
                 for reaching each of these locations by passing through the current location.  That is, we compute the cost
                 of travelling from the current location to a neighbor, and add that cost to the cost of reaching the current
                 location.  We then construct a tuple for associating each of the neighboring locations with the computed cost
-                for each, and add them to the priority queue.  Note that for efficiency we should not add a tuple to the
-                queue if there has already been added to the queue a tuple for the same location with a lower cost.  Therefore
-                we also maintain a map, with location as the key, giving the minimum cost (if any) of reaching each location
-                from the source.
+                for each, and add them to the priority queue.
             </p>
 <p>
-                This is all standard fare, and all of the contestants have probably solved this problem for two, three, or even
+Usually, for efficiency, we would not not add a tuple to the
+                queue if there has already been added to the queue a tuple for the same location with a lower cost.
+                However, we are dealing with a graph where edges may have negative weights, so this practice would be
+                erroneous.
+            </p>
+<p>
+This is all standard fare, and all of the contestants have probably solved this problem for two, three, or even
                 four dimensions (I recall an ACM ICPC problem a few years ago that was four-dimensional).  This is just
                 a generalization of the same problem.  Generalizing the solution is trivial, except for the matter of iterating
                 neighbors.  Writing code to generate neighbors of an arbitrary location in <i>n</i> dimensions is trivial if
                 <i>n</i> is constant for your program, but it's slightly harder to generalize for any <i>n</i>.  This consists
                 of generating all <i>n</i>-element arrays where the values of each element can be either <tt>-1</tt>, <tt>0</tt>,
-                or <tt>1</tt>, and this could easily be done in a simple recursive function.
+                or <tt>1</tt>, and this could easily be done in a simple recursive function.  Generating locations of asteroids
+                in the manner prescribed should probably be done in the same manner.
             </p>
 
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
