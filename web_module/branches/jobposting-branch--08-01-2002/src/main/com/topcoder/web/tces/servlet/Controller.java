@@ -89,7 +89,7 @@ public class Controller extends HttpServlet {
             }
         } catch (TCESAuthenticationException authex) {
             log.debug("User not authenticated to access TCES resource.");
-            Authentication.attemptLogin("","",ctx,request.getSession(true),HttpUtils.getRequestURL(request).toString());
+            Authentication.attemptLogin("","",ctx,request.getSession(true),HttpUtils.getRequestURL(request).toString()+"?"+request.getQueryString());
             forwardToLoginPage(request, response, authex);
             return;
         } catch (ClassNotFoundException cnfex) {
