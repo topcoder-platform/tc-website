@@ -892,9 +892,6 @@
              <webinf dir="${resources}/corp">
                  <include name="jboss-web.xml"/>
              </webinf>
-
-
-
              <fileset dir="${java}/com/topcoder/web/jsp">
                  <include name="errorPage.jsp"/>
                  <include name="date_time.jsp"/>
