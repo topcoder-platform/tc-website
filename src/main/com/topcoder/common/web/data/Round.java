@@ -19,6 +19,7 @@ public final class Round implements Serializable, Base {
   private String notes;
   private String link;
   private String modified;
+  private String RoundDesc;
   private ArrayList problems;  // ArrayList of Problem Id's
   private ArrayList rooms;     // ArrayList of rooms
   private ArrayList roundSegments; //ArrayList of RoundSegment
@@ -105,7 +106,18 @@ public final class Round implements Serializable, Base {
   }
 
 
+  public void setRoundDesc(String RoundDesc) {
+    this.RoundDesc = RoundDesc;
+  }
+
+
+  
 // get
+
+  public String getRoundDesc() {
+    return this.RoundDesc;
+  }
+
 
   public int getContestId() {
     return this.contestId;

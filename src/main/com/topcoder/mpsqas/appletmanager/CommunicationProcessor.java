@@ -7,11 +7,6 @@ import com.topcoder.ejb.MPSQASServices.*;
 import com.topcoder.common.*;
 
 /**
-
-;lkdsjfasdf;lkj
-
-
-
  * CommunicationProcessor is responsable for processing information
  * from the client and preparing information to send to the client.
  *
