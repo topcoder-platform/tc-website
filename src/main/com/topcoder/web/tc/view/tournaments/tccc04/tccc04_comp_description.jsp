@@ -46,7 +46,10 @@
             <h2>Description of the Component Competition</h2>
 
             <p>
-            The 2004 Collegiate Challenge is bigger and better than ever! 8 Component finalists will be invited to compete live at the onsite finals in Boston.</p>
+            The 2004 Collegiate Challenge is bigger and better than ever! 8 Component finalists will be invited to compete live at the onsite finals in Boston.
+            <br/><br/>
+            The 2004 TCCC marks the first TopCoder tournament to have coaches.  Coaches will provide competitors in the Design Competition with technical guidance and support during the contest.  Not in college, but love to design components?  <a href="mailto:service@topcoder.com">Be</a> a coach.  Got the skills to design, but need a little guidance in the tournament?  <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coachesreq">Request</a> a coach.
+            </p>
             <ul>
                 <li><strong>Elimination Starts</strong><br />
                     January 27, 2004<br />
