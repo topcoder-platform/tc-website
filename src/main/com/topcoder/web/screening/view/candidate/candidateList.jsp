@@ -56,6 +56,7 @@
               String params = Constants.CANDIDATE_ID + "=" + row.getItem("user_id") + "&referrer=BuildCandidateList";
               String trparams = Constants.SESSION_ID + "=" + row.getItem("session_id") + "&referrer=BuildCandidateList";
               boolean hasSession = !row.getItem("has_session").toString().equals("0");
+              boolean hasNotes = ((Integer)row.getItem("note_count").getResultData()).intValue()>0;
             %>
             <TR>
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
@@ -64,7 +65,7 @@
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="status" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText">View</screen:servletLink></TD>                                          
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></TD>
             </TR>
             </screen:resultSetRowIterator>
            <TR>
