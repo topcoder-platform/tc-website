@@ -6,6 +6,7 @@ import com.topcoder.web.common.TCResponse;
 
 import java.io.Serializable;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 /**
@@ -27,18 +28,12 @@ public class WebResponsePool extends ResponsePool {
         long startTime = System.currentTimeMillis();
         long endTime = startTime + timeoutLength;
         while (System.currentTimeMillis() < endTime) {
+
             if (responseMap.containsKey(correlationId)) {
-                try {
-                    response.getOutputStream().print("we're done");
-                    response.getOutputStream().flush();
-                } catch (IOException e) {
-                    //ignore this too
-                    //todo do something better than ignore
-                }
                 return (Serializable) responseMap.get(correlationId);
             } else {
                 try {
-                    response.getOutputStream().print("X");
+                    response.getWriter().print("X");
                     wait(waitTime);
                 } catch (InterruptedException e) {
                     //ignore

@@ -8,6 +8,8 @@ import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 
 import java.util.HashMap;
+import java.io.PrintWriter;
+import java.io.IOException;
 
 /**
  * User: dok
@@ -34,7 +36,20 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected Message receive(int waitTime, String correlationId) throws TimeOutException {
-        return (Message)receiver.receive(waitTime, correlationId, getResponse());
+
+        Message ret = null;
+        getResponse().setStatus(500);
+        try {
+            PrintWriter out = getResponse().getWriter();
+            out.println("<html><head><title>Wait page</title></head><body><table><tr><td>");
+            ret = (Message)receiver.receive(waitTime, correlationId, getResponse());
+            out.println("</td></tr></table></body></html>");
+            out.flush();
+        } catch (IOException e) {
+            //todo do something with this
+        }
+
+        return ret;
     }
 
 
