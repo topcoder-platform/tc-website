@@ -88,9 +88,6 @@ public class UserEdit extends BaseProcessor {
 
         if (loadUserData()) return;
 
-        if (!secTok.createNew) {
-            userName = secTok.targetUser.getName();
-        }
         boolean formValid = verifyFormFieldsValidity();
         if (!formValid) {
             setFormFieldsDefaults();
@@ -143,8 +140,6 @@ public class UserEdit extends BaseProcessor {
      */
     protected boolean loadUserData() throws Exception {
         if (!"POST".equalsIgnoreCase(request.getMethod())) {
-            setFormFieldsDefaults();
-            nextPage = formPage;
             if (!secTok.createNew) {
                 PrincipalMgrRemote mgr = Util.getPrincipalManager();
                 password = mgr.getPassword(targetUserID);
@@ -152,6 +147,8 @@ public class UserEdit extends BaseProcessor {
                 userName = secTok.targetUser.getName();
                 retrieveUserDataFromDB((InitialContext)TCContext.getInitial());
             }
+            setFormFieldsDefaults();
+            nextPage = formPage;
             return true;
         }
         return false;
