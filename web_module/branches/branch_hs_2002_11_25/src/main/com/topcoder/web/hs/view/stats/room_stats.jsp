@@ -34,7 +34,7 @@ pageContext.setAttribute("rm", currRoom);
 <P><B>Coder Problem Stats</B></P>
 <% } %>
 
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033"  WIDTH="100%">
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">
                  <TR>
                    <TD COLSPAN="4"  CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
@@ -78,7 +78,7 @@ pageContext.setAttribute("rm", currRoom);
 <%
 if (resultRow_0 == null) {
 %>
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033"  WIDTH="100%">  
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">  
                  <TR>
                    <TD  CLASS="statText">No information available for the selected room.</TD>    
                  </TR>
@@ -90,7 +90,7 @@ else {
      pageContext.setAttribute("roundName",resultRow_0.getItem(4));
      pageContext.setAttribute("roomName",resultRow_0.getItem(3));
 %>      
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033"  WIDTH="100%">  
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">  
                  <TR>
                    <TD  COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>
@@ -230,7 +230,7 @@ if (rscProblems != null && rscProblems.size() > 0) {
   java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.S");
   sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
 %>
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033"  WIDTH="100%">  
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">  
                  <TR>
                    <TD BGCOLOR="#1B2E5D" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;<B>Problem Information for <%=pageContext.getAttribute("coderHandle").toString() %></B></TD>    
                  </TR>  
@@ -286,7 +286,7 @@ if (rscProblems != null && rscProblems.size() > 0) {
 if (rscChallenge != null && rscChallenge.size() > 0){
 pageContext.setAttribute("resultSet", rscChallenge);
 %>          
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033"  WIDTH="100%">  
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">  
                  <TR>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;<B>Challenges</B></TD>    
                  </TR>
@@ -335,7 +335,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
 if (rscDefense != null && rscDefense.size() > 0) {  
 pageContext.setAttribute("resultSet", rscDefense);
 %>    
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033"  WIDTH="100%">  
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">  
                  <TR>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;<B>Defenses</B></TD>    
                  </TR>
