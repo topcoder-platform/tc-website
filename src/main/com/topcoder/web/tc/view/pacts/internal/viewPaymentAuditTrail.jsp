@@ -31,7 +31,7 @@
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr><td><b>ID:</b></td><td>
-<%		out.print(payments[0]._header._id);	%>	
+<%		out.print(payments[0]._header._id);	%>
 		</td></tr><tr>
 		<td><b>User:</b></td>
 <% 			out.print("<td><a href=\"");
@@ -126,7 +126,7 @@
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
    out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID));
    out.println("\">Reconcile Payment</a><br>");
-   
+
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.REVIEW_CMD+"&");
@@ -152,7 +152,7 @@
    }
 %>
 
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 
 </body>
 

@@ -100,7 +100,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

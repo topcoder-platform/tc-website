@@ -68,7 +68,7 @@
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr><td><b>ID:</b></td><td>
-<%		out.print(payment._header._id);	%>	
+<%		out.print(payment._header._id);	%>
 		</td></tr><tr>
 		<td>
 <%		out.print("<b>User:</b></td>");
@@ -178,7 +178,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
 
 </html>

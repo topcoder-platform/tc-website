@@ -49,11 +49,8 @@ Searches<br>
    out.print("Print Payments</a><br>");
 %>
 <br><br>
-<%
-    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-    out.print(PactsConstants.MODULE_KEY+"=Static&d1=pacts&d2=internal&d3=generatePayments");
-    out.print("Generate Payments</a><br>");
-%>
+<a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=Static&d1=pacts&d2=internal&d3=generatePayments">Generate Payments</a><br>
+
 
 <br><br>
 <%

@@ -2,8 +2,10 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.GenerateRoundPayments;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 
 /**
  * @author  dok
@@ -24,6 +26,8 @@ public class GeneratePayments extends BaseProcessor implements PactsConstants {
             }
             setNextPage(INTERNAL_GENERATE_PAYMENTS);
             setIsNextPageInContext(true);
+        } catch (IllegalUpdateException e) {
+            throw new NavigationException(e.getMessage());
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

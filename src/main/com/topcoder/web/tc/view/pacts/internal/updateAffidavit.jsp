@@ -37,7 +37,7 @@
 		param = request.getParameter("round_id");
 		try { if (param != null) affidavit._roundID = new Long(Long.parseLong(param)); } catch (Exception e) {}
 		param = request.getParameter("affidavit_desc");
-		if (param != null) affidavit._header._description = param;	
+		if (param != null) affidavit._header._description = param;
 	}
 	if (affidavit == null) {
 		out.println("no affidavit!!!<br>");
@@ -154,7 +154,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
 
 </html>
