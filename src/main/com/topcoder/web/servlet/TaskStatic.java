@@ -4,6 +4,7 @@ import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
+import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -15,6 +16,7 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.ejb.DataCache.DataCache;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -123,8 +125,34 @@ public final class TaskStatic {
                 log.error("failed to get next match from DB");
                 e.printStackTrace();
             }
-        }
+        } else if (requestTask.equals("tournaments")) {
+            RecordTag tournamentTag = new RecordTag("TOURNAMENTS");
 
+            String roundids = Conversion.checkNull(request.getParameter("rds"));
+            String sortCol = request.getParameter("sc");
+            String sortDir = request.getParameter("sdir");
+
+            try {
+                if (!roundids.equals("")) {
+                    ctx = TCContext.getInitial();
+                    dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                    dataRequest = new Request();
+                    dataRequest.setContentHandle("tourney_advancers");
+                    dataRequest.setProperty("rds", roundids.trim());
+                    resultMap = dai.getData(dataRequest);
+                    rsc = (ResultSetContainer) resultMap.get("Tourney_Advancers");
+                    if (sortCol != null && sortDir != null)
+                        rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+                    tournamentTag.addTag(rsc.getTag("Advancers", "Advancer"));
+                }
+            } catch (NamingException e) {
+                log.error("failed to get next match from DB");
+                e.printStackTrace();
+            } catch (Exception e) {
+                log.error("failed to get next match from DB");
+                e.printStackTrace();
+            }
+        }
         /* getting this here for the tces/hiring page */
         try {
             ctx = TCContext.getInitial();
