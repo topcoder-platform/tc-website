@@ -1,7 +1,4 @@
-<%@  page   
-  contentType="text/html"
-  import="com.topcoder.common.web.util.Conversion"
-%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 
             <table width="100%" bgcolor="#4A4A4A" cellspacing="0" cellpadding="0" border="0">
                 <tr> 
@@ -69,7 +66,7 @@
                                 <td id="calendarBlankMini">&#160;</td>
                             </tr>
 
-                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=schedule&amp;c=index</xsl:attribute>More 2003 Match Dates&#160;</A></td></tr>
+                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText" HREF="/?t=schedule&c=index">More 2003 Match Dates&#160;</A></td></tr>
                         </table>
                     </td>
                 </tr>
