@@ -20,13 +20,13 @@ public class RequestServicesBean extends BaseEJB {
 
     private final static Logger log = Logger.getLogger(RequestServicesBean.class);
 
-    public void createRequest(long userId, String url, Timestamp time, String dataSource) {
+    public void createRequest(long userId, String url, Timestamp time, String sessionId, String dataSource) {
         log.debug("createRequest called. url: " + url
-                + " userId: " + userId + " time: " + time);
+                + " userId: " + userId + " time: " + time + " session: " + sessionId);
 
         StringBuffer query = new StringBuffer(200);
-        query.append("insert into request (user_id, url, create_date) ");
-        query.append(" values (?, ?, ?)");
+        query.append("insert into request (user_id, url, create_date, session_id) ");
+        query.append(" values (?, ?, ?, ?)");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -37,6 +37,7 @@ public class RequestServicesBean extends BaseEJB {
             ps.setLong(1, userId);
             ps.setString(2, url);
             ps.setTimestamp(3, time);
+            ps.setString(4, sessionId);
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -49,11 +50,11 @@ public class RequestServicesBean extends BaseEJB {
         }
     }
 
-    public void createRequest(String url, Timestamp time, String dataSource) {
-        log.debug("createRequest called. url: " + url + " time: " + time);
+    public void createRequest(String url, Timestamp time, String sessionId, String dataSource) {
+        log.debug("createRequest called. url: " + url + " time: " + time + " session: " + sessionId);
         StringBuffer query = new StringBuffer(200);
-        query.append("insert into request (url, create_date) ");
-        query.append(" values (?, ?)");
+        query.append("insert into request (url, create_date, session_id) ");
+        query.append(" values (?, ?, ?)");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -63,6 +64,7 @@ public class RequestServicesBean extends BaseEJB {
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, url);
             ps.setTimestamp(2, time);
+            ps.setString(3, sessionId);
 
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -92,9 +92,9 @@ public class RequestTracker {
                 for (Iterator it = a.iterator(); it.hasNext();) {
                     UserRequest r = (UserRequest) it.next();
                     if (r.userId == GUEST.getId()) {
-                        rs.createRequest(r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        rs.createRequest(r.url, new Timestamp(r.time), r.sessionId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     } else {
-                        rs.createRequest(r.userId, r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        rs.createRequest(r.userId, r.url, new Timestamp(r.time), r.sessionId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     }
                 }
                 log.debug("end request batch load");

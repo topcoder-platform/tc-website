@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  */
 public interface RequestServices extends EJBObject {
 
-    void createRequest(long userId, String url, Timestamp time, String dataSource) throws RemoteException;
-    void createRequest(String url, Timestamp time, String dataSource) throws RemoteException;
+    void createRequest(long userId, String url, Timestamp time, String sessionId, String dataSource) throws RemoteException;
+    void createRequest(String url, Timestamp time, String sessionId, String dataSource) throws RemoteException;
 
 }
