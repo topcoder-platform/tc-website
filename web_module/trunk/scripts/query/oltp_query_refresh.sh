@@ -1034,3 +1034,18 @@ SELECT u.user_id, u.password
  WHERE c.contact_id = u.user_id
    AND u.handle = @hn@
 "
+
+java com.topcoder.utilities.QueryLoader "OLTP" 83 "TCES Notification" 0 0 "
+SELECT
+  LOWER(u.email) AS email_address
+  ,u.handle
+FROM
+  user u
+  ,coder_notify n
+WHERE
+  u.user_id = n.coder_id
+  AND u.status = 'A'
+  AND n.notify_id = 3
+ORDER BY
+  1
+"
