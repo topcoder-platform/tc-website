@@ -5,8 +5,10 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.reg.servlet.*" %>
 <jsp:useBean id="Registration" scope="session" class="com.topcoder.web.tc.controller.legacy.reg.bean.Registration" />
 <jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
+<%--
 <tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 <jsp:setProperty name="Registration" property="user" value="<%=user%>" />
+--%>
 
 <SCRIPT type="text/javascript">
 var usIndex=0;
@@ -33,7 +35,7 @@ function emailValid(address) {
     || (period <= atSym+1)
     || (period == length )
     || (space  != -1)
-  ) { 
+  ) {
     result = false;
   }
   return result;
@@ -72,7 +74,7 @@ function checkInputs(){
       if (reg.elements[i].checked==true) {
         found=true;
         break;
-      } 
+      }
     }
   }
   if(!found){alert("Please bSelectb a Student or Professional.");reg.<%=Registration.CODER_TYPE%>[0].focus();return false;}
@@ -81,7 +83,7 @@ function checkInputs(){
 </SCRIPT>
 
             <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
-            <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post" name="frmReg" >  
+            <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post" name="frmReg" >
             <input type="hidden" name="<%=Controller.TASK%>" value="Registration">
             <input type="hidden" name="<%=Controller.STEP%>" value="<%=Registration.STEP_1%>" />
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -119,7 +121,7 @@ function checkInputs(){
                 <% if ( !Registration.isRegister() ) { %>
 
                 <tr><td colspan="2" class="statTextBig" background="/i/steel_bluebv_bg.gif">Member Photo</td></tr>
-                
+
                 <tr valign="middle">
                     <td></td>
                     <td class="errorText"></td>
@@ -141,11 +143,11 @@ function checkInputs(){
                     </td>
                 </tr>
 
-                <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>  
-  
+                <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>
+
 <!-- Upload Resume -->
                 <tr><td colspan="2" class="statTextBig" background="/i/steel_bluebv_bg.gif">Resume</td></tr>
-                
+
                 <tr valign="middle">
                     <td></td>
                     <td class="errorText"></td>
@@ -157,28 +159,28 @@ function checkInputs(){
 
                     <% if (Registration.hasResume()) { %>
 
-                        <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=400,height=200,status=0');" class="statTextBig">Upload</a> 
+                        <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=400,height=200,status=0');" class="statTextBig">Upload</a>
                         a new resume.<br/>
-                        
+
                        <a href="/Resume?&t=DownloadTask" class="statTextBig">Download</a> your resume.
 
                     <% } else { %>
 
-                        <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=400,height=200,status=0');" class="statTextBig">Upload</a> 
+                        <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=400,height=200,status=0');" class="statTextBig">Upload</a>
                         to  a resume.
-                    
+
                     <% } %>
-                    
+
                     </td>
                 </tr>
-                
-                <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>  
-  
+
+                <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>
+
                 <% } %>
 
 <!-- First Name -->
                 <tr><td colspan="2" class="statTextBig" background="/i/steel_bluebv_bg.gif">Contact Information</td></tr>
-                
+
                 <tr valign="middle">
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="FirstNameError" /></td>
@@ -188,45 +190,45 @@ function checkInputs(){
                     <td class="registerLabel" width="200">First Name<br><img src="/i/clear.gif" alt="" width="200" height="1" border="0"></td>
                     <td class="statText" width="99%"><input type="text" name="<%=Registration.FIRST_NAME%>" value ="<jsp:getProperty name="Registration" property="FirstName" />" size="30" maxlength="30"></td>
                 </tr>
-                
+
 <!-- Last Name -->
                 <tr valign="middle">
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="LastNameError" /></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="registerLabel">Last Name</td>
                     <td class="statText"><input type="text" name="<%=Registration.LAST_NAME%>" value ="<jsp:getProperty name="Registration" property="LastName" />" size="30" maxlength="30"></td>
                 </tr>
-                
+
 <!-- Address -->
                 <tr valign="middle">
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="Address1Error" /></td>
                 </tr>
-  
+
                 <tr valign="middle">
                     <td class="registerLabel">Address</td>
                     <td class="statText"><input type="text" name="<%=Registration.ADDRESS1%>" value ="<jsp:getProperty name="Registration" property="Address1" />" size="30" maxlength="50"></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="Address2Error" /></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="registerLabel">&nbsp;</td>
                     <td class="statText"><input type="text" name="<%=Registration.ADDRESS2%>" value ="<jsp:getProperty name="Registration" property="Address2" />" size="30" maxlength="50"></td>
                 </tr>
-                
+
 <!-- City -->
                 <tr valign="middle">
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="CityError" /></td>
                 </tr>
-  
+
                 <tr valign="middle">
                     <td class="registerLabel">City</td>
                     <td class="statText"><input type="text" name="<%=Registration.CITY%>" value ="<jsp:getProperty name="Registration" property="City" />" size="30" maxlength="30"></td>
@@ -237,20 +239,20 @@ function checkInputs(){
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="StateError" /></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="registerLabel">State</td>
                     <td class="statText">
                         <tc:getProperty id="state" name="Registration" property="State" />
                         <tc:stateSelect name="<%=Registration.STATE%>" class="dropdown" selectedValue="<%=state%>" onChange="changeCountry()" /></td>
                 </tr>
-    
+
 <!-- Zip -->
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="ZipError" /></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="registerLabel">Zip</td>
                     <td class="statText"><input type="text" name="<%=Registration.ZIP%>" value ="<jsp:getProperty name="Registration" property="Zip" />" size="10" maxlength="10"></td>
@@ -261,7 +263,7 @@ function checkInputs(){
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="CountryError" /></td>
                 </tr>
-  
+
                 <tr valign="middle">
                     <td class="registerLabel">Country</td>
                     <td class="statText">
@@ -288,14 +290,14 @@ function checkInputs(){
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="PhoneError" /></td>
                 </tr>
-  
+
                 <tr valign="middle">
                     <td class="registerLabel">Phone</td>
                     <td class="statText"><input type="text" name="<%=Registration.PHONE%>" value ="<jsp:getProperty name="Registration" property="Phone" />" size="30" maxlength="20"></td>
                 </tr>
-  
-                <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>  
-  
+
+                <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>
+
                 <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">Handle &amp; Password</td></tr>
 
                 <tr>
@@ -308,33 +310,33 @@ function checkInputs(){
 
                 <tr>
                     <td class="registerLabel">&nbsp;</td>
-                    <td class="statText" valign="top">Please choose your handle carefully, because once your account is created, your handle can not be changed.  
+                    <td class="statText" valign="top">Please choose your handle carefully, because once your account is created, your handle can not be changed.
                     Also note that creating more than one account is a violation of our terms of use.<br></td>
                 </tr>
-    
+
                 <tr valign="middle">
                     <td class="registerLabel">Handle</td>
                     <td class="statText"><input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="15"></td>
                 </tr>
-                
+
                 <% } else { %>
-    
+
                 <tr valign="middle">
                     <td class="registerLabel">Handle</td>
                     <td class="statText">
-                    
+
                     <% if (Registration.isValidHandle(Registration.getHandle())) { %>
-                    
+
                         <jsp:getProperty name="Registration" property="Handle" />
-                    
+
                     <% } else { %>
-                    
+
                         <input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="15">
-                    
+
                     <% } %>
                     </td>
                 </tr>
-                
+
                 <% } %>
 
 <!-- Password -->
@@ -342,47 +344,47 @@ function checkInputs(){
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="PasswordError" /></td>
                 </tr>
-  
+
                 <tr valign="middle">
                     <td class="registerLabel">Password</td>
                     <td class="statText"><input type="password" name="<%=Registration.PASSWORD%>" value ="<jsp:getProperty name="Registration" property="Password" />" size="30" maxlength="15"></td>
                 </tr>
-                
+
                 <tr>
                     <td class="registerLabel">&nbsp;</td>
                     <td class="statText" valign="top">Minimum&nbsp;of&nbsp;<%=Registration.PASSWORD_MIN_LENGTH%>&nbsp;characters, maximum of <%=Registration.PASSWORD_MAX_LENGTH%><br></td>
-                </tr>  
-    
+                </tr>
+
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="ConfirmPasswordError" /></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="registerLabel">Re-type Password</td>
                     <td class="statText"><input type="password" name="<%=Registration.CONFIRM_PASSWORD%>" value ="<jsp:getProperty name="Registration" property="ConfirmPassword" />" size="30" maxlength="<%=Registration.PASSWORD_MAX_LENGTH%>"></td>
                 </tr>
-                
+
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="EmailError" /></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="registerLabel">Email</td>
                     <td class="statText"><input type="text" name="<%=Registration.EMAIL%>" value ="<jsp:getProperty name="Registration" property="Email" />" size="30" maxlength="100"></td>
                 </tr>
-    
+
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="ConfirmEmailError" /></td>
                 </tr>
- 
+
                 <tr valign="middle">
                     <td class="registerLabel">Re-type Email</td>
                     <td class="statText"><input type="text" name="<%=Registration.CONFIRM_EMAIL%>" value ="<jsp:getProperty name="Registration" property="ConfirmEmail" />" size="30" maxlength="100"></td>
                 </tr>
-                
+
                 <tr>
                     <td class="registerLabel">&nbsp;</td>
                     <td class="statText" valign="top">An email will be sent to authorize your account activation.<br></td>
@@ -392,16 +394,16 @@ function checkInputs(){
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="QuoteError" /></td>
                 </tr>
-  
+
                 <tr>
                     <td class="registerLabel">Quote</td>
                     <td class="statText"><input type="text" name="<%=Registration.QUOTE%>" value ="<jsp:getProperty name="Registration" property="Quote" />" size="30" maxlength="255"></td>
                 </tr>
 
                 <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>
-  
+
                 <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">Email Notification</td></tr>
-  
+
                 <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>
 
                 <tc:notification selectedValues="<%=Registration.getNotifications()%>" class="bodyText">
@@ -410,25 +412,25 @@ function checkInputs(){
                     <td class="registerLabel"><%=notifyName%>&nbsp;</td>
                     <td class="statText"><%=notifyControl%></td>
                 </tr>
-  
+
                 <tr>
                     <td></td>
                     <td class="errorText"></td>
                 </tr>
-                
+
                 </tc:notification>
 
-                <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>  
-  
+                <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>
+
                 <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">Competition Preferences</td></tr>
-  
-                <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>  
+
+                <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>
 
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="LanguageError" /></td>
                 </tr>
-  
+
                 <tr>
                     <td class="registerLabel">Default Language&nbsp;</td>
                     <td class="statText">
@@ -474,12 +476,12 @@ function checkInputs(){
                 <tr valign="middle"><td colspan="2" class="statTextBig"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>
 
                 <tc:getProperty id="coderType" name="Registration" property="CoderType" />
-                
+
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="CoderTypeError" /></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="registerLabel">Student</td>
                     <td class="statText">
@@ -492,7 +494,7 @@ function checkInputs(){
                     <td></td>
                     <td class="errorText"></td>
                 </tr>
-                
+
                 <tr>
                     <td class="registerLabel">Professional</td>
                     <td class="statText">
@@ -504,9 +506,9 @@ function checkInputs(){
                 <% if (Registration.isRegister()) { %>
 
                 <a name="terms"></a><tr valign="middle"><td colspan="2" class="statText">&nbsp;</td></tr>
-                
+
                 <tr valign="middle"><td colspan="2" class="statTextBig" background="/i/steel_bluebv_bg.gif" height="16">Terms</td></tr>
-  
+
                 <tr valign="middle"><td colspan="2" class="statTextBig"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>
 
                 <tr>
@@ -516,12 +518,12 @@ function checkInputs(){
                         </textarea>
                     </td>
                 </tr>
-    
+
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="TermsError" /></td>
                 </tr>
-  
+
                 <tr valign="middle">
                     <td class="statTextBig" colspan="2" align="left">I Agree to the Terms and Conditions stated above&nbsp;
                         <tc:getProperty id="terms" name="Registration" property="Terms" />
@@ -532,11 +534,11 @@ function checkInputs(){
                 <% } %>
 
                 <tr valign="middle"><td colspan="2" class="statText">&nbsp;</td></tr>
-    
+
                 <tr valign="middle"><td colspan="2" align="center" class="statText"><input type="button" onclick="if(checkInputs())reg.submit();" name="continueButton" value="Continue" /></td></tr>
             </table>
             </form>
-            
+
             <script type="text/javascript">setFocus();</script>
 
 
