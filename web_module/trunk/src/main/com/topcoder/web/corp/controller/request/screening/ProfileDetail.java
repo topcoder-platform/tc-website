@@ -27,10 +27,9 @@ public class ProfileDetail extends BaseProfileProcessor {
         ProfileInfo info = buildProfileInfo(getRequest());
 
         try {
-            Context context = new InitialContext();
             SessionProfileHome spHome = (SessionProfileHome)
                     PortableRemoteObject.narrow(
-                            context.lookup(SessionProfileHome.class.getName()),
+                            getInitialContext().lookup(SessionProfileHome.class.getName()),
                             SessionProfileHome.class);
             SessionProfile profile = spHome.create();
 
@@ -45,7 +44,7 @@ public class ProfileDetail extends BaseProfileProcessor {
 
             SessionProfileLanguageHome splHome = (SessionProfileLanguageHome)
                     PortableRemoteObject.narrow(
-                            context.lookup(SessionProfileLanguageHome.class.getName()),
+                            getInitialContext().lookup(SessionProfileLanguageHome.class.getName()),
                             SessionProfileLanguageHome.class);
             SessionProfileLanguage language = splHome.create();
 

@@ -48,25 +48,24 @@ public class UpdateProfile extends BaseProfileProcessor {
                     return;
                 }
 
-                InitialContext context = new InitialContext();
                 SessionProfileHome spHome = (SessionProfileHome)
                         PortableRemoteObject.narrow(
-                                context.lookup(SessionProfileHome.class.getName()),
+                                getInitialContext().lookup(SessionProfileHome.class.getName()),
                                 SessionProfileHome.class);
                 SessionProfile profile = spHome.create();
                 SessionProfileLanguageHome splHome = (SessionProfileLanguageHome)
                         PortableRemoteObject.narrow(
-                                context.lookup(SessionProfileLanguageHome.class.getName()),
+                                getInitialContext().lookup(SessionProfileLanguageHome.class.getName()),
                                 SessionProfileLanguageHome.class);
                 SessionProfileLanguage language = splHome.create();
                 SessionProfileProblemHome sppHome = (SessionProfileProblemHome)
                         PortableRemoteObject.narrow(
-                                context.lookup(SessionProfileProblemHome.class.getName()),
+                                getInitialContext().lookup(SessionProfileProblemHome.class.getName()),
                                 SessionProfileProblemHome.class);
                 SessionProfileProblem problem = sppHome.create();
                 User user = getAuthentication().getUser();
 
-                UserTransaction ut = Transaction.get(context);
+                UserTransaction ut = Transaction.get(getInitialContext());
                 ut.begin();
 
                 try {

@@ -42,7 +42,6 @@ public class NoteCreate extends BaseProcessor {
         }
         try {
 
-            InitialContext context = new InitialContext();
             DataAccessInt dAccess = Util.getDataAccess();
 
             Request dr = new Request();
@@ -79,16 +78,16 @@ public class NoteCreate extends BaseProcessor {
                 return;
             }
 
-            UserTransaction ut = Transaction.get(context);
+            UserTransaction ut = Transaction.get(getInitialContext());
             ut.begin();
 
             try {
-                NoteHome nHome = (NoteHome) context.lookup(NoteHome.class.getName());
+                NoteHome nHome = (NoteHome) getInitialContext().lookup(NoteHome.class.getName());
                 Note note = nHome.create();
 
                 long noteId = note.createNote(noteText, getAuthentication().getUser().getId(), 1);
 
-                UserNoteHome uHome = (UserNoteHome) context.lookup(UserNoteHome.class.getName());
+                UserNoteHome uHome = (UserNoteHome) getInitialContext().lookup(UserNoteHome.class.getName());
                 UserNote unote = uHome.create();
 
                 unote.createUserNote(Long.parseLong(candId), noteId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);

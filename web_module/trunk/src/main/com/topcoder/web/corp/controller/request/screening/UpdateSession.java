@@ -50,15 +50,14 @@ public class UpdateSession extends BaseSessionProcessor {
                 }
 
                 TestSessionInfo info = getSessionInfo();
-                InitialContext context = new InitialContext();
                 SessionHome sHome = (SessionHome)
                         PortableRemoteObject.narrow(
-                                context.lookup(SessionHome.class.getName()),
+                                getInitialContext().lookup(SessionHome.class.getName()),
                                 SessionHome.class);
                 Session session = sHome.create();
                 SessionSegmentHome ssHome = (SessionSegmentHome)
                         PortableRemoteObject.narrow(
-                                context.lookup(SessionSegmentHome.class.getName()),
+                                getInitialContext().lookup(SessionSegmentHome.class.getName()),
                                 SessionSegmentHome.class);
                 SessionSegment segment = ssHome.create();
 
@@ -66,7 +65,7 @@ public class UpdateSession extends BaseSessionProcessor {
                 long userId = Long.parseLong(info.getCandidateId());
                 User requestor = getAuthentication().getUser();
 
-                UserTransaction ut = Transaction.get(context);
+                UserTransaction ut = Transaction.get(getInitialContext());
                 ut.begin();
 
                 try {
