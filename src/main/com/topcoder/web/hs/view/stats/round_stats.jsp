@@ -152,7 +152,7 @@ if(bSchool) {
                    <TD  COLSPAN="16"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
          <% if(!bSorted || (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter())) { %>
-         <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/blue_heading_bg.gif" COLSPAN="16" HEIGHT="16" align="center">
+         <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="16" HEIGHT="16" align="center">
         <% if((!bSorted && !sStartRow.equals("1")) || rsc2.croppedDataBefore()) { %>
           <a href="?module=Statistics&c=<%=sContentHandle%><%=bSorted?"_sorted":""%><%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>
         <% } else { %>
@@ -213,7 +213,7 @@ if(bSchool) {
 
 <% if(!bSorted) { //this nugget puts in the room-spacer-line on unsorted stats for the 1st room %>
                  <TR>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG src="/i/hs/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="?module=Statistics&c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %></A></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG src="/i/hs/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="?module=Statistics&c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %></A></TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="16"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
@@ -231,7 +231,7 @@ if(bSchool) {
                    <TD COLSPAN="16"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG src="/i/hs/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="?module=Statistics&c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %></A></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG src="/i/hs/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="?module=Statistics&c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %></A></TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="16"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
@@ -265,7 +265,7 @@ if(bSchool) {
                    <TD  CLASS="statText" COLSPAN="16"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
            <% if(!bSorted || (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter())) { %>
-         <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/blue_heading_bg.gif" COLSPAN="16" HEIGHT="16" align="center">
+         <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="16" HEIGHT="16" align="center">
         <% if((!bSorted && !sStartRow.equals("1")) || rsc2.croppedDataBefore()) { %>
           <a href="?module=Statistics&c=<%=sContentHandle%><%=bSorted?"_sorted":""%><%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>
         <% } else { %>

@@ -17,13 +17,13 @@
         </TD>
         
         
-        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
+        <TD VALIGN="top" BACKGROUND="/i/hs/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
             <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
     <TR>
         <TD>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
              <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG src="/i/hs/headinginside_sched.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
+             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
              </TD></TR>
             </TABLE>
         </TD>
@@ -53,18 +53,18 @@
 <OPTION VALUE="sched_may_2003">&nbsp;May</OPTION>
 </select>
 </form></DIV>
-<TABLE CELLPADDING="1" CELLSPACING="0" BORDER="0" WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif">
+<TABLE CELLPADDING="1" CELLSPACING="0" BORDER="0" WIDTH="100%" BACKGROUND="/i/hs/steel_gray_bg.gif">
 <TR>
 <TD COLSPAN="2" VALIGN="top">
 <TABLE CELLPADDING="3" CELLSPACING="1" BORDER="0" WIDTH="100%">
 <TR>
-<TD ALIGN="center" BACKGROUND="/i/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Sun</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Mon</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Tues</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Wed</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Thurs</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Fri</B></TD>
-<TD ALIGN="center" BACKGROUND="/i/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Sat</B></TD>
+<TD ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Sun</B></TD>
+<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Mon</B></TD>
+<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Tues</B></TD>
+<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Wed</B></TD>
+<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Thurs</B></TD>
+<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Fri</B></TD>
+<TD ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Sat</B></TD>
 </TR>
 <TR BGCOLOR="#FFFFFF">
 <TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
@@ -73,42 +73,42 @@
 <TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
 <TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
 <TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">1</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">1</TD>
 </TR>
 <TR BGCOLOR="#FFFFFF">
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">2</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">3</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">4</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">5</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">6</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">7</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">8</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">2</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">3</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">4</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">5</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">6</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">7</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">8</TD>
 </TR>
 <TR BGCOLOR="#FFFFFF">
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">9</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">10</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">11</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">12</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">13</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">14</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">15</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">9</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">10</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">11</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">12</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">13</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">14</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">15</TD>
 </TR>
 <TR BGCOLOR="#FFFFFF">
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">16</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">17</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">18</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">19</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">16</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">17</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">18</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">19</TD>
 <TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>20</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimmage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" src="/i/hs/clear.gif"><BR></TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">21</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">22</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">21</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">22</TD>
 </TR>
 <TR BGCOLOR="#FFFFFF">
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">23</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">24</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">25</TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">26</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">23</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">24</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">25</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">26</TD>
 <TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>27</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimmage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" src="/i/hs/clear.gif"><BR></TD>
-<TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">28</TD>
+<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">28</TD>
 <TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
 </TR>
 </TABLE>

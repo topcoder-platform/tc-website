@@ -110,25 +110,25 @@ else {
                    <TD  COLSPAN="20"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR VALIGN="middle">
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" WIDTH="18%" HEIGHT="18">&nbsp;</TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" WIDTH="5"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" COLSPAN="2" ALIGN="center" WIDTH="12%">Submissions</TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" COLSPAN="2" ALIGN="center" WIDTH="12%">Defenses</TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" COLSPAN="2" ALIGN="center" WIDTH="12%">Challenges</TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" WIDTH="5"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" ALIGN="center" WIDTH="10%">
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="18%" HEIGHT="18">&nbsp;</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="5"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="2" ALIGN="center" WIDTH="12%">Submissions</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="2" ALIGN="center" WIDTH="12%">Defenses</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="2" ALIGN="center" WIDTH="12%">Challenges</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="5"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" ALIGN="center" WIDTH="10%">
              <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=12&sd=<%= "12".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">System</a>
            </TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" ALIGN="center" WIDTH="10%">
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" ALIGN="center" WIDTH="10%">
              <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Point</a>
            </TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" COLSPAN="3" ALIGN="center" WIDTH="18%">Ratings</TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="3" ALIGN="center" WIDTH="18%">Ratings</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="20"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -238,7 +238,7 @@ if (rscProblems != null && rscProblems.size() > 0) {
                    <TD  COLSPAN="8"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;Problems</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;Problems</TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="8"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -288,7 +288,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">
                  <TR>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;<B>Challenges</B></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;<B>Challenges</B></TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="7"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -337,7 +337,7 @@ pageContext.setAttribute("resultSet", rscDefense);
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">
                  <TR>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;<B>Defenses</B></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;<B>Defenses</B></TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="7"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>

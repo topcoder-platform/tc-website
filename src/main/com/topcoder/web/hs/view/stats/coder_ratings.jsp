@@ -76,7 +76,7 @@ try{
                    <TD BGCOLOR="#1B2E5D"   COLSPAN="6"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif"  CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif"  CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
 				   <% if (iCurrentPage > 1) {%>
                      <A HREF="javascript:submitForm(<%= iCurrentPage - 1 %>);" CLASS="statText">&lt;&lt; previous</A>
 				   <% } else {%>
@@ -129,7 +129,7 @@ try{
                    <TD COLSPAN="6"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
 				   <% if (iCurrentPage > 1) {%>
                      <A HREF="javascript:submitForm(<%= iCurrentPage - 1 %>);" CLASS="statText">&lt;&lt; previous</A>
 				   <% } else {%>

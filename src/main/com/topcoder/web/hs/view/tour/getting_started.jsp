@@ -30,7 +30,7 @@
 <!-- Left Column begins -->
         
 <!-- Center Column begins -->
-        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
+        <td valign="top" background="/i/hs/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
                 <tr><td width="100%" bgcolor="001934"><img src="/i/hs/headinginside_compguide.gif" width="348" height="44" border="0"></td></tr>
                 
