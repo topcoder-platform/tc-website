@@ -30,12 +30,12 @@ final class UserDbCoder {
     Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertCoder() called ..." );
     boolean demogError    = false;
     PreparedStatement ps  = null;
-    ArrayList schools     = null;
-    ArrayList educations  = null;
-    ArrayList skills      = null;
-    ArrayList experiences = null;
-    ArrayList texts       = null;
-    ArrayList jobPrefs    = null;
+    //ArrayList schools     = null;
+    //ArrayList educations  = null;
+    //ArrayList skills      = null;
+    //ArrayList experiences = null;
+    //ArrayList texts       = null;
+    //ArrayList jobPrefs    = null;
     ArrayList demographicResponses = null;
     StringBuffer query = new StringBuffer(500);
     query.append ( " INSERT INTO"                                          );
@@ -121,6 +121,18 @@ final class UserDbCoder {
         insertExperience( conn, experience );
       }
 */
+      ArrayList notifications = coder.getNotifications();
+      if ( notifications.size() == 0 )
+      {
+          insertCoderNotify ( conn, coder.getCoderId(), 0 );
+      }
+      else
+      {
+        for ( int i = 0; i < notifications.size(); i++ )  {
+          Notify notify = (Notify) notifications.get(i);
+          insertCoderNotify ( conn, coder.getCoderId(), notify.getNotifyId() );
+        }
+      }
       coder.getCoderReferral().setCoderId ( coder.getCoderId() );
       insertCoderReferral ( conn, coder.getCoderReferral() );
       coder.getCurrentSchool().setUserId ( coder.getCoderId() );
@@ -199,6 +211,30 @@ final class UserDbCoder {
       msg.append ( "\nfailed:\n" );
       msg.append ( ex );
       throw new TCException ( msg.toString() );
+    } finally {
+      if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
+    }
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  private static void insertCoderNotify ( Connection conn, int coderId, int notifyId ) throws TCException {
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertCoderNotify():called." );
+    PreparedStatement ps = null;
+    String query = "INSERT INTO coder_notify (coder_id, notify_id) VALUES (?, ?)";
+    try {
+      ps = conn.prepareStatement ( query  );
+      ps.setInt ( 1, coderId );
+      ps.setInt ( 2, notifyId );
+      ps.executeUpdate();
+    } catch (SQLException sqe) {
+      Log.msg("coder id: " + coderId);
+      DBMS.printSqlException ( true, sqe );
+      throw new TCException ( sqe.getMessage() );
+    } catch ( Exception ex )  {
+      ex.printStackTrace();
+      throw new TCException ( ex.getMessage() );
     } finally {
       if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
     }
@@ -293,7 +329,7 @@ final class UserDbCoder {
   }
 
 
-
+/*
   ///////////////////////////////////////////////////////////////
   private static void insertExperience ( Connection conn, 
     Experience experience ) throws TCException {
@@ -419,7 +455,6 @@ final class UserDbCoder {
     }
   }
 
-
   ///////////////////////////////////////////////////////////////
   private static boolean schoolIdExists (Connection conn, int schoolId) 
     throws TCException {
@@ -430,7 +465,6 @@ final class UserDbCoder {
     ResultSet rs         = null;
     String query         = null;
     query = "SELECT COUNT(1) FROM school WHERE school_id = ?";  
-    /**************************************************************/
     try {
       ps = conn.prepareStatement ( query );
       ps.setInt ( 1, schoolId );
@@ -455,7 +489,6 @@ final class UserDbCoder {
     return result;
   }
 
- 
   ///////////////////////////////////////////////////////////////
   private static void insertCoderSchool ( Connection conn, School school )
     throws TCException  {
@@ -549,7 +582,7 @@ final class UserDbCoder {
       if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
     }
   }
-
+*/
  
   ///////////////////////////////////////////////////////////////
   private static void insertDemographicResponse ( Connection conn, DemographicResponse demographicResponse )
@@ -700,6 +733,7 @@ final class UserDbCoder {
           updateExperiences(conn, experiences);
         }
 */
+        updateCoderNotify ( conn, coder );
         updateCoderReferral ( conn, coder.getCoderReferral() );
         updateCurrentSchool ( conn, coder.getCurrentSchool() );
         ArrayList demographicResponses = coder.getDemographicResponses();
@@ -723,6 +757,7 @@ final class UserDbCoder {
   }
 
 
+/*
   ///////////////////////////////////////////////////////////////
   private static void updateCoderEducations ( Connection conn, ArrayList educations )  
     throws TCException  {
@@ -1036,6 +1071,47 @@ final class UserDbCoder {
       msg.append ( ":failed:\n"                                   );
       msg.append ( ex                                             );
       throw new TCException ( msg.toString()         );
+    } finally {
+      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
+    }
+  }
+*/
+
+
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  private static void updateCoderNotify ( Connection conn, Coder coder ) throws TCException {   
+  ///////////////////////////////////////////////////////////////////////////////////////////
+    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:updateCoderNotify():called." );
+    PreparedStatement ps = null;
+    try {
+      /**************************************************************/
+      String query = "DELETE FROM coder_notify WHERE coder_id = ?";
+      /**************************************************************/
+      ps = conn.prepareStatement ( query );
+      ps.setInt ( 1, coder.getCoderId() );
+      ps.executeUpdate();
+      ArrayList notifications = coder.getNotifications();
+      if ( notifications.size() == 0 )
+      {
+          insertCoderNotify ( conn, coder.getCoderId(), 0 );
+      }
+      else
+      {
+        for ( int i = 0; i < notifications.size(); i++ )
+        {
+          Notify notify = (Notify) notifications.get(i);
+          if ( notify.getNotifyId() != 0 )
+          {
+            insertCoderNotify ( conn, coder.getCoderId(), notify.getNotifyId() );
+          }
+        }
+      }
+    } catch (SQLException sqe) {
+      DBMS.printSqlException ( true, sqe );
+      throw new TCException ( sqe.getMessage() );
+    } catch ( Exception ex ) {
+      ex.printStackTrace();
+      throw new TCException ( "ejb.User.UserDbCoder:updateCoderReferral:ERROR:"+ex);
     } finally {
       if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
     }
@@ -1399,9 +1475,10 @@ final class UserDbCoder {
           coder.setHasImage(true);
         coder.setModified            ( "S"              );
         //loadCoderEducation           ( conn, coder      );
-        loadCoderSchool              ( conn, coder      );
+        //loadCoderSchool              ( conn, coder      );
         //loadCoderSkill               ( conn, coder      );
         //loadExperience               ( conn, coder      );
+        loadCoderNotify              ( conn, coder      );
         loadRating                   ( conn, coder      );
         loadRanking                  ( conn, coder      );
         loadDemographicResponses     ( conn, coder      );
@@ -1426,6 +1503,7 @@ final class UserDbCoder {
     }
   }
 
+/*
   ///////////////////////////////////////////////////////////////
   private static void loadCoderEducation (Connection conn, CoderRegistration coder)
     throws TCException  {
@@ -1582,7 +1660,6 @@ final class UserDbCoder {
     }
   }
 
-
   ///////////////////////////////////////////////////////////////
   private static void loadCoderSkill (Connection conn, CoderRegistration coder) 
     throws TCException {
@@ -1643,7 +1720,7 @@ final class UserDbCoder {
       if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
     }
   }
-
+*/
 
   ///////////////////////////////////////////////////////////////
   private static void loadDemographicResponses (Connection conn, CoderRegistration coder)
@@ -1683,6 +1760,48 @@ final class UserDbCoder {
       throw new TCException (
         "ejb.User.UserDbCoder:loadDemographicResponses:"+coder.getCoderId()+":failed:\n"+ex
       );
+    } finally {
+      if (rs != null) { try { rs.close(); } catch ( Exception ignore ) {} }
+      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
+    }
+  }
+
+
+  ///////////////////////////////////////////////////////////////
+  private static void loadCoderNotify (Connection conn, CoderRegistration coder)
+    throws TCException {
+  ///////////////////////////////////////////////////////////////
+    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:loadCoderNotify():called." );
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    ArrayList notifications = coder.getNotifications();
+    notifications.clear();
+    StringBuffer query = new StringBuffer(170);
+    query.append( " SELECT");
+    query.append(   " c.notify_id");
+    query.append(   " ,n.name");
+    query.append( " FROM");
+    query.append(   " coder_notify c");
+    query.append(   " ,notify_lu n");
+    query.append( " WHERE");
+    query.append(   " c.coder_id=?");
+    query.append(   " AND c.notify_id=n.notify_id");
+    try {
+      ps = conn.prepareStatement ( query.toString() );
+      ps.setInt ( 1, coder.getCoderId() );
+      rs = ps.executeQuery();
+      while (rs.next()) {
+        Notify notify = new Notify();
+        notify.setNotifyId ( rs.getInt(1) );
+        notify.setName ( rs.getString(2) );
+        notifications.add ( notify );
+      }
+    } catch (SQLException sqe) {
+      DBMS.printSqlException ( true, sqe );
+      throw new TCException ( sqe.getMessage() );
+    } catch (Exception ex) {
+      throw new
+        TCException("ejb.User.UserDbCoder:loadCoderNotify:"+coder.getCoderId()+":failed:\n"+ex);
     } finally {
       if (rs != null) { try { rs.close(); } catch ( Exception ignore ) {} }
       if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
@@ -1852,6 +1971,7 @@ final class UserDbCoder {
     }
   }   
 
+/*
   ///////////////////////////////////////////////////////////////
   private static void loadExperience (Connection conn, CoderRegistration coder) 
     throws TCException {
@@ -1950,6 +2070,7 @@ final class UserDbCoder {
       if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
     }
   }
+*/
 
 
   ///////////////////////////////////////////////////////////////
