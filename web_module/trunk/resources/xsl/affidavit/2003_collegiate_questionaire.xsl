@@ -184,6 +184,14 @@ Programmer Questionnaire</CENTER><BR/>
         <TEXTAREA COLS="80" ROWS="5" WRAP="off" NAME="a26"></TEXTAREA>
         <BR/><BR/><BR/>
 
+        <B><U>Charity Donations</U></B><BR/><BR/>
+
+        &#160;&#160;1.&#160;&#160;
+        <INPUT TYPE="hidden" NAME="q27" VALUE="If you are from a non-eligible country, what charity would you like your winnings to go to? "/>
+        If you are from a non-eligible country, what charity would you like your winnings to go to? <BR/>
+        <TEXTAREA COLS="80" ROWS="5" WRAP="off" NAME="a27"></TEXTAREA>
+        <BR/><BR/><BR/>
+
         <input type="submit" name="submit" value=" Submit "/>
     </FORM>
 
