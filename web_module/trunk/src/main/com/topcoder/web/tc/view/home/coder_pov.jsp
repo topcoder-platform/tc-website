@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
+                        <img src="/i/m/Rustyoldman_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=282718"><strong>Rustyoldman</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm191_prob">SRM 191 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, April 24, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm192_prob">SRM 192 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, April 27, 2004</p>
 
                         <p>
-Pity poor <b>SnapDragon</b>'s thumbs.  After brutalizing the first-time 
-writer's problems in a mere 25 minutes, he had nothing to do but twiddle
-them for the next 65 minutes, before he was finally able to challenge
-yet another hapless victim.  And how demoralizing must it have been for
-third-place finisher <b>Klinck</b>?
+<b>SnapDragon</b> started out quickly with the first 250 submission, but then,
+shockingly, he dropped back into the pack when he was forced to resubmit the easy
+problem.  <b>tmyklebu</b> ended up with the fastest successful time on the
+Div-I 250 of 4 minutes and 5 seconds. All in all the 250 went pretty quickly. 
 
-<a href="/?t=statistics&amp;c=srm191_prob" class="bodyText"><strong>full&#160;story</strong></a>
+<a href="/?t=statistics&amp;c=srm192_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
