@@ -17,6 +17,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.screening.common.*;
+import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.RequestInfo;
 import com.topcoder.web.corp.request.Login;
 
@@ -26,13 +27,7 @@ import com.topcoder.web.corp.request.Login;
  * rehashed from Greg Paul with permission.
  *
  * @author Nathaniel Dean
- * @version 1.0.1
  *
- * History:
- * version 1.0.0 -- 27-Dec-2002 -- created.
- * version 1.0.1 -- 27-Dec-2002 -- looks up constant changes in web.xml upon initialization.
- * version 1.0.2 -- 29-Dec-2002 -- fixed RequestProcessor usage. - Porgery
- * version 1.0.3 -- 02-Jan-2003 -- fixed RequestProcessor usage again :). - Porgery
  */
 
 public class MainServlet extends HttpServlet {

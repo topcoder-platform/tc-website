@@ -4,9 +4,11 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.shared.security.*;
-import com.topcoder.web.common.*;
-import com.topcoder.web.hs.common.*;
+import com.topcoder.web.hs.common.Constants;
 import com.topcoder.web.common.security.*;
+import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
