@@ -118,6 +118,10 @@
                             <BR/><BR/>
                           </A>
                       </TD></TR>
+
+
+                 <xsl:choose>
+                 <xsl:when test="$roundId&lt;4230">
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <xsl:choose>
                         <xsl:when test="$roundId=4220">
@@ -166,6 +170,44 @@
                       ** Non-immigrants refer to people who come to the US, but not permanently (i.e., they are not permanent residents)<BR/><BR/>
                       <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;ContestId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
                       </TD></TR>
+                </xsl:when>
+                <xsl:otherwise>
+
+                      <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+                        <B>Single Round Match Description</B>
+                      <UL>
+                      <LI>Maximum of 10 coders per room</LI>
+                      <LI>Ratings will be adjusted post-match</LI>
+                      <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
+                      </UL>
+                      The match will feature a mixed programming language format.  For each individual problem, the coder will have the option of using either Java, C++ or C# to code the solution.  Syntactical knowledge of all three languages will be helpful during the challenge phase of each round of competition.<BR/><BR/>
+                      <B>Divisions and Ironman Room Assignments:</B>
+            <UL>
+            <LI>Members rated 1200 or better compete in Division-I</LI>
+            <LI>Members rated 1199 or lower compete in Division-II</LI>
+            <LI>Members not yet rated compete in Division-II</LI>
+                      <LI>Room assignments place members of like divisions together</LI>
+                      <LI>Rating changes go into effect in next participated match</LI></UL>
+                      <B>Eligibility:</B><BR/><BR/>
+                      Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
+                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;ContestId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
+                      </TD></TR>
+
+
+              </xsl:otherwise>
+              </xsl:choose>
+
+
+
+
+
+
+
+
+
+
+
+
                     </TABLE>
                     <P><BR/></P>
                   </TD>
