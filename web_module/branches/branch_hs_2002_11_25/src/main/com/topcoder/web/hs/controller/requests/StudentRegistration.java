@@ -49,6 +49,7 @@ public class StudentRegistration extends Base {
       populateStudentRegistrationBean(srb);
 
       request.setAttribute("student",srb);
+      validateStudent(srb);
 
       setNextPage(REGISTRATION_BASE+REGISTRATION_PAGE);
       setIsNextPageInContext(true);
@@ -128,14 +129,14 @@ public class StudentRegistration extends Base {
     _srb.setFirstName(getParameterNonNull("first_name"));
     _srb.setLastName(getParameterNonNull("last_name"));
     _srb.setStateCode(getParameterNonNull("state"));
-    _srb.setSchoolId(getParameterNonNull("school"));
+    _srb.setSchoolId(getParameterLong("school"));
     _srb.setHandle(getParameterNonNull("handle"));
     _srb.setPassword(getParameterNonNull("password"));
     _srb.setConfirmPassword(getParameterNonNull("confirm_password"));
     _srb.setEmail(getParameterNonNull("email"));
     _srb.setConfirmEmail(getParameterNonNull("confirm_email"));
-    _srb.setEditorId(getParameterNonNull("editor"));
-    _srb.setLanguageId(getParameterNonNull("language"));
+    _srb.setEditorId(getParameterInteger("editor"));
+    _srb.setLanguageId(getParameterInteger("language"));
 
     /* add error checking here */
 
@@ -168,7 +169,30 @@ public class StudentRegistration extends Base {
     return(value);
   }
 
+  private Integer getParameterInteger(String _param) {
+    Integer value=new Integer(-1);
+    try {
+      value=new Integer(request.getParameter(_param));
+    }
+    catch (Exception _e)
+      /* do nothing */
+    }
+    return(value);
+  }
+
+  private Long getParameterLong(String _param) {
+    Long value=new Long(-1);
+    try {
+      value=new Long(request.getParameter(_param));
+    }
+    catch (Exception _e) {
+      /* do nothing */
+    }
+    return(value);
+  }
+
   private boolean validateStudent(StudentRegistrationBean _srb) {
+    
     return(false);
   }
 
