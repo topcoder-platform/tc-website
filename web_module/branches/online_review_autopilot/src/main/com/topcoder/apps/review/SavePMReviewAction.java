@@ -124,6 +124,10 @@ public final class SavePMReviewAction extends ReviewAction {
                                     
                                     ScreeningData sData = new ScreeningData(orpd, sid, (ScreeningScorecard) scorecard);
                                     result = businessDelegate.screeningScorecard(sData);
+                                    
+                                    ResultData rs = AutoPilot.screeningPMReview(data);
+                                    if(!(rs instanceof SuccessResult))
+                                        return rs;
                                 }
                             } else {
                                 ReviewData rData = new ReviewData(orpd, sid, scorecard.getAuthor().getId(), 

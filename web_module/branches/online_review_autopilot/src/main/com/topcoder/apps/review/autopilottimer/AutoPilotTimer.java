@@ -100,6 +100,9 @@ public class AutoPilotTimer
                             ProjectForm form = new ProjectForm();
                             
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
+                            
+                            if(!p.getAutoPilot()) continue;
+                            
                             form.fromProject(p);
                             
                             form.setScorecardTemplates(docManager.getScorecardTemplates());
