@@ -147,9 +147,7 @@
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=directions"><% if (tabLev3.equals("directions")) {%><img src="/i/tournament/tccc05/tabs/L3_directionsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_directionsOff.gif" border=0 /><% } %></a></td>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=transportation"><% if (tabLev3.equals("transportation")) {%><img src="/i/tournament/tccc05/tabs/L3_transportationOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_transportationOff.gif" border=0 /><% } %></a></td>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=hotels"><% if (tabLev3.equals("hotels")) {%><img src="/i/tournament/tccc05/tabs/L3_hotelsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_hotelsOff.gif" border=0 /><% } %></a></td>
-<%--
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena"><% if (tabLev3.equals("skiena")) {%><img src="/i/tournament/tccc05/tabs/L3_skienaOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_skienaOff.gif" border=0 /><% } %></a></td>
---%>
 					<% } else if (tabLev2.equals("onsite_events")) {%>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=photos"><% if (tabLev3.equals("photos")) {%><img src="/i/tournament/tccc05/tabs/L3_photosOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_photosOff.gif" border=0 /><% } %></a></td>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=movies"><% if (tabLev3.equals("movies")) {%><img src="/i/tournament/tccc05/tabs/L3_moviesOn.gif" border=0 /><% } else { %><img src="/i/tournament/tccc05/tabs/L3_moviesOff.gif" border=0 /><% } %></a></td>
