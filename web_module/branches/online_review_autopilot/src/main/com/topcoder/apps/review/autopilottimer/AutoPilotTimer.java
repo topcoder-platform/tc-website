@@ -28,7 +28,7 @@ public class AutoPilotTimer
     /**
      * Number of minutes between refreshes.
      */
-    private static final int DELAY = 5;
+    private static final int DELAY = 1;
     private static Logger logger = Logger.getLogger(AutoPilotTimer.class);
     private static final String NAME = "AutoPilotTimer";
     private Boolean isInitialised = Boolean.FALSE;

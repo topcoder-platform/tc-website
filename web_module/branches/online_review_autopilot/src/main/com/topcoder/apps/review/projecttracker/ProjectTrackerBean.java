@@ -393,7 +393,7 @@ public class ProjectTrackerBean implements SessionBean {
             }
             User plUser = Common.getUser(dataSource, user.getUserId());
             
-            debug("ADMIN: " + isAdmin);
+            info("ADMIN: " + isAdmin);
 
             if (isAdmin) {
                 // Find all open projects
