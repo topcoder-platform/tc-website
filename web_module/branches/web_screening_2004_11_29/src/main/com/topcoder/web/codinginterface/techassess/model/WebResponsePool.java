@@ -29,17 +29,11 @@ public class WebResponsePool extends ResponsePool {
         while (System.currentTimeMillis() < endTime) {
 
             if (responseMap.containsKey(correlationId)) {
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-
-                }
                 return (Serializable) responseMap.get(correlationId);
             } else {
                 try {
                     response.getWriter().print("X");
                     response.flushBuffer();
-                    Thread.sleep(10000);
                     wait(waitTime);
                 } catch (InterruptedException e) {
                     //ignore

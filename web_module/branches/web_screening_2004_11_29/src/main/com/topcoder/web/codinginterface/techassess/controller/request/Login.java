@@ -57,6 +57,11 @@ public class Login extends Base {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
                 String messageId = send(request);
+
+                SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+                log.debug("go to " + info.getServletPath() + " after login");
+                setNextPage(info.getServletPath());
+
                 receive(5000, messageId);
             }
         } else {
@@ -90,12 +95,6 @@ public class Login extends Base {
             getRequest().getSession().setAttribute(Constants.TEST_SET_A, testSetA);
             getRequest().getSession().setAttribute(Constants.TEST_SET_B, testSetB);
             getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
-
-            SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-            log.debug("go to " + info.getServletPath() + " after login");
-
-            //go to the default after login
-            setNextPage(info.getServletPath());
 
         } else {
             addError(Constants.HANDLE, response.getMessage());
