@@ -94,7 +94,6 @@
                         Boston, Massachusetts<br />
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
                     </td>
-                    <td width="1%" valign="bottom"></td>
                     <td width="1%" valign="bottom"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/logo_tccc04.gif" alt="" width="113" height="73" border="0" /></A></td>
                 </tr>
             </table>
