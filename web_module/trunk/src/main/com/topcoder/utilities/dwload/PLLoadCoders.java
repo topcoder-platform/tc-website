@@ -651,25 +651,18 @@ public class PLLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT s.school_id ");
-            query.append(      " ,s.sort_letter ");
-            query.append(      " ,s.city ");
             query.append(      " ,s.state_code ");
-            query.append(      " ,s.country_code ");
             query.append(      " ,s.name ");
             query.append(      " ,s.short_name ");
             query.append( " FROM school s ");
             query.append(" WHERE s.modify_date > ?");
-            query.append(  " AND s.user_id = 0");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
 
             query = new StringBuffer(100);
             query.append("INSERT INTO school ");
             query.append(" (school_id ");
-            query.append(" ,sort_letter ");
-            query.append(" ,city ");
             query.append(" ,state_code ");
-            query.append(" ,country_code ");
             query.append(" ,name ");
             query.append(" ,short_name) ");
             query.append("VALUES (");
@@ -677,7 +670,7 @@ public class PLLoadCoders extends TCLoad {
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append(" UPDATE school SET sort_letter = ?, city = ?, state_code = ?, country_code = ?, name = ?, short_name = ? WHERE school_id = ?");
+            query.append(" UPDATE school SET state_code = ?, name = ?, short_name = ? WHERE school_id = ?");
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadSchool");
@@ -688,22 +681,16 @@ public class PLLoadCoders extends TCLoad {
 
                 try {
                     psIns.setInt(1, school_id);
-                    psIns.setString(2, rs.getString("sort_letter"));
-                    psIns.setString(3, rs.getString("city"));
-                    psIns.setString(4, rs.getString("state_code"));
-                    psIns.setString(5, rs.getString("country_code"));
-                    psIns.setString(6, rs.getString("name"));
-                    psIns.setString(7, rs.getString("short_name"));
+                    psIns.setString(2, rs.getString("state_code"));
+                    psIns.setString(3, rs.getString("full_name"));
+                    psIns.setString(4, rs.getString("short_name"));
                     retVal = psIns.executeUpdate();
                 } catch (Exception e) {
                     // the insert failed, so try an update
-                    psUpd.setString(1, rs.getString("sort_letter"));
-                    psUpd.setString(2, rs.getString("city"));
-                    psUpd.setString(3, rs.getString("state_code"));
-                    psUpd.setString(4, rs.getString("country_code"));
-                    psUpd.setString(5, rs.getString("name"));
-                    psUpd.setString(6, rs.getString("short_name"));
-                    psUpd.setInt(7, school_id);
+                    psUpd.setString(1, rs.getString("state_code"));
+                    psUpd.setString(2, rs.getString("full_name"));
+                    psUpd.setString(3, rs.getString("short_name"));
+                    psUpd.setInt(4, school_id);
                     retVal = psUpd.executeUpdate();
                 }
 
