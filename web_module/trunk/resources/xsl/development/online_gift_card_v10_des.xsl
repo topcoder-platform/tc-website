@@ -54,14 +54,8 @@
 
                         <!-- Center Column Begins -->
                         <td class="bodyText" width="99%" valign="top">
-                            <img src="/i/clear.gif" width="240" height="10" alt="" border="0"/>
-                            <br/>
 
-                            <xsl:call-template name="BodyTop">
-                                <xsl:with-param name="image1">white</xsl:with-param>
-                                <xsl:with-param name="image">development</xsl:with-param>
-                                <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
-                            </xsl:call-template>
+                            <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
 
                             <xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
                             <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
@@ -74,17 +68,20 @@
                                         <br/>
 
                                         <!-- Title -->
-                                        <h1 class="devSubhead">Online Gift Card Sales Application: Design</h1>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectTitles" nowrap="nowrap">Design Application Project - Online Gift Card Sales</td>
+                </tr>
+                <tr>
+                    <td class="projectHeaders" align="left">Overview</td>
+                </tr>
+            </table>
 
-                                        <p class="smallText">&#160;&#160;&#160;&#160;
-                                            <a href="#overview">Overview</a> |
-                                            <a href="#projecttype">Project Type</a> |
-                                            <a href="#payment">Payment</a> |
-                                            <a href="#eligibility">Eligibility</a> |
-                                            <a href="#timeline">Timeline</a> |
-                                            <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a> |
-                                            Inquire
-                                        </p>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
+                <tr valign="top">
+                    <td class="bodyText">
 
                                         <!-- Overview -->
                                         <p>
@@ -103,32 +100,22 @@
                                         </p>
 
 
-                                        <!-- Project Type -->
-                                        <p>
-                                            <strong>
-                                                <a name="projecttype">Project Type</a>
-                                            </strong>
-                                            <br/>
-                                            Application Design Project: Provide a complete design for the Online Gift Card Sales project.  Please review the TopCoder Software
-                                            <a href="/?t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
-                                        </p>
-
                                         <!-- Technologies -->
-                                        <p>
-                                            <strong>Technologies</strong>
-                                        </p>
-                                        <ul>
+                                        <p class="noSpListTitle"><strong>Technologies</strong></p>
+                                        <ul class="noSpList">
                                             <li>Java 1.4</li>
                                             <li>JDBC</li>
                                             <li>JSP</li>
                                         </ul>
 
                                         <!-- Payment -->
+
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Payment</td>
+                </tr>
+            </table>
                                         <p>
-                                            <strong>
-                                                <a name="payment">Payment</a>
-                                            </strong>
-                                            <br/>
                                              For each design project, TopCoder will compensate the member with the winning solution as well as the second place designer. In order to be paid, the submission must pass screening and receive a review score above the minimum score of 50.
                                              <br/><br/>
                                              Compensation for the winning solution is distributed in two installments.
@@ -144,125 +131,119 @@
                                              Compensation for the second place designer will be paid in one installment following the completion of the design project.
                                         </p>
 
-                                        <p>
-                                            <strong>Online Gift Card Sales<br/>
-                                            Winning Designer</strong>
-                                            <br/>
-                                            Total Payment - $810.00
-                                            <br/>
-                                            First Payment - $608.00
-                                            <br/>
-                                            Second Payment - $202.00
-                                        </p>
+                        <p class="noSpListTitle"><strong>Winning Designer</strong></p>
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$810.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">First Payment -</td><td class="bodyText" align="right">$608.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Second Payment - </td><td class="bodyText" align="right">$202.00</td>
+                            </tr>
+                        </table>
 
-                                        <p>
-                                            <strong>Second Place Designer</strong>
-                                            <br/>
-                                            Total Payment - $225.00
-                                        </p>
+                        <p class="noSpListTitle"><strong>Second Place Designer</strong></p>
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$225.00</td>
+                            </tr>
+                        </table>
 
-                                        <p>
-                                            <strong>Reviewers</strong>
-                                            <br/>
-                                            Primary Design Reviewer - $250.00
-                                            <br/>
-                                            Design Reviewer - $235.00
-                                            <br/>
-                                            Design Reviewer - $235.00
-                                            <br/><br/>
-                                            Total - $1,755.00
-                                        </p>
+                        <p class="noSpListTitle"><strong>Reviewers</strong></p>
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Primary Design Reviewer -</td><td class="bodyText" align="right">$250.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Design Reviewer -</td><td class="bodyText" align="right">$235.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Design Reviewer - </td><td class="bodyText" align="right">$235.00</td>
+                            </tr>
+                        </table>
+
+                        <br/>
+                        
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Total - </td><td class="bodyText" align="right">$1,755.00</td>
+                            </tr>
+                        </table>
+
 
                                         <!-- Definition of Completion -->
 
-                                        <p>
-                                            <sup>*</sup>Completion of the project is defined as follows:
-                                        </p>
+                        <p class="noSpListTitle"><strong>Project Completion</strong><br />
+                        *Completion of the project is defined as follows:</p>
 
-                                        <ul>
+                                        <ul class="noSpList">
                                             <li>The Submission has been selected by the board as the winning submission.</li>
                                             <li>Final fixes accepted by the design review board.</li>
                                             <li>Application launch into production environment.</li>
                                         </ul>
 
                                         <!-- Eligibility Requirements -->
-                                        <p>
-                                            <strong>
-                                                <a name="eligibility">Eligibility</a>
-                                            </strong>
-                                            <br/>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Eligibility</td>
+                </tr>
+            </table>
+                                        <p class="noSpListTitle">
                                             You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership
                                             requirements and fit into one of the following categories:
                                         </p>
 
-                                        <ol>
+                                        <ul class="noSpList">
                                             <li>A US Citizen. </li>
                                             <li>A Lawful Permanent Resident of the US.</li>
                                             <li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
                                             <li>A Non-US Citizen working in your country of residence.</li>
-                                        </ol>
+                                        </ul>
 
                                         <!-- Timeline -->
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Timeline</td>
+                </tr>
+            </table>
                                         <p>
-                                            <strong>
-                                                <a name="timeline">Timeline</a>
-                                            </strong>
-                                            <br/>
                                             The Design Submission must be submitted on time. All questions submitted
                                             prior to 6PM EDT on the Submission Due Dates will be answered. Following review
                                             from the board the winning member is given until the Updated Submission Due Date
                                             to modify their submission.
                                         </p>
 
-                                        <table border="0" cellspacing="2" cellpadding="3" class="sidebarBox">
-                                            <tr>
-                                                <td class="sidebarText">
-                                                    <b/>Application Project Posting:
-                                                </td>
-                                                <td class="sidebarText" align="right">
-                                                    <b/>11.26.2003
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="sidebarText">Inquire By:</td>
-                                                <td class="sidebarText" align="right">closed</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Member Acceptance:</td>
-                                                <td class="sidebarText" align="right">12.04.2003</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Design Start:</td>
-                                                <td class="sidebarText" align="right">12.08.2003</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Design Due:</td>
-                                                <td class="sidebarText" valign="top" align="right">12.12.2003 6:00 PM ET</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Winner Announced:</td>
-                                                <td class="sidebarText" align="right">12.16.2003</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Updated Submission Due Date:</td>
-                                                <td class="sidebarText" align="right">12.17.2003 6:00 PM ET</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Design Complete:</td>
-                                                <td class="sidebarText" align="right">12.18.2003</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="sidebarText">Estimated Development End Date:</td>
-                                                <td class="sidebarText" align="right">01.06.2004</td>
-                                            </tr>
-                                        </table>
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="300">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Application Project Posting:</td><td class="bodyText" nowrap="nowrap" align="right">11.26.2003</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Inquire By:</td><td class="bodyText" nowrap="nowrap" align="right">closed</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Member Acceptance:</td><td class="bodyText" nowrap="nowrap" align="right">12.04.2003</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Design Start:</td><td class="bodyText" nowrap="nowrap" align="right">12.08.2003</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Design Due:</td><td class="bodyText" nowrap="nowrap" align="right">12.12.2003 6:00 PM ET</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Winner Announced:</td><td class="bodyText" nowrap="nowrap" align="right">12.16.2003</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Updated Submission Due Date:</td><td class="bodyText" nowrap="nowrap" align="right">12.17.2003 6:00 PM ET</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Design Complete:</td><td class="bodyText" nowrap="nowrap" align="right">12.18.2003</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td><td class="bodyText" nowrap="nowrap" align="right">01.06.2004</td>
+                            </tr>
+                        </table>
 
                                         <!-- Register at TCS -->
                                         <p>
@@ -295,9 +276,11 @@
                                         <!--<p>To submit a solution, email your submissions to
                                         <a href="mailto:submissions@topcodersoftware.com" class="bodyText">submissions@topcodersoftware.com</a>.</p> -->
 
-                                        <p>
-                                            <br/>
-                                        </p>
+                    </td>
+                </tr>
+            </table>
+
+                                        <p><br/></p>
                                     </td>
                                 </tr>
                             </table>
