@@ -16,6 +16,5 @@
                 <jndi-name>CORP_DS</jndi-name>
             </resource-ref>
         </session>
-        <
     </enterprise-beans>
 </jboss>
