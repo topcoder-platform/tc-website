@@ -19,6 +19,9 @@
 
 <html>
   <head>
+  <!--
+  <%= request.getAttribute("QUERY"); %>
+  -->
 <style type="text/css">
     TABLE.entry TD{ 
         BORDER-BOTTOM: #777777 1px solid ;
