@@ -9,7 +9,7 @@
   <body>
     <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>><< back to main menu<a><br/><br/>
     <center>
-    <br/>
+    <br/><pre>
 <%
 Throwable requestException = null;
 if (request != null && request.getAttribute("Exception") != null && request.getAttribute("Exception") instanceof Throwable){
@@ -20,7 +20,7 @@ if (requestException != null) {
     requestException.printStackTrace(new java.io.PrintWriter(out));
 }
 %>
-
+    </pre>
     <br/>
   </body>
 </html>
