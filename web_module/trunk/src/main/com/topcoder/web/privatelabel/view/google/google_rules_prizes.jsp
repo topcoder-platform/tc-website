@@ -19,6 +19,13 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   document.write('<link type="text/css" rel="stylesheet" href="/css/google_style.css"/>'); 
 } 
 </SCRIPT> 
+<script>
+function openWin(url, name, w, h) {
+    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+</script>
 
 </head>
 
@@ -36,10 +43,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
          <td width="100%" valign="top" class="bodyText" colspan="3">
        
          <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
-            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="20"></td></tr>
+            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
+            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="10"></td></tr>
+            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
+            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="20"></td></tr>
 
             <tr>
                <td width="50%">&nbsp;</td>
@@ -50,10 +57,12 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                <td bgcolor="#3366cc" align="center" width=95 nowrap><font color="#ffffff" size="-1"><img src="/i/events/google2003/rules_arrow_white.gif" width="15" height="10" border="0"/><b>Rules</b></font></td>
                <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
                <td bgcolor="#efefef" align="center" width=95 nowrap><a href="?&<%=Constants.MODULE_KEY+"="+Constants.GOOGLE_REG_MAIN+"&"+Constants.COMPANY_ID+"=1865&"+Constants.EVENT_ID+"=1"%>" style="text-decoration:none"><font size="-1">Register Now</font></a></td>
+               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);" style="text-decoration:none"><font size="-1">Practice Arena</font></a></td>
                <td width="50%">&nbsp;</td>
             </tr>
             <tr>
-               <td colspan=9 bgcolor=#3366cc>
+               <td colspan="11" bgcolor=#3366cc>
                <jsp:include page="googleSublinks.jsp" >
                   <jsp:param name="selectedList" value="rules"/>
                   <jsp:param name="selectedTab" value="prizes"/>
