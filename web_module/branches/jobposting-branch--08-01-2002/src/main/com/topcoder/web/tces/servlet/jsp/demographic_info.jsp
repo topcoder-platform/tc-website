@@ -19,6 +19,9 @@
 <% 
     Map DemoInfoMap = DemographicTask.getDemoInfoMap();
     List ResponseList = (List)DemoInfoMap.get(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY); 
+    List NotifyList = (List)DemoInfoMap.get(TCESConstants.DEMOGRAPHIC_NOTIFY_KEY);
+    Map QuestionMap = (Map)DemoInfoMap.get(TCESConstants.DEMOGRAPHIC_INFO_KEY);
+    Iterator QuestionIterator = QuestionMap.keySet().iterator();
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -65,36 +68,95 @@
               <% } %>
               </P>
               
-              <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+              <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">               
                 <TR>
-                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="MainTask" property="StudentCoderCount"/>)</b></TD>
-                  <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="MainTask" property="ProCoderCount"/>)</b></TD>                                   
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+                    <TR>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="MainTask" property="StudentCoderCount"/>)</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    </TR>
+
+                    <TR>
+                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    </TR>                
+                    
+                    <tces:mapIterator id="response" MapList="ResponseList">                    
+                        <TR>
+                          <TD class="statText" HEIGHT="18">
+                            <%=(String)response.get("title")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)response.get("percent")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)response.get("count")%>
+                          </TD>                  
+                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                        </TR>                     
+                    </tces:mapIterator>
+
+                    <TR>
+                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    </TR>                
+
+                    <%
+                      while (QuestionIterator.hasNext()) {
+                        String question = (String)questionIterator.next();
+                        List ResponseList = (List)QuestionMap.get(question);
+                    %>
+            
+                    <tces:mapIterator id="response" MapList="ResponseList">                                
+                        <TR>
+                          <TD class="statText" HEIGHT="18">
+                            <%=(String)response.get("response")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)response.get("percent")%>
+                          </TD>
+                          <TD class="statText">
+                            <%=(String)response.get("resp_count")%>
+                          </TD>                  
+                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                        </TR>                     
+                    </tces:mapIterator>
+                        
+                    <%            
+                      }
+                    %>
+
+                  </TABLE>
+                </TD>
+                    
+                <TD>
+                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+                    <TR>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="MainTask" property="StudentCoderCount"/>)</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    </TR>
+                    <TR>
+                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    </TR>                
+                    <TR>
+                      <TD class="statText" HEIGHT="18">IRC Chat</TD>
+                      <TD class="statText">4.13%</TD>
+                      <TD class="statText">9</TD>                  
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    </TR> 
+                    <TR>
+                      <TD class="statText" HEIGHT="18">Another web site</TD>
+                      <TD class="statText">4.13%</TD>
+                      <TD class="statText">9</TD>                  
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    </TR>                                            
+                  </TABLE>                
+                </TD>
                 </TR>
-                <TR>
-                  <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
-                </TR>                
-                <TR>
-                  <TD class="statText" HEIGHT="18">IRC Chat</TD>
-                  <TD class="statText">4.13%</TD>
-                  <TD class="statText">9</TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText" HEIGHT="18">IRC Chat</TD>
-                  <TD class="statText">0.87%</TD>
-                  <TD class="statText">4</TD>                  
-                </TR> 
-                <TR>
-                  <TD class="statText" HEIGHT="18">Another web site</TD>
-                  <TD class="statText">4.13%</TD>
-                  <TD class="statText">9</TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText" HEIGHT="18">Another web site</TD>
-                  <TD class="statText">0.87%</TD>
-                  <TD class="statText">4</TD>                  
-                </TR>                                            
               </TABLE>
+              
               <P><BR></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
