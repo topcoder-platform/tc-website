@@ -90,10 +90,10 @@
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
 							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="/index?t=about_tc&amp;c=spons_tourny_pr" CLASS="bodyText">Public Relations</A></TD>
 						</TR>
-						<TR>
+						<!-- <TR>
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
-							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="mailto:sponsorships@topcoder.com" CLASS="bodyText">Contact sponsor sales</A></TD>
-						</TR>
+							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="/i/about/srm_3pgr.pdf" CLASS="bodyText">Package overview (PDF)</A></TD>
+						</TR> -->
 						<TR>
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
 							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="/i/about/srm_3pgr.pdf" CLASS="bodyText">Package overview (PDF)</A></TD>

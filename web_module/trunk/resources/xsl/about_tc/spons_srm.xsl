@@ -82,10 +82,10 @@
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
 							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="mailto:sponsorships@topcoder.com" CLASS="bodyText">Contact sponsor sales</A></TD>
 						</TR>
-						<TR>
+						<!-- <TR>
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
 							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="/i/about/srm_3pgr.pdf" CLASS="bodyText">Package overview (PDF)</A></TD>
-						</TR>
+						</TR> -->
 						<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
 					</TABLE>
 		          	</TD>
@@ -96,7 +96,9 @@
 					<P>The Single Round Match is the key component for TopCoder's membership. Every time a match is hosted, coders take part in an online competition that will either build up or bring down their rating. The outcome of this rating change is the potential change in seeding for the next scheduled tournament.</P>
 					<P>Additionally, each match has earning potential for those who finish in the top spots in each of the assigned rooms for a given match.</P>
 					<P>Ultimately, a match becomes the developer's equivalent of any major league sporting event where the "win or loss" affects standings &#40;in this case ratings&#41; and a possible playoff seed.</P>
-					<P>A package consists of <B>5 single rounds</B>. These can run sequentially or over a period of months, depending upon both schedule availability and a sponsor's calendar.</P><BR/><BR/>
+					
+					<!-- <P>A package consists of <B>5 single rounds</B>. These can run sequentially or over a period of months, depending upon both schedule availability and a sponsor's calendar.</P><BR/><BR/> -->
+					
 					<B>An Integrated Approach</B><BR/>
 					<P>TopCoder reaches members through three distinct media. Each of the media venues is a unique opportunity for the sponsoring company to present its support of the event and promote brand awareness amongst the demographic. In addition to the individual media, a survey question &#40;to members&#41; is made exclusive to a sponsor.</P>
 					<P><UL><LI><A HREF="/index?t=about_tc&amp;c=spons_srm_web" CLASS="bodyText">Web Site</A><BR/>

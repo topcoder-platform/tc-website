@@ -53,7 +53,7 @@
           <BR/>No purchase necessary to enter or win.
           <BR/><BR/>
 	      <B>Single Round Match Description</B><UL>
-	      <LI>Maximum of 10 coders per room</LI>
+	      <LI>Maximum of 20 coders per room</LI>
 	      <LI>Ratings will be adjusted post-match</LI>
 	      <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
 	      <LI>Members will be emailed the match results (opt-in)</LI></UL>
