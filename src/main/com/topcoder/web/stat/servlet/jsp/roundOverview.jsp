@@ -78,7 +78,7 @@
         String room_name = currentRow.getItem("room_name").toString();
         String points = currentRow.getItem("final_points").toString();
         String rating = currentRow.getItem("new_rating").toString();
-        String coder_id = currentRow.getItem("coder_id").toString();
+        String coderID = currentRow.getItem("coder_id").toString();
         coders[divisionPtr][ptrs[divisionPtr]]=handle;
         scores[divisionPtr][ptrs[divisionPtr]]=points;
         ratings[divisionPtr][ptrs[divisionPtr]]=rating;
