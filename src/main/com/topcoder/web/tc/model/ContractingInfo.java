@@ -13,7 +13,7 @@ import com.topcoder.servlet.request.*;
  *
  * @author  rfairfax
  */
-public class ContractingInfo implements Serializable {
+public class ContractingInfo implements Serializable, Cloneable {
     
     private long userID;
     private Hashtable preferences;
@@ -30,6 +30,10 @@ public class ContractingInfo implements Serializable {
         notes = new Hashtable();
         resume = null;
         edit = false;
+    }
+    
+    public void removePref(String pref) {
+        preferences.remove(pref);
     }
     
     public void setNote(String note, String val) {
@@ -106,6 +110,36 @@ public class ContractingInfo implements Serializable {
     
     public long getUserID() {
         return userID;
+    }
+    
+    public Object clone() {
+        ContractingInfo newInfo = new ContractingInfo();
+        newInfo.setEdit(isEdit());
+        newInfo.setUserID(getUserID());
+        newInfo.setResume(getResume());
+        
+        Iterator i = getNoteNames();
+        while(i.hasNext()) {
+            String s = (String)i.next();
+            
+            newInfo.setNote(s, getNote(s));
+        }
+        
+        i = getPreferenceNames();
+        while(i.hasNext()) {
+            String s = (String)i.next();
+            
+            newInfo.setPreference(s, getPreference(s));
+        }
+        
+        i = getSkillNames();
+        while(i.hasNext()) {
+            String s = (String)i.next();
+            
+            newInfo.setSkill(s, getSkill(s));
+        }
+        
+        return newInfo;
     }
     
 }

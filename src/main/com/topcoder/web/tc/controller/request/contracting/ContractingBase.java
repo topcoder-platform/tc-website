@@ -271,8 +271,14 @@ abstract public class ContractingBase extends BaseProcessor {
         
         log.debug("LOADING DATA FROM PERSISTOR");
         
-        info = (ContractingInfo)p.getObject(Constants.CONTRACTING_INFO);
+        info = (ContractingInfo)((ContractingInfo)p.getObject(Constants.CONTRACTING_INFO)).clone();
         return info;
+    }
+    
+    protected void clearInfo() {
+        info = null;
+        
+        p.removeObject(Constants.CONTRACTING_INFO);
     }
     
     protected ContractingInfo getInfoFromDB() {

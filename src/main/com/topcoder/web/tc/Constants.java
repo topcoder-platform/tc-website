@@ -150,6 +150,7 @@ public class Constants {
     public static String CONTRACTING_DATABASES_PAGE;
     public static String CONTRACTING_INDUSTRIES_PAGE;
     public static String CONTRACTING_CONFIRM_PAGE;
+    public static String CONTRACTING_SUCCESS_PAGE;
     
     public static int PREFERENCE_SINGLE_ANSWER;
     public static int PREFERENCE_MULTIPLE_ANSWER;
