@@ -110,14 +110,14 @@ public class JSPUtils {
                 mapsMap.put(curMap.get(fieldName), keyDupList);
             }
             else {
-                keyDupList = mapsMap.get( curMap.get(fieldName));
+                keyDupList = (List)mapsMap.get( curMap.get(fieldName));
             }
 
             keyDupList.add(curMap);
         }
 
         while (mapsMap.size()>0) {
-            List keyDupList = mapsMap.get(ascending?mapsMap.firstKey():mapsMap.lastKey() );
+            List keyDupList = (List)mapsMap.get(ascending?mapsMap.firstKey():mapsMap.lastKey() );
 
             Iterator keyDups = keyDupList.iterator();
             while (keyDups.hasNext()) {
