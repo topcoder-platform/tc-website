@@ -6,6 +6,14 @@
 
 <jsp:include page="../../script.jsp" />
 
+<script>
+function openWin(url, name, w, h) {
+    win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=yes,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+</script>
+
 </head>
 
 <body onLoad="timer(1);">
@@ -88,7 +96,7 @@
             </table>
             <br/>
 --%>
-            <table border="0" cellspacing="0" cellpadding="5" width="510" align="center">
+            <table border="0" cellspacing="0" cellpadding="5" width="500" align="center">
             <tr>
             <td align="left" valign="top" width="50%">
 
@@ -122,14 +130,14 @@
                 </tr>
                <tr>
                   <td class="formTextOdd" align="left" width="40%">Current update</td>
-                  <td class="formTextOdd" align="right" width="30%"><A href="/">view</A></td>
-                  <td class="formTextOdd" align="right" width="30%"><A href="/">view</A></td>
+                  <td class="formTextOdd" align="right" width="30%"><A href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_frame','pops_frame',800,600);">view</A></td>
+                  <td class="formTextOdd" align="right" width="30%"><A href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_frame','kyky_frame',800,600);">view</A></td>
                </tr>
             </table>
-            
+               
             </td>
             <td align="right" valign="top" width="50%">
-            
+             
             <table border="0" cellspacing="0" cellpadding="3" width="250" align="center" class="formFrame">
                <tr>
                   <td class="header" align="center" colspan="3">Development Finals</td>
@@ -161,8 +169,8 @@
                 </tr>
                <tr>
                   <td class="formTextOdd" align="left" width="40%">Current update</td>
-                  <td class="formTextOdd" align="right" width="30%"><A href="/">view</A></td>
-                  <td class="formTextOdd" align="right" width="30%"><A href="/">view</A></td>
+                  <td class="formTextOdd" align="right" width="30%"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_frame">view</A></td>
+                  <td class="formTextOdd" align="right" width="30%"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_frame">view</A></td>
                </tr>
             </table>
             
