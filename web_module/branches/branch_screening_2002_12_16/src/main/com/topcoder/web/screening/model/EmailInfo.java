@@ -317,7 +317,7 @@ public class EmailInfo extends BaseModel {
         emailInfo.setCandidateAddress(row.getItem("email_address").toString());
         emailInfo.setCandidateHandle(row.getItem("handle").toString());
 
-        emailInfo.setSubject("Candidate Session Announcement");
+        emailInfo.setSubject("Invitation to Private Candidate Testing Application");
 
         return emailInfo;
     }
