@@ -567,9 +567,9 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             if (!isValidColumn(i))
                 throw new IllegalArgumentException("Column index " + i + " out of bounds");
             columnToCompare = i;
-            secondaryColumn = -1;
+            secondaryColumn = i;
             sortAscending = ascending;
-            sortSecondaryAscending = true;
+            sortSecondaryAscending = ascending;
         }
     
         public DataRowComparator(int i, int j, boolean ascending, boolean secondaryAscending) {
