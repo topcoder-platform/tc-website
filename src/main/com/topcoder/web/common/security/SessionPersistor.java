@@ -19,6 +19,10 @@ public class SessionPersistor implements Persistor {
     /** create a new instance bound to the given session */
     public SessionPersistor(HttpSession session) {
         this.session = session;
+        Stack pages = (Stack)session.getAttribute(KEY_PREVPAGE);
+        if( pages == null ) {
+            session.setAttribute(KEY_PREVPAGE, new Stack());
+        }
     }
 
     public Object getObject(String key) {
