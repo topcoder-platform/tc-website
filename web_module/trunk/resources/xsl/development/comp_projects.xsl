@@ -28,7 +28,8 @@
 <head>
     <xsl:call-template name="Preload" />
 
- <title>Open Component Projects Available for TopCoder Software Development</title>
+<title>Open Component Projects Available for TopCoder Software Development</title>
+<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 
     <xsl:call-template name="CSS" />
 
@@ -96,7 +97,7 @@
 
 <!-- TCO Design Begins -->
                 <tr>
-                    <td colspan="6" class="tcoHeader"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
+                    <td colspan="6" class="tccc04SubNav"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
                 </tr>
 
                 <tr valign="middle">
@@ -168,7 +169,7 @@
 
 <!-- TCO Development Begins -->
                 <tr>
-                    <td class="tcoHeader" colspan="6">2004 TopCoder Collegiate Challenge Component Development Projects</td>
+                    <td class="tccc04SubNav" colspan="6">2004 TopCoder Collegiate Challenge Component Development Projects</td>
                 </tr>
 
                 <tr valign="middle">
