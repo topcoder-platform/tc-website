@@ -15,27 +15,27 @@
                 </tr>    
                              
                <tr valign="top">
-                    <td class="bodyText">03.13.2003</td>
+                    <td class="bodyText">03.13.2002</td>
                     <td class="bodyText" width="99%"><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_03_13_03</xsl:attribute>Sun Microsystems and TopCoder Highlight Field for 2003 Collegiate Challenge</a></td>
                 </tr>    
                              
                 <tr valign="top">
-                    <td class="bodyText">11.25.2003</td>
+                    <td class="bodyText">11.25.2002</td>
                     <td class="bodyText" width="99%"><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_11_25_02</xsl:attribute>Australian Programmer Wins 2002 TopCoder Invitational</a></td>
                 </tr>    
                              
                 <tr>
-                    <td class="bodyText">11.13.2003</td>
+                    <td class="bodyText">11.13.2002</td>
                     <td class="bodyText" width="99%"><a class="bodyText" href="http://builder.com.com/article.jhtml?id=u00220021106adm01.htm&amp;rcode=&amp;page=1" target="_blank">You'll find more than competitions at TopCoder these days</a></td>
                 </tr>                               
                 
                 <tr>
-                    <td class="bodyText">11.11.2003</td>
+                    <td class="bodyText">11.11.2002</td>
                     <td class="bodyText" width="99%"><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_11_11_02</xsl:attribute>TopCoder Announces 16 Finalists in 2002 TopCoder Invitational</a></td>
                 </tr>                 
                 
                 <tr>
-                    <td class="bodyText">10.30.2003</td>
+                    <td class="bodyText">10.30.2002</td>
                     <td class="bodyText" width="99%"><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_10_30_02</xsl:attribute>TopCoder Competitions Expand to High Schools</a></td>
                 </tr>                
 
