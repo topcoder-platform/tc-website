@@ -67,6 +67,8 @@
 		</td>
 	</tr>
 </table>
+
+<p><br/></p>
    
 <jsp:include page="foot.jsp" />
 
