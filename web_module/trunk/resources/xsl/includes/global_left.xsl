@@ -970,13 +970,13 @@
 
                 <tr>
                     <td id="leftNav">
-                        <A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=recruiting&amp;d3=index" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Hiring for Employers</A>
+                        <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=recruiting&amp;d3=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Hiring for Employers</A>
                     </td>
                 </tr>
             
                 <tr>
                     <td id="leftNav">
-                        <A href="http://corporate.topcoder.com/tces/?task=MainTask" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TCES Reporting</A><br /><div style="font-size:11px; font-weight:normal; margin-left:10;">Employers log in to access Recruiting Reports</div>
+                        <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/tces/?task=MainTask</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TCES Reporting</A><br /><div style="font-size:11px; font-weight:normal; margin-left:10;">Employers log in to access Recruiting Reports</div>
                     </td>
                 </tr>
                 
