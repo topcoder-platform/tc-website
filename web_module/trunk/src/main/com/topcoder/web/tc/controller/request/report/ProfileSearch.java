@@ -38,31 +38,48 @@ public class ProfileSearch extends Base {
     }
 
     private String buildQuery(TCRequest request){
-        String skills = buildSkillsQuery(request);
-        String demo = buildDemoQuery(request);
+        List[] skills = buildSkillsQuery(request);
+        List[] demo = buildDemoQuery(request);
+        List tables, constraints;
+        (tables = skills[0]).addAll(demo[0]);
+        (constraints = skills[1]).addAll(demo[1]);
+        if(tables.size() == 0){
+            return null;
+        }
         StringBuffer query = new StringBuffer(5000);
-        query.append(skills);
-        if(demo.length() > 0){
-            query.append(" AND coder_id IN (");
-            query.append(demo);
-            query.append(")");
+        query.append("SELECT ");
+        query.append(skills[0].get(0));
+        query.append(".coder_id FROM ");
+        query.append(tables.get(0));
+        query.append('\n');
+        for(int i = 1; i<tables.size(); i++){
+            query.append("     , ");
+            query.append(tables.get(i));
+            query.append('\n');
+        }
+        query.append("  WHERE ");
+        query.append(constraints.get(0));
+        query.append('\n');
+        for(int i = 1; i<constraints.size(); i++){
+            query.append("    AND ");
+            query.append(constraints.get(i));
+            query.append('\n');
         }
         return query.toString();
     }
-    private String buildDemoQuery(TCRequest request){
+    private List[] buildDemoQuery(TCRequest request){
         Enumeration e = request.getParameterNames();
-        ArrayList demos = new ArrayList();
-        StringBuffer query = new StringBuffer(1000);
-        int cnt = 0;
+        List tables = new ArrayList();
+        List constraints = new ArrayList();
         while (e.hasMoreElements()) {
             String param = (String) e.nextElement();
             String[] values = request.getParameterValues(param);
             if (param.startsWith("demo_") && values != null && values.length > 0) {
+                StringBuffer query = new StringBuffer(100);
                 int demoId = Integer.parseInt(param.substring(5));
-                if(cnt > 0){
-                    query.append(" AND coder_id IN (");
-                }
-                query.append("SELECT coder_id FROM demographic_response WHERE demographic_question_id = ");
+                query.append("dr");
+                query.append(demoId);
+                query.append(".demographic_question_id = ");
                 query.append(demoId);
                 query.append(" AND demographic_answer_id ");
                 int ans = Integer.parseInt(values[0]);
@@ -80,49 +97,40 @@ public class ProfileSearch extends Base {
                 if(values.length > 1){
                     query.append(")");
                 }
-                cnt++;
+                tables.add("demographic_response dr"+demoId);
+                constraints.add(query.toString());
             }
         }
-        for(int i = 1; i<cnt; i++){
-            query.append(")");
-        }
-        return query.toString();
+        return new List[]{tables,constraints};
     }
-    private String buildSkillsQuery(TCRequest request){
+    private List[] buildSkillsQuery(TCRequest request){
         Enumeration e = request.getParameterNames();
         ArrayList skills = new ArrayList();
+        List tables = new ArrayList();
+        List constraints = new ArrayList();
         while (e.hasMoreElements()) {
             String param = (String) e.nextElement();
             String[] values = request.getParameterValues(param);
             if (param.startsWith("skillset") && values != null && values.length > 0) {
-                skills.addAll(Arrays.asList(values));
+                for(int i = 0; i<values.length; i++){
+                    int idx = values[i].indexOf("_");
+                    int skillId = Integer.parseInt(values[i].substring(0,idx));
+                    int skillLevel = Integer.parseInt(values[i].substring(idx+1));
+                    StringBuffer query = new StringBuffer(100);
+                    query.append("cs");
+                    query.append(skillId);
+                    query.append(".skill_id = ");
+                    query.append(skillId);
+                    query.append(" AND ");
+                    query.append("cs");
+                    query.append(skillId);
+                    query.append(".ranking >= ");
+                    query.append(skillLevel);
+                    tables.add("coder_skill cs"+skillId);
+                    constraints.add(query.toString());
+                }
             }
         }
-        Collections.sort(skills,new Comparator(){
-            public int compare(Object o1, Object o2){
-                String s1 = (String)o1;
-                String s2 = (String)o2;
-                int skill1 = Integer.parseInt(s1.substring(s1.indexOf("_")+1));
-                int skill2 = Integer.parseInt(s2.substring(s2.indexOf("_")+1));
-                return skill1-skill2;
-            }});
-        StringBuffer query = new StringBuffer(1000);
-        for(int i = 0; i<skills.size(); i++){
-            String s = (String)skills.get(i);
-            int idx=s.indexOf('_');
-            int skillId = Integer.parseInt(s.substring(0,idx));
-            int skillLevel = Integer.parseInt(s.substring(idx+1));
-            query.append("SELECT coder_id FROM coder_skill WHERE skill_id = ");
-            query.append(skillId);
-            query.append(" AND ranking >= ");
-            query.append(skillLevel);
-            if(i+1!=skills.size()){
-                query.append(" AND coder_id IN (");
-            }
-        }
-        for(int i=0; i+1<skills.size(); i++){
-            query.append(")");
-        }
-        return query.toString();
+        return new List[]{tables,constraints};
     }
 }
