@@ -63,7 +63,7 @@
               <P>
               <B>Campaign: <jsp:getProperty name="DemographicTask" property="CampaignName"/></B><BR>
               
-              <% if (DemographicTask.getPositionID()>0) { %>             
+              <% if (DemographicTask.getJobID()>0) { %>             
               Position: <B><jsp:getProperty name="DemographicTask" property="PositionName"/></B><BR>
               <% } %>
               </P>
