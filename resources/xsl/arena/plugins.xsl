@@ -55,6 +55,21 @@
 </P>
 
 <P CLASS="statText">
+Plugin Name: RonProc<BR/>
+Description: A plugin to extract test cases enabling automated solution testing.<BR/>
+Author: b0b0b0b<BR/>
+Date: 6/13/2002<BR/>
+Instructions: <A HREF="/contest/classes/RonProc.htm" CLASS="statText">Documentation >></A><BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/RonProc_1_0_0.htm" CLASS="statText">Release Notes >></A><BR/
+>
+Version: 1.00<BR/>
+Source: <A HREF="/contest/classes/RonProc.java" CLASS="statText">Source &gt;&gt;</A><BR/>
+EntryPoint: codeprocessor.EntryPoint (case sensitive)<BR/>
+ClassPath: CodeProcessor.jar; FileEdit.jar; ProblemParser.jar<BR/>
+<A HREF="/contest/classes/RonProc.jar" CLASS="statText">RonProc.jar Plugin &gt;&gt;</A><BR/>
+</P>
+
+<P CLASS="statText">
 Plugin Name: ProblemParser<BR/>
 Description: A plugin to parse the problem statement.<BR/>
 Author: kyky<BR/>
