@@ -33,7 +33,7 @@ public class CacheClientPool {
     }
 
     private void buildPool() {
-        log.debug("refreshing the cache client pool");
+        log.info("building cache client pool with " + POOL_SIZE + " clients");
         for (int i=0; i<POOL_SIZE; i++) {
             if (cacheClients[i]==null) {
                 cacheClients[i] = CacheClientFactory.createCacheClient();
