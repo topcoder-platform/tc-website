@@ -288,6 +288,42 @@ public final class TaskDevelopment {
                     requiresLogin = true;
                 }
             }
+            else if (command.equals("comp_archive")) {
+               Request dataRequest = null;
+               ResultSetContainer rsc = null;
+               Map resultMap = null;
+               log.debug("getting dai");
+               dataRequest = new Request();
+               dataRequest.setContentHandle("open_projects");
+
+               DataAccessInt dai = new DataAccess((javax.sql.DataSource)
+                        TCContext.getInitial().lookup(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+               log.debug("got dai");
+
+               resultMap = dai.getData(dataRequest);
+               log.debug("got map");
+               rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
+
+
+               ResultSetContainer rscStatus = null;
+               resultMap = null;
+               dataRequest = new Request();
+               dataRequest.setContentHandle("project_status");
+
+               dai = new DataAccess((javax.sql.DataSource)
+                        TCContext.getInitial().lookup(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+
+               resultMap = dai.getData(dataRequest);
+               log.debug("got map");
+               rscStatus = (ResultSetContainer) resultMap.get("project_status");
+
+               devTag.addTag(rsc.getTag("projects", "project"));
+               devTag.addTag(rscStatus.getTag("reviews", "status"));
+                xsldocURLString = XSL_DIR + command + ".xsl";
+
+            }
             /********************** tcs_send *******************/
             else if (command.equals("tcs_send")) {
                    /********** SHOULD BE A FUNCTION ****************/
@@ -380,81 +416,9 @@ public final class TaskDevelopment {
                         log.debug("got user");
                     }
                     catch (NoSuchUserException noSuchUserException)
-	            {
-                        RegistrationInfo registration = new RegistrationInfo();
-
-                        registration.setUsername(handle);
-                        registration.setPassword(user.getPassword());
-                        registration.setEmail(from);
-                        registration.setFirstName(coder.getFirstName());
-                        registration.setLastName(coder.getLastName());
-
-                        String address = coder.getHomeAddress1();
-                        if(coder.getHomeAddress2() != null)
-                        {
-                          address = address + " " + coder.getHomeAddress2();
-                        }
-                        registration.setAddress(address.trim());
-
-                        registration.setCity(coder.getHomeCity());
-                        registration.setPostalcode(coder.getHomeZip());
-                        String[] phoneParts = setFields(coder.getHomePhone());
-                        registration.setPhoneCountry(phoneParts[0]);
-                        registration.setPhoneArea(phoneParts[1]);
-                        registration.setPhoneNumber(phoneParts[2]);
-                        registration.setUseComponents(false);
-                        registration.setUseConsultants(false);
-                        registration.setReceiveNews(false);
-                        registration.setNewsInHtml(false);
-                        registration.setTechnologies(new java.util.ArrayList());
-                        registration.setCompanySize(1L);
-
-
-                        Context ctx = TCContext.getInitial();
-                        dai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-
-                        String companyName = "";
-                        //coder is a professional
-                        if(coder.getCoderType().getCoderTypeId() == 2)
-                        {
-
-                           Request companyRequest = new Request(); companyRequest.setContentHandle("user_company_name");
-                           companyRequest.setProperty("cr", "" + nav.getUserId());
-                           java.util.Map companyMap = dai.getData(companyRequest);
-                           ResultSetContainer companyRsc = (ResultSetContainer)companyMap.get("user_company_name");
-
-                           if (companyRsc.size() == 1) {
-
-                              companyName = (String)companyRsc.getItem(0, "company_name").getResultData();
-                           }
-                        }
-                        else //coder is a student
-                        {
-
-                            Request schoolRequest = new Request(); schoolRequest.setContentHandle("user_school_name");
-                            schoolRequest.setProperty("cr", "" + nav.getUserId());
-                            java.util.Map schoolMap = dai.getData(schoolRequest);
-                            ResultSetContainer schoolRsc = (ResultSetContainer)schoolMap.get("user_school_name");
-                            if (schoolRsc.size() == 1) {
-                               companyName = (String)schoolRsc.getItem(0, "school_name").getResultData();
-                               //this cat doesn't have a company associated...
-                            }
-
-                        }
-                        registration.setCompany(companyName);
-
-                        PricingTier pt = new PricingTier(1, 5.0);
-                        registration.setPricingTier(pt);
-
-                        log.debug("Registering user");
-                        com.topcoder.dde.user.User tcsUser = USER_MANAGER.register(registration, false);
-                        userId = tcsUser.getId();
-                        log.debug("Registered user");
-                        tcsUser.setStatus(com.topcoder.dde.user.UserStatus.ACTIVE);
-                        log.debug("Updating user");
-                        USER_MANAGER.updateUser(tcsUser);
-                        log.debug("Updated user");
-
+	                {
+                        log.error("noSuchUserException: " +handle+ noSuchUserException);
+                        throw noSuchUserException;
 
                     }
                     catch (Exception e) {
@@ -727,5 +691,6 @@ public final class TaskDevelopment {
        return catalog;
     }
 
-
+     
+   
 }
