@@ -94,7 +94,7 @@
                                                     </p>
 
                                                     <p>The Gentiva Order Processing application gives users the ability to track
-                                                        and process incoming health care orders from Gentiva’s ordering software.
+                                                        and process incoming health care orders from the Gentiva ordering software.
                                                         This processing consists of submitting the orders to one of several back-end
                                                         systems as well as flagging orders for supervisor review.
                                                     </p>
