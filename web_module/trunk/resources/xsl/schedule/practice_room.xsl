@@ -48,7 +48,7 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P>The Practice Rooms in the TopCoder Arena Applet are open to both members and guests. As a guest you can access the problems for either division, code a solution, and submit the 
+<P>The Practice Rooms in the TopCoder Arena Applet are open to both members. When logged in you can access the problems for either division, code a solution, and submit the
 solution to see the possible point value. In addition, you can view the submissions of participating members from previous match dates.
 <BR/><BR/>
 <SPAN CLASS="bodyTextBold">Note:</SPAN> Any use of the TopCoder Arena, including the Practice Room, is limited to personal, non-commercial or educational purposes only.</P>
