@@ -167,12 +167,12 @@ public class TransactionServlet extends HttpServlet {
             try {
                 TransactionInfo txInfo = buildTermsTransactionInfo(req, resp);
                 req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
-            } catch (Exception e) { // possible parameters are wrong
+                req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+              } catch (Exception e) { // possible parameters are wrong
                 e.printStackTrace();
                 req.setAttribute(KEY_EXCEPTION, e);
                 req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
             }
-            req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
         } else if (OP_TX_BEGIN.equals(op)) {
             try {
                 //only begin if they have agreed to terms.
@@ -200,10 +200,8 @@ public class TransactionServlet extends HttpServlet {
                 resp.setStatus(HttpServletResponse.SC_OK);
             } catch (Exception e) {
                 try {
-
-                    ((TransactionInfo) currentTransactions.get(transactionKey(req))).setTcExc(e);
-                } catch (Exception ignore) {
-                }
+                  ((TransactionInfo) currentTransactions.get(transactionKey(req))).setTcExc(e);
+                } catch (Exception ignore) { }
 
                 log.error("Can't complete CC Tx", e);
                 resp.setStatus(HttpServletResponse.SC_ACCEPTED);
