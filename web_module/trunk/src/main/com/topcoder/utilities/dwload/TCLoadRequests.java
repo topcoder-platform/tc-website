@@ -51,7 +51,8 @@ public class TCLoadRequests extends TCLoad {
             " , session_id" +
             " , timestamp" +
             " from request" +
-            " where timestamp > ?";
+            " where timestamp > ?" +
+            "   and timestamp <= ?";
 
     private final static String ADD_SITE_HIT =
             " insert into site_hit (coder_id, url_id, timestamp, session_id, calendar_id)" +
@@ -60,6 +61,7 @@ public class TCLoadRequests extends TCLoad {
     private static final String CREATE_URL =
             " insert into url (url, coder_id, round_id, page_name) " +
             " values (?, ?, ?, ?)";
+
     private static final String UPDATE_LOG =
             "INSERT INTO update_log " +
             "      (log_id " +
@@ -67,6 +69,10 @@ public class TCLoadRequests extends TCLoad {
             "       ,timestamp " +
             "       ,log_type_id) " +
             " VALUES (0, ?, ?, ?)";
+
+    private static final String GET_CURRENT =
+            " select current from dual";
+
 
     public TCLoadRequests() {
         //DEBUG = false;
@@ -84,7 +90,7 @@ public class TCLoadRequests extends TCLoad {
      */
     public void performLoad() throws Exception {
         try {
-            fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
+            fStartTime = getCurrentTime();
             log.info("It is now " + fStartTime.toString());
 
 /*
@@ -168,6 +174,7 @@ public class TCLoadRequests extends TCLoad {
         try {
             psSel = prepareStatement(REQUEST_LIST, SOURCE_DB);
             psSel.setTimestamp(1, fLastWebLogTime);
+            psSel.setTimestamp(2, fStartTime);
 
             rs = psSel.executeQuery();
             URL url = null;
@@ -373,6 +380,30 @@ public class TCLoadRequests extends TCLoad {
             close(psUpd);
         }
     }
+
+    private Timestamp getCurrentTime() throws Exception {
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Timestamp ret = null;
+        try {
+            ps = prepareStatement(GET_CURRENT, TARGET_DB);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                ret = rs.getTimestamp(1);
+            }
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'request' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+        }
+        return ret;
+    }
+
+
 
     private static HashMap pageNameMap = new HashMap();
 
