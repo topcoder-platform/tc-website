@@ -26,7 +26,7 @@
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -42,7 +42,7 @@
 			</span>
 
 			<br/><br/>
-         Registration for the Google Code Jam 2004 is officially closed.
+         Registration for the Google India Code Jam 2005 is officially closed.
 			<br/><br/>
 			<br/><br/>
 			<br/><br/>

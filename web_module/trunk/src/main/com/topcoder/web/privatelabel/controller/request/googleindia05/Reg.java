@@ -7,6 +7,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.Request;
 
 import java.util.Map;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author  dok
@@ -15,9 +17,25 @@ import java.util.Map;
  */
 public class Reg extends FullReg {
     protected void setNextPage() {
-        //reg closed
-        setNextPage(Constants.GOOGLE_INDIA_05_REG_PAGE);
-        setIsNextPageInContext(true);
+        //public final void set(int year, int month, int date, int hour, int minute)
+
+        Calendar now = Calendar.getInstance();
+        now.setTime(new Date());
+
+        //closes on february 25 at 1800 inida time
+        Calendar end = Calendar.getInstance();
+        end.set(2005, Calendar.FEBRUARY, 25, 7, 30);
+
+        if (now.after(end)) {
+            setNextPage(Constants.GOOGLE_INDIA_05_REG_CLOSED_PAGE);
+            setIsNextPageInContext(true);
+        } else {
+            setNextPage(Constants.GOOGLE_INDIA_05_REG_PAGE);
+            setIsNextPageInContext(true);
+        }
+
+
+
     }
 
     protected ResultSetContainer getCountryList() throws TCWebException {
