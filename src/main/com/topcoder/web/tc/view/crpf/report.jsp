@@ -15,7 +15,7 @@
                     <rsc:item row="<%=info%>" name="rank"/>
                 </td>
                 <td>
-                    <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<%=new CoderRatingStyleBean().getStyle(info.getIntItem("rating"))%>"><rsc:item row="<%=info%>" name="handle"/></a><
+                    <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<%=new CoderRatingStyleBean().getStyle(info.getIntItem("rating"))%>"><rsc:item row="<%=info%>" name="handle"/></a>
                 </td>
                 <td>
                     <rsc:item row="<%=info%>" name="rating"/>
