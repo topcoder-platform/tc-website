@@ -13,7 +13,8 @@
 <body bgcolor="#001B35">
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
-<form name="ratings" action="/tc/?module=SubmitRatings" method="GET">
+<form name="ratings" action="/tc/" method="GET">
+<input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
         <tr><td></td>
