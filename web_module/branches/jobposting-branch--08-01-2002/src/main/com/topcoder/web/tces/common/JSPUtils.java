@@ -20,15 +20,14 @@ public class JSPUtils {
 
     private static Logger log = Logger.getLogger(JSPUtils.class);
 
-    /**
-     * Encodes an object based on html encoding scheme.  Escape-out
+    /** Encodes an object based on html encoding scheme.  Escape-out
      * items that are problematic for displaying in internet browsers
      * e.g. extended characters and &gt;, &lt; etc.
      * <b> This object does not deal with spaces and non-breaking spaces since
      * application of that formatting logic is JSP page specific and not
      * well-applied in this object</b>
-     * @param String
-     * @return String the encoded version of the object
+     * @param s The string to be encoded.
+     * @return The encoded version of the object
      */
     public static String htmlEncode(String s) {
         StringBuffer sb = new StringBuffer();
@@ -62,12 +61,11 @@ public class JSPUtils {
         return sb.toString();
     }
 
-    /**
-     * Encodes an object based on html encoding scheme.  If object is null, return
+    /** Encodes an object based on html encoding scheme.  If object is null, return
      * &quot;&quot; else we use obj.toString and return the encoded value of that
      * method call
-     * @param Object
-     * @return String the encoded version of the object
+     * @param obj The object to be encoded
+     * @return The encoded version of the object
      */
     public static String htmlEncode(Object obj) {
         if (obj != null)
@@ -76,6 +74,13 @@ public class JSPUtils {
             return "";
     }
 
+    /** Formats a TCResultItem as an elapsed time in minutes and
+     * seconds. The TCResultItem must contain a numeric value,
+     * which is taken to be an elapsed time expressed in
+     * milliseconds.
+     * @param result The TCResultItem containing an elapsed time in milliseconds.
+     * @return The time value expressed as minutes and seconds.
+     */    
     public static String timeFormat(TCResultItem result) {
         double millisec = Double.parseDouble(result.toString());
         int sec = (int)(millisec / 1000);
@@ -84,6 +89,14 @@ public class JSPUtils {
         return min + " mins " + sec + " secs";
     }
 
+    /** Formats a TCResultItem as a string according to the default
+     * TCES rules. Floating-point numeric values are formatted
+     * with TCESConstants.NUMBER_FORMAT, and timestamps are
+     * formatted with TCESConstants.DATE_FORMAT. All other types
+     * use their standard toString() methods.
+     * @param result The TCResultItem to be formatted.
+     * @return The formatted text string.
+     */    
     public static String autoFormat(TCResultItem result) {
         switch(result.getType()){
             case TCResultItem.DOUBLE:
@@ -99,6 +112,17 @@ public class JSPUtils {
         }
     }
 
+    /** Sorts a list of Maps by the values in a given field. The
+     * Maps typically represent rows in a data table, and the
+     * fields are columns in the table. In this context, this
+     * method sorts the rows in a table by the values in a given
+     * column.
+     * @param mapList The list of Maps to be sorted.
+     * @param fieldName The name of the field by which the Maps will be sorted.
+     * @param ascending The sort direction, <CODE>true</CODE> = ascending,
+     * <CODE>false</CODE> = descending.
+     * @return The sorted list of Maps.
+     */    
     public static ArrayList sortMapList(List mapList, String fieldName, boolean ascending) {
         TreeMap mapsMap = new TreeMap();
         ArrayList sortedMapList = new ArrayList();

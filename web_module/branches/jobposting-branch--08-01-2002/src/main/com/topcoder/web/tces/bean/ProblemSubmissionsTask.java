@@ -18,9 +18,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author  George Dean
+/** Processes the problem submissions task.
+ * @author George Dean
  */
 public class ProblemSubmissionsTask extends BaseTask implements Task, Serializable {
 
@@ -45,6 +44,11 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         uid=-1;
     }
 
+    /** Performs pre-processing for the task.
+     * @param request The servlet request object.
+     * @param response The servlet response object.
+     * @throws Exception
+     */    
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -58,6 +62,10 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         uid = Authentication.userLoggedIn(session);
     }
 
+    /** Processes the given step or phase of the task.
+     * @param step The step to be processed.
+     * @throws Exception
+     */    
     public void processStep(String step) throws Exception {
         viewProblemSubmissions();
     }
@@ -98,6 +106,10 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         setNextPage( TCESConstants.PROBLEM_SUBMISSIONS_PAGE );
     }
 
+    /** Sets attributes for the task.
+     * @param paramName The name of the attribute being set.
+     * @param paramValues The values to be associated with the given attribute.
+     */    
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());

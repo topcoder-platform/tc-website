@@ -236,6 +236,12 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     }
 
 
+    /** Gets a statistic about the coder's Division I performance.
+     * @param name The name of the statistic to be retrieved.
+     * @return The value of the statistic, or an empty string if
+     * the requested item is not found.
+     *
+     */    
     public String getDivIStatistic(String name){
         try{
             return JSPUtils.autoFormat(getDivIStats().getItem(name));
@@ -246,6 +252,12 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         }
     }
 
+    /** Gets a statistic about the coder's Division II performance.
+     * @param name The name of the statistic to be retrieved.
+     * @return The value of the statistic, or an empty string if
+     * the requested item is not found.
+     *
+     */    
     public String getDivIIStatistic(String name){
         try{
             return JSPUtils.autoFormat(getDivIIStats().getItem(name));
@@ -256,6 +268,11 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         }
     }
 
+    /** Performs pre-processing for the task.
+     * @param request The servlet request object.
+     * @param response The servlet response object.
+     * @throws Exception
+     */    
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -269,6 +286,11 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         uid = Authentication.userLoggedIn(session);
     }
 
+    /** Performs post-processing for the task.
+     * @param request The servlet request object.
+     * @param response The servlet response object.
+     * @throws Exception
+     */    
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
 
@@ -290,6 +312,10 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     }
 
+    /** Processes the given step or phase of the task.
+     * @param step The step to be processed.
+     * @throws Exception
+     */    
     public void processStep(String step)
         throws Exception
     {
@@ -455,6 +481,10 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         setNextPage( TCESConstants.MEMBER_PROFILE_PAGE );
     }
 
+    /** Sets attributes for the task.
+     * @param paramName The name of the attribute being set.
+     * @param paramValues The values to be associated with the given attribute.
+     */    
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());

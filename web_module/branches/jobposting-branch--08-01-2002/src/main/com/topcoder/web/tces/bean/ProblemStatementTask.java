@@ -21,9 +21,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author  George Dean
+/** Processes the problem statement task.
+ * @author George Dean
  */
 public class ProblemStatementTask extends BaseTask implements Task, Serializable {
 
@@ -84,6 +83,11 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         return stBuffer.toString();
     }
 
+    /** Performs pre-processing for the task.
+     * @param request The servlet request object.
+     * @param response The servlet response object.
+     * @throws Exception
+     */    
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -97,6 +101,10 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
          uid = Authentication.userLoggedIn(session);
     }
 
+    /** Processes the given step or phase of the task.
+     * @param step The step to be processed.
+     * @throws Exception
+     */    
     public void processStep(String step) throws Exception {
         viewProblemStatement();
     }
@@ -138,6 +146,10 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         setNextPage( TCESConstants.PROBLEM_STATEMENT_PAGE );
     }
 
+    /** Sets attributes for the task.
+     * @param paramName The name of the attribute being set.
+     * @param paramValues The values to be associated with the given attribute.
+     */    
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());

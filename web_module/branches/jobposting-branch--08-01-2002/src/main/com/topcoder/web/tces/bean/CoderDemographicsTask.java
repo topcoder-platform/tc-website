@@ -18,7 +18,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- *
+ * Processes the coder demographics task.
  * @author  George Dean
  */
 public class CoderDemographicsTask extends BaseTask implements Task, Serializable {
@@ -30,10 +30,10 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
     private int jid;
     private int mid;
 
-    /** Holds value of property questionList. */
+    /** Holds a List of ResultSetRows containing demographic questions and the coder's responses. */
     private List questionList;
 
-    /** Holds value of property handle. */
+    /** Holds the coder's handle. */
     private String handle;
 
     /** Creates new CoderDemographicsTask */
@@ -44,6 +44,11 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         uid=-1;
     }
 
+    /** Performs pre-processing for the task.
+     * @param request The servlet request object.
+     * @param response The servlet response object.
+     * @throws Exception
+     */    
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -57,11 +62,15 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         uid = Authentication.userLoggedIn(session);
     }
 
+    /** Processes the given step or phase of the task.
+     * @param step The step to be processed.
+     * @throws Exception
+     */    
     public void processStep(String step) throws Exception {
         viewCoderDemographics();
     }
 
-    public void viewCoderDemographics() throws Exception {
+    private void viewCoderDemographics() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_member_demographics");
 
@@ -108,6 +117,10 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         setNextPage( TCESConstants.CODER_DEMOGRAPHICS_PAGE );
     }
 
+    /** Sets attributes for the task.
+     * @param paramName The name of the attribute being set.
+     * @param paramValues The values to be associated with the given attribute.
+     */    
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());

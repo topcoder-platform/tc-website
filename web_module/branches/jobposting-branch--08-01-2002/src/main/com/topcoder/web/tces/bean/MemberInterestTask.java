@@ -18,9 +18,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author  George Dean
+/** Processes the member interest task.
+ * @author George Dean
  */
 public class MemberInterestTask extends BaseTask implements Task, Serializable {
 
@@ -51,6 +50,11 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         uid=-1;
     }
 
+    /** Performs pre-processing for the task.
+     * @param request The servlet request object.
+     * @param response The servlet response object.
+     * @throws Exception
+     */    
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -64,6 +68,10 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         uid = Authentication.userLoggedIn(session);
     }
 
+    /** Processes the given step or phase of the task.
+     * @param step The step to be processed.
+     * @throws Exception
+     */    
     public void processStep(String step) throws Exception {
         viewMemberInterest();
     }
@@ -115,6 +123,10 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         setNextPage( TCESConstants.MEMBER_INTEREST_PAGE );
     }
 
+    /** Sets attributes for the task.
+     * @param paramName The name of the attribute being set.
+     * @param paramValues The values to be associated with the given attribute.
+     */    
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
@@ -211,15 +223,15 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         this.campaignName = campaignName;
     }
 
-    /** Getter for property memberHitList.
-     * @return Value of property memberHitList.
+    /** Getter for property hitList.
+     * @return Value of property hitList.
      */
     public List getHitList() {
         return this.hitList;
     }
 
-    /** Setter for property memberHitList.
-     * @param memberHitList New value of property memberHitList.
+    /** Setter for property hitList.
+     * @param hitList New value of property hitList.
      */
     public void setHitList(List hitList) {
         this.hitList = hitList;
