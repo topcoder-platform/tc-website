@@ -46,8 +46,8 @@ public final class ReportServlet extends HttpServlet {
         Integer reportId = null;
         ReportNode reportList = null;
         try {
-            task = (String) request.getParameter(Constants.TASK_NAME_KEY);
-            response_addr = (String) request.getParameter(Constants.RESPONSE_ADDR_KEY);
+            task = request.getParameter(Constants.TASK_NAME_KEY);
+            response_addr = request.getParameter(Constants.RESPONSE_ADDR_KEY);
 
             if (response_addr == null) response_addr = Constants.REPORT_HOME_ADDR;
 
