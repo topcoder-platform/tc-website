@@ -29,7 +29,8 @@
                     <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
                         <scre>
-                        <screen:resultSetRowIterator id="row" list="<%=(java.util.List) request.getAttribute(Constants.COMPANY_INFO)%>">
+                        <screen:resultSetRowIterator id="row"
+                                list="<%=(java.util.List) request.getAttribute(Constants.COMPANY_INFO)%>">
                         Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
                         </screen:resultSetRowIterator>
                         </p>
@@ -51,17 +52,18 @@
                     int counter = 0;
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                 %>
-                <screen:resultSetRowIterator id="row" list="<%=(java.util.List) request.getAttribute(Constants.COMPANY_CAMPAIGNS_LIST)%>">
+                <screen:resultSetRowIterator id="row"
+                        list="<%=(java.util.List) request.getAttribute(Constants.COMPANY_CAMPAIGNS_LIST)%>">
                 <tr>
-                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="nowrap">
+                    <td class="<%=cssClasses[counter % 2]%>" nowrap="nowrap">
                         <a href="/corp/testing/results/campaignResults.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />">
                             <screen:resultSetItem row="<%=row%>" name="campaign_name" />
                         </a>
                     </td>
-                    <td class="<%=cssClasses[counter++ % 2]%>" align="center">
+                    <td class="<%=cssClasses[counter % 2]%>" align="center">
                         <screen:resultSetItem row="<%=row%>" name="most_recent_activity" />
                     </td>
-                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="right">
+                    <td class="<%=cssClasses[counter % 2]%>" nowrap="right">
                         <screen:resultSetItem row="<%=row%>" name="candidates_num" />
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
