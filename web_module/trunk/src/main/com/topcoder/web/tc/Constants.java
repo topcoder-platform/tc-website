@@ -148,7 +148,14 @@ public class Constants {
     
     public static int PREFERENCE_SINGLE_ANSWER;
     public static int PREFERENCE_MULTIPLE_ANSWER;
-    public static String PREFERENCE_PREFIX; 
+    public static String PREFERENCE_PREFIX;
+    
+    public static String PREFERENCE_CONTRACTING;
+    public static String PREFERENCE_CONTRACTING_TRUE;
+    public static String PREFERENCE_CONTRACTING_FALSE;
+    public static String PREFERENCE_PERMANENT;
+    public static String PREFERENCE_PERMANENT_TRUE;
+    public static String PREFERENCE_PERMANENT_FALSE;
     
     public static int SKILL_TYPE_LANGUAGES;
 

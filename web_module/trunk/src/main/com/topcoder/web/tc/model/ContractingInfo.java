@@ -18,12 +18,22 @@ public class ContractingInfo implements Serializable {
     private long userID;
     private Hashtable preferences;
     private UploadedFile resume;
+    private boolean edit;
     
     /** Creates a new instance of ContractingInfo */
     public ContractingInfo() {
         userID = 0;
         preferences = new Hashtable();
         resume = null;
+        edit = false;
+    }
+    
+    public boolean isEdit() {
+        return edit;
+    }
+    
+    public void setEdit(boolean b) {
+        edit = b;
     }
     
     public void setResume(UploadedFile u) {
