@@ -122,9 +122,9 @@ public class MainServlet extends HttpServlet {
                     request.setAttribute(Constants.REDIRECT,redirect);
                     request.setAttribute(Constants.MESSAGE_PARAMETER,
                         "You must be logged in to access that resource.");
-                    throw new AnonymousUserException("Login required for "+r.getName());
+//                    throw new AnonymousUserException("Login required for "+r.getName());
                 }else{
-                    throw new PermissionDeniedException("Access denied for "+r.getName());
+//                    throw new PermissionDeniedException("Access denied for "+r.getName());
                 }
             }
             
