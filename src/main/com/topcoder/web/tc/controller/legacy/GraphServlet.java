@@ -10,6 +10,7 @@ import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.fx4m.plot13.HistoryPlot;
 import org.faceless.graph.*;
 import org.faceless.graph.formatter.DateFormatter;
 import org.faceless.graph.formatter.NullFormatter;
@@ -30,6 +31,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.Map;
+import java.sql.Date;
 
 /**
  *  A servlet to generate graph images
@@ -748,6 +750,7 @@ public final class GraphServlet extends HttpServlet {
      * Builds a line graph that plots a coder's rating history.
      ****************************************************************************************
      */
+/*
     private static byte[] getRatingsHistory(RequestInt dataRequest)
             throws NavigationException {
         log.debug("taskGraph:getRatingsHistory called...");
@@ -807,10 +810,10 @@ public final class GraphServlet extends HttpServlet {
         }
     }
 
+*/
 
 
 
-/*
     private static byte[] getRatingsHistory(RequestInt dataRequest)
             throws NavigationException {
         log.debug("taskGraph:getRatingsHistory called...");
@@ -822,11 +825,9 @@ public final class GraphServlet extends HttpServlet {
 
         try {
 
-
             dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Rating_History_Graph");
-
 
             if (rsc != null) {
                 Date[] dates = new Date[rsc.size()];
@@ -837,35 +838,7 @@ public final class GraphServlet extends HttpServlet {
                     dates[i] = (Date) rsr.getItem("date").getResultData();
                     ratings[i] = rsr.getIntItem("rating");
                 }
-                String fileName = rsc.getItem(0, "coder_id").toString() + "_rhplot.png";
-                HistoryPlot h = new HistoryPlot();
-                h.plot(ratings, dates, rsc.getItem(0, "handle").toString(), fileName);
-                FileInputStream fis = new FileInputStream(fileName);
-                while (fis.available() > 0) {
-                    int size = 10240;
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream(size);
-                    byte[] buf = new byte[size];
-                    int offset = 0;
-                    while (fis.available() >= 0) {
-                        int j;
-                        j = fis.read(buf, offset, size - offset);
-                        if (j == -1)
-                            break;
-                        if (j <= 0)
-                            throw new IOException("read returned " + j);
-                        offset += j;
-                        if (offset < size)
-                            continue;
-
-                        baos.write(buf);
-                        offset = 0;
-                    }
-
-                    if (offset > 0)
-                        baos.write(buf, 0, offset);
-
-                    return baos.toByteArray();
-                }
+                return HistoryPlot.plot(ratings, dates, rsc.getItem(0, "handle").toString());
             }
 
         } catch (Exception e) {
@@ -875,7 +848,7 @@ public final class GraphServlet extends HttpServlet {
         }
         return null;
     }
-*/
+
 
     private static byte[] getRatingsDistribution(RequestInt dataRequest)
             throws NavigationException {
