@@ -5,8 +5,6 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.web.common.security.WebAuthentication;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpUtils;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -31,7 +29,7 @@ public class SessionInfo implements Serializable {
 
     public SessionInfo() { }
 
-    public SessionInfo(HttpServletRequest request, WebAuthentication authentication, Set groups) throws Exception {
+    public SessionInfo(TCRequest request, WebAuthentication authentication, Set groups) throws Exception {
         userid = authentication.getActiveUser().getId();
         handle = authentication.getActiveUser().getUserName();
 
@@ -45,7 +43,11 @@ public class SessionInfo implements Serializable {
         servletPath = request.getContextPath() + request.getServletPath();
         String query = request.getQueryString();
         queryString = (query==null) ? ("") : ("?"+query);
-        requestString = HttpUtils.getRequestURL(request) + queryString;
+        StringBuffer buf = new StringBuffer(200);
+        buf.append(request.getMethod()).append(" ");
+        buf.append(request.getServerName());
+        buf.append(queryString);
+        requestString = buf.toString();
 
         isLoggedIn = !authentication.getUser().isAnonymous();
         log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +

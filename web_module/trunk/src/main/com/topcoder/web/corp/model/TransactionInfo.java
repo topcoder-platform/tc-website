@@ -2,6 +2,8 @@ package com.topcoder.web.corp.model;
 
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCRequestFactory;
 import com.topcoder.web.ejb.product.*;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.user.ContactHome;
@@ -22,7 +24,6 @@ import com.topcoder.security.RolePrincipal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import javax.naming.NamingException;
 import javax.naming.InitialContext;
 import javax.ejb.CreateException;
@@ -85,7 +86,8 @@ public class TransactionInfo {
 
         // find out purchase parameters
         SessionPersistor store = new SessionPersistor(req.getSession(true));
-        User user = new BasicAuthentication(store, req, resp, BasicAuthentication.CORP_SITE).getUser();
+        TCRequest tcRequest = TCRequestFactory.createRequest(req);
+        User user = new BasicAuthentication(store, tcRequest, resp, BasicAuthentication.CORP_SITE).getUser();
         if (user.isAnonymous()) {
             throw new NotAuthorizedException("User not logged in: " + user.getId());
         } else {

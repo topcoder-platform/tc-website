@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -24,7 +25,7 @@ public class Logout extends Base{
         setIsNextPageInContext(false);
     }
 
-    private void doLegacyCrap(HttpServletRequest request) throws Exception {
+    private void doLegacyCrap(TCRequest request) throws Exception {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
         TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());

@@ -14,6 +14,7 @@ import com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileProblem;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
 
 import javax.servlet.ServletRequest;
 import javax.rmi.PortableRemoteObject;
@@ -22,7 +23,7 @@ import java.util.*;
 public abstract class BaseProfileProcessor extends BaseProcessor {
     private static final int TEST_SET_B_PROBLEM_TYPE = 4;
 
-    protected ProfileInfo buildProfileInfo(ServletRequest request) {
+    protected ProfileInfo buildProfileInfo(TCRequest request) {
         ProfileInfo info = new ProfileInfo();
 
         String id = request.getParameter(Constants.PROFILE_ID);

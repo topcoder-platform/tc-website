@@ -56,11 +56,12 @@ public class ResumeServlet extends BaseServlet {
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
                     log.debug("creating request processor for " + processorName);
+                    TCRequest tcRequest = TCRequestFactory.createRequest(request);
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
                         if (hasPermission(null, resource)) { //not handing over an authentication object
                             rp = (Base) Class.forName(processorName).newInstance();
-                            rp.setRequest(request);
+                            rp.setRequest(tcRequest);
                             rp.setFileUpload(fu);
                             rp.process();
                         } else {

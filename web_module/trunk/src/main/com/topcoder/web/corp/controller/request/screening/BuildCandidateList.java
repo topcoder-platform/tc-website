@@ -35,8 +35,7 @@ public class BuildCandidateList extends BaseProcessor {
             if (map != null && map.size() == 1) {
                 ResultSetContainer result =
                         (ResultSetContainer) map.get(Constants.CANDIDATE_LIST_QUERY_KEY);
-                ServletRequest request = getRequest();
-                request.setAttribute(Constants.CANDIDATE_LIST_QUERY_KEY, result);
+                getRequest().setAttribute(Constants.CANDIDATE_LIST_QUERY_KEY, result);
             }
         } catch (TCWebException e) {
             throw e;

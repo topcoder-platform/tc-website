@@ -49,9 +49,6 @@ public class UpdateCandidate extends BaseProcessor {
     private final int createCoderStatusId;
     private final int maxPasswordSize;
 
-    /** The request variable for this particular processor */
-    private ServletRequest request;
-
     public UpdateCandidate() {
         createCoderStatusId =
                 Integer.parseInt(Constants.UC_CREATE_CODER_STATUS_ID);
@@ -70,11 +67,10 @@ public class UpdateCandidate extends BaseProcessor {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
             }
             try {
-                request = getRequest();
                 CandidateInfo info = new CandidateInfo();
-                if (!buildInfo(request, info)) {
+                if (!buildInfo(getRequest(), info)) {
                     //we must have failed validation
-                    request.setAttribute(Constants.CANDIDATE_INFO, info);
+                    getRequest().setAttribute(Constants.CANDIDATE_INFO, info);
                     setNextPage(Constants.CANDIDATE_SETUP_PAGE);
                     setIsNextPageInContext(true);
                     return;
@@ -185,7 +181,7 @@ public class UpdateCandidate extends BaseProcessor {
      * @throws java.lang.Exception Thrown if the required properties for the CandidateInfo
      *                   object are not in the request or are invalid.
      */
-    private boolean buildInfo(ServletRequest request, CandidateInfo info)
+    private boolean buildInfo(TCRequest request, CandidateInfo info)
             throws Exception {
         String uId = request.getParameter(Constants.CANDIDATE_ID);
         info.setReferrer(request.getParameter(Constants.REFERRER));
@@ -313,8 +309,7 @@ public class UpdateCandidate extends BaseProcessor {
      * @param candidateId  THe id of the created candidate
      */
     private void updateSessionCandidate(long candidateId) {
-        HttpServletRequest request = getRequest();
-        HttpSession session = request.getSession();
+        HttpSession session = getRequest().getSession();
         TestSessionInfo info = (TestSessionInfo)
                 session.getAttribute(Constants.SESSION_INFO);
         if (info != null) {
@@ -328,7 +323,7 @@ public class UpdateCandidate extends BaseProcessor {
      * defaults to the one specified in Constants
      */
     private void determineNextPage() {
-        String referrer = request.getParameter(Constants.REFERRER);
+        String referrer = getRequest().getParameter(Constants.REFERRER);
         if (referrer == null || referrer.trim().equals("")) {
             referrer = Constants.UC_DEFAULT_FORWARD_PROCESSOR;
         }

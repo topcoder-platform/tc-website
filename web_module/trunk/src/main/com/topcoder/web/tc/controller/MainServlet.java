@@ -2,6 +2,8 @@ package com.topcoder.web.tc.controller;
 
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCRequestFactory;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
@@ -31,7 +33,7 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
-    protected SessionInfo createSessionInfo(HttpServletRequest request,
+    protected SessionInfo createSessionInfo(TCRequest request,
                                             WebAuthentication auth, Set groups) throws Exception {
         //todo get rid of this junk, we end up doing all the same stuff anyway, when the navigation object
         //goes, so does this crap

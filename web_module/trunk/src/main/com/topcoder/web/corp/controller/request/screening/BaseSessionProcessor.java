@@ -11,8 +11,6 @@ import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.TestSessionInfo;
 import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Map;
@@ -23,8 +21,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     private static int END = 1;
 
     protected TestSessionInfo getSessionInfo() {
-        HttpServletRequest request = getRequest();
-        HttpSession session = request.getSession();
+        HttpSession session = getRequest().getSession();
         TestSessionInfo info = (TestSessionInfo)
             session.getAttribute(Constants.SESSION_INFO);
         if(info == null) {
@@ -36,8 +33,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     }
 
     protected void clearSessionInfo() {
-        HttpServletRequest request = getRequest();
-        HttpSession session = request.getSession();
+        HttpSession session = getRequest().getSession();
         session.removeAttribute(Constants.SESSION_INFO);
 
     }
@@ -45,19 +41,18 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     protected void updateSessionInfo() {
         TestSessionInfo info = getSessionInfo();
 
-        ServletRequest request = getRequest();
-        info.setProfileId(request.getParameter(Constants.PROFILE_ID));
-        info.setCandidateId(request.getParameter(Constants.CANDIDATE_ID));
-        info.setBeginMonth(request.getParameter(Constants.BEGIN_MONTH));
-        info.setBeginDay(request.getParameter(Constants.BEGIN_DAY));
-        info.setBeginYear(request.getParameter(Constants.BEGIN_YEAR));
-        info.setBeginHour(request.getParameter(Constants.BEGIN_HOUR));
-        info.setEndMonth(request.getParameter(Constants.END_MONTH));
-        info.setEndDay(request.getParameter(Constants.END_DAY));
-        info.setEndYear(request.getParameter(Constants.END_YEAR));
-        info.setEndHour(request.getParameter(Constants.END_HOUR));
-        info.setCandidateEmail(request.getParameter(Constants.CANDIDATE_EMAIL));
-        info.setRepEmail(request.getParameter(Constants.REP_EMAIL));
+        info.setProfileId(getRequest().getParameter(Constants.PROFILE_ID));
+        info.setCandidateId(getRequest().getParameter(Constants.CANDIDATE_ID));
+        info.setBeginMonth(getRequest().getParameter(Constants.BEGIN_MONTH));
+        info.setBeginDay(getRequest().getParameter(Constants.BEGIN_DAY));
+        info.setBeginYear(getRequest().getParameter(Constants.BEGIN_YEAR));
+        info.setBeginHour(getRequest().getParameter(Constants.BEGIN_HOUR));
+        info.setEndMonth(getRequest().getParameter(Constants.END_MONTH));
+        info.setEndDay(getRequest().getParameter(Constants.END_DAY));
+        info.setEndYear(getRequest().getParameter(Constants.END_YEAR));
+        info.setEndHour(getRequest().getParameter(Constants.END_HOUR));
+        info.setCandidateEmail(getRequest().getParameter(Constants.CANDIDATE_EMAIL));
+        info.setRepEmail(getRequest().getParameter(Constants.REP_EMAIL));
     }
 
     protected boolean validateSessionInfo() throws Exception {

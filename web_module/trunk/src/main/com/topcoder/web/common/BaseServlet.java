@@ -19,7 +19,6 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
-import java.util.Enumeration;
 
 /**
  * A base implementation for TC servlets.  It should provide
@@ -98,10 +97,11 @@ public abstract class BaseServlet extends HttpServlet {
 
         try {
 
+            TCRequest tcRequest = TCRequestFactory.createRequest(request);
             //set up security objects and session info
-            authentication = createAuthentication(request, response);
+            authentication = createAuthentication(tcRequest, response);
             TCSubject user = getUser(authentication.getActiveUser().getId());
-            info = createSessionInfo(request, authentication, user.getPrincipals());
+            info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
             request.setAttribute(SESSION_INFO_KEY, info);
 
             StringBuffer loginfo = new StringBuffer(100);
@@ -132,7 +132,7 @@ public abstract class BaseServlet extends HttpServlet {
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
                         if (hasPermission(authentication, resource)) {
-                            rp = callProcess(processorName, request, authentication);
+                            rp = callProcess(processorName, tcRequest, authentication);
                         } else {
                             throw new PermissionException(authentication.getActiveUser(), resource);
                         }
@@ -188,7 +188,7 @@ public abstract class BaseServlet extends HttpServlet {
         }
     }
 
-    protected RequestProcessor callProcess(String processorName, HttpServletRequest request,
+    protected RequestProcessor callProcess(String processorName, TCRequest request,
                                            WebAuthentication authentication) throws Exception {
         RequestProcessor rp = null;
 
@@ -203,14 +203,14 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
 
-    protected SessionInfo createSessionInfo(HttpServletRequest request,
+    protected SessionInfo createSessionInfo(TCRequest request,
                                             WebAuthentication auth, Set groups) throws Exception {
         SessionInfo ret = null;
         ret = new SessionInfo(request, auth, groups);
         return ret;
     }
 
-    protected WebAuthentication createAuthentication(HttpServletRequest request,
+    protected WebAuthentication createAuthentication(TCRequest request,
                                                      HttpServletResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
     }

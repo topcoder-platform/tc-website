@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
  * Classes that implement RequestProcessor should contain the
  * business logic to process a request from a servlet controller.
  *
- * Call {@link #setRequest(javax.servlet.http.HttpServletRequest)}
+ * Call {@link #setRequest(com.topcoder.web.common.TCRequest)}
  * and {@link #setAuthentication(com.topcoder.web.common.security.WebAuthentication)}
  * first, then {@link #process()} to process the request, and finally use
  * the accessor methods to see the result.
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface RequestProcessor {
 
-    void setRequest(HttpServletRequest sr);
+    void setRequest(TCRequest sr);
 
     void setAuthentication(WebAuthentication sr);
 

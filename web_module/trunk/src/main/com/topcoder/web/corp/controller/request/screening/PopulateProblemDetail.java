@@ -6,14 +6,11 @@ import com.topcoder.web.corp.model.ProblemInfo;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 
-import javax.servlet.ServletRequest;
-
 public class PopulateProblemDetail extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
-        ServletRequest request = getRequest();
         String roundProblemId =
-                request.getParameter(Constants.ROUND_PROBLEM_ID);
+                getRequest().getParameter(Constants.ROUND_PROBLEM_ID);
 
         if (roundProblemId == null) {
             throw new ScreeningException("Round ID/Problem ID not set");
@@ -36,7 +33,7 @@ public class PopulateProblemDetail extends BaseProcessor {
             throw(new TCWebException(e));
         }
 
-        request.setAttribute(Constants.PROBLEM_INFO, info);
+        getRequest().setAttribute(Constants.PROBLEM_INFO, info);
         setNextPage(Constants.PROBLEM_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }

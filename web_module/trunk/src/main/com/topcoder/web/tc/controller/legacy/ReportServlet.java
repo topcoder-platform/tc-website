@@ -9,6 +9,8 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -191,13 +193,14 @@ public final class ReportServlet extends HttpServlet {
                 }
                 goTo(Constants.JSP_ADDR + response_addr, request, response);
             } else {
+                TCRequest tcRequest = TCRequestFactory.createRequest(request);
                 //have to do all this to be sure that this request is in the info object
                 WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
-                    request, response, BasicAuthentication.MAIN_SITE);
+                    tcRequest, response, BasicAuthentication.MAIN_SITE);
                 PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                         com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
                 TCSubject user = pmgr.getUserSubject(nav.getUserId());
-                CoderSessionInfo ret = new CoderSessionInfo(request, authentication, user.getPrincipals());
+                CoderSessionInfo ret = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
                 nav.setCoderSessionInfo(ret);
 
                 request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +

@@ -24,6 +24,8 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCRequestFactory;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
@@ -139,6 +141,7 @@ public class TransactionServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        TCRequest tcRequest = TCRequestFactory.createRequest(req);
         String op = req.getParameter(KEY_OPERATION);
         req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         WebAuthentication auth = null;
@@ -155,7 +158,7 @@ public class TransactionServlet extends HttpServlet {
         } else if (OP_TERMS.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(req.getSession(true));
-                auth = new BasicAuthentication(store, req, resp, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, resp, BasicAuthentication.CORP_SITE);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 
@@ -227,6 +230,7 @@ public class TransactionServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        TCRequest tcRequest = TCRequestFactory.createRequest(request);
         String op = request.getParameter(KEY_OPERATION);
         request.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         WebAuthentication auth = null;
@@ -242,7 +246,7 @@ public class TransactionServlet extends HttpServlet {
         } else if (OP_TX_BEGIN.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(request.getSession(true));
-                auth = new BasicAuthentication(store, request, response, BasicAuthentication.CORP_SITE);
+                auth = new BasicAuthentication(store, tcRequest, response, BasicAuthentication.CORP_SITE);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 

@@ -1,13 +1,10 @@
 package com.topcoder.common.web.data.report;
 
 import com.topcoder.ejb.Reporting.Reporting;
-import com.topcoder.ejb.Reporting.ReportingHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.io.Serializable;
 import java.util.ArrayList;

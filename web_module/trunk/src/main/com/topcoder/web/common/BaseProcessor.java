@@ -7,7 +7,6 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.naming.Context;
@@ -19,7 +18,7 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     protected static Logger log = Logger.getLogger(BaseProcessor.class);
     /* set by the creator */
-    private HttpServletRequest request;
+    private TCRequest request;
     private WebAuthentication auth;
 
     private InitialContext ctx;
@@ -41,7 +40,7 @@ public abstract class BaseProcessor implements RequestProcessor {
         defaults = new HashMap();
     }
 
-    public void setRequest(HttpServletRequest request) {
+    public void setRequest(TCRequest request) {
         this.request = request;
     }
 
@@ -203,7 +202,7 @@ public abstract class BaseProcessor implements RequestProcessor {
         return auth;
     }
 
-    public HttpServletRequest getRequest() {
+    public TCRequest getRequest() {
         return request;
     }
 

@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.legacy.resume.bean;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCRequestFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.resume.ResumeServices;
@@ -26,7 +27,7 @@ public class DownloadTask extends ResumeTask{
         HttpSession session = request.getSession(true);
         Navigation navigation = (Navigation) session.getAttribute("navigation");
         BasicAuthentication auth = new BasicAuthentication(
-                new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
+                new SessionPersistor(request.getSession()), TCRequestFactory.createRequest(request), response, BasicAuthentication.MAIN_SITE);
         if (navigation==null) navigation = new Navigation();
         if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");

@@ -19,10 +19,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 
-import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
 import java.util.Map;
@@ -35,11 +32,10 @@ public class UpdateProfile extends BaseProfileProcessor {
             }
 
             //validate the info
-            ServletRequest request = getRequest();
-            ProfileInfo info = buildProfileInfo(request);
+            ProfileInfo info = buildProfileInfo(getRequest());
             info.setHasTestSetA(!info.getTestSetA().equals(new Long(Constants.NO_TEST_SET_A)));
             try {
-                request.setAttribute(Constants.PROFILE_INFO, info);
+                getRequest().setAttribute(Constants.PROFILE_INFO, info);
                 if (!validateProfileInfo()) {
                     setNextPage("testing/" + "?" +
                             Constants.MODULE_KEY + "=" +
@@ -169,8 +165,7 @@ public class UpdateProfile extends BaseProfileProcessor {
      * @param profileId  THe id of the created candidate
      */
     private void updateSessionProfile(long profileId) {
-        HttpServletRequest request = getRequest();
-        HttpSession session = request.getSession();
+        HttpSession session = getRequest().getSession();
         TestSessionInfo info = (TestSessionInfo)
                 session.getAttribute(Constants.SESSION_INFO);
         if (info != null) {

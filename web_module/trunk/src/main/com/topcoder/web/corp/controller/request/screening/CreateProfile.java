@@ -25,7 +25,6 @@ public class CreateProfile extends BaseSessionProcessor {
         }
         updateSessionInfo();
 
-        ServletRequest request = getRequest();
 
         //need to start off with all languages set on profile page
         Request dataRequest = new Request();
@@ -45,7 +44,7 @@ public class CreateProfile extends BaseSessionProcessor {
                             (ResultSetContainer.ResultSetRow) i.next();
                     info.addLanguage(row.getItem("language_id").toString());
                 }
-                request.setAttribute(Constants.PROFILE_INFO, info);
+                getRequest().setAttribute(Constants.PROFILE_INFO, info);
             }
         } catch (TCWebException e) {
             throw e;

@@ -1,13 +1,11 @@
 package com.topcoder.common.web.util;
 
 import com.topcoder.ejb.DataCache.DataCache;
-import com.topcoder.ejb.DataCache.DataCacheHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.net.InetAddress;
 

@@ -16,12 +16,11 @@ public class AddProfileProblems extends BaseProfileProcessor {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
-        ServletRequest request = getRequest();
-        ProfileInfo info = buildProfileInfo(request);
+        ProfileInfo info = buildProfileInfo(getRequest());
 
-        info.addTestSetB(request.getParameterValues(Constants.TEST_SET_B_ADD));
+        info.addTestSetB(getRequest().getParameterValues(Constants.TEST_SET_B_ADD));
 
-        request.setAttribute(Constants.PROFILE_INFO, info);
+        getRequest().setAttribute(Constants.PROFILE_INFO, info);
         setNextPage("testing/" + "?" +
                 Constants.MODULE_KEY + "=" +
                 Constants.POPULATE_PROFILE_PROCESSOR);
