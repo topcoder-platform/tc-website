@@ -173,7 +173,7 @@ public class RegistrationHelper {
     Map map=new HashMap();
 
     map.put(DataAccessConstants.COMMAND,"student_data");
-    map.put(USER_ID_INPUT_CODE,new Long(_sib.getUserId()));
+    map.put(USER_ID_INPUT_CODE,new Integer((int)_sib.getUserId()));
     Request req=new Request(map);
     Map data=dai.getData(req);
 
