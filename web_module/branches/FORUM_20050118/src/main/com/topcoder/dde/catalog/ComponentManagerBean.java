@@ -940,6 +940,14 @@ log.debug("qq before if");
                     pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DEVELOPMENT), requestor);
 
                 log.debug("WinnerId=" + project.getWinner().getId());
+
+                NotificationHome notificationHome = (NotificationHome)
+                        PortableRemoteObject.narrow(
+                        homeBindings.lookup(NotificationHome.EJB_REF_NAME),
+                        NotificationHome.class);
+
+                Notification notification = notificationHome.create();
+
                 notification.createNotification("forum post " + project.getForumId(),
                         project.getWinner().getId(),
                         notification.FORUM_POST_TYPE_ID);
