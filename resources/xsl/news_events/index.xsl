@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- SCMP -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=art_12_03_04"><img src="/i/pressroom/scmp_logo.gif" alt="AP" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_12_03_04">Top coders seek bigger prize than cash</A></strong></font><br />
+						At the semi-annual event, held earlier this month in California, four mainland programmers competed in a field of just 24, having beaten out more than 1,500 in preliminary events. To hear them tell it, they came for the networking opportunities as much as for the prize money.<span class="prHead"> [December 3 - SCMP]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- TCO 04 Finalists -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

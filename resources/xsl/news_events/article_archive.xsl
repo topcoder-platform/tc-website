@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_12_03_04">Top coders seek bigger prize than cash</A> [December 3 - SCMP]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.cnn.com/2004/TECH/internet/11/04/us.googlingen.ap/index.html" target="_blank">Brain teasers help Google recruit workers</A> [November 4 - CNN]</td></tr>
 
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_10_25_04">Google's creative search for elite programmers</A> [October 25 - Miami Herald]</td></tr>
