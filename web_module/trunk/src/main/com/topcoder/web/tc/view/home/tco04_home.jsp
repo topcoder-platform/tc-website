@@ -6,7 +6,7 @@
 
                 <%-- update this link every round to match headline --%>
 
-                <A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room1_analysis" target="_top"><img src="/i/promos/tco04_large.gif" alt="2004 TopCoder Open" border="0" /></A><br/>
+                <A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room1_analysis" target="_top"><img src="/i/promos/tco04_headline.gif" alt="2004 TopCoder Open" border="0" /></A><br/>
                 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br/>
             </div>
         </td>
