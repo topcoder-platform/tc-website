@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Verizon Coding Contest Contest Powered by TopCoder</title>
+<title>Verizon Coding Contest Powered by TopCoder</title>
 
 <jsp:include page="../script.jsp" />
 
