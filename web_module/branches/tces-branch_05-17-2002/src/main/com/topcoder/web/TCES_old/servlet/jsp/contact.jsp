@@ -51,7 +51,7 @@
 									CoderBean beanHandle = new CoderBean();
 									CoderObject obj = new CoderObject();
 									obj.coder_id = new Long( (long)user.getUserId() );
-									//obj = beanHandle.request( Coder.SELECT, obj );
+									obj = beanHandle.request( Coder.SELECT, obj );
 							%>
 							
 							<%= obj.last_name %>, <%= obj.first_name %>
