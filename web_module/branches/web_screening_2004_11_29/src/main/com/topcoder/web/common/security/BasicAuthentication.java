@@ -4,7 +4,6 @@ import java.util.*;
 import java.security.*;
 import javax.servlet.http.*;
 import com.topcoder.security.*;
-import com.topcoder.security.admin.*;
 import com.topcoder.security.login.*;
 import com.topcoder.shared.security.*;
 import com.topcoder.shared.util.*;
@@ -80,8 +79,6 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
             long uid = sub.getUserId();
             setCookie(uid, rememberUser);
             setUserInPersistor(makeUser(uid));
-            log.info("login succeeded");
-
         } catch (Exception e) {
             log.info("login failed", e);
             //not necessarily accurate, but gotta say something...
@@ -135,19 +132,6 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
             //log.debug("*** they were live***");
         }
         return u;
-    }
-
-    /** Fill in the name field from the user id. */
-    private User makeUser(long id) {
-        try {
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            UserPrincipal up = pmgr.getUser(id);
-            return new SimpleUser(id, up.getName(), "");
-        } catch (Exception e) {
-            log.warn("caught exception in makeUser with id = " + id, e);
-            e.printStackTrace();
-            return guest;
-        }
     }
 
     /**
@@ -218,17 +202,17 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
         Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
             if(ca[i].getName().equals(USER_COOKIE_NAME)) {
-
+                long uid = -1;
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
-                    long uid = Long.parseLong(st.nextToken());
+                    uid = Long.parseLong(st.nextToken());
                     if (uid<1) continue;
                     String hash = hashForUser(uid);
                     if(!hash.equals(st.nextToken())) continue;
                     return makeUser(uid);
 
                 } catch(Exception e) {
-                    log.error("exception parsing cookie", e);
+                    log.error("exception parsing cookie or invalid user id " + uid, e);
                     /* junk in the cookie, ignore it */
                 }
             }
