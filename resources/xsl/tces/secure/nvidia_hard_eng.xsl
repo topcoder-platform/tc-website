@@ -62,27 +62,21 @@
 
 
 
-<P><B>TECHNICAL MARKETING ENGINEER INTERN</B></P>
-<p>Evaluating our latest GPU characteristics:</p>
+<P><B>HARDWARE ENGINEER - ASIC</B></P>
+<p>Hardware Engineers at NVIDIA design and implement the industry's leading graphics and media communications processors. Specific architectural areas include 2D and 3D graphics, mpeg, video, power management, audio, network protocols, bus protocols, and memory subsystem design.  Candidates should have a solid hardware engineering background with a concentration in VLSI design, including some or all of the following areas: Logic design, General VLSI principles, RTL coding, Synthesis, Timing analysis, or Analog circuit design.</p>
+
+<p>Job Requirements:</p>
 <ul>
-<li>Power consumption</li>
-<li>Power reduction features</li>
-<li>Display interfaces</li>
-<li>Video BIOS</li>
-<li>Drivers</li>
+<li>Minimum GPA 3.5</li>
+<li>BSEE and student in MSEE program.</li>
+<li>Must have strengths in both logic design and verification.</li>
+<li>Job requires fluency in Verilog/VHDL and C or Perl. </li>
+<li>Should have some familiarity with Standard Design/Synthesis and Timing Tools.</li>
+<li>Must have good communication skills and the ability and desire to work as a team.</li>
 </ul>
 
-<p>Interfacing with design engineering, failure analysis, marketing and sales organizations.  
-Verification of schematics and PCB layout.  Ensuring that LCD supplier displays are validated 
-with NVIDIA GPU's.  Interfacing with NVIDIA partners during the design process.  Ensuring 
-that the documentation (datasheets, design guides, and application notes) is accurate and up to date.</p>
 
-<p>Minimum GPA: 3.5</p>
-
-<p>BSEE or Senior standing at an accredited Electrical Engineering program.  Knowledge of PC platform, AGP and PCI interface, LCD displays, display interfaces, LVDS, TMDS, spread-spectrum are plus.  Must have excellent communication skills, be a strong leader, and must be comfortable driving the process to meet deadlines.</p>
-
-
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=203&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=204&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
