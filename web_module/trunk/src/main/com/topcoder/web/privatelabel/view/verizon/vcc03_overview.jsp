@@ -111,8 +111,9 @@
             </p>
             </blockquote>
             <p><span class="bodySubtitle">Can Your Skills Carry You to August 29th?</span><br />
-            Registration for the Verizon Coding Challenge opens on August 4th and closes on August 15th, 2003. Be sure to register early, as Verizon will choose up to 500 
-            programmers to compete in the first round which first round will be held at XXX p.m. on August 20th. 
+            Registration for the Verizon Coding Challenge opens on August 4th and closes on August 15th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
+            register will be invited to compete in Round #1 which will be held at XXX on August 20th. 
+
             </p>
             <p>The competitors with the top 250 scores from the first round will advance to the second round on August 25th. The top 25 performers in the second round will be invited to 
             compete for the large cash prizes onsite at VDSI Chennai on August 29th.
