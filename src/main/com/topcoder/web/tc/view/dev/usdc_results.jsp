@@ -83,7 +83,7 @@
                         </table>
                         
                         <br/>
-                    
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_monthly_results"); %>                    
                         <a name="month"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
@@ -94,23 +94,21 @@
                                 <td class="sidebarTitle" align=center>Start Date</td>
                                 <td class="sidebarTitle" align=center>End Date</td>
                                 <td class="sidebarTitle" align=center>Winner</td>
-                                <td class="sidebarTitle" align=center>Winner<br/>Submission Date</td>
-                                <td class="sidebarTitle" align=center>Score</td>
                                 <td class="sidebarTitle" align=right>Contest Prizes</td>
                             </tr>
+                            <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Month 1</A></td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 9:00AM</td>
-                                <td class="sidebarText" align=center>somedude</td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 8:59AM</td>
-                                <td class="sidebarText" align=center>85.00</td>
-                                <td class="sidebarText" align=right>$1,000</td>
+                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_start_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_end_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
+                                <td class="sidebarText" align=right>$<rsc:item format="#,###0" name="prize_payment" row="<%=resultRow%>"/></td>
                             </tr>
+                            </rsc:iterator>
                         </table>
 
                         <br/>
-
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_quarterly_results"); %>                    
                         <a name="quarter"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
@@ -121,19 +119,17 @@
                                 <td class="sidebarTitle" align=center>Start Date</td>
                                 <td class="sidebarTitle" align=center>End Date</td>
                                 <td class="sidebarTitle" align=center>Winner</td>
-                                <td class="sidebarTitle" align=center>Winner<br/>Submission Date</td>
-                                <td class="sidebarTitle" align=center>Score</td>
                                 <td class="sidebarTitle" align=right>Contest Prizes</td>
                             </tr>
+                            <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Quarter 1</A></td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 9:00AM</td>
-                                <td class="sidebarText" align=center>somedude</td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 8:59AM</td>
-                                <td class="sidebarText" align=center>85.00</td>
-                                <td class="sidebarText" align=right>$1,000</td>
+                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_start_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_end_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
+                                <td class="sidebarText" align=right>$<rsc:item format="#,###0" name="prize_payment" row="<%=resultRow%>"/></td>
                             </tr>
+                            </rsc:iterator>
                         </table>
 
         <p><br/></p>
