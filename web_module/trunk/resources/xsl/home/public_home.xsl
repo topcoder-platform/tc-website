@@ -7,6 +7,12 @@
     <HTML>
       <HEAD>
         <TITLE>TopCoder Home</TITLE>
+<script language="JavaScript">
+  function changeImage(image, newImage) {
+    document[image].src=newImage;
+    return;
+  }
+</script>
         <xsl:call-template name="Preload"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
