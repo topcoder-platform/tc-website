@@ -259,13 +259,11 @@
             </TR>
             <TR><TD COLSPAN="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></TD></TR>
             </FORM>
-
+            <tr><td><br/></td><td><br/></td></tr>
             <TR>
               <TD COLSPAN="2">
-                  <p>
                   *For extended stays in San Jose/USA, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.  Any extra expenses will be the
                   responsibility of the competitor (extra hotel nights, meals, higher air fares, etc.).
-                  </p>
               </TD>
             </TR>
             <tr>
