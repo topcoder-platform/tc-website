@@ -51,11 +51,12 @@
                 <li><strong>Registration</strong><br />
                     Monday, February 1 at 9:00 AM - Monday, February 23 at 9:00 AM</li>
                 <li><strong>Open Qualification Round</strong><br />
-                    Monday, February 23 at 12:00 PM (noon) - Tuesday, February 24 at 12:00 PM (noon)</li>
+                    STARTS: Monday, February 23 at 12:00 PM (noon)<br/>
+                    ENDS: Tuesday, February 24 at 12:00 PM (noon)</li>
                 <li><strong>Elimination Rounds Start</strong><br/>
-                     February 28th, 2004</li>
+                     February 28th</li>
                 <li><strong>Onsite Finals</strong><br />
-                    April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
+                    April 15 & 16 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
                 <li><strong>Free Competition</strong></li>
                 <li><strong>Open to all eligible college students</strong></li>
             </ul>

@@ -46,156 +46,172 @@
             <h2>Schedule</h2>
             
             <p><span class="bodySubtitle">Registration</span><br/>
-            Registration for the 2004 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00am EST 
-            on Monday, February 1, 2004 and will close at 9:00am EST on Monday, February 23, 2004.  In order to 
-            be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member 
+            In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member 
             and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, 
-            however each individual may only register once.</p>
+            however each individual may only register once. Registration for the 2004 TopCoder Collegiate Challenge Algorithm Competition is scheduled as follows:</p>
+
+            <p>
+            OPENS: Monday, February 1 at 9:00 AM<br/>
+            CLOSES: Monday, February 23 at 9:00 AM</p>
 
             <p><span class="bodySubtitle">Open Qualification Round</span><br/>
-            All registered competitors will attempt to qualify for the Algorithm Competition at any time during the 
-            24-hour period starting at 12:00PM EST on Monday, February 23rd and ending at 12:00PM on Tuesday, 
-            February 24th.</p>
+            All registered competitors will attempt to qualify for the Algorithm Competition at any time during the following
+            24-hour period:</p>
             
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="50%">Round</td>
-                    <td class="sidebarTitle" width="50%">Date and Time*</td>
+                    <td class="sidebarTitle" width="30%">Round</td>
+                    <td class="sidebarTitle" width="30%">Date and Time*</td>
+                    <td class="sidebarTitle" width="20%"># of Competitors</td>
+                    <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Qualification Round</td>
                     <td class="sidebarText">
                         START: Monday, February 23<br />
-                        12:00 PM (noon)<br /><br/>
+                        12:00 PM EST(noon)<br /><br/>
                         END: Tuesday, February 24<br />
-                        12:00 PM (noon)
+                        12:00 PM EST(noon)
                     </td>
+                    <td class="sidebarText">All eligible registered competitors</td>
+                    <td class="sidebarText">Top 100 scorers in each of 5 Qualification Round Problems</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event the Qualification Round must be cancelled for any reason, a makeup Qualification Round will begin at 12:00PM noon on Wednesday, February 25th and end at 12:00 PM on Thursday, February 26th.
+                        *NOTE: In the event the Qualification Round must be cancelled for any reason, a makeup Qualification Round will begin at 12:00PM noon on Wednesday, February 25 and end at 12:00 PM on Thursday, February 26.
                     </td>
                 </tr>
             </table><br />
 
-            <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
-            Everyone who competes in an online round must login to the TopCoder Competition Arena no later than 
-            ten minutes prior to the start of the online round. (See below for competition dates and times.) TopCoder 
-            members from around the world may be participating in these rounds, <b>but all start times will be 
-            communicated as Eastern Time, so contestants in different time zones must adjust accordingly</b>. If a 
-            coder does not participate, for any reason, in an online round they have advanced to, it will be treated 
-            as an automatic loss in that round of competition.</p>
-
-            <p><span class="bodySubtitle">Scoring and Advancing during Online Rounds</span><br/>
-            After each round of competition, the winners from each of the assigned rooms will be identified and 
-            will advance to the next online round. Coder advancement in all rounds is determined by comparing 
-            the total point values from all three phases of the round (see Competition Round Structure) for each 
-            coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) 
-            point total. The structure of the online rounds is as follows:</p>
+            <p><span class="bodySubtitle">Online Elimination Rounds</span></p>
 
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="50%">Round</td>
-                    <td class="sidebarTitle" width="50%">Date and Time*</td>
+                    <td class="sidebarTitle" width="30%">Round</td>
+                    <td class="sidebarTitle" width="30%">Date and Time*</td>
+                    <td class="sidebarTitle" width="20%"># of Competitors</td>
+                    <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Online Round #1</td>
                     <td class="sidebarText">
-                        Saturday, February28th<br />
-                        Registration:  9:00 AM - 11:55 AM<br />
-                        Compete: 12:00 PM (noon)<br />
+                        Saturday, February 28<br />
+                        Registration:  9:00 AM - 11:55 AM EST<br />
+                        Compete: 12:00 PM EST(noon)<br />
+                    <td class="sidebarText">500</td>
+                    <td class="sidebarText">200</td>
                     </td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Online Round #2</td>
                     <td class="sidebarText">
-                        Wednesday, March 3rd<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
+                        Wednesday, March 3<br />
+                        Login by:  9:20 PM EST<br />
+                        Compete: 9:30 PM EST<br />
                     </td>
+                    <td class="sidebarText">200</td>
+                    <td class="sidebarText">100</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Online Round #3</td>
                     <td class="sidebarText">
-                        Wednesday, March 10th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
+                        Wednesday, March 10<br />
+                        Login by:  9:20 PM EST<br />
+                        Compete: 9:30 PM EST<br />
                     </td>
+                    <td class="sidebarText">100</td>
+                    <td class="sidebarText">50</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Online Round #4</td>
                     <td class="sidebarText">
-                        Wednesday, March 17th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
+                        Wednesday, March 17<br />
+                        Login by:  9:20 PM EST<br />
+                        Compete: 9:30 PM EST<br />
                     </td>
+                    <td class="sidebarText">50</td>
+                    <td class="sidebarText">24</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Competition Round must be cancelled for any reason, the "raindate"
+                        *NOTE: In the event a round must be cancelled for any reason, the "raindate"
                         will be the following day at the same time.
                     </td>
                 </tr>
             </table><br/>
             
-            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
-            The twenty-four (24) advancers from Online Round #4 will travel to the Boston Park Plaza Hotel & Towers on Wednesday, April 14th to compete in the Semifinal round of the tournament being held on Thursday, April 15th.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 PM on Wednesday, April 14th.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.</p>
+            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span></p>
 
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="50%">Round</td>
-                    <td class="sidebarTitle" width="50%">Date and Time*</td>
+                    <td class="sidebarTitle" width="30%">Round</td>
+                    <td class="sidebarTitle" width="30%">Date and Time*</td>
+                    <td class="sidebarTitle" width="20%"># of Competitors</td>
+                    <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Semifinal Room #1</td>
                     <td class="sidebarText">
-                        Thursday, April 15th<br />
-                        Compete: 10:00 AM<br />
+                        Thursday, April 15<br />
+                        Compete: 10:00 AM EST<br />
                     </td>
+                    <td class="sidebarText">8</td>
+                    <td class="sidebarText">1 - Championship Round<br/>
+                    2 - Wildcard Round</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Semifinal Room #2</td>
                     <td class="sidebarText">
-                        Thursday, April 15th<br />
-                        Compete: 1:00 PM<br />
+                        Thursday, April 15<br />
+                        Compete: 1:00 PM EST<br />
                     </td>
+                    <td class="sidebarText">8</td>
+                    <td class="sidebarText">1 - Championship Round<br/>
+                    2 - Wildcard Round</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Semifinal Room #3</td>
                     <td class="sidebarText">
-                        Thursday, April 15th<br />
-                        Compete: 4:00 PM<br />
+                        Thursday, April 15<br />
+                        Compete: 4:00 PM EST<br />
                     </td>
+                    <td class="sidebarText">8</td>
+                    <td class="sidebarText">1 - Championship Round<br/>
+                    2 - Wildcard Round</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Wildcard Round</td>
                     <td class="sidebarText">
-                        Thursday, April 15th<br />
-                        Compete: 7:00 PM<br />
+                        Thursday, April 15<br />
+                        Compete: 7:00 PM EST<br />
                     </td>
+                    <td class="sidebarText">6</td>
+                    <td class="sidebarText">1 - Championship Round</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText"><strong>Championship Round</strong></td>
                     <td class="sidebarText">
-                        <strong>Friday, April 16th<br />
-                        Compete: 3:00 PM<br /></strong>
+                        <strong>Friday, April 16<br />
+                        Compete: 3:00 PM EST<br /></strong>
                     </td>
+                    <td class="sidebarText"><strong>4</strong></td>
+                    <td class="sidebarText"><strong>1 - Champion</strong></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
+                        *NOTE: The times of the onsite rounds are subject to change.
                     </td>
                 </tr>
             </table><br />
