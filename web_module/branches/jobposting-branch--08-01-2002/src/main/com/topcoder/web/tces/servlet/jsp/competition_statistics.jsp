@@ -235,9 +235,7 @@
                 <tces:rowIterator id="level" rowList="<%=(List)taskBean.getOverallStatsByLevel()%>">
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=taskBean.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=taskBean.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=taskBean.getMemberID()%>&pm=<%= level.getItem("problem_id").toString() %>" class="statText">
                         <b><%= level.getItem("level_desc").toString() %></b>
-                      </A>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -280,9 +278,7 @@
 
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=taskBean.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=taskBean.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=taskBean.getMemberID()%>&pm=<%= level.getItem("problem_id").toString() %>" class="statText">
                         <b>All</b>
-                      </A>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
