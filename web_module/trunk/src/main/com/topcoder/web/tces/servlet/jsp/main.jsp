@@ -47,20 +47,19 @@
                 <jsp:param name="title" value="<%=MainTask.getCompanyName()%>"/>
             </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
             
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="50%">
                 <TR VALIGN="top">
                     <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                    <TD class="statText" WIDTH="100%">
-                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/>
-                        <P><B>Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></B></P>
-                        <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="1">
+                    <TD class="statTextBig" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/><br>
+                        <P>Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></P>
+                        <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                             <TR>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="49%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18"><b>Campaign Name</b></TD>
+                                <TD WIDTH="49%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18"><strong>Campaign Name</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Start Date</b></TD>
+                                <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Start Date</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>End Date</b></TD>
+                                <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>End Date</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                             </TR>
     
