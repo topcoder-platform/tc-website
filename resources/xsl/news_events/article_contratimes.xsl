@@ -75,7 +75,7 @@ STAFF WRITER</P>
 <P>Paymer left the novice ranks behind many months ago. Now, the Cal Tech junior eyes next week's finals with just a hint of trepidation, despite his designation as "one of the most impressive coders in the 2002 Collegiate Challenge," according to the Web site.</P>
 <P>One star will emerge from the big challenge next week, garnering hoopla and prize money. Then the cycle begins again. Another match, another puzzle, and yet more high tech pi in the sky.</P>
 <P>------------------------------------------------------------------------<BR/>
-&#64;2001 cctimes and wire service sources. All Rights Reserved.<BR/>
+(c) 2001 cctimes and wire service sources. All Rights Reserved.<BR/>
 http://www.bayarea.com</P>
 						</TD></TR>                                                                 
 					</TABLE>
