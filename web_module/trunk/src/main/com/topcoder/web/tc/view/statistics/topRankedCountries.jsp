@@ -53,7 +53,7 @@
                  </TR>
                  <TR>
                    <TD CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     In order for a country to be ranked, it must have at least 10 rated members.
+                     To find out more about this page, click <A href="javascript:openWin('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topCountries','countryrankinfo', 500,500)" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0" /></A>
                    </TD>
                  </TR>
                  <TR>
