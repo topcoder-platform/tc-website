@@ -45,6 +45,7 @@
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
     DecimalFormat df = new DecimalFormat("0.00");
+    DecimalFormat dfp = new DecimalFormat("0.00%");
     ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
     ResultSetContainer.ResultSetRow currentRow = null;
@@ -174,7 +175,7 @@
         int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
         int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
         double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
-        String perCor = df.format((((double)correct)/submissions));
+        String perCor = dfp.format((((double)correct)/submissions));
         String avgPoints = df.format(total/correct);
   %>
 
