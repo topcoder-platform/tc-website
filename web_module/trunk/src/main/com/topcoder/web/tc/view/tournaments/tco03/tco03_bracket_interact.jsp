@@ -48,7 +48,7 @@
 
             <h2>Advancers</h2><br/>
             
-            <table width="510" align="center" border="0" cellpadding="0" cellspacing="0" class="formFrame">
+            <table width="510" align="center" border="0" cellpadding="0" cellspacing="0">
                <tr>
                   <td width = "100%" align = "center">
 
