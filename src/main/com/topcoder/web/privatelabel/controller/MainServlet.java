@@ -44,7 +44,9 @@ public class MainServlet extends BaseServlet {
         } catch (InvalidContentTypeException ignore) {
             //that's ok, we'll just procede with out
         }
-        ret = request.getParameter(name);
+        if (ret==null) {
+            ret = request.getParameter(name);
+        }
         return ret;
     }
 }
