@@ -12,6 +12,8 @@ public class TCCC04Terms extends Base {
         try {
             TermsOfUse terms = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
             getRequest().setAttribute("terms", terms.getText(Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME));
+            setNextPage(Constants.TCCC04_TERMS);
+            setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
