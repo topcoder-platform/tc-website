@@ -33,6 +33,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 
 import javax.rmi.PortableRemoteObject;
@@ -119,10 +120,11 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("MaxUnratedInquiries", Constants.MAX_UNRATED_INQUIRIES));
 */
             String date = Conversion.checkNull(request.getParameter("date"));
-            String payment = Conversion.checkNull(request.getParameter("payment"));
+//            String payment = Conversion.checkNull(request.getParameter("payment"));
 
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
+/*
             if (!payment.equals("")) {
                 NumberFormat format = NumberFormat.getCurrencyInstance();
 
@@ -135,12 +137,14 @@ public final class TaskDevelopment {
             } else {
                 devTag.addTag(new ValueTag("payment", payment));
             }
+*/
+            String phase = request.getParameter("phase");
 
             devTag.addTag(new ValueTag("date", date));
             devTag.addTag(new ValueTag("version", request.getParameter("version")));
             devTag.addTag(new ValueTag("tccc", request.getParameter("tccc")));
             devTag.addTag(new ValueTag("tco", request.getParameter("tco")));
-            devTag.addTag(new ValueTag("phase", request.getParameter("phase")));
+            devTag.addTag(new ValueTag("phase", phase));
             devTag.addTag(new ValueTag("posting_date", request.getParameter("posting_date")));
             devTag.addTag(new ValueTag("initial_submission", request.getParameter("initial_submission")));
             devTag.addTag(new ValueTag("final_submission", request.getParameter("final_submission")));
@@ -613,12 +617,17 @@ else if (command.equals("send")) {
                         DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
                         ResultSetContainer appRsc = (ResultSetContainer)appDai.getData(r).get("Coder_Data");
 
+                        int devRating = Integer.parseInt(appRsc.getItem(0, "development_rating").getResultData()==null
+                                ?"0":String.valueOf(appRsc.getIntItem(0, "development_rating")));
+                        int desRating = Integer.parseInt(appRsc.getItem(0, "design_rating").getResultData()==null
+                                ?"0":String.valueOf(appRsc.getIntItem(0, "design_rating")));
+
                         msgText.append("\n\nAlgorithm Rating:\n");
                         msgText.append(rating);
                         msgText.append("\n\nDev Rating:\n");
-                        msgText.append(appRsc.getItem(0, "development_rating").getResultData()==null?"0":String.valueOf(appRsc.getIntItem(0, "development_rating")));
+                        msgText.append(devRating);
                         msgText.append("\n\nDesign Rating:\n");
-                        msgText.append(appRsc.getItem(0, "design_rating").getResultData()==null?"0":String.valueOf(appRsc.getIntItem(0, "design_rating")));
+                        msgText.append(desRating);
                         msgText.append("\n\n").append("http://");
                         msgText.append(ApplicationServer.SERVER_NAME);
                         msgText.append("/stat?c=member_profile&cr=");
@@ -629,6 +638,38 @@ else if (command.equals("send")) {
                         xsldocURLString = XSL_DIR + "inquiry_app.xsl";
                         EmailEngine.send(mail);
 
+                        //send an email to the person that applied
+                        TCSEmailMessage resp = new TCSEmailMessage();
+                        mail.addToAddress(from, TCSEmailMessage.TO);
+                        mail.setFromAddress(to);
+                        StringBuffer respBody = new StringBuffer(100);
+                        respBody.append("Hello ");
+                        respBody.append(handle);
+                        respBody.append(", \n");
+                        respBody.append("Your application for more information on the ");
+                        respBody.append(project);
+                        respBody.append(" application project has been received.\n\n");
+                        respBody.append("  If you are chosen, you will receive an email containing more details about ");
+                        respBody.append("the project.  Once you have read that information, you will be expected to ");
+                        respBody.append("respond indicating whether or not you will commit to completing the work.\n\n");
+                        if (desRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+                                respBody.append("Since you do not have a component design rating, it is unlikely that ");
+                                respBody.append("you will be chosen to work on this application.  You may look at ");
+                                respBody.append("the current component design opportunities here ");
+                                respBody.append("http://");
+                                respBody.append(ApplicationServer.SERVER_NAME);
+                                respBody.append("/?t=development&c=comp_projects\n\n");
+                        } else if (devRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {
+                                respBody.append("Since you do not have a component development rating, it is unlikely that ");
+                                respBody.append("you will be chosen to work on this application.  You may look at ");
+                                respBody.append("the current component development opportunities here ");
+                                respBody.append("http://");
+                                respBody.append(ApplicationServer.SERVER_NAME);
+                                respBody.append("/?t=development&c=comp_projects\n\n");
+                        }
+                        respBody.append("TopCoder Software Service");
+                        mail.setBody(respBody.toString());
+                        EmailEngine.send(mail);
                     }
                 } else {
                     requiresLogin = true;
