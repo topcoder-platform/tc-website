@@ -70,6 +70,7 @@ public class UserEdit extends BaseRegistration {
         password       = (String) request.getParameter(KEY_PASSWORD);
         password2      = (String) request.getParameter(KEY_PASSWORD2);
         email          = (String) request.getParameter(KEY_EMAIL);
+        email2         = (String) request.getParameter(KEY_EMAIL2);
 
         boolean forUpdate = targetUserID >= 0;
         
