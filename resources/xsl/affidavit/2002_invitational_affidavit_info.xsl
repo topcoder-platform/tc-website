@@ -53,7 +53,7 @@
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
           <P>
             <CENTER><IMG SRC="/i/invit02_logow.gif" HEIGHT="105" WIDTH="155"/></CENTER><BR/><BR/>
-            Congratulations on advancing to Online Round #4 of the 2002 TopCoder Invitational!  You are one of the 64 finalists eligible to receive a cash prize of at least $500.  In order to receive your prize, you MUST complete and return all of the following 5 items by Monday, October 28th at 12:00PM EST:  IF WE DO NOT RECEIVE ALL OF THESE ITEMS BY 12:00PM ON MONDAY, OCTOBER 28, 2002, YOU WILL FORFEIT YOUR PRIZE.
+            Congratulations on advancing to Online Round #4 of the 2002 TopCoder Invitational!  You are one of the 64 finalists eligible to receive a cash prize of at least $500.  In order to receive your prize, you MUST complete and return all of the following 5 items by Monday, October 28th at 12:00PM EST:  IF WE DO NOT RECEIVE ALL OF THESE ITEMS BY 12:00PM EST ON MONDAY, OCTOBER 28, 2002, YOU WILL FORFEIT YOUR PRIZE.
             <BR/>
             <BR/>
             <ol>
@@ -61,7 +61,7 @@
                 <B>AFFIDAVIT</B> - must be postmarked on or before Oct. 28, 2002:<BR/><BR/>
                 <xsl:choose>
                   <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                    We do not have a notarized affidavit from you on file.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  This affidavit must notarized and returned to us at the address below.
+                    We do not have a notarized affidavit from you on file.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  This affidavit must be notarized and returned to us at the address below.
                   </xsl:when>
                   <xsl:otherwise>
                     Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  Please read the affidavit, sign it and return it to us at the address below.
@@ -100,7 +100,7 @@
               </li>
               <li>
                 <B>TRAVEL INFORMATION PAGE</B> - completed form must be emailed to <A HREF="mailto:invitational@topcoder.com">invitational@topcoder.com</A> by 12:00PM EST on Monday, Oct. 28th:<BR/><BR/>
-	        Click <A HREF="#">here</A> to view a Travel Information Page.  Copy this HTML page into 
+	        Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_travel_info">here</A> to view a Travel Information Page.  Copy this HTML page into 
                 a word processor.  Complete ALL questions and return it via email.
                 <BR/>
                 <BR/>
