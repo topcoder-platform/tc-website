@@ -107,4 +107,5 @@ public interface TravelTimeLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getTravelTimeDesc( Integer travel_time_id ) throws RemoteException, SQLException;
+
 }

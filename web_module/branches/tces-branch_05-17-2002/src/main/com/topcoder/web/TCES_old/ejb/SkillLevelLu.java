@@ -107,4 +107,5 @@ public interface SkillLevelLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getSkillLevelDesc( Integer skill_level_id ) throws RemoteException, SQLException;
+
 }

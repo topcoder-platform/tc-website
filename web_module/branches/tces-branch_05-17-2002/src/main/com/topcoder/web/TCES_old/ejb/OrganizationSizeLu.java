@@ -107,4 +107,5 @@ public interface OrganizationSizeLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getOrganizationSizeDesc( Integer organization_size_id ) throws RemoteException, SQLException;
+
 }

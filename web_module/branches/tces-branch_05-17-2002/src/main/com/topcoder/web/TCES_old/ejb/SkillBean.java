@@ -347,6 +347,39 @@ public class SkillBean implements javax.ejb.SessionBean {
 		return( sb.toString() );
 	}
 
+	public Hashtable listSkillDescBySkillId()
+	  throws SQLException {
+		Hashtable		result = new Hashtable();
+		Connection		conn = null;
+		String			select = "SELECT SKILL_ID, SKILL_DESC" +
+		  " FROM SKILL ORDER BY SKILL_ORDER";
+		PreparedStatement	ps = null;
+		ResultSet		rs = null;
+		Integer			skillId = null;
+		String			skillDesc = null;
+
+		try {
+			conn = getConnection();
+			ps = conn.prepareStatement( select );
+			rs = ps.executeQuery();
+			while( rs.next() )
+				result.put( new Integer( rs.getInt( 1 ) ),
+				  rs.getString( 2 ) );
+		}
+		catch( SQLException e ) {
+			throw( e );
+		}
+		finally {
+			if( rs != null )
+				try { rs.close(); } catch( SQLException e ) {};
+			if( ps != null )
+				try { ps.close(); } catch( SQLException e ) {};
+			if( conn != null )
+				try { conn.close(); } catch( Exception e ) {};
+		}
+		return( result );
+	}
+
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();

@@ -145,4 +145,5 @@ public interface Concentration extends javax.ejb.EJBObject {
 	 */
 
 	public Integer getSubjectId( Long concentration_id ) throws RemoteException, SQLException;
+
 }

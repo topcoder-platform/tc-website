@@ -6,6 +6,7 @@ import	java.util.Hashtable;
 import	javax.ejb.EJBObject;
 import	java.rmi.RemoteException;
 import	com.topcoder.web.TCES.ejb.ProfileSkillXrefObject;
+// import	com.topcoder.web.common.ResultSetContainer;
 
 /**
  * This is the remote interface for the ProfileSkillXref class.
@@ -100,4 +101,28 @@ public interface ProfileSkillXref extends javax.ejb.EJBObject {
 	 */
 
 	public Integer getSkillLevelId( Long profile_id, Integer skill_id ) throws RemoteException, SQLException;
+
+	/**
+	 * List the skills associated with a specified profile.
+	 * @param profileId the profileId to use for the lookup
+	 * @return an array of ints containing the corresponding
+	 * skillIds
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 */
+
+	public int[] listSkillIdByProfileId( Long profileId )
+	  throws RemoteException, SQLException;
+
+	/**
+	 * List the skills and levels associated with a specified profile.
+	 * @param profileId the profileId to use for the lookup
+	 * @return a Hashtable containing the Integer skillIds as keys
+	 * and the Integer SkillLevelIds as values
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 */
+
+	public Hashtable listSkillIdSkillLevelIdByProfileId( Long profileId )
+	  throws RemoteException, SQLException;
 }

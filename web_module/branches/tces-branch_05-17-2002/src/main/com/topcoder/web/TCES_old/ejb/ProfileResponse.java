@@ -169,4 +169,5 @@ public interface ProfileResponse extends javax.ejb.EJBObject {
 	 */
 
 	public String getText( Long response_id ) throws RemoteException, SQLException;
+
 }

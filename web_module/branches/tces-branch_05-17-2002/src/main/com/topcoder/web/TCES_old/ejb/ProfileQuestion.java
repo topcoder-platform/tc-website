@@ -145,4 +145,5 @@ public interface ProfileQuestion extends javax.ejb.EJBObject {
 	 */
 
 	public Integer getQuestionStyleId( Long question_id ) throws RemoteException, SQLException;
+
 }

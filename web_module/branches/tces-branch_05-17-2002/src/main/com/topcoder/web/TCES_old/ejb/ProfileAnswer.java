@@ -121,4 +121,5 @@ public interface ProfileAnswer extends javax.ejb.EJBObject {
 	 */
 
 	public String getText( Long answer_id ) throws RemoteException, SQLException;
+
 }

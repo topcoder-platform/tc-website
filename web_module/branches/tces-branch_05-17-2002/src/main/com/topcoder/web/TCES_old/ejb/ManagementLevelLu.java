@@ -107,4 +107,5 @@ public interface ManagementLevelLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getManagementLevelDesc( Integer management_level_id ) throws RemoteException, SQLException;
+
 }

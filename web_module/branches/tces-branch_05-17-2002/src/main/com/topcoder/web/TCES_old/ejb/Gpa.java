@@ -145,4 +145,5 @@ public interface Gpa extends javax.ejb.EJBObject {
 	 */
 
 	public Integer getGpaValue( Integer gpa_id ) throws RemoteException, SQLException;
+
 }

@@ -107,4 +107,5 @@ public interface IndustryLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getIndustryDesc( Integer industry_id ) throws RemoteException, SQLException;
+
 }

@@ -217,4 +217,15 @@ public interface Skill extends javax.ejb.EJBObject {
 	 */
 
 	public Long getProfileId( Integer skill_id ) throws RemoteException, SQLException;
+
+	/**
+	 * List skills and their descriptions.
+	 * @return a Hashtable containing Integer skillIds as keys
+	 * and String skillDescs as the values
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 */
+
+	public Hashtable listSkillDescBySkillId()
+	  throws RemoteException, SQLException;
 }

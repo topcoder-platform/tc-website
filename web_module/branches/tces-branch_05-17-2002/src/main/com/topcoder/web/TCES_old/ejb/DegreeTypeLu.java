@@ -107,4 +107,5 @@ public interface DegreeTypeLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getDegreeTypeDesc( Integer degree_type_id ) throws RemoteException, SQLException;
+
 }

@@ -76,4 +76,5 @@ public interface PreferenceIndustryXref extends javax.ejb.EJBObject {
 	 */
 
 	public Hashtable list() throws RemoteException, SQLException;
+
 }

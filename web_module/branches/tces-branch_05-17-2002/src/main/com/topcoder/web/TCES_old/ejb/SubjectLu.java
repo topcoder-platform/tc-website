@@ -107,4 +107,5 @@ public interface SubjectLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getSubjectDesc( Integer subject_id ) throws RemoteException, SQLException;
+
 }

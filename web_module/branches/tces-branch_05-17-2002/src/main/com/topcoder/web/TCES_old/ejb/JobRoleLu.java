@@ -107,4 +107,5 @@ public interface JobRoleLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getJobRoleDesc( Integer job_role_id ) throws RemoteException, SQLException;
+
 }

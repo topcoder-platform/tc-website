@@ -217,4 +217,5 @@ public interface Profile extends javax.ejb.EJBObject {
 	 */
 
 	public Integer getPreferenceSalaryId( Long profile_id ) throws RemoteException, SQLException;
+
 }

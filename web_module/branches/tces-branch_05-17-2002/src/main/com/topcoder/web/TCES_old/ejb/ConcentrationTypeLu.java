@@ -107,4 +107,5 @@ public interface ConcentrationTypeLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getConcentrationTypeDesc( Integer concentration_type_id ) throws RemoteException, SQLException;
+
 }

@@ -145,4 +145,5 @@ public interface SchoolLu extends javax.ejb.EJBObject {
 	 */
 
 	public Long getProfileId( Integer school_id ) throws RemoteException, SQLException;
+
 }

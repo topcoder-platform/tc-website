@@ -17,6 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ProfileSkillXref;
 import	com.topcoder.web.TCES.ejb.ProfileSkillXrefObject;
+// import	com.topcoder.web.common.ResultSetContainer;
 
 /**
  * This is the implementation of the ProfileSkillXref class.
@@ -258,6 +259,80 @@ public class ProfileSkillXrefBean implements javax.ejb.SessionBean {
 			sb.append( ( (Integer) e.nextElement() ).intValue() );
 		}
 		return( sb.toString() );
+	}
+
+	public int[] listSkillIdByProfileId( Long profileId )
+	  throws SQLException {
+		Vector			v = new Vector();
+		Connection		conn = null;
+		String			select = "SELECT SKILL.SKILL_ID FROM " +
+		  "PROFILE_SKILL_XREF, SKILL WHERE " +
+		  "PROFILE_SKILL_XREF.SKILL_ID = SKILL.SKILL_ID AND " +
+		  "PROFILE_SKILL_XREF.PROFILE_ID = " + profileId.intValue() +
+		  " ORDER BY SKILL.SKILL_ORDER";
+		PreparedStatement	ps = null;
+		ResultSet		rs = null;
+
+		try {
+			conn = getConnection();
+			ps = conn.prepareStatement( select );
+			rs = ps.executeQuery();
+			while( rs.next() )
+				v.add( new Integer( rs.getInt( 1 ) ) );
+		}
+		catch( SQLException e ) {
+			throw( e );
+		}
+		finally {
+			if( rs != null )
+				try { rs.close(); } catch( SQLException e ) {};
+			if( ps != null )
+				try { ps.close(); } catch( SQLException e ) {};
+			if( conn != null )
+				try { conn.close(); } catch( Exception e ) {};
+		}
+
+		int	result[] = new int[v.size()];
+		Enumeration	e = v.elements();
+		int	index = 0;
+		while( e.hasMoreElements() )
+			result[index++] = ( (Integer) e.nextElement() ).intValue();
+		return( result );
+	}
+
+	public Hashtable listSkillIdSkillLevelIdByProfileId( Long profileId )
+	  throws SQLException {
+		Hashtable		result = new Hashtable();
+		Connection		conn = null;
+		String			select = "SELECT SKILL.SKILL_ID, " +
+		  "SKILL_LEVEL_ID FROM " +
+		  "PROFILE_SKILL_XREF, SKILL WHERE " +
+		  "PROFILE_SKILL_XREF.PROFILE_SKILL_ID = SKILL.SKILL_ID AND " +
+		  "PROFILE_SKILL_XREF.PROFILE_ID = " + profileId.intValue() +
+		  " ORDER BY SKILL.SKILL_ORDER";
+		PreparedStatement	ps = null;
+		ResultSet		rs = null;
+
+		try {
+			conn = getConnection();
+			ps = conn.prepareStatement( select );
+			rs = ps.executeQuery();
+			while( rs.next() )
+				result.put( new Integer( rs.getInt( 1 ) ),
+				  new Integer( rs.getInt( 2 ) ) );
+		}
+		catch( SQLException e ) {
+			throw( e );
+		}
+		finally {
+			if( rs != null )
+				try { rs.close(); } catch( SQLException e ) {};
+			if( ps != null )
+				try { ps.close(); } catch( SQLException e ) {};
+			if( conn != null )
+				try { conn.close(); } catch( Exception e ) {};
+		}
+		return( result );
 	}
 
 	private Connection getConnection() throws SQLException {

@@ -107,4 +107,5 @@ public interface LocationLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getLocationDesc( Integer location_id ) throws RemoteException, SQLException;
+
 }

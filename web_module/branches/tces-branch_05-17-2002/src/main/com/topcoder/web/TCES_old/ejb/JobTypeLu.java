@@ -107,4 +107,5 @@ public interface JobTypeLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getJobTypeDesc( Integer job_type_id ) throws RemoteException, SQLException;
+
 }

@@ -107,4 +107,5 @@ public interface TravelLevelLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getTravelLevelDesc( Integer travel_level_id ) throws RemoteException, SQLException;
+
 }

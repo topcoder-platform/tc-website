@@ -107,4 +107,5 @@ public interface SalaryLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getSalaryDesc( Integer salary_id ) throws RemoteException, SQLException;
+
 }

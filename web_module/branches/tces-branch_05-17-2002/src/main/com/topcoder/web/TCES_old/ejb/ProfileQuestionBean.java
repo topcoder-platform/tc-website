@@ -277,6 +277,7 @@ public class ProfileQuestionBean implements javax.ejb.SessionBean {
 		return( sb.toString() );
 	}
 
+
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();

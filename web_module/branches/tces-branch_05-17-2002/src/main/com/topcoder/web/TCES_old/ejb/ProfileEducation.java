@@ -193,4 +193,5 @@ public interface ProfileEducation extends javax.ejb.EJBObject {
 	 */
 
 	public Integer getGpaId( Long education_id ) throws RemoteException, SQLException;
+
 }

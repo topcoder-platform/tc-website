@@ -107,4 +107,5 @@ public interface ProfileStatusLu extends javax.ejb.EJBObject {
 	 */
 
 	public String getProfileStatusDesc( Integer profile_status_id ) throws RemoteException, SQLException;
+
 }

@@ -145,4 +145,5 @@ public interface AdditionalSkill extends javax.ejb.EJBObject {
 	 */
 
 	public String getDescription( Long additional_skill_id ) throws RemoteException, SQLException;
+
 }
