@@ -83,14 +83,14 @@
     </tr>
 Vertex ends -->
 
-<!-- Microsoft begins -->
+<!-- Microsoft begins
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=ms"><img src="/i/es/ms/ms_logo.gif" width="160" height="40" alt="" border="0" /></a></td>
                                 <td width="99%" class="bodyText">At Microsoft, we see no limits to the potential we all might reach because we see no limits to human imagination.  That is what inspires us.  And that is why we create software that helps people and businesses reach their potential.  It's not just our purpose. It's our passion. <a href="/?&amp;t=tces&amp;c=ms" class="bodyText">How far will you GO?</a><br /><br /></td>
                             </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-<!-- Microsoft ends -->
+Microsoft ends -->
 
 <!-- Solipsys begins -->
                             <tr valign="top">
