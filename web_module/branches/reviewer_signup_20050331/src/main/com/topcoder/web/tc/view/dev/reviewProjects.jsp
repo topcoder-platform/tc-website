@@ -64,9 +64,10 @@
 
             <br/>
             
-            <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
-            
-            <br/>
+            <% if (isWaiting) { %>
+                <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
+                <br/>
+            <% } %>
             
 <%--
 
