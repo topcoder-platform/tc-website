@@ -41,7 +41,7 @@ abstract public class BaseActivate extends RegistrationBase {
                     user.setStatus(userId, ACTIVE_STATI[1], db); //want to get 'A'
                     setNextPage();
                 } else if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
-                    throw new NavigationException("Account has already been activated.");
+                    setNextPage();
                 } else {
                     throw new NavigationException("Your account can not be activated.");
                 }
