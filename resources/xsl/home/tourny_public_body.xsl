@@ -220,17 +220,17 @@ Monday, September 30, 2002<BR/><BR/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="middle" CLASS="bodyText" WIDTH="100%">  
-       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFF99">  
+    <TD VALIGN="middle" CLASS="statText" WIDTH="100%">  
+       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#001935">  
           <TR>
-             <TD VALIGN="middle" HEIGHT="17" ALIGN="center" COLSPAN="5" CLASS="bodyText"><B>Best/Worst Rating Change</B></TD> 
+             <TD VALIGN="middle" HEIGHT="17" ALIGN="center" COLSPAN="5" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">Best/Worst Rating Change</TD> 
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <xsl:for-each select="/TC/HOME/GainersAndLosers/Coder">
             <TR>
-              <TD VALIGN="middle" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B><xsl:value-of select="division"/></B></TD>
-              <TD VALIGN="middle" WIDTH="10%" CLASS="bodyText">&#160;&#160;<xsl:value-of select="change_type"/>:</TD> 
-              <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;
+              <TD HEIGHT="14" VALIGN="middle" WIDTH="20%" CLASS="statTextBig" NOWRAP="0">&#160;&#160;&#160;<xsl:value-of select="division"/></TD>
+              <TD VALIGN="middle" WIDTH="10%" CLASS="statText">&#160;&#160;<xsl:value-of select="change_type"/>:</TD> 
+              <TD VALIGN="middle" WIDTH="35%" CLASS="statText" NOWRAP="0">&#160;&#160;
                 <A>
                   <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                   <xsl:attribute name="CLASS">bodyText</xsl:attribute>
@@ -242,10 +242,11 @@ Monday, September 30, 2002<BR/><BR/>
                   </FONT>
                 </A>
               </TD>
-              <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center"><xsl:value-of select="change"/></TD>
-              <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;<xsl:value-of select="room_name"/></TD>
-            </TR>
+              <TD VALIGN="middle" WIDTH="15%" CLASS="statText" ALIGN="center"><xsl:value-of select="change"/></TD>
+              <TD VALIGN="middle" WIDTH="20%" CLASS="statText" NOWRAP="0">&#160;<xsl:value-of select="room_name"/></TD>
+            </TR>            
           </xsl:for-each>
+          <TR><TD COLSPAN="5" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
        </TABLE>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
