@@ -27,7 +27,7 @@
 <body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="180">
@@ -47,7 +47,7 @@
             <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText">
                         <div align="center"><img src="/i/development/header_des_bonus_contest2.gif" alt="TopCoder Software Component Design Bonus Contest 2" width="554" height="150" border="0" /></div>
@@ -56,7 +56,7 @@
             </table>
 
 <!-- Comment out until final winner is known -->
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText">
 
@@ -70,7 +70,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td align="center">
                         <table border="0" cellspacing="0" cellpadding="3">
@@ -127,7 +127,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText">
                         <p>Thank you to everyone who submitted entries for our second Component Design Contest.</p>
@@ -135,7 +135,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td align="center">
                         <table border="0" cellspacing="0" cellpadding="3">
@@ -416,7 +416,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText">
 
@@ -480,7 +480,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#001B35">
+        <td width="244">
             <xsl:call-template name="public_dev_right" />
         </td>
 <!-- Right Column Ends -->

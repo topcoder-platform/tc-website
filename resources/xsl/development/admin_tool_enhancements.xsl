@@ -45,12 +45,12 @@
                             <xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
                             <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
                             <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>
-                            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
+                            <table border="0" cellspacing="0" cellpadding="0"  width="100%">
                                 <tr>
-                                    <td bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" valign="top" width="11">
+                                    <td  valign="top" width="11">
                                         <img src="/i/clear.gif" alt="" width="11" height="1" border="0"/>
                                     </td>
-                                    <td class="statText" colspan="2" valign="top" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
+                                    <td class="statText" colspan="2" valign="top"  width="100%">
                                         <img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
                                         <br/>
 
@@ -149,7 +149,7 @@
                                             answered. Following review from the board the winning member is given until the Updated Submission Due Date to modify their submission.
                                         </p>
                                         <p>
-                                            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="40%">
+                                            <table border="0" cellspacing="0" cellpadding="0"  width="40%">
                                                 <tr>
                                                     <td class="statText" ><b/>Application Project Posting:</td>
                                                     <td class="statText" align="right"><b/>7.15.2003</td>
@@ -227,7 +227,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4" valign="top" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
+                                    <td colspan="4" valign="top"  width="100%">
                                         <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/>
                                     </td>
                                 </tr>

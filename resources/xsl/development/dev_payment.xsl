@@ -27,7 +27,7 @@
 <body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="180">
@@ -47,7 +47,7 @@
             <xsl:with-param name="title">&#160;Payment Requirements</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td width="100%" class="statText"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /><br />
                         <h2>TopCoder Development Project Payment Requirements</h2>
@@ -79,7 +79,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#001B35">
+        <td width="244">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->

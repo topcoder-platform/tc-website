@@ -33,7 +33,7 @@
 	<xsl:call-template name="Top"/>
 <!-- Header Begins -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 <!-- Left Column Begins -->
 		<td width="180" valign="top">
@@ -55,10 +55,10 @@
 				<xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
 		        <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
 		        <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>				
-			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+			<table border="0" cellspacing="0" cellpadding="0"  width="100%">
 				<tr>
-					<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+					<td  valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
+					<td class="statText" colspan="2" valign="top"  width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
 						<h1 class="devSubhead"><strong>Online Review Application Business Logic: Development</strong></h1>
@@ -162,7 +162,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 					<td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
-				<tr><td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
+				<tr><td colspan="4" valign="top"  width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
 
 				<tr>
 					<td valign="top" background="" bgcolor="#FFFFFF" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0" /></td>

@@ -37,7 +37,7 @@
     <xsl:call-template name="Top"/>
 <!-- Header Begins -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="180">
@@ -61,7 +61,7 @@
             <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
             <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>                
             
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
                             

@@ -31,7 +31,7 @@
     <xsl:call-template name="Top"/>
 <!-- Header Begins -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <TD WIDTH="180" valign="top">
@@ -51,7 +51,7 @@
                     <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
                 </xsl:call-template>
                 
-                <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+                <table border="0" cellspacing="0" cellpadding="10" width="100%">
                     <tr valign="top">
                         <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br />
                             
@@ -177,7 +177,7 @@
 
                             <p><br /></p>
 
-                            <table border="0" cellspacing="0" cellpadding="3" bgcolor="#001B35" width="100%">
+                            <table border="0" cellspacing="0" cellpadding="3" width="100%">
                             
                                 <tr valign="middle"><td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;Application Documentation</td></tr>
                                 
@@ -243,7 +243,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td width="100%" background="/i/steel_darkblue_bg.gif">
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
@@ -290,8 +290,8 @@
                 </tr>
             </table>
             
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
-                <tr><td colspan="4" valign="top" bgcolor="#001B35" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr><td colspan="4" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
             </table>
         </td>
 <!-- Center Column Ends -->
@@ -301,7 +301,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#001B35">
+        <td width="244">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
