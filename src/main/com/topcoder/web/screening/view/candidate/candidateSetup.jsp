@@ -30,11 +30,11 @@ function back() {
     <tr valign="top">
 
 <!-- gutter begins -->
-        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/clear.gif" width="200" height="11" alt="" border="0"><br>
+        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="50%">
                 <tr valign="top">
                     <td class="bodyText">
@@ -60,7 +60,7 @@ function back() {
                 <tr><screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="GET">
                     <INPUT type="hidden" name="<%=Constants.MODULE_KEY%>" value="UpdateCandidate" />
                     <INPUT type="hidden" name="referrer" value="<jsp:getProperty name="candidateInfo" property="referrer" />" />
-                    <td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td>
+                    <td width="100%"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td>
                 </tr>
             </table>
  
@@ -87,7 +87,7 @@ function back() {
                 </tr>
                     <% } %>
                     
-                <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10" border="0" /></td></tr>
+                <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="10" border="0" /></td></tr>
             </table>
                     
             <table border="0" cellspacing="10" cellpadding="0" width="50%">
@@ -137,7 +137,7 @@ function back() {
 <!-- Middle Column ends -->
 
 <!-- Gutter -->
-        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
     </tr>

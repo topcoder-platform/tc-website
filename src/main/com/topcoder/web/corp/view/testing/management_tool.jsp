@@ -36,18 +36,18 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-        <td valign="top" width="7"><img src="/i/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top" width="7"><img src="/i/corp/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/header_topcoder_testing.gif" alt="" width="546" height="41" border="0"></td></tr>
+                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_topcoder_testing.gif" alt="" width="546" height="41" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <img src="/i/clear.gif" width="1" height="7" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="7" alt="" border="0"><br>
 
                         <h2 class="corpHead">Management Tool</h2>
                         
@@ -61,7 +61,7 @@
                             <li>Invite candidate via email that includes all necessary links to Testing Application and Help Manual</li>
                         </ul>
                         
-                        <div align="center"><img src="/i/testing_screen_3.gif" alt="Testing Application Management Tool - Session Administration" width="529" height="383" border="0"></div>
+                        <div align="center"><img src="/i/corp/testing_screen_3.gif" alt="Testing Application Management Tool - Session Administration" width="529" height="383" border="0"></div>
 
                         <h3><strong>Reporting</strong></h3>
 
@@ -75,13 +75,13 @@
                             <li>Submitted code can be analyzed by engineers to determine problem solving skills</li>
                         </ul>
                         
-                        <div align="center"><img src="/i/testing_screen_4.gif" alt="Testing Application Managment Tool - Candidate Results Report" width="528" height="388" border="0"></div>
+                        <div align="center"><img src="/i/corp/testing_screen_4.gif" alt="Testing Application Managment Tool - Candidate Results Report" width="528" height="388" border="0"></div>
 
                         <p><br></p>
                     </td>
 
 <!-- Gutter -->
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->

@@ -36,18 +36,18 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-        <td valign="top" width="7"><img src="/i/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top" width="7"><img src="/i/corp/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/header_topcoder_testing.gif" alt="" width="546" height="41" border="0"></td></tr>
+                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_topcoder_testing.gif" alt="" width="546" height="41" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
                         <p>The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview process, thereby 
                         reducing the time incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem solving skills 
@@ -56,13 +56,13 @@
                         way to measure and compare candidates. This information drastically reduces the time and effort it takes to identify proven  
                         developers.</em></strong></font></p>
                         
-                        <div align="center"><img src="/i/testing_screen_1.gif" alt="The TopCoder Testing Application" width="536" height="327" border="0"></div>
+                        <div align="center"><img src="/i/corp/testing_screen_1.gif" alt="The TopCoder Testing Application" width="536" height="327" border="0"></div>
 
                         <p><br></p>
                     </td>
 
 <!-- Gutter -->
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->

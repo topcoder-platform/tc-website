@@ -26,11 +26,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
-        <td width="25"><img src="/i/clear.gif" width="25" height="11" alt="" border="0"></td>
+        <td width="25"><img src="/i/corp/clear.gif" width="25" height="11" alt="" border="0"></td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"></td>
+        <td width="6"><img src="/i/corp/clear.gif" width="6" height="8" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -125,16 +125,16 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0"></td>
+        <td width="6"><img src="/i/corp/clear.gif" width="6" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"><br>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"><br>
         </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
 </table>

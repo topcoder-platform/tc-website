@@ -20,13 +20,13 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
-                        <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
                         <h2 class="corpHead">Applet Coverage</h2>
                         
                         <h3>Coding Window</h3>
                         
-                        <div align="center"><img src="/i/c_sample.gif" alt="" width="502" height="389" border="0"></div>
+                        <div align="center"><img src="/i/corp/c_sample.gif" alt="" width="502" height="389" border="0"></div>
 
                         <p><br/></p>
                     </td>

@@ -27,7 +27,7 @@
       <!-- Left Column Ends -->
 
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+      <TD VALIGN="top"><IMG src="/i/corp/clear.gif" WIDTH="10" HEIGHT="1"></TD>
       <!-- Gutter Ends -->
 
 <!-- Body Area -->
@@ -35,7 +35,7 @@
 <%if(exception!=null)exception.printStackTrace();%>
 
  <TD valign="top" bgcolor="#FFFFFF" width="100%" class="bodyText">
-   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
+   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/corp/clear.gif"><BR>
    <table width="100%" border="0">
    <tr><td class="bodyText">
      <!-- Error message content pane -->
@@ -52,7 +52,7 @@
 <!-- Body Area Ends -->
 
       <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10"><IMG src="/i/corp/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

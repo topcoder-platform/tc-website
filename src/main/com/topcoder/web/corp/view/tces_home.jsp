@@ -36,18 +36,18 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-        <td valign="top" width="7"><img src="/i/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top" width="7"><img src="/i/corp/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/header_corp_tces.gif" alt="" width="546" height="41" border="0"></td></tr>
+                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_corp_tces.gif" alt="" width="546" height="41" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
                         <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=recruiting&d3=index">Recruiting</a></span><br>
                         We provide employers with innovative programs designed to attract, identify, and evaluate collegiate candidates and 

@@ -36,11 +36,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top" width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top" width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
-        <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
@@ -195,7 +195,7 @@
                     <td class="testTableEven"><tc-webtag:textInput name="phone" size="30" maxlength="100"/></td>
                 </tr>
                 
-                <tr><td colspan="2" class="testTableEven"><img src="/i/clear.gif" width="1" height="2" alt="" border="0"></td></tr>
+                <tr><td colspan="2" class="testTableEven"><img src="/i/corp/clear.gif" width="1" height="2" alt="" border="0"></td></tr>
 
                 <tr><td colspan="2" class="testTableTitle">User Name &amp; Password</td></tr>
 
@@ -273,11 +273,11 @@
                     <td class="testTableOdd"><tc-webtag:textInput name="email-once-more" size="30" maxlength="100"/></td>
                 </tr>
 
-                <tr><td colspan="2" class="testTableOdd"><img src="/i/clear.gif" width="1" height="2" alt="" border="0"></td></tr>
+                <tr><td colspan="2" class="testTableOdd"><img src="/i/corp/clear.gif" width="1" height="2" alt="" border="0"></td></tr>
 
                 <tr><td colspan="2" class="testTableTitle">Terms of Use</td></tr>
                 
-                <tr><td colspan="2" class="bodyText"><img src="/i/clear.gif" width="1" height="2" alt="" border="0"></td></tr>
+                <tr><td colspan="2" class="bodyText"><img src="/i/corp/clear.gif" width="1" height="2" alt="" border="0"></td></tr>
 
                 <tr valign="middle">
                     <td colspan="2" class="bodyText" align="center"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" rows="10" cols="80" readOnly="true" class="bodyText"/></td>
@@ -294,13 +294,13 @@
                 </tr>
 
                 <tr>
-                    <td colspan="2"><img src="/i/clear.gif" width="1" height="3" alt="" border="0">
+                    <td colspan="2"><img src="/i/corp/clear.gif" width="1" height="3" alt="" border="0">
                 </tr>
             </table>
 
             <table border="0" cellpadding="3" cellspacing="0">
                 <tr>
-                    <td><img src="/i/clear.gif" width="1" height="3" alt="" border="0">
+                    <td><img src="/i/corp/clear.gif" width="1" height="3" alt="" border="0">
                     <input type="hidden" name="module" value="Registration"></td>
                 </tr>
 
@@ -318,7 +318,7 @@
 <!-- Center Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
 </table>

@@ -21,7 +21,7 @@
 <table width="100%" border="0" cellpadding="10" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
-                        <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
                         <h2 class="corpHead">Opt-In Email</h2>
 

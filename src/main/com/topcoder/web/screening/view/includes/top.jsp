@@ -20,17 +20,17 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr>
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="15"><img src="/i/corp/clear.gif" width="15" height="1" border="0"/></td>
         <td width="206">
 <% if (isHomePage) { %>
-            <img src="/i/logo_testing.gif" width="206" height="49" border="0" vspace="5"/>
+            <img src="/i/corp/logo_testing.gif" width="206" height="49" border="0" vspace="5"/>
 <% } else { %>
-            <screen:servletLink target="_top"><img src="/i/logo_testing.gif" width="206" height="49" border="0" vspace="5"/></screen:servletLink>
+            <screen:servletLink target="_top"><img src="/i/corp/logo_testing.gif" width="206" height="49" border="0" vspace="5"/></screen:servletLink>
 <%  } %>
         </td>
-        <td width="99%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+        <td width="99%"><img src="/i/corp/clear.gif" width="1" height="1" border="0"/></td>
    </tr>
-    <tr><td height="3" class="headStripe" colspan="3"><img src="/i/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
+    <tr><td height="3" class="headStripe" colspan="3"><img src="/i/corp/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
 </table>
 
 <!-- Menu bar begins here -->
@@ -49,6 +49,6 @@
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/i/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
+	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/i/corp/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
 </table>
 <!-- Menu bar ends here -->

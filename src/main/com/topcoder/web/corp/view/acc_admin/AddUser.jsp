@@ -36,11 +36,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
-        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
@@ -62,104 +62,104 @@
 
 <!-- LOGIN -->
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="username"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableOdd"></td>
                 </tr>
 
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableSubtitleOdd">User Name</td>
                     <td class="testTableOdd"><tc-webtag:textInput editable='<%=""+(id==null)%>' name="username" size="30" maxlength="15"/></td>
                 </tr>
 
 <!-- PASSWORD -->
                 <tr>
-                    <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="password"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableEven"></td>
                 </tr>
 
                 <tr>
-                    <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableSubtitleEven">Password</td>
                     <td class="testTableEven"><tc-webtag:textInput passw="true" name="password" size="30" maxlength="15"/></td>
                 </tr>
 
 <!-- PASSWORD VERIFICATION -->
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="password-once-more"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableOdd"></td>
                 </tr>
 
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableSubtitleOdd">Re-type Password</td>
                     <td class="testTableOdd"><tc-webtag:textInput passw="true" name="password-once-more" size="30" maxlength="15"/></td>
                 </tr>
 
 <!-- FIRST NAME -->
                 <tr>
-                    <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="first-name"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableEven"></td>
                 </tr>
 
                 <tr>
-                    <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableSubtitleEven">First Name</td>
                     <td class="testTableEven"><tc-webtag:textInput name="first-name" maxlength="30" size="30"/></td>
                 </tr>
 
 <!-- LAST NAME -->
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="last-name"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableOdd"></td>
                 </tr>
 
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableSubtitleOdd">Last Name</td>
                     <td class="testTableOdd"><tc-webtag:textInput name="last-name" size="30" maxlength="30"/></td>
                 </tr>
 
 <!-- EMAIL -->
                 <tr>
-                    <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="email"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableEven"></td>
                 </tr>
 
                 <tr>
-                    <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableSubtitleEven">Email</td>
                     <td class="testTableEven"><tc-webtag:textInput name="email" size="30" maxlength="100"/></td>
                 </tr>
 
   <!-- EMAIL VERIFICATION -->
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="email-once-more"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableOdd"></td>
                 </tr>
 
                 <tr>
-                    <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableSubtitleOdd">Re-type Email</td>
                     <td class="testTableOdd"><tc-webtag:textInput name="email-once-more" size="30" maxlength="100"/></td>
                 </tr>
 
 <!-- PHONE -->
                 <tr>
-                    <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="phone"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableEven"></td>
                 </tr>
 
                 <tr>
-                    <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
+                    <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableSubtitleEven">Phone</td>
                     <td class="testTableEven"><tc-webtag:textInput name="phone" size="30" maxlength="100"/></td>
                 </tr>
@@ -173,7 +173,7 @@
      <% ResultSetContainer rsc = (ResultSetContainer)request.getAttribute(UserEdit.KEY_USER_PERMS);
        if( rsc != null ) { %>
 
-                <tr><td colspan="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></td></tr>
+                <tr><td colspan="3"><IMG src="/i/corp/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></td></tr>
     <tc-webtag:iterator list="<%=rsc%>" id="row" >
                 <tr valign="middle"><% String checked = row.getItem("has_permission").compareTo("1")==0 ? " checked=\"1\"" : " "; %>
                     <td width="49%" class="bodyText">&#160;</td>
@@ -183,7 +183,7 @@
                 </tr>
     </tc-webtag:iterator>
     <% } %>
-                <tr><td colspan="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></td></tr>
+                <tr><td colspan="3"><IMG src="/i/corp/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></td></tr>
             </table>
             
             <p><br></p>
@@ -202,7 +202,7 @@
 <!-- Center Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
 </table>

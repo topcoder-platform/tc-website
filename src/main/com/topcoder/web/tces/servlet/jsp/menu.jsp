@@ -16,5 +16,5 @@ contentType="text/html"
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/i/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
+	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/i/corp/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
 </table>

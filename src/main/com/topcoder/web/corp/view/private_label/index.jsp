@@ -34,17 +34,17 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
+                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
                         <h2 class="corpHead">Private Label Competitions</h2>
 
@@ -76,11 +76,11 @@
                     </td>
 
 <!-- Gutter -->
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
                     <td width="244" align ="left">
-<%--                        <a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&back-to="+request.getAttribute(Constants.KEY_LINK_PREFIX)+"&prod-id=1"%>"><img src="/i/buy_now.gif" alt="Buy Now" width="192" height="52" border="0"></a>--%>
+<%--                        <a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&back-to="+request.getAttribute(Constants.KEY_LINK_PREFIX)+"&prod-id=1"%>"><img src="/i/corp/buy_now.gif" alt="Buy Now" width="192" height="52" border="0"></a>--%>
                     </td>
                 </tr>
             </table>
@@ -91,7 +91,7 @@
 <!-- Center Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
 </table>

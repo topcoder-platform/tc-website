@@ -36,18 +36,18 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-        <td valign="top" width="7"><img src="/i/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
+        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td valign="top" width="7"><img src="/i/corp/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
+                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
+                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
                         <h2 class="corpHead">Tournaments - TopCoder Web Site</h2>
 
@@ -65,24 +65,24 @@
                         <table width="75%" border="0" cellpadding="0" cellspacing="0">
                             <tr valign="top">
                                 <td width="33%" align="center">
-                                    <p><img src="/i/publichome.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/registration.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/calendar.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/schedule.gif" alt="" width="135" height="205" border="0"/></p>
+                                    <p><img src="/i/corp/publichome.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/registration.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/calendar.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/schedule.gif" alt="" width="135" height="205" border="0"/></p>
                                 </td>
                                 
                                 <td width="33%" align="center" valign="top">
-                                     <p><img src="/i/memberhome.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/statsindex.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/matchsummary.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/matchresults.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/memberhome.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/statsindex.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/matchsummary.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/matchresults.gif" alt="" width="135" height="205" border="0"/></p>
                                 </td>
                                 
                                 <td width="33%" align="center" valign="top">
-                                     <p><img src="/i/sponsor.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/tournyoverview.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/regionsample.gif" alt="" width="135" height="205" border="0"/></p>
-                                     <p><img src="/i/regions.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/sponsor.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/tournyoverview.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/regionsample.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/corp/regions.gif" alt="" width="135" height="205" border="0"/></p>
                                 </td>
                             </tr>
                         </table>
@@ -105,7 +105,7 @@
                     </td>
 
 <!-- Gutter Begins -->
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->

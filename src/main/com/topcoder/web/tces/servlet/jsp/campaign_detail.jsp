@@ -32,11 +32,11 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-      <TD WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></TD>
+      <TD WIDTH="25"><img src="/i/corp/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></TD>
 <!-- Left Column Ends -->
 
 <!-- Gutter begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"></td>
+        <td width="6"><img src="/i/corp/clear.gif" width="6" height="8" alt="" border="0"></td>
 <!-- Gutter ends -->
 
 <!-- Center Column begins -->
@@ -99,11 +99,11 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0"></td>
+        <td width="6"><img src="/i/corp/clear.gif" width="6" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Gutter -->
-        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
     </tr>
