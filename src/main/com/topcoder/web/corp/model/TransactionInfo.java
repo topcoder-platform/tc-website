@@ -36,9 +36,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.sql.Date;
+import java.io.Serializable;
 
 
-public class TransactionInfo {
+public class TransactionInfo implements Serializable {
     private String userBackPage = null;
 
     private long productID = -1;

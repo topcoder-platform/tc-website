@@ -321,7 +321,7 @@ public class TransactionServlet extends HttpServlet {
             } catch (Exception e) {
                 try {
                     if (getTransaction(request)==null) e.printStackTrace();
-                    else getTransaction(request).setTcExc(e);
+                    else getTransaction(request).setTcExc(e.getMessage());
                 } catch (Exception ex) {
 					ex.printStackTrace();
                 }
@@ -357,7 +357,7 @@ public class TransactionServlet extends HttpServlet {
         }
         if (txInfo.getTcExc() != null) {
             // was not able to store tx info in the DB
-            throw new Exception(txInfo.getTcExc().getMessage());
+            throw new Exception(txInfo.getTcExc());
         }
         //TODO generate a way to handle the case when a transaction fails, should probably be a new operation
         return txInfo.getUserBackPage() == null ? defaultPageSuccess : txInfo.getUserBackPage();
