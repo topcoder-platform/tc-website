@@ -50,7 +50,7 @@
 </jsp:include>
 <!-- Tab bar sub links-->
 <jsp:include page="verizonSublinks.jsp" >
-   <jsp:param name="selectedlist" value="rules"/>
+   <jsp:param name="selectedList" value="rules"/>
    <jsp:param name="selectedTab" value="overview"/>
 </jsp:include>
 

@@ -57,8 +57,8 @@
 
 <!-- Tab bar sublinks-->
 <jsp:include page="verizonSublinks.jsp" >
-   <jsp:param name="selectedList" value="overview"/>
-   <jsp:param name="selectedTab" value="overview"/>
+   <jsp:param name="selectedList" value=""/>
+   <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
 
