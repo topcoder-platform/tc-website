@@ -212,28 +212,24 @@ function submitSession() {
                 </tr>
                     
                 <tr>
-                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" /></td>
+                    <td height="20" class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" /></td>
                 </tr>
                 
                 <tr>
-                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" /></td>
+                    <td height="20" class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" /></td>
                 </tr>
                 
                 <tr>
-                    <td class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()" CLASS="bodyText">click here</a></td>
+                    <td height="20" class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()" CLASS="bodyText">click here</a></td>
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+            <table border="0" cellspacing="10" cellpadding="0" width="70%">
                  <tr>
-                    <td class="buttonBar"><div align="center"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></div></td>
+                    <td><div align="center"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></div></td>
                 </tr>
-           </screen:form>
- 
-             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td width="100%"><img src="/i/ev/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-            </table>
- 
+            </screen:form>
+  
             <p><br></p>
         </td>
 <!-- Middle Column ends -->
