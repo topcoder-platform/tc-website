@@ -137,19 +137,21 @@ public final class MainServlet extends HttpServlet {
             document = new XMLDocument("TC");
             nav = getNav(tcRequest, response);
 
-            WebAuthentication authentication = new BasicAuthentication(
-                    new SessionPersistor(session),
-                    tcRequest,
-                    HttpObjectFactory.createResponse(response),
-                    BasicAuthentication.MAIN_SITE);
-            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-
-
-
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
             requestTask = request.getParameter("t");
             requestCommand = request.getParameter("c");
+
+            if (!requestCommand.toLowerCase().equals("sponsor_image")) {
+                WebAuthentication authentication = new BasicAuthentication(
+                        new SessionPersistor(session),
+                        tcRequest,
+                        HttpObjectFactory.createResponse(response),
+                        BasicAuthentication.MAIN_SITE);
+
+                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+            }
+
             if (requestTask==null)
                 requestTask = Conversion.checkNull((String) request.getAttribute("t"));
             if (requestCommand==null)
