@@ -18,7 +18,9 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="../includes/top.jsp"/>
+<jsp:include page="includes/top.jsp" >
+  <jsp:param name="isSponsorPage" value="true"/>
+</jsp:include>
 <!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
