@@ -1,10 +1,19 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.model.Skill,
+                 java.util.List" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder Contracting</title>
 
 <jsp:include page="../../../script.jsp" />
+
+<%
+List skillList = (List)request.getAttribute("skills");
+%>
 
 <SCRIPT TYPE="text/javascript">
 <!--
@@ -53,6 +62,17 @@ return false;
         </jsp:include>
 
 <!-- Breadcrumb-->
+    <script language="javascript">
+        function goToPage(s)
+        {
+            document.frmDatabase.module.value = s;
+            document.frmDatabase.submit();
+        }
+    </script>
+
+		<FORM ACTION="/tc" METHOD=POST onSubmit="" name="frmDatabase">
+		<input type="hidden" name="module" value="ContractingDatabases"/>
+		<input type="hidden" name="previouspage" value="skills" />
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=oppDesc width="100%" valign=top>
@@ -68,7 +88,6 @@ return false;
 			</tr>
 		</table>
 
-		<FORM ACTION="" METHOD=POST onSubmit="">
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr><td>&#160;</td><td class=bodyText colspan=5><span class=bodySubtitle>No experience</span></td><td class=bodyText colspan=6 align=right><span class=bodySubtitle>Expert</span></td>
         	<tr><td class=bodyText valign=top width="100%">&#160;</td>
@@ -78,76 +97,18 @@ return false;
                 </td>
             <% } %>
 			</tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Oracle</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Sybase</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group2 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Informix</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group3 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>MS SQL Server</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group4 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>DB2</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group5 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Access</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group6 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Paradox</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group7 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>dBase</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group7 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Interbase</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group7 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>PostgreSQL</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group7 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>MySQL</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group7 property=""/></td>
-            <% } %>
-	        </tr>
+	    <%String[] cssClasses = new String[] {"formTextEven", "formTextOdd" };
+                          int i = 0;%>
+                <tc:skillIterator id="skill" list="<%=skillList%>">
+                <tr>
+	            <td class=<%=cssClasses[i % 2]%> valign=top><%=skill.getText()%></td>
+	            <tc:skillInput class="<%=cssClasses[i++ % 2]%>" skill="<%=skill%>" />
+                </tr>
+                </tc:skillIterator>
 			<tr>
 	            <td class=bodyText valign=middle>Additional Comments:</td>
 				<td class=bodyText colspan=11>
-				<TEXTAREA NAME="comments" ROWS="3" COLS="40"></TEXTAREA>
+				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_DATABASES%>" rows="3" cols="40"/>
 				</td>
 			</tr>
 			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=industries"><img src="/i/submit.jpg" border=0/></a></td></tr>

@@ -21,7 +21,7 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("databases")) {%><td class=vbcON>Databases 5</td>
-	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=databases" class=vbcLINK>Databases 5</A></td><% } %>
+	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingDatabases');" class=vbcLINK>Databases 5</A></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("industries")) {%><td class=vbcON>Industries 6</td>
@@ -33,7 +33,7 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("success")) {%><td class=vbcON>Done 8</td>
-	<% } else { %><td class=vbcOFF>Done 7</td><% } %>
+	<% } else { %><td class=vbcOFF>Done 8</td><% } %>
 	</tr>
 
 <%--
