@@ -91,7 +91,7 @@
                                 <td width="427" class="bodyCopy">
                                     <img src="/i/events/verizon2003/photo_home.jpg" alt="Photo" width="170" height="159" align="right">
                                     <p>Everyone knows that programmers from Chennai are the masters of software development. But who among them is the best? 
-                                    Verizon is on a mission to answer that question. Through the Verizon Coding Challenge, top software developers will have a 
+                                    Verizon is on a mission to answer that question. Through the Verizon Coding Contest, top software developers will have a 
                                     chance to showcase their skills, earn recognition as the top developers in Chennai and win cash and other prizes.<br/><br/>
 
                                     If you want to raise your profile by besting your peers, then this is the event for you. Verizon has teamed with TopCoder, 
@@ -131,7 +131,7 @@
                         </ul>
 
                         <p><span class="bodySubtitle">Can Your Skills Carry You to August 29th?</span><br />
-                        Registration for the Verizon Coding Challenge opens on August 4th and closes on August 15th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
+                        Registration for the Verizon Coding Contest opens on August 4th and closes on August 15th, 2003.  Be sure to register early, as only the first 500 eligible individuals to
                         register will be invited to compete in Round #1 which will be held at XXX on August 20th.</p>
 
                         <p>The competitors with the top 250 scores from the first round will advance to the second round on August 25th. The top 25 performers in the second round will be invited to
@@ -177,7 +177,7 @@
                         </table>
 
                         <p><span class="bodySubtitle">Prizes</span><br />
-                        The 500 participants in Round 1 will receive a "Verizon Coding Challenge" t-shirt to wear with pride. The shirt will be a symbol
+                        The 500 participants in Round 1 will receive a "Verizon Coding Contest" t-shirt to wear with pride. The shirt will be a symbol
                         of your competitive spirit. You will be recognized as leaders in Chennai's software development community. Verizon will present
                         the top 25 finishers with a Certificate of Merit for outstanding performance in the tournament. The top four scorers
                         will receive the following cash prizes:</p>
@@ -187,7 +187,7 @@
                         3rd Place - $300 USD<br/>
                         4th Place - $100 USD</p>
 
-                        <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
+                        <p>To find out more detailed information about the Verizon Coding Contest, including a list of the prizes, please read
                         the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules_conditions">Terms and Conditions</a>.</p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>

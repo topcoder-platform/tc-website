@@ -72,11 +72,11 @@
             
                         <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
-                        <p>The 2003 Verizon Coding Challenge is being offered by Verizon Communications ("Verizon") and TopCoder, Inc. ("TopCoder").  Verizon is 
+                        <p>The 2003 Verizon Coding Contest is being offered by Verizon Communications ("Verizon") and TopCoder, Inc. ("TopCoder").  Verizon is 
                         using the results of the Coding Challenge to identify possible employees for their Chennai VDSI center.  The Coding Challenge will take place between 
                         Monday, August 4 and Friday, August 29, 2003.  It begins with a 2-week online registration, after which up to 500 eligible individuals will be 
                         invited to compete in the programming tournament.  The tournament consists of two (2) online elimination rounds and one (1) onsite final round.  
-                        All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, Verizon will award $1,900 USD in cash prizes 
+                        All participants who compete in Round #1 will receive a Verizon Coding Contest t-shirt.  In addition, Verizon will award $1,900 USD in cash prizes 
                         to the top 4 finalists in the tournament.</p>
                         
                         <p><a name="structure"><br/></a></p>
@@ -176,7 +176,7 @@
 <!-- About the Prizes -->
                         <h2 class="pgTitle"><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>About the Prizes</h2>
             
-                        <p>All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, the top four scorers in the 
+                        <p>All participants who compete in Round #1 will receive a Verizon Coding Contest t-shirt.  In addition, the top four scorers in the 
                         Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  
                         Prizes will be distributed as follows:</p>
             
@@ -208,7 +208,7 @@
 
                             <tr>
                                 <td width="50%" class="sidebarText">Up to 500 competitors who compete in Online Round #1</td>
-                                <td width="50%" class="sidebarText" align="right">Verizon Coding Challenge t-shirt</td>
+                                <td width="50%" class="sidebarText" align="right">Verizon Coding Contest t-shirt</td>
                             </tr>
 
                             <tr>
@@ -262,7 +262,7 @@
                         a completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9
                          or W-8BEN, as appropriate.  In completing the Affidavit, a winner (i) confirms his/her eligibility, (ii) represents 
                          and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, 
-                         (iii) verifies the accuracy of the information submitted in the Verizon Coding Challenge registration process, (iv) 
+                         (iii) verifies the accuracy of the information submitted in the Verizon Coding Contest registration process, (iv) 
                          authorizes TopCoder and Verizon to publicize the tournament's results, (v) agrees to sign any applicable forms 
                          required by tax authorities, (vi) licenses to TopCoder and Verizon rights to all information submitted during the 
                          tournament (including rights to source code and other executables), and (vii) releases TopCoder and Verizon from 
