@@ -100,7 +100,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestEJB = contestHome.create();
           int roundId = Integer.parseInt(request.getParameter("roundid"));
@@ -154,7 +154,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestEJB = contestHome.create();
 
@@ -253,7 +253,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestEJB = contestHome.create();
 
@@ -351,7 +351,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestEJB = contestHome.create();
 
@@ -443,7 +443,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestEJB = contestHome.create();
           int challengeId = Integer.parseInt(request.getParameter("remove"));
@@ -514,7 +514,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestEJB = contestHome.create();
           int roundId = 0;
@@ -591,7 +591,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestEJB = contestHome.create();
           try {
@@ -676,7 +676,7 @@
      
         try {
            Context ctx = TCContext.getInitial();
-           ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+           ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
            try {
                contestEJB = contestHome.create();
                roundList = contestEJB.getRoundList();

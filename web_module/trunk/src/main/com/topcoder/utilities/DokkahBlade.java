@@ -2,11 +2,12 @@ package com.topcoder.utilities;
 
 import java.util.ArrayList;
 import java.sql.*;
+import com.topcoder.common.DBMS;
 
 public class DokkahBlade {
   
-  private static String _connectString = "jdbc:informix-sqli://192.168.14.51:2020/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=Rev.A049";
-  private static String _informixDriver = "com.informix.jdbc.IfxDriver";
+  private static String _connectString = DBMS.INFORMIX_CONNECT_STRING;
+  private static String _informixDriver = DBMS.INFORMIX_DRIVER;
   private static java.sql.Connection conn = null;
 
   public static void main(String[] args) {

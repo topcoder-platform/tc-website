@@ -16,6 +16,9 @@ import com.topcoder.server.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.6  2002/06/25 01:23:13  gpaul
+ *           removed so chatter, added a verbose flag
+ *
  *           Revision 1.5  2002/06/13 18:54:45  lbackstrom
  *           distributed cache
  *
@@ -121,7 +124,7 @@ public class CachedDataRetrievalBean implements StatDataAccessInt {
             else if (VERBOSE) System.out.println(request.getContentHandle()+" IS NOT in the CACHE");
             Context c = TCContext.getInitial();
             StatisticsHome sh = (StatisticsHome)
-                c.lookup("com.topcoder.web.stat.ejb.Statistics.StatisticsHome");
+                c.lookup(ApplicationServer.STATISTICS);
             Statistics s = sh.create();
             map = s.executeCommand(request.getProperties());
             if(cached)

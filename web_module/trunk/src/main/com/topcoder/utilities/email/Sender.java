@@ -89,7 +89,7 @@ public class Sender extends Thread {
       e.printStackTrace();
     }
 
-    this.qmr = new QueueMessageReceiver(ApplicationServer.JMS_FACTORY, ApplicationServer.EMAIL_QUEUE, ctx);
+    this.qmr = new QueueMessageReceiver(ApplicationServer.JMS_FACTORY, DBMS.EMAIL_QUEUE, ctx);
     this.qmr.setFaultTolerant(false);
     this.qmr.setPersistent(true);
     this.qmr.setConsoleMessageTime(120000);

@@ -13,6 +13,9 @@ import com.topcoder.web.stat.common.*;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
+ *           initial web load into cvs
+ *
  *           Revision 1.1.2.1  2002/03/16 20:18:09  gpaul
  *           moving these over from the member dev area.
  *
@@ -59,7 +62,7 @@ public class DataRetrievalBean implements StatDataAccessInt {
         try {
             Context c = TCContext.getInitial();
             StatisticsHome sh = (StatisticsHome) 
-                c.lookup("com.topcoder.web.stat.ejb.Statistics.StatisticsHome");
+                c.lookup(ApplicationServer.STATISTICS);
             Statistics s = sh.create();
             Map map = s.executeCommand(request.getProperties());
             return map;

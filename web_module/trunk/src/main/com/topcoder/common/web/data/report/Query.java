@@ -112,7 +112,7 @@ public class Query implements Serializable {
      ArrayList result = null;
      try {
        Context ctx = TCContext.getInitial();
-         ReportingHome rHome = (ReportingHome) ctx.lookup("com.topcoder.ejb.ReportingHome");
+         ReportingHome rHome = (ReportingHome) ctx.lookup(ApplicationServer.REPORTING);
        Reporting r = rHome.create();
        result = r.getResult(this);
      } catch (Exception e) {

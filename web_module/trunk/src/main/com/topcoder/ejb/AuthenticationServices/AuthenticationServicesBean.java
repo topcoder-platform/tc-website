@@ -567,6 +567,7 @@ public class AuthenticationServicesBean extends BaseEJB {
       javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
       conn = ds.getConnection();
       ps = conn.prepareStatement ( query.toString() );
+System.out.println(result.getUserId());
       ps.setInt ( 1, result.getUserId () );
       rs = ps.executeQuery();
       if ( rs.next() ) {
