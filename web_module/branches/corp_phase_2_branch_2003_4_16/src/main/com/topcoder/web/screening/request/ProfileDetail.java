@@ -5,13 +5,16 @@ import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfile;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.rmi.PortableRemoteObject;
 
 public class ProfileDetail extends BaseProfileProcessor {
+    private static Logger log = Logger.getLogger(ProfileDetail.class);
     public void process() throws Exception {
         ProfileInfo info = buildProfileInfo(getRequest());
 
+        log.debug("ProfileDetail for profile: " + info.getProfileId());
         info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), getAuthentication().getActiveUser()));
         info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getAuthentication().getActiveUser()));
 
