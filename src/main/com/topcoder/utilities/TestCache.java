@@ -18,7 +18,6 @@ public class TestCache {
         for (int i=0; i<100000; i++) {
             big.append(String.valueOf(i));
         }
-
         try {
             int max = 1000;
             /*
@@ -35,7 +34,7 @@ public class TestCache {
                     cc.get("mynewkey"+i);
                 }
             } */
-            log.debug("add " + 10*max + " 200k items to the cache, and get every 5th, cache for 50 hours");
+            log.debug("add " + 10*max + " size " + big.toString().getBytes().length + " items to the cache, and get every 5th, cache for 50 hours");
             for (int i=0; i<10*max; i++) {
                 cc.set("anothernewkey"+i, big.toString(), 1000*60*60*50);
                 if (i%5==0) {
