@@ -115,7 +115,7 @@ log.debug("viewauth");
 		Request dataRequest = new Request();
 		dataRequest.setProperty("c", "tces_user_and_pw");
 		dataRequest.setProperty("hn", handle);
-		DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+		DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
 
 		Map resultMap = dai.getData(dataRequest);
 		ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
