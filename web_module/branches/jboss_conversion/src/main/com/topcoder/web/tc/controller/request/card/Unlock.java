@@ -2,14 +2,15 @@ package com.topcoder.web.tc.controller.request.card;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 
 /**
  * @author dok
@@ -23,9 +24,8 @@ public class Unlock extends Preview {
                 if (isRated()) {
                     UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
                     if (!isUnlocked()) {
-                        UserTransaction tx = null;
-                        tx = Transaction.get();
-                        Transaction.begin(tx);
+                        TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                        tm.begin();
 
                         try {
                             up.createUserPreference(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID,
@@ -33,12 +33,12 @@ public class Unlock extends Preview {
                             up.setValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID,
                                     String.valueOf(true), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         } catch (Exception e) {
-                            if (tx != null) {
-                                Transaction.rollback(tx);
+                            if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
+                                tm.rollback();
                             }
                             throw new TCWebException(e);
                         }
-                        Transaction.commit(tx);
+                        tm.commit();
                     }
                     getRequest().setAttribute("cardUnlocked", new Boolean(true));
                     setNextPage(Constants.CARD_INSTRUCTIONS);
