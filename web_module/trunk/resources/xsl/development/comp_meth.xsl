@@ -87,7 +87,7 @@ A.methNav:active {
 <BODY>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="180">
@@ -106,15 +106,15 @@ A.methNav:active {
             <xsl:with-param name="image">development</xsl:with-param>
             <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
             </xsl:call-template>
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td bgcolor="#001B35" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td bgcolor="#001B35" height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
-                    <td bgcolor="#001B35" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
                 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText"><div align="center"><h2 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h2></div></td>
                 </tr>
@@ -393,7 +393,7 @@ A.methNav:active {
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#001B35">
+        <td width="244">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->

@@ -24,7 +24,7 @@
 
 <xsl:call-template name="Top"/>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
@@ -45,7 +45,7 @@
                 <xsl:with-param name="title">&#160;Inquiry</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
+            <table border="0" cellspacing="0" cellpadding="10" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
 
             <form name="frmSend" method="POST" action="/?&amp;t=development">
               <input type="hidden" name="t" value="development"/>
@@ -124,7 +124,7 @@ If you have any questions regarding these Terms, contact us at service@topcoder.
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#001B35">
+        <td width="244">
         <xsl:call-template name="public_dev_right"/>        
         </td>
 <!-- Right Column Ends -->

@@ -28,7 +28,7 @@
 
 <xsl:call-template name="Top" />
 
-<table width="100%" xborder="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" xborder="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="180">
@@ -48,7 +48,7 @@
                 <xsl:with-param name="title">&#160;Inquiry</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%"><img src="/i/clear.gif" width="10" height="10" alt="" border="0" /><br />
+            <table border="0" cellspacing="0" cellpadding="10" width="100%"><img src="/i/clear.gif" width="10" height="10" alt="" border="0" /><br />
                 <tr valign="top">
                     <td class="statText" width="100%">
                         <p><strong>Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your inquiry.</strong></p>

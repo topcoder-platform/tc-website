@@ -27,7 +27,7 @@
 <body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="180">
@@ -47,7 +47,7 @@
             <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
@@ -55,7 +55,7 @@
                 </tr>
             </table>
                 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText">
                         <div align="center"><img src="/i/development/bonusContestGraphic.gif" alt="TopCoder Software Development Bonus Contest" width="470" height="59" border="0" /></div>
@@ -68,7 +68,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td align="center">
                         <table border="0" cellspacing="0" cellpadding="3">
@@ -125,7 +125,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText">
                         <p>Thank you to everyone who submitted entries for our February/March Component Design Contest. Stay tuned for our next Bonus Contest coming up soon!</p>
@@ -133,7 +133,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td align="center">
                         <table border="0" cellspacing="0" cellpadding="3">
@@ -485,7 +485,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText">
                         
@@ -536,7 +536,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#001B35">
+        <td width="244">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->

@@ -27,7 +27,7 @@
 <body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="180">
@@ -47,13 +47,13 @@
             <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
                 </tr>
             </table>
                 
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="statText"><div align="center"><h1 class="devSubhead"><strong>TopCoder Software Application Development Methodology</strong></h1></div></td>
                 </tr>
@@ -244,7 +244,7 @@
 <!-- QA ends -->
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td height="10"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" /></td>
                 </tr>    
@@ -257,7 +257,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#001B35"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br/>
+        <td width="244"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br/>
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
