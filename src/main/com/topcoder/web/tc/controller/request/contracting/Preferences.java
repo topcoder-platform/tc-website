@@ -98,6 +98,19 @@ public class Preferences extends ContractingBase {
                 getRequest().setAttribute("Next_SRM", nextRoundDai.getData(nextRoundReq).get("Next_SRM"));
             }
 
+            if (Constants.JOB_HIT_MESSAGE_NOT_REGISTERED.equals(getRequest().getParameter(Constants.MESSAGE))) {
+                getRequest().setAttribute(Constants.MESSAGE, "Thank you for expressing interest in this job " +
+                        "opportunity.  In order for TopCoder to considered and contacted for the position please " +
+                        "take a moment and provide us with your salary and travel requirements and rate your " +
+                        "experience with a variety of programming languages, database platforms and relevant " +
+                        "Industry experience.");
+            } else if (Constants.JOB_HIT_MESSAGE_UN_REGISTERED.equals(getRequest().getParameter(Constants.MESSAGE))) {
+                getRequest().setAttribute(Constants.MESSAGE, "Thank you for expressing interest in this job " +
+                        "opportunity.  In your profile you did not indicate interest in either permanent or " +
+                        "contract positions.  In order to be considered and contacted for potential employment " +
+                        "opportunities please select one of the options.");
+            }
+
         } catch (TCWebException tce) {
             throw tce;
         } catch (Exception e) {

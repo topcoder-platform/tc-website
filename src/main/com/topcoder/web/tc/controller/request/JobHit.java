@@ -125,10 +125,9 @@ public class JobHit extends Base {
 
                                     if (flag==2) {
                                         //they never signed up for placement
-                                        getRequest().setAttribute(Constants.MESSAGE,
-                                                "Please register for placement to aid us in finding you a job.");
                                         setNextPage(sessionInfo.getServletPath()+
-                                                "?"+Constants.MODULE_KEY+"=ContractingPreferences");
+                                                "?"+Constants.MODULE_KEY+"=ContractingPreferences&"+Constants.MESSAGE+
+                                                "="+Constants.JOB_HIT_MESSAGE_NOT_REGISTERED);
 
                                     } else if (isContractor||isPermanent) {
                                         //just have them confirm that their info is all set.
@@ -136,11 +135,9 @@ public class JobHit extends Base {
                                                 "?"+Constants.MODULE_KEY+"=ContractingConfirm");
                                     } else {
                                         //they have choosen not to be available for placement
-                                        getRequest().setAttribute(Constants.MESSAGE,
-                                                "Your placement information indicates that you are not interested" +
-                                                "in either contracting or full-time employment opportunities.");
                                         setNextPage(sessionInfo.getServletPath()+
-                                                "?"+Constants.MODULE_KEY+"=ContractingPreferences");
+                                                "?"+Constants.MODULE_KEY+"=ContractingPreferences&"+Constants.MESSAGE+
+                                                "="+Constants.JOB_HIT_MESSAGE_UN_REGISTERED);
                                     }
                                     setIsNextPageInContext(false);
                                 } else {
