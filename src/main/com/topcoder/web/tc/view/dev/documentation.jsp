@@ -22,7 +22,7 @@
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
-                <jsp:param name="level3" value="documentation"/>
+                <jsp:param name="level3" value="compDocumentation"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -34,7 +34,7 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
-			<h2>Documentation</h2>
+			<h2>Component Documentation</h2>
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
