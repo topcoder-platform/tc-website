@@ -184,8 +184,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
         //create coder
         if (!coder.exists(newUser.getId(), transDb)) { // check if the user exists in registration database already as a coder
-            rating.createRating(newUser.getId(), transDb);
             coder.createCoder(newUser.getId(), transDb);
+            rating.createRating(newUser.getId(), transDb);
         }
         coder.setEditorId(newUser.getId(), DEFAULT_EDITOR, transDb);
         coder.setLanguageId(newUser.getId(), DEFAULT_LANGUAGE, transDb);
