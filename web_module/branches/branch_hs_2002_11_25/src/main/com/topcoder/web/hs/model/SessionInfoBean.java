@@ -8,7 +8,7 @@ import java.io.*;
 public class SessionInfoBean implements Serializable {
 
   private String handle = null;
-  private int userid = -1;
+  private long userid = -1;
   /** group may be:
    * 'G' guest
    * 'S' student
@@ -23,7 +23,7 @@ public class SessionInfoBean implements Serializable {
   public String getHandle() { return handle; }
   public void   setHandle(String handle) { this.handle = handle; }
   public int    getUserId() { return userid; }
-  public void   setUserId(int userid) { this.userid = userid; }
+  public void   setUserId(long userid) { this.userid = userid; }
   public char   getGroup() { return group; }
   public void   setGroup(char group) {
     if(0>"GSCA".indexOf(group)) throw new IllegalArgumentException("no group class '"+group+"'");

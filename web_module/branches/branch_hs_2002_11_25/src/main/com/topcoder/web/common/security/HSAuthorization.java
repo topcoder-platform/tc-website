@@ -20,41 +20,24 @@ import com.topcoder.shared.security.*;
 public class HSAuthorization implements Authorization {
 
     private TCSubject user;
-    PolicyRemote policy;
+    private PolicyRemote policy;
 
     /** Construct an instance which can be used to check access for the given user. */
-    public HSAuthorization(TCSubject user) {
-
-        this.user = user;
-
+    public HSAuthorization(TCSubject sub) {
         try {
-            Hashtable env = new Hashtable();
-            env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-            env.put(Context.PROVIDER_URL, "172.16.20.40:1099");
-            InitialContext context = new InitialContext(env);
-            PolicyRemoteHome policyHome = (PolicyRemoteHome)context.lookup(PolicyRemoteHome.EJB_REF_NAME);
-            policy = policyHome.create();
-
+            this.user = sub;
+            policy = Constants.createEJB("PolicyRemoteHome");
         } catch(Exception e) {
             throw new RuntimeException(e.getMessage());  //@@@ use authexception?
         }
     }
 
-    /** Constructor which takes a userid and fetches the TCSubject for that user. */
-    public HSAuthorization(long userid) {
-
+    /** Constructor which takes a User object and fetches the TCSubject for that user. */
+    public HSAuthorization(User user) {
         try {
-            Hashtable env = new Hashtable();
-            env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-            env.put(Context.PROVIDER_URL, "172.16.20.40:1099");
-            InitialContext context = new InitialContext(env);
-            PolicyRemoteHome policyHome = (PolicyRemoteHome)context.lookup(PolicyRemoteHome.EJB_REF_NAME);
-            policy = policyHome.create();
-
-            PrincipalMgrRemoteHome pmgrHome = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmgr = pmgrHome.create();
-            this.user = pmgr.getUserSubject(userid);
-
+            PrincipalMgrRemote pmgr = Constants.createEJB("PrincipalMgrRemoteHome");
+            this.user = pmgr.getUserSubject(user.getId());
+            policy = Constants.createEJB("PolicyRemoteHome");
         } catch(Exception e) {
             throw new RuntimeException(e.getMessage());  //@@@ use authexception?
         }
@@ -62,7 +45,6 @@ public class HSAuthorization implements Authorization {
 
     /* Query the security component to determine whether the user can access this resource. */
     public boolean hasPermission(Resource r) {
-
         try {
             TCPermission perm = new GenericPermission(r.getName());
             return policy.checkPermission(user, perm);

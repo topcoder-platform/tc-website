@@ -9,7 +9,7 @@ import com.topcoder.shared.security.*;
  */
 public class SessionPersistor implements Persistor {
 
-    HttpSession session;
+    private HttpSession session;
 
     /** create a new instance bound to the given session */
     public SessionPersistor(HttpSession session) {

@@ -22,12 +22,15 @@ public class Static extends Base {
 
         /* default path if not logged in */
         if(path.equals(""))
-            path = "/home/index";  //@@@ name this
+            path = "/home/index";  //@@@ name this, make it different if we are logged in?
+
+        /* here we check whether the path is allowed for this type of user */
+        if(!hsa.checkPermission(path))
+            throw new RuntimeException("@@@ not authorized to view this page");
+
         path += ".jsp";
 
-        /* here we should check whether the path is allowed for this type of user */
-
-        setNextPage(path);  //@@@ remove prefix... make relative to controller servlet
+        setNextPage(path);
         setIsNextPageInContext(true);
     }
 

@@ -17,6 +17,8 @@ public abstract class Base implements RequestProcessor {
     protected ServletRequest request;
     protected ServletResponse response;
     protected BasicAuthentication auth;
+    protected User user;
+    protected HSAuthorization hsa;
     private boolean nextPageInContext = false;
     private String nextPage = null;
 
@@ -33,24 +35,24 @@ public abstract class Base implements RequestProcessor {
 
     protected void buildSessionInfo() {
         SessionInfoBean si = new SessionInfoBean();
-        try { //@@@  this needs to come from calling auth.getUser instead
-            String p;
-            p = request.getParameter("handle");
-            if(p!=null) si.setHandle(p);
-            p = request.getParameter("userid");
-            if(p!=null) si.setUserId(Integer.parseInt(p));
-            p = request.getParameter("group");
-            if(p!=null) si.setGroup(p.charAt(0));
-            p = request.getParameter("rating");
-            if(p!=null) si.setRating(Integer.parseInt(p));
-       } catch(Exception e) { e.printStackTrace(); }
-       request.setAttribute("SessionInfo", si);
+        si.setUserId(user.getId());
+        si.setHandle(user.getName());
+        si.setGroup(user.getId==0 ? 'A' : 'S');  //@@@
+        si.setRating(2500);  //@@@
+        request.setAttribute("SessionInfo", si);
     }
 
     /** Some things we want to do for all subclassed request processors. */
     protected void baseProcessing() {
+
         Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
         auth = new BasicAuthentication(persistor, request, response);
+        user = auth.getUser();
+
+        hsa = new HSAuthorization(user.getId());
+        if(!hsa.checkPermission(new SimpleResource(this.getClass().getName())))
+            throw new RuntimeException("@@@ use authexception");
+
         buildSessionInfo();
     }
 

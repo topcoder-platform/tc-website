@@ -19,6 +19,8 @@ public class BasicAuthentication implements WebAuthentication {
     private Persistor persistor;
     private HttpServletRequest request;
     private HttpServletResponse response;
+    private LoginRemote login;
+    private PrincipalMgrRemote pmgr;
 
     /**
      * Construct an authentication instance backed by the given persistor and HTTP request and response.
@@ -27,31 +29,25 @@ public class BasicAuthentication implements WebAuthentication {
         this.persistor = userPersistor;
         this.request = (HttpServletRequest)request;
         this.response = (HttpServletResponse)response;
+        this.login = (LoginRemote)Constants.createEJB("loginRemoteHome");
+        this.pmgr = (PrincipalMgrRemote)Constants.createEJB("PrincipalMgrRemoteHome");
     }
   
     /**
      * use the security component to log the supplied user in.
      * if (successfulLogin) 
-     *   1.  add user_id, loggedInStatus cookies to response
+     *   1.  add user_id cookie to response
      *   2.  add user_id to Persistor as a value with key=request.getSession().getId()+"user_id"
-     *   3.  add a flag to the session saying that the user has logged in the current session.  a user
-             will have to have this flag set in order to get isLoggedIn(false) to return true.  meaning
-             that ignoring the cookie, the user is logged in.
      * if (!successfulLogin) throw AuthenticationException (or equivalent)
      */
     public void login(User u) throws com.topcoder.shared.security.AuthenticationException {
 
         try {
-            LoginRemote loginRemote = (LoginRemote)Constants.createEJB("loginRemoteHome");
-
-            TCSubject sub = loginRemote.login(u.getUserName(),u.getPassword());
+            TCSubject sub = login.login(u.getUserName(),u.getPassword());
             Long uid = new Long(sub.getUserId());
 
             response.addCookie(new Cookie("user_id", uid.toString()));
-            response.addCookie(new Cookie("session_verified", "yes"));
-
             persistor.setObject(request.getSession().getId()+"user_id", new Long(sub.getUserId()));
-            persistor.setObject(request.getSession().getId()+"session_verified", "yes");
 
         } catch (Exception e) {
             throw new com.topcoder.shared.security.AuthenticationException(e);
@@ -67,9 +63,7 @@ public class BasicAuthentication implements WebAuthentication {
     public void logout() {
 
         persistor.removeObject(request.getSession().getId()+"user_id");
-        persistor.removeObject("session_verified");
         response.addCookie(new Cookie("user_id", ""));
-        response.addCookie(new Cookie("session_verified", ""));
     }
 
     /**
@@ -84,7 +78,7 @@ public class BasicAuthentication implements WebAuthentication {
         Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
             if(ca[i].getName().equals("user_id"))
-                return new SimpleUser(Long.parseLong(ca[i].getValue()));
+                return makeUser(Long.parseLong(ca[i].getValue()));
 
         /* forward to the method below */
         return getActiveUser();
@@ -99,9 +93,15 @@ public class BasicAuthentication implements WebAuthentication {
         /* check the persistor */
         Long uid = (Long)persistor.getObject(request.getSession().getId()+"user_id");
         if(uid != null)
-            return new SimpleUser(uid.longValue());
+            return makeUser(uid.longValue());
 
         /* found nothing */
         return new SimpleUser();
+    }
+
+    /** Fill in the name field from the user id. */
+    private User makeUser(long id) {
+        UserPrincipal up = pmgr.getUser(id);
+        return new SimpleUser(id, up.getName(), "");
     }
 }

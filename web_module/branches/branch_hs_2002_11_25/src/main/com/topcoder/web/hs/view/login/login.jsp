@@ -47,10 +47,19 @@ New to TopCoder?
 Click here to register now. After you complete the registration process, we will send your account activation code via email. 
 </P><BR>
 
+<%
+String nextpage = request.getAttribute("nextpage");
+if(nextpage==null) nextpage = "";
+String message = request.getAttribute("message");
+if(message==null) message = "";
+
 <form name="loginform" action="" method="post">
 <input type="hidden" name="module" value="Login">
-<input type="hidden" name="nextpage" value="<%= request.getAttribute("nextpage")==null?"":request.getAttribute("nextpage") %>">
+<input type="hidden" name="nextpage" value="<%= nextpage %>">
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
+<TR>
+   <TD CLASS="bodyText" COLOR="#FF2010"><%= message %></TD>
+</TR>
 <TR>
     <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" SIZE="25"></TD>
 </TR>

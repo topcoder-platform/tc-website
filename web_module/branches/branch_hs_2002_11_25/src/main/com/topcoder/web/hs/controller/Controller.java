@@ -36,13 +36,13 @@ public final class Controller extends HttpServlet {
                 System.out.println("query \"" + query + "\" from host " + request.getRemoteHost());
 
                 String cmd = checkNull(request.getParameter("module"));
-
-                /* one way of making empty requests end up at the front page */
-                if(cmd.equals("")) cmd = "Static";
-
+                if(cmd.equals("")) cmd = "Static";  /* one way of making empty requests end up at the front page */
                 if(!isLegal(cmd)) throw new IllegalArgumentException("invalid command: "+cmd);
+                cmd = "com.topcoder.web.hs.controller.requests."+cmd;
 
-                rp = (RequestProcessor)Class.forName("com.topcoder.web.hs.controller.requests."+cmd).newInstance();
+//@@@ so im supposed to check auth here and inside static, and i have no way to pass the pieces in... great.
+
+                rp = (RequestProcessor)Class.forName(cmd).newInstance();
                 rp.setRequest(request);
                 rp.setResponse(response);
                 rp.process();
