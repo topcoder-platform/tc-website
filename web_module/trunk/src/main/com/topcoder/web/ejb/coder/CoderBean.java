@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.coder;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.naming.InitialContext;
@@ -45,6 +46,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating Coder coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception creating Coder coderId: " + coderId);
@@ -81,6 +83,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
         } catch (Exception e) {
             throw new EJBException("Exception in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
@@ -123,6 +126,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setQuote coderId: " + coderId + " quote: " + quote);
         } catch (Exception e) {
             throw new EJBException("Exception in setQuote coderId: " + coderId + " quote: " + quote);
@@ -160,6 +164,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setEditorId coderId: " + coderId + " editor id: " + editorId);
         } catch (Exception e) {
             throw new EJBException("Exception in setEditorId coderId: " + coderId + " editor id: " + editorId);
@@ -197,6 +202,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setLanguageId coderId: " + coderId + " languageId: " + languageId);
         } catch (Exception e) {
             throw new EJBException("Exception in setLanguageId coderId: " + coderId + " languageId: " + languageId);
@@ -233,6 +239,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setCoderTypeId coderId: " + coderId + " coderTypeId: " + coderTypeId);
         } catch (Exception e) {
             throw new EJBException("Exception in setCoderTypeId coderId: " + coderId + " coderTypeId: " + coderTypeId);
@@ -282,6 +289,7 @@ public class CoderBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getMemberSince coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getMemberSince coderId: " + coderId);
@@ -326,6 +334,7 @@ public class CoderBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getQuote coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getQuote coderId: " + coderId);
@@ -370,6 +379,7 @@ public class CoderBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getEditorId coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getEditorId coderId: " + coderId);
@@ -415,6 +425,7 @@ public class CoderBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getLanguageId coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getLanguageId coderId: " + coderId);
@@ -459,6 +470,7 @@ public class CoderBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getCoderTypeId coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getCoderTypeId coderId: " + coderId);

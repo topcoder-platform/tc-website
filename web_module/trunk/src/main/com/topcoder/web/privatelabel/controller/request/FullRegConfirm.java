@@ -5,6 +5,7 @@ import com.topcoder.web.privatelabel.view.tag.DemographicInput;
 import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -52,7 +53,7 @@ public class FullRegConfirm extends FullRegBase {
         FullRegInfo info = (FullRegInfo) getRegInfoFromPersistor();
         if (info == null) {
             //perhaps we should load it up from the db...in the case of updates...
-            throw new Exception("Registration info not found in persistor");
+            throw new NavigationException("Sorry, your session has expired, you'll have to begin again.");
         }
 
 

@@ -6,6 +6,7 @@ import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.security.UserPrincipal;
@@ -62,7 +63,7 @@ public class FullRegSubmit extends SimpleRegSubmit {
         //get all reg info from the session, no changes should have been made at this point
         FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
         if (info==null) {
-            throw new Exception("Registration info not found in persistor");
+            throw new NavigationException("Sorry, your session has expired, you'll have to begin again.");
         }
 
         return info;
