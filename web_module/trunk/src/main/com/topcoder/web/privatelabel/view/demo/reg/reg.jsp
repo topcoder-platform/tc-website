@@ -134,7 +134,8 @@
                         <tr>
                             <td class="demoRegQuestion">State</td>
                             <td class="demoRegAnswer">
-                                <tc-webtag:textInput name="<%=Constants.STATE_CODE%>"  size="15" maxlength="50"/>
+                                <% ResultSetContainer stateRsc = (ResultSetContainer)request.getAttribute("stateList"); %>
+                               <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=stateRsc%>" fieldText="state_name" fieldValue="state_code"/>
                             </td>
                         </tr>
                         <tr>
