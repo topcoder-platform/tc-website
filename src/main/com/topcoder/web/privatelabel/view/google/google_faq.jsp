@@ -66,15 +66,15 @@ function openWin(url, name, w, h) {
                   <jsp:include page="googlelinks.jsp" >
                      <jsp:param name="selectedTab" value="faq"/>
                   </jsp:include>
-                  
+
                   </div><br><br>
-                  
+
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
                         <td valign="top">
                         <b><font size="+1">Google FAQs</font></b>
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
-                        
+
                         <p><font size="-1">
                         <font color="006633" size="3"><b>Is there a way to practice before my qualification attempt? </b></font><br><br>
 Once you've registered for the Google Code Jam, you may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you.<br><br>
@@ -89,7 +89,10 @@ You may utilize any reference materials, including those found on the Internet. 
 Only code that has been authored by you may be used in a code submission.  No third-party source code may be used as a part of any code submission.<br><br>
 
                         <font color="006633" size="3"><b>I've submitted a solution for a problem, but the time has not run out.  Can I submit again?</b></font><br><br>
-No.  You may only submit one time for a given problem.  Make sure to test before submitting. <br><br>
+The Coding Phase of all online rounds following the qualification round will allow you to submit a problem more than once. If you’ve already submitted a
+problem and you choose to submit again, your score for that submission will be adjusted to account for the
+additional lapsed time since your last submission, as well as an additional penalty of 10% of the maximum
+point value for the problem. <br><br>
 
                         <font color="006633" size="3"><b>What does the score that I received in the qualification round mean?</b></font><br><br>
 The score that you end up with when you have completed the qualification process may or may not be your final score.  When the qualification period has ended, all submissions will be run against a series of system test cases.  If your submission produces the wrong result (or runs more than 8 seconds) for any of the test cases, you will lose your points for that submission.  The points that you receive for a submission is only a factor of the time elapsed between opening the problem statement and submitting the solution.  Whether or not you get to keep those points is determined during the system testing process.<br><br>
@@ -117,12 +120,12 @@ Shortly following the qualification period, the testing will be done.  As soon a
    </tr>
 </table>
 </div>
-<p><div class=footer> 
-<small> &copy;2003 Google - 
-<a href="http://www.google.com/">Home</a> - 
-<a href="http://www.google.com/about.html">All About Google</a> - 
+<p><div class=footer>
+<small> &copy;2003 Google -
+<a href="http://www.google.com/">Home</a> -
+<a href="http://www.google.com/about.html">All About Google</a> -
 <a href="/?t=about_tc&c=index">About TopCoder</a> -
-<a href="http://www.google.com/jobs/">We're Hiring</a> 
+<a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>
 </div>
