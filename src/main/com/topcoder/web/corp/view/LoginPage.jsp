@@ -68,10 +68,10 @@
 </TABLE>
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
-    <TD CLASS="bodyText"><B>Handle</B><BR><INPUT TYPE="text" NAME="<%=Login.KEY_USER_HANDLE%>" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event)"></TD>
+    <TD CLASS="bodyText"><B>Handle</B><BR><INPUT TYPE="text" NAME="<%=Login.KEY_USER_HANDLE%>" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event,document.loginform)"></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText"><B>Password</B><BR><INPUT TYPE="password" NAME="<%=Login.KEY_USER_PASS%>" SIZE="25" onKeyPress="submitEnter(event)"><BR><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
+    <TD CLASS="bodyText"><B>Password</B><BR><INPUT TYPE="password" NAME="<%=Login.KEY_USER_PASS%>" SIZE="25" onKeyPress="submitEnter(event,document.loginform)"><BR><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
 </TR>
 </TABLE>
 </form>
