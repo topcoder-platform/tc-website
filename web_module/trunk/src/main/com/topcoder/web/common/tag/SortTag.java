@@ -36,18 +36,16 @@ public class SortTag extends TagSupport {
         String sortDir = defaults.getDefault(column);
         if (sortDir==null) sortDir = "asc";
 
-        int finalColumn = -1;
+        int finalColumn = column;
 
         if (!(currCol.equals("") || currDir.equals(""))) {
             int inputCol = Integer.parseInt(currCol);
             if (inputCol==column) {
                 if (currDir.equals("desc")) {
                     if (ascColumn >- 1) finalColumn = ascColumn;
-                    else finalColumn = column;
                     sortDir = "asc";
                 } else {
                     if (descColumn >- 1) finalColumn = descColumn;
-                    else finalColumn = column;
                     sortDir = "desc";
                 }
             } else if (inputCol == ascColumn) {

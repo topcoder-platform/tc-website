@@ -56,8 +56,8 @@ public class ProblemArchive extends Base {
             s.addDefault(rsc.getColumnIndex("problem_name"), "asc");
             s.addDefault(rsc.getColumnIndex("contest_name"), "asc");
             s.addDefault(rsc.getColumnIndex("contest_date"), "desc");
-            s.addDefault(rsc.getColumnIndex("div1_level"), "desc");
-            s.addDefault(rsc.getColumnIndex("div2_level"), "desc");
+            s.addDefault(rsc.getColumnIndex("div1_level"), "asc");
+            s.addDefault(rsc.getColumnIndex("div2_level"), "asc");
             s.addDefault(rsc.getColumnIndex("div1_success"), "desc");
             s.addDefault(rsc.getColumnIndex("div2_success"), "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
