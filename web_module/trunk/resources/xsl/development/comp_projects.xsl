@@ -88,7 +88,7 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
-                    <td class="tco04UsdcCombo" colspan="9">TCO04 &amp; USDC Component Design Projects</td>
+                    <td class="tco04DevHeader" colspan="9">TCO04 Component Design Projects</td>
                 </tr>
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
