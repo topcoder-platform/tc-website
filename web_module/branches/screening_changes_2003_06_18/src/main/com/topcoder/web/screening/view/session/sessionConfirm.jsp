@@ -49,7 +49,7 @@ document.sessionConfirmForm.submit();
                 </tr>
             </table>
 
-            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.TestSessionInfo" scope="session" />
+            <jsp:useBean id="testSessionInfo" type="com.topcoder.web.screening.model.TestSessionInfo" scope="session" />
                         
             <screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
             <input type="HIDDEN" name="rp" value="" >
@@ -81,21 +81,21 @@ document.sessionConfirmForm.submit();
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Begin:</td>
-                        <input type="HIDDEN" name="beginMonth" value="<jsp:getProperty name="sessionInfo" property="beginMonth" />" >
-                        <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="sessionInfo" property="beginDay" />" >
-                        <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="sessionInfo" property="beginYear" />" >
-                        <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="sessionInfo" property="beginHour" />" >
+                        <input type="HIDDEN" name="beginMonth" value="<jsp:getProperty name="testSessionInfo" property="beginMonth" />" >
+                        <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="testSessionInfo" property="beginDay" />" >
+                        <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="testSessionInfo" property="beginYear" />" >
+                        <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="testSessionInfo" property="beginHour" />" >
                     <td class="testTableOdd"><screen:beanWrite name="sessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></td>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
            
                 <tr>
                     <td class="testTableSubtitleEven">End:</td>
-                        <input type="HIDDEN" name="endMonth" value="<jsp:getProperty name="sessionInfo" property="endMonth" />" >
-                        <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="sessionInfo" property="endDay" />" >
-                        <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="sessionInfo" property="endYear" />" >
-                        <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="sessionInfo" property="endHour" />" >
-                    <td class="testTableEven"><screen:beanWrite name="sessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></td>
+                        <input type="HIDDEN" name="endMonth" value="<jsp:getProperty name="testSessionInfo" property="endMonth" />" >
+                        <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="testSessionInfo" property="endDay" />" >
+                        <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="testSessionInfo" property="endYear" />" >
+                        <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="testSessionInfo" property="endHour" />" >
+                    <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></td>
                     <td class="errorTextEven">&#160;</td>
                 </tr>  
 
@@ -103,13 +103,13 @@ document.sessionConfirmForm.submit();
                     <td colspan="3" width="100%" align="center">
                         <table border="0" cellspacing="10" cellpadding="0">
                             <tr>
-                                <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="sessionInfo" property="candidateEmail" />" >
-                                <td colspan="3" class="testTableOdd">Invite candidate to Testing Application:&#160;<strong><jsp:getProperty name="sessionInfo" property="candidateEmail" /></strong></td>
+                                <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="testSessionInfo" property="candidateEmail" />" >
+                                <td colspan="3" class="testTableOdd">Invite candidate to Testing Application:&#160;<strong><jsp:getProperty name="testSessionInfo" property="candidateEmail" /></strong></td>
                             </tr>
                 
                             <tr>
-                                <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="sessionInfo" property="repEmail" />" >
-                                <td colspan="3" class="testTableOdd">Send me email reminder:&#160;<strong><jsp:getProperty name="sessionInfo" property="repEmail" /></strong></td>
+                                <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="testSessionInfo" property="repEmail" />" >
+                                <td colspan="3" class="testTableOdd">Send me email reminder:&#160;<strong><jsp:getProperty name="testSessionInfo" property="repEmail" /></strong></td>
                             </tr>
                         </table>
                     </td>

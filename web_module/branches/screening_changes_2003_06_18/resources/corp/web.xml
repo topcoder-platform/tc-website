@@ -1074,7 +1074,7 @@
 
         <init-param>
             <param-name>session_info</param-name>
-            <param-value>sessionInfo</param-value>
+            <param-value>testSessionInfo</param-value>
             <description></description>
         </init-param>
 

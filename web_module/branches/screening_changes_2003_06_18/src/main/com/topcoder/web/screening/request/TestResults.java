@@ -52,7 +52,7 @@ public class TestResults extends BaseProcessor {
         TestSessionInfo sessionInfo = new TestSessionInfo();
         sessionInfo.setBeginDate(((Date)result.getItem(0, "begin_time").getResultData()));
         sessionInfo.setEndDate(((Date)result.getItem(0, "end_time").getResultData()));
-        getRequest().setAttribute("sessionInfo",sessionInfo);
+        getRequest().setAttribute("testSessionInfo",sessionInfo);
 
         dAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
         dr = new Request();

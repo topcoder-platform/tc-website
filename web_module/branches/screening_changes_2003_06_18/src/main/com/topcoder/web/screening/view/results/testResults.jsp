@@ -25,7 +25,7 @@ function getProblemDetail(id) {
 
 </head>
 
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.screening.model.TestSessionInfo" />
+<jsp:useBean id="testSessionInfo" class="com.topcoder.web.screening.model.TestSessionInfo" />
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 <jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
 <jsp:useBean id="testResultsInfo" class="com.topcoder.web.screening.model.TestResultsInfo" />
