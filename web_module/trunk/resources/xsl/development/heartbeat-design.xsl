@@ -149,7 +149,15 @@
 <!-- Register at TCS -->
 
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat:%20Design&amp;comp=4201389&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p>
+        						<a class="statText">
+        						    <xsl:attribute name="href">
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat:%20Design&amp;comp=4201389&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+                                    </xsl:attribute>
+                                    <strong>Inquire about this project &gt;&gt;</strong>
+        						</a>
+                            </p>
+
 						<p><br /></p>
 					</td>
 
