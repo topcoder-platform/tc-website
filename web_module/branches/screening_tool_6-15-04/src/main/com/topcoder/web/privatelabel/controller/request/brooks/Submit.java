@@ -127,8 +127,8 @@ public class Submit extends FullRegSubmit {
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
         try {
             
-            UserTransaction ut = Transaction.get(getInitialContext());
-            ut.begin();
+            //UserTransaction ut = Transaction.get(getInitialContext());
+            //ut.begin();
             
             try
             {
@@ -324,11 +324,11 @@ public class Submit extends FullRegSubmit {
                 mail.setFromAddress("service@topcoder.com", "Brooks Automation Private Limited, Chennai");
                 EmailEngine.send(mail);
                 
-                ut.commit();
+                //ut.commit();
             }
             catch(Exception e)
             {
-                ut.rollback();
+                //ut.rollback();
                 throw e;
             }
         } catch (Exception e) {
