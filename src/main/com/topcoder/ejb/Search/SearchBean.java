@@ -217,6 +217,11 @@ public class SearchBean extends BaseEJB {
             query.append(" AND r.num_ratings <=");
             query.append(search.getMaxNumRatings());
         }
+        if (search.getMonthsSinceLastComp() != -1) {
+            query.append(" AND cal.date > CURRENT - ");
+            query.append(search.getMonthsSinceLastComp());
+            query.append(" UNITS MONTH");
+        }
         query.append(" ORDER BY rating_order, lower_case_handle");
         try {
             conn = DBMS.getDWConnection();
