@@ -1,35 +1,26 @@
-        <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="200">
-         <TR>
-            <TD ALIGN="left">
-            <IMG SRC="/i/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0">
-            </TD>
-        </TR>
-            <TR>
-                <TD><IMG SRC="/i/sponsor_right_heading.gif" WIDTH="200" HEIGHT="23" ALT="" BORDER="0"></TD>
-            </TR>
-            <TR>
-                <TD BGCOLOR="#667585">
-                <TABLE CELLSPACING="2" CELLPADDING="2" BORDER="0">
-                <TR VALIGN="top">
-                    <TD><A HREF="?module=Static&d1=sponsor&d2=sponsor_cas"><IMG SRC="/i/cas_heading.gif" WIDTH="101" HEIGHT="29" ALT="" BORDER="0"></A></TD>
-                    <TD><A HREF="?module=Static&d1=sponsor&d2=sponsor_cas"><IMG SRC="/i/sponsor_logo_cas.gif" WIDTH="82" HEIGHT="81" ALT="" BORDER="0"></A></TD>
-                </TR>
-                <TR>
-                    <TD COLSPAN="2" CLASS="bodyText">
-                    <P><A HREF="?module=Static&d1=sponsor&d2=sponsor_cas"><Font COLOR="#000000">Unique among the fifty
-                    state associations functioning
-                    within our national borders, the
-                    Connecticut Association of Schools
-                    (formerly the Connecticut Association
-                    of Secondary Schools) was created in
-                    1953 through the merger of the
-                    Connecticut Association of Secondary
-                    School Principals and the Connecticut
-                    Interscholastic Athletic Conference.</Font></A></P>
-                    <P ALIGN="right"><A HREF="?module=Static&d1=sponsor&d2=sponsor_cas" CLASS="resoursesnav"><I>read more&gt;&gt;</I></A></P>
-                    </TD>
-                </TR>
-                </TABLE>
-                </TD>
-            </TR>
-        </TABLE>
+            <table cellspacing="0" cellpadding="0" border="0" width="200">
+                <tr><td height="17"><img src="/i/spacer.gif" width="200" height="17" alt="" border="0"></td></tr>
+                
+                <tr><td height="23"><img src="/i/sponsor_right_heading.gif" width="200" height="23" alt="" border="0"></td></tr>
+                
+                <tr>
+                    <td bgcolor="#667585">
+                        <table cellspacing="2" cellpadding="2" border="0">
+                            <tr valign="top">
+                                <td><a href="?module=Static&d1=sponsor&d2=sponsor_cas"><img src="/i/cas_heading.gif" width="101" height="29" alt="" border="0"></a></td>
+                                <td><a href="?module=Static&d1=sponsor&d2=sponsor_cas"><img src="/i/sponsor_logo_cas.gif" width="82" height="81" alt="" border="0"></a></td>
+                            </tr>
+                
+                            <tr>
+                                <td colspan="2" class="bodyText">
+                                    <p>Unique among the fifty state associations functioning within our national borders, the Connecticut Association of Schools
+                                    (formerly the Connecticut Association of Secondary Schools) was created in 1953 through the merger of the
+                                    Connecticut Association of Secondary School Principals and the Connecticut Interscholastic Athletic Conference.</font></a></p>
+                    
+                                    <div align="right"><a href="?module=Static&d1=sponsor&d2=sponsor_cas" class="resoursesnav">Read more&#160;&gt;</a></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
