@@ -167,7 +167,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         if (paramName.equalsIgnoreCase(TCESConstants.PROBLEM_ID_PARAM))
             setProblemID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.ROUND_ID_PARAM))
-            setRoundId(Integer.parseInt(value));
+            setRoundId(Long.parseLong(value));
     }
 
     /** Creates new ProblemStatisticsTask */
