@@ -175,7 +175,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+                                    <td colspan="4" valign="top" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
                                         <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/>
                                     </td>
                                 </tr>
