@@ -149,7 +149,7 @@ public final class TaskStatic {
 
                     dataRequest = new Request();
                     dataRequest.setContentHandle("regional_tourney_competitors");
-                    if (roundids!=null) dataRequest.setProperty("rds", roundids.trim());
+                    dataRequest.setProperty("rds", roundids.trim());
                     for (int i=0; i<5; i++) {
                         String regionCode = null;
                         switch(i) {
