@@ -66,7 +66,7 @@
                         of a commercial application&#151;including opensource or as part of a services offering&#151;please call us toll free at 
                         <strong>866.867.2633</strong> for a quote.</p>
                         
-                        <p>For your convenience, TopCoder will automatically renew your subscription each month.</p>
+                        <p>For your convenience, <strong><font color="#CC0000">TopCoder will automatically renew your subscription each month.</font></strong></p>
 
                         <p>After receiving a confirmation email, you can immediately download Components from the TopCoder Software Catalog. Make sure 
                         to fully read our <a href="s_terms.jsp">Terms and Conditions</a> before ordering. You may cancel your subscription at any time 
