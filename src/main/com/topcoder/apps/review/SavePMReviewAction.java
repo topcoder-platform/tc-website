@@ -114,14 +114,14 @@ public final class SavePMReviewAction extends ReviewAction {
                             if (scorecard instanceof ScreeningScorecard) {
                                 log(Level.ERROR, "ADVANCED: " + ((SubmissionForm) form).getAdvanced());
                                 if (((SubmissionForm) form).getIsScreening()) {
-                                    ((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
+                                    /*((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
                                     
                                     try {
                                         documentManager.saveInitialSubmission((InitialSubmission)((SubmissionForm) form).getSubmission(), data.getUser().getTCSubject());
                                     } catch(Exception e) {
                                         log(Level.ERROR, e.getMessage());
                                         return null;
-                                    }
+                                    }*/
                                     
                                     ScreeningData sData = new ScreeningData(orpd, sid, (ScreeningScorecard) scorecard);
                                     result = businessDelegate.screeningScorecard(sData);
@@ -147,7 +147,7 @@ public final class SavePMReviewAction extends ReviewAction {
                         try {
                             documentManager.saveInitialSubmission(sub, data.getUser().getTCSubject());
                         } catch(Exception e) {
-                            return null;
+                            return new FailureResult("ERROR SAVING SUBMISSION");
                         }
                         
                         ResultData rs = AutoPilot.screeningPMReview(data);
