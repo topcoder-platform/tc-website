@@ -427,7 +427,7 @@ public class TransactionServlet extends HttpServlet {
                     txInfo.getCompanyID(),
                     txInfo.getProductID(),
                     txInfo.getContactID(),
-                    txInfo.getQtty() * txInfo.getCost()
+                    txInfo.getCost()
             );
             Date startDate = purchaseTable.getCreateDate(purchaseID);
             purchaseTable.setStartDate(purchaseID, startDate);
