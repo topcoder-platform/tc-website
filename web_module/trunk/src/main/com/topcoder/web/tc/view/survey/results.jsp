@@ -76,9 +76,8 @@
                      </tr>
                      <% even = !even; %>
                   </rsc:iterator>
-                     <tr>
-                        <td>
-                            <p>
+                  </table>
+                            <p align="center">
                             <object
                                   type="application/x-shockwave-flash"
                                   data="/i/barGraph.swf"
@@ -105,10 +104,7 @@
                             </object>
                             </p>
                             <p><br/></p>
-                        </td>
-                     </tr>
 
-               </table>
              </tc:questionIterator>
             </p>
          </td>
