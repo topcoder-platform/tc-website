@@ -7,21 +7,15 @@ import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
 import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.Input;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
-import com.topcoder.web.query.ejb.QueryServices.QueryHome;
-import com.topcoder.web.query.ejb.QueryServices.QueryInputHome;
-import com.topcoder.web.query.ejb.QueryServices.CommandQueryHome;
-import com.topcoder.web.query.ejb.QueryServices.CommandHome;
-import com.topcoder.web.query.ejb.QueryServices.InputHome;
-import com.topcoder.web.query.ejb.QueryServices.CommandGroupHome;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
+import javax.naming.InitialContext;
 import javax.ejb.CreateException;
-import javax.transaction.*;
 import java.rmi.RemoteException;
 import java.util.*;
 
@@ -144,6 +138,8 @@ public class QueryMover {
             e.printStackTrace();
 */
         } catch (CreateException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -321,7 +317,7 @@ public class QueryMover {
         for (Iterator it = getQueryInputs(sourceQI, sourceQueryId, sourceDSN).iterator(); it.hasNext();) {
             qib = (QueryInputBean) it.next();
             long sourceInputId = qib.getInputId();
-log.debug("inputMap: " + inputMap.toString());
+            log.debug("inputMap: " + inputMap.toString());
             long targetInputId = ((Long) inputMap.get(new Long(sourceInputId))).longValue();
 
             log.info("creating query input record query id: " + targetQueryId + " input id: " + targetInputId);
@@ -378,9 +374,9 @@ log.debug("inputMap: " + inputMap.toString());
      */
     private ArrayList getQueriesForCommand(CommandQuery cq, Query q, long commandId, String dsn) throws RemoteException {
         log.debug("getQueriesForCommand: commandid: " + commandId + " datasource: " + dsn);
-        if (cq==null) {
+        if (cq == null) {
             log.debug("my command query bean is null");
-        } else if (q==null) {
+        } else if (q == null) {
             log.debug("my query bean is null");
         }
         ArrayList ret = null;
@@ -547,47 +543,30 @@ log.debug("inputMap: " + inputMap.toString());
     /**
      *
      */
-    private void initTarget() throws RemoteException, CreateException, NamingException {
-        Context ctx = TCContext.getContext(targetContextFactory, targetContextURL);
+    private void initTarget() throws Exception {
+        InitialContext ctx = (InitialContext) TCContext.getContext(targetContextFactory, targetContextURL);
 
-        QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
-        targetQ = qHome.create();
-
-        QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
-        targetQI = qiHome.create();
-
-        CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
-        targetCQ = cqHome.create();
-
-        CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
-        targetC = cHome.create();
-
-        InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
-        targetI = iHome.create();
-
-        CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
-        targetCG = cgHome.create();
+        targetQ = (Query) Util.createEJB(ctx, Query.class);
+        targetQI = (QueryInput) Util.createEJB(ctx, QueryInput.class);
+        targetCQ = (CommandQuery) Util.createEJB(ctx, CommandQuery.class);
+        targetC = (Command) Util.createEJB(ctx, Command.class);
+        targetI = (Input) Util.createEJB(ctx, Input.class);
+        targetCG = (CommandGroup) Util.createEJB(ctx, CommandGroup.class);
     }
 
     /**
      *
      */
-    private void initSource() throws CreateException, NamingException, RemoteException {
+    private void initSource() throws Exception {
         try {
-            Context ctx = TCContext.getContext(sourceContextFactory, sourceContextURL);
+            InitialContext ctx = (InitialContext) TCContext.getContext(sourceContextFactory, sourceContextURL);
 
-            QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
-            sourceQ = qHome.create();
-            QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
-            sourceQI = qiHome.create();
-            CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
-            sourceCQ = cqHome.create();
-            CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
-            sourceC = cHome.create();
-            InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
-            sourceI = iHome.create();
-            CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
-            sourceCG = cgHome.create();
+            sourceQ = (Query) Util.createEJB(ctx, Query.class);
+            sourceQI = (QueryInput) Util.createEJB(ctx, QueryInput.class);
+            sourceCQ = (CommandQuery) Util.createEJB(ctx, CommandQuery.class);
+            sourceC = (Command) Util.createEJB(ctx, Command.class);
+            sourceI = (Input) Util.createEJB(ctx, Input.class);
+            sourceCG = (CommandGroup) Util.createEJB(ctx, CommandGroup.class);
         } catch (NamingException e) {
             e.printStackTrace();
             throw e;
