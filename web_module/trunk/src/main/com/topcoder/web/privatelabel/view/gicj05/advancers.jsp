@@ -57,7 +57,7 @@
 			</tr>
 			<tr valign="top">
 			<td class="advancersRound"><a href="/pl/?&module=Static&d1=gicj05&d2=advFinal" class="topLink">Onsite Finals</a></td>
-			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gicj05&d2=advFinal">winners</a></td>
+			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gicj05&d2=advFinal">Winners</a></td>
 			</tr>
 			</table>
 
