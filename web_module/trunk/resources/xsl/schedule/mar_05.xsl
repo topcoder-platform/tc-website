@@ -96,6 +96,7 @@
                                     <strong>Match 233</strong><br />
                                     Register: 6:00&#160;AM<br />
                                     Compete: 9:00&#160;AM<br />
+                                    Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=nvidia">NVIDIA</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=6532&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">4</td>
@@ -137,6 +138,7 @@
                                     <strong>Match 234</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
+                                    Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=yahoo">Yahoo!</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=6533&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">17</td>
