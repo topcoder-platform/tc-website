@@ -2,16 +2,16 @@
 <h3>Mailing list members</h3>
 
 <% // alternate colors every row...
-	int row = 0;
+	int curr = 0;
 	String[] colors = { "#EEEEEE", "#FFFFFF" };
 %>
 
 <table border=0 cellpadding=2 cellspacing=0>
 <email:memberIDIterator id="memberID" addressListID="<%=AddressList.getId()%>">
-	<tr bgcolor="<%=colors[(row++)%colors.length]%>">
+	<tr bgcolor="<%=colors[(curr++)%colors.length]%>">
 
 	<td valign="top" class="bodyText">
-	<%=row%>.
+	<%=curr%>.
 	</td>
 
 	<td width=75% class="bodyText">
