@@ -88,7 +88,8 @@ public class Search extends Base {
       List member_list=null;
 
       if (isValidSearch(errors,sb)) {
-        findMembers(member_list,sb);
+        int count=findMembers(member_list,sb);
+        log.debug("Search found '"+count+"' matching members");
       }
 
       sb.setMemberList(member_list);
