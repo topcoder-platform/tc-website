@@ -133,7 +133,7 @@
                     </tr>
                     
                     <tr valign="middle">
-                      <td align="right" class="statText">Competitors</td>
+                      <td align="right" class="statText"><a class="statText" href="/index/?t=tournaments&amp;c=tccc03_competitors&amp;rds=4472"></a><strong>Competitors</strong></td>
                       <td align="center" class="statText">100</td>
                       <td align="center" class="statText">100</td>
                       <td align="center" class="statText">100</td>
