@@ -4,7 +4,7 @@
                 <tr> 
                     <td valign="top">
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
-                            <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: September</td></tr>
+                            <tr><td                             <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: September</td></tr>
                             
                             <tr> 
                                 <td id="calendarDays" width="15%">S</td>
@@ -40,18 +40,18 @@
                                 <td id="calendarMini">12</td>
                                 <td id="calendarMini">13</td>
                                 <td id="calendarTCOSRM"><A id="miniSRMDate" href="/?RoundId=5857&amp;t=schedule&amp;c=srm">1</A><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=about">4</A></td>
-                                <td id="calendarGoogleMini"><A id="calendarGoogleMini" href="/pl/?&module=Static&d1=google04&d2=schedule">15</A></td>
-                                <td id="calendarGoogleMini"><A id="calendarGoogleMini" href="/pl/?&module=Static&d1=google04&d2=schedule">16</A></td>
+                                <td id="calendarMini">15</td>
+                                <td id="calendarMini">16</td>
                                 <td id="calendarMini">17</td>
                                 <td id="calendarMini">18</td>
                             </tr>
                             
                             <tr> 
                                 <td id="calendarMini">19</td>
-                                <td id="calendarGoogleMini"><A id="calendarGoogleMini" href="/pl/?&module=Static&d1=google04&d2=schedule">20</A></td>
+                                <td id="calendarMini">20</td>
                                 <td id="calendarMini">21</td>
                                 <td id="calendarTCO04Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=about">22</A></td>
-                                <td id="calendarGoogleMini"><A id="calendarGoogleMini" href="/pl/?&module=Static&d1=google04&d2=schedule">23</A></td>
+                                <td id="calendarMini">23</td>
                                 <td id="calendarMini">24</td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=5858&amp;t=schedule&amp;c=srm">25</A></td>
                             </tr>

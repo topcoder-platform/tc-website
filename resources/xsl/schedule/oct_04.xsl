@@ -118,13 +118,7 @@
                                 <td id="calendar">12</td>
                                 <td id="calendar">13</td>
                                 <td id="calendar">14</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">15</span><br />
-                                    <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
-                                    Championship Round<br />
-                                    Compete: 4:00&#160;PM<br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/pl/?&amp;module=Static&amp;d1=google04&amp;d2=schedule">Details</A></td>
+                                <td id="calendar">15</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">16</span><br />
                                     <strong>Match 215</strong><br />
