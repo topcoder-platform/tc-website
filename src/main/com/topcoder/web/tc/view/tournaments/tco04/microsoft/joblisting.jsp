@@ -23,25 +23,17 @@
 				<tr>
 					<td class="bodyText">
         			<img src="/i/tournament/tco04/microsoft_header.jpg" width=510 height=136 border=0>
-
-        			<table width="510" border=0 cellpadding=20 cellspacing=0>
-        				<tr valign="top">
-        					<td width="50%" class="bodyText">
-        					<p class=pageTitle><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=collegejobs">Microsoft College Jobs</a></p>
-        					
-        					<p>It's amazing what you can do when you have the right resources. Our workplace 
-        					is a fun and challenging environment - one powered by innovative people a lot like you.</p>
-        					</td>
-        					
-        					
-        					<td width="50%" class="bodyText">
-        					<p class=pageTitle>Microsoft Professional Jobs</p>
-        					
-        					<p>Coming Soon!</p></td>
-        				</tr>
-        			</table>
 					
-
+					<p class=pageTitle>Microsoft Positions Available</p>
+					<p>It's amazing what you can do when you have the right resources. Our workplace 
+        				is a fun and challenging environment - one powered by innovative people a lot like you.</p>
+					<ul>
+						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=col_progmanager">Program Manager</a></li>
+						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=col_softdeseng">Software Design Engineer</a></li>
+						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=col_sdet">Software Design Engineer in Test</a></li>
+						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=col_ste">Software Test Engineer</a></li>
+						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=col_tpm">Technical Product Manager</a></li>
+					</ul>
    					</td>
    				</tr>
    			</table>
