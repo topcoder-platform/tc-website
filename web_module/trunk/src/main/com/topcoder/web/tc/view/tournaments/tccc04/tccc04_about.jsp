@@ -46,14 +46,16 @@
             <h2>The 2004 TopCoder Collegiate Challenge</h2>
 
             <p><span class="bodySubtitle">What is the TCCC?</span><br/>
-            TopCoder is bringing the frontline of competitive programming to a campus near you. Over the next couple of months, the 2004 TopCoder Collegiate Challenge will have college students all over the world competing for a chance to attend the onsite finals in Boston, MA in April.  Students have their choice of playing field, either the Algorithm Competition or the Component Design and Development Competition, or both should you be that skilled.  The stage is set and the competition is fierce.  Let the games begin!
+            Once again TopCoder is bringing the frontline of competitive programming to a campus near you! Over the next few months, the 2004 TopCoder Collegiate Challenge will have college students all over the world competing for a chance to attend the onsite finals in Boston, MA, USA in April.  Students have their choice of playing field, either the Algorithm or Component Competition, or both should you be that skilled.  The stage is set and the competition is fierce.  Let the games begin!
             </p>
             
             <p><span class="bodySubtitle">What's new?</span><br/>
-            For starters, this tournament is bigger than ever.  24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.  There may be more finalists now, but only three of them will be crowned champion.  Will you be part of the elite?
-            <br/><br/>
-            The 2004 TCCC marks the first TopCoder tournament to have coaches.  Coaches will provide competitors in the Design Competition with technical guidance and support during the contest.  Not in college, but love to design components?  <a href="mailto:service@topcoder.com">Be</a> a coach.  Got the skills to design, but need a little guidance in the tournament?  <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coachesreq">Request</a> a coach.
-            </p>
+            <ul>
+            <li><b>More onsite competitors:</b> This tournament is bigger than ever.  24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.  There may be more finalists now, but only three of them will be crowned champions.  Will you be part of the elite?</li>
+            <li><b>Coaches:</b> The 2004 TCCC marks the first TopCoder tournament to have coaches.  Coaches will provide competitors in the Component Design Competition with technical guidance and support during the contest.  Not in college, but love to design components?  <a href="mailto:service@topcoder.com">Sign up</a> to be a coach.  Looking for a little guidance in the tournament?  <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coachesreq">Request</a> a coach.</li>
+            <li><b>Registration:</b> In addition to being a TopCoder member, each competition hopeful must register for the Algorithm Competition.  Registration is unlimited but each competitor may only register once.</li>
+            <li><b>Open Qualification:</b> Each registered competitor will attempt to qualify at any time during an open 24-hour period.</li>
+            </ul>
             
             
             <p><span class="bodySubtitle">The details:</span><br/>

@@ -74,8 +74,8 @@ with "Coach" in the subject line.
 <li>Future royalties received by the winning competitor are not subject to the coach's percentage.</li>
 </ul>
 
-<p><span class="bodySubtitle">Coaching Responsibilities</span><br/>
-NOTE: Coaches will be available or permitted to provide assistance to any competitor during any portion of Round #3 - Championship Round.
+<p><span class="bodySubtitle">Coaching Responsibilities</span></p>
+<p>NOTE: Coaches will not be available or permitted to provide assistance to any competitor during any portion of Round #3 - Championship Round.</p>
 <ul>
 <li>Expected behavior:</li>
 <ul>
