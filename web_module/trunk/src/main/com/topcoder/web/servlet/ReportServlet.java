@@ -1024,6 +1024,7 @@ public final class ReportServlet extends HttpServlet {
             " WHERE c.coder_id = cr.coder_id" +
             " AND r.referral_id = cr.referral_id" +
             " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
+            " AND email NOT LIKE '%topcoder.com%' " +
             " GROUP BY 1, 2" +
             " ORDER BY 1 DESC, 2";
 
