@@ -41,7 +41,7 @@
                   </table>
                   <p class="bodyText">Thank you for your response.  Your input is very important to TopCoder and we
                   appreciate you taking the time to fill out our surveys.</p>
-                  <p><a href="http://wwwwwwwww.doksucks.tv"><img src="/i/view_results.gif" width="101" height="20" border="0"/></a></p>
+                  <p><a href="http://wwwwwwwww.doksucks.tv"><img src="/i/view_results.gif" width="60" height="18" border="0"/></a></p>
 
          </td>
 <!-- Center Column Ends -->
