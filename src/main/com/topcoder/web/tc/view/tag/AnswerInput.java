@@ -89,17 +89,31 @@ public class AnswerInput extends BaseTag {
     private String buildText() {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(200);
-        s.append("<input type=\"text\" size=\"40\" maxlength=\"255\"");
-        s.append(" name=\"");
-        s.append(name);
-        s.append("\"");
-        if (cssclass != null) {
-            s.append(" class=\"" + cssclass + "\"");
+        if (question.getTypeId()==Question.LONG_ANSWER) {
+            s.append("<textarea");
+            s.append("cols=\"").append(60).append("\" ");
+            s.append("rows=\"").append(8).append("\" ");
+            s.append("wrap=\"").append("virtual").append("\" ");
+            s.append("name=\"").append(name).append("\" ");
+            if (cssclass != null) {
+                s.append("class=\"").append(cssclass).append("\" ");
+            }
+            s.append(">");
+            s.append(getDefaultValue() == null ? "" : getDefaultValue());
+            s.append("</textarea>");
+        } else {
+            s.append("<input type=\"text\" size=\"40\" maxlength=\"255\"");
+            s.append(" name=\"");
+            s.append(name);
+            s.append("\"");
+            if (cssclass != null) {
+                s.append(" class=\"" + cssclass + "\"");
+            }
+            s.append(" value=\"");
+            s.append(getDefaultValue() == null ? "" : getDefaultValue());
+            s.append("\"");
+            s.append("/>");
         }
-        s.append(" value=\"");
-        s.append(getDefaultValue() == null ? "" : getDefaultValue());
-        s.append("\"");
-        s.append("/>");
         return s.toString();
     }
 
