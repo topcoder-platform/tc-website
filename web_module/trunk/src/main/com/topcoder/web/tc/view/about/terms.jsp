@@ -56,7 +56,7 @@
                         Unless explicitly stated, any new features will be subject to these terms and conditions.</p>
 
                         <p><b>PRIVACY</b><br/>
-                        See our complete <A href="/?t=about_tc&amp;c=privacy" class="bodyText">privacy policy.</A></p>
+                        See our complete <A href="/tc?module=Static&d1=about&d2=privacy" class="bodyText">privacy policy.</A></p>
 
 <b>PROVISIONS APPLICABLE TO CHINESE CITIZENS AND EXPATRIATES RESIDING IN CHINA</b><br/>
 TopCoder hereby incorporates into these Terms of Use and Privacy Policy the provisions of China's Decision on Safeguarding the Security of the Internet.  
