@@ -37,6 +37,6 @@
             <% if (selectedRound.equals("semi")) {%>
                  Semifinals 
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_rd4">Semifinals</a> 
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_semi">Semifinals</a> 
             <% } %>
 </font>
