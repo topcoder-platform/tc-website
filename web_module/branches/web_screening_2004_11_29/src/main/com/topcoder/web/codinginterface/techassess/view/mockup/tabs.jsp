@@ -12,6 +12,5 @@
 		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
 		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
 		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
-		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
 	</tr>
 </table>
