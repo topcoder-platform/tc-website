@@ -29,7 +29,7 @@
 <!-- Left Column Begins -->
     <tr valign="top">
         <td width="170" bgcolor="#000000">
-            <xsl:call-template name="global_left"/>
+            <xsl:call-template name="global_left"/><br />
 <!-- Do Not Delete This Line --><font size="1" color="#000000" face="tahoma">HiddenWord</font>
         </td>
 
