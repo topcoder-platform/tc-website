@@ -11,7 +11,7 @@
     <xsl:template name="formatmmddyyyy">
         <xsl:param name="DATE"/>
         <xsl:if test='boolean($DATE)'>
-            <xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/> <br/>  <xsl:value-of select="substring($DATE, 12,8)"/> ET
+            <xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/> <br/>  <xsl:value-of select="substring($DATE, 12,8)"/>
         </xsl:if>
     </xsl:template>
     <xsl:template name="urldate">
