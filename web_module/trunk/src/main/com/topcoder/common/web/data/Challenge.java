@@ -23,6 +23,8 @@ public final class Challenge
   private int challengeId;
   private int challengerId;
   private String chalHandle;
+  private int statusId;
+  private String statusDesc;
   private int defendantId;
   private String defHandle;
   private Location location;
@@ -65,6 +67,8 @@ public final class Challenge
     this.defendantPoints = 0D;
     this.args = new ArrayList();
     this.msg = "";
+    this.statusDesc = "";
+    this.statusId = 0;
     this.language = -1;
   }
    
@@ -94,6 +98,14 @@ public final class Challenge
   }
     	
 // set
+  public void setStatusid(int statusId) {
+    this.statusId = statusId;
+  }
+  
+  public void setStatusDesc(String statusDesc) {
+    this.statusDesc = statusDesc;
+  }
+  
   public void setChallengerId(int challengerId) {
     this.challengerId = challengerId;
   }
@@ -189,6 +201,14 @@ public final class Challenge
   }
    
 // get
+  public String getStatusDesc() {
+    return statusDesc;
+  }
+  
+  public int getStatusId() {
+    return statusId;
+  }
+  
   public int getContestId() {
     return contestId;
   }
@@ -334,6 +354,8 @@ public final class Challenge
       result.addTag( new ValueTag("ChallengerPoints", challengerPoints) );
       result.addTag( new ValueTag("DefendantPoints", defendantPoints) );
       result.addTag( new ValueTag("Succeeded", succeeded) );
+      result.addTag( new ValueTag("StatusId", statusId) );
+      result.addTag( new ValueTag("StatusDesc", statusDesc) );
       result.addTag( new ValueTag("Message", msg) );
       result.addTag( new ValueTag("Args", Conversion.checkNull(Conversion.makePretty(args))));
       result.addTag( new ValueTag("SubmitTime", new java.sql.Timestamp(submitTime).toString()) );
