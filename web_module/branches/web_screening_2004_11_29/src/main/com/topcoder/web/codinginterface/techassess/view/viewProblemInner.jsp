@@ -40,7 +40,7 @@
       var h = 300;
       var left = (screen.availWidth - w) / 2;
       var top = (screen.availHeight - h) / 2;
-      windowHandle = window.open("<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_TEST%>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problemInfo" property="componentId"/>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problemInfo" property="problemTypeId"/>, "", "statusbar=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
+      windowHandle = window.open("<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_TEST%>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problemInfo" property="componentId"/>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problemInfo" property="problemTypeId"/>", "", "statusbar=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
     }
 </SCRIPT>
 
