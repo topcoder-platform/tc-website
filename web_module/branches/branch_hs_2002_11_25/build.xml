@@ -206,7 +206,7 @@
    </target>
 
 
-   <target name="mockSite" depends="">
+   <target name="mockSite" depends="compile">
 
       <property name="mockservlets"  value="com/topcoder/web/hs/controller" />
       <mkdir dir="${servlets}/${mockservlets}" />
