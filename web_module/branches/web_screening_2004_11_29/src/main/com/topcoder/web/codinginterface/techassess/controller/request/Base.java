@@ -71,7 +71,7 @@ public abstract class Base extends BaseProcessor {
 
     protected void loadSessionDefaultsIntoRequest(String messageId) {
         HashMap m = (HashMap)getRequest().getSession().getAttribute(DEFAULTS_KEY+messageId);
-        log.debug("loading session defaultss into request " + m);
+        log.debug("loading session defaults into request " + m);
         if (m!=null) defaults = m;
         clearSessionDefaults(messageId);
     }

@@ -77,7 +77,6 @@ public class Login extends Base {
                     getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
 
                 } else {
-                    setDefault(Constants.COMPANY_ID, new Long(companyId));
                     addError(Constants.HANDLE, response.getMessage());
                 }
 
