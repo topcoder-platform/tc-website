@@ -34,14 +34,14 @@ function getProblemDetail(id) {
   }
 //--></script>
 
-        <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="bodyText">
+        <table  border="0" cellspacing="0" cellpadding="5" width="700" align="center" class="bodyText">
               <tr valign="middle">
                   <td colspan="6" class="bodyText" align=center>Search Results:<%=searchResults.getStart()%> to <%=searchResults.getEnd()%> of <%= searchResults.getTotal()%>
                   </td>
               </tr>
         </table>
 
-          <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="screeningFrame">
+          <table  border="0" cellspacing="0" cellpadding="5" width="700" align="center" class="screeningFrame">
           
               
               <tr>
@@ -109,7 +109,7 @@ function getProblemDetail(id) {
               </rsc:iterator>
         </table>
 
-          <table  border="0" cellspacing="0" cellpadding="0" width="600" align="center" class="screeningFrameNB">
+          <table  border="0" cellspacing="0" cellpadding="0" width="700" align="center" class="screeningFrameNB">
               <tr valign="middle">
                   <td class="screeningCellOdd" align="center">
                     <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" >&lt;&lt; prev</a>":"&lt;&lt; prev")%>

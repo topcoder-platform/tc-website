@@ -14,7 +14,7 @@
                             } else return true;
                         }
 //--></script>
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="600">
+                <table border="0" cellspacing="0" cellpadding="0" align="center" width="700">
                     <tr valign="top">
                         <td>
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
@@ -29,7 +29,7 @@
                        </td>
                 </table>
 
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="600" class="screeningFrame">
+                <table border="0" cellspacing="0" cellpadding="0" align="center" width="700" class="screeningFrame">
                     <tr valign="top">
                         <td colspan="2">
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
