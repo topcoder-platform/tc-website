@@ -9,6 +9,7 @@
   <xsl:import href="../../includes/modules/calendar.xsl"/>
   <xsl:import href="../../includes/global_left.xsl"/> 
   <xsl:import href="../../includes/public_right_col.xsl"/>     
+  <xsl:import href="../nvidia_links.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
@@ -53,14 +54,10 @@
           <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
 
-<TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
-   <TR>
-      <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
-  </TR>
-  <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Full Time Positions</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">Intern/Co-op Positions</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A></TD>
-  </TR>
-</TABLE>
+<!-- Nvidia Links Begins -->
+                        <xsl:call-template name="nvidia_links"/>
+<!-- Nvidia Ends -->
+
 <IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" ALIGN="CENTER" /><BR/>       
 
                 <P>All positions are for New College Graduate &#40;NCG&#41;, Internship, and Co-op opportunities, unless otherwise indicated:</P>
