@@ -48,7 +48,9 @@ public class QuerySearch extends BaseProcessor {
         Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
 
         ResultSetContainer rsc = q.getAllQueries(true, getDb());
-        setSearchResults(find(rsc, getSearchCriteria()));
+        if (getSearchCriteria()!=null&&!getSearchCriteria().equals("")) {
+            setSearchResults(find(rsc, getSearchCriteria()));
+        }
 
         request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.QUERY_DETAIL_PAGE);
