@@ -171,6 +171,8 @@
       <property name="reg.src"       value="${web}/reg/servlet/jsp" />
       <property name="render.trgt"   value="${public_html}/cm" />
       <property name="render.src"    value="${web}/render/servlet/jsp" />
+      <property name="tces.trgt"     value="${public_html}/es" />
+      <property name="tces.src"      value="${web}/tces/servlet/jsp" />
 
       <mkdir dir="${stat.trgt}" /> 
       <mkdir dir="${root.trgt}" />
@@ -178,6 +180,7 @@
       <mkdir dir="${project.trgt}" />
       <mkdir dir="${reg.trgt}" />
       <mkdir dir="${render.trgt}" />
+      <mkdir dir="${tces.trgt}" />
 
       <copy todir="${stat.trgt}">
          <fileset dir="${stat.src}" >
@@ -206,6 +209,11 @@
       </copy>
       <copy todir="${render.trgt}">
          <fileset dir="${render.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${tces.trgt}">
+         <fileset dir="${tces.src}" >
                  <include name="**/*.jsp" />
          </fileset>
       </copy>
