@@ -4,7 +4,7 @@
 
 <head>
 
-<title>Testing Environment</title>
+<title>Technical Assessment Environment</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
@@ -50,7 +50,7 @@
         <td background="/i/testBodyTop.gif" width="100%"><img src="/i/corp/clear.gif" alt="" width="10" height="10" alt="0" border="0"></td>
         <td><img src="/i/corp/testBodyTopRight.gif" alt="" width="10" height="10" alt="0" border="0"></td>
     </tr>
-      
+
     <tr>
         <td background="/i/testBodyLeft.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" align="center">
@@ -71,13 +71,13 @@
             <table border="0" cellpadding="0" cellspacing="10" width="75%">
                 <tr>
                     <td class="bodyText">
-                        <h1 class="bodyTitle">Loading the Testing Application</h1>
-                        
-                        <p>The Testing Application is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the 
-                        application by using the URL that has been provided to you.  Once you click on the URL, you will be notified if you need to 
-                        upgrade your Java runtime.  If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade 
-                        is not required, the application will load automatically and present you with an orange <strong>Launch Testing Application</strong> button.</p>
-                        
+                        <h1 class="bodyTitle">Loading the Technical Assessment Application</h1>
+
+                        <p>The Technical Assessment Application is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the
+                        application by using the URL that has been provided to you.  Once you click on the URL, you will be notified if you need to
+                        upgrade your Java runtime.  If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade
+                        is not required, the application will load automatically and present you with an orange <strong>Launch Technical Assessment</strong> button.</p>
+
                         <p>Get further information on <a href="http://java.sun.com/products/plugin/" target="_blank">Java 1.4 runtime</a></p>
 
                     </td>
@@ -86,14 +86,14 @@
         </td>
         <td  background="/i/testBodyRight.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
-      
+
     <tr>
         <td width="10"><img src="/i/corp/testBodyBottomLeft.gif" alt="" width="10" height="10" border="0"></td>
         <td width="100%" background="/i/testBodyBottom.gif"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
         <td width="10"><img src="/i/corp/testBodyBottomRight.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
 </table>
-      
+
 </div>
 
 </body>
