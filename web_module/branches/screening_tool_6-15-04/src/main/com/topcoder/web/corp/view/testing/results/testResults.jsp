@@ -224,7 +224,7 @@ function getProblemDetail(id) {
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
 	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-		       <TD COLSPAN="9" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
+		       <TD COLSPAN="7" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
 		<% } else { %>
                        <TD COLSPAN="8" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
 		<% } %>
