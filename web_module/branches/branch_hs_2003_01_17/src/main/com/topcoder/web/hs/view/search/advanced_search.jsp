@@ -10,16 +10,16 @@
  <INPUT TYPE="hidden" NAME="prev" VALUE="">
  <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
   <TR>
-   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/hs/clear.gif" HEIGHT="4" WIDTH="1" BORDER="0"></TD>
+   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/hs/clear.gif" HEIGHT="4" WIDTH="1" BORDER="0"></TD>
   </TR>
   <TR>
    <TD COLSPAN="4" HEIGHT="18" VALIGN="middle" CLASS="bodyText">&nbsp;Member Search: Search by handle, rating or state.</TD>
   </TR>
   <TR>
-   <TD COLSPAN="4" CLASS="statText" BACKGROUND="/i/hs/blue_heading_bg_deux.gif"><IMG BORDER="0" HEIGHT="1" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD>
+   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/hs/clear.gif" HEIGHT="4" WIDTH="1" BORDER="0"></TD>
   </TR>
   <TR>
-   <TD COLSPAN="4" HEIGHT="30" VALIGN="middle" CLASS="statText">
+   <TD COLSPAN="4" HEIGHT="30" VALIGN="middle" CLASS="bodyText">
     &nbsp;An underscore ( _ ) = one character space<BR>
     &nbsp;A percent sign ( % ) = any number of character spaces
    </TD>
