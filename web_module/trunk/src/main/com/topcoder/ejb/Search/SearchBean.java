@@ -122,6 +122,7 @@ public class SearchBean extends BaseEJB {
             }
             scroll.setRow(1);
             scroll.setSize(recCount - 1);
+            log.debug("result size: " + scroll.getSize());
             scroll.setAllowPrevious(false);
             if (scroll.getSize() > scroll.getReturns())
                 scroll.setAllowNext(true);
