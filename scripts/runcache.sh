@@ -1,7 +1,7 @@
 #!/bin/ksh
 
-MAXMEM=128m
-JAVACMD=/usr/j2sdk1.4.2/bin/java
+MAXMEM=512m
+JAVACMD=${JAVA_HOME}/bin/java
 BASE=..
 MAIN=com.topcoder.shared.distCache.CacheServerMain
 PROCESSOR=DefaultProcessor
@@ -13,24 +13,35 @@ CP=$CP:$BASE/resources
 CP=$CP:$BASE/lib/jars/nbio.jar
 CP=$CP:$CLASSPATH
 
-OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=20000 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps"
-#OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=20000 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC"
+OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=128 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCTimeStamps -XX:CMSInitiatingOccupancyFraction=10 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
+
+#OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=20000 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC - XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC"
 
 
 ##############################################
-#1. -XX:MaxTenuringThreshold=0 
-#2. -XX:SurvivorRatio=20000 
-#3. -Xms128m
-#4. -Xmx128m
-#5. -XX:+ UseConcMarkSweepGC 
-#6. -XX:+UseParNewGC 
+#1. -XXMaxTenuringThreshold
+#2. -XX:SurvivorRatio
+#3. -Xms512m
+#4. -Xmx512m
+#5. -XX:+ UseConcMarkSweepGC
+#6. -XX:+UseParNewGC
+#7. -XX:CMSInitiatingOccupancyFraction=X
+#8. -Dsun.rmi.dgc.client.gcInterval=X
+#9. -Dsun.rmi.dgc.server.gcInterval=X
 #
-#1.  simulate promote all
-#2.  make eden large
+#1.  promote to old generation immediately
+#     without going between survivor space and
+#     young generation.
+#2.  because we're doing #1, we don't need
+#     to allocate much for the survivor space
 #3.  force a large permananent area
 #4.  force a large permananent area
 #5.  use the concurrent old generation gc
-#6.  use the parallel new generation gc
+#6.  use the parallel new generation gc (multi cpu)
+#7.  when the old generation is X% full, start
+#     the CMS collection
+#8.  only collect client side rmi objects every X millis
+#9.  only collect server side rmi objects every X millis
 ##############################################
 
 if [[ $1 != "" ]] ; then
@@ -56,3 +67,4 @@ else
     echo "      start - start cache"
     echo "      stop  - stop cache"
 fi
+
