@@ -702,6 +702,7 @@
         <antcall target="war_screening"/>
         <antcall target="package-EJB-User"/>
         <antcall target="package-EJB-Email"/>
+        <antcall target="package-EJB-QueryServicesBean"/>
     </target>
 
 
