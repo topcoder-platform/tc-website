@@ -189,6 +189,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      */
     public ResultSetContainer(ResultSet rs, int start, int end,
                               int ranklistCol) throws Exception {
+        log.debug("ResultSetContainer(ResultSet, int, int, int) called...");
         this();
         if (start > end)
             throw new IllegalArgumentException("Start row cannot exceed end row");
@@ -201,8 +202,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         ResultColumn tempColumns[] = new ResultColumn[columns.length + 1];
         System.arraycopy(columns, 0, tempColumns, 0, columns.length);
         tempColumns[columns.length] = new ResultColumn(Types.INTEGER, "rank", 9, 0, "");
+        columnNameMap.put("rank", new Integer(columns.length));
         columns = tempColumns;
-        columnNameMap.put("rank", new Integer(ranklistCol));
 
         if (start > end)
             return;
