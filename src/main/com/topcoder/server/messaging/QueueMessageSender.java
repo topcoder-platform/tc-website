@@ -44,7 +44,7 @@ public class QueueMessageSender {
   public QueueMessageSender (String factoryName, String queueName) throws NamingException
   ////////////////////////////////////////////////////////////////////////////////
   {
-    this.ctx = TCContext.getInitial();
+    this.ctx = com.topcoder.common.TCContext.getInitial();
     this.ctxCreated = true;
     initObject(factoryName, queueName);
   }
