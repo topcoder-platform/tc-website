@@ -107,7 +107,7 @@
 						<ul>
 							<li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
 							<li>The Submission has been selected by the board as the winning submission.</li>
-							<li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
+							<li>Final payment is conditional on acceptance of the fully functional application by the Development Review Board.</li>
 						</ul>
 
 <!-- Eligibility Requirements -->
