@@ -65,24 +65,42 @@
 						<P><B>2003 TopCoder Collegiate Challenge<BR/>Official Rules and Regulations</B></P>
 						<DIV ALIGN="center">No purchase necessary to enter or win.</DIV><BR/>
 						<DIV CLASS="statTextBig">Overview of the Tournament</DIV><BR/>
-						<P>The 2003 TopCoder Collegiate Challenge tournament will take place between February 19, 2002 and April 20, 2002.  It will consist of three 
-						(3) online Regional rounds and two (2) onsite Semifinal and Championship rounds.  The top 16 finishers in the Regional rounds will advance to the onsite Semifinal and 
-						Championship rounds, being held at the University Park Hotel @ MIT in Cambridge, MA from April 19-20, 2002.</P>
+						<P>The 2003 TopCoder Collegiate Challenge tournament will take place between February 18, 2003 and April 5, 2003.  It will consist of four 
+						(4) online Regional rounds and two (2) onsite rounds.  The top 16 finishers from the Regional rounds, including the Regional Champion from each of the five (5) regions, will advance to the onsite Semifinal and 
+						Championship rounds, being held at the University Park Hotel @ MIT in Cambridge, MA from April 4-5, 2003.</P>
+						
 						<P><B>Eligibility</B></P>
-						<P>The tournament is open to the following members who are at least 18 years of age, AND who are matriculated full-time at an accredited US college or university 
-						(including accredited colleges or universities in the US territories of Guam, Puerto Rico and the US Virgin Islands):<UL>
-						<LI>All US* citizens</LI>
-						<LI>All Lawful Permanent Residents of the US (i.e., Green Card Holders)</LI>
-						<LI>All Legal Permanent Residents of Canada, excluding Quebec</LI>
-						<LI>All Legal Permanent Residents of Australia</LI>
-						<LI>All Legal Permanent Residents of India</LI>
-						<LI>All non-immigrants** currently residing in the US with a valid Visa</LI></UL></P>
-						<P>* including the US territories of Guam, Puerto Rico and the US Virgin Islands<BR/>
-						** Non-immigrants refer to people who come to the US, but not permanently (i.e., they are not permanent residents)</P>
-						<P>Employees of <A HREF="http://www.topcoder.com/" CLASS="statText">TopCoder, Inc.</A> 
-						and those involved in the development, production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, 
-						parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the 
-						immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.</P><BR/>
+						<P>The tournament is open to the following members who are at least 18 years of age, who are matriculated full-time at an accredited college or university,
+						who have participated in at least
+three (3) TopCoder rated events (i.e. Single Round Matches and previous
+tournaments) prior to February 15, 2003, with at least one (1) of those
+events being since August 1, 2002 AND:
+						<UL>
+						
+						<LI>All citizens and lawful permanent residents of:</LI>
+						   <UL>
+						      <LI>Australia</LI>
+						      <LI>Canada, excluding Quebec</LI>
+						      <LI>China</LI>
+						      <LI>India</LI>
+						      <LI>Ireland</LI>
+						      <LI>New Zealand</LI>
+						      <LI>the United Kingdom</LI>
+						      <LI>the United States (including the US territories of Guam, Puerto Rico and the US Virgin Islands)</LI>						      
+						   </UL>
+						<LI>All non-immigrants currently residing in the US with a valid Visa</LI></UL></P>
+					
+						
+<P><B>Invitations and Registration</B></P>
+
+<P>
+The top 1,000 rated TopCoder members as of February 14, 2003 who meet the eligibility criteria defined above will be invited via email to compete in the tournament.  Invitations will be emailed no later than 6:00PM Eastern Time on February 15th.
+</P>
+
+<P>
+Employees of TopCoder, Inc. and those involved in the development, production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
+</P>
+					
 						</TD>
 						</TR>
 					</TABLE>

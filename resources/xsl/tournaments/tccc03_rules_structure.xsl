@@ -63,7 +63,7 @@
 					<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 						<TR><TD VALIGN="middle" COLSPAN="3" HEIGHT="16" CLASS="statText"><BR/>
 						<DIV CLASS="statTextBig">Competition Round Structure</DIV><BR/>
-						Each online and onsite round of competition consists of three phases: the Coding phase, Challenge phase, and System Testing phase.  (Note:  the format of these competition rounds is similar to the format of the Single Round Matches.)<BR/><UL>
+						Each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase.  (Note:  the format of these competition rounds is similar to the format of the Single Round Matches.)<BR/><UL>
 						<LI>The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels 
 						of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are based on the total time that the problem was 
 						open before it was submitted.</LI><BR/>
