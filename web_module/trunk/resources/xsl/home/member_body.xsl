@@ -21,7 +21,7 @@
   <xsl:import href="../includes/modules/srm_best_worst.xsl"/>
   <xsl:import href="../includes/modules/coder_pov.xsl"/>
   <xsl:import href="../includes/modules/tcs_promo.xsl"/>
-  <xsl:import href="../includes/modules/question_week.xsl"/>
+  <xsl:import href="../includes/modules/member_surveys.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="MemberBody">
 
@@ -431,9 +431,9 @@
             <xsl:call-template name="coder_of_month"/>
 <!-- Coder of the Month Ends -->
 
-<!-- Question of the week begins -->
-            <xsl:call-template name="question_week"/>
-<!-- Question of the week ends -->
+<!-- Member Surveys begins -->
+            <xsl:call-template name="member_surveys"/>
+<!-- Member Surveys ends -->
         
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
