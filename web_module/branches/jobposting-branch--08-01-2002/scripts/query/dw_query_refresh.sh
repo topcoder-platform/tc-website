@@ -1016,14 +1016,15 @@ SELECT (SELECT AVG(rr.final_points)
              ELSE cd.problems_correct / cd.problems_presented * 100
              END) AS total_overall_accuracy
      , (CASE WHEN cd.problems_submitted = 0 THEN 0.0
-             ELSE cd.final_points / cd.problems_submitted
+             ELSE (cd.submission_points + cd.defense_points + cd.system_test_points) / cd.problems_submitted
              END) AS avg_submission_points
      , (CASE WHEN cd.problems_submitted = 0 THEN 0.0
-             ELSE cd.final_points / cd.problems_presented
+             ELSE (cd.submission_points + cd.defense_points + cd.system_test_points) / cd.problems_presented
              END) AS avg_overall_points
      , (SELECT AVG(cp.time_elapsed)
           FROM coder_problem cp
          WHERE cp.coder_id = cd.coder_id
+           AND cp.division_id = cd.division_id
            AND cp.end_status_id IN (140,150,160)) AS avg_time_elapsed
   FROM coder_division cd
  WHERE (cd.coder_id = @mid@)
@@ -1048,14 +1049,15 @@ SELECT (SELECT AVG(rr.final_points)
              ELSE cd.problems_correct / cd.problems_presented * 100
              END) AS total_overall_accuracy
      , (CASE WHEN cd.problems_submitted = 0 THEN 0.0
-             ELSE cd.final_points / cd.problems_submitted
+             ELSE (cd.submission_points + cd.defense_points + cd.system_test_points) / cd.problems_submitted
              END) AS avg_submission_points
      , (CASE WHEN cd.problems_submitted = 0 THEN 0.0
-             ELSE cd.final_points / cd.problems_presented
+             ELSE (cd.submission_points + cd.defense_points + cd.system_test_points) / cd.problems_presented
              END) AS avg_overall_points
      , (SELECT AVG(cp.time_elapsed)
           FROM coder_problem cp
          WHERE cp.coder_id = cd.coder_id
+           AND cp.division_id = cd.division_id
            AND cp.end_status_id IN (140,150,160)) AS avg_time_elapsed
   FROM coder_division cd
  WHERE (cd.coder_id = @mid@)
@@ -1244,7 +1246,12 @@ SELECT p.class_name
              ELSE rp.final_points / rp.problems_submitted
              END) AS avg_submission_points
      , rp.average_points
-     , rp.avg_time_elapsed
+     , (SELECT AVG(cp2.time_elapsed)
+          FROM coder_problem cp2
+         WHERE cp2.round_id = rp.round_id
+           AND cp2.division_id = rp.division_id
+           AND cp2.problem_id = rp.problem_id
+           AND cp2.end_status_id IN (140,150,160)) AS avg_time_elapsed
      , cp.end_status_text
      , cp.time_elapsed
      , cp.final_points
@@ -1290,7 +1297,7 @@ SELECT llu.language_id
              END) AS overall_accuracy
      , AVG(cp.final_points) AS avg_submission_points
      , (CASE WHEN rp.problems_presented = 0 THEN 0.0
-             ELSE SUM(cp.final_points) / rp.problems_presented * 100
+             ELSE SUM(cp.final_points) / rp.problems_presented
              END) AS avg_final_points
      , AVG(cp.time_elapsed) AS avg_time_elapsed
   FROM coder_problem maincp
@@ -1362,19 +1369,18 @@ SELECT cl.level_id
            AND cp.end_status_id IN (140,150,160)) AS avg_time_elapsed
   FROM coder_level cl
      , level_lu llu
-     , division_lu dlu
  WHERE cl.level_id = llu.level_id
    AND (cl.division_id = 1)
    AND (cl.coder_id = @mid@)
- ORDER BY cl.division_id, cl.level_id
+ ORDER BY cl.level_id
 "
 
 java com.topcoder.utilities.QueryLoader "DW" 1012 "TCES_Coder_Stats_by_Language_D1" 0 0 "
 SELECT cp.language_id
      , llu.language_name
      , COUNT(cp.problem_id) AS submitted
-     , (CASE WHEN cps.problems_presented = 0 THEN 0.0
-             ELSE COUNT(cp.problem_id) / cps.problems_presented * 100
+     , (CASE WHEN cd.problems_presented = 0 THEN 0.0
+             ELSE COUNT(cp.problem_id) / cd.problems_presented * 100
              END) AS submit_percent
      , SUM(CASE WHEN cp.end_status_id = 150 THEN 1 ELSE 0 END) AS num_correct
      , AVG(CASE WHEN cp.end_status_id = 150 THEN 1 ELSE 0 END) * 100 AS submission_accuracy
@@ -1382,15 +1388,16 @@ SELECT cp.language_id
      , AVG(cp.time_elapsed) AS avg_submit_time
   FROM coder_problem cp
      , language_lu llu
-     , coder_problem_summary cps
+     , coder_division cd
  WHERE cp.language_id = llu.language_id
-   AND cp.coder_id = cps.coder_id
+   AND cp.coder_id = cd.coder_id
+   AND cp.division_id = cd.division_id
    AND (cp.coder_id = @mid@)
    AND (cp.end_status_id IN (140,150,160))
    AND (cp.division_id = 1)
  GROUP BY cp.language_id
      , llu.language_name
-     , cps.problems_submitted
+     , cd.problems_presented
  ORDER BY cp.language_id
 "
 
@@ -1423,19 +1430,18 @@ SELECT cl.level_id
            AND cp.end_status_id IN (140,150,160)) AS avg_time_elapsed
   FROM coder_level cl
      , level_lu llu
-     , division_lu dlu
  WHERE cl.level_id = llu.level_id
    AND (cl.division_id = 2)
    AND (cl.coder_id = @mid@)
- ORDER BY cl.division_id, cl.level_id
+ ORDER BY cl.level_id
 "
 
 java com.topcoder.utilities.QueryLoader "DW" 1014 "TCES_Coder_Stats_by_Language_D2" 0 0 "
 SELECT cp.language_id
      , llu.language_name
      , COUNT(cp.problem_id) AS submitted
-     , (CASE WHEN cps.problems_presented = 0 THEN 0.0
-             ELSE COUNT(cp.problem_id) / cps.problems_presented * 100
+     , (CASE WHEN cd.problems_presented = 0 THEN 0.0
+             ELSE COUNT(cp.problem_id) / cd.problems_presented * 100
              END) AS submit_percent
      , SUM(CASE WHEN cp.end_status_id = 150 THEN 1 ELSE 0 END) AS num_correct
      , AVG(CASE WHEN cp.end_status_id = 150 THEN 1 ELSE 0 END) * 100 AS submission_accuracy
@@ -1443,14 +1449,15 @@ SELECT cp.language_id
      , AVG(cp.time_elapsed) AS avg_submit_time
   FROM coder_problem cp
      , language_lu llu
-     , coder_problem_summary cps
+     , coder_division cd
  WHERE cp.language_id = llu.language_id
-   AND cp.coder_id = cps.coder_id
+   AND cp.coder_id = cd.coder_id
+   AND cp.division_id = cd.division_id
    AND (cp.coder_id = @mid@)
    AND (cp.end_status_id IN (140,150,160))
    AND (cp.division_id = 2)
  GROUP BY cp.language_id
      , llu.language_name
-     , cps.problems_submitted
+     , cd.problems_presented
  ORDER BY cp.language_id
 "
