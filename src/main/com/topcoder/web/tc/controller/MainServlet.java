@@ -36,14 +36,12 @@ public class MainServlet extends BaseServlet {
      */
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
 
-        log.debug("yeah, we called the right one");
         request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
         request.setAttribute("t", "authentication");
         request.setAttribute("c", "login");
 
-        log.debug("fowarding to " + LOGIN_SERVLET);
-        getServletContext().getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
+        getServletContext().getRequestDispatcher("").forward(request, response);
     }
 
 }
