@@ -50,14 +50,16 @@ public class TCCC05ProjectDetails extends StatBase {
         {
             int pts = 0;
             String place = "-";
-            if(rsc.getDoubleItem(i, "final_score") >= 70) {
-                if(i < placementPoints.length)  {
-                    pts = placementPoints[i];
-                    place = String.valueOf(i+1);
+            if(rsc.getItem(i, "final_score").getResultData() != null) {
+                if(rsc.getDoubleItem(i, "final_score") >= 70) {
+                    if(i < placementPoints.length)  {
+                        pts = placementPoints[i];
+                        place = String.valueOf(i+1);
+                    }
                 }
             }
             
-            String prz = "";
+            String prz = ""; 
             if(rsc.getIntItem(i, "payment") != 0) {
                 prz = dfmt.format(rsc.getDoubleItem(i, "payment"));
                 
