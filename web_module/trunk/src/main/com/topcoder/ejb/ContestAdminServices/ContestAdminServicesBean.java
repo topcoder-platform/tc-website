@@ -1233,10 +1233,9 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" FROM component_state cs, ");
             query.append(" OUTER submission s");
             query.append(" ,user u");
-            query.append(" ,compilation c");
-            query.append(" ,problem p");
+            query.append(" ,OUTER compilation c");
             query.append(" ,component_status_lu csl");
-            query.append(" ,language l");
+            query.append(" ,OUTER language l");
             query.append(" ,difficulty d");
             query.append(" ,round_component rp");
             query.append(" ,room r");
@@ -1245,7 +1244,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" WHERE cs.component_state_id = s.component_state_id");
             query.append(" AND u.user_id = cs.coder_id");
             query.append(" AND c.component_state_id = cs.component_state_id");
-            query.append(" AND cp.problem_id = p.problem_id");
             query.append(" AND cs.component_id = cp.component_id");
             query.append(" AND cs.status_id = csl.component_status_id");
             query.append(" AND cs.round_id = ?");
@@ -1258,6 +1256,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" AND rr.round_id = rp.round_id");
             query.append(" AND rr.coder_id = u.user_id");
             query.append(" AND rp.division_id = r.division_id");
+            query.append(" ORDER BY d.difficulty_id ASC, s.submission_number ASC");
 
 
             DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
