@@ -110,13 +110,13 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
 		  		<% if (!bEmpty) { %>	
                 <TR>
-                  <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="7" HEIGHT="18">&#160;Earnings History</TD>		
+                  <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="8" HEIGHT="18">&#160;Earnings History</TD>		
                 </TR>   
                 <TR>
-                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                 </TR>
 			<% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
-				 <TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="7" HEIGHT="16" align="center">
+				 <TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="8" HEIGHT="16" align="center">
 				<% if (rsc2.croppedDataBefore()) { %>
 					<a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">&lt;&lt; previous</a>   
 				<% } else { %>
@@ -133,11 +133,12 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
 			<% } %>				 
                 <TR VALIGN="middle">
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" WIDTH="20%" HEIGHT="18"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Date</a></TD>  
-                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="left" WIDTH="42%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Contest</a></TD>
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" WIDTH="15%" HEIGHT="18"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Date</a></TD>  
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="left" WIDTH="32%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Contest</a></TD>
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="center" WIDTH="18%"><a href="<%=sSortUrl%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Round</a></TD>
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="center" WIDTH="5%"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Position</a></TD>
-                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="right" WIDTH="15%"><a href="<%=sSortUrl%>&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Amount</a></TD>      
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="right" WIDTH="10%"><a href="<%=sSortUrl%>&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Amount</a></TD>      
+                  <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="right" WIDTH="20%"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Payment Type</a></TD>      
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
 <logic:iterate name="resultSet" id="resultRow2" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
@@ -152,19 +153,20 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
                   </TD>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="center"><bean:write name="resultRow2" property='<%= "item[" + 5 /* finish place */ + "]" %>'/></TD>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow2" property='<%= "item[" + 8 /* payment_type_desc */ + "].resultData" %>'/></TD>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>        
                 </TR>
 </logic:iterate>
 		 <% } else { %>
 		        <TR>
-                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
                 </TR>
 				<TR>
-                  <TD COLSPAN="7" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">This member has no earnings history.</TD>
+                  <TD COLSPAN="8" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">This member has no earnings history.</TD>
                 </TR>				
          <% } %>
                 <TR>
-                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
                 </TR>
               </TABLE>
             </TD>
@@ -172,7 +174,7 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
            </TR>
 		   <% if (!bEmpty) { %>
 			<% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
-    		 <TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="7" HEIGHT="16" align="center">
+    		 <TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="8" HEIGHT="16" align="center">
 				<% if (rsc2.croppedDataBefore()) { %>
 					<a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">&lt;&lt; previous</a>   
 				<% } else { %>
