@@ -16,7 +16,7 @@
                             <INPUT TYPE="hidden" NAME="t" VALUE="search"/>
                             <INPUT TYPE="hidden" NAME="c" VALUE="simple_search"/>
                           &#160;&#160;<INPUT TYPE="text" NAME="SearchHandle" SIZE="12" MAXLENGTH="15" /><BR/>
-                          <A HREF="javascript:void searchForm.submit();"><xsl:attribute name="CLASS">statTextBig</xsl:attribute>&#160;Search &gt;&gt;</A><BR/>
+                          <A HREF="javascript:void document.searchForm.submit();"><xsl:attribute name="CLASS">statTextBig</xsl:attribute>&#160;Search &gt;&gt;</A><BR/>
                           <A HREF="/?t=search" CLASS="statText">- Advanced Search</A>                         
                           </FORM>
                         </TD>
