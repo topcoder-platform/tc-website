@@ -93,7 +93,7 @@ public class UpdateCandidate extends BaseProcessor
             PortableRemoteObject.narrow(
                 context.lookup(UserHome.class.getName()), UserHome.class);
         User user = uHome.create();
-        user.createUser(userId);
+        user.createUser(userId, info.getEmailAddress(), 'A');
 
         CoderHome cHome = (CoderHome)
             PortableRemoteObject.narrow(
