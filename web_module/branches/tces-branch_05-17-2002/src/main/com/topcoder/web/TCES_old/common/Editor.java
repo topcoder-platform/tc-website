@@ -38,7 +38,7 @@ public class Editor {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0" );
 
 	public void create( java.sql.Connection conn, Integer editor_id, String editor_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -129,11 +129,7 @@ public class Editor {
 	 */
 
 	public String getEditorDesc( Integer editor_id ) throws SQLException {
-		EditorObject	obj = null;
-		String	result;
-
-		obj = getRecord( editor_id );
-		return( obj.editor_desc );
+		return( ( (EditorObject) getRecord( editor_id ) ).editor_desc );
 	}
 
 	private EditorObject getRecord( Integer editor_id ) throws SQLException {
@@ -149,7 +145,7 @@ public class Editor {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.editor_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.editor_id = null;

@@ -37,7 +37,7 @@ public class ProfileExperience {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, String city, String state_code, String country_code ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -130,11 +130,7 @@ public class ProfileExperience {
 	 */
 
 	public Date getDateStart( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Date	result;
-
-		obj = getRecord( experience_id );
-		return( obj.date_start );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).date_start );
 	}
 
 	/**
@@ -160,11 +156,7 @@ public class ProfileExperience {
 	 */
 
 	public Date getDateEnd( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Date	result;
-
-		obj = getRecord( experience_id );
-		return( obj.date_end );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).date_end );
 	}
 
 	/**
@@ -190,11 +182,7 @@ public class ProfileExperience {
 	 */
 
 	public String getJobTitle( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.job_title );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).job_title );
 	}
 
 	/**
@@ -220,11 +208,7 @@ public class ProfileExperience {
 	 */
 
 	public String getOrganizationName( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.organization_name );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).organization_name );
 	}
 
 	/**
@@ -250,11 +234,7 @@ public class ProfileExperience {
 	 */
 
 	public String getOrganizationUrl( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.organization_url );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).organization_url );
 	}
 
 	/**
@@ -280,11 +260,7 @@ public class ProfileExperience {
 	 */
 
 	public String getJobDescription( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.job_description );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).job_description );
 	}
 
 	/**
@@ -310,11 +286,7 @@ public class ProfileExperience {
 	 */
 
 	public Long getProfileId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Long	result;
-
-		obj = getRecord( experience_id );
-		return( obj.profile_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).profile_id );
 	}
 
 	/**
@@ -340,11 +312,7 @@ public class ProfileExperience {
 	 */
 
 	public Integer getSalaryId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.salary_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).salary_id );
 	}
 
 	/**
@@ -370,11 +338,7 @@ public class ProfileExperience {
 	 */
 
 	public Integer getIndustryId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.industry_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).industry_id );
 	}
 
 	/**
@@ -400,11 +364,7 @@ public class ProfileExperience {
 	 */
 
 	public Integer getJobRoleId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.job_role_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).job_role_id );
 	}
 
 	/**
@@ -430,11 +390,7 @@ public class ProfileExperience {
 	 */
 
 	public Integer getJobTypeId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.job_type_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).job_type_id );
 	}
 
 	/**
@@ -460,11 +416,7 @@ public class ProfileExperience {
 	 */
 
 	public Integer getOrganizationSizeId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.organization_size_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).organization_size_id );
 	}
 
 	/**
@@ -490,11 +442,7 @@ public class ProfileExperience {
 	 */
 
 	public String getCity( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.city );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).city );
 	}
 
 	/**
@@ -520,11 +468,7 @@ public class ProfileExperience {
 	 */
 
 	public String getStateCode( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.state_code );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).state_code );
 	}
 
 	/**
@@ -550,11 +494,7 @@ public class ProfileExperience {
 	 */
 
 	public String getCountryCode( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.country_code );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).country_code );
 	}
 
 	private ProfileExperienceObject getRecord( Long experience_id ) throws SQLException {
@@ -570,7 +510,7 @@ public class ProfileExperience {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.experience_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.experience_id = null;

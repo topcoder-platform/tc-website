@@ -30,8 +30,8 @@ import	com.topcoder.web.TCES.common.*;
 public class ProfileSkillXrefBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-	public static final DecimalFormat	fmt1 = new DecimalFormat( "00000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt1 = new DecimalFormat( "00000" );
 
 	public void create( java.sql.Connection conn, Long profile_id, Integer skill_id, Integer skill_level_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -112,11 +112,7 @@ public class ProfileSkillXrefBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getSkillLevelId( Long profile_id, Integer skill_id ) throws SQLException {
-		ProfileSkillXrefObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id, skill_id );
-		return( obj.skill_level_id );
+		return( ( (ProfileSkillXrefObject) getRecord( profile_id, skill_id ) ).skill_level_id );
 	}
 
 	private ProfileSkillXrefObject getRecord( Long profile_id, Integer skill_id ) throws SQLException {
@@ -319,8 +315,10 @@ public class ProfileSkillXrefBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

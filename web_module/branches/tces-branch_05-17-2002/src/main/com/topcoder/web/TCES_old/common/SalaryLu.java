@@ -37,7 +37,7 @@ public class SalaryLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer salary_id, String salary_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class SalaryLu {
 	 */
 
 	public String getSalaryDesc( Integer salary_id ) throws SQLException {
-		SalaryLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( salary_id );
-		return( obj.salary_desc );
+		return( ( (SalaryLuObject) getRecord( salary_id ) ).salary_desc );
 	}
 
 	private SalaryLuObject getRecord( Integer salary_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class SalaryLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.salary_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.salary_id = null;

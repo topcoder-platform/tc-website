@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class ProfileStatusLuBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer profile_status_id, String profile_status_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -110,11 +110,7 @@ public class ProfileStatusLuBean implements javax.ejb.SessionBean {
 	}
 
 	public String getProfileStatusDesc( Integer profile_status_id ) throws SQLException {
-		ProfileStatusLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( profile_status_id );
-		return( obj.profile_status_desc );
+		return( ( (ProfileStatusLuObject) getRecord( profile_status_id ) ).profile_status_desc );
 	}
 
 	private ProfileStatusLuObject getRecord( Integer profile_status_id ) throws SQLException {
@@ -247,8 +243,10 @@ public class ProfileStatusLuBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

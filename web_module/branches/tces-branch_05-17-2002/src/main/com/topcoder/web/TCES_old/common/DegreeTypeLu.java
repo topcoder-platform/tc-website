@@ -37,7 +37,7 @@ public class DegreeTypeLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer degree_type_id, String degree_type_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class DegreeTypeLu {
 	 */
 
 	public String getDegreeTypeDesc( Integer degree_type_id ) throws SQLException {
-		DegreeTypeLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( degree_type_id );
-		return( obj.degree_type_desc );
+		return( ( (DegreeTypeLuObject) getRecord( degree_type_id ) ).degree_type_desc );
 	}
 
 	private DegreeTypeLuObject getRecord( Integer degree_type_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class DegreeTypeLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.degree_type_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.degree_type_id = null;

@@ -128,11 +128,7 @@ public class Country {
 	 */
 
 	public String getCountryName( String country_code ) throws SQLException {
-		CountryObject	obj = null;
-		String	result;
-
-		obj = getRecord( country_code );
-		return( obj.country_name );
+		return( ( (CountryObject) getRecord( country_code ) ).country_name );
 	}
 
 	/**
@@ -158,11 +154,7 @@ public class Country {
 	 */
 
 	public Integer getParticipating( String country_code ) throws SQLException {
-		CountryObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( country_code );
-		return( obj.participating );
+		return( ( (CountryObject) getRecord( country_code ) ).participating );
 	}
 
 	/**
@@ -188,11 +180,7 @@ public class Country {
 	 */
 
 	public Long getDefaultTaxformId( String country_code ) throws SQLException {
-		CountryObject	obj = null;
-		Long	result;
-
-		obj = getRecord( country_code );
-		return( obj.default_taxform_id );
+		return( ( (CountryObject) getRecord( country_code ) ).default_taxform_id );
 	}
 
 	private CountryObject getRecord( String country_code ) throws SQLException {
@@ -208,7 +196,7 @@ public class Country {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.country_code = rs.getString( 1 );
 			if( rs.wasNull() )
 				obj.country_code = null;

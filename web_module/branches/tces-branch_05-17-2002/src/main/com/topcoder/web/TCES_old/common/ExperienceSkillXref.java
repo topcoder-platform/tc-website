@@ -37,8 +37,8 @@ public class ExperienceSkillXref {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-	public static final DecimalFormat	fmt1 = new DecimalFormat( "00000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt1 = new DecimalFormat( "00000" );
 
 	public void create( java.sql.Connection conn, Long experience_id, Integer skill_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -119,7 +119,7 @@ public class ExperienceSkillXref {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.experience_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.experience_id = null;

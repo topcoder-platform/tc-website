@@ -37,7 +37,7 @@ public class Coder {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long coder_id, String state_code, String country_code, String first_name, String last_name, String home_phone, String work_phone, String address1, String address2, String city, String zip, String middle_name, String activation_code, Date member_since, String notify, String quote, String employer_search, String relocate, Date modify_date, Integer referral_id, Integer editor_id, String notify_inquiry, Long referral_user_id, Integer language_id, Integer coder_type_id, Integer image, Date date_of_birth ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -131,11 +131,7 @@ public class Coder {
 	 */
 
 	public String getStateCode( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.state_code );
+		return( ( (CoderObject) getRecord( coder_id ) ).state_code );
 	}
 
 	/**
@@ -161,11 +157,7 @@ public class Coder {
 	 */
 
 	public String getCountryCode( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.country_code );
+		return( ( (CoderObject) getRecord( coder_id ) ).country_code );
 	}
 
 	/**
@@ -191,11 +183,7 @@ public class Coder {
 	 */
 
 	public String getFirstName( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.first_name );
+		return( ( (CoderObject) getRecord( coder_id ) ).first_name );
 	}
 
 	/**
@@ -221,11 +209,7 @@ public class Coder {
 	 */
 
 	public String getLastName( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.last_name );
+		return( ( (CoderObject) getRecord( coder_id ) ).last_name );
 	}
 
 	/**
@@ -251,11 +235,7 @@ public class Coder {
 	 */
 
 	public String getHomePhone( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.home_phone );
+		return( ( (CoderObject) getRecord( coder_id ) ).home_phone );
 	}
 
 	/**
@@ -281,11 +261,7 @@ public class Coder {
 	 */
 
 	public String getWorkPhone( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.work_phone );
+		return( ( (CoderObject) getRecord( coder_id ) ).work_phone );
 	}
 
 	/**
@@ -311,11 +287,7 @@ public class Coder {
 	 */
 
 	public String getAddress1( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.address1 );
+		return( ( (CoderObject) getRecord( coder_id ) ).address1 );
 	}
 
 	/**
@@ -341,11 +313,7 @@ public class Coder {
 	 */
 
 	public String getAddress2( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.address2 );
+		return( ( (CoderObject) getRecord( coder_id ) ).address2 );
 	}
 
 	/**
@@ -371,11 +339,7 @@ public class Coder {
 	 */
 
 	public String getCity( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.city );
+		return( ( (CoderObject) getRecord( coder_id ) ).city );
 	}
 
 	/**
@@ -401,11 +365,7 @@ public class Coder {
 	 */
 
 	public String getZip( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.zip );
+		return( ( (CoderObject) getRecord( coder_id ) ).zip );
 	}
 
 	/**
@@ -431,11 +391,7 @@ public class Coder {
 	 */
 
 	public String getMiddleName( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.middle_name );
+		return( ( (CoderObject) getRecord( coder_id ) ).middle_name );
 	}
 
 	/**
@@ -461,11 +417,7 @@ public class Coder {
 	 */
 
 	public String getActivationCode( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.activation_code );
+		return( ( (CoderObject) getRecord( coder_id ) ).activation_code );
 	}
 
 	/**
@@ -491,11 +443,7 @@ public class Coder {
 	 */
 
 	public Date getMemberSince( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Date	result;
-
-		obj = getRecord( coder_id );
-		return( obj.member_since );
+		return( ( (CoderObject) getRecord( coder_id ) ).member_since );
 	}
 
 	/**
@@ -521,11 +469,7 @@ public class Coder {
 	 */
 
 	public String getNotify( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.notify );
+		return( ( (CoderObject) getRecord( coder_id ) ).notify );
 	}
 
 	/**
@@ -551,11 +495,7 @@ public class Coder {
 	 */
 
 	public String getQuote( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.quote );
+		return( ( (CoderObject) getRecord( coder_id ) ).quote );
 	}
 
 	/**
@@ -581,11 +521,7 @@ public class Coder {
 	 */
 
 	public String getEmployerSearch( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.employer_search );
+		return( ( (CoderObject) getRecord( coder_id ) ).employer_search );
 	}
 
 	/**
@@ -611,11 +547,7 @@ public class Coder {
 	 */
 
 	public String getRelocate( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.relocate );
+		return( ( (CoderObject) getRecord( coder_id ) ).relocate );
 	}
 
 	/**
@@ -641,11 +573,7 @@ public class Coder {
 	 */
 
 	public Date getModifyDate( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Date	result;
-
-		obj = getRecord( coder_id );
-		return( obj.modify_date );
+		return( ( (CoderObject) getRecord( coder_id ) ).modify_date );
 	}
 
 	/**
@@ -671,11 +599,7 @@ public class Coder {
 	 */
 
 	public Integer getReferralId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.referral_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).referral_id );
 	}
 
 	/**
@@ -701,11 +625,7 @@ public class Coder {
 	 */
 
 	public Integer getEditorId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.editor_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).editor_id );
 	}
 
 	/**
@@ -731,11 +651,7 @@ public class Coder {
 	 */
 
 	public String getNotifyInquiry( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.notify_inquiry );
+		return( ( (CoderObject) getRecord( coder_id ) ).notify_inquiry );
 	}
 
 	/**
@@ -761,11 +677,7 @@ public class Coder {
 	 */
 
 	public Long getReferralUserId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Long	result;
-
-		obj = getRecord( coder_id );
-		return( obj.referral_user_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).referral_user_id );
 	}
 
 	/**
@@ -791,11 +703,7 @@ public class Coder {
 	 */
 
 	public Integer getLanguageId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.language_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).language_id );
 	}
 
 	/**
@@ -821,11 +729,7 @@ public class Coder {
 	 */
 
 	public Integer getCoderTypeId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.coder_type_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).coder_type_id );
 	}
 
 	/**
@@ -851,11 +755,7 @@ public class Coder {
 	 */
 
 	public Integer getImage( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.image );
+		return( ( (CoderObject) getRecord( coder_id ) ).image );
 	}
 
 	/**
@@ -881,11 +781,7 @@ public class Coder {
 	 */
 
 	public Date getDateOfBirth( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Date	result;
-
-		obj = getRecord( coder_id );
-		return( obj.date_of_birth );
+		return( ( (CoderObject) getRecord( coder_id ) ).date_of_birth );
 	}
 
 	private CoderObject getRecord( Long coder_id ) throws SQLException {
@@ -901,7 +797,7 @@ public class Coder {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.coder_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.coder_id = null;

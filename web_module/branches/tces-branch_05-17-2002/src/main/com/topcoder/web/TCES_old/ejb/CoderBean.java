@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class CoderBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long coder_id, String state_code, String country_code, String first_name, String last_name, String home_phone, String work_phone, String address1, String address2, String city, String zip, String middle_name, String activation_code, Date member_since, String notify, String quote, String employer_search, String relocate, Date modify_date, Integer referral_id, Integer editor_id, String notify_inquiry, Long referral_user_id, Integer language_id, Integer coder_type_id, Integer image, Date date_of_birth ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -113,11 +113,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getStateCode( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.state_code );
+		return( ( (CoderObject) getRecord( coder_id ) ).state_code );
 	}
 
 	public void setCountryCode( Long coder_id, String country_code ) throws SQLException {
@@ -125,11 +121,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getCountryCode( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.country_code );
+		return( ( (CoderObject) getRecord( coder_id ) ).country_code );
 	}
 
 	public void setFirstName( Long coder_id, String first_name ) throws SQLException {
@@ -137,11 +129,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getFirstName( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.first_name );
+		return( ( (CoderObject) getRecord( coder_id ) ).first_name );
 	}
 
 	public void setLastName( Long coder_id, String last_name ) throws SQLException {
@@ -149,11 +137,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getLastName( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.last_name );
+		return( ( (CoderObject) getRecord( coder_id ) ).last_name );
 	}
 
 	public void setHomePhone( Long coder_id, String home_phone ) throws SQLException {
@@ -161,11 +145,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getHomePhone( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.home_phone );
+		return( ( (CoderObject) getRecord( coder_id ) ).home_phone );
 	}
 
 	public void setWorkPhone( Long coder_id, String work_phone ) throws SQLException {
@@ -173,11 +153,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getWorkPhone( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.work_phone );
+		return( ( (CoderObject) getRecord( coder_id ) ).work_phone );
 	}
 
 	public void setAddress1( Long coder_id, String address1 ) throws SQLException {
@@ -185,11 +161,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getAddress1( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.address1 );
+		return( ( (CoderObject) getRecord( coder_id ) ).address1 );
 	}
 
 	public void setAddress2( Long coder_id, String address2 ) throws SQLException {
@@ -197,11 +169,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getAddress2( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.address2 );
+		return( ( (CoderObject) getRecord( coder_id ) ).address2 );
 	}
 
 	public void setCity( Long coder_id, String city ) throws SQLException {
@@ -209,11 +177,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getCity( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.city );
+		return( ( (CoderObject) getRecord( coder_id ) ).city );
 	}
 
 	public void setZip( Long coder_id, String zip ) throws SQLException {
@@ -221,11 +185,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getZip( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.zip );
+		return( ( (CoderObject) getRecord( coder_id ) ).zip );
 	}
 
 	public void setMiddleName( Long coder_id, String middle_name ) throws SQLException {
@@ -233,11 +193,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getMiddleName( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.middle_name );
+		return( ( (CoderObject) getRecord( coder_id ) ).middle_name );
 	}
 
 	public void setActivationCode( Long coder_id, String activation_code ) throws SQLException {
@@ -245,11 +201,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getActivationCode( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.activation_code );
+		return( ( (CoderObject) getRecord( coder_id ) ).activation_code );
 	}
 
 	public void setMemberSince( Long coder_id, Date member_since ) throws SQLException {
@@ -257,11 +209,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Date getMemberSince( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Date	result;
-
-		obj = getRecord( coder_id );
-		return( obj.member_since );
+		return( ( (CoderObject) getRecord( coder_id ) ).member_since );
 	}
 
 	public void setNotify( Long coder_id, String notify ) throws SQLException {
@@ -269,11 +217,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getNotify( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.notify );
+		return( ( (CoderObject) getRecord( coder_id ) ).notify );
 	}
 
 	public void setQuote( Long coder_id, String quote ) throws SQLException {
@@ -281,11 +225,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getQuote( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.quote );
+		return( ( (CoderObject) getRecord( coder_id ) ).quote );
 	}
 
 	public void setEmployerSearch( Long coder_id, String employer_search ) throws SQLException {
@@ -293,11 +233,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getEmployerSearch( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.employer_search );
+		return( ( (CoderObject) getRecord( coder_id ) ).employer_search );
 	}
 
 	public void setRelocate( Long coder_id, String relocate ) throws SQLException {
@@ -305,11 +241,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getRelocate( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.relocate );
+		return( ( (CoderObject) getRecord( coder_id ) ).relocate );
 	}
 
 	public void setModifyDate( Long coder_id, Date modify_date ) throws SQLException {
@@ -317,11 +249,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Date getModifyDate( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Date	result;
-
-		obj = getRecord( coder_id );
-		return( obj.modify_date );
+		return( ( (CoderObject) getRecord( coder_id ) ).modify_date );
 	}
 
 	public void setReferralId( Long coder_id, Integer referral_id ) throws SQLException {
@@ -329,11 +257,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getReferralId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.referral_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).referral_id );
 	}
 
 	public void setEditorId( Long coder_id, Integer editor_id ) throws SQLException {
@@ -341,11 +265,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getEditorId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.editor_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).editor_id );
 	}
 
 	public void setNotifyInquiry( Long coder_id, String notify_inquiry ) throws SQLException {
@@ -353,11 +273,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public String getNotifyInquiry( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		String	result;
-
-		obj = getRecord( coder_id );
-		return( obj.notify_inquiry );
+		return( ( (CoderObject) getRecord( coder_id ) ).notify_inquiry );
 	}
 
 	public void setReferralUserId( Long coder_id, Long referral_user_id ) throws SQLException {
@@ -365,11 +281,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Long getReferralUserId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Long	result;
-
-		obj = getRecord( coder_id );
-		return( obj.referral_user_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).referral_user_id );
 	}
 
 	public void setLanguageId( Long coder_id, Integer language_id ) throws SQLException {
@@ -377,11 +289,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getLanguageId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.language_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).language_id );
 	}
 
 	public void setCoderTypeId( Long coder_id, Integer coder_type_id ) throws SQLException {
@@ -389,11 +297,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getCoderTypeId( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.coder_type_id );
+		return( ( (CoderObject) getRecord( coder_id ) ).coder_type_id );
 	}
 
 	public void setImage( Long coder_id, Integer image ) throws SQLException {
@@ -401,11 +305,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getImage( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.image );
+		return( ( (CoderObject) getRecord( coder_id ) ).image );
 	}
 
 	public void setDateOfBirth( Long coder_id, Date date_of_birth ) throws SQLException {
@@ -413,11 +313,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 	}
 
 	public Date getDateOfBirth( Long coder_id ) throws SQLException {
-		CoderObject	obj = null;
-		Date	result;
-
-		obj = getRecord( coder_id );
-		return( obj.date_of_birth );
+		return( ( (CoderObject) getRecord( coder_id ) ).date_of_birth );
 	}
 
 	private CoderObject getRecord( Long coder_id ) throws SQLException {
@@ -815,8 +711,10 @@ public class CoderBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -37,7 +37,7 @@ public class Profile {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long profile_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -129,11 +129,7 @@ public class Profile {
 	 */
 
 	public Date getDateAvailable( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Date	result;
-
-		obj = getRecord( profile_id );
-		return( obj.date_available );
+		return( ( (ProfileObject) getRecord( profile_id ) ).date_available );
 	}
 
 	/**
@@ -159,11 +155,7 @@ public class Profile {
 	 */
 
 	public Integer getProfileStatusId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id );
-		return( obj.profile_status_id );
+		return( ( (ProfileObject) getRecord( profile_id ) ).profile_status_id );
 	}
 
 	/**
@@ -189,11 +181,7 @@ public class Profile {
 	 */
 
 	public Integer getPreferenceTravelLevelId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id );
-		return( obj.preference_travel_level_id );
+		return( ( (ProfileObject) getRecord( profile_id ) ).preference_travel_level_id );
 	}
 
 	/**
@@ -219,11 +207,7 @@ public class Profile {
 	 */
 
 	public Integer getPreferenceTravelTimeId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id );
-		return( obj.preference_travel_time_id );
+		return( ( (ProfileObject) getRecord( profile_id ) ).preference_travel_time_id );
 	}
 
 	/**
@@ -249,11 +233,7 @@ public class Profile {
 	 */
 
 	public Integer getPreferenceSalaryId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id );
-		return( obj.preference_salary_id );
+		return( ( (ProfileObject) getRecord( profile_id ) ).preference_salary_id );
 	}
 
 	private ProfileObject getRecord( Long profile_id ) throws SQLException {
@@ -269,7 +249,7 @@ public class Profile {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.profile_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.profile_id = null;

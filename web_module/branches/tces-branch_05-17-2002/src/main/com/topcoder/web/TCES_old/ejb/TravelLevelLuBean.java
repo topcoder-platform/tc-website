@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class TravelLevelLuBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer travel_level_id, String travel_level_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -110,11 +110,7 @@ public class TravelLevelLuBean implements javax.ejb.SessionBean {
 	}
 
 	public String getTravelLevelDesc( Integer travel_level_id ) throws SQLException {
-		TravelLevelLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( travel_level_id );
-		return( obj.travel_level_desc );
+		return( ( (TravelLevelLuObject) getRecord( travel_level_id ) ).travel_level_desc );
 	}
 
 	private TravelLevelLuObject getRecord( Integer travel_level_id ) throws SQLException {
@@ -247,8 +243,10 @@ public class TravelLevelLuBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -37,7 +37,7 @@ public class IndustryLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer industry_id, String industry_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class IndustryLu {
 	 */
 
 	public String getIndustryDesc( Integer industry_id ) throws SQLException {
-		IndustryLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( industry_id );
-		return( obj.industry_desc );
+		return( ( (IndustryLuObject) getRecord( industry_id ) ).industry_desc );
 	}
 
 	private IndustryLuObject getRecord( Integer industry_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class IndustryLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.industry_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.industry_id = null;

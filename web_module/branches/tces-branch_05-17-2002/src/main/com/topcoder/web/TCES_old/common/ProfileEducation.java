@@ -37,7 +37,7 @@ public class ProfileEducation {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long education_id, Long profile_id, Integer degree_type_id, Long school_id, Integer graduation_year, Integer graduation_month, Integer gpa_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class ProfileEducation {
 	 */
 
 	public Long getProfileId( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Long	result;
-
-		obj = getRecord( education_id );
-		return( obj.profile_id );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).profile_id );
 	}
 
 	/**
@@ -158,11 +154,7 @@ public class ProfileEducation {
 	 */
 
 	public Integer getDegreeTypeId( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( education_id );
-		return( obj.degree_type_id );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).degree_type_id );
 	}
 
 	/**
@@ -188,11 +180,7 @@ public class ProfileEducation {
 	 */
 
 	public Long getSchoolId( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Long	result;
-
-		obj = getRecord( education_id );
-		return( obj.school_id );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).school_id );
 	}
 
 	/**
@@ -218,11 +206,7 @@ public class ProfileEducation {
 	 */
 
 	public Integer getGraduationYear( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( education_id );
-		return( obj.graduation_year );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).graduation_year );
 	}
 
 	/**
@@ -248,11 +232,7 @@ public class ProfileEducation {
 	 */
 
 	public Integer getGraduationMonth( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( education_id );
-		return( obj.graduation_month );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).graduation_month );
 	}
 
 	/**
@@ -278,11 +258,7 @@ public class ProfileEducation {
 	 */
 
 	public Integer getGpaId( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( education_id );
-		return( obj.gpa_id );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).gpa_id );
 	}
 
 	private ProfileEducationObject getRecord( Long education_id ) throws SQLException {
@@ -298,7 +274,7 @@ public class ProfileEducation {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.education_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.education_id = null;

@@ -37,7 +37,7 @@ public class TravelLevelLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer travel_level_id, String travel_level_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class TravelLevelLu {
 	 */
 
 	public String getTravelLevelDesc( Integer travel_level_id ) throws SQLException {
-		TravelLevelLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( travel_level_id );
-		return( obj.travel_level_desc );
+		return( ( (TravelLevelLuObject) getRecord( travel_level_id ) ).travel_level_desc );
 	}
 
 	private TravelLevelLuObject getRecord( Integer travel_level_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class TravelLevelLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.travel_level_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.travel_level_id = null;

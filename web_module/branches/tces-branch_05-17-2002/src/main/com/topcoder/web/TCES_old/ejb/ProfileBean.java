@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class ProfileBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long profile_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -111,11 +111,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public Date getDateAvailable( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Date	result;
-
-		obj = getRecord( profile_id );
-		return( obj.date_available );
+		return( ( (ProfileObject) getRecord( profile_id ) ).date_available );
 	}
 
 	public void setProfileStatusId( Long profile_id, Integer profile_status_id ) throws SQLException {
@@ -123,11 +119,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getProfileStatusId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id );
-		return( obj.profile_status_id );
+		return( ( (ProfileObject) getRecord( profile_id ) ).profile_status_id );
 	}
 
 	public void setPreferenceTravelLevelId( Long profile_id, Integer preference_travel_level_id ) throws SQLException {
@@ -135,11 +127,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getPreferenceTravelLevelId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id );
-		return( obj.preference_travel_level_id );
+		return( ( (ProfileObject) getRecord( profile_id ) ).preference_travel_level_id );
 	}
 
 	public void setPreferenceTravelTimeId( Long profile_id, Integer preference_travel_time_id ) throws SQLException {
@@ -147,11 +135,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getPreferenceTravelTimeId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id );
-		return( obj.preference_travel_time_id );
+		return( ( (ProfileObject) getRecord( profile_id ) ).preference_travel_time_id );
 	}
 
 	public void setPreferenceSalaryId( Long profile_id, Integer preference_salary_id ) throws SQLException {
@@ -159,11 +143,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getPreferenceSalaryId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id );
-		return( obj.preference_salary_id );
+		return( ( (ProfileObject) getRecord( profile_id ) ).preference_salary_id );
 	}
 
 	private ProfileObject getRecord( Long profile_id ) throws SQLException {
@@ -309,8 +289,10 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

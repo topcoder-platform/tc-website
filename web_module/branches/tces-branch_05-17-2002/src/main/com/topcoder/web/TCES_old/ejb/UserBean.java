@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class UserBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long user_id, String handle, String password, String status, Integer user_type_id, String email, String logged_in, String terms, Date last_login ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -111,11 +111,7 @@ public class UserBean implements javax.ejb.SessionBean {
 	}
 
 	public String getHandle( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.handle );
+		return( ( (UserObject) getRecord( user_id ) ).handle );
 	}
 
 	public void setPassword( Long user_id, String password ) throws SQLException {
@@ -123,11 +119,7 @@ public class UserBean implements javax.ejb.SessionBean {
 	}
 
 	public String getPassword( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.password );
+		return( ( (UserObject) getRecord( user_id ) ).password );
 	}
 
 	public void setStatus( Long user_id, String status ) throws SQLException {
@@ -135,11 +127,7 @@ public class UserBean implements javax.ejb.SessionBean {
 	}
 
 	public String getStatus( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.status );
+		return( ( (UserObject) getRecord( user_id ) ).status );
 	}
 
 	public void setUserTypeId( Long user_id, Integer user_type_id ) throws SQLException {
@@ -147,11 +135,7 @@ public class UserBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getUserTypeId( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( user_id );
-		return( obj.user_type_id );
+		return( ( (UserObject) getRecord( user_id ) ).user_type_id );
 	}
 
 	public void setEmail( Long user_id, String email ) throws SQLException {
@@ -159,11 +143,7 @@ public class UserBean implements javax.ejb.SessionBean {
 	}
 
 	public String getEmail( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.email );
+		return( ( (UserObject) getRecord( user_id ) ).email );
 	}
 
 	public void setLoggedIn( Long user_id, String logged_in ) throws SQLException {
@@ -171,11 +151,7 @@ public class UserBean implements javax.ejb.SessionBean {
 	}
 
 	public String getLoggedIn( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.logged_in );
+		return( ( (UserObject) getRecord( user_id ) ).logged_in );
 	}
 
 	public void setTerms( Long user_id, String terms ) throws SQLException {
@@ -183,11 +159,7 @@ public class UserBean implements javax.ejb.SessionBean {
 	}
 
 	public String getTerms( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.terms );
+		return( ( (UserObject) getRecord( user_id ) ).terms );
 	}
 
 	public void setLastLogin( Long user_id, Date last_login ) throws SQLException {
@@ -195,11 +167,7 @@ public class UserBean implements javax.ejb.SessionBean {
 	}
 
 	public Date getLastLogin( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		Date	result;
-
-		obj = getRecord( user_id );
-		return( obj.last_login );
+		return( ( (UserObject) getRecord( user_id ) ).last_login );
 	}
 
 	private UserObject getRecord( Long user_id ) throws SQLException {
@@ -384,8 +352,10 @@ public class UserBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

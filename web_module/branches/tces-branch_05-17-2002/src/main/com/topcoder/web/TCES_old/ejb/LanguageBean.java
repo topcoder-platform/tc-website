@@ -30,7 +30,7 @@ import	com.topcoder.web.TCES.common.Lookup;
 public class LanguageBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer language_id, String language_name, String status, String language_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -111,11 +111,7 @@ public class LanguageBean implements javax.ejb.SessionBean {
 	}
 
 	public String getLanguageName( Integer language_id ) throws SQLException {
-		LanguageObject	obj = null;
-		String	result;
-
-		obj = getRecord( language_id );
-		return( obj.language_name );
+		return( ( (LanguageObject) getRecord( language_id ) ).language_name );
 	}
 
 	public void setStatus( Integer language_id, String status ) throws SQLException {
@@ -123,11 +119,7 @@ public class LanguageBean implements javax.ejb.SessionBean {
 	}
 
 	public String getStatus( Integer language_id ) throws SQLException {
-		LanguageObject	obj = null;
-		String	result;
-
-		obj = getRecord( language_id );
-		return( obj.status );
+		return( ( (LanguageObject) getRecord( language_id ) ).status );
 	}
 
 	public void setLanguageDesc( Integer language_id, String language_desc ) throws SQLException {
@@ -135,11 +127,7 @@ public class LanguageBean implements javax.ejb.SessionBean {
 	}
 
 	public String getLanguageDesc( Integer language_id ) throws SQLException {
-		LanguageObject	obj = null;
-		String	result;
-
-		obj = getRecord( language_id );
-		return( obj.language_desc );
+		return( ( (LanguageObject) getRecord( language_id ) ).language_desc );
 	}
 
 	private LanguageObject getRecord( Integer language_id ) throws SQLException {
@@ -299,8 +287,10 @@ public class LanguageBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

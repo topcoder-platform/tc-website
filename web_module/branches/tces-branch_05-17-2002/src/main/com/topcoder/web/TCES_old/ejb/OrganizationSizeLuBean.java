@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class OrganizationSizeLuBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer organization_size_id, String organization_size_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -110,11 +110,7 @@ public class OrganizationSizeLuBean implements javax.ejb.SessionBean {
 	}
 
 	public String getOrganizationSizeDesc( Integer organization_size_id ) throws SQLException {
-		OrganizationSizeLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( organization_size_id );
-		return( obj.organization_size_desc );
+		return( ( (OrganizationSizeLuObject) getRecord( organization_size_id ) ).organization_size_desc );
 	}
 
 	private OrganizationSizeLuObject getRecord( Integer organization_size_id ) throws SQLException {
@@ -247,8 +243,10 @@ public class OrganizationSizeLuBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

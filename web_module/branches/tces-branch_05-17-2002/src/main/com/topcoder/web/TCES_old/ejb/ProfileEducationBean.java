@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class ProfileEducationBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long education_id, Long profile_id, Integer degree_type_id, Long school_id, Integer graduation_year, Integer graduation_month, Integer gpa_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -110,11 +110,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	}
 
 	public Long getProfileId( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Long	result;
-
-		obj = getRecord( education_id );
-		return( obj.profile_id );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).profile_id );
 	}
 
 	public void setDegreeTypeId( Long education_id, Integer degree_type_id ) throws SQLException {
@@ -122,11 +118,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getDegreeTypeId( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( education_id );
-		return( obj.degree_type_id );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).degree_type_id );
 	}
 
 	public void setSchoolId( Long education_id, Long school_id ) throws SQLException {
@@ -134,11 +126,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	}
 
 	public Long getSchoolId( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Long	result;
-
-		obj = getRecord( education_id );
-		return( obj.school_id );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).school_id );
 	}
 
 	public void setGraduationYear( Long education_id, Integer graduation_year ) throws SQLException {
@@ -146,11 +134,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getGraduationYear( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( education_id );
-		return( obj.graduation_year );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).graduation_year );
 	}
 
 	public void setGraduationMonth( Long education_id, Integer graduation_month ) throws SQLException {
@@ -158,11 +142,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getGraduationMonth( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( education_id );
-		return( obj.graduation_month );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).graduation_month );
 	}
 
 	public void setGpaId( Long education_id, Integer gpa_id ) throws SQLException {
@@ -170,11 +150,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getGpaId( Long education_id ) throws SQLException {
-		ProfileEducationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( education_id );
-		return( obj.gpa_id );
+		return( ( (ProfileEducationObject) getRecord( education_id ) ).gpa_id );
 	}
 
 	private ProfileEducationObject getRecord( Long education_id ) throws SQLException {
@@ -327,8 +303,10 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

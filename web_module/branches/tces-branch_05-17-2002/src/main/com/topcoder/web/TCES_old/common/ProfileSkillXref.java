@@ -38,8 +38,8 @@ public class ProfileSkillXref {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-	public static final DecimalFormat	fmt1 = new DecimalFormat( "00000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt1 = new DecimalFormat( "00000" );
 
 	public void create( java.sql.Connection conn, Long profile_id, Integer skill_id, Integer skill_level_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -130,11 +130,7 @@ public class ProfileSkillXref {
 	 */
 
 	public Integer getSkillLevelId( Long profile_id, Integer skill_id ) throws SQLException {
-		ProfileSkillXrefObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( profile_id, skill_id );
-		return( obj.skill_level_id );
+		return( ( (ProfileSkillXrefObject) getRecord( profile_id, skill_id ) ).skill_level_id );
 	}
 
 	private ProfileSkillXrefObject getRecord( Long profile_id, Integer skill_id ) throws SQLException {
@@ -150,7 +146,7 @@ public class ProfileSkillXref {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.profile_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.profile_id = null;

@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class GpaBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer gpa_id, Integer gpa_type_id, String gpa_desc, Integer gpa_value ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -110,11 +110,7 @@ public class GpaBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getGpaTypeId( Integer gpa_id ) throws SQLException {
-		GpaObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( gpa_id );
-		return( obj.gpa_type_id );
+		return( ( (GpaObject) getRecord( gpa_id ) ).gpa_type_id );
 	}
 
 	public void setGpaDesc( Integer gpa_id, String gpa_desc ) throws SQLException {
@@ -122,11 +118,7 @@ public class GpaBean implements javax.ejb.SessionBean {
 	}
 
 	public String getGpaDesc( Integer gpa_id ) throws SQLException {
-		GpaObject	obj = null;
-		String	result;
-
-		obj = getRecord( gpa_id );
-		return( obj.gpa_desc );
+		return( ( (GpaObject) getRecord( gpa_id ) ).gpa_desc );
 	}
 
 	public void setGpaValue( Integer gpa_id, Integer gpa_value ) throws SQLException {
@@ -134,11 +126,7 @@ public class GpaBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getGpaValue( Integer gpa_id ) throws SQLException {
-		GpaObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( gpa_id );
-		return( obj.gpa_value );
+		return( ( (GpaObject) getRecord( gpa_id ) ).gpa_value );
 	}
 
 	private GpaObject getRecord( Integer gpa_id ) throws SQLException {
@@ -266,8 +254,10 @@ public class GpaBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -361,6 +361,55 @@ public class Contact2Bean implements javax.ejb.SessionBean {
 		coderBean.setIsStudent( profileId );
 	}
 
+	public CoderObject request( int cmd, CoderObject obj )
+	  throws RemoteException, SQLException {
+		if( coderBean == null )
+		  coderBean = new com.topcoder.web.TCES.common.Coder( conn );
+		return( coderBean.request( cmd, obj ) );
+	}
+
+	public CoderNotifyObject request( int cmd, CoderNotifyObject obj )
+	  throws RemoteException, SQLException {
+		if( coderNotifyBean == null )
+		  coderNotifyBean = new com.topcoder.web.TCES.common.CoderNotify( conn );
+		return( coderNotifyBean.request( cmd, obj ) );
+	}
+
+	public CountryObject request( int cmd, CountryObject obj )
+	  throws RemoteException, SQLException {
+		if( countryBean == null )
+		  countryBean = new com.topcoder.web.TCES.common.Country( conn );
+		return( countryBean.request( cmd, obj ) );
+	}
+
+	public EditorObject request( int cmd, EditorObject obj )
+	  throws RemoteException, SQLException {
+		if( editorBean == null )
+		  editorBean = new com.topcoder.web.TCES.common.Editor( conn );
+		return( editorBean.request( cmd, obj ) );
+	}
+
+	public LanguageObject request( int cmd, LanguageObject obj )
+	  throws RemoteException, SQLException {
+		if( languageBean == null )
+		  languageBean = new com.topcoder.web.TCES.common.Language( conn );
+		return( languageBean.request( cmd, obj ) );
+	}
+
+	public StateObject request( int cmd, StateObject obj )
+	  throws RemoteException, SQLException {
+		if( stateBean == null )
+		  stateBean = new com.topcoder.web.TCES.common.State( conn );
+		return( stateBean.request( cmd, obj ) );
+	}
+
+	public UserObject request( int cmd, UserObject obj )
+	  throws RemoteException, SQLException {
+		if( userBean == null )
+		  userBean = new com.topcoder.web.TCES.common.User( conn );
+		return( userBean.request( cmd, obj ) );
+	}
+
 
 	public void setSessionContext( SessionContext context ) {
 		this.context = context;

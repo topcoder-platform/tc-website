@@ -128,11 +128,7 @@ public class State {
 	 */
 
 	public String getStateName( String state_code ) throws SQLException {
-		StateObject	obj = null;
-		String	result;
-
-		obj = getRecord( state_code );
-		return( obj.state_name );
+		return( ( (StateObject) getRecord( state_code ) ).state_name );
 	}
 
 	/**
@@ -158,11 +154,7 @@ public class State {
 	 */
 
 	public String getRegionCode( String state_code ) throws SQLException {
-		StateObject	obj = null;
-		String	result;
-
-		obj = getRecord( state_code );
-		return( obj.region_code );
+		return( ( (StateObject) getRecord( state_code ) ).region_code );
 	}
 
 	/**
@@ -188,11 +180,7 @@ public class State {
 	 */
 
 	public Integer getDemographicDecline( String state_code ) throws SQLException {
-		StateObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( state_code );
-		return( obj.demographic_decline );
+		return( ( (StateObject) getRecord( state_code ) ).demographic_decline );
 	}
 
 	private StateObject getRecord( String state_code ) throws SQLException {
@@ -208,7 +196,7 @@ public class State {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.state_code = rs.getString( 1 );
 			if( rs.wasNull() )
 				obj.state_code = null;

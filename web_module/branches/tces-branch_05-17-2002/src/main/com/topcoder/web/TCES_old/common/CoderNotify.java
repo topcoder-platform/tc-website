@@ -37,7 +37,7 @@ public class CoderNotify {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long coder_id, Integer notify_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class CoderNotify {
 	 */
 
 	public Integer getNotifyId( Long coder_id ) throws SQLException {
-		CoderNotifyObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( coder_id );
-		return( obj.notify_id );
+		return( ( (CoderNotifyObject) getRecord( coder_id ) ).notify_id );
 	}
 
 	private CoderNotifyObject getRecord( Long coder_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class CoderNotify {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.coder_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.coder_id = null;

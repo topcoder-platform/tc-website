@@ -38,7 +38,7 @@ public class Language {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer language_id, String language_name, String status, String language_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -129,11 +129,7 @@ public class Language {
 	 */
 
 	public String getLanguageName( Integer language_id ) throws SQLException {
-		LanguageObject	obj = null;
-		String	result;
-
-		obj = getRecord( language_id );
-		return( obj.language_name );
+		return( ( (LanguageObject) getRecord( language_id ) ).language_name );
 	}
 
 	/**
@@ -159,11 +155,7 @@ public class Language {
 	 */
 
 	public String getStatus( Integer language_id ) throws SQLException {
-		LanguageObject	obj = null;
-		String	result;
-
-		obj = getRecord( language_id );
-		return( obj.status );
+		return( ( (LanguageObject) getRecord( language_id ) ).status );
 	}
 
 	/**
@@ -189,11 +181,7 @@ public class Language {
 	 */
 
 	public String getLanguageDesc( Integer language_id ) throws SQLException {
-		LanguageObject	obj = null;
-		String	result;
-
-		obj = getRecord( language_id );
-		return( obj.language_desc );
+		return( ( (LanguageObject) getRecord( language_id ) ).language_desc );
 	}
 
 	private LanguageObject getRecord( Integer language_id ) throws SQLException {
@@ -209,7 +197,7 @@ public class Language {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.language_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.language_id = null;

@@ -37,7 +37,7 @@ public class OrganizationSizeLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer organization_size_id, String organization_size_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class OrganizationSizeLu {
 	 */
 
 	public String getOrganizationSizeDesc( Integer organization_size_id ) throws SQLException {
-		OrganizationSizeLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( organization_size_id );
-		return( obj.organization_size_desc );
+		return( ( (OrganizationSizeLuObject) getRecord( organization_size_id ) ).organization_size_desc );
 	}
 
 	private OrganizationSizeLuObject getRecord( Integer organization_size_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class OrganizationSizeLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.organization_size_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.organization_size_id = null;

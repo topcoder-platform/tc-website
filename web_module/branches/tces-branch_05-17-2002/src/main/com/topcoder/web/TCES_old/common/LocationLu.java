@@ -37,7 +37,7 @@ public class LocationLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer location_id, String location_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class LocationLu {
 	 */
 
 	public String getLocationDesc( Integer location_id ) throws SQLException {
-		LocationLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( location_id );
-		return( obj.location_desc );
+		return( ( (LocationLuObject) getRecord( location_id ) ).location_desc );
 	}
 
 	private LocationLuObject getRecord( Integer location_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class LocationLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.location_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.location_id = null;

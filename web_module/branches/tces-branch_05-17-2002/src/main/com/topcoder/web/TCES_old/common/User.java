@@ -37,7 +37,7 @@ public class User {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long user_id, String handle, String password, String status, Integer user_type_id, String email, String logged_in, String terms, Date last_login ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -129,11 +129,7 @@ public class User {
 	 */
 
 	public String getHandle( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.handle );
+		return( ( (UserObject) getRecord( user_id ) ).handle );
 	}
 
 	/**
@@ -159,11 +155,7 @@ public class User {
 	 */
 
 	public String getPassword( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.password );
+		return( ( (UserObject) getRecord( user_id ) ).password );
 	}
 
 	/**
@@ -189,11 +181,7 @@ public class User {
 	 */
 
 	public String getStatus( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.status );
+		return( ( (UserObject) getRecord( user_id ) ).status );
 	}
 
 	/**
@@ -219,11 +207,7 @@ public class User {
 	 */
 
 	public Integer getUserTypeId( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( user_id );
-		return( obj.user_type_id );
+		return( ( (UserObject) getRecord( user_id ) ).user_type_id );
 	}
 
 	/**
@@ -249,11 +233,7 @@ public class User {
 	 */
 
 	public String getEmail( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.email );
+		return( ( (UserObject) getRecord( user_id ) ).email );
 	}
 
 	/**
@@ -279,11 +259,7 @@ public class User {
 	 */
 
 	public String getLoggedIn( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.logged_in );
+		return( ( (UserObject) getRecord( user_id ) ).logged_in );
 	}
 
 	/**
@@ -309,11 +285,7 @@ public class User {
 	 */
 
 	public String getTerms( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		String	result;
-
-		obj = getRecord( user_id );
-		return( obj.terms );
+		return( ( (UserObject) getRecord( user_id ) ).terms );
 	}
 
 	/**
@@ -339,11 +311,7 @@ public class User {
 	 */
 
 	public Date getLastLogin( Long user_id ) throws SQLException {
-		UserObject	obj = null;
-		Date	result;
-
-		obj = getRecord( user_id );
-		return( obj.last_login );
+		return( ( (UserObject) getRecord( user_id ) ).last_login );
 	}
 
 	private UserObject getRecord( Long user_id ) throws SQLException {
@@ -359,7 +327,7 @@ public class User {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.user_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.user_id = null;

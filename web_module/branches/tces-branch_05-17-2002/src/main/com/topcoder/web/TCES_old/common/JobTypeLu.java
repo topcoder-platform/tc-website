@@ -37,7 +37,7 @@ public class JobTypeLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer job_type_id, String job_type_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class JobTypeLu {
 	 */
 
 	public String getJobTypeDesc( Integer job_type_id ) throws SQLException {
-		JobTypeLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( job_type_id );
-		return( obj.job_type_desc );
+		return( ( (JobTypeLuObject) getRecord( job_type_id ) ).job_type_desc );
 	}
 
 	private JobTypeLuObject getRecord( Integer job_type_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class JobTypeLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.job_type_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.job_type_id = null;

@@ -29,8 +29,8 @@ import	com.topcoder.web.TCES.common.*;
 public class ExperienceSkillXrefBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-	public static final DecimalFormat	fmt1 = new DecimalFormat( "00000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt1 = new DecimalFormat( "00000" );
 
 	public void create( java.sql.Connection conn, Long experience_id, Integer skill_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -230,8 +230,10 @@ public class ExperienceSkillXrefBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

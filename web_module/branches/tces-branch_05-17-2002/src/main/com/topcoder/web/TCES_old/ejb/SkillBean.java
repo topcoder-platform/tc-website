@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class SkillBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "00000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "00000" );
 
 	public void create( java.sql.Connection conn, Integer skill_id, Integer skill_type_id, String skill_desc, Integer skill_order, String status, Date modify_date, Long profile_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -111,11 +111,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getSkillTypeId( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( skill_id );
-		return( obj.skill_type_id );
+		return( ( (SkillObject) getRecord( skill_id ) ).skill_type_id );
 	}
 
 	public void setSkillDesc( Integer skill_id, String skill_desc ) throws SQLException {
@@ -123,11 +119,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 	}
 
 	public String getSkillDesc( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		String	result;
-
-		obj = getRecord( skill_id );
-		return( obj.skill_desc );
+		return( ( (SkillObject) getRecord( skill_id ) ).skill_desc );
 	}
 
 	public void setSkillOrder( Integer skill_id, Integer skill_order ) throws SQLException {
@@ -135,11 +127,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getSkillOrder( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( skill_id );
-		return( obj.skill_order );
+		return( ( (SkillObject) getRecord( skill_id ) ).skill_order );
 	}
 
 	public void setStatus( Integer skill_id, String status ) throws SQLException {
@@ -147,11 +135,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 	}
 
 	public String getStatus( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		String	result;
-
-		obj = getRecord( skill_id );
-		return( obj.status );
+		return( ( (SkillObject) getRecord( skill_id ) ).status );
 	}
 
 	public void setModifyDate( Integer skill_id, Date modify_date ) throws SQLException {
@@ -159,11 +143,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 	}
 
 	public Date getModifyDate( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		Date	result;
-
-		obj = getRecord( skill_id );
-		return( obj.modify_date );
+		return( ( (SkillObject) getRecord( skill_id ) ).modify_date );
 	}
 
 	public void setProfileId( Integer skill_id, Long profile_id ) throws SQLException {
@@ -171,11 +151,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 	}
 
 	public Long getProfileId( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		Long	result;
-
-		obj = getRecord( skill_id );
-		return( obj.profile_id );
+		return( ( (SkillObject) getRecord( skill_id ) ).profile_id );
 	}
 
 	private SkillObject getRecord( Integer skill_id ) throws SQLException {
@@ -363,8 +339,10 @@ public class SkillBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

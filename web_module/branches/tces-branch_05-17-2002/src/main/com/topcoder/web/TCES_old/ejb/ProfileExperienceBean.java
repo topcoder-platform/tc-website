@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class ProfileExperienceBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, String city, String state_code, String country_code ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -112,11 +112,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public Date getDateStart( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Date	result;
-
-		obj = getRecord( experience_id );
-		return( obj.date_start );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).date_start );
 	}
 
 	public void setDateEnd( Long experience_id, Date date_end ) throws SQLException {
@@ -124,11 +120,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public Date getDateEnd( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Date	result;
-
-		obj = getRecord( experience_id );
-		return( obj.date_end );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).date_end );
 	}
 
 	public void setJobTitle( Long experience_id, String job_title ) throws SQLException {
@@ -136,11 +128,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public String getJobTitle( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.job_title );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).job_title );
 	}
 
 	public void setOrganizationName( Long experience_id, String organization_name ) throws SQLException {
@@ -148,11 +136,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public String getOrganizationName( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.organization_name );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).organization_name );
 	}
 
 	public void setOrganizationUrl( Long experience_id, String organization_url ) throws SQLException {
@@ -160,11 +144,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public String getOrganizationUrl( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.organization_url );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).organization_url );
 	}
 
 	public void setJobDescription( Long experience_id, String job_description ) throws SQLException {
@@ -172,11 +152,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public String getJobDescription( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.job_description );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).job_description );
 	}
 
 	public void setProfileId( Long experience_id, Long profile_id ) throws SQLException {
@@ -184,11 +160,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public Long getProfileId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Long	result;
-
-		obj = getRecord( experience_id );
-		return( obj.profile_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).profile_id );
 	}
 
 	public void setSalaryId( Long experience_id, Integer salary_id ) throws SQLException {
@@ -196,11 +168,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getSalaryId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.salary_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).salary_id );
 	}
 
 	public void setIndustryId( Long experience_id, Integer industry_id ) throws SQLException {
@@ -208,11 +176,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getIndustryId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.industry_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).industry_id );
 	}
 
 	public void setJobRoleId( Long experience_id, Integer job_role_id ) throws SQLException {
@@ -220,11 +184,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getJobRoleId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.job_role_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).job_role_id );
 	}
 
 	public void setJobTypeId( Long experience_id, Integer job_type_id ) throws SQLException {
@@ -232,11 +192,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getJobTypeId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.job_type_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).job_type_id );
 	}
 
 	public void setOrganizationSizeId( Long experience_id, Integer organization_size_id ) throws SQLException {
@@ -244,11 +200,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getOrganizationSizeId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		return( obj.organization_size_id );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).organization_size_id );
 	}
 
 	public void setCity( Long experience_id, String city ) throws SQLException {
@@ -256,11 +208,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public String getCity( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.city );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).city );
 	}
 
 	public void setStateCode( Long experience_id, String state_code ) throws SQLException {
@@ -268,11 +216,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public String getStateCode( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.state_code );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).state_code );
 	}
 
 	public void setCountryCode( Long experience_id, String country_code ) throws SQLException {
@@ -280,11 +224,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public String getCountryCode( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		String	result;
-
-		obj = getRecord( experience_id );
-		return( obj.country_code );
+		return( ( (ProfileExperienceObject) getRecord( experience_id ) ).country_code );
 	}
 
 	private ProfileExperienceObject getRecord( Long experience_id ) throws SQLException {
@@ -536,8 +476,10 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -37,7 +37,7 @@ public class ProfileStatusLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer profile_status_id, String profile_status_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class ProfileStatusLu {
 	 */
 
 	public String getProfileStatusDesc( Integer profile_status_id ) throws SQLException {
-		ProfileStatusLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( profile_status_id );
-		return( obj.profile_status_desc );
+		return( ( (ProfileStatusLuObject) getRecord( profile_status_id ) ).profile_status_desc );
 	}
 
 	private ProfileStatusLuObject getRecord( Integer profile_status_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class ProfileStatusLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.profile_status_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.profile_status_id = null;

@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class ConcentrationBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long concentration_id, Integer concentration_type_id, Long education_id, Integer subject_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -110,11 +110,7 @@ public class ConcentrationBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getConcentrationTypeId( Long concentration_id ) throws SQLException {
-		ConcentrationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( concentration_id );
-		return( obj.concentration_type_id );
+		return( ( (ConcentrationObject) getRecord( concentration_id ) ).concentration_type_id );
 	}
 
 	public void setEducationId( Long concentration_id, Long education_id ) throws SQLException {
@@ -122,11 +118,7 @@ public class ConcentrationBean implements javax.ejb.SessionBean {
 	}
 
 	public Long getEducationId( Long concentration_id ) throws SQLException {
-		ConcentrationObject	obj = null;
-		Long	result;
-
-		obj = getRecord( concentration_id );
-		return( obj.education_id );
+		return( ( (ConcentrationObject) getRecord( concentration_id ) ).education_id );
 	}
 
 	public void setSubjectId( Long concentration_id, Integer subject_id ) throws SQLException {
@@ -134,11 +126,7 @@ public class ConcentrationBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getSubjectId( Long concentration_id ) throws SQLException {
-		ConcentrationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( concentration_id );
-		return( obj.subject_id );
+		return( ( (ConcentrationObject) getRecord( concentration_id ) ).subject_id );
 	}
 
 	private ConcentrationObject getRecord( Long concentration_id ) throws SQLException {
@@ -264,8 +252,10 @@ public class ConcentrationBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

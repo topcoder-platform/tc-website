@@ -37,7 +37,7 @@ public class Gpa {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer gpa_id, Integer gpa_type_id, String gpa_desc, Integer gpa_value ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class Gpa {
 	 */
 
 	public Integer getGpaTypeId( Integer gpa_id ) throws SQLException {
-		GpaObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( gpa_id );
-		return( obj.gpa_type_id );
+		return( ( (GpaObject) getRecord( gpa_id ) ).gpa_type_id );
 	}
 
 	/**
@@ -158,11 +154,7 @@ public class Gpa {
 	 */
 
 	public String getGpaDesc( Integer gpa_id ) throws SQLException {
-		GpaObject	obj = null;
-		String	result;
-
-		obj = getRecord( gpa_id );
-		return( obj.gpa_desc );
+		return( ( (GpaObject) getRecord( gpa_id ) ).gpa_desc );
 	}
 
 	/**
@@ -188,11 +180,7 @@ public class Gpa {
 	 */
 
 	public Integer getGpaValue( Integer gpa_id ) throws SQLException {
-		GpaObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( gpa_id );
-		return( obj.gpa_value );
+		return( ( (GpaObject) getRecord( gpa_id ) ).gpa_value );
 	}
 
 	private GpaObject getRecord( Integer gpa_id ) throws SQLException {
@@ -208,7 +196,7 @@ public class Gpa {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.gpa_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.gpa_id = null;

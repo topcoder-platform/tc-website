@@ -98,4 +98,18 @@ public interface Contact2 extends javax.ejb.EJBObject {
 	  throws RemoteException, SQLException;
 	void setIsStudent( Long profileId )
 	  throws RemoteException, SQLException;
+	CoderObject request( int cmd, CoderObject obj )
+	  throws RemoteException, SQLException;
+	CoderNotifyObject request( int cmd, CoderNotifyObject obj )
+	  throws RemoteException, SQLException;
+	CountryObject request( int cmd, CountryObject obj )
+	  throws RemoteException, SQLException;
+	EditorObject request( int cmd, EditorObject obj )
+	  throws RemoteException, SQLException;
+	LanguageObject request( int cmd, LanguageObject obj )
+	  throws RemoteException, SQLException;
+	StateObject request( int cmd, StateObject obj )
+	  throws RemoteException, SQLException;
+	UserObject request( int cmd, UserObject obj )
+	  throws RemoteException, SQLException;
 }

@@ -110,11 +110,7 @@ public class StateBean implements javax.ejb.SessionBean {
 	}
 
 	public String getStateName( String state_code ) throws SQLException {
-		StateObject	obj = null;
-		String	result;
-
-		obj = getRecord( state_code );
-		return( obj.state_name );
+		return( ( (StateObject) getRecord( state_code ) ).state_name );
 	}
 
 	public void setRegionCode( String state_code, String region_code ) throws SQLException {
@@ -122,11 +118,7 @@ public class StateBean implements javax.ejb.SessionBean {
 	}
 
 	public String getRegionCode( String state_code ) throws SQLException {
-		StateObject	obj = null;
-		String	result;
-
-		obj = getRecord( state_code );
-		return( obj.region_code );
+		return( ( (StateObject) getRecord( state_code ) ).region_code );
 	}
 
 	public void setDemographicDecline( String state_code, Integer demographic_decline ) throws SQLException {
@@ -134,11 +126,7 @@ public class StateBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getDemographicDecline( String state_code ) throws SQLException {
-		StateObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( state_code );
-		return( obj.demographic_decline );
+		return( ( (StateObject) getRecord( state_code ) ).demographic_decline );
 	}
 
 	private StateObject getRecord( String state_code ) throws SQLException {
@@ -293,8 +281,10 @@ public class StateBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

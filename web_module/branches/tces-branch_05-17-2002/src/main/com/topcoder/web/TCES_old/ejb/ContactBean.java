@@ -643,6 +643,97 @@ public class ContactBean implements javax.ejb.SessionBean {
 		}
 	}
 
+	public CoderObject request( int cmd, CoderObject obj )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.request( cmd, obj ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public CoderNotifyObject request( int cmd, CoderNotifyObject obj )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			return( coderNotifyBean.request( cmd, obj ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public CountryObject request( int cmd, CountryObject obj )
+	  throws RemoteException, SQLException {
+		Country	countryBean = null;
+
+		try {
+			countryBean = countryHome.create();
+			return( countryBean.request( cmd, obj ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public EditorObject request( int cmd, EditorObject obj )
+	  throws RemoteException, SQLException {
+		Editor	editorBean = null;
+
+		try {
+			editorBean = editorHome.create();
+			return( editorBean.request( cmd, obj ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public LanguageObject request( int cmd, LanguageObject obj )
+	  throws RemoteException, SQLException {
+		Language	languageBean = null;
+
+		try {
+			languageBean = languageHome.create();
+			return( languageBean.request( cmd, obj ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public StateObject request( int cmd, StateObject obj )
+	  throws RemoteException, SQLException {
+		State	stateBean = null;
+
+		try {
+			stateBean = stateHome.create();
+			return( stateBean.request( cmd, obj ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public UserObject request( int cmd, UserObject obj )
+	  throws RemoteException, SQLException {
+		User	userBean = null;
+
+		try {
+			userBean = userHome.create();
+			return( userBean.request( cmd, obj ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
 
 	public void setSessionContext( SessionContext context ) {
 		this.context = context;

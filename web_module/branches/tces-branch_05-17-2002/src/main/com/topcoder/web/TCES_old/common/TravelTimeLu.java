@@ -37,7 +37,7 @@ public class TravelTimeLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer travel_time_id, String travel_time_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class TravelTimeLu {
 	 */
 
 	public String getTravelTimeDesc( Integer travel_time_id ) throws SQLException {
-		TravelTimeLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( travel_time_id );
-		return( obj.travel_time_desc );
+		return( ( (TravelTimeLuObject) getRecord( travel_time_id ) ).travel_time_desc );
 	}
 
 	private TravelTimeLuObject getRecord( Integer travel_time_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class TravelTimeLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.travel_time_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.travel_time_id = null;

@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class GpaTypeBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer gpa_type_id, String gpa_type_desc, Integer gpa_type_value ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -110,11 +110,7 @@ public class GpaTypeBean implements javax.ejb.SessionBean {
 	}
 
 	public String getGpaTypeDesc( Integer gpa_type_id ) throws SQLException {
-		GpaTypeObject	obj = null;
-		String	result;
-
-		obj = getRecord( gpa_type_id );
-		return( obj.gpa_type_desc );
+		return( ( (GpaTypeObject) getRecord( gpa_type_id ) ).gpa_type_desc );
 	}
 
 	public void setGpaTypeValue( Integer gpa_type_id, Integer gpa_type_value ) throws SQLException {
@@ -122,11 +118,7 @@ public class GpaTypeBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getGpaTypeValue( Integer gpa_type_id ) throws SQLException {
-		GpaTypeObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( gpa_type_id );
-		return( obj.gpa_type_value );
+		return( ( (GpaTypeObject) getRecord( gpa_type_id ) ).gpa_type_value );
 	}
 
 	private GpaTypeObject getRecord( Integer gpa_type_id ) throws SQLException {
@@ -245,8 +237,10 @@ public class GpaTypeBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

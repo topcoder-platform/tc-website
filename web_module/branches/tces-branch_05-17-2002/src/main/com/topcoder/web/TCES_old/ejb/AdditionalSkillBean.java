@@ -29,7 +29,7 @@ import	com.topcoder.web.TCES.common.*;
 public class AdditionalSkillBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long additional_skill_id, Long profile_id, String skill_type, String description ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -110,11 +110,7 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 	}
 
 	public Long getProfileId( Long additional_skill_id ) throws SQLException {
-		AdditionalSkillObject	obj = null;
-		Long	result;
-
-		obj = getRecord( additional_skill_id );
-		return( obj.profile_id );
+		return( ( (AdditionalSkillObject) getRecord( additional_skill_id ) ).profile_id );
 	}
 
 	public void setSkillType( Long additional_skill_id, String skill_type ) throws SQLException {
@@ -122,11 +118,7 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 	}
 
 	public String getSkillType( Long additional_skill_id ) throws SQLException {
-		AdditionalSkillObject	obj = null;
-		String	result;
-
-		obj = getRecord( additional_skill_id );
-		return( obj.skill_type );
+		return( ( (AdditionalSkillObject) getRecord( additional_skill_id ) ).skill_type );
 	}
 
 	public void setDescription( Long additional_skill_id, String description ) throws SQLException {
@@ -134,11 +126,7 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 	}
 
 	public String getDescription( Long additional_skill_id ) throws SQLException {
-		AdditionalSkillObject	obj = null;
-		String	result;
-
-		obj = getRecord( additional_skill_id );
-		return( obj.description );
+		return( ( (AdditionalSkillObject) getRecord( additional_skill_id ) ).description );
 	}
 
 	private AdditionalSkillObject getRecord( Long additional_skill_id ) throws SQLException {
@@ -268,8 +256,10 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -37,7 +37,7 @@ public class AdditionalSkill {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long additional_skill_id, Long profile_id, String skill_type, String description ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class AdditionalSkill {
 	 */
 
 	public Long getProfileId( Long additional_skill_id ) throws SQLException {
-		AdditionalSkillObject	obj = null;
-		Long	result;
-
-		obj = getRecord( additional_skill_id );
-		return( obj.profile_id );
+		return( ( (AdditionalSkillObject) getRecord( additional_skill_id ) ).profile_id );
 	}
 
 	/**
@@ -158,11 +154,7 @@ public class AdditionalSkill {
 	 */
 
 	public String getSkillType( Long additional_skill_id ) throws SQLException {
-		AdditionalSkillObject	obj = null;
-		String	result;
-
-		obj = getRecord( additional_skill_id );
-		return( obj.skill_type );
+		return( ( (AdditionalSkillObject) getRecord( additional_skill_id ) ).skill_type );
 	}
 
 	/**
@@ -188,11 +180,7 @@ public class AdditionalSkill {
 	 */
 
 	public String getDescription( Long additional_skill_id ) throws SQLException {
-		AdditionalSkillObject	obj = null;
-		String	result;
-
-		obj = getRecord( additional_skill_id );
-		return( obj.description );
+		return( ( (AdditionalSkillObject) getRecord( additional_skill_id ) ).description );
 	}
 
 	private AdditionalSkillObject getRecord( Long additional_skill_id ) throws SQLException {
@@ -208,7 +196,7 @@ public class AdditionalSkill {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.additional_skill_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.additional_skill_id = null;

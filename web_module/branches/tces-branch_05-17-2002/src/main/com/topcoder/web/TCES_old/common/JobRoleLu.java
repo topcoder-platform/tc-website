@@ -37,7 +37,7 @@ public class JobRoleLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer job_role_id, String job_role_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class JobRoleLu {
 	 */
 
 	public String getJobRoleDesc( Integer job_role_id ) throws SQLException {
-		JobRoleLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( job_role_id );
-		return( obj.job_role_desc );
+		return( ( (JobRoleLuObject) getRecord( job_role_id ) ).job_role_desc );
 	}
 
 	private JobRoleLuObject getRecord( Integer job_role_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class JobRoleLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.job_role_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.job_role_id = null;

@@ -110,11 +110,7 @@ public class CountryBean implements javax.ejb.SessionBean {
 	}
 
 	public String getCountryName( String country_code ) throws SQLException {
-		CountryObject	obj = null;
-		String	result;
-
-		obj = getRecord( country_code );
-		return( obj.country_name );
+		return( ( (CountryObject) getRecord( country_code ) ).country_name );
 	}
 
 	public void setParticipating( String country_code, Integer participating ) throws SQLException {
@@ -122,11 +118,7 @@ public class CountryBean implements javax.ejb.SessionBean {
 	}
 
 	public Integer getParticipating( String country_code ) throws SQLException {
-		CountryObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( country_code );
-		return( obj.participating );
+		return( ( (CountryObject) getRecord( country_code ) ).participating );
 	}
 
 	public void setDefaultTaxformId( String country_code, Long default_taxform_id ) throws SQLException {
@@ -134,11 +126,7 @@ public class CountryBean implements javax.ejb.SessionBean {
 	}
 
 	public Long getDefaultTaxformId( String country_code ) throws SQLException {
-		CountryObject	obj = null;
-		Long	result;
-
-		obj = getRecord( country_code );
-		return( obj.default_taxform_id );
+		return( ( (CountryObject) getRecord( country_code ) ).default_taxform_id );
 	}
 
 	private CountryObject getRecord( String country_code ) throws SQLException {
@@ -291,8 +279,10 @@ public class CountryBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

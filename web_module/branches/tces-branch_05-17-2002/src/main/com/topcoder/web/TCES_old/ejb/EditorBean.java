@@ -30,7 +30,7 @@ import	com.topcoder.web.TCES.common.Lookup;
 public class EditorBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0" );
 
 	public void create( java.sql.Connection conn, Integer editor_id, String editor_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -111,11 +111,7 @@ public class EditorBean implements javax.ejb.SessionBean {
 	}
 
 	public String getEditorDesc( Integer editor_id ) throws SQLException {
-		EditorObject	obj = null;
-		String	result;
-
-		obj = getRecord( editor_id );
-		return( obj.editor_desc );
+		return( ( (EditorObject) getRecord( editor_id ) ).editor_desc );
 	}
 
 	private EditorObject getRecord( Integer editor_id ) throws SQLException {
@@ -276,8 +272,10 @@ public class EditorBean implements javax.ejb.SessionBean {
 	private Connection getConnection() throws SQLException {
 		try {
 			Context context = new InitialContext();
+			String dsName = (String) context.lookup(
+			  "DSname" );
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( dsName );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

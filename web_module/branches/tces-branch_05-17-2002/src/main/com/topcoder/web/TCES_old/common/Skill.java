@@ -37,7 +37,7 @@ public class Skill {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "00000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "00000" );
 
 	public void create( java.sql.Connection conn, Integer skill_id, Integer skill_type_id, String skill_desc, Integer skill_order, String status, Date modify_date, Long profile_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -129,11 +129,7 @@ public class Skill {
 	 */
 
 	public Integer getSkillTypeId( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( skill_id );
-		return( obj.skill_type_id );
+		return( ( (SkillObject) getRecord( skill_id ) ).skill_type_id );
 	}
 
 	/**
@@ -159,11 +155,7 @@ public class Skill {
 	 */
 
 	public String getSkillDesc( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		String	result;
-
-		obj = getRecord( skill_id );
-		return( obj.skill_desc );
+		return( ( (SkillObject) getRecord( skill_id ) ).skill_desc );
 	}
 
 	/**
@@ -189,11 +181,7 @@ public class Skill {
 	 */
 
 	public Integer getSkillOrder( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( skill_id );
-		return( obj.skill_order );
+		return( ( (SkillObject) getRecord( skill_id ) ).skill_order );
 	}
 
 	/**
@@ -219,11 +207,7 @@ public class Skill {
 	 */
 
 	public String getStatus( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		String	result;
-
-		obj = getRecord( skill_id );
-		return( obj.status );
+		return( ( (SkillObject) getRecord( skill_id ) ).status );
 	}
 
 	/**
@@ -249,11 +233,7 @@ public class Skill {
 	 */
 
 	public Date getModifyDate( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		Date	result;
-
-		obj = getRecord( skill_id );
-		return( obj.modify_date );
+		return( ( (SkillObject) getRecord( skill_id ) ).modify_date );
 	}
 
 	/**
@@ -279,11 +259,7 @@ public class Skill {
 	 */
 
 	public Long getProfileId( Integer skill_id ) throws SQLException {
-		SkillObject	obj = null;
-		Long	result;
-
-		obj = getRecord( skill_id );
-		return( obj.profile_id );
+		return( ( (SkillObject) getRecord( skill_id ) ).profile_id );
 	}
 
 	private SkillObject getRecord( Integer skill_id ) throws SQLException {
@@ -299,7 +275,7 @@ public class Skill {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.skill_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.skill_id = null;

@@ -37,7 +37,7 @@ public class Concentration {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
 	public void create( java.sql.Connection conn, Long concentration_id, Integer concentration_type_id, Long education_id, Integer subject_id ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class Concentration {
 	 */
 
 	public Integer getConcentrationTypeId( Long concentration_id ) throws SQLException {
-		ConcentrationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( concentration_id );
-		return( obj.concentration_type_id );
+		return( ( (ConcentrationObject) getRecord( concentration_id ) ).concentration_type_id );
 	}
 
 	/**
@@ -158,11 +154,7 @@ public class Concentration {
 	 */
 
 	public Long getEducationId( Long concentration_id ) throws SQLException {
-		ConcentrationObject	obj = null;
-		Long	result;
-
-		obj = getRecord( concentration_id );
-		return( obj.education_id );
+		return( ( (ConcentrationObject) getRecord( concentration_id ) ).education_id );
 	}
 
 	/**
@@ -188,11 +180,7 @@ public class Concentration {
 	 */
 
 	public Integer getSubjectId( Long concentration_id ) throws SQLException {
-		ConcentrationObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( concentration_id );
-		return( obj.subject_id );
+		return( ( (ConcentrationObject) getRecord( concentration_id ) ).subject_id );
 	}
 
 	private ConcentrationObject getRecord( Long concentration_id ) throws SQLException {
@@ -208,7 +196,7 @@ public class Concentration {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.concentration_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.concentration_id = null;

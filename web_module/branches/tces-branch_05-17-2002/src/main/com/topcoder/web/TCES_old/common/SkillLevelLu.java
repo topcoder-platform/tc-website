@@ -37,7 +37,7 @@ public class SkillLevelLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer skill_level_id, String skill_level_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class SkillLevelLu {
 	 */
 
 	public String getSkillLevelDesc( Integer skill_level_id ) throws SQLException {
-		SkillLevelLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( skill_level_id );
-		return( obj.skill_level_desc );
+		return( ( (SkillLevelLuObject) getRecord( skill_level_id ) ).skill_level_desc );
 	}
 
 	private SkillLevelLuObject getRecord( Integer skill_level_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class SkillLevelLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.skill_level_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.skill_level_id = null;

@@ -37,7 +37,7 @@ public class ConcentrationTypeLu {
 		this.conn = conn;
 	}
 
-	public static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
+	private static final DecimalFormat	fmt0 = new DecimalFormat( "000" );
 
 	public void create( java.sql.Connection conn, Integer concentration_type_id, String concentration_type_desc ) throws SQLException {
 		PreparedStatement	ps = null;
@@ -128,11 +128,7 @@ public class ConcentrationTypeLu {
 	 */
 
 	public String getConcentrationTypeDesc( Integer concentration_type_id ) throws SQLException {
-		ConcentrationTypeLuObject	obj = null;
-		String	result;
-
-		obj = getRecord( concentration_type_id );
-		return( obj.concentration_type_desc );
+		return( ( (ConcentrationTypeLuObject) getRecord( concentration_type_id ) ).concentration_type_desc );
 	}
 
 	private ConcentrationTypeLuObject getRecord( Integer concentration_type_id ) throws SQLException {
@@ -148,7 +144,7 @@ public class ConcentrationTypeLu {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.concentration_type_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.concentration_type_id = null;
