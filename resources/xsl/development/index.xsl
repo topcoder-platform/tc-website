@@ -89,19 +89,19 @@
 <P>
 Project: <A HREF="/index?t=development&amp;c=api_compare" CLASS="statText">API Comparator Component Design</A><BR/>
 Component Posting: 11/8/2002<BR/>
-Component Submission Due Date: 11/20/2002<BR/>
+Component Submission Due Date: 11/19/2002<BR/>
 </P>   
 
 <P>
 Project: <A HREF="/index?t=development&amp;c=ip_filter" CLASS="statText">IP Filter Component Design</A><BR/>
 Component Posting: 11/8/2002<BR/>
-Component Submission Due Date: 11/20/2002<BR/>
+Component Submission Due Date: 11/19/2002<BR/>
 </P>   
         
 <P>
 Project: <A HREF="/index?t=development&amp;c=object_formatter" CLASS="statText">Object Formatter Component Design</A><BR/>
 Component Posting: 11/8/2002<BR/>
-Component Submission Due Date: 11/25/2002<BR/>
+Component Submission Due Date: 11/21/2002<BR/>
 </P>   
 
         </TD>
@@ -115,7 +115,7 @@ Component Submission Due Date: 11/12/2002<BR/>
 <P>
 Project: <A HREF="/index?t=development&amp;c=unique_key" CLASS="statText">Unique Key Generator Component Design</A><BR/>
 Component Posting: 11/8/2002<BR/>
-Component Submission Due Date: 11/26/2002<BR/>
+Component Submission Due Date: 11/21/2002<BR/>
 </P>
         
 <P>
