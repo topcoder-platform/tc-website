@@ -59,7 +59,7 @@
             displayArgType = getValue("window.opener.document.frmTesting", "arrayDisplayArgType");
 
             //load data
-            var tmpVal = getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + arg);
+            var tmpVal = getValue("window.opener.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + arg);
             document.frmArray.inputText.value = tmpVal;
             addBrackets();
 

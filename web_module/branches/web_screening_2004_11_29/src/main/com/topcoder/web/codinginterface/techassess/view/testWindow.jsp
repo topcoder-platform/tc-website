@@ -25,6 +25,7 @@
             <input type="hidden" name="<%=CodingInterfaceConstants.TEST_ARGUMENT+argumentIndex%>" value="" />
             <input type="hidden" name="<%=CodingInterfaceConstants.TEST_ARGUMENT_DIMENSION+argumentIndex%>" value="<%=argumentDimension%>" />
           </ci:argumentIterator>
+          <%--these three fields are for communication to the arrayEntry page--%>
           <input type="hidden" name="arrayArg" value=0 />
           <input type="hidden" name="arrayArgType" value="" />
           <input type="hidden" name="arrayDisplayArgType" value="" />
@@ -65,9 +66,16 @@
             var windowHandle = null;
 
             <%--startup, load variables from the parent--%>
+
+            <%--todo must finish up any other types that are missing here --%>
             for(var i = 0; i < numArgs; i++) {
                 switch(argTypes[i]) {
                     case "String[]":
+                        if(getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i) != "") {
+                            setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
+                        }
+                        break;
+                    case "int[]":
                         if(getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i) != "") {
                             setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
                         }
