@@ -10,6 +10,10 @@ import com.topcoder.common.web.error.*;
 public interface DataCache extends EJBObject { 
 //////////////////////////////////////////////
 
+  public ArrayList getNotifications() throws TCException, RemoteException;
+
+  public void resetNotifications() throws TCException, RemoteException;
+
   public ArrayList getRounds() throws TCException, RemoteException;
 
   public void resetRounds() throws TCException, RemoteException;

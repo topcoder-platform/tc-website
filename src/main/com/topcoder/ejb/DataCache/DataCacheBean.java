@@ -25,6 +25,7 @@ public class DataCacheBean extends BaseEJB {
 
   private static RenderHTML renderer = new RenderHTML();
 
+  private static ArrayList notifications;
   private static ArrayList rounds;
   private static ArrayList coderTypes;
   private static ArrayList demographicAssignments;
@@ -56,6 +57,7 @@ public class DataCacheBean extends BaseEJB {
   private static HashMap contestNavs;
   private static ArrayList roundProblems;
 
+  private static boolean notificationsCached;
   private static boolean coderTypesCached;
   private static boolean demographicAssignmentsCached;
   private static boolean sectorFilesCached;
@@ -334,6 +336,7 @@ public class DataCacheBean extends BaseEJB {
     byte[] result = null;
     Log.msg(VERBOSE, "EJB DataCacheBean resetAll called.");
     synchronized (this) {
+      this.notificationsCached = false;
       this.roundsCached = false;
       this.coderTypesCached = false;
       this.demographicAssignmentsCached = false;
@@ -378,6 +381,16 @@ public class DataCacheBean extends BaseEJB {
       );
     }
     return result;
+  }
+
+
+  /////////////////////////////////////////////////////////////////
+  public void resetNotifications() throws TCException {
+  /////////////////////////////////////////////////////////////////
+    Log.msg(VERBOSE, "EJB DataCacheBean resetNotifications called.");
+    synchronized (this) {
+      this.notificationsCached = false;
+    }
   }
 
 
@@ -1236,6 +1249,66 @@ public class DataCacheBean extends BaseEJB {
     return results;
   }
 
+
+  public ArrayList getNotifications() throws TCException {
+    try {
+      if (VERBOSE) System.out.println("EJB DataCacheBean getNotifications called.");
+      if ( !this.notificationsCached ) {
+        synchronized (this) {
+          this.notifications = popNotifications();
+          this.notificationsCached = true;
+        }
+      }
+    } catch (Exception e) {
+      throw new TCException("ejb.DataCache:getNotifications:ERROR:\n"+e);
+    }
+    return this.notifications;
+  }
+
+
+  private ArrayList popNotifications() throws TCException {
+    if (VERBOSE) System.out.println("EJB DataCacheBean popNotifications called.");
+    Connection conn = null;  //conn stands for schools connection
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    ArrayList result = new ArrayList ( 7 );
+    try {
+      conn = DBMS.getConnection();
+      StringBuffer query = new StringBuffer ( 375 );
+      /*************************************************************************************/
+      query.append ( " SELECT");
+      query.append (        " notify_id");
+      query.append (        " ,name");
+      query.append (        " ,sort");
+      query.append (   " FROM");
+      query.append (        " notify_lu");
+      query.append (  " WHERE");
+      query.append (        " status = 'A'");
+      query.append (  " ORDER BY");
+      query.append (        " sort");
+      /*************************************************************************************/
+      ps = conn.prepareStatement(query.toString());
+      rs = ps.executeQuery();
+      while ( rs.next() ) {
+        Notify notify = new Notify();
+        notify.setNotifyId ( rs.getInt(1) );
+        notify.setName ( rs.getString(2) );
+        notify.setSort ( rs.getInt(3) );
+        result.add ( notify );
+      }
+      if ( result != null ) result.trimToSize();
+    } catch (SQLException sqe) {
+      DBMS.printSqlException(true, sqe);
+      throw new TCException( "ejb.DataCache.DataCacheBean:popNotifications: ERROR \n "+sqe.getMessage() );
+    } catch (Exception e) {
+      throw new TCException("EJB DataCacheBean getNotifications error: " + e);
+    } finally  {
+      if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
+      if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
+      if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+    }
+    return result;
+  }
 
 
 
