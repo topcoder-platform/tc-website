@@ -8,5 +8,8 @@ package com.topcoder.web.test.wsf;
  * created 1/18/2003
  */
 public class WsfForm {
-		String name;
+		int index = 0;  // index of forms list on page
+		String submitName;  // name of submit button
+		WsfFormParam[] params;
+		String targetPageName;	
 }
