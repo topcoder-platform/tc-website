@@ -1,9 +1,7 @@
 package com.topcoder.web.common;
 
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.security.Util;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
@@ -36,7 +34,6 @@ public abstract class BaseServlet extends HttpServlet {
     public static final String URL_KEY = "url";
     public static final String NEXT_PAGE_KEY = "nextpage";
     public static final String SESSION_INFO_KEY = "sessionInfo";
-    public static final String USER_SUBJECT_PREFIX = "user_subject:";
 
     private static Logger log = Logger.getLogger(BaseServlet.class);
 
@@ -313,34 +310,6 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected TCSubject getUser(long id) throws Exception {
-        TCSubject user = null;
-
-        StringBuffer buf = new StringBuffer(40);
-        buf.append(USER_SUBJECT_PREFIX);
-        buf.append(id);
-
-        CacheClient cc = null;
-        boolean hasCacheConnection = true;
-        try {
-            cc = CacheClientFactory.createCacheClient();
-            user = (TCSubject) (cc.get(buf.toString()));
-        } catch (Exception e) {
-            log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
-            hasCacheConnection = false;
-        }
-        if (user == null) {
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            user = pmgr.getUserSubject(id);
-            try {
-                if (hasCacheConnection) {
-                    cc.set(buf.toString(), user, 30 * 60 * 1000);
-                } else {
-                    log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: ");
-                }
-            } catch (Exception e) {
-                log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
-            }
-        }
-        return user;
+        return Util.getUserSubject(id);
     }
 }

@@ -408,7 +408,7 @@ public class Util implements ConfigManagerInterface {
             throws Exception, NoSuchUserException, NamingException {
         TCSubject ret = null;
 
-        String key = "subject_" + new Long(l);
+        String key = "user_subject:" + new Long(l);
         Context ctx = null;
         try {
             boolean hasCacheConnection = true;
