@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Command;
+import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
@@ -20,11 +21,14 @@ public class CommandList extends BaseProcessor {
 
     private ResultSetContainer commandList;
     private String db;
+    private ResultSetContainer commandGroupList;
+    private int commandGroupId;
 
     /* Creates a new Login */
     public CommandList() {
         super();
         db = "";
+        commandGroupId=0;
     }
 
 	protected void baseProcessing() throws Exception {
@@ -41,8 +45,14 @@ public class CommandList extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
+        CommandGroup cg = (CommandGroup)Util.createEJB(getInitialContext(), CommandGroup.class);
 
-        setCommandList(c.getCommandList(getDb()));
+        if (getCommandGroupId()>0) {
+            setCommandList(c.getCommandList(getDb(), getCommandGroupId()));
+        } else {
+            setCommandList(c.getCommandList(getDb()));
+        }
+        setCommandGroupList(cg.getAllCommandGroups(getDb()));
 
         request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.COMMAND_LIST_PAGE);
@@ -56,6 +66,13 @@ public class CommandList extends BaseProcessor {
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
             setDb(value);
+        if (paramName.equalsIgnoreCase(Constants.COMMAND_GROUP_ID_PARAM)) {
+            try {
+                setCommandGroupId(Integer.parseInt(Constants.COMMAND_GROUP_ID_PARAM));
+            } catch (NumberFormatException e) {
+                addError(Constants.COMMAND_GROUP_ID_PARAM, e);
+            }
+        }
     }
 
     public String getDb() {
@@ -74,6 +91,21 @@ public class CommandList extends BaseProcessor {
         this.commandList = commandList;
     }
 
+    public ResultSetContainer getCommandGroupList() {
+        return commandGroupList;
+    }
+
+    public void setCommandGroupList(ResultSetContainer commandGroupList) {
+        this.commandGroupList = commandGroupList;
+    }
+
+    public int getCommandGroupId() {
+        return commandGroupId;
+    }
+
+    public void setCommandGroupId(int commandGroupId) {
+        this.commandGroupId = commandGroupId;
+    }
 
 
 }
