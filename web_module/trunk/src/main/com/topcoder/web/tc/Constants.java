@@ -38,6 +38,11 @@ public class Constants {
     public static String MAX_NUM_RATINGS;
     public static String MAX_DAYS_SINCE_LAST_COMP;
 
+    public static String PROJECT_ID;
+    public static String PHASE_ID;
+    public static String PRIMARY_FLAG;
+    public static String REVIEWER_TYPE_ID;
+
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SURVEY_VIEW;
