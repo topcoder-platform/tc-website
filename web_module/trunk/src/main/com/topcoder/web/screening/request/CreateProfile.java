@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import com.topcoder.web.screening.common.Constants;
@@ -27,11 +28,8 @@ public class CreateProfile extends BaseSessionProcessor {
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND,
                 Constants.PROFILE_LANGUAGE_QUERY_KEY);
-        InitialContext context = new InitialContext();
-        DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup(Constants.DATA_SOURCE),
-                                        DataSource.class);
-        DataAccess dAccess = new DataAccess(ds);
+
+        DataAccessInt dAccess = getDataAccess(true);
 
         Map map = dAccess.getData(dataRequest);
         if(map != null) {
