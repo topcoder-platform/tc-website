@@ -55,10 +55,10 @@
                             	<p>With technology complexity increasing at a blistering pace, Intel&#174; Developer Services offers the resources and opportunities you need to keep stride with industry innovations,
                              	take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p></td>
                              
-                            <td><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="150" height="146" /></td>
+                            <td align="center"><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /></td>
                       </tr>
                       <tr>
-                            <td class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
+                            <td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
                             Intel&#174; Developer Services gives you FREE access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p></td>
                             
                           <td>
@@ -76,8 +76,8 @@
                         <tr>
                         	<td colspan="2">
                     <p class="promoCallout">Check out a sample of what Intel Developer Services offers you.  Then join Intel Developer Services today and get FREE technical resources designed to help you 
-                    capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands.   
-                    <br/> Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
+                    capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. </p>  
+                    <br/> <p>Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
                         
                         <p><br /></p>
 
