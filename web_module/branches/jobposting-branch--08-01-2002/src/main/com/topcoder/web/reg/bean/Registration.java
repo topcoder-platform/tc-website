@@ -350,8 +350,10 @@ public class Registration
             schoolStateChanged = false;
             school = Integer.toString(coder.getCurrentSchool().getSchoolId());
             schoolName = coder.getCurrentSchool().getName();
-            gpa = ""+coder.getCurrentSchool().getGpa();
-            gpaScale = ""+coder.getCurrentSchool().getGpaScale();
+            if (coder.getCurrentSchool().getGpa()!=0 && coder.getCurrentSchool().getGpaScale()!=0)
+                gpa = ""+coder.getCurrentSchool().getGpa();
+                gpaScale = ""+coder.getCurrentSchool().getGpaScale();
+            }
         } else {
             schoolState = "";
             schoolStateChanged = false;
@@ -484,12 +486,10 @@ public class Registration
                
                 if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
                        (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
-                    log.debug("bad gpa entered: " + this.gpa);
                     addError(GPA, "Please enter a valid GPA.");
                 }
                 if ((!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true)) ||
                        (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
-                    log.debug("bad gpa scale entered: " + this.gpaScale);
                     addError(GPA_SCALE, "Please enter a valid GPA Scale.");
                 }
                 if (!isEmpty(this.gpa) && isNumber(this.gpa, true) && 
