@@ -7,6 +7,7 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Round Overview</TITLE>
@@ -62,6 +63,7 @@
     DecimalFormat dfp = new DecimalFormat("0.00%");
     ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
+    ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
 
     ResultSetContainer.ResultSetRow currentRow = null;
     int topN = 5;
@@ -273,19 +275,22 @@ function goTo(selection){
                         </TABLE>
                     </TD>
                 </TR>
-        
+
                 <TR><TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
             </FORM>
             </TABLE>
-            
+
             <p><br></p>
 <!-- END BODY -->
 
         </TD>
-       
+
        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       
+
        <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
+       <rsc:iterator list="<%=image%>" id="resultRow">
+        <CENTER><A HREF="<rsc:item name="link" row="resultRow"/>"><img src="<rsc:item name="file" row="resultRow"/>" ALT="" WIDTH="<rsc:item name="width" row="resultRow"/>" HEIGHT="<rsc:item name="height" row="resultRow"/>" BORDER="0"/></A></CENTER>
+       </rsc:iterator>
          <jsp:include page="../public_right.jsp" />
         </TD>
     <!-- Gutter -->
