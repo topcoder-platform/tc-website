@@ -21,7 +21,7 @@ public class DBMS {
     public final static String JDBC_DRIVER              = getProperty("JDBC_DRIVER", "weblogic.jdbc.jts.Driver");
     public final static String POOL_DRIVER              = getProperty("POOL_DRIVER", "weblogic.jdbc.pool.Driver");
     public final static String INFORMIX_DRIVER          = getProperty("INFORMIX_DRIVER", "com.informix.jdbc.IfxDriver");
-    public final static String JMA_INFORMIX_POOL        = getProperty("JMA_IMFORMIX_POOL", "jdbc:weblogic:pool:JMAInformixPool");
+    public final static String JMA_INFORMIX_POOL        = getProperty("JMA_INFORMIX_POOL", "jdbc:weblogic:pool:JMAInformixPool");
     public final static String JMA_INFORMIX_POOL_JTS    = getProperty("JMA_INFORMIX_POOL_JTS", "jdbc:weblogic:jts:JMAInformixPool");
     public final static String JMA_INFORMIX_DW_POOL     = getProperty("JMA_INFORMIX_DW_POOL", "jdbc:weblogic:pool:JMAInformixDWPool");
     public final static String JMA_INFORMIX_DW_POOL_JTS = getProperty("JMA_INFORMIX_DW_POOL_JTS", "jdbc:weblogic:jts:JMAInformixDWPool");
@@ -35,8 +35,8 @@ public class DBMS {
     public final static String PACTS_QUEUE              = getProperty("PACTS_QUEUE", "pactsQueue");
 
     // Sequence Ids
-    public static final int JMA_SEQ                     = 0;//getIntProperty("JMA_SEQ", 1);
-    public static final int CORPORATE_SEQ               = getIntProperty("CORPORATE_SEQ", 1);
+    public static final int JMA_SEQ                     = getIntProperty("JMA_SEQ", 1);
+    public static final int CORPORATE_SEQ               = getIntProperty("CORPORATE_SEQ", 2);
     public static final int SCHOOL_SEQ                  = getIntProperty("SCHOOL_SEQ", 3);
     public static final int PROBLEM_SEQ                 = getIntProperty("PROBLEM_SEQ", 4);
     public static final int CHALLENGE_SEQ               = getIntProperty("CHALLENGE_SEQ", 5);
