@@ -2,7 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.Constants"%>
+                 com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.model.SoftwareComponent"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
@@ -114,8 +115,8 @@
                 </tr>
 
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
+                    <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
                     <tr>
-                        <%-- <a> should link to project description page like the Open Projects page does --%>
                         <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
                             <td class="projectCells" align="center"><img src="/i/development/netSm.gif" border="0"/></td>
                         <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
@@ -136,13 +137,14 @@
                         <td class="projectCells" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a>
                         <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
                     </tr>
+                    <% } %>
                 </rsc:iterator>
-                    
+
                     <tr>
                         <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
                     </tr>
            </table>
-           
+
            <br/><br/>
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
@@ -162,8 +164,8 @@
                 </tr>
 
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
+                    <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) { %>
                     <tr>
-                        <%-- <a> should link to project description page like the Open Projects page does --%>
                         <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
                             <td class="projectCells" align="center"><img src="/i/development/netSm.gif" border="0"/></td>
                         <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
@@ -184,8 +186,9 @@
                         <td class="projectCells" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a>
                         <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
                     </tr>
+                    <% } %>
                 </rsc:iterator>
-                    
+
                     <tr>
                         <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
                     </tr>
