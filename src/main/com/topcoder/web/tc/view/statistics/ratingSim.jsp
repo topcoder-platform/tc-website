@@ -53,7 +53,7 @@ ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("Rounds_By_Da
 %>
 
                             <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
-                                <FORM name="coderRankForm" action="/tc" method="post">
+                                <FORM name="coderRankForm" action="/tc" method="get">
                                 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="RatingSim"/>
                                 <input type="hidden" name="postback" value="true"/>
                                 <tr>
@@ -67,7 +67,7 @@ ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("Rounds_By_Da
                                         <tc-webtag:rscSelect name="Contest" list="<%=rsc%>" fieldText="full_name" fieldValue="round_id"/>
                                     </TD>
                                 </TR>
-                            
+
                                 <TR>
                                     <TD ><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/></TD>
                                 </TR>
@@ -133,7 +133,7 @@ ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("Rounds_By_Da
                                 <TR><TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
                                  <TR>
                                     <TD >
-                                        <input type="submit" value="Run Simulation"/>                                        
+                                        <input type="submit" value="Run Simulation"/>
                                     </TD>
                                 </TR>
                                 <TR>
