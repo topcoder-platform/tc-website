@@ -34,9 +34,14 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
+            <p align=right>
+                        <a href="#des_dev">Design / Development Ratings</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="#reliability">Reliability Rating</a></p>
+
 <h2>Development Faq</h2>
 <p>If you have any questions concerning component or application competitions and statistics that are not answered here, please send an email to <A href="mailto:service@topcoder.com">service@topcoder.com</A>.</p>
 
+                <a name="des_dev"></a>
                 <h3>Design / Development Ratings</h3>
                 
                 <p>
@@ -203,6 +208,7 @@ WinProbability( SkillA, DeviationA, SkillB, DeviationB)
             Return count  (count is the win probability)
             </p>
             
+                <a name="reliability"></a>
             <h3>Reliability Rating</h3>
 <p>Member profiles have been modified to reflect a reliability factor for all component design and development competitions. 
 The reliability factor is calculated as the percent of projects that a member registers for in which that same 
@@ -263,6 +269,8 @@ to 20% of the prize. The following is an example of payouts based on the member'
                 </tr> 
                                
             </table>
+
+            <p><br/></p>
         </td>
 <!-- Center Column Ends -->
 
