@@ -87,7 +87,7 @@
 <P><B>Single Round Match 83</B><BR/>
 April 27, 2002</P>
 <P><B>Rookie Review</B></P>
-<P>The rookie rooms started off with an impressive series of scores, with<A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">herrerar</A> 
+<P>The rookie rooms started off with an impressive series of scores, with <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">herrerar</A> 
 achieving 1504 points exactly, followed by <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">sillyg00se</A> with 1326.70 points, 
 <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">radeye</A> with 1193.80 points, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">currane</A> 
 with 1124.25 points, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">dacurran</A> with 1032.81 points, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">alexguev</A> 

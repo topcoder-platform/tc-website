@@ -93,8 +93,8 @@ just do what they said. I suppose some people might have made mistakes with
 floating-point, but if you read the notes it turned out that it was simple
 standard integer division. Do the steps and return the answer, about as
 simple as it gets. Look at basically anybody in the first room for a good
-solution - <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">dmwright's</A> is perhaps better laid out than some (though slightly
-slower to write).</P>
+solution - <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">dmwright's</A> 
+is perhaps better laid out than some (though slightly slower to write).</P>
 
 <P>The 550, on the other hand, was messy and hateful. Look at five people and
 you'll find five completely different totally unreadable solutions. I'm
@@ -134,6 +134,13 @@ more effectively.</P>
 tests, which doesn't stand a chance of executing in time. In C++, a simple
 permutation loop without anything in it takes 1.2 seconds at that point, and
 obviously the test inside would be slow enough to completely time out.</P>
+<P><BR/><FONT COLOR="#336699"><B>Comment from doeth</B><BR/>
+Just wanted to note an error in Zorbathut's analysis of the SRM 83 Div 
+1 1000 pt. problem.  Indeed, a brute-force search without any pruning 
+of the search examines 10! possibilities; however this *does* finish in 
+time.  Look at both of the room 22 solutions. I've also written up the 
+pure brute-force method myself in Java and got each individual test to 
+finish in less than 5 seconds.</FONT></P><BR/><BR/>
     <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
