@@ -222,7 +222,7 @@
                 		<tr>
                     		<td class="bodyText" bgcolor="#FFFFFF" valign="top" width="20%"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
                     		<td class="bodyText" bgcolor="#FFFFFF" width="80%">
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8567592&ver=2" target="blank">Document Generator 2.0</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8567592&ver=1" target="blank">Document Generator</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8447769&ver=1" target="blank">File Upload</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7387570&ver=1" target="blank">Phonetic Pattern Matching</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7408797&ver=1" target="blank">SVG Generator</A><br/>
@@ -243,7 +243,7 @@
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=4312547&ver=1" target="blank">API Version Compatibility</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7324513&ver=1" target="blank">CSS Style Object</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7339708&ver=1" target="blank">Data Paging Tag</A><br/>
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600038&ver=1" target="blank">Document Generator 2.0</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600038&ver=2" target="blank">Document Generator 1.1</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8541877&ver=1" target="blank">Email Confirmation</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5501523&ver=2" target="blank">Generic Parser 1.1</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6500731&ver=1" target="blank">Object XML Validation</A>
