@@ -127,10 +127,11 @@ public abstract class FullRegBase extends SimpleRegBase {
      * @return
      * @throws Exception
      */
-    protected static Map getQuestions(String db, int coderTypeId) throws Exception {
+    protected Map getQuestions(String db, int coderTypeId) throws Exception {
         Request r = new Request();
         r.setContentHandle("demographic_question_list");
         r.setProperty("ct", String.valueOf(coderTypeId));
+        r.setProperty("cm", String.valueOf( getRequest().getParameter(Constants.COMPANY_ID) ));
         Map qMap = getDataAccess(db, true).getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list");
         ResultSetContainer.ResultSetRow row = null;
