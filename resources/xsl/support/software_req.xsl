@@ -54,7 +54,7 @@
                         <p class="bodyTextBold">What do I need to install to run the TopCoder Competition Arena?</p>
 
                         <p>The online tournament rounds run in a Java applet. We have designed our utilities to utilize some of the features of Sun's 
-                        1.2 version of the JDK. This means that in order to run the applet, you will need to install a web browser plug-in that allows 
+                        1.3 version of the JDK. This means that in order to run the applet, you will need to install a web browser plug-in that allows 
                         the browser to run 1.3 applications. You can <a href="http://java.sun.com/getjava/install.html">get information</a> on which 
                         browser and operating systems are compatible with the plug-in. Even if you already have a JRE 1.1.X plug-in installed, you 
                         will need to re-install a newer version of the plug-in. The latest version of the plug-in can be downloaded from Sun's 
