@@ -56,8 +56,8 @@
                             	Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
                              	take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p></td>
                              
-                            <td align="center"><img src="/i/spacer.gif" height="117" width="20"/><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" />
-                            <img src="/i/spacer.gif" height="117" width="20"/></td>
+                            <td align="center"><img src="/i/spacer.gif" height="117" width="50"/><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" />
+                            <img src="/i/spacer.gif" height="117" width="50"/></td>
                       </tr>
                       <tr>
                             <td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
@@ -77,6 +77,7 @@
                             	</table>
                           </td>
                         </tr>
+                        <tr><br/></tr>
                         
                         <tr>
                         	<td colspan="2">
