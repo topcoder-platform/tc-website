@@ -9,11 +9,6 @@
          <ejb-class>com.topcoder.web.query.ejb.QueryServices.QueryAuthenticationBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
-         <env-entry>
-            <env-entry-name>datasource_name</env-entry-name>
-            <env-entry-type>java.lang.String</env-entry-type>
-            <env-entry-value>SCREENING_OLTP</env-entry-value>
-         </env-entry>
       </session>
       <session id="Session_2">
          <ejb-name>Query</ejb-name>

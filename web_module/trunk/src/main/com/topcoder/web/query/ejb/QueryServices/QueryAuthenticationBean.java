@@ -49,11 +49,6 @@ public class QueryAuthenticationBean extends BaseEJB {
             query.append(                      " FROM group_user gu");
             query.append(                     " WHERE gu.group_id = 13)");
             ctx = new InitialContext();
-
-
-log.debug((String)ctx.lookup("java:comp/env/datasource_name"));
-
-
             ds = (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
