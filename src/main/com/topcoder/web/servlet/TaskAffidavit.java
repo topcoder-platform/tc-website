@@ -50,7 +50,7 @@ public final class TaskAffidavit {
                 requestTask = Conversion.checkNull(request.getParameter("t"));
                 requestCommand = Conversion.checkNull(request.getParameter("c"));
                 ctx = TCContext.getInitial();
-                dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 RecordTag affidavitTag = new RecordTag("AFFIDAVIT");
                 dataRequest = new Request();
 
