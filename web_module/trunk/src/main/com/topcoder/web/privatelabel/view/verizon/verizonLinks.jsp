@@ -14,33 +14,47 @@ function openWin(url, name, w, h) {
 }
 </script>
 
+                        <table border="0" cellpadding="0" cellspacing="5">
+                            <tr>
+                                <td width="124" class="leftnav" valign="top">
 <!-- Summary tab -->
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
-<a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_overview" style="margin-left:1px;display:inline;">Overview</a><br/>
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
-<img src="/images/ccc.gif" width=110 height=1 alt="" ><br>
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_overview" style="margin-left:1px;display:inline;">Overview</a><br/>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
 
 <!-- Schedule tab -->
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
-<a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_sched" style="margin-left:1px;display:inline;">Schedule</a><br/>
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
-<img src="/images/ccc.gif" width=110 height=1 alt="" ><br>
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_sched" style="margin-left:1px;display:inline;">Schedule</a><br/>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
 
 <!-- Rules tab -->
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
-<a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules_overview" style="margin-left:1px;display:inline;">Rules</a><br/>
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
-<img src="/images/ccc.gif" width=110 height=1 alt="" ><br>
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules" style="margin-left:1px;display:inline;">Rules</a><br/>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
 
 <!-- Register tab -->
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
-<a class="leftnav" href="?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>" style="margin-left:1px;display:inline;">Register Now</a><br/>
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
-<img src="/images/ccc.gif" width=110 height=1 alt="" ><br>
-<img src="/i/clear.gif" width=1 height=6 alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <a class="leftnav" href="?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>" style="margin-left:1px;display:inline;">Register Now</a><br/>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+
+                                </td>
+                            </tr>
+                        </table>
 
 <!-- Practice Arena tab -->
-<a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,225);"class="statTextBig"><img src="/i/events/verizon2003/tab_applet.gif" alt="Arena" width="127" height="25" border="0" /></a>
+                        <table border="0" cellpadding="0" cellspacing="0" >
+                            <tr valign="middle">
+                                <td align="right" width="99%" class="leftnav"><a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,225);"class="leftnav">Practice Arena</a></td>
+                                <td align="right" width="18" class="leftnav"><a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,225);"class="leftnav"><img src="/i/events/verizon2003/icn_go.gif" alt="&gt;" width="18" height="18" border="0" hspace="5"></a></td>
+                            </tr>
+                        </table>
+
+                        <img src="/images/spacer.gif" alt="" width="1" height="300"><br/>

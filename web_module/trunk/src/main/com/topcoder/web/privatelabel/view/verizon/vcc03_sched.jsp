@@ -7,84 +7,77 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder | Private Label Registration</title>
+<title>Verizon Coding Challenge Powered by TopCoder - Schedule</title>
 
 <jsp:include page="../script.jsp" />
 
+<script language="JavaScript" type="text/javascript" src="/js/verizon.js"></script>
+
 </head>
 
-<body>
-<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="background">
 
+<table border="0" cellspacing="0" cellpadding="0" class="black"  width="100%">
    <tr>
 
-<!-- Verizon logo-->
-      <td width="147" bgcolor="#000000" rowspan="2" colspan="3" valign="top"><img src="/i/events/verizon2003/logo_black_147.gif" width="147" height="141" border="0"/></td>
+ <!-- Verizon logo-->
+        <td width="147" valign="top"><a href="http://www22.verizon.com/"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></a></td>
+        <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
+        <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Contest" border="0"></td>
+        <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
+        <td valign="top" class="black" width="99%"><img src="/i/events/verizon2003/pbtc_secondary.gif" width="134" height="37" alt="Powered by TopCoder" border="0"></td>
+    </tr>
 
-<!-- Top Nav-->
-      <td width="100%" bgcolor="#000000" colspan="2"><img src="/i/clear.gif" width="100%" height="40" border="0"/></td>
-   </tr>
-
-   <tr>
 <!-- Top Ad -->
-      <td width="100%" bgcolor="#CC0001" colspan="2" align="left">
-         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr>
-               <td width="100%"><img src="/i/events/verizon2003/vcc03_logo.gif" width="550" height="101" border="0"/></td>
-               <td align="right" valign="middle"><img src="/i/events/verizon2003/pbtc.gif" width="146" height="34" border="0"/></td>
-            </tr>
-          </table>
-      </td>
+    <tr>
+      <td class="red" height="1" colspan="5"><img alt="" src="/images/spacer.gif" width="10" height="1"></td>
    </tr>
-   
-   <tr>
-<!-- Top Bar -->
-      <td width="147" bgcolor="#000000" colspan="3"><img src="/i/clear.gif" width="147" height="20" border="0"/></td>
-      <td width="100%" bgcolor="#000000" colspan="2"><img src="/i/clear.gif" width="100%" height="20" border="0"/></td>
-   </tr>
-   
-   <tr>
-<!-- Left Column-->
-      <td width="10" bgcolor="#666666"><img src="/i/clear.gif" width="10" height="1"/></td>
-      <td valign="top" bgcolor="#666666">
-         <table  border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td bgcolor="#666666" valign="top"><img src="/i/clear.gif" width="127" height="10" border="0"/></td></tr>
-            <tr><td>      
-                     <jsp:include page="verizonLinks.jsp" >
-                        <jsp:param name="selectedTab" value="schedule"/>
-                        <jsp:param name="selectedSubtab" value=""/>
-                     </jsp:include>
-            </tr>
-            <tr><td class="bodyText" bgcolor="#ffffff"><img src="/i/events/verizon2003/vcc03_right.gif" width="127" height="300" border="0"/></td></tr>
-         </table><br />
-       </td>
-      <td width="10" bgcolor="#666666"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-       
+
+<table width="740" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+
+<!-- Left Column Begins -->
+        <td valign="top" width="146">
+            <table width="146" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="146" class="white" align="center"><img src="/i/events/verizon2003/ps_banner.jpg" width="146" height="61" border="0" alt="Verizon Coding Contest">
+
+                        <jsp:include page="verizon_links_secondary.jsp" />
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+<!-- Left Column Ends -->
+
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column -->
-      <td class="bodyText" valign="top">
-            <img src="/i/clear.gif" width="100%" height="10" border="0"/><br />
-            <h2>Schedule</h2>
+        <td valign="top" width="579"><img src="/i/clear.gif" width="574" height="10" border="0"/><br />
+            <table width="427" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="427" class="bodyCopy">
+
+            <h2 class="pgTitle">Schedule</h2>
             
 <!-- Qualification Description begins -->
             <p>Registration is unlimited, however only the first 500 eligible individuals to register will be invited to compete.</p>
 <!-- Qualification Description Ends -->
 
             <a name="sched"></a>
-            <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+            <table border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
                 <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time - Chennai Time</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                    <td class="sidebarTitle">Round</td>
+                    <td class="sidebarTitle">Date and Time - Chennai Time</td>
+                    <td class="sidebarTitle" align="center"># of Participants</td>
+                    <td class="sidebarTitle" align="center"># of Advancers</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Round #1</td>
-                    <td class="sidebarText">
+                    <td class="sidebarText" nowrap="nowrap">
                         Wednesday, August 20th<br />
                         Sign In: 6:00 PM - 8:55 PM<br />
                         START: 9:00 PM<br />
@@ -95,7 +88,7 @@
 
                 <tr valign="top">
                     <td class="sidebarText">Round #2</td>
-                    <td class="sidebarText">
+                    <td class="sidebarText" nowrap="nowrap">
                         Monday, August 25th<br />
                         START: 9:30 PM<br />
                     </td>
@@ -105,7 +98,7 @@
 
                 <tr valign="top">
                     <td class="sidebarText">Round #3 - Championship Round</td>
-                    <td class="sidebarText">
+                    <td class="sidebarText" nowrap="nowrap">
                         Friday, August 29th<br />
                         START: 9:30 PM<br />
                     </td>
@@ -119,13 +112,22 @@
                     </td>
                 </tr>
             </table>
-            
-
 <!-- Online Elimination Rounds ends -->
 
+                        <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
+                    </td>
+                    
+<!-- Gutter Begins -->
+                    <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
+<!-- Gutter Ends -->
 
-            <p><br /></p>
-      </td>
+<!-- Right Column Begins -->
+<jsp:include page="verizon_right.jsp" />
+<!-- Right Column Ends -->
+
+                </tr>
+            </table>
+        </td>
    </tr>
 </table>
 
