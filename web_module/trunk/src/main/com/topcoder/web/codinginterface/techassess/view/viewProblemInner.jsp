@@ -78,7 +78,7 @@
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>" value="<%=String.valueOf(problemInfo.getComponentId())%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>" value="<%=String.valueOf(problemInfo.getProblemTypeId())%>"/>
-                    <ci:argumentIterator problem="prob" language="language">
+                    <ci:argumentIterator problem="<%=prob%>" language="language">
                       <input type="hidden" name="<%=CodingInterfaceConstants.TEST_ARGUMENT+argumentIndex%>" value="" />
                     </ci:argumentIterator>
 
