@@ -150,7 +150,7 @@ try{
                    <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 5 /* order */ + "]" %>'/></TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="left">
-					<tc-webtag:handle coderId='<%=resultRow.getIntItem("coder_id")%>' context="algorithm"/>
+					<tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="algorithm"/>
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="right"><%= coderrank.toString() %></TD>
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>

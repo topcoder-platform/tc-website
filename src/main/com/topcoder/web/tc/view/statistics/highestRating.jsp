@@ -31,7 +31,7 @@
                     <rsc:item row="<%=info%>" name="rank"/>
                 </td>
                 <td>
-                    <tc-webtag:handle coderId='<%=info.getIntItem("coder_id")%>' context="algorithm"/>
+                    <tc-webtag:handle coderId='<%=info.getLongItem("coder_id")%>' context="algorithm"/>
                 </td>
                 <td>
                     <rsc:item row="<%=info%>" name="highest_rating"/>

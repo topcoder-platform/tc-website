@@ -72,7 +72,7 @@
                    <TR>
                      <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                      <TD CLASS="statText" HEIGHT="13"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><tc-webtag:handle coderId='<%=resultRow.getIntItem("coder_id")%>' context="development"/></TD>
+                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="development"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="rating" row="<%=resultRow%>" format="#"/></TD>
                      <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>

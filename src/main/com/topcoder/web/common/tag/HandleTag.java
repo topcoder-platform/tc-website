@@ -35,6 +35,15 @@ public class HandleTag extends TagSupport {
         this.coderId = coderId;
     }
 
+    public void setCoderId(int coderId) {
+        this.coderId = coderId;
+    }
+
+
+    public void setCoderId(String coderId) {
+        this.coderId = Long.parseLong(coderId);
+    }
+
     public void setLink(String link) {
         this.link = link;
     }
